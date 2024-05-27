@@ -18,9 +18,9 @@
     "18": "0.0.0",
     "@code-hike/mdx": "0.9.0",
     "@crowdin/cli": "^3.16.0",
-    "@docusaurus/core": "3.2.1",
-    "@docusaurus/preset-classic": "3.2.1",
-    "clsx": "^1.2.1",
+    "@docusaurus/core": "3.3.2",
+    "@docusaurus/preset-classic": "3.3.2",
+    "clsx": "^2.1.1",
     "docusaurus-plugin-openapi-docs": "3.0.0-beta.4",
     "docusaurus-theme-openapi-docs": "^3.0.0-beta.4",
     "prism-react-renderer": "^2.1.0",
@@ -28,7 +28,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-tooltip": "^5.26.3",
-    "styled-components": "^5.3.6"
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.0.0",
