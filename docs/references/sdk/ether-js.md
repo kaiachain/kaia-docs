@@ -1,12 +1,12 @@
 # ethers.js
 
-![](/img/references/Klaytn-ether.js.png)
+![](/img/references/Kaia-ether.js.png)
 
-[ethers.js](https://docs.ethers.org/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Klaytn. With Klaytn supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as ethers.js can be used on Klaytn without any significant modifications.
+[ethers.js](https://docs.ethers.org/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Kaia. With Kaia supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as ethers.js can be used on Kaia without any significant modifications.
 
-Thus, developers can leverage this compatibility and use the ethers.js library to interact with a Klaytn node.
+Thus, developers can leverage this compatibility and use the ethers.js library to interact with a Kaia node.
 
-In this guide, you'll learn how to use the ethers.js library to read data from the blockchain, send a transaction and interact with an existing contract on the Klaytn Network.
+In this guide, you'll learn how to use the ethers.js library to read data from the blockchain, send a transaction and interact with an existing contract on the Kaia Network.
 
 
 ## Prerequisites
@@ -47,7 +47,7 @@ const ethers = require('ethers');
 ```
 
 
-After successfully importing ethers, you need to connect to Klaytn by instantiating a new ethers.js `JsonRpcProvider` object with an RPC URL of the Klaytn network. Add the code below to the existing code:
+After successfully importing ethers, you need to connect to Kaia by instantiating a new ethers.js `JsonRpcProvider` object with an RPC URL of the Kaia network. Add the code below to the existing code:
 
 ```js
 const url = "RPC URL";
@@ -156,14 +156,14 @@ If the transaction was successful, you'll see the transaction receipt logged in 
 
 ## Interacting with smart contracts
 
-To interact with an existing smart contract on Klaytn, create a new `interact.js` file in your project folder by running this command:
+To interact with an existing smart contract on Kaia, create a new `interact.js` file in your project folder by running this command:
 
 
 ```bash
 touch interact.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you will use ethers.js to interact with a smart contract on Klaytn by instantiating a `Contract` object using the ABI and address of a deployed contract:
+After creating this file, initialize ethers as done in the `initialize` section. In this section, you will use ethers.js to interact with a smart contract on Kaia by instantiating a `Contract` object using the ABI and address of a deployed contract:
 
 For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](../../build/tutorials/connecting-remix.md). We will be sending a transaction to the contract by calling the `store` function and also reading from it by calling the `retrieve` function.
 

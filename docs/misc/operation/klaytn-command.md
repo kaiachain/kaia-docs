@@ -1,9 +1,9 @@
 # Frequently Used Commands
 
-## How to find the Klaytn Directory (Normally “Klaytn DIR”)
+## How to find the Kaia Directory (Normally “Kaia DIR”)
 
 ---
-You can check Klaytn directory at `kcn` or `kpn` config. Config file is located under `/etc/kcnd/conf` or `/etc/kpnd/conf`.
+You can check Kaia directory at `kcn` or `kpn` config. Config file is located under `/etc/kcnd/conf` or `/etc/kpnd/conf`.
 
 ```bash
 cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)
@@ -13,13 +13,13 @@ DATA_DIR=/var/kcnd/data/
 LOG_DIR=/var/kcnd/logs/
 ```
 
-## How to connect to Klaytn Console
+## How to connect to Kaia Console
 
 ---
-Connect to Klaytn API to check node and network status.
+Connect to Kaia API to check node and network status.
 
 ```bash
-# execute the command below in the Klaytn DATA_DIR Path
+# execute the command below in the Kaia DATA_DIR Path
 $ sudo kcn attach klay.ipc
 > 
 ```
@@ -47,7 +47,7 @@ $ sudo kcn attach klay.ipc
 ## How to get the API Result only
 
 ```jsx
-# execute the command below in the Klaytn DATA_DIR Path
+# execute the command below in the Kaia DATA_DIR Path
 $ sudo kcn attach --exec <statement> klay.ipc
 
 e.g.

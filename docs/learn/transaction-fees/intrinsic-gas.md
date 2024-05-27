@@ -39,7 +39,7 @@ Please keep in mind that Public key type always has only one registering key, so
 `KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.  
 Please keep in mind that Public key type always has only one signature key, so the gas would be always zero.
 
-A Klaytn transaction can also have a feePayer, so the total KeyValidationGas is like this.
+A Kaia transaction can also have a feePayer, so the total KeyValidationGas is like this.
 
 ```
 KeyValidationGas =  (KeyValidationGas for a sender) + (KeyValidationGas for a feePayer)

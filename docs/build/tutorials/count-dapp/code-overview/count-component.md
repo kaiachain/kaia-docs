@@ -199,7 +199,7 @@ export default Count
 
 ### 2) `Count` component's role <a href="#2-count-component-s-role" id="2-count-component-s-role"></a>
 
-`'Count'` component's role is interacting with Count contract deployed on the Klaytn blockchain.
+`'Count'` component's role is interacting with Count contract deployed on the Kaia blockchain.
 
 In Count.sol, we declared several variables and functions like below:
 
@@ -221,7 +221,7 @@ for example)\
 `contractInstance.methods.plus().send({ ... })`\
 `contractInstance.methods.minus().send({ ... })`
 
-`Contract address` can be found in the `build/contracts/Count.json` file after compiling and deploying the contract. For your testing convenience, we deployed the contract to the Klaytn testnet, and included the `deployedABI` and `deployedAddress` files in the directory. Those files contain the ABI of the Count contract and the deployed contract address.\
+`Contract address` can be found in the `build/contracts/Count.json` file after compiling and deploying the contract. For your testing convenience, we deployed the contract to the Kaia testnet, and included the `deployedABI` and `deployedAddress` files in the directory. Those files contain the ABI of the Count contract and the deployed contract address.\
 Thanks to the webpack configuration, we can access them via variables. (`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
 
 For example)\
@@ -332,10 +332,10 @@ setPlus = () => {
 
 `setPlus` function is the most important part in Count component. It interacts with the contract by calling contract function `plus`. Since this function is also a contract method, it is contained in the `this.counterContract.methods`.
 
-However, unlike `count` and `lastParticipant` that just reads data, `plus` function **writes data** to the Klaytn blockchain.\
+However, unlike `count` and `lastParticipant` that just reads data, `plus` function **writes data** to the Kaia blockchain.\
 Reading data is free, however writing data incurs cost for the use of computation and storage. The cost is measured by the amount of `gas` used.
 
-By this reason, sending a transaction needs `from:` property to inform the Klaytn node who is responsible for the transaction fee. `gas:` property defines the maximum amount of gas the transaction sender is willing to pay for the transaction.
+By this reason, sending a transaction needs `from:` property to inform the Kaia node who is responsible for the transaction fee. `gas:` property defines the maximum amount of gas the transaction sender is willing to pay for the transaction.
 
 ```javascript
 this.countContract.methods.plus().send({
@@ -435,5 +435,5 @@ try{
 
 ![check-transaction](/img/build/tutorials/tutorial-check-your-transaction.gif)
 
-After sending a transaction, you can check your transaction detail using Klaytnscope.\
+After sending a transaction, you can check your transaction detail using Kaiascope.\
 Check it in `https://baobab.klaytnscope.com/tx/${txHash}`.

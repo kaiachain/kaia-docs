@@ -6,7 +6,7 @@ description: >-
 
 # caver.klay.accounts
 
-`caver.klay.accounts` contains functions to generate Klaytn accounts and sign transactions and data.
+`caver.klay.accounts` contains functions to generate Kaia accounts and sign transactions and data.
 
 
 ## create <a id="create"></a>
@@ -45,7 +45,7 @@ Generates an account object with private key and public key.
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+    getKaiaWalletKey: [Function: getKaiaWalletKey] 
 }
 
 > caver.klay.accounts.create('entropy');
@@ -55,7 +55,7 @@ Generates an account object with private key and public key.
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+    getKaiaWalletKey: [Function: getKaiaWalletKey] 
 }
 
 > caver.klay.accounts.create(caver.utils.randomHex(32));
@@ -65,7 +65,7 @@ Generates an account object with private key and public key.
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+    getKaiaWalletKey: [Function: getKaiaWalletKey] 
 }
 ```
 
@@ -76,7 +76,7 @@ caver.klay.accounts.createWithAccountKey(address, accountKey)
 ```
 Creates an instance of Account with the given AccountKey. Account is for managing an account's address and AccountKey. 
 
-**NOTE** This is merely a data structure used in caver-js. This method does not create or update an account in the Klaytn network.
+**NOTE** This is merely a data structure used in caver-js. This method does not create or update an account in the Kaia network.
 **NOTE** `caver.klay.accounts.createWithAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 **Parameters**
@@ -104,7 +104,7 @@ Creates an instance of Account with the given AccountKey. Account is for managin
 | signTransaction(tx [, callback]) | Function | The function to sign transactions. See [caver.klay.accounts.signTransaction](#signtransaction). |
 | sign(data) | Function | The function to sign transactions. See [caver.klay.accounts.sign](#sign). |
 | encrypt | Function | The function to encrypt an Account with given password. |
-| getKlaytnWalletKey | Function | The function to get [Klaytn Wallet Key](../../../../learn/accounts.md#klaytn-wallet-key-format). |
+| getKaiaWalletKey | Function | The function to get [Kaia Wallet Key](../../../../learn/accounts.md#klaytn-wallet-key-format). |
 
 **Example**
 
@@ -118,7 +118,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+    getKaiaWalletKey: [Function: getKaiaWalletKey] 
 }
 
 // Create an Account with AccountKeyMultiSig
@@ -130,7 +130,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+    getKaiaWalletKey: [Function: getKaiaWalletKey] 
 }
 
 // Create an Account with AccountKeyRoleBased
@@ -146,7 +146,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+    getKaiaWalletKey: [Function: getKaiaWalletKey] 
 }
 ```
 
@@ -182,7 +182,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+    getKaiaWalletKey: [Function: getKaiaWalletKey] 
 }
 ```
 
@@ -218,7 +218,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+    getKaiaWalletKey: [Function: getKaiaWalletKey] 
 }
 ```
 
@@ -258,7 +258,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+    getKaiaWalletKey: [Function: getKaiaWalletKey] 
 }
 ```
 
@@ -526,7 +526,7 @@ Creates an account object from a private key.
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey] 
+    getKaiaWalletKey: [Function: getKaiaWalletKey] 
 }
 ```
 
@@ -823,7 +823,7 @@ AccountForUpdate {
 caver.klay.accounts.signTransaction(tx [, privateKey] [, callback])
 ```
 
-Signs a Klaytn transaction with a given private key.
+Signs a Kaia transaction with a given private key.
 
 Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), this method takes an RLP-encoded transaction as an input as well as a plain transaction object. See [caver.klay.sendTransaction](./caver.klay/transaction/transaction.md#sendtransaction) for the various types of transaction object. This method basically signs as a sender. 
 If you want to sign as a fee-payer, we recommend to use [caver.klay.accounts.feePayerSignTransaction](#feepayersigntransaction). But, fee-payers can still sign using this method by passing an object, `{senderRawTransaction: rawTransaction, feePayer: feePayerAddress}`, as `tx`. senderRawTransaction must be a FEE_DELEGATED_ type transaction.
@@ -1020,7 +1020,7 @@ See [Sending a Transaction with multiple signer](../get-started-1.4.1.md#sending
 caver.klay.accounts.signTransactionWithHash(txHash, privateKeys [, chainId] [, callback])
 ```
 
-Signs a Klaytn transaction with the given transaction hash and private key.
+Signs a Kaia transaction with the given transaction hash and private key.
 
 **NOTE** `caver.klay.accounts.signTransactionWithHash` is supported since caver-js [v1.3.2-rc.2](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.2).
 
@@ -1259,7 +1259,7 @@ See [Sending a Transaction with multiple signer](../get-started-1.4.1.md#sending
 ```javascript
 caver.klay.accounts.recoverTransaction(rawTransaction)
 ```
-Recovers the Klaytn address that was used to sign the given RLP encoded transaction.
+Recovers the Kaia address that was used to sign the given RLP encoded transaction.
 
 **Parameters**
 
@@ -1271,7 +1271,7 @@ Recovers the Klaytn address that was used to sign the given RLP encoded transact
 
 | Type | Description |
 | --- | --- |
-| String | The Klaytn address used to sign this transaction. |
+| String | The Kaia address used to sign this transaction. |
 
 **Example**
 
@@ -1290,7 +1290,7 @@ caver.klay.accounts.hashMessage(message)
 Hashes the given message in order for it to be passed to [caver.klay.accounts.recover](#recover).
 The data will be UTF-8 HEX decoded and enveloped as follows:
 ```
-"\x19Klaytn Signed Message:\n" + message.length + message
+"\x19Kaia Signed Message:\n" + message.length + message
 ```
 and hashed using keccak256.
 
@@ -1327,7 +1327,7 @@ caver.klay.accounts.sign(data, privateKey)
 ```
 Signs arbitrary data. This data is before UTF-8 HEX decoded and enveloped as follows:
 ```
-"\x19Klaytn Signed Message:\n" + message.length + message
+"\x19Kaia Signed Message:\n" + message.length + message
 ```
 
 **Parameters**
@@ -1374,7 +1374,7 @@ caver.klay.accounts.recover(signatureObject)
 caver.klay.accounts.recover(message, signature [, preFixed])
 caver.klay.accounts.recover(message, v, r, s [, preFixed])
 ```
-Recovers the Klaytn address that was used to sign the given data.
+Recovers the Kaia address that was used to sign the given data.
 
 **Parameters**
 
@@ -1383,13 +1383,13 @@ Recovers the Klaytn address that was used to sign the given data.
 | message \| signatureObject | String \| Object | Either signed message or hash. For the details of the signature object, see the table below. |
 | messageHash | String | The hash of the given message. |
 | signature | String | The raw RLP encoded signature, OR parameter 2-4 as v, r, s values. |
-| preFixed | Boolean | (optional, default: ``false``) If the last parameter is ``true``, the given message will NOT automatically be prefixed with ``"\x19Klaytn Signed Message:\n" + message.length + message``, and assumed to be already prefixed. |
+| preFixed | Boolean | (optional, default: ``false``) If the last parameter is ``true``, the given message will NOT automatically be prefixed with ``"\x19Kaia Signed Message:\n" + message.length + message``, and assumed to be already prefixed. |
 
 The signature object has following values:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| messageHash | String | The hash of the given message already prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`. |
+| messageHash | String | The hash of the given message already prefixed with `"\x19Kaia Signed Message:\n" + message.length + message`. |
 | r | String | ECDSA signature r. |
 | s | String | ECDSA signature s. |
 | v | String | ECDSA recovery id. |
@@ -1399,7 +1399,7 @@ The signature object has following values:
 
 | Type | Description |
 | --- | --- |
-| String | The Klaytn address used to sign this data. |
+| String | The Kaia address used to sign this data. |
 
 
 **Example**
@@ -1655,7 +1655,7 @@ Returns a signed RLP encoded transaction string from a given transaction object.
 ```javascript
 caver.klay.accounts.encrypt(encryptTarget, password [, options])
 ```
-Encrypts an account to the Klaytn keystore standard. For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
+Encrypts an account to the Kaia keystore standard. For more information, please refer to [KIP-3](https://kips.klaytn.foundation/KIPs/kip-3).
 
 **NOTE** Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), `caver.klay.accounts.encrypt` encrypts using the keystore v4 standard to encrypt various AccountKey types (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased). If you want to encrypt an account using keystore v3, please use [caver.klay.accounts.encryptV3](#encryptv3).
 
@@ -1663,14 +1663,14 @@ Encrypts an account to the Klaytn keystore standard. For more information, pleas
 
 | Name | Type | Description |
 | --- | --- | --- |
-| encryptTarget | String \| Array \| Object | A private key or a Klaytn wallet key to encrypt. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), encryptTarget also can be an instance of Account or AccountKey (AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased), an array of private key strings or an object that defines the keys by role. |
+| encryptTarget | String \| Array \| Object | A private key or a Kaia wallet key to encrypt. Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0), encryptTarget also can be an instance of Account or AccountKey (AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased), an array of private key strings or an object that defines the keys by role. |
 | password | String | The password used for encryption. |
 | options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the options object to encrypt decoupled accounts. See the example below for usage of `options`. |
 
 **NOTE** If account address cannot be extracted from encryptTarget (when AccountKeyMultiSig, AccountKeyRoleBased, an array of private key strings or an object that defines the keys by role) or if the account's private key is decoupled from address, you must specify the address in the options object.
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
-1. Use the [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
+1. Use the [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) format with the privateKey parameter.
 2. Use the `options.address` to send the address as a parameter.
 
 **Return Value**
@@ -1778,7 +1778,7 @@ Encrypts an account to the Klaytn keystore standard. For more information, pleas
     ],
 }
 
-// Encrypt decoupled account - 1. Use the KlaytnWalletKey format with the privateKey parameter.
+// Encrypt decoupled account - 1. Use the KaiaWalletKey format with the privateKey parameter.
 > caver.klay.accounts.encrypt('0x{private key}0x{type}0x{address in hex}', 'test')
 {
     version: 4,
@@ -1891,7 +1891,7 @@ Encrypts an account to the Klaytn keystore standard. For more information, pleas
 ```javascript
 caver.klay.accounts.encryptV3(encryptTarget, password [, options])
 ```
-Encrypts an account to the Klaytn keystore v3 standard. 
+Encrypts an account to the Kaia keystore v3 standard. 
 
 **NOTE** `caver.klay.accounts.encryptV3` is supported since caver-js [v1.3.2-rc.1](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.1).
 
@@ -1899,12 +1899,12 @@ Encrypts an account to the Klaytn keystore v3 standard.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| encryptTarget | String \| Object | A private key, a Klaytn wallet key, or an instance of Account or AccountKeyPublic to encrypt. |
+| encryptTarget | String \| Object | A private key, a Kaia wallet key, or an instance of Account or AccountKeyPublic to encrypt. |
 | password | String | The password used for encryption. |
 | options | Object | (optional) The `options` parameter allows you to specify the values to use when using encrypt. You can also use the `options` object to encrypt decoupled accounts. See the third example below for usage of `options`. |
 
 **NOTE**: There are two ways to encrypt the private key when an account has a decoupled private key from the address.
-1. Use the [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) as `encryptTarget` parameter.
+1. Use the [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) as `encryptTarget` parameter.
 2. Use the address as `options.address` parameter to send the address as one of the parameters. See the third example below for the usage.
 
 **Return Value**
@@ -1933,7 +1933,7 @@ Encrypts an account to the Klaytn keystore v3 standard.
     },
 }
 
-// encrypt to keystore v3 JSON with KlaytnWalletKey.
+// encrypt to keystore v3 JSON with KaiaWalletKey.
 > caver.klay.accounts.encryptV3('0x{private key}0x{type}0x{address in hex}', 'test!')
 {
     version: 3,
@@ -2017,7 +2017,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey]
+    getKaiaWalletKey: [Function: getKaiaWalletKey]
 }
 
 // Decrypt keystroe v3 JSON
@@ -2047,7 +2047,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey]
+    getKaiaWalletKey: [Function: getKaiaWalletKey]
 }
 ```
 
@@ -2062,7 +2062,7 @@ Determines if the key is decoupled from the address.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| key | String | Key to determine if decoupled from address. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format). |
+| key | String | Key to determine if decoupled from address. Key can be a 32-byte string private key or a [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format). |
 | address | String | (optional) Address to be used to determine if decoupled. If no address is given, the address is derived from the key. |
 
 
@@ -2100,7 +2100,7 @@ Returns an account that has an address derived from the given private key. See [
 
 | Name | Type | Description |
 | --- | --- | --- |
-| key | String | The parameter used to get an account that has a legacy account key. Key can be a 32-byte string private key or a [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format). In KlaytnWalletKey, only the portion corresponding to the private key is used. |
+| key | String | The parameter used to get an account that has a legacy account key. Key can be a 32-byte string private key or a [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format). In KaiaWalletKey, only the portion corresponding to the private key is used. |
 
 
 **Return Value**
@@ -2123,7 +2123,7 @@ Returns an account that has an address derived from the given private key. See [
     klaytnWalletKeyAddress: '' 
 }
 
-// getLegacyAccount with KlaytnWalletKey format
+// getLegacyAccount with KaiaWalletKey format
 > caver.klay.accounts.getLegacyAccount('0x{private key}0x{type}0x{address in hex}')
 { 
     legacyAccount: { 
@@ -2133,7 +2133,7 @@ Returns an account that has an address derived from the given private key. See [
     klaytnWalletKeyAddress: '0xE26D5d4983eD62A99D7D4Bc0cE0e784782fF6B27'
 }
 
-// getLegacyAccount with decoupled KlaytnWalletKey format
+// getLegacyAccount with decoupled KaiaWalletKey format
 > caver.klay.accounts.getLegacyAccount('0x{private key}0x{type}0x{address in hex}')
 { 
     legacyAccount: { 
@@ -2164,7 +2164,7 @@ Wallet {
      signTransaction: [Function: signTransaction],
      sign: [Function: sign],
      encrypt: [Function: encrypt],
-     getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+     getKaiaWalletKey: [Function: getKaiaWalletKey],
      index: 0 },
   _accounts: Accounts { ... },
   length: 1,
@@ -2231,7 +2231,7 @@ If you want to change the private key associated to an account in the wallet, pl
 | targetAddress | String | A target address which will be used with a given private key. |
 
 **NOTE**: caver-js supports two types of private key formats.
-One is a raw private key format of a 32-byte string type and the other is the [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format).
+One is a raw private key format of a 32-byte string type and the other is the [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format).
 
 **Return Value**
 
@@ -2250,7 +2250,7 @@ One is a raw private key format of a 32-byte string type and the other is the [K
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    getKaiaWalletKey: [Function: getKaiaWalletKey],
     index: 4 
 }
 
@@ -2263,7 +2263,7 @@ One is a raw private key format of a 32-byte string type and the other is the [K
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    getKaiaWalletKey: [Function: getKaiaWalletKey],
     index: 5
 }
 
@@ -2277,11 +2277,11 @@ One is a raw private key format of a 32-byte string type and the other is the [K
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    getKaiaWalletKey: [Function: getKaiaWalletKey],
     index: 6
 }
 
-// Add wallet with KlaytnWalletKey format
+// Add wallet with KaiaWalletKey format
 > caver.klay.accounts.wallet.add('0x{private key}0x{type}0x{address in hex}');
 { 
     address: '0x3bd32d55e64d6cbe54bec4f5200e678ee8d1a990',
@@ -2289,7 +2289,7 @@ One is a raw private key format of a 32-byte string type and the other is the [K
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    getKaiaWalletKey: [Function: getKaiaWalletKey],
     index: 1 
 }
 ```
@@ -2328,7 +2328,7 @@ Account {
     feePayerSignTransaction: [Function: feePayerSignTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    getKaiaWalletKey: [Function: getKaiaWalletKey],
     index: 0
 }
 
@@ -2341,7 +2341,7 @@ Account {
     feePayerSignTransaction: [Function: feePayerSignTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    getKaiaWalletKey: [Function: getKaiaWalletKey],
     index: 0
 }
 ```
@@ -2567,13 +2567,13 @@ Wallet {
 }
 ```
 
-## wallet.getKlaytnWalletKey <a id="wallet-getklaytnwalletkey"></a>
+## wallet.getKaiaWalletKey <a id="wallet-getklaytnwalletkey"></a>
 
 ```javascript
-caver.klay.accounts.wallet.getKlaytnWalletKey(index)
-caver.klay.accounts.wallet.getKlaytnWalletKey(address)
+caver.klay.accounts.wallet.getKaiaWalletKey(index)
+caver.klay.accounts.wallet.getKaiaWalletKey(address)
 ```
-Return the Klaytn wallet key for the account on the wallet of caver-js.
+Return the Kaia wallet key for the account on the wallet of caver-js.
 
 **Parameters**
 
@@ -2586,26 +2586,26 @@ Return the Klaytn wallet key for the account on the wallet of caver-js.
 
 | Type | Description |
 | --- | --- |
-| String | KlaytnWalletKey that matches the account. This value allows you to log in to the wallet. |
+| String | KaiaWalletKey that matches the account. This value allows you to log in to the wallet. |
 
 
 **Example**
 
 ```javascript
 // With non-human-readable address
-> caver.klay.accounts.wallet.getKlaytnWalletKey(0)
+> caver.klay.accounts.wallet.getKaiaWalletKey(0)
 '0x{private key}0x{type}0x{address in hex}'
 
 // With index of wallet list
-> caver.klay.accounts.wallet.getKlaytnWalletKey(1)
+> caver.klay.accounts.wallet.getKaiaWalletKey(1)
 '0x{private key}0x{type}0x{address in hex}'
 
 // With an address in hexadecimal
-> caver.klay.accounts.wallet.getKlaytnWalletKey('0xa9d40b07a6d06e7b7af6cf9a17fb107c9fc7fe58')
+> caver.klay.accounts.wallet.getKaiaWalletKey('0xa9d40b07a6d06e7b7af6cf9a17fb107c9fc7fe58')
 '0x{private key}0x{type}0x{address in hex}'
 
 // If the given account does not exist in the caver-js wallet, returns an error.
-> caver.klay.accounts.wallet.getKlaytnWalletKey('0x35170d0c774b8c80e9f802a7af6d0497e621c215')
+> caver.klay.accounts.wallet.getKaiaWalletKey('0x35170d0c774b8c80e9f802a7af6d0497e621c215')
 Error: Failed to find account
 ```
 
@@ -2616,7 +2616,7 @@ caver.klay.accounts.wallet.updatePrivateKey(privateKey, address)
 ```
 Update the account's private key information stored in the wallet.
 
-**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/transaction/sendtx-account-update.md#sendtransaction-account_update) transaction.
+**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Kaia network. Keys in the Kaia network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/transaction/sendtx-account-update.md#sendtransaction-account_update) transaction.
 
 **NOTE** `updatePrivateKey` only works if the account's accountKey is AccountKeyPublic. 
 Since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0) supports AccountKeys (AccountKeyPublic, AccountKeyMultiSig, AccountKeyRoleBased), `privateKey` becomes a read-only property referencing the defaultKey of the accountKey. This method does not directly update the `privateKey`, instead update the accountKey. This method is maintained for backward-compatibility. It is now recommended to use more generic [caver.klay.accounts.wallet.updateAccountKey](#wallet-updateaccountkey).
@@ -2647,7 +2647,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    getKaiaWalletKey: [Function: getKaiaWalletKey],
     index: 0
 }
 ```
@@ -2661,7 +2661,7 @@ Update the account's account key information stored in the wallet. When you upda
 
 If the accountKey parameter is a single private key string, the account's accountKey is updated with an `AccountKeyPublic` instance. If the accountKey parameter is an array with multiple private key strings, the account's accountKey is updated with an `AccountKeyMultiSig` instance. If the accountKey parameter is an object whose keys are defined by roles, the account's accountKey is updated with an `AccountKeyRoleBased` instance.
 
-**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Klaytn network. Keys in the Klaytn network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/transaction/sendtx-account-update.md#sendtransaction-account_update) transaction.
+**NOTE**: This function only changes the information stored in the wallet of caver-js. This function has no effect on the key information stored on the Kaia network. Keys in the Kaia network can be changed by sending a ['ACCOUNT_UPDATE'](./caver.klay/transaction/sendtx-account-update.md#sendtransaction-account_update) transaction.
 
 **NOTE** `caver.klay.accounts.wallet.updateAccountKey` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
@@ -2692,7 +2692,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    getKaiaWalletKey: [Function: getKaiaWalletKey],
     index: 0
 }
 
@@ -2705,7 +2705,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    getKaiaWalletKey: [Function: getKaiaWalletKey],
     index: 0
 }
 
@@ -2722,7 +2722,7 @@ Account {
     signTransaction: [Function: signTransaction],
     sign: [Function: sign],
     encrypt: [Function: encrypt],
-    getKlaytnWalletKey: [Function: getKlaytnWalletKey],
+    getKaiaWalletKey: [Function: getKaiaWalletKey],
     index: 0
 }
 ```

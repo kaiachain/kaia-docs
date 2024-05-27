@@ -5,13 +5,13 @@ description: A caver-js object used to interact with a smart contract for KIP7.
 
 # caver.klay.KIP7
 
-The `caver.klay.KIP7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the Klaytn blockchain.
+The `caver.klay.KIP7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the Kaia blockchain.
 
 The `caver.klay.KIP7` inherits [caver.klay.Contract](caver.klay.Contract.md) to implement the KIP-7 token contract. The `caver.klay.KIP7` holds the same properties of `caver.klay.Contract` whereas additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.klay.KIP7`.
 
 The abi and bytecode used in the caver.klay.KIP7 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
 
-For more information about KIP-7, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-7).
+For more information about KIP-7, see [Kaia Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-7).
 
 **NOTE** `caver.klay.KIP7` is supported since caver-js [v1.4.0](https://www.npmjs.com/package/caver-js/v/1.4.0).
 
@@ -21,7 +21,7 @@ For more information about KIP-7, see [Klaytn Improvement Proposals](https://kip
 caver.klay.KIP7.deploy(tokenInfo, deployer)
 ```
 
-Deploys the KIP-7 token contract to the Klaytn blockchain. A contract deployed using caver.klay.KIP7.deploy is a fungible token that follows the KIP-7 standard.
+Deploys the KIP-7 token contract to the Kaia blockchain. A contract deployed using caver.klay.KIP7.deploy is a fungible token that follows the KIP-7 standard.
 
 After successful deployment, the promise will be resolved with a new KIP7 instance.
 
@@ -29,7 +29,7 @@ After successful deployment, the promise will be resolved with a new KIP7 instan
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| tokenInfo | Object | The information needed to deploy KIP-7 token contract on the Klaytn blockchain. See the below table for the details. |
+| tokenInfo | Object | The information needed to deploy KIP-7 token contract on the Kaia blockchain. See the below table for the details. |
 | deployer | String | The address of the account to deploy the KIP-7 token contract. This account must have enough KLAY to deploy. |
 
 The tokenInfo object must contain the following:
@@ -424,7 +424,7 @@ kip7Instance.approve(spender, amount [, sendParam])
 
 Set the `amount` of the tokens of the token owner to be spent by the `spender`.
 
-Note that this method will submit a transaction from the owner to the Klaytn network, which will charge the transaction fee to the owner.
+Note that this method will submit a transaction from the owner to the Kaia network, which will charge the transaction fee to the owner.
 
 **Parameters**
 
@@ -853,7 +853,7 @@ kip7Instance.mint(account, amount [, sendParam])
 
 Creates the `amount` of token and issues it to the `account`, increasing the total supply of token.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -927,7 +927,7 @@ kip7Instance.addMinter(account [, sendParam])
 
 Adds an account as a minter, who are permitted to mint tokens.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -994,7 +994,7 @@ kip7Instance.renounceMinter([sendParam])
 
 Renounces the right to mint tokens. Only a minter address can renounce the minting right.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1060,7 +1060,7 @@ kip7Instance.burn(amount [, sendParam])
 
 Destroys the `amount` of tokens in the sender's balance. Without `sendParam.from` nor `kip7Instance.options.from` being provided, an error would occur.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1131,7 +1131,7 @@ kip7Instance.burnFrom(account, amount [, sendParam])
 
 Destroys the given number of tokens from `account`. The allowance of the sender specified in `sendParam.from` or `kip7Instance.options.from` is reduced alongside the balance of `account`.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1226,7 +1226,7 @@ kip7Instance.addPauser(account [, sendParam])
 
 Adds an account as a pauser that has the right to suspend the contract.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1293,7 +1293,7 @@ kip7Instance.renouncePauser([sendParam])
 
 Renounces the right to pause the contract. Only a pauser address can renounce the pausing right.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1359,7 +1359,7 @@ kip7Instance.pause([sendParam])
 
 Suspends functions related to sending tokens.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1425,7 +1425,7 @@ kip7Instance.unpause([sendParam])
 
 Resumes the paused contract.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 

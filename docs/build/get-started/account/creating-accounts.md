@@ -4,13 +4,13 @@
 
 This will create a new account and print the address on the screen. A keystore file is created under the data directory.
 
-**Klaytn Keystore File**
+**Kaia Keystore File**
 
-When you create an account, a keystore file is created. The keystore file is an encrypted version of your unique Klaytn private key that you will use to sign your transactions. The keystore file name has the following format:
+When you create an account, a keystore file is created. The keystore file is an encrypted version of your unique Kaia private key that you will use to sign your transactions. The keystore file name has the following format:
 
 * `UTC--<created_at UTC ISO8601>-<address hex>`
 
-It is safe to transfer the entire directory or the individual keystore file therein between Klaytn nodes. Note that in case you are adding keys to your node from a different node, the order of accounts may change. So make sure you do not rely on the index in your scripts or code snippets.
+It is safe to transfer the entire directory or the individual keystore file therein between Kaia nodes. Note that in case you are adding keys to your node from a different node, the order of accounts may change. So make sure you do not rely on the index in your scripts or code snippets.
 
 ### ken <a id="ken"></a>
 
@@ -46,7 +46,7 @@ You can import an account using a keyfile. The keyfile is assumed to contain an 
 
 This imports an unencrypted private key from the given keyfile, creates a new account, generates a keystore file under the data directory, and prints the address in the console. You must remember the passphrase to unlock your account in the future.
 
-**NOTE**: If you can directly copy your keystore files to another Klaytn instance, this import/export mechanism is not needed.
+**NOTE**: If you can directly copy your keystore files to another Kaia instance, this import/export mechanism is not needed.
 
 ### ken <a id="ken-1"></a>
 
@@ -61,7 +61,7 @@ $ ken account import --password <passwordfile> --datadir <datadir> <keyfile>
 > personal.importRawKey('{private key}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"​
 
-// Using a Klaytn wallet key
+// Using a Kaia wallet key
 > personal.importRawKey('{private key}0x000x{address}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
 ```

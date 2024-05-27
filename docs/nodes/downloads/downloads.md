@@ -47,6 +47,6 @@ You can get the packages for CN, PN, EN, SCN, SPN and SEN.
 ## Get the Sources <a id="get-the-sources"></a>
 You can retrieve the source code through Git. Documentation is hosted on GoDoc.
 
-- [github/klaytn](https://github.com/klaytn/klaytn)
+- [github/klaytn](https://github.com/kaiachain/kaia)
 - [godoc/klaytn](https://godoc.org/github.com/klaytn/klaytn)
 

@@ -43,7 +43,7 @@ Non Proposer `Inserted a new block`
 
 ## Log Level Change (0\~5)
 
-Go to Klaytn Console
+Go to Kaia Console
 
 ```
 #default Value

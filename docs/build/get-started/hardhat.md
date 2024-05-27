@@ -1,10 +1,10 @@
 # Deploy your first smart contract using Hardhat
 
-![](/img/build/get-started/Klaytn-hardhat.png)
+![](/img/build/get-started/Kaia-hardhat.png)
 
 ## Introduction
 
-This section will guide you through deploying a Soulbound Token to the Klaytn Baobab Network using [Hardhat](https://hardhat.org/). 
+This section will guide you through deploying a Soulbound Token to the Kaia Baobab Network using [Hardhat](https://hardhat.org/). 
 
 Hardhat is a smart-contract development environment that will help you:
 * Develop and compile smart contracts.
@@ -13,7 +13,7 @@ Hardhat is a smart-contract development environment that will help you:
 Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.ca/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
 
 By the end of this guide you will be able to: 
-* Set up a Hardhat project on Klaytn.
+* Set up a Hardhat project on Kaia.
 * Create a simple soul-bound token.
 * Compile your smart contract using Hardhat.
 * Test, deploy, and interact with your smart contract using Hardhat.
@@ -137,7 +137,7 @@ Now that we have our development environment all set, let's get into writing our
 
 ## Creating SBT Smart Contract
 
-In this section, you will use the [Klaytn Contracts](https://github.com/klaytn/klaytn-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts. 
+In this section, you will use the [Kaia Contracts](https://github.com/klaytn/klaytn-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts. 
 
 > Note: You already installed this library in **step 3** of the `Setting Development Environment` section.
 
@@ -336,7 +336,7 @@ main().catch((error) => {
 });
 ```
 
-**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Klaytn Test Network (Baobab) 
+**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Kaia Test Network (Baobab) 
 
 ```bash
 npx hardhat run scripts/sbtDeploy.js --network baobab
@@ -344,7 +344,7 @@ npx hardhat run scripts/sbtDeploy.js --network baobab
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**Step 4**: Open [Klaytnscope](https://baobab.klaytnscope.com/) to check if the SBT token has been deployed successfully.
+**Step 4**: Open [Kaiascope](https://baobab.klaytnscope.com/) to check if the SBT token has been deployed successfully.
 
 **Step 5**: Copy and paste the deployed contract address in the search field and press Enter. You should see the recently deployed contract.
 
@@ -358,7 +358,7 @@ For this feature to work effectively, you need to connect to an archive node. Yo
 
 ### Forking Mainnet
 
-Now that we have our Hardhat project set up let’s fork the Klaytn Mainnet using Hardhat.  Open your terminal and run this command
+Now that we have our Hardhat project set up let’s fork the Kaia Mainnet using Hardhat.  Open your terminal and run this command
 
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL>

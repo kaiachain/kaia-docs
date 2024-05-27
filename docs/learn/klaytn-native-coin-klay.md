@@ -1,14 +1,14 @@
-# Klaytn native coin - KLAY
+# Kaia native coin - KLAY
 
 ## KLAY <a id="klay"></a>
 
-KLAY is the main internal transferable cryptocurrency of Klaytn and is used to pay transaction fees when creating or executing smart contracts or when transferring KLAY.
+KLAY is the main internal transferable cryptocurrency of Kaia and is used to pay transaction fees when creating or executing smart contracts or when transferring KLAY.
 
-KLAY is a necessary element--a fuel--for operating the Klaytn distributed application platform. It is a form of payment made by the clients of the platform to the consensus nodes \(CNs\) executing the requested operations. To put it another way, KLAY is an incentive; it ensures that developers write high-quality applications \(wasteful code costs more\) and that the network remains healthy \(CNs are compensated for the resources they contribute\).
+KLAY is a necessary element--a fuel--for operating the Kaia distributed application platform. It is a form of payment made by the clients of the platform to the consensus nodes \(CNs\) executing the requested operations. To put it another way, KLAY is an incentive; it ensures that developers write high-quality applications \(wasteful code costs more\) and that the network remains healthy \(CNs are compensated for the resources they contribute\).
 
 ## Units of KLAY <a id="units-of-klay"></a>
 
-Klaytn uses the following unit system for KLAY.
+Kaia uses the following unit system for KLAY.
 
 * `peb` is the smallest currency unit.
 * `ston` is an alias for `Gpeb` and introduced for convenience.

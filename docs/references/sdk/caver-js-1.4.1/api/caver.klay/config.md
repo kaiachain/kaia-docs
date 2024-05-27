@@ -61,7 +61,7 @@ Returns the chain ID of the chain.
 caver.klay.getGasPrice([callback])
 ```
 
-Returns the unit price defined in the Klaytn network.
+Returns the unit price defined in the Kaia network.
 
 **Parameters**
 
@@ -86,7 +86,7 @@ Returns the unit price defined in the Klaytn network.
 caver.klay.getNodeInfo([callback])
 ```
 
-Returns the current client version of a Klaytn node.
+Returns the current client version of a Kaia node.
 
 **Parameters**
 
@@ -96,14 +96,14 @@ Returns the current client version of a Klaytn node.
 
 **Return Value**
 
-`Promise` returns `String` - The current client version of a Klaytn node.
+`Promise` returns `String` - The current client version of a Kaia node.
 
 
 **Example**
 
 ```javascript
 > caver.klay.getNodeInfo().then(console.log);
-Klaytn/v0.10.1+fc5c37064e/linux-amd64/go1.11.2
+Kaia/v0.10.1+fc5c37064e/linux-amd64/go1.11.2
 ```
 
 ## getProtocolVersion <a id="getprotocolversion"></a>
@@ -112,7 +112,7 @@ Klaytn/v0.10.1+fc5c37064e/linux-amd64/go1.11.2
 caver.klay.getProtocolVersion([callback])
 ```
 
-Returns the Klaytn protocol version of the node.
+Returns the Kaia protocol version of the node.
 The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
 **Parameters**
@@ -123,7 +123,7 @@ The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
 **Return Value**
 
-`Promise` returns `String` - The Klaytn protocol version of the node.
+`Promise` returns `String` - The Kaia protocol version of the node.
 
 
 **Example**
@@ -149,7 +149,7 @@ Returns `true` if the node is indexing sender transaction hash to transaction ha
 
 **Return Value**
 
-`Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Klaytn Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/klay/get-transaction-by-sender-tx-hash) and [Klaytn Transactions - Fee Delegation and SenderTxHash](../../../../../learn/transactions/transactions.md#fee-delegation).
+`Promise` returns `Boolean` - `true` means the node is indexing the sender transaction hash to find the fee-payer-signed transaction. For detailed information, please see [Kaia Platform API - klay_getTransactionBySenderTxHash](../../../../../json-rpc/klay/get-transaction-by-sender-tx-hash) and [Kaia Transactions - Fee Delegation and SenderTxHash](../../../../../learn/transactions/transactions.md#fee-delegation).
 
 
 **Example**
@@ -191,7 +191,7 @@ true
 caver.klay.rewardbase([callback])
 ```
 
-Returns the rewardbase of the current node. Rewardbase is the address of the account where the block reward goes to. Only the Klaytn Consensus Nodes (CN) have the rewardbase in their configuration. See [Configuration File](../../../../../misc/operation/configuration.md).
+Returns the rewardbase of the current node. Rewardbase is the address of the account where the block reward goes to. Only the Kaia Consensus Nodes (CN) have the rewardbase in their configuration. See [Configuration File](../../../../../misc/operation/configuration.md).
 
 **Parameters**
 

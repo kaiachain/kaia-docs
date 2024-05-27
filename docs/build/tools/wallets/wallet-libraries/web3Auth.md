@@ -10,7 +10,7 @@ sidebar_label: Web3Auth
 
 [Web3Auth](https://web3auth.io/docs/) is a wallet infrastructure that is plugged into dApps or wallets. It serves as a pluggable authentication infrastructure for web3 wallets and applications. With Web3Auth's excellent user excellence, both mainstream and crypto natives may be onboarded in a matter of minutes.
 
-As a wallet infrastructure, it provides out-of-the-box support for all social logins, web and mobile native platforms, wallets, and other key management methods. By the end of this guide, you will have integrated Web3Auth into your decentralized web application built on the Klaytn Network. To integrate Web3Auth into other platforms (Android, iOS, React Native, Flutter, & Unity), kindly refer to this [guide](https://web3auth.io/docs/pnp/introduction). 
+As a wallet infrastructure, it provides out-of-the-box support for all social logins, web and mobile native platforms, wallets, and other key management methods. By the end of this guide, you will have integrated Web3Auth into your decentralized web application built on the Kaia Network. To integrate Web3Auth into other platforms (Android, iOS, React Native, Flutter, & Unity), kindly refer to this [guide](https://web3auth.io/docs/pnp/introduction). 
 
 ## Prerequisite
 
@@ -22,7 +22,7 @@ As a wallet infrastructure, it provides out-of-the-box support for all social lo
 
 ## Installation
 
-To make use of Web3Auth in your dApp, you must install the required libraries and SDK first. Hence, you'll need to set up ethers.js, and the Web3Auth Web SDK. You can use Web3Auth together with either [ethers.js](https://docs.ethers.org/v6/) or [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) libraries to communicate with the Klaytn blockchain. We'll be using ethers.js throughout this guide.
+To make use of Web3Auth in your dApp, you must install the required libraries and SDK first. Hence, you'll need to set up ethers.js, and the Web3Auth Web SDK. You can use Web3Auth together with either [ethers.js](https://docs.ethers.org/v6/) or [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) libraries to communicate with the Kaia blockchain. We'll be using ethers.js throughout this guide.
 
 ```bash
 npm install --save @web3auth/modal
@@ -52,9 +52,9 @@ useEffect(() => {
           chainConfig: {
             chainNamespace: "eip155",
 	        // modify if mainnet => “0x2019”
-            chainId: "0x3e9", // hex of 1001, Klaytn Baobab testnet. 
+            chainId: "0x3e9", // hex of 1001, Kaia Baobab testnet. 
             rpcTarget: "https://public-en-baobab.klaytn.net", // modify if mainnet
-            displayName: "Klaytn Testnet", //  modify if mainnet
+            displayName: "Kaia Testnet", //  modify if mainnet
             blockExplorer: "https://baobab.klaytnscope.com", // modify if mainnet
             ticker: "KLAY",
             tickerName: "KLAY",
@@ -205,10 +205,10 @@ const switchChain = async () => {
     console.log("web3auth not initialized yet");
     return;
   }
-  // add chain - Klaytn Mainnet
+  // add chain - Kaia Mainnet
   await web3auth.addChain({
     chainId: "0x2019",
-    displayName: "Klaytn Cypress",
+    displayName: "Kaia Cypress",
     chainNamespace: "eip155",
     tickerName: "KLAY",
     ticker: "KLAY",
@@ -331,7 +331,7 @@ You can perform native transactions, like sending KLAY from one user to another.
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 

@@ -2,7 +2,7 @@
 
 ## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send KLAY to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransferWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send KLAY. As Kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send KLAY to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransferWithRatio is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
 
 1. The fee payer's balance decreases by the given ratio of the transaction fee.
 2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
@@ -904,13 +904,13 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeFeeDelegatedChainDataAnchoringWithRatio <a id="txtypefeedelegatedchaindataanchoringwithratio"></a>
 
-TxTypeFeeDelegatedChainDataAnchoringWithRatio is a fee-delegated transaction, with the ratio, that anchors service chain data to the Klaytn mainchain.
-Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data.
+TxTypeFeeDelegatedChainDataAnchoringWithRatio is a fee-delegated transaction, with the ratio, that anchors service chain data to the Kaia mainchain.
+Service chains periodically send this type of transaction to the Kaia mainchain to ensure its security and credibility of data.
 For more details about the data anchoring, see [Anchoring](../../nodes/service-chain/configure/anchoring.md).
 As it is a fee-delegated transaction with the given ratio as well, the fee payer bears only the given portion of the transaction fee based on the given ratio and the sender pays the rest.
 Be mindful that it is not allowed to send this transaction via RPC.
 Currently, this transaction is executed through private p2p channels for security reasons.
-This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+This transaction does not change the state of the Kaia blockchain except the sender's nonce being increased by one.
 
 ### Attributes <a id="attributes"></a>
 

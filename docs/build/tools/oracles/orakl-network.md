@@ -15,7 +15,7 @@ In this tutorial, you will utilize the VRF functionality from Orakl Network to r
 
 * [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 * [Remix IDE](https://remix.ethereum.org/)
-* [Klaytn Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+* [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 * Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
 ## Getting Started
@@ -47,7 +47,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### Step 2: Initialize VRF Coordinator
 
-To request for random words in your smart contract, you need to initialize the [`VRFCoordinator`](https://github.com/Bisonai/orakl/blob/master/contracts-v0.1/src/v0.1/VRFCoordinator.sol) smart contract. It is recommended to bond `VRFCoordinator` interface with `VRFCoordinator` address supplied through a constructor parameter, and use it for random word requests (`requestRandomWords`). The `VRFCoordinator` contract is deployed both on Klaytn Baobab [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://baobab.klaytnfinder.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499) and Klaytn Cypress [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.klaytnfinder.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb).
+To request for random words in your smart contract, you need to initialize the [`VRFCoordinator`](https://github.com/Bisonai/orakl/blob/master/contracts-v0.1/src/v0.1/VRFCoordinator.sol) smart contract. It is recommended to bond `VRFCoordinator` interface with `VRFCoordinator` address supplied through a constructor parameter, and use it for random word requests (`requestRandomWords`). The `VRFCoordinator` contract is deployed both on Kaia Baobab [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://baobab.klaytnfinder.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499) and Kaia Cypress [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.klaytnfinder.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb).
 
 ```solidity
   IVRFCoordinator COORDINATOR;
@@ -117,7 +117,7 @@ In the example below, the contract allows us to request for random words and rec
 * Click on the **File Explorer** tab, create a new file named `consumer-vrf.sol` in the contracts folder.
 * Paste the code below in your newly created file.
 * In Remix, click **Compile contract**.
-* Click the Klaytn tab on your left having installed the plugin.
+* Click the Kaia tab on your left having installed the plugin.
 * Select **Environment** > **Injected Caver** - **Kaikas**.
 * In **Contract**, select your contract. For example, `VRFConsumer`.
 * Pass in the coordinator contract address `0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499` (Baobab), `0x3F247f70DC083A2907B8E76635986fd09AA80EFb` (Cypress).
@@ -181,7 +181,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### Interact with Smart Contract
 
-To request for random words in your smart contract, you have to first execute the `requestRandomWordsDirect()` function. For this function to successfully execute, the user has to send KLAY (minimum of 1 KLAY) as stated previously, and supply `keyHash`, `callbackGasLimit`, `numWords`, and `refundRecipient` parameters. `keyHash` parameter uniquely defines who can fulfill the request. Orakl Network VRF provides one key hash for each Klaytn chain:
+To request for random words in your smart contract, you have to first execute the `requestRandomWordsDirect()` function. For this function to successfully execute, the user has to send KLAY (minimum of 1 KLAY) as stated previously, and supply `keyHash`, `callbackGasLimit`, `numWords`, and `refundRecipient` parameters. `keyHash` parameter uniquely defines who can fulfill the request. Orakl Network VRF provides one key hash for each Kaia chain:
 * Baobab: `0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c`
 * Cypress: `0x6cff5233743b3c0321a19ae11ab38ae0ddc7ddfe1e91b162fa8bb657488fb157`
 

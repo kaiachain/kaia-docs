@@ -2,8 +2,8 @@
 
 ## Intended Audience <a id="intended-audience"></a>
 
-- Anyone who wants to send transactions or query the state of Klaytn network using [Klaytn APIs](../../references/json-rpc/klay/account-created) needs to do so via an Endpoint Node.
-- Endpoint Nodes are the interface to the Klaytn Network.  
+- Anyone who wants to send transactions or query the state of Kaia network using [Kaia APIs](../../references/json-rpc/klay/account-created) needs to do so via an Endpoint Node.
+- Endpoint Nodes are the interface to the Kaia Network.  
 
 ## Endpoint Node Overview <a id="endpoint-node-overview"></a>
 

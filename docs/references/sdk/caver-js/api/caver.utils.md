@@ -339,7 +339,7 @@ false
 caver.utils.isAddress(address)
 ```
 
-Checks if a given string is a valid Klaytn address. It will also check the checksum if the address has upper and lowercase letters.
+Checks if a given string is a valid Kaia address. It will also check the checksum if the address has upper and lowercase letters.
 
 **Parameters**
 
@@ -351,7 +351,7 @@ Checks if a given string is a valid Klaytn address. It will also check the check
 
 | Type    | Description                                         |
 | ------- | --------------------------------------------------- |
-| boolean | `true` if a given string is a valid Klaytn address. |
+| boolean | `true` if a given string is a valid Kaia address. |
 
 **Examples**
 
@@ -378,7 +378,7 @@ false // wrong checksum
 caver.utils.toChecksumAddress(address)
 ```
 
-Converts an upper or lowercase Klaytn address to a checksum address.
+Converts an upper or lowercase Kaia address to a checksum address.
 
 **Parameters**
 
@@ -822,7 +822,7 @@ Shows all KLAY units.
 
 | Type   | Description                                                                                                                                                                               |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | An object in which the units of KLAY used in Klaytn are defined. Each unit has its name and pebFactor. pebFactor is used when converting KLAY currently translated in each unit to 'peb'. |
+| Object | An object in which the units of KLAY used in Kaia are defined. Each unit has its name and pebFactor. pebFactor is used when converting KLAY currently translated in each unit to 'peb'. |
 
 **Examples**
 
@@ -1648,19 +1648,19 @@ true
 true
 ```
 
-## isKlaytnWalletKey <a href="#isklaytnwalletkey" id="isklaytnwalletkey"></a>
+## isKaiaWalletKey <a href="#isklaytnwalletkey" id="isklaytnwalletkey"></a>
 
 ```javascript
-caver.utils.isKlaytnWalletKey(key)
+caver.utils.isKaiaWalletKey(key)
 ```
 
-Returns `true` if key is in [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
+Returns `true` if key is in [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
 
 **Parameters**
 
 | Name | Type   | Description                                                    |
 | ---- | ------ | -------------------------------------------------------------- |
-| key  | string | A key string to check in the format of KlaytnWalletKey or not. |
+| key  | string | A key string to check in the format of KaiaWalletKey or not. |
 
 **Return Value**
 
@@ -1671,13 +1671,13 @@ Returns `true` if key is in [KlaytnWalletKey](../../../../learn/accounts.md#klay
 **Examples**
 
 ```javascript
-> caver.utils.isKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
+> caver.utils.isKaiaWalletKey('0x{private key}0x{type}0x{address in hex}')
 true
 
-> caver.utils.isKlaytnWalletKey('{private key}0x{type}0x{address in hex}')
+> caver.utils.isKaiaWalletKey('{private key}0x{type}0x{address in hex}')
 true
 
-> caver.utils.isKlaytnWalletKey('0x{private key}')
+> caver.utils.isKaiaWalletKey('0x{private key}')
 false
 ```
 
@@ -1711,30 +1711,30 @@ Converts buffer to 0x-prefixed hex string.
 '0x'
 ```
 
-## parseKlaytnWalletKey <a href="#parseklaytnwalletkey" id="parseklaytnwalletkey"></a>
+## parseKaiaWalletKey <a href="#parseklaytnwalletkey" id="parseklaytnwalletkey"></a>
 
 ```javascript
-caver.utils.parseKlaytnWalletKey(key)
+caver.utils.parseKaiaWalletKey(key)
 ```
 
-Parses [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) string to an array which includes "private key", "type", "address".
+Parses [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) string to an array which includes "private key", "type", "address".
 
 **Parameters**
 
 | Name | Type   | Description                                                                                 |
 | ---- | ------ | ------------------------------------------------------------------------------------------- |
-| key  | string | A [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) string. |
+| key  | string | A [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) string. |
 
 **Return Value**
 
 | Type  | Description                 |
 | ----- | --------------------------- |
-| Array | The parsed KlaytnWalletKey. |
+| Array | The parsed KaiaWalletKey. |
 
 **Examples**
 
 ```javascript
-> caver.utils.parseKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
+> caver.utils.parseKaiaWalletKey('0x{private key}0x{type}0x{address in hex}')
 [
     '0x{private key}',
     '0x00',
@@ -1748,7 +1748,7 @@ Parses [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format)
 caver.utils.hashMessage(message)
 ```
 
-Hashes message with Klaytn specific prefix: `keccak256("\x19Klaytn Signed Message:\n" + len(message) + message))`
+Hashes message with Kaia specific prefix: `keccak256("\x19Kaia Signed Message:\n" + len(message) + message))`
 
 **Parameters**
 
@@ -1760,7 +1760,7 @@ Hashes message with Klaytn specific prefix: `keccak256("\x19Klaytn Signed Messag
 
 | Type   | Description                                     |
 | ------ | ----------------------------------------------- |
-| string | The hashed message with Klaytn specific prefix. |
+| string | The hashed message with Kaia specific prefix. |
 
 **Examples**
 
@@ -1775,7 +1775,7 @@ Hashes message with Klaytn specific prefix: `keccak256("\x19Klaytn Signed Messag
 caver.utils.recover(message, signature [, isHashed])
 ```
 
-Recovers the Klaytn address that was used to sign the given data.
+Recovers the Kaia address that was used to sign the given data.
 
 **Parameters**
 
@@ -1783,13 +1783,13 @@ Recovers the Klaytn address that was used to sign the given data.
 | --------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | message   | string          | Either message or hashed message.                                                                                                                                                                                                  |
 | signature | object \| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                                                             |
-| isHashed  | boolean         | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
+| isHashed  | boolean         | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Kaia Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
 
 **Return Value**
 
 | Type   | Description                                |
 | ------ | ------------------------------------------ |
-| string | The Klaytn address used to sign this data. |
+| string | The Kaia address used to sign this data. |
 
 **Examples**
 
@@ -1823,7 +1823,7 @@ Recovers the public key that was used to sign the given data.
 | --------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | message   | string          | Either message or hashed message.                                                                                                                             |
 | signature | object \| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                        |
-| isHashed  | boolean         | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
+| isHashed  | boolean         | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Kaia Signed Message:\n" + message.length + message`. |
 
 **Return Value**
 
@@ -1862,7 +1862,7 @@ Recovers the public key that was used to sign the given data.
 caver.utils.publicKeyToAddress('0x{public key}')
 ```
 
-Returns an address derived from a public key. This function simply converts the public key string into an address form by hashing it. It has nothing to do with an actual account on Klaytn.
+Returns an address derived from a public key. This function simply converts the public key string into an address form by hashing it. It has nothing to do with an actual account on Kaia.
 
 **NOTE** `caver.utils.publicKeyToAddress` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 

@@ -2,7 +2,7 @@
 
 ## Introduction <a id="introduction"></a>
 
-This tutorial helps you to create an example ERC-20 compatible token that conforms to the [Klaytn Token Standards](../token-standard.md), especially [Fungible Token Standard \(ERC-20\)](../token-standard.md#fungible-token-standard-kip-7).
+This tutorial helps you to create an example ERC-20 compatible token that conforms to the [Kaia Token Standards](../token-standard.md), especially [Fungible Token Standard \(ERC-20\)](../token-standard.md#fungible-token-standard-kip-7).
 
 [ERC-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20) defines two events and 9 methods \(including 3 optional methods\) as below. ERC-20-compatible tokens are token contracts that implements the following interface.
 
@@ -21,7 +21,7 @@ event Transfer(address indexed _from, address indexed _to, uint256 _value)
 event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 ```
 
-Based on above interface, developers may customize tokens by adding new features and logics, and deploy on Klaytn network. For more information, refer to official [ERC-20 documentation](https://eips.ethereum.org/EIPS/eip-20).
+Based on above interface, developers may customize tokens by adding new features and logics, and deploy on Kaia network. For more information, refer to official [ERC-20 documentation](https://eips.ethereum.org/EIPS/eip-20).
 
 In this tutorial, you are going to implement `MyERC20.sol`, an ERC-20 compatible token. This token will issue a predefined amount of tokens and sends all of the tokens to the contract owner on its deploy.
 
@@ -538,7 +538,7 @@ You can use Remix Online IDE or use Truffle to deploy `MyERC20` smart contract.
 
 ### 2.1 Deploying smart contract using Remix Online IDE <a href="#2-1-deploying-smart-contract-using-klaytn-ide" id="2-1-deploying-smart-contract-using-klaytn-ide"></a>
 
-* Please visit [Klaytn Plugin for Remix](https://ide.klaytn.foundation) and create a `MyERC20` contract. The complete source code was given at [Writing ERC-20 Smart Contract](#1-writing-erc-20-smart-contract).
+* Please visit [Kaia Plugin for Remix](https://ide.klaytn.foundation) and create a `MyERC20` contract. The complete source code was given at [Writing ERC-20 Smart Contract](#1-writing-erc-20-smart-contract).
 * Prepare your account which will be used to deploy the contract.
   * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
   * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
@@ -552,9 +552,9 @@ After deploying, you can invoke `balanceOf` with your account, which was used to
 
 `MyERC20` is now live !
 
-## 3. Interacting with ERC-20 token from Klaytn Wallet <a id="3-interacting-with-erc-20-token-from-klaytn-wallet"></a>
+## 3. Interacting with ERC-20 token from Kaia Wallet <a id="3-interacting-with-erc-20-token-from-klaytn-wallet"></a>
 
-You can use [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation) to query your balance and transfer the ERC-20 compatible `BAOBABTOKEN` you just deployed.
+You can use [Baobab Kaia Wallet](https://baobab.wallet.klaytn.foundation) to query your balance and transfer the ERC-20 compatible `BAOBABTOKEN` you just deployed.
 
 You can add ERC-20 compatible token in your wallet with the address of the deployed `MyERC20` contract as below.
 

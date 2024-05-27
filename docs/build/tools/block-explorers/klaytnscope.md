@@ -1,6 +1,6 @@
-# Klaytnscope
+# Kaiascope
 
-Klaytnscope is the block explorer for the Klaytn Network. Klaytnscope gives you an insight about the Klaytn network by monitoring the network health and providing various statistics of Klaytn network. You can also explore the block and transaction data and the list of smart contracts on the Klaytn network.
+Kaiascope is the block explorer for the Kaia Network. Kaiascope gives you an insight about the Kaia network by monitoring the network health and providing various statistics of Kaia network. You can also explore the block and transaction data and the list of smart contracts on the Kaia network.
 
 * For the Baobab network, visit [https://baobab.klaytnscope.com](https://baobab.klaytnscope.com)
 * For the Mainnet, visit [https://klaytnscope.com/](https://klaytnscope.com/)
@@ -18,7 +18,7 @@ Please note that some of the features are under development.
 * Event logs search
 * Block proposer information
 
-In the subsequent sections, we will visit the major functions and screenshots of Klaytnscope. Functions are grouped by four categories - dashboard, list view, detail view, and search.
+In the subsequent sections, we will visit the major functions and screenshots of Kaiascope. Functions are grouped by four categories - dashboard, list view, detail view, and search.
 
 ## Dashboard <a id="dashboard"></a>
 
@@ -27,7 +27,7 @@ Network information is presented in the dashboard. The information includes aver
 ![](/img/build/tools/scope_02_main_indicator.png)
 
 * Block Height: The latest block height. It shows that how many blocks have been generated since the genesis. 
-* Network Performance: It shows Klaytn's network performance with four indicators.
+* Network Performance: It shows Kaia's network performance with four indicators.
   * Consensus Nodes: Above picture shows that 15 nodes are participated in the consensus process. 
   * Avg Block Time \(1 hour\): It shows the average block generation time over the last hour.
   * Avg Block Time \(24 hours\): It shows the average block generation time over the last 24 hours.
@@ -47,15 +47,15 @@ These lists show recently created blocks and transactions respectively. You can 
 On the upper-right corner of the site, there are network status indicator and the network selector drop down.
 
 * Network Status Indicator
-  * Network is healthy: Klaytnscope is healthy and fully operational. The network status is normal.
-  * Data latency: Klaytnscope is undergoing system maintenance. Data is in a delayed state.
-  * Data accuracy: Klaytnscope is synchronizing data, please wait.
+  * Network is healthy: Kaiascope is healthy and fully operational. The network status is normal.
+  * Data latency: Kaiascope is undergoing system maintenance. Data is in a delayed state.
+  * Data accuracy: Kaiascope is synchronizing data, please wait.
 * Network Selector Drop Down
-  * You can choose Klaytn mainnet and Baobab testnet from the menu.
+  * You can choose Kaia mainnet and Baobab testnet from the menu.
 
 ## List View <a id="list-view"></a>
 
-If you want to get a closer look at the status of the Klaytn network, you can check the list of recently generated blocks and transactions. To access the list page, click the button on the navigation bar which located on the left of the screen.
+If you want to get a closer look at the status of the Kaia network, you can check the list of recently generated blocks and transactions. To access the list page, click the button on the navigation bar which located on the left of the screen.
 
 ### Blocks <a id="blocks"></a>
 
@@ -67,7 +67,7 @@ A list of recently generated blocks. To update the information, please click the
 * Time: Duration of time since the block was generated. You can check the exact date and time by hovering this.
 * Total TXs: The total number of transactions included in the block.
 * Block Proposer: Randomly but deterministically selected Consensus Node that proposed the block. By clicking the address, you can easily go to the details page.
-* Reward: Aggregation of newly minted KLAY \(6.4 KLAY\) and transaction fees used in the block. The list displays only the sum of Klaytn Governance Council Reward, Proof of Contribution, and Klaytn Improvement Reserve. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Klaytn Token Economy].
+* Reward: Aggregation of newly minted KLAY \(6.4 KLAY\) and transaction fees used in the block. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Improvement Reserve. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Kaia Token Economy].
 * Size: The size of blocks measured in Byte. The more transactions are included, the larger the block size.
 
 ### Transactions <a id="transactions"></a>
@@ -100,7 +100,7 @@ Overall information about the block.
 * Hash: The unique identifier of the block. By pressing the copy button, you can easily copy the hash.
 * Parent Hash: The unique identifier of the previous block. Clicking on the hash takes you to the detail view of the parent hash.
 * Total TXs: The total number of transactions included in the block.
-* Block Reward: Aggregation of the newly minted KLAY \(6.4 KLAY\) and the transaction fees collected in the block. If you hover, you will find detailed information on Klaytn Governance Council Reward, Proof of Contribution and Klaytn Improvement Reserve. More details about block reward distribution system can be found in the [Klaytn Token Economy].
+* Block Reward: Aggregation of the newly minted KLAY \(6.4 KLAY\) and the transaction fees collected in the block. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Improvement Reserve. More details about block reward distribution system can be found in the [Kaia Token Economy].
 * Block Size: The size of block measured in Byte. The more transactions are included, the larger the block size.
 
 #### Committee <a id="committee"></a>
@@ -130,7 +130,7 @@ Overall information about the transaction.
 * Time: Elapsed time since the transaction was executed.
 * Nonce: Number of the transaction sent from the sender's address. Starting from zero, it increases sequentially each time a transaction is sent.
 * Amount: The amount of value transferred in this transaction.
-* Gas Price: Cost per gas measured in KLAY. In Klaytn network, Gas Price is fixed.
+* Gas Price: Cost per gas measured in KLAY. In Kaia network, Gas Price is fixed.
 * Gas Used: Exact gas that was used to execute the transaction.
 * Gas Limit: Maximum gas that the sender was willing to pay for this transaction.
 * TX Fee: The actual cost used to process transaction. Calculated by multiplying Gas Price by Gas Used.
@@ -179,7 +179,7 @@ The list of transactions related to this contract.
 
 ## Search <a id="search"></a>
 
-Through Klaytnscope, you can search for the information about account, contract, transactions and blocks. The search bar is placed on every page, making it easy to access. Entering a valid keyword will take you to the detail view of the entity.
+Through Kaiascope, you can search for the information about account, contract, transactions and blocks. The search bar is placed on every page, making it easy to access. Entering a valid keyword will take you to the detail view of the entity.
 
 ![](/img/build/tools/scope_06_search.png)
 
@@ -236,4 +236,4 @@ If you search for a keyword that doesn't fit in the specified format or informat
 
 
 [Transactions]: ../../../learn/transactions/transactions.md
-[Klaytn Token Economy]: ../../../learn/token-economy.md
+[Kaia Token Economy]: ../../../learn/token-economy.md

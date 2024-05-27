@@ -1,8 +1,8 @@
-# KlaytnGreeter
+# KaiaGreeter
 
-`KlaytnGreeter` is a simple contract that returns a greeting message. Greeting message is set when the contract is deployed.
+`KaiaGreeter` is a simple contract that returns a greeting message. Greeting message is set when the contract is deployed.
 
-## Writing KlaytnGreeter <a href="#writing-klaytngreeter" id="writing-klaytngreeter"></a>
+## Writing KaiaGreeter <a href="#writing-klaytngreeter" id="writing-klaytngreeter"></a>
 
 ```
 pragma solidity 0.5.6;
@@ -15,7 +15,7 @@ contract Mortal {
     function kill() public { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs once when the contract is created */
@@ -29,9 +29,9 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-## Deploying KlaytnGreeter using Remix Online IDE <a href="#deploying-klaytngreeter-using-klaytn-ide" id="deploying-klaytngreeter-using-klaytn-ide"></a>
+## Deploying KaiaGreeter using Remix Online IDE <a href="#deploying-klaytngreeter-using-klaytn-ide" id="deploying-klaytngreeter-using-klaytn-ide"></a>
 
-* Please visit [Klaytn Plugin for Remix](https://ide.klaytn.foundation) and create a `KlaytnGreeter` contract. The complete source code was given in the above.
+* Please visit [Kaia Plugin for Remix](https://ide.klaytn.foundation) and create a `KaiaGreeter` contract. The complete source code was given in the above.
 * Prepare your account which will be used to deploy the contract.
   * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
   * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)

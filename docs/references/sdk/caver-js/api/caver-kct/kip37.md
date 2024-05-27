@@ -1,12 +1,12 @@
 # caver.kct.kip37
 
-The `caver.kct.kip37` helps you easily handle a smart contract that implements KIP-37 as a JavaScript object on the Klaytn blockchain platform (Klaytn). 
+The `caver.kct.kip37` helps you easily handle a smart contract that implements KIP-37 as a JavaScript object on the Kaia blockchain platform (Kaia). 
 
 The `caver.kct.kip37` inherits [caver.contract](../caver.contract.md) to implement the KIP-37 token contract. The `caver.kct.kip37` holds the same properties of `caver.contract` whereas additional methods are implemented for extra features. This section only introduces the newly added methods of the `caver.kct.kip37`.
 
-The code that implements KIP-37 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP37). KIP-37 for caver-js supports Ownable interface. Using this, you can designate a contract owner when deploying a contract
+The code that implements KIP-37 for caver-js is available on the [Kaia Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP37). KIP-37 for caver-js supports Ownable interface. Using this, you can designate a contract owner when deploying a contract
 
-For more information about KIP-37, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-37).
+For more information about KIP-37, see [Kaia Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-37).
 
 **NOTE** `caver.kct.kip37` is supported since caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
 
@@ -15,7 +15,7 @@ For more information about KIP-37, see [Klaytn Improvement Proposals](https://ki
 ```javascript
 caver.kct.kip37.deploy(tokenInfo, deployer)
 ```
-Deploys the KIP-37 token contract to the Klaytn blockchain. A contract deployed using caver.kct.kip37.deploy is a multi token that follows the KIP-37 standard. 
+Deploys the KIP-37 token contract to the Kaia blockchain. A contract deployed using caver.kct.kip37.deploy is a multi token that follows the KIP-37 standard. 
 
 After successful deployment, the promise will be resolved with a new KIP37 instance.
 
@@ -23,7 +23,7 @@ After successful deployment, the promise will be resolved with a new KIP37 insta
 
 | Name | Type | Description |
 | --- | --- | --- |
-| tokenInfo | object | The information needed to deploy a KIP-37 token contract on the Klaytn blockchain. See the below table for the details. |
+| tokenInfo | object | The information needed to deploy a KIP-37 token contract on the Kaia blockchain. See the below table for the details. |
 | deployer | string \| object | The address in the keyring instance to deploy the KIP-37 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-37 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [create](#kip37-create). |
 
 The tokenInfo object must contain the following:
@@ -531,7 +531,7 @@ kip37.create(id, initialSupply [, uri] [, sendParam])
 
 Creates a new token type and assigns `initialSupply` to the minter.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -628,7 +628,7 @@ kip37.setApprovalForAll(operator, approved [, sendParam])
 ```
 Approves the given operator, or disallow the given operator, to transfer all tokens of the owner.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -708,7 +708,7 @@ The address that was authorized to send the owner's token (the operator) or the 
 
 If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.foundation/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.  
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -801,7 +801,7 @@ The address that was approved to send the owner's token (the operator) or the to
 
 If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.klaytn.foundation/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.  
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -889,7 +889,7 @@ kip37.mint(to, id, value [, sendParam])
 ```
 Mints the token of the specific token type `id` and assigns the tokens according to the variables `to` and `value`. The mint function allows you to mint specific token to multiple accounts at once by passing arrays to `to` and `value` as parameters.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -1045,7 +1045,7 @@ kip37.mintBatch(to, ids, values [, sendParam])
 ```
 Mints the multiple KIP-37 tokens of the specific token types `ids` in a batch and assigns the tokens according to the variables `to` and `values`.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -1131,7 +1131,7 @@ kip37.addMinter(account [, sendParam])
 ```
 Adds an account as a minter, who are permitted to mint tokens.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -1205,7 +1205,7 @@ kip37.renounceMinter([sendParam])
 ```
 Renounces the right to mint tokens. Only a minter address can renounce the minting right. 
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -1280,7 +1280,7 @@ Burns specific KIP-37 tokens.
 
 The address that was approved to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -1366,7 +1366,7 @@ Burns the multiple KIP-37 tokens.
 
 The address that was authorized to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, the authorized one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -1450,7 +1450,7 @@ kip37.addPauser(account [, sendParam])
 ```
 Adds an account as a pauser that has the right to suspend the contract.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -1524,7 +1524,7 @@ kip37.renouncePauser([sendParam])
 ```
 Renounces the right to pause the contract. Only a pauser address can renounce the pausing right. 
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -1597,7 +1597,7 @@ kip37.pause([id] [, sendParam])
 ```
 Suspends functions related to token operation. If `id` parameter is defined, pause the specific token. Otherwise pause the token contract.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 
@@ -1708,7 +1708,7 @@ kip37.unpause([id] [, sendParam])
 
 Resumes the paused contract or specific token. If `id` parameter is defined, unpause the specific token. Otherwise unpause the token contract.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the transaction sender.
+Note that this method will submit a transaction to the Kaia network, which will charge the transaction fee to the transaction sender.
 
 **Parameters**
 

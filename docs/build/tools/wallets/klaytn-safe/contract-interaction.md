@@ -4,8 +4,8 @@ In this section, you will be interacting with and sending a transaction to a sim
 
 **Pre-requisites**
 
-* [Metamask](https://metamask.io/download/) & [Klaytn Metamask Config](../../../tutorials/connecting-metamask#send-klay)
-* [Remix](https://remix.ethereum.org/) & [Klaytn Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+* [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../../tutorials/connecting-metamask#send-klay)
+* [Remix](https://remix.ethereum.org/) & [Kaia Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 * Obtain test KLAY from the [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
 **Step 1:** Navigate to [Remix](https://remix.ethereum.org/)

@@ -30,7 +30,7 @@ Note that when you provide the new key, you should provide just one of the below
 | type | String | Transaction type. "ACCOUNT_UPDATE" |
 | from | String | Address of this transaction sender. This account will be updated by this transaction. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../../caver.klay.accounts.md#createaccountforupdate). |
 | legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true. |
@@ -294,7 +294,7 @@ A transaction object of type `FEE_DELEGATED_ACCOUNT_UPDATE` has the following st
 | type | String | Transaction Type. "FEE_DELEGATED_ACCOUNT_UPDATE"  |
 | from | String | Address of this transaction sender. This account will be updated by this transaction. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../../caver.klay.accounts.md#createaccountforupdate). |
 | legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true. |
@@ -402,7 +402,7 @@ The plain transaction object type of a `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`
 | type | String | The type of "FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO" transaction. |
 | from | String | Address of this transaction sender. This account will be updated by this transaction. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | key | Object | (optional) An `AccountForUpdate` instance containing the address and key to be used when updating the account. For instructions on how to create an AccountForUpdate instance for each key type, see [caver.klay.accounts.createAccountForUpdate](../../caver.klay.accounts.md#createaccountforupdate). |
 | legacyKey | Bool | (optional) if updating the account to have a legacy key, set this true. |

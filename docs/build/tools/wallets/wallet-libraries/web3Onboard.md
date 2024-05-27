@@ -10,7 +10,7 @@ sidebar_label: Web3-Onboard
 
 Leveraging a tool like [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction), projects and developers may quickly integrate multiple wallets into their decentralized applications (dApps). With the help of Web3-Onboard, user onboarding has been simplified. Web3-Onboard does have different features, ranging from support for several wallets to the ability for users to connect their accounts to different chains or networks and receive real-time transaction notifications, et cetera.
 
-In this guide, you will use Web3-Onboard library to integrate multiple wallets (such as Coinbase Wallet, Metamask, WalletConnect, etc.) into your dApp built on the Klaytn Network.
+In this guide, you will use Web3-Onboard library to integrate multiple wallets (such as Coinbase Wallet, Metamask, WalletConnect, etc.) into your dApp built on the Kaia Network.
 
 ## Prerequisite
 
@@ -21,7 +21,7 @@ In this guide, you will use Web3-Onboard library to integrate multiple wallets (
 
 ## Getting Started
 
-Web3-Onboard as a chain-agnostic wallet library, supports all EVM-compatible networks and also provides the flexibility of adding new networks to the library. In this guide, we'll use Web3-Onboard to add the Klaytn Mainnet Cypress and Klaytn Testnet Baobab to our dApp. With that said, let’s get started integrating multi-wallet compatibility using Web3-Onboard into your dApp built on Klaytn Network.
+Web3-Onboard as a chain-agnostic wallet library, supports all EVM-compatible networks and also provides the flexibility of adding new networks to the library. In this guide, we'll use Web3-Onboard to add the Kaia Mainnet Cypress and Kaia Testnet Baobab to our dApp. With that said, let’s get started integrating multi-wallet compatibility using Web3-Onboard into your dApp built on Kaia Network.
 
 ## Setting up Onboard and Wallet Modules
 
@@ -57,7 +57,7 @@ const modules = [coinbaseWalletSdk, walletConnect, injected];
 
 **Step 3**: Install and import ethers
 
-The Web3-Onboard provider can be used with libraries like [ethers.js](https://docs.ethers.org/v6/) and [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). In this guide, we will use ethers.js to make Klaytn blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
+The Web3-Onboard provider can be used with libraries like [ethers.js](https://docs.ethers.org/v6/) and [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). In this guide, we will use ethers.js to make Kaia blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
 
 ```bash
 npm install --save ethers
@@ -93,23 +93,23 @@ const onboard = Onboard({
       id: "0x2019", // chain ID must be in hexadecimal
       token: "KLAY",
       namespace: "evm",
-      label: "Klaytn Mainnet",
+      label: "Kaia Mainnet",
       rpcUrl: KLAYTN_MAINNET_URL
     },
     {
       id: "0x3e9", // chain ID must be in hexadecimel
       token: "KLAY",
       namespace: "evm",
-      label: "Klaytn Testnet",
+      label: "Kaia Testnet",
       rpcUrl: KLAYTN_BAOBAB_URL
     },
    // you can add as much supported chains as possible
   ],
   appMetadata: {
-    name: "Klaytn-web3-onboard-App", // change to your dApp name
+    name: "Kaia-web3-onboard-App", // change to your dApp name
     icon: "https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // paste your icon 
     logo: "https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // paste your logo
-    description: "Web3Onboard-Klaytn",
+    description: "Web3Onboard-Kaia",
     recommendedInjectedWallets: [
       { name: "Coinbase", url: "https://wallet.coinbase.com/" },
       { name: "MetaMask", url: "https://metamask.io" }
@@ -312,7 +312,7 @@ After successfully connecting to a wallet, you can store the provider object ret
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 

@@ -1,6 +1,6 @@
 # Use Transaction Builder
 
-This is a custom app in Klaytn Safe that is responsible for batching transactions. This means that we you can bundle several transactions together, instead of having to confirm one transaction after the other. You just have to confirm and execute once.
+This is a custom app in Kaia Safe that is responsible for batching transactions. This means that we you can bundle several transactions together, instead of having to confirm one transaction after the other. You just have to confirm and execute once.
 
 With transaction builder, you can compose transactions from token transfers to complex contract interactions and batch them into a single transaction.
 

@@ -170,7 +170,7 @@ $ node kip7-transfer-2step-erc20-interface.js
 Please refer [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) for the other cases.
 
 ## Native Support for KIP-7 and KIP-17 (To Be Implemented) <a id="native-support-for-kip-7-and-kip-17-to-be-implemented"></a>
-Currently, the bridge contract provided by the Klaytn team supports only `requestERC20Transfer()` and `requestERC721Transfer()` for token transfer. The corresponding request functions for KIP-7 and KIP-17 will be supported soon. Before the implementation is done, as you can see above, you can transfer KIP-7 tokens using ERC-20 interfaces.
+Currently, the bridge contract provided by the Kaia team supports only `requestERC20Transfer()` and `requestERC721Transfer()` for token transfer. The corresponding request functions for KIP-7 and KIP-17 will be supported soon. Before the implementation is done, as you can see above, you can transfer KIP-7 tokens using ERC-20 interfaces.
 
 ## Value Transfer for ERC-721, KIP-17, and KLAY <a id="value-transfer-for-erc721-kip17-and-klay"></a>
 The workflow for ERC-721, KIP-17, and KLAY is the same as above. [`erc721`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/erc721), [`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/kip17), and [`klay`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/klay) directories contain corresponding example source code.

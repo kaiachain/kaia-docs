@@ -16,7 +16,7 @@ property is specified in parameters of the following methods:
 
 **Property**
 
-20-byte `String` - Any Klaytn address.  You should have the private key for
+20-byte `String` - Any Kaia address.  You should have the private key for
 that address in your node or keystore.  Default is `undefined`.
 
 **Example**
@@ -67,7 +67,7 @@ false
 caver.klay.getAccount(address[, defaultBlock] [, callback])
 ```
 
-Returns the account information of a given address. There are two different account types in Klaytn: Externally Owned Account (EOA) and Smart Contract Account. See [Klaytn Accounts](../../../../../learn/accounts.md#klaytn-accounts).
+Returns the account information of a given address. There are two different account types in Kaia: Externally Owned Account (EOA) and Smart Contract Account. See [Kaia Accounts](../../../../../learn/accounts.md#klaytn-accounts).
 
 **NOTE** getAccount returns the account that exists on the network, so even if a key pair is created, null is returned if the account matching the address does not exist on the actual blockchain network.
 
@@ -368,7 +368,7 @@ false
 caver.klay.sign(message, address [, callback])
 ```
 
-Generates signed data specific to the Klaytn network. Refer to [Klaytn Platform API - klay_sign](../../../../../../references/json-rpc/klay/sign) to know how the signature is generated.
+Generates signed data specific to the Kaia network. Refer to [Kaia Platform API - klay_sign](../../../../../../references/json-rpc/klay/sign) to know how the signature is generated.
 
 **NOTE**: This API provides the function to sign a message using an account that exists in your node. The account in the node must be unlocked to sign the message. To sign a transaction, use [caver.klay.signTransaction](./transaction/transaction.md#signtransaction).
 

@@ -14,8 +14,8 @@ process.env.DOCUSAURUS_CURRENT_LOCALE = process.env.DOCUSAURUS_CURRENT_LOCALE ==
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Klaytn Docs',
-  tagline: 'Welcome to the Klaytn Docs',
+  title: 'Kaia Docs',
+  tagline: 'Welcome to the Kaia Docs',
 
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -23,10 +23,10 @@ const config = {
   onBrokenLinks: 'ignore',
 
   baseUrl: '/',
-  url: 'https://docs.klaytn.foundation',
+  url: 'https://docs.kaia.io',
 
-  organizationName: 'klaytn', //only needed when using `docusaurus deploy`command
-  projectName: 'klaytn-docs', //only needed when using `docusaurus deploy`command
+  organizationName: 'kaia', //only needed when using `docusaurus deploy`command
+  projectName: 'kaia-docs', //only needed when using `docusaurus deploy`command
   deploymentBranch: 'main', //only needed when using `docusaurus deploy`command
   trailingSlash: true, // was "false"
 
@@ -85,10 +85,9 @@ const config = {
               label: 'Current',
             },
           },
-          editUrl:
-            'https://github.com/klaytn/klaytn-docs/tree/main/',
+          //editUrl:
+            //'https://github.com/kaiachain/kaia-docs/tree/main/',
           
-          // TODO-Klaytn : it will be activated after dacusaurus-openapi bugfix
           docRootComponent: "@theme/DocRoot",
           docItemComponent: "@theme/ApiItem"
         },
@@ -214,9 +213,9 @@ const config = {
         indexName: 'klaytn',
       },
       navbar: {
-        title: 'Klaytn Docs',
+        title: 'Kaia Docs',
         logo: {
-          alt: 'Klaytn Logo',
+          alt: 'Kaia Logo',
           src: 'img/klaytn-logo.png',
         },
         items: [
@@ -256,7 +255,7 @@ const config = {
             dropdownActiveClassDisabled: true,
             dropdownItemsAfter: [
               {
-                // TODO-Klaytn : it will be activated after navBar bugfix
+                // TODO-Kaia : it will be activated after navBar bugfix
                 // href: legacyDocsLinks[process.env.DOCUSAURUS_CURRENT_LOCALE],
                 // label: navbarItemStrings[process.env.DOCUSAURUS_CURRENT_LOCALE],
                 href: 'https://archive-docs.klaytn.foundation/',
@@ -269,7 +268,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/klaytn',
+            href: 'https://github.com/kaiachain',
             position: 'right',
             alt: 'GitHub repository',
             className: 'header-github-link',
@@ -315,12 +314,12 @@ const config = {
             items: [
               {
                 label: 'Klaytn Square',
-                href: 'https://square.klaytn.foundation/Home',
+                href: 'https://square.kaia.io/Home',
               },
-              {
+              /*{
                 label: 'Klaytn Online Toolkit',
                 href: 'https://toolkit.klaytn.foundation/',
-              },
+              },*/
             ],
           },
           {
@@ -328,10 +327,10 @@ const config = {
             items: [
               {
                 label: 'Medium',
-                href: 'https://medium.com/klaytn',
+                href: 'https://medium.com/kaiachain',
               },
               {
-                label: 'Twitter',
+                label: 'X (formerly Twitter)',
                 href: 'https://twitter.com/klaytn_official',
               },
             ],
@@ -345,12 +344,12 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/klaytn',
+                href: 'https://github.com/kaiachain',
               },
             ],
           },
         ],
-        copyright: `© Klaytn Foundation ${new Date().getFullYear()}. All rights reserved.`,
+        copyright: `© Kaia Foundation ${new Date().getFullYear()}. All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,

@@ -1,8 +1,8 @@
-# Connect MetaMask to Klaytn
+# Connect MetaMask to Kaia
 
 ![](/img/build/tutorials/klaytnXmetamask.png)
 
-> **Note**: MetaMask is mostly used as a wallet for Ethereum, but it is also compatible with Klaytn due to the identical address structures. Klaytn also has a browser extension wallet called [Kaikas](../tools/wallets/kaikas.md), so it basically provides the same features as MetaMask, except for Remix.
+> **Note**: MetaMask is mostly used as a wallet for Ethereum, but it is also compatible with Kaia due to the identical address structures. Kaia also has a browser extension wallet called [Kaikas](../tools/wallets/kaikas.md), so it basically provides the same features as MetaMask, except for Remix.
 
 ## Step 1. Install MetaMask <a href="#install-metamask" id="install-metamask"></a>
 
@@ -24,24 +24,24 @@
 
 ![Seed phrase and Wallet](/img/build/tutorials/metamask-secret-backup.png)
 
-## Step 3. Connect to Klaytn Cypress Network (Mainnet) <a href="#connect-to-klaytn-cypress-network-mainnet" id="connect-to-klaytn-cypress-network-mainnet"></a>
+## Step 3. Connect to Kaia Cypress Network (Mainnet) <a href="#connect-to-klaytn-cypress-network-mainnet" id="connect-to-klaytn-cypress-network-mainnet"></a>
 
-> Here's a simple way. [Connect your wallet to the Klaytn Cypress Network (Mainnet)](https://chainlist.org/chain/8217).
+> Here's a simple way. [Connect your wallet to the Kaia Cypress Network (Mainnet)](https://chainlist.org/chain/8217).
 
 * Click on the upper Networks tab, which is on Ethereum Mainnet as default, and select \[Add network].
-* Enter the Endpoint Node (EN) data of the Klaytn chain.
+* Enter the Endpoint Node (EN) data of the Kaia chain.
 
 ### Cypress Network Configuration
   
 | Network Config Item                                              | Value                     |
 | ---------------------------------------------------------------- | ------------------------------------------------------- |
-| Network Name                     | Klaytn Cypress |
+| Network Name                     | Kaia Cypress |
 |  New RPC URL | ```https://public-en-cypress.klaytn.net```                 |
 | Block Explorer URL                       | ```https://klaytnscope.com```                         |
 | Chain ID                                              | 8217                     |
 | Currency Symbol                                             | KLAY                     |
 
-* Click \[Save] to add Klaytn Cypress Network.
+* Click \[Save] to add Kaia Cypress Network.
 
 ![Network Setup and Custom RPC](/img/build/tutorials/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](/img/build/tutorials/metamask-add-cypress-2.png)
 
@@ -55,43 +55,43 @@
 
 **NOTE:** Sending KLAY requires a transaction, for which you need KLAY.
 
-* Since Klaytn v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
+* Since Kaia v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
 * So you don't have to set the fixed gas fee manually.
 * Check the amount to send and the transaction fee and click \[Confirm] to complete the KLAY transfer, after which you will be redirected to the main page.
 * Click \[Activity] on the main page to confirm the transaction history.
 
 ![Send KLAY 2](/img/build/tutorials/metamask-send-klay-2.png)
 
-## Connect to Klaytn Baobab Network (Testnet) <a href="#connect-to-klaytn-baobab-network-testnet" id="connect-to-klaytn-baobab-network-testnet"></a>
+## Connect to Kaia Baobab Network (Testnet) <a href="#connect-to-klaytn-baobab-network-testnet" id="connect-to-klaytn-baobab-network-testnet"></a>
 
 ### Obtain KLAY to make a transaction
 
 > **Note:** This tutorial uses Public EN of the Testnet (Baobab) to connect to the network. Make sure to use Baobab when you are running a test.
 
-> Here's a simple way. [Connect your wallet to the Klaytn Baobab Network (Testnet)](https://chainlist.org/chain/1001).
+> Here's a simple way. [Connect your wallet to the Kaia Baobab Network (Testnet)](https://chainlist.org/chain/1001).
 
 ### Baobab Network Configuration
   
 | Network Config Item                                              | Value                     |
 | ---------------------------------------------------------------- | ------------------------------------------------------- |
-| Network Name                     | Klaytn Baobab |
+| Network Name                     | Kaia Baobab |
 |  New RPC URL | ```https://public-en-baobab.klaytn.net```                 |
 | Block Explorer URL                       | ```https://baobab.klaytnscope.com ```                         |
 | Chain ID                                              | 1001                     |
 | Currency Symbol                                             | KLAY                     |
 
-* Click \[Save] to add Klaytn Baobab Network.
+* Click \[Save] to add Kaia Baobab Network.
 
 ![Network Setup](/img/build/tutorials/connect-testnet-1.png)
 
-* To test the connection of the Klaytn Wallet, you will need to make a transaction, which requires KLAY.
+* To test the connection of the Kaia Wallet, you will need to make a transaction, which requires KLAY.
 * Click on the kebab menu (three dots) in the upper right corner and select \[Account details].
 * Click \[Export Private Key] to obtain your private key.
 
 ![Export Private Key](/img/build/tutorials/connect-testnet-2.png)
 
-* When using Baobab Testnet, you can obtain Test Klay in [**Klaytn Faucet**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
-* Enter your private key on Klaytn Wallet and log in by clicking \[Access]. (Attach 0x in front of the private key.)
+* When using Baobab Testnet, you can obtain Test Klay in [**Kaia Faucet**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
+* Enter your private key on Kaia Wallet and log in by clicking \[Access]. (Attach 0x in front of the private key.)
 * Click \[Run Faucet]. 150 Testnet KLAY will be sent to your account and the balance will be updated accordingly. You can claim Testnet KLAY from Faucet once every 24 hours per account.
 
 ![Obtain KLAY from Faucet](/img/build/tutorials/connect-testnet-3.png)

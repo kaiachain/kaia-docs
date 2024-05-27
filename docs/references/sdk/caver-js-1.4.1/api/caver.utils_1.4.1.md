@@ -363,7 +363,7 @@ false
 ```javascript
 caver.utils.isAddress(address)
 ```
-Checks if a given string is a valid Klaytn address.
+Checks if a given string is a valid Kaia address.
 It will also check the checksum, if the address has upper and lowercase letters.
 
 **Parameters**
@@ -376,7 +376,7 @@ It will also check the checksum, if the address has upper and lowercase letters.
 
 | Type | Description |
 | --- | --- |
-| Boolean | `true` if a given string is a valid Klaytn address. |
+| Boolean | `true` if a given string is a valid Kaia address. |
 
 **Examples**
 
@@ -403,7 +403,7 @@ false // wrong checksum
 ```javascript
 caver.utils.toChecksumAddress(address)
 ```
-Converts an upper or lowercase Klaytn address to a checksum address.
+Converts an upper or lowercase Kaia address to a checksum address.
 
 **Parameters**
 
@@ -1479,20 +1479,20 @@ true
 false
 ```
 
-## isKlaytnWalletKey <a id="isklaytnwalletkey"></a>
+## isKaiaWalletKey <a id="isklaytnwalletkey"></a>
 
 ```javascript
-caver.utils.isKlaytnWalletKey(key)
+caver.utils.isKaiaWalletKey(key)
 ```
-Returns `true` if key is in [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
+Returns `true` if key is in [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
 
-**NOTE** `caver.utils.isKlaytnWalletKey` has been updated with the additional logic for a more accurate result since caver-js [v1.3.2-rc.3](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.3).
+**NOTE** `caver.utils.isKaiaWalletKey` has been updated with the additional logic for a more accurate result since caver-js [v1.3.2-rc.3](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.3).
 
 **Parameters**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| key | String | A key string to check in the format of KlaytnWalletKey or not. |
+| key | String | A key string to check in the format of KaiaWalletKey or not. |
 
 **Return Value**
 
@@ -1503,13 +1503,13 @@ Returns `true` if key is in [KlaytnWalletKey](../../../../learn/accounts.md#klay
 **Examples**
 
 ```javascript
-> caver.utils.isKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
+> caver.utils.isKaiaWalletKey('0x{private key}0x{type}0x{address in hex}')
 true
 
-> caver.utils.isKlaytnWalletKey('{private key}0x{type}0x{address in hex}')
+> caver.utils.isKaiaWalletKey('{private key}0x{type}0x{address in hex}')
 true
 
-> caver.utils.isKlaytnWalletKey('0x{private key}')
+> caver.utils.isKaiaWalletKey('0x{private key}')
 false
 ```
 

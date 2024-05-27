@@ -7,7 +7,7 @@
 
 ## Service Chain Overview <a id="service-chain-overview"></a>
 
-Klaytn Service Chain provides the following features.
+Kaia Service Chain provides the following features.
 
 - Immediate finality. 
 - Cross-chain token transfer.
@@ -17,4 +17,4 @@ Klaytn Service Chain provides the following features.
 ![](/img/nodes/sc_connection.png)
 
 
-Read the [Klaytn Scaling Solution](../../learn/scaling-solutions.md) for more details about the Service Chain.
+Read the [Kaia Scaling Solution](../../learn/scaling-solutions.md) for more details about the Service Chain.

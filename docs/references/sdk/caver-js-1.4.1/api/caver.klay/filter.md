@@ -187,7 +187,7 @@ Creates a filter object using the given filter options, to receive the specific 
 - To check if the state has changed, call [getFilterChanges](#getfilterchanges).
 - To obtain all logs matching the filter created by `newFilter`, call [getFilterLogs](#getfilterlogs).
 
-For detailed information about topic filters, please see [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/klay/new-filter).
+For detailed information about topic filters, please see [Kaia Platform API - klay_newFilter](../../../../../json-rpc/klay/new-filter).
 
 
 

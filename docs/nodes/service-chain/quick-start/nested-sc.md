@@ -34,8 +34,8 @@ Created :  homi-output/keys/validator4
 Created :  homi-output/scripts/static-nodes.json
 Created :  homi-output/keys_test/testkey1
 Created :  homi-output/keys_test/keystore1/0xdC7218621513f71d609653d22C39d79d558d9CDC
-Created :  homi-output/Klaytn.json
-Created :  homi-output/Klaytn_txpool.json
+Created :  homi-output/Kaia.json
+Created :  homi-output/Kaia_txpool.json
 ```
 
 ![](/img/nodes/sc-nestedsc-ip.png)

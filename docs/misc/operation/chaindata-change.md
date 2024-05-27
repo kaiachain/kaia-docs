@@ -52,7 +52,7 @@ $ sudo mkdir /var/kcnd2/log
 
 ### Download the latest chaindata
 
-Download Chain Data to the data of the new Klaytn Data DIR. (You can check the details on Chain Data in [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/))
+Download Chain Data to the data of the new Kaia Data DIR. (You can check the details on Chain Data in [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/))
 
 1. Download with the following command
 
@@ -91,7 +91,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 </aside>
 
 1. Stop klaytn daemon process before swap
-    1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN 
+    1. ***IMPORTANT*** Remove CN node in Kaia council if the node type is CN 
 
     💡 You can get packages for EN in the [Startup the CN](../../nodes/core-cell/install/install-consensus-nodes.md#startup-the-cn).
     
@@ -116,7 +116,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 ### Option 2 - Update DATA_DIR & LOG_DIR in klaytn config file
 
-1. Klaytn DIR Path Change
+1. Kaia DIR Path Change
     - Option 1 - New disk
         - Change `fstab` value from old disk to new disk
     - Option 2 - Current disk
@@ -129,5 +129,5 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 </aside>
 
-1. ***IMPORTANT*** Remove CN node in Klaytn council if the node type is CN
+1. ***IMPORTANT*** Remove CN node in Kaia council if the node type is CN
 2. Restart process or reboot instance

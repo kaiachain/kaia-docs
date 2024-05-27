@@ -2,11 +2,11 @@
 
 ![](/img/references/klaytn-web3js.png)
 
-[web3.js](https://web3js.readthedocs.io/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Klaytn. With Klaytn supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as web3.js can be used on Klaytn without any significant modifications.
+[web3.js](https://web3js.readthedocs.io/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Kaia. With Kaia supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as web3.js can be used on Kaia without any significant modifications.
 
-Thus, developers can leverage this compatibility and use the web3.js library to interact with a Klaytn node.
+Thus, developers can leverage this compatibility and use the web3.js library to interact with a Kaia node.
 
-In this guide, you'll learn how to use the web3.js library to read data from the blockchain, send a transaction and interact with an existing contract on the Klaytn Network.
+In this guide, you'll learn how to use the web3.js library to read data from the blockchain, send a transaction and interact with an existing contract on the Kaia Network.
 
 
 ## Prerequisites
@@ -46,7 +46,7 @@ Import `web3` into your script file.
 const { Web3 } = require('web3');
 ```
 
-After successfully importing web3, you need to connect to Klaytn by instantiating a new web3.js  object with an RPC URL of the Klaytn network. Add the code below to the existing code:
+After successfully importing web3, you need to connect to Kaia by instantiating a new web3.js  object with an RPC URL of the Kaia network. Add the code below to the existing code:
 
 ```js
 const url = "RPC URL"  
@@ -157,13 +157,13 @@ If the transaction was succesful, you'll see the transaction receipt logged in y
 
 ## Interacting with smart contracts
 
-To interact with an existing smart contract on Klaytn, create a new `interact.js` file in your project folder by running this command:
+To interact with an existing smart contract on Kaia, create a new `interact.js` file in your project folder by running this command:
 
 ```bash
 touch interact.js
 ```
 
-After creating this file, initialize `web3` as done in the `initialize` section. In this section, you will use web3.js to interact with a smart contract on Klaytn by instantiating a `Contract` object using the ABI and address of a deployed contract.
+After creating this file, initialize `web3` as done in the `initialize` section. In this section, you will use web3.js to interact with a smart contract on Kaia by instantiating a `Contract` object using the ABI and address of a deployed contract.
 
 For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](../../build/tutorials/connecting-remix.md). We will be sending a transaction to the contract by calling the `store` function and also reading from it by calling the `retrieve` function.
 

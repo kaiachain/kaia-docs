@@ -1,8 +1,8 @@
 # RPC Service Providers
 
-By using node services, you can focus on developing your application or product on Klaytn instead of spending your resources on node operation. Below is a list of node providers.
+By using node services, you can focus on developing your application or product on Kaia instead of spending your resources on node operation. Below is a list of node providers.
 
-## Klaytn API Service (KAS)
+## Kaia API Service (KAS)
 
 KAS provides various APIs to support easier and quicker blockchain application development. You can dramatically reduce development time, operate a stable service, and save costs.
 
@@ -10,7 +10,7 @@ KAS provides various APIs to support easier and quicker blockchain application d
 
 * 10,000 requests per day (100 requests per second) for the free plan
 * Community support for the free plan, and ticket support for paid plans (Starter, Pro, and Pro Plus)
-* Klaytn Node API, Token History API, Wallet API, Anchor API, KIP-7, 17, 37 API and Metadata API
+* Kaia Node API, Token History API, Wallet API, Anchor API, KIP-7, 17, 37 API and Metadata API
 
 ### References
 
@@ -54,7 +54,7 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 
 ### References
 
-* [Docs](https://apidoc.tatum.io/tag/Klaytn?_gl=1\*1dhfv8u\*_ga\*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.\*_ga_BH6F6RKJW6\*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
+* [Docs](https://apidoc.tatum.io/tag/Kaia?_gl=1\*1dhfv8u\*_ga\*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.\*_ga_BH6F6RKJW6\*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
 * [Pricing](https://tatum.io/pricing)
 * [Website](https://tatum.io/)
 
@@ -62,12 +62,12 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 
 BlockPI Network aims to provide high-quality, robust, and efficient RPC service. To avoid the single-point failure and limitation of scalability, the network is designed to be a distributed structure with expandable RPC nodes.
 
-BlockPI provides free public endpoints to the Klaytn community and advanced features to paid users.  BlockPI designed two paid packages, and support Pay As You Go to fulfill flexible user needs. You can check the pricing details for each package (https://docs.blockpi.io/documentations/pricing) and the individual method cost for Klaytn  (https://docs.blockpi.io/documentations/request-unit-ru)
+BlockPI provides free public endpoints to the Kaia community and advanced features to paid users.  BlockPI designed two paid packages, and support Pay As You Go to fulfill flexible user needs. You can check the pricing details for each package (https://docs.blockpi.io/documentations/pricing) and the individual method cost for Kaia  (https://docs.blockpi.io/documentations/request-unit-ru)
 
 ### Features
 
 * 20 requests per second on free services, and unlimited for paid packages.
-* Choice of Klaytn archive node and endpoint node
+* Choice of Kaia archive node and endpoint node
 * Whitelisting possible for endpoint nodes
 * WSS available and subscription coming soon
 * Supports tracing

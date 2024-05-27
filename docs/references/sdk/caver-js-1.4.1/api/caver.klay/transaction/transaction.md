@@ -5,7 +5,7 @@
 ```javascript
 caver.klay.call(callObject [, defaultBlock] [, callback])
 ```
-Executes a message call transaction, which is directly executed in the Klaytn
+Executes a message call transaction, which is directly executed in the Kaia
 Virtual Machine of the node, but never mined into the blockchain.
 
 **Parameters**
@@ -68,7 +68,7 @@ Executes a message call or transaction and returns the amount of the gas used fo
 caver.klay.estimateComputationCost(callObject [, defaultBlock] [, callback])
 ```
 Generates and returns an estimate of how much computation cost will be spent to execute the transaction.
-Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction.
+Kaia limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction.
 The transaction will not be added to the blockchain.
 
 **Parameters**
@@ -438,7 +438,7 @@ Returns the receipt of a transaction by transaction hash.
 | nonce | QUANTITY | The number of transactions made by the sender prior to this one. |
 | senderTxHash | 32-byte DATA | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non fee-delegated transactions. |
 | signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| status | Boolean | `true` if the transaction was successful, `false` if the Klaytn Virtual Machine reverted the transaction. |
+| status | Boolean | `true` if the transaction was successful, `false` if the Kaia Virtual Machine reverted the transaction. |
 | txError | QUANTITY | (optional) detailed error code if `status` is equal to zero. |
 | to | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction. |
 | transactionHash | 32-byte DATA | Hash of the transaction. |
@@ -523,7 +523,7 @@ This can be checked by calling [isSenderTxHashIndexingEnabled](../config.md#isse
 | nonce | QUANTITY | The number of transactions made by the sender prior to this one. |
 | senderTxHash | 32-byte DATA | Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non fee-delegated transactions. |
 | signatures | Array | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| status | Boolean | `true` if the transaction was successful, `false` if the Klaytn Virtual Machine reverted the transaction. |
+| status | Boolean | `true` if the transaction was successful, `false` if the Kaia Virtual Machine reverted the transaction. |
 | txError | QUANTITY | (optional) detailed error code if `status` is equal to zero. |
 | to | 20-byte DATA | Address of the receiver. `null` when it is a contract creation transaction. |
 | transactionHash | 32-byte DATA | Hash of the transaction. |

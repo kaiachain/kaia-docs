@@ -1,12 +1,12 @@
-# Use Klaytn Safe
+# Use Kaia Safe
 
 ## Create a Safe
 
-Here you will see how to create a Safe and evaluate its benefits on the Klaytn Network.
+Here you will see how to create a Safe and evaluate its benefits on the Kaia Network.
 
-**Step 1:** Navigate to [Klaytn Safe App](https://safe.klaytn.foundation/). By navigating to the application on your web browser, you can explore the functionality of Klaytn Safe.
+**Step 1:** Navigate to [Kaia Safe App](https://safe.klaytn.foundation/). By navigating to the application on your web browser, you can explore the functionality of Kaia Safe.
 
-**Step 2:** Connect your [wallet](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/). At the moment, Klaytn Safe has support for [MetaMask](../../../tutorials/connecting-metamask) wallet. Make sure you have Klaytn networks([Cypress](../../../tutorials/connecting-metamask#connect-to-klaytn-cypress-network-mainnet) or [Baobab](../../../tutorials/connecting-metamask#connect-to-klaytn-baobab-network-testnet)) added to your MetaMask wallet to connect successfully.
+**Step 2:** Connect your [wallet](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/). At the moment, Kaia Safe has support for [MetaMask](../../../tutorials/connecting-metamask) wallet. Make sure you have Kaia networks([Cypress](../../../tutorials/connecting-metamask#connect-to-klaytn-cypress-network-mainnet) or [Baobab](../../../tutorials/connecting-metamask#connect-to-klaytn-baobab-network-testnet)) added to your MetaMask wallet to connect successfully.
 
 ![](/img/build/tools/1_safeConnect.gif)
 
@@ -25,7 +25,7 @@ Here you will see how to create a Safe and evaluate its benefits on the Klaytn N
 
 ![](/img/build/tools/4_deploySafe.gif)
 
-Congratulations on successfully creating your Klaytn Safe account!
+Congratulations on successfully creating your Kaia Safe account!
 
 ## Add assets
 
@@ -52,7 +52,7 @@ Below are the steps to add **‘KLAY’** to your safe account
 
 ![](/img/build/tools/f4_amountNext.png)
 
-**Step 5:** Confirm the transaction and check your asset dashboard. You can see the amount being transferred from your metamask account to your Klaytn Safe account. 
+**Step 5:** Confirm the transaction and check your asset dashboard. You can see the amount being transferred from your metamask account to your Kaia Safe account. 
 
 ![](/img/build/tools/f5_sendDone.png)
 
@@ -83,10 +83,10 @@ Now we  will see how to deposit KIP17 (Non Fungible tokens) to our safe by follo
 You can transfer your NFT’s to your safe account in many different ways. Here is an example on how to transfer NFT to the safe account using  [OpenSea](https://opensea.io/about).
 
 1. Navigate to your [OpenSea account](https://testnets.opensea.io/account) profile page
-2. Navigate to an NFT you ll love to transfer. Make sure to select a NFT on the Klaytn Network(Cypress or Baobab)
+2. Navigate to an NFT you ll love to transfer. Make sure to select a NFT on the Kaia Network(Cypress or Baobab)
 3. On the next page, click on the transfer button. 
 4. Paste the safe address in the text box and transfer to safe 
-5. Under Assets section in Klaytn Safe you can find NFT’s from OpenSea. 
+5. Under Assets section in Kaia Safe you can find NFT’s from OpenSea. 
 
 ![](/img/build/tools/sendNFTOpensea.gif)
 
@@ -94,7 +94,7 @@ Please refer to this [guide](https://support.opensea.io/hc/en-us/articles/518312
 
 ## Send assets
 
-In this section, you'll learn how to send KLAY and KIP-7 tokens from your Klaytn Safe account.
+In this section, you'll learn how to send KLAY and KIP-7 tokens from your Kaia Safe account.
 
 ### Send KLAY <a id="Send KLAY from Safe"></a>
 
@@ -121,7 +121,7 @@ Note: Add the recipient address and the number of tokens to transfer KIP7 tokens
 
 ### Send NFTs <a id="Send NFTs from Safe"></a>
 
-In this section, you'll learn how to send your non-fungible tokens from your Klaytn Safe account. 
+In this section, you'll learn how to send your non-fungible tokens from your Kaia Safe account. 
 
 **Step 1:** Click the **"New Transaction"** button in the side menu and select **"Send NFT"** to begin a new asset transfer.
 
@@ -137,11 +137,11 @@ In this section, you'll learn how to send your non-fungible tokens from your Kla
 
 ## Further Notes <a id="Points to Note"></a>
 
-The following are things you will want to keep in mind while using Klaytn Safe:
+The following are things you will want to keep in mind while using Kaia Safe:
 
 ### Transaction Fees <a id="Transaction Fees"></a>
 
-Klaytn Safe transactions, whether asset transfers or contract interactions, incur a fee that will be paid by the signer that executes the transaction (usually the last signer to reach the required threshold of signatures).
+Kaia Safe transactions, whether asset transfers or contract interactions, incur a fee that will be paid by the signer that executes the transaction (usually the last signer to reach the required threshold of signatures).
 
 ### Safe Nonce <a id="Safe Nonce"></a>
 

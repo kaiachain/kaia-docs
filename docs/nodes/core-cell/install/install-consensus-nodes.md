@@ -60,9 +60,9 @@ Or,
 $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Install from Kaia Yum Repo <a id="install-from-klaytn-yum-repo"></a>
 
-Alternatively, you can install `kcnd` from the Klaytn Yum repo, run:
+Alternatively, you can install `kcnd` from the Kaia Yum repo, run:
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kcnd
@@ -88,7 +88,7 @@ The CN configuration is to create a data directory and set up several values in 
 
 ### CN Data Directory Creation <a id="cn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
+Considering the fact that the size of Kaia blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
 
 ```bash
 $ mkdir -p /var/kcnd/data
@@ -121,7 +121,7 @@ DATA_DIR=/var/kcnd/data
 
 #### Setup Rewardbase <a id="setup-rewardbase"></a>
 
-As a reward of participating in the consensus of the Klaytn network, CN operator will receive KLAY. For this reason, it is required to set an address on the configuration file `kcnd.conf`.
+As a reward of participating in the consensus of the Kaia network, CN operator will receive KLAY. For this reason, it is required to set an address on the configuration file `kcnd.conf`.
 
 The ways to create a new account are various, but the `kcn` also provides the functionality. You can check the help message with the following command.
 
@@ -180,7 +180,7 @@ You can refer to detailed information in the [Chaindata change](../../../misc/op
 
 ### CN Start/Stop  <a id="cn-start-stop"></a>
 
-You can start/stop the Klaytn service with the following `systemctl` command.
+You can start/stop the Kaia service with the following `systemctl` command.
 
 **Note**: This requires root privileges.
 
@@ -292,7 +292,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ### kcn console <a id="kcn-console-kpn-console"></a>
 
-Klaytn provides a CLI client: `kcn console`. However, a CN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
+Kaia provides a CLI client: `kcn console`. However, a CN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
 
 The IPC file `klay.ipc` is located in the `data` directory on a CN.
 
@@ -300,9 +300,9 @@ Please execute the following command and check out the result.
 
 ```bash
 $ ken attach /var/kend/data/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: /var/kend/data
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
  >
@@ -313,7 +313,7 @@ You can check the usable commands on [API Document](../../../../references/json-
 The useful APIs to check the status of a CN:
 
 * `klay.blockNumber` (to get the latest block number)
-* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+* `net.peerCount` (to get the number of the connected Kaia nodes currently)
 
 #### klay.blockNumber  <a id="klay-blocknumber"></a>
 

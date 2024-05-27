@@ -67,11 +67,11 @@ Let's build it!
 
 ### 1\) `src/klaytn` <a id="1-src-klaytn"></a>
 
-`src/klaytn`: Contains files that help interact with Klaytn blockchain.
+`src/klaytn`: Contains files that help interact with Kaia blockchain.
 
 * `src/klaytn/caver.js`: Instantiates caver within configured setting.  
 
-  cf\) caver-js is a RPC library which makes a connection to klaytn node, interacting with node or smart contract deployed on Klaytn.
+  cf\) caver-js is a RPC library which makes a connection to klaytn node, interacting with node or smart contract deployed on Kaia.
 
 * `src/klaytn/Klaystagram.js`: Creates an instance of contract using caver-js API. You can interact with contract through the instance  
 
@@ -187,7 +187,7 @@ Redux store controls all data flow in front-end
 
 ### 1) `UploadPhoto` component's role <a href="#1-uploadphoto-component-s-role" id="1-uploadphoto-component-s-role"></a>
 
-`UploadPhoto` component handles the photo upload request to the Klaytn blockchain. The process is as follows:
+`UploadPhoto` component handles the photo upload request to the Kaia blockchain. The process is as follows:
 
 1. Invoke `uploadPhoto` method of the smart contract by sending a transaction. Inside the `uploadPhoto` contract method, a new ERC-721 token is minted.
 2. After sending a transaction, show the progress along the transaction life cycle using the `Toast` component.
@@ -333,7 +333,7 @@ export default connect(null, mapDispatchToProps)(UploadPhoto)
 
 ### 3) Interact with contract <a href="#3-interact-with-contract" id="3-interact-with-contract"></a>
 
-Let's make a function to write photo data on Klaytn. **Send transaction to contract: `uploadPhoto`**\
+Let's make a function to write photo data on Kaia. **Send transaction to contract: `uploadPhoto`**\
 Unlike read-only function calls, writing data incurs a transaction fee. The transaction fee is determined by the amount of used `gas`. `gas` is a measuring unit representing how much calculation is needed to process the transaction.
 
 For these reasons, sending a transaction needs two property `from` and `gas`.
