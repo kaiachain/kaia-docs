@@ -244,23 +244,12 @@ const config = {
             sidebarid: 'refSidebar',
             label: 'References',
           },
-/*          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Documents',
-          },
-          { to: 'blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://forum.klaytn.foundation',
-            label: 'Dev Forum',
+            to: "docs/kaiatech",
             position: 'left',
+            sidebarid: 'kaiaSidebar',
+            label: 'Kaia Tech',
           },
-          {
-            href: 'https://developer.klaytn.foundation',
-            label: 'Dev Hub',
-            position: 'left',
-          },*/
           {
             type: 'docsVersionDropdown',
             position: 'right',
