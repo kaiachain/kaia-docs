@@ -607,16 +607,6 @@ const sidebars = {
     'kaiatech/kaiatech',
     {
       type: 'doc',
-      id: 'kaiatech/kaia-white-paper',
-      label: "White Paper"
-    },
-    {
-      type: 'doc',
-      id: 'kaiatech/kaia-tokenomics',
-      label: "Tokenomics"
-    },
-    {
-      type: 'doc',
       id: 'kaiatech/kaia-dlt-framework',
       label: "DLT Framework"
     },
