@@ -2,7 +2,7 @@
 
 ## Overview <a id="overview"></a>
 
-The Klaytn team provides a site for monitoring the Klaytn CCN at [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000). The `telegraf` monitoring agent is installed in each CN/PN of the CC to collect metrics and send them to the monitoring server. Once installed, you may visit the monitoring site to view the metrics of the Klaytn CCs.
+The Kaia team provides a site for monitoring the Kaia CCN at [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000). The `telegraf` monitoring agent is installed in each CN/PN of the CC to collect metrics and send them to the monitoring server. Once installed, you may visit the monitoring site to view the metrics of the Kaia CCs.
 
 The installation process is as follows:
 

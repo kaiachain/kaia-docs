@@ -2,15 +2,15 @@
 
 This chapter describes only the high-level concepts, development processes, and examples written in Solidity because Solidity is already well documented on its official websites. For language specifications or implementations, please refer to the [References](#references) below. The content of this chapter is based on various websites listed in the [References](#references).
 
-## Solidity and Klaytn <a id="solidity-and-klaytn"></a>
+## Solidity and Kaia <a id="solidity-and-klaytn"></a>
 
-[Solidity](https://github.com/ethereum/solidity) is a high-level, statically typed, contract-oriented language for implementing smart contracts on the Ethereum platform. Although Solidity was originally designed for Ethereum, it is general enough to write smart contracts; therefore, it can also be used for other blockchain platforms, such as Klaytn.
+[Solidity](https://github.com/ethereum/solidity) is a high-level, statically typed, contract-oriented language for implementing smart contracts on the Ethereum platform. Although Solidity was originally designed for Ethereum, it is general enough to write smart contracts; therefore, it can also be used for other blockchain platforms, such as Kaia.
 
-Klaytn is officially compatible with **London** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended to compile Solidity code with the Istanbul target option. Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).  
+Kaia is officially compatible with **London** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Kaia. Thus, it is highly recommended to compile Solidity code with the Istanbul target option. Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).  
 
 :::note
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Kaia's own items.
 It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
@@ -21,7 +21,7 @@ It has been enabled from block number `#86,513,895` in case of Baobab network an
 
 :::  
 
-Development tools such as [Remix](https://remix.ethereum.org/) \(a browser-based IDE\) and [Truffle](https://github.com/trufflesuite/truffle) \(a development framework\) can be utilized when developing smart contracts for Klaytn. The Klaytn team will attempt to maintain compatibility between Ethereum's development tools and Klaytn's but may elect to provide the Klaytn smart contract developers with enhanced or updated versions of those tools when necessary.
+Development tools such as [Remix](https://remix.ethereum.org/) \(a browser-based IDE\) and [Truffle](https://github.com/trufflesuite/truffle) \(a development framework\) can be utilized when developing smart contracts for Kaia. The Kaia team will attempt to maintain compatibility between Ethereum's development tools and Kaia's but may elect to provide the Kaia smart contract developers with enhanced or updated versions of those tools when necessary.
 
 It is convenient to utilize Remix or Truffle to develop smart contracts, but the Solidity compiler can be used locally, by building or installing it by following the instructions described in the web page below:
 
@@ -72,7 +72,7 @@ The above code should be self-explanatory; thus people familiar with any other p
 * The `pragma` statement in `L01` indicates the minimum compiler version.  
 * The `import` statement in `L03` imports all global symbols from "`filename`". The `filename` should be an actual file name.
 * `L05` - `L20` define a smart contract called `UserStorage`.  The keyword `contract` is located before the contract name and declares that the code represents a smart contract.  Contracts in Solidity are similar to classes in object-oriented languages.  Each contract can contain declarations for state variables, functions, function modifiers, events, struct types and enum types.  Furthermore, contracts can inherit from other contracts.  The example code contains one contract definition, but a single Solidity file may contain more than one contract definition.
-* In `L07`, `userData` is a state variable for the mapping type.  State variables are permanently stored in contract storage.  The state variable `userData` maintains a mapping between `address` and a `uint` value.  The `address` type holds a 20-byte address \(Klaytn uses a 20-byte address similar to Ethereum\).
+* In `L07`, `userData` is a state variable for the mapping type.  State variables are permanently stored in contract storage.  The state variable `userData` maintains a mapping between `address` and a `uint` value.  The `address` type holds a 20-byte address \(Kaia uses a 20-byte address similar to Ethereum\).
 * `L09` defines a public function `set` that saves the value `x` in `userData` for the message's sender.  The variable `msg.sender` is a special variable defined in Solidity that represents the address of the message \(_i.e._, current call\) sender.  The keyword `public` means that the function is part of the contract interface and can be called externally or internally.
 * The functions `get` in `L13` and `getUserData` in `L17` are declared with `view`, which means that the functions promise not to modify any state variable.  Their declarations include `returns (uint)`, which implies that they return a `uint` value.
 

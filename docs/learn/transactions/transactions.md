@@ -14,23 +14,23 @@ A transaction in a blockchain platform is a message sent between nodes that chan
 | gas | The maximum amount of transaction fee the transaction is allowed to use. |
 | gasPrice | A multiplier to get how much the sender will pay in tokens. The amount of tokens the sender will pay is calculated via `gas` \* `gasPrice`. For example, the sender will pay 10 KLAY for a transaction fee if gas is 10 and gasPrice is 10^18. Unit of KLAY is described [here](../klaytn-native-coin-klay.md#units-of-klay). |
 
-## Klaytn Transactions <a id="klaytn-transactions"></a>
+## Kaia Transactions <a id="klaytn-transactions"></a>
 
-While typical Blockchain platforms provide a single transaction type, Klaytn provides multiple transaction types that empower transactions with new capabilities and optimizations for memory footprint and performance.
+While typical Blockchain platforms provide a single transaction type, Kaia provides multiple transaction types that empower transactions with new capabilities and optimizations for memory footprint and performance.
 
 ### Signature Validation of Transactions <a id="signature-validation-of-transactions"></a>
 
 In typical blockchain platforms, the address is derived from the public key which is derived again from the transaction signature. This is possible only if the address and the key pair are strongly coupled.
 
-Since a key pair is decoupled from the address in Klaytn, the sender address cannot be derived using the transaction signature. This is why Klaytn transaction types except TxTypeLegacyTransaction have the field `from`. In Klaytn, to validate a transaction, the [AccountKey](../accounts.md#account-key) of `from` is obtained, and the obtained key is used to validate the transaction signature.
+Since a key pair is decoupled from the address in Kaia, the sender address cannot be derived using the transaction signature. This is why Kaia transaction types except TxTypeLegacyTransaction have the field `from`. In Kaia, to validate a transaction, the [AccountKey](../accounts.md#account-key) of `from` is obtained, and the obtained key is used to validate the transaction signature.
 
 ### Fee Delegation <a id="fee-delegation"></a>
 
-To provide businesses with the necessary flexibility in their business model design, Klaytn provides a number of fee-delegated versions for its basic transaction types. These variants enable service providers to subsidize their end-user activities by paying for their transaction fees instead. Transaction fee subsidization can be further detailed by using transactions with the Ratio parameter, letting service providers designate the percentage of fees they would cover. Fee-delegation transactions require at least two signatures: one from the sender, and another from the fee payer.
+To provide businesses with the necessary flexibility in their business model design, Kaia provides a number of fee-delegated versions for its basic transaction types. These variants enable service providers to subsidize their end-user activities by paying for their transaction fees instead. Transaction fee subsidization can be further detailed by using transactions with the Ratio parameter, letting service providers designate the percentage of fees they would cover. Fee-delegation transactions require at least two signatures: one from the sender, and another from the fee payer.
 
 ### SenderTxHash <a id="sendertxhash"></a>
 
-SenderTxHash is a hash of a transaction without the fee payer's address and signature. The transaction hash of a fee-delegated transaction is not determined yet until the fee payer signs the transaction. To track a fee-delegated transaction, the sender should get the transaction hash derived from the complete transaction containing the signatures from both the sender and the fee payer. Since it is very hard for the sender to get the transaction hash, Klaytn provides a SenderTxHash as well as the transaction hash. To find the complete fee-delegated transaction in the Klaytn network, the sender generates the SenderTxHash and requests a transaction object via [klay_getTransactionBySenderTxHash](../../references/json-rpc/klay/get-transaction-by-sender-tx-hash/). How to get the SenderTxHash depends on each transaction type, which is described in the description of each transaction type.
+SenderTxHash is a hash of a transaction without the fee payer's address and signature. The transaction hash of a fee-delegated transaction is not determined yet until the fee payer signs the transaction. To track a fee-delegated transaction, the sender should get the transaction hash derived from the complete transaction containing the signatures from both the sender and the fee payer. Since it is very hard for the sender to get the transaction hash, Kaia provides a SenderTxHash as well as the transaction hash. To find the complete fee-delegated transaction in the Kaia network, the sender generates the SenderTxHash and requests a transaction object via [klay_getTransactionBySenderTxHash](../../references/json-rpc/klay/get-transaction-by-sender-tx-hash/). How to get the SenderTxHash depends on each transaction type, which is described in the description of each transaction type.
 
 Each transaction type is described in detail:
 

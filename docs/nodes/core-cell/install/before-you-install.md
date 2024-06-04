@@ -7,7 +7,7 @@ You can get packages for CN, and PN in the [download page](../../downloads/downl
 
 ## Before You Install <a id="before-you-install"></a>
 
-Before installing the Klaytn package, it is required to create the associated node information to enroll your node URIs. The Kgen package is provided for CC operators, please follow the steps in the order shown below.
+Before installing the Kaia package, it is required to create the associated node information to enroll your node URIs. The Kgen package is provided for CC operators, please follow the steps in the order shown below.
 
 1. Download `kgen` Package
 2. Node Key & Node URI Creation
@@ -31,7 +31,7 @@ $ ls
 nodekey node_info.json
 ```
 
-The `nodekey` is a 64-byte hexadecimal string which is a private key used in the node internally. This private key must be present at the Klaytn data directory and be careful not to lose it.
+The `nodekey` is a 64-byte hexadecimal string which is a private key used in the node internally. This private key must be present at the Kaia data directory and be careful not to lose it.
 
 ```text
 $ cat nodekey
@@ -63,9 +63,9 @@ $ cat node_info.json
 The created node URI should be enrolled to participate in the Core Cell Network \(CCN\). The process of the enrollment is as follows.
 
 1. Create a node URI using `kgen` \(`node_info.json`\) which contains the associated IP and Port number.
-2. Send the information to the official Klaytn email address \(`bootstrap@klaytn.com` for Cypress or `baobab@klaytn.com` for Baobab\).
+2. Send the information to the official Kaia email address \(`bootstrap@klaytn.com` for Cypress or `baobab@klaytn.com` for Baobab\).
 
-The enrolled information should be sent to the official Klaytn email address. The format is as follows.
+The enrolled information should be sent to the official Kaia email address. The format is as follows.
 
 In case of CN,
 

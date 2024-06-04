@@ -83,8 +83,8 @@ export default BlockNumber
 
 ### 2\) BlockNumber component's role <a id="2-blocknumber-component-s-role"></a>
 
-`BlockNumber` component's role is showing Klaytn's current block number.  
-It requests the current block number to the Klaytn node by calling `caver.klay.getBlockNumber()` every second. This component re-renders DOM through `this.setState({ currentBlockNumber: blockNumber })` upon receiving the response.
+`BlockNumber` component's role is showing Kaia's current block number.  
+It requests the current block number to the Kaia node by calling `caver.klay.getBlockNumber()` every second. This component re-renders DOM through `this.setState({ currentBlockNumber: blockNumber })` upon receiving the response.
 
 ### 3\) `getBlockNumber` method in detail <a id="3-getblocknumber-method-in-detail"></a>
 

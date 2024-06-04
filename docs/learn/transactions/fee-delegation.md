@@ -2,7 +2,7 @@
 
 ## TxTypeFeeDelegatedValueTransfer <a id="txtypefeedelegatedvaluetransfer"></a>
 
-TxTypeFeeDelegatedValueTransfer is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransfer is limited to send KLAY to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransfer is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecution](#txtypefeedelegatedsmartcontractexecution) instead. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedValueTransfer is used when a user wants to send KLAY. As Kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransfer is limited to send KLAY to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransfer is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecution](#txtypefeedelegatedsmartcontractexecution) instead. The following changes will be made by this transaction type.
 
 1. The fee payer's balance decreases by the amount of the transaction fee.
 2. The sender's nonce increases by one.
@@ -886,7 +886,7 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeFeeDelegatedChainDataAnchoring <a id="txtypefeedelegatedchaindataanchoring"></a>
 
-TxTypeFeeDelegatedChainDataAnchoring is a fee-delegated transaction that anchors service chain data to the Klaytn mainchain. Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../nodes/service-chain/configure/anchoring.md). As it is a fee-delegated transaction as well, its transaction fee is charged to the fee payer. Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+TxTypeFeeDelegatedChainDataAnchoring is a fee-delegated transaction that anchors service chain data to the Kaia mainchain. Service chains periodically send this type of transaction to the Kaia mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../nodes/service-chain/configure/anchoring.md). As it is a fee-delegated transaction as well, its transaction fee is charged to the fee payer. Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Kaia blockchain except the sender's nonce being increased by one.
 
 ### Attributes <a id="attributes"></a>
 

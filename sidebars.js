@@ -39,18 +39,18 @@ const commonSidebar = [
       'misc/operation/upstream-en',
     ],
   },
-  'misc/klaytn-history',
+//  'misc/klaytn-history',
   'misc/glossary',
-  'misc/faq',
+  //'misc/faq',
   'misc/opensource',
   'misc/terms-of-use',
-  'misc/internationalization',
+  //'misc/internationalization',
 ];
 
 const sidebars = {
   learnSidebar: [
     'learn/learn',
-    'learn/why-klaytn',
+    'learn/why-kaia',
     'learn/consensus-mechanism',
     'learn/accounts',
     {
@@ -80,8 +80,8 @@ const sidebars = {
       items: [
         'learn/computation/computation-cost',
         'learn/computation/execution-model',
-        'learn/computation/klaytn-smart-contract',
-        'learn/computation/klaytn-virtual-machine',
+        //'learn/computation/klaytn-smart-contract',
+        //'learn/computation/klaytn-virtual-machine',
         'learn/computation/precompiled-contracts',
       ],
     },
@@ -100,7 +100,7 @@ const sidebars = {
     'learn/klaytn-native-coin-klay',
     'learn/token-economy',
     'learn/governance',
-    {
+/**     {
       type: 'category',
       link: {type: 'doc', id: 'learn/klaytn2/klaytn2'},
       label: 'Klaytn 2.0',
@@ -111,7 +111,7 @@ const sidebars = {
         'learn/klaytn2/massive-ecofund',
         'learn/klaytn2/metaverse-package',
       ],
-    },
+    },*/
     ...commonSidebar,
   ],
   buildSidebar: [
@@ -179,7 +179,7 @@ const sidebars = {
       label: 'Tutorials',
       link: {type: 'doc', id: 'build/tutorials/tutorials'},
       items: [
-        {
+/**        {
           type: 'category',
           label: 'Build Count DApp',
           link: {type: 'doc', id: 'build/tutorials/count-dapp/count-dapp'},
@@ -210,7 +210,7 @@ const sidebars = {
             'build/tutorials/klaystagram/code-overview',
             'build/tutorials/klaystagram/feedpage',
           ],
-        },
+        },*/
         'build/tutorials/fee-delegation-example',
         'build/tutorials/buy-me-a-coffee',
         'build/tutorials/connecting-metamask',
@@ -376,7 +376,7 @@ const sidebars = {
         'nodes/service-chain/upgrade-and-hard-fork',
       ],
     },
-    {
+/**    {
       type: 'category',
       label: 'Node Package Downloads',
       link: {type: 'doc', id: 'nodes/downloads/downloads'},
@@ -415,7 +415,7 @@ const sidebars = {
         'nodes/downloads/v0.9.6',
         'nodes/downloads/v0.8.2',
       ],
-    },
+    },*/
     ...commonSidebar,
   ],
   refSidebar: [

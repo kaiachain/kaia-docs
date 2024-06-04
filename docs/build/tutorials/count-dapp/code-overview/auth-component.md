@@ -24,7 +24,7 @@ Writing data to contracts or blockchain is called 'sending a transaction'.\
 For example, if you send 5 KLAY to your friend, you could think of it as `writing data to the blockchain that I sent 5 KLAY to my friend`.\
 Calling a contract method is the same. You could think of it as `writing data onto the contract that I set variable X to 100`. All actions related to writing data to blockchain or contract is called `sending a transaction`.
 
-To write data to contract, you should have a Klaytn account which has KLAY to pay for the transaction fee.\
+To write data to contract, you should have a Kaia account which has KLAY to pay for the transaction fee.\
 `Auth` component helps you log in to your app.
 
 ### 2) `Auth` component overview <a href="#2-auth-component-overview" id="2-auth-component-overview"></a>

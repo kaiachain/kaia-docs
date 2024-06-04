@@ -1,12 +1,12 @@
-# Klaytn Virtual Machine
+# Kaia Virtual Machine
 
 ## Overview <a id="overview"></a>
 
-The current version of the Klaytn Virtual Machine \(KLVM\) is derived from the Ethereum Virtual Machine \(EVM\). The content of this chapter is based primarily on the [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper). KLVM is continuously being improved by the Klaytn team, thus this document could be updated frequently. Please do not regard this document as the final version of the KLVM specification. As described in the Klaytn position paper, the Klaytn team also plans to adopt other virtual machines or execution environments in order to strengthen the capability and performance of the Klaytn platform. This chapter presents a specification of KLVM and the differences between KLVM and EVM.
+The current version of the Kaia Virtual Machine \(KLVM\) is derived from the Ethereum Virtual Machine \(EVM\). The content of this chapter is based primarily on the [Ethereum Yellow Paper](https://github.com/ethereum/yellowpaper). KLVM is continuously being improved by the Kaia team, thus this document could be updated frequently. Please do not regard this document as the final version of the KLVM specification. As described in the Kaia position paper, the Kaia team also plans to adopt other virtual machines or execution environments in order to strengthen the capability and performance of the Kaia platform. This chapter presents a specification of KLVM and the differences between KLVM and EVM.
 
-KLVM is a virtual state machine that formally specifies Klaytn's execution model. The execution model specifies how the system state is altered given a series of bytecode instructions and a small tuple of environmental data. KLVM is a quasi-Turing-complete machine; the _quasi_ qualification stems from the fact that the computation is intrinsically bounded through a parameter, _gas_, which limits the total amount of computation performed.
+KLVM is a virtual state machine that formally specifies Kaia's execution model. The execution model specifies how the system state is altered given a series of bytecode instructions and a small tuple of environmental data. KLVM is a quasi-Turing-complete machine; the _quasi_ qualification stems from the fact that the computation is intrinsically bounded through a parameter, _gas_, which limits the total amount of computation performed.
 
-KLVM executes Klaytn virtual machine code \(or Klaytn bytecode\) which consists of a sequence of KLVM instructions. The KLVM code is the programming language used for accounts on the Klaytn blockchain that contain code. The KLVM code associated with an account is executed every time a message is sent to that account; this code has the ability to read/write from/to storage and send messages.
+KLVM executes Kaia virtual machine code \(or Kaia bytecode\) which consists of a sequence of KLVM instructions. The KLVM code is the programming language used for accounts on the Kaia blockchain that contain code. The KLVM code associated with an account is executed every time a message is sent to that account; this code has the ability to read/write from/to storage and send messages.
 
 ## KLVM Specification <a id="klvm-specification"></a>
 
@@ -151,10 +151,10 @@ NOTE: This section will be filled in the future.
 
 As mentioned earlier, the current KLVM is based on EVM; thus, its specification currently is very similar to that of EVM. Some differences between KLVM and EVM are listed below.
 
-* KLVM uses Klaytn's gas units, such as peb, ston, or KLAY.
+* KLVM uses Kaia's gas units, such as peb, ston, or KLAY.
 * KLVM does not accept a gas price from the user; instead, it uses a platform-defined value as the gas price.
 
-The Klaytn team will try to maintain compatibility between KLVM and EVM, but as Klaytn becomes increasingly implemented and evolves, the KLVM specification will be updated, and there will probably be more differences compared to EVM.
+The Kaia team will try to maintain compatibility between KLVM and EVM, but as Kaia becomes increasingly implemented and evolves, the KLVM specification will be updated, and there will probably be more differences compared to EVM.
 
 NOTE: This section will be updated in the future.
 

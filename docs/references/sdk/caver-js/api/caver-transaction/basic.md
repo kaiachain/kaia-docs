@@ -10,7 +10,7 @@ sidebar_label: Basic
 caver.transaction.legacyTransaction.create(transactionObject)
 ```
 
-`LegacyTransaction` represents a [legacy transaction](../../../../../learn/transactions/basic.md#txtypelegacytransaction). A [Klaytn account](../../../../../learn/accounts.md#klaytn-accounts) can execute a `LegacyTransaction` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `LegacyTransaction`.
+`LegacyTransaction` represents a [legacy transaction](../../../../../learn/transactions/basic.md#txtypelegacytransaction). A [Kaia account](../../../../../learn/accounts.md#klaytn-accounts) can execute a `LegacyTransaction` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `LegacyTransaction`.
 
 `LegacyTransaction` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `LegacyTransaction`.
 
@@ -35,7 +35,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | signatures | Array | (optional) An array of signatures. A legacy transaction can have only one signature. |
 | nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -105,7 +105,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | signatures | Array | (optional) An array of signatures. |
 | nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -163,7 +163,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | signatures | Array | (optional) An array of signatures. |
 | nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -222,7 +222,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | signatures | Array | (optional) An array of signatures. |
 | nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 For how to create an [Account] instance for each `AccountKey`, refer to [Getting Started - Account Update](../../get-started.md#account-update) or [caver.account.create](../caver.account.md#caver-account-create).
 
@@ -285,7 +285,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | signatures | Array | (optional) An array of signatures. |
 | nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -345,7 +345,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | signatures | Array | (optional) An array of signatures. |
 | nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -403,7 +403,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | signatures | Array | (optional) An array of signatures. |
 | gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -456,7 +456,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | signatures | Array | (optional) An array of signatures. |
 | gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -486,7 +486,7 @@ ChainDataAnchoring {
 caver.transaction.ethereumAccessList.create(transactionObject)
 ```
 
-`EthereumAccessList` represents an [Ethereum access list transaction](../../../../../learn/transactions/basic.md#txtypeethereumaccesslist). A [Klaytn account](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
+`EthereumAccessList` represents an [Ethereum access list transaction](../../../../../learn/transactions/basic.md#txtypeethereumaccesslist). A [Kaia account](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
 
 `EthereumAccessList` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumAccessList`.
 
@@ -511,7 +511,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | signatures | Array | (optional) An array of signatures. An ethereum access list transaction can have only one signature. |
 | nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 | accessList | Array | (optional) As an EIP-2930 access list that contains all storage slots and addresses read and written by the transaction. |
 
 **Example**
@@ -558,7 +558,7 @@ EthereumAccessList {
 caver.transaction.ethereumDynamicFee.create(transactionObject)
 ```
 
-`EthereumDynamicFee` represents an [Ethereum dynamic fee transaction](../../../../../learn/transactions/basic.md#txtypeethereumdynamicfee). A [Klaytn account](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
+`EthereumDynamicFee` represents an [Ethereum dynamic fee transaction](../../../../../learn/transactions/basic.md#txtypeethereumdynamicfee). A [Kaia account](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
 
 `EthereumDynamicFee` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumDynamicFee`.
 And note that `EthereumDynamicFee` does not use `gasPrice`, it uses `maxPriorityFeePerGas` and `maxFeePerGas`.
@@ -583,9 +583,9 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | input | string | (optional) Data attached to the transaction, used for smart contract deployment/execution. |
 | signatures | Array | (optional) An array of signatures. An ethereum dynamic fee transaction can have only one signature. |
 | nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, it will be set to `caver.rpc.klay.getTransactionCount(address, 'pending')`. |
-| maxPriorityFeePerGas | string | (optional) Gas tip cap for the transaction in peb. Since Klaytn has a fixed gas price, it should be set to the same value as `caver.rpc.klay.getGasPrice`. If omitted, it will be set to `caver.rpc.klay.getMaxPriorityFeePerGas()`. |
-| maxFeePerGas | string | (optional) A maximum amount to pay for the transaction to execute. Since Klaytn has a fixed gas price, it should be set to the same value as `caver.rpc.klay.getGasPrice`. If omitted, the value of `baseFeePerGas * 2 + maxPriorityFeePerGas` is set to `maxFeePerGas`. |
-| chainId | string | (optional) The chain id of the Klaytn network. If omitted, it will be set to `caver.rpc.klay.getChainId`. |
+| maxPriorityFeePerGas | string | (optional) Gas tip cap for the transaction in peb. Since Kaia has a fixed gas price, it should be set to the same value as `caver.rpc.klay.getGasPrice`. If omitted, it will be set to `caver.rpc.klay.getMaxPriorityFeePerGas()`. |
+| maxFeePerGas | string | (optional) A maximum amount to pay for the transaction to execute. Since Kaia has a fixed gas price, it should be set to the same value as `caver.rpc.klay.getGasPrice`. If omitted, the value of `baseFeePerGas * 2 + maxPriorityFeePerGas` is set to `maxFeePerGas`. |
+| chainId | string | (optional) The chain id of the Kaia network. If omitted, it will be set to `caver.rpc.klay.getChainId`. |
 | accessList | Array | (optional) As an EIP-2930 access list that contains all storage slots and addresses read and written by the transaction. |
 
 **Example**

@@ -1,6 +1,6 @@
-# Klaytn Network Identifier
+# Kaia Network Identifier
 
-**KNI (Klaytn Network Identifier)** is a URL scheme to identify a Klaytn node. Its syntax is shown below:
+**KNI (Kaia Network Identifier)** is a URL scheme to identify a Kaia node. Its syntax is shown below:
 ```
 kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 ```
@@ -14,7 +14,7 @@ kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 * IPv4-mapped IPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
 * Domain name (`your.node.com`)
 
-**port** is used to make connections with peer nodes through TCP. In Klaytn, the default `port` is `32323` and the default `subport` is `32324`. Note that the default `subport` is configured as `port + 1` in `kend.conf`. Depending on the number of TCP listening ports, Klaytn offers two [types of connections](./multiport.md).
+**port** is used to make connections with peer nodes through TCP. In Kaia, the default `port` is `32323` and the default `subport` is `32324`. Note that the default `subport` is configured as `port + 1` in `kend.conf`. Depending on the number of TCP listening ports, Kaia offers two [types of connections](./multiport.md).
 
 **discport** is used for checking if the known neighbors are reachable klaytn nodes and fetching their neighbors' addresses for new connections. Note that this is a UDP port.
 By default, the UDP port, or `discport`, uses the same port with the TCP port.

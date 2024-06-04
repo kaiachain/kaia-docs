@@ -186,11 +186,11 @@ This is it, now we can deploy this contract!
 
 ### 1) Get some KLAY <a href="#1-get-some-klay" id="1-get-some-klay"></a>
 
-To deploy contract, we need some KLAY in your account to pay for gas price. You can get 150 KLAY via Klaytn Wallet in the testnet. 
+To deploy contract, we need some KLAY in your account to pay for gas price. You can get 150 KLAY via Kaia Wallet in the testnet. 
 
-1. Create your Klaytn account at [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation/create) -> `PRIVATE KEY` will be used in truffle configuration. So copy it down somewhere 
+1. Create your Kaia account at [Baobab Kaia Wallet](https://baobab.wallet.klaytn.foundation/create) -> `PRIVATE KEY` will be used in truffle configuration. So copy it down somewhere 
 
-2. After creating your Klaytn account, run faucet to receive 5 Baobab testnet KLAY in [Baobab Klaytn Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+2. After creating your Kaia account, run faucet to receive 5 Baobab testnet KLAY in [Baobab Kaia Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
 ![create-account & run-klay-faucet](/img/build/tutorials/klaystagram-run-faucet.png)
 
@@ -245,9 +245,9 @@ See `networks` property above. `klaytn` network has 4 properties,\
 `provider`, `network_id`, `gas`, `gasPrice`.
 
 * `provider: () => new HDWalletProvider(PRIVATE_KEY, URL)` Just as the name indicates, it injects private key and url defined above.
-* `network_id: NETWORK_ID` Specify network id in Klaytn, you should set it to `1001` to use Klaytn Baobab network (testnet).
+* `network_id: NETWORK_ID` Specify network id in Kaia, you should set it to `1001` to use Kaia Baobab network (testnet).
 * `gas: GASLIMIT` Maximum gas you are willing to spend.
-* `gasPrice: null` This is price per every gas unit. Currently in Klaytn, the gas price is fixed to `'25000000000'`. By setting it to `null`, truffle will automatically set the gas price.
+* `gasPrice: null` This is price per every gas unit. Currently in Kaia, the gas price is fixed to `'25000000000'`. By setting it to `null`, truffle will automatically set the gas price.
 
 #### `compiler` property <a href="#compiler-property" id="compiler-property"></a>
 

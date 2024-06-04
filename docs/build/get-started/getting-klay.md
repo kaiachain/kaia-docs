@@ -2,7 +2,7 @@
 
 ## Baobab Testnet and Faucet <a id="baobab-testnet-and-faucet"></a>
 
-The **testnet KLAY** faucet runs on the Baobab network. The faucet can be accessed from the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation). To receive testnet KLAY, you should have a valid Klaytn account.
+The **testnet KLAY** faucet runs on the Baobab network. The faucet can be accessed from the [Baobab Kaia Wallet](https://baobab.wallet.klaytn.foundation). To receive testnet KLAY, you should have a valid Kaia account.
 
 * Load your account into the wallet using your private key or keystore file. Testnet KLAY will be sent to the loaded account. 
 * Clicking `Run Faucet` button will send you 5 testnet KLAY and update your balance. Note that you can run the faucet for each account once every 24 hours.

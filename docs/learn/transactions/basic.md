@@ -2,11 +2,11 @@
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
 
-TxTypeLegacyTransaction represents a type of transactions existed previously in Klaytn. Since this transaction type exists to support compatibility, it only works with EOAs associated with [AccountKeyLegacy]. EOAs associated with other account key types should use other transaction types such as TxTypeValueTransfer, TxTypeSmartContractExecution, and so on. This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned. This transaction type will initiate the following changes.
+TxTypeLegacyTransaction represents a type of transactions existed previously in Kaia. Since this transaction type exists to support compatibility, it only works with EOAs associated with [AccountKeyLegacy]. EOAs associated with other account key types should use other transaction types such as TxTypeValueTransfer, TxTypeSmartContractExecution, and so on. This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned. This transaction type will initiate the following changes.
 
 1. The sender's balance decreases by the amount of the transaction fee.
 2. The sender's nonce increases by one.
-3. If `to` does not exist on Klaytn, an EOA associated with [AccountKeyLegacy] is created.
+3. If `to` does not exist on Kaia, an EOA associated with [AccountKeyLegacy] is created.
 4. `value` KLAY is transferred from the sender to the recipient.
 5. If `to` is nil, it is regarded as a smart contract deployment transaction. The smart contract code must be passed as `input`.
 6. If `to` is a smart contract, the smart contract function specified in `input` is executed.
@@ -120,7 +120,7 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeValueTransfer <a id="txtypevaluetransfer"></a>
 
-TxTypeValueTransfer is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KLAY to an externally owned account. Therefore, TxTypeValueTransfer is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeSmartContractExecution](#txtypesmartcontractexecution) instead. The following changes will be made by this transaction type.
+TxTypeValueTransfer is used when a user wants to send KLAY. As Kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KLAY to an externally owned account. Therefore, TxTypeValueTransfer is accepted only if `to` is an externally owned account. To transfer KLAY to a smart contract account, use [TxTypeSmartContractExecution](#txtypesmartcontractexecution) instead. The following changes will be made by this transaction type.
 
 1. The sender's balance decreases by the amount of the transaction fee.
 2. The sender's nonce increases by one.
@@ -717,11 +717,11 @@ The following shows a transaction object returned via JSON RPC.
 
 TxTypeCancel cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time. There are several cases that a transaction seems unprocessed: 1. The transaction was lost somewhere and did not reach any of the consensus nodes. 2. The transaction has not been processed yet in any of the consensus nodes. 3. The transaction was processed, but the block containing the transaction has not been received.
 
-From the client side, it is very hard to figure out the exact reason because to figure out the reason, it is required to look inside all the consensus nodes. However, connecting to any of the consensus nodes from the public is prohibited. Under this situation, in typical blockchain platforms, the user often submits another transaction with a higher gas price to replace the old transaction. However, because the gas price is fixed in Klaytn, replacing the old transaction with a higher gas price is not applicable.
+From the client side, it is very hard to figure out the exact reason because to figure out the reason, it is required to look inside all the consensus nodes. However, connecting to any of the consensus nodes from the public is prohibited. Under this situation, in typical blockchain platforms, the user often submits another transaction with a higher gas price to replace the old transaction. However, because the gas price is fixed in Kaia, replacing the old transaction with a higher gas price is not applicable.
 
 If the transaction remains unprocessed, the other transactions with higher nonce cannot be processed because the nonce determines the execution order of transactions.
 
-To solve this problem, Klaytn provides a transaction type TxTypeCancel. If a user encountered such a situation, a transaction of TxTypeCancel can be submitted.
+To solve this problem, Kaia provides a transaction type TxTypeCancel. If a user encountered such a situation, a transaction of TxTypeCancel can be submitted.
 
 Each of the above situations is handled as follows: 1. If the old transaction was lost, this TxTypeCancel transaction is executed and included in a block. 2. If the old transaction has not been processed yet, this TxTypeCancel replaces the old transaction. Then, it is executed and included in a block. 3. if the old transaction was already executed, the nonce has been increased, therefore this TxTypeCancel transaction is discarded due to the lower nonce.
 
@@ -839,7 +839,7 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeChainDataAnchoring <a id="txtypechaindataanchoring"></a>
 
-TxTypeChainDataAnchoringTransaction is a transaction that anchors service chain data to the Klaytn mainchain. Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../nodes/service-chain/configure/anchoring.md). Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+TxTypeChainDataAnchoringTransaction is a transaction that anchors service chain data to the Kaia mainchain. Service chains periodically send this type of transaction to the Kaia mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../nodes/service-chain/configure/anchoring.md). Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Kaia blockchain except the sender's nonce being increased by one.
 
 ### Attributes <a id="attributes"></a>
 

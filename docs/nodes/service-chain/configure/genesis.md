@@ -9,12 +9,12 @@ The `genesis.json` file structure is described in the following table.
 |             Field Name         |         Description           |
 | ------------------------------ | ----------------------------- |
 | config                         | The blokchain configuration. See the section [Config](#config). |
-| nonce                          | (deprecated) This field is derived from the Ethereum, but not used in Klaytn. |
+| nonce                          | (deprecated) This field is derived from the Ethereum, but not used in Kaia. |
 | timestamp                      | The unix time when a block is created. |
 | extraData                      | The data combined field for signer vanity and RLP-encoded istanbul extra data that contains validator list, proposer seal, and commit seals. |
 | gasLimit                       | The maximum gas amount that used in a block. |
-| difficulty                     | (deprecated) This field is derived from the Ethereum, but not used in Klaytn. |
-| mixhash                        | (deprecated) This field is derived from the Ethereum, but not used in Klaytn. |
+| difficulty                     | (deprecated) This field is derived from the Ethereum, but not used in Kaia. |
+| mixhash                        | (deprecated) This field is derived from the Ethereum, but not used in Kaia. |
 | coinbase                       | An address to which miner receives the reward. This field is only used for Clique consensus engine. |
 | alloc                          | The predefined accounts. |
 | number                         | The block number field. |
@@ -64,7 +64,7 @@ With this function, the output `extraData` for this example is 0x000000000000000
 
 ## Consensus Engine <a id="consensus-engine"></a>
 
-The available consensus engines for Klaytn network are Clique and Istanbul. Each engine is explained as follows.
+The available consensus engines for Kaia network are Clique and Istanbul. Each engine is explained as follows.
 
 ### Clique <a id="clique"></a>
 

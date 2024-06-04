@@ -25,7 +25,7 @@ Klaystagram DApp is tested in the following environment.
 
 [![Klaystagram Introduction Video](/img/build/tutorials/klaystagram-video-poster.png)](https://vimeo.com/327033594)
 
-In this tutorial, we will learn how to make `Klaystagram`, a Klaytn-based NFT photo licensing application. This simple web application requires basic knowledge of Solidity, JavaScript and React.
+In this tutorial, we will learn how to make `Klaystagram`, a Kaia-based NFT photo licensing application. This simple web application requires basic knowledge of Solidity, JavaScript and React.
 
 NFT refers to a non-fungible token, which is a special type of token that represents a unique asset. As the name non-fungible implies, every single token is unique. And this uniqueness of NFT opens up new horizons of asset digitization. For example, it can be used to represent digital art, game items, or any kind of unique assets and allow people to trade them. For more information, refer to this [article](https://coincentral.com/nfts-non-fungible-tokens/).
 
@@ -33,7 +33,7 @@ In `Klaystagram`, every token represents users' unique pictures. When a user upl
 
 There are three main features.
 
-1. **Photo upload** Users can upload photos along with descriptions on the Klaytn blockchain. The photos will be tokenized.
+1. **Photo upload** Users can upload photos along with descriptions on the Kaia blockchain. The photos will be tokenized.
 2. **Feed** Users can see all the photos uploaded on the blockchain.
 3. **Transfer ownership** The owner of the photo can transfer ownership of the photo to another user, and the transaction will be shown in the ownership history.
 

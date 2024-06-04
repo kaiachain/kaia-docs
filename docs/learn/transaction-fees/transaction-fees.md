@@ -23,7 +23,7 @@ Every action that changes the state of the blockchain requires gas. While proces
 * `ExecutionGas`, on the other hand, is a gas that is dynamically calculated due to the contract execution. For more details, please refer to [Execution Gas](execution-gas.md).
 
 ## GasPrice Overview <a id="gas-price-overview"></a>
-Unlike the ethereum, Klaytn used the fixed gas price, called `unitPrice` at first. However, since magma hardfork, Klaytn started to use dynamic gas price which concept is newly redesigned by modifying the Ethereum's basefee, so called `Effective Gas Price`. Since there have been many changes about gas price, it can be pretty confusing on what value to set for gasPrice. So, we've made a guide on how to set the gas price below.
+Unlike the ethereum, Kaia used the fixed gas price, called `unitPrice` at first. However, since magma hardfork, Kaia started to use dynamic gas price which concept is newly redesigned by modifying the Ethereum's basefee, so called `Effective Gas Price`. Since there have been many changes about gas price, it can be pretty confusing on what value to set for gasPrice. So, we've made a guide on how to set the gas price below.
 
 | Network | Before BaseFee | After BaseFee |
 | :--- | :--- | :--- |
@@ -54,4 +54,4 @@ The basic idea of this algorithm is that the `base fee` would go up if the gas u
 
 The `base fee` is calculated for every block; there could be changes every second. Transactions from a single block use the same `base fee` to calculate transaction fees. Only transactions with a gas price higher than the block `base fee` can be included in the block. Half of the transaction fee for each block is burned (BURN_RATIO = 0.5, cannot be changed by governance).
 
-> NOTE: An important feature that sets Klaytn apart from Ethereum's EIP-1559 is that it does not have tips. Klaytn follows the First Come, First Served(FCFS) principle for its transactions.
+> NOTE: An important feature that sets Kaia apart from Ethereum's EIP-1559 is that it does not have tips. Kaia follows the First Come, First Served(FCFS) principle for its transactions.

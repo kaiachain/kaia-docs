@@ -23,7 +23,7 @@ A transaction object of type `CANCEL` has the following structure:
 | type | String | Transaction Type. "CANCEL" |
 | from | String | Address of this transaction sender. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | nonce | Number | (optional) Integer of a nonce. This allows replacing your own pending transaction that has the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 
 **Return Value**
@@ -92,7 +92,7 @@ A transaction object of type `FEE_DELEGATED_CANCEL` has the following structure:
 | type | String | Transaction Type. "FEE_DELEGATED_CANCEL" |
 | from | String | Address of this transaction sender. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | nonce | Number | (optional) Integer of a nonce. This allows replacing your own pending transaction that has the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 
 A transaction object of type `FEE_DELEGATED_CANCEL` with the above structure or an `RLP-encoded transaction` of type `FEE_DELEGATED_CANCEL` can be used as a parameters in [caver.klay.accounts.signTransaction](../../caver.klay.accounts.md#signtransaction) for sender and in [caver.klay.accounts.feePayerSignTransaction](../../caver.klay.accounts.md#feepayersigntransaction) for fee payer.
@@ -181,7 +181,7 @@ A transaction object of type `FEE_DELEGATED_CANCEL_WITH_RATIO` has the following
 | type | String | Transaction Type. "FEE_DELEGATED_CANCEL_WITH_RATIO" |
 | from | String | Address of this transaction sender. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | nonce | Number | (optional) Integer of a nonce. This allows replacing your own pending transaction that has the same nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | feeRatio | Number | Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender. The range of fee ratio is 1 ~ 99, if it is out of range, the transaction will not be accepted. |
 

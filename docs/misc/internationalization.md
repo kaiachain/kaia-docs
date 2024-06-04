@@ -1,6 +1,6 @@
 # Internationalization
 
-KlaytnDocs is available in the following languages:
+KaiaDocs is available in the following languages:
 
 * [English](https://docs.klaytn.foundation/)
 * [한국어](https://docs.klaytn.foundation/ko/)
@@ -10,16 +10,16 @@ KlaytnDocs is available in the following languages:
 
 If you are fluent and confident in a language and are willing to contribute to translate or to improve the quality of the localized documents, see [the list of languages currently being translated](https://crowdin.com/project/klaytn-docs).
 
-### How to contribute KlaytnDocs localization via Crowdin [![Crowdin](https://badges.crowdin.net/klaytn-docs/localized.svg)](https://crowdin.com/project/klaytn-docs) <a href="#how-to-contribute-klaytndocs-localization-via-crowdin-crowdin-https-badges-crowd" id="how-to-contribute-klaytndocs-localization-via-crowdin-crowdin-https-badges-crowd"></a>
+### How to contribute KaiaDocs localization via Crowdin [![Crowdin](https://badges.crowdin.net/klaytn-docs/localized.svg)](https://crowdin.com/project/klaytn-docs) <a href="#how-to-contribute-klaytndocs-localization-via-crowdin-crowdin-https-badges-crowd" id="how-to-contribute-klaytndocs-localization-via-crowdin-crowdin-https-badges-crowd"></a>
 
 Crowdin is a web service for collaborative translation. To contribute to localization, please follow these steps:
 
-* Go to [Klaytn-Docs project at Crowdin](https://crowdin.com/project/klaytn-docs).
+* Go to [Kaia-Docs project at Crowdin](https://crowdin.com/project/klaytn-docs).
 * Create an account there.
 * Select the language you want to contribute. Can not find your language? Send a request to the project owner to initiate a new language translation.
 * Join the translator team. Wait until one of the managers approves your request.
 * Choose the file you want to contribute.
-* You can submit your translation for a string, vote for a translation, or leave a comment. When you submit a translation, please make sure your word choice conforms to the Klaytn Terminologies.
+* You can submit your translation for a string, vote for a translation, or leave a comment. When you submit a translation, please make sure your word choice conforms to the Kaia Terminologies.
 
 ![](/img/misc/crowdin-editor.png)
 

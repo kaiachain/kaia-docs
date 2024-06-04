@@ -1,19 +1,19 @@
-# Klaytn Wallet
+# Kaia Wallet
 
-Klaytn Wallet is a browser-based account management tool for dApp (decentralized application) developers on Klaytn. It helps developers create new accounts or view existing account information directly through a web browser without having to run a Klaytn node locally. Klaytn Wallet also lets users transfer KLAY or Klaytn tokens to other accounts for testing purposes.
+Kaia Wallet is a browser-based account management tool for dApp (decentralized application) developers on Kaia. It helps developers create new accounts or view existing account information directly through a web browser without having to run a Kaia node locally. Kaia Wallet also lets users transfer KLAY or Kaia tokens to other accounts for testing purposes.
 
 #### Important Notice on Security <a id="important-notice-on-security"></a>
 
-> **NOTE:** Klaytn Wallet is should be used for development and testing purposes only. Do NOT use Klaytn Wallet for commercial or personal use, including storage or transfer of KLAY or Klaytn tokens. Klaytn Wallet has NOT been tested for commercial-level security and may be vulnerable to malicious attacks. Klaytn Wallet stores user's private key in the browser's local storage, which may be susceptible to attacks that exploit the browser's security vulnerabilities.
+> **NOTE:** Kaia Wallet is should be used for development and testing purposes only. Do NOT use Kaia Wallet for commercial or personal use, including storage or transfer of KLAY or Kaia tokens. Kaia Wallet has NOT been tested for commercial-level security and may be vulnerable to malicious attacks. Kaia Wallet stores user's private key in the browser's local storage, which may be susceptible to attacks that exploit the browser's security vulnerabilities.
 
-* Klaytn Wallet for the Cypress mainnet: [https://wallet.klaytn.com](https://wallet.klaytn.com)
-* Klaytn Wallet for the Baobab testnet: [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation)
+* Kaia Wallet for the Cypress mainnet: [https://wallet.klaytn.com](https://wallet.klaytn.com)
+* Kaia Wallet for the Baobab testnet: [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation)
 
 ![](/img/build/tools/00-main.png)
 
-## Klaytn Wallet Functions <a id="klaytn-wallet-functions"></a>
+## Kaia Wallet Functions <a id="klaytn-wallet-functions"></a>
 
-Klaytn Wallet provides the following list of features.
+Kaia Wallet provides the following list of features.
 
 * Account and key management 
   * Create a new account 
@@ -22,29 +22,29 @@ Klaytn Wallet provides the following list of features.
 * Asset management 
   * View account balance
   * Add tokens to the wallet
-  * Transfer KLAY and Klaytn tokens
+  * Transfer KLAY and Kaia tokens
 * Baobab testnet KLAY faucet
 
 ## Create a New Account <a id="create-a-new-account"></a>
 
-> If you already have a Klaytn ccount, you may choose to skip this process and go to [Access Existing Account](#access-existing-account).
+> If you already have a Kaia ccount, you may choose to skip this process and go to [Access Existing Account](#access-existing-account).
 
-You can use Klaytn Wallet to create new Klaytn accounts. To create a new account, click the `Create Account` button on the menu bar on the left, and then follow the steps below.
+You can use Kaia Wallet to create new Kaia accounts. To create a new account, click the `Create Account` button on the menu bar on the left, and then follow the steps below.
 
 * Step 1. Set password for your new account's keystore file
 * Step 2. Download the keystore file to your local storage
-* Step 3. Save your new account's Klaytn Wallet Key
+* Step 3. Save your new account's Kaia Wallet Key
 
 ### Before continuing, a few words of caution: <a id="before-continuing-a-few-words-of-caution"></a>
 
 * NEVER share your 'Wallet Key' or 'private key'  with anyone. Giving information about your 'Wallet Key' or 'private key' means giving away complete and permanent access to your account.
 * Do not keep this information on a device connected to the Internet. Hackers can steal your credentials from your local storage.
 * Choose a strong password and store critical information in multiple locations.
-* Klaytn is UNABLE to restore 'Wallet Key' or 'private key' in case you lose it. Take utmost care not to lose your key information.
+* Kaia is UNABLE to restore 'Wallet Key' or 'private key' in case you lose it. Take utmost care not to lose your key information.
 
 ### Step 1. Set Password for your Keystore File <a id="step-1-set-password-for-your-keystore-file"></a>
 
-As the first step in creating a new account, you must create a password for your keystore file. A keystore file is a JSON file that securely stores your Klaytn account information, including the account's address and the private key associated with the account. A keystore file's password must be strong enough to meet Klaytn's security standard, as the password protects the private key stored within the file.
+As the first step in creating a new account, you must create a password for your keystore file. A keystore file is a JSON file that securely stores your Kaia account information, including the account's address and the private key associated with the account. A keystore file's password must be strong enough to meet Kaia's security standard, as the password protects the private key stored within the file.
 
 ![](/img/build/tools/01-create-new-1.png)
 
@@ -56,26 +56,26 @@ In the second step, you download the keystore file that has been encrypted with 
 
 ![](/img/build/tools/01-create-new-4.png)
 
-### Step 3. Save your Klaytn Wallet key and Private Key <a id="step-3-save-your-klaytn-wallet-key-and-private-key"></a>
+### Step 3. Save your Kaia Wallet key and Private Key <a id="step-3-save-your-klaytn-wallet-key-and-private-key"></a>
 
 In the final step, you are shown the Wallet Key and the private key corresponding to your newly created account. You are strongly encouraged to store the key in a separate, disconnected storage.
 
-For more in-depth information about Klaytn account, please visit Klaytn Docs and review the [Accounts](../../../learn/accounts.md) section.
+For more in-depth information about Kaia account, please visit Kaia Docs and review the [Accounts](../../../learn/accounts.md) section.
 
 ![](/img/build/tools/01-create-new-5.png)
 
 ## Access Existing Account <a id="access-existing-account"></a>
 
-To check your account's balance of KLAY or Klay tokens, or to transfer tokens to another account, you need to access your account. Klaytn Wallet offers two ways to access your account.
+To check your account's balance of KLAY or Klay tokens, or to transfer tokens to another account, you need to access your account. Kaia Wallet offers two ways to access your account.
 
-* **Using Klaytn Wallet Key or Private Key** A Klaytn Wallet Key is a string of 110 hexadecimal characters associated with an account, whereas a private key is a string of 64 hexadecimal characters (The character count does not include the "0x" prefixes that indicate hexadecimal numbers. If we count them in, a Klaytn Wallet Key is 112 characters long, and a private key is 66 characters long). Using one's private key should always be the last-ditch effort of access, only to be utilized when all else fails. This should not be the main road for anyone to access their accounts. Private keys are the most sensitive information because private keys allow complete access to an account. Therefore, it is extremely important to keep your private key safe, secure, and secret.
+* **Using Kaia Wallet Key or Private Key** A Kaia Wallet Key is a string of 110 hexadecimal characters associated with an account, whereas a private key is a string of 64 hexadecimal characters (The character count does not include the "0x" prefixes that indicate hexadecimal numbers. If we count them in, a Kaia Wallet Key is 112 characters long, and a private key is 66 characters long). Using one's private key should always be the last-ditch effort of access, only to be utilized when all else fails. This should not be the main road for anyone to access their accounts. Private keys are the most sensitive information because private keys allow complete access to an account. Therefore, it is extremely important to keep your private key safe, secure, and secret.
 * **Keystore file and password** A keystore file is a JSON file that stores encrypted private key and account address information. This file is encrypted using the user-provided password.
 
-### Access Existing Account Using Klaytn Wallet Key or Private Key <a id="access-existing-account-using-klaytn-wallet-key-or-private-key"></a>
+### Access Existing Account Using Kaia Wallet Key or Private Key <a id="access-existing-account-using-klaytn-wallet-key-or-private-key"></a>
 
 #### Step 1. Enter the Wallet Key or Private Key <a id="step-1-enter-the-wallet-key-or-private-key"></a>
 
-To access your account, click the `View Account Info` button from the menu bar on the left, and go to the `Private Key` tab on the screen. Enter the Klaytn Wallet Key or private key for the account you wish to access in the input box.
+To access your account, click the `View Account Info` button from the menu bar on the left, and go to the `Private Key` tab on the screen. Enter the Kaia Wallet Key or private key for the account you wish to access in the input box.
 
 ![](/img/build/tools/03-access-1pk-1.png)
 
@@ -107,13 +107,13 @@ Enter the password corresponding to the selected keystore file, and click the `A
 
 ### View Account Info <a id="view-account-info"></a>
 
-On this page, you can check your account's address, private key, and Klaytn Wallet Key information. On the right side of the page, you can check the balance of your KLAY and other Klaytn tokens. Using Klaytn Wallet to check account balance is recommended for blockchain application developers who do not wish to unlock their accounts every time a balance check is needed, for security reasons.
+On this page, you can check your account's address, private key, and Kaia Wallet Key information. On the right side of the page, you can check the balance of your KLAY and other Kaia tokens. Using Kaia Wallet to check account balance is recommended for blockchain application developers who do not wish to unlock their accounts every time a balance check is needed, for security reasons.
 
 ![](/img/build/tools/04-balance-3.png)
 
-## How to Add Klaytn Tokens <a id="how-to-add-klaytn-tokens"></a>
+## How to Add Kaia Tokens <a id="how-to-add-klaytn-tokens"></a>
 
-Klaytn Wallet supports KLAY and Klaytn tokens to be registered so that their balances can be checked. To register Klaytn tokens to Klaytn Wallet, please follow the steps below.
+Kaia Wallet supports KLAY and Kaia tokens to be registered so that their balances can be checked. To register Kaia tokens to Kaia Wallet, please follow the steps below.
 
 ### Step 1. Access Existing Account's Information <a id="step-1-access-existing-account-s-information"></a>
 
@@ -133,7 +133,7 @@ Enter the `Token Symbol`, `Token Contract Address`, and `Decimals`. After clicki
 
 ## How to Send KLAY and Tokens <a id="how-to-send-klay-and-tokens"></a>
 
-You can send KLAY or Klaytn tokens to other accounts using Klaytn Wallet. When sending KLAY or tokens, you must have the minimum amount of KLAY in your account to pay for the transaction fee.
+You can send KLAY or Kaia tokens to other accounts using Kaia Wallet. When sending KLAY or tokens, you must have the minimum amount of KLAY in your account to pay for the transaction fee.
 
 ### Step 1. Go to 'Send KLAY & Tokens' menu <a id="step-1-go-to-send-klay-tokens-menu"></a>
 
@@ -165,22 +165,22 @@ A confirmation page will appear. Double check the amount to transfer and the rec
 
 ### Step 6. Review Transfer Details <a id="step-6-review-transfer-details"></a>
 
-Your transaction request is completed. You can check the status of the transaction on the Klaytnscope. Clicking the `View Transaction Info` will launch Klaytnscope to show the transaction details.
+Your transaction request is completed. You can check the status of the transaction on the Kaiascope. Clicking the `View Transaction Info` will launch Kaiascope to show the transaction details.
 
 ![](/img/build/tools/06-send-10.png)
 
 ## How to Receive Baobab testnet KLAY <a id="how-to-receive-baobab-testnet-klay"></a>
 
-The testnet KLAY faucet runs on the Baobab network. The faucet can be accessed from the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation).
+The testnet KLAY faucet runs on the Baobab network. The faucet can be accessed from the [Baobab Kaia Wallet](https://baobab.wallet.klaytn.foundation).
 
-To receive testnet KLAY, you should have a valid Klaytn account.
+To receive testnet KLAY, you should have a valid Kaia account.
 
 * If you do not have an account, please create one by following the steps in [Create a New Account](#create-a-new-account).
 * Load your account into the wallet by following the steps in [Access Existing Account](#access-existing-account). Testnet KLAY will be sent to the loaded account. 
 
 ### Step 1. Go to the testnet KLAY Faucet <a id="step-1-go-to-the-testnet-klay-faucet"></a>
 
-From the [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation), `KLAY Faucet` menu on the left bar brings you to the testnet KLAY request page.
+From the [Baobab Kaia Wallet](https://baobab.wallet.klaytn.foundation), `KLAY Faucet` menu on the left bar brings you to the testnet KLAY request page.
 
 The requested page will show your address and the current testnet KLAY balance of your account.
 

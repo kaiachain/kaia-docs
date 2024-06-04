@@ -1,18 +1,18 @@
 ---
 description: >-
-  A JavaScript wrapper to Klaytn APIs around the namespace 'net'.
+  A JavaScript wrapper to Kaia APIs around the namespace 'net'.
 
 ---
 
 # caver.klay.net
 
-The `caver-klay-net` package allows you to interact with the Klaytn nodes'
+The `caver-klay-net` package allows you to interact with the Kaia nodes'
 network properties.
 
 ```javascript
 var Net = require('caver-klay-net');
 
-// "Personal.providers.givenProvider" will be set if in a Klaytn supported browser.
+// "Personal.providers.givenProvider" will be set if in a Kaia supported browser.
 var net = new Net(Net.givenProvider || 'ws://some.local-or-remote.node:8552');
 
 // or using the caver package

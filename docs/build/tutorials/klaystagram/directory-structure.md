@@ -40,11 +40,11 @@
 
 `src/redux`: Creates API functions that interact with the contract and keep track of consequent data.
 
-`src/klaytn`: Contains files that support interaction with the Klaytn.
+`src/klaytn`: Contains files that support interaction with the Kaia.
 
 * `src/klaytn/caver.js`: Instantiates caver-js within the configured settings.
 
-  cf\) caver-js is a RPC call library which makes connections to the Klaytn node, interacts with the nodes and smart contracts deployed on Klaytn.
+  cf\) caver-js is a RPC call library which makes connections to the Kaia node, interacts with the nodes and smart contracts deployed on Kaia.
 
 * `src/klaytn/Klaystagram.js`: Creates an instance of the contract using the caver-js API. You can interact with the contract through the instance.
 

@@ -36,7 +36,7 @@ If you want to generate transactions related with a smart contract, you need to 
 
 #### Solidity Compiler <a id="solidity-compiler"></a>
 
-You can install the Solidity compiler locally, following the instructions as per [the project documentation](http://solidity.readthedocs.io/en/develop/installing-solidity.html). Klaytn recommends you to install Solidity version either 0.4.24 or 0.5.6. If you are a macOS user, you can install the versions via Homebrew:
+You can install the Solidity compiler locally, following the instructions as per [the project documentation](http://solidity.readthedocs.io/en/develop/installing-solidity.html). Kaia recommends you to install Solidity version either 0.4.24 or 0.5.6. If you are a macOS user, you can install the versions via Homebrew:
 
 ```text
 $ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
@@ -89,11 +89,11 @@ Currently, we do not support other package managers. As another solution, we pro
 
 ### Creating an Account <a id="creating-an-account"></a>
 
-In order to sign transactions, you need to have either an EC \(Elliptic Curve\) key pair or a Klaytn keystore file.
+In order to sign transactions, you need to have either an EC \(Elliptic Curve\) key pair or a Kaia keystore file.
 
 #### Using an EC Key Pair <a id="using-an-ec-key-pair"></a>
 
-You can create a Klaytn account using an EC key pair like below:
+You can create a Kaia account using an EC key pair like below:
 
 ```java
 KlayCredentials credentials = KlayCredentials.create(Keys.createEcKeyPair());
@@ -103,7 +103,7 @@ String address = credentials.getAddress();
 
 #### Using a Keystore File <a id="using-a-keystore-file"></a>
 
-If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet]):
+If you want to create a new account with a keystore file (you can also create a new keystore file in [Kaia Wallet]):
 
 ```java
 KlayWalletUtils.generateNewWalletFile(
@@ -225,7 +225,7 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-An account key represents the key structure associated with an account. To get more details and types about the Klaytn account key, please read [AccountKey].
+An account key represents the key structure associated with an account. To get more details and types about the Kaia account key, please read [AccountKey].
 
 ### Smart Contract <a id="smart-contract"></a>
 
@@ -316,7 +316,7 @@ BigInteger balance = erc20Mock.balanceOf(
 
 ### Fee Delegation <a id="fee-delegation"></a>
 
-Klaytn provides [Fee Delegation] feature which allows service providers to pay transaction fees instead of the users.
+Kaia provides [Fee Delegation] feature which allows service providers to pay transaction fees instead of the users.
 
 #### Value Transfer <a id="value-transfer"></a>
 
@@ -334,9 +334,9 @@ ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.cre
 String senderRawTransaction = transactionManager.sign(valueTransferTransaction, true).getValueAsString();  // isFeeDelegated : true
 ```
 
-A signed transaction, `senderRawTransaction`, is generated. Now the sender delivers the transaction to the fee payer who will pay for the transaction fee instead. Transferring transactions between the sender and the fee payer is not performed on the Klaytn network. The protocol should be defined by themselves.
+A signed transaction, `senderRawTransaction`, is generated. Now the sender delivers the transaction to the fee payer who will pay for the transaction fee instead. Transferring transactions between the sender and the fee payer is not performed on the Kaia network. The protocol should be defined by themselves.
 
-After the fee payer gets the transaction from the sender, the fee payer can send the transaction using the `FeePayerManager` class as follows. `FeePayerManager.executeTransaction()` will sign the received transaction with the fee payer's private key and send the transaction to the Klaytn network.
+After the fee payer gets the transaction from the sender, the fee payer can send the transaction using the `FeePayerManager` class as follows. `FeePayerManager.executeTransaction()` will sign the received transaction with the fee payer's private key and send the transaction to the Kaia network.
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
@@ -386,7 +386,7 @@ caver-java introduces new classes to support the various types of [AccountKey] s
 
 ### AccountKey  <a id="account-key"></a>
 
-To update the account key on the Klaytn platform, caver-java provides the `AccountKey` interface. The following describes `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, and `AccountKeyRoleBased`.
+To update the account key on the Kaia platform, caver-java provides the `AccountKey` interface. The following describes `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, and `AccountKeyRoleBased`.
 See [Account Update](#account-update) for how to update an Account.
 
 ### AccountKeyPublic <a id="account-key-public"></a>
@@ -533,7 +533,7 @@ String rawTransaction_signed_alice = transactionManager_alice.sign(transactionTr
 
 String rawTransaction_signed_alice_and_bob = transactionManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
 
-//// 3. Charlie signs the received transaction and sends it to Klaytn EN.
+//// 3. Charlie signs the received transaction and sends it to Kaia EN.
 //// Charlie Side
 TransactionManager transactionManager_charlie = new TransactionManager.Builder(caver, senderCredential_charlie)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
@@ -557,7 +557,7 @@ FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePaye
 
 String rawTransaction_signed_alice_and_bob = feePayerManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
 
-//// 2. Charlie signs the received transaction and sends it to Klaytn EN.
+//// 2. Charlie signs the received transaction and sends it to Kaia EN.
 //// Charlie Side
 FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, feePayerCredentials_charlie)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
@@ -572,7 +572,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_
 The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 
 
-[Klaytn Wallet]: ../../../build/tools/wallets/klaytn-wallet.md
+[Kaia Wallet]: ../../../build/tools/wallets/klaytn-wallet.md
 [txError]: ../../transaction-error-codes.md
 [AccountKeyPublic]: ../../../learn/accounts.md#accountkeypublic
 [AccountKey]: ../../../learn/accounts.md#account-key

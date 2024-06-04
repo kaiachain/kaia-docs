@@ -26,7 +26,7 @@ A transaction object of type `LEGACY` has the following structure:
 | to | String | (optional) The destination address of the message, left undefined for a contract-creation transaction. |
 | value | Number \| String \| BN \| BigNumber | (optional) The value transferred for the transaction in peb, also the endowment if it's a contract-creation transaction. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | data | String | (optional) Either an [ABI byte string](http://solidity.readthedocs.io/en/latest/abi-spec.html) containing the data of the function call on a contract, or in the case of a contract-creation transaction the initialization code. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 

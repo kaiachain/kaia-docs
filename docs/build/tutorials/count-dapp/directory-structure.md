@@ -42,8 +42,8 @@
 
 * `src/components/Count.js`: Handles interaction with the deployed Count contract. Invokes contract functions using caver.js.  
 
-`src/klaytn`: Contains files that support interactions with the Klaytn. 
+`src/klaytn`: Contains files that support interactions with the Kaia. 
 
-* `src/klaytn/caver.js`: Instantiates caver-js. caver-js is a JavaScript RPC call library that helps connect to a Klaytn node and interact with the node or smart contracts deployed on Klaytn.
+* `src/klaytn/caver.js`: Instantiates caver-js. caver-js is a JavaScript RPC call library that helps connect to a Kaia node and interact with the node or smart contracts deployed on Kaia.
 
 

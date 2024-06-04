@@ -23,7 +23,7 @@ A transaction object of type `SMART_CONTRACT_DEPLOY` has the following structure
 | type | String | Transaction Type. "SMART_CONTRACT_DEPLOY" |
 | from | String | Address of this transaction sender. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of the smart contract, you must set data in the format of "compiled byte code + arguments". If the compiled bytecode is '0x123 ... 321' and you need to pass 1 to the constructor, you must set '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'. Use [caver.klay.abi.encodeContractDeploy](../../caver.klay.abi.md#encodecontractdeploy) to get the encoded value of the byte code with the parameters. |
 | value | Number \| String \| BN \| BigNumber | The value that will be transferred to the contract with this deployment. To accept the value transfer, the contract constructor must be 'payable'. If the contract constructor is not payable, value must be zero. |
@@ -140,7 +140,7 @@ A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY` has the follo
 | type | String | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_DEPLOY" |
 | from | String | Address of this transaction sender. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of the smart contract, you must set data in the format of "compiled byte code + arguments". If the compiled bytecode is '0x123 ... 321' and you need to pass 1 to the constructor, you must set '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'. Use [caver.klay.abi.encodeContractDeploy](../../caver.klay.abi.md#encodecontractdeploy) to get the encoded value of the byte code with the parameters. |
 | value | Number \| String \| BN \| BigNumber | The value that will be transferred to the contract with this deployment. To accept the value transfer, the contract constructor must be 'payable'. If the contract constructor is not payable, value must be zero. |
@@ -256,7 +256,7 @@ A transaction object of type `FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO` ha
 | type | String | Transaction Type. "FEE_DELEGATED_SMART_CONTRACT_DEPLOY_WITH_RATIO" |
 | from | String | Address of this transaction sender. |
 | gas | Number | The maximum amount of gas willing to pay for the transaction (unused gas is refunded). |
-| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | data | String | A bytecode of smart contract to be deployed. If you need to pass an argument to the constructor of the smart contract, you must set data in the format of "compiled byte code + arguments". If the compiled bytecode is '0x123 ... 321' and you need to pass 1 to the constructor, you must set '0x123 ... 321' + '00000000000000000000000000000000000000000000000000000000000001'. Use [caver.klay.abi.encodeContractDeploy](../../caver.klay.abi.md#encodecontractdeploy) to get the encoded value of the byte code with the parameters. |
 | value | Number \| String \| BN \| BigNumber | The value that will be transferred to the contract with this deployment. To accept the value transfer, the contract constructor must be 'payable'. If the contract constructor is not payable, value must be zero. |

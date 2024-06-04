@@ -1,14 +1,14 @@
 # Precompiled Contracts
 
-Klaytn provides several useful precompiled contracts, none of which are state-changing.
-These contracts are implemented in the platform itself as a native implementation, which means they are part of the Klaytn client specifications. 
+Kaia provides several useful precompiled contracts, none of which are state-changing.
+These contracts are implemented in the platform itself as a native implementation, which means they are part of the Kaia client specifications. 
 The precompiled contracts from address 0x01 through 0x0A are the same as those in Ethereum. 
 The utility of precompiles falls into four major categories:
     . Elliptic curve digital signature recovery.
     . Hash Methods
     . Memory copying
     . Methods to enable elliptic curve maths for zk proofs. 
-Klaytn additionally implements precompiled contracts from 0x3FD through 0x3FF to support new Klaytn features.
+Kaia additionally implements precompiled contracts from 0x3FD through 0x3FF to support new Kaia features.
 
 :::note
 
@@ -221,7 +221,7 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## Address 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
 
-The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug_setVMLogTarget](../../../references/json-rpc/debug/set-vm-log-target). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
+The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug_setVMLogTarget](../../../references/json-rpc/debug/set-vm-log-target). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Kaia node starts. Also, the log level of the Kaia node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -248,13 +248,13 @@ function feePayer() internal returns (address addr) {
 
 ## Address 0x3ff: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
 
-The address 0x3FF validates the sender's signature with the message. Since Klaytn [decouples key pairs from addresses](../accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. To do that, this precompiled contract receives three parameters:
+The address 0x3FF validates the sender's signature with the message. Since Kaia [decouples key pairs from addresses](../accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. To do that, this precompiled contract receives three parameters:
 
 * The sender's address to get the public keys
 * The message hash that is used to generate the signature
 * The signatures that are signed by the sender's private keys with the given message hash
 
-The precompiled contract validates that the given signature is properly signed by the sender's private keys. Note that Klaytn natively support multi signatures, which means there can be multiple signatures. The signature must be 65 bytes long.
+The precompiled contract validates that the given signature is properly signed by the sender's private keys. Note that Kaia natively support multi signatures, which means there can be multiple signatures. The signature must be 65 bytes long.
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {

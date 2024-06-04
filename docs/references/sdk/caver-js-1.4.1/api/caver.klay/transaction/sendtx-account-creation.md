@@ -17,7 +17,7 @@ Sends an [Account Creation](../../../../../../learn/transactions/basic.md) trans
 | transactionObject.to | String | The address which will be created newly. |
 | transactionObject.value | Number \| String \| BN \| BigNumber | The value transferred for the newly-created account in peb. |
 | transactionObject.gas | Number | The amount of gas to use for the transaction (unused gas is refunded). |
-| transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Klaytn node. |
+| transactionObject.gasPrice | Number | (optional) Gas price provided by the sender in peb. The gasPrice must be the same as the unitPrice set in the Kaia node. |
 | transactionObject.nonce | Number | (optional) Integer of a nonce. If omitted, it will be set by caver-js via calling `caver.klay.getTransactionCount`. |
 | transactionObject.publicKey | String | (optional) if creating account with public key, write down 64 bytes of public key. |
 | transactionObject.multisig | String | (optional) if creating account with multisig key, write down multisig with multiple public keys. The public keys that make up multisig have their own weight. For transactions signed with multisig, the sum of the weights of the signature must be larger than or equal to the threshold. |

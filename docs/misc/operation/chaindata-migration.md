@@ -12,7 +12,7 @@
     - Part 2 - New Block generation on new directory (old directory will be deleted after this)
 - 500GB free space should be available
 
-## Go to Klaytn Console
+## Go to Kaia Console
 
 ```bash
 $ kpn attach klay.ipc

@@ -5,7 +5,7 @@ description: A caver-js object used to interact with a smart contract.
 
 # caver.klay.Contract
 
-The `caver.klay.Contract` object makes it easy to interact with smart contracts on the Klaytn blockchain. When you create a new contract object, you give it the JSON interface of the respective smart contract and caver will auto convert all calls into low level ABI calls over RPC for you.
+The `caver.klay.Contract` object makes it easy to interact with smart contracts on the Kaia blockchain. When you create a new contract object, you give it the JSON interface of the respective smart contract and caver will auto convert all calls into low level ABI calls over RPC for you.
 
 This allows you to interact with smart contracts as if they were JavaScript objects.
 
@@ -181,7 +181,7 @@ true
 myContract.deploy(options)
 ```
 
-Deploys the contract to the Klaytn blockchain. After successful deployment, the promise will be resolved with a new contract instance.
+Deploys the contract to the Kaia blockchain. After successful deployment, the promise will be resolved with a new contract instance.
 
 **Parameters**
 
@@ -303,7 +303,7 @@ Parameters of any method depend on the smart contracts methods, defined in the J
 | Type | Description |
 | :--- | :--- |
 | Array | arguments: The arguments passed to the method before. They can be changed. |
-| Function | [call](#methods-mymethod-call): Will call the "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending a transaction \(cannot alter the smart contract state\). |
+| Function | [call](#methods-mymethod-call): Will call the "constant" method and execute its smart contract method in the Kaia Virtual Machine without sending a transaction \(cannot alter the smart contract state\). |
 | Function | [send](#methods-mymethod-send): Will send a transaction to the smart contract and execute its method \(can alter the smart contract state\). |
 | Function | [estimateGas](#methods-mymethod-estimategas): Will estimate the gas used when the method would be executed on the blockchain. |
 | Function | [encodeABI](#methods-mymethod-encodeabi): Encodes the ABI for this method. This can be sent using a transaction, calling the method or passing into another smart contract method as argument. |
@@ -339,7 +339,7 @@ Parameters of any method depend on the smart contracts methods, defined in the J
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-Will call a "constant" method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
+Will call a "constant" method and execute its smart contract method in the Kaia Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
 
 **Parameters**
 
@@ -513,7 +513,7 @@ The options object can contain the following:
 myContract.methods.myMethod([param1 [, param2 [, ...]]]).estimateGas(options [, callback])
 ```
 
-Will estimate the gas that a method execution will take when executed in the Klaytn Virtual Machine. The estimation can differ from the actual gas used when later sending a transaction, as the state of the smart contract can be different at that time.
+Will estimate the gas that a method execution will take when executed in the Kaia Virtual Machine. The estimation can differ from the actual gas used when later sending a transaction, as the state of the smart contract can be different at that time.
 
 **Parameters**
 

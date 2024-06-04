@@ -58,7 +58,7 @@ $ yum install kscnd
 ## Step 1: Create genesis.json and nodekeys <a id="step-1-create-genesis-json-and-a-key"></a>
 
 We will use homi utility to generate the needful files.
-`homi` is a utility that automatically generates scripts, configuration files, and private keys necessary to configure the Klaytn blockchain.
+`homi` is a utility that automatically generates scripts, configuration files, and private keys necessary to configure the Kaia blockchain.
 You can execute homi from any Linux/Mac PC.
 
 First, extract the homi archive you downloaded.
@@ -92,8 +92,8 @@ Created :  homi-output/keys/validator4
 Created :  homi-output/scripts/static-nodes.json
 Created :  homi-output/keys_test/testkey1
 Created :  homi-output/keys_test/keystore1/0xdC7218621513f71d609653d22C39d79d558d9CDC
-Created :  homi-output/Klaytn.json
-Created :  homi-output/Klaytn_txpool.json
+Created :  homi-output/Kaia.json
+Created :  homi-output/Kaia_txpool.json
 ```
 
 Among the outputs, we will use `nodekey*`, `genesis.json` and `static-nodes.json` in the subsequent steps.

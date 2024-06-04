@@ -1,19 +1,19 @@
 # Upgrade Service Chain
 
-Klaytn and its ServiceChain have constantly released new versions to develop new features and fix bugs. This page is a guide to upgrade ServiceChain binaries and setting hard fork block numbers for your ServiceChain.
+Kaia and its ServiceChain have constantly released new versions to develop new features and fix bugs. This page is a guide to upgrade ServiceChain binaries and setting hard fork block numbers for your ServiceChain.
 
 ## Upgrade <a href="#upgrade" id="upgrade"></a>
 
 This section shows how to upgrade the ServiceChain binary.
 
-**NOTE** Upgrading ServiceChain binaries may be irreversible and backward-incompatible, meaning you cannot downgrade to an older version. Refer to the release notes for more details. For example, the [Klaytn v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544) says:
+**NOTE** Upgrading ServiceChain binaries may be irreversible and backward-incompatible, meaning you cannot downgrade to an older version. Refer to the release notes for more details. For example, the [Kaia v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544) says:
 
 > NOTE: This version updates the version of the database to support snapshot sync. You cannot downgrade to the older versions with existing data after updating to v1.9.0.
 
-You can get the latest version of Klaytn and ServiceChain binaries in one of the below links:
+You can get the latest version of Kaia and ServiceChain binaries in one of the below links:
 
-* [Klaytn Docs](../downloads/downloads.md)
-* [Klaytn Github Repository](https://github.com/klaytn/klaytn/releases)
+* [Kaia Docs](../downloads/downloads.md)
+* [Kaia Github Repository](https://github.com/klaytn/klaytn/releases)
 
 To upgrade the ServiceChain binary, stop the ServiceChain node and replace the binary. For example, you can use below commands to stop an SCN node and replace the binary with a newer one.
 
@@ -31,7 +31,7 @@ $ kscnd start
 
 ## Hard Fork <a href="#hard-fork" id="hard-fork"></a>
 
-This section describes the steps for applying Klaytn [hard forks](../../misc/klaytn-history.md) to ServiceChain.
+This section describes the steps for applying Kaia [hard forks](../../misc/klaytn-history.md) to ServiceChain.
 
 To apply the hard fork to the ServiceChain, you need to:
 
@@ -45,9 +45,9 @@ In the Javascript console of the ServiceChain, you can check the current block n
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -122,7 +122,7 @@ You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlo
 }
 ```
 
-You can find the history of Klaytn hard forks in the [Klaytn Docs](../../misc/klaytn-history.md).
+You can find the history of Kaia hard forks in the [Kaia Docs](../../misc/klaytn-history.md).
 
 If you have updated your `genesis.json` with desired hard forks, re-initialize the chain config and apply your change.
 
@@ -148,9 +148,9 @@ Then, in the Javascript console of SCN, you can check the updated chain config.
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -172,9 +172,9 @@ To set the gas price to a static value, you have to set the upper and lower boun
 
 ```bash
 $ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 

@@ -2,11 +2,11 @@
 
 ![](/img/references/klaytnXviem.png)
 
-[Viem](https://viem.sh/) is a typescript interface for Ethereum that provides low-level primitives for interacting with Ethereum and other EVM-Compatible blockchain. With Klaytn supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as viem can be used on Klaytn without any significant modifications. 
+[Viem](https://viem.sh/) is a typescript interface for Ethereum that provides low-level primitives for interacting with Ethereum and other EVM-Compatible blockchain. With Kaia supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as viem can be used on Kaia without any significant modifications. 
 
-For that reason, developers can leverage this compatibility and use the viem library to interact with a Klaytn node.
+For that reason, developers can leverage this compatibility and use the viem library to interact with a Kaia node.
 
-In this guide, you'll learn how to use the viem library to read data from the blockchain, send a transaction, and interact with an existing contract on the Klaytn Network.
+In this guide, you'll learn how to use the viem library to read data from the blockchain, send a transaction, and interact with an existing contract on the Kaia Network.
 
 ## Prerequisites
 
@@ -177,7 +177,7 @@ If the transaction was successful, you'll see the transaction hash logged in you
 
 ## Interacting with smart contracts
 
-To interact with an existing smart contract on Klaytn, create a new `interact.ts` file in your project folder by running this command:
+To interact with an existing smart contract on Kaia, create a new `interact.ts` file in your project folder by running this command:
 
 ```bash
 touch interact.ts

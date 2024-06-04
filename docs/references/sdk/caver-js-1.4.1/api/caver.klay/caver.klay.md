@@ -1,12 +1,12 @@
 ---
 description: >-
-  A JavaScript wrapper to Klaytn APIs around the namespace 'klay'.
+  A JavaScript wrapper to Kaia APIs around the namespace 'klay'.
 
 ---
 
 # caver.klay
 
-The `caver-klay` package allows you to interact with the Klaytn nodes.  The list below
+The `caver-klay` package allows you to interact with the Kaia nodes.  The list below
 enumerates the API functions that are currently supported in `caver-js`.
 
 

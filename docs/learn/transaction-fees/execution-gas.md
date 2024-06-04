@@ -67,7 +67,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 ## Precompiled contracts gas cost table <a id="precompiled-contracts-gas-cost-table"></a>
 Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
 
-Below is the gas cost table for precompiled contracts in Klaytn. `Input` is a byte array input of a precompiled contract.
+Below is the gas cost table for precompiled contracts in Kaia. `Input` is a byte array input of a precompiled contract.
 
 | Address | Precompiled contracts | Gas Cost                                                                                                                            |
 |:--------|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------|

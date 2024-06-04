@@ -1,16 +1,16 @@
 # Deploy Smart Contracts
 
-There are various ways of deploying a smart contract on Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, please visit [Klaytn Wallet](../../tools/wallets/klaytn-wallet.md).
+There are various ways of deploying a smart contract on Kaia. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Kaia account with enough KLAY to pay the transaction fee. To create an account, please visit [Kaia Wallet](../../tools/wallets/klaytn-wallet.md).
 
 ## Remix Online IDE <a id="remix-ide"></a>
 
-Open your internet browser and go to [Klaytn Plugin for Remix](https://ide.klaytn.foundation).
+Open your internet browser and go to [Kaia Plugin for Remix](https://ide.klaytn.foundation).
 
 1. Add a new file.
 
 ![](/img/build/smart-contracts/01_deployment_ide.png)
 
-2. Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KlaytnGreeter, and it allows you to run a simple "Hello World!".
+2. Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KaiaGreeter, and it allows you to run a simple "Hello World!".
 
 ```
 pragma solidity 0.5.12;
@@ -24,7 +24,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -38,11 +38,11 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-3. Select Compiler in the icon panel. Choose the desired EVM environment. For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
+3. Select Compiler in the icon panel. Choose the desired EVM environment. For the Kaia networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. Now we can deploy the contract. Click on the Klaytn logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
+4. Now we can deploy the contract. Click on the Kaia logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
@@ -64,7 +64,7 @@ contract KlaytnGreeter is Mortal {
 For more details, please refer to this [link](../ide-and-tools/ide-and-tools.md).
 
 ## VVISP <a id="vvisp"></a>
-vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Klaytn smart contracts with a single command. Refer to the following link for more details.
+vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Kaia smart contracts with a single command. Refer to the following link for more details.
 
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
@@ -72,7 +72,7 @@ vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provi
 
 Another way to deploy contracts is manually compiling contracts with solc and deploying them with caver-js.
 
-1. Create `KlaytnGreeter.sol` and write the following code.  
+1. Create `KaiaGreeter.sol` and write the following code.  
 
 ```
 pragma solidity 0.5.6;
@@ -86,7 +86,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -109,7 +109,7 @@ $ sudo npm install -g solc@0.5.6
 3. Compile the contract.  
 
 ```
-$ solcjs KlaytnGreeter.sol --bin
+$ solcjs KaiaGreeter.sol --bin
 ```
 
 4. Install caver-js.  
@@ -130,10 +130,10 @@ const walletInstance = caver.klay.accounts.privateKeyToAccount(
 caver.klay.accounts.wallet.add(walletInstance);
 
 const fs = require('fs')
-const bytecode = fs.readFileSync('./KlaytnGreeter_sol_KlaytnGreeter.bin') // compiled output
+const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // compiled output
 
 const constructorType = ['string']  // enter appropriate constructor type
-const constructorValue = ['Hello, Klaytn!']
+const constructorValue = ['Hello, Kaia!']
 
 const params = caver.klay.abi.encodeParameters(constructorType, constructorValue);
 

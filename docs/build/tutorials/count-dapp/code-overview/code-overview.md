@@ -4,7 +4,7 @@
 2. `static/index.html` - index.html  
 3. `src/routes.js` - Contains route definition  
 4. `src/App.js` - Root component of our app  
-5. `src/klaytn/caver.js` - Makes a connection with a Klaytn node
+5. `src/klaytn/caver.js` - Makes a connection with a Kaia node
 
 ## `src/index.js`: <a id="1-src-index-js"></a>
 
@@ -207,12 +207,12 @@ export const cav = new Caver(config.rpcURL)
 export default cav
 ```
 
-`caver-js` library makes a connection to a Klaytn node.  
+`caver-js` library makes a connection to a Kaia node.  
 After the connection is made, you can get the current block number from the node and invoke contract methods.
 
-You can connect to a specific Klaytn node by specifying it in the 'rpcURL'.
+You can connect to a specific Kaia node by specifying it in the 'rpcURL'.
 
-* If you are running a Klaytn full node, you can set rpcURL to your node's URL.  
+* If you are running a Kaia full node, you can set rpcURL to your node's URL.  
 
   for example, `rpcURL: 'http://localhost:8551'`  
 
