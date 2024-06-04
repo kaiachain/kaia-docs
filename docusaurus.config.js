@@ -4,7 +4,6 @@
 const lightCodeTheme = require('prism-react-renderer').themes.github
 const darkCodeTheme = require('prism-react-renderer').themes.dracula
 const { navbarItemStrings, legacyDocsLinks } = require('./localeStrings'); // import locale-dependant navbar items 
-
 const {
   remarkCodeHike,
 } = require("@code-hike/mdx")
@@ -32,7 +31,8 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ko', 'vi'],
+    //locales: ['en', 'ko', 'vi'],
+    locales: ['en'],
     path: 'i18n',
     localeConfigs: {
       en: {
@@ -42,7 +42,7 @@ const config = {
         calendar: 'gregory',
         path: 'en',
       },
-      ko: {
+/**      ko: {
         label: '한국어',
         direction: 'ltr',
         htmlLang: 'ko',
@@ -55,7 +55,7 @@ const config = {
         htmlLang: 'vi',
         calendar: 'gregory',
         path: 'vi',
-      },      
+      },*/
     },
   },
 
@@ -215,8 +215,8 @@ const config = {
       navbar: {
         title: 'Kaia Docs',
         logo: {
-          alt: 'Kaia Logo',
-          src: 'img/klaytn-logo.png',
+          alt: 'Klaytn Logo',
+          src: 'img/kaia-logo.jpg',
         },
         items: [
           {
@@ -313,7 +313,7 @@ const config = {
             title: 'Sites',
             items: [
               {
-                label: 'Klaytn Square',
+                label: 'Kaia Square',
                 href: 'https://square.kaia.io/Home',
               },
               /*{

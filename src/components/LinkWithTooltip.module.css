@@ -1,8 +1,8 @@
 :root {
-  --link-color-light: #cb0606f8;
-  --link-color-dark: #e1573b;
-  --link-hover-color-light: darkred;
-  --link-hover-color-dark: #cb3c20;
+  --link-color-light: #a4b203;
+  --link-color-dark: #fba388;
+  --link-hover-color-light: #8b9703;
+  --link-hover-color-dark: #f97850;
 }
 
 html[data-theme='light'] .link {

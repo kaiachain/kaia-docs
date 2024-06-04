@@ -1,6 +1,6 @@
 # ethers.js
 
-![](/img/references/Kaia-ether.js.png)
+![](/img/references/Klaytn-ether.js.png)
 
 [ethers.js](https://docs.ethers.org/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Kaia. With Kaia supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as ethers.js can be used on Kaia without any significant modifications.
 
