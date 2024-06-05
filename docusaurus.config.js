@@ -101,7 +101,7 @@ const config = {
     ],
   ],
 
-  scripts: [{src: 'https://umami.lkw1615.synology.me/script.js', async: true, 'data-website-id': '7dc4d49d-3f21-4dd2-8dd7-90a2cc948dc6'}],
+  scripts: [{src: 'https://umami.lkw1615.synology.me/script.js', async: true, 'data-website-id': 'ae21f682-27e8-4670-bf7f-8eec7a2097cf'}],
 
   plugins: [
     [
@@ -216,7 +216,7 @@ const config = {
         title: 'Kaia Docs',
         logo: {
           alt: 'Klaytn Logo',
-          src: 'img/kaia-logo.jpg',
+          src: 'img/kaia-logo.png',
         },
         items: [
           {
