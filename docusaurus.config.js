@@ -85,8 +85,8 @@ const config = {
               label: 'Current',
             },
           },
-          //editUrl:
-            //'https://github.com/kaiachain/kaia-docs/tree/main/',
+          editUrl:
+            'https://github.com/kaiachain/kaia-docs/tree/main/',
           
           docRootComponent: "@theme/DocRoot",
           docItemComponent: "@theme/ApiItem"
@@ -211,6 +211,13 @@ const config = {
         appId: '3JXBTKO6ZU',
         apiKey: '3ae6c772dbecf845225e7ef3f4ac18be',
         indexName: 'klaytn',
+      },
+      announcementBar: {
+        id: 'docs_archive',
+        content: '<div style="font-size: 15px">📢 Welcome to the Kaia documentation! Kaia docs is now open, but <b>some content is still being updated to reflect the transition from Klaytn and may refer to outdated information until July.</b> Thank you for your understanding. 🙏🏻</div>',
+        backgroundColor: '#789806',
+        textColor: '#FFFFFF',
+        isCloseable: true,
       },
       navbar: {
         title: 'Kaia Docs',

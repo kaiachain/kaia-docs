@@ -1,13 +1,11 @@
-# Klaytn Docs
+# Kaia Docs
 
-Welcome to the Klaytn documentation repository! This repo contains the source files for the official Klaytn documentation available at https://docs.klaytn.foundation.
+Welcome to the Kaia documentation repository! This repo contains the source files for the official Kaia documentation available at https://docs.kaia.io.
 
-> [!IMPORTANT]  
-> Attention content contributors! Klaytn docs has shifted platforms, migrating from Gitbook to **Docusaurus**. For key information about this transition and its impact on your contributions, please refer to [the Klaytn docs 2.0 announcement](https://klaytn.foundation/announcing-klaytn-docs-2-0-streamlined-searchable-and-community-powered/).
-
+<!---
 ## Contributing
 
-We welcome contributions to help us improve and expand the Klaytn documentation. There are a few ways you can contribute:
+We welcome contributions to help us improve and expand the Kaia documentation. There are a few ways you can contribute:
 
 ### Contributing to Documentation
 
@@ -22,7 +20,7 @@ Before submitting PRs, make sure to:
 
 ### Contributing Translations
 
-Klaytn docs is available in the following languages:
+Kaia docs is available in the following languages:
 
 - English
 - 한국어
@@ -33,15 +31,16 @@ If you are fluent in a language other than English and want to contribute transl
 Some key points:
 
 - Create an issue with the `content-translation` label.
-- Join the translator team on the [Klaytn-Docs Crowdin project](https://crowdin.com/project/klaytn-docs).
+- Join the translator team on the [Kaia-Docs Crowdin project](https://crowdin.com/project/klaytn-docs).
 - Select the language you want to contribute to.
 - Choose the files to translate or vote on translations.
-- Ensure your word choices conform to the Klaytn Terminologies.
+- Ensure your word choices conform to the Kaia Terminologies.
 - Be respectful and follow the translation Code of Conduct.
 
 Translation suggestions will be reviewed by the maintainers and made available on the localized doc sites when approved and merged.
 
-## Developing Klaytn Docs
+-->
+## Developing Kaia Docs
 
 This website is built using Docusaurus v3.
 

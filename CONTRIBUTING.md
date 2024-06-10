@@ -1,8 +1,8 @@
 # Contributing Guidelines
 
-Thank you for your interest in contributing to Klaytn Docs. As an open source project, Klaytn Docs is always open to the developer community and we welcome your contribution. Please read the guideline below and follow it in all interactions with the project.
+Thank you for your interest in contributing to Kaia Docs. As an open source project, Kaia Docs is always open to the developer community and we welcome your contribution. Please read the guideline below and follow it in all interactions with the project.
 
-## How to Contribute on Klaytn Docs
+## How to Contribute on Kaia Docs
 
 1. Read this [contributing document](./CONTRIBUTING.md).
 2. Sign [Contributor Licensing Agreement (CLA)](#contributor-license-agreement-cla).
@@ -12,7 +12,7 @@ Thank you for your interest in contributing to Klaytn Docs. As an open source pr
 6. Make a Pull Request (PR): Ensure your proposed changes are accurate, well-documented, and linked to the corresponding issue. Submit a PR against the `main` branch and wait for code review and approval.
 7. Address review feedback: The reviewer may request additional commits or changes. Be responsive and address their feedback to ensure your contribution aligns with the project's standards.
 8. PR merge and branch deletion: Once approved, the project moderator will merge your PR into the main branch. You can then safely delete your working branch.
-9. Content update: The Klaytn Docs website (https://docs.klaytn.foundation/) will be updated with your merged contribution.
+9. Content update: The Kaia Docs website (https://docs.kaia.io/) will be updated with your merged contribution.
 
 ## Types of Contribution
 
@@ -24,34 +24,34 @@ There are various ways to contribute and participate. Please read the guidelines
 
 ### Issues and Typos
 
-If you could identify issues and typos in Klaytn docs, before submitting an issue, please invest some extra time to figure out that:
+If you could identify issues and typos in Kaia docs, before submitting an issue, please invest some extra time to figure out that:
 
 - The issue is not a duplicate issue.
-- The issue has not been covered in the latest release of Klaytn Docs.
-- The issue covers minor typos or errors on the existing content of Klaytn Docs.
+- The issue has not been covered in the latest release of Kaia Docs.
+- The issue covers minor typos or errors on the existing content of Kaia Docs.
 Please do not use the issue tracker for personal support requests. Use developers@klaytn.foundation for the personal support requests.
 
-After confirming your report meets the above criteria, [submit the issue](https://github.com/klaytn/klaytn-docs/issues). Please use [labels](#usage-of-labels) to specify your issue as `issues-and-typos`.
+After confirming your report meets the above criteria, [submit the issue](https://github.com/kaiachain/kaia-docs/issues). Please use [labels](#usage-of-labels) to specify your issue as `issues-and-typos`.
 
 ### Content Contribution
 
-If you would recommend major content change in Klaytn docs, before submitting an issue, please invest some extra time to figure out that:
+If you would recommend major content change in Kaia docs, before submitting an issue, please invest some extra time to figure out that:
 
 - The issue is not a duplicate issue.
-- The issue has not been covered in the latest release of Klaytn Docs.
-- The issue covers major content change (e.g. Adding/removing paragraph and chapter in Klaytn Docs, adding/removing graphical explanation, etc.) on the existing content of Klaytn Docs.
+- The issue has not been covered in the latest release of Kaia Docs.
+- The issue covers major content change (e.g. Adding/removing paragraph and chapter in Kaia Docs, adding/removing graphical explanation, etc.) on the existing content of Kaia Docs.
 Please do not use the issue tracker for personal support requests. Use developers@klaytn.foundation for the personal support requests.
 
-After confirming your report meets the above criteria, [submit the issue](https://github.com/klaytn/klaytn-docs/issues). Please use [labels](#usage-of-labels) to specify your issue as `content-contribution`.
+After confirming your report meets the above criteria, [submit the issue](https://github.com/kaiachain/kaia-docs/issues). Please use [labels](#usage-of-labels) to specify your issue as `content-contribution`.
 
 ### Content Translation
 
-If you are fluent in a language other than English and want to contribute translations or improve the localized documentation, [submit an issue](https://github.com/klaytn/klaytn-docs/issues). Please use [labels](#usage-of-labels) to specify your issue as `content-translation`.
+If you are fluent in a language other than English and want to contribute translations or improve the localized documentation, [submit an issue](https://github.com/kaiachain/kaia-docs/issues). Please use [labels](#usage-of-labels) to specify your issue as `content-translation`.
 
 You need to use the [Crowdin](https://crowdin.com/project/klaytn-docs) platform to contribute translations. For more information, see the [Internationalization](https://docs.klaytn.foundation/docs/misc/internationalization/) page.
 
 > [!IMPORTANT]  
-> For content translation, avoid using a pull request to submit changes by modifying the files under the [i18n](https://github.com/klaytn/klaytn-docs/tree/main/i18n) directory directly. </br> </br> Unlike other types of contribution, the translations are managed by Crowdin localization management platform. If a translation is submitted and has been approved in Crowdin, an automated PR will be made to Klaytn docs repo. Once the PR is approved and merged by the project moderators, the localized Klaytn docs will be updated with the suggested changes (merged content).
+> For content translation, avoid using a pull request to submit changes by modifying the files under the [i18n](https://github.com/klaytn/klaytn-docs/tree/main/i18n) directory directly. </br> </br> Unlike other types of contribution, the translations are managed by Crowdin localization management platform. If a translation is submitted and has been approved in Crowdin, an automated PR will be made to Kaia docs repo. Once the PR is approved and merged by the project moderators, the localized Kaia docs will be updated with the suggested changes (merged content).
 
 ## Usage of Labels
 
@@ -75,12 +75,12 @@ Status of closed issues:
 
 - closed/fixed: A fix for the issue was provided.
 - closed/duplicate: The issue is also reported in a different issue and is being managed there.
-- closed/invalid: The issue is not applicable to the Klaytn Docs.
+- closed/invalid: The issue is not applicable to the Kaia Docs.
 - closed/reject: The issue is rejected after review.
 
 ## Additional Contribution Guidelines
 
-Here are some additional guidelines to follow when contributing to Klaytn Docs:
+Here are some additional guidelines to follow when contributing to Kaia Docs:
 
 ### Commit Messages
 
