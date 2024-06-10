@@ -214,7 +214,7 @@ const config = {
       },
       announcementBar: {
         id: 'docs_archive',
-        content: '<div style="font-size: 15px">📢 Welcome to the Kaia documentation! Kaia docs is now open, but <b>some content is still being updated to reflect the transition from Klaytn and may refer to outdated information until July.</b> Thank you for your understanding. 🙏🏻</div>',
+        content: '<div style="font-size: 15px">📢 Kaia docs is now open, but <b>some content is still being updated to reflect the transition from Klaytn and may refer to outdated information until July.</b> Thank you for your understanding. 🙏🏻</div>',
         backgroundColor: '#789806',
         textColor: '#FFFFFF',
         isCloseable: true,
