@@ -17,7 +17,7 @@ command-line argument where `${interface}` can be `rpc` for the HTTP endpoint or
 
 You can launch a Kaia node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
 
-Example) launching a Kaia node with `klay` and `net` modules enabled:
+Example) launching a Kaia node with `kaia` and `net` modules enabled:
 
 ```shell
 $ ken --rpcapi klay,net --rpc --{other options}
@@ -37,7 +37,7 @@ example over an `rpc` interface:
 **IPC**
 
 ```javascript
-$ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U klay.ipc
+$ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kaia.ipc
 ```
 
 **HTTP**

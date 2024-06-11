@@ -17,7 +17,7 @@ In this guide, you will:
 
 * Create a simple foundry project.
 * Compile and test a sample smart contract using Foundry.
-* Deploy smart contracts using Foundry to the Kaia Baobab Network.
+* Deploy smart contracts using Foundry to the Kaia Kairos Network.
 * Explore forking mainnet with cast and anvil.
 
 ## Pre-requisites
@@ -27,7 +27,7 @@ To follow this tutorial, the following are the prerequisites:
 * Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 * [MetaMask](../../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 * RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 * Install [Rust](https://www.rust-lang.org/tools/install) and [Foundry](https://github.com/foundry-rs/foundry#installation).
 
 ## Setting Up Your Development Environment 
@@ -143,7 +143,7 @@ forge build
 
 To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](../../../references/service-providers/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask#install-metamask).
 
-**Step 1**: To deploy your contract to the Kaia Baobab network, run the command below: 
+**Step 1**: To deploy your contract to the Kaia Kairos network, run the command below: 
 
 ```bash
 $ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Counter.sol:Counter
@@ -169,7 +169,7 @@ forge create --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZE
 
 ## Interacting with the contract 
 
-After successfully deploying your smart contract, you will want to call and execute functions right. Let's get to interact with the deployed contracts on Kaia Baobab Network using [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html).  In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
+After successfully deploying your smart contract, you will want to call and execute functions right. Let's get to interact with the deployed contracts on Kaia Kairos Network using [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html).  In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
 
 **A. cast call**: To get the number stored in the contract, you will be calling the `number` function. Run the command below to see this in action.
 
@@ -248,7 +248,7 @@ Foundry allows us to fork the mainnet to a local development network ([Anvil](ht
 
 ### Getting Started
 
-Now that you have your Foundry project up and running, you can fork the mainnet (cypress) by running the command below:
+Now that you have your Foundry project up and running, you can fork the mainnet by running the command below:
 
 ```bash
 anvil --fork-url rpc-url

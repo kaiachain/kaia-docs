@@ -17,11 +17,11 @@ In this guide, you will use Web3-Onboard library to integrate multiple wallets (
 * A working react project (by executing `npx create-react-app project-name`)
 * Install the necessary wallets ([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)). 
 * RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 
 ## Getting Started
 
-Web3-Onboard as a chain-agnostic wallet library, supports all EVM-compatible networks and also provides the flexibility of adding new networks to the library. In this guide, we'll use Web3-Onboard to add the Kaia Mainnet Cypress and Kaia Testnet Baobab to our dApp. With that said, let’s get started integrating multi-wallet compatibility using Web3-Onboard into your dApp built on Kaia Network.
+Web3-Onboard as a chain-agnostic wallet library, supports all EVM-compatible networks and also provides the flexibility of adding new networks to the library. In this guide, we'll use Web3-Onboard to add the Kaia Mainnet and Kaia Testnet Kairos to our dApp. With that said, let’s get started integrating multi-wallet compatibility using Web3-Onboard into your dApp built on Kaia Network.
 
 ## Setting up Onboard and Wallet Modules
 
@@ -76,8 +76,8 @@ In this step, you will instantiate Onboard with the created modules and a list o
 ```js
 import Onboard from "@web3-onboard/core";
 const ETH_MAINNET_RPC_URL = `Paste ETH RPC URL`;
-const KLAYTN_MAINNET_URL = `Paste KLAYTN MAINNET URL`
-const KLAYTN_BAOBAB_URL = `Paste KLAYTN BAOBAB URL`
+const KAIA_MAINNET_URL = `Paste KAIA MAINNET URL`
+const KAIA_BAOBAB_URL = `Paste KAIA BAOBAB URL`
 
 const onboard = Onboard({
   wallets: modules, // created in previous step
@@ -91,17 +91,17 @@ const onboard = Onboard({
     },
     {
       id: "0x2019", // chain ID must be in hexadecimal
-      token: "KLAY",
+      token: "KAIA",
       namespace: "evm",
       label: "Kaia Mainnet",
-      rpcUrl: KLAYTN_MAINNET_URL
+      rpcUrl: KAIA_MAINNET_URL
     },
     {
       id: "0x3e9", // chain ID must be in hexadecimel
-      token: "KLAY",
+      token: "KAIA",
       namespace: "evm",
       label: "Kaia Testnet",
-      rpcUrl: KLAYTN_BAOBAB_URL
+      rpcUrl: KAIA_BAOBAB_URL
     },
    // you can add as much supported chains as possible
   ],
@@ -281,7 +281,7 @@ After successfully connecting to a wallet, you can store the provider object ret
  // add to the existing useState hook.
   const [txHash, setTxHash] = useState();
 
-  const sendKlay = async () => {
+  const sendKaia = async () => {
     
     if (!provider) {
       console.log("provider not initialized yet");
@@ -312,7 +312,7 @@ After successfully connecting to a wallet, you can store the provider object ret
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 

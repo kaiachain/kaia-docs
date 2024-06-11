@@ -9,16 +9,16 @@ Key design goals are;
 - Lower the barriers to entry for end-users.
 - Ease the technology adoption process for industry.
 
-Kaia launched its mainnet, [Cypress](https://klaytnscope.com), on Jun/27/2019 with the following specifications.
+Kaia launched its [Mainnet](https://klaytnscope.com), on Jun/27/2019 with the following specifications.
 
 - 1-second block generation and confirmation time.
 - 4,000 transactions per second.
 - Low gas price that is almost 1/10 of Ethereum.
 - Runs EVM (Ethereum Virtual Machine) and supports the execution of Solidity contracts.  
-- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="../misc/glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="../misc/glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Kaiascope](https://klaytnscope.com).
+- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="../misc/glossary#kaia-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="../misc/glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Kaiascope](https://klaytnscope.com).
 - More than 50 initial service partners have committed to launch Blockchain Applications on Kaia.
 
-## Kaia: The Big Picture <a id="klaytn-the-big-picture"></a>
+## Kaia: The Big Picture <a id="kaia-the-big-picture"></a>
 
 Kaia can be partitioned into three logical subnetworks based on their roles and purposes. The below figure displays the high-level view of the Kaia ecosystem.
 
@@ -38,11 +38,11 @@ ENN consists of Endpoint Nodes (ENs) that mainly create transactions, handle RPC
 SCNs are Kaia subnetworks composed of auxiliary blockchains independently operated by dApps (Decentralized Applications). Service chains are connected to the main chain via ENs.
 
 **Core Cell Network** and **Endpoint Node Network** form a Kaia main chain or mainnet.
-Blockchain Applications can run on the Kaia main chain, Cypress, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configurable network policies, we recommend using Service Chain. 
+Blockchain Applications can run on the Kaia main chain, Mainnet, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configurable network policies, we recommend using Service Chain. 
 
 > To set up a Service Chain for your application, read the [installation and operation guide of Service Chain](../nodes/service-chain/quick-start/quick-start.md).
 
-## Kaia Network Topology <a id="klaytn-network-topology"></a>
+## Kaia Network Topology <a id="kaia-network-topology"></a>
 
 In this section, we will describe the network topology of Kaia main chain.
 A tiered network architecture with role-based node types is implemented in Kaia to optimize the network performance.
@@ -179,12 +179,12 @@ end-user requests regardless of intermittent network traffic spikes.
 
 ## Block Rewards <a id="block-rewards"></a>
 
-For each round, block reward (which is the sum of 6.4 newly minted <LinkWithTooltip tooltip="The native token of the Kaia blockchain.">KLAY</LinkWithTooltip> and
+For each round, block reward (which is the sum of 6.4 newly minted <LinkWithTooltip tooltip="The native token of the Kaia blockchain.">KAIA</LinkWithTooltip> and
 transaction fees paid to process the block) will be distributed to
 the network participants according to preset distribution ratios. The proposer
 of the newly created block will receive 100% of the reward to be awarded to
 CNs, whereas the committee will receive none. Note that the probability of
-being selected as the proposer is influenced by the amount of KLAY staked by
-the CN, implying that a CN with more KLAY invested in the platform will
+being selected as the proposer is influenced by the amount of KAIA staked by
+the CN, implying that a CN with more KAIA invested in the platform will
 probabilistically receive more rewards. Details of block reward distribution
 can be found in the [Kaia Token Economy](./token-economy.md) section.

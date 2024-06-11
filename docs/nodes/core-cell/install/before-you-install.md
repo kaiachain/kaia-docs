@@ -63,7 +63,7 @@ $ cat node_info.json
 The created node URI should be enrolled to participate in the Core Cell Network \(CCN\). The process of the enrollment is as follows.
 
 1. Create a node URI using `kgen` \(`node_info.json`\) which contains the associated IP and Port number.
-2. Send the information to the official Kaia email address \(`bootstrap@klaytn.com` for Cypress or `baobab@klaytn.com` for Baobab\).
+2. Send the information to the official Kaia email address \(`bootstrap@klaytn.com` for Mainnet or `baobab@klaytn.com` for Kairos\).
 
 The enrolled information should be sent to the official Kaia email address. The format is as follows.
 

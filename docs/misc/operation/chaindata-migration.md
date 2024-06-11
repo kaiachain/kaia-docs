@@ -15,7 +15,7 @@
 ## Go to Kaia Console
 
 ```bash
-$ kpn attach klay.ipc
+$ kpn attach kaia.ipc
 
 #start chain data Migration
 > admin.startStateMigration()

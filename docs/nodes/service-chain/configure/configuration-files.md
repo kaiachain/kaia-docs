@@ -50,8 +50,8 @@ The configuration file has the following configurable properties. SCN, SPN and S
 
 | Name | Description |
 | --- | --- |
-| NETWORK | Network name that this node will join.  This value is used when NETWORK_ID is not defined.  ("cypress", "baobab") |
-| NETWORK_ID | Kaia network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks.  <br/>8217 : Cypress (Main network) <br/>1000 : Aspen test network <br/>1001 : Baobab test network |
+| NETWORK | Network name that this node will join.  This value is used when NETWORK_ID is not defined.  ("mainnet", "kairos") |
+| NETWORK_ID | Kaia network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks.  <br/>8217 : Mainnet <br/>1000 : Aspen test network <br/>1001 : Kairos test network |
 | PORT | P2P port. (Default: "32323") |
 | SERVER_TYPE | JSON RPC server type.  ("http", "fasthttp") |
 | SYNCMODE | Blockchain sync mode.  ("fast", "full") |

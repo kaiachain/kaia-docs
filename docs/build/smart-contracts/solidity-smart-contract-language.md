@@ -2,7 +2,7 @@
 
 This chapter describes only the high-level concepts, development processes, and examples written in Solidity because Solidity is already well documented on its official websites. For language specifications or implementations, please refer to the [References](#references) below. The content of this chapter is based on various websites listed in the [References](#references).
 
-## Solidity and Kaia <a id="solidity-and-klaytn"></a>
+## Solidity and Kaia <a id="solidity-and-kaia"></a>
 
 [Solidity](https://github.com/ethereum/solidity) is a high-level, statically typed, contract-oriented language for implementing smart contracts on the Ethereum platform. Although Solidity was originally designed for Ethereum, it is general enough to write smart contracts; therefore, it can also be used for other blockchain platforms, such as Kaia.
 
@@ -11,13 +11,13 @@ Kaia is officially compatible with **London** Ethereum Virtual Machine (EVM) ver
 :::note
 
 v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Kaia's own items.
-It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
+It has been enabled from block number `#75,373,312` in case of Kairos network and `#86,816,005` for the Mainnet.
 
 v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
+It has been enabled from block number `#80,295,291` in case of Kairos network and `#86,816,005` for the Mainnet.
 
 v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
+It has been enabled from block number `#86,513,895` in case of Kairos network and `#86,816,005` for the Mainnet.
 
 :::  
 

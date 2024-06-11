@@ -2,7 +2,7 @@
 
 ![](/img/build/tools/klaytnXkaikas.png)
 
-Kaikas is a browser extension wallet for the Kaia Network. Available in Google Chrome, Kaikas provides a secure and usable means to interact with the Kaia network via web browser. With Kaikas, you are able to store and transact with your KLAY and Kaia-based tokens. You are also able to sign requests from web-based dApps (Decentralized Applications) in
+Kaikas is a browser extension wallet for the Kaia Network. Available in Google Chrome, Kaikas provides a secure and usable means to interact with the Kaia network via web browser. With Kaikas, you are able to store and transact with your KAIA and Kaia-based tokens. You are also able to sign requests from web-based dApps (Decentralized Applications) in
 realtime.
 
 * Download from Chrome Web Store: [link](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
@@ -21,9 +21,9 @@ With the features described above, Kaikas has improved the security, transparenc
 
 ## Supporting various Kaia networks and tokens
 
-Kaikas allows you to store and transact with all Kaia-based tokens including KLAY. Tokens that are not loaded by default can be inserted by pasting in their contract address. You can even store and transact your own Kaia-based custom tokens on Kaikas!
+Kaikas allows you to store and transact with all Kaia-based tokens including KAIA. Tokens that are not loaded by default can be inserted by pasting in their contract address. You can even store and transact your own Kaia-based custom tokens on Kaikas!
 
-Kaikas supports Kaia's Baobab testnet as well as the Cypress mainnet. Moreover, Kaikas supports the private chains for Kaia-based dApp developers who may wish to circulate custom tokens in their private network.
+Kaikas supports Kaia's Kairos testnet as well as the Mainnet. Moreover, Kaikas supports the private chains for Kaia-based dApp developers who may wish to circulate custom tokens in their private network.
 
 ## Signing web-based dApp transactions
 
@@ -31,4 +31,4 @@ Kaikas simply bridges the gap between you and dApps, empowering you to sign tran
 Kaikas is also an aidful utility for developers to handle [fee-delegated transactions](../../../learn/transactions/transactions.md#fee-delegation). Using Kaikas, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
 
 
-[Kaiascope]: ../block-explorers/klaytnscope.md
+[Kaiascope]: ../block-explorers/kaiascope.md

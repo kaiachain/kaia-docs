@@ -14,7 +14,7 @@ In this guide, you'll learn how to use the ethers.js library to read data from t
 * Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
 * [Metamask](../../build/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 * RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 * [NodeJS and NPM](https://nodejs.org/en/)
 
 
@@ -68,7 +68,7 @@ To read data from the blockchain, create a new `read.js` file in your project fo
 touch read.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to read data from the blockchain (e.g., blockNumber, KLAY balance).
+After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to read data from the blockchain (e.g., blockNumber, KAIA balance).
 
 To see this in action, paste the following code in your `read.js`.
 
@@ -82,7 +82,7 @@ async function getBlockNumber() {
 async function getKlayBalance() {
     const klayBalance  = await provider.getBalance("paste wallet address")
     const formatBalance = ethers.formatEther(klayBalance)
-    console.log(`You have ${formatBalance} KLAY`)
+    console.log(`You have ${formatBalance} KAIA`)
 }
 
 // call the functions below:
@@ -99,7 +99,7 @@ To run the script and read data from the blockchain, run the following command i
 node read.js
 ```
 
-If the transaction was succesful, you'll see the block number and user’s KLAY balance in your terminal.
+If the transaction was succesful, you'll see the block number and user’s KAIA balance in your terminal.
 
 
 ## Sending a transaction to the blockchain
@@ -110,7 +110,7 @@ To send a transaction to the blockchain, create a new `send.js` file in your pro
 touch send.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to send a transaction to the blockchain (e.g., send KLAY to an address).
+After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to send a transaction to the blockchain (e.g., send KAIA to an address).
 
 To see this in action, paste the following code in your `send.js`.
 

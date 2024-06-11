@@ -1,6 +1,6 @@
 # Accounts
 
-## Kaia Accounts <a id="klaytn-accounts"></a>
+## Kaia Accounts <a id="kaia-accounts"></a>
 
 ### Overview of Account, State, and Address <a id="overview-of-account-state-and-address"></a>
 
@@ -32,7 +32,7 @@ By utilizing Kaia account’s role-based multi-key support, end-users can better
 
 Although the address scheme \(e.g., "0x0fe2e20716753082222b52e753854f40afddffd2"\) has its own strengths in that it efficiently protects the privacy of account holders, it also proposes major problems in terms of end-user experience. First, it is very difficult for a human brain to memorize, or even recognize, such addresses, making them prone to input mistakes and various human errors that often lead to non-trivial financial damages. Second, such scheme takes away from end-users the power to choose one’s own preferred identity handle that’s easier to memorize or use. Combined, these problems are among the toughest usability hurdles that cause dApp user experience for typical end-users \(who are more accustomed to the simpler, frictionless user experience offered by legacy mobile apps or services\) to be perceived as alien, incomprehensible, and severely inconvenient. To overcome such challenges without undergoing architectural modifications at large-scale and while preserving backward compatibility, Kaia opts to provide a mapping between a 20-byte address to a 20-byte length text string that end-users could assign their own preferred values to. This feature in Kaia is called human-readable address \(HRA\). Currently, this feature is under development, and we will provide more information when it is ready.
 
-### Kaia Wallet Key Format <a id="klaytn-wallet-key-format"></a>
+### Kaia Wallet Key Format <a id="kaia-wallet-key-format"></a>
 
 Kaia wallet key format is provided to easily handle a private key along with the corresponding address. It makes easier for a user to maintain his/her private key with an address. The format is `0x{private key}0x{type}0x{address in hex}` in hexadecimal notation, where `{type}` must be `00`. Other values are reserved. An example is shown below:
 
@@ -40,9 +40,9 @@ Kaia wallet key format is provided to easily handle a private key along with the
 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ```
 
-This format is currently supported in [Kaia Wallet](../build/tools/wallets/klaytn-wallet.md).
+This format is currently supported in [Kaia Wallet](../build/tools/wallets/kaia-wallet.md).
 
-### Kaia Account Types <a id="klaytn-account-types"></a>
+### Kaia Account Types <a id="kaia-account-types"></a>
 
 There are two types of accounts in Kaia: <LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> \(EOAs\), and <LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> \(SCAs\).
 
@@ -56,7 +56,7 @@ Externally owned accounts have information such as nonce and balance. This type 
 | :--- | :--- | :--- |
 | type | uint8 \(Go\) | The type of externally owned accounts. It must be **0x1** for EOAs. |
 | nonce | uint64 \(Go\) | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value. |
-| balance | \*big.Int \(Go\) | The amount of KLAY the account has. |
+| balance | \*big.Int \(Go\) | The amount of KAIA the account has. |
 | humanReadable | bool \(Go\) | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](#human-readable-address-hra) is under development, this value is false for all accounts. |
 | key | [AccountKey](#account-key) | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
 
@@ -70,7 +70,7 @@ In contrast to EOAs, SCAs have code associated with them and are controlled by t
 | :--- | :--- | :--- |
 | type | uint8 \(Go\) | The type of smart contract accounts. It must be **0x2** for SCAs. |
 | nonce | uint64 \(Go\) | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value. |
-| balance | \*big.Int \(Go\) | The amount of KLAY the account has. |
+| balance | \*big.Int \(Go\) | The amount of KAIA the account has. |
 | humanReadable | bool \(Go\) | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](#human-readable-address-hra) is under development, this value is false for all accounts. |
 | key | [AccountKey](#account-key) | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
 | codeHash | \[\]byte \(Go\) | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created. |
@@ -84,7 +84,7 @@ NOTE: From klaytn v1.7.0 onwards, vmVersion attribute will be added to the Smart
 
 :::
 
-### Kaia Account Type ID <a id="klaytn-account-type-id"></a>
+### Kaia Account Type ID <a id="kaia-account-type-id"></a>
 Below are the Account Type ID assigned to each Account Type.
 
 | Account Type | Account Type ID |

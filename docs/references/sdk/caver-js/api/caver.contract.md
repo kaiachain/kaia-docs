@@ -60,7 +60,7 @@ The options object contains the following:
 | Name          | Type    | Description                                                                                                                                                                                                                                                                                        |
 | ------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from          | string  | (optional) The address from which transactions should be made.                                                                                                                                                                                                                                     |
-| gasPrice      | string  | (optional) The gas price in peb to use for transactions.                                                                                                                                                                                                                                           |
+| gasPrice      | string  | (optional) The gas price in kei to use for transactions.                                                                                                                                                                                                                                           |
 | gas           | number  | (optional) The maximum gas provided for a transaction (gas limit).                                                                                                                                                                                                                                 |
 | data          | string  | (optional) The byte code of the contract. Used when the contract gets deployed.                                                                                                                                                                                                                    |
 | feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                              |
@@ -94,7 +94,7 @@ The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feeP
 | address       | string  | The address where the contract is deployed.                                                                                                                                                                                                                                                        |
 | jsonInterface | Array   | The JSON interface of the contract.                                                                                                                                                                                                                                                                |
 | from          | string  | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                                                 |
-| gasPrice      | string  | The gas price in peb to use for transactions.                                                                                                                                                                                                                                                      |
+| gasPrice      | string  | The gas price in kei to use for transactions.                                                                                                                                                                                                                                                      |
 | gas           | number  | The maximum gas provided for a transaction (gas limit).                                                                                                                                                                                                                                            |
 | data          | string  | The byte code of the contract. Used when the contract gets deployed.                                                                                                                                                                                                                               |
 | feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                              |
@@ -120,7 +120,7 @@ The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feeP
 }
 
 > myContract.options.from = '0x1234567890123456789012345678901234567891' // default from address
-> myContract.options.gasPrice = '25000000000000' // default gas price in peb
+> myContract.options.gasPrice = '25000000000000' // default gas price in kei
 > myContract.options.gas = 5000000 // provide as fallback always 5M gas
 > myContract.options.feeDelegation = true // use fee delegation transaction
 > myContract.options.feePayer = '0x1234567890123456789012345678901234567891' // default fee payer address
@@ -260,7 +260,7 @@ Deploys the contract to the Kaia network. After a successful deployment, the pro
 For PromiEvent, the following events are available:
 
 * `transactionHash`: it is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
-* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
+* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.kaia.getTransactionReceipt](caver-rpc/kaia.md#caver-rpc-kaia-gettransactionreceipt) for more details. Its type is `object`.
 * `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
 
 **Example**
@@ -460,7 +460,7 @@ The transaction type used for this function depends on the `options` or the valu
 For PromiEvent, the following events are available:
 
 * `transactionHash`: It is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
-* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
+* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.kaia.getTransactionReceipt](caver-rpc/kaia.md#caver-rpc-kaia-gettransactionreceipt) for more details. Its type is `object`.
 * `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
 
 **Example**
@@ -1095,7 +1095,7 @@ The options object can contain the following:
 | Name     | Type   | Description                                                                |
 | -------- | ------ | -------------------------------------------------------------------------- |
 | from     | string | (optional) The address which calling contract methods should be made from. |
-| gasPrice | string | (optional) The gas price in peb to use for this call.                      |
+| gasPrice | string | (optional) The gas price in kei to use for this call.                      |
 | gas      | number | (optional) The maximum gas provided for this call (gas limit).             |
 
 **Return Value**
@@ -1180,8 +1180,8 @@ The options object can contain the following:
 | ------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | from          | string                              | The address from which the transaction should be sent. If omitted, `myContract.options.from` will be used.                                                                                                                                                                                                                                                 |
 | gas           | number                              | The maximum gas provided for this transaction (gas limit).                                                                                                                                                                                                                                                                                                 |
-| gasPrice      | string                              | (optional) The gas price in peb to use for this transaction.                                                                                                                                                                                                                                                                                               |
-| value         | number \| string \| BN \| Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction.                                                                                                                                                                                                                                                    |
+| gasPrice      | string                              | (optional) The gas price in kei to use for this transaction.                                                                                                                                                                                                                                                                                               |
+| value         | number \| string \| BN \| Bignumber | (optional) The value in kei to be transferred to the address of the smart contract by this transaction.                                                                                                                                                                                                                                                    |
 | feeDelegation | boolean                             | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used.                                                                                                                                                                                                                        |
 | feePayer      | string                              | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `myContract.options.feePayer` will be used.                                                                                                                                   |
 | feeRatio      | string                              | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
@@ -1199,7 +1199,7 @@ The options object can contain the following:
 For PromiEvent, the following events are available:
 
 * `transactionHash`: It is fired right after the transaction is sent and a transaction hash is available. Its type is `string`.
-* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) for more details. Its type is `object`.
+* `receipt`: It is fired when the transaction receipt is available. See [caver.rpc.kaia.getTransactionReceipt](caver-rpc/kaia.md#caver-rpc-kaia-gettransactionreceipt) for more details. Its type is `object`.
 * `error`: It is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt. Its type is `Error`.
 
 **Example**
@@ -1471,7 +1471,7 @@ The options object can contain the following:
 | ----- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | from  | string                              | (optional) The address from which calling the contract method should be made.                                                                                                  |
 | gas   | number                              | (optional) The maximum gas provided for this call (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
-| value | number \| string \| BN \| Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Kaia.         |
+| value | number \| string \| BN \| Bignumber | (optional) The value in kei that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Kaia.         |
 
 **Return Value**
 

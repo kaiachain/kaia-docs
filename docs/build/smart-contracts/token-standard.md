@@ -127,7 +127,7 @@ For more information, refer to the official [KIP-17 documentation](https://kips.
 
 * An example implementation is available at [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol).
 
-## Token Standards for Kaia Service Chain <a id="token-standards-for-klaytn-service-chain"></a>
+## Token Standards for Kaia Service Chain <a id="token-standards-for-kaia-service-chain"></a>
 
 Service chain refers to Kaia's side chain that anchors to Kaia's main blockchain network. When implementing a service chain, special type of contracts are used to support value transfer between the main chain and the service chain. These contracts are currently under development, and when they are ready, the token specifications for Kaia service chain will be provided on KaiaDocs.
 

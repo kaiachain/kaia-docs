@@ -56,7 +56,7 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-	const version = await caver.rpc.klay.getClientVersion()
+	const version = await caver.rpc.kaia.getClientVersion()
 	console.log(version)
 }
 
@@ -72,9 +72,9 @@ Kaia/v1.4.0/linux-amd64/go1.14.1
 
 If you see the output of console.log like above, proceed with the steps below. The version number can be different according to the version of the connected Kaia node.
 
-### Connecting to a Kaia Node <a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
+### Connecting to a Kaia Node <a href="#connecting-to-a-kaia-node" id="connecting-to-a-kaia-node"></a>
 
-You can import the caver-js module and connect it to a Kaia Node in the Baobab testnet as shown in the example below:
+You can import the caver-js module and connect it to a Kaia Node in the Kairos testnet as shown in the example below:
 
 ```javascript
 const Caver = require('caver-js')
@@ -406,11 +406,11 @@ RoleBasedKeyring {
 
 ## Sending a Transaction <a href="#sending-a-transaction" id="sending-a-transaction"></a>
 
-This section will show you how to send KLAY using caver-js on the Baobab network.
+This section will show you how to send KAIA using caver-js on the Kairos network.
 
-### Getting KLAY via Baobab Faucet <a href="#getting-klay-via-baobab-faucet" id="getting-klay-via-baobab-faucet"></a>
+### Getting KAIA via Kairos Faucet <a href="#getting-kaia-via-kairos-faucet" id="getting-kaia-via-kairos-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Kaia Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
+If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay). Log in to the Kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
 
 ### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
@@ -419,9 +419,9 @@ You can use a caver-js wallet to generate a signature of a transaction. You have
 1. Sign a transaction
    * If the keyring you want to use is added to [caver.wallet](api/caver-wallet/caver-wallet.md), you can use `caver.wallet.sign` function to sign.
    * If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the Kaia via `caver.rpc.klay.sendRawTransaction`.
+2. Send the RLP-encoded string of the signed transaction to the Kaia via `caver.rpc.kaia.sendRawTransaction`.
 
-**Note:** The sender should have enough number of KLAY.
+**Note:** The sender should have enough number of KAIA.
 
 #### Sign a transaction
 
@@ -477,8 +477,8 @@ const caver = new Caver('https://public-en-baobab.klaytn.net/')
 async function testFunction() {
 	const rlpEncoding = `0x{RLP-encoded string}`
 
-	// Send the transaction using `caver.rpc.klay.sendRawTransaction`.
-	const receipt = await caver.rpc.klay.sendRawTransaction(rlpEncoding)
+	// Send the transaction using `caver.rpc.kaia.sendRawTransaction`.
+	const receipt = await caver.rpc.kaia.sendRawTransaction(rlpEncoding)
 	console.log(receipt)
 }
 
@@ -533,8 +533,8 @@ async function testFunction() {
 	// Sign the transaction via transaction.sign
 	await valueTransfer.sign(keyring)
 
-	// Send the transaction to the Kaia using `caver.rpc.klay.sendRawTransaction`.
-	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer)
+	// Send the transaction to the Kaia using `caver.rpc.kaia.sendRawTransaction`.
+	const receipt = await caver.rpc.kaia.sendRawTransaction(valueTransfer)
 	console.log(receipt)
 }
 
@@ -545,23 +545,23 @@ When the above code is executed, the receipt of the transaction is printed like 
 
 ### Checking Receipts <a href="#checking-receipts" id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Kaia by [caver.rpc.klay.sendRawTransaction](api/caver-rpc/klay.md#caver-rpc-klay-sendrawtransaction).
+You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Kaia by [caver.rpc.kaia.sendRawTransaction](api/caver-rpc/kaia.md#caver-rpc-kaia-sendrawtransaction).
 
 The following example shows how to get a receipt using promises and event emitters.
 
 ```javascript
 // Using a promise - async/await
-const receipt = await caver.rpc.klay.sendRawTransaction(rawTransaction)
+const receipt = await caver.rpc.kaia.sendRawTransaction(rawTransaction)
 console.log(receipt)
 
 // Using a promise
-caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
+caver.rpc.kaia.sendRawTransaction(rawTransaction).then(console.log)
 
 // Using an event emitter
-caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
+caver.rpc.kaia.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call.
+As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.kaia.getTransactionReceipt](api/caver-rpc/kaia.md#caver-rpc-kaia-gettransactionreceipt) RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.kaia.getTransactionReceipt](api/caver-rpc/kaia.md#caver-rpc-kaia-gettransactionreceipt) RPC call.
 
 ```javascript
 // test.js
@@ -569,7 +569,7 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-	const receipt = await caver.rpc.klay.getTransactionReceipt('0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a')
+	const receipt = await caver.rpc.kaia.getTransactionReceipt('0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a')
 	console.log(receipt)
 }
 
@@ -604,7 +604,7 @@ $ node ./test.js
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.kaia.getTransactionReceipt](api/caver-rpc/kaia.md#caver-rpc-kaia-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
@@ -687,7 +687,7 @@ const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
 	const rlpEncoded = '0x{RLP-encoded string}'
-	const receipt = await caver.rpc.klay.sendRawTransaction(rlpEncoded)
+	const receipt = await caver.rpc.kaia.sendRawTransaction(rlpEncoded)
 	console.log(receipt)
 }
 
@@ -774,7 +774,7 @@ async function testFunction() {
 		gas: 50000,
 	})
 	await caver.wallet.sign(sender.address, updateTx)
-	const receipt = await caver.rpc.klay.sendRawTransaction(updateTx)
+	const receipt = await caver.rpc.kaia.sendRawTransaction(updateTx)
 	console.log(receipt)
 
 	// Update the keyring in caver.wallet for signing afterward.
@@ -1201,7 +1201,7 @@ async function deployWithFeeDelegation() {
 	
 	await caver.wallet.signAsFeePayer(feePayer.address, signed)
 
-	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
+	const receipt = await caver.rpc.kaia.sendRawTransaction(signed)
 
 	const deployed = caver.contract.create(abi, receipt.contractAddress)
 }
@@ -1365,7 +1365,7 @@ async function deployWithFeeDelegation() {
 	
 	await caver.wallet.signAsFeePayer(feePayer.address, signed)
 
-	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
+	const receipt = await caver.rpc.kaia.sendRawTransaction(signed)
     console.log(receipt)
 }
 ```
@@ -1521,7 +1521,7 @@ $ node ./test.js
 
 If you run the above code, you can see that user2's signature has been appended in `transactionFromRLP.signatures` and a total of two signatures are included in it.
 
-When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`.
+When all users have signed, send a transaction to the network through `await caver.rpc.kaia.sendRawTransaction(transactionFromRLP)`.
 
 If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signAsFeePayer`.
 
@@ -1566,7 +1566,7 @@ Running the code above outputs one RLP-encoded raw transaction string with all t
 
 When executing `combineSignedRawTransactions` , the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignedRawTransactions`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
 
-The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
+The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.kaia.sendRawTransaction(combined)`.
 
 ## Detecting implementation of KCT interfaces <a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
 

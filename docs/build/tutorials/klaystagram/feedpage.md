@@ -65,7 +65,7 @@ Let's build it!
    * KlaystagramContract.js
 2. `src/redux`
 
-### 1\) `src/klaytn` <a id="1-src-klaytn"></a>
+### 1\) `src/klaytn` <a id="1-src-kaia"></a>
 
 `src/klaytn`: Contains files that help interact with Kaia blockchain.
 
@@ -105,20 +105,20 @@ import { cav } from 'klaytn/caver'
 
 /**
  * 1. Create contract instance
- * ex:) new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+ * ex:) new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
  * You can call contract method through this instance.
  */
 
 const KlaystagramContract = DEPLOYED_ABI
   && DEPLOYED_ADDRESS
-  && new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+  && new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
 
 export default KlaystagramContract
 ```
 
 To interact with contract, we need a contract instance.
 
-`KlaystagramContract` creates a contract instance to interact with Klaystagram contract, by providing `DEPLOYED_ABI`\(Application Binary Interface\) and `DEPLOYED_ADDRESS` to `cav.klay.Contract` API.
+`KlaystagramContract` creates a contract instance to interact with Klaystagram contract, by providing `DEPLOYED_ABI`\(Application Binary Interface\) and `DEPLOYED_ADDRESS` to `cav.kaia.Contract` API.
 
 When compiling & deploying `Klaystagram.sol` contract \([5. Deploy Contract](./deploy-contracts.md#3.-deploy-contract)\), we already created `deployedABI` and `deployedAddress` files. They contain ABI of Klaystagram contract and deployed contract address.
 
@@ -134,7 +134,7 @@ And thanks to webpack's configuration, we can access it as variable.\(`DEPLOYED_
 * `contractInstance.methods.methodName().send({ ... })`  
 
 **Now we are ready to interact with contract in the application.**  
-_cf. For more information, refer to_ [_caver.klay.Contract_](../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md)_._
+_cf. For more information, refer to_ [_caver.kaia.Contract_](../../../references/sdk/caver-js-1.4.1/api/caver.kaia.Contract.md)_._
 
 ### 2\) `src/redux` <a id="2-src-redux"></a>
 

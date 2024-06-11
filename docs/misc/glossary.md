@@ -8,15 +8,13 @@ A cryptographically secure reference to data stored outside of a blockchain. Anc
 ### anchoring
 The process of storing an anchor on a blockchain. This can be done by creating a transaction that contains the hash of the external data, or by creating a smart contract that references the external data (for example, [Anchoring in service chain](../nodes/service-chain/configure/anchoring.md)).
 
-### Baobab
-The public testnet of the Kaia platform. It is used by developers to test and verify their applications before deploying them to the Cypress mainnet. 
-
-See also [Cypress](#cypress).
+### Kairos
+The public testnet of the Kaia platform. It is used by developers to test and verify their applications before deploying them to the Mainnet.
 
 ### block explorer
 A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status. 
 
-The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/klaytnscope.md) and [Klayfinder](https://www.klaytnfinder.io/).
+The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Klayfinder](https://www.klaytnfinder.io/).
 
 ### core cell (CC)
 
@@ -31,12 +29,6 @@ A group of core cell nodes that are interconnected
 ### consensus node (CN)
 
 A node that is responsible for generating and propagating blocks, and for reaching consensus on the state of the Kaia blockchain. Consensus nodes validate submitted transactions and execute valid transactions.
-
-### Cypress
-
-The public mainnet of the Kaia platform. It is the production environment for Kaia applications and services. 
-
-See also Kaia Testnet [Baobab](#baobab).
 
 ### endpoint node (EN)
 
@@ -105,7 +97,7 @@ A unique resource identifier scheme to identify a Kaia node. It consists of node
 
 ### proposer
 
-A role assigned to a consensus node (CN) in each round of block creation. The proposer is randomly but deterministically selected to create the next block. The probability of a CN being enlisted as the proposer is determined by the amount of Kaia tokens, or KLAY, that the CN stakes.
+A role assigned to a consensus node (CN) in each round of block creation. The proposer is randomly but deterministically selected to create the next block. The probability of a CN being enlisted as the proposer is determined by the amount of Kaia tokens, or KAIA, that the CN stakes.
 
 ### proxy node (PN)
 

@@ -2,8 +2,8 @@
 
 **Kaia Networks**
 
-* Baobab testnet
-* Cypress mainnet
+* Kairos testnet
+* Mainnet
 
 **Endpoint Node**
 

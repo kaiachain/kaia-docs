@@ -17,7 +17,7 @@ In this guide, you will use the web3Modal library to integrate multiple wallets 
 * A working react project (by executing `npx create-react-app project-name`)
 * Install the necessary wallets ([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)). 
 * RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 
 ## Setting up Web3Modal and Wallet Provider Options
 
@@ -337,12 +337,12 @@ const signMessage = async(e) => {
 
 ## Sending Native Transaction
 
-You can perform native transactions, like sending KLAY from one user to another.
+You can perform native transactions, like sending KAIA from one user to another.
 
 ```js
     // add to the existing useState hook.
     const [txHash, setTxHash] = useState();
-    const sendKlay = async () => {
+    const sendKaia = async () => {
     if (!provider) return;
       const destination = “paste recipient address”;
 
@@ -369,7 +369,7 @@ You can perform native transactions, like sending KLAY from one user to another.
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 ```

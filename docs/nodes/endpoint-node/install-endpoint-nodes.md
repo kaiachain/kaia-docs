@@ -60,7 +60,7 @@ Or,
 $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Kaia Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Install from Kaia Yum Repo <a id="install-from-kaia-yum-repo"></a>
 
 Alternatively, you can install `kend` from the Kaia Yum repo, run:
 
@@ -113,7 +113,7 @@ Each EN maintains a copy of the network's chain data. If a node is out of sync, 
 
 To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the EN. This can dramatically reduce the time the EN will spend syncing on first start.
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kend`, extract the snapshot inside the DATA_DIR you configured in `kend.conf`.
+Download the latest chaindata snapshot from the [Mainnet snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Kairos snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kend`, extract the snapshot inside the DATA_DIR you configured in `kend.conf`.
 
 For example:
 
@@ -219,12 +219,12 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 #### ken console <a id="ken-console"></a>
 
-Kaia provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an EN.
+Kaia provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `kaia.ipc` is located in the `data` directory on an EN.
 
 Please execute the following command and check out the result.
 
 ```text
-$ ken attach /var/kend/data/klay.ipc
+$ ken attach /var/kend/data/kaia.ipc
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
@@ -237,15 +237,15 @@ You can check the usable commands on [API Document](../../../references/json-rpc
 
 The useful APIs to check the status of EN:
 
-* `klay.blockNumber` (to get the latest block number)
+* `kaia.blockNumber` (to get the latest block number)
 * `net.peerCount` (to get the number of the connected Kaia nodes currently)
 
-#### klay.blockNumber <a id="klay-blocknumber"></a>
+#### kaia.blockNumber <a id="kaia-blocknumber"></a>
 
 You can get the latest block number to see if blocks are propagated properly.
 
 ```text
-> klay.blockNumber
+> kaia.blockNumber
 11573819
 ```
 

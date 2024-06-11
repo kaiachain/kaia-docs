@@ -6,7 +6,7 @@ Kaia’s token economy is designed to create sustainable funding structures for 
 
 ## Funding Structure <a id="funding-structure"></a>
 
-Kaia’s funding structure runs continuously with Kaia network’s block generation. With every new block, newly issued KLAY and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
+Kaia’s funding structure runs continuously with Kaia network’s block generation. With every new block, newly issued KAIA and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
 
 * Kaia Governance Council (GC) Reward:
     * GC Block Proposer Reward: 10% 
@@ -14,19 +14,19 @@ Kaia’s funding structure runs continuously with Kaia network’s block generat
 * Kaia Community Fund \(KCF\): 30%
 * Kaia Foundation Fund \(KFF\): 20%
 
-6.4 KLAY will be minted for every new block. This implies that approximately 200 million KLAY will be minted annually, which is equivalent to 2% annual inflation against the 10 billion KLAY issued at genesis \(the annual inflation rate is subject to change through the Kaia Governance Process\). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
+6.4 KAIA will be minted for every new block. This implies that approximately 200 million KAIA will be minted annually, which is equivalent to 2% annual inflation against the 10 billion KAIA issued at genesis \(the annual inflation rate is subject to change through the Kaia Governance Process\). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
 
-## Kaia Governance Council Reward <a id="klaytn-governance-council-reward"></a>
+## Kaia Governance Council Reward <a id="kaia-governance-council-reward"></a>
 
-Kaia Governance Council is the collective group of Core Cell Operators \(CCOs\). Council members are responsible for maintaining Core Cells \(CCs\), which makes the Council an essential body in the Kaia ecosystem responsible for providing the underlying infrastructure. To become a Council member, the candidate must undergo a qualification review by the Kaia Governance Process and must stake at least 5 million KLAY. The Kaia Governance Council Reward is a structure for incentivizing Council members to continue to provide a stable foundation for the Kaia ecosystem.
+Kaia Governance Council is the collective group of Core Cell Operators \(CCOs\). Council members are responsible for maintaining Core Cells \(CCs\), which makes the Council an essential body in the Kaia ecosystem responsible for providing the underlying infrastructure. To become a Council member, the candidate must undergo a qualification review by the Kaia Governance Process and must stake at least 5 million KAIA. The Kaia Governance Council Reward is a structure for incentivizing Council members to continue to provide a stable foundation for the Kaia ecosystem.
 
-### Kaia Governance Council Reward Mechanism <a id="klaytn-governance-council-reward-mechanism"></a>
+### Kaia Governance Council Reward Mechanism <a id="kaia-governance-council-reward-mechanism"></a>
 
 For each block in the Kaia blockchain, a Committee is formed by randomly selecting members from the Kaia Governance Council (GC). This Committee consists of a single member who is assigned the role of Proposer, while the remaining Committee members take on the role of Validators. Once a block is successfully created and appended to the Kaia blockchain, the block reward is distributed among the Council members and various funds according to the previously mentioned ratios.
 
-All Council members have an equal probability of being selected as the Proposer for a given block, and the block proposer reward is distributed evenly among them. However, the GC staking reward is allocated proportionally based on the amount of KLAY staked by each member, minus the minimum requirement of 5 million KLAY. This means that Council members who stake a larger amount of KLAY beyond the minimum threshold will receive a greater share of the staking reward compared to those who stake less. As a result, Council members are incentivized to stake more KLAY to maximize their potential rewards from the GC staking award portion of the block reward distribution.
+All Council members have an equal probability of being selected as the Proposer for a given block, and the block proposer reward is distributed evenly among them. However, the GC staking reward is allocated proportionally based on the amount of KAIA staked by each member, minus the minimum requirement of 5 million KAIA. This means that Council members who stake a larger amount of KAIA beyond the minimum threshold will receive a greater share of the staking reward compared to those who stake less. As a result, Council members are incentivized to stake more KAIA to maximize their potential rewards from the GC staking award portion of the block reward distribution.
 
-As long as the minimum 5 million KLAY staking requirement is met, Kaia Governance Council members can freely stake or unstake his or her own KLAY. Staking information is updated every 86,400 blocks, and newly staked KLAY comes info effect two update cycles later from when the staking is completed. Withdrawing staked KLAY requires one week of delay to prevent malicious members from immediately exiting.
+As long as the minimum 5 million KAIA staking requirement is met, Kaia Governance Council members can freely stake or unstake his or her own KAIA. Staking information is updated every 86,400 blocks, and newly staked KAIA comes info effect two update cycles later from when the staking is completed. Withdrawing staked KAIA requires one week of delay to prevent malicious members from immediately exiting.
 
 
 ### Penalty for Misbehaving Council Members <a id="penalty-for-misbehaving-council-members"></a>
@@ -43,7 +43,7 @@ Causing Liveness Failure:
 * A Council member selected as Proposer must create a valid block
 * A Council member selected as Validator must validate the block proposed by the Proposer
 
-## Kaia Community Fund <a id="klaytn-community-fund"></a>
+## Kaia Community Fund <a id="kaia-community-fund"></a>
 The Kaia Community Fund (KCF) was established to support Kaia's mission of enabling greater transparency and verifiability. It's important to keep in mind that the former Kaia Growth Fund (KGF) and Kaia Improvement Reserve (KIR) have merged to become the new Kaia Community Fund (KCF). 
 
 The Kaia Community Fund will be used to fund activities that improves the Kaia ecosystem, such as:
@@ -55,7 +55,7 @@ The Kaia Community Fund will be used to fund activities that improves the Kaia 
 
 The administration of the Kaia Community Fund follows a process in which the GC reviews and approves the use of funds in public forums on [Kaia Square](https://square.klaytn.foundation/Home). The Foundation will submit a budget proposal for each category to the GC for approval. Within the approved budget, each specific use will be reviewed and approved again by the GC. In the meantime, the KCF is currently being run as a [pilot program](https://klaytn.foundation/kcf-grant-pilot/) and interested parties can visit the [Kaia Governance Forum](https://govforum.klaytn.foundation/t/operational-procedures-of-the-kcf-grant-program-pilot/288) for more details about the program. 
 
-## Kaia Foundation Fund <a id="klaytn-foundation-fund"></a>
+## Kaia Foundation Fund <a id="kaia-foundation-fund"></a>
 
 Kaia Foundation Fund (KFF) is an operational fund that will focus on this two main categories:
 

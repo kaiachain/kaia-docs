@@ -24,7 +24,7 @@ The cloned template is a simple Next.js Privy Auth Starter template with three m
 
 * **index.tsx**: this file handles the login authentication of users.
 * **app.tsx**: this file handles the initialization of Privy SDK and wraps our components with a PrivyProvider.
-*  **dashboard.tsx**: this is the page users are redirected to after logging in. It handles everything around testing each login method (Google, Twitter, Email, Wallets). More importantly for this guide, we will perform certain functionalities when connected using external wallets like MetaMask. These functionalities include:  getting user balance, sending KLAY to another account, deploying a contract, interacting with a smart contract.
+*  **dashboard.tsx**: this is the page users are redirected to after logging in. It handles everything around testing each login method (Google, Twitter, Email, Wallets). More importantly for this guide, we will perform certain functionalities when connected using external wallets like MetaMask. These functionalities include:  getting user balance, sending KAIA to another account, deploying a contract, interacting with a smart contract.
 
 ## Installation
 
@@ -98,7 +98,7 @@ Inside your LoginPage function in your `index.tsx` file, call the [login](https:
 
 ## Getting Account and Balance
 
-From the previous step above, you'll realize we logged in by connecting our wallet. In this step, we will retrieve the user’s associated Kaia address. Additionally, you can retrieve its current balance (in KLAY) using ethers.js. 
+From the previous step above, you'll realize we logged in by connecting our wallet. In this step, we will retrieve the user’s associated Kaia address. Additionally, you can retrieve its current balance (in KAIA) using ethers.js. 
 
 In your dashboard.tsx file, paste the code below:
 
@@ -139,7 +139,7 @@ return (
  {ready && authenticated ? (
       <div className=“App”>
         <button onClick={getBalance}>Get Balance</button>
-        <p>{balance ? ` User with ${wallets[0].address} has ${balance} KLAY` : "None"}</p>
+        <p>{balance ? ` User with ${wallets[0].address} has ${balance} KAIA` : "None"}</p>
       </div>
 ) : null }
 );
@@ -183,7 +183,7 @@ return (
 
 ## Sending Native Transaction
 
-You can perform native transactions, like sending KLAY from one user to another.
+You can perform native transactions, like sending KAIA from one user to another.
 
 ```tsx
 const [klayTransferTx, setKlayTransferTx] = useState("");
@@ -212,7 +212,7 @@ return (
  {ready && authenticated ? (
          <div className="mt-12 flex flex-col gap-5">
             <button onClick={sendTx}>Send Transaction</button>
-            <p>{klayTransferTx ? `KLAY Successfully Transferred with: ${klayTransferTx} hash` : "No Tx yet"}</p>
+            <p>{klayTransferTx ? `KAIA Successfully Transferred with: ${klayTransferTx} hash` : "No Tx yet"}</p>
         </div>
 ) : null }
 );

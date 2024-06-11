@@ -536,12 +536,12 @@ Please take a look at OpenZeppelin example [ERC20Mintable.sol](https://github.co
 
 You can use Remix Online IDE or use Truffle to deploy `MyERC20` smart contract.
 
-### 2.1 Deploying smart contract using Remix Online IDE <a href="#2-1-deploying-smart-contract-using-klaytn-ide" id="2-1-deploying-smart-contract-using-klaytn-ide"></a>
+### 2.1 Deploying smart contract using Remix Online IDE <a href="#2-1-deploying-smart-contract-using-kaia-ide" id="2-1-deploying-smart-contract-using-kaia-ide"></a>
 
 * Please visit [Kaia Plugin for Remix](https://ide.klaytn.foundation) and create a `MyERC20` contract. The complete source code was given at [Writing ERC-20 Smart Contract](#1-writing-erc-20-smart-contract).
 * Prepare your account which will be used to deploy the contract.
   * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
-  * Get some test KLAY from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
+  * Get some test KAIA from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
 * Let's deploy `MyERC20.sol` with the deploy parameters of `BAOBABTOKEN`, `BAO` and `8`.
 
 ![ERC20-1-deploy](/img/build/smart-contracts/erc20-1-deploy.png)
@@ -552,15 +552,15 @@ After deploying, you can invoke `balanceOf` with your account, which was used to
 
 `MyERC20` is now live !
 
-## 3. Interacting with ERC-20 token from Kaia Wallet <a id="3-interacting-with-erc-20-token-from-klaytn-wallet"></a>
+## 3. Interacting with ERC-20 token from Kaia Wallet <a id="3-interacting-with-erc-20-token-from-kaia-wallet"></a>
 
-You can use [Baobab Kaia Wallet](https://baobab.wallet.klaytn.foundation) to query your balance and transfer the ERC-20 compatible `BAOBABTOKEN` you just deployed.
+You can use [Kairos Kaia Wallet](https://baobab.wallet.klaytn.foundation) to query your balance and transfer the ERC-20 compatible `BAOBABTOKEN` you just deployed.
 
 You can add ERC-20 compatible token in your wallet with the address of the deployed `MyERC20` contract as below.
 
 ![ERC20-3-Add_token](/img/build/smart-contracts/erc20-3-add_token.png)
 
-After adding the ERC-20 token in the wallet app, the balance of your `BAOBABTOKEN` will be shown in addition to the balance of KLAY as below. You can see there is `100000` `BAO` tokens in the account.
+After adding the ERC-20 token in the wallet app, the balance of your `BAOBABTOKEN` will be shown in addition to the balance of KAIA as below. You can see there is `100000` `BAO` tokens in the account.
 
 ![ERC20-4-wallet-token](/img/build/smart-contracts/erc20-4-wallet-token.png)
 

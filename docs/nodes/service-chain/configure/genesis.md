@@ -101,13 +101,13 @@ The `reward` field stores the information about the network's token economy.
 
 |          Fields         |       Description             |
 | ----------------------- | ----------------------------- |
-| mintingAmount           | Amount of peb minted when a block is generated. Double quotation marks are needed for a value. |
+| mintingAmount           | Amount of kei minted when a block is generated. Double quotation marks are needed for a value. |
 | ratio                   | Distribution rate for a `CN/KIR/PoC` separated by `/`. The sum of all values has to be 100.  |
 | useGiniCoeff            | Use GINI coefficient or not. |
 | deferredTxFee           | A way to distribute TX fee for a block. |
 | stakingUpdateInterval   | Time interval in block height to update staking information. |
 | proposerUpdateInterval  | Time interval in block height to update proposer information. |
-| minimumStake            | Minimum amount of peb to join Core Cell Operators. |
+| minimumStake            | Minimum amount of kei to join Core Cell Operators. |
 
 ## Example <a id="example"></a>
 

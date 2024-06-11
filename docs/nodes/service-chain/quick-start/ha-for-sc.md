@@ -6,12 +6,12 @@ If only one bridge is used in the ServiceChain, that bridge can become a single 
 
 
 ## Prerequisites <a id="prerequisites"></a>
- - The main bridge of the EN and the sub bridge of the SCN are connected. If it's not, please refer to [Baobab connection](en-scn-connection.md) to establish the connection.
- - This section describes how to add an extra bridge between Baobab and a ServiceChain. In the same way, you can also set up HA by adding another bridge.
+ - The main bridge of the EN and the sub bridge of the SCN are connected. If it's not, please refer to [Kairos connection](en-scn-connection.md) to establish the connection.
+ - This section describes how to add an extra bridge between Kairos and a ServiceChain. In the same way, you can also set up HA by adding another bridge.
 
 ## Step 1: Adding another Bridge between EN-SCN <a id="step-1-adding-another-bridge-between-en-scn"></a>
 
-In [Connecting to Baobab](en-scn-connection.md), we assume that the EN and the SCN connected by a bridge as EN-01 and SCN-L2-01, respectively. In this section, we will add another bridge between EN-02 and SCN-L2-02. 
+In [Connecting to Kairos](en-scn-connection.md), we assume that the EN and the SCN connected by a bridge as EN-01 and SCN-L2-01, respectively. In this section, we will add another bridge between EN-02 and SCN-L2-02. 
 Since it follows the same procedure, we will briefly explain.
 
 
@@ -41,8 +41,8 @@ SCN-L2-02$ echo '["kni://eb8f21df10c6562...25bae@192.168.0.5:50505?discport=0"]'
 
 On the shell of SCN-L2-02, edit `kscn-XXXXX-amd64/conf/kscnd.conf` as described below.
 To connect a bridge, set `SC_SUB_BRIDGE` to 1.
-`SC_PARENT_CHAIN_ID` is set to Baobob's `chainID` 1001. 
-`SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring transaction to the parent chain. In this example, an anchor transaction is submitted to the parent chain (Baobab) for every 10 child blocks.
+`SC_PARENT_CHAIN_ID` is set to Kairos's `chainID` 1001. 
+`SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring transaction to the parent chain. In this example, an anchor transaction is submitted to the parent chain (Kairos) for every 10 child blocks.
 ```
 ...
 SC_SUB_BRIDGE=1

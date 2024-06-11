@@ -120,7 +120,7 @@ Executing this command will trigger the following actions:
     * **_royaltyRecipient**: wallet address to receive royalties from secondary sales
     * **_royaltyBps**: basis points (bps) that will be given to the royalty recipient for each secondary sale, e.g., 500 = 5%
 
-3. Select `Kaia Mainnet Cypress` as the network to deploy the contract to.
+3. Select `Kaia Mainnet` as the network to deploy the contract to.
 
 ![](/img/build/get-started/nft-collection-deploy.png)
 

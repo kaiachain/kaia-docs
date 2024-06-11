@@ -1,19 +1,19 @@
 # FAQ
 
-- [What is Kaia?](#what-is-klaytn)
-- [What is Kaia 2.0?](#what-is-klaytn-2.0)
+- [What is Kaia?](#what-is-kaia)
+- [What is Kaia 2.0?](#what-is-kaia-2.0)
 - [How does Kaia support Ethereum equivalence?](#how-ethereum-equivalence)
-- [What is Kaia’s gas policy?](#klaytn-gas-policy)
-- [What is special about Kaia’s account structure?](#klaytn-account-structure)
+- [What is Kaia’s gas policy?](#kaia-gas-policy)
+- [What is special about Kaia’s account structure?](#kaia-account-structure)
 - [Where can I start dApp development with Kaia?](#dapp-development)
-- [Is Kaia Open Source?](#is-klaytn-open-source)
+- [Is Kaia Open Source?](#is-kaia-open-source)
 - [How can I initially fund my account?](#fund-my-acconut)
 - [Any Kaia’s Public Node Providers for testing and development?](#node-providers)
-- [Are there faucets to get test KLAY?](#are-there-faucets)
+- [Are there faucets to get test KAIA?](#are-there-faucets)
 - [How do I check for Public RPC endpoint status?](#rpc-endpoint-status)
 - [Which wallets support Kaia?](#which-wallets)
-- [What is Cypress, what is Baobab?](#what-is-cypress-what-is-baobab)
-- [Are there any Kaia SDKs? In what languages?](#klaytn-sdks)
+- [What is Mainnet, what is Kairos?](#what-is-mainnet-what-is-kairos)
+- [Are there any Kaia SDKs? In what languages?](#kaia-sdks)
 - [Must I install and run an EN (Endpoint Node) to use Kaia?](#must-i-install-and-run-en)
 - [I am running an EN, and node data sync is too slow.](#node-data-sync-is-too-slow)
 - [Can I use ERC-20 and ERC-721 contracts on Kaia?](#can-i-use-erc-20-and-erc-721)
@@ -23,11 +23,11 @@
 - [Where can I find complete working samples of fee-delegation?](#fee-delegation-samples)
 
 
-## What is Kaia? <a id="what-is-klaytn"></a>
+## What is Kaia? <a id="what-is-kaia"></a>
 Kaia is the Layer 1 blockchain platform with low latency, high TPS and immediate finality. It is the optimal blockchain for building games and realizing the [metaverse](../learn/klaytn2/metaverse-package).
 
 
-## What is Kaia 2.0? <a id="what-is-klaytn-2.0"></a>
+## What is Kaia 2.0? <a id="what-is-kaia-2.0"></a>
 Kaia 2.0 marks Kaia’s transition to focus on the metaverse, supporting Ethereum Equivalence and the comprehensive Metaverse Package to facilitate blockchain building experience. To better understand Kaia 2.0, please refer to our [Light Paper](https://klaytn.foundation/wp-content/uploads/Lightpaper.pdf).
 
 
@@ -35,11 +35,11 @@ Kaia 2.0 marks Kaia’s transition to focus on the metaverse, supporting Ethereu
 Kaia is EVM compatible, and supports all Ethereum London EVM features. Our `eth` namespace has been amended to be compatible with Ethereum’s. Ethereum toolings can be used seamlessly, and migration of Ethereum dApps have also become possible with minimal effort. Transaction types and fields are also equivalent to Ethereum’s.
 
 
-## What is Kaia’s gas policy? <a id="klaytn-gas-policy"></a>
+## What is Kaia’s gas policy? <a id="kaia-gas-policy"></a>
 Kaia transitioned from a fixed gas fee policy to adopt a dynamic gas fee mechanism in order to combat arbitrage bots. Please refer to this [article](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) for more information.
 
 
-## What is special about Kaia’s account structure? <a id="klaytn-account-structure"></a>
+## What is special about Kaia’s account structure? <a id="kaia-account-structure"></a>
 To provide maximum convenience for dApp developers, Kaia has devised a way to [decouple private keys from addresses](https://klaytn-tech.medium.com/klaytn-usability-improvement-series-1-separating-keys-and-addresses-dd5e367a0744). As a result, you can easily implement [multisig](https://medium.com/klaytn/klaytn-usability-improvement-series-2-introducing-multisig-on-the-platform-level-85141893db01), whereby you create multiple private keys for a single account, with each key having different weights. Each key can be assigned with [different roles](https://medium.com/klaytn/klaytn-usability-improvement-series-4-supporting-role-based-keys-on-the-platform-level-e2c912672b7b) as well.
 
 
@@ -47,12 +47,12 @@ To provide maximum convenience for dApp developers, Kaia has devised a way to [d
 Whether you are migrating from Ethereum, or building on Kaia from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Kaia Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk `caver` is available as [caver-js](https://github.com/klaytn/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
 
 
-## Is Kaia Open Source? <a id="is-klaytn-open-source"></a>
+## Is Kaia Open Source? <a id="is-kaia-open-source"></a>
 Kaia is most certainly open source! Take a look at our [Github Organisation](https://github.com/klaytn) and you can start [contributing](https://github.com/klaytn/klaytn-docs/blob/master/CONTRIBUTING.md) to our Kaia Documentation. Read more about our open-source policies [here](opensource).
 
 
 ## How can I initially fund my account? <a id="fund-my-acconut"></a>
-You may purchase KLAY on the exchange. The list of available exchanges can be found here:
+You may purchase KAIA on the exchange. The list of available exchanges can be found here:
 [Coinmarketcap](https://coinmarketcap.com/currencies/klaytn/markets/) or [Coingecko](https://www.coingecko.com/en/coins/klay#markets)
 
 
@@ -60,9 +60,9 @@ You may purchase KLAY on the exchange. The list of available exchanges can be fo
 Refer to this [list](../references/service-providers/public-en#public-json-rpc-endpoint-providers) for Kaia’s Public Node Providers and the network domains.
 
 
-## Are there faucets to get test KLAY? <a id="are-there-faucets"></a>
-You can get test KLAY for development and testing purposes here:
-[Klay Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+## Are there faucets to get test KAIA? <a id="are-there-faucets"></a>
+You can get test KAIA for development and testing purposes here:
+[Kaia Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 [AllThatNode Faucet](https://www.allthatnode.com/faucet/klaytn.dsrv)
 
 
@@ -74,24 +74,24 @@ Since we cannot guarantee uptime and stability of the endpoints, you can always 
 Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaikas, MetaMask and more. Please refer to the list [here](http://klaytn.foundation/ecosystem).
 
 
-## What is Cypress, what is Baobab? <a id="what-is-cypress-what-is-baobab"></a>
+## What is Mainnet, what is Kairos? <a id="what-is-mainnet-what-is-kairos"></a>
 
-Cypress is the Kaia mainnet, Baobab is a testnet.
+Mainnet is the Kaia mainnet, Kairos is a testnet.
 Below is information relating to each network.
 
-Cypress mainnet:
-- EN download : Choose the Cypress package from the [download page](../nodes/downloads/downloads.md).
+Mainnet:
+- EN download : Choose the Mainnet package from the [download page](../nodes/downloads/downloads.md).
 - Kaiascope : https://klaytnscope.com
 - Kaia Wallet : https://wallet.klaytn.com
 
-Baobab testnet:
-- EN download : Choose the Baobab package from the [download page](../nodes/downloads/downloads.md).
+Kairos testnet:
+- EN download : Choose the Kairos package from the [download page](../nodes/downloads/downloads.md).
 - Kaiascope : https://baobab.klaytnscope.com
 - Kaia Wallet : https://baobab.wallet.klaytn.foundation
-- Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
+- Kairos Faucet : https://baobab.wallet.klaytn.foundation/faucet
 
 
-## Are there any Kaia SDKs? In what languages? <a id="klaytn-sdks"></a>
+## Are there any Kaia SDKs? In what languages? <a id="kaia-sdks"></a>
 
 Official Kaia SDKs are provided in JavaScript and Java.
 See [caver-js](../references/sdk/caver-js/caver-js.md) and [caver-java](../references/sdk/caver-java/caver-java.md). Community contributions are always welcome in providing [Kaia APIs](../../references/json-rpc/klay/account-created) in other languages.
@@ -106,7 +106,7 @@ Also, check the porting guidelines [from web3.js](../references/sdk/caver-js-1.4
 Yes and No.
 Endpoint node validates the blocks and exposes RPC APIs to the outer world. EN is always needed for your application to interact with the Kaia network.
 For those who simply want to try Kaia APIs, you can try [KAS (Kaia API Service)](https://www.klaytnapi.com).
-KAS provides Kaia Node API service that exposes RPC APIs of Kaia networks (both Baobab and Cypress) as well as other useful API services.
+KAS provides Kaia Node API service that exposes RPC APIs of Kaia networks (both Kairos and Mainnet) as well as other useful API services.
 Note that KAS serves free API requests after user registration. For pricing plans, please refer to [KAS pricing page](https://www.klaytnapi.com/landing/pricing).
 
 
@@ -135,7 +135,7 @@ If you are new to Truffle, see [Testing Guide](../build/smart-contracts/testing-
 
 ## Where can I get a browser extension wallet like Metamask? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
-Kaia's web browser extension wallet [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en). Kaikas is a non-custodial wallet with which you can make KLAY transactions and create accounts. 
+Kaia's web browser extension wallet [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en). Kaikas is a non-custodial wallet with which you can make KAIA transactions and create accounts. 
 
 
 
@@ -159,7 +159,7 @@ See the [JavaScript code snippet](https://gist.github.com/w3kim/64a3cf5da5825047
 [Sending a transaction with multiple signer](../references/sdk/caver-js-1.4.1/get-started-1.4.1.md#sending-a-transaction-with-multiple-signer) gives a good explanation about two different ways of collecting signatures.
 Relevant caver-js APIs are as follows. Take a look at the code examples in the API description.
 
-- [caver.klay.accounts.signTransaction](../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#signtransaction)
-- [caver.klay.accounts.feePayerSignTransaction](../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#feepayersigntransaction)
-- [caver.klay.accounts.combinesignatures](../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#combinesignatures)
-- [caver.klay.sendSignedTransaction](../references/sdk/caver-js-1.4.1/api/caver.klay/transaction/transaction.md#sendsignedtransaction)
+- [caver.kaia.accounts.signTransaction](../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#signtransaction)
+- [caver.kaia.accounts.feePayerSignTransaction](../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#feepayersigntransaction)
+- [caver.kaia.accounts.combinesignatures](../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#combinesignatures)
+- [caver.kaia.sendSignedTransaction](../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/transaction.md#sendsignedtransaction)

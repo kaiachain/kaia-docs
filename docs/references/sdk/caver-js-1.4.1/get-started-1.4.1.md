@@ -38,7 +38,7 @@ $ npm install caver-js@X.X.X
 
 Once you have finished installing caver-js, you can now connect caver-js with a Kaia Node.
 
-You can import the caver-js module and connect it to a Kaia Node in the Baobab testnet as shown in the example below:
+You can import the caver-js module and connect it to a Kaia Node in the Kairos testnet as shown in the example below:
 
 ```text
 $ node
@@ -58,10 +58,10 @@ $ node
 
 ### Creating an Account <a id="creating-an-account"></a>
 
-You can use `caver-js` to create an account as shown below. You can also create an account via [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#create-a-new-account).
+You can use `caver-js` to create an account as shown below. You can also create an account via [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#create-a-new-account).
 
 ```text
-> const account = caver.klay.accounts.create()
+> const account = caver.kaia.accounts.create()
 
 > account
 { address: '0x3bd32d55e64d6cbe54bec4f5200e678ee8d1a990',
@@ -69,7 +69,7 @@ You can use `caver-js` to create an account as shown below. You can also create 
   ... }
 ```
 
-**Note**: Functions associated with [caver.klay.accounts] have no effect on the actual Kaia network.
+**Note**: Functions associated with [caver.kaia.accounts] have no effect on the actual Kaia network.
 
 ### Add Accounts to caver-js <a id="add-accounts-to-caver-js"></a>
 
@@ -77,7 +77,7 @@ You can use your account easily by using the in-memory wallet provided by caver-
 
 ```text
 // Using an account object
-> caver.klay.accounts.wallet.add(caver.klay.accounts.create())
+> caver.kaia.accounts.wallet.add(caver.kaia.accounts.create())
 { 
     address: '0xebec0df19ed2f8b4070dec94d55a69077c544403',
     privateKey: '0x{private key}',
@@ -89,7 +89,7 @@ You can use your account easily by using the in-memory wallet provided by caver-
 }
 
 // Using a keystore file.
-> const decryptedAccount = caver.klay.accounts.decrypt({
+> const decryptedAccount = caver.kaia.accounts.decrypt({
         "version": 3,
         "id": "7c05d545-85ce-46c9-b6e9-9110d6597931",
         "address": "0x460406d822b5908504353deabc890e0de61eb42b",
@@ -110,7 +110,7 @@ You can use your account easily by using the in-memory wallet provided by caver-
             "mac": "99e4c25ac8acf1571d4161f2c40db92a391aefd42ec871e23601a7af446432a7"
         }
     }, 'password')
-> caver.klay.accounts.wallet.add(decryptedAccount)
+> caver.kaia.accounts.wallet.add(decryptedAccount)
 { 
     address: '0x460406d822b5908504353deabc890e0de61eb42b',
     privateKey: '0x{private key}',
@@ -125,23 +125,23 @@ The account added to the caver-js wallet can be used for `sendTransaction`.
 
 ## Sending a Transaction <a id="sending-a-transaction"></a>
 
-This section will show you how to send a KLAY using caver-js on the Baobab network.
+This section will show you how to send a KAIA using caver-js on the Kairos network.
 
-### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KAIA via Kairos Faucet <a id="getting-kaia-via-kairos-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Kaia Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
+If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay). Log in to the Kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
 
 ### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
-You can use a caver-js wallet to generate a signature of a transaction. If you have an account in the caver-js wallet, the signature generation will be done with the private key inside the caver-js wallet when you execute `caver.klay.sendTransaction`. Note that `caver.klay.sendTransaction` performs both signature generation and submission of the transaction at once.
+You can use a caver-js wallet to generate a signature of a transaction. If you have an account in the caver-js wallet, the signature generation will be done with the private key inside the caver-js wallet when you execute `caver.kaia.sendTransaction`. Note that `caver.kaia.sendTransaction` performs both signature generation and submission of the transaction at once.
 
 ```text
-// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.kaia.accounts.wallet.add'.
 // If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
 
-> const account = caver.klay.accounts.wallet.add('0x{private key}')
+> const account = caver.kaia.accounts.wallet.add('0x{private key}')
 
-> caver.klay.sendTransaction({
+> caver.kaia.sendTransaction({
     type: 'VALUE_TRANSFER',
     from: account.address',
     to: '0xeF5cd886C7f8d85fbe8023291761341aCBb4DA01',
@@ -166,29 +166,29 @@ You can use a caver-js wallet to generate a signature of a transaction. If you h
 
 If you want to generate a signature directly from the private key without a caver-js wallet, the following steps are required:
 
-1. `caver.klay.accounts.signTransaction` - The process of signing a transaction with a private key and getting a RLP-encoded transaction.
-2. `caver.klay.sendSignedTransaction` - sends the RLP-encoded transaction to the node connected to caver-js.
+1. `caver.kaia.accounts.signTransaction` - The process of signing a transaction with a private key and getting a RLP-encoded transaction.
+2. `caver.kaia.sendSignedTransaction` - sends the RLP-encoded transaction to the node connected to caver-js.
 
 First, to sign the transaction, specify the sender, recipient, and the private key appropriately like shown below:
 
-**Note:** The sender should have enough amount of KLAY.
+**Note:** The sender should have enough amount of KAIA.
 
 ```text
-> caver.klay.accounts.signTransaction({
+> caver.kaia.accounts.signTransaction({
     type: 'VALUE_TRANSFER',
     from: '0x71959675eeb7c7ec1e0c74f206a9c488d7f178d4',
     to: '0xeF5cd886C7f8d85fbe8023291761341aCBb4DA01',
     gas: '300000',
-    value: caver.utils.toPeb('1', 'KLAY'),
+    value: caver.utils.toPeb('1', 'KAIA'),
   }, '0x{private key}').then((result)=>{
       rawTransaction = result.rawTransaction
   })
 ```
 
-You can get a RLP-encoded transaction \(`rawTransaction`\) using [caver.klay.accounts.signTransaction] as above and use this to transfer the transaction to the Kaia network as below.
+You can get a RLP-encoded transaction \(`rawTransaction`\) using [caver.kaia.accounts.signTransaction] as above and use this to transfer the transaction to the Kaia network as below.
 
 ```text
-> caver.klay.sendSignedTransaction(rawTransaction).on('transactionHash', console.log)
+> caver.kaia.sendSignedTransaction(rawTransaction).on('transactionHash', console.log)
 0xac418c96f7386a3343d149eeb29e48e28905525dda2e5afe55b0661f9ab01aca
 ```
 
@@ -196,13 +196,13 @@ As shown in the example above, you can send a request and use the event emitter 
 
 ### Checking Receipts <a id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to [caver.klay.sendSignedTransaction](api/caver.klay/transaction/transaction.md#sendsignedtransaction) or [caver.klay.sendTransaction](api/caver.klay/transaction/transaction.md#sendtransaction).
+You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to [caver.kaia.sendSignedTransaction](api/caver.kaia/transaction/transaction.md#sendsignedtransaction) or [caver.kaia.sendTransaction](api/caver.kaia/transaction/transaction.md#sendtransaction).
 
 The following example shows how to get a receipt using promise and event emitter.
 
 ```text
 // Using promise
-> caver.klay.sendSignedTransaction(rawTransaction).then(console.log)
+> caver.kaia.sendSignedTransaction(rawTransaction).then(console.log)
 { 
     blockHash: '0x6ccef34eb59fab927705d344f080f449b576c0626e4aa3e20f569feb8df6e283',
     blockNumber: 19097,
@@ -219,7 +219,7 @@ The following example shows how to get a receipt using promise and event emitter
 }
 
 // Using event emitter
-> caver.klay.sendSignedTransaction(rawTransaction).on('receipt', console.log)
+> caver.kaia.sendSignedTransaction(rawTransaction).on('receipt', console.log)
 { 
     blockHash: '0x6ccef34eb59fab927705d344f080f449b576c0626e4aa3e20f569feb8df6e283',
     blockNumber: 19097,
@@ -236,10 +236,10 @@ The following example shows how to get a receipt using promise and event emitter
 }
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. And also, if you know the transaction hash, you can query the transaction receipt using the [caver.klay.getTransactionReceipt] RPC call. The example below shows how to get a receipt using the [caver.klay.getTransactionReceipt] RPC call.
+As described in the example above, you can get the result of sending a transaction through the promise and event emitter. And also, if you know the transaction hash, you can query the transaction receipt using the [caver.kaia.getTransactionReceipt] RPC call. The example below shows how to get a receipt using the [caver.kaia.getTransactionReceipt] RPC call.
 
 ```text
-> caver.klay.getTransactionReceipt('0xbad4dd6d80beda6c04d90f1db7e4179557ab48423d4f14295b33e38a9418e59f').then(console.log)
+> caver.kaia.getTransactionReceipt('0xbad4dd6d80beda6c04d90f1db7e4179557ab48423d4f14295b33e38a9418e59f').then(console.log)
 { 
     blockHash: '0xd56ac90d552f924f228683f78854c0ffd9f29498f985892f726326a860378a53',
     blockNumber: 3827075,
@@ -282,12 +282,12 @@ Kaia provides [Fee Delegation] feature. Here's an example code.
 When you are a sender, use the code below to make an RLP-encoded transaction object:
 
 ```text
-> caver.klay.accounts.signTransaction({
+> caver.kaia.accounts.signTransaction({
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
     from: '0x3bd32d55e64d6cbe54bec4f5200e678ee8d1a990',
     to: '0xeF5cd886C7f8d85fbe8023291761341aCBb4DA01',
     gas: '300000',
-    value: caver.utils.toPeb('1', 'KLAY'),
+    value: caver.utils.toPeb('1', 'KAIA'),
   }, '0x{private key}').then((ret)=>{rawTransaction = ret.rawTransaction})
 
 > rawTransaction
@@ -297,11 +297,11 @@ When you are a sender, use the code below to make an RLP-encoded transaction obj
 With the signed RLP-encoded transaction object \(`rawTransaction`\), the fee payer can send the transaction after attaching the one's signature. The fee payer sets the `rawTransaction` to senderRawTransaction and signs with the address of the fee payer, as in the example below.
 
 ```text
-// If you have not added a fee payer account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If you have not added a fee payer account to caver-js's wallet, add it to your wallet by running 'caver.kaia.accounts.wallet.add'.
 // If an account is already added to the wallet, 'Error: Account is existed with {hex in address}' is returned. In this case, please use the account's address instead of `feePayer.address`.
-> const feePayer = caver.klay.accounts.wallet.add('0x{private key}')
+> const feePayer = caver.kaia.accounts.wallet.add('0x{private key}')
 
-> caver.klay.sendTransaction({
+> caver.kaia.sendTransaction({
     senderRawTransaction: rawTransaction,
     feePayer: feePayer.address,
   }).then(console.log)
@@ -324,11 +324,11 @@ With the signed RLP-encoded transaction object \(`rawTransaction`\), the fee pay
 If you want to change the key of the account, send a transaction as shown below. Please check [Account Update] for the transaction field according to the key type.
 
 ```text
-// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.kaia.accounts.wallet.add'.
 // If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
-> const account = caver.klay.accounts.wallet.add('0x{private key}')
+> const account = caver.kaia.accounts.wallet.add('0x{private key}')
 
-> caver.klay.sendTransaction({
+> caver.kaia.sendTransaction({
     type: 'ACCOUNT_UPDATE',
     from: account.address,
     publicKey:  '0x9016de15ebb219b1e8bc732070df93a28903e5799d0cd24a807a5afabf4601f7e5ab312b5a682dd8c0e72e71e67552174d5082cde25db3626a5b025f97f8a005',
@@ -338,7 +338,7 @@ If you want to change the key of the account, send a transaction as shown below.
 
 ### Smart Contract <a id="smart-contract"></a>
 
-The [caver.klay.Contract] package makes it easy to interact with smart contracts on Kaia. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI \(Application Binary Interface\) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
+The [caver.kaia.Contract] package makes it easy to interact with smart contracts on Kaia. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI \(Application Binary Interface\) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
 
 First, we start by compiling a smart contract to get its bytecode and ABI.
 
@@ -353,14 +353,14 @@ Contract JSON ABI
 
 **NOTE**: To compile a smart contract, you must have a solidity compiler installed.
 
-For smart contract deployment, you can use [caver.klay.Contract] to deploy it, or you can deploy it using [SMART_CONTRACT_DEPLOY] transaction. Here is an example of using [caver.klay.Contract].
+For smart contract deployment, you can use [caver.kaia.Contract] to deploy it, or you can deploy it using [SMART_CONTRACT_DEPLOY] transaction. Here is an example of using [caver.kaia.Contract].
 
 If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below:
 
 ```text
-// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.kaia.accounts.wallet.add'.
 // If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
-> const account = caver.klay.accounts.wallet.add('0x{private key}')
+> const account = caver.kaia.accounts.wallet.add('0x{private key}')
 
 > contractInstance.deploy({
     data:  '60806040526000805534801561001457600080fd5b50610123806100246000396000f3fe6080604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14605857806342cbb15c146080578063d14e62b81460a8575b600080fd5b348015606357600080fd5b50606a60df565b6040518082815260200191505060405180910390f35b348015608b57600080fd5b50609260e5565b6040518082815260200191505060405180910390f35b34801560b357600080fd5b5060dd6004803603602081101560c857600080fd5b810190808035906020019092919050505060ed565b005b60005481565b600043905090565b806000819055505056fea165627a7a72305820e381897039d8e48bf74b4a096bb1c4ed02f331bd1a7a4add6217b72fa888f2f10029',
@@ -395,14 +395,14 @@ The deployed contract address can be found in `contractAddress` of the transacti
 '0xC9f0b868e5103b6823171a2Df85E7B696660E466'
 ```
 
-One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART_CONTRACT_EXECUTION].
+One way to invoke a specific method of a smart contract is to use it with `caver.kaia.Contract` or use [SMART_CONTRACT_EXECUTION].
 
 To transact with a smart contract:
 
 ```text
-// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.klay.accounts.wallet.add'.
+// If you have not added an account to caver-js's wallet, add it to your wallet by running 'caver.kaia.accounts.wallet.add'.
 // If the same account is already in the wallet, 'Error: Account exists with {hex in address}' is returned. In this case, you can use the address string in the `from` field to reference the account in the wallet.
-> const account = caver.klay.accounts.wallet.add('0x{private key}')
+> const account = caver.kaia.accounts.wallet.add('0x{private key}')
 
 > contractInstance.methods.setCount(1).send({from:account.address, gas:'0x4bfd200'}).then(console.log)
 { 
@@ -429,7 +429,7 @@ To call a smart contract:
 2194
 ```
 
-See [caver.klay.Contract] for details.
+See [caver.kaia.Contract] for details.
 
 ## Using various AccountKey Types <a id="using-various-accountkey-types"></a>
 
@@ -449,7 +449,7 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-	const version = await caver.klay.getNodeInfo()
+	const version = await caver.kaia.getNodeInfo()
 	console.log(version)
 }
 
@@ -469,19 +469,19 @@ If you see the output of console.log, proceed with the steps below.
 ### Account <a id="account"></a>
 Account is a class containing the address and key of an account. The Account has an [AccountKey](#accountkey), which can be of type [AccountKeyPublic](#accountkeypublic), [AccountKeyMultiSig](#accountkeymultisig), or [AccountKeyRoleBased](#accountkeyrolebased).
 
-The caver.klay.accounts package uses [AccountKeyPublic](#accountkeypublic), which stores and manages a private key string by default.
+The caver.kaia.accounts package uses [AccountKeyPublic](#accountkeypublic), which stores and manages a private key string by default.
 
 The following example creates an account with AccountKeyPublic as accountKey.
 ```javascript
 // test.js file
 async function testFunction() {
 	// Create random account with accountKeyPublic by default
-	const account = caver.klay.accounts.create()
+	const account = caver.kaia.accounts.create()
 	printAccount(account)
 
     // Create account with specific private key string
-    const privateKey = caver.klay.accounts.create().privateKey
-    const accountFromKey = caver.klay.accounts.privateKeyToAccount(privateKey)
+    const privateKey = caver.kaia.accounts.create().privateKey
+    const accountFromKey = caver.kaia.accounts.privateKeyToAccount(privateKey)
     printAccount(accountFromKey)
 }
 
@@ -520,7 +520,7 @@ AccountKey is a data structure that stores the keys of an account. An account ca
 
 To support this structure, caver-js introduces new classes called AccountKeyPublic, AccountKeyMultiSig, and AccountKeyRoleBased.
 
-To create an AccountKey, use `caver.klay.accounts.createAccountKey`. This function determines which AccountKey to generate based on the type of the parameter. It creates AccountKeyPublic if a private key string comes as a parameter, or AccountKeyMultiSig if an array of private key strings comes. And if there is an object with a different key for each role, it creates AccountKeyRoleBased.
+To create an AccountKey, use `caver.kaia.accounts.createAccountKey`. This function determines which AccountKey to generate based on the type of the parameter. It creates AccountKeyPublic if a private key string comes as a parameter, or AccountKeyMultiSig if an array of private key strings comes. And if there is an object with a different key for each role, it creates AccountKeyRoleBased.
 
 **NOTE** The classes for `AccountKey` defined in caver-js are data structures for storing private keys for use in caver-js. It can be different from the key in your account on Kaia network.
 
@@ -530,8 +530,8 @@ AccountKeyPublic is a class for storing and managing a single private key string
 The following describes how to update an account with AccountKeyPublic. Write the following code into testFunction() and run it.
 
 ```javascript
-const privateKey = caver.klay.accounts.create().privateKey
-const accountKey = caver.klay.accounts.createAccountKey(privateKey)
+const privateKey = caver.kaia.accounts.create().privateKey
+const accountKey = caver.kaia.accounts.createAccountKey(privateKey)
 
 console.log(accountKey)
 console.log(`type: ${accountKey.type}`)
@@ -546,16 +546,16 @@ AccountKeyPublic stores and manages a private key string, so if you run the exam
 See below for an example of creating an Account with AccountKeyPublic as its accountKey.
 
 ```javascript
-const privateKey = caver.klay.accounts.create().privateKey
-const accountKey = caver.klay.accounts.createAccountKey(privateKey)
+const privateKey = caver.kaia.accounts.create().privateKey
+const accountKey = caver.kaia.accounts.createAccountKey(privateKey)
 
-const address = caver.klay.accounts.create().address
+const address = caver.kaia.accounts.create().address
 
 // Create an Account instance with a private key string
-const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, privateKey)
+const accountFromStringKey = caver.kaia.accounts.createWithAccountKey(address, privateKey)
 
 // Create an Account instance with an AccountKeyPublic instance
-const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
+const accountFromAccountKey = caver.kaia.accounts.createWithAccountKey(address, accountKey)
 ```
 
 #### AccountKeyMultiSig  <a id="accountkeymultisig"></a>
@@ -564,8 +564,8 @@ AccountKeyMultiSig is a class for storing and managing multiple private key stri
 The following describes how to update an account with AccountKeyMultiSig. Write the following code into testFunction() and run it.
 
 ```javascript
-const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
-const accountKey = caver.klay.accounts.createAccountKey(privateKeyArray)
+const privateKeyArray = [caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey]
+const accountKey = caver.kaia.accounts.createAccountKey(privateKeyArray)
 
 console.log(accountKey)
 console.log(`type: ${accountKey.type}`)
@@ -582,16 +582,16 @@ If you do not specify a private key (or an array of private key strings) to use 
 See below for an example of creating an Account with AccountKeyMultiSig as its accountKey.
 
 ```javascript
-const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
-const accountKey = caver.klay.accounts.createAccountKey(privateKeyArray)
+const privateKeyArray = [caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey]
+const accountKey = caver.kaia.accounts.createAccountKey(privateKeyArray)
 
-const address = caver.klay.accounts.create().address
+const address = caver.kaia.accounts.create().address
 
 // Create Account instance with an array of private key strings
-const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, privateKeyArray)
+const accountFromStringKey = caver.kaia.accounts.createWithAccountKey(address, privateKeyArray)
 
 // Create Account instance with AccountKeyMultiSig instance
-const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
+const accountFromAccountKey = caver.kaia.accounts.createWithAccountKey(address, accountKey)
 ```
 
 #### AccountKeyRoleBased  <a id="accountkeyrolebased"></a>
@@ -601,11 +601,11 @@ The following describes how to update an account with AccountKeyRoleBased. Write
 
 ```javascript
 const keyobject = {
-    transactionKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey],
-    updateKey: caver.klay.accounts.create().privateKey,
-    feePayerKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
+    transactionKey: [caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey],
+    updateKey: caver.kaia.accounts.create().privateKey,
+    feePayerKey: [caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey]
 }
-const accountKey = caver.klay.accounts.createAccountKey(keyobject)
+const accountKey = caver.kaia.accounts.createAccountKey(keyobject)
 
 console.log(accountKey)
 console.log(`type: ${accountKey.type}`)
@@ -622,19 +622,19 @@ See below for an example of creating an Account with AccountKeyRoleBased as its 
 
 ```javascript
 const keyobject = {
-    transactionKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey],
-    updateKey: caver.klay.accounts.create().privateKey,
-    feePayerKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
+    transactionKey: [caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey],
+    updateKey: caver.kaia.accounts.create().privateKey,
+    feePayerKey: [caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey]
 }
-const accountKey = caver.klay.accounts.createAccountKey(keyobject)
+const accountKey = caver.kaia.accounts.createAccountKey(keyobject)
 
-const address = caver.klay.accounts.create().address
+const address = caver.kaia.accounts.create().address
 
 // Create Account instance with an object that defines key by role
-const accountFromStringKey = caver.klay.accounts.createWithAccountKey(address, keyobject)
+const accountFromStringKey = caver.kaia.accounts.createWithAccountKey(address, keyobject)
 
 // Create Account instance with AccountKeyRoleBased instance
-const accountFromAccountKey = caver.klay.accounts.createWithAccountKey(address, accountKey)
+const accountFromAccountKey = caver.kaia.accounts.createWithAccountKey(address, accountKey)
 ```
 
 Through the above examples you will see how to use Account and various AccountKey types in caver-js.
@@ -649,7 +649,7 @@ AccountForUpdate is a class designed to make it easier to use transactions for a
 
 The AccountForUpdate contains only the public key to be used for account update and the address of the account to update.
 
-The examples below start with updating your account with accountKey. There must be enough KLAY in the account to be used for testing. Test KLAY for the Baobab network is available through [Baobab Faucet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+The examples below start with updating your account with accountKey. There must be enough KAIA in the account to be used for testing. Test KAIA for the Kairos network is available through [Kairos Faucet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay).
 
 #### Create an AccountForUpdate  <a id="create-an-accountforupdate"></a>
 Let's start by creating an AccountForUpdate. 
@@ -657,31 +657,31 @@ Let's start by creating an AccountForUpdate.
 You can create it by calling `createAccountForUpdate()` with the target account address and the new key you want to use.
 
 ```javascript
-const account = caver.klay.accounts.create()
+const account = caver.kaia.accounts.create()
 
 // AccountForUpdate with AccountKeyPublic
-const privateKeyString = caver.klay.accounts.create().privateKey
-const accountForUpdateForAccountKeyPublic = caver.klay.accounts.createAccountForUpdate(account.address, privateKeyString)
+const privateKeyString = caver.kaia.accounts.create().privateKey
+const accountForUpdateForAccountKeyPublic = caver.kaia.accounts.createAccountForUpdate(account.address, privateKeyString)
 
 // AccountForUpdate with AccountKeyMultiSig
-const privateKeyArray = [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey]
+const privateKeyArray = [caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey]
 const multiSigOptions = { threshold: 2, weight: [1, 1] }
-const accountForUpdateForAccountKeyMultiSig = caver.klay.accounts.createAccountForUpdate(account.address, privateKeyArray, multiSigOptions)
+const accountForUpdateForAccountKeyMultiSig = caver.kaia.accounts.createAccountForUpdate(account.address, privateKeyArray, multiSigOptions)
 
 // AccountForUpdate with AccountKeyRoleBased
 const keyObject = {
-    transactionKey: [caver.klay.accounts.create().privateKey, caver.klay.accounts.create().privateKey],
-    updateKey: caver.klay.accounts.create().privateKey,
-    feePayerKey: caver.klay.accounts.create().privateKey,
+    transactionKey: [caver.kaia.accounts.create().privateKey, caver.kaia.accounts.create().privateKey],
+    updateKey: caver.kaia.accounts.create().privateKey,
+    feePayerKey: caver.kaia.accounts.create().privateKey,
 }
 const roleBasedOptions = { transactionKey: { threshold: 2, weight: [1, 1] } }
-const accountForUpdateForAccountKeyRoleBased = caver.klay.accounts.createAccountForUpdate(account.address, keyObject, roleBasedOptions)
+const accountForUpdateForAccountKeyRoleBased = caver.kaia.accounts.createAccountForUpdate(account.address, keyObject, roleBasedOptions)
 
 // AccountForUpdate with LegacyKey
-const accountForUpdateForLegacyKey = caver.klay.accounts.createAccountForUpdateWithLegacyKey(account.address)
+const accountForUpdateForLegacyKey = caver.kaia.accounts.createAccountForUpdateWithLegacyKey(account.address)
 
 // AccountForUpdate with FailKey
-const accountForUpdateForFailKey = caver.klay.accounts.createAccountForUpdateWithFailKey(account.address)
+const accountForUpdateForFailKey = caver.kaia.accounts.createAccountForUpdateWithFailKey(account.address)
 ```
 
 **NOTE** If you want to update with multiple private key strings, you must define thresholds and weights in the options object.
@@ -692,7 +692,7 @@ You can easily create an account update transaction using AccountForUpdate creat
 
 There are three types of transactions used to update an account: `ACCOUNT_UPDATE`, `FEE_DELEGATED_ACCOUNT_UPDATE` and `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO`.
 
-In the example below, `account` is an account that has enough KLAY balance, and `accountForUpdate` is an AccountForUpdate instance that contains the new key and the target account address. `accountForUpdate` is created using `caver.klay.accounts.createAccountForUpdate`.
+In the example below, `account` is an account that has enough KAIA balance, and `accountForUpdate` is an AccountForUpdate instance that contains the new key and the target account address. `accountForUpdate` is created using `caver.kaia.accounts.createAccountForUpdate`.
 
 The example below demonstrates how to create a transaction using AccountForUpdate and send it to the Kaia network.
 
@@ -705,14 +705,14 @@ const updateTx = {
 }
 
 // Sign transaction with updateKey of account
-const signed = await caver.klay.accounts.signTransaction(updateTx, account.updateKey)
+const signed = await caver.kaia.accounts.signTransaction(updateTx, account.updateKey)
 
 // Send account update transaction
-const receipt = await caver.klay.sendSignedTransaction(signed)
+const receipt = await caver.kaia.sendSignedTransaction(signed)
 console.log(receipt)
 
 // Get accountKey from Kaia network
-const updatedKey = await caver.klay.getAccountKey(account.address)
+const updatedKey = await caver.kaia.getAccountKey(account.address)
 console.log(updatedKey)
 ```
 
@@ -727,21 +727,21 @@ const updateTx = {
 }
 
 // Sender signs transaction with updateKey of account
-const senderSigned = await caver.klay.accounts.signTransaction(updateTx, account.updateKey)
+const senderSigned = await caver.kaia.accounts.signTransaction(updateTx, account.updateKey)
 
 // Fee payer signs transaction with feePayerKey of fee payer
-const feePayerSigned = await caver.klay.accounts.feePayerSignTransaction(senderSigned.rawTransaction, feePayer.address, feePayer.feePayerKey)
+const feePayerSigned = await caver.kaia.accounts.feePayerSignTransaction(senderSigned.rawTransaction, feePayer.address, feePayer.feePayerKey)
 
 // Send fee delegated account update transaction
-const receipt = await caver.klay.sendSignedTransaction(feePayerSigned)
+const receipt = await caver.kaia.sendSignedTransaction(feePayerSigned)
 console.log(receipt)
 
 // Get accountKey from Kaia network
-const updatedKey = await caver.klay.getAccountKey(account.address)
+const updatedKey = await caver.kaia.getAccountKey(account.address)
 console.log(updatedKey)
 ```
 
-**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**NOTE** `caver.kaia.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 If you want to use `FEE_DELEGATED_ACCOUNT_UPDATE_WITH_RATIO` transaction, define `updateTx` in the above example as:
 
@@ -760,7 +760,7 @@ If your account has been updated successfully, the old key can no longer be used
 When updating the `accountKey` property of an account directly, the assigning value must be an instance of AccountKeyPublic, AccountKeyMultiSig, or AccountKeyRoleBased.
 
 ```javascript
-const accountKey = caver.klay.accounts.createAccountKey(newKey)
+const accountKey = caver.kaia.accounts.createAccountKey(newKey)
 account.accountKey = accountKey
 ```
 
@@ -768,9 +768,9 @@ If your account is in the caver-js in-memory wallet, please update it as below.
 
 ```javascript
 // Add account to in-memory wallet
-caver.klay.accounts.wallet.add(account)
+caver.kaia.accounts.wallet.add(account)
 
-caver.klay.accounts.wallet.updateAccountKey(account.address, newKey)
+caver.kaia.accounts.wallet.updateAccountKey(account.address, newKey)
 ```
 
 You are now ready to use the updated account in caver-js.
@@ -782,7 +782,7 @@ If the account's accountKey is AccountKeyMultiSig or AccountKeyRoleBased, the pe
 This section describes how to collect signatures and send the transaction if there are multiple signers.
 
 ### Sequential sign <a id="sequential-sign"></a>
-The result object of [caver.klay.accounts.signTransaction] has a rawTransaction field. 
+The result object of [caver.kaia.accounts.signTransaction] has a rawTransaction field. 
 
 The `rawTransaction` has an RLP encoded transaction that contains both `signatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
 
@@ -793,18 +793,18 @@ Assume the account's transactionKey has two private key strings.
 const tx = {
     type: 'VALUE_TRANSFER',
     from: account.address,
-    to: caver.klay.accounts.create().address,
+    to: caver.kaia.accounts.create().address,
     value: 1,
     gas: 900000,
 }
 
 // Sign with transactionKey[0]
-const user1Signed = await caver.klay.accounts.signTransaction(tx, account.transactionKey[0])
+const user1Signed = await caver.kaia.accounts.signTransaction(tx, account.transactionKey[0])
 
 // Append sender's signatures with transactionKey[1]
-const user2Signed = await caver.klay.accounts.signTransaction(user1Signed.rawTransaction, account.transactionKey[1])
+const user2Signed = await caver.kaia.accounts.signTransaction(user1Signed.rawTransaction, account.transactionKey[1])
 
-const receipt = await caver.klay.sendSignedTransaction(user2Signed)
+const receipt = await caver.kaia.sendSignedTransaction(user2Signed)
 console.log(receipt)
 ```
 
@@ -814,25 +814,25 @@ See the example below for signing with a fee payer's key whose type is an Accoun
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
     from: account.address,
-    to: caver.klay.accounts.create().address,
+    to: caver.kaia.accounts.create().address,
     value: 1,
     gas: 900000,
 }
 
 // Sign with transactionKey[0] and transactionKey[1]
-const userSigned = await caver.klay.accounts.signTransaction(tx, [account.transactionKey[0], account.transactionKey[1]])
+const userSigned = await caver.kaia.accounts.signTransaction(tx, [account.transactionKey[0], account.transactionKey[1]])
 
 // Fee payer signs transaction with feePayerKey[0]
-const feePayer1Signed = await caver.klay.accounts.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address, feePayer.feePayerKey[0])
+const feePayer1Signed = await caver.kaia.accounts.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address, feePayer.feePayerKey[0])
 
 // Append feePayerSignatures with feePayerKey[1] and feePayerKey[2]
-const feePayer2Signed = await caver.klay.accounts.feePayerSignTransaction(feePayer1Signed.rawTransaction, feePayer.address, [feePayer.feePayerKey[1], feePayer.feePayerKey[2]])
+const feePayer2Signed = await caver.kaia.accounts.feePayerSignTransaction(feePayer1Signed.rawTransaction, feePayer.address, [feePayer.feePayerKey[1], feePayer.feePayerKey[2]])
 
-const receipt = await caver.klay.sendSignedTransaction(feePayer2Signed)
+const receipt = await caver.kaia.sendSignedTransaction(feePayer2Signed)
 console.log(receipt)
 ```
 
-**NOTE** `caver.klay.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**NOTE** `caver.kaia.accounts.feePayerSignTransaction` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 If the account you use exists in the caver-js in-memory wallet, you do not need to pass the key(s) to `signTransaction` or `feePayerSignTransaction`. See the example below.
 
@@ -840,59 +840,59 @@ If the account you use exists in the caver-js in-memory wallet, you do not need 
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO',
     from: account.address,
-    to: caver.klay.accounts.create().address,
+    to: caver.kaia.accounts.create().address,
     value: 1,
     gas: 900000,
     feeRatio: 10,
 }
 
 // Sign with transactionKey[0] and transactionKey[1]
-const userSigned = await caver.klay.accounts.signTransaction(tx)
+const userSigned = await caver.kaia.accounts.signTransaction(tx)
 
 // Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
-const feePayerSigned = await caver.klay.accounts.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address)
+const feePayerSigned = await caver.kaia.accounts.feePayerSignTransaction(userSigned.rawTransaction, feePayer.address)
 
-const receipt = await caver.klay.sendSignedTransaction(feePayerSigned)
+const receipt = await caver.kaia.sendSignedTransaction(feePayerSigned)
 console.log(receipt)
 ```
 
 ### Combine signatures from RawTransaction <a id="combine-signatures-from-rawtransaction"></a>
 
-If you receive the result object of the `caver.klay.accounts.signTransaction` or `caver.klay.accounts.feePayerSignTransaction` from several people, you can create a single RLP encoded transaction that contains all the signature information.
+If you receive the result object of the `caver.kaia.accounts.signTransaction` or `caver.kaia.accounts.feePayerSignTransaction` from several people, you can create a single RLP encoded transaction that contains all the signature information.
 
 The example below shows how to combine and send the RLP encoded transactions.
 ```javascript
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER',
     from: account.address,
-    to: caver.klay.accounts.create().address,
+    to: caver.kaia.accounts.create().address,
     value: 1,
     gas: 900000,
 }
 
 // Sign with transactionKey[0]
-const user1Signed = await caver.klay.accounts.signTransaction(tx, account.transactionKey[0])
+const user1Signed = await caver.kaia.accounts.signTransaction(tx, account.transactionKey[0])
 
 // Sign with transactionKey[1]
-const user2Signed = await caver.klay.accounts.signTransaction(tx, account.transactionKey[1])
+const user2Signed = await caver.kaia.accounts.signTransaction(tx, account.transactionKey[1])
 
 // Fee payer signs transaction with feePayerKey[0]
-const feePayer1Signed = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[0])
+const feePayer1Signed = await caver.kaia.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[0])
 
 // Fee payer signs transaction with feePayerKey[1]
-const feePayer2Signed = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[1])
+const feePayer2Signed = await caver.kaia.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[1])
 
 // Fee payer signs transaction with feePayerKey[2]
-const feePayer3Signed = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[2])
+const feePayer3Signed = await caver.kaia.accounts.feePayerSignTransaction(tx, feePayer.address, feePayer.feePayerKey[2])
 
 const rawTransactionArray = [user1Signed.rawTransaction, user2Signed.rawTransaction, feePayer1Signed.rawTransaction, feePayer2Signed.rawTransaction, feePayer3Signed.rawTransaction]
-const combined = await caver.klay.accounts.combineSignatures(rawTransactionArray)
+const combined = await caver.kaia.accounts.combineSignatures(rawTransactionArray)
 
-const receipt = await caver.klay.sendSignedTransaction(combined)
+const receipt = await caver.kaia.sendSignedTransaction(combined)
 console.log(receipt)
 ```
 
-**NOTE** `caver.klay.accounts.combineSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**NOTE** `caver.kaia.accounts.combineSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 ### Send transaction object with Signatures and FeePayerSignatures <a id="send-transaction-object-with-signatures-and-feepayersignatures"></a>
 
@@ -902,55 +902,55 @@ If you only receive `signatures` or `feePayerSignatures` from multiple signers, 
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO',
     from: account.address,
-    to: caver.klay.accounts.create().address,
+    to: caver.kaia.accounts.create().address,
     value: 1,
     gas: 900000,
     feeRatio: 10,
 }
 
 // Sign with transactionKey[0] and transactionKey[1]
-const { signatures } = await caver.klay.accounts.signTransaction(tx)
+const { signatures } = await caver.kaia.accounts.signTransaction(tx)
 
 // Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
-const { feePayerSignatures } = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address)
+const { feePayerSignatures } = await caver.kaia.accounts.feePayerSignTransaction(tx, feePayer.address)
 
 // Fill in the missing information in the tx object.
 tx.signatures = signatures
 tx.feePayer = feePayer.address
 tx.feePayerSignatures = feePayerSignatures
 
-const receipt = await caver.klay.sendSignedTransaction(tx)
+const receipt = await caver.kaia.sendSignedTransaction(tx)
 console.log(receipt)
 ```
 
-You can also call `caver.klay.accounts.getRawTransactionWithSignatures` to get an RLP encoded transaction containing the signatures and feePayerSignatures of the transaction object.
+You can also call `caver.kaia.accounts.getRawTransactionWithSignatures` to get an RLP encoded transaction containing the signatures and feePayerSignatures of the transaction object.
 
 ```javascript
 const tx = {
     type: 'FEE_DELEGATED_VALUE_TRANSFER_WITH_RATIO',
     from: account.address,
-    to: caver.klay.accounts.create().address,
+    to: caver.kaia.accounts.create().address,
     value: 1,
     gas: 900000,
     feeRatio: 10,
 }
 
 // Sign with transactionKey[0] and transactionKey[1]
-const { signatures } = await caver.klay.accounts.signTransaction(tx)
+const { signatures } = await caver.kaia.accounts.signTransaction(tx)
 
 // Fee payer signs transaction with feePayerKey[0], feePayerKey[1] and feePayerKey[2]
-const { feePayerSignatures } = await caver.klay.accounts.feePayerSignTransaction(tx, feePayer.address)
+const { feePayerSignatures } = await caver.kaia.accounts.feePayerSignTransaction(tx, feePayer.address)
 
 // Fill in the missing information in the tx object.
 tx.signatures = signatures
 tx.feePayer = feePayer.address
 tx.feePayerSignatures = feePayerSignatures
 
-const { rawTransaction } = await caver.klay.accounts.getRawTransactionWithSignatures(tx)
+const { rawTransaction } = await caver.kaia.accounts.getRawTransactionWithSignatures(tx)
 console.log(rawTransaction)
 ```
 
-**NOTE** `caver.klay.accounts.getRawTransactionWithSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
+**NOTE** `caver.kaia.accounts.getRawTransactionWithSignatures` is supported since caver-js [v1.2.0](https://www.npmjs.com/package/caver-js/v/1.2.0).
 
 ## Sample Projects <a id="sample-projects"></a>
 
@@ -966,15 +966,15 @@ Sample projects for development of dApps \(Decentralized Applications\) using ca
 
 
 
-[caver.klay.Contract]: api/caver.klay.Contract.md
-[caver.klay.accounts]: api/caver.klay.accounts.md
-[caver.klay.accounts.signTransaction]: api/caver.klay.accounts.md#signtransaction
-[caver.klay.getTransactionReceipt]: api/caver.klay/transaction/transaction.md#gettransactionreceipt
-[getTransactionReceipt]: api/caver.klay/transaction/transaction.md#gettransactionreceipt
+[caver.kaia.Contract]: api/caver.kaia.Contract.md
+[caver.kaia.accounts]: api/caver.kaia.accounts.md
+[caver.kaia.accounts.signTransaction]: api/caver.kaia.accounts.md#signtransaction
+[caver.kaia.getTransactionReceipt]: api/caver.kaia/transaction/transaction.md#gettransactionreceipt
+[getTransactionReceipt]: api/caver.kaia/transaction/transaction.md#gettransactionreceipt
 [txError: Detailed Information of Transaction Failures]: ../../transaction-error-codes.md
 [Fee Delegation]: ../../../learn/transactions/transactions.md#fee-delegation
 [AccountKey]: ../../../learn/accounts.md#account-key
-[Account Update]: api/caver.klay/transaction/sendtx-account-update.md
-[SMART_CONTRACT_DEPLOY]: api/caver.klay/transaction/sendtx-smart-contract-deploy.md
-[SMART_CONTRACT_EXECUTION]: api/caver.klay/transaction/sendtx-smart-contract-execution.md
+[Account Update]: api/caver.kaia/transaction/sendtx-account-update.md
+[SMART_CONTRACT_DEPLOY]: api/caver.kaia/transaction/sendtx-smart-contract-deploy.md
+[SMART_CONTRACT_EXECUTION]: api/caver.kaia/transaction/sendtx-smart-contract-execution.md
 

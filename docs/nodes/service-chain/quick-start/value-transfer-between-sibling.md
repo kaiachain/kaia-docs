@@ -3,17 +3,17 @@
 This section will explain how to enable value transfer between ServiceChain networks.
 The main features provided by ServiceChain, data anchoring and value transfer, can be used independently. That is, you can use only data anchoring or only value transfer, regardless of whether you use the other feature. 
 
-As shown in the figure below, if there are two ServiceChains (chainID 1002 and 1004) connected to Baobab, since each servicechain performs data anchoring with Baobab, data anchoring is not required between each other, only value transfer is required.
+As shown in the figure below, if there are two ServiceChains (chainID 1002 and 1004) connected to Kairos, since each servicechain performs data anchoring with Kairos, data anchoring is not required between each other, only value transfer is required.
 
-To transfer value when there is no bridge between two ServiceChains, first transfer value from the ServiceChain (chainID 1002) to baobab (chainID 1001), and then transfer value from baobab (chainID 1001) to the ServiceChain (chainID 1004) again. This is inefficient than providing value transfer directly from the ServiceChain (chainID 1002) to the ServiceChain (chainID 1004) at once. Therefore, by creating a bridge between ServiceChains directly, we can transfer value efficiently . 
+To transfer value when there is no bridge between two ServiceChains, first transfer value from the ServiceChain (chainID 1002) to kairos (chainID 1001), and then transfer value from kairos (chainID 1001) to the ServiceChain (chainID 1004) again. This is inefficient than providing value transfer directly from the ServiceChain (chainID 1002) to the ServiceChain (chainID 1004) at once. Therefore, by creating a bridge between ServiceChains directly, we can transfer value efficiently . 
 
 ![](/img/nodes/sc-vt-between-sibling-arch.png)
 
 ## Prerequisites <a id="prerequisites"></a>
-- We assume that you installed two ServiceChains, Each servicechain is connected to the baobab EN. Refer to [Connecting to Baobab](en-scn-connection.md).
+- We assume that you installed two ServiceChains, Each servicechain is connected to the kairos EN. Refer to [Connecting to Kairos](en-scn-connection.md).
 - We also assume that you have experienced value transfer through [Cross-Chain Value Transfer](value-transfer.md). 
 
-Repeat [Connecting to Baobab](en-scn-connection.md) as shown in the picture above to additionally install ServiceChain (chianID 1004).
+Repeat [Connecting to Kairos](en-scn-connection.md) as shown in the picture above to additionally install ServiceChain (chianID 1004).
 
 A node can have only one main-bridge and one sub-bridge each. In this example, for convenience of explanation, we are going to connect a bridge to SCN-L2-03 and SCN-L2-07, which are nodes that do not have both main-bridge and sub-bridge yet.
 
@@ -35,7 +35,7 @@ $ echo '["kni://...39047242eb86278689...@192.168.0.3:50505?discport=0"]' > ~/dat
 ```
 
 ## Step 3: Configure SCN then Restart <a id="step-3-configure-scn-then-restart"></a>
-From the SCN-L2-07 node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`. Since each ServiceChain already anchored with the Baobab EN, data anchoring between sibling is not required. So we set `SC_ANCHORING` to 0. 
+From the SCN-L2-07 node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`. Since each ServiceChain already anchored with the Kairos EN, data anchoring between sibling is not required. So we set `SC_ANCHORING` to 0. 
 
 ```
 ...

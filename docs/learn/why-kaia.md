@@ -2,7 +2,7 @@
 
 This document explains how Kaia is different based on its the key design principles.
 
-## Kaia as a trust layer of metaverse <a id="klaytn-as-a-trust-layer-of-metaverse"></a>
+## Kaia as a trust layer of metaverse <a id="kaia-as-a-trust-layer-of-metaverse"></a>
 ​
 Kaia is built to be the fundamental trust layer for the metaverse, respecting the participation and contribution from all communities, empowering and bringing them together in the new world.
 ​
@@ -30,7 +30,7 @@ As per this principle, Kaia has been designed to meet the following requirements
 ### Low Cost  <a id="low-cost"></a>
 - End-users should not be burdened with any higher transaction fee beyond what the traditional systems require.
 - Transaction fee should be stable and be determined by the transaction complexity itself, and not the surrounding factors.
-- See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. For a gas price of 250 ston, a <LinkWithTooltip tooltip="The native token of the Kaia blockchain.">KLAY</LinkWithTooltip> transfer would incur a fixed cost of 0.00525 KLAY. (21,000 Gas for KLAY transfer x (250 x 10^-9) == 0.00525 KLAY) 
+- See [Affordable Smart Contract Execution Cost] and [Transaction Fees]. For a gas price of 250 Gkei, a <LinkWithTooltip tooltip="The native token of the Kaia blockchain.">KAIA</LinkWithTooltip> transfer would incur a fixed cost of 0.00525 KAIA. (21,000 Gas for KAIA transfer x (250 x 10^-9) == 0.00525 KAIA) 
 ​
 ### Rapid Development <a id="rapid-development"></a>
 #### Ethereum Compatibility <a id="ethereum-compatibility"></a>
@@ -51,7 +51,7 @@ perspective, to the existing Ethereum stack. New tooling created in the Kaia eco
 ​
 ### A Full-suite, Protocol-level Eco Fund <a id="contribution-reward"></a>
 - Kaia is the first and the largest example in which the incentives supporting the ecosystem are encoded in an on-chain protocol tokenomics. 50% of the newly minted tokens are reinvested in the ecosystem.
-- See [Kaia Community Fund](token-economy.md#klaytn-community-fund) and [Kaia Foundation Fund](token-economy.md#klaytn-foundation-fund).
+- See [Kaia Community Fund](token-economy.md#kaia-community-fund) and [Kaia Foundation Fund](token-economy.md#kaia-foundation-fund).
 ​
 ​
 ### Community Co-Building <a id="community-co-building"></a>
@@ -76,13 +76,13 @@ Kaia does not sacrifice blockchain’s core characteristics to achieve the above
 [Multiple Key Pairs and Role-Based Keys]: ./accounts.md#multiple-key-pairs-and-role-based-keys
 [Human-Readable Address]: ./accounts.md#human-readable-address-hra
 [Consensus Mechanism]: ./consensus-mechanism.md
-[Affordable Smart Contract Execution Cost]: computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost
+[Affordable Smart Contract Execution Cost]: computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost
 [Transaction Fees]: transaction-fees/transaction-fees.md
 [Fee Delegation]: ./transactions/transactions.md#fee-delegation
 [Service Chain]: ./scaling-solutions.md#service-chain
 [Solidity-Smart Contract Language]: ../build/smart-contracts/solidity-smart-contract-language.md
 [Truffle]: ../build/smart-contracts/ide-and-tools/truffle.md
-[Migrating Ethereum App to Kaia]: ../build/tutorials/migrating-ethereum-app-to-klaytn.md
+[Migrating Ethereum App to Kaia]: ../build/tutorials/migrating-ethereum-app-to-kaia.md
 [Incentive Program]: ./token-economy.md
-[Kaia Improvement Reserve]: ./token-economy.md#klaytn-improvement-reserve
-[Kaia Growth Fund]: ./token-economy.md#klaytn-growth-fund
+[Kaia Improvement Reserve]: ./token-economy.md#kaia-improvement-reserve
+[Kaia Growth Fund]: ./token-economy.md#kaia-growth-fund

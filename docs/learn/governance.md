@@ -2,7 +2,7 @@
 
 ## Overview <a id="overview"></a>
 
-### Kaia Governance: Taking the First Step to Decentralization <a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
+### Kaia Governance: Taking the First Step to Decentralization <a id="kaia-governance-taking-the-first-step-to-decentralization"></a>
 
 The Kaia Governance Council is a council that has the right to decide various governance matters. To secure its reliability, the early members of the Governance Council have been limited to trusted organizations. This was chosen for the sake of efficiency in the platform's development and stabilization stage. Kaia reached the stage by joining hands with 31 Governance Council Members and a seamless operation of the Kaia Mainnet. 
 
@@ -21,7 +21,7 @@ The main topics that can be decided through the governance structure include the
 - **Technology**
   - Matters related to the technical update of the platform. Here the issues on the blockchain's basic structure (e.g., Account Structure), new features (e.g., L2 solution), or software update schedule are included.
 - **Economy**
-  - Issues relating to additional issuance of KLAY and its distribution structure, changes in transaction fees, and Kaia Improvement Reserve spending approval etc. are included in this category.
+  - Issues relating to additional issuance of KAIA and its distribution structure, changes in transaction fees, and Kaia Improvement Reserve spending approval etc. are included in this category.
 - **Governing Rule**
   - The governance subjects and processes, as well as the rules for the responsibilities and rights of governing bodies, are included in this category.
 
@@ -39,7 +39,7 @@ During the initial phase of Kaia governance, the Kaia Governance Council members
 
 ## Governance Roadmap <a id="governance-roadmap"></a>
 
-The bodies participating in governance must act in consideration of Kaia’s long-term benefits rather than just for their personal interests, and they must actively participate in the governance process. Additionally, all participants that contribute to the network as Kaia Governance Council members must secure computing resources that are greater than the platform requirements and stake a set amount KLAY of their own or from third parties. For smooth operations in development and stabilization of the platform, Kaia Foundation will take on many roles in governance related matters in the initial development phase. In the future, however, other bodies will gradually take on greater roles in the decision-making process, and they will have the right to participate independently.
+The bodies participating in governance must act in consideration of Kaia’s long-term benefits rather than just for their personal interests, and they must actively participate in the governance process. Additionally, all participants that contribute to the network as Kaia Governance Council members must secure computing resources that are greater than the platform requirements and stake a set amount KAIA of their own or from third parties. For smooth operations in development and stabilization of the platform, Kaia Foundation will take on many roles in governance related matters in the initial development phase. In the future, however, other bodies will gradually take on greater roles in the decision-making process, and they will have the right to participate independently.
 
 * **Development Phase**: The initial development phase after the mainnet launch must quickly see parameter adjustments, new feature developments, etc. For this to be possible, many issues will be decided through gathering the opinions of the Kaia Governance Council members, service providers, and community members. To secure initial stabilization, Kaia Foundation will lead the decision-making process. Additionally, all decided matters will be transparently shared with the public.
 * **Stabilization Phase**: The Kaia Governance Council has governing rights on many proposals and this phase will gradually begin starting Jan 2021. For special matters such as those concerning platform development, and matters that directly affect the overall Kaia ecosystem, Kaia foundation may facilitate the discussion and execution. 
