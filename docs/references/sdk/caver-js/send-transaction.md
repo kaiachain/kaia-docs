@@ -21,7 +21,7 @@ The most simple way to create an account is using the [Kaia Online Toolkit](http
 
 Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
 
-**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+**You need KAIA to send a transaction.** You can get test KAIA for the Kairos testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay) for detailed instructions.
 
 ## 2. Initialize Project <a id="2.-initialize-project"></a>
 
@@ -113,14 +113,14 @@ Let's create a test file named `testcaver.js` like so:
 touch testcaver.js
 ```
 
-We will be writing our code in this file to send a transaction to transfer KLAY.
+We will be writing our code in this file to send a transaction to transfer KAIA.
 
 
-## 5. Connect to Kaia Node <a id="5.-connect-to-klaytn-node"></a> 
+## 5. Connect to Kaia Node <a id="5.-connect-to-kaia-node"></a> 
 
-Since we are sending a transaction to the blockchain network, we need to connect to a Kaia node. We will be using Kaia's testnet Baobab.
+Since we are sending a transaction to the blockchain network, we need to connect to a Kaia node. We will be using Kaia's testnet Kairos.
 
-We will import the `caver-js` and `read` module and connect to a Kaia node in the Baobab network as shown below:
+We will import the `caver-js` and `read` module and connect to a Kaia node in the Kairos network as shown below:
 
 ```javascript
 const Caver = require('caver-js')
@@ -171,9 +171,9 @@ async function sendKlay() {
 
 ## 7. Send Transaction <a id="7.-send-transaction"></a> 
 
-We will now create a transaction to transfer some KLAY. This type of transaction is called "value transfer transaction". Let's break down each parameter.
+We will now create a transaction to transfer some KAIA. This type of transaction is called "value transfer transaction". Let's break down each parameter.
 
-The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KLAY, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KLAY into peb. Here, we will send 10 KLAY. For `gas`, 
+The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KAIA, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KAIA into kei. Here, we will send 10 KAIA. For `gas`, 
 
 ```
 	
@@ -181,7 +181,7 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 	const vt = caver.transaction.valueTransfer.create({
 		from: keyring.address,
 		to: '0x8084fed6b1847448c24692470fc3b2ed87f9eb47',
-		value: caver.utils.toPeb(10, 'KLAY'),
+		value: caver.utils.toPeb(10, 'KAIA'),
 		gas: 25000,
 	})
 
@@ -189,7 +189,7 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 	const signed = await caver.wallet.sign(keyring.address, vt)
 
 	// Send transaction to the Kaia blockchain platform (Kaia)
-	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
+	const receipt = await caver.rpc.kaia.sendRawTransaction(signed)
 	console.log(receipt)
 }
 ```
@@ -259,7 +259,7 @@ const Caver = require('caver-js')
 const read = require('read')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
-async function sendKLAY() {
+async function sendKAIA() {
     // Read keystore json file
     	const fs = require('fs')
 	const keystore = fs.readFileSync('./keystore.json', 'utf8')
@@ -276,7 +276,7 @@ async function sendKLAY() {
 	const vt = caver.transaction.valueTransfer.create({
 		from: keyring.address,
 		to: '0x7f1D6235B79688169fd6e15C4E8f540d6799dC75',
-		value: caver.utils.toPeb(10, 'KLAY'),
+		value: caver.utils.toPeb(10, 'KAIA'),
 		gas: 25000,
 	})
 
@@ -284,7 +284,7 @@ async function sendKLAY() {
 	const signed = await caver.wallet.sign(keyring.address, vt)
 
 	// Send transaction to the Kaia blockchain platform (Kaia)
-	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
+	const receipt = await caver.rpc.kaia.sendRawTransaction(signed)
 	console.log(receipt)
 }
 
@@ -304,7 +304,7 @@ async function loadPassword() {
 
 }
 
-sendKLAY()
+sendKAIA()
 ```
 
 I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Kaia Forum](https://forum.klaytn.foundation/) for help.

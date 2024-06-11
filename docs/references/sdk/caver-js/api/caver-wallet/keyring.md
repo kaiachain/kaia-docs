@@ -4,7 +4,7 @@
 
 ## Class <a href="#class" id="class"></a>
 
-`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Kaia's account](../../../../../learn/accounts.md#klaytn-accounts).
+`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Kaia's account](../../../../../learn/accounts.md#kaia-accounts).
 
 `Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring](#singlekeyring) to store one address and one private key, [MultipleKeyring](#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](#rolebasedkeyring) to store one address and one or more private keys for each role.
 
@@ -306,13 +306,13 @@ RoleBasedKeyring {
 caver.wallet.keyring.createFromPrivateKey(key)
 ```
 
-Creates a `SingleKeyring` instance from a private key string or a [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format).
+Creates a `SingleKeyring` instance from a private key string or a [KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format).
 
 **Parameters**
 
 | Name | Type   | Description                                                                                                                         |
 | ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| key  | string | This parameter can be either a private key or [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format). |
+| key  | string | This parameter can be either a private key or [KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format). |
 
 **Return Value**
 
@@ -344,13 +344,13 @@ SingleKeyring {
 caver.wallet.keyring.createFromKaiaWalletKey(klaytnWalletKey)
 ```
 
-Creates a `SingleKeyring` instance from a [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string.
+Creates a `SingleKeyring` instance from a [KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format) string.
 
 **Parameters**
 
 | Name            | Type   | Description                                                                                      |
 | --------------- | ------ | ------------------------------------------------------------------------------------------------ |
-| klaytnWalletKey | string | The [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string. |
+| klaytnWalletKey | string | The [KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format) string. |
 
 **Return Value**
 
@@ -1041,13 +1041,13 @@ PrivateKey { _privateKey: '0x{private key}' }
 keyring.getKaiaWalletKey()
 ```
 
-Returns the [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string for the keyring. With [MultipleKeyring](#multiplekeyring) or [RoleBasedKeyring](#rolebasedkeyring), [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) cannot be used. In this case, use [keyring.encrypt](#keyring-encrypt).
+Returns the [KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format) string for the keyring. With [MultipleKeyring](#multiplekeyring) or [RoleBasedKeyring](#rolebasedkeyring), [KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format) cannot be used. In this case, use [keyring.encrypt](#keyring-encrypt).
 
 **Return Value**
 
 | Type   | Description                                                                                              |
 | ------ | -------------------------------------------------------------------------------------------------------- |
-| string | The [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) of the keyring. |
+| string | The [KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format) of the keyring. |
 
 **Example**
 
@@ -1062,9 +1062,9 @@ Returns the [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-f
 keyring.toAccount([options])
 ```
 
-Returns the [Account](../caver.account.md#account) instance for updating the [AccountKey](../../../../../learn/accounts.md#account-key) of the [Kaia accounts](../../../../../learn/accounts.md#klaytn-accounts). The [Account](../caver.account.md#account) instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Kaia Network and used for validating transactions. For more details about [Account](../caver.account.md#account), see [Account Update](../../get-started.md#account-update).
+Returns the [Account](../caver.account.md#account) instance for updating the [AccountKey](../../../../../learn/accounts.md#account-key) of the [Kaia accounts](../../../../../learn/accounts.md#kaia-accounts). The [Account](../caver.account.md#account) instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Kaia Network and used for validating transactions. For more details about [Account](../caver.account.md#account), see [Account Update](../../get-started.md#account-update).
 
-Note that if you update the [AccountKey](../../../../../learn/accounts.md#account-key) of the [Account](../../../../../learn/accounts.md#klaytn-accounts) stored in the Kaia, the old private key(s) cannot be used anymore. See [Getting started](../../get-started.md#account-update) on how to use the returned [Account](../caver.account.md#account) instance to update information in your [Kaia account](../../../../../learn/accounts.md#klaytn-accounts) on Kaia.
+Note that if you update the [AccountKey](../../../../../learn/accounts.md#account-key) of the [Account](../../../../../learn/accounts.md#kaia-accounts) stored in the Kaia, the old private key(s) cannot be used anymore. See [Getting started](../../get-started.md#account-update) on how to use the returned [Account](../caver.account.md#account) instance to update information in your [Kaia account](../../../../../learn/accounts.md#kaia-accounts) on Kaia.
 
 Depending on the type of the private key(s) in the keyring, the returned [Account](../caver.account.md#account) instances can be classified as follows.
 

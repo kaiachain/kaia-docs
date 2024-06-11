@@ -60,7 +60,7 @@ Or,
 $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Kaia Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Install from Kaia Yum Repo <a id="install-from-kaia-yum-repo"></a>
 
 Alternatively, you can install `kpnd` from the Kaia Yum repo, run:
 
@@ -104,7 +104,7 @@ $ cp nodekey /var/kpnd/data
 
 ### Install `static-nodes.json` <a id="install-static-nodes-json"></a>
 
-The `static-nodes.json` should be created from the PN operator. It contains the addresses that your PN is connected to. It is recommended to add the addresses including your CN and a PN from another Core Cell. Please contact to the Kaia official email for more details \(`bootstrap@klaytn.com` for Cypress or `baobab@klaytn.com` for Baobab\).
+The `static-nodes.json` should be created from the PN operator. It contains the addresses that your PN is connected to. It is recommended to add the addresses including your CN and a PN from another Core Cell. Please contact to the Kaia official email for more details \(`bootstrap@klaytn.com` for Mainnet or `baobab@klaytn.com` for Kairos\).
 
 **static-nodes.json**
 
@@ -144,7 +144,7 @@ Each PN maintains a copy of the network's chain data. If a node is out of sync, 
 
 To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the PN. This can dramatically reduce the time the PN will spend syncing on first start.
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kpnd`, extract the snapshot inside the DATA_DIR you configured in `kpnd.conf`.
+Download the latest chaindata snapshot from the [Mainnet snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Kairos snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kpnd`, extract the snapshot inside the DATA_DIR you configured in `kpnd.conf`.
 
 For example:
 
@@ -268,12 +268,12 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 Kaia provides a CLI client: `kpn console`. However, a PN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
 
-The IPC file `klay.ipc` is located in the `data` directory on a PN.
+The IPC file `kaia.ipc` is located in the `data` directory on a PN.
 
 Please execute the following command and check out the result.
 
 ```bash
- $ kpn attach /var/kpnd/data/klay.ipc
+ $ kpn attach /var/kpnd/data/kaia.ipc
  Welcome to the Kaia JavaScript console!
 
  instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
@@ -288,15 +288,15 @@ You can check the usable commands on [API Document](../../../references/json-rpc
 
 The useful APIs to check the status of a PN:
 
-* `klay.blockNumber` (to get the latest block number)
+* `kaia.blockNumber` (to get the latest block number)
 * `net.peerCount` (to get the number of the connected Kaia nodes currently)
 
-#### klay.blockNumber  <a id="klay-blocknumber"></a>
+#### kaia.blockNumber  <a id="kaia-blocknumber"></a>
 
 You can get the latest block number to see if blocks are created (for CNs) or propagated (for CNs and PNs) properly based on your node type.
 
 ```javascript
-> klay.blockNumber
+> kaia.blockNumber
 11573819
 ```
 

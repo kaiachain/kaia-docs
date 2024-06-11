@@ -120,13 +120,13 @@ KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walle
 
 ## Sending a Transaction <a id="sending-a-transaction"></a>
 
-### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KAIA via Kairos Faucet <a id="getting-kaia-via-kairos-faucet"></a>
 
-After creating an account, you can receive some Baobab testnet KLAY for the Baobab testnet via Baobab Faucet, available at [https://baobab.wallet.klaytn.foundation/](https://baobab.wallet.klaytn.foundation/). The received testnet KLAY will be used for transaction fee later.
+After creating an account, you can receive some Kairos testnet KAIA for the Kairos testnet via Kairos Faucet, available at [https://baobab.wallet.klaytn.foundation/](https://baobab.wallet.klaytn.foundation/). The received testnet KAIA will be used for transaction fee later.
 
-### Connecting to Baobab <a id="connecting-to-baobab"></a>
+### Connecting to Kairos <a id="connecting-to-kairos"></a>
 
-You can connect to the Baobab network like below:
+You can connect to the Kairos network like below:
 
 ```java
 Caver caver  = Caver.build(https://your.baobab.en.url:8651);
@@ -134,7 +134,7 @@ Caver caver  = Caver.build(https://your.baobab.en.url:8651);
 
 ### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
-After you get a `Caver` instance and create an account which has some KLAY, you can send 1 peb to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
+After you get a `Caver` instance and create an account which has some KAIA, you can send 1 kei to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
 
 `TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation]. In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
 
@@ -273,7 +273,7 @@ To call a smart contract:
 
 #### Example <a id="example"></a>
 
-This section describes how to deploy and execute a smart contract on the Baobab testnet. In this example, we use a smart contract [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). If contract deployment fails and an empty contract address is returned, it will throw RuntimeException.
+This section describes how to deploy and execute a smart contract on the Kairos testnet. In this example, we use a smart contract [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). If contract deployment fails and an empty contract address is returned, it will throw RuntimeException.
 
 ```java
 ERC20Mock erc20Mock = ERC20Mock.deploy(
@@ -572,7 +572,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_
 The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 
 
-[Kaia Wallet]: ../../../build/tools/wallets/klaytn-wallet.md
+[Kaia Wallet]: ../../../build/tools/wallets/kaia-wallet.md
 [txError]: ../../transaction-error-codes.md
 [AccountKeyPublic]: ../../../learn/accounts.md#accountkeypublic
 [AccountKey]: ../../../learn/accounts.md#account-key

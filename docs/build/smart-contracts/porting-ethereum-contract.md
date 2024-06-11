@@ -5,27 +5,27 @@ However, be aware of the following two issues.
 
 ## Solidity Support <a id="solidity-support"></a>
 
-* Baobab network is currently compatible with **London** Ethereum Virtual Machine (EVM).
-* Cypress network is currently compatible with **London** Ethereum Virtual Machine (EVM).
+* Kairos network is currently compatible with **London** Ethereum Virtual Machine (EVM).
+* Mainnet is currently compatible with **London** Ethereum Virtual Machine (EVM).
 
 :::note
 
 v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Kaia's own items.
-It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
+It has been enabled from block number `#75,373,312` in case of Kairos network and `#86,816,005` for the Mainnet.
 
 v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
+It has been enabled from block number `#80,295,291` in case of Kairos network and `#86,816,005` for the Mainnet.
 
 v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
+It has been enabled from block number `#86,513,895` in case of Kairos network and `#86,816,005` for the Mainnet.
 
 :::
 
 Backward compatibility is not guaranteed with other EVM versions on Kaia.
 Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
 
-* Baobab: --evm-version london
-* Cypress: --evm-version london
+* Kairos: --evm-version london
+* Mainnet: --evm-version london
 * Others(private/service chain): determined according to the protocol upgrade status
 
 Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).

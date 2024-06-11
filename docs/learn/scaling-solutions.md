@@ -12,7 +12,7 @@ instant finality, high performance, and high availability.
 Kaia service chains may be used for various service-specific goals,
 and can connect to the main chain for multiple reasons including data anchoring (periodic storing of block hashes
 from the service chain onto the main chain to compensate for the decreased security of the service chain due to the smaller number of nodes) or
-value transfer (interchain transfer of KLAY, Kaia’s native unit of value, and the tokens
+value transfer (interchain transfer of KAIA, Kaia’s native unit of value, and the tokens
 issued by dApps).
 
 ## Network <a id="network"></a>
@@ -38,6 +38,6 @@ This data anchoring can ensure to the service users that the data in the service
 
 ### Value Transfer <a id="value-transfer"></a>
 To help the service providers (SPs) to easily migrate service users and values across chains,
-transferring tokens, such as KLAY (Kaia's native unit of value) and Kaia tokens issued by dApps, between different chains can be enabled.
+transferring tokens, such as KAIA (Kaia's native unit of value) and Kaia tokens issued by dApps, between different chains can be enabled.
 Users can easily request to transfer tokens to other chains by sending a transaction to a special contract, called bridge contract.
 

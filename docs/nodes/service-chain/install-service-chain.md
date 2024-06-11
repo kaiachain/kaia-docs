@@ -137,7 +137,7 @@ $ cat homi-output/keys/nodekey1
 ```
 
 Please change the chainID in the genesis file. Use your own number to prevent a replay attack.
-(Do not use the same chainID with Kaia Cypress (8217) and Baobab (1001))
+(Do not use the same chainID with Kaia Mainnet (8217) and Kairos (1001))
 
 If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file.
 (You can find more details in [Genesis JSON](../service-chain/configure/genesis.md).)
@@ -179,7 +179,7 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
 ```
 
 #### Install nodekey <a id="install_nodekey"></a>
-Copy `homi-output/keys/nodekey1` to the `klay` directory in the SCN's data directory like below. 
+Copy `homi-output/keys/nodekey1` to the `kaia` directory in the SCN's data directory like below. 
 
 ```bash
 $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
@@ -314,12 +314,12 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 #### kscn console <a id="kscn-console"></a>
 
-Kaia provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
+Kaia provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `kaia.ipc` is located in the `data` directory on an SCN.
 
 Please execute the following command and check out the result.
 
 ```text
-$ kscn attach ~/kscnd_home/klay.ipc
+$ kscn attach ~/kscnd_home/kaia.ipc
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
@@ -333,15 +333,15 @@ You can check the usable commands on [API Document](../../../references/json-rpc
 
 The useful APIs to check the status of SCN:
 
-* `klay.blockNumber` (to get the latest block number)
+* `kaia.blockNumber` (to get the latest block number)
 * `net.peerCount` (to get the number of the connected Kaia nodes currently)
 
-#### klay.blockNumber <a id="klay-blocknumber"></a>
+#### kaia.blockNumber <a id="kaia-blocknumber"></a>
 
 You can get the latest block number to see if blocks are propagated properly.
 
 ```text
-> klay.blockNumber
+> kaia.blockNumber
 11573819
 ```
 

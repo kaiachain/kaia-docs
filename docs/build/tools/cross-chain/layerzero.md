@@ -41,7 +41,7 @@ LayerZero (L0) is an open-source protocol for building omini-chain, and interope
 
 ## Getting Started <a id="getting-started"></a>
 
-In this guide, we would be focusing on the Omnichain Fungible Tokens (OFT) v1 which allows us to send tokens seamlessly across EVM chains. For that reason, we will be deploying the OFTv1 contract on both Kaia Baobab (source chain) and Polygon Mumbai (destination chain) using Hardhat smart contract development environment. 
+In this guide, we would be focusing on the Omnichain Fungible Tokens (OFT) v1 which allows us to send tokens seamlessly across EVM chains. For that reason, we will be deploying the OFTv1 contract on both Kaia Kairos (source chain) and Polygon Mumbai (destination chain) using Hardhat smart contract development environment. 
 
 ## Configuring Your Development Environment <a id="connfiguring-your-development-environment"></a>
 
@@ -55,7 +55,7 @@ For example, to configure your PRIVATE_KEY do this in your `hardhat.config.js` f
 const PRIVATE_KEY = vars.get("PRIVATE_KEY");
 /** @type import('hardhat/config').HardhatUserConfig */
   networks: {
-    baobab: {
+    kairos: {
       url: `https://klaytn-baobab-rpc.allthatnode.com:8551`,
       accounts: [PRIVATE_KEY]
     },
@@ -102,7 +102,7 @@ module.exports = {
     ],
   },
   networks: {
-    baobab: {
+    kairos: {
       url: `https://klaytn-baobab-rpc.allthatnode.com:8551`,
       accounts: [PRIVATE_KEY]
     },
@@ -129,7 +129,7 @@ In this section, you will use the LayerZero Solidity Example library to bootstra
 pragma solidity ^0.8.0;
 /*
     // https://layerzero.gitbook.io/docs/technical-reference/testnet/testnet-addresses
-    Kaia Baobab   lzEndpointAddress = 0x6aB5Ae6822647046626e83ee6dB8187151E1d5ab
+    Kaia Kairos   lzEndpointAddress = 0x6aB5Ae6822647046626e83ee6dB8187151E1d5ab
     chainId: 10150  deploymentAddress =
  
     Mumbai lzEndpointAddress = 0xf69186dfBa60DdB133E91E9A4B5673624293d8F8
@@ -141,7 +141,7 @@ import "@layerzerolabs/solidity-examples/contracts/token/oft/v1/OFTCore.sol";
 import "@layerzerolabs/solidity-examples/contracts/token/oft/v1/interfaces/IOFT.sol";
 contract CrossChainToken is OFTCore, ERC20, IOFT {
     constructor(address _lzEndpointAddress) ERC20("CrossChainTokens", "CCT") OFTCore(_lzEndpointAddress) Ownable(msg.sender) {
-        if (block.chainid == 1001) { // Only mint initial supply on Baobab
+        if (block.chainid == 1001) { // Only mint initial supply on Kairos
             _mint(msg.sender, 1_000_000 * 10 ** decimals());
         }
     }
@@ -198,14 +198,14 @@ In the next section, we will be exploring the execution of functions in their ap
 
 ## Deploying the smart contract <a id="deploying-the-smart-contract"></a>
 
-In this section, you will make use of the [script](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy) here to deploy the OFTV1 contract on Kaia Baobab (source chain) and Polygon Mumbai (destination chain) respectively. Ensure you have tokens from a faucet for the respective network. You can acquire faucet tokens for the Kaia Baobab [here](https://baobab.wallet.klaytn.foundation/faucet) and  Polygon Mumbai testnet [here](https://faucet.polygon.technology/).
+In this section, you will make use of the [script](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy) here to deploy the OFTV1 contract on Kaia Kairos (source chain) and Polygon Mumbai (destination chain) respectively. Ensure you have tokens from a faucet for the respective network. You can acquire faucet tokens for the Kaia Kairos [here](https://baobab.wallet.klaytn.foundation/faucet) and  Polygon Mumbai testnet [here](https://faucet.polygon.technology/).
 
 To deploy the contracts on the respective chains, run the command below:
 
-1. **deploys on baobab (source chain)**
+1. **deploys on kairos (source chain)**
 
 ```bash
-npx hardhat run scripts/deploy/src-contract.js --network baobab
+npx hardhat run scripts/deploy/src-contract.js --network kairos
 ```
 
 2. **deploys on mumbai (destination chain)**
@@ -214,7 +214,7 @@ npx hardhat run scripts/deploy/src-contract.js --network baobab
 npx hardhat run scripts/deploy/dest-contract.js --network mumbai
 ```
 
-Now you should have the OFTV1 contract deployed on both Baobab and Mumbai. You can verify your deployment by pasting each chain’s contract address in their respective explorer: [Kaiascope](https://baobab.klaytnscope.com/account/) and [Polygonscan](https://mumbai.polygonscan.com/address/).
+Now you should have the OFTV1 contract deployed on both Kairos and Mumbai. You can verify your deployment by pasting each chain’s contract address in their respective explorer: [Kaiascope](https://baobab.klaytnscope.com/account/) and [Polygonscan](https://mumbai.polygonscan.com/address/).
 
 ## Setting Trusted remote <a id="setting-trusted-remote"> </a>
 
@@ -226,7 +226,7 @@ To set the contract as trusted on src chain, you need to pass in the destination
 To see it in action, run the command below:
 
 ```bash
-npx hardhat run scripts/set-remote-address/src.js --network baobab
+npx hardhat run scripts/set-remote-address/src.js --network kairos
 ```
 
 2. **sets on destination chain**
@@ -245,7 +245,7 @@ In this section you will collectively execute the **approve()**, **setMinDstGas(
 To execute this script, run the command below:
 
 ```bash
-npx hardhat run scripts/misc.js --network baobab
+npx hardhat run scripts/misc.js --network kairos
 ```
 
 ## Executing the sendFrom functionality <a id="executing-sendfrom-functionality"> </a>
@@ -254,7 +254,7 @@ To send tokens from one chain to another using the LayerZero OFTV1, you need to 
 To see this in action, run the command below: 
 
 ```bash
-npx hardhat run scripts/send-from.js --network baobab
+npx hardhat run scripts/send-from.js --network kairos
 ```
 
 You can verify the cross-chain transaction by pasting the transaction hash in [LayerZero Scan](https://testnet.layerzeroscan.com/). 
@@ -273,6 +273,6 @@ npx hardhat run scripts/check-balance.js --network mumbai
 
 ## Conclusion
 
-Congratulations! 🥳 You were able to successfully send tokens from Kaia Baobab to Polygon Mumbai in a single transaction call using the LayerZero Omnichain Contract OFTV1. You can take it a step further by setting up a simple user interface to make it easy for users to move tokens between chains. Once token contracts are set up, you can use a web3 library such as [web3klaytn](https://klaytn-foundation.stoplight.io/docs/web3klaytn/0d10ufjmg8ri2-overview) or [ethers.js](https://docs.ethers.org/v5/) to connect the **sendFrom()** function to a user interface.
+Congratulations! 🥳 You were able to successfully send tokens from Kaia Kairos to Polygon Mumbai in a single transaction call using the LayerZero Omnichain Contract OFTV1. You can take it a step further by setting up a simple user interface to make it easy for users to move tokens between chains. Once token contracts are set up, you can use a web3 library such as [web3klaytn](https://klaytn-foundation.stoplight.io/docs/web3klaytn/0d10ufjmg8ri2-overview) or [ethers.js](https://docs.ethers.org/v5/) to connect the **sendFrom()** function to a user interface.
 
 Start building with [crosschain-oftv1-example](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main) to bootstrap your own projects such as cross-chain decentralized exchanges, cross-chain lending, etc. For more in-depth guides on LayerZero, please refer to the [LayerZero Docs](https://layerzero.gitbook.io/docs/) and [LayerZero Github Repository](https://github.com/LayerZero-Labs/solidity-examples/tree/main).

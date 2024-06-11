@@ -833,7 +833,7 @@ Shows all KLAY units.
     kpeb: { unit: 'kpeb', pebFactor: 3 },
     Mpeb: { unit: 'Mpeb', pebFactor: 6 },
     Gpeb: { unit: 'Gpeb', pebFactor: 9 },
-    ston: { unit: 'ston', pebFactor: 9 },
+    Gkei: { unit: 'Gkei', pebFactor: 9 },
     uKLAY: { unit: 'uKLAY', pebFactor: 12 },
     mKLAY: { unit: 'mKLAY', pebFactor: 15 },
     KLAY: { unit: 'KLAY', pebFactor: 18 },
@@ -1174,7 +1174,7 @@ caver.utils.stripHexPrefix(input)
 
 Returns the result with 0x prefix stripped from input.
 
-**NOTE** caver.klay.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+**NOTE** caver.kaia.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
 **Parameters**
 
@@ -1654,7 +1654,7 @@ true
 caver.utils.isKaiaWalletKey(key)
 ```
 
-Returns `true` if key is in [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
+Returns `true` if key is in [KaiaWalletKey](../../../../learn/accounts.md#kaia-wallet-key-format) format, otherwise it returns `false`.
 
 **Parameters**
 
@@ -1717,13 +1717,13 @@ Converts buffer to 0x-prefixed hex string.
 caver.utils.parseKaiaWalletKey(key)
 ```
 
-Parses [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) string to an array which includes "private key", "type", "address".
+Parses [KaiaWalletKey](../../../../learn/accounts.md#kaia-wallet-key-format) string to an array which includes "private key", "type", "address".
 
 **Parameters**
 
 | Name | Type   | Description                                                                                 |
 | ---- | ------ | ------------------------------------------------------------------------------------------- |
-| key  | string | A [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) string. |
+| key  | string | A [KaiaWalletKey](../../../../learn/accounts.md#kaia-wallet-key-format) string. |
 
 **Return Value**
 

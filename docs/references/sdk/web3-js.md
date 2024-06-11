@@ -14,7 +14,7 @@ In this guide, you'll learn how to use the web3.js library to read data from the
 * Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
 * [Metamask](../../build/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 * RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 * [NodeJS and NPM](https://nodejs.org/en/)
 
 
@@ -66,7 +66,7 @@ To read data from the blockchain, create a new `read.js` file in your project fo
 touch read.js
 ```
 
-After creating this file, initialize `web3` as done in the `initialize` section. In this section, you'll learn how to read data from the blockchain (e.g., blockNumber, KLAY balance). 
+After creating this file, initialize `web3` as done in the `initialize` section. In this section, you'll learn how to read data from the blockchain (e.g., blockNumber, KAIA balance). 
 
 To see this in action, paste the following code in your `read.js`.
 
@@ -84,7 +84,7 @@ async function getLatestBlock() {
 async function getKlayBalance() {
     const klayBalance  = await web3.eth.getBalance("Paste wallet address");
     const formatBalance = await web3.utils.fromWei(klayBalance, 'ether');
-    console.log(`You have ${formatBalance} KLAY`);
+    console.log(`You have ${formatBalance} KAIA`);
 }
 
 // call the following functions
@@ -101,7 +101,7 @@ To run the script and read data from the blockchain, run the following command i
 node read.js
 ```
 
-If the transaction was successful, you'll see the block number and user’s KLAY balance logged in your terminal.
+If the transaction was successful, you'll see the block number and user’s KAIA balance logged in your terminal.
 
 ## Sending transaction to the blockchain
 
@@ -112,7 +112,7 @@ touch send.js
 ```
 
 
-After creating this file, initialize `web3` as done in the `initialize` section. In this section, you ll learn how to send transaction to the blockchain e.g send KLAY to an address.
+After creating this file, initialize `web3` as done in the `initialize` section. In this section, you ll learn how to send transaction to the blockchain e.g send KAIA to an address.
 
 To see this in action, paste the following code in your `send.js`.
 

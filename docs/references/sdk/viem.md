@@ -13,7 +13,7 @@ In this guide, you'll learn how to use the viem library to read data from the bl
 * Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
 * [Metamask](../../build/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 * RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 * [NodeJS and NPM](https://nodejs.org/en/)
 * [TS-node](https://www.npmjs.com/package/ts-node): used for running TypeScript scripts.
 
@@ -43,10 +43,10 @@ Firstly, you need to set up your Public [Client](https://viem.sh/docs/clients/i
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { klaytnBaobab } from 'viem/chains'
+import { klaytnKairos } from 'viem/chains'
  
 const client = createPublicClient({ 
-  chain: klaytnBaobab, 
+  chain: klaytnKairos, 
   transport: http("https://klaytn-baobab-rpc.allthatnode.com:8551"), 
 }) 
 
@@ -61,7 +61,7 @@ import { createWalletClient } from 'viem'
 import { privateKeyToAccount } from 'viem/accounts'
  
 const walletClient = createWalletClient({
-  chain: klaytnBaobab,
+  chain: klaytnKairos,
   transport: http("https://klaytn-baobab-rpc.allthatnode.com:8551")
 })
  
@@ -77,17 +77,17 @@ To read data from the blockchain, create a new `read.ts` file in your project 
 touch read.ts
 ```
 
-After creating this file, set up your public client as done in the **set up section** above. In this section, you will learn how to read data from the blockchain (e.g., blockNumber, KLAY balance).
+After creating this file, set up your public client as done in the **set up section** above. In this section, you will learn how to read data from the blockchain (e.g., blockNumber, KAIA balance).
 
 To see this in action, paste the following code in your `read.ts`.
 
 
 ```ts
 import { createPublicClient, http, formatEther } from 'viem'
-import { klaytnBaobab } from 'viem/chains'
+import { klaytnKairos } from 'viem/chains'
  
 const client = createPublicClient({ 
-  chain: klaytnBaobab, 
+  chain: klaytnKairos, 
   transport: http("https://klaytn-baobab-rpc.allthatnode.com:8551"), 
 }) 
 
@@ -102,7 +102,7 @@ async function getKlayBalance() {
     address: '0x75Bc50a5664657c869Edc0E058d192EeEfD570eb',
   })
   const formatBal = formatEther(balance);
-  console.log(`Current KLAY balance is ${formatBal}`);  
+  console.log(`Current KAIA balance is ${formatBal}`);  
 }
 
 
@@ -118,7 +118,7 @@ To run the script and read data from the blockchain, paste the following command
 npx ts-node read.ts
 ```
 
-If the transaction was successful, you'll see the block number and user’s KLAY balance in your terminal.
+If the transaction was successful, you'll see the block number and user’s KAIA balance in your terminal.
 
 ![](/img/references/viem-read.png)
 
@@ -130,17 +130,17 @@ To send a transaction to the blockchain, create a new `send.ts` file in your p
 touch send.ts 
 ```
 
-After creating this file, set up your wallet client as done in the **set up section** above. In this section, you will learn how to send a transaction to the blockchain (for example, send KLAY to an address).
+After creating this file, set up your wallet client as done in the **set up section** above. In this section, you will learn how to send a transaction to the blockchain (for example, send KAIA to an address).
 
 To see this in action, paste the following code in your `send.ts`.
 
 ```ts
 import { createWalletClient, http, parseEther } from 'viem'
-import { klaytnBaobab } from 'viem/chains'
+import { klaytnKairos } from 'viem/chains'
 import { privateKeyToAccount } from 'viem/accounts'
 
 const walletClient = createWalletClient({
-  chain: klaytnBaobab,
+  chain: klaytnKairos,
   transport: http("https://klaytn-baobab-rpc.allthatnode.com:8551")
 })
  
@@ -154,7 +154,7 @@ async function sendKlayToRecipient() {
     value: parseEther('0.01')
   })
 
-  console.log(`Send KLAY tx hash is: ${hash}`);
+  console.log(`Send KAIA tx hash is: ${hash}`);
 }
 
 sendKlayToRecipient();
@@ -196,10 +196,10 @@ To read from the contract, we used [readContract](https://viem.sh/docs/contract/
 
 ```ts
 import { createPublicClient, http } from 'viem'
-import { klaytnBaobab } from 'viem/chains'
+import { klaytnKairos } from 'viem/chains'
  
 const client = createPublicClient({ 
-  chain: klaytnBaobab, 
+  chain: klaytnKairos, 
   transport: http("https://klaytn-baobab-rpc.allthatnode.com:8551"), 
 }) 
 
@@ -255,11 +255,11 @@ To write to the contract, we used [writeContract](https://viem.sh/docs/contract/
 
 ```ts
 import { createWalletClient, http } from 'viem'
-import { klaytnBaobab } from 'viem/chains'
+import { klaytnKairos } from 'viem/chains'
 import { privateKeyToAccount } from 'viem/accounts'
  
 const walletClient = createWalletClient({
-  chain: klaytnBaobab,
+  chain: klaytnKairos,
   transport: http("https://klaytn-baobab-rpc.allthatnode.com:8551")
 })
  

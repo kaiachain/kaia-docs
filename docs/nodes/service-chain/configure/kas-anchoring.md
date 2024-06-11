@@ -3,7 +3,7 @@
 As explained in the design section, you can anchor your service chain data to Kaia main chain.
 This page introduces how to enable data anchoring via [KAS (Kaia API Service)](https://www.klaytnapi.com).
 
-Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Cypress or Baobab as a proof of existence and immutability of the service chain. 
+Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Mainnet or Kairos as a proof of existence and immutability of the service chain. 
 This ensures the security and credibility of the service chain.
 
 ## Preparation for Using KAS <a id="preparation-with-kas"></a>
@@ -31,7 +31,7 @@ KAS provides Anchor API, which is designed for data anchoring and surely it is t
 ## Create Operator Address <a id="create-kas-credential"></a>
 To anchor service chain data via KAS, there should be a Kaia address, enrolled in KAS, that actually send anchoring transaction to Kaia. So, before you set up your service node, you need to create an Kaia account called "operator" via KAS. Please, use KAS console to create this account. 
 
-It is important to be noticed that you must **first select the chain** in Kaia to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Cypress/Baobab). 
+It is important to be noticed that you must **first select the chain** in Kaia to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Mainnet/Kairos). 
 
 
 
@@ -65,7 +65,7 @@ SC_KAS_ANCHOR_URL="https://anchor-api.klaytn.com/v1/anchor"             # Anchor
 SC_KAS_ANCHOR_OPERATOR="0x6A3D565C4a2a4cd0Fb3df8EDfb63a151717EA1D7"     # Operator address
 SC_KAS_ANCHOR_ACCESS_KEY="KAJM4BEIR9SKJKAW1G3TT8GX"                     # Credential Access key
 SC_KAS_ANCHOR_SECRET_KEY="KyD5w9ZlZQ7ejj6lDF6elb61u8JH/mXdKqhgr3yF"     # Credential Secret key
-SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Cypress: 8217, Baobab: 1001
+SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Mainnet: 8217, Kairos: 1001
 ...
 ```
 

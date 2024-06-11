@@ -13,7 +13,7 @@ With SupraOracles, your smart contract can get access to price data feeds to bui
 * [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 * [Remix IDE](https://remix.ethereum.org/)
 * [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
 ## Getting Started
 
@@ -41,7 +41,7 @@ contract ISupraSValueFeedExample {
     }
 }
 ```
-In this example, we are implementing the S-Value Feed on the Kaia Baobab TestNet. You can verify the Kaia Baobab S-Value Feed Address [here](https://supraoracles.com/docs/get-started/networks/).
+In this example, we are implementing the S-Value Feed on the Kaia Kairos TestNet. You can verify the Kaia Kairos S-Value Feed Address [here](https://supraoracles.com/docs/get-started/networks/).
 
 ### Step 3: Get The S-Value Crypto Price
 

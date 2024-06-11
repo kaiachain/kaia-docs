@@ -17,5 +17,5 @@ web3.eth.getBalance('0x407d73d8a49eeb85d32cf465507dd71d507100c1').then(console.l
 const Caver = require('caver-js');
 const caver = new Caver(new Caver.providers.HttpProvider('http://localhost:8545'));
 
-caver.klay.getBalance('0x407d73d8a49eeb85d32cf465507dd71d507100c1').then(console.log)
+caver.kaia.getBalance('0x407d73d8a49eeb85d32cf465507dd71d507100c1').then(console.log)
 ```

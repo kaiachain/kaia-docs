@@ -35,7 +35,7 @@ list [command options] [arguments...]
 
 Print a short summary of all accounts
 
-KLAY OPTIONS:
+KAIA OPTIONS:
   --dbtype value                        Blockchain storage database type ("leveldb", "badger") (default: "leveldb")
   --datadir "/Users/ethan/Library/KEN"  Data directory for the databases and keystore
   --keystore                            Directory for the keystore (default = inside the datadir)
@@ -68,7 +68,7 @@ To connect to the JavaScript console, an EN must be in running status. For more 
 $ kend start
 Starting kend: OK
 
-$ ken attach ~/kend_home/klay.ipc
+$ ken attach ~/kend_home/kaia.ipc
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
@@ -80,14 +80,14 @@ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 
 **Commands**
 
-Type `personal` or `klay` to get the list of available functions. In this tutorial, we are going to visit the following functions.
+Type `personal` or `kaia` to get the list of available functions. In this tutorial, we are going to visit the following functions.
 
 ```bash
 > personal.newAccount()
 > personal.importRawKey()
 > personal.unlockAccount()
-> klay.accounts
-> klay.getBalance()
+> kaia.accounts
+> kaia.getBalance()
 ```
 
 ### Data Directory <a id="data-directory"></a>

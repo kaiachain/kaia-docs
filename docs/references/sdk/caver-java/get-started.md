@@ -32,7 +32,7 @@ caver.transaction is a package that provides functionality related to [Transacti
 
 caver.rpc is a package that provides functionality related to rpc call with Kaia Node.
 
-- `caver.rpc.klay` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, respectively
+- `caver.rpc.kaia` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, respectively
 
 ### caver.util
 
@@ -140,12 +140,12 @@ Currently, we do not support other package managers. As another solution, we pro
   ```
 
 
-## Sending KLAY at a glance
+## Sending KAIA at a glance
 
-This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+This section describes a simple example of using a `keystore file` to send KAIA with a value transfer transaction. The keystore file can be created in [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay). If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay).
 
 ```java
-public void sendingKLAY() throws IOException, CipherException, TransactionException {
+public void sendingKAIA() throws IOException, CipherException, TransactionException {
         Caver caver = new Caver(Caver.BAOBAB_URL);
 
         //Read keystore json file.
@@ -159,7 +159,7 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
         //Add to caver wallet.
         caver.wallet.add(keyring);
 
-        BigInteger value = new BigInteger(caver.utils.convertToPeb(BigDecimal.ONE, "KLAY"));
+        BigInteger value = new BigInteger(caver.utils.convertToPeb(BigDecimal.ONE, "KAIA"));
 
         //Create a value transfer transaction
         ValueTransfer valueTransfer = caver.transaction.valueTransfer.create(
@@ -174,7 +174,7 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
         valueTransfer.sign(keyring);
 
         //Send a transaction to the klaytn blockchain platform (Kaia)
-        Bytes32 result = caver.rpc.klay.sendRawTransaction(valueTransfer.getRawTransaction()).send();
+        Bytes32 result = caver.rpc.kaia.sendRawTransaction(valueTransfer.getRawTransaction()).send();
         if(result.hasError()) {
             throw new RuntimeException(result.getError().getMessage());
         }
@@ -188,7 +188,7 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
 
 ## Starting with caver-java <a id="starting-with-caver-java"></a>
 
-### Connecting to a Kaia Node <a id="connecting-to-a-klaytn-node"></a>
+### Connecting to a Kaia Node <a id="connecting-to-a-kaia-node"></a>
 
 If you are running an EN, you can connect it to your own node by changing the host and port like below:
 
@@ -388,11 +388,11 @@ When `caver.wallet.newKeyring` is executed with a private key, a Keyring instanc
 
 ## Sending a Transaction <a id="sending-a-transaction"></a>
 
-This section will show you how to send KLAY using caver-java on the Baobab network.
+This section will show you how to send KAIA using caver-java on the Kairos network.
 
-### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KAIA via Kairos Faucet <a id="getting-kaia-via-kairos-faucet"></a>
 
-If you need KLAY for testing, you can get Baobab testnet KLAY from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Kaia Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
+If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay). Log in to the Kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
 
 ### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
@@ -401,9 +401,9 @@ You can use a caver-java wallet to generate a signature of a transaction. You ha
 1. Sign a transaction
 	- If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
 	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the Kaia via `caver.rpc.klay.sendRawTransaction`.
+2. Send the RLP-encoded string of the signed transaction to the Kaia via `caver.rpc.kaia.sendRawTransaction`.
 
-**Note:** The sender should have enough number of KLAY to be transferred and also to pay the transaction fee.
+**Note:** The sender should have enough number of KAIA to be transferred and also to pay the transaction fee.
 
 #### Sign a transaction
 
@@ -453,8 +453,8 @@ public String sendRawTransaction() {
   String txHash = null;
 
   try {
-      // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
-      Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoding).send();
+      // Send the transaction using `caver.rpc.kaia.sendRawTransaction`.
+      Bytes32 sendResult = caver.rpc.kaia.sendRawTransaction(rlpEncoding).send();
       if(sendResult.hasError()) {
           //do something to handle error
       }
@@ -491,8 +491,8 @@ valueTransfer.sign(keyring);
 String rlpEncoded = valueTransfer.getRLPEncoding();
 
 try {
-    // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
-    Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
+    // Send the transaction using `caver.rpc.kaia.sendRawTransaction`.
+    Bytes32 sendResult = caver.rpc.kaia.sendRawTransaction(rlpEncoded).send();
     if(sendResult.hasError()) {
         //do something to handle error
     }
@@ -512,7 +512,7 @@ Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b9
 
 ### Checking Receipts <a id="checking-receipts"></a>
 
-You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Kaia by `caver.rpc.klay.sendRawTransaction`.
+You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Kaia by `caver.rpc.kaia.sendRawTransaction`.
 
 The following example shows how to get a receipt using PollingTransactionReceiptProcessor.
 
@@ -534,14 +534,14 @@ try {
 
 As described in the example above, you can get the result of sending a transaction through TransactionReceiptProcessor. The `transactionHash` field is defined inside the receipt object. 
 
-You can use `caver.rpc.klay.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.klay.getTransactionReceipt` RPC call.
+You can use `caver.rpc.kaia.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.kaia.getTransactionReceipt` RPC call.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
 String txHash = "0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a";
 
 try {
-  TransactionReceipt receipt = caver.rpc.klay.getTransactionReceipt(txHash).send();
+  TransactionReceipt receipt = caver.rpc.kaia.getTransactionReceipt(txHash).send();
   if(receipt.hasError()) {
     // do something to handle error
 
@@ -554,7 +554,7 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.kaia.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 
 ## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
@@ -621,8 +621,8 @@ TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProc
 
 String rlpEncoded = "0x{RLP-encoded string}";
 try {
-  // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
-  Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoding).send();
+  // Send the transaction using `caver.rpc.kaia.sendRawTransaction`.
+  Bytes32 sendResult = caver.rpc.kaia.sendRawTransaction(rlpEncoding).send();
   if(sendResult.hasError()) {
     //do something to handle error
 
@@ -636,7 +636,7 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.kaia.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ### Account Update <a id="account-update"></a>
 
@@ -681,7 +681,7 @@ try {
     caver.wallet.sign(senderKeyring.getAddress(), accountUpdate);
     String rlpEncoded = accountUpdate.getRLPEncoding();
 
-    Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
+    Bytes32 sendResult = caver.rpc.kaia.sendRawTransaction(rlpEncoded).send();
     if(sendResult.hasError()) {
         //do something to handle error
         throw new TransactionException(sendResult.getError().getMessage());
@@ -965,7 +965,7 @@ If you want to send a transaction with sender and feePayer signed seperately whe
             AbstractTransaction signedTx = contract.sign(sendOptionsForSigning, "constructor", byteCode);
 
             caver.wallet.signAsFeePayer(feePayer.getAddress(), (AbstractFeeDelegatedTransaction)signedTx);
-            Bytes32 txHash = caver.rpc.klay.sendRawTransaction(signedTx).send();
+            Bytes32 txHash = caver.rpc.kaia.sendRawTransaction(signedTx).send();
             TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
 
             TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash.getResult());
@@ -1066,7 +1066,7 @@ If you want to send a transaction with sender and feePayer signed separately whe
             AbstractTransaction executionTx = contract.sign(sendOptionsForExecution, "set", "test", "testValue");
             caver.wallet.signAsFeePayer(feePayer.getAddress(), (AbstractFeeDelegatedTransaction)executionTx);
 
-            Bytes32 txHash_executed = caver.rpc.klay.sendRawTransaction(executionTx).send();
+            Bytes32 txHash_executed = caver.rpc.kaia.sendRawTransaction(executionTx).send();
             TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
 
             TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash_executed.getResult());

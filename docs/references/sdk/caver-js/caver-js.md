@@ -56,15 +56,15 @@ Error: runtime error occurred in interpreter
 }
 ```
 
-## Caution when Sending a Transaction to Kaia <a href="#caution-when-sending-a-transaction-to-klaytn" id="caution-when-sending-a-transaction-to-klaytn"></a>
+## Caution when Sending a Transaction to Kaia <a href="#caution-when-sending-a-transaction-to-kaia" id="caution-when-sending-a-transaction-to-kaia"></a>
 
 Kaia has a new gas price policy since the Magma hard fork which enabled the [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
 
 Therefore, you need to set the `gasPrice` logic differently when sending a transaction, depending on whether the hard fork is applicable or not.
 
-Until the Magma hard fork, transactions on Kaia have been subject to a "fixed gas price". Therefore, transactions with any other price submitted to the network are rejected. If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice) RPC call to set the gas price.
+Until the Magma hard fork, transactions on Kaia have been subject to a "fixed gas price". Therefore, transactions with any other price submitted to the network are rejected. If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses [caver.rpc.kaia.getGasPrice](./api/caver-rpc/kaia.md#caver-rpc-kaia-getgasprice) RPC call to set the gas price.
 
-After the Magma hard fork, Kaia uses a "dynamic gas fee pricing mechanism". The gas price of the transaction should be higher than the base fee of the Kaia network. If `gasPrice` is not defined when you sign or submit a transaction, caver-js sets the `gasPrice` field of the transaction using `caver.rpc.klay.getGasPrice`.
+After the Magma hard fork, Kaia uses a "dynamic gas fee pricing mechanism". The gas price of the transaction should be higher than the base fee of the Kaia network. If `gasPrice` is not defined when you sign or submit a transaction, caver-js sets the `gasPrice` field of the transaction using `caver.rpc.kaia.getGasPrice`.
 
 ### How to set gasPrice field
 
@@ -97,7 +97,7 @@ const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 tx.gasPrice = await tx.suggestGasPrice() 
 ```
 
-For more information about the gas price, see [GasPrice Overview](../../../learn/transaction-fees/transaction-fees.md#gas-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice).
+For more information about the gas price, see [GasPrice Overview](../../../learn/transaction-fees/transaction-fees.md#gas-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.kaia.getGasPrice](./api/caver-rpc/kaia.md#caver-rpc-kaia-getgasprice).
 
 ## Links <a href="#links" id="links"></a>
 

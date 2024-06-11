@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This section will guide you through deploying a Soulbound Token to the Kaia Baobab Network using [Hardhat](https://hardhat.org/). 
+This section will guide you through deploying a Soulbound Token to the Kaia Kairos Network using [Hardhat](https://hardhat.org/). 
 
 Hardhat is a smart-contract development environment that will help you:
 * Develop and compile smart contracts.
@@ -27,7 +27,7 @@ To follow this tutorial, the following are the prerequisites:
 * Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 * [Metamask](../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 * RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 * [NodeJS and NPM](https://nodejs.org/en/)
 
 ## Setting Up Your Development Environment
@@ -104,7 +104,7 @@ touch .env
 * After creating our file, let's configure our .env file to look like this:
 
 ```js
- KLAYTN_BAOBAB_URL= "Your Baobab RPC link"
+ KAIA_BAOBAB_URL= "Your Kairos RPC link"
  PRIVATE_KEY= "your private key copied from MetaMask wallet"
 ```
 
@@ -122,8 +122,8 @@ require('dotenv').config()
 module.exports = {
   solidity: "0.8.17",
   networks: {
-    baobab: {
-      url: process.env.KLAYTN_BAOBAB_URL || "",
+    kairos: {
+      url: process.env.KAIA_BAOBAB_URL || "",
       gasPrice: 250000000000,
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
@@ -336,10 +336,10 @@ main().catch((error) => {
 });
 ```
 
-**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Kaia Test Network (Baobab) 
+**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Kaia Test Network (Kairos) 
 
 ```bash
-npx hardhat run scripts/sbtDeploy.js --network baobab
+npx hardhat run scripts/sbtDeploy.js --network kairos
 ```
 
 ![](/img/build/get-started/sbtDeploy.png)

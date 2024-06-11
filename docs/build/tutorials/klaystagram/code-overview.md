@@ -155,10 +155,10 @@ If you have never logged in before, `walletInstance` session may not exist. Othe
 // 1. Inject wallet
 export const integrateWallet = (privateKey) => (dispatch) => {
   // Make wallet instance with caver's privateKeyToAccount API
-  const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)
+  const walletInstance = cav.kaia.accounts.privateKeyToAccount(privateKey)
 
   // To send a transaction, add wallet instance to caver
-  cav.klay.accounts.wallet.add(walletInstance)
+  cav.kaia.accounts.wallet.add(walletInstance)
 
   // To maintain logged-in status, store walletInstance at sessionStorage
   sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
@@ -175,7 +175,7 @@ export const integrateWallet = (privateKey) => (dispatch) => {
 
 // 2. Remove wallet
 export const removeWallet = () => (dispatch) => {
-  cav.klay.accounts.wallet.clear()
+  cav.kaia.accounts.wallet.clear()
   sessionStorage.removeItem('walletInstance')
   return dispatch({
     type: REMOVE_WALLET,
@@ -183,7 +183,7 @@ export const removeWallet = () => (dispatch) => {
 }
 ```
 
-cf. For further information about caver's `privateKeyToAccount` API, see [caver.klay.accounts.privateKeyToAccount](../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount).
+cf. For further information about caver's `privateKeyToAccount` API, see [caver.kaia.accounts.privateKeyToAccount](../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#privatekeytoaccount).
 
 **3. Render the page** Redux will initialize `isLoggedIn` state to true or false, depending on whether walletInstance exists in the session storage
 
@@ -202,7 +202,7 @@ In blockchain based app, there are two ways of interacting with contracts.
 2\) **Writing** data to contract.
 
 Reading data from contract is cost-free.  
-On the otherhand, there is cost for writing data to contract \(Sending a transaction\). For this reason, in order to write data, you must have Kaia account that has some KLAY to pay for it.
+On the otherhand, there is cost for writing data to contract \(Sending a transaction\). For this reason, in order to write data, you must have Kaia account that has some KAIA to pay for it.
 
 In AuthPage, `SignupForm` helps you to create a Kaia account \(private key\). After that, you can log in with the private key and pay for the transaction fee.
 

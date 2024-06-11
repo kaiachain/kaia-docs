@@ -1,7 +1,7 @@
-# Connect to Baobab
+# Connect to Kairos
 
-This section covers how to connect your 4-node ServiceChain network to the Baobab network.
-You will set up a Baobab EN and connect the EN with one of your SCNs. Then you will enable the anchoring feature to put ServiceChain block information onto the Baobab network.
+This section covers how to connect your 4-node ServiceChain network to the Kairos network.
+You will set up a Kairos EN and connect the EN with one of your SCNs. Then you will enable the anchoring feature to put ServiceChain block information onto the Kairos network.
 
 ![](/img/nodes/sc-en-scn-arch.png)
 
@@ -10,14 +10,14 @@ You will set up a Baobab EN and connect the EN with one of your SCNs. Then you w
  - Minimum hardware requirements for testing
    - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
    - Please refer to the [System Requirements](../system-requirements.md) for more explanation.
- - Download the Baobab EN executable. For the full list of downloadable binaries, see [Download](../../downloads/downloads.md).
+ - Download the Kairos EN executable. For the full list of downloadable binaries, see [Download](../../downloads/downloads.md).
  - Assumptions and Limitations
    - A ServiceChain network is installed and running. Please refer to [Setting up a 4-node Service Chain](4nodes-setup-guide.md) to setup a network.
-   - A Baobab EN.
+   - A Kairos EN.
    - One EN can only connect to one SCN since only one-to-one connection is supported.
    - Every SCN does not have to connect to the EN.
 
-## Step 0: Install Baobab EN <a id="install-baobab-en"></a>
+## Step 0: Install Kairos EN <a id="install-kairos-en"></a>
 The installation is the uncompression of the downloaded package. Extract the archive on the EN server.
 
 ```bash
@@ -25,7 +25,7 @@ EN-01$ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
 ```
 
 ## Step 1: Preparing genesis.json <a id="step-1-preparing-genesis-json"></a>
-From the EN server, download the `genesis.json` for `Baobab` network.
+From the EN server, download the `genesis.json` for `Kairos` network.
 ```
 EN-01$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.json
 ```
@@ -57,10 +57,10 @@ DATA_DIR=~/data
 EN-01$ kend start
 Starting kscnd: OK
 ```
-You can check block sync status by watching `klay.blockNumber`. If this number is not 0, the node is working fine. Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/install-endpoint-nodes.md#fast-sync-optional) to synchronize blocks. 
+You can check block sync status by watching `kaia.blockNumber`. If this number is not 0, the node is working fine. Downloading all blocks on the Kairos network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/install-endpoint-nodes.md#fast-sync-optional) to synchronize blocks. 
 ```
 EN-01$ ken attach --datadir ~/data
-> klay.blockNumber
+> kaia.blockNumber
 21073
 ```
 If you want to stop a node, you can use the command `kend stop`
@@ -83,7 +83,7 @@ SCN-L2-01$ echo '["kni://0f7aa6499553...25bae@192.168.1.1:50505?discport=0"]' > 
 
 ## Step 7: Configure SCN then Restart kscn <a id="step-7-configure-scn-then-restart-kscn"></a>
 From the SCN-L2-01 node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`.
-If `SC_SUB_BRIDGE` is set to 1, data anchoring starts automatically when the SCN-L2-01 node starts. In this example, `SC_PARENT_CHAIN_ID` is set to 1001 because the `chainID` of the parent chain, Baobab, is 1001.
+If `SC_SUB_BRIDGE` is set to 1, data anchoring starts automatically when the SCN-L2-01 node starts. In this example, `SC_PARENT_CHAIN_ID` is set to 1001 because the `chainID` of the parent chain, Kairos, is 1001.
 `SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring tx to the main chain. By setting the value to 10, you configure the node to perform anchoring every 10 blocks. The default value is 1.
 ```
 ...
@@ -114,8 +114,8 @@ SCN-L2-01$ kscn attach --datadir ~/data
 After finishing the EN-01 and SCN-L2-01 connection, you can log ServiceChain block information on the parent chain via Anchoring.
 In this section, you will top up a parent operator account, enable Anchoring, and check the anchored block number.
 
-### Step 1: Get KLAY to test anchoring <a id="step-1-get-klay-to-test-anchoring"></a>
-Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have enough KLAY to pay the transaction fee. Get some KLAY from [Baobab Wallet Faucet](https://baobab.wallet.klaytn.foundation/) and transfer some KLAY to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KLAY for transaction fee.
+### Step 1: Get KAIA to test anchoring <a id="step-1-get-kaia-to-test-anchoring"></a>
+Anchoring requires SCN-L2-01 to make an anchoring transaction to Kairos. So `subbridge.parentOperator` account should have enough KAIA to pay the transaction fee. Get some KAIA from [Kairos Wallet Faucet](https://baobab.wallet.klaytn.foundation/) and transfer some KAIA to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KAIA for transaction fee.
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -131,7 +131,7 @@ SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.anchoring(true)
 true
 ```
-After anchoring starts, you can check the latest block anchored to Baobab by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Baobab. By default, SCN-L2-01 tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing `SC_ANCHORING_PERIOD`. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
+After anchoring starts, you can check the latest block anchored to Kairos by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Kairos. By default, SCN-L2-01 tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing `SC_ANCHORING_PERIOD`. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
 > subbridge.latestAnchoredBlockNumber

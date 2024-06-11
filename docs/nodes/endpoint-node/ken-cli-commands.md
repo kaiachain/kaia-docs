@@ -31,7 +31,7 @@ account, create a new account or update an existing account.
  ...
 Keys are stored under <DATADIR>/keystore.
 It is safe to transfer the entire directory or the individual keys therein
-between klay nodes by simply copying.
+between kaia nodes by simply copying.
 
 Make sure you backup your keys regularly.
 
@@ -60,7 +60,7 @@ participating.
 Kaia Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Kaia API calls to your EN. To attach to the JavaScript console, execute the following command.
 
 ```bash
-$ ken attach ~/kend_home/klay.ipc
+$ ken attach ~/kend_home/kaia.ipc
 Welcome to the Kaia JavaScript console
 
 !instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

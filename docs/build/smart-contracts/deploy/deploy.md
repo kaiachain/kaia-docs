@@ -1,6 +1,6 @@
 # Deploy Smart Contracts
 
-There are various ways of deploying a smart contract on Kaia. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Kaia account with enough KLAY to pay the transaction fee. To create an account, please visit [Kaia Wallet](../../tools/wallets/klaytn-wallet.md).
+There are various ways of deploying a smart contract on Kaia. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Kaia account with enough KAIA to pay the transaction fee. To create an account, please visit [Kaia Wallet](../../tools/wallets/kaia-wallet.md).
 
 ## Remix Online IDE <a id="remix-ide"></a>
 
@@ -38,18 +38,18 @@ contract KaiaGreeter is Mortal {
 }
 ```
 
-3. Select Compiler in the icon panel. Choose the desired EVM environment. For the Kaia networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
+3. Select Compiler in the icon panel. Choose the desired EVM environment. For the Kaia networks, you can choose between Kairos (testnet) and Mainnet. Click `Compile` when the sample code is ready to be complied before actual deployment.
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. Now we can deploy the contract. Click on the Kaia logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
+4. Now we can deploy the contract. Click on the Kaia logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KAIA to pay for the transaction of deploying the smart contracts required.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
 5. Set Gas limit and Value to send. 
 
   - You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
-  - Set `Value` to 0 unless you want to send `KLAY` to the contract at the time of deployment.
+  - Set `Value` to 0 unless you want to send `KAIA` to the contract at the time of deployment.
 
 6. Enter "Hello World!" as an argument for constructor function and click on `Deploy` button.
 
@@ -124,10 +124,10 @@ $ npm install caver-js.
 const Caver = require("caver-js");
 const caver = new Caver("https://public-en-baobab.klaytn.net")
 
-const walletInstance = caver.klay.accounts.privateKeyToAccount(
+const walletInstance = caver.kaia.accounts.privateKeyToAccount(
   '0x3de0c9...' // enter your private key to deploy contract with
 );
-caver.klay.accounts.wallet.add(walletInstance);
+caver.kaia.accounts.wallet.add(walletInstance);
 
 const fs = require('fs')
 const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // compiled output
@@ -135,10 +135,10 @@ const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // compile
 const constructorType = ['string']  // enter appropriate constructor type
 const constructorValue = ['Hello, Kaia!']
 
-const params = caver.klay.abi.encodeParameters(constructorType, constructorValue);
+const params = caver.kaia.abi.encodeParameters(constructorType, constructorValue);
 
-caver.klay.sendTransaction({
-  from: caver.klay.accounts.wallet[0].address,
+caver.kaia.sendTransaction({
+  from: caver.kaia.accounts.wallet[0].address,
   gas: "50000000",
   data: bytecode.toString() + params.substring(2, params.length)
 })

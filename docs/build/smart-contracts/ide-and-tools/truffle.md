@@ -62,11 +62,11 @@ module.exports = {
           mnemonic.length
         );
       },
-      network_id: "1001", //Kaia baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
-    kasBaobab: {
+    kasKairos: {
       provider: () => {
         const option = {
           headers: [
@@ -90,7 +90,7 @@ module.exports = {
           )
         );
       },
-      network_id: "1001", //Kaia baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
@@ -118,15 +118,15 @@ module.exports = {
           )
         );
       },
-      network_id: "8217", //Kaia baobab testnet's network id
+      network_id: "8217", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
-    baobab: {
+    kairos: {
       provider: () => {
         return new HDWalletProvider(mnemonic, "http://your.baobab.en:8551");
       },
-      network_id: "1001", //Kaia baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
@@ -169,11 +169,11 @@ module.exports = {
           pks.length
         );
       },
-      network_id: "1001", //Kaia baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
-    kasBaobab: {
+    kasKairos: {
       provider: () => {
         const option = {
           headers: [
@@ -197,7 +197,7 @@ module.exports = {
           )
         );
       },
-      network_id: "1001", //Kaia baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
@@ -225,15 +225,15 @@ module.exports = {
           )
         );
       },
-      network_id: "8217", //Kaia baobab testnet's network id
+      network_id: "8217", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
-    baobab: {
+    kairos: {
       provider: () => {
         return new HDWalletProvider(privateKey, "http://api.baobab.klaytn.net:8651");
       },
-      network_id: "1001", //Kaia baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
@@ -254,7 +254,7 @@ module.exports = {
 Deploying on Kaia :
 
 ```bash
-$ truffle deploy --network baobab  # testnet
+$ truffle deploy --network kairos  # testnet
 $ truffle deploy --network cypress # mainnet
 ```
 
@@ -262,8 +262,8 @@ Making transaction on Kaia :
 (using an example from [Truffle Docs quick start - Creating a project](https://www.trufflesuite.com/docs/truffle/quickstart#creating-a-project))
 
 ```bash
-$ truffle console --network baobab
-truffle(baobab)> Migrations.deployed().then(function(instance) {return instance.setCompleted(3)}) // making transaction
+$ truffle console --network kairos
+truffle(kairos)> Migrations.deployed().then(function(instance) {return instance.setCompleted(3)}) // making transaction
 {
   tx: '0x734676311194c1ab8e004e2990e414b7b47a9d0a8506682707f5db03fa6dcee0',
   receipt: {
@@ -293,6 +293,6 @@ truffle(baobab)> Migrations.deployed().then(function(instance) {return instance.
   logs: []
 }
 
-truffle(baobab)> Migrations.deployed().then(function(instance) {return instance.last_completed_migration.call()}) // read public variable
+truffle(kairos)> Migrations.deployed().then(function(instance) {return instance.last_completed_migration.call()}) // read public variable
 BN { negative: 0, words: [ 3, <1 empty item> ], length: 1, red: null }
 ```

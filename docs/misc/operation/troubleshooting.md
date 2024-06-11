@@ -1,12 +1,12 @@
 # Troubleshooting
 
-## Where can I find a log file for the running Kaia node using the Kaia binary package? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
+## Where can I find a log file for the running Kaia node using the Kaia binary package? <a id="where-can-i-find-a-log-file-for-the-running-kaia-node-using-the-kaia-binary"></a>
 
 **Answer**
 
 You can find a log file in data directory. For example, default location of a log for `kcnd` is `/var/log/kcnd/kcnd.out` when you install `kcnd` RPM package.
 
-## Kaia node can not connect to network with `Protocol istanbul/64 failed` and `Genesis block mismatch` error message as below. <a id="klaytn-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
+## Kaia node can not connect to network with `Protocol istanbul/64 failed` and `Genesis block mismatch` error message as below. <a id="kaia-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
 
 ```
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
@@ -53,7 +53,7 @@ RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: 
 After updating `kend.conf`, restart Kaia node.
 
 
-## Can't start Kaia node with `Unit not found` error as below after installing binary package. <a id="can-t-start-klaytn-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
+## Can't start Kaia node with `Unit not found` error as below after installing binary package. <a id="can-t-start-kaia-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
 Failed to start kcnd.service: Unit not found.
@@ -80,10 +80,10 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 This can happen when `genesis.json` and nodekey/validator information differ.
 Please check nodekey/validator and `genesis.json` file again.
 
-## Kaia node can't start with following error log message. <a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
+## Kaia node can't start with following error log message. <a id="kaia-node-can-t-start-with-following-error-log-message"></a>
 
 ```
-Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
+Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/kaia.ipc: bind: invalid argument
 ```
 
 **Answer**

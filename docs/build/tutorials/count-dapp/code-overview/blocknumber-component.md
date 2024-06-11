@@ -35,11 +35,11 @@ class BlockNumber extends Component {
 
   /**
    * 'getBlockNumber' method works
-   * 1) get current block number from klaytn node by calling 'cav.klay.getBlockNumber()'
+   * 1) get current block number from klaytn node by calling 'cav.kaia.getBlockNumber()'
    * 2) set 'currentBlockNumber' state to the value fetched from step 1).
    */
   getBlockNumber = async () => {
-    const blockNumber = await cav.klay.getBlockNumber()
+    const blockNumber = await cav.kaia.getBlockNumber()
     this.setState({ currentBlockNumber: blockNumber })
   }
 
@@ -84,27 +84,27 @@ export default BlockNumber
 ### 2\) BlockNumber component's role <a id="2-blocknumber-component-s-role"></a>
 
 `BlockNumber` component's role is showing Kaia's current block number.  
-It requests the current block number to the Kaia node by calling `caver.klay.getBlockNumber()` every second. This component re-renders DOM through `this.setState({ currentBlockNumber: blockNumber })` upon receiving the response.
+It requests the current block number to the Kaia node by calling `caver.kaia.getBlockNumber()` every second. This component re-renders DOM through `this.setState({ currentBlockNumber: blockNumber })` upon receiving the response.
 
 ### 3\) `getBlockNumber` method in detail <a id="3-getblocknumber-method-in-detail"></a>
 
 ```javascript
 /**
  * 'getBlockNumber' method works
- * 1) get current block number from klaytn node by calling 'cav.klay.getBlockNumber()'
+ * 1) get current block number from klaytn node by calling 'cav.kaia.getBlockNumber()'
  * 2) set 'currentBlockNumber' state to the value fetched from step 1).
  */
 getBlockNumber = async () => {
-  const blockNumber = await cav.klay.getBlockNumber()
+  const blockNumber = await cav.kaia.getBlockNumber()
   this.setState({ currentBlockNumber: blockNumber })
 }
 ```
 
-`getBlockNumber` method is declared as an async function. Declaring a function as async makes dealing with asynchronous value\(promise\) easy. `cav.klay.getBlockNumber` returns a promise, and the result can be handled easily by appending `await` keyword.
+`getBlockNumber` method is declared as an async function. Declaring a function as async makes dealing with asynchronous value\(promise\) easy. `cav.kaia.getBlockNumber` returns a promise, and the result can be handled easily by appending `await` keyword.
 
 For further information about async-await keyword, see javascript's MDN site [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
-After assigning the current block number returned from `cav.klay.getBlockNumber()` to `blockNumber`, we call `this.setState` React API. `this.setState({ currentBlockNumber: blockNumber })` literally sets the state property `currentBlockNumber` to `blockNumber`. `this.setState(nextState)` updates the current state and re-renders the component.
+After assigning the current block number returned from `cav.kaia.getBlockNumber()` to `blockNumber`, we call `this.setState` React API. `this.setState({ currentBlockNumber: blockNumber })` literally sets the state property `currentBlockNumber` to `blockNumber`. `this.setState(nextState)` updates the current state and re-renders the component.
 
 For further detail about React's this.setState and rendering mechanism, visit React's official site [https://reactjs.org/docs/state-and-lifecycle.html](https://reactjs.org/docs/state-and-lifecycle.html)
 

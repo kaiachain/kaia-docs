@@ -8,7 +8,7 @@ The code that implements KIP-17 for caver-js is available on the [Kaia Contracts
 
 For more information about KIP-17, see [Kaia Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-17).
 
-## caver.kct.kip17.deploy <a id="caver-klay-kip17-deploy"></a>
+## caver.kct.kip17.deploy <a id="caver-kaia-kip17-deploy"></a>
 
 ```javascript
 caver.kct.kip17.deploy(tokenInfo, deployer)
@@ -22,7 +22,7 @@ After successful deployment, the promise will be resolved with a new KIP17 insta
 | Name | Type | Description |
 | --- | --- | --- |
 | tokenInfo | object | The information needed to deploy KIP-17 token contract on the Kaia blockchain. See the below table for the details. |
-| deployer | string \| object | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your fields to use when sending transactions, you can pass the object type as a parameter. If you want to use Fee Delegation when deploying KIP-17 contracts, you can define the fields related to fee delegation in the object. For the use of these fields, refer to the parameter description of [approve](#kip17-approve). |
+| deployer | string \| object | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KAIA to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your fields to use when sending transactions, you can pass the object type as a parameter. If you want to use Fee Delegation when deploying KIP-17 contracts, you can define the fields related to fee delegation in the object. For the use of these fields, refer to the parameter description of [approve](#kip17-approve). |
 
 The tokenInfo object must contain the following:
 
@@ -669,8 +669,8 @@ The sendParam object can contain the following:
 | --- | --- | --- |
 | from | string | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip17.options.from`. If neither of `from` in `sendParam` object nor `kip17.options.from` were not provided, an error would occur. |
 | gas | number \| string | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip17.methods.approve(spender, tokenId).estimateGas({from})`. |
-| gasPrice | number \| string | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`. |
-| value | number \| string \| BN \| BigNumber | (optional) The value to be transferred in peb. |
+| gasPrice | number \| string | (optional) The gas price in kei to use for this transaction. If omitted, it will be set by caver-js via calling `caver.kaia.getGasPrice`. |
+| value | number \| string \| BN \| BigNumber | (optional) The value to be transferred in kei. |
 | feeDelegation | boolean | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip17.options.feeDelegation` will be used. If both omitted, fee delegation is not used. |
 | feePayer | string | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip17.options.feePayer` will be used. If both omitted, throws an error. |
 | feeRatio | string | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip17.options.feeRatio` will be used. |
@@ -1580,5 +1580,5 @@ Note that the renouncePauser method will submit a transaction to the Kaia networ
 > kip17.renouncePauser().then(console.log)
 ```
 
-[getTransactionReceipt]: ../caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt
+[getTransactionReceipt]: ../caver-rpc/kaia.md#caver-rpc-kaia-gettransactionreceipt
 [approve]: #kip17-approve

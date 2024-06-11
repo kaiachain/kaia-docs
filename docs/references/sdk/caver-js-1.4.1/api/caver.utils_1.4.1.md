@@ -1002,7 +1002,7 @@ caver.utils.isContractDeployment(transactionObject)
 ```
 Returns `true` if the given transaction is a smart contract deploy transaction. It returns `false` if the transaction is not a smart contract deploy transaction. The result is determined by the values of the parameters in the `transactionObject`. Make sure all the mandatory parameters are set correctly.
 
-**NOTE** caver.klay.isContractDeployment is supported from **v1.0.1-rc.8**. To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
+**NOTE** caver.kaia.isContractDeployment is supported from **v1.0.1-rc.8**. To use this feature, please install [v1.0.1-rc.8](https://www.npmjs.com/package/caver-js/v/1.0.1-rc.8) or higher.
 
 **Parameters**
 
@@ -1096,7 +1096,7 @@ caver.utils.isHexPrefixed(input)
 ```
 Returns `true` if input is a 0x-prefixed hex string, otherwise it returns `false`.
 
-**NOTE** caver.klay.isHexPrefixed is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+**NOTE** caver.kaia.isHexPrefixed is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
 **Parameters**
 
@@ -1133,7 +1133,7 @@ caver.utils.addHexPrefix(input)
 ```
 Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-hex string, the input value is returned as-is.
 
-**NOTE** caver.klay.addHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+**NOTE** caver.kaia.addHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
 **Parameters**
 
@@ -1164,7 +1164,7 @@ caver.utils.stripHexPrefix(input)
 ```
 Returns the result with 0x prefix stripped from input.
 
-**NOTE** caver.klay.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
+**NOTE** caver.kaia.stripHexPrefix is supported from **v1.0.1**. To use this feature, please install [v1.0.1](https://www.npmjs.com/package/caver-js/v/1.0.1) or higher.
 
 **Parameters**
 
@@ -1195,7 +1195,7 @@ caver.utils.toBuffer(input)
 ```
 This function converts the input to a [Buffer](https://nodejs.org/api/buffer.html). To convert an Object into a Buffer using `toBuffer`, the Object must implement **toArray** function. For String type input, this function only works with a **0x-prefixed hex string**.
 
-**NOTE** caver.klay.toBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
+**NOTE** caver.kaia.toBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
 
 **Parameters**
 
@@ -1248,7 +1248,7 @@ caver.utils.numberToBuffer(input)
 ```
 This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html). The [caver.utils.toBuffer](#tobuffer) has the same behavior as this function when the input is a number.
 
-**NOTE** caver.klay.numberToBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
+**NOTE** caver.kaia.numberToBuffer is supported from **v1.1.0**. To use this feature, please install [v1.1.0](https://www.npmjs.com/package/caver-js/v/1.1.0) or higher.
 
 **Parameters**
 | Name | Type | Description |
@@ -1278,7 +1278,7 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 caver.utils.isTxHash(input)
 ```
 Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash.
-**NOTE** caver.klay.isTxHash is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher.
+**NOTE** caver.kaia.isTxHash is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher.
 
 **Parameters**
 | Name | Type | Description |
@@ -1307,7 +1307,7 @@ false
 caver.utils.isTxHashStrict(input)
 ```
 Returns `true` if input is in transaction hash format, otherwise it returns `false`. This function only looks at the input and determines if it is in the format of a transaction hash. Difference to [caver.utils.isTxHash](#istxhash) is that it expects HEX to be prefixed with ``0x``.
-**NOTE** caver.klay.isTxHashStrict is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher.
+**NOTE** caver.kaia.isTxHashStrict is supported from **v1.2.0-rc.1**. To use this feature, please install [v1.2.0-rc.1](https://www.npmjs.com/package/caver-js/v/1.2.0-rc.1) or higher.
 
 **Parameters**
 | Name | Type | Description |
@@ -1484,7 +1484,7 @@ false
 ```javascript
 caver.utils.isKaiaWalletKey(key)
 ```
-Returns `true` if key is in [KaiaWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) format, otherwise it returns `false`.
+Returns `true` if key is in [KaiaWalletKey](../../../../learn/accounts.md#kaia-wallet-key-format) format, otherwise it returns `false`.
 
 **NOTE** `caver.utils.isKaiaWalletKey` has been updated with the additional logic for a more accurate result since caver-js [v1.3.2-rc.3](https://www.npmjs.com/package/caver-js/v/1.3.2-rc.3).
 

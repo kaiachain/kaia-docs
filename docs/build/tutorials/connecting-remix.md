@@ -32,9 +32,9 @@ You need a local plugin to connect to the Kaia network using Remix. The process 
 
 * Click on the \[Kaia] tab.
 * Select the appropriate \[Environment].
-* You can select **Baobab**, **Cypress**, **Injected Caver**, **Caver Provider** or **Injected Web3**.
-  * **\[Baobab]**: Connects to the Baobab network
-  * **\[Cypress]**: Connects to the Cypress network
+* You can select **Kairos**, **Mainnet**, **Injected Caver**, **Caver Provider** or **Injected Web3**.
+  * **\[Kairos]**: Connects to the Kairos network
+  * **\[Mainnet]**: Connects to the Mainnet
   * **\[Injected Caver]**: Connects to injected caver(e.g., Kaikas)
   * **\[Caver Provider]**: Connects directly to Kaia node, which supports RPC
   * **\[Injected Web3]**: Connects to injected web3(e.g., Metamask)
@@ -51,12 +51,12 @@ You can import keys from **private key** or **Keystore**.
 * Then put private key or keystore.
 * You can also import keys for the **feePayer**. It only supports **private key**.
 
-## Connecting Kaia - Remix using EN (Endpoint Node) <a href="#connecting-klaytn-remix-using-en" id="connecting-klaytn-remix-using-en"></a>
+## Connecting Kaia - Remix using EN (Endpoint Node) <a href="#connecting-kaia-remix-using-en" id="connecting-kaia-remix-using-en"></a>
 
 * Set up an Endpoint Node in the local environment by following the instructions in [**the EN documents**](../smart-contracts/deploy/ken.md#launch-an-en).
 *   Create an account by following the instructions in [**Account Management**](../get-started/account/managing-accounts.md).
 
-    > **Note:** If you use the Public EN from Baobab, instead of from your local environment, you won't be connected to your account because the personal API is disabled.
+    > **Note:** If you use the Public EN from Kairos, instead of from your local environment, you won't be connected to your account because the personal API is disabled.
 * Select \[Caver Provider] in the Environment menu.
 
 ![Caver Provider](/img/build/tutorials/env-caver-provider.png)
@@ -64,7 +64,7 @@ You can import keys from **private key** or **Keystore**.
 * Enter the RPC address of the EN in the Caver Provider Endpoint. Local EN (default): [http://localhost:8551](http://localhost:8551/)
 * Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
-## Connecting Kaia - Remix using MetaMask <a href="#connecting-klaytn-remix-using-metamask" id="connecting-klaytn-remix-using-metamask"></a>
+## Connecting Kaia - Remix using MetaMask <a href="#connecting-kaia-remix-using-metamask" id="connecting-kaia-remix-using-metamask"></a>
 
 * Connect Kaia with MetaMask by referring to the [**Connecting to MetaMask**](connecting-metamask).
 * Select \[Injected Web3] on the Remix Environment menu.
@@ -74,7 +74,7 @@ You can import keys from **private key** or **Keystore**.
 * When you see the MetaMask pop-up, select the account by clicking it.
 * Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
-## Connecting Kaia - Remix using Kaikas <a href="#connecting-klaytn-remix-using-kaikas" id="connecting-klaytn-remix-using-kaikas"></a>
+## Connecting Kaia - Remix using Kaikas <a href="#connecting-kaia-remix-using-kaikas" id="connecting-kaia-remix-using-kaikas"></a>
 
 * Select \[Injected Caver] on the Remix Environment menu.
 
@@ -83,9 +83,9 @@ You can import keys from **private key** or **Keystore**.
 * When you see the Kaikas pop-up, click \[Connect].
 * Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
-## Tutorial: KaiaGreeter Contract <a href="#tutorial-klaytngreeter-contract" id="tutorial-klaytngreeter-contract"></a>
+## Tutorial: KaiaGreeter Contract <a href="#tutorial-kaiagreeter-contract" id="tutorial-kaiagreeter-contract"></a>
 
-We will be using the [**KaiaGreeter**](../smart-contracts/samples/klaytngreeter.md) sample contract.
+We will be using the [**KaiaGreeter**](../smart-contracts/samples/kaiagreeter.md) sample contract.
 
 * Add KaiaGreeter.sol and write the testing code.
 

@@ -13,7 +13,7 @@ You can provide a keystore file that you want to use as a parent operator, or if
 You can check the parent operator address via RPC API, `subbridge_parentOperator`.
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
+$ kscn attach ~/kscnd_home/kaia.ipc
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
@@ -27,12 +27,12 @@ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 *This parent operator account address is derived from a keystore file in `$dataDIR/parent_bridge_account` directory.*
 
 
-### Add KLAY to Parent Operator account<a id="add-klay-to-parent-operator-account"></a>
+### Add KAIA to Parent Operator account<a id="add-kaia-to-parent-operator-account"></a>
 When SCN anchors the block data, SCN makes an anchoring transaction as a parent operator.
-Therefore the account needs KLAY to pay the transaction fee. You should add enough KLAY to the parent operator account.
+Therefore the account needs KAIA to pay the transaction fee. You should add enough KAIA to the parent operator account.
 
 ### Enable Anchoring <a id="enable-anchoring"></a>
-After sending KLAY, you can check the balance like below.
+After sending KAIA, you can check the balance like below.
 ```javascript
 > subbridge.parentOperatorBalance
 1e+50
@@ -74,7 +74,7 @@ You can refer to [mainbridge APIs](../../../references/json-rpc/mainbridge/conve
 
 You can get the decoded anchoring data by anchoring transaction hash like below.
 ```javascript
-> klay.getDecodedAnchoringTransactionByHash("0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51")
+> kaia.getDecodedAnchoringTransactionByHash("0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51")
 {
   BlockCount: 1,
   BlockHash: "0xcf5f591836d70a1da8e6bb8e5b2c5739329ca0e535b91e239b332af2e1b7f1f4",

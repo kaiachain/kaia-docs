@@ -69,7 +69,7 @@ Copy the following file to the `telegraf` configuration directory \(`/etc/telegr
 
 [[outputs.influxdb]]
   urls = [ "http://localhost:" ]
-  database = "klaytn_cypress"
+  database = "klaytn_mainnet"
 
 [[inputs.prometheus]]
   urls = [ "http://localhost:61001/metrics" ]

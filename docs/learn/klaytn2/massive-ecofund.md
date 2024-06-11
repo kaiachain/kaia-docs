@@ -8,8 +8,8 @@ in the ecosystem expansion.
 
 ## Grant <a id="grant"></a>
 Kaia currently runs two major grant programs which are: 
-* [Kaia Community Fund (KCF)](../token-economy.md#klaytn-community-fund)
-* [Kaia Foundation Fund (KFF)](../token-economy.md#klaytn-foundation-fund). 
+* [Kaia Community Fund (KCF)](../token-economy.md#kaia-community-fund)
+* [Kaia Foundation Fund (KFF)](../token-economy.md#kaia-foundation-fund). 
 
 ## Invest <a id="invest"></a>
 

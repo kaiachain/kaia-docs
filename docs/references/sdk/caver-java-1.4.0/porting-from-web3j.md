@@ -13,7 +13,7 @@ Quantity nonce = caver.klay().getTransactionCount(<address>, <blockParam>).send(
 
 /* convert unit */
 Convert.toWei("1.0", Convert.Unit.ETHER).toBigInteger(); // Web3j
-Convert.toPeb("1.0", Convert.Unit.KLAY).toBigInteger(); // caver-java
+Convert.toPeb("1.0", Convert.Unit.KAIA).toBigInteger(); // caver-java
 
 /* generate wallet file */
 WalletUtils.generateNewWalletFile(<password>, <filepath>); // Web3j
