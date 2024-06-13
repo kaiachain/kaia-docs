@@ -21,3 +21,4 @@ jobs:
           branch: "main"
           allowlist: dependabot[bot]
           remote-repository-name: ${{ secrets.CLA_REPOSITORY }}
+          remote-organization-name: kaiachain
