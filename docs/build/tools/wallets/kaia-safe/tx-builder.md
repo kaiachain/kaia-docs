@@ -6,34 +6,34 @@ With transaction builder, you can compose transactions from token transfers to c
 
 **Illustration**
 
-Let's say you want to airdrop tokens to a long list of addresses, say 100 DRIP tokens to 10 addresses. Instead of having to create 10 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
+Let's say you want to airdrop tokens to a long list of addresses, say 10 CCT tokens to 5 addresses. Instead of having to create 5 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
 
-In this guide, we have minted DRIP tokens to the Safe address for illustrative purpose.
+In this guide, we have minted CCT tokens to the Safe address for illustrative purpose.
 
 Let’s get started with this example using Transaction Builder!
 
-
-
 **Step 1:** Open Safe Apps.
 
-![](/img/build/tools/15_safeApps.png)
+![](/img/build/tools/kaia-safe/tx-builder-app.png)
 
 **Step 2:** Open the Transaction Builder Safe app
 
-![](/img/build/tools/16_safeTxBuilder.png)
+![](/img/build/tools/kaia-safe/tx-builder-card.png)
 
-**Step 3:** Enter your token contract address and ABI. In this example, DRIP contract address and ABI will be used. You can copy and paste your ABI into the “Enter ABI” field.
+**Step 3:** Enter your **token contract address** and **ABI**. 
 
-![](/img/build/tools/17_safeTxBatchAddrAbi.gif)
+In this example, CCT contract address and ABI will be used. You can copy and paste your ABI into the **Enter ABI** field.
+
+![](/img/build/tools/kaia-safe/tx-builder-new.gif)
 
 **Step 4:** Select a method and fill the transaction information
 
 From the drop-down you can select a method. In this case, we select the **transfer** method. For this step to be completed, you have to fill out the transaction information, such as **to(address)** and **amount(uint256)**.
 
 
-Note: The value is an unsigned integer without any decimals. In this example, the DRIP token has 18 decimals. So if you want to send 1 DRIP, you have to enter 1000000000000000000. 
+Note: The value is an unsigned integer without any decimals. In this example, the CCT token has 18 decimals. So if you want to send 10 CCT, you have to enter 10000000000000000000. 
 
-![](/img/build/tools/18_safeTxBatchTxInfo.gif)
+![](/img/build/tools/kaia-safe/tx-builder-tx-details.gif)
 
 **Step 5:** Click **Add transaction**
  
@@ -41,10 +41,10 @@ Note: The value is an unsigned integer without any decimals. In this example, th
  
 **Step 7:** Once you added all operations to the batch click **Create Batch**
 
-![](/img/build/tools/19_safeTxBatch.gif)
+![](/img/build/tools/kaia-safe/tx-builder-batch-tx.gif)
 
 **Step 8:** Review and submit transaction
 
 You'll be able to review the whole batch. Once ready, click **Send Batch** to submit and execute the transaction just like any other Safe transaction.
 
-![](/img/build/tools/20_safeTxBuildExec.gif)
+![](/img/build/tools/kaia-safe/tx-builder-review-tx.gif)

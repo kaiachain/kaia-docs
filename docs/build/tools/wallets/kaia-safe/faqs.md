@@ -9,51 +9,66 @@ Note: To execute this change, you need to be connected with one of the current o
 
 The steps below explain how to add new owners or signers to your Safe account after its creation.
 
-**Step 1:** Go to *Settings* in the sidebar menu and select the *Owners* section. 
+**Step 1:** Go to **Settings** in the sidebar menu, you ll see the **Manage Safe Account signers** card under the **Setup** section. 
 
-![](/img/build/tools/addOwnersSettings.png)
 
-**Step 2:** Click the **"Add new owner"** button at the bottom right corner of the page. Clicking this button would open a new window. 
+**Step 2:** Click the **Add new signer** button at the bottom of the card. Clicking this button would open a new window. 
 
-![](/img/build/tools/addOwnersBtn.png)
+![](/img/build/tools/kaia-safe/ks-owners-change.png)
+
 
 **Step 3:** Enter the **name** of the new owner and paste the **owner's address**. Then click the next button at the bottom-right of the page.
 
-![](/img/build/tools/addOwnersAddr.png)
-
 **Step 4:** Set a new signature policy. In this case, you can either change or retain the existing signature policy. The image below shows that 2 out of the 4 owners are required to confirm and execute any transaction.
 
-![](/img/build/tools/addOwnersSig.png)
+![](/img/build/tools/kaia-safe/ks-owners-details.png)
 
-**Step 5:** Review and submit the transaction. Confirm that all changes are correct before submitting. You can therefore submit the change by clicking on the **submit** button.
+**Step 5:** Review and submit the transaction. 
 
-![](/img/build/tools/addOwnersTxRev.png)
+Confirm that all changes are correct before submitting. You can therefore submit the change by clicking on the **submit** button.
 
-After clicking on "Submit", your connected wallet will ask you to confirm the change. Depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
+After clicking on **Submit**, your connected wallet will ask you to confirm the change. Depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
 
-![](/img/build/tools/addOwnersCon.png)
+![](/img/build/tools/kaia-safe/ks-review-owners.gif)
 
 
 ## Can I change the number of required signer confirmation? <a id="Can i change the number of required signer confirmation"></a>
 
 Yes! You can change the number of signer confirmations required by following the steps to be shown below. This is important because you might want to change the owners or signers required to confirm transactions associated with your safe account.
 
-**Step 1:** Go to *Settings* in the sidebar menu and select the *Policies* section. This shows your current signature policy, and from the image below, 2 out of 4 owners are required to confirm any transaction.
+**Step 1:** Go to **Settings** in the sidebar menu, you ll see the **Required Confirmation** card under the **Setup** section. 
 
-![](/img/build/tools/safePolicy.png)
+This shows your current signature policy, and from the image below, 2 out of 4 owners are required to confirm any transaction.
+
+![](/img/build/tools/kaia-safe/ks-policy-page.png)
+
+**Step 2:** Click on the **change** button. 
+
+This pops up a new window to select your new signature threshold.
+
+![](/img/build/tools/kaia-safe/ks-policy-change-btn.png)
+
+**Step 3:** Click on the **Submit** button. 
+
+Note that depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
+
+![](/img/build/tools/kaia-safe/ks-review-policy.gif)
 
 
-**Step 2:** Click on the **change** button. This pops up a new window to select your new signature threshold.
-
-![](/img/build/tools/safePolicyThresh.png)
-
-**Step 3:** Click on the **"Submit"** button. Note that depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
-
-![](/img/build/tools/safePoliciesConf.png)
 
 ## How do I add an existing safe? <a id="How do i add an existing safe"></a>
 
-Using your safe address, you can easily add your safe account. The need to add or load an existing safe into the interface varies. These may include:
+Using your exported Safe data, which contains your added Safe accounts, address book, and settings, you can easily add your Safe account.
+
+> Note: You must have downloaded your Safe data as shown in the image below:
+
+![](/img/build/tools/kaia-safe/ks-data-export.png)
+
+![](/img/build/tools/kaia-safe/ks-export-data.gif)
+
+
+
+The need to add or load an existing safe into the interface varies. These may include:
 
 * You want to access your Safe from a different browser.
 * You want to interact with Safe where another party made you an owner.
@@ -61,33 +76,21 @@ Using your safe address, you can easily add your safe account. The need to add o
 
 Let's go through the process of adding your existing safe in the following steps. Note: Please ensure that your signer's wallet is connected.
 
-**Step 1:** Click on **“Add Safe”** At the top left corner of the sidebar menu, locate the **Add Safe** button. 
+**Step 1:** Navigate to **Settings** tab.
 
-![](/img/build/tools/addSafe.gif)
+**Step 2:** Scroll to the **Data Import** card under the **Data** section. 
 
-**Step 2:** Click on the **“Add existing safe”** button. This pops up a new window that requests that the details of the existing safe be added. These details include network details, the name and address of the safe, and the names of the Safe’s owners.
+![](/img/build/tools/kaia-safe/ks-data-import-details.png)
 
-You can also access the page by following this [link](https://safe.klaytn.foundation/load). 
+Here you can either Drag and Drop a JSON file or choose your file as seen in the image above. 
+ 
+**Step 3:** Click on **Import** button.
 
-![](/img/build/tools/addExistingSafe.png)
+![](/img/build/tools/kaia-safe/ks-data-import.png)
 
-**Step 3:** Select the network on which the Safe was created. If the Safe was created on Kairos network, click continue; otherwise, switch network.
+![](/img/build/tools/kaia-safe/ks-import-data.gif)
 
-![](/img/build/tools/addSafeNet.png)
-
-**Step 4:** Input the **name** and **address** of the Safe. It is recommended to give your Safe a name for easy identification in the list of Safes on the interface.
-
-![](/img/build/tools/addSafeName&Addr.png)
-
-After giving a name, paste the address of the safe you want to add. The green checkmark indicates that this is indeed a verified Safe that can be added.
-
-**Step 5:** Name the Safe’s owners. To easily distinguish your safe owners, it is recommended to give your safe owners a distinct name.
-
-![](/img/build/tools/addSafeOwnerName.png)
-
-**Step 6:** Review and Add. Before adding your safe, ensure you have given the correct details, then go ahead and click the “Add" button. After this, you should now have access to your Safe account.
-
-![](/img/build/tools/addSafeRev.png)
+After this, you should now have access to your Safe account.
 
 ## Common safe Set-up
 
