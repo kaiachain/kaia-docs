@@ -30,11 +30,11 @@ Congratulations on successfully creating your Kaia Safe account!
 
 ## Add assets
 
-In this section, you will see how to add assets (KLAY, FT, NFT)  to your safe account and keep your funds safe.
+In this section, you will see how to add assets (KAIA, FT, NFT)  to your safe account and keep your funds safe.
 
-### KLAY Deposits
+### KAIA Deposits
 
-Below are the steps to add **KLAY** to your safe account
+Below are the steps to add **KAIA** to your safe account
 
 **Step 1:** Copy your Safe address from your account dashboard.
 
@@ -72,7 +72,7 @@ Now we will see how to deposit KIP7 (fungible tokens) to our safe by following t
 
 ![](/img/build/tools/kaia-safe/ks-kip7-mm-send-btn.png)
 
-**Step 4:** Repeat step **3**, **4**, **5** of **KLAY** Deposits above.
+**Step 4:** Repeat step **3**, **4**, **5** of **KAIA** Deposits above.
 
 ![](/img/build/tools/kaia-safe/ks-kip7-mm-send-cct.png)
 
@@ -88,7 +88,7 @@ Now we  will see how to deposit KIP17 (Non Fungible tokens) to our safe by follo
 You can transfer your NFT’s to your safe account in many different ways. Here is an example on how to transfer NFT to the safe account using  [OpenSea](https://opensea.io/about).
 
 1. Navigate to your [OpenSea account](https://testnets.opensea.io/account) profile page
-2. Navigate to an NFT you ll love to transfer. Make sure to select a NFT on the Kaia Network(Cypress or Baobab)
+2. Navigate to an NFT you ll love to transfer. Make sure to select a NFT on the Kaia Network(Mainnet or Kairos)
 3. On the next page, click on the transfer button. 
 4. Paste the safe address in the text box and transfer to safe 
 5. Under Assets section in Kaia Safe you can find NFT’s from OpenSea. 
@@ -99,9 +99,9 @@ Please refer to this [guide](https://support.opensea.io/en/articles/8866959-how-
 
 ## Send assets
 
-In this section, you'll learn how to send KLAY and KIP-7 tokens from your Kaia Safe account.
+In this section, you'll learn how to send KAIA and KIP-7 tokens from your Kaia Safe account.
 
-### Send KLAY & KIP7 Tokens <a id="Send KLAY from Safe"></a>
+### Send KAIA & KIP7 Tokens <a id="Send KAIA from Safe"></a>
 
 **Step 1:** Click the **New Transaction** button in the side menu and select **Send funds** to begin a new asset transfer.
 
@@ -109,9 +109,9 @@ In this section, you'll learn how to send KLAY and KIP-7 tokens from your Kaia S
 
 **Step 2:** Choose assets to transfer. 
 
-* **KLAY**
+* **KAIA**
   
-> Note: Add the **recipient address** and the **amount** of KLAY to send the transfer KLAY.
+> Note: Add the **recipient address** and the **amount** of KAIA to send the transfer KAIA.
 
 ![](/img/build/tools/kaia-safe/ks-send-klay.gif)
   
