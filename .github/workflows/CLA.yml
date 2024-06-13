@@ -20,4 +20,5 @@ jobs:
           path-to-document: "https://gist.github.com/8092ceb823571be53f4bc50587fd3d94" # Klaytn Gist
           branch: "main"
           allowlist: dependabot[bot]
+          remote-organization-name: kaiachain
           remote-repository-name: ${{ secrets.CLA_REPOSITORY }}
