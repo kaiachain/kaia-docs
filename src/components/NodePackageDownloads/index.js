@@ -6,12 +6,17 @@ import TabItem from '@theme/TabItem'
 import './index.css'
 
 export default function NodePackageDownloads() {
-  const [releases, setReleases] = useState()
+  const [releases, setReleases] = useState([])
   const [currentRelease, setCurrentRelease] = useState()
   const size = 10
   const [start, setStart] = useState(0)
+  const [showPaginationButton, setShowPaginationButton] = useState(true)
 
   useEffect(() => {
+    fetchReleases();
+  }, [])
+
+  const fetchReleases = () => {
     fetch(
       'https://airdrop-api.klaytn.foundation/node/releases?start=' + start,
       {
@@ -20,24 +25,26 @@ export default function NodePackageDownloads() {
     )
       .then((response) => response.json())
       .then((response) => {
-        let releases = response.data.releases
+        let releasesData = response.data.releases
         let machineTypes = response.data.machineTypes
         let config = response.data.config
-        setReleases(releases)
+        setReleases([...releases, ...releasesData])
 
         let resultFirstRecord
-        if (releases && releases.length > 0) {
+        if (releasesData && releasesData.length > 0 && start === 0) {
           resultFirstRecord = {
-            tagName: releases[0].tag_name,
-            binaryPrefix: releases[0].type,
-            githubUrl: config.gitBaseUrls[releases[0].type],
+            tagName: releasesData[0].tag_name,
+            binaryPrefix: releasesData[0].type,
+            githubUrl: config.gitBaseUrls[releasesData[0].type],
             machineTypes: machineTypes,
           }
 
           setCurrentRelease(resultFirstRecord)
         }
+        setStart(start+size);
+        setShowPaginationButton(releasesData.length !== 0)
       })
-  }, [])
+  }
 
   return (
     <div style={{ marginBottom: '20px' }}>
@@ -129,6 +136,8 @@ export default function NodePackageDownloads() {
                     (_machine) => _machine.machineType == _tab.machineType
                   )}
                   releaseData={releases}
+                  fetchReleases={fetchReleases}
+                  showPaginationButton={showPaginationButton}
                 />
               </TabItem>
             ))}

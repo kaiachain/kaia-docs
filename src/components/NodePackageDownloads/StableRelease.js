@@ -16,10 +16,19 @@ const StableRelease = (props) => {
     return (
       <>
         <div className="stable-release-table">
+          {props.showPaginationButton && (
+            <div class="stable-release-arrow-container" onClick={props.fetchReleases}>
+                <div class="stable-release-arrow-down"></div>
+            </div>
+          )}
           <div className="stable-release-table-header">
-            <div className="stable-release-table-header-item-release">Release</div>
+            <div className="stable-release-table-header-item-release">
+              Release
+            </div>
             <div className="stable-release-table-header-item-tag">Tag</div>
-            <div className="stable-release-table-header-item-published">Published</div>
+            <div className="stable-release-table-header-item-published">
+              Published
+            </div>
           </div>
           {tabConfig.machineType == 'windows'
             ? (() => {
