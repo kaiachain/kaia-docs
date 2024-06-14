@@ -1,4 +1,4 @@
-# Kaia Docs
+# Kaia Docs test
 
 Welcome to the Kaia documentation repository! This repo contains the source files for the official Kaia documentation available at https://docs.kaia.io.
 
