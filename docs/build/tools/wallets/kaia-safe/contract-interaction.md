@@ -12,16 +12,16 @@ In this section, you will be interacting with and sending a transaction to a sim
 
 **Step 2:** Compile and deploy the sample **storage contract**.
 
-The contract must first be deployed before you may interact with it in your multisig wallet. This sample contract contains a simple uint “number” variable that can be updated by calling the **store** method and retrieved by calling the **retrieve** method.
+The contract must first be deployed before you may interact with it in your multisig wallet. This sample contract contains a simple uint "number" variable that can be updated by calling the **store** method and retrieved by calling the **retrieve** method.
 
-![](/img/build/tools/12_remixDep.gif)
+![](/img/build/tools/kaia-safe/ks-ic-deploy.gif)
 
 **Step 3:** Initiate a new transaction. 
 
 To interact with a smart contract in your safe wallet, click **"New Transaction"**. To complete this step, you will need your already deployed contract address and ABI, as illustrated in the previous step.
 
-![](/img/build/tools/13_contractInit.gif)
+![](/img/build/tools/kaia-safe/ks-ic-new-tx.gif)
 
 **Step 4:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
 
-![](/img/build/tools/14_contractExec.gif)
+![](/img/build/tools/kaia-safe/ks-review-ic.gif)
