@@ -9,8 +9,9 @@
 .current-release-container > div {
   width: 45%;
   margin-top: 20px;
-  background-color: var(--ifm-color-primary-darkest);
-  height: 120px;
+  font-size: 13px;
+  background-color: var(--docusaurus-highlighted-code-line-bg);
+  /*height: 170px;*/
 }
 
 .current-release-binary-title {
@@ -28,18 +29,20 @@
 
 .current-release-binary-names-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 .current-release-binary-names-section-binary-name {
-  background-color: rgba(9, 10, 17, 0.8);
+  /*background-color: rgba(9, 10, 17, 0.8);*/
   margin-right: 10px;
   padding: 5px 10px;
   border-radius: 5px;
-  color: #fff;
+  /*color: #065F79;*/
 }
+
 .current-release-releasetag {
   text-align: center;
   margin-top: 30px;
@@ -141,7 +144,7 @@
   flex-direction: row;
   padding: 15px 20px;
   margin-bottom: 10px;
-  background-color: #ffffff0d;
+  background-color: var(--docusaurus-highlighted-code-line-bg);
 }
 
 .stable-release-table-row {
@@ -153,12 +156,12 @@
 
 .stable-release-table-header-item-release,
 .stable-release-table-row-item-release {
-  width: 300px;
+  width: 450px;
 }
 
 .stable-release-table-header-item-tag,
 .stable-release-table-row-item-tag {
-  width: 150px;
+  width: 100px;
 }
 
 .stable-release-table-header-item-published,
@@ -167,7 +170,7 @@
 }
 
 .stable-release-accordion-button {
-  background-color: #7f8497;
+  background-color: var(--ifm-footer-background-color);
   border: 1px solid rgb(171 169 169);
   padding: 20px;
   cursor: pointer;

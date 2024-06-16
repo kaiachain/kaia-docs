@@ -18,9 +18,9 @@ const CurrentRelease = (props) => {
                 <div className="current-release-binary-title">
                   {_config.binaryTitle}
                 </div>
-                {tagName && (
-                  <div className="current-release-tag-name">{tagName}</div>
-                )}
+                {/*{tagName && (*/}
+                {/*  <div className="current-release-tag-name">{tagName}</div>*/}
+                {/*)}*/}
                 <div className="current-release-binary-names-section">
                   {_config.binaryNames &&
                     _config.binaryNames.map((_binaryName) => {
@@ -28,7 +28,6 @@ const CurrentRelease = (props) => {
                         ? _config.binaryPrefixes[binaryPrefix]
                         : ''
                       let binaryFileformat = _config.binaryFileFormat
-
                       binaryFileformat = binaryFileformat.replace(
                         '{BINARY_NAME}',
                         _binaryName
@@ -58,13 +57,23 @@ const CurrentRelease = (props) => {
                         binaryPrefixValue
                       )
 
+                      // TODO-kaia-docs: remove next skips when all packages & docker are ready
+                      if (tagName === "v1.0.0"){
+                        if (binaryFileformat.includes("darwin") || binaryFileformat.includes("rpm") ||
+                          _binaryName === "kscn" || _binaryName === "kspn" || _binaryName === "ksen" || _binaryName === "docker" ||
+                          _binaryName === "homi" || _binaryName === "kbnd" || _binaryName === "kgen" || _binaryName === "kbn"){
+                          return;
+                        }
+                        baseUrl = "https://packages.klaytn.net/baobab/kaia-v1.0.0/" + _binaryName + "-v1.0.0-linux-amd64"
+                        binaryFileformat = _binaryName + "-v1.0.0-linux-amd64"
+                      }
                       return (
                         <a
                           target="_blank"
                           href={baseUrl}
                           className="current-release-binary-names-section-binary-name"
                         >
-                          {_binaryName}
+                           {binaryFileformat}
                         </a>
                       )
                     })}

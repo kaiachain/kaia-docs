@@ -56,7 +56,7 @@ const StableRelease = (props) => {
                           <AccordionIcon />
                         </AccordionButton>
                         <AccordionPanel pb={4}>
-                          {tabConfig.config.map((_config) => {
+                          {tabConfig.config.map((_config, index) => {
                             let binaryTitle = _config.binaryTitle
                             return (
                               <>
@@ -69,37 +69,20 @@ const StableRelease = (props) => {
                                     createdAt = new Date(
                                       createdAt
                                     ).toLocaleString()
+                                    // TODO-kaia-docs: remove next line after package updated
+                                    if (tagName === "v1.0.0") {
+                                      if (_binaryName === "homi")
+                                        return (
+                                          <div className="stable-release-table-row"> Not supported yet</div>
+                                        )
+                                      else
+                                        return;
+                                    }
 
-                                    let releaseNameFormat =
-                                      _config.releaseNameFormat
-
-                                    let releaseLabel = _config.releaseLabel
-                                      ? _config.releaseLabel[binaryPrefix]
+                                    let binaryPrefixValue = _config.binaryPrefixes
+                                      ? _config.binaryPrefixes[binaryPrefix]
                                       : ''
-
-                                    releaseNameFormat =
-                                      releaseNameFormat.replace(
-                                        '{BINARY_LABEL}',
-                                        releaseLabel
-                                      )
-                                    releaseNameFormat =
-                                      releaseNameFormat.replace(
-                                        '{TAG_NAME}',
-                                        tagName
-                                      )
-                                    releaseNameFormat =
-                                      releaseNameFormat.replace(
-                                        '{BINARY_NAME}',
-                                        _binaryName
-                                      )
-
-                                    let binaryFileformat =
-                                      _config.binaryFileFormat
-                                    let binaryPrefixValue =
-                                      _config.binaryPrefixes
-                                        ? _config.binaryPrefixes[binaryPrefix]
-                                        : ''
-
+                                    let binaryFileformat = _config.binaryFileFormat
                                     binaryFileformat = binaryFileformat.replace(
                                       '{BINARY_NAME}',
                                       _binaryName
@@ -144,7 +127,7 @@ const StableRelease = (props) => {
                                             className="stable-release-table-row-item-release"
                                             target="_blank"
                                           >
-                                            {releaseNameFormat}
+                                            {binaryFileformat}
                                           </a>
                                           <div className="stable-release-table-row-item-tag">
                                             <a
@@ -167,7 +150,7 @@ const StableRelease = (props) => {
                                   })
                                 ) : (
                                   <>
-                                    <div className="binarytitle-container">
+                                  <div className="binarytitle-container">
                                       <div className="binarytitle">
                                         {binaryTitle}
                                       </div>

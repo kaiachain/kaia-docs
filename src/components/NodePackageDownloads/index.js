@@ -26,7 +26,7 @@ export default function NodePackageDownloads() {
       .then((response) => response.json())
       .then((response) => {
         let releasesData = response.data.releases
-        let machineTypes = response.data.machineTypes
+        let machineTypes = response.data.machineTypes.filter(item => item.machineType !== "windows")
         let config = response.data.config
         setReleases([...releases, ...releasesData])
 
@@ -48,7 +48,7 @@ export default function NodePackageDownloads() {
 
   return (
     <div style={{ marginBottom: '20px' }}>
-      <div style={{ border: '1px solid white', padding: '20px' }}>
+      <div style={{ border: '0.5px solid', padding: '20px' }}>
         <div style={{ fontSize: '46px', fontWeight: '600' }}>Download Kaia</div>
         {currentRelease && (
           <div style={{ fontSize: '20px', fontWeight: '400' }}>
@@ -56,16 +56,18 @@ export default function NodePackageDownloads() {
             {currentRelease.tag_name}{' '}
           </div>
         )}
-        <br />
         <p>
           You can download the latest stable release of Kaia for our primary
           platforms below. Packages for all supported platforms, as well as
           develop builds, can be found further down the page. If you're looking
-          to install Klaytn and/or associated tools via your favorite package
+          to install kaia and/or associated tools via your favorite package
           manager, please check our installation guide.
+          <br /> <br />
+          Please note that currently, the downloadable file for kaia-v1.0.0 is only
+          available as a linux executable.
         </p>
         {currentRelease && currentRelease.machineTypes ? (
-          <Tabs>
+          <Tabs groupId="machineTypes">
             {currentRelease.machineTypes.map((_tab, _index) => (
               <TabItem
                 value={_tab.machineType.toLocaleLowerCase()}
@@ -95,12 +97,12 @@ export default function NodePackageDownloads() {
           </>
         )}
       </div>
-      <div style={{ border: '1px solid white', marginTop: '30px' }}>
+      <div style={{ border: '0.5px solid', marginTop: '30px' }}>
         <div
           style={{
             display: 'flex',
             flexDirection: 'row',
-            border: '1px solid white',
+            border: '0.5px solid',
           }}
         >
           <div
@@ -109,7 +111,7 @@ export default function NodePackageDownloads() {
               fontWeight: 600,
               padding: '10px',
               width: '200px',
-              borderRight: '1px solid white',
+              borderRight: '0.5px solid',
               alignContent: 'center',
             }}
           >
@@ -124,7 +126,7 @@ export default function NodePackageDownloads() {
           </div>
         </div>
         {currentRelease && currentRelease.machineTypes ? (
-          <Tabs>
+          <Tabs groupId="machineTypes">
             {currentRelease.machineTypes.map((_tab, _index) => (
               <TabItem
                 value={_tab.machineType.toLocaleLowerCase()}
