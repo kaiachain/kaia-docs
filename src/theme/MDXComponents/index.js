@@ -11,6 +11,7 @@ import MDXImg from '@theme/MDXComponents/Img';
 import Admonition from '@theme/Admonition';
 import Mermaid from '@theme/Mermaid';
 import LinkWithTooltip from '@site/src/components/LinkWithTooltip';
+import NodePackageDownloads from '@site/src/components/NodePackageDownloads';
 const MDXComponents = {
   Head,
   details: MDXDetails,
@@ -30,5 +31,6 @@ const MDXComponents = {
   admonition: Admonition,
   mermaid: Mermaid,
   LinkWithTooltip,
+  NodePackageDownloads
 };
 export default MDXComponents;
