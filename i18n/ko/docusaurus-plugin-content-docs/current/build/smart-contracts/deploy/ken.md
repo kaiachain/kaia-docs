@@ -164,7 +164,7 @@ true
 기본 단위는 peb \(1 KAIA = 10^18 peb\)입니다. KAIA 단위에 대한 자세한 정보는 [KLAY 단위](../../../learn/klaytn-native-coin-klay.md#units-of-klay)에서 확인할 수 있습니다.
 
 ```javascript
-> klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
+> kaia.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
 1e+21  # 1000 KAIA
 ```
 
@@ -223,7 +223,7 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 `web3.eth.sendTransaction({ ... })` \(X\)
 
-`caver.klay.sendTransaction({ ... })` \(O\)
+`caver.kaia.sendTransaction({ ... })` \(O\)
 
 ### Truffle 설치하기 <a id="installing-truffle"></a>
 
@@ -316,8 +316,8 @@ v2.1.0
 먼저 소스 코드가 있는 디렉터리를 만듭니다.
 
 ```bash
-$ mkdir klaytn-testboard
-$ cd klaytn-testboard
+$ mkdir kaia-testboard
+$ cd kaia-testboard
 ```
 
 ### Truffle 초기화하기 <a id="initializing-truffle"></a>
@@ -334,8 +334,8 @@ $ truffle init
 
 ```bash
 $ cd contracts
-$ touch KlaytnGreeter.sol
-$ vi KlaytnGreeter.sol
+$ touch KaiaGreeter.sol
+$ vi KaiaGreeter.sol
 ```
 
 KaiaGreeter.sol에 다음 코드를 작성합니다.
@@ -351,7 +351,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -380,7 +380,7 @@ const Migrations = artifacts.require("./Migrations.sol");
 const KaiaGreeter = artifacts.require("./KaiaGreeter.sol");
 module.exports = function(deployer) {
   deployer.deploy(Migrations);
-  deployer.deploy(KaiaGreeter, 'Hello, Klaytn');
+  deployer.deploy(KaiaGreeter, 'Hello, Kaia');
 };
 ```
 
@@ -405,9 +405,9 @@ module.exports = {
             host: '127.0.0.1',
             port: 8551,
             from: '0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd', // enter your account address
-            network_id: '1001', // Baobab network id
+            network_id: '1001', // Kairos network id
             gas: 20000000, // transaction gas limit
-            gasPrice: 25000000000, // gasPrice of Baobab is 25 Gpeb
+            gasPrice: 25000000000, // gasPrice of Kairos is 25 Gpeb
         },
     },
     compilers: {
@@ -433,9 +433,9 @@ Running migration: 1_initial_migration.js
   Deploying Migrations...
   ... 0x0f5108bd9e51fe6bf71dfc472577e3f55519e0b5d140a99bf65faf26830acfca
   Migrations: 0x97b1b3735c8f2326a262dbbe6c574a8ea1ba0b7d
-  Deploying KlaytnGreeter...
+  Deploying KaiaGreeter...
   ... 0xcba53b6090cb4a118359b27293ba95116a8f35f66ae50fbd23ae1081ce9ffb9e
-  KlaytnGreeter: [SAVE THIS ADDRESS!!] # this is your smart contract address
+  KaiaGreeter: [SAVE THIS ADDRESS!!] # this is your smart contract address
 Saving successful migration to network...
   ... 0x14eb68727ca5a0ac767441c9b7ab077336f9311f71e9854d42c617aebceeec72
 Saving artifacts...
@@ -460,7 +460,7 @@ Passphrase:
 true
 ```
 
-And then you are ready to go. 다시 배포해 보세요.
+이제 준비되었습니다. 다시 배포해 보세요.
 
 ## 배포 확인 <a id="check-the-deployment"></a>
 
@@ -471,25 +471,25 @@ And then you are ready to go. 다시 배포해 보세요.
 먼저 테스트 파일을 만들어서 엽니다.
 
 ```bash
-$ touch test-klaytn.js
-$ open test-klaytn.js
+$ touch test-kaia.js
+$ open test-kaia.js
 ```
 
-다음 테스트 코드를 작성합니다. Make sure you enter the contract address you just deployed.
+다음 테스트 코드를 작성합니다. 방금 배포한 컨트랙트 주소를 입력합니다.
 
 ```javascript
-// test-klaytn.js
+// test-kaia.js
 const Caver = require('caver-js');
 const caver = new Caver('http://127.0.0.1:8551');
 // enter your smart contract address
 const contractAddress = '0x65ca27ed42abeef230a37317a574058ff1372b34'
-caver.klay.getCode(contractAddress).then(console.log);
+caver.kaia.getCode(contractAddress).then(console.log);
 ```
 
 코드를 실행합니다.
 
 ```bash
-$ node test-klaytn.js
+$ node test-kaia.js
 0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610189565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180...
 ```
 
@@ -502,25 +502,25 @@ JavaScript를 사용하여 컨트랙트에서 `greet()`를 호출합니다.
 위에 작성한 테스트 코드에 다음 줄을 추가합니다.
 
 ```javascript
-// test-klaytn.js
+// test-kaia.js
 const Caver = require('caver-js');
 const caver = new Caver('http://127.0.0.1:8551');
 // enter your smart contract address
 const contractAddress = '0x65ca27ed42abeef230a37317a574058ff1372b34'
 
-caver.klay.getCode(contractAddress).then(console.log);
+caver.kaia.getCode(contractAddress).then(console.log);
 // add lines
 const KaiaGreeter = require('./build/contracts/KaiaGreeter.json');
 // enter your smart contract address
-const klaytnGreeter = new caver.klay.Contract(KaiaGreeter.abi, contractAddress);
+const klaytnGreeter = new caver.kaia.Contract(KaiaGreeter.abi, contractAddress);
 klaytnGreeter.methods.greet().call().then(console.log);
 ```
 
 테스트 코드를 실행합니다.
 
 ```bash
-$ node test-klaytn.js
-0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610189565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151... # This is from caver.klay.getCode
+$ node test-kaia.js
+0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610189565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151... # This is from caver.kaia.getCode
 Hello, Kaia # This is from KlyatnGreeter.methods.greet()
 ```
 
