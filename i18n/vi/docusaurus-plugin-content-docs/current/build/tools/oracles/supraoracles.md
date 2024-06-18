@@ -1,27 +1,27 @@
 # SupraOracles
 
-## Giới thiệu
+## Introduction
 
 ![](/img/build/tools/klaytnXsupraOracles.png)
 
-[SupraOracles](https://supraoracles.com/) là một oracle\&amp thông lượng cao &; IntraLayer: Một bộ công cụ tích hợp theo chiều dọc của các giải pháp chuỗi chéo (dữ liệu oracle, cầu nối tài sản, mạng tự động hóa, v.v.) liên kết với tất cả các chuỗi khối, công khai (L1S và L2S) hoặc tư nhân (doanh nghiệp). Nó cung cấp các hợp đồng thông minh với một chuỗi chéo Oracle thế hệ tiếp theo có độ chính xác dữ liệu, tốc độ, khả năng mở rộng và bảo mật vượt trội.
+[SupraOracles](https://supraoracles.com/) is a novel, high-throughput Oracle & IntraLayer: a vertically integrated toolkit of cross-chain solutions (data oracles, asset bridges, automation network, and more) that interlink all blockchains, public (L1s and L2s) or private (enterprises). It provides smart contracts with a next-generation cross chain oracle solution that has superior data accuracy, speed, scalability and security.
 
-Với SupraOracles, hợp đồng thông minh của bạn có thể có quyền truy cập vào các nguồn cấp dữ liệu giá để xây dựng các trường hợp sử dụng tài chính phi tập trung (DeFi) khác nhau của bạn. Trong chỉ dẫn này, bạn sẽ sử dụng SupraOracles để nhận nguồn cấp dữ liệu giá dễ dàng trên chuỗi khối Klaytn bằng cách sử dụng Remix IDE.
+With SupraOracles, your smart contract can get access to price data feeds to build your various decentralized finance(DeFi) use cases. In this tutorial, you will use SupraOracles  to get price feeds easily on Kaia blockchain using Remix IDE.
 
-## Điều kiện tiên quyết
+## Prerequisites
 
 - [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 - [Remix IDE](https://remix.ethereum.org/)
-- [Plugin Klaytn trên Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Kiểm tra KLAY từ [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
-## Bắt đầu
+## Getting Started
 
-Trong các bước sau, bạn sẽ yêu cầu nguồn cấp dữ liệu giá ETH/USD trong hợp đồng thông minh của bạn bằng cách sử dụng SupraOracles. Bắt đầu nào!
+In the following steps, you will request an ETH/USD price feed in your smart contract using SupraOracles. Let's get started!
 
-### Bước 1: Tạo Giao Diện S-Value
+### Step 1: Create The S-Value Interface
 
-Điều này tạo ra giao diện sẽ được sử dụng để lấy giá từ SupraOracles. Thêm mã sau vào hợp đồng thông minh solidity mà bạn muốn truy xuất S-Value.
+This creates the interface that will be used to fetch prices from SupraOracles. Add the following code to the solidity smart contract that you wish to retrieve an S-Value.
 
 ```solidity
 interface ISupraSValueFeed {
@@ -29,9 +29,9 @@ function checkPrice(string memory marketPair) external view returns (int256 pric
 }
 ```
 
-### Bước 2: Định Cấu Hình Địa Chỉ Nguồn Cấp Dữ Liệu S-Value
+### Step 2: Configure The S-Value Feed Address
 
-Để tìm kiếm S-Value từ hợp đồng thông minh SupraOracles, trước tiên hãy tìm địa chỉ nguồn cấp S-Value cho chuỗi bạn chọn. Khi bạn có đúng địa chỉ, hãy tạo một phiên bản của nguồn cấp giá trị S bằng giao diện mà chúng tôi đã xác định trước đây như sau:
+To fetch the S-Value from a SupraOracles smart contract, first find the S-Value Feed Address for the chain of your choice. When you have the right address, create an instance of the S-Value Feed using the interface we previously defined as such:
 
 ```solidity
 contract ISupraSValueFeedExample {
@@ -42,11 +42,11 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-Trong ví dụ này, chúng tôi đang triển khai nguồn cấp giá trị S trên Mạng thử nghiệm Baobab Klaytn. Bạn có thể xác minh địa chỉ nguồn cấp dữ liệu Baobab Klaytn S-Value [tại đây](https://supraoracles.com/docs/get-started/networks/).
+In this example, we are implementing the S-Value Feed on the Kaia Kairos TestNet. You can verify the Kaia Kairos S-Value Feed Address [here](https://supraoracles.com/docs/get-started/networks/).
 
-### Bước 3: Nhận Giá Tiền Mã Hóa S-Value
+### Step 3: Get The S-Value Crypto Price
 
-Giờ bạn có thể dễ dàng truy cập giá Tiền Mã Hóa S-Value của các cặp thị trường được hỗ trợ của chúng tôi. Trong bước này, bạn sẽ nhận được giá của ETH/USDT (eth_usdt) bằng cách áp dụng mã sau vào hợp đồng thông minh của bạn.
+Now you can simply access the S-Value Crypto Price of our supported market pairs. In this step, you'll get the price of ETH/USDT (eth_usdt) by applying the following code to your Smart Contract.
 
 ```solidity
 function getEthUsdtPrice() external view returns (int) {
@@ -58,24 +58,24 @@ return price;
 }
 ```
 
-## Thực hiện thực tế
+## Practical implementation
 
-Trong ví dụ dưới đây, chúng tôi sẽ triển khai hợp đồng nguồn cấp dữ liệu giá S-Value và cũng thực hiện chức năng getEthUsdtPrice() để có được các cặp giá ETH/USDT.
+In the example below, we will be deploying the S-Value Price Feed Contract and also executing the getEthUsdtPrice() function to get the price ETH/USDT pairs.
 
-### Tạo và Triển Khai Mã Mẫu
+### Create and Deploy Sample Code
 
 **Remix IDE**
 
-- Điều hướng đến [Remix IDE](https://remix.ethereum.org/)
-- Nhấp vào tab File Explorer, tạo một tệp mới có tên `demosuprapricefeed.sol` trong thư mục hợp đồng
-- Dán mã sau vào tệp vừa tạo
-- Trong Remix, nhấp vào **Hợp Đồng Biên Dịch**.
-- Nhấp vào tab Klaytn bên trái sau khi đã cài đặt plugin
-- Chọn **Môi Trường** > **Được Tiêm Caver** - **Kaikas**.
-- Trong **Hợp đồng**, chọn hợp đồng của bạn. Ví dụ, ISupraSValueFeedExample.
-- Nhấp vào **Triển Khai**.
+- Navigate to [Remix IDE](https://remix.ethereum.org/)
+- Click on File Explorer tab, create a new file named `demoSupraPriceFeed.sol` in the contracts folder
+- Paste the code below in your newly created file
+- In Remix, click **Compile contract**.
+- Click the Kaia tab on your left having installed the plugin
+- Select **Environment** > **Injected Caver** - **Kaikas**.
+- In **Contract**, select your contract. For example, ISupraSValueFeedExample.
+- Click **Deploy**.
 
-**Mã Mẫu**
+**Sample Code**
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -98,19 +98,19 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-### Tương tác với Hợp Đồng Thông Minh
+### Interact with Smart Contract
 
-Để nhận nguồn cấp dữ liệu giá cho cặp tiền tệ đã chọn, bạn cần thực thi hàm `getEthUsdtPrice()`.
+To get the price feed for the selected currency pair, you have to execute the `getEthUsdtPrice()` function.
 
 ![](/img/build/tools/sPriceFeed.png)
 
-Tada 🎉! Bạn vừa yêu cầu một nguồn cấp dữ liệu giá tiền tệ (ETH/USDT) trong hợp đồng thông minh của bạn.
+Tada 🎉! You just requested for a currency price feed (ETH/USDT)  in your smart contract.
 
-Tính đến thời điểm viết, getEthUsdtPrice() trả về "185795966200", một con số chính xác có 8 chữ số thập phân. Để có được giá trị ETH/USD thực tế, bạn cần chia số trên cho 10^8, tương đương với $1857.95966200.
+As of the time of writing, getEthUsdtPrice() returned "185795966200", an 8-point precision figure. To get the actual ETH/USD value, you need to divide the figure by 10^8 which equals $1857.95966200.
 
-## Những Cách Sử Dụng Các Nguồn Cấp Dữ Liệu Về Giá Tiền Mã Hóa SupraOracles Khác
+## More Ways To Use SupraOracles Crypto Price Feeds
 
-### Nguồn Cấp Dữ Liệu S-Value Với Web3.js
+### S-Value Feeds With Web3.js
 
 ```javascript
 // example assumes that the web3 library has been imported and is accessible within your scope
@@ -125,7 +125,7 @@ console.log(`The price is: ${price}`)
 getEthUsdtPrice()
 ```
 
-### Nguồn Cấp Dữ Liệu S-Value Với ether.js
+### S-Value Feeds With ethers.js
 
 ```javascript
 // example assumes that the ethers library has been imported and is accessible within your scope
@@ -143,6 +143,6 @@ console.log(`The price is: ${price.toString()}`)
 getEthUsdtPrice()
 ```
 
-## Phần kết luận
+## Conclusion
 
-Trong chỉ dẫn này, bạn đã học được cách yêu cầu giá ETH/USD bằng cách sử dụng giải pháp cấp dữ liệu giá SupraOracle. Với SupraOracle, bạn cũng có thể tạo ra các số ngẫu nhiên trong hợp đồng thông minh của mình. Nếu bạn muốn tìm hiểu về quá trình này, hãy truy cập [chỉ dẫn](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial) về việc tích hợp SupraVRF trên Klaytn. Để biết thêm các hướng dẫn chuyên sâu về SupraOracles, vui lòng tham khảo [Tài liệu SupraOraces](https://supraoracles.com/docs/development-guides).
+In this tutorial, you learned how to request an ETH/USD price using the SupraOracle price feed solution. With SupraOracle, you can also generate random numbers in your smart contract. Curious about this process, visit this [guide](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial) on integrating SupraVRF on Kaia. For more in-depth guides on SupraOracles, please refer to the [SupraOracles Docs](https://supraoracles.com/docs/development-guides).
