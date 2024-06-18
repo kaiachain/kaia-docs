@@ -69,7 +69,7 @@ You can use `caver-js` to create an account as shown below. You can also create 
   ... }
 ```
 
-**Note**: Functions associated with [caver.klay.accounts] have no effect on the actual Klaytn network.
+**Note**: Functions associated with \[caver.klay.accounts] have no effect on the actual Klaytn network.
 
 ### Add Accounts to caver-js <a id="add-accounts-to-caver-js"></a>
 
@@ -185,7 +185,7 @@ First, to sign the transaction, specify the sender, recipient, and the private k
   })
 ```
 
-You can get a RLP-encoded transaction (`rawTransaction`) using [caver.klay.accounts.signTransaction] as above and use this to transfer the transaction to the Klaytn network as below.
+You can get a RLP-encoded transaction (`rawTransaction`) using \[caver.klay.accounts.signTransaction] as above and use this to transfer the transaction to the Klaytn network as below.
 
 ```text
 > caver.klay.sendSignedTransaction(rawTransaction).on('transactionHash', console.log)
@@ -236,7 +236,7 @@ The following example shows how to get a receipt using promise and event emitter
 }
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. And also, if you know the transaction hash, you can query the transaction receipt using the [caver.klay.getTransactionReceipt] RPC call. The example below shows how to get a receipt using the [caver.klay.getTransactionReceipt] RPC call.
+As described in the example above, you can get the result of sending a transaction through the promise and event emitter. And also, if you know the transaction hash, you can query the transaction receipt using the \[caver.klay.getTransactionReceipt] RPC call. The example below shows how to get a receipt using the \[caver.klay.getTransactionReceipt] RPC call.
 
 ```text
 > caver.klay.getTransactionReceipt('0xbad4dd6d80beda6c04d90f1db7e4179557ab48423d4f14295b33e38a9418e59f').then(console.log)
@@ -338,7 +338,7 @@ If you want to change the key of the account, send a transaction as shown below.
 
 ### Smart Contract <a id="smart-contract"></a>
 
-The [caver.klay.Contract] package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI (Application Binary Interface) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
+The \[caver.klay.Contract] package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI (Application Binary Interface) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
 
 First, we start by compiling a smart contract to get its bytecode and ABI.
 
@@ -353,7 +353,7 @@ Contract JSON ABI
 
 **NOTE**: To compile a smart contract, you must have a solidity compiler installed.
 
-For smart contract deployment, you can use [caver.klay.Contract] to deploy it, or you can deploy it using [SMART\_CONTRACT\_DEPLOY][SMART_CONTRACT_DEPLOY] transaction. Here is an example of using [caver.klay.Contract].
+For smart contract deployment, you can use \[caver.klay.Contract] to deploy it, or you can deploy it using [SMART\\_CONTRACT\\_DEPLOY][SMART_CONTRACT_DEPLOY] transaction. Here is an example of using \[caver.klay.Contract].
 
 If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below:
 
@@ -395,7 +395,7 @@ The deployed contract address can be found in `contractAddress` of the transacti
 '0xC9f0b868e5103b6823171a2Df85E7B696660E466'
 ```
 
-One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART\_CONTRACT\_EXECUTION][SMART_CONTRACT_EXECUTION].
+One way to invoke a specific method of a smart contract is to use it with `caver.klay.Contract` or use [SMART\\_CONTRACT\\_EXECUTION][SMART_CONTRACT_EXECUTION].
 
 To transact with a smart contract:
 
@@ -429,7 +429,7 @@ To call a smart contract:
 2194
 ```
 
-See [caver.klay.Contract] for details.
+See \[caver.klay.Contract] for details.
 
 ## Using various AccountKey Types <a id="using-various-accountkey-types"></a>
 
@@ -504,16 +504,16 @@ function printAccount(account) {
 
 The printAccount above shows how to use the properties of the Account instance. The properties inside Account are as follows.
 
-| Property Name  | Description                                                                                                                                                                                                                                                                                                             |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address        | The address of the account.                                                                                                                                                                                                                                                                                             |
+| Property Name  | Description                                                                                                                                                                                                                                                                                                                                                                             |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address        | The address of the account.                                                                                                                                                                                                                                                                                                                                             |
 | privateKey     | Default key string of accountKey that the account has. This property is left for backward compatibility. privateKey only represents the default key of accountKey, so using privateKey to sign or send a transaction is not recommended. It is recommended to use transactionKey, updateKey, or feePayerKey in context. |
-| accountKeyType | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased`                                                                                                                                                                                                      |
-| accountKey     | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased.                                                                                                                                                                                                                            |
-| keys           | All keys inside accountKey that the account has.                                                                                                                                                                                                                                                                        |
-| transactionKey | Key used for the [RoleTransaction](../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                                |
-| updateKey      | Key used for the [RoleAccountUpdate](../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                                   |
-| feePayerKey    | Key used for [RoleFeePayer](../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                                          |
+| accountKeyType | Type of accountKey the account has. This can be `AccountKeyPublic`, `AccountKeyMultiSig`, or `AccountKeyRoleBased`                                                                                                                                                                                                                                                      |
+| accountKey     | The key of the account. This is AccountKeyPublic, AccountKeyMultiSig or AccountKeyRoleBased.                                                                                                                                                                                                                                                            |
+| keys           | All keys inside accountKey that the account has.                                                                                                                                                                                                                                                                                                                        |
+| transactionKey | Key used for the [RoleTransaction](../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so transactionKey holds the same value as keys.                                                                                                                                                                |
+| updateKey      | Key used for the [RoleAccountUpdate](../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so updateKey holds the same value as keys.                                                                                                                                                                   |
+| feePayerKey    | Key used for [RoleFeePayer](../../../learn/accounts.md#roles). AccountKeyPublic or AccountKeyMultiSig are not bound to any roles, so feePayerKey holds the same value as keys.                                                                                                                                                                          |
 
 **NOTE** `transactionKey`, `updateKey`, and `feePayerKey` return a private key string or an array of private key strings that should be used for the role. So rather than using privateKey property, it is recommended that you use `transactionKey`, `updateKey` and `feePayerKey` as appropriate, without worrying about the accountKey type.
 
@@ -792,7 +792,7 @@ This section describes how to collect signatures and send the transaction if the
 
 ### Sequential sign <a id="sequential-sign"></a>
 
-The result object of [caver.klay.accounts.signTransaction] has a rawTransaction field.
+The result object of \[caver.klay.accounts.signTransaction] has a rawTransaction field.
 
 The `rawTransaction` has an RLP encoded transaction that contains both `signatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
 
@@ -975,24 +975,14 @@ Sample projects for development of dApps (Decentralized Applications) using cave
 - caver-js [GitHub repository](https://github.com/klaytn/caver-js)
 - caver-js on [npm](https://www.npmjs.com/package/caver-js)
 
-[caver.klay.Contract]: api/caver.klay.Contract.md
-
-[caver.klay.accounts]: api/caver.klay.accounts.md
-
-[caver.klay.accounts.signTransaction]: api/caver.klay.accounts.md#signtransaction
-
-[caver.klay.getTransactionReceipt]: api/caver.klay/transaction/transaction.md#gettransactionreceipt
-
+[caver.kaia.Contract]: api/caver.klay.Contract.md
+[caver.kaia.accounts]: api/caver.klay.accounts.md
+[caver.kaia.accounts.signTransaction]: api/caver.klay.accounts.md#signtransaction
+[caver.kaia.getTransactionReceipt]: api/caver.klay/transaction/transaction.md#gettransactionreceipt
 [getTransactionReceipt]: api/caver.klay/transaction/transaction.md#gettransactionreceipt
-
 [txError: Detailed Information of Transaction Failures]: ../../transaction-error-codes.md
-
 [Fee Delegation]: ../../../learn/transactions/transactions.md#fee-delegation
-
 [AccountKey]: ../../../learn/accounts.md#account-key
-
 [Account Update]: api/caver.klay/transaction/sendtx-account-update.md
-
 [SMART_CONTRACT_DEPLOY]: api/caver.klay/transaction/sendtx-smart-contract-deploy.md
-
 [SMART_CONTRACT_EXECUTION]: api/caver.klay/transaction/sendtx-smart-contract-execution.md
