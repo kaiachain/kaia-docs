@@ -1,69 +1,69 @@
-# Cấu hình mạng
+# Network Configuration
 
-Core Cell có thể được tạo thành từ:
+A Core Cell can be made up of:
 
-- nhiều mạng con (khuyến nghị)
-- mạng con đơn lẻ
+- multiple subnets (recommended)
+- a single subnet
 
-## Core Cell với nhiều mạng con <a id="a-core-cell-with-multiple-subnets"></a>
+## A Core Cell with Multiple Subnets <a id="a-core-cell-with-multiple-subnets"></a>
 
-Nên dùng mạng con hai lớp được sử dụng trong các dịch vụ web chung như DB + AppServer và Máy chủ Web Proxy. Thiết kế mạng con này có nhiều ưu điểm hơn về bảo mật.
+It is recommended to have a two-layer subnet which is used in general web services such as DB + AppServer and Proxy Web Servers. This design of the subnet has more advantages on the security.
 
-Vì các máy chủ giám sát cũng được yêu cầu để quản lý tất cả các máy chủ như một lớp khác, nên phần sau đây mô tả cách thiết lập một Core Cell với mạng con ba lớp.
+Since monitoring servers are also required for managing all servers as another layer, the following section describes how to setup a Core Cell with a three-layer subnet.
 
-Mạng con ba lớp bao gồm những phần sau:
+The three-layer subnet consists of the following:
 
-- Mạng con CN
-- Mạng con PN
-- Mạng con quản lý (QL)
+- CN Subnet
+- PN Subnet
+- Management (Mgmt) Subnet
 
-### Mạng con CN <a id="cn-subnet"></a>
+### CN Subnet <a id="cn-subnet"></a>
 
-Mạng con CN gồm máy chủ CN trong Core Cell. CN hoạt động trong một Core Cell là duy nhất nhưng nên chuẩn bị nút dự phòng để đảm bảo tính sẵn sàng cao. Địa chỉ IP/Cổng của tất cả CN trong Mạng lưới Core Cell (CCN) phải được mở cùng nhau vì chúng kết nối với nhau từ bên ngoài Core Cell. (Có thể nhận thông tin kết nối này từ các nhà vận hành Baobab.) Việc giao tiếp nội bộ với các mạng con khác trong Core Cell yêu cầu mở cổng mặc định (32323: số cổng Klaytn P2P mặc định) để kết nối với các PN của Mạng con PN. Ngoài ra, cần mở các cổng khác như cổng giám sát CN (61001) cho máy chủ giám sát và cổng SSH (22) cho mục đích quản lý. Nếu sử dụng tính năng đa kênh, cần mở thêm cổng khác (32324: cổng đa kênh mặc định).
+A CN Subnet consists of CN servers in Core Cells. The working CN in a Core Cell is only one, but spare one should be prepared for high availability. IP/Port of all CNs within the Core Cell Network (CCN) must be opened to each other because they try to connect to the others from the outside of the Core Cell. (This connection information can be received from Kairos operators.) The internal communication with other subnets in the Core Cell requires to open default port (32323: default Kaia P2P port number) in order to connect to PNs of the PN Subnet. Furthermore, it is necessary to open other ports such as the CN monitoring port (61001) for the monitoring server and the SSH port (22) for the management purpose. If the multichannel feature is used, another port (32324: default multichannel port) should be opened as well.
 
 ![CN Subnet](/img/nodes/cn_subnet.png)
 
-| Mạng con gốc | Mạng con mục tiêu                       | Ingress                                           | Egress |
-| :----------- | :-------------------------------------- | :------------------------------------------------ | :----- |
-| Mạng con CN  | Mạng con PN                             | P2P: 32323 (32324 cho đa kênh) | Tất cả |
-| Mạng con CN  | Mạng con QL                             | SSH: 22, Giám sát: 61001                          | Tất cả |
-| Mạng con CN  | Công khai (Internet) | IP và cổng P2P của mỗi CN                         | Tất cả |
+| Origin Subnet | Target Subnet                        | Ingress                                                                | Egress |
+| :------------ | :----------------------------------- | :--------------------------------------------------------------------- | :----- |
+| CN Subnet     | PN Subnet                            | P2P: 32323 (32324 for multichannel) | All    |
+| CN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001             | All    |
+| CN Subnet     | Public (Internet) | each CN's IP and P2P port                                              | All    |
 
-### Mạng con PN <a id="pn-subnet"></a>
+### PN Subnet <a id="pn-subnet"></a>
 
-Mạng con PN bao gồm máy chủ PN để cung cấp dịch vụ nhằm kết nối với EN bên ngoài.
+A PN Subnet consists of the PN servers to provide services in order to connect to the external ENs.
 
-Mạng con PN kết nối với các nút sau:
+A PN subnet is connected to the following nodes:
 
-- CN trong Core Cell
-- Một vài PN của Core Cell khác
-- Máy chủ quản lý Core Cell (QL, Giám sát)
-- Nút EN
+- CNs in Core Cells
+- Some PNs of other Core Cells
+- Core Cell Management Servers (Mgmt, Monitoring)
+- EN nodes
 
 ![PN Subnet](/img/nodes/pn_subnet.png)
 
-| Mạng con gốc | Mạng con mục tiêu                       | Ingress                                           | Egress |
-| :----------- | :-------------------------------------- | :------------------------------------------------ | :----- |
-| Mạng con PN  | Mạng con CN                             | P2P: 32323 (32324 cho đa kênh) | Tất cả |
-| Mạng con PN  | Mạng con QL                             | SSH: 22, Giám sát: 61001                          | Tất cả |
-| Mạng con PN  | Công khai (Internet) | P2P: 32323                                        | Tất cả |
+| Origin Subnet | Target Subnet                        | Ingress                                                                | Egress |
+| :------------ | :----------------------------------- | :--------------------------------------------------------------------- | :----- |
+| PN Subnet     | CN Subnet                            | P2P: 32323 (32324 for multichannel) | All    |
+| PN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001             | All    |
+| PN Subnet     | Public (Internet) | P2P: 32323                                             | All    |
 
-### Mạng con QL <a id="mgmt-subnet"></a>
+### Mgmt Subnet <a id="mgmt-subnet"></a>
 
-Mạng con QL là mạng con cổng cho người vận hành tham gia vào nút Core Cell thông qua ssh. Có thể cần máy chủ VPN để tạo kết nối cùng với máy chủ giám sát và máy chủ quản lý được cài đặt công cụ để quản lý các nút Core Cell.
+A Mgmt Subnet is a gateway subnet for the operator to enter into the Core Cell nodes through ssh. A VPN server may be necessary to make the connection together with a monitoring server and a management server installed with a tool to manage the Core Cell nodes.
 
 ![Management Subnet](/img/nodes/admin_subnet.png)
 
-| Mạng con gốc | Mạng con mục tiêu                       | Ingress                                                               | Egress |
-| :----------- | :-------------------------------------- | :-------------------------------------------------------------------- | :----- |
-| Mạng con QL  | Mạng con CN                             | Tất cả                                                                | Tất cả |
-| Mạng con QL  | Mạng con PN                             | Tất cả                                                                | Tất cả |
-| Mạng con QL  | Công khai (Internet) | VPN (tcp): 443, VPN (udp): 1194 | Tất cả |
+| Origin Subnet | Target Subnet                        | Ingress                                                                                               | Egress |
+| :------------ | :----------------------------------- | :---------------------------------------------------------------------------------------------------- | :----- |
+| Mgmt Subnet   | CN Subnet                            | All                                                                                                   | All    |
+| Mgmt Subnet   | PN Subnet                            | All                                                                                                   | All    |
+| Mgmt Subnet   | Public (Internet) | VPN (tcp): 443, VPN (udp): 1194 | All    |
 
-## Core Cell với mạng con đơn lẻ <a id="a-core-cell-with-a-single-subnet"></a>
+## A Core Cell with a Single Subnet <a id="a-core-cell-with-a-single-subnet"></a>
 
-Một mạng con đơn lẻ của Core Cell được xây dựng cho mục đích phát triển/thử nghiệm hoặc để tạo nhiều mạng con trong các trường hợp khó khăn.
+A single subnet of a Core Cell is built for the development/test purpose or under the difficult circumstances to create multiple subnets.
 
-Tất cả các nút được thiết lập dưới một mạng con CC đơn lẻ. Cần thiết lập tường lửa để kết nối CN với các CN khác trong Mạng lưới CN bằng cổng P2P (32323, 32324 cho tùy chọn đa kênh). Cổng P2P của PN được mở để kết nối với EN trong Mạng lưới nút điểm cuối (ENN) và PN trong Mạng lưới Core Cell (CNN). Ngoài ra, cần có một VPN tùy chọn và các máy chủ giám sát để quản lý từ xa.
+All nodes are setup under a single CC subnet. Firewall setup is also necessary for the CN to connect to other CNs within the CNN using P2P port (32323, 32324 for multichannel option). The P2P port of the PN is opened to connect with ENs in Endpoint Node Network (ENN) and PNs in the Core Cell Network (CNN). Additionally, an optional VPN and monitoring servers are required to be managed remotely.
 
 ![CC with a Single Subnet](/img/nodes/cc_single_subnet.png)
