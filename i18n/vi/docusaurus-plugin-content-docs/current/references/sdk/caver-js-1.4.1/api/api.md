@@ -1,3 +1,3 @@
-# Tham khảo API
+# API References
 
-Các gói được caver-js cung cấp.
+Packages provided by caver-js.
