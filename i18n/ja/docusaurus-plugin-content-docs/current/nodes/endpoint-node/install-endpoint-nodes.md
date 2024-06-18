@@ -20,10 +20,10 @@ The archive file consists of the executable binary and the configuration file st
   |- kend.conf
 ```
 
-| File Name      | File Description                 |
-| :------------- | :------------------------------- |
-| bin/ken        | EN executable file               |
-| bin/kend       | EN start/termination script file |
+| File Name                      | File Description                 |
+| :----------------------------- | :------------------------------- |
+| bin/ken                        | EN executable file               |
+| bin/kend                       | EN start/termination script file |
 | conf/kend.conf | EN configuration file            |
 
 The installation is the uncompression of the downloaded package where you want to install the package.
@@ -72,9 +72,9 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 
 The installed files are located as follows.
 
-| File Name | Location                 |
-| :-------- | :----------------------- |
-| ken       | /usr/bin/ken             |
+| File Name                 | Location                                 |
+| :------------------------ | :--------------------------------------- |
+| ken                       | /usr/bin/ken                             |
 | kend.conf | /etc/kend/conf/kend.conf |
 
 ## Configuration <a id="configuration"></a>
