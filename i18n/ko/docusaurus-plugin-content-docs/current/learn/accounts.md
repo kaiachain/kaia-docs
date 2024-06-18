@@ -55,9 +55,9 @@ There are two types of accounts in Klaytn: <LinkWithTooltip to="../../misc/gloss
 | 속성            | Type                                                  | 설명                                                                                                                                                                                                                                                                                                                                     |
 | :------------ | :---------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type          | uint8 \(Go\)                     | 외부 소유 계정의 유형입니다. EOA의 경우 **0x1**이어야 합니다.                                                                                                                                                                                                                                                               |
-| nonce         | uint64 \(Go\)                    | 트랜잭션의 순서를 결정하는 데 사용되는 시퀀스 번호입니다. 다음에 처리할 트랜잭션은 이 값과 동일한 nonce를 갖습니다.                                                                                                                                                                                                                                   |
+| nonce         | uint64 \(Go\)                    | 트랜잭션 순서를 결정하는 데 사용되는 시퀀스 번호입니다. 다음에 처리할 트랜잭션은 이 값과 동일한 nonce를 갖습니다.                                                                                                                                                                                                                                    |
 | balance       | \*big.Int \(Go\) | 계정이 보유한 KLAY의 양입니다.                                                                                                                                                                                                                                                                                                    |
-| humanReadable | bool \(Go\)                      | 계정이 사람이 읽을 수 있는 주소와 연결되어 있음을 나타내는 부울 값입니다. [HRA](#human-readable-address-hra)는 개발 중이므로 모든 계정에 대해 이 값은 false입니다.                                                                                                                                                                                        |
+| humanReadable | bool \(Go\)                      | 계정이 사람이 읽을 수 있는 주소와 연결되어 있음을 나타내는 부울 값입니다. HRA](#human-readable-address-hra)는 개발 중이므로 모든 계정에 대해 이 값은 false입니다.                                                                                                                                            |
 | key           | [AccountKey](#account-key)                            | 이 계정에 연결된 키입니다. 이 필드는 [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased) 중 어느 것이든 될 수 있습니다. 트랜잭션의 서명은 이 키로 확인됩니다. |
 
 #### 스마트 컨트랙트 계정 \(SCA\) <a id="smart-contract-accounts-scas"></a>
@@ -69,9 +69,9 @@ EOA와 달리 SCA는 연결된 코드가 있으며 해당 코드에 의해 제�
 | 속성            | Type                                                                                         | 설명                                                                                                                                                                                                                                                                                                                                     |
 | :------------ | :------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type          | uint8 \(Go\)                                                            | 스마트 컨트랙트 계정 유형입니다. SCA의 경우 **0x2**여야 합니다.                                                                                                                                                                                                                                                              |
-| nonce         | uint64 \(Go\)                                                           | 트랜잭션 순서를 결정하는 데 사용되는 시퀀스 번호입니다. 다음에 처리할 트랜잭션은 이 값과 동일한 nonce를 갖습니다.                                                                                                                                                                                                                                    |
+| nonce         | uint64 \(Go\)                                                           | 트랜잭션의 순서를 결정하는 데 사용되는 시퀀스 번호입니다. 다음에 처리할 트랜잭션은 이 값과 동일한 nonce를 갖습니다.                                                                                                                                                                                                                                   |
 | balance       | \*big.Int \(Go\)                                        | 계정이 보유한 KLAY의 양입니다.                                                                                                                                                                                                                                                                                                    |
-| humanReadable | bool \(Go\)                                                             | 계정이 사람이 읽을 수 있는 주소와 연결되어 있음을 나타내는 부울 값입니다. HRA](#human-readable-address-hra)는 개발 중이므로 모든 계정에 대해 이 값은 false입니다.                                                                                                                                            |
+| humanReadable | bool \(Go\)                                                             | 계정이 사람이 읽을 수 있는 주소와 연결되어 있음을 나타내는 부울 값입니다. [HRA](#human-readable-address-hra)는 개발 중이므로 모든 계정에 대해 이 값은 false입니다.                                                                                                                                                                                        |
 | key           | [AccountKey](#account-key)                                                                   | 이 계정에 연결된 키입니다. 이 필드는 [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased) 중 어느 것이든 될 수 있습니다. 트랜잭션의 서명은 이 키로 확인됩니다. |
 | codeHash      | \[\]byte \(Go\)   | 계정 스마트 컨트랙트 코드의 해시입니다. 이 값은 변경할 수 없으므로 스마트 컨트랙트를 만들 때만 설정됩니다.                                                                                                                                                                                                                                          |
 | storageRoot   | \[32\]byte \(Go\) | 계정의 모든 저장소 변수 값을 포함하는 머클 패트리샤 트리의 루트에 대한 256비트 해시입니다.                                                                                                                                                                                                                                                                  |
@@ -133,20 +133,21 @@ AccountKeyLegacy는 해당 키 쌍에서 파생된 주소를 가진 계정에 �
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
+서명된 공개키의 개수는 가중된 공개키의 개수보다 작아야 합니다.\
 AccountKeyPublic은 공개 키가 하나뿐인 계정에 사용됩니다.\
 계정에 AccountKeyPublic 객체가 있는 경우 트랜잭션 유효성 검사 프로세스는 아래와 같이 수행됩니다:
 
 - `ecrecover(txhash, txsig)`에서 파생된 공개키를 가져옵니다.
 - 파생된 공개키가 해당 공개키와 동일한지 확인합니다.
 
-  AccountKeyPublic의 유형입니다.
+  account's public key.
 
 #### 속성 <a id="attributes"></a>
 
-| 속성   | Type                                                                                         | 설명                                                                 |
-| :--- | :------------------------------------------------------------------------------------------- | :----------------------------------------------------------------- |
-| Type | uint8 \(Go\)                                                            | 계정키실패의 유형입니다. 이 값은 **0x02**여야 합니다. |
-| Key  | \[33\]byte \(Go\) | 키는 S256 커브의 압축된 공개 키여야 합니다.                        |
+| 속성   | Type                                                                                         | 설명                                                                            |
+| :--- | :------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------- |
+| Type | uint8 \(Go\)                                                            | AccountKeyPublic의 유형입니다. 이 값은 **0x02**여야 합니다. |
+| Key  | \[33\]byte \(Go\) | 키는 S256 커브의 압축된 공개 키여야 합니다.                                   |
 
 #### RLP 인코딩 <a id="rlp-encoding"></a>
 
@@ -170,9 +171,9 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
 #### 속성 <a id="attributes"></a>
 
-| 속성   | Type                              | 설명                                  |
-| :--- | :-------------------------------- | :---------------------------------- |
-| Type | uint8 \(Go\) | 유형 0x03\*\*이어야 합니다. |
+| 속성   | Type                              | 설명                                                                |
+| :--- | :-------------------------------- | :---------------------------------------------------------------- |
+| Type | uint8 \(Go\) | 계정키실패의 유형입니다. 유형 0x03\*\*이어야 합니다. |
 
 #### RLP 인코딩 <a id="rlp-encoding"></a>
 
@@ -185,7 +186,7 @@ AccountKeyWeightedMultiSig와 연결된 계정에 대해 트랜잭션이 유효�
 
 - 서명된 공개 키의 가중치 합이 임계값보다 커야 합니다.
 - 유효하지 않은 서명이 트랜잭션에 포함되어서는 안 됩니다.
-- 서명된 공개키의 개수는 가중된 공개키의 개수보다 작아야 합니다.
+- The number of signed public keys should be less than the number of weightedPublicKeys.
 
 :::note
 
