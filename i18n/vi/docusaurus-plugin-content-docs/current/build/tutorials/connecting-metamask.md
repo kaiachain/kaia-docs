@@ -1,101 +1,101 @@
-# Kết nối MetaMask
+# Connect MetaMask to Kaia
 
 ![](/img/build/tutorials/klaytnXmetamask.png)
 
-> **Lưu ý**: MetaMask chủ yếu được dùng làm ví cho Ethereum nhưng cũng tương thích với Klaytn vì có cấu trúc địa chỉ giống hệt. Klaytn cũng có ví dạng tiện ích mở rộng của trình duyệt với tên gọi là [Kaikas](../tools/wallets/kaikas.md) nên về cơ bản nó cũng cung cấp các tính năng giống với MetaMask, ngoại trừ Remix.
+> **Note**: MetaMask is mostly used as a wallet for Ethereum, but it is also compatible with Kaia due to the identical address structures. Kaia also has a browser extension wallet called [Kaikas](../tools/wallets/kaikas.md), so it basically provides the same features as MetaMask, except for Remix.
 
-## Bước 1. Cài đặt MetaMask <a href="#install-metamask" id="install-metamask"></a>
+## Step 1. Install MetaMask <a href="#install-metamask" id="install-metamask"></a>
 
-- Chúng tôi sẽ sử dụng trình duyệt Chrome trong ví dụ này. ([**Cài đặt Chrome**](https://www.google.com/intl/en_us/chrome/))
-- Thêm [**Tiện ích mở rộng MetaMask**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) vào Chrome.
+- We will be using Chrome browser in this example. ([**Install Chrome**](https://www.google.com/intl/en_us/chrome/))
+- Add [**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) to Chrome.
 
-  > **Lưu ý:** Bạn có thể cần cài đặt thêm nếu đang sử dụng trình duyệt khác.
-- Bạn có thể khởi động MetaMask bằng cách nhấp vào biểu tượng ở góc trên bên phải của trình duyệt Chrome.
+  > **Note:** You may need additional installations if you are using another browser.
+- You can start MetaMask by clicking on the icon in the upper right-hand corner of your chrome browser.
 
-## Bước 2. Tạo Ví MetaMask <a href="#generate-a-metamask" id="generate-a-metamask"></a>
+## Step 2. Generate a MetaMask Wallet <a href="#generate-a-metamask" id="generate-a-metamask"></a>
 
 ![Create a Wallet](/img/build/tutorials/new-to-metamask.png)
 
-- Nhấp vào \[Create a Wallet].
-- Đặt mật khẩu.
-- Bạn sẽ nhận được một cụm từ khôi phục gồm 12 từ; lưu dự phòng nó ở nơi an toàn.
+- Click on \[Create a Wallet].
+- Set a password.
+- You will be given a 12 word seed phrase; back it up somewhere secure.
 
-  > **Lưu ý:** Bạn chỉ có thể khôi phục lại ví của mình bằng cụm từ ghi nhớ. Nếu chia sẻ cụm từ ghi nhớ với người khác, bạn có thể bị mất toàn bộ số tiền của mình. Vì vậy, bạn nên viết ra cụm từ này hoặc lưu giữ trên một thiết bị không kết nối mạng.
+  > **Note:** You can only restore your wallet with the seed phrase. Sharing your seed phrase with others may result in losing all of your funds. Therefore, it is recommended that you either write it down manually or store it in an offline device.
 
 ![Seed phrase and Wallet](/img/build/tutorials/metamask-secret-backup.png)
 
-## Bước 3. Kết nối với Mạng lưới Klaytn Cypress (Mainet) <a href="#connect-to-klaytn-cypress-network-mainnet" id="connect-to-klaytn-cypress-network-mainnet"></a>
+## Step 3. Connect to Kaia Mainnet <a href="#connect-to-kaia-mainnet" id="connect-to-kaia-mainnet"></a>
 
-> Có một cách dễ làm. [Kết nối ví của bạn với Mạng lưới Klaytn Cypress (Mainnet)](https://chainlist.org/chain/8217).
+> Here's a simple way. [Connect your wallet to the Kaia Mainnet](https://chainlist.org/chain/8217).
 
-- Nhấp vào tab Mạng lưới phía trên, tab này mặc định có trên Mainnet Ethereum, rồi chọn \[Add network].
-- Nhập dữ liệu Nút điểm cuối (EN) của chuỗi Klaytn.
+- Click on the upper Networks tab, which is on Ethereum Mainnet as default, and select \[Add network].
+- Enter the Endpoint Node (EN) data of the Kaia chain.
 
-### Cypress Network Configuration
+### Mainnet Configuration
 
 | Network Config Item | Value                                  |
 | ------------------- | -------------------------------------- |
-| Network Name        | Klaytn Cypress                         |
+| Network Name        | Kaia Mainnet                           |
 | New RPC URL         | `https://public-en-cypress.klaytn.net` |
 | Block Explorer URL  | `https://klaytnscope.com`              |
 | Chain ID            | 8217                                   |
-| Currency Symbol     | KLAY                                   |
+| Currency Symbol     | KAIA                                   |
 
-- Nhấp vào \[Save] để thêm Mạng lưới Klaytn Cypress.
+- Click \[Save] to add Kaia Mainnet.
 
 ![Network Setup and Custom RPC](/img/build/tutorials/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](/img/build/tutorials/metamask-add-cypress-2.png)
 
-## Bước 4. Send KLAY <a href="#send-klay" id="send-klay"></a>
+## Step 4. Send KAIA <a href="#send-klay" id="send-klay"></a>
 
-**Lưu ý:** Các bước tiếp theo yêu cầu phải có KLAY.
+**Note:** The following steps require KAIA.
 
-- Nhấp vào \[Send] trên trang chính, rồi nhập địa chỉ người nhận và số lượng KLAY.
+- Click \[Send] on the main page and enter the recipient address and the amount of KAIA.
 
-![Send KLAY 1](/img/build/tutorials/metamask-send-klay-1.png)
+![Send KAIA 1](/img/build/tutorials/metamask-send-klay-1.png)
 
-**LƯU Ý:** Gửi KLAY yêu cầu có một giao dịch nên bạn cần KLAY cho giao dịch đó.
+**NOTE:** Sending KAIA requires a transaction, for which you need KAIA.
 
-- Vì Klaytn v1.9.0, một [cơ chế phí gas động](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) đã thay thế chính sách giá cố định hiện có.
-- Vậy nên bạn không phải đặt phí gas cố định thủ công.
-- Kiểm tra số lượng sẽ gửi đi và phí giao dịch, rồi nhấp vào \[Confirm] để hoàn tất việc chuyển KLAY. Sau đó, bạn sẽ được chuyển đến trang chính.
-- Nhấp vào \[Activity] trên trang chính để xác nhận lịch sử giao dịch.
+- Since Kaia v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
+- So you don't have to set the fixed gas fee manually.
+- Check the amount to send and the transaction fee and click \[Confirm] to complete the KAIA transfer, after which you will be redirected to the main page.
+- Click \[Activity] on the main page to confirm the transaction history.
 
-![Send KLAY 2](/img/build/tutorials/metamask-send-klay-2.png)
+![Send KAIA 2](/img/build/tutorials/metamask-send-klay-2.png)
 
-## Kết nối với mạng lưới Klaytn Baobab (Testnet)<a href="#connect-to-klaytn-baobab-network-testnet" id="connect-to-klaytn-baobab-network-testnet"></a>
+## Connect to Kaia Kairos Network (Testnet) <a href="#connect-to-kaia-kairos-network-testnet" id="connect-to-kaia-kairos-network-testnet"></a>
 
-### Nhận KLAY để thực hiện giao dịch
+### Obtain KAIA to make a transaction
 
-> **Lưu ý:** Hướng dẫn này sử dụng EN công khai của Testnet (Baobab) để kết nối với mạng lưới này. Hãy nhớ sử dụng Baobab khi bạn chạy thử.
+> **Note:** This tutorial uses Public EN of the Testnet (Kairos) to connect to the network. Make sure to use Kairos when you are running a test.
 
-> Có một cách dễ làm. [Kết nối ví của bạn với mạng lưới Klaytn Baobab (Testnet)](https://chainlist.org/chain/1001).
+> Here's a simple way. [Connect your wallet to the Kaia Kairos Network (Testnet)](https://chainlist.org/chain/1001).
 
-### Baobab Network Configuration
+### Kairos Network Configuration
 
 | Network Config Item | Value                                 |
 | ------------------- | ------------------------------------- |
-| Network Name        | Klaytn Baobab                         |
+| Network Name        | Kaia Kairos                           |
 | New RPC URL         | `https://public-en-baobab.klaytn.net` |
 | Block Explorer URL  | `https://baobab.klaytnscope.com `     |
 | Chain ID            | 1001                                  |
-| Currency Symbol     | KLAY                                  |
+| Currency Symbol     | KAIA                                  |
 
-- Nhấp vào \[Save] để thêm Mạng lưới Klaytn Baobab.
+- Click \[Save] to add Kaia Kairos Network.
 
 ![Network Setup](/img/build/tutorials/connect-testnet-1.png)
 
-- Để thử kết nối của Ví Klaytn, bạn sẽ cần thực hiện giao dịch có yêu cầu KLAY.
-- Nhấp vào menu kebab (dấu ba chấm) ở góc trên bên phải và chọn \[Account details].
-- Nhấp vào \[Export Private Key] để lấy khóa riêng tư của bạn.
+- To test the connection of the Kaia Wallet, you will need to make a transaction, which requires KAIA.
+- Click on the kebab menu (three dots) in the upper right corner and select \[Account details].
+- Click \[Export Private Key] to obtain your private key.
 
 ![Export Private Key](/img/build/tutorials/connect-testnet-2.png)
 
-- Khi sử dụng Testnet Baobab, bạn có thể nhận được Klay Thử nghiệm trong [**Faucet Klaytn**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
-- Nhập khóa riêng tư của bạn vào Ví Klaytn và nhấp vào \[Access] để đăng nhập. (Gắn 0x vào trước khóa riêng tư.)
-- Nhấp vào \[Run Faucet]. 150 KLAY Testnet sẽ được gửi vào tài khoản của bạn và số dư sẽ được cập nhật tương ứng. Với mỗi tài khoản, bạn có thể nhận KLAY Testnet từ Faucet một lần trong vòng 24 giờ.
+- When using Kairos Testnet, you can obtain Test Kaia in [**Kaia Faucet**](https://baobab.wallet.klaytn.foundation/access?next=faucet).
+- Enter your private key on Kaia Wallet and log in by clicking \[Access]. (Attach 0x in front of the private key.)
+- Click \[Run Faucet]. 150 Testnet KAIA will be sent to your account and the balance will be updated accordingly. You can claim Testnet KAIA from Faucet once every 24 hours per account.
 
-![Obtain KLAY from Faucet](/img/build/tutorials/connect-testnet-3.png)
+![Obtain KAIA from Faucet](/img/build/tutorials/connect-testnet-3.png)
 
-- Quay lại MetaMask và xác nhận KLAY bạn đã nhận được.
+- Come back to MetaMask and confirm the KAIA that you received.
 
 ![Check your balance](/img/build/tutorials/connect-testnet-4.png)
