@@ -1,82 +1,82 @@
-# 서비스 체인 설치
+# Install Service Chain
 
-## 대상 독자 <a id="intended-audience"></a>
+## Intended Audience <a id="intended-audience"></a>
 
-- 메타버스, 게임파이, NFT를 위한 블록체인을 구축하고자 하는 기업
-- 높은 TPS, 최소한의 트랜잭션 수수료, 데이터 프라이버시가 필요한 dApp 개발자
-- 테스트를 위해 로컬 사설 네트워크 또는 원장 데이터베이스를 구축하려는 모든 이
+- Companies that want to build blockchains for Metaverse, GameFi, and NFTs
+- dApp developers who need high TPS, minimal transaction fees, and data privacy.
+- Anyone who wants to build a local private network or a ledger database for testing.
 
-## 서비스체인 개요 <a id="service-chain-overview"></a>
+## ServiceChain Overview <a id="service-chain-overview"></a>
 
-서비스체인은 밸류 전송, 보안, 고성능, 커스터마이징과 같은 기업의 요구사항을 충족하기 위한 엔터프라이즈급 블록체인입니다. 클레이튼 서비스체인은 다음과 같은 기능을 제공합니다:
+ServiceChain is an enterprise-level blockchain to meet companies' requirements such as value transfer, security, high performance, and customization. Kaia ServiceChain provides the following features:
 
-- 즉각적인 최종성
-- 클레이튼 체인 간 토큰 전송
-- 데이터 무결성을 위해 메인 체인에 데이터 앵커링
-- 엔터프라이즈 수준의 보안 요건을 충족하는 다중 서명 브리지 컨트랙트
+- Immediate finality
+- Token transfer between Kaia chains
+- Data anchoring to the main chain for data integrity
+- Multi-sig bridge contract to meet enterprise-level security requirements
 
 ![](/img/nodes/sc-overview.png)
 
-[클레이튼 스케일링 솔루션](../../learn/scaling-solutions.md)에서 서비스체인에 대한 자세한 내용을 확인할 수 있습니다. 그리고 다음 동영상은 클레이튼 서비스체인을 이해하는 데 도움이 될 것입니다.
+Read the [Kaia Scaling Solution](../../learn/scaling-solutions.md) for more details about the ServiceChain. And the following videos will help you understand Kaia ServiceChain.
 
-- [클레이튼 서비스체인을 통한 수평 확장 | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
-- [클레이튼 서비스체인의 고가용성 아키텍처 | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
+- [Horizontal Scaling through Service Chain in Kaia | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
+- [High Availability Architecture of Kaia Service Chain | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
 
-## 다운로드 <a id="download"></a>
+## Download <a id="download"></a>
 
-[다운로드 페이지](../downloads/downloads.md)에서 SCN, SPN 및 SEN용 패키지를 받을 수 있습니다.
+You can get packages for SCN, SPN, and SEN in the [download page](../downloads/downloads.md).
 
-## 설치 <a id="installation-guide"></a>
+## Installation <a id="installation-guide"></a>
 
-이 장에서는 **서비스 체인 컨센서스 노드 (SCN)** 설치에 대해 설명합니다.
+This chapter explains the **Service Chain Consensus Node \(SCN\)** installation.
 
-### Linux 아카이브 배포 <a id="linux-archive-distribution"></a>
+### Linux Archive Distribution <a id="linux-archive-distribution"></a>
 
-서비스 체인 합의 노드의 아카이브 파일은 다음과 같은 디렉터리 레이아웃을 가지고 있습니다.
+The archive file for Service Chain Consensus Node has the following directory layout.
 
-| fileName        | 파일 설명             |
-| :-------------- | :---------------- |
-| bin/kscn        | SCN 실행 파일         |
-| bin/kscnd       | SCN 시작/종료 스크립트 파일 |
-| conf/kscnd.conf | SCN 구성 파일         |
+| File Name                       | File Description                  |
+| :------------------------------ | :-------------------------------- |
+| bin/kscn                        | SCN executable file               |
+| bin/kscnd                       | SCN start/termination script file |
+| conf/kscnd.conf | SCN configuration file            |
 
-Homi 바이너리의 아카이브 파일은 다음과 같은 디렉터리 레이아웃을 가지고 있습니다.
+The archive file for homi binary has the following directory layout.
 
-| fileName | 파일 설명      |
-| :------- | :--------- |
-| bin/homi | HOMI 실행 파일 |
+| File Name | File Description     |
+| :-------- | :------------------- |
+| bin/homi  | HOMI executable file |
 
-설치는 다운로드한 패키지의 압축을 푸는 것입니다.
+The installation is the uncompression of the downloaded package.
 
 ```text
 $ tar zxf kscn-vX.X.X-XXXXX-amd64.tar.gz
 $ tar zxf homi-vX.X.X-XXXXX-amd64.tar.gz
 ```
 
-### RPM 배포 (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
+### RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
 
-다운로드한 RPM 파일을 다음 `yum` 명령으로 설치할 수 있습니다.
+You can install the downloaded RPM file with the following `yum` command.
 
 ```text
 $ yum install kscnd-vX.X.X.el7.x86_64.rpm
 $ yum install homi-vX.X.X.el7.x86_64.rpm
 ```
 
-### 설치 위치 <a id="scn-configuration"></a>
+### Installed Location <a id="scn-configuration"></a>
 
-클레이튼 리눅스 패키지는 실행 가능한 바이너리와 다음과 같은 구조의 설정 파일로 구성되어 있습니다.
+The Kaia Linux package consists of the executable binary and the configuration file structured as follows.
 
-| fileName   | location                   |
-| :--------- | :------------------------- |
-| kscn       | /usr/bin/kscn              |
+| File Name                  | Location                                   |
+| :------------------------- | :----------------------------------------- |
+| kscn                       | /usr/bin/kscn                              |
 | kscnd.conf | /etc/kscnd/conf/kscnd.conf |
-| homi       | /usr/bin/homi              |
+| homi                       | /usr/bin/homi                              |
 
-## 구성 <a id="configuration"></a>
+## Configuration <a id="configuration"></a>
 
-이 페이지에서는 합의 네트워크를 형성하기 위한 SCN 구성에 대해 설명합니다.
+This page explains the configuration of SCNs to form a consensus network.
 
-아카이브 배포를 설치한 경우 아카이브를 추출한 디렉터리에서 바이너리와 구성 파일을 찾을 수 있습니다. 아래는 명령 실행 예제입니다.
+If you installed archive distribution, you can find the binaries and the config file in the directories you extracted the archives. Below is an example of command execution.
 
 ```bash
 $ homi-darwin-amd64/bin/homi setup ...
@@ -84,11 +84,11 @@ $ kscn-darwin-amd64/bin/kscnd start
 $ vi kscn-darwin-amd64/conf/kscnd.conf
 ```
 
-이 튜토리얼에서는 명령의 전체 경로를 항상 지정하지는 않습니다.
+In this tutorial, we will not always specify the full path to the command.
 
-### 제네시스 파일 생성 <a id="creation-of-a-genesis-file"></a>
+### Creation of a Genesis File <a id="creation-of-a-genesis-file"></a>
 
-먼저 자체 서비스 체인을 위한 제네시스 파일과 노드키 파일을 생성해야 합니다. 아래와 같이 homi를 사용하여 생성할 수 있습니다.
+First, you should create a genesis file and a nodekey file for your own service chain. You can create them using homi like below.
 
 ```bash
 $ homi setup --gen-type local --cn-num 1 --servicechain -o ./homi-output
@@ -97,11 +97,11 @@ Created :  homi-output/scripts/genesis.json
 Created :  homi-output/keys/nodekey1
 Created :  homi-output/keys/validator1
 Created :  homi-output/scripts/static-nodes.json
-Created :  homi-output/Klaytn.json
-Created :  homi-output/Klaytn_txpool.json
+Created :  homi-output/Kaia.json
+Created :  homi-output/Kaia_txpool.json
 ```
 
-다음은 제네시스 파일과 노드키 파일의 예시입니다.
+Below are examples of genesis file and nodekey file.
 
 ```bash
 $ cat homi-output/scripts/genesis.json
@@ -137,26 +137,26 @@ $ cat homi-output/keys/nodekey1
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
 
-제네시스 파일에서 체인ID를 변경하세요. 리플레이 공격을 방지하기 위해 고유 번호를 사용하세요.
-(클레이튼 Cypress(8217), Baobab(1001)과 같은 체인ID를 사용하지 마세요).
+Please change the chainID in the genesis file. Use your own number to prevent a replay attack.
+(Do not use the same chainID with Kaia Mainnet (8217) and Kairos (1001))
 
-원하는 경우 제네시스 파일에서 `"alloc"`을 편집하여 미리 펀딩된 주소를 변경할 수 있습니다.
-(자세한 내용은 [Genesis JSON](../service-chain/configure/genesis.md)에서 확인할 수 있습니다.)
+If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file.
+(You can find more details in [Genesis JSON](../service-chain/configure/genesis.md).)
 
-### SCN 데이터 디렉터리 생성 <a id="scn-data-directory-creation"></a>
+### SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
-클레이튼 블록체인 데이터의 크기가 계속 커지는 것을 고려하면 충분히 큰 스토리지를 사용하는 것을 권장합니다.
-데이터 디렉터리는 원하는 경로에 생성할 수 있습니다.
-이 문서에서는 데이터 디렉터리로 `~/kscnd_home`을 생성합니다.
+Considering the fact that the size of Kaia blockchain data keeps increasing, it is recommended to use a big enough storage.
+You can create the data directory on your desired path.
+In this document, we create `~/kscnd_home` as a data directory.
 
 ```bash
 $ mkdir -p ~/kscnd_home
 ```
 
-#### 제네시스 블록 초기화 <a id="initialization-of-a-genesis-block"></a>
+#### Initialization of a Genesis Block <a id="initialization-of-a-genesis-block"></a>
 
-그 후 제네시스 파일로 데이터 디렉터리를 초기화할 수 있습니다.
-서비스 체인 노드를 시작하기 전에 `kscn`과 `genesis.json`을 사용하여 서비스 체인 네트워크의 제네시스 블록을 초기화해야 합니다.
+After that, you can initialize the data directory with the genesis file.
+Before starting a service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
 
 ```bash
 $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
@@ -180,20 +180,20 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
   INFO[11/12,10:13:59 +09] [46] Database closed                           path=/Users/ethan/kscnd_home/klay/lightchaindata/bridgeservice
 ```
 
-#### 노드키 설치 <a id="install_nodekey"></a>
+#### Install nodekey <a id="install_nodekey"></a>
 
-아래와 같이 `homi-output/keys/nodekey1`을 SCN의 데이터 디렉터리 내 `klay` 디렉터리에 복사합니다.
+Copy `homi-output/keys/nodekey1` to the `kaia` directory in the SCN's data directory like below.
 
 ```bash
 $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 ```
 
-### SCN 구성 <a id="configuration-of-the-scn"></a>
+### Configuration of the SCN <a id="configuration-of-the-scn"></a>
 
-`kscnd.conf`는 SCN의 구성 파일입니다.
+`kscnd.conf` is the configuration file for the SCN.
 
-SCN이 기본 포트를 사용하고 대규모 파티션을 `~/kscnd_home`에 마운트한다고 가정합니다.
-기본 `kscnd.conf` 파일에서 `SC_SUB_BRIDGE` 옵션은 비활성화되어 있고 `DATA_DIR`은 비어 있습니다.
+Assume that the SCN uses the default port and mounts a large-scale partition onto `~/kscnd_home`.
+In the default `kscnd.conf` file, `SC_SUB_BRIDGE` option is disabled and `DATA_DIR` is empty.
 
 ```
 # Configuration file for the kscnd
@@ -204,8 +204,8 @@ DATA_DIR=
 ...
 ```
 
-앵커링/값 전송 기능을 사용하려면 `SC_SUB_BRIDGE`를 활성화하면 됩니다.
-또한 아래와 같이 DATA_DIR을 설정해야 합니다.
+You can enable `SC_SUB_BRIDGE` to use the Anchoring/Value transfer feature.
+Also you should set the DATA_DIR like below.
 
 ```
 # Configuration file for the kscnd
@@ -216,14 +216,14 @@ DATA_DIR=~/kscnd_home
 ...
 ```
 
-원하는 경우 다른 옵션을 추가로 수정하여 서비스 체인을 사용자 지정할 수 있습니다.
-그렇지 않으면 이제 구성을 완료하고 기본 구성을 사용하여 서비스 체인을 실행할 준비가 된 것입니다.
+If you want, you can further modify other options to customize your Service Chain.
+Otherwise, now you can finish the configuration and you are ready to run the service chain using the default configuration.
 
-## SCN 시작/중지 <a id="starting-stopping-scn"></a>
+## Starting/Stopping SCN <a id="starting-stopping-scn"></a>
 
-설치 유형에 따라 다음 `systemctl` 또는 `kscnd` 명령어로 클레이튼 서비스를 시작/중지할 수 있습니다.
+Depending on your installation type, you can start/stop the Kaia service with the following `systemctl`  or `kscnd` command.
 
-**시작**
+**start**
 
 ```bash
 ## when installed from rpm distribution 
@@ -234,7 +234,7 @@ $ kscnd start
 
 ```
 
-**중지**
+**stop**
 
 ```bash
 ## when installed from rpm distribution 
@@ -245,7 +245,7 @@ $ kscnd stop
 
 ```
 
-**상태**
+**status**
 
 ```bash
 ## when installed from rpm distribution 
@@ -256,15 +256,15 @@ $ kscnd status
 
 ```
 
-## 노드 상태 확인 <a id="checking-node-status"></a>
+## Checking Node Status <a id="checking-node-status"></a>
 
-### 프로세스 상태 <a id="process-status"></a>
+### Process Status <a id="process-status"></a>
 
-상태 명령어 `systemctl`과 `kscnd`를 사용하여 SCN의 프로세스 상태를 확인할 수 있습니다.
+It is possible to check the status of SCN's process using the status commands `systemctl` and `kscnd`.
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl`은 RPM과 함께 설치되며, 아래와 같이 SCN의 상태를 확인할 수 있습니다.
+`systemctl` is installed along with the RPM, and the status of SCN can be checked as follows.
 
 ```bash
 $ systemctl status kscnd.service
@@ -282,22 +282,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kscnd[29636]: Sta
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-위 예시에서 `Active: active (running)`과 같은 현재 상태를 확인할 수 있습니다.
+You can check the current status such as `Active: active (running)` in the example above.
 
 #### kscnd <a id="kscnd"></a>
 
-패키지와 함께 `kscnd`가 설치되며, SCN의 상태는 아래와 같이 확인할 수 있습니다.
+`kscnd` is installed along with the package, and the status of SCN can be checked as follows.
 
 ```bash
 $ kscnd status
 kscnd is running
 ```
 
-### 로그 <a id="logs"></a>
+### Logs <a id="logs"></a>
 
-로그는 `kscnd.conf` 파일의 `LOG_DIR` 필드에 정의된 경로에 위치한 `kscnd.out` 파일에 저장됩니다. 노드가 정상적으로 작동하면 다음과 같이 초당 각 블록이 임포트되는 것을 확인할 수 있습니다.
+The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. When the node works properly, you can see that each block is imported per second as follows.
 
-예시:
+Example:
 
 ```bash
 $ tail -F ~/kscnd_home/logs/kscnd.out
@@ -314,19 +314,19 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
   INFO[11/12,10:19:12 +09] [24] Committed                                 number=14 hash=dcd2bc…b2aec0 address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
 ```
 
-### 쿼리 <a id="queries"></a>
+### Queries <a id="queries"></a>
 
-#### kscn 콘솔 <a id="kscn-console"></a>
+#### kscn console <a id="kscn-console"></a>
 
-클레이튼은 `kscn console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. IPC 파일 `klay.ipc`는 SCN의 `data` 디렉터리에 있습니다.
+Kaia provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `kaia.ipc` is located in the `data` directory on an SCN.
 
-다음 명령을 실행하고 결과를 확인하세요.
+Please execute the following command and check out the result.
 
 ```text
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
@@ -335,17 +335,17 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 You can check the usable commands on [API Document](../../../references/json-rpc/klay/account-created)
 
-SCN의 상태를 확인하는 데 유용한 API입니다:
+The useful APIs to check the status of SCN:
 
-- `klay.blockNumber` (최신 블록 번호 가져오기)
-- `net.peerCount` (현재 연결된 클레이튼 노드 수 확인)
+- `kaia.blockNumber` (to get the latest block number)
+- `net.peerCount` (to get the number of the connected Kaia nodes currently)
 
-#### klay.blockNumber <a id="klay-blocknumber"></a>
+#### kaia.blockNumber <a id="kaia-blocknumber"></a>
 
-최신 블록 번호를 확인하여 블록이 제대로 전파되었는지 확인할 수 있습니다.
+You can get the latest block number to see if blocks are propagated properly.
 
 ```text
-> klay.blockNumber
+> kaia.blockNumber
 11573819
 ```
 
@@ -356,4 +356,4 @@ SCN의 상태를 확인하는 데 유용한 API입니다:
 4
 ```
 
-위의 명령줄은 메인 체인에서 EN을 제외하고 SCN이 연결한 노드 수를 반환합니다.
+The above command line returns the number of nodes that the SCN connects to except the EN in the main chain.
