@@ -16,14 +16,14 @@ The [randomHex](https://github.com/frozeman/randomHex) library to generate crypt
 
 **Parameters**
 
-| Name | Type   | Description                                                                                                               |
-| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
+| Name | Type   | Description                                                                                                                                                               |
+| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | size | number | The byte size for the HEX string, _e.g._, `32` will result in a 32-byte HEX string with 64 characters prefixed with "0x". |
 
 **Return Value**
 
-| Type   | Description                      |
-| ------ | -------------------------------- |
+| Type   | Description                                      |
+| ------ | ------------------------------------------------ |
 | string | The generated random HEX string. |
 
 **Example**
@@ -77,14 +77,14 @@ Safely converts any given value (including [BigNumber.js](http://mikemcl.github.
 
 **Parameters**
 
-| Name   | Type             | Description                        |
-| ------ | ---------------- | ---------------------------------- |
-| number | string \| number | number to convert to a big number. |
+| Name   | Type               | Description                                        |
+| ------ | ------------------ | -------------------------------------------------- |
+| number | string \\| number | number to convert to a big number. |
 
 **Return Value**
 
-| Type   | Description                                              |
-| ------ | -------------------------------------------------------- |
+| Type   | Description                                                                              |
+| ------ | ---------------------------------------------------------------------------------------- |
 | Object | The [BN.js](https://github.com/indutny/bn.js/) instance. |
 
 **Examples**
@@ -110,14 +110,14 @@ Checks if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance
 
 **Parameters**
 
-| Name | Type   | Description                                            |
-| ---- | ------ | ------------------------------------------------------ |
+| Name | Type   | Description                                                                            |
+| ---- | ------ | -------------------------------------------------------------------------------------- |
 | bn   | object | A [BN.js](https://github.com/indutny/bn.js/) instance. |
 
 **Return Value**
 
-| Type    | Description                                                                       |
-| ------- | --------------------------------------------------------------------------------- |
+| Type    | Description                                                                                                       |
+| ------- | ----------------------------------------------------------------------------------------------------------------- |
 | boolean | `true` if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance. |
 
 **Example**
@@ -138,14 +138,14 @@ Checks if a given value is a [BigNumber.js](http://mikemcl.github.io/bignumber.j
 
 **Parameters**
 
-| Name      | Type   | Description                                                        |
-| --------- | ------ | ------------------------------------------------------------------ |
+| Name      | Type   | Description                                                                                        |
+| --------- | ------ | -------------------------------------------------------------------------------------------------- |
 | bignumber | object | A [BigNumber.js](http://mikemcl.github.io/bignumber.js/) instance. |
 
 **Return Value**
 
-| Type    | Description                                           |
-| ------- | ----------------------------------------------------- |
+| Type    | Description                                                           |
+| ------- | --------------------------------------------------------------------- |
 | boolean | `true` if a given value is a `BigNumber.js` instance. |
 
 **Example**
@@ -169,14 +169,14 @@ Calculates the sha3 of the input.
 
 **Parameters**
 
-| Name | Type   | Description       |
-| ---- | ------ | ----------------- |
+| Name | Type   | Description                       |
+| ---- | ------ | --------------------------------- |
 | str  | string | A string to hash. |
 
 **Return Value**
 
-| Type   | Description      |
-| ------ | ---------------- |
+| Type   | Description                      |
+| ------ | -------------------------------- |
 | string | The result hash. |
 
 **Example**
@@ -208,14 +208,14 @@ Calculates the sha3 of given input parameters in the same way solidity would. Th
 
 **Parameters**
 
-| Name   | Type  | Description                                                                                                                                                                                                                        |
-| ------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name   | Type  | Description                                                                                                                                                                                                                                                                        |
+| ------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | paramX | Mixed | Any type, or an object with `{type: 'uint', value: '123456'}` or `{t: 'bytes', v: '0xfff456'}`. <br/>Basic types are autodetected as follows:<br/>- `string` non numerical UTF-8 string is interpreted as `string`.<br/>- `string` |
 
 **Return Value**
 
-| Type   | Description      |
-| ------ | ---------------- |
+| Type   | Description                      |
+| ------ | -------------------------------- |
 | string | The result hash. |
 
 **Example**
@@ -269,14 +269,14 @@ Checks if a given string is a HEX string.
 
 **Parameters**
 
-| Name | Type   | Description           |
-| ---- | ------ | --------------------- |
+| Name | Type   | Description                           |
+| ---- | ------ | ------------------------------------- |
 | hex  | string | The given HEX string. |
 
 **Return Value**
 
-| Type    | Description                                  |
-| ------- | -------------------------------------------- |
+| Type    | Description                                                  |
+| ------- | ------------------------------------------------------------ |
 | boolean | `true` if a given parameter is a HEX string. |
 
 **Example**
@@ -305,14 +305,14 @@ Checks if a given string is a HEX string. Difference to [caver.utils.isHex](#ish
 
 **Parameters**
 
-| Name | Type   | Description           |
-| ---- | ------ | --------------------- |
+| Name | Type   | Description                           |
+| ---- | ------ | ------------------------------------- |
 | hex  | string | The given HEX string. |
 
 **Return Value**
 
-| Type    | Description                               |
-| ------- | ----------------------------------------- |
+| Type    | Description                                               |
+| ------- | --------------------------------------------------------- |
 | boolean | `true` if a given string is a HEX string. |
 
 **Example**
@@ -341,14 +341,14 @@ Checks if a given string is a valid Klaytn address. It will also check the check
 
 **Parameters**
 
-| Name    | Type   | Description        |
-| ------- | ------ | ------------------ |
+| Name    | Type   | Description                        |
+| ------- | ------ | ---------------------------------- |
 | address | string | An address string. |
 
 **Return Value**
 
-| Type    | Description                                         |
-| ------- | --------------------------------------------------- |
+| Type    | Description                                                         |
+| ------- | ------------------------------------------------------------------- |
 | boolean | `true` if a given string is a valid Klaytn address. |
 
 **Examples**
@@ -380,14 +380,14 @@ Converts an upper or lowercase Klaytn address to a checksum address.
 
 **Parameters**
 
-| Name    | Type   | Description        |
-| ------- | ------ | ------------------ |
+| Name    | Type   | Description                        |
+| ------- | ------ | ---------------------------------- |
 | address | string | An address string. |
 
 **Return Value**
 
-| Type   | Description           |
-| ------ | --------------------- |
+| Type   | Description                           |
+| ------ | ------------------------------------- |
 | string | The checksum address. |
 
 **Examples**
@@ -410,14 +410,14 @@ Checks the checksum of a given address. Will also return `false` on non-checksum
 
 **Parameters**
 
-| Name    | Type   | Description        |
-| ------- | ------ | ------------------ |
+| Name    | Type   | Description                        |
+| ------- | ------ | ---------------------------------- |
 | address | string | An address string. |
 
 **Return Value**
 
-| Type    | Description                                                                                                            |
-| ------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Type    | Description                                                                                                                            |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | boolean | `true` when the checksum of the address is valid, `false` if it is not a checksum address, or the checksum is invalid. |
 
 **Examples**
@@ -437,14 +437,14 @@ Converts any given value to HEX. The numeric strings will be interpreted as numb
 
 **Parameters**
 
-| Name  | Type                                | Description                  |
-| ----- | ----------------------------------- | ---------------------------- |
-| mixed | string \| number \| BN \| BigNumber | The input to convert to HEX. |
+| Name  | Type                                      | Description                                  |
+| ----- | ----------------------------------------- | -------------------------------------------- |
+| mixed | string \\| number \\| BN \\| BigNumber | The input to convert to HEX. |
 
 **Return Value**
 
-| Type   | Description               |
-| ------ | ------------------------- |
+| Type   | Description                               |
+| ------ | ----------------------------------------- |
 | string | The resulting HEX string. |
 
 **Examples**
@@ -476,14 +476,14 @@ Returns the number representation of a given HEX value as a string.
 
 **Parameters**
 
-| Name      | Type   | Description                   |
-| --------- | ------ | ----------------------------- |
+| Name      | Type   | Description                                   |
+| --------- | ------ | --------------------------------------------- |
 | hexstring | string | A HEX string to be converted. |
 
 **Return Value**
 
-| Type   | Description             |
-| ------ | ----------------------- |
+| Type   | Description                             |
+| ------ | --------------------------------------- |
 | string | The number as a string. |
 
 **Examples**
@@ -505,14 +505,14 @@ Returns the number representation of a given HEX value.
 
 **Parameters**
 
-| Name      | Type   | Description                   |
-| --------- | ------ | ----------------------------- |
+| Name      | Type   | Description                                   |
+| --------- | ------ | --------------------------------------------- |
 | hexstring | string | A HEX string to be converted. |
 
 **Return Value**
 
-| Type   | Description                                     |
-| ------ | ----------------------------------------------- |
+| Type   | Description                                                     |
+| ------ | --------------------------------------------------------------- |
 | number | The number representation of a given HEX value. |
 
 **Examples**
@@ -532,14 +532,14 @@ Returns the HEX representation of a given number value.
 
 **Parameters**
 
-| Name   | Type                                | Description                   |
-| ------ | ----------------------------------- | ----------------------------- |
-| number | string \| number \| BN \| BigNumber | A number as string or number. |
+| Name   | Type                                      | Description                                   |
+| ------ | ----------------------------------------- | --------------------------------------------- |
+| number | string \\| number \\| BN \\| BigNumber | A number as string or number. |
 
 **Return Value**
 
-| Type   | Description                        |
-| ------ | ---------------------------------- |
+| Type   | Description                                        |
+| ------ | -------------------------------------------------- |
 | string | The HEX value of the given number. |
 
 **Examples**
@@ -560,14 +560,14 @@ Returns the UTF-8 string representation of a given HEX value.
 
 **Parameters**
 
-| Name | Type   | Description                                |
-| ---- | ------ | ------------------------------------------ |
+| Name | Type   | Description                                                |
+| ---- | ------ | ---------------------------------------------------------- |
 | hex  | string | A HEX string to convert to a UTF-8 string. |
 
 **Return Value**
 
-| Type   | Description       |
-| ------ | ----------------- |
+| Type   | Description                       |
+| ------ | --------------------------------- |
 | string | The UTF-8 string. |
 
 **Examples**
@@ -587,14 +587,14 @@ Returns the ASCII string representation of a given HEX value.
 
 **Parameters**
 
-| Name | Type   | Description                                 |
-| ---- | ------ | ------------------------------------------- |
+| Name | Type   | Description                                                 |
+| ---- | ------ | ----------------------------------------------------------- |
 | hex  | string | A HEX string to convert to an ASCII string. |
 
 **Return Value**
 
-| Type   | Description       |
-| ------ | ----------------- |
+| Type   | Description                       |
+| ------ | --------------------------------- |
 | string | The ASCII string. |
 
 **Examples**
@@ -615,14 +615,14 @@ Returns the HEX representation of a given UTF-8 string.
 
 **Parameters**
 
-| Name | Type   | Description                                |
-| ---- | ------ | ------------------------------------------ |
+| Name | Type   | Description                                                |
+| ---- | ------ | ---------------------------------------------------------- |
 | str  | string | A UTF-8 string to convert to a HEX string. |
 
 **Return Value**
 
-| Type   | Description     |
-| ------ | --------------- |
+| Type   | Description                     |
+| ------ | ------------------------------- |
 | string | The HEX string. |
 
 **Examples**
@@ -642,14 +642,14 @@ Returns the HEX representation of a given ASCII string.
 
 **Parameters**
 
-| Name | Type   | Description                                 |
-| ---- | ------ | ------------------------------------------- |
+| Name | Type   | Description                                                 |
+| ---- | ------ | ----------------------------------------------------------- |
 | str  | string | An ASCII string to convert to a HEX string. |
 
 **Return Value**
 
-| Type   | Description     |
-| ------ | --------------- |
+| Type   | Description                     |
+| ------ | ------------------------------- |
 | string | The HEX string. |
 
 **Examples**
@@ -669,14 +669,14 @@ Returns a byte array from the given HEX string.
 
 **Parameters**
 
-| Name | Type   | Description                   |
-| ---- | ------ | ----------------------------- |
+| Name | Type   | Description                                   |
+| ---- | ------ | --------------------------------------------- |
 | hex  | string | A HEX string to be converted. |
 
 **Return Value**
 
-| Type  | Description     |
-| ----- | --------------- |
+| Type  | Description                     |
+| ----- | ------------------------------- |
 | Array | The byte array. |
 
 **Examples**
@@ -696,14 +696,14 @@ Returns a HEX string from a byte array.
 
 **Parameters**
 
-| Name      | Type  | Description              |
-| --------- | ----- | ------------------------ |
+| Name      | Type  | Description                              |
+| --------- | ----- | ---------------------------------------- |
 | byteArray | Array | A byte array to convert. |
 
 **Return Value**
 
-| Type   | Description     |
-| ------ | --------------- |
+| Type   | Description                     |
+| ------ | ------------------------------- |
 | string | The HEX string. |
 
 **Examples**
@@ -725,16 +725,16 @@ Converts any KLAY value into peb.
 
 **Parameters**
 
-| Name   | Type                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| number | string \| number \| BN | The value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| unit   | string                 | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert from. <code>number</code> will be multiplied by one of the following multipliers for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
+| Name   | Type                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| number | string \\| number \\| BN | The value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| unit   | string                     | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert from. <code>number</code> will be multiplied by one of the following multipliers for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
 
 **Return Value**
 
-| Type         | Description                                                                                                                      |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| string \| BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
+| Type           | Description                                                                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| string \\| BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
 
 **Examples**
 
@@ -756,15 +756,15 @@ caver.utils.convertFromPeb(number [, unit])
 
 **Parameters**
 
-| Name   | Type                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------ | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| number | string \| number \| BN \| BigNumber | The value in peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| unit   | string                              | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert your "peb" into. <code>number</code> will be divided by one of the following denominators for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
+| Name   | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------ | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| number | string \\| number \\| BN \\| BigNumber | The value in peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| unit   | string                                    | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert your "peb" into. <code>number</code> will be divided by one of the following denominators for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
 
 **Return Value**
 
-| Type   | Description        |
-| ------ | ------------------ |
+| Type   | Description                        |
+| ------ | ---------------------------------- |
 | string | The string number. |
 
 **Examples**
@@ -818,8 +818,8 @@ Shows all KLAY units.
 
 **Return Value**
 
-| Type   | Description                                                                                                                                                                               |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                                                                               |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Object | An object in which the units of KLAY used in Klaytn are defined. Each unit has its name and pebFactor. pebFactor is used when converting KLAY currently translated in each unit to 'peb'. |
 
 **Examples**
@@ -853,16 +853,16 @@ Adds padding on the left of a string. Useful for adding paddings to HEX strings.
 
 **Parameters**
 
-| Name            | Type   | Description                                                               |
-| --------------- | ------ | ------------------------------------------------------------------------- |
+| Name            | Type   | Description                                                                               |
+| --------------- | ------ | ----------------------------------------------------------------------------------------- |
 | string          | string | The string to add padding on the left.                                    |
 | characterAmount | number | The number of characters the total string should have.                    |
 | sign            | string | (optional) The character sign to use, defaults to `0`. |
 
 **Return Value**
 
-| Type   | Description        |
-| ------ | ------------------ |
+| Type   | Description                        |
+| ------ | ---------------------------------- |
 | string | The padded string. |
 
 **Examples**
@@ -889,16 +889,16 @@ Adds padding on the right of a string, Useful for adding paddings to HEX strings
 
 **Parameters**
 
-| Name            | Type   | Description                                                               |
-| --------------- | ------ | ------------------------------------------------------------------------- |
+| Name            | Type   | Description                                                                               |
+| --------------- | ------ | ----------------------------------------------------------------------------------------- |
 | str             | string | The string to add padding on the right.                                   |
 | characterAmount | number | The number of characters the total string should have.                    |
 | sign            | string | (optional) The character sign to use, defaults to `0`. |
 
 **Return Value**
 
-| Type   | Description        |
-| ------ | ------------------ |
+| Type   | Description                        |
+| ------ | ---------------------------------- |
 | string | The padded string. |
 
 **Examples**
@@ -924,14 +924,14 @@ Removes leading zero from 0x-prefixed hex string.
 
 **Parameters**
 
-| Name      | Type   | Description           |
-| --------- | ------ | --------------------- |
+| Name      | Type   | Description                           |
+| --------- | ------ | ------------------------------------- |
 | hexString | string | A hex string to trim. |
 
 **Return Value**
 
-| Type   | Description                        |
-| ------ | ---------------------------------- |
+| Type   | Description                                        |
+| ------ | -------------------------------------------------- |
 | string | A hex string without leading zero. |
 
 **Examples**
@@ -951,14 +951,14 @@ Returns a string to an even length.
 
 **Parameters**
 
-| Name      | Type   | Description                |
-| --------- | ------ | -------------------------- |
+| Name      | Type   | Description                                |
+| --------- | ------ | ------------------------------------------ |
 | hexString | string | A hex string to make even. |
 
 **Return Value**
 
-| Type   | Description                |
-| ------ | -------------------------- |
+| Type   | Description                                |
+| ------ | ------------------------------------------ |
 | string | A string with even length. |
 
 **Examples**
@@ -978,14 +978,14 @@ Converts a negative number into a two's complement.
 
 **Parameters**
 
-| Name | Type                          | Description            |
-| ---- | ----------------------------- | ---------------------- |
-| num  | number \| string \| BigNumber | The number to convert. |
+| Name | Type                              | Description                            |
+| ---- | --------------------------------- | -------------------------------------- |
+| num  | number \\| string \\| BigNumber | The number to convert. |
 
 **Return Value**
 
-| Type   | Description               |
-| ------ | ------------------------- |
+| Type   | Description                               |
+| ------ | ----------------------------------------- |
 | string | The converted hex string. |
 
 **Examples**
@@ -1017,14 +1017,14 @@ Returns `true` if the given transaction is a smart contract deploy transaction. 
 
 **Parameters**
 
-| Name              | Type   | Description                                                                                                               |
-| ----------------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
+| Name              | Type   | Description                                                                                                                               |
+| ----------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionObject | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to check contract deploy transaction or not. |
 
 **Return Value**
 
-| Type    | Description                                                       |
-| ------- | ----------------------------------------------------------------- |
+| Type    | Description                                                                       |
+| ------- | --------------------------------------------------------------------------------- |
 | boolean | `true` means the transaction object is for smart contract deploy. |
 
 **Examples**
@@ -1078,14 +1078,14 @@ Returns the x and y coordinates of the given publicKey. For more information on 
 
 **Parameters**
 
-| Name      | Type   | Description                          |
-| --------- | ------ | ------------------------------------ |
+| Name      | Type   | Description                                          |
+| --------- | ------ | ---------------------------------------------------- |
 | publicKey | string | The publicKey to get x and y points. |
 
 **Return Value**
 
-| Type  | Description                                                                    |
-| ----- | ------------------------------------------------------------------------------ |
+| Type  | Description                                                                                                    |
+| ----- | -------------------------------------------------------------------------------------------------------------- |
 | Array | An array storing x and y points. Index 0 has x point, and index 1 has y point. |
 
 **Examples**
@@ -1108,14 +1108,14 @@ Returns `true` if the input is a 0x-prefixed hex string, otherwise it returns `f
 
 **Parameters**
 
-| Name  | Type   | Description                                                                   |
-| ----- | ------ | ----------------------------------------------------------------------------- |
+| Name  | Type   | Description                                                                                   |
+| ----- | ------ | --------------------------------------------------------------------------------------------- |
 | input | string | The value to be determined if the parameter is 0x-prefixed hex string or not. |
 
 **Return Value**
 
-| Type    | Description                                       |
-| ------- | ------------------------------------------------- |
+| Type    | Description                                                       |
+| ------- | ----------------------------------------------------------------- |
 | boolean | `true` means the input is 0x-prefixed hex string. |
 
 **Examples**
@@ -1144,14 +1144,14 @@ Returns a 0x-prefixed hex string. If the input is already 0x-prefixed or a non-h
 
 **Parameters**
 
-| Name  | Type   | Description                          |
-| ----- | ------ | ------------------------------------ |
+| Name  | Type   | Description                                          |
+| ----- | ------ | ---------------------------------------------------- |
 | input | string | string value to be prefixed with 0x. |
 
 **Return Value**
 
-| Type   | Description                         |
-| ------ | ----------------------------------- |
+| Type   | Description                                         |
+| ------ | --------------------------------------------------- |
 | string | 0x-prefixed hex string is returned. |
 
 **Examples**
@@ -1176,14 +1176,14 @@ Returns the result with 0x prefix stripped from input.
 
 **Parameters**
 
-| Name  | Type   | Description                 |
-| ----- | ------ | --------------------------- |
+| Name  | Type   | Description                                 |
+| ----- | ------ | ------------------------------------------- |
 | input | string | string to remove 0x prefix. |
 
 **Return Value**
 
-| Type   | Description                          |
-| ------ | ------------------------------------ |
+| Type   | Description                                          |
+| ------ | ---------------------------------------------------- |
 | string | A string stripped of 0x is returned. |
 
 **Examples**
@@ -1206,16 +1206,16 @@ This function converts the input to a [Buffer](https://nodejs.org/api/buffer.htm
 
 **Parameters**
 
-| Name  | Type                                                             | Description                            |
-| ----- | ---------------------------------------------------------------- | -------------------------------------- |
-| input | Buffer \| string \| number \| Array \| BN \| BigNumber \| object | The value to be converted to a Buffer. |
+| Name  | Type                                                                         | Description                                            |
+| ----- | ---------------------------------------------------------------------------- | ------------------------------------------------------ |
+| input | Buffer \\| string \\| number \\| Array \\| BN \\| BigNumber \\| object | The value to be converted to a Buffer. |
 
 **NOTE** `BigNumber` type is supported since caver-js [v1.6.4](https://www.npmjs.com/package/caver-js/v/1.6.4).
 
 **Return Value**
 
-| Type   | Description                                     |
-| ------ | ----------------------------------------------- |
+| Type   | Description                                                     |
+| ------ | --------------------------------------------------------------- |
 | Buffer | The value converted to Buffer type is returned. |
 
 **Examples**
@@ -1271,14 +1271,14 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 
 **Parameters**
 
-| Name  | Type                                | Description                           |
-| ----- | ----------------------------------- | ------------------------------------- |
-| input | string \| number \| BN \| BigNumber | A number to be converted to a Buffer. |
+| Name  | Type                                      | Description                                           |
+| ----- | ----------------------------------------- | ----------------------------------------------------- |
+| input | string \\| number \\| BN \\| BigNumber | A number to be converted to a Buffer. |
 
 **Return Value**
 
-| Type   | Description                                     |
-| ------ | ----------------------------------------------- |
+| Type   | Description                                                     |
+| ------ | --------------------------------------------------------------- |
 | Buffer | The value converted to Buffer type is returned. |
 
 **Examples**
@@ -1307,14 +1307,14 @@ Returns `true` if the input is in 32-bytes hash format, otherwise it returns `fa
 
 **Parameters**
 
-| Name  | Type   | Description                                                            |
-| ----- | ------ | ---------------------------------------------------------------------- |
+| Name  | Type   | Description                                                                            |
+| ----- | ------ | -------------------------------------------------------------------------------------- |
 | input | string | The value to be examined that if it is in 32-bytes hash format or not. |
 
 **Return Value**
 
-| Type    | Description                                               |
-| ------- | --------------------------------------------------------- |
+| Type    | Description                                                               |
+| ------- | ------------------------------------------------------------------------- |
 | boolean | `true` means the input is in the format of 32-bytes hash. |
 
 **Examples**
@@ -1342,14 +1342,14 @@ Returns `true` if the input is in 0x-prefixed 32-bytes hash format, otherwise it
 
 **Parameters**
 
-| Name  | Type   | Description                                                                               |
-| ----- | ------ | ----------------------------------------------------------------------------------------- |
+| Name  | Type   | Description                                                                                               |
+| ----- | ------ | --------------------------------------------------------------------------------------------------------- |
 | input | string | The value to be examined that if it is in the format of 0x-prefixed 32-bytes hash or not. |
 
 **Return Value**
 
-| Type    | Description                                                           |
-| ------- | --------------------------------------------------------------------- |
+| Type    | Description                                                                           |
+| ------- | ------------------------------------------------------------------------------------- |
 | boolean | `true` means the input is in the format of 0x-prefixed 32-bytes hash. |
 
 **Examples**
@@ -1379,14 +1379,14 @@ Returns `true` if the input is in transaction hash format, otherwise it returns 
 
 **Parameters**
 
-| Name  | Type   | Description                                                                              |
-| ----- | ------ | ---------------------------------------------------------------------------------------- |
+| Name  | Type   | Description                                                                                              |
+| ----- | ------ | -------------------------------------------------------------------------------------------------------- |
 | input | string | The value to be determined if the parameter is in the format of transaction hash or not. |
 
 **Return Value**
 
-| Type    | Description                                                  |
-| ------- | ------------------------------------------------------------ |
+| Type    | Description                                                                  |
+| ------- | ---------------------------------------------------------------------------- |
 | boolean | `true` means the input is in the format of transaction hash. |
 
 **Examples**
@@ -1416,14 +1416,14 @@ Returns `true` if the input is in transaction hash format, otherwise it returns 
 
 **Parameters**
 
-| Name  | Type   | Description                                                                              |
-| ----- | ------ | ---------------------------------------------------------------------------------------- |
+| Name  | Type   | Description                                                                                              |
+| ----- | ------ | -------------------------------------------------------------------------------------------------------- |
 | input | string | The value to be determined if the parameter is in the format of transaction hash or not. |
 
 **Return Value**
 
-| Type    | Description                                                  |
-| ------- | ------------------------------------------------------------ |
+| Type    | Description                                                                  |
+| ------- | ---------------------------------------------------------------------------- |
 | boolean | `true` means the input is in the format of transaction hash. |
 
 **Examples**
@@ -1451,14 +1451,14 @@ Returns `true` if `privateKey` is valid, otherwise it returns `false`.
 
 **Parameters**
 
-| Name       | Type   | Description                       |
-| ---------- | ------ | --------------------------------- |
+| Name       | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
 | privateKey | string | A private key string to validate. |
 
 **Return Value**
 
-| Type    | Description                           |
-| ------- | ------------------------------------- |
+| Type    | Description                                           |
+| ------- | ----------------------------------------------------- |
 | boolean | `true` means the privateKey is valid. |
 
 **Examples**
@@ -1484,14 +1484,14 @@ Returns `true` if publicKey is valid, otherwise it returns `false`.
 
 **Parameters**
 
-| Name      | Type   | Description                      |
-| --------- | ------ | -------------------------------- |
+| Name      | Type   | Description                                      |
+| --------- | ------ | ------------------------------------------------ |
 | publicKey | string | A public key string to validate. |
 
 **Return Value**
 
-| Type    | Description                          |
-| ------- | ------------------------------------ |
+| Type    | Description                                          |
+| ------- | ---------------------------------------------------- |
 | boolean | `true` means the publicKey is valid. |
 
 **Examples**
@@ -1525,14 +1525,14 @@ Returns `true` if a role is valid, otherwise it returns `false`. You can check r
 
 **Parameters**
 
-| Name | Type   | Description                |
-| ---- | ------ | -------------------------- |
+| Name | Type   | Description                                |
+| ---- | ------ | ------------------------------------------ |
 | role | string | A role string to validate. |
 
 **Return Value**
 
-| Type    | Description                     |
-| ------- | ------------------------------- |
+| Type    | Description                                     |
+| ------- | ----------------------------------------------- |
 | boolean | `true` means the role is valid. |
 
 **Examples**
@@ -1561,14 +1561,14 @@ The block number should be one of the types below:
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                                               |
-| ----------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | string \| number | The block number to validate. This can be block number in number type or block tag(`latest`, `pending`, `earliest`, `genesis`) string. |
+| Name        | Type               | Description                                                                                                                                                                               |
+| ----------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | string \\| number | The block number to validate. This can be block number in number type or block tag(`latest`, `pending`, `earliest`, `genesis`) string. |
 
 **Return Value**
 
-| Type    | Description                        |
-| ------- | ---------------------------------- |
+| Type    | Description                                        |
+| ------- | -------------------------------------------------- |
 | boolean | `true` means blockNumber is valid. |
 
 **Examples**
@@ -1594,14 +1594,14 @@ Returns `true` if the parameter is predefined block tag.
 
 **Parameters**
 
-| Name            | Type   | Description           |
-| --------------- | ------ | --------------------- |
+| Name            | Type   | Description                           |
+| --------------- | ------ | ------------------------------------- |
 | predefinedBlock | string | The predefined block. |
 
 **Return Value**
 
-| Type    | Description                                                 |
-| ------- | ----------------------------------------------------------- |
+| Type    | Description                                                                 |
+| ------- | --------------------------------------------------------------------------- |
 | boolean | `true` means predefinedBlock is valid predefined block tag. |
 
 **Examples**
@@ -1626,14 +1626,14 @@ In caver-js, if signatures or feePayerSignatures is empty, the value representin
 
 **Parameters**
 
-| Name | Type            | Description                                                                                                                                                     |
-| ---- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sig  | object \| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata) or array of [SignatureData](caver-wallet/keyring.md#signaturedata) to check empty or not. |
+| Name | Type              | Description                                                                                                                                                                     |
+| ---- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sig  | object \\| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata) or array of [SignatureData](caver-wallet/keyring.md#signaturedata) to check empty or not. |
 
 **Return Value**
 
-| Type    | Description                    |
-| ------- | ------------------------------ |
+| Type    | Description                                    |
+| ------- | ---------------------------------------------- |
 | boolean | `true` means the sig is empty. |
 
 **Examples**
@@ -1656,14 +1656,14 @@ Returns `true` if key is in [KlaytnWalletKey](../../../../learn/accounts.md#klay
 
 **Parameters**
 
-| Name | Type   | Description                                                    |
-| ---- | ------ | -------------------------------------------------------------- |
+| Name | Type   | Description                                                                    |
+| ---- | ------ | ------------------------------------------------------------------------------ |
 | key  | string | A key string to check in the format of KlaytnWalletKey or not. |
 
 **Return Value**
 
-| Type    | Description                                                                                                       |
-| ------- | ----------------------------------------------------------------------------------------------------------------- |
+| Type    | Description                                                                                                                       |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | boolean | `true` means the key is `0x{private key}0x{type}0x{address in hex}` or `{private key}0x{type}0x{address in hex}`. |
 
 **Examples**
@@ -1689,14 +1689,14 @@ Converts buffer to 0x-prefixed hex string.
 
 **Parameters**
 
-| Name   | Type   | Description                        |
-| ------ | ------ | ---------------------------------- |
+| Name   | Type   | Description                                        |
+| ------ | ------ | -------------------------------------------------- |
 | buffer | Buffer | A buffer to convert to hex string. |
 
 **Return Value**
 
-| Type   | Description                 |
-| ------ | --------------------------- |
+| Type   | Description                                 |
+| ------ | ------------------------------------------- |
 | string | The 0x-prefixed hex string. |
 
 **Examples**
@@ -1719,14 +1719,14 @@ Parses [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format)
 
 **Parameters**
 
-| Name | Type   | Description                                                                         |
-| ---- | ------ | ----------------------------------------------------------------------------------- |
+| Name | Type   | Description                                                                                         |
+| ---- | ------ | --------------------------------------------------------------------------------------------------- |
 | key  | string | A [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format) string. |
 
 **Return Value**
 
-| Type  | Description                 |
-| ----- | --------------------------- |
+| Type  | Description                                 |
+| ----- | ------------------------------------------- |
 | Array | The parsed KlaytnWalletKey. |
 
 **Examples**
@@ -1750,14 +1750,14 @@ Hashes message with Klaytn specific prefix: `keccak256("\x19Klaytn Signed Messag
 
 **Parameters**
 
-| Name    | Type   | Description                                                               |
-| ------- | ------ | ------------------------------------------------------------------------- |
+| Name    | Type   | Description                                                                                               |
+| ------- | ------ | --------------------------------------------------------------------------------------------------------- |
 | message | string | A message to hash. If it is a HEX string, it will be UTF-8 decoded first. |
 
 **Return Value**
 
-| Type   | Description                                     |
-| ------ | ----------------------------------------------- |
+| Type   | Description                                                     |
+| ------ | --------------------------------------------------------------- |
 | string | The hashed message with Klaytn specific prefix. |
 
 **Examples**
@@ -1777,16 +1777,16 @@ Recovers the Klaytn address that was used to sign the given data.
 
 **Parameters**
 
-| Name      | Type            | Description                                                                                                                                                                                                                                           |
-| --------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message   | string          | Either message or hashed message.                                                                                                                                                                                                                     |
-| signature | object \| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                                                                                |
-| isHashed  | boolean         | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
+| Name      | Type              | Description                                                                                                                                                                                                                                                                             |
+| --------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message   | string            | Either message or hashed message.                                                                                                                                                                                                                                       |
+| signature | object \\| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                                                                                                  |
+| isHashed  | boolean           | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
 
 **Return Value**
 
-| Type   | Description                                |
-| ------ | ------------------------------------------ |
+| Type   | Description                                                |
+| ------ | ---------------------------------------------------------- |
 | string | The Klaytn address used to sign this data. |
 
 **Examples**
@@ -1817,16 +1817,16 @@ Recovers the public key that was used to sign the given data.
 
 **Parameters**
 
-| Name      | Type            | Description                                                                                                                                                                      |
-| --------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message   | string          | Either message or hashed message.                                                                                                                                                |
-| signature | object \| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                           |
-| isHashed  | boolean         | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
+| Name      | Type              | Description                                                                                                                                                                                                        |
+| --------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| message   | string            | Either message or hashed message.                                                                                                                                                                  |
+| signature | object \\| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                             |
+| isHashed  | boolean           | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
 
 **Return Value**
 
-| Type   | Description                            |
-| ------ | -------------------------------------- |
+| Type   | Description                                            |
+| ------ | ------------------------------------------------------ |
 | string | The public key used to sign this data. |
 
 **Examples**
@@ -1866,14 +1866,14 @@ Returns an address derived from a public key. This function simply converts the 
 
 **Parameters**
 
-| Name      | Type   | Description                               |
-| --------- | ------ | ----------------------------------------- |
+| Name      | Type   | Description                                               |
+| --------- | ------ | --------------------------------------------------------- |
 | publicKey | string | The public key string to get the address. |
 
 **Return Value**
 
-| Type   | Description                                   |
-| ------ | --------------------------------------------- |
+| Type   | Description                                                   |
+| ------ | ------------------------------------------------------------- |
 | string | The address string derived from a public key. |
 
 **Examples**
@@ -1893,14 +1893,14 @@ Compresses the uncompressed public key.
 
 **Parameters**
 
-| Name                  | Type   | Description                 |
-| --------------------- | ------ | --------------------------- |
+| Name                  | Type   | Description                                 |
+| --------------------- | ------ | ------------------------------------------- |
 | uncompressedPublicKey | string | An uncompressed public key. |
 
 **Return Value**
 
-| Type   | Description              |
-| ------ | ------------------------ |
+| Type   | Description                              |
+| ------ | ---------------------------------------- |
 | string | A compressed public key. |
 
 **Examples**
@@ -1920,14 +1920,14 @@ Decompresses the compressed public key.
 
 **Parameters**
 
-| Name                | Type   | Description              |
-| ------------------- | ------ | ------------------------ |
+| Name                | Type   | Description                              |
+| ------------------- | ------ | ---------------------------------------- |
 | compressedPublicKey | string | A compressed public key. |
 
 **Return Value**
 
-| Type   | Description                 |
-| ------ | --------------------------- |
+| Type   | Description                                 |
+| ------ | ------------------------------------------- |
 | string | An uncompressed public key. |
 
 **Examples**
@@ -1947,14 +1947,14 @@ Returns `true` if public key is compressed, otherwise `false`.
 
 **Parameters**
 
-| Name      | Type   | Description   |
-| --------- | ------ | ------------- |
+| Name      | Type   | Description                   |
+| --------- | ------ | ----------------------------- |
 | publicKey | string | A public key. |
 
 **Return Value**
 
-| Type    | Description              |
-| ------- | ------------------------ |
+| Type    | Description                              |
+| ------- | ---------------------------------------- |
 | boolean | `true` means compressed. |
 
 **Examples**
@@ -1976,14 +1976,14 @@ Decodes a raw signature data composed of 'R(32 byte) + S(32 byte) + V(1byte)'.
 
 **Parameters**
 
-| Name      | Type   | Description                                                                                                                                    |
-| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name      | Type   | Description                                                                                                                                                                    |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | signature | string | The signature string to decode. It is composed of R(32bytes) + S(32bytes) + V(1byte). |
 
 **Return Value**
 
-| Type   | Description                                                |
-| ------ | ---------------------------------------------------------- |
+| Type   | Description                                                                |
+| ------ | -------------------------------------------------------------------------- |
 | object | A `SignatureData` instance that includes `v`, `r` and `s`. |
 
 **Examples**
