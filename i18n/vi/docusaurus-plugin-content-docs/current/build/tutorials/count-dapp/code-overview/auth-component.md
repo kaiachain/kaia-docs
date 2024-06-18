@@ -1,75 +1,78 @@
-# Thành phần xác thực
+# Auth Component
 
 `src/components/Auth.js`:
 
-## Thành phần `Xác thực` <a href="#auth-component" id="auth-component"></a>
+## `Auth` component <a href="#auth-component" id="auth-component"></a>
 
-1\) Hình nền\
-2\) Tổng quan thành phần `Auth`\
-3\) Tính năng thành phần `Auth`: Người dùng có thể nhập khóa riêng tư để đăng nhập.\
-4\) Tính năng thành phần `Auth`: Người dùng có thể nhập tập tin lưu trữ khóa và nhập mật khẩu để đăng nhập.\
-5\) Tính năng thành phần `Auth`: Người dùng có thể đăng xuất và xóa thông tin phiên bản ví khỏi trình duyệt.
+1\) Background\
+2\) `Auth` component overview\
+3\) `Auth` component feature: User can input private key to login.\
+4\) `Auth` component feature: User can import a keystore file and input password to log in.\
+5\) `Auth` component feature: User can logout and clear the wallet instance information from the browser.
 
-### 1. Hình nền <a href="#1-background" id="1-background"></a>
+### 1. Background <a href="#1-background" id="1-background"></a>
 
-Trong ứng dụng trên nền tảng blockchain, chúng tôi thường tương tác với hợp đồng thông minh.\
-Có 2 loại tương tác với hợp đồng.\ `1) Đọc dữ liệu từ hợp đồng.` `2) Ghi dữ liệu vào hợp đồng.`
+In a blockchain-based app, we usually interact with smart contracts.\
+There are 2 types of interactions with a contract.\
+`1) Read data from a contract.` `2) Write data to a contract.`
 
-Không tốn chi phí để đọc dữ liệu từ hợp đồng.\
-Tuy nhiên, có chi phí cho việc ghi dữ liệu vào hợp đồng.
+It is cost-free to read data from contracts.\
+On the other hand, there is a cost for writing data to contract.
 
-cf) `Gửi giao dịch`\
-Ghi dữ liệu vào hợp đồng hoặc blockchain được gọi là 'gửi giao dịch'.\ Ví dụ: Nếu bạn gửi 5 KLAY cho bạn của mình, bạn có thể coi là `ghi dữ liệu vào blockchain là tôi đã gửi 5 KLAY cho bạn của mình`.\
-Tương tự với cách gọi phương pháp hợp đồng. Bạn có thể coi là `ghi dữ liệu vào hợp đồng là tôi đặt giá trị của biến X bằng 100`. Tất cả các hành động liên quan đến việc ghi dữ liệu vào blockchain hoặc hợp đồng đều được gọi là `gửi giao dịch`.
+cf) `Sending a transaction`\
+Writing data to contracts or blockchain is called 'sending a transaction'.\
+For example, if you send 5 KAIA to your friend, you could think of it as `writing data to the blockchain that I sent 5 KAIA to my friend`.\
+Calling a contract method is the same. You could think of it as `writing data onto the contract that I set variable X to 100`. All actions related to writing data to blockchain or contract is called `sending a transaction`.
 
-Để ghi dữ liệu vào hợp đồng, bạn nên có một tài khoản Klaytn có số dư KLAY để thanh toán phí giao dịch.\
-Thành phần `Xác thực` sẽ giúp bạn đăng nhập vào ứng dụng.
+To write data to contract, you should have a Kaia account which has KAIA to pay for the transaction fee.\
+`Auth` component helps you log in to your app.
 
-### 2. Tổng quan thành phần`Auth` <a href="#2-auth-component-overview" id="2-auth-component-overview"></a>
+### 2. `Auth` component overview <a href="#2-auth-component-overview" id="2-auth-component-overview"></a>
 
-Thành phần `'Auth.js'` là mã lệnh dài nhất trong ứng dụng hướng dẫn của chúng tôi, vì thế chúng tôi sẽ chia nhỏ đoạn mã lệnh ra và thực hiện từng bước một.
+`'Auth.js'` component is the longest code in our tutorial app, so we will break down the code and go over one by one.
 
-Thành phần này cung cấp giao diện người dùng sau đây. ![auth-component](/img/build/tutorials/tutorial-auth-component.png)
+This component provides the following user interface. ![auth-component](/img/build/tutorials/tutorial-auth-component.png)
 
-Tính năng chính là:\
-1\) Người dùng có thể nhập khóa riêng tư để đăng nhập.\ 2) Người dùng có thể nhập tập tin lưu trữ khóa và nhập mật khẩu để đăng nhập.\
-3\) Người dùng có thể đăng xuất và xóa thông tin phiên bản của ví từ trình duyệt.
+Main features are:\
+1\) User can input private key to login.\
+2\) User can import a keystore file and input password to login.\
+3\) User can logout and clear the wallet instance information from the browser.
 
-### 3. Tính năng thành phần `Auth`: Người dùng có thể nhập khóa riêng tư để đăng nhập. <a href="#3-auth-component-feature-user-can-input-private-key-to-login" id="3-auth-component-feature-user-can-input-private-key-to-login"></a>
+### 3. `Auth` component feature: User can input private key to login. <a href="#3-auth-component-feature-user-can-input-private-key-to-login" id="3-auth-component-feature-user-can-input-private-key-to-login"></a>
 
-Cần có phương pháp `integrateWallet` để đăng nhập bằng khóa riêng tư.
+`integrateWallet` method is needed to login with private key.
 
 ```javascript
 integrateWallet = (privateKey) => {
-  const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)
-  cav.klay.accounts.wallet.add(walletInstance)
+  const walletInstance = cav.kaia.accounts.privateKeyToAccount(privateKey)
+  cav.kaia.accounts.wallet.add(walletInstance)
   sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
   this.reset()
 }
 ```
 
-Hàm `integateWallet` lấy `privateKey` làm tham số để tạo ra một phiên bản ví.
+`integateWallet` function takes `privateKey` as an argument, use it to generate a wallet instance.
 
-Dòng 1: `const walletInstance = cav.klay.tài khoảns.privateKeyToAccount(privateKey)`\
-Nó lưu phiên bản ví do API `privateKeyToAccount` tạo ra vào biến `walletInstance`.
+Line 1: `const walletInstance = cav.kaia.accounts.privateKeyToAccount(privateKey)`\
+It stores the wallet instance made by `privateKeyToAccount` API to the `walletInstance` variable.
 
-Dòng 2: `cav.klay.tài khoảns.wallet.add(walletInstance)`\
-Để gửi giao dịch, bạn nên thêm phiên bản ví vào caver bằng hàm `cav.klay.tài khoảns.wallet.add(walletInstance)`.
+Line 2: `cav.kaia.accounts.wallet.add(walletInstance)`\
+To send a transaction, you should add a wallet instance to caver through `cav.kaia.accounts.wallet.add(walletInstance)`.
 
-Dòng 3: `sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))`\
-`sessionStorage.setItem` là API trình duyệt dùng để lưu trữ giá trị vào nơi lưu trữ phiên của trình duyệt.\
-Vì không muốn mất trạng thái đăng nhập cả khi làm mới trang ứng dụng hướng dẫn của mình, chúng tôi đã lưu phiên bản của ví vào nơi lưu trữ phiên bằng chuỗi JSON.
+Line 3: `sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))`\
+`sessionStorage.setItem` is a browser API used for storing a value to the browser's session storage.\
+Since we want not to lose our logged-in status even we refresh our tutorial app page, we stored our wallet instance to the session storage as a JSON string.
 
-cf) Các mục trong phần lưu trữ phiên sẽ mất khi người dùng đóng tab trình duyệt.
+cf) Items in the session storage disappears when the user closes the browser tab.
 
-Dòng 4: `this.reset()`\
-Nó đặt lại trạng thái của thành phần hiện tại về trạng thái khởi tạo ban đầu để xóa dữ liệu bạn nhập.
+Line 4: `this.reset()`\
+It resets the current component's state to the initial state to clear your input.
 
-Để biết thêm thông tin về API `privateKeyToAccount` của caver-js, hãy xem [caver.klay.tài khoảns.privateKeyToAccount](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount)
+For further information about `privateKeyToAccount` API of caver-js, see [caver.kaia.accounts.privateKeyToAccount](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#privatekeytoaccount)
 
-### 4. Tính năng thành phần `Auth`: Người dùng có thể nhập tập tin lưu trữ khóa và nhập mật khẩu để đăng nhập. <a href="#4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log" id="4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log"></a>
+### 4. `Auth` component feature: User can import keystore file and input password to login. <a href="#4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log" id="4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log"></a>
 
-Cần phương pháp `handleImport` và `handleLogin` để đăng nhập bằng lưu trữ khóa và mật khẩu.
+`handleImport` and `handleLogin` methods are needed to login with a keystore and password.
 
 ```javascript
 /**
@@ -108,15 +111,15 @@ handleImport = (e) => {
 }
 ```
 
-Để nhập tập tin từ người dùng, chúng tôi sử dụng API trình duyệt `FileReader`.\
-`e.target.files[0]` chứa thông tin meta cho tập tin. Để đọc nội dung của tập tin, chúng tôi gọi API `fileReader.readAsText(keystore)`.\
-Sau khi gọi hàm `fileReader.readAsText(keystore)`, hàm `fileReader.onload` sẽ chạy để lấy nội dung của tập tin vào `e.target.result`.\
-Sau khi nhập tập tin lưu trữ khóa, chúng tôi nhập mật khẩu.
+To import a file from user, we use `FileReader` browser API.\
+`e.target.files[0]` contains meta information for the file. To read the content of the file, we call `fileReader.readAsText(keystore)` API.\
+After calling `fileReader.readAsText(keystore)`, `fileReader.onload` function fires to take the content of the file as `e.target.result`.\
+After importing the keystore file, we get password input.
 
-cf) Lưu trữ khóa chứa khóa riêng tư được mã hóa. Chúng tôi cần mật khẩu trùng khớp để giải mã Lưu trữ khóa, từ đó lấy được khóa riêng tư thực.\
-_CẢNH BÁO Không để lộ tập tin lưu trữ khóa của mình cho người khác!_
+cf) Keystore contains an encrypted private key. We need the matching password to decrypt the keystore to get the actual private key.\
+_WARNING Don't expose your keystore file to another person!_
 
-Điền mật khẩu vào phần `<input>`. Giá trị nhập vào sẽ được lưu trữ là trạng thái `password` bằng phương pháp `handleChange`.
+Fill password into `<input>` element. Entered value will be stored as `password` state through `handleChange` method.
 
 ```markup
 <input
@@ -128,8 +131,8 @@ _CẢNH BÁO Không để lộ tập tin lưu trữ khóa của mình cho ngư�
 />
 ```
 
-Cả tập tin lưu trữ khóa và mật khẩu của tập tin đã sẵn sàng để sử dụng. Giờ đây chúng tôi có thể giải mã tập tin lưu trữ khóa để trích xuất khóa riêng tư bằng API `cav.klay.tài khoảns.decrypt(keystore, password)`.\
-API này trả về một phiên bản ví chứa khóa riêng tư. Sau khi nhập khóa riêng tư, chúng ta có thể sử dụng phương pháp `integrateWallet` đã truy cập trước đó.
+Both the keystore file and its password are ready. We can now decrypt the keystore file to extract the private key through `cav.kaia.accounts.decrypt(keystore, password)` API.\
+This API returns a wallet instance containing the private key. After importing the private key, we can use `integrateWallet` method we've visited earlier.
 
 ```javascript
 handleLogin = () => {
@@ -143,7 +146,7 @@ handleLogin = () => {
 
   // Access type1: access through keystore + password
   try {
-    const { privateKey: privateKeyFromKeystore } = cav.klay.accounts.decrypt(keystore, password)
+    const { privateKey: privateKeyFromKeystore } = cav.kaia.accounts.decrypt(keystore, password)
     this.integrateWallet(privateKeyFromKeystore)
   } catch (e) {
     this.setState({ keystoreMsg: `Password doesn't match.` })
@@ -151,25 +154,25 @@ handleLogin = () => {
 }
 ```
 
-Để biết thêm thông tin về mã hóa tập tin lưu trữ khóa bằng mật khẩu, hãy xem [caver.klay.tài khoảns.decrypt](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#decrypt)
+For further information about decrypting keystore file with password, see [caver.kaia.accounts.decrypt](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#decrypt)
 
-### 5. Tính năng thành phần `Auth`: Người dùng có thể đăng xuất, xóa thông tin phiên bản ví từ trình duyệt. <a href="#5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from" id="5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from"></a>
+### 5. `Auth` component feature: User can logout, remove wallet instance information from browser. <a href="#5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from" id="5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from"></a>
 
-'logout' nghĩa là gỡ bỏ phiên bản ví từ trình duyệt và caver.\
-`cav.klay.tài khoảns.wallet.clear()` gỡ bỏ tất cả các phiên bản ví từ caver.\
-`sessionStorage.removeItem('walletInstance')` gỡ bỏ phiên bản ví từ phần lưu trữ phiên trình duyệt.
+'logout' means removing the wallet instance from the browser and caver.\
+`cav.kaia.accounts.wallet.clear()` removes all wallet instances from caver.\
+`sessionStorage.removeItem('walletInstance')` removes the wallet instance from the browser's session storage.
 
 ```javascript
 /**
  * removeWallet method removes
- * 1) wallet instance from caver.klay.accounts
+ * 1) wallet instance from caver.kaia.accounts
  * 2) 'walletInstance' value from session storage.
  */
 removeWallet = () => {
-  cav.klay.accounts.wallet.clear()
+  cav.kaia.accounts.wallet.clear()
   sessionStorage.removeItem('walletInstance')
   this.reset()
 }
 ```
 
-Để biết thêm thông tin về xóa phiên bản ví khỏi caver-js, hãy xem [caver.klay.tài khoảns.wallet.clear](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#wallet-clear)
+For further information about clearing a wallet instance from caver-js, see [caver.kaia.accounts.wallet.clear](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#wallet-clear)
