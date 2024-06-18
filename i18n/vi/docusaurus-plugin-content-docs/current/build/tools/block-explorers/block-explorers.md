@@ -1,8 +1,8 @@
-# Trình duyệt khối
+# Block Explorers
 
-Công cụ chuỗi khối này cho phép người dùng và người đam mê tìm kiếm thông tin thời gian thực và lịch sử về chuỗi khối. Block explorer trên Klaytn chứa thông tin về Klaytn và do đó, người dùng có thể tìm kiếm các khối, giao dịch, số dư, địa chỉ và hợp đồng trên Klaytn.
+This blockchain tool enables users and enthusiasts to search for real-time and historical information about the blockchain. Block explorers on Kaia contain information about Kaia, and as such, users can search for blocks, transactions, balances, addresses, and contracts on Kaia.
 
-Danh sách các trình duyệt được Klaytn hỗ trợ được cung cấp dưới đây:
+The list of explorers supported by Kaia is provided below:
 
-- [Klaytnscope](https://klaytnscope.com/)
-- [Klaytnfinder](https://www.klaytnfinder.io/)
+- [Kaiascope](https://klaytnscope.com/)
+- [Kaiafinder](https://www.klaytnfinder.io/)
