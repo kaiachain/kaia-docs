@@ -8,27 +8,27 @@ sidebar_label: Using Block Explorers
 
 Usually, the deployer of a smart contract is the only party with access to the code that was actually deployed, and the public cannot read the source code of a contract until the deployer has verified it. However, this is where contract verification comes in as an important step in the smart-contract development cycle, as it helps improve the transparency (for users), convenience (for developers), and security of deployed contracts.
 
-Having said that, once a smart contract is validated, block explorers like Klaytnscope and Klaytnfinder also make it possible for the public to interact with the contract's public methods using the block explorer's user interface. This is in addition to the public having direct access to the verified contract source code.
+Having said that, once a smart contract is validated, block explorers like Kaiascope and Kaiafinder also make it possible for the public to interact with the contract's public methods using the block explorer's user interface. This is in addition to the public having direct access to the verified contract source code.
 
-In this guide, we'll take a look at how to use block explorers to verify deployed smart contracts on the Klaytn Network.
+In this guide, we'll take a look at how to use block explorers to verify deployed smart contracts on the Kaia Network.
 
 ## Prerequisites
 
 - [Remix IDE](https://ide.klaytn.foundation/) and [Kaikas Wallet](https://kaikas.zendesk.com/hc/en-us/articles/6657796272793-How-do-I-install-PC-Kaikas-)
-- Enough test KLAY from [faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- Enough test KAIA from [faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
 ## Getting Started
 
-In this guide, we will be going over verifying both single contracts and multi-part contracts on the block explorers that exist in the Klaytn ecosystem, viz.:
+In this guide, we will be going over verifying both single contracts and multi-part contracts on the block explorers that exist in the Kaia ecosystem, viz.:
 
-- [Klaytnscope](http://scope.klaytn.com)
-- [Klaytnfinder](https://www.klaytnfinder.io/)
+- [Kaiascope](http://scope.klaytn.com)
+- [Kaiafinder](https://www.klaytnfinder.io/)
 
 Without further ado, let's get started!
 
 ## Deploying a single Contract
 
-To verify a smart contract, you need to deploy the contract first on the target network. Hence, for the sake of this guide, we will be deploying the contract to Klaytn Baobab Testnet. Also, in this tutorial, we will be deploying a simple counter contract named `Counter.sol` on Remix IDE. The code is shown below:
+To verify a smart contract, you need to deploy the contract first on the target network. Hence, for the sake of this guide, we will be deploying the contract to Kaia Kairos Testnet. Also, in this tutorial, we will be deploying a simple counter contract named `Counter.sol` on Remix IDE. The code is shown below:
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -52,7 +52,7 @@ contract Counter {
 
 :::note
 
-You can check this page for a tutorial on deploying smart contracts using [libraries](../../../references/sdk/sdk.md) on Klaytn Baobab Testnet. You may also use a developer tool such as [Hardhat](../../get-started/hardhat.md), [Foundry](../deploy/foundry.md), [Remix](../deploy/deploy.md#remix-ide)  or another tool if preferred, to deploy the smart contract to Klaytn Baobab Testnet.
+You can check this page for a tutorial on deploying smart contracts using [libraries](../../../references/sdk/sdk.md) on Kaia Kairos Testnet. You may also use a developer tool such as [Hardhat](../../get-started/hardhat.md), [Foundry](../deploy/foundry.md), [Remix](../deploy/deploy.md#remix-ide)  or another tool if preferred, to deploy the smart contract to Kaia Kairos Testnet.
 
 :::
 
@@ -71,7 +71,7 @@ Remix IDE :
 
   ![](/img/build/tutorials/counter-veri-parameters.png)
 
-- On Remix IDE, navigate to **Klaytn tab**.
+- On Remix IDE, navigate to **Kaia tab**.
 
   - (Optional) If the contract constructor method accepts arguments, take note of the [ABI-encoded form](https://docs.soliditylang.org/en/develop/abi-spec.html) of the constructor arguments
   - Take note of the contract address of the smart contract on the **Deployed Contracts** tab after successful deployment.
@@ -144,13 +144,13 @@ There are different tools for flattening a multi-part smart contract into a sing
 
 Having obtained all of our verification parameters, we will go over the steps for verifying a single smart contract (Counter.sol) and a multi-part smart contract (airdropTokens.sol) on the block explorer in this section.
 
-### 1. Klaytnscope
+### 1. Kaiascope
 
-To verify a single contract and multi-part contracts on Klaytnscope, follow the steps below:
+To verify a single contract and multi-part contracts on Kaiascope, follow the steps below:
 
 #### 1.1 Verifying a single contract
 
-1. Goto the search bar of [Klaytnscope](https://baobab.klaytnscope.com) and paste the deployed contract address.
+1. Goto the search bar of [Kaiascope](https://baobab.klaytnscope.com) and paste the deployed contract address.
 2. Navigate to the **contract tab** on that page.
 3. Click on the **Match Contract Source Code** link to submit contract code for verification.
 
@@ -179,7 +179,7 @@ To verify a single contract and multi-part contracts on Klaytnscope, follow the 
 
 #### 1.2 Verifying multi-part contract
 
-Verifying a multi-part contract on Klaytnscope is as straightforward as verifying a single contract, except that it requires some additional steps. In this section, we will be verifying the `airdropToken.sol` contract with the following additional steps:
+Verifying a multi-part contract on Kaiascope is as straightforward as verifying a single contract, except that it requires some additional steps. In this section, we will be verifying the `airdropToken.sol` contract with the following additional steps:
 
 - You can either Select **Source Text** under **Source Code** (step 3 of the Counter.sol example) or **Solidity File(s)** under the **Source Code** field.  In the case of **Source Text**, copy the code in the `airdropToken_flattened.sol` and paste in the text field. If **Solidity File(s)**, you can download the `airdropToken_flattened.sol` file on Remix IDE and upload to the field.
 
@@ -201,9 +201,9 @@ Once verification is done, the result of the verification will be displayed in t
 
 ![](/img/build/tutorials/airdrop-full-verification.png)
 
-### 2. Klaytnfinder
+### 2. Kaiafinder
 
-To verify a single contract and multi-part contracts on Klaytnfinder, navigate to the [contract submission request page](https://baobab.klaytnfinder.io/contracts). However, make sure your account is connected to either Kaikas or MetaMask and follow the steps below:
+To verify a single contract and multi-part contracts on Kaiafinder, navigate to the [contract submission request page](https://baobab.klaytnfinder.io/contracts). However, make sure your account is connected to either Kaikas or MetaMask and follow the steps below:
 
 ![](/img/build/tutorials/klaytnfinder-con-sub-page.png)
 
@@ -230,7 +230,7 @@ To verify a single contract and multi-part contracts on Klaytnfinder, navigate t
 
 ### 2.2 Verifying multiple-part contract
 
-Verifying a multi-part contract on Klaytnfinder follows the same step as verifying a single contract. However, it is important to note we will be uploading the `airdropToken_flattened.sol` file in the **Source Code(Solidity File)** field.
+Verifying a multi-part contract on Kaiafinder follows the same step as verifying a single contract. However, it is important to note we will be uploading the `airdropToken_flattened.sol` file in the **Source Code(Solidity File)** field.
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
@@ -240,4 +240,4 @@ After filling the verification parameters, click on the **Sign and Submit** butt
 
 ## Conclusion
 
-Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Klaytnscope and Klaytnfinder solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Klaytn Docs](https://docs.klaytn.foundation/) for more information and [Klaytn Forum](https://forum.klaytn.foundation/) if you have any questions.
+Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascope and Kaiafinder solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.klaytn.foundation/) for more information and [Kaia Forum](https://forum.klaytn.foundation/) if you have any questions.
