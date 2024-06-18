@@ -65,7 +65,7 @@ $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f
 > personal.unlockAccount(address, "password", 300)
 ```
 
-콘솔 기록이 기록되므로 계정이 노출될 수 있으므로 비밀번호 인수를 사용하지 않는 것이 좋습니다. 주의하세요.
+콘솔 기록이 기록되므로 계정이 노출될 수 있으므로 비밀번호 인수를 사용하지 않는 것이 좋습니다. You have been warned.
 
 ## 계정 잔액 확인 <a id="check-account-balance"></a>
 
