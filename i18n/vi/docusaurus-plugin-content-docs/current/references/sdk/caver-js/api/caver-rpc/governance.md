@@ -1,6 +1,6 @@
 # caver.rpc.governance
 
-`caver.rpc.governance` cung cấp lệnh gọi JSON-RPC với không gian tên `governance`.
+`caver.rpc.governance` provides JSON-RPC call with the `governance` name space.
 
 ## caver.rpc.governance.vote <a id="caver-rpc-governance-vote"></a>
 
@@ -8,27 +8,27 @@
 caver.rpc.governance.vote(key, value [, callback])
 ```
 
-Gửi một phiếu bầu mới. Nếu nút có quyền biểu quyết dựa trên chế độ quản trị thì có thể gửi phiếu bầu. Nếu không, một thông báo lỗi sẽ được trả về và phiếu bầu sẽ bị bỏ qua.
+Submits a new vote. If the node has the right to vote based on the governance mode, the vote can be submitted. If not, an error will occur and the vote will be ignored.
 
-**Tham số**
+**Parameters**
 
-| Tên      | type                   | Mô tả                                                                                                                             |
-| -------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| khóa     | chuỗi                  | Tên của tùy chọn cài đặt cấu hình sẽ được thay đổi. Khóa có dạng "domain.field".                                                  |
-| giá trị  | chuỗi \| số \| boolean | Các loại giá trị khác nhau cho từng khóa.                                                                                         |
-| callback | hàm                    | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type                            | Description                                                                                                                                         |
+| -------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key      | string                          | Name of the configuration setting to be changed. Key has the form "domain.field".                   |
+| value    | string \\| number \\| boolean | Various types of value for each key.                                                                                                |
+| callback | function                        | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../../json-rpc/governance/vote).
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `chuỗi`
+`Promise` returns `string`
 
-| type  | Mô tả                  |
-| ----- | ---------------------- |
-| chuỗi | Kết quả gửi phiếu bầu. |
+| Type   | Description                                |
+| ------ | ------------------------------------------ |
+| string | Result of vote submission. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.vote('governance.governancemode', 'ballot').then(console.log)
@@ -41,23 +41,23 @@ Your vote was successfully placed.
 caver.rpc.governance.showTally([callback])
 ```
 
-Cung cấp số phiếu bầu quản trị hiện tại. Thông tin này sẽ hiển thị tỷ lệ tán thành tổng hợp theo tỷ lệ phần trăm. Thay đổi được đề xuất sẽ được thông qua khi tỷ lệ trên 50%.
+Provides the current tally of governance votes. It shows the aggregate approval rate in percentage. The suggested change shall pass when the rate is over 50%.
 
-**Tham số**
+**Parameters**
 
-| Tên      | type | Mô tả                                                                                                                             |
-| -------- | ---- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm  | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `Mảng`
+`Promise` returns `Array`
 
-| Loại | Mô tả                                                              |
-| ----- | ------------------------------------------------------------------ |
-| Mảng  | Một mảng chứa giá trị phiếu bầu và tỷ lệ tán thành theo phần trăm. |
+| Type  | Description                                                                               |
+| ----- | ----------------------------------------------------------------------------------------- |
+| Array | An array containing the vote's value and the approval rate in percentage. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.showTally().then(console.log)
@@ -76,23 +76,23 @@ Cung cấp số phiếu bầu quản trị hiện tại. Thông tin này sẽ hi
 caver.rpc.governance.getTotalVotingPower([callback])
 ```
 
-Cung cấp tổng của tất cả quyền biểu quyết mà CN có. Mỗi CN có 1.0 \~ 2.0 quyền biểu quyết. Trong chế độ quản trị "không" và "duy nhất", totalVotingPower không cung cấp bất kỳ thông tin nào.
+Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In  the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại | Mô tả                                                                                                                             |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `số`
+`Promise` returns `number`
 
-| Loại | Mô tả                  |
-| ----- | ---------------------- |
-| số    | Tổng quyền biểu quyết. |
+| Type   | Description                         |
+| ------ | ----------------------------------- |
+| number | Total Voting Power. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getTotalVotingPower().then(console.log)
@@ -105,23 +105,23 @@ Cung cấp tổng của tất cả quyền biểu quyết mà CN có. Mỗi CN c
 caver.rpc.governance.getMyVotingPower([callback])
 ```
 
-Cung cấp quyền biểu quyết của nút. Quyền biểu quyết có thể nằm trong khoảng từ 1,0 \~ 2,0. Trong chế độ quản trị "không" và "duy nhất", totalVotingPower không cung cấp bất kỳ thông tin nào.
+Provides the voting power of the node. The voting power can be anywhere between 1.0 ~ 2.0. In the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại | Mô tả                                                                                                                             |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `số`
+`Promise` returns `number`
 
-| Loại | Mô tả                     |
-| ----- | ------------------------- |
-| số    | Quyền biểu quyết của nút. |
+| Type   | Description                          |
+| ------ | ------------------------------------ |
+| number | Node's Voting Power. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getMyVotingPower().then(console.log)
@@ -134,23 +134,23 @@ Cung cấp quyền biểu quyết của nút. Quyền biểu quyết có thể n
 caver.rpc.governance.getMyVotes([callback])
 ```
 
-Cung cấp thông tin phiếu bầu của tôi trong một giai đoạn. Mỗi phiếu bầu được lưu trữ trong một khối khi nút của người dùng tạo một khối mới. Sau khi giai đoạn hiện tại kết thúc, thông tin này sẽ bị xóa.
+Provides my vote information in the epoch. Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại | Mô tả                                                                                                                             |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `Mảng`
+`Promise` returns `Array`
 
-| Loại | Mô tả                                            |
-| ----- | ------------------------------------------------ |
-| Mảng  | Trạng thái Bỏ phiếu của nút trong một giai đoạn. |
+| Type  | Description                                        |
+| ----- | -------------------------------------------------- |
+| Array | Node's Voting status in the epoch. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getMyVotes().then(console.log)
@@ -170,23 +170,23 @@ Cung cấp thông tin phiếu bầu của tôi trong một giai đoạn. Mỗi p
 caver.rpc.governance.getChainConfig([callback])
 ```
 
-Cung cấp cấu hình chuỗi gốc. Vì hàm này chỉ lưu trữ cấu hình gốc, nên nếu có thay đổi trong chế độ quản trị được thực hiện thông qua biểu quyết thì kết quả của chainConfig sẽ thay đổi so với trạng thái hiện tại. Để xem thông tin hiện tại, vui lòng sử dụng itemsAt.
+Provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of chainConfig will differ from the current states. To see the current information, please use itemsAt.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại | Mô tả                                                                                                                             |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `đối tượng`
+`Promise` returns `object`
 
-| Loại     | Mô tả              |
-| --------- | ------------------ |
-| đối tượng | Cấu hình chuỗi gốc |
+| Type   | Description                     |
+| ------ | ------------------------------- |
+| object | The initial chain configuration |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getChainConfig().then(console.log)
@@ -224,23 +224,23 @@ Cung cấp cấu hình chuỗi gốc. Vì hàm này chỉ lưu trữ cấu hình
 caver.rpc.governance.getNodeAddress([callback])
 ```
 
-Cung cấp địa chỉ của nút mà người dùng đang sử dụng. Nó được lấy từ nodekey và được sử dụng để ký các thông báo đồng thuận. Và giá trị "governingnode" phải là một trong những địa chỉ nút của nút xác thực.
+Provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of "governingnode" has to be one of validator's node address.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại | Mô tả                                                                                                                             |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `chuỗi`
+`Promise` returns `string`
 
-| Loại | Mô tả            |
-| ----- | ---------------- |
-| chuỗi | Địa chỉ của nút. |
+| Type   | Description                            |
+| ------ | -------------------------------------- |
+| string | The address of a node. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getNodeAddress().then(console.log)
@@ -253,24 +253,24 @@ Cung cấp địa chỉ của nút mà người dùng đang sử dụng. Nó đ�
 caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 ```
 
-Trả về các mục quản trị tại một khối cụ thể. Đây là kết quả của việc biểu quyết trước đó của khối và được sử dụng làm cấu hình cho chuỗi ở số khối đã cho.
+Returns governance items at a specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
 
-**Tham số**
+**Parameters**
 
-| Tên              | Loại       | Mô tả                                                                                                                             |
-| ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrTag | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
-| callback         | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name             | Type               | Description                                                                                                                                            |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumberOrTag | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback         | function           | (optional) Optional callback, which returns an error object as the first parameter and the result as the second.    |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `đối tượng`
+`Promise` returns `object`
 
-| Loại     | Mô tả         |
-| --------- | ------------- |
-| đối tượng | Mục quản trị. |
+| Type   | Description                           |
+| ------ | ------------------------------------- |
+| object | The governance items. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getItemsAt().then(console.log)
@@ -304,23 +304,23 @@ Trả về các mục quản trị tại một khối cụ thể. Đây là kế
 caver.rpc.governance.getPendingChanges([callback])
 ```
 
-Trả về danh sách các mục đã nhận đủ số phiếu nhưng chưa hoàn tất. Vào cuối giai đoạn hiện tại, những thay đổi này sẽ được hoàn tất và kết quả sẽ có hiệu lực từ giai đoạn này đến giai đoạn tiếp theo.
+Returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
 
-**Tham số**
+**Parameters**
 
-| Tên      | type | Mô tả                                                                                                                             |
-| -------- | ---- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm  | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `đối tượng`
+`Promise` returns `object`
 
-| Loại     | Mô tả                                                         |
-| --------- | ------------------------------------------------------------- |
-| đối tượng | Các thay đổi hiện đang chờ xử lý bao gồm các khóa và giá trị. |
+| Type   | Description                                                            |
+| ------ | ---------------------------------------------------------------------- |
+| object | Currently pending changes composed of keys and values. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getPendingChanges().then(console.log)
@@ -333,23 +333,23 @@ Trả về danh sách các mục đã nhận đủ số phiếu nhưng chưa ho�
 caver.rpc.governance.getIdxCache([callback])
 ```
 
-Trả về một mảng idxCache hiện tại trong bộ nhớ đệm. idxCache chứa số khối nơi diễn ra thay đổi quản trị. Theo mặc định, bộ đệm có thể có tối đa 1000 số khối trong bộ nhớ.
+Returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại | Mô tả                                                                                                                             |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `đối tượng`
+`Promise` returns `object`
 
-| Loại | Mô tả                                       |
-| ----- | ------------------------------------------- |
-| Mảng  | Số khối nơi diễn ra việc thay đổi quản trị. |
+| Type  | Description                                                     |
+| ----- | --------------------------------------------------------------- |
+| Array | Block numbers where governance change happened. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getIdxCache().then(console.log)
@@ -362,23 +362,23 @@ Trả về một mảng idxCache hiện tại trong bộ nhớ đệm. idxCache 
 caver.rpc.governance.getIdxCacheFromDb([callback])
 ```
 
-Trả về một mảng chứa tất cả các số khối mà tại đó mọi thay đổi quản trị đã từng diễn ra. Kết quả của idxCacheFromDb giống hoặc dài hơn kết quả của [idxCache](#caver-rpc-governance-getidxcache).
+Returns an array that contains all block numbers at which any governance changes ever took place. The result of idxCacheFromDb is the same or longer than that of [idxCache](#caver-rpc-governance-getidxcache).
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại | Mô tả                                                                                                                             |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `đối tượng`
+`Promise` returns `object`
 
-| type | Mô tả                                       |
-| ---- | ------------------------------------------- |
-| Mảng | Số khối nơi diễn ra việc thay đổi quản trị. |
+| Type  | Description                                                     |
+| ----- | --------------------------------------------------------------- |
+| Array | Block numbers where governance change happened. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getIdxCacheFromDb().then(console.log)
@@ -391,29 +391,29 @@ Trả về một mảng chứa tất cả các số khối mà tại đó mọi 
 caver.rpc.governance.getItemCacheFromDb([callback])
 ```
 
-Trả về thông tin quản trị được lưu trữ trên khối đã cho. Nếu không có thay đổi nào được lưu trữ trong khối đã cho, hàm sẽ trả về null.
+Returns the governance information stored on the given block. If no changes are stored on the given block, the function returns null.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại | Mô tả                                                                                                                             |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Tham số**
+**Parameters**
 
-| Tên         | type        | Mô tả                                                                             |
-| ----------- | ----------- | --------------------------------------------------------------------------------- |
-| blockNumber | số \| chuỗi | Số khối hoặc chuỗi số hex để truy vấn thay đổi quản trị được thực hiện trên khối. |
+| Name        | Type               | Description                                                                                                |
+| ----------- | ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\| string | A block number, or the hex number string to query the governance change made on the block. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `đối tượng`
+`Promise` returns `object`
 
-| Loại     | Mô tả                                                   |
-| --------- | ------------------------------------------------------- |
-| đối tượng | Thông tin quản trị được lưu trữ tại một khối nhất định. |
+| Type   | Description                                                     |
+| ------ | --------------------------------------------------------------- |
+| object | Stored governance information at a given block. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getItemCacheFromDb(540).then(console.log)
@@ -448,23 +448,23 @@ null
 caver.rpc.governance.getVotes([callback])
 ```
 
-Trả về số phiếu bầu từ tất cả các nút trong một giai đoạn. Những phiếu bầu này được thu thập từ tiêu đề của mỗi khối.
+Returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
 
-**Tham số**
+**Parameters**
 
-| Tên      | Loại | Mô tả                                                                                                                             |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------- |
-| callback | hàm   | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `đối tượng`
+`Promise` returns `object`
 
-| Loại | Mô tả                                                        |
-| ----- | ------------------------------------------------------------ |
-| Mảng  | Phiếu bầu hiện tại bao gồm các khóa, giá trị và địa chỉ nút. |
+| Type  | Description                                                                |
+| ----- | -------------------------------------------------------------------------- |
+| Array | Current votes composed of keys, values and node addresses. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getVotes().then(console.log)
@@ -485,24 +485,24 @@ Trả về số phiếu bầu từ tất cả các nút trong một giai đoạn
 caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 ```
 
-Trả về thông tin nắm giữ tại một khối cụ thể.
+Returns the staking information at a specific block.
 
-**Tham số**
+**Parameters**
 
-| Tên              | Loại       | Mô tả                                                                                                                             |
-| ---------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrTag | số \| chuỗi | (tùy chọn) Số khối hoặc chuỗi `mới nhất` hoặc `cũ nhất`. Nếu bị bỏ qua, chuỗi `mới nhất` sẽ được sử dụng.      |
-| callback         | hàm         | (tùy chọn) Hàm callback tùy chọn trả về một đối tượng lỗi làm tham số thứ nhất và kết quả làm tham số thứ hai. |
+| Name             | Type               | Description                                                                                                                                            |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumberOrTag | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback         | function           | (optional) Optional callback, which returns an error object as the first parameter and the result as the second.    |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `đối tượng`
+`Promise` returns `object`
 
-| Loại     | Mô tả                                                                                                                                                                     |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| đối tượng | Thông tin nắm giữ. Refer to [governance_getStakingInfo](../../../../../json-rpc/governance/get-staking-info) for a description of the return result. |
+| Type   | Description                                                                                                                                                                                                 |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | Staking information. Refer to [governance_getStakingInfo](../../../../../json-rpc/governance/get-staking-info) for a description of the return result. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getStakingInfo().then(console.log)
