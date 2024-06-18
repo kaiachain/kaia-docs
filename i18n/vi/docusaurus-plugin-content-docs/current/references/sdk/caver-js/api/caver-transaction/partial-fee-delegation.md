@@ -1,8 +1,8 @@
 ---
-sidebar_label: "sidebar_label: Partial Fee Delegation"
+sidebar_label: Partial Fee Delegation
 ---
 
-# Lớp giao dịch loại ủy thác phí một phần
+# Partial Fee delegation type transaction class
 
 ## FeeDelegatedValueTransferWithRatio <a id="feedelegatedvaluetransferwithratio"></a>
 
@@ -10,43 +10,43 @@ sidebar_label: "sidebar_label: Partial Fee Delegation"
 caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransferWithRatio` biểu thị một [giao dịch chuyển giá trị có phí ủy thác theo tỷ lệ](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `FeeDelegatedValueTransferWithRatio`.
+`FeeDelegatedValueTransferWithRatio` represents a [fee delegated value transfer with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransferWithRatio` transaction.
 
-`FeeDelegatedValueTransferWithRatio` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `FeeDelegatedValueTransfer`.
+`FeeDelegatedValueTransferWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransfer` transaction.
 
 :::note
 
-LƯU Ý: Bạn có thể tạo một đối tượng `FeeDelegatedValueTransferWithRatio` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây.
-LƯU Ý: `caver.transaction.feeDelegatedValueTransferWithRatio.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+NOTE: You can create an instance of `FeeDelegatedValueTransferWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedValueTransferWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.feeDelegatedValueTransferWithRatio({...})`, vui lòng đổi thành `caver.transaction.feeDelegatedValueTransferWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferWithRatio.create({...})`.
 
 :::
 
-**thuộc tính**
+**properties**
 
-| Tên                | type  | Mô tả                                                                                                                                                                                                                            |
-| ------------------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| giá trị            | chuỗi | Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                                          |
-| từ                 | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                           |
-| đến                | chuỗi | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                   |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                     |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                        |
-| chữ ký             | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                   |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                 |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
-| nonce              | chuỗi | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
-| giá gas            | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                          |
+| Name               | Type   | Description                                                                                                                                                                                                                                                |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value              | string | The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                              |
+| from               | string | The address of the sender.                                                                                                                                                                                                                 |
+| to                 | string | The account address that will receive the transferred value.                                                                                                                                                                               |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
+| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                      |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                    |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                           |
+| chainId            | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                       |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // Create a feeDelegatedValueTransferWithRatio
 > caver.transaction.feeDelegatedValueTransferWithRatio({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, 'KLAY'),
+    value: caver.utils.toPeb(1, 'KAIA'),
     gas: 25000,
     feeRatio: 30,
 })
@@ -74,44 +74,44 @@ FeeDelegatedValueTransferWithRatio {
 caver.transaction.feeDelegatedValueTransferMemoWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransferMemoWithRatio` biểu thị một [giao dịch chuyển giá trị có phí ủy thác theo tỷ lệ kèm ghi chú](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `FeeDelegatedValueTransferMemoWithRatio`.
+`FeeDelegatedValueTransferMemoWithRatio` represents a [fee delegated value transfer memo with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransferMemoWithRatio` transaction.
 
-`FeeDelegatedValueTransferMemoWithRatio` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `FeeDelegatedValueTransferMemoWithRatio`.
+`FeeDelegatedValueTransferMemoWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransferMemoWithRatio` transaction.
 
 :::note
 
-LƯU Ý: Bạn có thể tạo một đối tượng `FeeDelegatedValueTransferMemoWithRatio` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây.
-LƯU Ý: `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+NOTE: You can create an instance of `FeeDelegatedValueTransferMemoWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.feeDelegatedValueTransferMemoWithRatio({...})`, vui lòng đổi thành `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferMemoWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create({...})`.
 
 :::
 
-**thuộc tính**
+**properties**
 
-| Tên                | Loại | Mô tả                                                                                                                                                                                                                            |
-| ------------------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| giá trị            | chuỗi | Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                                          |
-| từ                 | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                           |
-| đến                | chuỗi | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                   |
-| nhập               | chuỗi | Dữ liệu gắn kèm theo giao dịch. Thông điệp cần được truyền vào thuộc tính này.                                                                                                                                                   |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                     |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                        |
-| chữ ký             | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                   |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                 |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
-| nonce              | chuỗi | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
-| giá gas            | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                          |
+| Name               | Type   | Description                                                                                                                                                                                                                                                |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value              | string | The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                              |
+| from               | string | The address of the sender.                                                                                                                                                                                                                 |
+| to                 | string | The account address that will receive the transferred value.                                                                                                                                                                               |
+| input              | string | Data attached to the transaction. The message should be passed to this property.                                                                                                                                           |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
+| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                      |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                    |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                           |
+| chainId            | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                       |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // Create a feeDelegatedValueTransferMemoWithRatio
 > caver.transaction.feeDelegatedValueTransferMemoWithRatio({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, 'KLAY'),
+    value: caver.utils.toPeb(1, 'KAIA'),
     gas: 25000,
     input: '0x68656c6c6f',
     feeRatio: 30,
@@ -141,37 +141,37 @@ FeeDelegatedValueTransferMemoWithRatio {
 caver.transaction.feeDelegatedAccountUpdateWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedAccountUpdateWithRatio` biểu thị một [giao dịch cập nhật tài khoản có phí ủy thác theo tỷ lệ](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `FeeDelegatedAccountUpdateWithRatio`.
+`FeeDelegatedAccountUpdateWithRatio` represents a [fee delegated account update with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio). The `transactionObject` can have properties below to create a `FeeDelegatedAccountUpdateWithRatio` transaction.
 
-`FeeDelegatedAccountUpdateWithRatio` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `FeeDelegatedAccountUpdateWithRatio`.
+`FeeDelegatedAccountUpdateWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedAccountUpdateWithRatio` transaction.
 
 :::note
 
-LƯU Ý: Bạn có thể tạo một đối tượng `FeeDelegatedAccountUpdateWithRatio` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây.
-LƯU Ý: `caver.transaction.feeDelegatedAccountUpdateWithRatio.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+NOTE: You can create an instance of `FeeDelegatedAccountUpdateWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedAccountUpdateWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.feeDelegatedAccountUpdateWithRatio({...})`, vui lòng đổi thành `caver.transaction.feeDelegatedAccountUpdateWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedAccountUpdateWithRatio({...})`, please change it to `caver.transaction.feeDelegatedAccountUpdateWithRatio.create({...})`.
 
 :::
 
-**thuộc tính**
+**properties**
 
-| Tên                | type                                                          | Mô tả                                                                                                                                                                                                                            |
-| ------------------ | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ                 | chuỗi                                                         | Địa chỉ của người gửi.                                                                                                                                                                                                           |
-| tài khoản          | [Account] | Một đối tượng [Account] chứa các thông tin cần thiết để cập nhật tài khoản của bạn.                                                                                          |
-| gas                | chuỗi                                                         | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                     |
-| feeRatio           | chuỗi                                                         | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                        |
-| chữ ký             | Mảng                                                          | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                   |
-| feePayerSignatures | Mảng                                                          | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                 |
-| feePayer           | chuỗi                                                         | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
-| nonce              | chuỗi                                                         | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
-| giá gas            | chuỗi                                                         | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                |
-| chainId            | chuỗi                                                         | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                          |
+| Name               | Type                                                          | Description                                                                                                                                                                                                                                                |
+| ------------------ | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string                                                        | The address of the sender.                                                                                                                                                                                                                 |
+| account            | [Account] | An [Account] instance that contains the information needed to update your account.                                                                                                     |
+| gas                | string                                                        | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
+| feeRatio           | string                                                        | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| signatures         | Array                                                         | (optional) An array of signatures.                                                                                                                                                                                      |
+| feePayerSignatures | Array                                                         | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
+| feePayer           | string                                                        | (optional) The address of fee payer.                                                                                                                                                                                    |
+| nonce              | string                                                        | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
+| gasPrice           | string                                                        | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                           |
+| chainId            | string                                                        | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                       |
 
-Để biết cách tạo một đối tượng [Account] cho mỗi loại `AccountKey`, hãy tham khảo [Bắt đầu - Cập nhật tài khoản](../../get-started.md#account-update) hoặc [caver.tài khoản.create](../caver.account.md#caver-account-create).
+For how to create an [Account] instance for each `AccountKey` type, refer to [Getting Started - Account Update](../../get-started.md#account-update) or [caver.account.create](../caver.account.md#caver-account-create).
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // Create a feeDelegatedAccountUpdateWithRatio
@@ -207,39 +207,39 @@ FeeDelegatedAccountUpdateWithRatio {
 caver.transaction.feeDelegatedSmartContractDeployWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractDeployWithRatio` biểu thị một [giao dịch triển khai hợp đồng thông minh có phí ủy thác theo tỷ lệ](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `FeeDelegatedSmartContractDeployWithRatio`.
+`FeeDelegatedSmartContractDeployWithRatio` represents a [fee delegated smart contract deploy with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractDeployWithRatio` transaction.
 
-`FeeDelegatedSmartContractDeployWithRatio` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `FeeDelegatedSmartContractDeployWithRatio`.
+`FeeDelegatedSmartContractDeployWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractDeployWithRatio` transaction.
 
 :::note
 
-LƯU Ý: Bạn có thể tạo một đối tượng `FeeDelegatedSmartContractDeployWithRatio` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây.
-LƯU Ý: `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+NOTE: You can create an instance of `FeeDelegatedSmartContractDeployWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.feeDelegatedSmartContractDeployWithRatio({...})`, vui lòng đổi thành `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractDeployWithRatio({...})`, please change it to `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create({...})`.
 
 :::
 
-**thuộc tính**
+**properties**
 
-| Tên                | Loại                | Mô tả                                                                                                                                                                                                                                                                         |
-| ------------------ | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ                 | chuỗi                | Địa chỉ của người gửi.                                                                                                                                                                                                                                                        |
-| nhập               | chuỗi                | Dữ liệu gắn kèm theo giao dịch. Chỉ thị biên dịch của hợp đồng thông minh sẽ được triển khai và các đối số của nó. Bạn có thể lấy dữ liệu này bằng hàm [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy).                                                |
-| gas                | chuỗi                | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                  |
-| feeRatio           | chuỗi                | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                                                                     |
-| giá trị            | chuỗi                | (tùy chọn, mặc định: `'0x0'`) Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                                      |
-| đến                | chuỗi                | (tùy chọn, mặc định: `'0x'`) Địa chỉ mà hợp đồng thông minh được triển khai. Hiện tại không thể xác định giá trị này. Tính năng xác định địa chỉ sẽ được hỗ trợ trong tương lai.                                                                           |
-| humanReadable      | kiểu dữ liệu Boolean | (tùy chọn, mặc định: `false`) Phải là giá trị false vì địa chỉ con người có thể đọc được chưa được hỗ trợ.                                                                                                                                                 |
-| codeFormat         | chuỗi                | (tùy chọn, mặc định: `'EVM'`) Định dạng mã của mã hợp đồng thông minh. Hiện tại, giá trị được hỗ trợ chỉ có EVM. Giá trị này được chuyển đổi thành chuỗi số hex sau khi được gán (ví dụ:> `EVM` được chuyển đổi thành `0x0`) bên trong. |
-| chữ ký             | Mảng                 | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                                                                |
-| feePayerSignatures | Mảng                 | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                                                              |
-| feePayer           | chuỗi                | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                                                      |
-| nonce              | chuỗi                | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần.                                              |
-| giá gas            | chuỗi                | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                                                             |
-| chainId            | chuỗi                | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                                                       |
+| Name               | Type    | Description                                                                                                                                                                                                                                                                                                                                    |
+| ------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string  | The address of the sender.                                                                                                                                                                                                                                                                                                     |
+| input              | string  | Data attached to the transaction. The byte code of the smart contract to be deployed and its arguments. You can get this through [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy).                                                       |
+| gas                | string  | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                       |
+| feeRatio           | string  | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed.                                                                                     |
+| value              | string  | (optional, default: `'0x0'`) The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                                                  |
+| to                 | string  | (optional, default: `'0x'`) Address to which the smart contract is deployed. Currently, this value cannot be defined. Specifying the address will be supported in the future.                                                                               |
+| humanReadable      | boolean | (optional, default: `false`) This must be false since human-readable address is not supported yet.                                                                                                                                                                                          |
+| codeFormat         | string  | (optional, default: `'EVM'`) The code format of smart contract code. The supported value, for now, is EVM only. This value is converted to hex string after the assignment(e.g> `EVM` is converted to `0x0`) internally. |
+| signatures         | Array   | (optional) An array of signatures.                                                                                                                                                                                                                                                                          |
+| feePayerSignatures | Array   | (optional) An array of feePayerSignatures.                                                                                                                                                                                                                                                                  |
+| feePayer           | string  | (optional) The address of fee payer.                                                                                                                                                                                                                                                                        |
+| nonce              | string  | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                                                        |
+| gasPrice           | string  | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                                                                                                               |
+| chainId            | string  | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                                                                                                           |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // Create a feeDelegatedSmartContractDeployWithRatio
@@ -276,37 +276,37 @@ FeeDelegatedSmartContractDeployWithRatio {
 caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractExecutionWithRatio` biểu thị một [giao dịch thực thi hợp đồng thông minh có phí ủy thác theo tỷ lệ](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `FeeDelegatedSmartContractExecutionWithRatio`.
+`FeeDelegatedSmartContractExecutionWithRatio` represents a [fee delegated smart contract execution with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractExecutionWithRatio` transaction.
 
-`FeeDelegatedSmartContractExecutionWithRatio` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `FeeDelegatedSmartContractExecutionWithRatio`.
+`FeeDelegatedSmartContractExecutionWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractExecutionWithRatio` transaction.
 
 :::note
 
-LƯU Ý: Bạn có thể tạo một đối tượng `FeeDelegatedSmartContractExecutionWithRatio` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây.
-LƯU Ý: `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+NOTE: You can create an instance of `FeeDelegatedSmartContractExecutionWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.feeDelegatedSmartContractExecutionWithRatio({...})`, vui lòng đổi thành `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractExecutionWithRatio({...})`, please change it to `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create({...})`.
 
 :::
 
-**thuộc tính**
+**properties**
 
-| Tên                | Loại | Mô tả                                                                                                                                                                                                                                                                 |
-| ------------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ                 | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                                                                |
-| đến                | chuỗi | Địa chỉ thực thi tài khoản hợp đồng thông minh.                                                                                                                                                                                                                       |
-| nhập               | chuỗi | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch. Đầu vào là một chuỗi mã hóa cho biết một hàm cần gọi và các tham số được truyền vào hàm này. Bạn có thể lấy chuỗi mã hóa này bằng hàm [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                          |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                                                             |
-| giá trị            | chuỗi | (tùy chọn, mặc định: `'0x0'`) Số lượng KLAY tính bằng peb sẽ được chuyển. Bạn có thể sử dụng hàm `caver.utils.toPeb`.                                                                                                                              |
-| chữ ký             | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                                                        |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                                                      |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                                                              |
-| nonce              | chuỗi | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần.                                      |
-| giá gas            | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                                                     |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                                                               |
+| Name               | Type   | Description                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string | The address of sender.                                                                                                                                                                                                                                                                                                                                       |
+| to                 | string | The address of the smart contract account to be executed.                                                                                                                                                                                                                                                                                                    |
+| input              | string | Data attached to the transaction, used for transaction execution. The input is an encoded string that indicates a function to call and parameters to be passed to this function. You can get this encoded string through [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                                     |
+| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed.                                                                                                                   |
+| value              | string | (optional, default: `'0x0'`) The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                                                                                |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                                                                                                                                        |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                                                                                                                                                |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                                                                                                                                      |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                                                                                      |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                                                                                                                                             |
+| chainId            | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                                                                                                                                         |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // Create a feeDelegatedSmartContractExecutionWithRatio
@@ -342,34 +342,34 @@ FeeDelegatedSmartContractExecutionWithRatio {
 caver.transaction.feeDelegatedCancelWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedCancelWithRatio` biểu thị một [giao dịch hủy có phí ủy thác theo tỷ lệ](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `FeeDelegatedCancelWithRatio`.
+`FeeDelegatedCancelWithRatio` represents a [fee delegated cancel with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio). The `transactionObject` can have properties below to create a `FeeDelegatedCancelWithRatio` transaction.
 
-`FeeDelegatedCancelWithRatio` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `FeeDelegatedCancelWithRatio`.
+`FeeDelegatedCancelWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedCancelWithRatio` transaction.
 
 :::note
 
-LƯU Ý: Bạn có thể tạo một đối tượng `FeeDelegatedCancelWithRatio` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây.
-LƯU Ý: `caver.transaction.feeDelegatedCancelWithRatio.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+NOTE: You can create an instance of `FeeDelegatedCancelWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedCancelWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.feeDelegatedCancelWithRatio({...})`, vui lòng đổi thành `caver.transaction.feeDelegatedCancelWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedCancelWithRatio({...})`, please change it to `caver.transaction.feeDelegatedCancelWithRatio.create({...})`.
 
 :::
 
-**thuộc tính**
+**properties**
 
-| Tên                | Loại | Mô tả                                                                                                                                                                                                                            |
-| ------------------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ                 | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                           |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                     |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                        |
-| nonce              | chuỗi | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
-| chữ ký             | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                   |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                 |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
-| giá gas            | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                          |
+| Name               | Type   | Description                                                                                                                                                                                                                                                |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string | The address of the sender.                                                                                                                                                                                                                 |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
+| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                      |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                    |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                           |
+| chainId            | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                       |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // Create a feeDelegatedCancelWithRatio
@@ -401,35 +401,35 @@ FeeDelegatedCancelWithRatio {
 caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedChainDataAnchoringWithRatio` biểu thị một [giao dịch neo dữ liệu chuỗi có phí ủy thác theo tỷ lệ](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio). `transactionObject` có thể có các thuộc tính dưới đây để tạo giao dịch `FeeDelegatedChainDataAnchoringWithRatio`.
+`FeeDelegatedChainDataAnchoringWithRatio` represents a [fee delegated chain data anchoring with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio). The `transactionObject` can have properties below to create a `FeeDelegatedChainDataAnchoringWithRatio` transaction.
 
-`FeeDelegatedChainDataAnchoringWithRatio` có các thuộc tính sau đây giống như các biến thành viên. Thuộc tính được đánh dấu là `optional` nghĩa là các thuộc tính được tùy ý đưa ra trong `transactionObject` khi người dùng tạo giao dịch `FeeDelegatedChainDataAnchoringWithRatio`.
+`FeeDelegatedChainDataAnchoringWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedChainDataAnchoringWithRatio` transaction.
 
 :::note
 
-LƯU Ý: Bạn có thể tạo một đối tượng `FeeDelegatedChainDataAnchoringWithRatio` từ chuỗi mã hóa RLP. Hãy xem ví dụ dưới đây.
-LƯU Ý: `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create` được hỗ trợ kể từ phiên bản caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+NOTE: You can create an instance of `FeeDelegatedChainDataAnchoringWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-LƯU Ý: Kể từ phiên bản caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), tính năng tạo giao dịch chỉ được hỗ trợ bằng cách sử dụng hàm `create`. Nếu bạn đang tạo giao dịch bằng cách sử dụng hàm tạo như `new caver.transaction.feeDelegatedChainDataAnchoringWithRatio({...})`, vui lòng đổi thành `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create({...})`.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedChainDataAnchoringWithRatio({...})`, please change it to `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create({...})`.
 
 :::
 
-**thuộc tính**
+**properties**
 
-| Tên                | Loại | Mô tả                                                                                                                                                                                                                            |
-| ------------------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| từ                 | chuỗi | Địa chỉ của người gửi.                                                                                                                                                                                                           |
-| nhập               | chuỗi | Dữ liệu của chuỗi dịch vụ.                                                                                                                                                                                                       |
-| gas                | chuỗi | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                     |
-| feeRatio           | chuỗi | Tỷ lệ cấu thành tỷ lệ phí giao dịch mà người trả phí sẽ phải chịu. Khoảng hợp lệ của tỷ lệ phí này là từ 1 đến 99. Tỷ lệ không được phép bằng 0 hoặc bằng và cao hơn 100.                                                        |
-| nonce              | chuỗi | (tùy chọn) Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu bỏ qua tham số này, `caver.rpc.klay.getTransactionCount(address, 'pending')` sẽ được sử dụng để thiết lập số dùng một lần. |
-| chữ ký             | Mảng  | (tùy chọn) Mảng các chữ ký.                                                                                                                                                                                   |
-| feePayerSignatures | Mảng  | (tùy chọn) Mảng các chữ ký của người trả phí.                                                                                                                                                                 |
-| feePayer           | chuỗi | (tùy chọn) Địa chỉ của người trả phí.                                                                                                                                                                         |
-| giá gas            | chuỗi | (tùy chọn) Một tham số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Nếu bỏ qua tham số này, `caver.rpc.klay.getGasPrice` sẽ được sử dụng để thiết lập giá gas.                                |
-| chainId            | chuỗi | (tùy chọn) Mã chuỗi của mạng lưới Klaytn. Nếu bỏ qua tham số này, `caver.rpc.klay.getChainId` sẽ được sử dụng để thiết lập mã chuỗi.                                                                          |
+| Name               | Type   | Description                                                                                                                                                                                                                                                |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string | The address of the sender.                                                                                                                                                                                                                 |
+| input              | string | Data of the service chain.                                                                                                                                                                                                                 |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
+| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                      |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                    |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                           |
+| chainId            | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                       |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // Create a feeDelegatedChainDataAnchoringWithRatio
