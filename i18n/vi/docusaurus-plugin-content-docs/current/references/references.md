@@ -1,3 +1,3 @@
-# Giới thiệu
+# Introduction
 
-Phần này đóng vai trò là một nguồn tài nguyên toàn diện cho phát triển dApp (ứng dụng phi tập trung), cung cấp thông tin tham chiếu cần thiết quan trọng cho cả phát triển frontend và backend. Tại đây, bạn sẽ tìm thấy tài liệu chi tiết về các điểm cuối API, thư viện SDK và các thành phần quan trọng khác cho phép các nhà phát triển tạo và tích hợp các ứng dụng dựa trên blockchain một cách liền mạch. Cho dù bạn đang xây dựng giao diện người dùng hoặc tạo logic phụ trợ, phần này sẽ là tài liệu tham khảo của bạn cho tất cả các thông số kỹ thuật và chi tiết chức năng.
+This section serves as a comprehensive resource for dApp (decentralized application) development, providing essential referential information crucial to both frontend and backend development. Here, you will find detailed documentation on API endpoints, SDK libraries, and other vital components that empower developers to create and integrate blockchain-based applications seamlessly. Whether you're building the user interface or crafting the backend logic, this section will be your go-to reference for all technical specifications and functionality details.
