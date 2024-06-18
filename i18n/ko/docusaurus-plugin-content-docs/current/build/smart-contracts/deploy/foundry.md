@@ -17,7 +17,7 @@ Foundry는 빠르고 모듈화된 스마트 컨트랙트 개발을 가능하게 
 
 - 간단한 Foundry 프로젝트를 생성합니다.
 - Foundry를 사용하여 스마트 컨트랙트 샘플을 컴파일하고 테스트합니다.
-- Foundry를 사용하여 스마트 컨트랙트를 클레이튼 Baobab 네트워크에 배포합니다.
+- Deploy smart contracts using Foundry to the Kaia Kairos Network.
 - Cast와 Anvil로 메인넷 포크 살펴보기.
 
 ## 사전 요구 사항
@@ -132,7 +132,7 @@ forge test
 
 테스트 작성, 고급 테스트 및 기타 기능에 대해 자세히 알아보려면 [Foundry 문서](https://book.getfoundry.sh/forge/tests)를 참조하세요.
 
-## 컨트랙트 컴파일하기
+## Compiling your contracts
 
 이 명령으로 컨트랙트를 컴파일합니다:
 
@@ -140,7 +140,7 @@ forge test
 forge build 
 ```
 
-## 컨트랙트 배포하기
+## Deploying your contracts
 
 Foundry를 사용하여 컨트랙트를 배포하려면, 컨트랙트를 배포할 계정의 RPC URL과 개인키를 제공해야 합니다. 클레이튼의 [rpc 제공자](../../../references/service-providers/public-en.md) 목록을 참고하여 rpc-url을 찾고, [MetaMask](../../tutorials/connecting-metamask#install-metamask)를 사용하여 계정을 생성합니다.
 
@@ -164,7 +164,7 @@ forge create --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZE
 
 **Step 2**: Open [Klaytnscope](https://baobab.klaytnscope.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx) to check if the counter contract deployed successfully.
 
-**3단계**: 검색 필드에 트랜잭션 해시를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 컨트랙트가 표시됩니다.
+**3단계**: 검색 필드에 트랜잭션 해시를 복사하여 붙여넣고 Enter 키를 누릅니다. You should see the recently deployed contract.
 
 ![](/img/build/get-started/forge-scope.png)
 
@@ -278,7 +278,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 위 작업의 결과는 [16진수를 10진수로 변환](https://www.rapidtables.com/convert/number/hex-to-decimal.html)을 사용하여 변환할 수 있습니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. 이를 확인하려면 [Klaytnscope](https://klaytnscope.com/block/118704896?tabId=txList)에서 블록 번호를 상호 참조하세요.
 
-### 따라하기
+### Illustration
 
 이 섹션에서는 oUSDC 토큰을 보유한 사람으로부터 Anvil이 생성한 계정(0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)으로 토큰을 전송하는 방법을 알아보세요.
 
