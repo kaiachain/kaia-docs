@@ -182,8 +182,8 @@ contract VRFConsumer is VRFConsumerBase {
 
 To request for random words in your smart contract, you have to first execute the `requestRandomWordsDirect()` function. For this function to successfully execute, the user has to send KLAY (minimum of 1 KLAY) as stated previously, and supply `keyHash`, `callbackGasLimit`, `numWords`, and `refundRecipient` parameters. `keyHash` parameter uniquely defines who can fulfill the request. Orakl Network VRF provides one key hash for each Klaytn chain:
 
-- Baobab: `0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c`
-- Cypress: `0x6cff5233743b3c0321a19ae11ab38ae0ddc7ddfe1e91b162fa8bb657488fb157`
+- Kairos: `0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c`
+- Mainnet: `0x6cff5233743b3c0321a19ae11ab38ae0ddc7ddfe1e91b162fa8bb657488fb157`
 
 For the rest of the parameters, you can set them as follows:
 
@@ -201,7 +201,7 @@ Afterwards, once the request has been fulfilled, the `sRandomWord()` function ca
 
 ![](/img/build/tools/orakl-vrf-response.png)
 
-축하합니다! You just requested for a random word and received one in your smart contract.
+Tada 🎉! You just requested for a random word and received one in your smart contract.
 
 ## 결론
 
