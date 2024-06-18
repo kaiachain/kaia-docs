@@ -8,7 +8,7 @@
 
 클레이튼의 자금 구조는 클레이튼 네트워크의 블록 생성과 함께 지속적으로 운영됩니다. 새로운 블록이 생성될 때마다 새로 발행된 KLAY와 해당 블록에서 사용된 트랜잭션 수수료의 합계(통칭하여 "블록 보상"이라 함)가 합산되어 미리 정해진 비율에 따라 다음 세 개의 대상 계좌에 분배됩니다:
 
-- 클레이튼 거버넌스 카운슬(GC) 보상:
+- Kaia Governance Council (GC) Reward:
   - GC 블록 제안자 보상: 10%
   - GC 스테이킹 보상: 40%
 - 클레이튼 커뮤니티 펀드 (KCF): 30%
@@ -16,11 +16,11 @@
 
 새로운 블록이 생성될 때마다 6.4 KLAY가 발행됩니다. 이는 연간 약 2억 KLAY가 발행된다는 것을 의미하며, 이는 제네시스에서 발행된 100억 KLAY 대비 연간 2%의 인플레이션에 해당합니다(연간 인플레이션율은 Klaytn 거버넌스 프로세스를 통해 변경될 수 있습니다). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
 
-## 클레이튼 거버넌스 카운슬 보상 <a id="klaytn-governance-council-reward"></a>
+## Kaia Governance Council Reward <a id="kaia-governance-council-reward"></a>
 
 클레이튼 거버넌스 카운슬은 코어 셀 운영자 (CCO)들의 집합체입니다. 카운슬 멤버는 코어 셀 (CC)을 유지 관리할 책임이 있으며, 따라서 카운슬은 클레이튼 생태계에서 기본 인프라 제공을 책임지는 필수적인 기구입니다. 카운슬 멤버가 되려면 클레이튼 거버넌스 프로세스에 따라 자격 심사를 거쳐야 하며, 최소 5백만 KLAY를 스테이킹해야 합니다. 클레이튼 거버넌스 카운슬 보상은 카운슬 멤버들이 클레이튼 생태계의 안정적인 기반을 지속적으로 제공할 수 있도록 인센티브를 제공하는 구조입니다.
 
-### 클레이튼 거버넌스 카운슬 보상 메커니즘 <a id="klaytn-governance-council-reward-mechanism"></a>
+### Kaia Governance Council Reward Mechanism <a id="kaia-governance-council-reward-mechanism"></a>
 
 For each block in the Klaytn blockchain, a Committee is formed by randomly selecting members from the Klaytn Governance Council (GC). This Committee consists of a single member who is assigned the role of Proposer, while the remaining Committee members take on the role of Validators. Once a block is successfully created and appended to the Klaytn blockchain, the block reward is distributed among the Council members and various funds according to the previously mentioned ratios.
 
