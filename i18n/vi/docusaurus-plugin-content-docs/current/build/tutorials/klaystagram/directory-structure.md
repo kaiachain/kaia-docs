@@ -1,4 +1,4 @@
-# Cấu trúc thư mục
+# Directory Structure
 
 ```text
 |-- contracts
@@ -24,40 +24,40 @@
     |-- App.js
 ```
 
-`contracts/`: Chứa tập tin hợp đồng Solidity.
+`contracts/`: Contains Solidity contract files.
 
-`migrations/`: Chứa tập tin JavaScript xử lý việc triển khai hợp đồng thông minh.
+`migrations/`: Contains JavaScript files that handle smart contract deployments.
 
-`truffle.js`: Chứa cấu hình Truffle.
+`truffle.js`: Contains Truffle configurations.
 
-`static/`: Chứa tập tin tĩnh như hình ảnh và phông chữ.
+`static/`: Contains static files, such as images and fonts.
 
-`src/index.js`: Tập tin index của ứng dụng. ReactDOM.render logic nằm ở đây.
+`src/index.js`: App's index file. ReactDOM.render logic is in here.
 
-`src/App.js`: Tập tin thành phần gốc của ứng dụng.
+`src/App.js`: App's root component file.
 
-`src/styles`: Định nghĩa kiểu dáng tổng thể liên quan đến stylesheet.
+`src/styles`: Overall style definition regarding stylesheet.
 
-`src/redux`: Tạo các hàm API tương tác với hợp đồng và theo dõi dữ liệu tiếp theo.
+`src/redux`: Creates API functions that interact with the contract and keep track of consequent data.
 
-`src/klaytn`: Chứa các tập tin hỗ trợ tương tác với Klaytn.
+`src/klaytn`: Contains files that support interaction with the Kaia.
 
-- `src/klaytn/caver.js`: Khởi tạo caver-js trong các cài đặt đã cấu hình.
+- `src/klaytn/caver.js`: Instantiates caver-js within the configured settings.
 
-  cf) caver-js là thư viện cuộc gọi RPC tạo kết nối với nút Klaytn, tương tác với nút và hợp đồng thông minh được triển khai trên Klaytn.
+  cf\) caver-js is a RPC call library which makes connections to the Kaia node, interacts with the nodes and smart contracts deployed on Kaia.
 
-- `src/klaytn/Klaystagram.js`: Tạo một phiên bản của hợp đồng bằng cách sử dụng API caver-js. Bạn có thể tương tác với hợp đồng thông qua phiên bản.
+- `src/klaytn/Klaystagram.js`: Creates an instance of the contract using the caver-js API. You can interact with the contract through the instance.
 
-`src/pages`: Chứa các tập tin hai trang soạn ra ứng dụng Klaystagram.
+`src/pages`: Contains two page files that compose Klaystagram app.
 
-- `src/pages/AuthPage.js`: Chứa mẫu đăng ký và đăng nhập. Bạn có thể tạo khóa riêng tư trong mẫu đăng ký và sử dụng nó để đăng nhập trên ứng dụng.
+- `src/pages/AuthPage.js`: Contains sign up and login form. You can generate private key in the sign up form and use it to login on the app.
 
-- `src/pages/FeedPage.js`: Đọc dữ liệu ảnh từ hợp đồng và hiển thị đến người dùng. Ngoài ra, người dùng có thể tải lên hình ảnh của họ trong FeedPage.
+- `src/pages/FeedPage.js`: Reads photo data from the contract and show them to users. Also users can upload their pictures in FeedPage.
 
-`src/components`: Chứa các tập tin thành phần soạn ra trang.
+`src/components`: Contains component files that compose page.
 
-- `src/components/Feed.js`: Đọc dữ liệu từ hợp đồng và hiển thị ảnh.
+- `src/components/Feed.js`: Reads data from contract and displays photos.
 
-- `src/components/UploadPhoto.js`: Tải ảnh lên bằng cách gửi giao dịch đến hợp đồng.
+- `src/components/UploadPhoto.js`: Uploads photo by sending transaction to contract.
 
-- `src/components/TransferOwnership.js`: Chuyển quyền sở hữu ảnh bằng cách gửi giao dịch.
+- `src/components/TransferOwnership.js`: Transfers photo's ownership by sending transaction.
