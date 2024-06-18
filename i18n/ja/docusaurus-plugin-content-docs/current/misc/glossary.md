@@ -10,11 +10,9 @@ A cryptographically secure reference to data stored outside of a blockchain. Anc
 
 The process of storing an anchor on a blockchain. This can be done by creating a transaction that contains the hash of the external data, or by creating a smart contract that references the external data (for example, [Anchoring in service chain](../nodes/service-chain/configure/anchoring.md)).
 
-### Baobab
+### Kairos
 
 The public testnet of the Klaytn platform. It is used by developers to test and verify their applications before deploying them to the Cypress mainnet.
-
-See also [Cypress](#cypress).
 
 ### block explorer
 
@@ -35,12 +33,6 @@ A group of core cell nodes that are interconnected
 ### consensus node (CN)
 
 A node that is responsible for generating and propagating blocks, and for reaching consensus on the state of the Klaytn blockchain. Consensus nodes validate submitted transactions and execute valid transactions.
-
-### Cypress
-
-The public mainnet of the Klaytn platform. It is the production environment for Klaytn applications and services.
-
-See also Klaytn Testnet [Baobab](#baobab).
 
 ### endpoint node (EN)
 
