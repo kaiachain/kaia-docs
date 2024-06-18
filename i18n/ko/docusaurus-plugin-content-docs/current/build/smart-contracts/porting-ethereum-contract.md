@@ -1,12 +1,12 @@
-# 이더리움 컨트랙트 가져오기
+# Import Ethereum Contracts
 
-대부분의 경우 클레이튼에서 이더리움 컨트랙트를 수정하지 않고 사용할 수 있습니다.
+In most cases, you can use Ethereum contracts on Kaia without any modification.
 하지만 다음 두 가지 문제에 유의하세요.
 
 ## Solidity 지원 <a id="solidity-support"></a>
 
-- Baobab 네트워크는 현재 **London** 이더리움 가상머신(EVM)과 호환됩니다.
 - Cypress 네트워크는 현재 **London** 이더리움 가상 머신(EVM)과 호환됩니다.
+- Baobab 네트워크는 현재 **London** 이더리움 가상머신(EVM)과 호환됩니다.
 
 :::note
 
@@ -24,8 +24,8 @@ Baobab 네트워크의 경우 블록 번호 '#86,513,895', Cypress 네트워크�
 클레이튼의 다른 EVM 버전과의 하위 호환성은 보장되지 않습니다.
 따라서 프로토콜 업그레이드 상태에 따라 올바른 타겟 옵션으로 Solidity 코드를 컴파일할 것을 권장합니다.
 
-- Baobab: --evm-version london
 - Cypress: --evm-version london
+- Baobab: --evm-version london
 - 기타(프라이빗/서비스체인): 프로토콜 업그레이드 상태에 따라 결정됨
 
 [solc의 EVM 버전 설정 방법](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)을 참조하세요.
