@@ -1,8 +1,8 @@
-# Bắt đầu
+# Getting Started
 
-## Điều kiện tiên quyết <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 
-### Phần phụ thuộc <a id="dependency"></a>
+### Dependency <a id="dependency"></a>
 
 **maven**
 
@@ -20,81 +20,81 @@
 implementation 'com.klaytn.caver:core:1.4.0'
 ```
 
-Nếu bạn muốn dùng phần phụ thuộc Android, bạn chỉ cần thêm -android vào cuối chuỗi phiên bản. (ví dụ 1.0.1-android)
+If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
 
-Nếu bạn muốn xem chi tiết của các yêu cầu và phản hồi JSON-RPC, vui lòng đưa phần phụ thuộc [LOGBack](https://logback.qos.ch/) vào dự án của mình. Dưới đây là một ví dụ về tập tin xây dựng Gradle. Bạn cũng có thể thêm phần phụ thuộc vào Maven. Vì caver-java sử dụng giao diện đăng nhập [SLF4J](http://www.slf4j.org/), bạn có thể chuyển sang trình ghi bản ghi mà bạn thích thay cho LOGBack.
+If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](http://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
 
 ```groovy
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-**Lưu ý**: Trong kho dữ liệu trung tâm, các phiên bản RC, Andriod và Java được liệt kê cùng nhau. Nếu bạn sử dụng ký tự đại diện để lấy một phiên bản, bạn có thể dùng phải một phiên bản không phù hợp với nền tảng của mình.
+**Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
 
-### Cài đặt <a id="installation"></a>
+### Installation <a id="installation"></a>
 
-Nếu bạn muốn tạo các giao dịch liên quan đến một hợp đồng thông minh, bạn cần cài trình biên dịch Solidity và công cụ dòng lệnh caver-java trước.
+If you want to generate transactions related with a smart contract, you need to install a Solidity compiler and caver-java command-line tool first.
 
-#### Trình biên dịch Solidity <a id="solidity-compiler"></a>
+#### Solidity Compiler <a id="solidity-compiler"></a>
 
-Bạn có thể cài đặt trình biên dịch Solidity vào máy tính của mình bằng cách làm theo hướng dẫn trong [tài liệu của dự án](http://solidity.readthedocs.io/en/develop/installing-solidity.html). Klaytn khuyên bạn nên cài đặt phiên bản Solidity 0.4.24 hoặc 0.5.6. Nếu bạn dùng macOS, bạn có thể cài đặt các phiên bản trên qua Homebrew:
+You can install the Solidity compiler locally, following the instructions as per [the project documentation](http://solidity.readthedocs.io/en/develop/installing-solidity.html). Kaia recommends you to install Solidity version either 0.4.24 or 0.5.6. If you are a macOS user, you can install the versions via Homebrew:
 
 ```text
 $ brew install klaytn/klaytn/solidity@0.4.24  # version 0.4.24
 $ brew install klaytn/klaytn/solidity@0.5.6   # version 0.5.6
 ```
 
-#### Công cụ dòng lệnh <a id="command-line-tool"></a>
+#### Command-line Tool <a id="command-line-tool"></a>
 
-Công cụ dòng lệnh cho phép bạn dùng dòng lệnh để tạo các lớp vỏ bọc chức năng bằng Solidity cho hợp đồng thông minh.
+The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
 
-**Cài đặt (Homebrew)**
+**Installation \(Homebrew\)**
 
-Cần có Java 1.8 trở lên để cài đặt công cụ này.
+Java 1.8+ is required to install this.
 
 ```text
 $ brew tap klaytn/klaytn
 $ brew install caver-java
 ```
 
-Sau khi cài đặt, bạn có thể chạy lệnh "caver-java" như dưới đây:
+After installation you can run command 'caver-java' like below:
 
 ```text
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-**Cài đặt (Khác)**
+**Installation \(Other\)**
 
-Hiện tại, chúng tôi không hỗ trợ các trình quản lý gói khác. Một giải pháp khác mà chúng tôi cung cấp là một phương pháp để xây dựng CLI như bên dưới.
+Currently, we do not support other package managers. As another solution, we provide a method to build the CLI below.
 
-- Tải xuống hoặc tách luồng caver-java.
+- Download or fork caver-java.
 
-- Dùng Gradle thực hiện tác vụ "shadowDistZip" trong mô-đun bảng điều khiển. Kết quả là `console/build/distributions/console-shadow-{version}.zip` được tạo ra.
+- Do task 'shadowDistZip' in the console module using Gradle. As a result, `console/build/distributions/console-shadow-{version}.zip` is generated.
 
   ```text
   $ ./gradlew :console:shadowDistZip
   ```
 
-- Giải nén tập tin zip trong thư mục xây dựng
+- Unzip the zip file in the build directory
 
   ```text
   $ unzip ./console/build/distributions/console-shadow-{version}.zip
   ```
 
-- Thực thi tập tin nhị phân để chạy công cụ dòng lệnh như dưới đây. Bạn có thể tìm thấy tập tin mã lập trình shell dành cho người dùng macOS và tập tin batch dành cho người dùng Window.
+- Execute the binary file to run the command-line tool like below. You can find a shell script file for macOS users and a batch file for Window users.
 
   ```text
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
   ```
 
-## Quản lý tài khoản <a id="managing-accounts"></a>
+## Managing Accounts <a id="managing-accounts"></a>
 
-### Tạo một tài khoản <a id="creating-an-account"></a>
+### Creating an Account <a id="creating-an-account"></a>
 
-Để ký các giao dịch, bạn cần có một cặp khóa EC (Elliptic Curve) hoặc một tập tin lưu trữ khóa Klaytn.
+In order to sign transactions, you need to have either an EC \(Elliptic Curve\) key pair or a Kaia keystore file.
 
-#### Sử dụng một cặp khóa EC <a id="using-an-ec-key-pair"></a>
+#### Using an EC Key Pair <a id="using-an-ec-key-pair"></a>
 
-Bạn có thể tạo ra một tài khoản Klaytn bằng cặp khóa EC như dưới đây:
+You can create a Kaia account using an EC key pair like below:
 
 ```java
 KlayCredentials credentials = KlayCredentials.create(Keys.createEcKeyPair());
@@ -102,9 +102,9 @@ String privateKey = Numeric.toHexStringWithPrefix(credentials.getEcKeyPair().get
 String address = credentials.getAddress();
 ```
 
-#### Sử dụng một tập tin lưu trữ khóa <a id="using-a-keystore-file"></a>
+#### Using a Keystore File <a id="using-a-keystore-file"></a>
 
-Nếu bạn muốn tạo một tài khoản mới bằng tập tin lưu trữ khóa (bạn cũng có thể tạo một tập tin lưu trữ khóa mới trong \[Ví Klaytn]\[]):
+If you want to create a new account with a keystore file (you can also create a new keystore file in [Kaia Wallet]):
 
 ```java
 KlayWalletUtils.generateNewWalletFile(
@@ -113,31 +113,31 @@ KlayWalletUtils.generateNewWalletFile(
 );
 ```
 
-Để tải một tài khoản bằng tập tin lưu trữ khóa như dưới đây:
+To load an account using a keystore file like below:
 
 ```java
 KlayCredentials credentials = KlayWalletUtils.loadCredentials(<password>, <walletFilePath>);
 ```
 
-## Gửi giao dịch <a id="sending-a-transaction"></a>
+## Sending a Transaction <a id="sending-a-transaction"></a>
 
-### Nhận KLAY qua Vòi Baobab <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KAIA via Kairos Faucet <a id="getting-kaia-via-kairos-faucet"></a>
 
-Sau khi tạo một tài khoản, bạn có thể nhận được một ít đồng KLAY dùng cho mạng thử nghiệm Baobab qua Vòi Baobab, có sẵn tại [https://baobab.wallet.klaytn.foundation/](https://baobab.wallet.klaytn.foundation/). Đồng KLAY dùng cho mạng thử nghiệm mà bạn nhận được sẽ được sử dụng để thanh toán phí giao dịch sau này.
+After creating an account, you can receive some Kairos testnet KAIA for the Kairos testnet via Kairos Faucet, available at [https://baobab.wallet.klaytn.foundation/](https://baobab.wallet.klaytn.foundation/). The received testnet KAIA will be used for transaction fee later.
 
-### Kết nối với Baobab <a id="connecting-to-baobab"></a>
+### Connecting to Kairos <a id="connecting-to-kairos"></a>
 
-Bạn có thể kết nối với mạng Baobab như dưới đây:
+You can connect to the Kairos network like below:
 
 ```java
 Caver caver  = Caver.build(https://your.baobab.en.url:8651);
 ```
 
-### Gửi một giao dịch chuyển giá trị <a id="sending-a-value-transfer-transaction"></a>
+### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
-Sau khi đã nhận được một đối tượng `Caver` cụ thể và tạo một tài khoản có KLAY, bạn có thể gửi 1 peb đến địa chỉ nhất định (`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`) với hạn mức gas `BigInteger.valueOf(100_000)` như dưới đây:
+After you get a `Caver` instance and create an account which has some KAIA, you can send 1 kei to a certain address\(`0xe97f27e9a5765ce36a7b919b1cb6004c7209217e`\) with a gas limit `BigInteger.valueOf(100_000)` like below:
 
-`TransactionManager` được đưa vào để ẩn bớt sự phức tạp của các loại giao dịch. Ví dụ: một đối tượng `FeeDelegatedValueTransferTransaction` có thể được chuyển đổi từ một đối tượng `ValueTransferTransaction`. Để biết thêm thông tin, hãy xem \[Ủy thác phí]\[]. Ngoài Ủy thác phí, `TransactionManager` còn có thể được sử dụng cùng `GetNonceProcessor`, `ErrorHandler` và `TransactionReceiptProcessor`.
+`TransactionManager` is introduced to hide the complexity of transaction types. For example, a `FeeDelegatedValueTransferTransaction` object can be transformed from a `ValueTransferTransaction` object. For more details, see [Fee Delegation]. In addition to Fee Delegation, `TransactionManager` can be used with `GetNonceProcessor`, `ErrorHandler`, and `TransactionReceiptProcessor`.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -157,7 +157,7 @@ TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransaction
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionReceiptProcessor.waitForTransactionReceipt(transactionHash);
 ```
 
-Nếu bạn sử dụng lớp `ValueTransfer`, bạn có thể biên soạn và gửi một giao dịch đi dễ dàng hơn. Đó và vì lớp `ValueTransfer` khiến các quy trình trên trở nên đơn giản hơn như dưới đây:
+If you use `ValueTransfer` class, you can more easily compose and send a transaction. This is because `ValueTransfer` class makes the processes above simple like below:
 
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt
@@ -170,9 +170,9 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt
             ).send();
 ```
 
-### Kiểm tra biên lai <a id="checking-receipts"></a>
+### Checking Receipts <a id="checking-receipts"></a>
 
-Nếu bạn gửi một giao dịch qua `sendFunds`, caver-java sẽ tìm cách lấy biên lai giao dịch theo mặc định. Sau khi nhận được biên lai, bạn có thể thấy bản ghi sau trong bảng điều khiển.
+If you send a transaction via `sendFunds`, caver-java tries to get a transaction receipt by default. After you get a receipt, you can see the following log in the console.
 
 ```javascript
 {
@@ -206,13 +206,13 @@ Nếu bạn gửi một giao dịch qua `sendFunds`, caver-java sẽ tìm cách 
 }
 ```
 
-Trong biên lai này, bạn có thể kiểm tra trạng thái của việc thực thi giao dịch. Nếu trường "trạng thái" trong biên lai là "0x1", điều này có nghĩa là giao dịch đã được xử lý thành công. Nếu không, giao dịch đã thất bại. Thông báo lỗi chi tiết được hiển thị trong trường `txError`. Để biết thêm chi tiết, hãy xem [txError][].
+In this receipt, you can check the status of the transaction execution. If the 'status' field in the receipt is "0x1", it means the transaction is processed successfully. If not, the transaction failed. The detailed error message is presented in the `txError` field. For more detail, see [txError].
 
-## Gửi các loại giao dịch khác <a id="sending-other-transaction-types"></a>
+## Sending Other Transaction Types <a id="sending-other-transaction-types"></a>
 
-### Cập nhật tài khoản <a id="account-update"></a>
+### Account Update <a id="account-update"></a>
 
-Nếu bạn muốn cập nhật khóa của một tài khoản đã cho vào khóa [AccountKeyPublic][] mới:
+If you want to update the key of the given account to a new [AccountKeyPublic] key:
 
 ```java
 AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.create(
@@ -226,23 +226,23 @@ AccountUpdateTransaction accountUpdateTransaction = AccountUpdateTransaction.cre
 Account.create(caver, credentials, ChainId.BAOBAB_TESTNET).sendUpdateTransaction(accountUpdateTransaction).send();
 ```
 
-Khóa tài khoản tương ứng với cấu trúc khóa liên kết với một tài khoản. Để biết thêm chi tiết và các loại khóa tài khoản Klaytn, vui lòng đọc [AccountKey][].
+An account key represents the key structure associated with an account. To get more details and types about the Kaia account key, please read [AccountKey].
 
-### Hợp đồng thông minh <a id="smart-contract"></a>
+### Smart Contract <a id="smart-contract"></a>
 
-caver-java hỗ trợ tạo tự động mã vỏ bọc của hợp đồng thông minh. Với vỏ bọc này, bạn có thể dễ dàng triển khai và thực thi một hợp đồng thông minh. Trước khi tạo một mã vỏ bọc, bạn cần lập trước một hợp đồng thông minh. Lưu ý: Việc này chỉ có tác dụng nếu trình biên dịch Solidity đã được cài trên máy tính của bạn. Hãy xem \[Trình biên dịch Solidity]\[].
+caver-java supports auto-generation of smart contract wrapper code. Using the wrapper, you can easily deploy and execute a smart contract. Before generating a wrapper code, you need to compile the smart contract first. Note: This will only work if a Solidity compiler is installed in your computer. See [Solidity Compiler].
 
 ```text
 $ solc <contract>.sol --bin --abi --optimize -o <output-dir>/
 ```
 
-Sau đó, tạo mã vỏ bọc bằng cách dùng \[công cụ dòng lệnh]\[] của caver-java.
+Then, generate the wrapper code using caver-java’s [command-line tool].
 
 ```text
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-Lệnh trên sẽ cho kết quả đầu ra `<smartContract>`.java. Sau khi tạo được mã vỏ bọc, bạn có thể triển khai hợp đồng thông minh như dưới đây:
+Above command will output `<smartContract>`.java. After generating the wrapper code, you can deploy your smart contract like below:
 
 ```java
 <smartContract> contract = <smartContract>.deploy(
@@ -250,7 +250,7 @@ Lệnh trên sẽ cho kết quả đầu ra `<smartContract>`.java. Sau khi tạ
         <param1>, ..., <paramN>).send();
 ```
 
-Sau khi hợp đồng thông minh đã được triển khai, bạn có thể tạo một phiên bản hợp đồng thông minh cụ thể như dưới đây:
+After the smart contract has been deployed, you can create a smart contract instance like below:
 
 ```java
 <smartContract> contract = <smartContract>.load(
@@ -258,7 +258,7 @@ Sau khi hợp đồng thông minh đã được triển khai, bạn có thể t�
 );
 ```
 
-Để giao dịch với một hợp đồng thông minh:
+To transact with a smart contract:
 
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = contract.<someMethod>(
@@ -266,15 +266,15 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt = contract.<someMet
         ...).send();
 ```
 
-Để gọi một hợp đồng thông minh:
+To call a smart contract:
 
 ```java
 <type> result = contract.<someMethod>(<param1>, ...).send();
 ```
 
-#### Ví dụ <a id="example"></a>
+#### Example <a id="example"></a>
 
-Phần này mô tả cách để triển khai và thực thi một hợp đồng thông minh trên mạng thử nghiệm Baobab. Trong ví dụ này, chúng ta dùng hợp đồng thông minh [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). Nếu việc triển khai hợp đồng thông minh thất bại và kết quả trả về là một địa chỉ hợp đồng trống, nó sẽ ném ra RuntimeException.
+This section describes how to deploy and execute a smart contract on the Kairos testnet. In this example, we use a smart contract [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol). If contract deployment fails and an empty contract address is returned, it will throw RuntimeException.
 
 ```java
 ERC20Mock erc20Mock = ERC20Mock.deploy(
@@ -287,7 +287,7 @@ ERC20Mock erc20Mock = ERC20Mock.deploy(
 String deployedContractAddress = erc20Mock.getContractAddress();
 ```
 
-Để tạo một đối tượng cụ thể của hợp động ERC20Mock đã triển khai:
+To create an instance of the deployed ERC20Mock contract:
 
 ```java
 ERC20Mock erc20Mock = ERC20Mock.load(
@@ -298,7 +298,7 @@ ERC20Mock erc20Mock = ERC20Mock.load(
 );
 ```
 
-Nếu bạn chuyển 10 token đến một địa chỉ được chỉ định (e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`), hãy dùng mã sau:
+If you transfer 10 tokens to a specified address \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the following code:
 
 ```java
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = erc20Mock.transfer(
@@ -307,7 +307,7 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt = erc20Mock.transfe
 ).send();
 ```
 
-Để kiểm tra số dư của người nhận (e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`), hãy dùng mã sau:
+To check the balance of the recipient \(e.g., `0x2c8ad0ea2e0781db8b8c9242e07de3a5beabb71a`\), use the code below:
 
 ```java
 BigInteger balance = erc20Mock.balanceOf(
@@ -315,13 +315,13 @@ BigInteger balance = erc20Mock.balanceOf(
 ).send();
 ```
 
-### Ủy thác phí <a id="fee-delegation"></a>
+### Fee Delegation <a id="fee-delegation"></a>
 
-Klaytn cung cấp tính năng \[Ủy thác phí]\[], cho phép nhà cung cấp dịch vụ trả phí giao dịch thay cho người sử dụng.
+Kaia provides [Fee Delegation] feature which allows service providers to pay transaction fees instead of the users.
 
-#### Chuyển giá trị <a id="value-transfer"></a>
+#### Value Transfer <a id="value-transfer"></a>
 
-Ở phía máy khách, máy khách là người khởi tạo giao dịch sẽ tạo một giao dịch chuyển giá trị có phí được ủy thác như sau: Người gửi tạo một đối tượng `ValueTransferTransaction`, sau đó [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) trả vệ một đối tượng `FeeDelegatedValueTransferTransaction` đã được ký nếu tham số thứ hai được đặt là `true`.
+On the client side, client who initiates the transaction will generate a fee-delegated value transfer transaction as follows: A sender creates a default `ValueTransferTransaction` object, then [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a signed `FeeDelegatedValueTransferTransaction` object if the second parameter is set to `true`.
 
 ```java
 TransactionManager transactionManager = new TransactionManager.Builder(caver, credentials)
@@ -335,9 +335,9 @@ ValueTransferTransaction valueTransferTransaction = ValueTransferTransaction.cre
 String senderRawTransaction = transactionManager.sign(valueTransferTransaction, true).getValueAsString();  // isFeeDelegated : true
 ```
 
-Một giao dịch đã ký, `senderRawTransaction`, được tạo ra. Bây giờ, người gửi chuyển giao dịch đến người trả phí, người này sẽ thanh toán khoản phí giao dịch. Các giao dịch chuyển nhượng giữa người gửi và người trả phí không được thực hiện trên mạng lưới Klaytn. Giao thức phải được chính họ xác định.
+A signed transaction, `senderRawTransaction`, is generated. Now the sender delivers the transaction to the fee payer who will pay for the transaction fee instead. Transferring transactions between the sender and the fee payer is not performed on the Kaia network. The protocol should be defined by themselves.
 
-Sau khi người trả phí nhận được giao dịch từ người gửi, người trả phí có thể gửi giao dịch bằng lớp `FeePayerManager` như sau. `FeePayerManager.executeTransaction()` sẽ ký giao dịch nhận được bằng khóa riêng tư của người trả phí và gửi giao dịch đến mạng lưới Klaytn.
+After the fee payer gets the transaction from the sender, the fee payer can send the transaction using the `FeePayerManager` class as follows. `FeePayerManager.executeTransaction()` will sign the received transaction with the fee payer's private key and send the transaction to the Kaia network.
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
@@ -347,9 +347,9 @@ FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer)
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 
-#### Thực thi hợp đồng thông minh <a id="smart-contract-execution"></a>
+#### Smart Contract Execution <a id="smart-contract-execution"></a>
 
-Sự khác biệt giữa việc thực thi hợp đồng thông minh có phí được ủy thác với việc chuyển giá trị có phí ủy thác như trên nằm ở chỗ: việc này cần có dữ liệu đầu vào để gọi một hàm của hợp đồng thông minh. Người gửi có thể tạo một giao dịch thực thi hợp đồng thông minh có phí được ủy thác như sau. Lưu ý rằng [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) trả về đối tượng `TxTypeFeeDelegatedSmartContractExecution` nếu bạn đặt `true` cho tham số thứ hai. Ví dụ dưới đây gọi phương pháp `transfer` của hợp đồng [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) được mô tả trong [Smart Contract][].
+The difference between fee-delegated smart contract execution and fee-delegated value transfer above is that this needs input data to call a function of a smart contract. A sender can generate a fee-delegated smart contract execution transaction as shown below. Note that [`transactionManager.sign()`](https://static.javadoc.io/com.klaytn.caver/core/1.0.2/com/klaytn/caver/tx/manager/TransactionManager.html#sign-com.klaytn.caver.tx.model.TransactionTransformer-boolean-) returns a `TxTypeFeeDelegatedSmartContractExecution` object if you pass `true` to the second parameter. The example below invokes the `transfer` method of [ERC20Mock](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC20Mock.sol) contract which is described in [Smart Contract].
 
 ```java
 String recipient = "0x34f773c84fcf4a0a9e2ef07c4615601d60c3442f";
@@ -374,7 +374,7 @@ SmartContractExecutionTransaction smartContractExecution =
 String senderRawTransaction = transactionManager.sign(smartContractExecution, true).getValueAsString();
 ```
 
-Sau khi bạn nhận được `senderRawTransaction`, phần còn lại quả quá trình sử dụng `FeePayerManager` theo cùng một cách như đã thấy tại [fee-delegated value transfer][] ở trên:
+After you get `senderRawTransaction`, the rest of the process using `FeePayerManager` is the same way as you saw in [fee-delegated value transfer] above:
 
 ```java
 KlayCredentials feePayer = KlayWalletUtils.loadCredentials(<password>, <walletfilePath>);
@@ -382,26 +382,26 @@ FeePayerManager feePayerManager = new FeePayerManager.Builder(caver, feePayer).b
 feePayerManager.executeTransaction(senderRawTransaction);
 ```
 
-## Sử dụng nhiều loại AccountKey <a id="using-various-account-key-type"></a>
+## Using various AccountKey Types <a id="using-various-account-key-type"></a>
 
-caver-java mang đến nhiều lớp mới để hỗ trợ các loại [AccountKey][] khác nhau được nền tảng hỗ trợ. Tính năng này được hỗ trợ từ phiên bản 1.2.0.
+caver-java introduces new classes to support the various types of [AccountKey] supported by the platform. This feature is supported starting with version 1.2.0.
 
 ### AccountKey  <a id="account-key"></a>
 
-Để cập nhật khóa tài khoản trên nền tảng Klaytn, caver-java cung cấp giao diện `AccountKey`. Nội dung dưới đây mô tả về `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig` và `AccountKeyRoleBased`.
-Hãy xem [AccountUpdate](#account-update) để tìm hiểu về cách cập nhật Tài khoản.
+To update the account key on the Kaia platform, caver-java provides the `AccountKey` interface. The following describes `AccountKey` implementations, `AccountKeyPublic`, `AccountKeyWeightedMultiSig`, and `AccountKeyRoleBased`.
+See [Account Update](#account-update) for how to update an Account.
 
 ### AccountKeyPublic <a id="account-key-public"></a>
 
-`AccountKeyPublic` là sự triển khai của `AccountKey` với một khóa công khai.
-Bạn có thể tạo như sau:
+`AccountKeyPublic` is an implementation of `AccountKey` with one public key.
+You can create it like this:
 
 ```java
 ECKeyPair newKeyPair = Keys.createEcKeyPair();
 AccountKeyPublic newAccountKey = AccountKeyPublic.create(newKeyPair.getPublicKey());
 ```
 
-Để sử dụng tài khoản được cập nhật bằng `AccountKeyPublic`, bạn cần tạo `KlayCredentials` như dưới đây:
+To use the account updated with `AccountKeyPublic`, you need to create `KlayCredentials` as follows:
 
 ```java
 KlayCredentials validCredentails = KlayCredentials.create(newKeyPair, oldCredentials.getAddress());
@@ -412,7 +412,7 @@ KlayCredentials invalidCredentails = KlayCredentials.create(newKeyPair);
 
 ### AccountKeyWeightedMultiSig <a id="account-key-weighted-multi-sig"></a>
 
-`AccountKeyWeightedMultiSig` là một khóa tài khoản có chứa nhiều khóa công khai với trọng số khác nhau. `AccountKeyWeightedMultiSig` còn xác định ngưỡng, tổng trọng số của các khóa cần phải ký để sử dụng tài khoản. Số lượng khóa tối đa được hỗ trợ là 10. Bạn có thể tạo `AccountKeyWeightedMultiSig` như dưới đây:
+`AccountKeyWeightedMultiSig` is an account key that contains multiple public keys with varying weights. `AccountKeyWeightedMultiSig` also defines the threshold, the sum of the weights of the keys that must be signed in order to use the account. The maximum number of keys supported is 10. You can create `AccountKeyWeightedMultiSig` as below:
 
 ```java
 List<AccountKeyWeightedMultiSig.WeightedPublicKey> weightedTransactionPublicKeys = new ArrayList<>();
@@ -442,7 +442,7 @@ AccountKeyWeightedMultiSig newAccountKey = AccountKeyWeightedMultiSig.create(
 );
 ```
 
-Để sử dụng tài khoản được cập nhật bằng `AccountKeyWeightedMultiSig`, bạn có thể tạo `KlayCredentials` như sau:
+To use the account updated with `AccountKeyWeightedMultiSig`, you can create `KlayCredentials` as follows:
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = new ArrayList<>();
@@ -455,7 +455,7 @@ KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList
 
 ### AccountKeyRoleBased <a id="account-key-role-based"></a>
 
-`AccountKeyRoleBased` là một danh sách chứa `AccountKey`. Từng `AccountKey` đươc chỉ định một vai trò cụ thể theo vị trí của nó. AccountKey có thể là `AccountKeyPublic`,`AccountKeyWeightedMultiSig` hoặc `AccountKeyFail`. Nếu `AccountKeyNil` được dùng cho một vai trò cụ thể, khóa này sẽ không được cập nhật cho vai trò đó và AccountKey hiện có sẽ được sử dụng. Nếu `AccountKeyFail` được sử dụng, việc ký cho vai trò đó sẽ luôn thất bại, vì thế, hãy cẩn thận khi dùng AccountKeyFail.
+`AccountKeyRoleBased` is a list of `AccountKey`. Each `AccountKey` is assigned to a specific role according to its position. AccountKey can be `AccountKeyPublic`,` AccountKeyWeightedMultiSig`, or `AccountKeyFail`. If `AccountKeyNil` is used for a specific role, the key will not be updated for that role and the existing AccountKey will be used. If `AccountKeyFail` is used, signing for the role will fail always, so be careful using AccountKeyFail.
 
 ```java
 List<AccountKey> roleBasedAccountKeyList = new ArrayList<>();
@@ -472,7 +472,7 @@ roleBasedAccountKeyList.add(AccountKeyPublic.create(newKeyPair3.getPublicKey()))
 newAccountKey = AccountKeyRoleBased.create(roleBasedAccountKeyList);
 ```
 
-Để sử dụng tài khoản được cập nhật bằng `AccountKeyRoleBased`, bạn có thể tạo `KlayCredentials` như sau:
+To use the account updated with `AccountKeyRoleBased`, you can create `KlayCredentials` as follows:
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = Arrays.asList(newKeyPair1);
@@ -482,7 +482,7 @@ List<ECKeyPair> feePayerECKeyPairList = Arrays.asList(newKeyPair3);
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-Nếu tài khoản không có khóa cho một vai trò cụ thể, hãy dùng Danh sách trống làm đối số.
+If the account does not have a key for a specific role, pass an empty List as an argument.
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
@@ -492,7 +492,7 @@ List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-Nếu tài khoản có nhiều khóa cho một vai trò cụ thể, bạn có thể dùng nhiều khóa như dưới đây.
+If the account has multiple keys for a specific role, you can pass the multiple keys as follows.
 
 ```java
 List<ECKeyPair> transactionECKeyPairList = Collections.emptyList();
@@ -502,17 +502,17 @@ List<ECKeyPair> feePayerECKeyPairList = Collections.emptyList();
 KlayCredentials newCredentails = KlayCredentials.create(transactionECKeyPairList, updateECKeyPairList, feePayerECKeyPairList, address);
 ```
 
-## Gửi một giao dịch có nhiều người ký <a id="sending-a-transaction-with-multiple-signers"></a>
+## Sending a Transaction with Multiple Signers <a id="sending-a-transaction-with-multiple-signers"></a>
 
-Nếu một tài khoản có AccountKeyMultiSig hoặc AccountKeyRoleBased, từng khóa có thể được quản lý bởi nhiều người khác nhau.
+If an account has AccountKeyMultiSig or AccountKeyRoleBased, each key can be managed by different people.
 
-Phần này mô tả cách để thu thập nhiều chữ ký và gửi giao dịch nếu có nhiều người ký.
+This section describes how to collect signatures and send the transaction if there are multiple signers.
 
-### Người ký ký tuần tự <a id="sequential-sender-signing"></a>
+### Sequential sender signing <a id="sequential-sender-signing"></a>
 
-`rawTransaction` có một giao dịch mã hóa RLP chứa cả `txSignatures` lẫn `feePayerSignatures`. `feePayerSignature` chỉ được đưa vào khi giao dịch là giao dịch có phí ủy thác.
+The `rawTransaction` has an RLP encoded transaction that contains both `txSignatures` and `feePayerSignatures`. `feePayerSignature` is included only when the transaction is a fee delegated transaction.
 
-Khi không có người trả phí, quy trình ký và thực thi giao dịch lặp đi lặp lại có thể được chia thành ba phần. 1. RLP mã hóa giao dịch và gửi nó đến người ký dưới hình thức rawTransaction. 2. Người ký ký bằng khóa của riêng mình cho rawTransaction nhận được. 3. Gửi rawTransaction đã ký đến EN. Bước 2 có thể được lặp lại nếu có nhiều người ký.
+In the absence of a fee payer, the process of repeatedly signing and executing a transaction can be divided into three parts. 1. RLP-encode the transaction and send it to the signer in the form of rawTransaction. 2. Signer signs with its own key for the received rawTransaction. 3. Sending the signed rawTransaction to EN. Step 2 can be repeated if there are multiple signers.
 
 ```java
 //// 1. Alice creates a transaction, signs it, and sends it to Bob.
@@ -535,7 +535,7 @@ String rawTransaction_signed_alice = transactionManager_alice.sign(transactionTr
 
 String rawTransaction_signed_alice_and_bob = transactionManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
 
-//// 3. Charlie signs the received transaction and sends it to Klaytn EN.
+//// 3. Charlie signs the received transaction and sends it to Kaia EN.
 //// Charlie Side
 TransactionManager transactionManager_charlie = new TransactionManager.Builder(caver, senderCredential_charlie)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
@@ -545,9 +545,9 @@ TransactionManager transactionManager_charlie = new TransactionManager.Builder(c
 KlayTransactionReceipt.TransactionReceipt transactionReceipt = transactionManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
 ```
 
-### Người trả phí ký tuần tự <a id="sequential-fee-payer-signing"></a>
+### Sequential fee-payer signing <a id="sequential-fee-payer-signing"></a>
 
-(Các) chữ ký của người trả phí cũng có thể được thêm vào một cách tuần tự. Ký bằng `FeePayerManager` tích lũy `feePayerSignatures` trong giao dịch. Thứ tự ký không quan trọng. Nếu bạn ký bằng `TransactionManager`, `txSignature` sẽ được thêm vào. Nếu bạn ký bằng `FeePayerManager`, `feePayerSignatures` sẽ được thêm vào giao dịch thô.
+Fee-payer signature(s) can also be added sequentially. Signing with `FeePayerManager` accumulates `feePayerSignatures` in the transaction. The signing order is not important. If you sign with `TransactionManager`, the `txSignature` is added. If you sign with `FeePayerManger`, the `feePayerSignatures` is added to the raw transaction.
 
 ```java
 //// 1. Bob receives a transaction from Alice and signs the transaction as a fee payer.
@@ -559,7 +559,7 @@ FeePayerManager feePayerManager_bob = new FeePayerManager.Builder(caver, feePaye
 
 String rawTransaction_signed_alice_and_bob = feePayerManager_bob.sign(rawTransaction_signed_alice).getValueAsString();
 
-//// 2. Charlie signs the received transaction and sends it to Klaytn EN.
+//// 2. Charlie signs the received transaction and sends it to Kaia EN.
 //// Charlie Side
 FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, feePayerCredentials_charlie)
                     .setTransactionReceiptProcessor(new PollingTransactionReceiptProcessor(caver, 1000, 10))
@@ -569,24 +569,16 @@ FeePayerManager feePayerManager_charlie = new FeePayerManager.Builder(caver, fee
 KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_charlie.executeTransaction(rawTransaction_signed_alice_and_bob);
 ```
 
-## Xin cảm ơn <a id="thanks-to"></a>
+## Thanks to <a id="thanks-to"></a>
 
-Dự án [web3j](https://github.com/web3j/web3j) vì nguồn cảm hứng này. 🙂
+The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 
-[Klaytn Wallet]: ../../../build/tools/wallets/klaytn-wallet.md
-
+[Kaia Wallet]: ../../../build/tools/wallets/kaia-wallet.md
 [txError]: ../../transaction-error-codes.md
-
 [AccountKeyPublic]: ../../../learn/accounts.md#accountkeypublic
-
 [AccountKey]: ../../../learn/accounts.md#account-key
-
 [Solidity Compiler]: #solidity-compiler
-
 [command-line tool]: #command-line-tool
-
 [Fee Delegation]: ../../../learn/transactions/transactions.md#fee-delegation
-
 [Smart Contract]: #smart-contract
-
 [fee-delegated value transfer]: #value-transfer
