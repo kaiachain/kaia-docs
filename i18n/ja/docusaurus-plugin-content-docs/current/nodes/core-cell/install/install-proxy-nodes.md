@@ -20,10 +20,10 @@ The archive file consists of the executable binary and the configuration file st
   |- kpnd.conf
 ```
 
-| File Name      | File Description                 |
-| :------------- | :------------------------------- |
-| bin/kpn        | PN executable file               |
-| bin/kpnd       | PN start/termination script file |
+| File Name                      | File Description                 |
+| :----------------------------- | :------------------------------- |
+| bin/kpn                        | PN executable file               |
+| bin/kpnd                       | PN start/termination script file |
 | conf/kpnd.conf | PN configuration file            |
 
 The installation is the uncompression of the downloaded package where you want to install the package.
@@ -72,9 +72,9 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 
 The installed files are located as follows.
 
-| File Name | Location                 |
-| :-------- | :----------------------- |
-| kpn       | /usr/bin/kpn             |
+| File Name                 | Location                                 |
+| :------------------------ | :--------------------------------------- |
+| kpn                       | /usr/bin/kpn                             |
 | kpnd.conf | /etc/kpnd/conf/kpnd.conf |
 
 ## Configuration <a id="configuration"></a>
@@ -115,7 +115,7 @@ The `static-nodes.json` should be created from the PN operator. It contains the 
 ]
 ```
 
-The node URI of the PN is in the "[Before You Install](./before-you-install.md)" section. (Note: This IP address is different from CN public IP.) The following command line copies the `static-nodes.json` file into the PN data directory.
+The node URI of the PN is in the "[Before You Install](./before-you-install.md)" section. The following command line copies the `static-nodes.json` file into the PN data directory.
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
