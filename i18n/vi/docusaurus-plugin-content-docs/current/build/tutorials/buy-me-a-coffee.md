@@ -5,7 +5,7 @@
 - [1. Project Setup](#1-project-setup)
 - [2. Creating a Buy Me A Coffee Smart Contract](#2-creating-a-buy-me-a-coffee-smart-contract)
 - [3. Testing the contract’s functionalities using scripts](#3-testing-the-contracts-functionalities-using-scripts)
-- [4. Deploying BMC Smart contract to Klaytn Testnet ](#4-deploying-bmc-smart-contract)
+- [4. Deploying BMC Smart contract to Kaia Testnet ](#4-deploying-bmc-smart-contract)
 - [5. Building the BMC Frontend with React and Web3Onboard](#5-building-the-bmc-frontend-with-react-and-web3onboard)
 - [6. Deploying Frontend code on IPFS using Fleek](#6-deploying-frontend-code-on-ipfs-using-fleek)
 - [7. Conclusion](#7-conclusion)
@@ -21,13 +21,13 @@ On a high level, Buy-me-a-Coffee simplifies the process of accepting payments fo
 - Directly receive support fees from fans without any intermediary.
 - Decentralization, i.e., there is no central authority controlling the platform.
 
-In this tutorial. you will build a decentralized version of the Buy Me a Coffee (BMC) platform (frontend + smart contract). This platform will be a minimalistic implementation of the traditional BMC platform where supporters can tip you, and you will be able to withdraw any tips that are delivered to the BMC smart contract as the contract's owner. Supporters will be able to send test KLAY and lovely messages together in a coffee transaction using this site.
+In this tutorial. you will build a decentralized version of the Buy Me a Coffee (BMC) platform (frontend + smart contract). This platform will be a minimalistic implementation of the traditional BMC platform where supporters can tip you, and you will be able to withdraw any tips that are delivered to the BMC smart contract as the contract's owner. Supporters will be able to send test KAIA and lovely messages together in a coffee transaction using this site.
 
 By the end of this guide, you will have used the following to create this dApp:
 
 - Solidity: to write the BMC smart contract
 - NextJs and Tailwind: for building a frontend website for our BMC dApp
-- Web3Onboard: to enable multiple wallet connections to Klaytn Testnet Baobab.
+- Web3Onboard: to enable multiple wallet connections to Kaia Testnet Kairos.
 - Fleek: with Fleek we can host our BMC dApp on IPFS.
 
 ## Prerequisites <a href="#2-prerequisites" id="2-prerequisites"></a>
@@ -37,7 +37,7 @@ To complete this tutorial, you will need:
 - [Node.js](https://nodejs.org/en/download/package-manager)
 - Familiarity with Javascript and React basics such as hooks etc
 - Installation of  the necessary wallets, such as [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask Wallet](https://metamask.io/download/)
-- Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet).
+- Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet).
 - RPC Endpoint: you can obtain this from one of the supported [endpoint providers](../../references/service-providers/public-en.md).
 - Creation of an account on [Fleek](https://app.fleek.co/).
 
@@ -212,7 +212,7 @@ contract BuyMeACoffee {
 
     // buy coffee function
     function buyCoffee(string memory name, string memory message) public payable {
-	  // Must accept more than 0 KLAY for a coffee.
+	  // Must accept more than 0 KAIA for a coffee.
         require(msg.value > 0, "Tip must be greater than zero");
         coffeeId++;
 	
@@ -253,13 +253,13 @@ The **coffeeId** was created to keep track of the coffee transaction created.
 
 Subsequently we declared a **buyMeACoffee struct**, which stores all the data related to a coffee transaction; address sender, string name, uint timestamp, string message. We then mapped this struct to an id using the **idToBuyCoffee** variable.
 
-The buyCoffee function is the core implementation of BMC smart contract. It is a payable function which takes in two parameters, the name and address of the sender. It checks if the KLAY amount sent in is greater than zero. Next it increments the coffeeId, then  it adds the coffee tx or info to the blockchain. Finally it emits a NewCoffee event, which entails the details of the coffee tx.
+The buyCoffee function is the core implementation of BMC smart contract. It is a payable function which takes in two parameters, the name and address of the sender. It checks if the KAIA amount sent in is greater than zero. Next it increments the coffeeId, then  it adds the coffee tx or info to the blockchain. Finally it emits a NewCoffee event, which entails the details of the coffee tx.
 
 We created a **withdraw()** function to withdraw the total balance of the contract (`address(this).balance`) to the owner.
 
 Finally, a **getAllCoffee()** function was created. It returns all the coffee transactions created overtime.
 
-Now that we have completed writing our BMC smart contract, the next step is to test the functionalities of our smart contract, deploy and interact with the smart contract on **Klaytn Testnet Baobab**.
+Now that we have completed writing our BMC smart contract, the next step is to test the functionalities of our smart contract, deploy and interact with the smart contract on **Kaia Testnet Kairos**.
 
 ## 3. Testing the contract’s functionalities using scripts <a id="testing-bmc-contract-using-scripts"></a>
 
@@ -267,13 +267,13 @@ In this section, we will be writing scripts to test the functionality of our sma
 
 ```js
 const hre = require("hardhat");
-// Logs the KLAY balances of a specific address.
+// Logs the KAIA balances of a specific address.
 async function getBalance(address) {
     const balanceBigInt = await hre.ethers.provider.getBalance(address);
     return hre.ethers.utils.formatEther(balanceBigInt)
 }
 
-// Logs the KLAY balances for a list of addresses.
+// Logs the KAIA balances for a list of addresses.
 async function getBalances(addresses) {
   let idx = 0;
   for (const address of addresses) {
@@ -378,9 +378,9 @@ At 1686307887, Japhet, with 0x90F79bf6EB2c4f870365E785982E1f101E93b906, said: "H
 
 ## 4. Deploying BMC Smart contract
 
-### 4.1 Deploying BMC Smart contract to Klaytn Testnet  <a id="deploying-bmc-contract"></a>
+### 4.1 Deploying BMC Smart contract to Kaia Testnet  <a id="deploying-bmc-contract"></a>
 
-After successfully testing the functionalities of our BMC smart contract, let’s proceed to deploy to the Klaytn Testnet Baobab in the following steps:
+After successfully testing the functionalities of our BMC smart contract, let’s proceed to deploy to the Kaia Testnet Kairos in the following steps:
 
 #### Step 1 - Creating a .env file
 
@@ -413,7 +413,7 @@ module.exports = {
   solidity: "0.8.18",
   defaultNetwork: "hardhat",
   networks: {
-    baobab: {
+    kairos: {
       url: BAOBAB_URL,
       accounts: [PRIVATE_KEY],
     }
@@ -441,10 +441,10 @@ main().catch((error) => {
 });
 ```
 
-Now that we have our configurations all set, let’s deploy to Klaytn Testnet Baobab by running the command below:
+Now that we have our configurations all set, let’s deploy to Kaia Testnet Kairos by running the command below:
 
 ```bash
-npx hardhat run scripts/deploy.js --network baobab
+npx hardhat run scripts/deploy.js --network kairos
 ```
 
 Once the contract deploys successfully, your terminal should look like this:
@@ -453,7 +453,7 @@ Once the contract deploys successfully, your terminal should look like this:
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-Congratulations on deploying your BMC smart contract on Klaytn Baobab Network! You can verify this transaction on Klaytnscope  by pasting your address in the search field.
+Congratulations on deploying your BMC smart contract on Kaia Kairos Network! You can verify this transaction on Kaiascope  by pasting your address in the search field.
 
 ### 4.2 Interacting with BMC Smart Contract  <a id="interacting-with-bmc-contract"></a>
 
@@ -486,8 +486,8 @@ async function main() {
 
   const balanceBefore = await getBalance(signer.address);
   const contractBalance = await getBalance(BuyMeACoffee.address);
-  console.log(`Owner balance before withdrawing tips: ${balanceBefore} KLAY`);
-  console.log(`Contract balance before withdrawing tips:  ${contractBalance} KLAY`);
+  console.log(`Owner balance before withdrawing tips: ${balanceBefore} KAIA`);
+  console.log(`Contract balance before withdrawing tips:  ${contractBalance} KAIA`);
 
     // Withdraw funds if there are funds to withdraw.
     if (contractBalance !== "0.0") {
@@ -496,7 +496,7 @@ async function main() {
         await withdrawCoffeTxn.wait();
         // check owner's balance after withdrawing coffee tips
         const balanceAfter = await getBalance(signer.address);
-        console.log(`Owner balance after withdrawing tips ${balanceAfter} KLAY`);
+        console.log(`Owner balance after withdrawing tips ${balanceAfter} KAIA`);
       } else {
         console.log("no funds to withdraw!");
       }
@@ -516,20 +516,20 @@ Yes! In the event where the contract has no funds, it prints "No funds to withdr
 To see this in action, lets run the script below:
 
 ```bash
-npx hardhat run scripts/withdraw.js --network baobab
+npx hardhat run scripts/withdraw.js --network kairos
 ```
 
 On successful execution of the scripts, your terminal should look like this:
 
 ```bash
-Ayomitans-MacBook-Pro:smart-contract oxpampam$ npx hardhat run scripts/withdraw.js --network baobab
-Owner balance before withdrawing tips: 155.8337532 KLAY
-Contract balance before withdrawing tips:  2.0 KLAY
+Ayomitans-MacBook-Pro:smart-contract oxpampam$ npx hardhat run scripts/withdraw.js --network kairos
+Owner balance before withdrawing tips: 155.8337532 KAIA
+Contract balance before withdrawing tips:  2.0 KAIA
 withdrawing funds..
-Owner balance after withdrawing tips 157.83298835 KLAY
+Owner balance after withdrawing tips 157.83298835 KAIA
 ```
 
-You can see from the output that the owner balance increased by 2 KLAY after withdrawing the coffee tips.
+You can see from the output that the owner balance increased by 2 KAIA after withdrawing the coffee tips.
 
 Now that we have our contract deployed and all functionalities tested, it is time to build out the frontend.
 
@@ -546,8 +546,8 @@ cd frontend
 
 The next step is to install the necessary dependencies to get our BMC frontend website up and running.  The following are the packages to be installed:
 
-1. Web3Onboard packages: Web3-Onboard is a chain-agnostic wallet library that supports multi-wallet compatibility in your dApp built on EVM-compatible networks like Klaytn Blockchain.
-2. ethers.js: Web3-Onboard provider can be used with libraries like [ethers.js](https://docs.ethers.org/v6/) and[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). In this guide, we will use ethers.js to make Klaytn blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
+1. Web3Onboard packages: Web3-Onboard is a chain-agnostic wallet library that supports multi-wallet compatibility in your dApp built on EVM-compatible networks like Kaia Blockchain.
+2. ethers.js: Web3-Onboard provider can be used with libraries like [ethers.js](https://docs.ethers.org/v6/) and[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). In this guide, we will use ethers.js to make Kaia blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
 
 Important Note: We need to edit 2 files in the  frontend/pages folder
 
@@ -606,8 +606,8 @@ To see this in action, paste the code below the previous code in your `_app.js `
 
 ```js
 const ETH_MAINNET_RPC_URL = `https://ethereum-mainnet-rpc.allthatnode.com/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KLAYTN_MAINNET_URL = `https://klaytn-mainnet-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KLAYTN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
+const KAIA_MAINNET_URL = `https://klaytn-mainnet-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
+const KAIA_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
   const web3Onboard =  init({
     wallets: modules,
     chains: [
@@ -620,25 +620,25 @@ const KLAYTN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d3223
       },
       {
         id: "0x2019", // chain ID must be in hexadecimal
-        token: "KLAY",
+        token: "KAIA",
         namespace: "evm",
-        label: "Klaytn Mainnet",
-        rpcUrl: KLAYTN_MAINNET_URL
+        label: "Kaia Mainnet",
+        rpcUrl: KAIA_MAINNET_URL
       },
       {
         id: "0x3e9", // chain ID must be in hexadecimel
-        token: "KLAY",
+        token: "KAIA",
         namespace: "evm",
-        label: "Klaytn Testnet",
-        rpcUrl: KLAYTN_BAOBAB_URL
+        label: "Kaia Testnet",
+        rpcUrl: KAIA_BAOBAB_URL
       },
      // you can add as much supported chains as possible
     ],
     appMetadata: {
-      name: "Klaytn-web3-onboard-App", // change to your dApp name
+      name: "Kaia-web3-onboard-App", // change to your dApp name
       icon: "paste your icon url"
       logo: "paste your logo url"
-      description: "Web3Onboard-Klaytn",
+      description: "Web3Onboard-Kaia",
       recommendedInjectedWallets: [
         { name: "Coinbase", url: "https://wallet.coinbase.com/" },
         { name: "MetaMask", url: "https://metamask.io" }
@@ -887,6 +887,6 @@ Voila! We have our BMC dApp deployed and hosted on IPFS.
 
 If you’ve made it this far, congratulations! In this tutorial, you have learned how to create a full stack Buy Me A Coffee dApp using Solidity, NextJs, Web3Onboard and Fleek. This is the first step in creating a decentralized application hosted on a decentralized platform.
 
-From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KLAY statically. You can have access to the full codebase here on [github](https://github.com/ayo-klaytn/buy-me-a-coffee) and also test the website using this [link](https://spring-fog-0605.on.fleek.co/).
+From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KAIA statically. You can have access to the full codebase here on [github](https://github.com/ayo-klaytn/buy-me-a-coffee) and also test the website using this [link](https://spring-fog-0605.on.fleek.co/).
 
-If you want more information, visit [Klaytn Docs](https://docs.klaytn.foundation/), [Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react), and [Fleek Docs](https://docs.fleek.co/tutorials/hosting/). If you have any questions, visit [Klaytn Forum](https://forum.klaytn.foundation/).
+If you want more information, visit [Kaia Docs](https://docs.klaytn.foundation/), [Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react), and [Fleek Docs](https://docs.fleek.co/tutorials/hosting/). If you have any questions, visit [Kaia Forum](https://forum.klaytn.foundation/).
