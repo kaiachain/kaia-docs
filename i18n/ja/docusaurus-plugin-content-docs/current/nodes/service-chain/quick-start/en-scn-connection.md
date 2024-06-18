@@ -1,4 +1,4 @@
-# Connect to Baobab
+# Connect to Kairos
 
 This section covers how to connect your 4-node ServiceChain network to the Baobab network.
 You will set up a Baobab EN and connect the EN with one of your SCNs. Then you will enable the anchoring feature to put ServiceChain block information onto the Baobab network.
@@ -14,7 +14,7 @@ You will set up a Baobab EN and connect the EN with one of your SCNs. Then you w
 - Download the Baobab EN executable. For the full list of downloadable binaries, see [Download](../../downloads/downloads.md).
 - Assumptions and Limitations
   - A ServiceChain network is installed and running. Please refer to [Setting up a 4-node Service Chain](4nodes-setup-guide.md) to setup a network.
-  - A Baobab EN.
+  - A Kairos EN.
   - One EN can only connect to one SCN since only one-to-one connection is supported.
   - Every SCN does not have to connect to the EN.
 
