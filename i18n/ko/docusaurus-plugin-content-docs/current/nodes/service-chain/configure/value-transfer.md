@@ -1,54 +1,54 @@
-# 토큰 전송
+# Transfer Value
 
-클레이튼 디자인 섹션에서 설명한 것처럼 서비스체인은 부모체인과 자식체인 간의 밸류(KLAY, ERC-20, ERC-721) 전송을 지원합니다.
-이 페이지는 SCN에서 밸류 전송 기능을 활성화하는 방법을 보여줍니다.
+As explained in the Kaia design section, Service Chain supports value (KAIA, ERC-20, and ERC-721) transfer between parent chain & child chain.
+This page shows how to enable the value-transfer feature in SCN.
 
-EN과 SCN을 설정한 후 체인 간 밸류 전송을 활성화하려면 다음 절차가 필요합니다.
+After setting up the EN and SCN, the following procedure is required to enable value-transfer between chains.
 
-1. SCN에 접속하여 `subbridge.parentOperator`와 `subbridge.childOperator`를 실행하여 계정 주소를 확인합니다.
-2. `parent.operator`를 이전 단계의 `subbridge.parentOperator`로 설정합니다.
-3. 토큰(ERC-20 또는 721) 컨트랙트를 부모/자식 체인에 배포합니다. (KLAY 전송만 필요한 경우, 3단계와 4단계를 건너뛸 수 있습니다.)
-4. 토큰 컨트랙트를 부모/자식 체인의 브리지 컨트랙트에 등록합니다.
-5. 부모/자식 체인에 있는 브리지 컨트랙트를 구독합니다.
+1. Check the addresses of the bridge operator accounts and add KAIA to the bridge operator accounts.
+2. Deploy the bridge contract to the parent/child chains.
+3. Deploy a token (ERC-20 or 721) contract to the parent/child chains. (If you just need KAIA-transfer, you can skip step 3 & 4.)
+4. Register the token contracts with the bridge contracts on the parent/child chains.
+5. Subscribe to the bridge contracts on the parent/child chains.
 
-단계를 수행하기 전에 메커니즘의 이면을 이해하기 위해 높은 수준의 시스템 아키텍처를 살펴 보겠습니다.
+Before we follow the steps, let's take a look at the high-level system architecture to understand the behind of the mechanism.
 
-## 시스템 구조 <a id="system-architecture"></a>
+## System Architecture <a id="system-architecture"></a>
 
-그림 1은 브리지/토큰 컨트랙트와 브리지 노드가 있는 서비스 체인의 시스템 아키텍처를 보여줍니다.
+Figure 1 shows the system architecture of the Service Chain with bridge/token contracts and bridge nodes.
 
-아래 컨트랙트는 메인/서브 브리지를 통해 서로 통신하며 사용자의 밸류 전송 요청을 처리합니다.
+Below contracts communicate with each other via main/sub-bridge to process user's value transfer requests.
 
-- 브리지 컨트랙트
-- ERC-20 컨트랙트(필요한 경우)
-- ERC-721 컨트랙트(필요한 경우)
+- Bridge contract
+- ERC-20 contract (if needed)
+- ERC-721 contract (if needed)
 
-![그림 1. 서비스 체인 아키텍처](/img/nodes/sc_arch.png)
+![Figure 1. Service chain architecture](/img/nodes/sc_arch.png)
 
-## <a id="step-1-add-klay-to-the-operator-accounts"></a>
+## Bridge Operator Account <a id="bridge-operator-account"></a>
 
-서비스체인에는 부모 체인 브리지 오퍼레이터 계정과 서비스 체인 브리지 오퍼레이터 계정의 두 가지 오퍼레이터 계정이 있습니다. 각 오퍼레이터 계정은 트랜잭션에 서명하는 데 사용됩니다.
-트랜잭션이 부모 체인으로 값을 이동하면 부모 체인 브리지 오퍼레이터 계정이 트랜잭션에 서명합니다. 자식 체인에는 자식 체인 브리지 오퍼레이터 계정이 사용됩니다.
-사용자가 '값 전송 요청' 트랜잭션을 제출하면 하위 브리지는 브리지 오퍼레이터 계정이 서명한 '값 전송 처리' 트랜잭션을 생성합니다.
-그런 다음 `parentOperator`에게 KLAY를 전송합니다.
-서비스 체인의 가스 가격이 0이 아닌 값으로 설정된 경우, 서비스 체인 브리지 오퍼레이터의 잔액에도 KLAY가 있어야 합니다.
+For ServiceChain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions.
+If the transaction moves the value to the parent chain, the parent chain bridge operator account signs the transaction. To the child chain, the child chain bridge operator account is used.
+If a user submits a "request value transfer" transaction, the Sub-bridge creates a "handle value transfer" transaction signed by the bridge operator account.
+Therefore, the parent chain bridge operator needs enough KAIA in their balance to pay the transaction fee to the parent chain.
+If the service chain's gas price is set to non-zero, the service chain bridge operator should have KAIA in their balance as well.
 
-### 키 저장소 및 비밀번호 파일 <a id="keystore-and-password-file"></a>
+### Keystore and Password file <a id="keystore-and-password-file"></a>
 
-SCN이 부팅될 때 부모/자식 운영자의 키가 없는 경우 키스토어 파일과 비밀번호 파일이 자동으로 생성됩니다.
-특정 계정을 운영자로 사용하려면 키를 제공하면 됩니다. SCN을 부팅하기 전에 아래 파일을 지정된 경로에 배치합니다.
-비밀번호 파일에는 키스토어 파일의 비밀번호 문자열이 있어야 합니다.
-비밀번호 파일 이름은 해당 키스토어 파일의 계정 주소여야 합니다.
+When SCN is booted, the keystore files and password files for the parent/child operators are automatically generated if their keys don't exist.
+If you want to use a specific account as an operator, you can provide the key. Place the below files in the designated path before booting the SCN.
+The password file should have a password string of the keystore file.
+The password file name should be the account address of the corresponding keystore file.
 
-**파일**
+**files**
 
-- 키스토어 파일 : `UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b`
-- 비밀번호 파일 : `0x2eD72a9D7fe5da7672fD21567e07302431649B0B`
+- keystore file : `UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b`
+- password file : `0x2eD72a9D7fe5da7672fD21567e07302431649B0B`
 
-**파일 경로**
+**file path**
 
-- 상위 체인 브리지 오퍼레이터: $datadir/parent_bridge_account
-- 자식 체인 브리지 오퍼레이터 : $datadir/child_bridge_account
+- Parent chain bridge operator : $datadir/parent_bridge_account
+- Child chain bridge operator : $datadir/child_bridge_account
 
 ```javascript
 > pwd
@@ -65,15 +65,15 @@ UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 {"address":"2ed72a9d7fe5da7672fd21567e07302431649b0b","crypto":{"cipher":"aes-128-ctr","ciphertext":"6486509e8158bf4984608cbc5562cf2c9a27cd988a98e543731b39251144e633","cipherparams":{"iv":"96d7e5b6a936278c0797faae6cb3d903"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"8928ba41b8228af19390ec881c51452fa3ea973ad2c253ca0f5bc9197a8b24c4"},"mac":"9c8ec63694c20a473e0ea33840e7d16e9f1a20afc52b3244b703a3ac0a66cfa3"},"id":"9ae10527-7fd3-4aae-a4eb-316af211494e","version":3}
 ```
 
-### 브리지 오퍼레이터 주소 확인 <a id="check-bridge-operator-addresses"></a>
+### Check Bridge Operator Addresses <a id="check-bridge-operator-addresses"></a>
 
-SCN을 정상적으로 실행했다면, 아래와 같이 RPC API를 사용하여 부모/자식 체인 브리지 오퍼레이터 주소를 확인할 수 있습니다.
+If you run SCN successfully, you can check the parent/child chain bridge operator address using RPC API like the following.
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
@@ -86,20 +86,20 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 
 You can refer to the [subbridge API](../../../references/json-rpc/subbridge/parent-operator) for more details.
 
-### 브리지 오퍼레이터에게 KLAY 보내기 <a id="send-klay-to-bridge-operators"></a>
+### Send KAIA to Bridge Operators <a id="send-kaia-to-bridge-operators"></a>
 
-`subbridge.parentOperator`와 `subbridge.childOperator`는 트랜잭션을 전송하기에 충분한 KLAY를 가지고 있어야 합니다.
-서비스 체인의 가스 가격이 0이 아닌 값으로 설정된 경우, 서비스 체인 브리지 오퍼레이터의 잔액에도 KLAY가 있어야 합니다.
+Like anchoring, the parent chain bridge operator needs KAIA to make a value-transfer transaction.
+If the service chain's gas price is set to non-zero, the service chain bridge operator should have KAIA in their balance as well.
 
-운영자 계정을 충전한 후 아래와 같이 잔액을 확인할 수 있습니다.
+After topping up the operator accounts, you can check their balances like below.
 
-**자식 체인 브리지 운영자**
+**Parent chain bridge operator**
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
- instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -107,13 +107,13 @@ Welcome to the Klaytn JavaScript console!
 1e+50
 ```
 
-**상위 체인 브리지 오퍼레이터**
+**Child chain bridge operator**
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
- instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -121,22 +121,22 @@ Welcome to the Klaytn JavaScript console!
 1e+50
 ```
 
-## 브리지 컨트랙트 <a id="bridge-contract"></a>
+## Bridge Contract <a id="bridge-contract"></a>
 
-토큰 컨트랙트는 발행/전송 테스트를 위한 것이고, 브리지 컨트랙트는 밸류 전송 요청을 수신/처리하는 데 사용됩니다.
-사용자는 브리지 컨트랙트에 KLAY 전송을 요청하여 자신의 KLAY를 다른 체인으로 전송할 수 있습니다.
-KIP-7 토큰 컨트랙트에 `requestERC20Transfer()` 함수를 호출하여 부모 체인과 자식 체인 간에 KIP-7 토큰을 전송할 수 있습니다.
+For the cross-chain value transfer, a bridge contract should be deployed to the parent/child chains.
+Users can request a KAIA transfer to the bridge contract to send their KAIA to the other chain.
+Additionally, if token contracts are registered in the bridge contracts, bridge contracts can handle the token transfer between parent and child chains.
 
-### 배포 <a id="deployment"></a>
+### Deployment <a id="deployment"></a>
 
-서브 브리지는 브리지 컨트랙트 배포 API를 제공합니다. 아래와 같이 단일 RPC 호출을 사용하여 두 체인에 브리지 컨트랙트를 배포할 수 있습니다.
-이 작업을 수행하기 전에 메인 브리지와 서브 브리지를 연결해야 합니다. 자세한 가이드는 [브리지 구성](bridge-configuration.md)을 참고하시기 바랍니다.
+Sub-bridge provides a bridge contract deployment API. You can deploy bridge contracts to both chains using a single RPC call as below.
+Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Bridge Configuration](bridge-configuration.md) to get detailed guideline.
 
 ```javascript
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
@@ -154,12 +154,12 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 
 You can refer to the [subbridge API](../../..references/json-rpc/subbridge/deploy-bridge) for more details.
 
-`subbridge_listBridge`는 브리지 컨트랙트 주소와 해당 컨트랙트의 구독 상태를 보여줍니다.
-서브브릿지는 브리지 컨트랙트 주소 목록을 파일에 저장합니다. 재부팅 시 서브브릿지는 파일에서 브리지 컨트랙트 목록을 다시 로드합니다.
+`subbridge_listBridge` shows the bridge contract addresses and their subscription status.
+Sub-bridge saves the list of bridge contract addresses in a file. On reboot, sub-bridge reloads the bridge contract list from the file.
 
-### 구독 <a id="subscribing"></a>
+### Subscribing <a id="subscribing"></a>
 
-브리지 컨트랙트를 배포한 후, 서브 브리지가 배포된 브리지 컨트랙트를 구독하도록 하여 밸류 전송을 활성화해야 합니다. 이는 다른 RPC API 호출인 `subbridge_subscribeBridge`를 사용하여 수행할 수 있습니다.
+After deploying the bridge contract, you should make the sub-bridge subscribe to the deployed bridge contracts to enable value transfer. This can be done using another RPC API call, `subbridge_subscribeBridge`.
 
 ```javascript
 > subbridge.subscribeBridge("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5")
@@ -173,46 +173,46 @@ null
 }]
 ```
 
-### 전제 조건 <a id="prerequisites"></a>
+### Checking Status <a id="checking-status"></a>
 
-구독이 완료되면 SCN은 사용자의 "밸류 전송 요청" 트랜잭션을 자동으로 처리합니다.
-이 섹션에서는 브리지 컨트랙트 상태를 확인하는 방법을 설명합니다.
+Once subscribed, SCN processes users' "request value transfer" transactions automatically.
+This section explains how to check the bridge contract status.
 
-브리지 컨트랙트에는 두 개의 nonce, 즉 `requestNonce`와 `handleNonce`가 있습니다.
-인체인 트랜잭션과 달리 서브 브리지는 상위 nonce 요청을 하위 nonce 요청보다 먼저 처리할 수 있습니다.
+In a bridge contact, there are two nonces, `requestNonce` and `handleNonce`.
+Unlike in-chain transactions, the sub-bridge can handle a higher nonce request before the lower ones.
 
-- requestNonce : 이 브리지 컨트랙트에 대한 사용자의 "크로스 체인 밸류 전송" 요청 횟수입니다.
-- handleNonce : 서브 브리지가 처리한 가장 높은 nonce입니다.
-- lowerHandleNonce : 서브 브리지가 처리해야 하는 가장 낮은 nonce.
+- requestNonce : the number of user's "cross-chain value transfer" requests made to this bridge contract.
+- handleNonce : the highest nonce that the sub-bridge handled.
+- lowerHandleNonce : the lowest nonce that the sub-bridge should handle.
 
-따라서 nonce가 다음과 같이 업데이트되면 크로스 체인 밸류 전송이 올바르게 처리되었다고 말할 수 있습니다.
+Therefore, if nonces are updated as follows, we can say the cross-chain value-transfers are processed correctly.
 
-- 부모 체인 브리지 컨트랙트의 "handleNonce"와 "lowerHandleNonce"는 자식 체인 브리지 컨트랙트의 "requestNonce"에 계속 접근합니다.
-- "handleNonce"와 "lowerHandleNonce"는 부모 체인 브리지 컨트랙트의 "requestNonce"에 계속 접근합니다.
+- "handleNonce" and "lowerHandleNonce" of the parent chain bridge contract keep approaching to the "requestNonce" of the child chain bridge contract.
+- "handleNonce" and "lowerHandleNonce" keep approaching to the "requestNonce" of the parent chain bridge contract.
 
-"handleNonce"가 대응하는 브리지 컨트랙트의 "requestNonce"와 같고 "lowerHandleNonce"가 "handleNonce"보다 1보다 크면 사용자의 요청이 모두 처리된 것입니다.
+If "handleNonce" equals to the "requestNonce" of the counterpart bridge contract, and the "lowerHandleNonce" is greater than "handleNonce" by 1, then users' requests were all processed.
 
-### 로그 <a id="log"></a>
+### Log <a id="log"></a>
 
-아래는 정상 작동 중 SCN의 일반적인 로그 출력입니다.
-1초마다 브리지 컨트랙트의 상태가 출력됩니다.
+Below is a typical log output from a SCN during normal operation.
+Every 1 second, the status of bridge contracts are printed.
 
 ```
 INFO[10/16,19:37:40 +09] [45] VT : Parent -> Child Chain                request=8699 handle=4826 lowerHandle=4826 pending=3873
 INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=7894 handle=4207 lowerHandle=4207 pending=3687
 ```
 
-이 로그는 request, handle, lowerHandle, pending nonce를 보여줍니다.
-각 값은 아래와 같은 의미를 가집니다.
+This log shows the request, handle, lowerHandle, and pending nonces.
+Each value means like below
 
-- request: 가입된 모든 브리지 컨트랙트의 값 전송 요청 nonce의 합계입니다.
-- handle: 가입된 모든 브리지 컨트랙트의 상위 핸들 nonce의 합입니다.
-- lowerHandle: 가입된 모든 브리지 컨트랙트의 하위 핸들 nonce의 합입니다.
-- pending : `request`와 `lowerHandle`의 차이입니다.
+- request : the sum of value-transfer request nonce(s) of all subscribed bridge contract(s).
+- handle : the sum of upper handle nonce(s) of all subscribed bridge contract(s).
+- lowerHandle : the sum of lower handle nonce(s) of all subscribed bridge contract(s).
+- pending : the difference between `request` and `lowerHandle`.
 
 ### RPC API <a id="rpc-api"></a>
 
-아래와 같이 브리지 컨트랙트의 상태를 확인할 수 있습니다.
+You can check the status of a bridge contract like below.
 You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-bridge-information) for more details.
 
 ```javascript
@@ -229,90 +229,90 @@ You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-
 }
 ```
 
-## ERC-20 토큰 전송(2단계) <a id="erc-20-token-transfer-twostep"></a>
+## Token Contract (ERC-20/721) <a id="token-contract-erc-20-721"></a>
 
-서비스체인은 ERC-20/721 밸류 전송도 지원합니다.
-이를 지원하려면 서비스 체인과 호환되는 ERC-20/721 토큰 컨트랙트를 부모 체인 및 자식 체인 모두에 배포해야 합니다.
-ERC-20/721 토큰 컨트랙트 코드의 경우,
-[토큰 표준](../../../build/smart-contracts/token-standard.md)을 참조하세요.
+Service Chain supports ERC-20/721 value transfer as well.
+To support them, service chain compatible ERC-20/721 token contracts should be deployed on both parent and child chains.
+For the ERC-20/721 token contract code,
+you can refer to the [Token standard](../../../build/smart-contracts/token-standard.md).
 
-### 배포 <a id="deployment"></a>
+### Deployment  <a id="deployment"></a>
 
-SCN은 아직 ERC-20/721 토큰을 배포하는 API를 지원하지 않습니다. caver-js를 통해 토큰을 배포해야 합니다.
-ERC-20/721 컨트랙트를 배포할 때는 올바른 브리지 오퍼레이터 계정을 사용해야 합니다. 메인 체인 배포에는 부모 오퍼레이터 계정을, 서비스 체인 배포에는 자식 오퍼레이터 계정을 사용하세요.
-잘못된 계정으로 토큰 컨트랙트를 배포한 경우 밸류 전송이 작동하지 않으므로 올바른 계정으로 토큰 컨트랙트를 다시 배포해야 합니다.
+SCN does not support an API to deploy ERC-20/721 tokens yet. You need to deploy the tokens via caver-js.
+When you deploy an ERC-20/721 contract, you should use the correct bridge operator account. Use the parent operator account for the main chain deploy, and the child operator for the service chain deploy.
+If a token contract was deployed with a wrong account, value transferring will not work and you need to deploy the token contract again with the correct account.
 
-### 등록 <a id="register"></a>
+### Register  <a id="register"></a>
 
-토큰 컨트랙트를 배포한 후에는 아래와 같이 부모/자식 체인에 있는 브리지 컨트랙트에 토큰 컨트랙트를 등록해야 합니다.
+After deploying token contracts, you should register the token contracts with the bridge contracts on the parent/child chains like below.
 
 ```javascript
 > subbridge.registerToken("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5", "0x376b72abe1b29cace831bd3f5acdfa967814c9cd", "0x53160735f7cc6ff75e48619f368bb94daff66a1b")
 null
 ```
 
-이 명령은 자식 체인 토큰("0x376b72abe1b29cace831bd3f5acdfa967814c9cd")을 자식 체인 브리지 컨트랙트("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")와 함께 등록합니다. 이 단계에서는 부모 체인뿐만 아니라 자식 체인에 브리지 컨트랙트와 토큰 컨트랙트를 모두 배포합니다.
+This command registers the child chain token ("0x376b72abe1b29cace831bd3f5acdfa967814c9cd") with the child chain bridge contract ("0x27caeba831d98b5fbb1d81ce0ed20801702f443a"). And the parent chain token ("0x53160735f7cc6ff75e48619f368bb94daff66a1b") with the parent chain bridge contract ("0x22c41ae528627b790233d2e59ea520be12350eb5").
 
 You can refer to the [Service Chain API](../../../references/json-rpc/subbridge/register-token) for more details.
 
-## 밸류 전송 요청 <a id="request-value-transfer"></a>
+## Request Value Transfer <a id="request-value-transfer"></a>
 
-이 섹션에서는 사용자가 밸류 전송을 요청하기 위해 호출할 컨트랙트 메서드에 대해 설명합니다.
-요청 트랜잭션은 0 값을 허용하지 않습니다(KLAY/ERC-20).
+This section explains the contract methods that will be invoked by a user to request a value transfer.
+Request transaction does not allow zero value (KAIA/ERC-20).
 
-### KLAY 전송 <a id="klay-transfer"></a>
+### KAIA transfer <a id="kaia-transfer"></a>
 
-사용자는 아래 방법을 사용하여 **브릿지 컨트랙트**에 "밸류 전송 요청" 트랜잭션을 생성할 수 있습니다.
+Users can make a "request value transfer" transaction to the **bridge contract** using the below methods.
 
 #### fallback <a id="fallback"></a>
 
-사용자가 브리지의 폴백 기능을 호출하면 상대방 체인에서 요청하는 사용자와 동일한 계정 주소로 KLAY 전송을 요청합니다.
+If a user calls the fallback function of the bridge, this requests a KAIA transfer to the same account address as the requesting user in the counterpart chain.
 
 ```solidity
 function () external payable;
 ```
 
-#### requestKLAYTransfer <a id="requestklaytransfer"></a>
+#### requestKAIATransfer <a id="requestklaytransfer"></a>
 
-사용자가 `_to`와 함께 이 함수를 호출하면 상대방 체인에 있는 `_to` 주소로 KLAY 전송을 요청합니다.
+If a user calls this function with `_to`, this requests a KAIA transfer to `_to` address in the counterpart chain.
 
 ```solidity
-function requestKLAYTransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
+function requestKAIATransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
 ```
 
-### ERC-20 토큰 전송(원스텝) <a id="erc-20-token-transfer-onestep"></a>
+### ERC-20 transfer <a id="erc-20-transfer"></a>
 
-#### 2단계 전송은 (1) 브리지 컨트랙트를 먼저 승인한 다음, (2) 컨트랙트 함수 `requestERC20Transfer()`를 호출하는 두 번의 함수 호출로 구성됩니다.
+#### 2-Step request via Bridge contract <a id="2-step-request-via-bridge-contract"></a>
 
-사용자는 브리지 컨트랙트에 토큰을 [승인](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve)한 후 아래 방법을 사용하여 브리지 컨트랙트에 "밸류 전송 요청" 트랜잭션을 할 수 있습니다.
+Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
 
 ```solidity
 function requestERC20Transfer(address _tokenAddress, address _to, uint256 _value,uint256 _feeLimit,bytes memory _extraData) external
 ```
 
-#### 이 1단계 토큰 전송을 수행하려면 ERC-20 토큰 구현을 수정해야 합니다.
+#### 1-Step request via ERC-20 contract <a id="1-step-request-via-erc-20-contract"></a>
 
-사용자는 승인 없이 아래 방법을 사용하여 **ERC-20 컨트랙트**에 직접 "요청값 전송" 트랜잭션을 생성할 수 있습니다.
-그러면 ERC-20 컨트랙트가 해당 기능을 구현해야 합니다.
+Users can make a "request value transfer" transaction directly to the **ERC-20 contract** using the below method without approving.
+The ERC-20 contract should implement the function, then.
 
 ```solidity
 function requestValueTransfer(uint256 _amount, address _to, uint256 _feeLimit, bytes calldata _extraData) external
 ```
 
-### ERC-721, KIP-17, KLAY용 밸류 전송 <a id="value-transfer-for-erc721-kip17-and-klay"></a>
+### ERC-721 transfer <a id="erc-721-transfer"></a>
 
-#### 2단계: 컨트랙트 배포 <a id="step-2-deploy-contracts"></a>
+#### 2-Step request via Bridge contract <a id="2-step-request-via-bridge-contract"></a>
 
-사용자는 브리지 컨트랙트에 토큰을 [승인](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve)한 후 아래 방법을 사용하여 브리지 컨트랙트에 "밸류 전송 요청" 트랜잭션을 할 수 있습니다.
+Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
 
 ```solidity
 function requestERC721Transfer(address _tokenAddress, address _to, uint256 _tokenId, bytes memory _extraData) external
 ```
 
-#### ERC-721 컨트랙트를 통한 1단계 요청 <a id="1-step-request-via-erc-721-contract"></a>
+#### 1-Step request via ERC-721 contract <a id="1-step-request-via-erc-721-contract"></a>
 
-사용자는 승인 없이 아래 방법을 사용하여 **ERC-721 컨트랙트**에 직접 "밸류 전송 트랜잭션을 요청" 할 수 있습니다.
-그러면 ERC-721 컨트랙트가 해당 기능을 구현합니다.
+Users can make a "request value transfer" transaction directly to the **ERC-721 contract** using the below method without approving.
+The ERC-721 contract should implement the function, then.
 
 ```solidity
 function requestValueTransfer(uint256 _uid, address _to) external
@@ -320,35 +320,35 @@ function requestValueTransfer(uint256 _uid, address _to) external
 
 ### onERC721Received() <a id="unsupported-onERC721Received"></a>
 
-ERC-721 표준에는 [onERC721Received](https://eips.ethereum.org/EIPS/eip-721) 콜백 함수가 있습니다.
-현재 클레이튼 팀이 제공하는 브리지 컨트랙트는 토큰 전송을 위해 `requestERC20Transfer()`와 `requestERC721Transfer()`만 지원하고 있습니다.
+The ERC-721 standard has the [onERC721Received](https://eips.ethereum.org/EIPS/eip-721) callback function.
+The `onERC721Received()` works with `safeTransferFrom()` function, but the current bridge contract implementation uses `transferFrom()`, which means the `onERC721Recieved()` is not expected to be called.
 
-아니면 `onERC721Recieved()`와 같은 추가 작업은 이벤트 수신과 같은 다른 방식으로 구현해야 합니다(예: `event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)`).
+Alternatively, a further action like `onERC721Recieved()` should be implemented in another way such as event listening (e.g., `event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)`).
 
-## 밸류 전송 복구
+## Value Transfer Recovery
 
-여러 가지 이유로 밸류 전송 요청이 실패할 수 있습니다. 서브 브리지에서 메인 브리지로 또는 메인 브리지에서 서브 브리지로 KLAY 전송을 요청했다고 가정해 봅시다.
-이 경우 수신자 측의 브리지 컨트랙트에 요청된 KLAY 수량보다 충분한 KLAY가 있어야 합니다. 그렇지 않으면 반환 값에 오류 알림 없이 전송이 실패합니다.
-밸류 전송 복구 기능은 처리되지 않은 이벤트를 찾아 일정 간격으로 이벤트 풀에 다시 삽입하는 기능으로, 상대방 브리지가 해당 이벤트를 성공적으로 처리할 수 있을 때 실패한 트랜잭션이 다시 성공할 수 있습니다.
-위 예시의 경우, 실패한 트랜잭션은 상대 브리지에 충분한 KLAY가 있을 때 밸류 전송 복구에 의해 최종적으로 처리될 것입니다.
-값 전송 복구를 기본값으로 설정하기 위해서는 두 가지 속성을 설정해야 합니다:
+Value transfer request may be fail for a number of reasons. Say you requested KAIA transfer from subbridge to mainbridge or from mainbridge to subbridge.
+In that case, the bridge contract on the receiver side must have enough KAIA than the requested amount of KAIA. If not, the transfer would fail without error notification in the return value.
+A feature of value transfer recovery finds unhandled events and insert them into event pool again in a given interval, which means the failed transaction can be succeed again when the counterpart bridge can successfully handle that event.
+In case of the above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KAIA.
+In order to set the value transfer recovery as default, you need to set two properties:
 
 ```
 SC_VTRECOVERY=1
 SC_VTRECOVERY_INTERVAL=5
 ```
 
-`SC_VTRECOVERY=1`을 설정하면 값 전송 복구가 자동으로 실행됩니다. `SC_VTRECOVERY_INTERVAL`은 밸류 전송 복구가 실행되는 간격을 의미합니다.
+The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how often the value transfer recovery is executed.
 
-## ERC-20 인터페이스를 통한 KIP-7 토큰 전송(2단계) <a id="kip-7-token-transfer-via-erc-20-interface-two-step"></a>
+## Collecting Fee for KAIA/ERC-20 transfer <a id="collecting-fee-for-kaia-erc-20-transfer"></a>
 
-서비스체인에는 KLAY/ERC-20 전송에 대한 수수료 징수 기능이 있습니다.
+In ServiceChain, there is a fee collecting feature for KAIA/ERC-20 transfers.
 
-**곧 업데이트될 예정입니다.**
+**To be updated soon.**
 
-## 브리지 컨트랙트 커스터마이징 <a id="customizing-your-bridge-contract"></a>
+## Customizing your Bridge Contract  <a id="customizing-your-bridge-contract"></a>
 
-서비스체인에서는 고유한 서비스를 위해 원래 브리지 컨트랙트를 상속하는 사용자 지정 브리지 컨트랙트를 사용할 수 있습니다.
-이 섹션에서는 브리지 컨트랙트를 사용자 정의하는 방법을 설명하고 예제 코드를 제시합니다.
+In ServiceChain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service.
+This section explains how to customize the Bridge contract and presents the example code.
 
-**곧 업데이트될 예정입니다.**
+**It will be updated soon.**
