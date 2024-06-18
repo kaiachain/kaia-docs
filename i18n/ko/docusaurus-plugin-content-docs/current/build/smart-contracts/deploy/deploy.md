@@ -24,7 +24,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -42,7 +42,7 @@ contract KlaytnGreeter is Mortal {
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. Now we can deploy the contract. 아이콘 패널에서 카이아 로고를 클릭합니다. `Account` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 계정에 필요한 스마트 컨트랙트 배포 트랜잭션 비용을 지불할 수 있는 충분한 KAIA가 있는지 확인합니다.
+4. 이제 컨트랙트를 배포할 수 있습니다. 아이콘 패널에서 카이아 로고를 클릭합니다. `Account` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 계정에 필요한 스마트 컨트랙트 배포 트랜잭션 비용을 지불할 수 있는 충분한 KAIA가 있는지 확인합니다.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
@@ -67,7 +67,7 @@ contract KlaytnGreeter is Mortal {
 
 vvisp는 헤이치랩스에서 제공하는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 CLI 도구/프레임워크입니다. 명령어 하나로 카이아 스마트 컨트랙트의 환경 설정, 배포, 실행을 쉽게 할 수 있습니다. 자세한 내용은 아래 링크를 참고하세요.
 
-- https\://henesis.gitbook.io/vvisp/deploying-smart-contracts
+- https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
 
@@ -87,7 +87,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -110,7 +110,7 @@ $ sudo npm install -g solc@0.5.6
 3. Compile the contract.
 
 ```
-$ solcjs KlaytnGreeter.sol --bin
+$ solcjs KaiaGreeter.sol --bin
 ```
 
 4. caver-js를 설치합니다.
@@ -125,21 +125,21 @@ $ npm install caver-js.
 const Caver = require("caver-js");
 const caver = new Caver("https://public-en-baobab.klaytn.net")
 
-const walletInstance = caver.klay.accounts.privateKeyToAccount(
+const walletInstance = caver.kaia.accounts.privateKeyToAccount(
   '0x3de0c9...' // enter your private key to deploy contract with
 );
-caver.klay.accounts.wallet.add(walletInstance);
+caver.kaia.accounts.wallet.add(walletInstance);
 
 const fs = require('fs')
 const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // compiled output
 
 const constructorType = ['string']  // enter appropriate constructor type
-const constructorValue = ['Hello, Klaytn!']
+const constructorValue = ['Hello, Kaia!']
 
-const params = caver.klay.abi.encodeParameters(constructorType, constructorValue);
+const params = caver.kaia.abi.encodeParameters(constructorType, constructorValue);
 
-caver.klay.sendTransaction({
-  from: caver.klay.accounts.wallet[0].address,
+caver.kaia.sendTransaction({
+  from: caver.kaia.accounts.wallet[0].address,
   gas: "50000000",
   data: bytecode.toString() + params.substring(2, params.length)
 })
