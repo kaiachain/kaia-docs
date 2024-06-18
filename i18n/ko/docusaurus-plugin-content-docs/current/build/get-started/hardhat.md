@@ -1,4 +1,4 @@
-# Hardhat을 사용하여 첫 스마트 컨트랙트 배포하기
+# How to Verify Smart Contracts Using Hardhat
 
 ![](/img/build/get-started/Klaytn-hardhat.png)
 
@@ -17,8 +17,8 @@ Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니�
 
 - 카이아에서 Hardhat 프로젝트를 설정합니다.
 - 간단한 Soul-bound token 생성하기.
-- Hardhat을 사용하여 스마트 컨트랙트 컴파일하기.
-- Hardhat을 사용하여 스마트 컨트랙트 테스트, 배포 및 상호작용하기.
+- [Verifying contracts using Hardhat on Klaytnscope](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
+- This guide allows you to automatically verify your smart contracts' source code on Klaytnscope straight from your CLI using the Hardhat Verify Plugin.
 - Hardhat 포크 기능 살펴보기.
 
 ## 사전 요구 사항
@@ -113,7 +113,7 @@ touch .env
 
 **6단계**: Hardhat 설정 설정
 
-다음 구성으로 `hardhat.config.js`를 수정합니다:
+To verify your contract on klaytn, you need to add the following configuration to your `hardhat.config.js`:
 
 ```js
 require("@nomicfoundation/hardhat-toolbox");
@@ -351,13 +351,13 @@ npx hardhat run scripts/sbtDeploy.js --network kairos
 
 ![](/img/build/get-started/sbtKS.png)
 
-## Hardhat 포크
+## Using Hardhat
 
 Hardhat은 개발자에게 메인넷(특정 블록)을 로컬 개발 네트워크에서 시뮬레이션할 수 있는 기능을 제공합니다. 이 기능의 주요 이점 중 하나는 개발자가 배포된 컨트랙트와 상호 작용하고 복잡한 케이스에 대한 테스트를 작성할 수 있다는 것입니다.
 
 이 기능이 효과적으로 작동하려면 아카이브 노드에 연결해야 합니다. 이 기능에 대한 자세한 내용은 [여기](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)에서 확인할 수 있습니다.
 
-### 메인넷 포크
+### Mainnet
 
 이제 Hardhat 프로젝트를 설정했으니 Hardhat을 사용하여 Kaia 메인넷을 포크해 보겠습니다.  터미널을 열고 다음 명령을 실행합니다.
 
