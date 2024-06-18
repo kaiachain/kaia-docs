@@ -1,5 +1,5 @@
 ---
-sidebar_label: Using Block Explorers
+sidebar_label: 블록 탐색기 사용하기
 ---
 
 # 블록 탐색기로 스마트 컨트랙트 검증하기
@@ -157,43 +157,43 @@ Kaiascope에서 단일 컨트랙트와 다중 파트 컨트랙트를 확인하�
 ![](/img/build/tutorials/counter-contract-tab.png)
 
 4. 컨트랙트 확인 페이지에서 계정이 Kaikas 또는 Metamask 중 하나에 연결되어 있는지 확인합니다. 이 가이드에서는 Kaikas를 사용하겠습니다.
-5. **contract address 필드**에 계약 주소를 입력합니다. Note: This field is usually filled with the contract address automatically.
-6. Select the **compiler version** used for the `Counter.sol` example.
-7. Select the **Open Source License Type** used for the `Counter.sol` example. For `Counter.sol` example, select the option, **MIT License (MIT)**. If there was none used, select **No License (None)**.
-8. In the **Source Code field**, select **Source Text** and paste the source code for `Counter.sol` in the text-field.
-9. Select **True** for **Optimization** if it was enabled during compilation, and fill in the number of runs under **Optimization Runs** to be **200**.
-10. Select the **EVM version** for the contract. For `Counter.sol` example, select the option **Istanbul**.
-11. Click on the CAPTCHA at the bottom and the **Sign and Submit** button to confirm and begin verification.
+5. **contract address 필드**에 컨트랙트 주소를 입력합니다. 참고: 이 필드는 일반적으로 계약 주소로 자동으로 채워집니다.
+6. `Counter.sol` 예제에 사용된 **compiler version**을 선택합니다.
+7. `Counter.sol` 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
+8. **Source Code 필드**에서 **Source Text**를 선택하고 텍스트 필드에 `Counter.sol`의 소스 코드를 붙여넣습니다.
+9. 컴파일 시 **Optimization**가 활성화된 경우 **True**를 선택하고, **Optimization Runs**의 실행 횟수를 **200**으로 입력합니다.
+10. 컨트랙트의 **EVM version**을 선택합니다. `Counter.sol` 예제의 경우, **Istanbul** 옵션을 선택합니다.
+11. 하단의 보안 문자를 클릭하고 **Sign and Submit** 버튼을 클릭하여 확인하고 확인을 시작합니다.
 
 ![](/img/build/tutorials/counter-verification-page.png)
 
-12. After signing the verification request, you will get a verification status notification
+12. 인증 요청에 서명하면 인증 상태 알림을 받게 됩니다.
 
 ![](/img/build/tutorials/counter-success-popup.png)
 
-13. Once verification is done, the result of the verification will be displayed in the browser, and a success result page with the contract address. Click on the contract address to view the **Contract Source Code**, **Contract ABI**, and **Bytecode**.
+13. 인증이 완료되면 브라우저에 인증 결과가 표시되고 계약 주소가 포함된 성공 결과 페이지가 표시됩니다. 컨트랙트 주소를 클릭하면 **Contract Source Code**, **Contract ABI**, **Bytecode**를 볼 수 있습니다.
 
 ![](/img/build/tutorials/counter-success-popup-I.png)
 
 ![](/img/build/tutorials/counter-full-verification.png)
 
-#### 1.2 Verifying multi-part contract
+#### 1.2 멀티파티 컨트랙트 검증하기
 
-Verifying a multi-part contract on Klaytnscope is as straightforward as verifying a single contract, except that it requires some additional steps. In this section, we will be verifying the `airdropToken.sol` contract with the following additional steps:
+Kaiascope에서 다중 컨트랙트를 검증하는 것은 몇 가지 추가 단계가 필요하다는 점을 제외하면 단일 컨트랙트를 검증하는 것만큼 간단합니다. 이 섹션에서는 다음과 같은 추가 단계를 통해 `airdropToken.sol` 컨트랙트를 검증하겠습니다:
 
-- You can either Select **Source Text** under **Source Code** (step 3 of the Counter.sol example) or **Solidity File(s)** under the **Source Code** field.  In the case of **Source Text**, copy the code in the `airdropToken_flattened.sol` and paste in the text field. If **Solidity File(s)**, you can download the `airdropToken_flattened.sol` file on Remix IDE and upload to the field.
+- **Source Code**에서 **Source Text**를 선택하거나(Counter.sol 예시의 3단계) **Source Code** 필드에서 \*\*Solidity 파일(들)\*\*을 선택할 수 있습니다.  **Source Text**의 경우, `airdropToken_flattened.sol`에 있는 코드를 복사하여 텍스트 필드에 붙여넣습니다. \*\*Solidity 파일(들)\*\*의 경우, Remix IDE에서 `airdropToken_flattened.sol` 파일을 다운로드하여 해당 필드에 업로드할 수 있습니다.
 
-a. Source Text
+a. 소스 텍스트
 
 ![](/img/build/tutorials/airdrop-veri-field-I.png)
 
-b. Solidity File(s)
+b. Solidity 파일
 
 ![](/img/build/tutorials/airdrop-veri-field-II.png)
 
-After this, every other step remains the same as verifying a single contract. Having filled the verification parameter, click on the **Sign and Submit** button to confirm and begin verification.
+그 이후에는 다른 모든 단계는 단일 컨트랙트를 검증하는 것과 동일하게 유지됩니다. 인증 파라미터를 입력한 후 **Sign and Submit** 버튼을 클릭하여 확인하고 인증을 시작합니다.
 
-Once verification is done, the result of the verification will be displayed in the browser, and a success result page with the contract address. Click on the contract address to view the **Contract Source Code**, **Contract ABI**, and **Bytecode**.
+인증이 완료되면 브라우저에 인증 결과가 표시되고 계약 주소가 포함된 성공 결과 페이지가 표시됩니다. 컨트랙트 주소를 클릭하면 **Contract Source Code**, **Contract ABI**, **Bytecode**를 볼 수 있습니다.
 
 ![](/img/build/tutorials/airdrop-success-popup.png)
 
@@ -203,41 +203,41 @@ Once verification is done, the result of the verification will be displayed in t
 
 ### 2. Kaiafinder
 
-To verify a single contract and multi-part contracts on Klaytnfinder, navigate to the [contract submission request page](https://baobab.klaytnfinder.io/contracts). However, make sure your account is connected to either Kaikas or MetaMask and follow the steps below:
+Kaiafinder에서 단일 컨트랙트 및 여러 개의 컨트랙트를 검증하려면 [컨트랙트 제출 요청 페이지](https://baobab.klaytnfinder.io/contracts)로 이동합니다. 단, 계정이 Kaikas 또는 Metamask에 연결되어 있는지 확인하고 아래 단계를 따르세요:
 
 ![](/img/build/tutorials/klaytnfinder-con-sub-page.png)
 
-#### 2.1 Verifying single contract
+#### 2.1 단일 컨트랙트 확인
 
-1. Observe the **Is this contract for a token** field? This field is needed when trying to verify a token contract with its official website URL, official email address, and token logo image. For the sake of this guide, select **No** as we are not verifying a commercial token contract.
-2. Fill in the **contract address** for the deployed contract (Counter.sol)
-3. Make sure to download `Counter.sol` from Remix IDE and upload in the **Source Code (Solidity File)** field
-4. Select the **compiler version** used for the `Counter.sol` example
-5. Select the **Open Source License Type** used for the `Counter.sol` example. For `Counter.sol` example, select the option, **MIT License (MIT)**. If there was none used, select **No License (None)**
-6. Select the **EVM version** for the contract. For `Counter.sol` example, select the option **Istanbul**.
-7. Select **True** for **Optimization** if it was enabled during compilation, and fill in the number of runs under **Optimization Runs** to be **200**.
-8. (optional) To get the ABI-encoded constructor arguments for this field, navigate to [abi.hashex.org](http://abi.hashex.org) to get the encoded data following the image below:
+1. **Is this contract for a token** 필드를 확인합니다. 이 필드는 공식 웹사이트 URL, 공식 이메일 주소, 토큰 로고 이미지가 있는 토큰 컨트랙트를 확인하려고 할 때 필요합니다. 이 가이드에서는 상업용 토큰 계약을 확인하지 않으므로 **No**를 선택하세요.
+2. 배포된 컨트랙트(Counter.sol)의 **contract address**를 입력합니다.
+3. Remix IDE에서 'Counter.sol'을 다운로드하여 **Source Code (Solidity File)** 필드에 업로드합니다.
+4. `Counter.sol` 예제에 사용된 **compiler version**을 선택합니다.
+5. `Counter.sol` 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
+6. 컨트랙트의 **EVM version**을 선택합니다. `Counter.sol` 예제의 경우, **Istanbul** 옵션을 선택합니다.
+7. 컴파일 시 **Optimization**가 활성화된 경우 **True**를 선택하고, **Optimization Runs**의 실행 횟수를 **200**으로 입력합니다.
+8. (선택 사항) 이 필드에 대한 ABI 인코딩된 생성자 인수를 가져오려면 [abi.hashex.org](http://abi.hashex.org)로 이동하여 아래 이미지에 따라 인코딩된 데이터를 가져옵니다:
 
 ![](/img/build/tutorials/abi-hashex.png)
 
-9. Click on the **Sign and Submit** button to confirm and begin verification.
+9. **Sign and Submit** 버튼을 클릭하여 확인하고 확인을 시작합니다.
 
 ![](/img/build/tutorials/counter-k-verification-page.png)
 
-10. Once verification is done, you will get a **Submission Successful** message. Now you can paste the contract address in the explorer search bar  to view the **Contract Source Code**, **Contract ABI**, **Creation Code** and **ABI-encoded Value**.
+10. 인증이 완료되면 **Submission Successful** 메시지가 표시됩니다. 이제 탐색기 검색창에 컨트랙트 주소를 붙여넣어 **Contract Source Code**, **Contract ABI**, **Creation Code** 및 **ABI-encoded Value**을 볼 수 있습니다.
 
 > ![](/img/build/tutorials/counter-k-full-verification.png)
 
-### 2.2 Verifying multiple-part contract
+### 2.2 다중 컨트랙트 검증하기
 
-Verifying a multi-part contract on Klaytnfinder follows the same step as verifying a single contract. However, it is important to note we will be uploading the `airdropToken_flattened.sol` file in the **Source Code(Solidity File)** field.
+Kaiafinder에서 여러 부분으로 구성된 컨트랙트를 검증하는 것은 단일 컨트랙트를 검증하는 것과 동일한 단계를 따릅니다. 다만, **Source Code(Solidity File)** 필드에 `airdropToken_flattened.sol` 파일을 업로드할 것이라는 점에 유의해야 합니다.
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
-After filling the verification parameters, click on the **Sign and Submit** button to confirm and begin verification. Once verification is done, you will get a **Submission Successful** message. Now you can paste the contract address in the explorer search bar to view the **Contract Source Code**, **Contract ABI**, and **Creation Code**.
+확인 매개변수를 입력한 후 **Sign and Submit** 버튼을 클릭하여 확인하고 확인을 시작합니다. 인증이 완료되면 **Submission Successful** 메시지가 표시됩니다. 이제 탐색기 검색창에 컨트랙트 주소를 붙여넣어 **Contract Source Code**, **Contract ABI**, **Creation Code**를 볼 수 있습니다.
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
-## Conclusion
+## 결론
 
-Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Klaytnscope and Klaytnfinder solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Klaytn Docs](https://docs.klaytn.foundation/) for more information and [Klaytn Forum](https://forum.klaytn.foundation/) if you have any questions.
+이 가이드를 따라해 주셔서 감사합니다! 이 튜토리얼에서는 배포된 컨트랙트의 투명성(사용자), 편의성(개발자), 보안을 강화하기 위해 Kaiascope와 Kaiafinder만을 사용하여 컨트랙트(단일 및 다중 부분 모두)를 검증하는 방법을 배웠습니다. 자세한 내용은 [Kaia Docs](https://docs.klaytn.foundation/)를, 궁금한 점이 있으면 [Kaia Forum](https://forum.klaytn.foundation/)을 참조하세요.
