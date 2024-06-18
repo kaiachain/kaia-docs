@@ -1,35 +1,35 @@
-# 트랜잭션 오류 코드
+# Transaction Error Codes
 
-클레이튼은 트랜잭션 영수증에 `txError` 필드를 제공하여 개발자가 트랜잭션 실행 실패 이유에 대한 자세한 정보를 얻을 수 있도록 합니다. 이 필드는 트랜잭션 실행이 실패한 경우에만 존재합니다. 저장 공간과 네트워크 대역폭을 절약하기 위해 `txError`는 정수 값을 포함합니다. 아래 표는 `txError`에 포함된 값의 의미를 보여줍니다.
+Kaia provides a field `txError` in the transaction receipt to give developers more information about the reason for the failed transaction execution. This field exists only if the transaction execution is failed. To save storage and network bandwidth, `txError` contains an integer value. The below table shows the meaning of the value in `txError`.
 
-| 오류 코드 | 설명                                                                             |
-| :---- | :----------------------------------------------------------------------------- |
-| 0x02  | 스마트 컨트랙트 실행 중 VM 오류 발생                                                         |
-| 0x03  | 최대 호출 깊이 초과                                                                    |
-| 0x04  | 컨트랙트 주소 충돌                                                                     |
-| 0x05  | 컨트랙트 생성 코드 저장 공간 부족                                                            |
-| 0x06  | evm: 최대 코드 크기 초과                                                               |
-| 0x07  | 가스 부족                                                                          |
-| 0x08  | evm: 쓰기 보호                                                                     |
-| 0x09  | evm: 실행이 되돌렸습니다.                                                               |
-| 0x0a  | tx에 대한 연산 코드 계산 비용 제한에 도달했습니다.                                                 |
-| 0x0b  | 계정이 이미 존재합니다.                                                                  |
-| 0x0c  | 프로그램 계정이 아닙니다 (예: 코드와 저장소가 있는 계정)                           |
-| 0x0d  | 사람이 읽을 수 있는 주소는 현재 지원되지 않습니다                                                   |
-| 0x0e  | 수수료 비율이 [1, 99] 범위를 벗어났습니다 |
-| 0x0f  | AccountKeyFail을 업데이트할 수 없습니다.                                                  |
-| 0x10  | 다른 계정 키 유형                                                                     |
-| 0x11  | AccountKeyNil을 계정으로 초기화할 수 없습니다.                                               |
-| 0x12  | 공개 키가 커브에 없습니다.                                                                |
-| 0x13  | 키 가중치가 0입니다                                                                    |
-| 0x14  | 키가 직렬화할 수 없습니다                                                                 |
-| 0x15  | 중복된 키                                                                          |
-| 0x16  | 가중 합 오버플로우                                                                     |
-| 0x17  | 만족할 수 없는 임계값. 키의 가중 합이 임계값보다 작습니다.                                             |
-| 0x18  | 길이가 0입니다                                                                       |
-| 0x19  | 길이가 너무 깁니다                                                                     |
-| 0x1a  | 중첩된 복합 유형                                                                      |
-| 0x1b  | 레거시 트랜잭션은 레거시 계정 키를 사용해야 함                                                     |
-| 0x1c  | 사용 중단된 기능                                                                      |
-| 0x1d  | 지원되지 않음                                                                        |
-| 0x1e  | 스마트 컨트랙트 코드 형식이 유효하지 않습니다.                                                     |
+| Error Code | Description                                                                                                             |
+| :--------- | :---------------------------------------------------------------------------------------------------------------------- |
+| 0x02       | VM error occurs while running smart contract                                                                            |
+| 0x03       | max call depth exceeded                                                                                                 |
+| 0x04       | contract address collision                                                                                              |
+| 0x05       | contract creation code storage out of gas                                                                               |
+| 0x06       | evm: max code size exceeded                                                                             |
+| 0x07       | out of gas                                                                                                              |
+| 0x08       | evm: write protection                                                                                   |
+| 0x09       | evm: execution reverted                                                                                 |
+| 0x0a       | reached the opcode computation cost limit for tx                                                                        |
+| 0x0b       | account already exists                                                                                                  |
+| 0x0c       | not a program account \(e.g., an account having code and storage\) |
+| 0x0d       | Human-readable address is not supported now                                                                             |
+| 0x0e       | fee ratio is out of range \[1, 99\]                               |
+| 0x0f       | AccountKeyFail is not updatable                                                                                         |
+| 0x10       | different account key type                                                                                              |
+| 0x11       | AccountKeyNil cannot be initialized to an account                                                                       |
+| 0x12       | public key is not on curve                                                                                              |
+| 0x13       | key weight is zero                                                                                                      |
+| 0x14       | key is not serializable                                                                                                 |
+| 0x15       | duplicated key                                                                                                          |
+| 0x16       | weighted sum overflow                                                                                                   |
+| 0x17       | unsatisfiable threshold. Weighted sum of keys is less than the threshold.               |
+| 0x18       | length is zero                                                                                                          |
+| 0x19       | length too long                                                                                                         |
+| 0x1a       | nested composite type                                                                                                   |
+| 0x1b       | a legacy transaction must be with a legacy account key                                                                  |
+| 0x1c       | deprecated feature                                                                                                      |
+| 0x1d       | not supported                                                                                                           |
+| 0x1e       | smart contract code format is invalid                                                                                   |
