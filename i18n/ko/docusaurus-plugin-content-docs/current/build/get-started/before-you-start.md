@@ -2,8 +2,8 @@
 
 **클레이튼 네트웍스**
 
-- Baobab 테스트넷
-- Cypress 메인넷
+- Kairos testnet
+- Mainnet
 
 **엔드포인트 노드**
 
@@ -24,7 +24,7 @@
 - [caver-js](../../references/sdk/caver-js/caver-js.md) : 클레이튼 JSON-RPC API를 구현하는 JavaScript 라이브러리.
 - [caver-java](../../references/sdk/caver-java/caver-java.md) : 클레이튼 JSON-RPC API를 구현하는 자바 라이브러리입니다.
 
-**클레이튼 툴킷**
+**Kaia Toolkits**
 
 - [Klaytnscope](https://klaytnscope.com/) - A block and transaction explorer.
 - [Klaytn Wallet](https://wallet.klaytn.com/) - 브라우저 기반 계정 관리 도구.
