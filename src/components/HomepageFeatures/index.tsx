@@ -47,6 +47,19 @@ const StyledGrid = styled(View)`
   }
 `
 
+// Style the Feature component as a card
+const StyledFeature = styled(View)`
+  border: 1px solid #abd908; /* Add a subtle border */
+  padding: 20px;
+  border-radius: 10px; /* Round the corners */
+  text-align: left;
+  transition: transform 0.2s ease; /* Add a smooth hover effect */
+
+  &:hover {
+    transform: translateY(-5px); /* Lift the card slightly on hover */
+  }
+`
+
 const StyledImgBox = styled(View)`
   align-items: center;
   padding-bottom: 20px;
@@ -99,19 +112,19 @@ const featureList: FeatureType[] = [
 
 function Feature({ imgSrcLight, imgSrcDark, title, description, to }: FeatureType) {
   const { colorMode } = useColorMode();
-  const imgSrc = colorMode === 'dark' ? imgSrcDark : imgSrcLight; // Select image based on theme
+  const imgSrc = colorMode === 'dark' ? imgSrcDark : imgSrcLight;
   return (
-    <View>
+    <StyledFeature> {/* Wrap with StyledFeature for card styling */}
       <Link to={to}>
         <StyledImgBox>
           <FormBgImg src={imgSrc} style={{ width: '100%', height: 150 }} />
         </StyledImgBox>
-        <View style={{ alignItems: 'center' }}>
+        <View>
           <h3>{title}</h3>
-          <p style={{ textAlign: 'center' }}> {description}</p>
+          <p>{description}</p>
         </View>
       </Link>
-    </View>
+    </StyledFeature>
   )
 }
 
