@@ -1,8 +1,8 @@
 ---
-sidebar_label: 기본
+sidebar_label: Basic
 ---
 
-# 기본 유형 트랜잭션 클래스
+# Basic type transaction class
 
 ## LegacyTransaction <a id="legacytransaction"></a>
 
@@ -10,40 +10,40 @@ sidebar_label: 기본
 caver.transaction.legacyTransaction.create(transactionObject)
 ```
 
-`LegacyTransaction`은 [레거시 트랜잭션](../../../../../learn/transactions/basic.md#txtypelegacytransaction)을 나타냅니다. [클레이튼 계정](../../../../../learn/accounts.md#klaytn-accounts)은 [AccountKeyLegacy]로만 `LegacyTransaction`을 실행할 수 있습니다. `transactionObject`는 아래와 같은 프로퍼티를 가지고 `LegacyTransaction`을 생성할 수 있습니다.
+`LegacyTransaction` represents a [legacy transaction](../../../../../learn/transactions/basic.md#txtypelegacytransaction). A [Kaia account](../../../../../learn/accounts.md#kaia-accounts) can execute a `LegacyTransaction` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `LegacyTransaction`.
 
-`LegacyTransaction`은 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `LegacyTransaction`을 생성할 때 `transactionObject`에 선택적으로 지정할 수 있는 프로퍼티를 나타냅니다.
+`LegacyTransaction` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `LegacyTransaction`.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `LegacyTransaction` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.legacyTransaction.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 부터 지원됩니다.
+NOTE: You can create an instance of `LegacyTransaction` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.legacyTransaction.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.legacyTransaction({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.legacyTransaction.create({...})`로 변경하시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.legacyTransaction({...})`, please change it to `caver.transaction.legacyTransaction.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름         | 유형     | 설명                                                                                                                                                     |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| gas        | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                      |
-| value      | String | (선택 사항, 기본값: `'0x0'`) 전송할 peb 단위의 KLAY 금액입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                                      |
-| from       | String | (선택 사항) 발신자의 주소입니다. 생략하면 서명에 사용되는 Keyring 주소가 설정됩니다.                                                                                |
-| to         | String | (선택 사항, 기본값: `'0x'`) 레거시 트랜잭션이 스마트 컨트랙트를 실행하는 경우 전송된 값을 받을 계정 주소 또는 스마트 컨트랙트 주소입니다. 레거시 트랜잭션이 스마트 컨트랙트를 배포하는 경우 `to`는 정의할 필요가 없습니다. |
-| input      | String | (선택 사항) 스마트 컨트랙트 배포/실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                      |
-| signatures | Array  | (선택 사항) 서명의 배열입니다. 레거시 트랜잭션에는 서명이 하나만 있을 수 있습니다.                                                                                    |
-| nonce      | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다.       |
-| gasPrice   | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                                     |
-| chainId    | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                                |
+| Name       | Type   | Description                                                                                                                                                                                                                                                                                                             |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| gas        | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                |
+| value      | string | (optional, default: `'0x0'`) The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                           |
+| from       | string | (optional) The address of the sender. If omitted, the keyring address used for signing will be set.                                                                                                                                                                  |
+| to         | string | (optional, default: `'0x'`) The account address that will receive the transferred value or smart contact address if a legacy transaction execute smart contract. If a legacy transaction deploys a smart contract, `to` does not need to be defined. |
+| input      | string | (optional) Data attached to the transaction, used for smart contract deployment/execution.                                                                                                                                                                                           |
+| signatures | Array  | (optional) An array of signatures. A legacy transaction can have only one signature.                                                                                                                                                                                 |
+| nonce      | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                                 |
+| gasPrice   | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                                                                                        |
+| chainId    | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                                                                                    |
 
-**예시**
+**Example**
 
 ```javascript
-// Create a legacyTransaction for sending KLAY
+// Create a legacyTransaction for sending KAIA
 > caver.transaction.legacyTransaction.create({
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, `klay`),
+    value: caver.utils.toPeb(1, 'KAIA'),
     gas: 25000,
 })
 
@@ -81,40 +81,40 @@ LegacyTransaction {
 caver.transaction.valueTransfer.create(transactionObject)
 ```
 
-`ValueTransfer`는 [밸류 전송 트랜잭션](../../../../../learn/transactions/basic.md#txtypevaluetransfer)을 나타냅니다. `transactionObject`는 아래 속성을 가지고 `ValueTransfer` 트랜잭션을 생성할 수 있습니다.
+`ValueTransfer` represents a [value transfer transaction](../../../../../learn/transactions/basic.md#txtypevaluetransfer). The `transactionObject` can have properties below to create a `ValueTransfer` transaction.
 
-`ValueTransfer`는 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `ValueTransfer` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 지정할 수 있는 프로퍼티를 나타냅니다.
+`ValueTransfer` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ValueTransfer` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `ValueTransfer` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하세요.
-참고: `caver.transaction.valueTransfer.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 부터 지원됩니다.
+NOTE: You can create an instance of `ValueTransfer` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.valueTransfer.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.valueTransfer({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면 `caver.transaction.valueTransfer.create({...})`로 변경해주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.valueTransfer({...})`, please change it to `caver.transaction.valueTransfer.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름         | 유형     | 설명                                                                                                                                               |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| value      | String | 전송할 peb의 KLAY 양입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                                                                             |
-| from       | String | 발신자의 주소입니다.                                                                                                                                      |
-| to         | String | 전송된 값을 받을 계정 주소입니다.                                                                                                                              |
-| gas        | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                |
-| signatures | Array  | (선택 사항) 서명의 배열입니다.                                                                                                            |
-| nonce      | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다. |
-| gasPrice   | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                               |
-| chainId    | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                          |
+| Name       | Type   | Description                                                                                                                                                                                                             |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value      | string | The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`.                                                                                                           |
+| from       | string | The address of the sender.                                                                                                                                                                              |
+| to         | string | The account address that will receive the transferred value.                                                                                                                                            |
+| gas        | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                |
+| signatures | Array  | (optional) An array of signatures.                                                                                                                                                   |
+| nonce      | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice   | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                        |
+| chainId    | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                    |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a valueTransfer
 > caver.transaction.valueTransfer.create({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, `klay`),
+    value: caver.utils.toPeb(1, 'KAIA'),
     gas: 25000,
 })
 
@@ -138,41 +138,41 @@ ValueTransfer {
 caver.transaction.valueTransferMemo.create(transactionObject)
 ```
 
-`ValueTransferMemo`는 [밸류 전송 메모 트랜잭션](../../../../../learn/transactions/basic.md#txtypevaluetransfermemo)을 나타냅니다. `transactionObject`는 아래와 같은 프로퍼티를 가지고 `ValueTransferMemo` 트랜잭션을 생성할 수 있습니다.
+`ValueTransferMemo` represents a [value transfer memo transaction](../../../../../learn/transactions/basic.md#txtypevaluetransfermemo). The `transactionObject` can have properties below to create a `ValueTransferMemo` transaction.
 
-`ValueTransferMemo`는 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `ValueTransferMemo` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 지정할 수 있는 프로퍼티를 나타냅니다.
+`ValueTransferMemo` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ValueTransferMemo` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `ValueTransferMemo`의 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하세요.
-참고: `caver.transaction.valueTransferMemo.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 부터 지원됩니다.
+NOTE: You can create an instance of `ValueTransferMemo` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.valueTransferMemo.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.valueTransferMemo({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.valueTransferMemo.create({...})`로 변경해 주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.valueTransferMemo({...})`, please change it to `caver.transaction.valueTransferMemo.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름         | 유형     | 설명                                                                                                                                               |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| value      | String | 전송할 peb의 KLAY 양입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                                                                             |
-| from       | String | 발신자의 주소입니다.                                                                                                                                      |
-| to         | String | 전송된 값을 받을 계정 주소입니다.                                                                                                                              |
-| input      | String | 트랜잭션에 첨부된 데이터입니다. 메시지는 이 프로퍼티로 전달되어야 합니다.                                                                                                        |
-| gas        | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                |
-| signatures | Array  | (선택 사항) 서명의 배열입니다.                                                                                                            |
-| nonce      | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다. |
-| gasPrice   | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                               |
-| chainId    | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                          |
+| Name       | Type   | Description                                                                                                                                                                                                             |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value      | string | The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`.                                                                                                           |
+| from       | string | The address of the sender.                                                                                                                                                                              |
+| to         | string | The account address that will receive the transferred value.                                                                                                                                            |
+| input      | string | Data attached to the transaction. The message should be passed to this property.                                                                                                        |
+| gas        | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                |
+| signatures | Array  | (optional) An array of signatures.                                                                                                                                                   |
+| nonce      | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice   | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                        |
+| chainId    | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                    |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a valueTransferMemo
 > caver.transaction.valueTransferMemo.create({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, `klay`),
+    value: caver.utils.toPeb(1, 'KAIA'),
     gas: 25000,
     input: '0x68656c6c6f',
 })
@@ -198,34 +198,34 @@ ValueTransferMemo {
 caver.transaction.accountUpdate.create(transactionObject)
 ```
 
-`AccountUpdate`는 [계정 업데이트 트랜잭션](../../../../../learn/transactions/basic.md#txtypeaccountupdate)을 나타냅니다. `transactionObject`는 아래 속성을 가지고 `AccountUpdate` 트랜잭션을 생성할 수 있습니다.
+`AccountUpdate` represents a [account update transaction](../../../../../learn/transactions/basic.md#txtypeaccountupdate). The `transactionObject` can have properties below to create an `AccountUpdate` transaction.
 
-`AccountUpdate`에는 아래와 같은 프로퍼티가 멤버 변수로 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `AccountUpdate` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 지정할 수 있는 프로퍼티를 나타냅니다.
+`AccountUpdate` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `AccountUpdate` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `AccountUpdate` 인스턴스를 만들 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.accountUpdate.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 부터 지원됩니다.
+NOTE: You can create an instance of `AccountUpdate` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.accountUpdate.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.accountUpdate({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.accountUpdate.create({...})`로 변경하시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.accountUpdate({...})`, please change it to `caver.transaction.accountUpdate.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름         | 유형        | 설명                                                                                                                                               |
-| ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| from       | String    | 발신자의 주소입니다.                                                                                                                                      |
-| account    | [Account] | 계정을 업데이트하는 데 필요한 정보가 포함된 [Account] 인스턴스입니다.                                                                                                      |
-| gas        | String    | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                |
-| signatures | Array     | (선택 사항) 서명의 배열입니다.                                                                                                            |
-| nonce      | String    | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다. |
-| gasPrice   | String    | (선택 사항) 발신자가 토큰으로 지불할 금액을 얻기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                                |
-| chainId    | String    | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                          |
+| Name       | Type      | Description                                                                                                                                                                                                             |
+| ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from       | string    | The address of the sender.                                                                                                                                                                              |
+| account    | [Account] | An [Account] instance that contains the information needed to update your account.                                                                                                                                      |
+| gas        | string    | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                |
+| signatures | Array     | (optional) An array of signatures.                                                                                                                                                   |
+| nonce      | string    | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice   | string    | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                        |
+| chainId    | string    | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                    |
 
-`AccountKey`마다 [Account] 인스턴스를 생성하는 방법은 [시작하기 - 계정 업데이트](../../get-started.md#account-update) 또는 [caver.account.create](../caver.account.md#caver-account-create)를 참고하시기 바랍니다.
+For how to create an [Account] instance for each `AccountKey`, refer to [Getting Started - Account Update](../../get-started.md#account-update) or [caver.account.create](../caver.account.md#caver-account-create).
 
-**예시**
+**Example**
 
 ```javascript
 // Create a accountUpdate
@@ -257,36 +257,36 @@ AccountUpdate {
 caver.transaction.smartContractDeploy.create(transactionObject)
 ```
 
-[스마트 컨트랙트 배포 트랜잭션](../../../../../learn/transactions/basic.md#txtypesmartcontractdeploy)은 `SmartContractDeploy`를 나타냅니다. `transactionObject`는 아래와 같은 프로퍼티를 가지고 `SmartContractDeploy` 트랜잭션을 생성할 수 있습니다.
+`SmartContractDeploy` represents a [smart contract deploy transaction](../../../../../learn/transactions/basic.md#txtypesmartcontractdeploy). The `transactionObject` can have properties below to create a `SmartContractDeploy` transaction.
 
-`SmartContractDeploy`는 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `SmartContractDeploy` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 지정할 수 있는 프로퍼티를 나타냅니다.
+`SmartContractDeploy` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `SmartContractDeploy` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `SmartContractDeploy` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.smartContractDeploy.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 부터 지원됩니다.
+NOTE: You can create an instance of `SmartContractDeploy` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.smartContractDeploy.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.smartContractDeploy({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.smartContractDeploy.create({...})`로 변경해주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.smartContractDeploy({...})`, please change it to `caver.transaction.smartContractDeploy.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름            | 유형      | 설명                                                                                                                                                              |
-| ------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | String  | 발신자의 주소입니다.                                                                                                                                                     |
-| input         | String  | 트랜잭션에 첨부된 데이터입니다. 배포할 스마트 컨트랙트의 바이트 코드와 그 인수입니다. [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy)를 통해 이 정보를 얻을 수 있습니다.                    |
-| gas           | String  | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                               |
-| value         | String  | (선택 사항, 기본값: `'0x0'`) 컨트랙트가 초기화될 때 스마트 컨트랙트 주소의 잔액에 이체되어 저장될 peb의 KLAY 양입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                |
-| to            | String  | (선택 사항, 기본값: `'0x'`) 스마트 컨트랙트가 배포될 주소입니다. 현재 이 값은 정의할 수 없습니다. 주소 지정은 향후 지원될 예정입니다.                                                           |
-| humanReadable | Boolean | (선택 사항, 기본값: `false`) 사람이 읽을 수 있는 주소는 아직 지원되지 않으므로 이 값은 false이어야 합니다.                                                                        |
-| codeFormat    | String  | (선택 사항, 기본값: `'EVM'`) 스마트 컨트랙트 코드의 코드 형식입니다. 현재 지원되는 값은 EVM만 있습니다. 이 값은 내부적으로 할당 후 16진수 문자열로 변환됩니다(예: `EVM`은 `0x0`으로 변환). |
-| signatures    | Array   | (선택 사항) 서명의 배열입니다.                                                                                                                           |
-| nonce         | String  | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다.                |
-| gasPrice      | String  | (선택 사항) 발신자가 토큰으로 지불할 금액을 얻기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                                               |
-| chainId       | String  | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                                         |
+| Name          | Type    | Description                                                                                                                                                                                                                                                                                                                                    |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | string  | The address of the sender.                                                                                                                                                                                                                                                                                                     |
+| input         | string  | Data attached to the transaction. The byte code of the smart contract to be deployed and its arguments. You can get this through [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy).                                                       |
+| gas           | string  | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                       |
+| value         | string  | (optional, default: `'0x0'`) The amount of KAIA in kei to be transferred to and stored in the balance of the smart contract address when the contract is initialized. You can use `caver.utils.toPeb`.                                                                      |
+| to            | string  | (optional, default: `'0x'`) Address to which the smart contract is deployed. Currently, this value cannot be defined. Specifying the address will be supported in the future.                                                                               |
+| humanReadable | boolean | (optional, default: `false`) This must be false since human-readable address is not supported yet.                                                                                                                                                                                          |
+| codeFormat    | string  | (optional, default: `'EVM'`) The code format of smart contract code. The supported value, for now, is EVM only. This value is converted to hex string after the assignment(e.g> `EVM` is converted to `0x0`) internally. |
+| signatures    | Array   | (optional) An array of signatures.                                                                                                                                                                                                                                                                          |
+| nonce         | string  | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                                                        |
+| gasPrice      | string  | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                                                                                                               |
+| chainId       | string  | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                                                                                                           |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a smartContractDeploy
@@ -319,34 +319,34 @@ SmartContractDeploy {
 caver.transaction.smartContractExecution.create(transactionObject)
 ```
 
-`SmartContractExecution`은 [스마트 컨트랙트 실행 트랜잭션](../../../../../learn/transactions/basic.md#txtypesmartcontractexecution)을 나타냅니다. `transactionObject`는 아래와 같은 프로퍼티를 가지고 `SmartContractExecution` 트랜잭션을 생성할 수 있습니다.
+`SmartContractExecution` represents a [smart contract execution transaction](../../../../../learn/transactions/basic.md#txtypesmartcontractexecution). The `transactionObject` can have properties below to create a `SmartContractExecution` transaction.
 
-`SmartContractExecution`은 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `SmartContractExecution` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 지정할 수 있는 프로퍼티를 나타냅니다.
+`SmartContractExecution` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `SmartContractExecution` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `SmartContractExecution` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.smartContractExecution.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 부터 지원됩니다.
+NOTE: You can create an instance of `SmartContractExecution` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.smartContractExecution.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.smartContractExecution({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.smartContractExecution.create({...})`로 변경하시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.smartContractExecution({...})`, please change it to `caver.transaction.smartContractExecution.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름         | 유형     | 설명                                                                                                                                                                                                                |
-| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from       | String | 발신자의 주소입니다.                                                                                                                                                                                                       |
-| to         | String | 실행할 스마트 컨트랙트 계정의 주소입니다.                                                                                                                                                                                           |
-| input      | String | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다. 입력은 호출할 함수와 이 함수에 전달할 매개변수를 나타내는 인코딩된 문자열입니다. caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall)을 통해 이 정보를 얻을 수 있습니다. |
-| gas        | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                                                                                 |
-| value      | String | (선택 사항, 기본값: `'0x0'`) 전송할 peb의 KLAY 양입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                                                                                                     |
-| signatures | Array  | (선택 사항) 서명의 배열입니다.                                                                                                                                                                             |
-| nonce      | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다.                                                                  |
-| gasPrice   | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                                                                                                |
-| chainId    | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                                                                                           |
+| Name       | Type   | Description                                                                                                                                                                                                                                                                                                                                                   |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from       | string | The address of the sender.                                                                                                                                                                                                                                                                                                                    |
+| to         | string | The address of the smart contract account to be executed.                                                                                                                                                                                                                                                                                     |
+| input      | string | Data attached to the transaction, used for transaction execution. The input is an encoded string that indicates a function to call and parameters to be passed to this function. You can get this through [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
+| gas        | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                      |
+| value      | string | (optional, default: `'0x0'`) The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                                                                 |
+| signatures | Array  | (optional) An array of signatures.                                                                                                                                                                                                                                                                                         |
+| nonce      | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                                                                       |
+| gasPrice   | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                                                                                                                              |
+| chainId    | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                                                                                                                          |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a smartContractExecution
@@ -378,33 +378,33 @@ SmartContractExecution {
 caver.transaction.cancel.create(transactionObject)
 ```
 
-`Cancel`은 [취소 트랜잭션](../../../../../learn/transactions/basic.md#txtypecancel)을 나타냅니다. `transactionObject`는 `Cancel` 트랜잭션을 생성하기 위해 아래와 같은 속성을 가질 수 있습니다.
+`Cancel` represents a [cancel transaction](../../../../../learn/transactions/basic.md#txtypecancel). The `transactionObject` can have properties below to create a `Cancel` transaction.
 
-`Cancel` 트랜잭션은 트랜잭션 풀에서 동일한 nonce를 가진 트랜잭션의 실행을 취소합니다.
+`Cancel` transaction cancels the execution of the transaction with the same nonce in the transaction pool.
 
-`Cancel`에는 아래와 같은 프로퍼티가 멤버 변수로 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `Cancel` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 지정할 수 있는 프로퍼티를 나타냅니다.
+`Cancel` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `Cancel` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `Cancel`의 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.cancel.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 부터 지원됩니다.
+NOTE: You can create an instance of `Cancel` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.cancel.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.xcancelxx({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.cancel.create({...})`로 변경해 주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.xcancelxx({...})`, please change it to `caver.transaction.cancel.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름         | 유형     | 설명                                                                                                                                               |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| from       | String | 발신자의 주소입니다.                                                                                                                                      |
-| gas        | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                |
-| nonce      | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다. |
-| signatures | Array  | (선택 사항) 서명의 배열입니다.                                                                                                            |
-| gasPrice   | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                               |
-| chainId    | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                          |
+| Name       | Type   | Description                                                                                                                                                                                                             |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from       | string | The address of the sender.                                                                                                                                                                              |
+| gas        | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                |
+| nonce      | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| signatures | Array  | (optional) An array of signatures.                                                                                                                                                   |
+| gasPrice   | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                        |
+| chainId    | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                    |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a cancel
@@ -432,32 +432,32 @@ Cancel {
 caver.transaction.chainDataAnchoring.create(transactionObject)
 ```
 
-`ChainDataAnchoring`은 [체인 데이터 앵커링 트랜잭션](../../../../../learn/transactions/basic.md#txtypechaindataanchoring)을 나타냅니다. `transactionObject`는 아래와 같은 프로퍼티를 가지고 `ChainDataAnchoring` 트랜잭션을 생성할 수 있습니다.
+`ChainDataAnchoring` represents a [chain data anchoring transaction](../../../../../learn/transactions/basic.md#txtypechaindataanchoring). The `transactionObject` can have properties below to create a `ChainDataAnchoring` transaction.
 
-`ChainDataAnchoring`은 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `ChainDataAnchoring` 트랜잭션을 생성할 때 `transactionObject`에 선택적으로 지정할 수 있는 프로퍼티를 나타냅니다.
+`ChainDataAnchoring` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ChainDataAnchoring` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `ChainDataAnchoring` 인스턴스를 생성할 수 있습니다. 아래 예시를 참조하세요.
-참고: `caver.transaction.chainDataAnchoring.create`는 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 부터 지원됩니다.
+NOTE: You can create an instance of `ChainDataAnchoring` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.chainDataAnchoring.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.chainDataAnchoring({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.chainDataAnchoring.create({...})`로 변경해 주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.chainDataAnchoring({...})`, please change it to `caver.transaction.chainDataAnchoring.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름         | 유형     | 설명                                                                                                                                               |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| from       | String | 발신자의 주소입니다.                                                                                                                                      |
-| input      | String | 서비스 체인의 데이터입니다.                                                                                                                                  |
-| gas        | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                |
-| nonce      | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다. |
-| signatures | Array  | (선택 사항) 서명의 배열입니다.                                                                                                            |
-| gasPrice   | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                               |
-| chainId    | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                          |
+| Name       | Type   | Description                                                                                                                                                                                                             |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from       | string | The address of the sender.                                                                                                                                                                              |
+| input      | string | Data of the service chain.                                                                                                                                                                              |
+| gas        | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                |
+| nonce      | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| signatures | Array  | (optional) An array of signatures.                                                                                                                                                   |
+| gasPrice   | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                        |
+| chainId    | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                    |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a chainDataAnchoring
@@ -486,40 +486,40 @@ ChainDataAnchoring {
 caver.transaction.ethereumAccessList.create(transactionObject)
 ```
 
-`EthereumAccessList`은 [이더리움 접근 목록 트랜잭션](../../../../../learn/transactions/basic.md#txtypeethereumaccesslist)을 나타냅니다. [클레이튼 계정](../../../../../learn/accounts.md#klaytn-accounts)은 [AccountKeyLegacy]로만 `EthereumAccessList`을 실행할 수 있습니다. `transactionObject`는 아래와 같은 프로퍼티를 가지고 `EthereumAccessList`를 생성할 수 있습니다.
+`EthereumAccessList` represents an [Ethereum access list transaction](../../../../../learn/transactions/basic.md#txtypeethereumaccesslist). A [Kaia account](../../../../../learn/accounts.md#kaia-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
 
-`EthereumAccessList`은 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `EthereumAccessList`를 생성할 때 `transactionObject`에 선택적으로 지정할 수 있는 프로퍼티를 나타냅니다.
+`EthereumAccessList` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumAccessList`.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `EthereumAccessList`의 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하세요.
-참고: `caver.transaction.ethereumAccessList`는 caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0) 부터 지원됩니다.
+NOTE: You can create an instance of `EthereumAccessList` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.ethereumAccessList` is supported since caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0).
 
-참고: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.ethereumAccessList({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.ethereumAccessList.create({...})`로 변경해주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.ethereumAccessList({...})`, please change it to `caver.transaction.ethereumAccessList.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름         | 유형     | 설명                                                                                                                                                                   |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| gas        | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                                    |
-| value      | String | (선택 사항, 기본값: `'0x0'`) 전송할 peb의 KLAY 양입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                                                        |
-| from       | String | (선택 사항) 발신자의 주소입니다. 생략하면 서명에 사용되는 Keyring 주소가 설정됩니다.                                                                                              |
-| to         | String | (선택 사항, 기본값: `'0x'`) 이더리움 접근 목록 트랜잭션이 스마트 컨트랙트를 실행하는 경우 전송된 값 또는 스마트 컨트랙트 주소를 받을 계정 주소입니다. 이더리움 접근 목록 트랜잭션이 스마트 컨트랙트를 배포하는 경우 `to`는 정의할 필요가 없습니다. |
-| input      | String | (선택 사항) 스마트 컨트랙트 배포/실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                                    |
-| signatures | Array  | (선택 사항) 서명의 배열입니다. 이더리움 액세스 목록 트랜잭션은 하나의 서명만 가질 수 있습니다.                                                                                           |
-| nonce      | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다.                     |
-| gasPrice   | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                                                   |
-| chainId    | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                                              |
-| accessList | Array  | (선택 사항) 트랜잭션이 읽고 쓴 모든 스토리지 슬롯과 주소가 포함된 EIP-2930 액세스 목록입니다.                                                                                        |
+| Name       | Type   | Description                                                                                                                                                                                                                                                                                                                                           |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| gas        | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                              |
+| value      | string | (optional, default: `'0x0'`) The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                                                         |
+| from       | string | (optional) The address of the sender. If omitted, the keyring address used for signing will be set.                                                                                                                                                                                                |
+| to         | string | (optional, default: `'0x'`) The account address that will receive the transferred value or smart contact address if an ethereum access list transaction execute smart contract. If an ethereum access list transaction deploys a smart contract, `to` does not need to be defined. |
+| input      | string | (optional) Data attached to the transaction, used for smart contract deployment/execution.                                                                                                                                                                                                                         |
+| signatures | Array  | (optional) An array of signatures. An ethereum access list transaction can have only one signature.                                                                                                                                                                                                |
+| nonce      | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                                                               |
+| gasPrice   | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice.                                                                                                                                                      |
+| chainId    | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId.                                                                                                                                                                                  |
+| accessList | Array  | (optional) As an EIP-2930 access list that contains all storage slots and addresses read and written by the transaction.                                                                                                                                                                                           |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.transaction.ethereumAccessList.create({
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, `klay`),
+    value: caver.utils.toPeb(1, 'KAIA'),
     gas: 40000,
     accessList: [
         {
@@ -558,42 +558,42 @@ EthereumAccessList {
 caver.transaction.ethereumDynamicFee.create(transactionObject)
 ```
 
-`EthereumDynamicFee`는 [이더리움 다이나믹 수수료 트랜잭션](../../../../../learn/transactions/basic.md#txtypeethereumdynamicfee)을 나타냅니다. [클레이튼 계정](../../../../../learn/accounts.md#klaytn-accounts)은 [AccountKeyLegacy]로만 `EthereumDynamicFee`를 실행할 수 있습니다. `transactionObject`는 아래와 같은 프로퍼티를 가지고 `EthereumDynamicFee`를 생성할 수 있습니다.
+`EthereumDynamicFee` represents an [Ethereum dynamic fee transaction](../../../../../learn/transactions/basic.md#txtypeethereumdynamicfee). A [Kaia account](../../../../../learn/accounts.md#kaia-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
 
-`EthereumDynamicFee`는 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `EthereumDynamicFee`를 생성할 때 `transactionObject`에 선택적으로 지정할 수 있는 프로퍼티를 나타냅니다.
-그리고 `EthereumDynamicFee`는 `gasPrice`를 사용하지 않고 `maxPriorityFeePerGas`와 `maxFeePerGas`를 사용한다는 점에 유의하시기 바랍니다.
+`EthereumDynamicFee` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumDynamicFee`.
+And note that `EthereumDynamicFee` does not use `gasPrice`, it uses `maxPriorityFeePerGas` and `maxFeePerGas`.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 '이더리움 다이내믹 수수료'의 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.ethereumDynamicFee`는 caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0) 부터 지원됩니다.
+NOTE: You can create an instance of `EthereumDynamicFee` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.ethereumDynamicFee` is supported since caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0).
 
-참고: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.ethereumDynamicFee({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.ethereumDynamicFee.create({...})`로 변경해주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.ethereumDynamicFee({...})`, please change it to `caver.transaction.ethereumDynamicFee.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름                   | 유형     | 설명                                                                                                                                                                                                         |
-| -------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| gas                  | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                                                                          |
-| value                | String | (선택 사항, 기본값: `'0x0'`) 전송할 peb의 KLAY 양입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                                                                                              |
-| from                 | String | (선택 사항) 발신자의 주소입니다. 생략하면 서명에 사용된 Keyring 주소로 설정됩니다.                                                                                                                                     |
-| to                   | String | (선택 사항, 기본값: `'0x'`) 이더리움 동적 수수료 트랜잭션이 스마트 컨트랙트를 실행할 때 이체된 값 또는 스마트 연락처 주소를 받을 계정 주소입니다. 이더리움 동적 수수료 트랜잭션이 스마트 컨트랙트를 배포할 때 `to`는 정의할 필요가 없습니다.                                          |
-| input                | String | (선택 사항) 스마트 컨트랙트 배포/실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                                                                          |
-| signatures           | Array  | (선택 사항) 서명의 배열입니다. 이더리움 동적 수수료 트랜잭션에는 서명이 하나만 있을 수 있습니다.                                                                                                                                |
-| nonce                | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`로 설정됩니다.                                                                         |
-| maxPriorityFeePerGas | String | (선택 사항) 트랜잭션의 가스 팁 상한(peb). 클레이튼은 가스 가격이 고정되어 있으므로 `caver.rpc.klay.getGasPrice`와 같은 값으로 설정해야 합니다. 생략할 경우 `caver.rpc.klay.getMaxPriorityFeePerGas()`로 설정됩니다.          |
-| maxFeePerGas         | String | (선택 사항) 트랜잭션을 실행하기 위해 지불할 최대 금액입니다. 클레이튼은 가스 가격이 고정되어 있으므로 `caver.rpc.klay.getGasPrice`와 같은 값으로 설정해야 합니다. 생략할 경우, `baseFeePerGas * 2 + maxPriorityFeePerGas`의 값이 `maxFeePerGas`로 설정됩니다. |
-| chainId              | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`로 설정됩니다.                                                                                                                  |
-| accessList           | Array  | (선택 사항) 트랜잭션이 읽고 쓴 모든 스토리지 슬롯과 주소가 포함된 EIP-2930 액세스 목록입니다.                                                                                                                              |
+| Name                 | Type   | Description                                                                                                                                                                                                                                                                                                                                                  |
+| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| gas                  | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                     |
+| value                | string | (optional, default: `'0x0'`) The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                                                                |
+| from                 | string | (optional) The address of the sender. If omitted, it will be set to the keyring address used for signing.                                                                                                                                                                                                 |
+| to                   | string | (optional, default: `'0x'`) The account address that will receive the transferred value or smart contact address when an ethereum dynamic fee transaction executes a smart contract. When an ethereum dynamic fee transaction deploys a smart contract, `to` does not need to be defined. |
+| input                | string | (optional) Data attached to the transaction, used for smart contract deployment/execution.                                                                                                                                                                                                                                |
+| signatures           | Array  | (optional) An array of signatures. An ethereum dynamic fee transaction can have only one signature.                                                                                                                                                                                                       |
+| nonce                | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, it will be set to `caver.rpc.kaia.getTransactionCount(address, 'pending')`.                                                                                                                                              |
+| maxPriorityFeePerGas | string | (optional) Gas tip cap for the transaction in kei. Since Kaia has a fixed gas price, it should be set to the same value as `caver.rpc.kaia.getGasPrice`. If omitted, it will be set to `caver.rpc.kaia.getMaxPriorityFeePerGas()`.                                                        |
+| maxFeePerGas         | string | (optional) A maximum amount to pay for the transaction to execute. Since Kaia has a fixed gas price, it should be set to the same value as `caver.rpc.kaia.getGasPrice`. If omitted, the value of `baseFeePerGas * 2 + maxPriorityFeePerGas` is set to `maxFeePerGas`.                    |
+| chainId              | string | (optional) The chain id of the Kaia network. If omitted, it will be set to `caver.rpc.kaia.getChainId`.                                                                                                                                                                                                   |
+| accessList           | Array  | (optional) As an EIP-2930 access list that contains all storage slots and addresses read and written by the transaction.                                                                                                                                                                                                  |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.transaction.ethereumDynamicFee.create({
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, `klay`),
+    value: caver.utils.toPeb(1, 'KAIA'),
     gas: 50000,
     accessList: [
         {
@@ -628,5 +628,4 @@ EthereumDynamicFee {
 ```
 
 [AccountKeyLegacy]: ../../../../../learn/accounts.md#accountkeylegacy
-
 [Account]: ../caver.account.md#account
