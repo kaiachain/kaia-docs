@@ -8,7 +8,7 @@
     "description": "The description for the blog used in SEO"
   },
   "sidebar.title": {
-    "message": "Bài đăng gần đây",
+    "message": "Recent posts",
     "description": "The label for the left sidebar"
   }
 }
