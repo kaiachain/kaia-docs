@@ -1,4 +1,4 @@
-# 대규모 에코 펀드
+# Massive Eco Fund
 
 ## 프로토콜 수준의 종합 $10억+ 에코 펀드 <a id="our-full-suite-protocol-level-eco-fund"></a>
 
@@ -19,10 +19,10 @@
 
 클레이튼에 긍정적인 영향을 미칠 수 있는 잠재력을 가진 초기 단계 프로젝트에 투자합니다.
 
-새로 발행된 토큰의 54%가 클레이튼 성장 펀드의 주요 재원입니다.
+• 54% of the newly issued tokens are the main financial resource of the Kaia Growth Fund
 
 ## 보상 <a id="reward"></a>
 
 ### 기여 증명(PoC) 프로그램 <a id="poc-program"></a>
 
-클레이튼 온체인 활동의 성장에 기여하는 스마트 컨트랙트 빌더에게 보상을 제공합니다.
+• Rewards builders of smart contracts that contribute to the growth of on-chain activities on Kaias
