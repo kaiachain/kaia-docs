@@ -2,18 +2,19 @@
 
 ## 1. Clone Klaystagram DApp <a id="2-clone-klaystagram-dapp"></a>
 
-### 1) Clone Klaystagram repository <a id="1-clone-klaystagram-repository"></a>
+### 1. Clone Klaystagram repository <a id="1-clone-klaystagram-repository"></a>
 
 ```text
 $ git clone https://github.com/klaytn/klaystagram
 ```
 
-### 2) Install & Run Klaystagram DApp <a id="2-install-run-klaystagram-dapp"></a>
+### 2. Install & Run Klaystagram DApp <a id="2-install-run-klaystagram-dapp"></a>
 
 The package you just cloned is ready to launch without any modification.
 
 The sample contracts are already deployed to the Baobab testnet, and the contract ABI is included in our package.\
-Klaystagram frontend code is initially configured to connect to the smart contract on the Baobab testnet.
+Klaystagram frontend code is initially configured to connect to the smart contract on the Baobab testnet.\
+Klaystagram frontend code is initially configured to connect to the smart contract on the Kairos testnet.
 
 If you want to run the app right away and see how it works, type below.
 
@@ -46,7 +47,7 @@ We will make a simple contract called "Klaystagram".
 - `PhotoData` struct is defined to store various photo data.
 - User can upload photo and transfer the ownership photo via `uploadPhoto` and `transferOwnership` functions.
 
-### 2) Contract setup <a id="2-contract-setup"></a>
+### 2. Contract setup <a id="2-contract-setup"></a>
 
 - Specify solidity version. We recommend using 0.5.6 stable version.
 - We will make use of ERC721 standard to build non-fungible tokens.
@@ -62,7 +63,7 @@ import "./ERC721/ERC721Enumerable.sol";
 contract Klaystagram is ERC721, ERC721Enumerable {
 ```
 
-### 3) Set events and data structure <a id="3-set-events-and-data-structure"></a>
+### 3. Set events and data structure <a id="3-set-events-and-data-structure"></a>
 
 We need to set up an event to keep track of activities on blockchain.
 
@@ -84,7 +85,7 @@ struct PhotoData {
 }
 ```
 
-### 4) Write functions <a id="4-write-functions"></a>
+### 4. Write functions <a id="4-write-functions"></a>
 
 Let's write some functions that interact with the contract. In this tutorial let us only consider two functions: `uploadPhoto` and `transferOwnership`. Check out Klaystagram.sol to see the whole set of functions.
 
@@ -194,7 +195,7 @@ To deploy contract, we need some KLAY in your account to pay for gas price. You 
 
 ![create-account & run-klay-faucet](/img/build/tutorials/klaystagram-run-faucet.png)
 
-### 2. truffle configuration <a href="#2-truffle-configuration" id="2-truffle-configuration"></a>
+### truffle configuration <a href="#2-truffle-configuration" id="2-truffle-configuration"></a>
 
 `truffle-config.js` is a configuration file including deployment configuration. We are going to deploy our contract using `Private key` we've just created in the previous step. Paste your `Private key` that has enough KLAY to truffle-config.js
 
@@ -253,7 +254,7 @@ See `networks` property above. `klaytn` network has 4 properties,\
 
 Remember that for Solidity contract we used version 0.5.6, thus specify compiler version here.
 
-### 3. Deployment setup <a href="#3-deployment-setup" id="3-deployment-setup"></a>
+### Deployment setup <a href="#3-deployment-setup" id="3-deployment-setup"></a>
 
 `migrations/2_deploy_contracts.js`:
 
@@ -300,7 +301,7 @@ You can specify which contract code will you deploy in your `contracts/` directo
 
 cf. For further information about `artifacts.require()`, refer to truffle official documentation at [truffle docs](https://trufflesuite.com/docs/truffle/getting-started/running-migrations#artifacts-require-)
 
-### 4. Deploy <a href="#4-deploy" id="4-deploy"></a>
+### Deploy <a href="#4-deploy" id="4-deploy"></a>
 
 ![deploy contract](/img/build/tutorials/klaystagram-deploy-contract.png)
 
