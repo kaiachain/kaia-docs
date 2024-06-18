@@ -17,7 +17,7 @@ Foundry는 빠르고 모듈화된 스마트 컨트랙트 개발을 가능하게 
 
 - 간단한 Foundry 프로젝트를 생성합니다.
 - Foundry를 사용하여 스마트 컨트랙트 샘플을 컴파일하고 테스트합니다.
-- Deploy smart contracts using Foundry to the Kaia Kairos Network.
+- Foundry를 사용하여 스마트 컨트랙트를 카이아 Kairos 네트워크에 배포합니다.
 - Cast와 Anvil로 메인넷 포크 살펴보기.
 
 ## 사전 요구 사항
@@ -27,7 +27,7 @@ Foundry는 빠르고 모듈화된 스마트 컨트랙트 개발을 가능하게 
 - 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
 - [MetaMask](../../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
 - RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
 - [Rust](https://www.rust-lang.org/tools/install) 및 [Foundry](https://github.com/foundry-rs/foundry#installation)를 설치합니다.
 
 ## 개발 환경 설정하기
@@ -142,9 +142,9 @@ forge build
 
 ## Deploying your contracts
 
-Foundry를 사용하여 컨트랙트를 배포하려면, 컨트랙트를 배포할 계정의 RPC URL과 개인키를 제공해야 합니다. 클레이튼의 [rpc 제공자](../../../references/service-providers/public-en.md) 목록을 참고하여 rpc-url을 찾고, [MetaMask](../../tutorials/connecting-metamask#install-metamask)를 사용하여 계정을 생성합니다.
+Foundry를 사용하여 컨트랙트를 배포하려면, 컨트랙트를 배포할 계정의 RPC URL과 개인키를 제공해야 합니다. 카이아의 [rpc 제공자](../../../references/service-providers/public-en.md) 목록을 참고하여 rpc-url을 찾고, [MetaMask](../../tutorials/connecting-metamask#install-metamask)를 사용하여 계정을 생성합니다.
 
-**1단계**: 컨트랙트를 Klaytn Baobab 네트워크에 배포하려면, 아래 명령어를 실행합니다:
+**1단계**: 컨트랙트를 Kaia Kairos 네트워크에 배포하려면, 아래 명령어를 실행합니다:
 
 ```bash
 $ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Counter.sol:Counter
@@ -170,7 +170,7 @@ forge create --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZE
 
 ## 컨트랙트와 상호작용하기
 
-스마트 컨트랙트를 성공적으로 배포했다면, 이제 바로 함수를 호출하고 실행하고 싶을 것입니다. [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html)를 사용하여 배포된 컨트랙트와 클레이튼 Baobab 네트워크에서 상호작용해 보겠습니다.  이번 장에서는 `read-only` 함수를 실행하기 위한 [cast call](https://book.getfoundry.sh/reference/cast/cast-call)과 `write` 함수를 실행하기 위한 [cast send](https://book.getfoundry.sh/reference/cast/cast-send)를 사용하는 방법을 배워보겠습니다.
+스마트 컨트랙트를 성공적으로 배포했다면, 이제 바로 함수를 호출하고 실행하고 싶을 것입니다. [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html)를 사용하여 배포된 컨트랙트와 카이아 Kairos 네트워크에서 상호작용해 보겠습니다.  이번 장에서는 `read-only` 함수를 실행하기 위한 [cast call](https://book.getfoundry.sh/reference/cast/cast-call)과 `write` 함수를 실행하기 위한 [cast send](https://book.getfoundry.sh/reference/cast/cast-send)를 사용하는 방법을 배워보겠습니다.
 
 **A. Cast 호출**: 컨트랙트에 저장된 번호를 가져오기 위해 `number` 함수를 호출하게 됩니다. 아래 명령어를 실행하여 실제로 작동하는지 확인해보세요.
 
@@ -210,7 +210,7 @@ cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000
 cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --private-key=<PRIVATE-KEY>
 ```
 
-**예시**
+**예제**
 
 ```bash
 cast send --rpc-url=https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N  0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
@@ -252,13 +252,13 @@ Foundry를 사용하면 메인넷을 로컬 개발 네트워크([Anvil](https://
 
 ### 시작하기
 
-이제 Foundry 프로젝트가 실행되었으므로 아래 명령을 실행하여 메인넷(Cypress)을 포크할 수 있습니다:
+이제 Foundry 프로젝트가 실행되었으므로 아래 명령을 실행하여 메인넷을 포크할 수 있습니다:
 
 ```bash
 anvil --fork-url rpc-url
 ```
 
-**예제**
+**예시**
 
 ```bash
 anvil --fork-url https://archive-en.cypress.klaytn.net
