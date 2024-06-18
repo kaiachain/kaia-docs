@@ -23,11 +23,11 @@ A CN Subnet consists of CN servers in Core Cells. The working CN in a Core Cell 
 
 ![CN Subnet](/img/nodes/cn_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                | Egress |
-| :------------ | :----------------------------------- | :----------------------------------------------------- | :----- |
+| Origin Subnet | Target Subnet                        | Ingress                                                                | Egress |
+| :------------ | :----------------------------------- | :--------------------------------------------------------------------- | :----- |
 | CN Subnet     | PN Subnet                            | P2P: 32323 (32324 for multichannel) | All    |
-| CN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001                             | All    |
-| CN Subnet     | Public (Internet) | each CN's IP and P2P port                              | All    |
+| CN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001             | All    |
+| CN Subnet     | Public (Internet) | each CN's IP and P2P port                                              | All    |
 
 ### PN Subnet <a id="pn-subnet"></a>
 
@@ -42,10 +42,10 @@ A PN subnet is connected to the following nodes:
 
 ![PN Subnet](/img/nodes/pn_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                | Egress |
-| :------------ | :----------------------------------- | :----------------------------------------------------- | :----- |
+| Origin Subnet | Target Subnet                        | Ingress                                                                | Egress |
+| :------------ | :----------------------------------- | :--------------------------------------------------------------------- | :----- |
 | PN Subnet     | CN Subnet                            | P2P: 32323 (32324 for multichannel) | All    |
-| PN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001                             | All    |
+| PN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001             | All    |
 | PN Subnet     | Public (Internet) | P2P: 32323                                             | All    |
 
 ### Mgmt Subnet <a id="mgmt-subnet"></a>
@@ -54,10 +54,10 @@ A Mgmt Subnet is a gateway subnet for the operator to enter into the Core Cell n
 
 ![Management Subnet](/img/nodes/admin_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                               | Egress |
-| :------------ | :----------------------------------- | :-------------------------------------------------------------------- | :----- |
-| Mgmt Subnet   | CN Subnet                            | All                                                                   | All    |
-| Mgmt Subnet   | PN Subnet                            | All                                                                   | All    |
+| Origin Subnet | Target Subnet                        | Ingress                                                                                               | Egress |
+| :------------ | :----------------------------------- | :---------------------------------------------------------------------------------------------------- | :----- |
+| Mgmt Subnet   | CN Subnet                            | All                                                                                                   | All    |
+| Mgmt Subnet   | PN Subnet                            | All                                                                                                   | All    |
 | Mgmt Subnet   | Public (Internet) | VPN (tcp): 443, VPN (udp): 1194 | All    |
 
 ## A Core Cell with a Single Subnet <a id="a-core-cell-with-a-single-subnet"></a>
