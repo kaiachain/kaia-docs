@@ -1,4 +1,4 @@
-# Klaytn 2.0
+# Kaia 2.0
 
 ## We Are Here to Give Power Back to the People <a id="klaytn2"></a>
 
@@ -62,6 +62,6 @@ can easily utilize Klaytn as the trust layer for the metaverse to bring their id
 - Performance incentives
 - GC invitation
 
-***
+---
 
 To better understand Klaytn 2.0, please refer to our [Light Paper](https://klaytn.foundation/wp-content/uploads/2022/01/Klaytn-2.0_Light-Paper-20220128.pdf).
