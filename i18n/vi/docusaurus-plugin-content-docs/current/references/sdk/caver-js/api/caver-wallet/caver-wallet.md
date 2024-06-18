@@ -1,8 +1,8 @@
 # caver.wallet
 
-`caver.wallet` là gói quản lý các đối tượng [Keyring](./keyring.md) trong ví trong bộ nhớ. `caver.wallet` chấp nhận tất cả [SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) và [RoleBasedKeyring](./keyring.md#rolebasedkeyring), đồng thời quản lý chúng theo địa chỉ.
+`caver.wallet` is a package that manages [Keyring](./keyring.md) instances in in-memory wallet. `caver.wallet` accepts all [SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring), and [RoleBasedKeyring](./keyring.md#rolebasedkeyring), and manages them by address.
 
-## Lớp <a href="#class" id="class"></a>
+## Class <a href="#class" id="class"></a>
 
 ### KeyringContainer <a href="#keyringcontainer" id="keyringcontainer"></a>
 
@@ -10,13 +10,13 @@
 caver.wallet
 ```
 
-`KeyringContainer` là lớp quản lý các đối tượng [SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) và [RoleBasedKeyring](./keyring.md#rolebasedkeyring). Khi Caver được khởi tạo, nó sẽ tạo một đối tượng KeyringContainer trong `caver.wallet`. Bạn có thể lưu trữ và quản lý các đối tượng keyring trong ví trong bộ nhớ thông qua `caver.wallet`.
+`KeyringContainer` is a class that manages [SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring), and [RoleBasedKeyring](./keyring.md#rolebasedkeyring) instances. When Caver is instantiated, it creates a KeyringContainer instance in the `caver.wallet`. You can store and manage keyring instances in the in-memory wallet through `caver.wallet`.
 
-**thuộc tính**
+**properties**
 
-| Tên    | type | Mô tả                              |
-| ------ | ---- | ---------------------------------- |
-| length | số   | Số keyring trong keyringContainer. |
+| Name   | Type   | Description                                                 |
+| ------ | ------ | ----------------------------------------------------------- |
+| length | number | The number of keyrings in keyringContainer. |
 
 ## caver.wallet.generate <a href="#caver-wallet-generate" id="caver-wallet-generate"></a>
 
@@ -24,22 +24,22 @@ caver.wallet
 caver.wallet.generate(numberOfKeyrings [, entropy])
 ```
 
-Tạo các đối tượng [SingleKeyring](./keyring.md#singlekeyring) trong keyringContainer với các khóa riêng tư được tạo ngẫu nhiên.
+Generates instances of [SingleKeyring](./keyring.md#singlekeyring) in the keyringContainer with randomly generated private keys.
 
-**Tham số**
+**Parameters**
 
-| Tên              | Loại | Mô tả                                                                     |
-| ---------------- | ----- | ------------------------------------------------------------------------- |
-| numberOfKeyrings | số    | Số lượng đối tượng [SingleKeyring](./keyring.md#singlekeyring) cần tạo.   |
-| entropy          | chuỗi | (tùy chọn) Một chuỗi ngẫu nhiên để tăng độ nhiễu loạn. |
+| Name             | Type   | Description                                                                                    |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------- |
+| numberOfKeyrings | number | The number of [SingleKeyring](./keyring.md#singlekeyring) instances to create. |
+| entropy          | string | (optional) A random string to increase entropy.             |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                               |
-| ----- | ----------------------------------- |
-| Mảng  | Một mảng chứa các địa chỉ được tạo. |
+| Type  | Description                                                         |
+| ----- | ------------------------------------------------------------------- |
+| Array | An array containing the addresses of the generated. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // generate without entropy
@@ -65,24 +65,24 @@ Tạo các đối tượng [SingleKeyring](./keyring.md#singlekeyring) trong key
 caver.wallet.newKeyring(address, key)
 ```
 
-Tạo một đối tượng keyring với các tham số đã cho và thêm nó vào `caver.wallet`.
+Creates a keyring instance with given parameters and adds it to the `caver.wallet`.
 
-Nếu `key` là một chuỗi khóa riêng tư thì đối tượng [SingleKeyring](./keyring.md#singlekeyring) sử dụng một khóa riêng tư sẽ được tạo. Nếu `key` là một mảng chứa các chuỗi khóa riêng tư thì một đối tượng [MultipleKeyring](./keyring.md#multiplekeyring) sử dụng nhiều khóa riêng tư sẽ được tạo. Nếu `key` là một mảng 2D trong đó mỗi phần tử chứa (các) khóa riêng được sử dụng cho mỗi vai trò thì một đối tượng [RoleBasedKeyring](./keyring.md#rolebasedkeyring) sẽ được tạo. Keyring đã tạo sẽ được thêm vào `caver.wallet`.
+If `key` is a private key string, a [SingleKeyring](./keyring.md#singlekeyring) instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring](./keyring.md#multiplekeyring) instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring](./keyring.md#rolebasedkeyring) instance is created. The keyring created is added to `caver.wallet`.
 
-**Tham số**
+**Parameters**
 
-| Tên     | Loại         | Mô tả                                                                                                                                                                  |
-| ------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | chuỗi         | Chuỗi địa chỉ.                                                                                                                                                         |
-| khóa    | chuỗi \| Mảng | Chuỗi khóa riêng tư, một mảng khóa riêng hoặc mảng 2D trong đó mỗi phần tử mảng chứa các khóa được xác định cho mỗi [vai trò](../../../../../learn/accounts.md#roles). |
+| Name    | Type              | Description                                                                                                                                                                                |
+| ------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address | string            | The address string.                                                                                                                                                        |
+| key     | string \\| Array | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role](../../../../../learn/accounts.md#roles). |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại     | Mô tả                                                                                                                                                                                                                              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| đối tượng | Đối tượng keyring ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) được thêm vào caver.wallet được trả về. |
+| Type   | Description                                                                                                                                                                                                                                                    |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | The keyring instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) added to caver.wallet is returned. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // Create a instance of SingleKeyring and add to caver.wallet
@@ -134,21 +134,21 @@ RoleBasedKeyring {
 caver.wallet.updateKeyring(keyring)
 ```
 
-Cập nhật keyring bên trong `caver.wallet`. Khi đối tượng `keyring` mới ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) được thông qua dưới dạng tham số thì keyring hiện tại được lưu trữ trong `caver.wallet` khớp với thuộc tính `address` của đối tượng `keyring` đã cho sẽ được tìm thấy và thay thế bằng đối tượng đã cho. Thông báo lỗi khi không tìm thấy keyring phù hợp.
+Updates the keyring inside the `caver.wallet`. When a new `keyring` instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) is passed as a parameter, the existing keyring stored in the `caver.wallet` that matches the `address` property of the given `keyring` instance is found and replaced with the given one. An error occurs when the matching keyring is not found.
 
-**Tham số**
+**Parameters**
 
-| Tên     | type      | Mô tả                                                                                                                                                                                                                      |
-| ------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | đối tượng | Keyring mới ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) sẽ được lưu trữ trong `caver.wallet`. |
+| Name    | Type   | Description                                                                                                                                                                                                                            |
+| ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object | The new keyring ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) to be stored in `caver.wallet`. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại     | Mô tả                                                                                                                                                                                                                        |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| đối tượng | Khóa đã cập nhật ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) được lưu trữ trong `caver.wallet`. |
+| Type   | Description                                                                                                                                                                                                                          |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| object | The updated keyring ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) stored in `caver.wallet`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.wallet.updateKeyring(newKeyring)
@@ -164,21 +164,21 @@ SingleKeyring {
 caver.wallet.getKeyring(address)
 ```
 
-Trả về đối tượng keyring tương ứng với địa chỉ trong `caver.wallet`.
+Returns the keyring instance corresponding to the address in `caver.wallet`.
 
-**Tham số**
+**Parameters**
 
-| Tên     | Loại | Mô tả                            |
-| ------- | ----- | -------------------------------- |
-| address | chuỗi | Địa chỉ của keyring để truy vấn. |
+| Name    | Type   | Description                                      |
+| ------- | ------ | ------------------------------------------------ |
+| address | string | The address of keyring to query. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại     | Mô tả                                                                                                                                                                                                                                       |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| đối tượng | Đối tượng keyring được tìm thấy ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) được lưu trữ trong `caver.wallet`. |
+| Type   | Description                                                                                                                                                                                                                                 |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | The found keyring instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) stored in `caver.wallet`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.wallet.getKeyring('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
@@ -194,21 +194,21 @@ SingleKeyring {
 caver.wallet.isExisted(address)
 ```
 
-Trả về `true` nếu có một chuỗi keyring khớp với địa chỉ.
+Returns `true` if there is a keyring matching the address.
 
-**Tham số**
+**Parameters**
 
-| Tên     | type  | Mô tả                                       |
-| ------- | ----- | ------------------------------------------- |
-| address | chuỗi | Địa chỉ của keyring để kiểm tra sự tồn tại. |
+| Name    | Type   | Description                                                |
+| ------- | ------ | ---------------------------------------------------------- |
+| address | string | The address of keyring to check existence. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại   | Mô tả                                                                            |
-| ------- | -------------------------------------------------------------------------------- |
-| boolean | `true` có nghĩa là đã tồn tại một keyring khớp với địa chỉ trong `caver.wallet`. |
+| Type    | Description                                                                                        |
+| ------- | -------------------------------------------------------------------------------------------------- |
+| boolean | `true` means a keyring matching with the address is existed in the `caver.wallet`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.wallet.isExisted('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
@@ -221,21 +221,21 @@ true
 caver.wallet.add(keyring)
 ```
 
-Thêm đối tượng keyring vào `caver.wallet`. Nếu keyring đã cho mới có cùng địa chỉ với một trong các keyring đã tồn tại trong `caver.wallet` thì sẽ trả về thông báo lỗi. Trong trường hợp này, hãy sử dụng [updateKeyring](#caver-wallet-updatekeyring) để cập nhật keyring hiện có trong `caver.wallet`.
+Adds an instance of keyring to the `caver.wallet`. If the newly given keyring has the same address with one of the keyrings that already exist in `caver.wallet`, an error is returned. In this case, use [updateKeyring](#caver-wallet-updatekeyring) to update the existing keyring in `caver.wallet`.
 
-**Tham số**
+**Parameters**
 
-| Tên     | type      | Mô tả                                                                                                                                                                                                                 |
-| ------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | đối tượng | Đối tượng keyring([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) để thêm vào `caver.wallet`. |
+| Name    | Type   | Description                                                                                                                                                                                                                         |
+| ------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object | A keyring instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) to add to `caver.wallet`. |
 
-**Giá trị trả về**
+**Return Value**
 
-| type      | Mô tả                                                                                                                                                                                                               |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| đối tượng | Keyring đã được thêm ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) trong `caver.wallet`. |
+| Type   | Description                                                                                                                                                                                                                 |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | The added keyring ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) in `caver.wallet`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.wallet.add(keyring)
@@ -251,21 +251,21 @@ SingleKeyring {
 caver.wallet.remove(address)
 ```
 
-Xóa keyring khỏi `caver.wallet` có địa chỉ khớp với địa chỉ của keyring đã cho.
+Deletes the keyring from `caver.wallet` whose address matches the address of the given keyring.
 
-**Tham số**
+**Parameters**
 
-| Tên     | Loại | Mô tả                                               |
-| ------- | ----- | --------------------------------------------------- |
-| address | chuỗi | Địa chỉ của keyring sẽ bị xóa trong `caver.wallet`. |
+| Name    | Type   | Description                                                                |
+| ------- | ------ | -------------------------------------------------------------------------- |
+| address | string | An address of the keyring to be deleted in `caver.wallet`. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại   | Mô tả                                          |
-| ------- | ---------------------------------------------- |
-| boolean | `true` nếu keyring bị xóa khỏi `caver.wallet`. |
+| Type    | Description                                                       |
+| ------- | ----------------------------------------------------------------- |
+| boolean | `true` if keyring is removed from `caver.wallet`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.wallet.remove('0x6a3edfad6d1126020d5369e9097db39281876c5d')
@@ -278,38 +278,38 @@ true
 caver.wallet.signMessage(address, message, role [, index])
 ```
 
-Ký tin nhắn bằng tiền tố dành riêng cho Klaytn bằng cách sử dụng keyring được lưu trữ trong caver.wallet. Thao tác này tính toán chữ ký dành riêng cho Klaytn bằng hàm:
+Signs the message with Kaia-specific prefix using keyring stored in caver.wallet. This calculates a Kaia-specific signature with:
 
 ```
-sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
+sign(keccak256("\x19Kaia Signed Message:\n" + len(message) + message)))
 ```
 
-Nếu người dùng chưa cung cấp tham số chỉ mục, `caver.wallet.signMessage` sẽ ký tin nhắn bằng cách sử dụng tất cả các khóa riêng tư mà vai trò này sử dụng. Nếu tham số chỉ mục được cung cấp, `caver.wallet.signMessage` sẽ ký tin nhắn chỉ bằng một khóa riêng tư tại chỉ mục đã cho. Bạn có thể tìm thấy vai trò được sử dụng trong caver-js từ `caver.wallet.keyring.role`.
+If the user has not provided the index parameter, `caver.wallet.signMessage` signs message using all the private keys used by the role. If the index parameter is given, `caver.wallet.signMessage` signs message using only one private key at the given index. The role used in caver-js can be found from `caver.wallet.keyring.role`.
 
-**Tham số**
+**Parameters**
 
-| Tên       | Loại | Mô tả                                                                                                                                                                                                                                      |
-| --------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address   | chuỗi | Một địa chỉ của keyring sẽ được sử dụng.                                                                                                                                                                                                   |
-| thông báo | chuỗi | Tin nhắn cần ký.                                                                                                                                                                                                                           |
-| vai trò   | số    | Một con số biểu thị vai trò của khóa. Bạn có thể sử dụng `caver.wallet.keyring.role`.                                                                                                                                                      |
-| chỉ số    | số    | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư. |
+| Name    | Type   | Description                                                                                                                                                                                                                                                                                       |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string | An address of the keyring to be used.                                                                                                                                                                                                                                             |
+| message | string | The message to sign.                                                                                                                                                                                                                                                              |
+| role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                                                                 |
+| index   | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại     | Mô tả                             |
-| --------- | --------------------------------- |
-| đối tượng | Một đối tượng bao gồm kết quả ký. |
+| Type   | Description                                                    |
+| ------ | -------------------------------------------------------------- |
+| object | An object that includes the result of signing. |
 
-Đối tượng được trả về chứa các mục sau:
+The returned object contains the following:
 
-| Tên         | type  | Mô tả                                                  |
-| ----------- | ----- | ------------------------------------------------------ |
-| messageHash | chuỗi | Hàm băm của tin nhắn có tiền tố dành riêng cho Klaytn. |
-| chữ ký      | Mảng  | Một mảng [SignatureData](./keyring.md#signaturedata).  |
-| thông báo   | chuỗi | Tin nhắn cần ký.                                       |
+| Name        | Type   | Description                                                              |
+| ----------- | ------ | ------------------------------------------------------------------------ |
+| messageHash | string | The hash of message with Kaia-specific prefix.           |
+| signatures  | Array  | An array of [SignatureData](./keyring.md#signaturedata). |
+| message     | string | The message to sign.                                     |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // Sign message with roleTransactionKey which uses two private keys
@@ -340,30 +340,30 @@ Nếu người dùng chưa cung cấp tham số chỉ mục, `caver.wallet.signM
 caver.wallet.sign(address, transaction [, index] [, hasher])
 ```
 
-Ký giao dịch với tư cách là `sender` của giao dịch và thêm `signatures` vào đối tượng giao dịch bằng cách sử dụng keyring trong `caver.wallet`.
+Signs the transaction as a `sender` of the transaction and appends `signatures` in the transaction object using the keyring in `caver.wallet`.
 
-Đối với giao dịch [Cập nhật tài khoản](../caver-transaction/basic.md#accountupdate), sử dụng [roleTransactionKey](../../../../../learn/accounts.md#roles), nếu không, hãy sử dụng [roleTransactionKey](../../../../../learn/accounts.md#roles). Nếu người dùng chưa xác định `index` thì `caver.wallet.sign` sẽ ký giao dịch bằng cách sử dụng tất cả các khóa riêng tư mà vai trò này sử dụng. Nếu `index` được xác định thì `caver.wallet.sign` sẽ ký giao dịch chỉ bằng một khóa riêng tư tại chỉ mục đã cho.
+For [Account Update](../caver-transaction/basic.md#accountupdate) transaction, use [roleTransactionKey](../../../../../learn/accounts.md#roles), otherwise, use [roleTransactionKey](../../../../../learn/accounts.md#roles). If the user has not defined an `index`, `caver.wallet.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `caver.wallet.sign` signs the transaction using only one private key at the given index.
 
-**Tham số**
+**Parameters**
 
-| Tên         | Loại     | Mô tả                                                                                                                                                                                                                                                                                                                                                                                    |
-| ----------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | chuỗi     | Một địa chỉ của keyring sẽ được sử dụng.                                                                                                                                                                                                                                                                                                                                                 |
-| transaction | đối tượng | Một đối tượng [Giao dịch](../caver-transaction/caver-transaction.md#class).                                                                                                                                                                                                                                                                                                              |
-| chỉ số      | số        | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư.                                                                                                                                               |
-| hasher      | hàm       | (tùy chọn) Một hàm băm để lấy hàm băm giao dịch. Nếu `hasher` được cung cấp dưới dạng tham số thì nó sẽ tính toán hàm băm giao dịch thay vì phương pháp mặc định để tính toán hàm băm giao dịch được triển khai trong caver-js. Xem [Thông tin cơ bản](../../../../../learn/transactions/basic.md) để biết chi tiết về phương pháp mặc định để tạo hàm băm giao dịch. |
+| Name        | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                                                                                                                                                                                    |
+| transaction | object   | An instance of [Transaction](../caver-transaction/caver-transaction.md#class).                                                                                                                                                                                                                                                                                                                           |
+| index       | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                        |
+| hasher      | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../../learn/transactions/basic.md) for details about the default method for transaction hash generation. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `object`: Giao dịch đã ký.
+`Promise` returning `object`: The signed transaction.
 
-| Loại     | Mô tả                                                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------ |
-| đối tượng | Đối tượng của giao dịch đã ký. (Các) chữ ký được thêm vào `transaction.signatures`. |
+| Type   | Description                                                                                                                             |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| object | A signed transaction instance. The sign(s) is added to the `transaction.signatures`. |
 
-Để biết thêm thông tin về các trường theo loại giao dịch, xem [caver.transaction](../caver-transaction/caver-transaction.md).
+For more information about fields by transaction type, see [caver.transaction](../caver-transaction/caver-transaction.md).
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // This example uses the ValueTransfer transaction.
@@ -450,32 +450,32 @@ ValueTransfer {
 caver.wallet.signAsFeePayer(address, transaction [, index] [, hasher])
 ```
 
-Ký giao dịch với tư cách là `fee payer` của giao dịch và thêm `feePayerSignatures` vào đối tượng giao dịch bằng cách sử dụng keyring trong `caver.wallet`.
+Signs the transaction as `fee payer` of the transaction and appends `feePayerSignatures` in the transaction object using the keyring in `caver.wallet`.
 
-Để ký giao dịch với vai trò là người trả phí, hãy sử dụng [roleFeePayerKey](../../../../../learn/accounts.md#roles). Nếu người dùng chưa xác định `index` thì `caver.wallet.signAsFeePayer` sẽ ký giao dịch bằng cách sử dụng tất cả các khóa riêng tư mà vai trò này sử dụng. Nếu `index` được xác định thì `caver.wallet.signAsFeePayer` sẽ ký giao dịch chỉ bằng một khóa riêng tư tại chỉ mục đã cho.
+For signing a transaction as a fee payer, use [roleFeePayerKey](../../../../../learn/accounts.md#roles). If the user has not defined an `index`, `caver.wallet.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `caver.wallet.signAsFeePayer` signs the transaction using only one private key at the given index.
 
-Nếu `transaction.feePayer` không được xác định thì địa chỉ của keyring được tạo từ `caver.wallet` sẽ được chỉ định.
+If the `transaction.feePayer` is not defined, the address of keyring which is founded from `caver.wallet` is assigned.
 
-**Tham số**
+**Parameters**
 
-| Tên         | Loại     | Mô tả                                                                                                                                                                                                                                      |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | chuỗi     | Một địa chỉ của keyring sẽ được sử dụng.                                                                                                                                                                                                   |
-| transaction | đối tượng | Một đối tượng [FeeDelegatedTransaction](../caver-transaction/fee-delegation.md).                                                                                                                                                           |
-| chỉ số      | số        | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư. |
-| hasher      | hàm       | (tùy chọn) Một hàm để lấy hàm băm giao dịch. Nếu hasher được xác định là một tham số thì tham số này dùng để lấy hàm băm giao dịch, thay vì triển khai mặc định trong caver-js.                                         |
+| Name        | Type     | Description                                                                                                                                                                                                                                                                                       |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                                                             |
+| transaction | object   | An instance of [FeeDelegatedTransaction](../caver-transaction/fee-delegation.md).                                                                                                                                                                                                 |
+| index       | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| hasher      | function | (optional) A function to get the transaction hash. If hasher is defined as a parameter, this is used to get the transaction hash instead of a default implementation in caver-js.                                                              |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `object`: Giao dịch đã ký.
+`Promise` returning `object`: The signed transaction.
 
-| type      | Mô tả                                                                                            |
-| --------- | ------------------------------------------------------------------------------------------------ |
-| đối tượng | Đối tượng của giao dịch đã ký. Kết quả ký được thêm vào trường `transaction.feePayerSignatures`. |
+| Type   | Description                                                                                                                            |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| object | A signed transaction instance. The signing result is appended to the `transaction.feePayerSignatures`. |
 
-Để biết thêm thông tin về các trường theo loại giao dịch, xem [caver.transaction](../caver-transaction/caver-transaction.md).
+For more information about fields by transaction type, see [caver.transaction](../caver-transaction/caver-transaction.md).
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // This example uses the FeeDelegatedValueTransfer transaction.
