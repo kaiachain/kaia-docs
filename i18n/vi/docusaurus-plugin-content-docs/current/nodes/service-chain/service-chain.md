@@ -1,19 +1,19 @@
-# Chuỗi dịch vụ
+# Service Chain
 
-## Đối tượng mục tiêu <a id="intended-audience"></a>
+## Intended Audience <a id="intended-audience"></a>
 
-- Nhà phát triển dApp cần TPS cao, phí giao dịch tối thiểu hoặc quyền riêng tư dữ liệu.
-- Bất kỳ ai muốn xây dựng mạng lưới riêng tư cục bộ hoặc cơ sở dữ liệu sổ cái để thử nghiệm.
+- dApp developers who need high TPS, minimal transaction fees, or data privacy.
+- Anyone who wants to build a local private network or a ledger database for testing.
 
-## Tổng quan về Chuỗi dịch vụ <a id="service-chain-overview"></a>
+## Service Chain Overview <a id="service-chain-overview"></a>
 
-Chuỗi dịch vụ Klaytn cung cấp các tính năng sau.
+Kaia Service Chain provides the following features.
 
-- Tính hoàn thiện tức thời.
-- Chuyển token chuỗi chéo.
-- Neo dữ liệu vào chuỗi chính.
-- Hợp đồng cầu nối đa chữ ký để đáp ứng các yêu cầu bảo mật của doanh nghiệp.
+- Immediate finality.
+- Cross-chain token transfer.
+- Data anchoring to the main chain.
+- Multi-sig bridge contract to meet enterprise security requirements.
 
 ![](/img/nodes/sc_connection.png)
 
-Đọc [Giải pháp mở rộng Klaytn](../../learn/scaling-solutions.md) để biết thêm chi tiết về Chuỗi dịch vụ.
+Read the [Kaia Scaling Solution](../../learn/scaling-solutions.md) for more details about the Service Chain.
