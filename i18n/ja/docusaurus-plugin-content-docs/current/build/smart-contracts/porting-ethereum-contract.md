@@ -5,8 +5,8 @@ However, be aware of the following two issues.
 
 ## Solidity Support <a id="solidity-support"></a>
 
-- Baobab network is currently compatible with **London** Ethereum Virtual Machine (EVM).
 - Cypress network is currently compatible with **London** Ethereum Virtual Machine (EVM).
+- Baobab network is currently compatible with **London** Ethereum Virtual Machine (EVM).
 
 :::note
 
@@ -24,8 +24,8 @@ It has been enabled from block number `#86,513,895` in case of Baobab network an
 Backward compatibility is not guaranteed with other EVM versions on Klaytn.
 Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
 
-- Baobab: --evm-version london
 - Cypress: --evm-version london
+- Baobab: --evm-version london
 - Others(private/service chain): determined according to the protocol upgrade status
 
 Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
