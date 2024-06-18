@@ -11,7 +11,7 @@
 5\) 컨트랙트와 상호작용: `setPlus` 메서드\
 6\) 트랜잭션 수명 주기
 
-### 1. 전체 코드 <a href="#1-full-code" id="1-full-code"></a>
+### 전체 코드 <a href="#1-full-code" id="1-full-code"></a>
 
 ```javascript
 import React, { Component } from 'react'
@@ -197,7 +197,7 @@ class Count extends Component {
 export default Count
 ```
 
-### 2. `Count` 컴포넌트의 역할 <a href="#2-count-component-s-role" id="2-count-component-s-role"></a>
+### `Count` 컴포넌트의 역할 <a href="#2-count-component-s-role" id="2-count-component-s-role"></a>
 
 `Count` 컴포넌트의 역할은 클레이튼 블록체인에 배포된 Count 컨트랙트와 상호작용하는 것입니다.
 
@@ -210,15 +210,12 @@ Count.sol에서 다음과 같이 여러 변수와 함수를 선언했습니다.
 
 Count.js 컴포넌트에는 Count 컨트랙트의 함수 및 변수와 상호작용하는 메서드가 있습니다.
 
-### 3. 컨트랙트와 상호작용하는 방법 <a href="#3-how-to-interact-with-contract" id="3-how-to-interact-with-contract"></a> <a href="#5-interact-with-contract-setplus-method" id="5-interact-with-contract-setplus-method"></a>
+### 3. How to interact with contract? 컨트랙트와 상호작용하는 방법 <a href="#3-how-to-interact-with-contract" id="3-how-to-interact-with-contract"></a> <a href="#5-interact-with-contract-setplus-method" id="5-interact-with-contract-setplus-method"></a>
 
 컨트랙트 인스턴스는 caver-js의 `caver.klay.Contract(ABI, contractAddress)` API를 통해 만들 수 있습니다. 자세한 내용은 [caver.klay.Contract](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md#new-contract)를 참고하세요.
 
-`Contract ABI`(애플리케이션 바이너리 인터페이스)를 사용하면 caver는 컨트랙트 메서드를 로컬 함수인 것처럼 호출할 수 있습니다.
-예를 들어,\
-`contractInstance.methods.count().call()`\
-`contractInstance.methods.plus().send({ ... })`\
-`contractInstance.methods.minus().send({ ... })`
+`Contract ABI`(애플리케이션 바이너리 인터페이스)를 사용하면 caver는 컨트랙트 메서드를 로컬 함수인 것처럼 호출할 수 있습니다. })`\
+`contractInstance.methods.minus().send({ ... })\`
 
 `Contract address`는 컨트랙트를 컴파일하고 배포한 후 `build/contracts/Count.json` 파일에서 확인할 수 있습니다. 테스트 편의를 위해 클레이튼 테스트넷에 컨트랙트를 배포하고 디렉터리에 `deployedABI`와 `deployedAddress` 파일을 포함시켰습니다. 웹팩 구성 덕분에 변수를 통해 이 파일에 액세스할 수 있습니다. (`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
 
@@ -242,7 +239,7 @@ constructor() {
 
 `this.countContract = new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)`는 배포된 `Count` 컨트랙트와 상호작용할 컨트랙트 인스턴스를 생성하고, `DEPLOYED_ABI`와 `DEPLOYED_ADDRESS`를 `cav.klay.Contract` API에 전달합니다. 그리고 이 컨트랙트 인스턴스는 `this.countContract`에 저장됩니다.
 
-### 4. 컨트랙트와 상호작용: `getCount` 메서드 <a href="#4-interact-with-contract-getcount-method" id="4-interact-with-contract-getcount-method"></a>
+### 컨트랙트와 상호작용: `getCount` 메서드 <a href="#4-interact-with-contract-getcount-method" id="4-interact-with-contract-getcount-method"></a>
 
 ```javascript
 getCount = async () => {
@@ -262,7 +259,7 @@ getCount = async () => {
 }
 ```
 
-컨트랙트 인스턴스가 있으므로 컨트랙트 메서드를 호출할 수 있습니다. 여기에는 컨트랙트의 함수(예: `count`, `lastParticipant`, `plus`, `minus`)가 포함됩니다.
+Since we have a contract instance, we can call contract methods. 여기에는 컨트랙트의 함수(예: `count`, `lastParticipant`, `plus`, `minus`)가 포함됩니다.
 
 위 코드에서 `getCount` 함수는 컨트랙트 함수 호출이 프로미스 객체를 반환하기 때문에 `async`로 선언되어 있습니다. `this.countContract.methods.count().call()`를 호출하여 `count`를 가져올 수 있습니다.
 
@@ -285,7 +282,7 @@ componentWillUnmount() {
 1초마다 `count` 변수를 가져오고 싶으면 `setInterval`을 사용하면 됩니다.
 이는 `BlockNumber.js`의 `getBlockNumber`에서 `caver.klay.getBlockNumber()`를 간격으로 호출하는 것과 동일합니다.
 
-### 5. 컨트랙트와 상호작용: `setPlus` 메서드 <a href="#5-interact-with-contract-setplus-method" id="5-interact-with-contract-setplus-method"></a>
+### 컨트랙트와 상호작용: `setPlus` 메서드 <a href="#5-interact-with-contract-setplus-method" id="5-interact-with-contract-setplus-method"></a>
 
 ```javascript
 setPlus = () => {
@@ -349,7 +346,7 @@ this.countContract.methods.plus().send({
 })
 ```
 
-### 6. 트랜잭션 수명 주기 <a href="#6-transaction-life-cycle" id="6-transaction-life-cycle"></a>
+### 트랜잭션 수명 주기 <a href="#6-transaction-life-cycle" id="6-transaction-life-cycle"></a>
 
 ```javascript
 try{
