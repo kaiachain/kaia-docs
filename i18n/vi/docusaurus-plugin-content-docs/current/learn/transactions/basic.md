@@ -1,31 +1,31 @@
-# Cơ bản
+# Basic
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
 
-TxTypeLegacyTransaction đại diện cho một loại giao dịch đã tồn tại trước đây trong Klaytn. Loại giao dịch này tồn tại để hỗ trợ khả năng tương thích nên chỉ hoạt động với các EOA liên kết với [AccountKeyLegacy][]. Các EOA liên kết với loại khóa tài khoản khác sẽ sử dụng những loại giao dịch khác như TxTypeValueTransfer, TxTypeSmartContractExecution, v.v. Loại giao dịch này có thể tạo một tài khoản, chuyển token, triển khai một hợp đồng thông minh, thực thi một hợp đồng thông minh hoặc kết hợp các hoạt động vừa nêu. Loại giao dịch này sẽ khởi tạo các thay đổi sau.
+TxTypeLegacyTransaction represents a type of transactions existed previously in Kaia. Since this transaction type exists to support compatibility, it only works with EOAs associated with [AccountKeyLegacy]. EOAs associated with other account key types should use other transaction types such as TxTypeValueTransfer, TxTypeSmartContractExecution, and so on. This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned. This transaction type will initiate the following changes.
 
-1. Số dư của người gửi giảm đi một lượng bằng khoản phí giao dịch.
-2. Số dùng một lần của người gửi tăng thêm một đơn vị.
-3. Nếu `to` không tồn tại trên Klaytn, một EOA liên kết với [AccountKeyLegacy][] sẽ được tạo ra.
-4. `value` KLAY sẽ được chuyển từ người gửi đến người nhận.
-5. Nếu `to` chưa có giá trị, nó sẽ được coi là một giao dịch triển khai hợp đồng thông minh. Mã hợp đồng thông minh phải được dùng dưới dạng `input`.
-6. Nếu `to` là một hợp đồng thông minh, hàm hợp đồng thông minh được chỉ định trong `input` sẽ được thực thi.
+1. The sender's balance decreases by the amount of the transaction fee.
+2. The sender's nonce increases by one.
+3. If `to` does not exist on Kaia, an EOA associated with [AccountKeyLegacy] is created.
+4. `value` KAIA is transferred from the sender to the recipient.
+5. If `to` is nil, it is regarded as a smart contract deployment transaction. The smart contract code must be passed as `input`.
+6. If `to` is a smart contract, the smart contract function specified in `input` is executed.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính | type                                                                               | Mô tả                                                                                                                                                                                                                                                                                      |
-| :--------- | :--------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| giá trị    | \*big.Int (Go)                                                  | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                              |
-| đến        | \*common.Address (Go)                                           | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                             |
-| nhập       | []byte (Go) | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                                |
-| v, r, s    | \*big.Int (Go)                                                  | Chữ ký mật mã được tạo bởi người gửi để cho phép người nhận lấy được địa chỉ của người gửi.                                                                                                                                                                                                |
-| nonce      | uint64 (Go)                                                     | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                      |
-| gas        | uint64 (Go)                                                     | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| giá gas    | \*big.Int (Go)                                                  | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Người gửi sẽ thanh toán khoản phí giao dịch là 10 KLAY nếu gas bằng 10 và gasPrice là 10^18. Hãy xem \[Đơn vị của KLAY]\[]. |
+| Attribute | Type                                                                                       | Description                                                                                                                                                                                                                                                        |
+| :-------- | :----------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value     | \*big.Int \(Go\)                                      | The amount of KAIA in `kei` to be transferred.                                                                                                                                                                                                     |
+| to        | \*common.Address \(Go\)                               | The account address that will receive the transferred value.                                                                                                                                                                                       |
+| input     | \[\]byte \(Go\) | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                  |
+| v, r, s   | \*big.Int \(Go\)                                      | The cryptographic signature generated by the sender to let the receiver obtain the sender's address.                                                                                                                                               |
+| nonce     | uint64 \(Go\)                                                         | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                 |
+| gas       | uint64 \(Go\)                                                         | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                           |
+| gasPrice  | \*big.Int \(Go\)                                      | A multiplier to get how much the sender will pay in tokens. The amount of tokens the sender will pay is calculated via `gas` \* `gasPrice`. For example, the sender will pay 10 KAIA for a transaction fee if gas is 10 and gasPrice is 10^18. See [Unit of KAIA]. |
 
-### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
+### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
-Để tạo chữ ký của loại giao dịch này, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of this transaction type, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([nonce, gasPrice, gas, to, value, input, chainid, 0, 0])
@@ -33,27 +33,27 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 SenderTxHashRLP = encode([nonce, gasPrice, gas, to, value, input, v, r, s])
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 TxHashRLP = encode([nonce, gasPrice, gas, to, value, input, v, r, s])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -83,9 +83,9 @@ SenderTxHash e434257753bf31a130c839fec0bd34fc6ea4aa256b825288ee82db31c2ed7524
     Hex:      f8668204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a843132333425a0b2a5a15550ec298dc7dddde3774429ed75f864c82caeb5ee24399649ad731be9a029da1014d16f2011b3307f7bbe1035b6e699a4204fc416c763def6cefd976567
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -120,28 +120,28 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeValueTransfer <a id="txtypevaluetransfer"></a>
 
-TxTypeValueTransfer được sử dụng khi người dùng muốn gửi KLAY. Vì Klaytn cung cấp nhiều loại giao dịch để mỗi loại giao dịch chỉ phục vụ một mục đích duy nhất, TxTypeValueTransfer bị giới hạn chỉ gửi KLAY đến một tài khoản sở hữu bên ngoài. Vì thế, TxTypeValueTransfer chỉ được chấp nhận nếu `to` là một tài khoản sở hữu bên ngoài. Để chuyển KLAY đến một tài khoản hợp đồng thông minh, hãy dùng [TxTypeSmartContractExecution](#txtypesmartcontractexecution). Các thay đổi sau sẽ được tạo ra nhờ loại giao dịch này.
+TxTypeValueTransfer is used when a user wants to send KAIA. As Kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account. Therefore, TxTypeValueTransfer is accepted only if `to` is an externally owned account. To transfer KAIA to a smart contract account, use [TxTypeSmartContractExecution](#txtypesmartcontractexecution) instead. The following changes will be made by this transaction type.
 
-1. Số dư của người gửi giảm đi một lượng bằng khoản phí giao dịch.
-2. Số dùng một lần của người gửi tăng thêm một đơn vị.
-3. `value` KLAY sẽ được chuyển từ người gửi đến người nhận.
+1. The sender's balance decreases by the amount of the transaction fee.
+2. The sender's nonce increases by one.
+3. `value` KAIA is transferred from the sender to the recipient.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính   | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                          |
-| :----------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 (Go)                                                                                   | Loại TxTypeValueTransfer. Thuộc tính này phải là 0x08.                                                                                                                                                                                                                         |
-| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
-| gasPrice     | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[]. |
-| gas          | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| đến          | common.Address (Go)                                                                          | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                 |
-| giá trị      | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
-| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                 |
-| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                  |
+| Attribute    | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                          |
+| :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                                                                                                                           | The type of TxTypeValueTransfer. This must be 0x08.                                                                                                                                                                                                  |
+| nonce        | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                   |
+| gasPrice     | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA]. |
+| gas          | uint64 \(Go\)                                                                                                                                          | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                         |
+| to           | common.Address \(Go\)                                                                                                                  | The account address that will receive the transferred value.                                                                                                                                                                                                         |
+| value        | \*big.Int \(Go\)                                                                                                                       | The amount of KAIA in `kei` to be transferred.                                                                                                                                                                                                                       |
+| from         | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                     |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                       |
 
-### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
+### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
-Để tạo một chữ ký giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction signature, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from]), chainid, 0, 0])
@@ -149,9 +149,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -160,9 +160,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, txSignat
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -171,9 +171,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, txSignatures])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP với các tham số cho trước và thông tin của đối tượng giao dịch:
+The following shows the result of RLP serialization with the given parameters and the information of the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -200,9 +200,9 @@ SenderTxHash 762f130342569e9669a4d8547f1248bd2554fbbf3062d63a97ce28bfa97aa9d7
     Hex:           08f87a8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84325a0f3d0cd43661cabf53425535817c5058c27781f478cb5459874feaa462ed3a29aa06748abe186269ff10b8100a4b7d7fea274b53ea2905acbf498dc8b5ab1bf4fbc
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -236,29 +236,29 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeValueTransferMemo <a id="txtypevaluetransfermemo"></a>
 
-TxTypeValueTransferMemo được sử dụng khi người dùng muốn gửi KLAY với một tin nhắn cụ thể. TxTypeValueTransferMemo chỉ được chấp nhận nếu `to` là một tài khoản thuộc sở hữu bên ngoài. Để chuyển KLAY đến một tài khoản hợp đồng thông minh, hãy dùng [TxTypeSmartContractExecution](#txtypesmartcontractexecution). Các thay đổi sau sẽ được tạo ra nhờ loại giao dịch này.
+TxTypeValueTransferMemo is used when a user wants to send KAIA with a specific message. TxTypeValueTransferMemo is accepted only if `to` is an externally owned account. To transfer KAIA to a smart contract account, use [TxTypeSmartContractExecution](#txtypesmartcontractexecution) instead. The following changes will be made by this transaction type.
 
-1. Số dư của người gửi giảm đi một lượng bằng khoản phí giao dịch.
-2. Số dùng một lần của người gửi tăng thêm một đơn vị.
-3. `value` KLAY sẽ được chuyển từ người gửi đến người nhận.
+1. The sender's balance decreases by the amount of the transaction fee.
+2. The sender's nonce increases by one.
+3. `value` KAIA is transferred from the sender to the recipient.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính   | type                                                                                                            | Mô tả                                                                                                                                                                                                                                                                          |
-| :----------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 (Go)                                                                                   | Loại TxTypeValueTransferMemo. Thuộc tính này phải là 0x10.                                                                                                                                                                                                                     |
-| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
-| gasPrice     | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[]. |
-| gas          | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| đến          | common.Address (Go)                                                                          | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                 |
-| giá trị      | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
-| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                 |
-| nhập         | []byte (Go)                              | Dữ liệu gắn kèm theo giao dịch. Thông điệp cần được truyền vào thuộc tính này.                                                                                                                                                                                                 |
-| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                  |
+| Attribute    | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                          |
+| :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                                                                                                                           | The type of TxTypeValueTransferMemo. This must be 0x10.                                                                                                                                                                                              |
+| nonce        | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                   |
+| gasPrice     | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA]. |
+| gas          | uint64 \(Go\)                                                                                                                                          | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                         |
+| to           | common.Address \(Go\)                                                                                                                  | The account address that will receive the transferred value.                                                                                                                                                                                                         |
+| value        | \*big.Int \(Go\)                                                                                                                       | The amount of KAIA in `kei` to be transferred.                                                                                                                                                                                                                       |
+| from         | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                     |
+| input        | \[\]byte \(Go\)                                                                                  | Data attached to the transaction. The message should be passed to this attribute.                                                                                                                                                                    |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                       |
 
-### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
+### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
-Để tạo một chữ ký giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction signature, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input]), chainid, 0, 0])
@@ -266,9 +266,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -277,9 +277,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, t
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -288,9 +288,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, txSigna
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -318,9 +318,9 @@ SenderTxHash 6c7ee543c24e5b928b638a9f4502c1eca69103f5467ed4b6a2ed0ea5aede2e6b
     Hex:           10f8808204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6ff845f84325a07d2b0c89ee8afa502b3186413983bfe9a31c5776f4f820210cffe44a7d568d1ca02b1cbd587c73b0f54969f6b76ef2fd95cea0c1bb79256a75df9da696278509f3
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -355,32 +355,32 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeSmartContractDeploy <a id="txtypesmartcontractdeploy"></a>
 
-TxTypeSmartContractDeploy triển khai hợp đồng thông minh đến địa chỉ đã cho. Các thay đổi sau sẽ được tạo ra nhờ loại giao dịch này.
+TxTypeSmartContractDeploy deploys a smart contract to the given address. The following changes will be made by this transaction type.
 
-1. Số dư của người gửi giảm đi một lượng bằng khoản phí giao dịch.
-2. Số dùng một lần của người gửi tăng thêm một đơn vị.
-3. Một hợp đồng thông minh được triển khai bằng mã trong `input`. Địa chỉ đã triển khai sẽ được trả về qua `contractAddress` trong biên lai.
-4. `value` KLAY sẽ được chuyển từ người gửi đến người nhận.
+1. The sender's balance decreases by the amount of the transaction fee.
+2. The sender's nonce increases by one.
+3. A smart contract is deployed with the code in `input`. The deployed address will be returned via `contractAddress` in the receipt.
+4. `value` KAIA is transferred from the sender to the recipient.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính    | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                          |
-| :------------ | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | uint8 (Go)                                                                                   | Loại TxTypeSmartContractDeploy. Thuộc tính này phải là 0x28.                                                                                                                                                                                                                   |
-| nonce         | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
-| gasPrice      | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[]. |
-| gas           | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| đến           | \*common.Address (Go)                                                                        | Địa chỉ tài khoản sẽ nhận giá trị được chuyển. Hiện tại giá trị này phải bằng 0. Tính năng xác định địa chỉ sẽ được hỗ trợ trong tương lai.                                                                                                                                    |
-| giá trị       | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
-| từ            | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                 |
-| nhập          | []byte (Go)                              | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                    |
-| humanReadable | bool (Go)                                                                                    | Đây phải là giá trị false vì địa chỉ có thể đọc chưa được hỗ trợ. Nếu giá trị là true, giao dịch sẽ bị từ chối.                                                                                                                                                                |
-| codeFormat    | uint8 (Go)                                                                                   | Định dạng mã của mã hợp đồng thông minh. Hiện tại, giá trị được hỗ trợ chỉ có EVM(0x00).                                                                                                                                                                    |
-| txSignatures  | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                  |
+| Attribute     | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                          |
+| :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type          | uint8 \(Go\)                                                                                                                                           | The type of TxTypeSmartContractDeploy. This must be 0x28.                                                                                                                                                                                            |
+| nonce         | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                   |
+| gasPrice      | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA]. |
+| gas           | uint64 \(Go\)                                                                                                                                          | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                         |
+| to            | \*common.Address \(Go\)                                                                                                                | The account address that will receive the transferred value. Currently, this value must be nil. Specifying the address will be supported in the future.                                                                              |
+| value         | \*big.Int \(Go\)                                                                                                                       | The amount of KAIA in `kei` to be transferred.                                                                                                                                                                                                                       |
+| from          | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                     |
+| input         | \[\]byte \(Go\)                                                                                  | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                                    |
+| humanReadable | bool \(Go\)                                                                                                                                            | This must be false since human-readable address is not supported yet. If true, the transaction will be rejected.                                                                                                                                     |
+| codeFormat    | uint8 \(Go\)                                                                                                                                           | The code format of smart contract code. The supported value for now is EVM\(0x00\) only.                                                                                                                                        |
+| txSignatures  | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                       |
 
-### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
+### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
-Để tạo chữ ký của loại giao dịch này, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of this transaction type, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, humanReadable, codeFormat]), chainid, 0, 0])
@@ -388,9 +388,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -399,9 +399,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, h
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một chữ ký giao dịch của người trả phí, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -410,9 +410,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, humanRe
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -442,9 +442,9 @@ SenderTxHash e983f38b814891990f3ca57028c2230dc7e907eb313c827e7c99fadcc9b4c58b
     Hex:           28f9027d8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bb901fe608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f00290180f845f84325a0fcd107738fb47750ba727610aefd6d5f51ac8163d62ce500e7ab7e15defe7088a0383d68220d0266490ea4173c1d7847f22fcbe22f8c8125e1c0589189845c902a
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -481,30 +481,30 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeSmartContractExecution <a id="txtypesmartcontractexecution"></a>
 
-TxTypeSmartContractExecution thực thi hợp đồng thông minh với dữ liệu đã cho trong `input`. TxTypeSmartContractExecution chỉ được chấp nhận nếu `to` là một tài khoản hợp đồng thông minh. Để chuyển KLAY đến một tài khoản sở hữu bên ngoài, hãy dùng [TxTypeValueTransfer](#txtypevaluetransfer). Các thay đổi sau sẽ được tạo ra nhờ loại giao dịch này.
+TxTypeSmartContractExecution executes a smart contract with the given data in `input`. TxTypeSmartContractExecution is accepted only if `to` is a smart contract account. To transfer KAIA to an externally owned account, use [TxTypeValueTransfer](#txtypevaluetransfer) instead. The following changes will be made by this transaction type.
 
-1. Nếu `to` là một tài khoản hợp đồng thông minh, mã sẽ được thực thi dựa trên `input`. Nếu không, giao dịch sẽ bị từ chối.
-2. Số dư của người gửi giảm đi một lượng bằng khoản phí giao dịch.
-3. Số dùng một lần của người gửi tăng thêm một đơn vị.
-4. Nếu `value` được cung cấp, `value` KLAY được chuyển từ người gửi đến `to` của hợp đồng thông minh. Hợp đồng phải có hàm dự phòng khoản phải trả để nhận KLAY.
+1. If `to` is a smart contract account, the code is executed based on `input`. Otherwise, this transaction will be rejected.
+2. The sender's balance decreases by the amount of the transaction fee.
+3. The sender's nonce increases by one.
+4. If `value` was provided, `value` KAIA is transferred from the sender to the `to` smart contract. The contract should have a payable fallback function to receive KAIA.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính   | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                          |
-| :----------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 (Go)                                                                                   | Loại TxTypeSmartContractExecution. Thuộc tính này phải là 0x30.                                                                                                                                                                                                                |
-| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
-| giá gas      | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[]. |
-| gas          | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| đến          | common.Address (Go)                                                                          | Địa chỉ thực thi tài khoản hợp đồng thông minh.                                                                                                                                                                                                                                |
-| giá trị      | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                  |
-| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                 |
-| nhập         | []byte (Go)                              | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                    |
-| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                  |
+| Attribute    | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                          |
+| :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                                                                                                                           | The type of TxTypeSmartContractExecution. This must be 0x30.                                                                                                                                                                                         |
+| nonce        | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                   |
+| gasPrice     | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA]. |
+| gas          | uint64 \(Go\)                                                                                                                                          | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                         |
+| to           | common.Address \(Go\)                                                                                                                  | The address of the smart contract account to be executed.                                                                                                                                                                                                            |
+| value        | \*big.Int \(Go\)                                                                                                                       | The amount of KAIA in `kei` to be transferred.                                                                                                                                                                                                                       |
+| from         | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                     |
+| input        | \[\]byte \(Go\)                                                                                  | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                                    |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                       |
 
-### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
+### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
-Để tạo chữ ký của loại giao dịch này, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of this transaction type, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input]), chainid, 0, 0])
@@ -512,9 +512,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -523,9 +523,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, t
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -534,9 +534,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, txSigna
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -564,9 +564,9 @@ SenderTxHash 23bb192bd58d56527843eb63225c5213f3aded95e4c9776f1ff0bdd8ee0b6826
     Hex:           30f89f8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0ba46353586b000000000000000000000000bc5951f055a85f41a3b62fd6f68ab7de76d299b2f845f84326a0e4276df1a779274fbb04bc18a0184809eec1ce9770527cebb3d64f926dc1810ba04103b828a0671a48d64fe1a3879eae229699f05a684d9c5fd939015dcdd9709b
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -601,28 +601,28 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeAccountUpdate <a id="txtypeaccountupdate"></a>
 
-TxTypeAccountUpdate cập nhật khóa của tài khoản đã cho. Các thay đổi sau sẽ được áp dụng nhờ loại giao dịch này.
+TxTypeAccountUpdate updates the key of the given account. The following changes will apply by this transaction type.
 
-1. Số dư của người gửi giảm đi một lượng bằng khoản phí giao dịch.
-2. Số dùng một lần của người gửi tăng thêm một đơn vị.
-3. Khóa tài khoản được cập nhật bằng `key`.
-4. Khi loại giao dịch này đã được triển khai, các giao dịch gửi từ tài khoản này từ đó sẽ được xác thực bằng `key` mới.
+1. The sender's balance decreases by the amount of the transaction fee.
+2. The sender's nonce increases by one.
+3. The account's key is updated with `key`.
+4. Once this type of transaction is executed, transactions sent from the account afterward will be validated with the new `key`.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính   | type                                                                                                            | Mô tả                                                                                                                                                                                                                                                                                      |
-| :----------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 (Go)                                                                                   | Loại TxTypeAccountUpdate. Thuộc tính này phải là 0x20.                                                                                                                                                                                                                                     |
-| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                      |
-| giá gas      | \*big.Int (Go)                                                                               | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Người gửi sẽ thanh toán khoản phí giao dịch là 10 KLAY nếu gas bằng 10 và gasPrice là 10^18. Hãy xem \[Đơn vị của KLAY]\[]. |
-| gas          | uint64 (Go)                                                                                  | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                               |
-| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                             |
-| khóa         | AccountKey (Go)                                                                              | [AccountKey][] cần cập nhật cho tài khoản.                                                                                                                                                                                                                                                 |
-| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                              |
+| Attribute    | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                        |
+| :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                                                                                                                           | The type of TxTypeAccountUpdate. This must be 0x20.                                                                                                                                                                                |
+| nonce        | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                 |
+| gasPrice     | \*big.Int \(Go\)                                                                                                                       | A multiplier to get how much the sender will pay in tokens. The amount of tokens the sender will pay is calculated via `gas` \* `gasPrice`. For example, the sender will pay 10 KAIA for a transaction fee if gas is 10 and gasPrice is 10^18. See [Unit of KAIA]. |
+| gas          | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                           |
+| from         | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                   |
+| key          | AccountKey \(Go\)                                                                                                                                      | [AccountKey] to be updated to the account.                                                                                                                                                                                                                         |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                     |
 
-### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
+### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
-Để tạo chữ ký của loại giao dịch này, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of this transaction type, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, rlpEncodedKey]), chainid, 0, 0])
@@ -630,9 +630,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -641,9 +641,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, txSi
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -652,9 +652,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, txSignatur
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -680,9 +680,9 @@ SenderTxHash 8c70627d6b637c7d033ead083fc5e43e5cad10c704a86dd9bda7ac104a0e5ad0
     Hex:           20f8888204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0ba302a1033a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33df845f84325a0f7d479628f05f51320f0842193e3f7ae55a5b49d3645bf55c35bee1e8fd2593aa04de8eab5338fdc86e96f8c49ed516550f793fc2c4007614ce3d2a6b33cf9e451
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -715,40 +715,40 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeCancel <a id="txtypecancel"></a>
 
-TxTypeCancel hủy bỏ việc thực thi giao dịch có cùng số dùng một lần trong bể giao dịch. Loại giao dịch này có ích khi một giao dịch đã gửi có vẻ như không được xử lý trong một khoảng thời gian nhất định. Có một số trường hợp mà một giao dịch có vẻ như không được xử lý: 1. Giao dịch bị thất lạc ở đâu đó và không đi đến bất kỳ một nút đồng thuận nào. 2. Giao dịch chưa được xử lý tại bất kỳ một nút đồng thuận nào. 3. Giao dịch đã được xử lý nhưng khối chứa giao dịch này đã không được nhận.
+TxTypeCancel cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time. There are several cases that a transaction seems unprocessed: 1. The transaction was lost somewhere and did not reach any of the consensus nodes. 2. The transaction has not been processed yet in any of the consensus nodes. 3. The transaction was processed, but the block containing the transaction has not been received.
 
-Từ phía máy khách, rất khó để biết được lí do chính xác là gì, bởi vì để tìm ra lý do đó, ta cần phải xem nội dung bên trong của tất cả các nút đồng thuận. Tuy nhiên, việc kết nối với bất kỳ nút đồng thuận nào từ phía công chúng đều bị cấm. Trong trường hợp này, trong các nền tảng chuỗi khối thông thường, người dùng thường gửi một giao dịch khác với một giá gas cao hơn để thay thế giao dịch cũ. Tuy nhiên, bởi vì trong Klaytn, giá gas là cố định, việc thay thế giao dịch vũ bằng giá gas cao hơn là không khả thi.
+From the client side, it is very hard to figure out the exact reason because to figure out the reason, it is required to look inside all the consensus nodes. However, connecting to any of the consensus nodes from the public is prohibited. Under this situation, in typical blockchain platforms, the user often submits another transaction with a higher gas price to replace the old transaction. However, because the gas price is fixed in Kaia, replacing the old transaction with a higher gas price is not applicable.
 
-Nếu giao dịch vẫn không được xử lý, các giao dịch khác với số dùng một lần cao hơn cũng sẽ không thể được xử lý, vì số dùng một lần xác định thứ tự thực thi của các giao dịch.
+If the transaction remains unprocessed, the other transactions with higher nonce cannot be processed because the nonce determines the execution order of transactions.
 
-Để giải quyết vấn đề này, Klaytn cung cấp một loại giao dịch TxTypeCancel. Nếu người dùng gặp phải trường hợp như vậy, họ có thể gửi giao dịch TxTypeCancel.
+To solve this problem, Kaia provides a transaction type TxTypeCancel. If a user encountered such a situation, a transaction of TxTypeCancel can be submitted.
 
-Từng trường hợp nêu trên có thể được xử lý như sau: 1. Nếu giao dịch cũ bị thất lạc, giao dịch TxTypeCancel này sẽ được thực thi và đưa vào một khối. 2. Nếu giao dịch cũ vẫn chưa được xử lý, giao dịch TxType Cancel này sẽ thay thế giao dịch cũ. Sau đó, nó được thực thi và đưa vào một khối. 3. nếu giao dịch cũ đã được triển khai, số dùng một lần đã tăng lên, giao dịch TxTypeCancel này sẽ bị loại bỏ vì có số dùng một lần thấp hơn.
+Each of the above situations is handled as follows: 1. If the old transaction was lost, this TxTypeCancel transaction is executed and included in a block. 2. If the old transaction has not been processed yet, this TxTypeCancel replaces the old transaction. Then, it is executed and included in a block. 3. if the old transaction was already executed, the nonce has been increased, therefore this TxTypeCancel transaction is discarded due to the lower nonce.
 
-Lưu ý rằng giao dịch TxTypeCancel là giao dịch duy nhất có khả năng thay thế một giao dịch với cùng một số dùng một lần. Các loại giao dịch khác không thể thay thế các giao dịch với cùng một số dùng một lần.
+Note that the TxTypeCancel transaction is the only transaction that is capable of replacing a transaction with the same nonce. Other transaction types cannot replace the transactions with the same nonce.
 
-Các thay đổi sau có thể xuất hiện do loại giao dịch này. 1. Số dư của người gửi giảm đi một lượng bằng khoản phí giao dịch. 2. Số dùng một lần của người gửi tăng thêm một đơn vị.
+The following changes can occur by this transaction type. 1. The sender's balance decreases by the amount of the transaction fee. 2. The sender's nonce increases by one.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính   | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                                                      |
-| :----------- | :-------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 (Go)                                                                                   | Loại TxTypeCancel. Thuộc tính này phải là 0x38.                                                                                                                                                                                                                                                            |
-| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.  Đối với giao dịch `TxTypeCancel`, giá trị này phải khớp với số dùng một lần mà giao dịch đích cần hủy đang sử dụng. |
-| giá gas      | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[].                             |
-| gas          | uint64 (Go)                                                                                  | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                               |
-| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                                             |
-| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                                              |
+| Attribute    | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                   |
+| :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                                                                                                                           | The type of TxTypeCancel. This must be 0x38.                                                                                                                                                                                                                                                  |
+| nonce        | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.  For the `TxTypeCancel` transaction, this value must match the nonce that the target transaction to be canceled was using. |
+| gasPrice     | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA].                                          |
+| gas          | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                      |
+| from         | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                              |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                |
 
-Kết quả:
+Outcome:
 
-1. Nếu một giao dịch có cùng số dùng một lần, nó sẽ được thay thế bởi giao dịch hủy này.
-2. Nếu số dùng một lần không giống nhau, giao dịch này sẽ chỉ được đưa vào như một giao dịch bình thường.
-3. Giao dịch hủy không được thay thế bằng những loại giao dịch khác.
+1. If there is a transaction with the same nonce, it is replaced with this cancel transaction.
+2. If no same nonce, this transaction is just inserted as a normal transaction.
+3. The cancel transaction is not replaced with other transaction types.
 
-### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
+### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
-Để tạo một chữ ký giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction signature, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from]), chainid, 0, 0])
@@ -756,9 +756,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -767,9 +767,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, txSignatures])
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -778,9 +778,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, txSignatures])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -805,9 +805,9 @@ SenderTxHash 10d135d590cb587cc45c1f94f4a0e3b8c24d24a6e4243f09ca395fb4e2450413
     Hex:           38f8648204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0bf845f84325a0fb2c3d53d2f6b7bb1deb5a09f80366a5a45429cc1e3956687b075a9dcad20434a05c6187822ee23b1001e9613d29a5d6002f990498d2902904f7f259ab3358216e
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -839,23 +839,23 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeChainDataAnchoring <a id="txtypechaindataanchoring"></a>
 
-TxTypeChainDataAnchoringTransaction là một giao dịch neo dữ liệu chuỗi dịch vụ vào chuỗi chính của Klaytn. Các chuỗi dịch vụ gửi định kỳ loại giao dịch này đến chuỗi chính Klaytn để đảm bảo tính bảo mật và độ tin cậy của dữ liệu. Để biết thêm chi tiết về việc neo dữ liệu, hãy xem [Neo](../../nodes/service-chain/configure/anchoring.md). Lưu ý rằng giao dịch này không được phép gửi qua RPC. Hiện tại, giao dịch này được thực thi qua các kênh P2P riêng tư vì lý do bảo mật. Giao dịch này không làm thay đổi trạng thái của chuỗi khối Klaytn, ngoại trừ việc số dùng một lần của người gửi tăng lên một đơn vị.
+TxTypeChainDataAnchoringTransaction is a transaction that anchors service chain data to the Kaia mainchain. Service chains periodically send this type of transaction to the Kaia mainchain to ensure its security and credibility of data. For more details about the data anchoring, see [Anchoring](../../nodes/service-chain/configure/anchoring.md). Be mindful that it is not allowed to send this transaction via RPC. Currently, this transaction is executed through private p2p channels for security reasons. This transaction does not change the state of the Kaia blockchain except the sender's nonce being increased by one.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính   | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                          |
-| :----------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | uint8 (Go)                                                                                   | Loại TxTypeChainDataAnchoringTransaction. Thuộc tính này phải là 0x48.                                                                                                                                                                                                         |
-| nonce        | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                          |
-| giá gas      | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem \[Đơn vị của KLAY]\[]. |
-| gas          | uint64 (Go)                                                                                  | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                   |
-| từ           | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                 |
-| nhập         | []byte (Go)                              | Dữ liệu của chuỗi dịch vụ.                                                                                                                                                                                                                                                     |
-| txSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                  |
+| Attribute    | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                          |
+| :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type         | uint8 \(Go\)                                                                                                                                           | The type of TxTypeChainDataAnchoringTransaction. This must be 0x48.                                                                                                                                                                                  |
+| nonce        | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                   |
+| gasPrice     | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA]. |
+| gas          | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                             |
+| from         | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                     |
+| input        | \[\]byte \(Go\)                                                                                  | Data of the service chain.                                                                                                                                                                                                                                           |
+| txSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                       |
 
-### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
+### RLP Encoding for Signature <a id="rlp-encoding-for-signature"></a>
 
-Để tạo chữ ký của loại giao dịch này, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of this transaction type, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData]), chainid, 0, 0])
@@ -863,9 +863,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -874,9 +874,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, txSig
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -885,9 +885,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, txSignature
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -913,9 +913,9 @@ SenderTxHash 4aad85735e777795d24aa3eab51be959d8ebdf9683083d85b66f70b7170f2ea3
     AnchoredData:  f8a6a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000405
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -946,8 +946,6 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 }
 ```
 
-[Unit of KLAY]: ../klaytn-native-coin-klay.md#units-of-klay
-
+[Unit of KAIA]: ../kaia-native-token.md#units-of-klay
 [AccountKeyLegacy]: ../accounts.md#accountkeylegacy
-
 [AccountKey]: ../accounts.md#account-key
