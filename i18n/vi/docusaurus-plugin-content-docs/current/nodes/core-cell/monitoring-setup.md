@@ -1,22 +1,22 @@
-# Giám sát thiết lập
+# Monitor Core Cell
 
-## Tổng quan <a id="overview"></a>
+## Overview <a id="overview"></a>
 
-Đội ngũ Klaytn cung cấp một trang web để theo dõi CCN Klaytn tại [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000). Tác nhân giám sát `telegraf` được cài đặt trong mỗi CN/PN của CC để thu thập số liệu và gửi chúng đến máy chủ giám sát. Sau khi cài đặt, bạn có thể truy cập trang web giám sát để xem số liệu của CC Klaytn.
+The Kaia team provides a site for monitoring the Kaia CCN at [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000). The `telegraf` monitoring agent is installed in each CN/PN of the CC to collect metrics and send them to the monitoring server. Once installed, you may visit the monitoring site to view the metrics of the Kaia CCs.
 
-Quá trình cài đặt như sau:
+The installation process is as follows:
 
-1. Cài đặt `telegraf` trong CN/PN
-2. Định cấu hình `telegraf`
-3. Bắt đầu `telegraf`
+1. Install `telegraf` in the CN/PNs
+2. Configure `telegraf`
+3. Start `telegraf`
 
-## Cài đặt Telegraf <a id="telegraf-installation"></a>
+## Telegraf Installation <a id="telegraf-installation"></a>
 
-Hướng dẫn cài đặt Telegraf (Người dùng Amazon Linux 2, xem bên dưới): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
+Telegraf Installation Guide \(Amazon Linux 2 users, see below\): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
 
-**Lưu ý cho Amazon Linux 2**
+**Note for Amazon Linux 2**
 
-Để cài đặt Telegraph trên Amazon Linux 2, bạn có thể sử dụng kho lưu trữ yum của InfluxData như sau:
+To install Telegraph on Amazon Linux 2, you may use InfluxData's RHEL 7 yum repo as follows:
 
 ```text
 cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
@@ -29,9 +29,9 @@ gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
 EOF
 ```
 
-## Thiết lập Telegraf <a id="telegraf-setup"></a>
+## Telegraf Setup <a id="telegraf-setup"></a>
 
-### Kích hoạt giám sát trong kcnd/kpnd <a id="enable-monitoring-in-kcnd-kpnd"></a>
+### Enable monitoring in kcnd/kpnd <a id="enable-monitoring-in-kcnd-kpnd"></a>
 
 /etc/kcnd/conf/kcnd.conf
 
@@ -42,18 +42,18 @@ PROMETHEUS=1
 ...
 ```
 
-**Kiểm tra**
+**Check**
 
-Bạn có thể xác nhận rằng hai tùy chọn trên đã được kích hoạt bằng cách kiểm tra xem cổng 61001 có đang mở hay không.
+You may confirm that the above two options are enabled by checking that port 61001 is open.
 
 ```text
 $ netstat -ntap | grep 61001
 tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 ```
 
-**Định cấu hình dịch vụ Telegraf**
+**Configure Telegraf service**
 
-Sao chép tập tin sau vào thư mục cấu hình `telegraf` (`/etc/telegraf/telegraf.d/`) và chỉnh sửa `nodetype`, `instance` và `hostname` cho phù hợp với từng nút:
+Copy the following file to the `telegraf` configuration directory \(`/etc/telegraf/telegraf.d/`\), and edit `nodetype`, `instance`, and `hostname` appropriately for each node:
 
 ```text
 [global_tags]
@@ -69,17 +69,17 @@ Sao chép tập tin sau vào thư mục cấu hình `telegraf` (`/etc/telegraf/t
 
 [[outputs.influxdb]]
   urls = [ "http://localhost:" ]
-  database = "klaytn_cypress"
+  database = "klaytn_mainnet"
 
 [[inputs.prometheus]]
   urls = [ "http://localhost:61001/metrics" ]
 ```
 
-Thay đổi như sau trong `/etc/telegraf/telegraf.conf`:
+Change the following in `/etc/telegraf/telegraf.conf`:
 
-- Loại bỏ phần `[[outputs.influxdb]]` bằng ghi chú
+- Comment out the `[[outputs.influxdb]]` section
 
-**Bắt đầu Telegraf**
+**Start Telegraf**
 
 ```text
 $ systemctl restart telegraf
@@ -87,8 +87,8 @@ $ systemctl restart telegraf
 
 ## Grafana <a id="grafana"></a>
 
-Nếu mỗi CN/PN có cấu hình và tác nhân ở trên, bạn có thể kiểm tra các thông số tại URL sau:
+If each CN/PN has the above configuration and agent, you can check the metrics at the following URL:
 
 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)
 
-Là người vận hành CC, bạn có thể yêu cầu một tài khoản bằng cách cung cấp tên công ty và địa chỉ email của bạn trong kênh Slack. Xin lưu ý rằng chỉ các người vận hành CC mới được phép yêu cầu tài khoản Grafana.
+As a CC operator, you may request an account by providing your company name and email address in the Slack channel. Please note that only CC operators are allowed to request a Grafana account.
