@@ -5,10 +5,9 @@
 시작하기 전에 몇 가지 클레이튼 관련 용어에 대해 알아봅시다.
 
 - **엔드포인트 노드 \(EN\)**: 클레이튼 네트워크에 대한 JSON-RPC API 요청을 처리하는 노드입니다. 엔드포인트 노드는 컨센서스에 참여하지 않습니다.
-- **KLAY**: 클레이튼 네이티브 코인.
+- **KAIA**: Kaia native coin.
 - **caver-js**: 클레이튼 JSON-RPC API의 JavaScript 구현.
-- **Baobab**: 클레이튼 테스트넷
-- **Cypress**: 클레이튼 메인넷
+- **Kairos**: Kaia testnet
 
 이 단계별 가이드는 Baobab 테스트넷의 엔드포인트 노드 \(EN\)을 시작하고 새 계정으로 기본 스마트 컨트랙트를 구축하는 과정을 단계별로 안내합니다. 이 튜토리얼은 EN을 설정하는 방법과 EN을 통해 스마트 컨트랙트를 배포하는 방법의 두 부분으로 구성되어 있습니다.
 
@@ -235,7 +234,7 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 Truffle을 전역적 또는 지역적으로 설치할 수 있습니다.
 
-- 전역적으로 설치하려면 다음 명령을 실행합니다.
+- Globally using npm by executing the following commands:
 
 ```bash
 $ sudo npm install -g truffle@4.1.15
@@ -374,7 +373,7 @@ $ cd migrations
 $ vi 1_initial_migration.js
 ```
 
-1_initial_migration.js\`를 다음과 같이 수정합니다.
+1_initial_migration.js\\`를 다음과 같이 수정합니다.
 
 ```javascript
 const Migrations = artifacts.require("./Migrations.sol");
@@ -461,7 +460,7 @@ Passphrase:
 true
 ```
 
-이제 준비가 완료되었습니다. 다시 배포해 보세요.
+And then you are ready to go. 다시 배포해 보세요.
 
 ## 배포 확인 <a id="check-the-deployment"></a>
 
@@ -476,7 +475,7 @@ $ touch test-klaytn.js
 $ open test-klaytn.js
 ```
 
-다음 테스트 코드를 작성합니다. 방금 배포한 컨트랙트 주소를 입력해야 합니다.
+다음 테스트 코드를 작성합니다. Make sure you enter the contract address you just deployed.
 
 ```javascript
 // test-klaytn.js
@@ -525,4 +524,4 @@ $ node test-klaytn.js
 Hello, Klaytn # This is from KlyatnGreeter.methods.greet()
 ```
 
-**"안녕하세요, 클레이튼입니다"라는 메시지가 표시되면 작업을 완료한 것입니다. 축하합니다!**
+**If you got "Hello, Kaia", you've completed the task. 축하합니다!**
