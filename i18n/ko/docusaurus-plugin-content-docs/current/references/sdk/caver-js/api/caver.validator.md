@@ -1,8 +1,8 @@
 # caver.validator
 
-`caver.validator` 패키지는 클레이튼에서 애플리케이션을 구현할 때 사용해야 하는 유효성 검사 함수를 제공합니다.
+The `caver.validator` package provides validation functions that should be used when implementing applications on Kaia.
 
-**참고** `caver.validator`는 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 부터 지원됩니다.
+**NOTE** `caver.validator` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
 ## validateSignedMessage <a href="#validatesignedmessage" id="validatesignedmessage"></a>
 
@@ -10,22 +10,22 @@
 caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 ```
 
-서명에서 복구한 공개키를 클레이튼 계정의 계정 키와 비교하여 서명된 메시지의 유효성을 검사합니다.
+Validates a signed message by comparing the public key recovered from the signature with the account key of the Kaia account.
 
-**매개변수**
+**Parameters**
 
-| 이름         | 유형              | 설명                                                                                                                                                                                                                                                                                                                              |
-| ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message    | String          | Raw 메시지 문자열입니다. 이 메시지가 클레이튼 전용 접두사로 해시된 경우, 세 번째 매개변수는 `true`로 전달되어야 합니다.                                                                                                                                                                                                                                                       |
-| signatures | object \| Array | `{ v, r, s }` 형식의 객체, `SignatureData`의 인스턴스 또는 `SignatureData`의 배열입니다. '[ v, r, s ]' 또는 '[[ v, r, s ]]' 배열도 파라미터로 전달할 수 있으며, 이 경우 내부적으로 `SignatureData` 타입으로 변환됩니다. |
-| address    | String          | 메시지에 서명한 계정의 주소입니다.                                                                                                                                                                                                                                                                                                             |
-| isHashed   | boolean         | (선택 사항, 기본값: `false`) 파라미터로 전달된 메시지가 접두사 `"\x19Klaytn Signed Message:\n" + message.length + message`로 해시되었는지 여부입니다.                                                                                                                                                                                          |
+| Name       | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message    | string            | The raw message string. If this message is hashed with the Kaia-specific prefix, the third parameter should be passed as `true`.                                                                                                                                                                                                                                                                                            |
+| signatures | object \\| Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '\[ v, r, s ]' or '\[\[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
+| address    | string            | The address of the account that signed the message.                                                                                                                                                                                                                                                                                                                                                                                         |
+| isHashed   | boolean           | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Kaia Signed Message:\n" + message.length + message`.                                                                                                                                                                                                                                            |
 
-**리턴 값**
+**Return Value**
 
-`Promise`는 `boolean`을 반환합니다: 프로미스는 메시지의 서명이 유효한지 여부에 대한 부울 값으로 확인됩니다.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the signature on the message is valid or not.
 
-**예시**
+**Examples**
 
 ```javascript
 const address = '0xa84a1ce657e9d5b383cece6f4ba365e23fa234dd'
@@ -54,19 +54,19 @@ const signature = [
 caver.validator.validateTransaction(tx)
 ```
 
-트랜잭션의 유효성을 검사합니다. 이 함수는 클레이튼 계정의 계정 키에서 얻은 공개키와 `signatures`에서 복구한 공개키를 비교합니다. 트랜잭션 내부에 `feePayerSignatures` 변수가 있는 수수료 위임 트랜잭션의 경우, 이 함수는 `feePayerSignatures`에서 복구한 공개키를 수수료 납부자의 공개키와 비교합니다.
+Validates a transaction. This function compares the public keys from the account key of the Kaia account with the public keys recovered from `signatures`. If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
 
-**매개변수**
+**Parameters**
 
-| 이름 | 유형     | 설명                                                                               |
-| -- | ------ | -------------------------------------------------------------------------------- |
-| tx | Object | 유효성을 검사할 [Transaction](./caver-transaction/caver-transaction.md#class)의 인스턴스입니다. |
+| Name | Type   | Description                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
 
-**리턴 값**
+**Return Value**
 
-`Promise`는 `boolean`을 반환합니다: 트랜잭션이 유효한지 여부에 대한 부울 값으로 프로미스가 해결됩니다.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transacion is valid or not.
 
-**예시**
+**Examples**
 
 ```javascript
 // Basic transaction will be validated with `signatures`.
@@ -84,19 +84,19 @@ const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 caver.validator.validateSender(tx)
 ```
 
-트랜잭션 발신자의 유효성을 검사합니다. 클레이튼 계정의 계정 키의 공개키와 `signatures`에서 복구한 공개키를 비교하는 함수입니다.
+Validates the sender of the transaction. This function compares the public keys of the account key of the Kaia account with the public keys recovered from `signatures`.
 
-**매개변수**
+**Parameters**
 
-| 이름 | 유형     | 설명                                                                               |
-| -- | ------ | -------------------------------------------------------------------------------- |
-| tx | Object | 유효성을 검사할 [Transaction](./caver-transaction/caver-transaction.md#class)의 인스턴스입니다. |
+| Name | Type   | Description                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
 
-**리턴 값**
+**Return Value**
 
-`Promise`는 `boolean`을 반환합니다: 트랜잭션이 유효한지 여부에 대한 부울 값으로 프로미스가 해결됩니다.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
 
-**예시**
+**Examples**
 
 ```javascript
 const tx = caver.transaction.valueTransfer.create({...})
@@ -109,19 +109,19 @@ const tx = caver.transaction.valueTransfer.create({...})
 caver.validator.validateFeePayer(tx)
 ```
 
-트랜잭션에서 수수료 납부자의 유효성을 검사합니다. 이 함수는 수수료 납부자의 계정 키의 공개키를 `feePayerSignatures`에서 복구한 공개키와 비교합니다.
+Validates a fee payer in the transaction. This function compares the public keys of the account key of the fee payer with the public keys recovered from `feePayerSignatures`.
 
-**매개변수**
+**Parameters**
 
-| 이름 | 유형     | 설명                                                                               |
-| -- | ------ | -------------------------------------------------------------------------------- |
-| tx | Object | 유효성을 검사할 [Transaction](./caver-transaction/caver-transaction.md#class)의 인스턴스입니다. |
+| Name | Type   | Description                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
 
-**리턴 값**
+**Return Value**
 
-`Promise`는 `boolean`을 반환합니다: 트랜잭션이 유효한지 여부에 대한 부울 값으로 프로미스가 해결됩니다.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
 
-**예시**
+**Examples**
 
 ```javascript
 const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
