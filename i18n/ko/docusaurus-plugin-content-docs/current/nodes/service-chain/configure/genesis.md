@@ -1,116 +1,116 @@
-# 제네시스 파일
+# Genesis File
 
-이 페이지는 `genesis.json` 파일에 대한 자세한 내용을 설명합니다.
+This page describes the details of `genesis.json` file.
 
-## 제네시스 JSON 파일 구조 <a id="genesis-json-file-structure"></a>
+## Genesis JSON File Structure <a id="genesis-json-file-structure"></a>
 
-`genesis.json` 파일 구조는 다음 표에 설명되어 있습니다.
+The `genesis.json` file structure is described in the following table.
 
-| 필드 이름      | 설명                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------ |
-| config     | 블록체인 구성입니다. [Config](#config) 섹션을 참조하세요.                                             |
-| nonce      | (사용되지 않음) 이 필드는 이더리움에서 파생되었지만 Klaytn에서는 사용되지 않습니다.                |
-| timestamp  | 블록이 생성된 유닉스 시간입니다.                                                                   |
-| extraData  | 서명자 vanity와 유효성 검사자 목록, 제안자 씰, 커밋 씰을 포함하는 RLP 인코딩된 Istanbul 추가 데이터를 위한 데이터 결합 필드입니다. |
-| gasLimit   | 블록에 사용된 최대 가스 양입니다.                                                                  |
-| difficulty | (사용되지 않음) 이 필드는 이더리움에서 파생되었지만 Klaytn에서는 사용되지 않습니다.                |
-| mixhash    | (사용되지 않음) 이 필드는 이더리움에서 파생되었지만 Klaytn에서는 사용되지 않습니다.                |
-| coinbase   | miner가 보상을 받을 주소입니다. 이 필드는 Clique 합의 엔진에만 사용됩니다.                                     |
-| alloc      | 미리 정의된 계정.                                                                           |
-| number     | 블록 번호 필드입니다.                                                                         |
-| gasUsed    | 블록에 사용된 가스 양입니다.                                                                     |
-| parentHash | 이전 블록의 해시 값입니다.                                                                      |
+| Field Name | Description                                                                                                                                                  |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| config     | The blokchain configuration. See the section [Config](#config).                                                              |
+| nonce      | (deprecated) This field is derived from the Ethereum, but not used in Kaia.                                               |
+| timestamp  | The unix time when a block is created.                                                                                                       |
+| extraData  | The data combined field for signer vanity and RLP-encoded istanbul extra data that contains validator list, proposer seal, and commit seals. |
+| gasLimit   | The maximum gas amount that used in a block.                                                                                                 |
+| difficulty | (deprecated) This field is derived from the Ethereum, but not used in Kaia.                                               |
+| mixhash    | (deprecated) This field is derived from the Ethereum, but not used in Kaia.                                               |
+| coinbase   | An address to which miner receives the reward. This field is only used for Clique consensus engine.                          |
+| alloc      | The predefined accounts.                                                                                                                     |
+| number     | The block number field.                                                                                                                      |
+| gasUsed    | The amount of the gas which used for a block.                                                                                                |
+| parentHash | The hash value of the previous block.                                                                                                        |
 
 ### Config <a id="config"></a>
 
-`config` 필드에는 체인 관련 정보가 저장됩니다.
+The `config` field stores the information related to the chain.
 
-| 필드 이름                   | 설명                                          |
-| ----------------------- | ------------------------------------------- |
-| chainId                 | 현재 체인을 식별하며 리플레이 공격을 방지하는 데 사용됩니다.          |
-| istanbulCompatibleBlock | Istanbul 변경이 적용되는 블록 번호입니다.                 |
-| istanbul, clique        | 합의 엔진의 유형입니다.                               |
-| unitPrice               | 단가                                          |
-| deriveShaImpl           | 트랜잭션 해시 및 영수증 해시를 생성하는 메서드를 정의합니다.          |
-| governance              | 네트워크의 거버넌스 정보입니다. [governance](#governance) |
+| Field Name              | Description                                                                                        |
+| ----------------------- | -------------------------------------------------------------------------------------------------- |
+| chainId                 | It identifies the current chain and is used for prevention from the replay attack. |
+| istanbulCompatibleBlock | A block number to which istanbul change is applied.                                |
+| istanbul, clique        | The type of consensus engine.                                                      |
+| unitPrice               | Unit price.                                                                        |
+| deriveShaImpl           | Defines a method to generate transaction hash and receipt hash.                    |
+| governance              | Governance information of the network. See the section [Governance](#governance)   |
 
 ### extraData <a id="extradata"></a>
 
-`extraData` 필드는 제안자 vanity와 RLP로 인코딩된 Istanbul 추가 데이터의 연결입니다:
+The field `extraData` is a concatenation of the proposer vanity and the RLP-encoded istanbul extra data:
 
-- 제안자 vanity는 임의의 제안자 vanity 데이터를 포함하는 32바이트 데이터입니다.
-- 나머지 데이터는 RLP로 인코딩된 Istanbul 추가 데이터입니다:
-  - 검증자: 오름차순으로 나열된 검증자 목록입니다.
-  - Seal: 헤더의 제안자 서명입니다. `genesis.json`의 경우 65개의 `0x0`으로 초기화된 바이트 배열입니다.
-  - CommittedSeal: 합의 증명을 위한 커미션 서명 씰 목록입니다. `genesis.json`의 경우 빈 배열입니다.
+- The proposer vanity is 32-byte data which contains arbitrary proposer vanity data.
+- The rest of the data is RLP-encoded istanbul extra data containing:
+  - Validators: the list of validators in ascending order.
+  - Seal: the proposer signature of the header. For `genesis.json`, it is a byte array initialized with 65 `0x0`.
+  - CommittedSeal: the list of commitment signature seals as consensus proof. For `genesis.json`, it is an empty array.
 
-**예제**
+**Example**
 
-| 필드            | 유형                                                                                                               | value                                                                                                                                       |
+| Field         | Type                                                                                                             | Value                                                                                                                                       |
 | ------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| vanity        | 32바이트 16진수 문자열                                                                                                   | 0x00000000000000000000000000000000000000000000000000000000                                                                                  |
+| Vanity        | 32-byte hex string                                                                                               | 0x0000000000000000000000000000000000000000000000000000000000000000                                                                          |
 | Validators    | []address                                                    | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
-| Seal          | 65개 요소의 바이트 배열                                                                                                   | [0x0,...,0x0]                                                                           |
+| Seal          | byte array of 65 elements                                                                                        | [0x0,...,0x0]                           |
 | CommittedSeal | [][]byte | []                                                                                      |
 
-위 데이터가 포함된 `extraData`는 다음과 같이 생성됩니다.
+`extraData` with the above data is created by
 
 ```
 concat('0x',Vanity,RLPEncode({Validators,Seal,CommittedSeal}))
 ```
 
-여기서 `concat`은 문자열 연결 함수이고, `RLPEncode`는 주어진 구조를 RLP 인코딩된 문자열로 변환하는 함수입니다.
+where `concat` is a string concatenation function, and `RLPEncode` is a function to convert a given structure to an RLP-encoded string.
 
 With this function, the output `extraData` for this example is 0x0000000000000000000000000000000000000000000000000000000000000000f86fea9448009b4e20ec72aadf306577cbe2eaf54b0ebb1694089fcc42fd83baeee4831319375413b8bae3acebb8410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0.
 
-## 합의 엔진 <a id="consensus-engine"></a>
+## Consensus Engine <a id="consensus-engine"></a>
 
-클레이튼 네트워크에서 사용할 수 있는 합의 엔진은 Clique와 Istanbul입니다. 각 엔진에 대한 설명은 다음과 같습니다.
+The available consensus engines for Kaia network are Clique and Istanbul. Each engine is explained as follows.
 
 ### Clique <a id="clique"></a>
 
-`clique` 필드에는 권한 증명(POA) 기반 씰링에 대한 구성이 저장됩니다.
+The `clique` field stores the configuration for Proof-Of-Authority (POA) based sealing.
 
-| 필드     | 설명                                             |
-| ------ | ---------------------------------------------- |
-| period | 연속된 블록 사이의 최소 시간 간격(단위: 초). |
-| epoch  | 투표를 초기화하고 체크포인트로 표시할 블록 수입니다.                  |
+| Fields | Description                                                                                                                 |
+| ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| period | The minimum time interval between the consecutive blocks (unit: second). |
+| epoch  | The number of blocks to reset votes and marked as a checkpoint.                                             |
 
 ### Istanbul <a id="istanbul"></a>
 
-`Istanbul` 필드에는 Istanbul 기반 씰링에 대한 구성이 저장됩니다.
+The `istanbul` field stores the configuration for Istanbul based sealing.
 
-| 필드     | 설명                                                                                                  |
-| ------ | --------------------------------------------------------------------------------------------------- |
-| epoch  | 투표를 체크포인트로 재설정할 블록 수입니다.                                                                            |
-| policy | 블록 제안자 선택 정책입니다. [0: 라운드 로빈, 1: 고정, 2: 가중치 무작위] |
-| sub    | 위원회 규모.                                                                                             |
+| Fields | Description                                                                                                                                                                                              |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| epoch  | The number of blocks to reset votes to be a checkpoint.                                                                                                                                  |
+| policy | The block proposer selection policy. [0: Round Robin, 1: Sticky, 2: Weighted Random] |
+| sub    | Committee size.                                                                                                                                                                          |
 
 ## Governance <a id="governance"></a>
 
-`governance` 필드에는 네트워크에 대한 거버넌스 정보가 저장됩니다.
+The `governance` field stores governance information for a network.
 
-| 필드             | 설명                                                                                                     |
-| -------------- | ------------------------------------------------------------------------------------------------------ |
-| governanceMode | 세 가지 거버넌스 모드 중 하나입니다. [`none`, `single`, `ballot`] |
-| governingNode  | 지정된 거버넌스 노드의 주소입니다. 거버넌스 모드가 `single`인 경우에만 작동합니다.                                                     |
-| reward         | 리워드 설정을 저장합니다. [Reward](#reward) 섹션을 참고하세요.                                                            |
+| Fields         | Description                                                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| governanceMode | One of three governance modes. [`none`, `single`, `ballot`] |
+| governingNode  | Designated governing node's address. It only works if the governance mode is `single`.          |
+| reward         | It stores the reward configuration. See the section [Reward](#reward).                          |
 
 ### Reward <a id="reward"></a>
 
-`reward` 필드에는 네트워크의 토큰 이코노미에 대한 정보가 저장됩니다.
+The `reward` field stores the information about the network's token economy.
 
-| 필드                     | 설명                                                        |
-| ---------------------- | --------------------------------------------------------- |
-| mintingAmount          | 블록이 생성될 때 발행되는 peb의 양입니다. 값은 큰따옴표로 묶어야 합니다.               |
-| ratio                  | `CN/KIR/PoC`에 대한 분배 비율을 `/`로 구분합니다. 모든 값의 합계는 100이어야 합니다. |
-| useGiniCoeff           | Gini계수 사용 여부.                                             |
-| deferredTxFee          | 블록에 대한 TX 수수료를 분배하는 방법.                                   |
-| stakingUpdateInterval  | 스테이킹 정보를 업데이트할 블록 높이의 시간 간격입니다.                           |
-| proposerUpdateInterval | 블록 높이에서 제안자 정보를 업데이트하는 시간 간격입니다.                          |
-| minimumStake           | 코어 셀 오퍼레이터에 참여할 수 있는 최소 지분량입니다.                           |
+| Fields                 | Description                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| mintingAmount          | Amount of kei minted when a block is generated. Double quotation marks are needed for a value. |
+| ratio                  | Distribution rate for a `CN/KIR/PoC` separated by `/`. The sum of all values has to be 100.    |
+| useGiniCoeff           | Use GINI coefficient or not.                                                                                   |
+| deferredTxFee          | A way to distribute TX fee for a block.                                                                        |
+| stakingUpdateInterval  | Time interval in block height to update staking information.                                                   |
+| proposerUpdateInterval | Time interval in block height to update proposer information.                                                  |
+| minimumStake           | Minimum amount of kei to join Core Cell Operators.                                                             |
 
-## 예제 <a id="example"></a>
+## Example <a id="example"></a>
 
 ```
 {
