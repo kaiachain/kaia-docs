@@ -12,7 +12,7 @@ Kaikas는 클레이튼 네트워크를 위한 브라우저 확장 지갑입니�
 
 Kaikas는 Chrome에서 사용할 수 있는 웹 브라우저 확장 프로그램입니다. Kaikas는 데스크톱 환경에 최적화되어 있습니다.
 
-Kaikas는 사용자 계정과 키를 관리할 수 있는 기능을 제공합니다. 모든 트랜잭션은 클레이튼 블록체인에 투명하게 기록되며, 누구나 [Klaytnscope]를 통해 트랜잭션 내역에 접근할 수 있습니다.
+Kaikas는 사용자 계정과 키를 관리할 수 있는 기능을 제공합니다. 모든 트랜잭션은 클레이튼 블록체인에 투명하게 기록되며, 누구나 \[Klaytnscope]를 통해 트랜잭션 내역에 접근할 수 있습니다.
 
 Kaikas는 계층적 결정론(Hierarchical Deterministic, HD) 지갑으로, 하나의 시드 문구에서 개인/공개 키의 계층적 트리와 같은 구조를 무한정 생성한다는 의미입니다. 시드 구문은 니모닉 코드 단어로 구성되므로 임의의 영숫자로 구성된 구문보다 기억하기 쉽습니다. 사용자의 개인 키는 암호화되어 브라우저에 저장됩니다.
 
@@ -29,4 +29,4 @@ Kaikas는 클레이튼의 Baobab 테스트넷과 Cypress 메인넷을 지원합�
 Kaikas는 여러분과 dApp 사이의 간극을 메워주며, 여러분이 Kaikas 계정으로 dApp에서 여러분에게 전송되는 트랜잭션/데이터에 서명할 수 있도록 지원합니다.
 Kaikas는 개발자가 [FeeDelegatedTransaction](../../../learn/transactions/transactions.md#fee-delegation)을 처리하는 데 유용한 유틸리티이기도 합니다. Kaikas를 사용하면 트랜잭션 발신자와 수수료 납부자 모두 수수료 위임 트랜잭션에 빠르게 서명할 수 있습니다.
 
-[Klaytnscope]: ../block-explorers/klaytnscope.md
+[Kaiascope]: ../block-explorers/klaytnscope.md
