@@ -1,67 +1,67 @@
-# Klaytn 2.0
+# Kaia 2.0
 
-## Chúng tôi ở đây để trao lại sức mạnh cho con người <a id="klaytn2"></a>
+## We Are Here to Give Power Back to the People <a id="klaytn2"></a>
 
-Năm 2019, Kakao (một trong những công ty phần mềm hàng đầu của Hàn Quốc) đã tạo ra chuỗi khối Klaytn nhằm hiện thực hóa sứ mệnh của công ty là kiến tạo một thế giới tốt đẹp hơn nhờ con người và công nghệ.
+In 2019, Kakao—one of South Korea’s leading software enterprises—created the Kaia blockchain with the intention of staying true to its mission of making a better world through people and technology.
 
-Là một chuỗi khối EVM Lớp 1, Klaytn được thiết kế dựa trên nguyên tắc thiết thực và đáng tin cậy, không chỉ tập trung vào công nghệ và kinh doanh mà còn cả thay đổi mang tính đột phá nhằm trao quyền cho các cá nhân trong thời đại Web3.
+As an EVM Layer 1 blockchain, Kaia is designed to be practical and reliable, focusing not just on technology and business, but also transformative change that will empower individuals in the age of Web3.
 
-Để đạt được mục tiêu đó, Klaytn Foundation tận tâm với việc làm cho các công nghệ chuỗi khối trở nên dễ tiếp cận hơn, tạo tiền đề để trở thành một phần của cuộc cách mạng Web3, trong đó Klaytn là lớp tin cậy được ưa chuộng, đóng vai trò kết nối mọi người từ mọi tầng lớp xã hội và mọi nơi trên thế giới.
+To that end, the Kaia Foundation is committed to making blockchain technologies more accessible, to pave the way for more to be a part of the Web3 revolution, with Kaia as the preferred trust layer that will connect people from all walks of life and all corners of the world.
 
-Để xây dựng cơ sở hạ tầng cho nền tảng cộng tác Web3 này, Klaytn sẽ kết nối cộng đồng rộng lớn của chúng tôi với các công nghệ hạ tầng mạnh mẽ nhằm khám phá các cơ hội tiềm năng và đẩy nhanh tốc độ đổi mới.
+To build the infrastructure for this collaborative Web3 playground, Kaia will couple our robust community with powerful infrastructure technologies to discover new opportunities and accelerate the speed of innovation.
 
-## Chúng tôi là lớp tin cậy của metaverse <a id="trustlayer"></a>
+## We Are the Trust Layer of Metaverse <a id="trustlayer"></a>
 
-Metaverse đã sẵn sàng để tái định nghĩa xã hội, bằng cách cung cấp cho người sáng tạo và người chơi một danh sách gợi ý rõ ràng để xác định các tiêu chuẩn mới và bung tỏa năng lực sáng tạo của mình trong tương lai kỹ thuật số năng động.
+The metaverse is poised to redefine society, by providing creators and players with a clean slate to define new standards and let their creativity flourish in our dynamic digital future.
 
-Phong trào này sẽ bắt đầu từ những người vốn bị thua thiệt, những người có tư duy sáng tạo, những người trẻ tuổi và những người bị gạt ra ngoài lề - tất cả những người muốn là chính mình mà không phải đối mặt với bất kỳ định kiến nào.
+This movement will begin with the underdogs, creative minds, youngsters, and outsiders—everyone who wants to be themselves without facing any prejudice.
 
-Điều này có nghĩa là không nên để một cơ quan trung ương sở hữu và vận hành metaverse. Đó phải là một thế giới để mọi người được trao quyền sở hữu thực sự và quyền tự do thể hiện ý tưởng của mình mà không bị hạn chế.
+This means that the metaverse should not be owned and operated by a central authority. It has to be a world where people are granted genuine ownership and the freedom to express their ideas without inhibition.
 
-Là một dự án chuỗi khối công khai mã nguồn mở, Klaytn được xây dựng để trở thành lớp tin cậy căn bản cho metaverse, tôn trọng sự tham gia và đóng góp từ tất cả các cộng đồng, trao quyền và gắn kết họ với nhau trong thế giới mới.
+As an open source public blockchain project, Kaia is built to be the fundamental trust layer for the metaverse, respecting the participation and contribution from all communities, empowering and bringing them together in the new world.
 
-## Chuỗi "Một cửa" dành cho các nhà xây dựng metaverse <a id="one-stop-chain-for-metaverse-builders"></a>
+## 'One-Stop' Chain for Metaverse Builders <a id="one-stop-chain-for-metaverse-builders"></a>
 
-Klaytn sẽ cung cấp cho các nhà xây dựng metaverse các giải pháp tích hợp để họ có thể dễ dàng sử dụng Klaytn làm lớp tin cậy cho metaverse trong quá trình biến các ý tưởng của họ thành hiện thực.
-can easily utilize Klaytn as the trust layer for the metaverse to bring their ideas to life. Các sản phẩm tích hợp của chúng tôi bao gồm:
+Kaia will provide metaverse builders with integrated solutions so that they
+can easily utilize Kaia as the trust layer for the metaverse to bring their ideas to life. Our integrated offers include the following:
 
-### 1. Gói hạ tầng dành cho nhà phát triển mã nguồn mở <a id="open-source-dev-infra-package"></a>
+### 1. Open Source Dev Infra Package <a id="open-source-dev-infra-package"></a>
 
-- Giải pháp Lớp 2
-- SDK
-- Thư viện hợp đồng thông minh
-- Ví
-- Trình khám phá chuỗi
-- Oracle
-- Bộ lưu trữ đã phân phối
-- Cầu nối
-- DAO
-- Thị trường NFT
-- DEX/DeFi
-- ... + "Kết hợp" tất cả các yếu tố này
+- L2 Solutions
+- SDKs
+- Smart contract library
+- Wallets
+- Chain explorer
+- Oracles
+- Distributed storage
+- Bridges
+- DAOs
+- NFT marketplace
+- DEXs/DeFi
+- ... + 'Packaging' all of these
 
-### 2. Mainnet hiệu năng cao <a id="high-performing-mainnet"></a>
+### 2. High Performing Mainnet <a id="high-performing-mainnet"></a>
 
-- Thông lượng cao/TPS
-- Tính hoàn thiện tức thời (\~1 giây)
-- Khả năng liên thông liền mạch với các chuỗi khối khác (bao gồm cả chuỗi Klaytn L2), ví, cầu nối và trình khám phá
+- High throughput / TPS
+- Immediate finality (~1 second)
+- Seamless interoperability with other blockchains (including Kaia L2 chains), wallets, bridges, and explorers
 
-### 3. Cùng xây dựng cộng đồng <a id="community-co-building"></a>
+### 3. Community Co-Building <a id="community-co-building"></a>
 
-- Nhóm cộng đồng trò chơi điện tử
-- DAO đầu tư
-- DAO cộng đồng
-- Launchpad
-- Liên minh với người chơi toàn cầu
+- Game guilds
+- Investment DAOs
+- Community DAOs
+- Launchpads
+- Alliance with global players
 
-### 4. Quản lý và hỗ trợ tài chính <a id="management-and-financial-support"></a>
+### 4. Management and Financial Support <a id="management-and-financial-support"></a>
 
-- Tư vấn ngân quỹ
-- Quỹ tăng trưởng Klaytn
-- Quỹ đầu tư tập trung vào IP
-- Ưu đãi hiệu suất
-- Mời tham gia Hội đồng quản trị
+- Treasury advisory
+- Kaia Growth Fund
+- IP-centric Investment Fund
+- Performance incentives
+- GC invitation
 
-***
+---
 
-Để hiểu rõ hơn về Klaytn 2.0, vui lòng tham khảo [Tài liệu tóm tắt](https://klaytn.foundation/wp-content/uploads/2022/01/Klaytn-2.0_Light-Paper-20220128.pdf) của chúng tôi.
+To better understand Kaia 2.0, please refer to our [Light Paper](https://klaytn.foundation/wp-content/uploads/2022/01/Kaia-2.0_Light-Paper-20220128.pdf).
