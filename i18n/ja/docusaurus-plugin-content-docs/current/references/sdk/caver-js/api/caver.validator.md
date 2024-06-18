@@ -14,12 +14,12 @@ Validates a signed message by comparing the public key recovered from the signat
 
 **Parameters**
 
-| Name       | Type            | Description                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message    | string          | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`.                                                                                                                                                                                                                                                                                    |
-| signatures | object \| Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '[ v, r, s ]' or '[[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
-| address    | string          | The address of the account that signed the message.                                                                                                                                                                                                                                                                                                                                                                   |
-| isHashed   | boolean         | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`.                                                                                                                                                                                                                                      |
+| Name       | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message    | string            | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`.                                                                                                                                                                                                                                                                                    |
+| signatures | object \\| Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '[ v, r, s ]' or '[[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
+| address    | string            | The address of the account that signed the message.                                                                                                                                                                                                                                                                                                                                                                                   |
+| isHashed   | boolean           | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`.                                                                                                                                                                                                                                    |
 
 **Return Value**
 
@@ -58,8 +58,8 @@ Validates a transaction. This function compares the public keys from the account
 
 **Parameters**
 
-| Name | Type   | Description                                                                               |
-| ---- | ------ | ----------------------------------------------------------------------------------------- |
+| Name | Type   | Description                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
 | tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
 
 **Return Value**
@@ -88,8 +88,8 @@ Validates the sender of the transaction. This function compares the public keys 
 
 **Parameters**
 
-| Name | Type   | Description                                                                               |
-| ---- | ------ | ----------------------------------------------------------------------------------------- |
+| Name | Type   | Description                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
 | tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
 
 **Return Value**
@@ -113,8 +113,8 @@ Validates a fee payer in the transaction. This function compares the public keys
 
 **Parameters**
 
-| Name | Type   | Description                                                                               |
-| ---- | ------ | ----------------------------------------------------------------------------------------- |
+| Name | Type   | Description                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
 | tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
 
 **Return Value**
