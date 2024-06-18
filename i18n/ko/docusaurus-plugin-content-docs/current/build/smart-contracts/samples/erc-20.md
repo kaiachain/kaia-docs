@@ -2,7 +2,7 @@
 
 ## 소개 <a id="introduction"></a>
 
-이 튜토리얼은 [Klaytn 토큰 표준](../token-standard.md), 특히 [대체 가능한 토큰 표준 (ERC-20)](../token-standard.md#fungible-token-standard-kip-7)을 준수하는 ERC-20 호환 토큰 예제를 만들 수 있도록 도와줍니다.
+이 튜토리얼은 [Kaia 토큰 표준](../token-standard.md), 특히 [대체 가능한 토큰 표준 (ERC-20)](../token-standard.md#fungible-token-standard-kip-7)을 준수하는 ERC-20 호환 토큰 예제를 만들 수 있도록 도와줍니다.
 
 [ERC-20 토큰 표준](https://eips.ethereum.org/EIPS/eip-20)은 아래와 같이 두 가지 이벤트와 9가지 메서드(3가지 옵션 메서드 포함)를 정의하고 있습니다. ERC-20 호환 토큰은 다음과 같은 인터페이스를 구현하는 토큰 컨트랙트입니다.
 
@@ -21,7 +21,7 @@ event Transfer(address indexed _from, address indexed _to, uint256 _value)
 event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 ```
 
-개발자는 위 인터페이스를 기반으로 새로운 기능과 로직을 추가하여 토큰을 커스터마이징하고 Klaytn 네트워크에 배포할 수 있습니다. 자세한 내용은 공식 [ERC-20 문서](https://eips.ethereum.org/EIPS/eip-20)를 참고하시기 바랍니다.
+개발자는 위 인터페이스를 기반으로 새로운 기능과 로직을 추가하여 토큰을 커스터마이징하고 Kaia 네트워크에 배포할 수 있습니다. 자세한 내용은 공식 [ERC-20 문서](https://eips.ethereum.org/EIPS/eip-20)를 참고하시기 바랍니다.
 
 이 튜토리얼에서는 ERC-20 호환 토큰인 `MyERC20.sol`을 구현하겠습니다. 이 토큰은 미리 정의된 양의 토큰을 발행하고 배포 시 모든 토큰을 컨트랙트 소유자에게 보냅니다.
 
@@ -538,10 +538,10 @@ Remix 온라인 IDE를 사용하거나 Truffle을 사용하여 `MyERC20` 스마�
 
 ### 2.1 Remix Online IDE를 사용하여 스마트 컨트랙트 배포하기 <a href="#2-1-deploying-smart-contract-using-klaytn-ide" id="2-1-deploying-smart-contract-using-klaytn-ide"></a>
 
-- [Remix용 클레이튼 플러그인](https://ide.klaytn.foundation)을 방문하여 `MyERC20` 컨트랙트를 생성하세요. 전체 소스코드는 [ERC-20 스마트 컨트랙트 작성하기](#1-writing-erc-20-smart-contract)에서 확인하실 수 있습니다.
+- [Remix용 카이아 플러그인](https://ide.klaytn.foundation)을 방문하여 `MyERC20` 컨트랙트를 생성하세요. 전체 소스코드는 [ERC-20 스마트 컨트랙트 작성하기](#1-writing-erc-20-smart-contract)에서 확인하실 수 있습니다.
 - 컨트랙트 배포에 사용할 계정을 준비합니다.
   - 아직 계정이 없다면 [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) 또는 [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy)에서 계정을 생성합니다.
-  - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY를 받습니다.
+  - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KAIA를 받습니다.
 - 배포 파라미터를 `BAOBABTOKEN`, `BAO`, `8`로 설정하여 `MyERC20.sol`을 배포해 봅시다.
 
 ![ERC20-1-deploy](/img/build/smart-contracts/erc20-1-deploy.png)
@@ -552,14 +552,14 @@ Remix 온라인 IDE를 사용하거나 Truffle을 사용하여 `MyERC20` 스마�
 
 이제 `MyERC20`이 출시되었습니다!
 
-## 3. 클레이튼 지갑에서 ERC-20 토큰과 상호작용하기 <a id="3-interacting-with-erc-20-token-from-klaytn-wallet"></a>
+## 3. 카이아 지갑에서 ERC-20 토큰과 상호작용하기 <a id="3-interacting-with-erc-20-token-from-klaytn-wallet"></a>
 
-[Baobab 클레이튼 지갑](https://baobab.wallet.klaytn.foundation)을 통해 잔액을 조회하고 방금 배포한 ERC-20 호환 `BAOBABTOKEN`을 전송할 수 있습니다.
+[Kairos 카이아 지갑](https://baobab.wallet.klaytn.foundation)을 통해 잔액을 조회하고 방금 배포한 ERC-20 호환 `BAOBABTOKEN`을 전송할 수 있습니다.
 
 아래와 같이 배포된 `MyERC20` 컨트랙트의 주소로 지갑에 ERC-20 호환 토큰을 추가할 수 있습니다.
 
 ![ERC20-3-Add\\_token](/img/build/smart-contracts/erc20-3-add_token.png)
 
-지갑 앱에서 ERC-20 토큰을 추가하면 아래와 같이 KLAY의 잔액과 함께 `BAOBABTOKEN`의 잔액이 표시됩니다. 계정에 `100000` `BAO` 토큰이 있는 것을 확인할 수 있습니다.
+지갑 앱에서 ERC-20 토큰을 추가하면 아래와 같이 KAIA의 잔액과 함께 `BAOBABTOKEN`의 잔액이 표시됩니다. 계정에 `100000` `BAO` 토큰이 있는 것을 확인할 수 있습니다.
 
 ![ERC20-4-wallet-token](/img/build/smart-contracts/erc20-4-wallet-token.png)
