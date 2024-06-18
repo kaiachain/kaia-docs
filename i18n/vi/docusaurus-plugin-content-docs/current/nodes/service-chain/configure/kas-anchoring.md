@@ -1,60 +1,60 @@
-# Sử dụng neo dữ liệu với KAS
+# Use Data Anchoring with KAS
 
-Như đã giải thích trong phần thiết kế, bạn có thể neo dữ liệu chuỗi dịch vụ của mình vào chuỗi chính Klaytn.
-Trang này giới thiệu cách kích hoạt neo dữ liệu qua [KAS (Klaytn API Service)](https://www.klaytnapi.com).
+As explained in the design section, you can anchor your service chain data to Kaia main chain.
+This page introduces how to enable data anchoring via [KAS (Kaia API Service)](https://www.klaytnapi.com).
 
-Khi neo dữ liệu được kích hoạt, một nút trong chuỗi dịch vụ của bạn có thể neo dữ liệu chuỗi (dữ liệu khối) của nó theo định kỳ vào Cypress hoặc Baobab làm bằng chứng cho sự tồn tại và tính bất biến của chuỗi dịch vụ.
-Điều này đảm bảo tính bảo mật và uy tín của chuỗi dịch vụ.
+Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Mainnet or Kairos as a proof of existence and immutability of the service chain.
+This ensures the security and credibility of the service chain.
 
-## Chuẩn bị sử dụng KAS <a id="preparation-with-kas"></a>
+## Preparation for Using KAS <a id="preparation-with-kas"></a>
 
-Phần này giới thiệu các điều kiện tiên quyết khi sử dụng KAS để neo dữ liệu.
+This section introduces the pre-requisites to use KAS for data anchoring.
 
-### Đăng ký KAS (Dịch vụ API Klaytn) <a id="sign-up-kas"></a>
+### Sign Up KAS (Kaia API Service) <a id="sign-up-kas"></a>
 
-Đầu tiên bạn cần đăng nhập KAS trên [KAS console website](https://www.klaytnapi.com) để có tài khoản KAS.
-Vui lòng truy cập trang web ở trên và đăng ký KAS.
+First, you need to sign up KAS on the [KAS console website](https://www.klaytnapi.com) to get a KAS account.
+Please visit the website above and sign up in KAS.
 
 [![main page](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
 
 [![sign up](/img/nodes/kas-signup-en.png)](https://www.klaytnapi.com)
 
-### Tạo thông tin đăng nhập <a id="check-credential"></a>
+### Create Credential <a id="check-credential"></a>
 
-Sau khi đăng nhập, bạn có thể tạo thông tin đăng nhập của mình như bên dưới.
-`AccessKey ID` và `Secret AccessKey` hoặc `Authorization` sẽ được dùng để gọi API KAS.
+After login, you can create your credential like below.
+The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs.
 
 ![credential](/img/nodes/kas-credential-en.png)
 
 ## Anchor API <a id="anchor-api"></a>
 
-KAS cung cấp Anchor API được thiết kế để neo dữ liệu; đây chắc chắn là ứng dụng bạn sẽ sử dụng cho tác vụ neo.
+KAS provides Anchor API, which is designed for data anchoring and surely it is the one that you are going to use for anchoring task.
 
 ![anchor api](/img/nodes/kas-anchor-api-en.png)
 
-## Tạo địa chỉ người vận hành <a id="create-kas-credential"></a>
+## Create Operator Address <a id="create-kas-credential"></a>
 
-Để neo dữ liệu chuỗi dịch vụ qua KAS, cần có một địa chỉ Klaytn đăng ký tham gia KAS và thực sự gửi giao dịch neo cho Klaytn. Vì vậy, trước khi thiết lập nút dịch vụ của mình, bạn cần tạo một tài khoản Klaytn mang tên "Người vận hành " qua Kas. Vui lòng sử dụng bảng điều khiển KAS để tạo tài khoản này.
+To anchor service chain data via KAS, there should be a Kaia address, enrolled in KAS, that actually send anchoring transaction to Kaia. So, before you set up your service node, you need to create an Kaia account called "operator" via KAS. Please, use KAS console to create this account.
 
-Điều quan trọng bạn cần nhớ: **đầu tiên là chọn chuỗi** trong Klaytn mà bạn muốn neo dữ liệu vào trên **góc trên cùng bên phải của trang bảng điều khiển KAS**. Bạn nên tạo một người vận hành cho mỗi chuỗi (Cypress/Baobab).
+It is important to be noticed that you must **first select the chain** in Kaia to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Mainnet/Kairos).
 
 ![select chain](/img/nodes/kas-select-chain-en.png)
 
-Tạo một người vận hành như dưới đây.
+Create an operator as below.
 
 ![create operator](/img/nodes/kas-create-operator-en.png)
 
-Sau đó bạn có thể kiểm tra danh sách người vận hành như bên dưới.
-Xin lưu ý rằng bắt buộc phải có địa chỉ người vận hành để thiết lập nút chuỗi dịch vụ của bạn.
+Then, you can check your operator list like below.
+Please note that the address of an operator is required for setting your service chain node.
 
 ![create operator](/img/nodes/kas-operator-list-en.png)
 
-## Định cấu hình nút chuỗi dịch vụ <a id="configure-service-chain-node"></a>
+## Configure Service Chain Node <a id="configure-service-chain-node"></a>
 
-Sau khi có được thông tin đăng nhập API, thông tin Anchor API (tham số và điểm cuối API) và tài khoản người vận hành trong KAS, bạn có thể thiết lập nút chuỗi dịch vụ của mình.
-Bạn cần chỉnh sửa tập tin cấu hình (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) của nút chuỗi dịch vụ của bạn như bên dưới.
+After obtaining API credentials, Anchor API information (API endpoint and parameters), and an operator account in KAS, then It is time to set up your service chain node.
+You need to edit the configuration file (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) of your service chain node like below.
 
-Bạn nên đặt `SC_SUB_BRIDGE=1` và toàn bộ các mục có tiền tố `SC_KAS_`.
+You should set `SC_SUB_BRIDGE=1` and all `SC_KAS_` prefix items.
 
 ```bash
 ...
@@ -69,14 +69,14 @@ SC_KAS_ANCHOR_URL="https://anchor-api.klaytn.com/v1/anchor"             # Anchor
 SC_KAS_ANCHOR_OPERATOR="0x6A3D565C4a2a4cd0Fb3df8EDfb63a151717EA1D7"     # Operator address
 SC_KAS_ANCHOR_ACCESS_KEY="KAJM4BEIR9SKJKAW1G3TT8GX"                     # Credential Access key
 SC_KAS_ANCHOR_SECRET_KEY="KyD5w9ZlZQ7ejj6lDF6elb61u8JH/mXdKqhgr3yF"     # Credential Secret key
-SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Cypress: 8217, Baobab: 1001
+SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Mainnet: 8217, Kairos: 1001
 ...
 ```
 
-## Chạy nút chuỗi dịch vụ <a id="run-service-chain-node"></a>
+## Run Service Chain Node <a id="run-service-chain-node"></a>
 
-Bây giờ bạn đã sẵn sàng. Bạn có thể chạy nút chuỗi dịch vụ.
-Bạn sẽ thấy tin nhắn bản ghi liên quan đến Anchor API của KAS như bên dưới.
+Now you are good to go. You can run your service chain node.
+You will see the log message related with KAS Anchor API like below.
 
 ```bash
 ...
@@ -93,8 +93,8 @@ INFO[09/10,18:09:32 +09] [53] Anchored a block via KAS                  blkNum=8
 ...
 ```
 
-## Danh sách giao dịch <a id="list-of-transaction"></a>
+## List of Transaction <a id="list-of-transaction"></a>
 
-Trong trang web bảng điều khiển KAS, bạn có thể xem danh sách các giao dịch neo mà người vận hành chuỗi dịch vụ đã gửi tại menu "Bảng điều khiển KAS - Dịch vụ - Neo - Người vận hành" như bên dưới.
+In KAS console website, you can see the list of anchoring transactions that the operator of your service chain has sent at "KAS Console - Service - Anchor - Operators" menu like below.
 
 ![anchoring transaction list](/img/nodes/kas-tx-list-en.png)
