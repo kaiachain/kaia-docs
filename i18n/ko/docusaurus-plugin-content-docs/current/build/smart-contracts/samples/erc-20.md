@@ -439,7 +439,7 @@ contract MyERC20 is IERC20 {
 
 #### (1) `function balanceOf(address account) external view returns (uint256);` <a id="1-function-balanceof-address-account-external-view-returns-uint256"></a>
 
-`balanceOf`는 ERC-20의 필수 메서드입니다. balanceOf\`는 주어진 주소의 잔액을 반환합니다.
+`balanceOf`는 ERC-20의 필수 메서드입니다. balanceOf\\`는 주어진 주소의 잔액을 반환합니다.
 
 ```text
     function balanceOf(address account) public view returns (uint256) {
@@ -558,7 +558,7 @@ Remix 온라인 IDE를 사용하거나 Truffle을 사용하여 `MyERC20` 스마�
 
 아래와 같이 배포된 `MyERC20` 컨트랙트의 주소로 지갑에 ERC-20 호환 토큰을 추가할 수 있습니다.
 
-![ERC20-3-Add\_token](/img/build/smart-contracts/erc20-3-add_token.png)
+![ERC20-3-Add\\_token](/img/build/smart-contracts/erc20-3-add_token.png)
 
 지갑 앱에서 ERC-20 토큰을 추가하면 아래와 같이 KLAY의 잔액과 함께 `BAOBABTOKEN`의 잔액이 표시됩니다. 계정에 `100000` `BAO` 토큰이 있는 것을 확인할 수 있습니다.
 
