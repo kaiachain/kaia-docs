@@ -35,38 +35,38 @@ Klaytn's **state** is a collection of account states. This state must be the sam
 
 The table below shows the account data that are stored in the state.
 
-| Component   | Description                                                                                                                                                                                             |
-| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| nonce       | An integer value indicating the number of transactions executed by this account. When submitting a transaction, the nonce of the transaction should be equal to the account's nonce.                    |
-| balance     | An integer value showing the amount of KLAY that this account currently has.                                                                                                                            |
-| storageRoot | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account.                                                                            |
+| Component   | Description                                                                                                                                                                                                                                             |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| nonce       | An integer value indicating the number of transactions executed by this account. When submitting a transaction, the nonce of the transaction should be equal to the account's nonce.                                    |
+| balance     | An integer value showing the amount of KLAY that this account currently has.                                                                                                                                                            |
+| storageRoot | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account.                                                                                                            |
 | codeHash    | The hash of the account's bytecode.  This value is immutable, which means it is set only when the smart contract is created.  If the account is an EOA or an EA, this value is set to the hash of null. |
 
 ### Block <a id="block"></a>
 
 A block is a crucial element of the Klaytn blockchain because the blockchain literally consists of a chain of blocks. The table below shows the components in a block.
 
-| Component        | Description                                                                                                         |
-| :--------------- | :------------------------------------------------------------------------------------------------------------------ |
+| Component        | Description                                                                                                                                         |
+| :--------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | baseFeePerGas    | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number. |
-| blockScore       | Former difficulty. Always 1 in the BFT consensus engine                                                             |
-| extraData        | The "extra data" field of this block.                                                                               |
-| gasUsed          | The total used gas by all transactions in this block.                                                               |
-| governanceData   | RLP encoded governance configuration                                                                                |
+| blockScore       | Former difficulty. Always 1 in the BFT consensus engine                                                                             |
+| extraData        | The "extra data" field of this block.                                                                                               |
+| gasUsed          | The total used gas by all transactions in this block.                                                                               |
+| governanceData   | RLP encoded governance configuration                                                                                                                |
 | logsBloom        | The bloom filter for the logs of the block. `null` when it is pending block.                                        |
 | number           | The block number. `null` when it is pending block.                                                                  |
-| parentHash       | The hash of the block's parent block.                                                                               |
-| proposer         | The address of the block proposer.                                                                                  |
-| receiptsRoot     | The root of the receipts trie of the block.                                                                         |
-| reward           | The address receiving block reward.                                                                                 |
-| size             | Integer the size of this block in bytes.                                                                            |
-| stateRoot        | The root of the final state trie of the block.                                                                      |
-| totalBlockScore  | Integer of the total blockScore of the chain until this block.                                                      |
-| transactionsRoot | The root of the transaction trie of the block.                                                                      |
-| timestamp        | The Unix timestamp for when the block was collated.                                                                 |
-| timestampFoS     | The fraction of a second of the timestamp for when the block was collated.                                          |
-| transactions     | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter.                  |
-| voteData         | RLP encoded governance vote of the proposer                                                                         |
+| parentHash       | The hash of the block's parent block.                                                                                               |
+| proposer         | The address of the block proposer.                                                                                                  |
+| receiptsRoot     | The root of the receipts trie of the block.                                                                                         |
+| reward           | The address receiving block reward.                                                                                                 |
+| size             | Integer the size of this block in bytes.                                                                                            |
+| stateRoot        | The root of the final state trie of the block.                                                                                      |
+| totalBlockScore  | Integer of the total blockScore of the chain until this block.                                                                      |
+| transactionsRoot | The root of the transaction trie of the block.                                                                                      |
+| timestamp        | The Unix timestamp for when the block was collated.                                                                                 |
+| timestampFoS     | The fraction of a second of the timestamp for when the block was collated.                                                          |
+| transactions     | Array of transaction objects, or 32-byte transaction hashes depending on the last given parameter.                                  |
+| voteData         | RLP encoded governance vote of the proposer                                                                                                         |
 
 ## Smart Contract <a id="smart-contract"></a>
 
