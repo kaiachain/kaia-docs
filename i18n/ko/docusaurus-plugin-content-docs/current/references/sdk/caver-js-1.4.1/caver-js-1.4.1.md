@@ -1,35 +1,35 @@
-# caver-js(1.4.1 이하)
+# caver-js (1.4.1 or earlier)
 
-`caver-js`는 개발자가 HTTP 또는 웹소켓 연결을 사용하여 Klaytn 노드와 상호작용할 수 있도록 해주는 JavaScript API 라이브러리입니다. [npm](https://www.npmjs.com/package/caver-js)에서 사용할 수 있습니다.
+`caver-js` is a JavaScript API library that allows developers to interact with a Kaia node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
 
-## 기능 <a id="features"></a>
+## Features <a id="features"></a>
 
-- HTTP와 웹소켓을 통한 클레이튼의 JSON-RPC 클라이언트 API의 완벽한 구현
-- 클레이튼 트랜잭션, 계정, 계정 키 유형 지원
-- 클레이튼 네트워크에서 스마트 컨트랙트를 배포하고 실행하기 위한 JavaScript 스마트 컨트랙트 패키지
-- 클레이튼 계정 관리를 위한 인메모리 지갑
-- 수수료 위임 지원
-- 클레이튼 지갑 키 포맷 지원
-- 트랜잭션 객체를 RLP로 인코딩/디코딩
-- 트랜잭션 객체 서명
-- web3-js 애플리케이션을 caver-js로 쉽게 포팅 가능
+- Complete implementation of Kaia’s JSON-RPC client API over HTTP and Websocket
+- Support of Kaia transaction, account, and account key types
+- JavaScript smart contract package to deploy and execute a smart contract on the Kaia network
+- In-memory wallet for managing Kaia accounts
+- Support of fee-delegation
+- Support of the Kaia wallet key format
+- Encoding/decoding of a transaction object in RLP
+- Signing of a transaction object
+- Easy to port web3-js application to caver-js
 
-## caver-js의 패키지 <a id="packages-in-caver-js"></a>
+## Packages in caver-js <a id="packages-in-caver-js"></a>
 
-아래는 `caver-js`로 제공되는 패키지입니다.
+Below are packages provided in `caver-js`.
 
-- [caver.klay](./api/caver.klay/caver.klay.md)
-- [caver.klay.accounts](./api/caver.klay.accounts.md)
-- [caver.klay.Contract](./api/caver.klay.Contract.md)
-- [caver.klay.net](./api/caver.klay.net.md)
-- [caver.klay.abi](./api/caver.klay.abi.md)
+- [caver.klay](./api/caver.kaia/caver.kaia.md)
+- [caver.kaia.accounts](./api/caver.kaia.accounts.md)
+- [caver.kaia.Contract](./api/caver.kaia.Contract.md)
+- [caver.kaia.net](./api/caver.kaia.net.md)
+- [caver.kaia.abi](./api/caver.kaia.abi.md)
 - [caver.utils](./api/caver.utils_1.4.1.md)
 
-## 오류 코드 개선 <a id="error-code-improvement"></a>
+## Error Code Improvement <a id="error-code-improvement"></a>
 
-web3.js를 통한 이더리움의 에러 메시지는 에러가 어디서 발생하는지 파악하기 어렵습니다. `caver-js`는 클레이튼의 에러 메시지를 포착할 수 있도록 인터페이스를 개선합니다.
+The error messages from Ethereum via web3.js are hardly figuring out where the error occurs. `caver-js` improves the interface to catch error messages from Kaia.
 
-자세한 내용은 아래와 같이 트랜잭션 영수증의 `txError` 값에서 확인할 수 있습니다:
+More details can be found in the value of `txError` of the transaction receipt like the below:
 
 ```text
 Error: runtime error occurred in interpreter
@@ -49,13 +49,13 @@ Error: runtime error occurred in interpreter
 }
 ```
 
-## 클레이튼에 트랜잭션을 보낼 때 주의 사항 <a id="caution-when-sending-a-transaction-to-klaytn"></a>
+## Caution when Sending a Transaction to Kaia <a id="caution-when-sending-a-transaction-to-kaia"></a>
 
-클레이튼은 고정 가스 가격 (25 ston = 25 \* 10^9)을 사용합니다. 클레이튼 네트워크에 제출된 다른 가격의 트랜잭션은 거부됩니다. For more information about the gas price, see [GasPrice Overview](../../../learn/transaction-fees/transaction-fees.md#gas-price-overview) The price of gas used in the network can be obtained by using [caver.klay.getGasPrice](./api/caver.klay/config.md#getgasprice).
+Kaia uses a fixed gas price \(25 Gkei = 25 \* 10^9\). A transaction with a different price submitted to the Kaia network will be rejected. For more information about the gas price, see [GasPrice Overview](../../../learn/transaction-fees/transaction-fees.md#gas-price-overview) The price of gas used in the network can be obtained by using [caver.kaia.getGasPrice](./api/caver.kaia/config.md#getgasprice).
 
-트랜잭션에 서명하거나 제출할 때 `gasPrice`이 정의되지 않은 경우, caver-js는 [caver.klay.getGasPrice](./api/caver.klay/config.md#getgasprice) RPC 호출을 사용하여 트랜잭션의 가스 가격을 설정합니다.
+If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses the [caver.kaia.getGasPrice](./api/caver.kaia/config.md#getgasprice) RPC call to set the gas price of the transaction.
 
-## 링크 <a id="links"></a>
+## Links <a id="links"></a>
 
-- caver-js [GitHub 리포지토리](https://github.com/klaytn/caver-js)
-- caver-js [npm](https://www.npmjs.com/package/caver-js)
+- caver-js [GitHub repository](https://github.com/klaytn/caver-js)
+- caver-js on [npm](https://www.npmjs.com/package/caver-js)
