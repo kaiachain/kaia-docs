@@ -6,11 +6,11 @@
 
 Hardware wallets reinvented the wheel by keeping private keys (needed for signing transactions) in an offline environment separate from internet connections, avoiding the numerous hacks or threats that arise from software wallets reliant on internet connectivity. This way, users' crypto assets are more secured and shielded from internet dangers brought on by software wallets.
 
-One of such hardware wallets that has integrated with Klaytn is **SafePal S1 Hardware Wallet**. SafePal S1 is a cryptocurrency hardware wallet that aims to provide a secure, simple, and enjoyable crypto management solution for the populace. SafePal is an hardware wallet to secure and manage cryptocurrencies and NFTs, such as Bitcoin, KLAY, Klaytn Compatible Tokens(KCT), Ether and ERC20 tokens e.t.c.
+One of such hardware wallets that has integrated with Kaia is **SafePal S1 Hardware Wallet**. SafePal S1 is a cryptocurrency hardware wallet that aims to provide a secure, simple, and enjoyable crypto management solution for the populace. SafePal is an hardware wallet to secure and manage cryptocurrencies and NFTs, such as Bitcoin, KAIA, Kaia Compatible Tokens(KCT), Ether and ERC20 tokens e.t.c.
 
 In this guide, you will:
 
-- Add, Receive and Send Klay, and any Klaytn Compatible Tokens(KCT)  with SafePal S1 Hardware Wallet
+- Add, Receive and Send Klay, and any Kaia Compatible Tokens(KCT)  with SafePal S1 Hardware Wallet
 
 ## Prerequisites <a id="prerequisites"></a>
 
@@ -18,17 +18,17 @@ In this guide, you will:
 
 ## Getting Started <a id="getting-started"></a>
 
-After you must have successfully set up your wallet, next is to see the wallet in action. In this tutorial we will be adding, receiving and sending KLAY native coin, and any Klaytn Compatible Tokens(KCT) using the SafePal S1 Hardware Wallet.
+After you must have successfully set up your wallet, next is to see the wallet in action. In this tutorial we will be adding, receiving and sending KAIA native coin, and any Kaia Compatible Tokens(KCT) using the SafePal S1 Hardware Wallet.
 
-### Adding KLAY native coin <a id="adding-klay-native-coin"></a>
+### Adding KAIA native coin <a id="adding-kaia-native-coin"></a>
 
-To add the KLAY native coin to your hardware wallet, kindly follow the steps below:
+To add the KAIA native coin to your hardware wallet, kindly follow the steps below:
 
 **Step 1**: Open the SafePal App and in your Wallet tab, click the ellipsis icon and then click the Manage Coins button as shown in the picture below:
 
 ![](/img/build/tools/step1-add-klay.png)
 
-**Step 2**: Select the coins you want to add (in our case KLAY), and click **Add Coin** at the bottom
+**Step 2**: Select the coins you want to add (in our case KAIA), and click **Add Coin** at the bottom
 
 ![](/img/build/tools/step2-add-klay.png)
 
@@ -38,22 +38,22 @@ To add the KLAY native coin to your hardware wallet, kindly follow the steps bel
 
 ![](/img/build/tools/step4-add-klay.png)
 
-Kindly note that the steps above are applicable for adding any Klaytn Compatible Tokens.
+Kindly note that the steps above are applicable for adding any Kaia Compatible Tokens.
 
-### Receiving KLAY native coin  <a id="receiving-klay-native-coin"></a>
+### Receiving KAIA native coin  <a id="receiving-kaia-native-coin"></a>
 
-Once the coins (KLAY, KCTs) are successfully added, you can view them in the **Asset Management** tab on the S1 device. You can receive KLAY native coin using the following approach:
+Once the coins (KAIA, KCTs) are successfully added, you can view them in the **Asset Management** tab on the S1 device. You can receive KAIA native coin using the following approach:
 
 #### Using the SafePal App
 
-1. Select KLAY which gives you the option of swap, receive and send, click on receive
-2. You can either copy your KLAY address for the wallet, save the QR code, or have the other party scan the QR code from your phone.
+1. Select KAIA which gives you the option of swap, receive and send, click on receive
+2. You can either copy your KAIA address for the wallet, save the QR code, or have the other party scan the QR code from your phone.
 
 #### Using the SafePal S1 Hardware Wallet
 
 **Step 1** Start your SafePal S1 device and navigate to the 'Asset Management'
 
-**Step 2** Select KLAY as the coin you would like to receive from others.
+**Step 2** Select KAIA as the coin you would like to receive from others.
 
 **Step 3** Click on the ‘Receive’ button
 
@@ -63,13 +63,13 @@ Once the coins (KLAY, KCTs) are successfully added, you can view them in the **A
 
 ![](/img/build/tools/sphw-rec-banner.png)
 
-Kindly note that the steps above are applicable for receiving any Klaytn Compatible Tokens.
+Kindly note that the steps above are applicable for receiving any Kaia Compatible Tokens.
 
-### Sending KLAY native coin  <a id="sending-klay-native-coin"></a>
+### Sending KAIA native coin  <a id="sending-kaia-native-coin"></a>
 
-To send KLAY native coin from your hardware wallet, kindly follow the steps below:
+To send KAIA native coin from your hardware wallet, kindly follow the steps below:
 
-**Step 1** On the SafePal App, choose the coin you want to send(in our case KLAY)and click **Send**.
+**Step 1** On the SafePal App, choose the coin you want to send(in our case KAIA)and click **Send**.
 
 ![](/img/build/tools/step1-send-klay.png)
 
@@ -93,13 +93,13 @@ After successfully scanning the transfer details, you will then see the transfer
 
 After successfully signing the transfer on the S1 device, you will see a set of dynamic QR codes shown on the S1 device. On the SafePal App, click 'Next' to open the cellphone camera. Use the SafePal App to scan the dynamic QR codes shown on the S1 device.
 
-Doing this ensures the App receives the signature contained in the QR codes and is ready to broadcast the transfer to the blockchain (Klaytn).
+Doing this ensures the App receives the signature contained in the QR codes and is ready to broadcast the transfer to the blockchain (Kaia).
 
 **Step 6** Click **Broadcast** on the App and wait for the transfer to go through
 
 ![](/img/build/tools/step6-send-klay.png)
 
-Kindly note that the steps above are applicable for sending any Klaytn Compatible Tokens.
+Kindly note that the steps above are applicable for sending any Kaia Compatible Tokens.
 
 ## Further References  <a id="further-references"></a>
 
