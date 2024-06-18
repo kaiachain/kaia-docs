@@ -30,9 +30,9 @@ dApp 개발자를 위한 가장 개방적이고, 성능이 뛰어나며, 안정�
 
 다음은 Covalent API를 시작하는 데 도움이 되는 몇 가지 추가 리소스입니다:
 
-- [SubQuery 웹사이트](https://subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
-- [문서](https://academy.subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
-- [SubQuery 클레이튼 지원 공지](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn\&utm_medium=partner-docs)
-- [클레이튼 퀵스타트](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn\&utm_medium=partner-docs)
+- [SubQuery 웹사이트](https://subquery.network/?utm_source=klaytn\\&utm_medium=partner-docs)
+- [문서](https://academy.subquery.network/?utm_source=klaytn\\&utm_medium=partner-docs)
+- [SubQuery 클레이튼 지원 공지](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn\\&utm_medium=partner-docs)
+- [클레이튼 퀵스타트](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn\\&utm_medium=partner-docs)
 - [클레이튼 스타터 프로젝트](https://github.com/subquery/ethereum-subql-starter/tree/main/Klaytn/klaytn-starter)
-- [디스코드 지원](https://discord.com/invite/subquery/?utm_source=klaytn\&utm_medium=partner-docs)
+- [디스코드 지원](https://discord.com/invite/subquery/?utm_source=klaytn\\&utm_medium=partner-docs)
