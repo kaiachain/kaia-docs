@@ -1,10 +1,10 @@
-# 클레이튼 호환 토큰(KCT)
+# 카이아 호환 토큰(KCT)
 
-클레이튼 호환 토큰(KCT)은 특정 기술 사양을 구현하는 특별한 유형의 스마트 컨트랙트입니다. 클레이튼 위에서 토큰을 발행하고자 하는 사람은 누구나 이 사양을 따라야 합니다.
+카이아 호환 토큰(KCT)은 특정 기술 사양을 구현하는 특별한 유형의 스마트 컨트랙트입니다. 카이아 위에서 토큰을 발행하고자 하는 사람은 누구나 이 사양을 따라야 합니다.
 
 토큰 표준은 [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) 등 Klaytn에 정의되어 있습니다.
 
-특정 기술 사양을 충족하기 위해 다른 KCT를 정의할 수 있습니다. 다른 토큰 표준이 필요하신 분은 [Klaytn Improvement Proposal](https://github.com/klaytn/KIPs)을 방문하여 새로운 토큰 표준을 제안해 주세요.
+특정 기술 사양을 충족하기 위해 다른 KCT를 정의할 수 있습니다. 다른 토큰 표준이 필요하신 분은 [Kaia Improvement Proposal](https://github.com/klaytn/KIPs)을 방문하여 새로운 토큰 표준을 제안해 주세요.
 
 ## 대체 가능한 토큰 표준 (KIP-7) <a id="fungible-token-standard-kip-7"></a>
 
@@ -55,7 +55,7 @@ function addPauser(address _account) external;
 function renouncePauser() external;
 ```
 
-위의 인터페이스를 기반으로 개발자는 새로운 기능과 로직을 추가하여 토큰을 커스터마이징하고 Klaytn 네트워크에 배포할 수 있습니다.
+위의 인터페이스를 기반으로 개발자는 새로운 기능과 로직을 추가하여 토큰을 커스터마이징하고 Kaia 네트워크에 배포할 수 있습니다.
 
 자세한 내용은 공식 [KIP-7 문서](https://kips.klaytn.foundation/KIPs/kip-7)를 참조하세요.
 
@@ -121,18 +121,18 @@ function addPauser(address _account) public;
 function renouncePauser() public;
 ```
 
-위의 인터페이스를 기반으로 개발자는 새로운 기능과 로직을 추가하여 토큰을 커스터마이징하고 Klaytn 네트워크에 배포할 수 있습니다.
+위의 인터페이스를 기반으로 개발자는 새로운 기능과 로직을 추가하여 토큰을 커스터마이징하고 Kaia 네트워크에 배포할 수 있습니다.
 
 자세한 내용은 공식 [KIP-17 문서](https://kips.klaytn.foundation/KIPs/kip-17)를 참조하세요.
 
 - 구현 예제는 [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol)에서 확인할 수 있습니다.
 
-## 클레이튼 서비스체인을 위한 토큰 표준 <a id="token-standards-for-klaytn-service-chain"></a>
+## 카이아 서비스체인을 위한 토큰 표준 <a id="token-standards-for-klaytn-service-chain"></a>
 
-서비스체인이란 클레이튼의 메인 블록체인 네트워크에 앵커링되는 클레이튼의 사이드체인을 의미합니다. 서비스체인을 구현할 때, 메인체인과 서비스체인 간의 밸류 전송을 지원하기 위해 특별한 유형의 컨트랙트가 사용됩니다. 이러한 컨트랙트는 현재 개발 중이며, 준비가 완료되면 클레이튼 서비스체인을 위한 토큰 사양이 KlaytnDocs에 제공될 예정입니다.
+서비스체인이란 카이아의 메인 블록체인 네트워크에 앵커링되는 카이아의 사이드체인을 의미합니다. 서비스체인을 구현할 때, 메인체인과 서비스체인 간의 밸류 전송을 지원하기 위해 특별한 유형의 컨트랙트가 사용됩니다. 이러한 컨트랙트는 현재 개발 중이며, 준비가 완료되면 카이아 서비스체인을 위한 토큰 사양이 KlaytnDocs에 제공될 예정입니다.
 
 ## ERC-20 및 ERC-721에 대한 참고사항 <a id="notes-on-erc-20-and-erc-721"></a>
 
-Klaytn은 토큰 표준으로 KIP-7과 KIP-17을 발표했기 때문에, 대체 가능한 토큰과 대체 불가능한 토큰 컨트랙트는 각각 ERC-20과 ERC-721을 따르기보다는 KIP-7과 KIP-17에 따라 구현할 것을 권장합니다.
-KIP-7과 KIP-17은 ERC-20과 ERC-721을 기반으로 하지만, 클레이튼에 맞게 조정되었기 때문에 클레이튼 생태계에 더 적합합니다. 그러나 ERC-20과 ERC-721은 여전히 Klaytn 네트워크에서 지원되지만, 클레이튼 생태계의 다양한 도구와 호환되지 않을 수 있습니다.
+Kaia는 토큰 표준으로 KIP-7과 KIP-17을 발표했기 때문에, 대체 가능한 토큰과 대체 불가능한 토큰 컨트랙트는 각각 ERC-20과 ERC-721을 따르기보다는 KIP-7과 KIP-17에 따라 구현할 것을 권장합니다.
+KIP-7과 KIP-17은 ERC-20과 ERC-721을 기반으로 하지만, 카이아에 맞게 조정되었기 때문에 카이아 생태계에 더 적합합니다. 그러나 ERC-20과 ERC-721은 여전히 Kaia 네트워크에서 지원되지만, 카이아 생태계의 다양한 도구와 호환되지 않을 수 있습니다.
 토큰 표준의 차이점에 대한 자세한 내용은 [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7#differences-with-erc-20) 및 [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17#differences-from-erc-721)을 참고하시기 바랍니다.
