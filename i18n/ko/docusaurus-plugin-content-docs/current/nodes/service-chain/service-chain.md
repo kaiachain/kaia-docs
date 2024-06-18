@@ -1,19 +1,19 @@
-# 서비스 체인
+# Service Chain
 
-## 대상 독자 <a id="intended-audience"></a>
+## Intended Audience <a id="intended-audience"></a>
 
-- 높은 TPS, 최소한의 트랜잭션 수수료 또는 데이터 프라이버시가 필요한 dApp 개발자
-- 테스트를 위해 로컬 프라이빗 네트워크 또는 원장 데이터베이스를 구축하려는 모두
+- dApp developers who need high TPS, minimal transaction fees, or data privacy.
+- Anyone who wants to build a local private network or a ledger database for testing.
 
-## 서비스 체인 개요 <a id="service-chain-overview"></a>
+## Service Chain Overview <a id="service-chain-overview"></a>
 
-클레이튼 서비스체인은 다음과 같은 기능을 제공합니다.
+Kaia Service Chain provides the following features.
 
-- 즉각적인 최종성.
-- 크로스 체인 토큰 전송.
-- 메인 체인에 데이터 앵커링.
-- 기업 보안 요구 사항을 충족하는 다중 서명 브리지 콘트랙트.
+- Immediate finality.
+- Cross-chain token transfer.
+- Data anchoring to the main chain.
+- Multi-sig bridge contract to meet enterprise security requirements.
 
 ![](/img/nodes/sc_connection.png)
 
-서비스 체인에 대한 자세한 내용은 [Klaytn 스케일링 솔루션](../../learn/scaling-solutions.md)을 참고하세요.
+Read the [Kaia Scaling Solution](../../learn/scaling-solutions.md) for more details about the Service Chain.
