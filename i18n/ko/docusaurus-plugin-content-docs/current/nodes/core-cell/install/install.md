@@ -1,4 +1,4 @@
-# 코어 셀 설치
+# Install Core Cell
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
