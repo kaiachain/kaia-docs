@@ -1,8 +1,8 @@
-# 도커로 EN 운용하기
+# Run EN using docker
 
-## 이미지 다운로드
+## Download the image
 
-https\://hub.docker.com/r/klaytn/klaytn/tags 에서 이미지 태그를 선택합니다. 'klaytn/klaytn:latest'가 최신 릴리스 버전입니다. 하지만 특정 버전을 선택할 수도 있습니다. 현재는 리눅스/amd64 플랫폼만 지원됩니다. 윈도우나 맥 호스트에서는 컨테이너가 제대로 작동하지 않을 수 있습니다.
+Choose an image tag from https://hub.docker.com/r/klaytn/klaytn/tags. `klaytn/klaytn:latest` is the recent release version. But you can choose a specific version. Currently, only linux/amd64 platform is supported. The container might not work correctly in Windows or Mac hosts.
 
 ```
 docker pull klaytn/klaytn:latest
@@ -12,42 +12,42 @@ docker pull klaytn/klaytn:latest
 docker pull klaytn/klaytn:v1.12.0
 ```
 
-## 구성 파일 준비
+## Prepare configuration file
 
-기존 구성 파일에서 시작할 수 있습니다. 템플릿 `kend.conf` 구성 파일을 가져오려면 다음과 같이 하세요.
+You can start from the existing configuration file. To obtain the template `kend.conf` configuration file,
 
 ```sh
 mkdir -p conf
-docker 실행 --rm klaytn/klaytn:최신 cat /klaytn-docker-pkg/conf/kend.conf > conf/kend.conf
+docker run --rm klaytn/klaytn:latest cat /klaytn-docker-pkg/conf/kend.conf > conf/kend.conf
 ```
 
-그런 다음 구성을 편집합니다. 최소한 `DATA_DIR`과 `LOG_DIR`은 지정해야 합니다. 이 가이드에서는 `/var/kend/data`로 가정합니다.
+Then edit the configuration. At least the `DATA_DIR` and `LOG_DIR` has to be specified. This guide will assume `/var/kend/data`.
 
 ```sh
 echo "DATA_DIR=/var/kend/data" >> conf/kend.conf
 echo "LOG_DIR=/var/kend/logs" >> conf/kend.conf
 ```
 
-## 체인데이터 스냅샷에서 빠른 동기화 (선택 사항)
+## Fast Sync from chaindata snapshot (Optional)
 
-제네시스 블록에서 동기화하는 것은 시간이 많이 걸립니다. EN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 빠른 동기화를 수행할 수 있습니다. 이렇게 하면 EN이 처음 시작할 때 동기화하는 데 걸리는 시간을 크게 줄일 수 있습니다.
+Synching from the genesis block is time-consuming. You may perform a fast sync by downloading a snapshot of the chain data before starting the EN. This can dramatically reduce the time the EN will spend syncing on the first startup.
 
-다음 링크에서 최신 체인 데이터 스냅샷을 다운로드하세요:
+Download the latest chaindata snapshot from the following links:
 
-- [Cypress 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/)
-- [Cypress 라이브-프루닝 스냅샷 아카이브](https://packages.klaytn.net/cypress/pruning-chaindata/)
-- [Baobab 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)
-- [Baobab 라이브-프루닝 스냅샷 아카이브](http://packages.klaytn.net/baobab/pruning-chaindata/)
+- [Mainnet snapshot archive](http://packages.klaytn.net/cypress/chaindata/)
+- [Mainnet live-pruning snapshot archive](https://packages.klaytn.net/cypress/pruning-chaindata/)
+- [Kairos snapshot archive](http://packages.klaytn.net/baobab/chaindata/)
+- [Kairos live-pruning snapshot archive](http://packages.klaytn.net/baobab/pruning-chaindata/)
 
-그런 다음 압축을 해제합니다:
+Then uncompress:
 
 ```sh
 tar -C data -xvf klaytn-cypress-chaindata-latest.tar.gz
 ```
 
-## 컨테이너 시작
+## Start the container
 
-`kend.conf`에서 수정하지 않은 경우 8551인 RPC 포트를 노출합니다. 구성 디렉터리 `conf/`와 체인데이터 디렉터리 `data/`를 마운트합니다. 그런 다음 `kend start`를 실행하여 데몬을 시작하고 `tail -f`를 실행하여 로그를 출력합니다.
+Expose the RPC port, which is 8551 unless you have modified in the `kend.conf`. Mount the configuration directory `conf/` and chaindata directory `data/`. Then run `kend start` to start the daemon and `tail -f` to print the logs.
 
 ```sh
 mkdir -p data
@@ -59,15 +59,15 @@ docker run -d --name ken \
   /bin/bash -c "kend start && touch /var/kend/logs/kend.out && tail -f /var/kend/logs/kend.out"
 ```
 
-## 콘솔에 연결하기
+## Attaching to the console
 
 ```
 docker exec -it ken ken attach --datadir /var/kend/data
 ```
 
-## 컨테이너 중지하기
+## Stopping the container
 
-체인데이터 손상을 방지하려면 `ken`을 정상적으로 종료합니다.
+To prevent chaindata corruption, gracefully shut down the `ken`.
 
 ```
 docker exec -it ken kend stop
