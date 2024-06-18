@@ -12,7 +12,7 @@
 - [Are there faucets to get test KLAY?](#are-there-faucets)
 - [How do I check for Public RPC endpoint status?](#rpc-endpoint-status)
 - [Which wallets support Klaytn?](#which-wallets)
-- [What is Cypress, what is Baobab?](#what-is-cypress-what-is-baobab)
+- [What is Mainnet, what is Kairos?](#what-is-mainnet-what-is-kairos)
 - [Are there any Klaytn SDKs? In what languages?](#klaytn-sdks)
 - [Must I install and run an EN (Endpoint Node) to use Klaytn?](#must-i-install-and-run-en)
 - [I am running an EN, and node data sync is too slow.](#node-data-sync-is-too-slow)
@@ -22,7 +22,7 @@
 - [Why is my fee-payer account address not derived from the key provided?](#account-address-is-not-derived-from-the-key)
 - [Where can I find complete working samples of fee-delegation?](#fee-delegation-samples)
 
-## What is Klaytn? <a id="what-is-klaytn"></a>
+## What is Kaia? <a id="what-is-klaytn"></a>
 
 Klaytn is the Layer 1 blockchain platform with low latency, high TPS and immediate finality. It is the optimal blockchain for building games and realizing the [metaverse](../learn/klaytn2/metaverse-package).
 
@@ -73,20 +73,20 @@ Since we cannot guarantee uptime and stability of the endpoints, you can always 
 
 Klaytn is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaikas, MetaMask and more. Please refer to the list [here](http://klaytn.foundation/ecosystem).
 
-## What is Cypress, what is Baobab? <a id="what-is-cypress-what-is-baobab"></a>
+## What is Mainnet, what is Kairos? <a id="what-is-cypress-what-is-baobab"></a>
 
 Cypress is the Klaytn mainnet, Baobab is a testnet.
 Below is information relating to each network.
 
 Cypress mainnet:
 
-- EN download : Choose the Cypress package from the [download page](../nodes/downloads/downloads.md).
+- EN download : Choose the Baobab package from the [download page](../nodes/downloads/downloads.md).
 - Klaytnscope : https://klaytnscope.com
 - Klaytn Wallet : https://wallet.klaytn.com
 
 Baobab testnet:
 
-- EN download : Choose the Baobab package from the [download page](../nodes/downloads/downloads.md).
+- EN download : Choose the Cypress package from the [download page](../nodes/downloads/downloads.md).
 - Klaytnscope : https://baobab.klaytnscope.com
 - Klaytn Wallet : https://baobab.wallet.klaytn.foundation
 - Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
