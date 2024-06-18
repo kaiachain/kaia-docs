@@ -2,7 +2,7 @@
 
 ## Truffle과의 호환성 <a id="compatibility-with-truffle"></a>
 
-클레이튼에서는 Solidity로 작성된 스마트 컨트랙트를 Truffle을 통해 컴파일하고 배포할 수 있습니다. 현재 클레이튼은 이 글을 쓰는 시점에 최신 버전인 Truffle v5.0.26까지 지원합니다. Truffle에 대한 자세한 내용은 아래 웹사이트에서 확인할 수 있습니다.
+In Kaia, a smart contract written in Solidity can be compiled and deployed via Truffle. 현재 클레이튼은 이 글을 쓰는 시점에 최신 버전인 Truffle v5.0.26까지 지원합니다. Truffle에 대한 자세한 내용은 아래 웹사이트에서 확인할 수 있습니다.
 
 - [Truffle 개요](https://trufflesuite.com/docs/truffle/overview)
 - [Truffle 저장소](https://github.com/trufflesuite/truffle)
@@ -251,7 +251,7 @@ module.exports = {
 
 **경고: 니모닉 또는 개인 키가 노출되지 않도록 각별히 주의하세요.**
 
-클레이튼에 배포하기
+Deploying on Kaia :
 
 ```bash
 $ truffle deploy --network baobab  # testnet
