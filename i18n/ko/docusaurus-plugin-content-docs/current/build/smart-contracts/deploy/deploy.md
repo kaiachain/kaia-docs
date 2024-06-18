@@ -1,6 +1,6 @@
 # 스마트 컨트랙트 배포
 
-클레이튼에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불할 수 있는 충분한 KLAY를 보유한 클레이튼 계정이 있다고 가정합니다. 계정을 생성하려면 [Klaytn 지갑](../../tools/wallets/klaytn-wallet.md)을 방문하세요.
+There are various ways of deploying a smart contract on Kaia. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불할 수 있는 충분한 KLAY를 보유한 클레이튼 계정이 있다고 가정합니다. 계정을 생성하려면 [Klaytn 지갑](../../tools/wallets/klaytn-wallet.md)을 방문하세요.
 
 ## Remix 온라인 IDE <a id="remix-ide"></a>
 
@@ -38,11 +38,11 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-3. 아이콘 패널에서 컴파일러를 선택합니다. 원하는 EVM 환경을 선택합니다. Klaytn 네트워크의 경우 Baobab(테스트넷)과 Cypress(메인넷) 중에서 선택할 수 있습니다. 실제 배포하기 전에 샘플 코드를 준수할 준비가 되면 `Compile`을 클릭합니다.
+3. 아이콘 패널에서 컴파일러를 선택합니다. 원하는 EVM 환경을 선택합니다. For the Kaia networks, you can choose between Kairos (testnet) and Mainnet. 실제 배포하기 전에 샘플 코드를 준수할 준비가 되면 `Compile`을 클릭합니다.
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. 이제 컨트랙트를 배포할 수 있습니다. 아이콘 패널에서 클레이튼 로고를 클릭합니다. `Account` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 계정에 필요한 스마트 컨트랙트 배포 트랜잭션 비용을 지불할 수 있는 충분한 KLAY가 있는지 확인합니다.
+4. Now we can deploy the contract. 아이콘 패널에서 클레이튼 로고를 클릭합니다. `Account` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 계정에 필요한 스마트 컨트랙트 배포 트랜잭션 비용을 지불할 수 있는 충분한 KLAY가 있는지 확인합니다.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
@@ -57,7 +57,7 @@ contract KlaytnGreeter is Mortal {
 
 7. 컨트랙트가 성공적으로 배포되면 터미널에서 해당 트랜잭션 영수증과 상세 결과를 확인할 수 있습니다.
 
-8. 기능 버튼을 클릭하여 컨트랙트와 상호작용할 수 있습니다. 함수는 다른 색상으로 표시됩니다. Solidity의 `constant` 또는 `pure` 함수는 파란색 버튼(예시에서는 `greet`)을 가지며 새 트랜잭션을 생성하지 않으므로 가스 비용이 들지 않습니다. 빨간색 버튼(예시에서는 `kill`)은 블록체인의 상태를 변경하고 가스를 소비하며 가치를 받을 수 있는 `payable` 함수를 나타냅니다. 주황색 버튼은 컨트랙트 상태를 변경하지만 값을 받지 않는 \`non-payable\`\` 함수를 나타냅니다.
+8. 기능 버튼을 클릭하여 컨트랙트와 상호작용할 수 있습니다. 함수는 다른 색상으로 표시됩니다. Solidity의 `constant` 또는 `pure` 함수는 파란색 버튼(예시에서는 `greet`)을 가지며 새 트랜잭션을 생성하지 않으므로 가스 비용이 들지 않습니다. 빨간색 버튼(예시에서는 `kill`)은 블록체인의 상태를 변경하고 가스를 소비하며 가치를 받을 수 있는 `payable` 함수를 나타냅니다. 주황색 버튼은 컨트랙트 상태를 변경하지만 값을 받지 않는 \`non-payable\`\\` 함수를 나타냅니다.
 
 ![](/img/build/smart-contracts/06_deployment_functions.png)
 
@@ -107,7 +107,7 @@ contract KlaytnGreeter is Mortal {
 $ sudo npm install -g solc@0.5.6
 ```
 
-3. 컨트랙트를 컴파일합니다.
+3. Compile the contract.
 
 ```
 $ solcjs KlaytnGreeter.sol --bin
