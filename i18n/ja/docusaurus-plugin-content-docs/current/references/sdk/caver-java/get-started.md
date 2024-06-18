@@ -1349,11 +1349,7 @@ The execution result of the above code is shown below.
 ```
 
 [caver-java API]: https://javadoc.io/doc/com.klaytn.caver/core/
-
 [KIP-7]: https://kips.klaytn.foundation/KIPs/kip-7
-
 [KIP-13]: https://kips.klaytn.foundation/KIPs/kip-13
-
 [KIP-17]: https://kips.klaytn.foundation/KIPs/kip-17
-
 [KIP-37]: https://kips.klaytn.foundation/KIPs/kip-37
