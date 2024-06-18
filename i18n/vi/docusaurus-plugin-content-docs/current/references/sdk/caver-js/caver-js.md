@@ -1,26 +1,26 @@
-# caver-js (1.5.0 trở lên)
+# caver-js (1.5.0 or later)
 
 ![](/img/references/klaytnXcaver-js.png)
 
-`caver-js` là một thư viện API JavaScript cho phép các nhà phát triển tương tác với nút Klaytn bằng kết nối HTTP hoặc Websocket. Nó có sẵn trên [npm](https://www.npmjs.com/package/caver-js).
+`caver-js` is a JavaScript API library that allows developers to interact with a Kaia node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
 
-## Tính năng <a href="#features" id="features"></a>
+## Features <a href="#features" id="features"></a>
 
-- Hoàn tất việc triển khai API máy khách JSON-RPC của Klaytn qua HTTP và Websocket
-- Hỗ trợ giao dịch, tài khoản và các loại khóa tài khoản của Klaytn
-- Gói hợp đồng thông minh JavaScript để triển khai và thực thi hợp đồng thông minh trên mạng lưới Klaytn
-- Ví trong bộ nhớ để quản lý các tài khoản Klaytn
-- Hỗ trợ ủy thác phí
-- Hỗ trợ định dạng khóa ví Klaytn
-- Mã hóa/giải mã một đối tượng giao dịch trong RLP
-- Ký một đối tượng giao dịch
-- Dễ dàng chuyển ứng dụng web3-js sang caver-js
+- Complete implementation of Kaia’s JSON-RPC client API over HTTP and Websocket
+- Support of Kaia transaction, account, and account key types
+- JavaScript smart contract package to deploy and execute a smart contract on the Kaia network
+- In-memory wallet for managing Kaia accounts
+- Support of fee-delegation
+- Support of the Kaia wallet key format
+- Encoding/decoding of a transaction object in RLP
+- Signing of a transaction object
+- Easy to port web3-js application to caver-js
 
-## Các gói trong caver-js <a href="#packages-in-caver-js" id="packages-in-caver-js"></a>
+## Packages in caver-js <a href="#packages-in-caver-js" id="packages-in-caver-js"></a>
 
-Dưới đây là các gói được cung cấp trong `caver-js`.
+Below are packages provided in `caver-js`.
 
-- [caver.tài khoản](./api/caver.account.md)
+- [caver.account](./api/caver.account.md)
 - [caver.wallet.keyring](./api/caver-wallet/keyring.md)
 - [caver.wallet](./api/caver-wallet/caver-wallet.md)
 - [caver.transaction](./api/caver-transaction/caver-transaction.md)
@@ -32,11 +32,11 @@ Dưới đây là các gói được cung cấp trong `caver-js`.
 - [caver.utils](./api/caver.utils.md)
 - [caver.ipfs](./api/caver.ipfs.md)
 
-## Cải thiện mã lỗi <a href="#error-code-improvement" id="error-code-improvement"></a>
+## Error Code Improvement <a href="#error-code-improvement" id="error-code-improvement"></a>
 
-Các thông báo lỗi từ Ethereum qua web3.js thường không chỉ ra lỗi phát sinh ở đâu. `caver-js` cải thiện giao diện để nhận các thông báo lỗi từ Klaytn.
+The error messages from Ethereum via web3.js are hardly figuring out where the error occurs. `caver-js` improves the interface to catch error messages from Kaia.
 
-Bạn có thể tìm hiểu thêm thông tin trong giá trị của `txError` của biên lai giao dịch như dưới đây:
+More details can be found in the value of `txError` of the transaction receipt like the below:
 
 ```
 Error: runtime error occurred in interpreter
@@ -56,50 +56,50 @@ Error: runtime error occurred in interpreter
 }
 ```
 
-## Thận trọng khi gửi giao dịch đến Klaytn <a href="#caution-when-sending-a-transaction-to-klaytn" id="caution-when-sending-a-transaction-to-klaytn"></a>
+## Caution when Sending a Transaction to Kaia <a href="#caution-when-sending-a-transaction-to-kaia" id="caution-when-sending-a-transaction-to-kaia"></a>
 
-Klaytn có chính sách giá gas mới kể từ đợt nâng cấp căn bản của Magma, kích hợt [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
+Kaia has a new gas price policy since the Magma hard fork which enabled the [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
 
-Vì thế, bạn cần đặt logic `gasPrice` theo cách khác khi gửi giao dịch, tùy vào việc nâng cấp căn bản có áp dụng được hay không.
+Therefore, you need to set the `gasPrice` logic differently when sending a transaction, depending on whether the hard fork is applicable or not.
 
-Trước thời điểm nâng cấp căn bản của Magma, các giao dịch trên Klaytn tuân theo "giá gas cố định". Vì thế, các giao dịch với mức giá khác gửi lên mạng đều bị từ chối. Nếu `gasPrice` không được xác định khi bạn ký hoặc gửi một giao dịch, caver-js sẽ gọi RPC [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice) để đặt giá gas.
+Until the Magma hard fork, transactions on Kaia have been subject to a "fixed gas price". Therefore, transactions with any other price submitted to the network are rejected. If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses [caver.rpc.kaia.getGasPrice](./api/caver-rpc/kaia.md#caver-rpc-kaia-getgasprice) RPC call to set the gas price.
 
-Sau đợt nâng cấp căn bản của Magma, Klaytn sử dụng "cơ chế định giá phí gas động". Giá gas của giao dịch phải cao hơn mức phí cơ sở của mạng lưới Klaytn. Nếu `gasPrice` không được xác định khi bạn ký hoặc gửi một giao dịch, caver-js sẽ thiết lập trường `gasPrice` của giao dịch bằng cách sử dụng `caver.rpc.klay.getGasPrice`.
+After the Magma hard fork, Kaia uses a "dynamic gas fee pricing mechanism". The gas price of the transaction should be higher than the base fee of the Kaia network. If `gasPrice` is not defined when you sign or submit a transaction, caver-js sets the `gasPrice` field of the transaction using `caver.rpc.kaia.getGasPrice`.
 
-### Cách để đặt trường gasPrice
+### How to set gasPrice field
 
-caver-js cung cấp nhiều cách để đặt `gasPrice`. Các cách để đặt trường `gasPrice` khi dùng caver-js được đề xuất bên dưới. Bạn có thể dùng các phương pháp được mô tả ở đây bất kể đã có nâng cấp căn bản hay chưa.
+caver-js provides various ways to set the `gasPrice`. Ways to set the `gasPrice` field when using caver-js are suggested below. The methods described here can be used regardless of the hard fork.
 
-#### Không xác định trường `gasPrice`
+#### Do not define `gasPrice` field
 
-Nếu bạn tạo một đối tượng cụ thể mà không xác định trường `gasPrice`, trường `gasPrice` sẽ được đặt tự động khi bạn gọi `tx.sign` hoặc `tx.signAsFeePayer` để ký một giao dịch.
+If you create an instance without defining the `gasPrice` field, the `gasPrice` field is automatically set when you call `tx.sign` or `tx.signAsFeePayer` to sign a transaction.
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 await tx.sign(from, tx) // Before signing, gasPrice is set inside `tx.sign`.
 ```
 
-#### Dùng phương pháp `tx.fillTransaction`
+#### Use `tx.fillTransaction` method
 
-Bạn có thể dùng `tx.fillTransaction`, hàm này điền giá trị phù hợp vào các trường không bắt buộc của giao dịch khi chúng bị bỏ trống.
+You can use `tx.fillTransaction`, a function that fills the optional fields of a transaction with appropriate values when they are omitted.
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 await tx.fillTransaction() // Fill the optional tx fields. 
 ```
 
-#### Dùng phương pháp `tx.suggestGasPrice`
+#### Use `tx.suggestGasPrice` method
 
-Bạn có thể đặt `gasPrice` với kết quả của `tx.suggestGasPrice`, trả về giá gas được đề xuất.
+You can set the `gasPrice` with the result of `tx.suggestGasPrice` which returns the recommended gas price.
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 tx.gasPrice = await tx.suggestGasPrice() 
 ```
 
-Để biết thêm thông tin về giá gas, hãy xem [Tổng quan về đơn giá và giá gas](../../../learn/transaction-fees.md#gas-and-unit-price-overview) Bạn có thể lấy giá gas được dùng trong mạng lưới bằng cách sử dụng [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice).
+For more information about the gas price, see [GasPrice Overview](../../../learn/transaction-fees/transaction-fees.md#gas-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.kaia.getGasPrice](./api/caver-rpc/kaia.md#caver-rpc-kaia-getgasprice).
 
-## Liên kết <a href="#links" id="links"></a>
+## Links <a href="#links" id="links"></a>
 
-- caver-js [Kho GitHub](https://github.com/klaytn/caver-js)
-- caver-js trên [npm](https://www.npmjs.com/package/caver-js)
+- caver-js [GitHub repository](https://github.com/klaytn/caver-js)
+- caver-js on [npm](https://www.npmjs.com/package/caver-js)
