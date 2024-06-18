@@ -21,7 +21,7 @@
 
 ## 2. 수수료 위임의 작동 방식 <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
-수수료 위임이 어떻게 작동하는지 간략히 살펴보겠습니다.
+Let's skim through how fee delegation works.
 
 ### 2.1 발신자가 트랜잭션 서명 <a href="#2-1-transaction-signing-by-the-sender" id="2-1-transaction-signing-by-the-sender"></a>
 
@@ -221,7 +221,7 @@ Received data from server: Sender Tx hash is 0xe1f630547f287177a0e92198b1c67212b
 
 ### 4.3 `feepayer_server.js` 확인 <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-서버의 콘솔에서 아래와 같은 출력을 확인할 수 있습니다. 클레이튼의 트랜잭션 영수증을 출력합니다.
+서버의 콘솔에서 아래와 같은 출력을 확인할 수 있습니다. It prints the transaction receipt from the Kaia.
 
 ```
 $ node feepayer_server.js
