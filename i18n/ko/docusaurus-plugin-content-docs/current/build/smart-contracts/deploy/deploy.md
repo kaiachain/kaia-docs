@@ -1,16 +1,16 @@
 # 스마트 컨트랙트 배포
 
-There are various ways of deploying a smart contract on Kaia. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불할 수 있는 충분한 KLAY를 보유한 클레이튼 계정이 있다고 가정합니다. 계정을 생성하려면 [Klaytn 지갑](../../tools/wallets/klaytn-wallet.md)을 방문하세요.
+카이아에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불할 수 있는 충분한 KAIA를 보유한 카이아 계정이 있다고 가정합니다. 계정을 생성하려면 [Kaia 지갑](../../tools/wallets/klaytn-wallet.md)을 방문하세요.
 
 ## Remix 온라인 IDE <a id="remix-ide"></a>
 
-인터넷 브라우저를 열고 [Remix용 클레이튼 플러그인](https://ide.klaytn.foundation)으로 이동합니다.
+인터넷 브라우저를 열고 [Remix용 카이아 플러그인](https://ide.klaytn.foundation)으로 이동합니다.
 
 1. 새 파일을 추가합니다.
 
 ![](/img/build/smart-contracts/01_deployment_ide.png)
 
-2. 새 파일에 다음 샘플 코드(또는 배포하려는 코드)를 복사하여 붙여넣습니다. 이 코드는 Mortal과 KlaytnGreeter라는 두 개의 컨트랙트로 구성되어 있으며, 간단한 "Hello World!"를 실행할 수 있습니다.
+2. 새 파일에 다음 샘플 코드(또는 배포하려는 코드)를 복사하여 붙여넣습니다. 이 코드는 Mortal과 KaiaGreeter라는 두 개의 컨트랙트로 구성되어 있으며, 간단한 "Hello World!"를 실행할 수 있습니다.
 
 ```
 pragma solidity 0.5.12;
@@ -38,11 +38,11 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-3. 아이콘 패널에서 컴파일러를 선택합니다. 원하는 EVM 환경을 선택합니다. For the Kaia networks, you can choose between Kairos (testnet) and Mainnet. 실제 배포하기 전에 샘플 코드를 준수할 준비가 되면 `Compile`을 클릭합니다.
+3. 아이콘 패널에서 컴파일러를 선택합니다. 원하는 EVM 환경을 선택합니다. Kaia 네트워크의 경우 Kairos(테스트넷)과 메인넷 중에서 선택할 수 있습니다. 실제 배포하기 전에 샘플 코드를 준수할 준비가 되면 `Compile`을 클릭합니다.
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. Now we can deploy the contract. 아이콘 패널에서 클레이튼 로고를 클릭합니다. `Account` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 계정에 필요한 스마트 컨트랙트 배포 트랜잭션 비용을 지불할 수 있는 충분한 KLAY가 있는지 확인합니다.
+4. Now we can deploy the contract. 아이콘 패널에서 카이아 로고를 클릭합니다. `Account` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 계정에 필요한 스마트 컨트랙트 배포 트랜잭션 비용을 지불할 수 있는 충분한 KAIA가 있는지 확인합니다.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
@@ -65,7 +65,7 @@ contract KlaytnGreeter is Mortal {
 
 ## VVISP <a id="vvisp"></a>
 
-vvisp는 헤이치랩스에서 제공하는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 CLI 도구/프레임워크입니다. 명령어 하나로 클레이튼 스마트 컨트랙트의 환경 설정, 배포, 실행을 쉽게 할 수 있습니다. 자세한 내용은 아래 링크를 참고하세요.
+vvisp는 헤이치랩스에서 제공하는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 CLI 도구/프레임워크입니다. 명령어 하나로 카이아 스마트 컨트랙트의 환경 설정, 배포, 실행을 쉽게 할 수 있습니다. 자세한 내용은 아래 링크를 참고하세요.
 
 - https\://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
@@ -73,7 +73,7 @@ vvisp는 헤이치랩스에서 제공하는 스마트 컨트랙트 개발을 위
 
 컨트랙트를 배포하는 또 다른 방법은 solc로 컨트랙트를 수동으로 컴파일하고 caver-js를 사용하여 배포하는 것입니다.
 
-1. `KlaytnGreeter.sol`을 생성하고 다음 코드를 작성합니다.
+1. `KaiaGreeter.sol`을 생성하고 다음 코드를 작성합니다.
 
 ```
 pragma solidity 0.5.6;
@@ -131,7 +131,7 @@ const walletInstance = caver.klay.accounts.privateKeyToAccount(
 caver.klay.accounts.wallet.add(walletInstance);
 
 const fs = require('fs')
-const bytecode = fs.readFileSync('./KlaytnGreeter_sol_KlaytnGreeter.bin') // compiled output
+const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // compiled output
 
 const constructorType = ['string']  // enter appropriate constructor type
 const constructorValue = ['Hello, Klaytn!']
