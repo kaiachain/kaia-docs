@@ -1,28 +1,28 @@
-# Chuyển giá trị giữa các chuỗi dịch vụ anh chị em
+# Transfer value between sibling service chains
 
-Phần này sẽ giải thích cách bật tính năng chuyển giá trị giữa các mạng lưới ServiceChain.
-Các tính năng chính được cung cấp bởi ServiceChain như neo giữ dữ liệu và chuyển giá trị, có thể sử dụng độc lập. Nghĩa là, bạn chỉ có thể sử dụng tính năng neo dữ liệu hoặc là chuyển giá trị, bất kể bạn có sử dụng tính năng khác hay không.
+This section will explain how to enable value transfer between ServiceChain networks.
+The main features provided by ServiceChain, data anchoring and value transfer, can be used independently. That is, you can use only data anchoring or only value transfer, regardless of whether you use the other feature.
 
-Như minh họa trong hình bên dưới, nếu có hai ServiceChain (chainID 1002 và 1004) được kết nối với Baobab, vì mỗi servicechain thực hiện neo dữ liệu với Baobab, nên không cần neo dữ liệu giữa các chuỗi với nhau mà chỉ cần chuyển giá trị.
+As shown in the figure below, if there are two ServiceChains (chainID 1002 and 1004) connected to Kairos, since each servicechain performs data anchoring with Kairos, data anchoring is not required between each other, only value transfer is required.
 
-Để chuyển giá trị khi không có cầu nối giữa hai ServiceChain, trước tiên hãy chuyển giá trị từ ServiceChain (chainID 1002) sang Baobab (chainID 1001), rồi chuyển lại giá trị từ Baobab (chainID 1001) sang ServiceChain (chainID 1004). Điều này không hiệu quả bằng chuyển giá trị trực tiếp từ ServiceChain (chainID 1002) sang ServiceChain (chainID 1004) cùng lúc. Do đó, bằng cách tạo cầu nối trực tiếp giữa ServiceChain, chúng ta có thể chuyển giá trị một cách hiệu quả.
+To transfer value when there is no bridge between two ServiceChains, first transfer value from the ServiceChain (chainID 1002) to kairos (chainID 1001), and then transfer value from kairos (chainID 1001) to the ServiceChain (chainID 1004) again. This is inefficient than providing value transfer directly from the ServiceChain (chainID 1002) to the ServiceChain (chainID 1004) at once. Therefore, by creating a bridge between ServiceChains directly, we can transfer value efficiently .
 
 ![](/img/nodes/sc-vt-between-sibling-arch.png)
 
-## Điều kiện tiên quyết <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 
-- Chúng tôi giả định rằng bạn đã cài đặt hai ServiceChain, mỗi servicechain được kết nối với EN Baobab. Tham khảo [Kết nối với Baobab](en-scn-connection.md).
-- Giả định rằng bạn đã thực hiện chuyển giá trị thông qua [Chuyển giá trị chuỗi chéo](value-transfer.md).
+- We assume that you installed two ServiceChains, Each servicechain is connected to the kairos EN. Refer to [Connecting to Kairos](en-scn-connection.md).
+- We also assume that you have experienced value transfer through [Cross-Chain Value Transfer](value-transfer.md).
 
-Lặp lại [Kết nối với Baobab](en-scn-connection.md) như trong hình trên để cài đặt thêm ServiceChain (chainID 1004).
+Repeat [Connecting to Kairos](en-scn-connection.md) as shown in the picture above to additionally install ServiceChain (chianID 1004).
 
-Mỗi nút chỉ có thể có một cầu nối chính và một cầu nối con. Trong ví dụ này, để tiện giải thích, chúng ta sẽ kết nối một cầu nối với SCN-L2-03 và SCN-L2-07, đây là các nút chưa có cả cầu nối chính và cầu nối con.
+A node can have only one main-bridge and one sub-bridge each. In this example, for convenience of explanation, we are going to connect a bridge to SCN-L2-03 and SCN-L2-07, which are nodes that do not have both main-bridge and sub-bridge yet.
 
 ![](/img/nodes/sc-vt-between-sibling-bridge.png)
 
-## Bước 1: Kiểm tra KNI của nút SCN-L2-03 <a id="step-1-check-kni-of-scn-node"></a>
+## Step 1: Check KNI of SCN-L2-03 Node <a id="step-1-check-kni-of-scn-node"></a>
 
-Lưu ý KNI của SCN-L2-03 là thông tin được sử dụng để kết nối từ nút SCN. Giá trị này sẽ được sử dụng trong bước tiếp theo khi tạo `main-bridges.json`
+Take note of SCN-L2-03's KNI which is the information used to connect from an SCN node. This value will be used in the next step when generating `main-bridges.json`
 
 ```
 SCN-L2-03$ kscn attach --datadir ~/data
@@ -30,17 +30,17 @@ SCN-L2-03$ kscn attach --datadir ~/data
 "kni://...39047242eb86278689...@[::]:50505?discport=0"
 ```
 
-## Bước 2: Tạo main-bridges.json <a id="step-2-create-main-bridges-json"></a>
+## Step 2: Create main-bridges.json <a id="step-2-create-main-bridges-json"></a>
 
-Đăng nhập vào SCN-L2-07 (lưu ý: chainID 1004) và tạo `main-bridges.json` trên `~/data`. Thay thế `[::]` nằm sau chữ cái `@` bằng địa chỉ IP của nút EN.
+Log on to an SCN-L2-07 (note: chianID 1004) and create `main-bridges.json` on `~/data`. Replace `[::]` located after `@` letter with EN node's IP address.
 
 ```
 $ echo '["kni://...39047242eb86278689...@192.168.0.3:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-## Bước 3: Định cấu hình SCN rồi Khởi động lại <a id="step-3-configure-scn-then-restart"></a>
+## Step 3: Configure SCN then Restart <a id="step-3-configure-scn-then-restart"></a>
 
-Từ tập lệnh shell của nút SCN-L2-07, hãy chỉnh sửa `kscn-XXXXX-amd64/conf/kscnd.conf`. Vì mỗi ServiceChain đã được neo với EN Baobab nên không cần phải neo dữ liệu giữa chuỗi dịch vụ kết nối. Vì vậy, chúng ta đặt `SC_ANCHORING` thành 0.
+From the SCN-L2-07 node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`. Since each ServiceChain already anchored with the Kairos EN, data anchoring between sibling is not required. So we set `SC_ANCHORING` to 0.
 
 ```
 ...
@@ -52,7 +52,7 @@ SC_ANCHORING=0
 ...
 ```
 
-Khởi động lại kscnd trên nút SCN-L2-07
+Restart kscnd on SCN-L2-07 node
 
 ```
 SCN-L2-07$ kscnd stop
@@ -61,7 +61,7 @@ SCN-L2-07$ kscnd start
 Starting kscnd: OK
 ```
 
-Kiểm tra xem SCN-L2-07 có được kết nối với SCN-L2-0 hay không bằng cách kiểm tra `subbridge.peers.length`
+Check if the SCN-L2-07 is connected to the SCN-L2-03 by checking `subbridge.peers.length`
 
 ```
 SCN-L2-07$ kscn attach --datadir ~/data
@@ -69,4 +69,4 @@ SCN-L2-07$ kscn attach --datadir ~/data
 1
 ```
 
-Trong trường hợp chuyển giá trị, nếu thông tin tương ứng với chainID 1002 được sử dụng làm thông tin cầu nối chính và thông tin tương ứng với chainID 1004 được đặt làm cầu nối con thì có thể chuyển giá trị giữa các chuỗi kết nối như trong [Chuyển giá trị chuỗi chéo](value-transfer.md).
+In the case of value transfer, if the information corresponding to chainID 1002 is used as the mainbridge information and the information corresponding to chainID 1004 is set as a subbridge, value transfer is possible between siblings as in [Cross-Chain Value Transfer](value-transfer.md).
