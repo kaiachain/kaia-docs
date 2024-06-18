@@ -1,29 +1,29 @@
-# Quỹ sinh thái lớn
+# Massive Eco Fund
 
-## Quỹ sinh thái cấp giao thức trọn bộ trị giá trên 1 tỷ đô la của chúng tôi <a id="our-full-suite-protocol-level-eco-fund"></a>
+## Our Full-suite, Protocol-level $1B+ Eco Fund <a id="our-full-suite-protocol-level-eco-fund"></a>
 
-Klaytn là ví dụ tiên phong lớn nhất về các ưu đãi hỗ trợ hệ sinh thái được mã hóa trong một nền kinh tế token theo giao thức chuỗi.iao thức chuỗi. 66% số token mới tạo được tái đầu tư vào hệ sinh thái.
+Kaia is the first and the largest example in which the incentives supporting the ecosystem are encoded in an on-chain protocol tokenomics. 66% of the newly minted tokens are reinvested in the ecosystem.
 
-Token dự trữ được phát hành lần đầu cũng sẽ được sử dụng làm tài nguyên để đầu tư mở rộng hệ sinh thái.
+Initially issued reserve tokens will also be used as a resource for investment
 in the ecosystem expansion.
 
-## Tài trợ <a id="grant"></a>
+## Grant <a id="grant"></a>
 
-Klaytn currently runs two major grant programs which are:
+Kaia currently runs two major grant programs which are:
 
-- [Klaytn Community Fund (KCF)](../token-economy.md#klaytn-community-fund)
-- [Klaytn Foundation Fund (KFF)](../token-economy.md#klaytn-foundation-fund).
+- [Kaia Community Fund (KCF)](../token-economy.md#kaia-community-fund)
+- [Kaia Foundation Fund (KFF)](../token-economy.md#kaia-foundation-fund).
 
-## Đầu tư <a id="invest"></a>
+## Invest <a id="invest"></a>
 
-### Chương trình đầu tư KGF <a id="kgf-investment-program"></a>
+### KGF Investment Program <a id="kgf-investment-program"></a>
 
-• Đầu tư vào các dự án giai đoạn sớm có thể tác động tích cực đến Klaytn
+• Invests in early-stage projects with potential to have a positive impact on Kaia
 
-• 54% số token mới phát hành là nguồn tài chính chủ yếu của Quỹ tăng trưởng Klaytn
+• 54% of the newly issued tokens are the main financial resource of the Kaia Growth Fund
 
-## Phần thưởng <a id="reward"></a>
+## Reward <a id="reward"></a>
 
-### Chương trình Bằng chứng đóng góp (PoC) <a id="poc-program"></a>
+### Proof of Contribution (PoC) Program <a id="poc-program"></a>
 
-• Phần thưởng cho những người xây dựng hợp đồng thông minh có đóng góp vào sự phát triển của các hoạt động trên chuỗi trên Klaytn
+• Rewards builders of smart contracts that contribute to the growth of on-chain activities on Kaias
