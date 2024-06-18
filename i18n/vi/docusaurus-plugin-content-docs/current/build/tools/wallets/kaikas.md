@@ -2,32 +2,32 @@
 
 ![](/img/build/tools/klaytnXkaikas.png)
 
-Kaikas là ví tiện ích của trình duyệt cho Mạng lưới Klaytn. Khả dụng trong Google Chrome, Kaikas cung cấp một phương pháp an toàn và có thể sử dụng được để tương tác với mạng lưới Klaytn thông qua trình duyệt web. Với Kaikas, bạn có thể lưu trữ và giao dịch bằng token dựa trên KLAY và Klaytn của mình. Bạn cũng có thể ký các yêu cầu từ dApp (Ứng dụng phi tập trung) dựa trên web theo thời gian thực.
+Kaikas is a browser extension wallet for the Kaia Network. Available in Google Chrome, Kaikas provides a secure and usable means to interact with the Kaia network via web browser. With Kaikas, you are able to store and transact with your KAIA and Kaia-based tokens. You are also able to sign requests from web-based dApps (Decentralized Applications) in
 realtime.
 
-- Tải xuống từ Cửa hàng Chrome trực tuyến: [liên kết](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
+- Download from Chrome Web Store: [link](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)
 
-Đối với nhà phát triển, vui lòng truy cập [https://docs.kaikas.io](https://docs.kaikas.io) để tìm hiểu cách bạn có thể phát triển ứng dụng dApp bằng Kaikas.
+For developers, please visit [https://docs.kaikas.io](https://docs.kaikas.io) to learn how you can develop dApps using Kaikas.
 
-## Trình duyệt web PC dựa trên ví HD phi tập trung
+## PC web browser based decentralized HD wallet
 
-Kaikas là một tiện ích của trình duyệt web khả dụng trong Chrome. Kaikas được tối ưu hóa cho môi trường máy tính để bàn.
+Kaikas is a web browser extension available in Chrome. Kaikas is optimized for the desktop environment.
 
-Kaikas hỗ trợ tính năng quản lý tài khoản người dùng và khóa. Tất cả các giao dịch đều được ghi lại một cách minh bạch trên chuỗi khối Klaytn, vì vậy bất kỳ ai cũng có thể truy cập vào lịch sử giao dịch bằng cách sử dụng [Klaytnscope][].
+Kaikas offers manageability of user accounts and keys. All transactions are transparently recorded on the Kaia blockchain, so anybody can access the transaction history by using [Kaiascope].
 
-Kaikas là một ví xác định phân cấp (HD), có nghĩa là nó tạo ra một cấu trúc dạng cây phân cấp của các khóa riêng tư/công khai vô thời hạn từ một cụm từ hạt giống duy nhất. Cụm từ hạt giống bao gồm các từ mã dễ nhớ, giúp dễ nhớ hơn các cụm từ gồm các chữ và số ngẫu nhiên. Khóa riêng tư của người dùng được mã hóa và lưu trữ trong trình duyệt của họ.
+Kaikas is a Hierarchical Deterministic (HD) wallet, meaning that it generates a hierarchical tree-like structure of private/public keys indefinitely from a single seed phrase. The seed phrase consists of mnemonic code words, which makes it easier to remember than phrases made of random alphanumerics. Users' private keys are encrypted and stored in their browsers.
 
-Với các tính năng được mô tả ở trên, Kaikas đã cải thiện tính bảo mật, tính minh bạch và tính thân thiện với người dùng đối với trải nghiệm chuỗi khối hiện tại. Tuy nhiên, người dùng cần phải có trách nhiệm quản lý tài khoản cá nhân của mình. Ví dụ, nếu người dùng không thể nhớ cụm từ hạt giống của mình, họ sẽ không thể khôi phục tài khoản.
+With the features described above, Kaikas has improved the security, transparency, and user-friendliness of the current blockchain experience. However, it is vital for users to be responsible for managing their personal accounts. For example, if a user couldn't remember his/her seed phrase, there would be no other way to restore his/her accounts.
 
-## Hỗ trợ các mạng và token Klaytn khác nhau
+## Supporting various Kaia networks and tokens
 
-Kaikas cho phép bạn lưu trữ và giao dịch với tất cả các token dựa trên Klaytn, bao gồm cả KLAY. Các token không được tải theo mặc định có thể được chèn bằng cách dán vào địa chỉ hợp đồng của chúng. Bạn thậm chí có thể lưu trữ và giao dịch token tùy chỉnh dựa trên Klaytn của riêng mình trên Kaikas!
+Kaikas allows you to store and transact with all Kaia-based tokens including KAIA. Tokens that are not loaded by default can be inserted by pasting in their contract address. You can even store and transact your own Kaia-based custom tokens on Kaikas!
 
-Kaikas hỗ trợ mạng thử nghiệm Baobab của Klaytn cũng như mạng chính Cypress. Ngoài ra, Kaikas hỗ trợ chuỗi riêng cho các nhà phát triển dApp dựa trên Klaytn, những người có thể muốn lưu hành token tùy chỉnh trong mạng riêng của họ.
+Kaikas supports Kaia's Kairos testnet as well as the Mainnet. Moreover, Kaikas supports the private chains for Kaia-based dApp developers who may wish to circulate custom tokens in their private network.
 
-## Ký giao dịch dApp dựa trên web
+## Signing web-based dApp transactions
 
-Kaikas chỉ đơn giản là thu hẹp khoảng cách giữa bạn và dApp, cho phép bạn ký các giao dịch/dữ liệu chuyển đến bạn từ dApp bằng tài khoản Kaikas.
-Kaikas cũng là một tiện ích hữu ích dành cho các nhà phát triển để xử lý [các giao dịch có phí ủy thác](../../../learn/transactions/transactions.md#fee-delegation). Khi sử dụng Kaikas, cả người gửi giao dịch và người trả phí đều có thể nhanh chóng ký các giao dịch có phí ủy thác.
+Kaikas simply bridges the gap between you and dApps, empowering you to sign transactions/data flowing to you from dApps with Kaikas account.
+Kaikas is also an aidful utility for developers to handle [fee-delegated transactions](../../../learn/transactions/transactions.md#fee-delegation). Using Kaikas, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
 
-[Klaytnscope]: ../block-explorers/klaytnscope.md
+[Kaiascope]: ../block-explorers/kaiascope.md
