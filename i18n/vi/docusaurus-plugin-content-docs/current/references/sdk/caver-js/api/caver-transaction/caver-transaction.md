@@ -1,14 +1,14 @@
 # caver.transaction
 
-`caver.transaction` là một gói cung cấp các chức năng liên quan đến Giao dịch.
+`caver.transaction` is a package that provides functionality related to Transaction.
 
-## Lớp <a href="#class" id="class"></a>
+## Class <a href="#class" id="class"></a>
 
-Mỗi lớp giao dịch được mô tả chi tiết trong bảng dưới đây:
+Each transaction class is described in detail with the table below:
 
-|                        | Cơ bản                                                      | Ủy thác phí                                                                                  | Ủy thác phí một phần                                                                                                   |
+|                        | Basic                                                       | Fee Delegation                                                                               | Partial Fee Delegation                                                                                                 |
 | ---------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| LegacyTransaction      | [LegacyTransaction](./basic.md#legacytransaction)           | Không có                                                                                     | Không có                                                                                                               |
+| LegacyTransaction      | [LegacyTransaction](./basic.md#legacytransaction)           | N/A                                                                                          | N/A                                                                                                                    |
 | ValueTransfer          | [ValueTransfer](./basic.md#valuetransfer)                   | [FeeDelegatedValueTransfer](./fee-delegation.md#feedelegatedvaluetransfer)                   | [FeeDelegatedValueTransferWithRatio](./partial-fee-delegation.md#feedelegatedvaluetransferwithratio)                   |
 | ValueTransferMemo      | [ValueTransferMemo](./basic.md#valuetransfermemo)           | [FeeDelegatedValueTransferMemo](./fee-delegation.md#feedelegatedvaluetransfermemo)           | [FeeDelegatedValueTransferMemoWithRatio](./partial-fee-delegation.md#feedelegatedvaluetransfermemowithratio)           |
 | SmartContractDeploy    | [SmartContractDeploy](./basic.md#smartcontractdeploy)       | [FeeDelegatedSmartContractDeploy](./fee-delegation.md#feedelegatedsmartcontractdeploy)       | [FeeDelegatedSmartContractDeployWithRatio](./partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio)       |
@@ -16,8 +16,8 @@ Mỗi lớp giao dịch được mô tả chi tiết trong bảng dưới đây:
 | AccountUpdate          | [AccountUpdate](./basic.md#accountupdate)                   | [FeeDelegatedAccountUpdate](./fee-delegation.md#feedelegatedaccountupdate)                   | [FeeDelegatedAccountUpdateWithRatio](./partial-fee-delegation.md#feedelegatedaccountupdatewithratio)                   |
 | Cancel                 | [Cancel](./basic.md#cancel)                                 | [FeeDelegatedCancel](./fee-delegation.md#feedelegatedcancel)                                 | [FeeDelegatedCancelWithRatio](./partial-fee-delegation.md#feedelegatedcancelwithratio)                                 |
 | ChainDataAnchoring     | [ChainDataAnchoring](./basic.md#chaindataanchoring)         | [FeeDelegatedChainDataAnchoring](./fee-delegation.md#feedelegatedchaindataanchoring)         | [FeeDelegatedChainDataAnchoringWithRatio](./partial-fee-delegation.md#feedelegatedchaindataanchoringwithratio)         |
-| EthereumAccessList     | [EthereumAccessList](./basic.md#ethereumaccesslist)         | Không có                                                                                     | Không có                                                                                                               |
-| EthereumDynamicFee     | [EthereumDynamicFee](./basic.md#ethereumdynamicfee)         | Không có                                                                                     | Không có                                                                                                               |
+| EthereumAccessList     | [EthereumAccessList](./basic.md#ethereumaccesslist)         | N/A                                                                                          | N/A                                                                                                                    |
+| EthereumDynamicFee     | [EthereumDynamicFee](./basic.md#ethereumdynamicfee)         | N/A                                                                                          | N/A                                                                                                                    |
 
 ## caver.transaction.decode <a href="#caver-transaction-decode" id="caver-transaction-decode"></a>
 
@@ -25,21 +25,21 @@ Mỗi lớp giao dịch được mô tả chi tiết trong bảng dưới đây:
 caver.transaction.decode(rlpEncoded)
 ```
 
-Giải mã chuỗi giao dịch được mã hóa RLP, giao dịch thô và trả về một đối tượng [Giao dịch](#class).
+Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transaction](#class) instance.
 
-**Tham số**
+**Parameters**
 
-| Tên        | Loại | Mô tả                                       |
-| ---------- | ----- | ------------------------------------------- |
-| rlpEncoded | chuỗi | Chuỗi giao dịch được mã hóa RLP để giải mã. |
+| Name       | Type   | Description                                                 |
+| ---------- | ------ | ----------------------------------------------------------- |
+| rlpEncoded | string | A RLP-encoded transaction string to decode. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại     | Mô tả                                                                                                                       |
-| --------- | --------------------------------------------------------------------------------------------------------------------------- |
-| đối tượng | Một đối tượng [Giao dịch](#class). Để biết thông tin chi tiết về mỗi giao dịch, vui lòng tham khảo mục [Giao dịch](#class). |
+| Type   | Description                                                                                                                            |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| object | An instance of [Transaction](#class). For details of each transaction, refer to [Transaction](#class). |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.transaction.decode('0x08f87...')
@@ -63,25 +63,25 @@ ValueTransfer {
 caver.transaction.getTransactionByHash('0x{transaction hash}')
 ```
 
-Truy vấn một giao dịch từ Klaytn và chuyển đổi thành một đối tượng giao dịch của thư viện caver.
+Queries a transaction from Kaia and converts to a caver transaction instance.
 
-**LƯU Ý** `caver.transaction.getTransactionByHash` được hỗ trợ kể từ phiên bản caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**NOTE** `caver.transaction.getTransactionByHash` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**Tham số**
+**Parameters**
 
-| Tên             | Loại | Mô tả                                          |
-| --------------- | ----- | ---------------------------------------------- |
-| transactionHash | chuỗi | Chuỗi hàm băm giao dịch để truy vấn từ Klaytn. |
+| Name            | Type   | Description                                                     |
+| --------------- | ------ | --------------------------------------------------------------- |
+| transactionHash | string | The transaction hash string to query from Kaia. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `object`: Một đối tượng [Giao dịch](#class). Xảy ra lỗi nếu không nhận được đối tượng giao dịch từ Klaytn.
+`Promise` returning `object`: An instance of [Transaction](#class). If it fails to receive a transaction object from Kaia, an error occurs.
 
-| Loại     | Mô tả                                                                                                                       |
-| --------- | --------------------------------------------------------------------------------------------------------------------------- |
-| đối tượng | Một đối tượng [Giao dịch](#class). Để biết thông tin chi tiết về mỗi giao dịch, vui lòng tham khảo mục [Giao dịch](#class). |
+| Type   | Description                                                                                                                            |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| object | An instance of [Transaction](#class). For details of each transaction, refer to [Transaction](#class). |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.transaction.getTransactionByHash('0x30575f5a76a4477502aa1e5e707e47f05b92c3450132529cf55764cc94f780b0').then(console.log)
@@ -108,23 +108,23 @@ LegacyTransaction {
 caver.transaction.recoverPublicKeys('0x{RLP-encoded transaction}')
 ```
 
-Khôi phục các chuỗi khóa công khai từ trường `signatures` của giao dịch đã cho.
+Recovers the public key strings from `signatures` field of the given transaction.
 
-**LƯU Ý** `caver.transaction.recoverPublicKeys` được hỗ trợ kể từ phiên bản caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**NOTE** `caver.transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**Tham số**
+**Parameters**
 
-| Tên   | Loại | Mô tả                                                                        |
-| ----- | ----- | ---------------------------------------------------------------------------- |
-| rawTx | chuỗi | Chuỗi giao dịch được mã hóa RLP để khôi phục khóa công khai từ `signatures`. |
+| Name  | Type   | Description                                                                                  |
+| ----- | ------ | -------------------------------------------------------------------------------------------- |
+| rawTx | string | The RLP-encoded transaction string to recover public keys from `signatures`. |
 
-**Giá trị trả về**
+**Return Value**
 
-| type | Mô tả                                                    |
-| ---- | -------------------------------------------------------- |
-| Mảng | Mảng chứa khóa công khai được khôi phục từ `signatures`. |
+| Type  | Description                                                                  |
+| ----- | ---------------------------------------------------------------------------- |
+| Array | An array containing public keys recovered from `signatures`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.transaction.recoverPublicKeys('0x08f9010e808505d21dba008402faf0809459177716c34ac6e49e295a0e78e33522f14d61ee0194f21460730845e3652aa3cc9bc13b345e4f53984af8d5f845820feaa02b5934c6d26bb3e65edf099d79c57c743d2f70744ca09d3ba9a1099edff9f173a00797886edff4b449c1a599943e3a6003ae9e46b3f3f34862ced327e43fba3a6af845820fe9a063177648732ef855f800eb9f80f68501abb507f84c0d660286a6e0801334a1d2a0620a996623c114f2df35b11ec8ac4f3758d3ad89cf81ba13614e51908cfe9218f845820fe9a086c8ecbfd892be41d48443a2243274beb6daed3f72895045965a3baede4c350ea069ea748aff6e4c106d3a8ba597d8f134745b76f12dacb581318f9da07351511a')
@@ -141,23 +141,23 @@ Khôi phục các chuỗi khóa công khai từ trường `signatures` của gia
 caver.transaction.recoverFeePayerPublicKeys('0x{RLP-encoded transaction}')
 ```
 
-Khôi phục các chuỗi khóa công khai từ trường `feePayerSignatures` của giao dịch đã cho.
+Recovers the public key strings from `feePayerSignatures` field of the given transaction.
 
-**LƯU Ý** `caver.transaction.recoverFeePayerPublicKeys` được hỗ trợ kể từ phiên bản caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**NOTE** `caver.transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**Tham số**
+**Parameters**
 
-| Tên   | Loại | Mô tả                                                                                                                                                                                                                     |
-| ----- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rawTx | chuỗi | Chuỗi giao dịch được mã hóa RLP để khôi phục khóa công khai từ `feePayerSignatures`. Để khôi phục khóa công khai của người trả phí, giao dịch phải là giao dịch có phí ủy thác với trường `feePayerSignatures` bên trong. |
+| Name  | Type   | Description                                                                                                                                                                                                                                                |
+| ----- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rawTx | string | The RLP-encoded transaction string to recover public keys from `feePayerSignatures`. To recover fee payer's public keys, the transaction should be a fee-delegated transaction with the `feePayerSignatures` field inside. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                                            |
-| ----- | ---------------------------------------------------------------- |
-| Mảng  | Mảng chứa khóa công khai được khôi phục từ `feePayerSignatures`. |
+| Type  | Description                                                                          |
+| ----- | ------------------------------------------------------------------------------------ |
+| Array | An array containing public keys recovered from `feePayerSignatures`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.transaction.recoverFeePayerPublicKeys('0x09f901fa808505d21dba008402faf0809459177716c34ac6e49e295a0e78e33522f14d61ee019407a9a76ef778676c3bd2b334edcf581db31a85e5f8d5f845820feaa0cb2bbf04a12ec3a06163c30ce8782739ec4745a53e265aa9443f1c0d678bb871a07dd348c7d8fce6be36b661f116973d1c36cc92a389ad4a1a4053bd486060a083f845820fe9a06d5dfca992d6833c0da272578bc6ea941be45f44fb2fa114310ebe18d673ed52a04dc5cd7985c9ce7d44d46d65e65c995a4a8c97159a1eed8b2efb0510b981ab7cf845820feaa0945151edf556fbcebf832092d4534b9a3b1f3d46f85bce09e7d7211070cb57bea01617c8f918f96970baddd12f240a9824eca6b29d91eb7333adacb987f2dcd8dd94b5db72925b1b6b79299a1a49ae226cd7861083acf8d5f845820feaa086fd17d788e89a6e0639395b3c0a04f916103debd6cbe639d6f4ff5034dde3e8a00795551c551d9096234c290689767f34f2d409c95166ab18d216dbc93845ba16f845820feaa00653b6d1cdb90462094b089ce8e2fed0e3b8ec2c44125965e1a5af286644c758a0259b10e3bf594d48535fd0d95e15d095897c8d075c01dd56e7417d5943b0d53af845820fe9a0ce8d051427adab10d1dc93de49123aeab18ba8aadedce0d57ef5b7fa451b1f4fa04fe2a845d92ff48abca3e1d59637fab5f4a4e3172d91772d9bfce60760edc506')
@@ -174,27 +174,27 @@ Khôi phục các chuỗi khóa công khai từ trường `feePayerSignatures` c
 transaction.sign(keyring [, index] [, hasher])
 ```
 
-Ký giao dịch bằng (các) khóa riêng tư của người gửi giao dịch trong `keyring` và thêm chữ ký vào đối tượng giao dịch với trường `signatures`.
+Signs the transaction as a transaction sender with the private key(s) in the `keyring` and appends `signatures` in the transaction object.
 
-Đối với giao dịch [Cập nhật tài khoản](./basic.md#accountupdate), sử dụng [roleAccountUpdateKey](../../../../../learn/accounts.md#roles), nếu không, sử dụng [roleTransactionKey](../../../../../learn/accounts.md#roles) trong [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring). Nếu người dùng chưa xác định `index`, `transaction.sign` sẽ ký giao dịch bằng cách sử dụng tất cả các khóa riêng tư được sử dụng cho vai trò đó. Nếu đã xác định `index`, `transaction.sign` sẽ ký giao dịch chỉ bằng một khóa riêng tư tại chỉ mục đã cho.
+For [Account Update](./basic.md#accountupdate) transaction, use [roleAccountUpdateKey](../../../../../learn/accounts.md#roles), or otherwise, use [roleTransactionKey](../../../../../learn/accounts.md#roles) in [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring). If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
 
-**Tham số**
+**Parameters**
 
-| Tên     | type               | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | đối tượng \| chuỗi | Chuỗi khóa riêng tư (cho phép định dạng [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format)) hoặc phiên bản Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). Nếu một chuỗi khóa riêng tư hoặc [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) được truyền vào làm tham số, thì đối tượng keyring được tạo bên trong hàm. |
-| chỉ số  | number             | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư.                                                                                                                                                                                                                                                                                                                                   |
-| hasher  | Hàm                | (tùy chọn) Hàm băm để tính giá trị băm của giao dịch.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Name    | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object \\| string | A private key string ([KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| index   | number             | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                 |
+| hasher  | Function           | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `object`: Giao dịch đã ký.
+`Promise` returning `object`: The signed transaction.
 
-| Loại     | Mô tả                                                                                          |
-| --------- | ---------------------------------------------------------------------------------------------- |
-| đối tượng | Một đối tượng [Giao dịch](#class) đã ký. Chữ ký được thêm vào trường `transaction.signatures`. |
+| Type   | Description                                                                                                                             |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| object | An instance of signed [Transaction](#class). The signature is appended to the `transaction.signatures`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // This example uses the ValueTransfer transaction.
@@ -280,33 +280,33 @@ ValueTransfer {
 transaction.signAsFeePayer(keyring [, index] [, hasher])
 ```
 
-Ký giao dịch với vai trò là `fee payer` giao dịch và thêm `feePayerSignatures` vào đối tượng giao dịch với (các) khóa riêng tư trong `keyring`.
+Signs the transaction as a transaction `fee payer` and appends `feePayerSignatures` in the transaction object with the private key(s) in the `keyring`.
 
-Để ký giao dịch với vai trò là người trả phí, hãy sử dụng [roleFeePayerKey](../../../../../learn/accounts.md#roles) trong `keyring`. Nếu người dùng chưa xác định `index`, `transaction.signAsFeePayer` sẽ ký giao dịch bằng cách sử dụng tất cả các khóa riêng tư được sử dụng cho vai trò đó. Nếu đã xác định `index`, `transaction.signAsFeePayer` sẽ ký giao dịch chỉ bằng một khóa riêng tư tại chỉ mục đã cho.
+For signing a transaction as a fee payer, use [roleFeePayerKey](../../../../../learn/accounts.md#roles) in `keyring`. If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.signAsFeePayer` signs the transaction using only one private key at the given index.
 
-Nếu không xác định `transaction.feePayer`, địa chỉ của keyring đã cho được đặt thành `transaction.feePayer`.
+If the `transaction.feePayer` is not defined, the address of the given keyring is set to `transaction.feePayer`.
 
-Nếu `keyring` được sử dụng để ký giao dịch được thêm vào `caver.wallet`, bạn có thể dùng [caver.wallet.signAsFeePayer](../caver-wallet/caver-wallet.md#caver-wallet-signasfeepayer).
+If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver-wallet/caver-wallet.md#caver-wallet-signasfeepayer).
 
-**LƯU Ý** Hàm này chỉ hoạt động cho các giao dịch "có phí ủy thác" hoặc giao dịch "có phí ủy thác theo tỷ lệ".
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
-**Tham số**
+**Parameters**
 
-| Tên     | type               | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| keyring | đối tượng \| chuỗi | Chuỗi khóa riêng tư (cho phép định dạng [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format)) hoặc phiên bản Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) hoặc [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). Nếu chuỗi khóa riêng tư hoặc [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) được truyền vào làm tham số, thì đối tượng keyring được tạo bên trong hàm. |
-| chỉ số  | number             | (tùy chọn) Chỉ mục khóa riêng tư bạn muốn sử dụng. Chỉ mục phải nhỏ hơn độ dài của mảng các khóa riêng tư được định rõ cho mỗi vai trò. Nếu không định rõ chỉ mục, phương pháp này sẽ sử dụng tất cả các khóa riêng tư.                                                                                                                                                                                                                                                                                                                               |
-| hasher  | Hàm                | (tùy chọn) Hàm băm để tính giá trị băm của giao dịch.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Name    | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object \\| string | A private key string ([KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If the private key string or [KaiaWalletKey](../../../../../learn/accounts.md#kaia-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| index   | number             | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                 |
+| hasher  | Function           | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `object`: Giao dịch đã ký.
+`Promise` returning `object`: The signed transaction.
 
-| type      | Mô tả                                                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------ |
-| đối tượng | Một đối tượng [Giao dịch](#class) đã ký. Chữ ký được thêm vào trường `transaction.feePayerSignatures`. |
+| Type   | Description                                                                                                                                     |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | An instance of signed [Transaction](#class). The signature is appended to the `transaction.feePayerSignatures`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // This example uses the FeeDelegatedValueTransfer transaction.
@@ -400,15 +400,15 @@ FeeDelegatedValueTransfer {
 transaction.appendSignatures(signatures)
 ```
 
-Thêm chữ ký vào giao dịch với trường `signatures`.
+Appends `signatures` to the transaction.
 
-**Tham số**
+**Parameters**
 
-| Tên    | type              | Mô tả                                                                                                                                                                                                                                                                                                                                                 |
-| ------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| chữ ký | đối tượng \| Mảng | Chữ ký được thêm vào giao dịch. Đối tượng [SignatureData](../caver-wallet/keyring.md#signaturedata) hoặc mảng chứa các đối tượng [SignatureData](../caver-wallet/keyring.md#signaturedata). Một mảng trong đó mỗi 'v', 'r' và 's' được xác định theo định dạng chuỗi tuần tự hoặc một mảng 2D chứa những mảng đó cũng có thể được chuyển làm tham số. |
+| Name       | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| signatures | object \\| Array | The signatures to be appended to the transaction. [SignatureData](../caver-wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver-wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.appendSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
@@ -420,17 +420,17 @@ Thêm chữ ký vào giao dịch với trường `signatures`.
 transaction.appendFeePayerSignatures(signatures)
 ```
 
-Thêm chữ ký người trả phí vào giao dịch với trường `feePayerSignatures`.
+Appends `feePayerSignatures` to the transaction.
 
-**LƯU Ý** Hàm này chỉ hoạt động cho các giao dịch "có phí ủy thác" hoặc giao dịch "có phí ủy thác theo tỷ lệ".
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
-**Tham số**
+**Parameters**
 
-| Tên                | Loại             | Mô tả                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| feePayerSignatures | đối tượng \| Mảng | Chữ ký của người trả phí được thêm vào giao dịch. Đối tượng [SignatureData](../caver-wallet/keyring.md#signaturedata) hoặc mảng chứa các đối tượng [SignatureData](../caver-wallet/keyring.md#signaturedata). Một mảng trong đó mỗi 'v', 'r' và 's' được xác định theo định dạng chuỗi tuần tự hoặc một mảng 2D chứa những mảng đó cũng có thể được chuyển làm tham số. |
+| Name               | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| feePayerSignatures | object \\| Array | The feePayerSignatures to be appended to the transaction. [SignatureData](../caver-wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver-wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.appendFeePayerSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
@@ -442,21 +442,21 @@ Thêm chữ ký người trả phí vào giao dịch với trường `feePayerSi
 transaction.combineSignedRawTransactions(rlpEncodedTxs)
 ```
 
-Thu thập chữ ký trong mỗi chuỗi giao dịch được mã hóa RLP trong mảng cho trước, kết hợp chúng với đối tượng giao dịch và trả về một chuỗi giao dịch được mã hóa RLP bao gồm tất cả các chữ ký. Lưu ý rằng không nhất thiết phải ký trước đối tượng giao dịch. Nếu giao dịch là giao dịch "có phí ủy thác" hoặc "có phí ủy thác theo tỷ lệ", `feePayerSignatures` cũng được hợp nhất và bao gồm trong chuỗi giao dịch được mã hóa RLP đầu ra.
+Collects signs in each RLP-encoded transaction string in the given array, combines them with the transaction instance, and returns a RLP-encoded transaction string which includes all signs. Note that the transaction instance doesn't necessarily be signed in advance. If the transaction is either a type of "fee-delegated" or "fee-delegated with ratio", `feePayerSignatures` is also merged and included in the output RLP-encoded transaction string.
 
-**Tham số**
+**Parameters**
 
-| Tên           | Loại | Mô tả                                                |
-| ------------- | ----- | ---------------------------------------------------- |
-| rlpEncodedTxs | Mảng  | Mảng chứa các chuỗi giao dịch đã ký được mã hóa RLP. |
+| Name          | Type  | Description                                                         |
+| ------------- | ----- | ------------------------------------------------------------------- |
+| rlpEncodedTxs | Array | An array of signed RLP-encoded transaction strings. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                                                                                                                                                                      |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| chuỗi | Một chuỗi giao dịch được mã hóa RLP bao gồm tất cả `signatures` (và `feePayerSignatures` nếu giao dịch là giao dịch "có phí ủy thác" hoặc "có phí ủy thác theo tỷ lệ"). |
+| Type   | Description                                                                                                                                                                                                     |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| string | A RLP-encoded transaction string which includes all `signatures` (and `feePayerSignatures` if transaction is a type of either "fee-delgated" or "fee-delegated with ratio"). |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.combineSignedRawTransactions(['0x09f88...'])
@@ -469,17 +469,17 @@ Thu thập chữ ký trong mỗi chuỗi giao dịch được mã hóa RLP trong
 transaction.getRLPEncoding()
 ```
 
-Trả về chuỗi giao dịch được mã hóa RLP.
+Returns a RLP-encoded transaction string.
 
-Để biết thông tin về cách tạo chuỗi mã hóa RLP cho mỗi loại giao dịch, hãy xem [Thiết kế Klaytn - Giao dịch](../../../../../learn/transactions/transactions.md).
+For information on how to make the RLP-encoded string for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                            |
-| ----- | -------------------------------- |
-| chuỗi | Chuỗi giao dịch được mã hóa RLP. |
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
+| string | A RLP-encoded transaction string. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.getRLPEncoding()
@@ -492,15 +492,15 @@ Trả về chuỗi giao dịch được mã hóa RLP.
 transaction.getRawTransaction()
 ```
 
-Trả về một chuỗi `rawTransaction` (chuỗi giao dịch mã hóa RLP). Hàm này giống như hàm [transaction.getRLPEncoding](#transaction-getrlpencoding).
+Returns a `rawTransaction` string (a RLP-encoded transaction string). This function is same with [transaction.getRLPEncoding](#transaction-getrlpencoding).
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                            |
-| ----- | -------------------------------- |
-| chuỗi | Chuỗi giao dịch được mã hóa RLP. |
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
+| string | A RLP-encoded transaction string. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.getRawTransaction()
@@ -513,17 +513,17 @@ Trả về một chuỗi `rawTransaction` (chuỗi giao dịch mã hóa RLP). H�
 transaction.getTransactionHash()
 ```
 
-Trả về một `transactionHash`.
+Returns a `transactionHash`.
 
-Để biết thông tin về cách tạo hàm băm giao dịch cho mỗi loại giao dịch, hãy xem [Thiết kế Klaytn - Giao dịch](../../../../../learn/transactions/transactions.md).
+For information on how to make the transaction hash for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                  |
-| ----- | ---------------------- |
-| chuỗi | Một hàm băm giao dịch. |
+| Type   | Description                        |
+| ------ | ---------------------------------- |
+| string | A transactionHash. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.getTransactionHash()
@@ -536,19 +536,19 @@ Trả về một `transactionHash`.
 transaction.getSenderTxHash()
 ```
 
-Trả về [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) của giao dịch.
+Returns a [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) of transaction.
 
-[senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) là hàm băm của giao dịch trừ địa chỉ và chữ ký của người trả phí, do đó [transactionHash](#transaction-gettransactionhash) và [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) sẽ giống nhau đối với các giao dịch cơ bản.
+The [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) are the same for basic transactions.
 
-Để biết thông tin về cách tạo [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) cho mỗi loại giao dịch, hãy xem [Thiết kế Klaytn - Giao dịch](../../../../../learn/transactions/transactions.md).
+For information on how to make the [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả         |
-| ----- | ------------- |
-| chuỗi | SenderTxHash. |
+| Type   | Description                     |
+| ------ | ------------------------------- |
+| string | A senderTxHash. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.getSenderTxHash()
@@ -561,17 +561,17 @@ Trả về [senderTxHash](../../../../../learn/transactions/transactions.md#send
 transaction.getRLPEncodingForSignature()
 ```
 
-Trả về một chuỗi giao dịch được mã hóa RLP để tạo chữ ký của người gửi giao dịch. Lưu ý rằng chuỗi giao dịch được mã hóa RLP trả về không được thêm vào chữ ký và thay vào đó được sử dụng để tạo chữ ký này.
+Returns a RLP-encoded transaction string for making the signature of the transaction sender. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-Để biết thông tin về cách tạo chuỗi giao dịch được mã hóa RLP để tạo chữ ký của người gửi giao dịch cho mỗi loại giao dịch, hãy xem [Thiết kế Klaytn - Giao dịch](../../../../../learn/transactions/transactions.md).
+For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
-**Giá trị trả về**
+**Return Value**
 
-| type  | Mô tả                                                   |
-| ----- | ------------------------------------------------------- |
-| chuỗi | Chuỗi giao dịch được mã hóa RLP không có chữ ký đi kèm. |
+| Type   | Description                                                                      |
+| ------ | -------------------------------------------------------------------------------- |
+| string | A RLP-encoded transaction string without any signature attached. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.getRLPEncodingForSignature()
@@ -584,19 +584,19 @@ Trả về một chuỗi giao dịch được mã hóa RLP để tạo chữ ký
 transaction.getRLPEncodingForFeePayerSignature()
 ```
 
-Trả về một chuỗi giao dịch được mã hóa RLP để tạo chữ ký của người trả phí. Lưu ý rằng chuỗi giao dịch được mã hóa RLP trả về không được thêm vào chữ ký và thay vào đó được sử dụng để tạo chữ ký này.
+Returns a RLP-encoded transaction string for making the signature of the fee payer. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-Để biết thông tin về cách tạo chuỗi giao dịch được mã hóa RLP để tạo chữ ký của người trả phí cho mỗi loại giao dịch, hãy xem [Thiết kế Klaytn - Giao dịch](../../../../../learn/transactions/transactions.md).
+For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
-**LƯU Ý** Hàm này chỉ hoạt động cho các giao dịch "có phí ủy thác" hoặc giao dịch "có phí ủy thác theo tỷ lệ".
+**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
-**Giá trị trả về**
+**Return Value**
 
-| type  | Mô tả                                                   |
-| ----- | ------------------------------------------------------- |
-| chuỗi | Chuỗi giao dịch được mã hóa RLP không có chữ ký đi kèm. |
+| Type   | Description                                                                      |
+| ------ | -------------------------------------------------------------------------------- |
+| string | A RLP-encoded transaction string without any signature attached. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.getRLPEncodingForFeePayerSignature()
@@ -609,17 +609,17 @@ Trả về một chuỗi giao dịch được mã hóa RLP để tạo chữ ký
 transaction.fillTransaction()
 ```
 
-Điền các biến tùy chọn vào giao dịch.
+Fills in the optional variables in transaction.
 
-Nếu `gasPrice`, `nonce` hoặc `chainId` của giao dịch không được xác định, phương pháp này sẽ yêu cầu các giá trị mặc định cho các biến tùy chọn này và thiết lập chúng bằng cách gửi lệnh gọi RPC JSON đến nút Klaytn đã kết nối.
+If the `gasPrice`, `nonce`, or `chainId` of the transaction are not defined, this method asks the default values for these optional variables and preset them by sending JSON RPC call to the connected Kaia Node.
 
-Sử dụng lệnh gọi [caver.rpc.klay.getGasPrice](../caver-rpc/klay.md#caver-rpc-klay-getgasprice) để lấy `gasPrice`, [caver.rpc.klay.getTransactionCount](../caver-rpc/klay.md#caver-rpc-klay-gettransactioncount) để lấy `nonce` và [caver.rpc.klay.getChainId](../caver-rpc/klay.md#caver-rpc-klay-getchainid) để lấy `chainId`.
+Use [caver.rpc.kaia.getGasPrice](../caver-rpc/kaia.md#caver-rpc-kaia-getgasprice) to get `gasPrice`, [caver.rpc.kaia.getTransactionCount](../caver-rpc/kaia.md#caver-rpc-kaia-gettransactioncount) to get `nonce` and [caver.rpc.kaia.getChainId](../caver-rpc/kaia.md#caver-rpc-kaia-getchainid) call to get `chainId`.
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `void`
+`Promise` returning `void`
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.fillTransaction()
@@ -631,17 +631,17 @@ Sử dụng lệnh gọi [caver.rpc.klay.getGasPrice](../caver-rpc/klay.md#caver
 transaction.recoverPublicKeys()
 ```
 
-Khôi phục các chuỗi khóa công khai từ trường `signatures`.
+Recovers the public key strings from `signatures` field.
 
-**LƯU Ý** `transaction.recoverPublicKeys` được hỗ trợ kể từ phiên bản caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**NOTE** `transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                                    |
-| ----- | -------------------------------------------------------- |
-| Mảng  | Mảng chứa khóa công khai được khôi phục từ `signatures`. |
+| Type  | Description                                                                  |
+| ----- | ---------------------------------------------------------------------------- |
+| Array | An array containing public keys recovered from `signatures`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.recoverPublicKeys()
@@ -658,17 +658,17 @@ Khôi phục các chuỗi khóa công khai từ trường `signatures`.
 transaction.recoverFeePayerPublicKeys()
 ```
 
-Khôi phục các chuỗi khóa công khai từ trường `feePayerSignatures`.
+Recovers the public key strings from `feePayerSignatures` field.
 
-**LƯU Ý** `transaction.recoverFeePayerPublicKeys` được hỗ trợ kể từ phiên bản caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**NOTE** `transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                                            |
-| ----- | ---------------------------------------------------------------- |
-| Mảng  | Mảng chứa khóa công khai được khôi phục từ `feePayerSignatures`. |
+| Type  | Description                                                                          |
+| ----- | ------------------------------------------------------------------------------------ |
+| Array | An array containing public keys recovered from `feePayerSignatures`. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > transaction.recoverFeePayerPublicKeys()
@@ -685,21 +685,21 @@ Khôi phục các chuỗi khóa công khai từ trường `feePayerSignatures`.
 transaction.suggestGasPrice()
 ```
 
-Trả về giá gas đề xuất. Hàm này được sử dụng để thiết lập trường giá gas trong [fillTransaction](#transaction-fillTransaction).
+Returns suggested gas price. This function is used to set gasPrice field in the [fillTransaction](#transaction-fillTransaction).
 
-Trước khi Magma hard fork diễn ra, `suggestGasPrice` trả về đơn giá của mạng. Sau đợt Magma hard fork, `suggestGasPrice` trả về `baseFee * 2` được khuyến nghị sử dụng như là giá gas.
+Before the Magma hard fork, `suggestGasPrice` returns the unit price of the network. After the Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is recommended to use as gasPrice.
 
-**LƯU Ý** `transaction.suggestGasPrice` được hỗ trợ kể từ phiên bản caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
+**NOTE** `transaction.suggestGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `string`: Giá gas đề xuất trong chuỗi thập lục phân.
+`Promise` returning `string`: The suggested gas price in hexadecimal string.
 
-| Loại | Mô tả            |
-| ----- | ---------------- |
-| chuỗi | Giá gas đề xuất. |
+| Type   | Description                              |
+| ------ | ---------------------------------------- |
+| string | The suggested gas price. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > tx.suggestGasPrice().then(console.log)
