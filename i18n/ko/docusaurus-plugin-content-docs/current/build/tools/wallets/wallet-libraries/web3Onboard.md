@@ -10,7 +10,7 @@ sidebar_label: Web3-Onboard
 
 프로젝트와 개발자는 [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)와 같은 도구를 활용하여 여러 지갑을 탈중앙화 애플리케이션(dApp)에 빠르게 통합할 수 있습니다. Web3-Onboard의 도움으로 사용자 온보딩이 간소화되었습니다. Web3-Onboard는 여러 지갑 지원부터 사용자가 자신의 계정을 다른 체인이나 네트워크에 연결하고 실시간 거래 알림을 받을 수 있는 기능 등 다양한 기능을 갖추고 있습니다.
 
-이 가이드에서는 Web3-Onboard 라이브러리를 사용해 여러 지갑(예: Coinbase Wallet, MetaMask, WalletConnect 등) 을 통합하는 방법, 즉, 클레이튼 네트워크에 구축한 dApp에 통합하는 방법을 설명합니다.
+이 가이드에서는 Web3-Onboard 라이브러리를 사용해 여러 지갑(예: Coinbase Wallet, MetaMask, WalletConnect 등) 을 통합하는 방법, 즉, 클레이튼 네트워크에 구축한 dApp에 통합하는 방법을 설명합니다. into your dApp built on the Kaia Network.
 
 ## 전제 조건
 
@@ -142,7 +142,7 @@ export const truncateAddress = (address) => {
   };
 ```
 
-**2단계**: App.js\` 파일에서 함수를 가져옵니다.
+**2단계**: App.js\\` 파일에서 함수를 가져옵니다.
 
 ```js
 import { truncateAddress, toHex } from "./utils";
