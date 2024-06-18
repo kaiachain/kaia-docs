@@ -2,7 +2,7 @@
 
 ## Truffle과의 호환성 <a id="compatibility-with-truffle"></a>
 
-In Kaia, a smart contract written in Solidity can be compiled and deployed via Truffle. 현재 클레이튼은 이 글을 쓰는 시점에 최신 버전인 Truffle v5.0.26까지 지원합니다. Truffle에 대한 자세한 내용은 아래 웹사이트에서 확인할 수 있습니다.
+카이아에서는 Solidity로 작성된 스마트 컨트랙트를 Truffle을 통해 컴파일하고 배포할 수 있습니다. 현재 카이아는 이 글을 쓰는 시점에 최신 버전인 Truffle v5.0.26까지 지원합니다. Truffle에 대한 자세한 내용은 아래 웹사이트에서 확인할 수 있습니다.
 
 - [Truffle 개요](https://trufflesuite.com/docs/truffle/overview)
 - [Truffle 저장소](https://github.com/trufflesuite/truffle)
@@ -15,7 +15,7 @@ $ sudo npm install -g truffle
 
 로컬 EN을 실행 중인 경우 Truffle 프레임워크를 사용하여 컨트랙트를 직접 배포할 수 있습니다. 자세한 내용은 이 [링크](../deploy/ken.md#deploying-a-smart-contract-using-truffle)를 참조하세요.
 
-원격 EN 노드로 배포하려면 [Truffle 지갑 공급자 클레이튼](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn)을 사용해야 합니다.
+원격 EN 노드로 배포하려면 [Truffle 지갑 공급자 카이아](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn)를 사용해야 합니다.
 
 ## Truffle-hdwallet-provider-klaytn 구성하기 <a id="configuring-truffle-hdwallet-provider-klaytn"></a>
 
@@ -62,11 +62,11 @@ module.exports = {
           mnemonic.length
         );
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
-    kasBaobab: {
+    kasKairos: {
       provider: () => {
         const option = {
           headers: [
@@ -90,7 +90,7 @@ module.exports = {
           )
         );
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
@@ -118,15 +118,15 @@ module.exports = {
           )
         );
       },
-      network_id: "8217", //Klaytn baobab testnet's network id
+      network_id: "8217", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
-    baobab: {
+    kairos: {
       provider: () => {
         return new HDWalletProvider(mnemonic, "http://your.baobab.en:8551");
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
@@ -134,7 +134,7 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider(mnemonic, "http://your.cypress.en:8551");
       },
-      network_id: "8217", //Klaytn mainnet's network id
+      network_id: "8217", //Kaia mainnet's network id
       gas: "8500000",
       gasPrice: null,
     },
@@ -169,11 +169,11 @@ module.exports = {
           pks.length
         );
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
-    kasBaobab: {
+    kasKairos: {
       provider: () => {
         const option = {
           headers: [
@@ -197,7 +197,7 @@ module.exports = {
           )
         );
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
@@ -225,15 +225,15 @@ module.exports = {
           )
         );
       },
-      network_id: "8217", //Klaytn baobab testnet's network id
+      network_id: "8217", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
-    baobab: {
+    kairos: {
       provider: () => {
         return new HDWalletProvider(privateKey, "http://api.baobab.klaytn.net:8651");
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
@@ -241,7 +241,7 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider(privateKey, "https://public-en-cypress.klaytn.net");
       },
-      network_id: "8217", //Klaytn mainnet's network id
+      network_id: "8217", //Kaia mainnet's network id
       gas: "8500000",
       gasPrice: null,
     },
@@ -251,19 +251,19 @@ module.exports = {
 
 **경고: 니모닉 또는 개인 키가 노출되지 않도록 각별히 주의하세요.**
 
-Deploying on Kaia :
+카이아에 배포하기
 
 ```bash
-$ truffle deploy --network baobab  # testnet
+$ truffle deploy --network kairos  # testnet
 $ truffle deploy --network cypress # mainnet
 ```
 
-클레이튼에서 트랜잭션 만들기 :
+카이아에서 트랜잭션 만들기 :
 ([Truffle 문서 빠른 시작 - 프로젝트 생성하기](https://www.trufflesuite.com/docs/truffle/quickstart#creating-a-project)의 예제 사용)
 
 ```bash
-$ truffle console --network baobab
-truffle(baobab)> Migrations.deployed().then(function(instance) {return instance.setCompleted(3)}) // making transaction
+$ truffle console --network kairos
+truffle(kairos)> Migrations.deployed().then(function(instance) {return instance.setCompleted(3)}) // making transaction
 {
   tx: '0x734676311194c1ab8e004e2990e414b7b47a9d0a8506682707f5db03fa6dcee0',
   receipt: {
@@ -293,6 +293,6 @@ truffle(baobab)> Migrations.deployed().then(function(instance) {return instance.
   logs: []
 }
 
-truffle(baobab)> Migrations.deployed().then(function(instance) {return instance.last_completed_migration.call()}) // read public variable
+truffle(kairos)> Migrations.deployed().then(function(instance) {return instance.last_completed_migration.call()}) // read public variable
 BN { negative: 0, words: [ 3, <1 empty item> ], length: 1, red: null }
 ```
