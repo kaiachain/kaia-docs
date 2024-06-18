@@ -1,54 +1,54 @@
-# Thiết lập H/A
+# Configure High Availability
 
-Định cấu hình CN để đạt được tính sẵn có cao là rất quan trọng trong việc vận hành hiệu quả Core Cell. Sơ đồ tính sẵn có cao được khuyến nghị tùy thuộc vào việc Core Cell được triển khai trên cơ sở hạ tầng vật lý hay trên đám mây.
+Configuring the CN for high availability is critical for effectively operating a Core Cell. The recommended high availability scheme depends on whether the Core Cell is deployed on physical or cloud infrastructure.
 
-## Hoạt động-chờ (khuyến nghị cho bare-metal) <a id="active-standby-recommended-for-bare-metal"></a>
+## Active-Standby \(recommended for bare-metal\) <a id="active-standby-recommended-for-bare-metal"></a>
 
-Trong cấu hình này, hai nút CN được cài đặt cấu hình hoạt động-chờ. Trong quá trình hoạt động thông thường, nút hoạt động tham gia tạo khối, trong khi nút chờ chỉ đồng bộ hóa dữ liệu chuỗi từ mạng lưới. Cấu hình này đảm bảo rằng CN chờ có bản sao mới của dữ liệu chuỗi trong trường hợp nút hoạt động không thành công.
+In this configuration, two CN nodes are installed in active-standby configuration. During normal operation the active node participates in block generation, while the standby only synchronizes chaindata from the network. This configuration ensures that the standby CN node has a fresh copy of the chaindata in the event of a failure in the active node.
 
-### Thiết lập <a id="setup"></a>
+### Setup <a id="setup"></a>
 
-1. Tạo bản sao lưu của `khóa nút` của CN hoạt động.
-2. Cài đặt CN chờ. Cấu hình này giống với CN hoạt động, ngoại trừ:
-   - Nút chờ sử dụng `khóa nút` khác
-   - Thêm địa chỉ của PN vào `$DATA_DIR/static-nodes.json`
+1. Create a backup of the active CN's `nodekey`.
+2. Install a standby CN. The configuration is the same as the active CN except:
+   - The standby should use a different `nodekey`
+   - Add the addresses of the PNs to `$DATA_DIR/static-nodes.json`
 
-### Dự phòng <a id="failover"></a>
+### Failover <a id="failover"></a>
 
-1. Dừng CN chờ: `sudo systemctl stop kcnd`
-2. Thay thế `khóa nút` của nút chờ bằng `khóa nút` của CN hoạt động không thành công.
-3. Gán lại địa chỉ IP của CN hoạt động cho CN chờ.
-4. Khởi chạy CN chờ và xác minh nó đã đồng bộ với mạng lưới: `sudo systemctl start kcnd`
+1. Stop the standby CN: `sudo systemctl stop kcnd`
+2. Replace the `nodekey` of the standby with the `nodekey` of the failed active CN.
+3. Reassign the IP address of the active CN to the standby CN.
+4. Start the standby CN and verify that it is in sync with the network: `sudo systemctl start kcnd`
 
-## Bản sao lưu máy ảo & Thu thập dữ liệu (khuyến nghị cho đám mây) <a id="machine-image-snapshot-recommended-for-cloud"></a>
+## Machine Image & Snapshot \(recommended for cloud\) <a id="machine-image-snapshot-recommended-for-cloud"></a>
 
-Cơ sở hạ tầng đám mây cho phép người vận hành thay thế các nút không thành công nhanh chóng hơn mà không cần phải chạy CN chờ thứ 2. Thay vào đó, nó đảm bảo một CN mới có thể được cung cấp nhanh chóng và đi kèm bản sao cập nhật của dữ liệu chuỗi.
+Cloud infrastructure allows operators to replace failed nodes much more quickly, so it is not necessary to operate a second standby CN. Instead, it is sufficient to ensure that a new CN can be quickly provisioned and provided with a updated copy of the chaindata.
 
-Thuật ngữ và quy trình chính xác có thể khác nhau giữa các môi trường đám mây khác nhau. Quy trình bên dưới dựa trên AWS (cụ thể là EC2 và EBS) nhưng có thể được điều chỉnh theo các nền tảng đám mây khác.
+The exact terminology and procedure may vary across different cloud environments. The procedure below is based on AWS \(specifically EC2 and EBS\), but can be adapted for other cloud platforms.
 
-### Thiết lập <a id="setup"></a>
+### Setup <a id="setup"></a>
 
-1. Tạo bản sao lưu của `khóa nút` của CN hoạt động.
-2. Mỗi lần cấu hình và phần mềm CN được cập nhật, một bản sao lưu máy ảo sẽ được tạo ra (ví dụ: AMI). Đừng thêm khối lượng chứa `DATA_DIR` trong bản sao lưu này, nó sẽ được tách riêng ra.
+1. Create a backup of the active CN's `nodekey`.
+2. Each time the CN configuration or software is updated, create a machine image \(e.g. AMI\). Do not include the volume containing `DATA_DIR` in this image -- this will be obtained separately.
 
-### Dự phòng <a id="failover"></a>
+### Failover <a id="failover"></a>
 
-Sử dụng bất kỳ nút PN của CC nào để thu thập dữ liệu chuỗi:
+Use any of the CC's PN nodes to obtain a chaindata snapshot:
 
-1. Kết nối với bất kỳ PN nào và dừng kpnd: `sudo systemctl stop kpnd`. Cần phải dừng kpnd trước để đảm bảo tính nhất quán của dữ liệu.
-2. Sử dụng bảng điều khiển AWS, tạo bản thu thập dữ liệu của khối lượng chứa `DATA_DIR` của PN.
-3. Bắt đầu kpnd: `sudo systemctl start kpnd`
+1. Connect to any PN node and stop kpnd: `sudo systemctl stop kpnd`. It is important to stop kpnd first, to ensure data consistency.
+2. Using the AWS console, create a snapshot of the volume containing the PN's `DATA_DIR`.
+3. Start kpnd: `sudo systemctl start kpnd`
 
-Tạo một CN mới sử dụng bản sao CN hoặc dữ liệu chuỗi:
+Create a new CN using the base CN image and the chaindata image:
 
-1. Tạo một phiên bản bằng bản sao CN (tạo trong phần "Thiết lập" phía trên).
-2. Đính kèm khối lượng được tạo từ bản thu thập dữ liệu `$DATA_DIR` của PN.
-3. Xóa tất cả các tập tin trong khối lượng ngoại trừ `$DATA_DIR/klay/chaindata`. Xác nhận rằng `DATA_DIR` trong `kcnd.conf` khớp với thư mục chứa dữ liệu chuỗi. Có thể sẽ cần đổi tên thư mục nếu tên khác nhau.
-4. Sao chép `khóa nút` của CN không thành công vào `$DATA_DIR/klay/nodekey`.
-5. Gán lại địa chỉ IP của CN không thành công vào nút thay thế.
-6. Bắt đầu kcnd: `sudo systemctl start kcnd`
-7. Xác minh CN đã đồng bộ với mạng lưới.
+1. Create an instance using the CN image \(created in "Setup" above\).
+2. Attach a volume created from the snapshot of the PN's `$DATA_DIR`.
+3. Remove all files from the volume except `$DATA_DIR/klay/chaindata`. Confirm that the `DATA_DIR` set in `kcnd.conf` matches the directory containing the chaindata. It may be necessary to rename the directory if the name is different.
+4. Copy the `nodekey` of the failed CN to `$DATA_DIR/klay/nodekey`.
+5. Reassign the IP address of the failed CN to the replacement.
+6. Start kcnd: `sudo systemctl start kcnd`
+7. Verify the CN is in sync with the network.
 
-## Cân nhắc bổ sung <a id="additional-considerations"></a>
+## Additional Considerations <a id="additional-considerations"></a>
 
-Gán lại IP công khai của CN không thành công cho CN thay thế sẽ giúp nút thay thế có thể kết nối ngay lập tức với các CN khác. Nếu IP thay đổi, CN mới sẽ không thể kết nối với mạng lưới cho đến khi tất cả các CCO khác cập nhật cấu hình tường lửa của mình.
+Reassigning the public IP of the failed CN to the replacement CN will allow the replacement to connect immediately to other CNs. If the IP changes, the new CN will not be able to connect to the network until all other CCOs have updated their firewall configurations.
