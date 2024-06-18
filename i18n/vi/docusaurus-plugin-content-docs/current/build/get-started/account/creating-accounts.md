@@ -1,16 +1,16 @@
-# Tạo tài khoản
+# Create Accounts
 
-## Tạo tài khoản mới <a id="creating-a-new-account"></a>
+## Creating a New Account <a id="creating-a-new-account"></a>
 
-Quy trình này sẽ tạo một tài khoản mới và in địa chỉ lên màn hình. Một tập tin lưu trữ khóa sẽ được bảo trong thư mục dữ liệu.
+This will create a new account and print the address on the screen. A keystore file is created under the data directory.
 
-**Tập tin lưu trữ khóa Klaytn**
+**Kaia Keystore File**
 
-Khi bạn tạo một tài khoản, một tập tin lưu trữ khóa sẽ được tạo ra. Tập tin lưu trữ khóa là phiên bản được mã hóa của mã khóa riêng tư Klaytn mà bạn sẽ dùng để ký các giao dịch của mình. Tên của tập tin lưu trữ khóa có định dạng sau:
+When you create an account, a keystore file is created. The keystore file is an encrypted version of your unique Kaia private key that you will use to sign your transactions. The keystore file name has the following format:
 
 - `UTC--<created_at UTC ISO8601>-<address hex>`
 
-Việc chuyển toàn bộ thư mục hoặc tập tin lưu trữ khóa riêng lẻ trong đó giữa các nút Klaytn là an toàn. Xin lưu ý rằng trong trường hợp bạn đang thêm mã khóa vào nút của mình từ một nút khác, thì thứ tự của các tài khoản có thể thay đổi. Vì thế, hãy đảm bảo là bạn không dựa vào chỉ mục trong đoạn mã hoặc tập lệnh của mình.
+It is safe to transfer the entire directory or the individual keystore file therein between Kaia nodes. Note that in case you are adding keys to your node from a different node, the order of accounts may change. So make sure you do not rely on the index in your scripts or code snippets.
 
 ### ken <a id="ken"></a>
 
@@ -20,7 +20,7 @@ $ ken account new --password <passwordfile> --datadir <DATADIR>
 $ ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
-**`CẢNH BẢO`**: Lưu ý rằng việc dùng một tập tin mật khẩu chỉ dành cho quá trình thử nghiệm; bạn không nên lưu mật khẩu vào một tập tin hoặc để lộ mật khẩu dưới bất kỳ hình thức nào khác. Nếu bạn sử dụng tính năng gắn cờ mật khẩu trong một tập tin mật khẩu, hãy đảm bảo rằng không ai có thể thấy hoặc đọc được tập tin này ngoài bạn. Để thực hiện việc này:
+**`WARNING`**: Note that using a password file is meant for testing only; it is a bad idea to save your password in a file or expose it in any other way. If you use the password flag with a password file, best to make sure the file is not readable or even listable for anyone but you. You achieve this with:
 
 ```bash
 $ touch /path/to/password
@@ -30,23 +30,23 @@ I type my pass here
 ^D
 ```
 
-### Bảng điều khiển JavaScript <a id="javascript-console"></a>
+### JavaScript Console <a id="javascript-console"></a>
 
-Trên bảng điều khiển, bạn có thể gọi ra hàm sau để tạo tài khoản:
+On the console, you can call the following function to create an account:
 
 ```javascript
 > personal.newAccount("passphrase")
 ```
 
-Tài khoản được lưu bằng định dạng mã hóa. Bạn **phải** nhớ cụm mật khẩu này để mở khóa tài khoản của mình trong tương lai.
+The account is saved in an encrypted format. You **must** remember this passphrase to unlock your account in the future.
 
-## Nhập tài khoản <a id="importing-an-account"></a>
+## Importing an Account <a id="importing-an-account"></a>
 
-Bạn có thể nhập một tài khoản bằng tập tin khóa. Tập tin khóa này được giả định là có chứa một mã khóa riêng tư chưa mã hóa dưới dạng byte thô EC chuẩn được mã hóa thành hex. Nói đơn giản thì nó là một mã khóa riêng tư dưới dạng văn bản thuần, không có `0x` đứng ở đầu.
+You can import an account using a keyfile. The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex. In simpler terms, it is a private key in plain text without the leading `0x`.
 
-Tập tin này nhập một khóa riêng tư chưa được mã hóa từ tập tin khóa đã cho, tạo tài khoản mới, tạo một tập tin lưu trữ khóa trong thư mục dữ liệu và in địa chỉ vào bảng điều khiển. Bạn phải nhớ cụm mật khẩu này để mở khóa tài khoản của mình trong tương lai.
+This imports an unencrypted private key from the given keyfile, creates a new account, generates a keystore file under the data directory, and prints the address in the console. You must remember the passphrase to unlock your account in the future.
 
-**LƯU Ý**: Nếu có thể sao chép trực tiếp các tập tin lưu trữ khóa của mình vào một phiên bản Klaytn khác, bạn không cần đến cơ chế nhập/xuất này/xuất này.
+**NOTE**: If you can directly copy your keystore files to another Kaia instance, this import/export mechanism is not needed.
 
 ### ken <a id="ken-1"></a>
 
@@ -55,13 +55,13 @@ $ ken account import --datadir <datadir> <keyfile>
 $ ken account import --password <passwordfile> --datadir <datadir> <keyfile>
 ```
 
-### Bảng điều khiển JavaScript <a id="javascript-console-1"></a>
+### JavaScript Console <a id="javascript-console-1"></a>
 
 ```bash
 > personal.importRawKey('{private key}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"​
 
-// Using a Klaytn wallet key
+// Using a Kaia wallet key
 > personal.importRawKey('{private key}0x000x{address}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
 ```
