@@ -1,13 +1,13 @@
-# ken CLI 명령어
+# ken CLI Commands
 
 ```bash
 USAGE:
    ken [options] command [command options] [arguments...]
 ```
 
-## 명령어
+## Commands
 
-`ken`에는 다음과 같은 명령이 있습니다.
+`ken`has the following commands.
 
 ```bash
 COMMANDS:
@@ -15,14 +15,14 @@ COMMANDS:
    attach      Start an interactive JavaScript environment (connect to node)
    console     Start an interactive JavaScript environment
    dumpconfig  Show configuration values
-   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Klaytn v1.7.0.)
+   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Kaia v1.7.0.)
    init        Bootstrap and initialize a new genesis block
    snapshot    A set of commands based on the snapshot
    version     Show version number
    help, h     Shows a list of commands or help for one command
 ```
 
-각 명령에 대한 자세한 사용 지침을 보려면 `-h` 옵션을 입력합니다.
+To get a detailed usage guideline for each command, give -h option.
 
 ```bash
 $ ken account -h
@@ -31,7 +31,7 @@ account, create a new account or update an existing account.
  ...
 Keys are stored under <DATADIR>/keystore.
 It is safe to transfer the entire directory or the individual keys therein
-between klay nodes by simply copying.
+between kaia nodes by simply copying.
 
 Make sure you backup your keys regularly.
 
@@ -55,31 +55,31 @@ participating.
  ...
 ```
 
-## JavaScript 콘솔 <a id="javascript-console"></a>
+## JavaScript Console
 
-클레이튼 엔드포인트 노드는 JavaScript 콘솔과 함께 제공됩니다. 콘솔 명령줄에서 EN에 클레이튼 API 호출의 일부를 시작할 수 있습니다. JavaScript 콘솔에 접속하려면 다음 명령을 실행하세요.
+Kaia Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Kaia API calls to your EN. To attach to the JavaScript console, execute the following command.
 
 ```bash
-$ ken attach ~/kend_home/klay.ipc
-Welcome to the Klaytn JavaScript console
+$ ken attach ~/kend_home/kaia.ipc
+Welcome to the Kaia JavaScript console
 
-!instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+!instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 
  >
 ```
 
-`attach` 명령은 실행 중인 노드에 연결하고, `console` 명령은 노드를 시작하여 노드에 연결합니다.
+attach command connects to the running node, while console command launches a node and connects to it.
 
 ```bash
    attach      Start an interactive JavaScript environment (connect to node)
    console     Start an interactive JavaScript environment
 ```
 
-### 모듈 API <a id="module-apis"></a>
+### Module APIs
 
-콘솔 프롬프트에 모듈 이름을 입력하면 해당 모듈의 사용 가능한 프로퍼티와 함수를 확인할 수 있습니다. For the details of functions, please see [Klaytn API](../../../references/json-rpc/klay/account-created).
+If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Kaia API](../../../references/json-rpc/klay/account-created).
 
 ```javascript
 > personal
