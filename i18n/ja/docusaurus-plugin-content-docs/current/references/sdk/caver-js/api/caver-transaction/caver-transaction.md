@@ -29,14 +29,14 @@ Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transa
 
 **Parameters**
 
-| Name       | Type   | Description                                 |
-| ---------- | ------ | ------------------------------------------- |
+| Name       | Type   | Description                                                 |
+| ---------- | ------ | ----------------------------------------------------------- |
 | rlpEncoded | string | A RLP-encoded transaction string to decode. |
 
 **Return Value**
 
-| Type   | Description                                                                                            |
-| ------ | ------------------------------------------------------------------------------------------------------ |
+| Type   | Description                                                                                                                            |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | object | An instance of [Transaction](#class). For details of each transaction, refer to [Transaction](#class). |
 
 **Example**
@@ -69,16 +69,16 @@ Queries a transaction from Klaytn and converts to a caver transaction instance.
 
 **Parameters**
 
-| Name            | Type   | Description                                       |
-| --------------- | ------ | ------------------------------------------------- |
+| Name            | Type   | Description                                                       |
+| --------------- | ------ | ----------------------------------------------------------------- |
 | transactionHash | string | The transaction hash string to query from Klaytn. |
 
 **Return Value**
 
 `Promise` returning `object`: An instance of [Transaction](#class). If it fails to receive a transaction object from Klaytn, an error occurs.
 
-| Type   | Description                                                                                            |
-| ------ | ------------------------------------------------------------------------------------------------------ |
+| Type   | Description                                                                                                                            |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | object | An instance of [Transaction](#class). For details of each transaction, refer to [Transaction](#class). |
 
 **Example**
@@ -114,14 +114,14 @@ Recovers the public key strings from `signatures` field of the given transaction
 
 **Parameters**
 
-| Name  | Type   | Description                                                                  |
-| ----- | ------ | ---------------------------------------------------------------------------- |
+| Name  | Type   | Description                                                                                  |
+| ----- | ------ | -------------------------------------------------------------------------------------------- |
 | rawTx | string | The RLP-encoded transaction string to recover public keys from `signatures`. |
 
 **Return Value**
 
-| Type  | Description                                                  |
-| ----- | ------------------------------------------------------------ |
+| Type  | Description                                                                  |
+| ----- | ---------------------------------------------------------------------------- |
 | Array | An array containing public keys recovered from `signatures`. |
 
 **Example**
@@ -147,14 +147,14 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 
 **Parameters**
 
-| Name  | Type   | Description                                                                                                                                                                                                                |
-| ----- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name  | Type   | Description                                                                                                                                                                                                                                                |
+| ----- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | rawTx | string | The RLP-encoded transaction string to recover public keys from `feePayerSignatures`. To recover fee payer's public keys, the transaction should be a fee-delegated transaction with the `feePayerSignatures` field inside. |
 
 **Return Value**
 
-| Type  | Description                                                          |
-| ----- | -------------------------------------------------------------------- |
+| Type  | Description                                                                          |
+| ----- | ------------------------------------------------------------------------------------ |
 | Array | An array containing public keys recovered from `feePayerSignatures`. |
 
 **Example**
@@ -180,18 +180,18 @@ For [Account Update](./basic.md#accountupdate) transaction, use [roleAccountUpda
 
 **Parameters**
 
-| Name    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | object \| string | A private key string ([KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
-| index   | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                         |
-| hasher  | Function         | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Name    | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object \\| string | A private key string ([KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| index   | number             | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                         |
+| hasher  | Function           | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 **Return Value**
 
 `Promise` returning `object`: The signed transaction.
 
-| Type   | Description                                                                                             |
-| ------ | ------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                             |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | object | An instance of signed [Transaction](#class). The signature is appended to the `transaction.signatures`. |
 
 **Example**
@@ -292,18 +292,18 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 
 **Parameters**
 
-| Name    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | object \| string | A private key string ([KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If the private key string or [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
-| index   | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                         |
-| hasher  | Function         | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Name    | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object \\| string | A private key string ([KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If the private key string or [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| index   | number             | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                         |
+| hasher  | Function           | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 **Return Value**
 
 `Promise` returning `object`: The signed transaction.
 
-| Type   | Description                                                                                                     |
-| ------ | --------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                     |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | An instance of signed [Transaction](#class). The signature is appended to the `transaction.feePayerSignatures`. |
 
 **Example**
@@ -404,9 +404,9 @@ Appends `signatures` to the transaction.
 
 **Parameters**
 
-| Name       | Type            | Description                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| signatures | object \| Array | The signatures to be appended to the transaction. [SignatureData](../caver-wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver-wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| Name       | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| signatures | object \\| Array | The signatures to be appended to the transaction. [SignatureData](../caver-wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver-wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
 **Example**
 
@@ -426,9 +426,9 @@ Appends `feePayerSignatures` to the transaction.
 
 **Parameters**
 
-| Name               | Type            | Description                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| feePayerSignatures | object \| Array | The feePayerSignatures to be appended to the transaction. [SignatureData](../caver-wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver-wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| Name               | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| feePayerSignatures | object \\| Array | The feePayerSignatures to be appended to the transaction. [SignatureData](../caver-wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver-wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
 
 **Example**
 
@@ -446,14 +446,14 @@ Collects signs in each RLP-encoded transaction string in the given array, combin
 
 **Parameters**
 
-| Name          | Type  | Description                                         |
-| ------------- | ----- | --------------------------------------------------- |
+| Name          | Type  | Description                                                         |
+| ------------- | ----- | ------------------------------------------------------------------- |
 | rlpEncodedTxs | Array | An array of signed RLP-encoded transaction strings. |
 
 **Return Value**
 
-| Type   | Description                                                                                                                                                                                     |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                                                     |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | string | A RLP-encoded transaction string which includes all `signatures` (and `feePayerSignatures` if transaction is a type of either "fee-delgated" or "fee-delegated with ratio"). |
 
 **Example**
@@ -475,8 +475,8 @@ For information on how to make the RLP-encoded string for each transaction type,
 
 **Return Value**
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
 | string | A RLP-encoded transaction string. |
 
 **Example**
@@ -496,8 +496,8 @@ Returns a `rawTransaction` string (a RLP-encoded transaction string). This funct
 
 **Return Value**
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
 | string | A RLP-encoded transaction string. |
 
 **Example**
@@ -519,8 +519,8 @@ For information on how to make the transaction hash for each transaction type, s
 
 **Return Value**
 
-| Type   | Description        |
-| ------ | ------------------ |
+| Type   | Description                        |
+| ------ | ---------------------------------- |
 | string | A transactionHash. |
 
 **Example**
@@ -544,8 +544,8 @@ For information on how to make the [senderTxHash](../../../../../learn/transacti
 
 **Return Value**
 
-| Type   | Description     |
-| ------ | --------------- |
+| Type   | Description                     |
+| ------ | ------------------------------- |
 | string | A senderTxHash. |
 
 **Example**
@@ -567,8 +567,8 @@ For information on how to make a RLP-encoded transaction string to generate the 
 
 **Return Value**
 
-| Type   | Description                                                      |
-| ------ | ---------------------------------------------------------------- |
+| Type   | Description                                                                      |
+| ------ | -------------------------------------------------------------------------------- |
 | string | A RLP-encoded transaction string without any signature attached. |
 
 **Example**
@@ -592,8 +592,8 @@ For information on how to make a RLP-encoded transaction string to generate the 
 
 **Return Value**
 
-| Type   | Description                                                      |
-| ------ | ---------------------------------------------------------------- |
+| Type   | Description                                                                      |
+| ------ | -------------------------------------------------------------------------------- |
 | string | A RLP-encoded transaction string without any signature attached. |
 
 **Example**
@@ -637,8 +637,8 @@ Recovers the public key strings from `signatures` field.
 
 **Return Value**
 
-| Type  | Description                                                  |
-| ----- | ------------------------------------------------------------ |
+| Type  | Description                                                                  |
+| ----- | ---------------------------------------------------------------------------- |
 | Array | An array containing public keys recovered from `signatures`. |
 
 **Example**
@@ -664,8 +664,8 @@ Recovers the public key strings from `feePayerSignatures` field.
 
 **Return Value**
 
-| Type  | Description                                                          |
-| ----- | -------------------------------------------------------------------- |
+| Type  | Description                                                                          |
+| ----- | ------------------------------------------------------------------------------------ |
 | Array | An array containing public keys recovered from `feePayerSignatures`. |
 
 **Example**
@@ -695,8 +695,8 @@ Before the Magma hard fork, `suggestGasPrice` returns the unit price of the netw
 
 `Promise` returning `string`: The suggested gas price in hexadecimal string.
 
-| Type   | Description              |
-| ------ | ------------------------ |
+| Type   | Description                              |
+| ------ | ---------------------------------------- |
 | string | The suggested gas price. |
 
 **Example**
