@@ -1,33 +1,33 @@
-# Ủy thác phí một phần
+# Partial Fee Delegation
 
 ## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-TxTypeFeeDelegatedValueTransferWithRatio được sử dụng khi người dùng muốn gửi KLAY. Vì Klaytn cung cấp nhiều loại giao dịch sao cho mỗi loại giao dịch chỉ phục vụ một mục đích duy nhất, TxTypeFeeDelegatedValueTransferWithRatio bị giới hạn gửi KLAY đến một tài khoản được sở hữu bên ngoài. Vì thế, TxTypeFeeDelegatedValueTransferWithRatio chỉ được chấp nhận nếu `to` là một tài khoản thuộc sở hữu bên ngoài. Để chuyển KLAY đến một tài khoản hợp đồng thông minh, hãy dùng [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio). Các thay đổi sau sẽ được tạo ra nhờ loại giao dịch này.
+TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send KAIA. As Kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send KAIA to an externally owned account. Therefore, TxTypeFeeDelegatedValueTransferWithRatio is accepted only if `to` is an externally owned account. To transfer KAIA to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
 
-1. Số dư của người trả phí giảm đi một lượng bằng tỷ lệ cho trước của phí giao dịch.
-2. Số dư của người gửi giảm đi một lượng bằng phần còn lại của phí giao dịch. Ví dụ: Nếu `feeRatio` là 30 thì 30% của khoản phí sẽ do người trả phí thanh toán và phần 70% còn lại của khoản phí sẽ do người gửi thanh toán.
-3. Số dùng một lần của người gửi tăng thêm một đơn vị.
-4. `value` KLAY sẽ được chuyển từ người gửi đến người nhận.
+1. The fee payer's balance decreases by the given ratio of the transaction fee.
+2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
+3. The sender's nonce increases by one.
+4. `value` KAIA is transferred from the sender to the recipient.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính         | type                                                                                                            | Mô tả                                                                                                                                                                                                                                                                                                                                                                                |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type               | uint8 (Go)                                                                                   | Loại TxTypeFeeDelegatedValueTransferWithRatio. Thuộc tính này phải là 0x0a.                                                                                                                                                                                                                                                                                                          |
-| nonce              | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                                                                                                                |
-| giá gas            | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas                | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                                                                                                                     |
-| đến                | common.Address (Go)                                                                          | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                                                                                                                       |
-| giá trị            | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                                                                                                                        |
-| từ                 | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                     |
-| feeRatio           | uint8 (Go)                                                                                   | Tỷ lệ phí của người trả phí. Khoảng hợp lệ là từ 1 đến 99. Số không (0) không được chấp nhận. Số từ 100 trở lên cũng không được chấp nhận.                                                                                                                                                                                                                        |
-| txSignatures       | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                      |
-| feePayer           | common.Address (Go)                                                                          | Địa chỉ của người trả phí.                                                                                                                                                                                                                                                                                                                                                           |
-| feePayerSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người trả phí.                                                                                                                                                                                                                                                                                                                                                            |
+| Attribute          | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                 |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedValueTransferWithRatio. This must be 0x0a.                                                                                                                                                                                                                                                                                    |
+| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                                          |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
+| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                                                                                                                                |
+| to                 | common.Address \(Go\)                                                                                                                  | The account address that will receive the transferred value.                                                                                                                                                                                                                                                                                                                |
+| value              | \*big.Int \(Go\)                                                                                                                       | The amount of KAIA in `kei` to be transferred.                                                                                                                                                                                                                                                                                                                              |
+| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                            |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                      |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                              |
+| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                                               |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                                                 |
 
-### Mã hóa RLP cho chữ ký của người gửi <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-Để tạo chữ ký của người gửi, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, feeRatio]), chainid, 0, 0])
@@ -35,9 +35,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### Mã hóa RLP cho chữ ký của người trả phí <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-Để tạo chữ ký của người trả phí, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, feeRatio]), feePayer, chainid, 0, 0])
@@ -45,9 +45,9 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -56,9 +56,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, feeRatio
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -69,9 +69,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, feeRatio, txSi
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -107,9 +107,9 @@ SenderTxHash 4711ed4023e821425968342c1d50063b6bc3176b1792b7075cfeee3656d450f6
     Hex:           0af8d78204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b1ef845f84325a0dde32b8241f039a82b124fe94d3e556eb08f0d6f26d07dcc0f3fca621f1090caa01c8c336b358ab6d3a2bbf25de2adab4d01b754e2fb3b9b710069177d54c1e956945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0091ecf53f91bb97bb694f2f2443f3563ac2b646d651497774524394aae396360a044228b88f275aa1ec1bab43681d21dc7e3a676786ed1906f6841d0a1a188f88a
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -152,33 +152,33 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeFeeDelegatedValueTransferMemoWithRatio <a id="txtypefeedelegatedvaluetransfermemowithratio"></a>
 
-TxTypeFeeDelegatedValueTransferMemoWithRatio được sử dụng khi người dùng muốn gửi KLAY với một tin nhắn cụ thể. TxTypeFeeDelegatedValueTransferMemoWithRatio chỉ được chấp nhận nếu `to` là một tài khoản sở hữu bên ngoài. Để chuyển KLAY đến một tài khoản hợp đồng thông minh, hãy dùng [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio). Các thay đổi sau sẽ được tạo ra nhờ loại giao dịch này.
+TxTypeFeeDelegatedValueTransferMemoWithRatio is used when a user wants to send KAIA with a specific message. TxTypeFeeDelegatedValueTransferMemoWithRatio is accepted only if `to` is an externally owned account. To transfer KAIA to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio) instead. The following changes will be made by this transaction type.
 
-1. Số dư của người trả phí giảm đi theo tỷ lệ phí của khoản phí giao dịch.
-2. Số dư của người gửi giảm đi một lượng bằng phần còn lại của phí giao dịch. Ví dụ: Nếu `feeRatio` là 30 thì 30% của khoản phí sẽ do người trả phí thanh toán và phần 70% còn lại của khoản phí sẽ do người gửi thanh toán.
-3. Số dùng một lần của người gửi tăng thêm một đơn vị.
-4. `value` KLAY sẽ được chuyển từ người gửi đến người nhận.
+1. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
+2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.k
+3. The sender's nonce increases by one.
+4. `value` KAIA is transferred from the sender to the recipient.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính         | Mô tả                                                                                                           | Loại                                                                                                                                                                                                                                                                                                                                                                                |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type               | uint8 (Go)                                                                                   | Loại TxTypeFeeDelegatedValueTransferMemoWithRatio. Thuộc tính này phải là 0x12.                                                                                                                                                                                                                                                                                                      |
-| nonce              | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                                                                                                                |
-| giá gas            | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas                | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                                                                                                                     |
-| đến                | common.Address (Go)                                                                          | Địa chỉ tài khoản sẽ nhận giá trị được chuyển.                                                                                                                                                                                                                                                                                                                                       |
-| giá trị            | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                                                                                                                        |
-| từ                 | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                     |
-| nhập               | []byte (Go)                              | Dữ liệu gắn kèm theo giao dịch. Thông điệp cần được truyền vào thuộc tính này.                                                                                                                                                                                                                                                                                                       |
-| feeRatio           | uint8 (Go)                                                                                   | Tỷ lệ phí của người trả phí. Khoảng hợp lệ là từ 1 đến 99. Số không (0) không được chấp nhận. Số từ 100 trở lên cũng không được chấp nhận.                                                                                                                                                                                                                        |
-| txSignatures       | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                      |
-| feePayer           | common.Address (Go)                                                                          | Địa chỉ của người trả phí.                                                                                                                                                                                                                                                                                                                                                           |
-| feePayerSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người trả phí.                                                                                                                                                                                                                                                                                                                                                            |
+| Attribute          | Description                                                                                                                                                                 | Type                                                                                                                                                                                                                                                                                                                                                                                        |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedValueTransferMemoWithRatio. This must be 0x12.                                                                                                                                                                                                                                                                                |
+| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                                          |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
+| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                                                                                                                                |
+| to                 | common.Address \(Go\)                                                                                                                  | The account address that will receive the transferred value.                                                                                                                                                                                                                                                                                                                |
+| value              | \*big.Int \(Go\)                                                                                                                       | The amount of KAIA in `kei` to be transferred.                                                                                                                                                                                                                                                                                                                              |
+| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                            |
+| input              | \[\]byte \(Go\)                                                                                  | Data attached to the transaction. The message should be passed to this attribute.                                                                                                                                                                                                                                                                           |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                      |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                              |
+| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                                               |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                                                 |
 
-### Mã hóa RLP cho chữ ký của người gửi <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-Để tạo chữ ký của người gửi, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), chainid, 0, 0])
@@ -186,9 +186,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### Mã hóa RLP cho chữ ký của người trả phí <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-Để tạo chữ ký của người trả phí, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), feePayer, chainid, 0, 0])
@@ -196,9 +196,9 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -207,9 +207,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, f
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -220,9 +220,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, feeRati
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -259,9 +259,9 @@ SenderTxHash 2c4e8cd3c68a4aacae51c695e857cfc1a019037ca71d8cd1e8ca56ec4eaf55b1
     Hex:           12f8dd8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6f1ef845f84326a0769f0afdc310289f9b24decb5bb765c8d7a87a6a4ae28edffb8b7085bbd9bc78a06a7b970eea026e60ac29bb52aee10661a4222e6bdcdfb3839a80586e584586b4945a0043070275d9f6054307ee7348bd660849d90ff845f84325a0c1c54bdc72ce7c08821329bf50542535fac74f4bba5de5b7881118a461d52834a03a3a64878d784f9af91c2e3ab9c90f17144c47cfd9951e3588c75063c0649ecd
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -305,36 +305,36 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeFeeDelegatedSmartContractDeployWithRatio <a id="txtypefeedelegatedsmartcontractdeploywithratio"></a>
 
-TxTypeFeeDelegatedSmartContractDeployWithRatio triển khai một hợp đồng thông minh. Tỷ lệ cho trước của phí giao dịch do người trả phí thanh toán. Các thay đổi sau sẽ được tạo ra nhờ loại giao dịch này.
+TxTypeFeeDelegatedSmartContractDeployWithRatio deploys a smart contract. The given ratio of the transaction fee is paid by the fee payer. The following changes will be made by this transaction type.
 
-1. Số dư của người trả phí giảm đi theo tỷ lệ phí của khoản phí giao dịch.
-2. Số dư của người gửi giảm đi một lượng bằng phần còn lại của phí giao dịch. Ví dụ: Nếu `feeRatio` là 30 thì 30% của khoản phí sẽ do người trả phí thanh toán và phần 70% còn lại của khoản phí sẽ do người gửi thanh toán.
-3. Số dùng một lần của người gửi tăng thêm một đơn vị.
-4. Một hợp đồng thông minh được triển khai bằng mã trong `input`. Địa chỉ đã triển khai sẽ được trả về qua `contractAddress` trong biên lai.
-5. `value` KLAY sẽ được chuyển từ người gửi đến người nhận.
+1. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
+2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
+3. The sender's nonce increases by one.
+4. A smart contract is deployed with the code in `input`. The deployed address will be returned via `contractAddress` in the receipt.
+5. `value` KAIA is transferred from the sender to the recipient.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính         | type                                                                                                            | Mô tả                                                                                                                                                                                                                                                                                                                                                                                |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type               | uint8 (Go)                                                                                   | Loại TxTypeFeeDelegatedSmartContractDeployWithRatio. Thuộc tính này phải là 0x2a.                                                                                                                                                                                                                                                                                                    |
-| nonce              | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                                                                                                                |
-| giá gas            | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas                | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                                                                                                                     |
-| đến                | \*common.Address (Go)                                                                        | Địa chỉ tài khoản sẽ nhận giá trị được chuyển. Hiện tại giá trị này phải bằng 0. Tính năng xác định địa chỉ sẽ được hỗ trợ trong tương lai.                                                                                                                                                                                                                                          |
-| giá trị            | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                                                                                                                        |
-| từ                 | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                     |
-| nhập               | []byte (Go)                              | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                                                                                                                          |
-| humanReadable      | bool (Go)                                                                                    | Đây phải là giá trị false vì địa chỉ có thể đọc chưa được hỗ trợ. Nếu giá trị là true, giao dịch sẽ bị từ chối.                                                                                                                                                                                                                                                                      |
-| feeRatio           | uint8 (Go)                                                                                   | Tỷ lệ phí của người trả phí. Khoảng hợp lệ là từ 1 đến 99. Số không (0) không được chấp nhận. Số từ 100 trở lên cũng không được chấp nhận.                                                                                                                                                                                                                        |
-| codeFormat         | uint8 (Go)                                                                                   | Định dạng mã của mã hợp đồng thông minh. Hiện tại, giá trị được hỗ trợ chỉ có EVM(0x00).                                                                                                                                                                                                                                                                          |
-| txSignatures       | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                      |
-| feePayer           | common.Address (Go)                                                                          | Địa chỉ của người trả phí.                                                                                                                                                                                                                                                                                                                                                           |
-| feePayerSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người trả phí.                                                                                                                                                                                                                                                                                                                                                            |
+| Attribute          | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                 |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedSmartContractDeployWithRatio. This must be 0x2a.                                                                                                                                                                                                                                                                              |
+| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                                          |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
+| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                                                                                                                                |
+| to                 | \*common.Address \(Go\)                                                                                                                | The account address that will receive the transferred value. Currently, this value must be nil. Specifying the address will be supported in the future.                                                                                                                                                                                     |
+| value              | \*big.Int \(Go\)                                                                                                                       | The amount of KAIA in `kei` to be transferred.                                                                                                                                                                                                                                                                                                                              |
+| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                            |
+| input              | \[\]byte \(Go\)                                                                                  | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                                                                                                                                           |
+| humanReadable      | bool \(Go\)                                                                                                                                            | This must be false since human-readable address is not supported yet. If true, the transaction will be rejected.                                                                                                                                                                                                                                            |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                      |
+| codeFormat         | uint8 \(Go\)                                                                                                                                           | The code format of smart contract code. The supported value for now is EVM\(0x00\) only.                                                                                                                                                                                                                                               |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                              |
+| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                                               |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                                                 |
 
-### Mã hóa RLP cho chữ ký của người gửi <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-Để tạo chữ ký của người gửi, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, humanReadable, feeRatio, codeFormat]), chainid, 0, 0])
@@ -342,9 +342,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### Mã hóa RLP cho chữ ký của người trả phí <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-Để tạo chữ ký của người trả phí, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, humanReadable, feeRatio, codeFormat]), feePayer, chainid, 0, 0])
@@ -352,9 +352,9 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -363,9 +363,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, h
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -376,9 +376,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, humanRe
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -417,9 +417,9 @@ SenderTxHash 57dfef9c923cba182cca00fa65d45aaf619613d843d585d3c4026a3bd0797366
     Hex:           2af902da8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bb901fe608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029011e80f845f84326a0cfe8dc29d31916b3f661a4774cb8d44d39ae700a9fb6ca04327f84bbe4de1486a01616e09ced403420cac1363d14e705b7a323518b1ce5124b16f06871c00ac424945a0043070275d9f6054307ee7348bd660849d90ff845f84325a0e29dae81defc027f059cd6a55ff74156b9c5bdb811460f09fc8d167c01aaaea1a04eba34d4d5ebbce60e4998f03b7a4658263bb21063ddf68ad3b088d670de47c8
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -465,34 +465,34 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeFeeDelegatedSmartContractExecutionWithRatio <a id="txtypefeedelegatedsmartcontractexecutionwithratio"></a>
 
-TxTypeFeeDelegatedSmartContractExecution thực thi hợp đồng thông minh với dữ liệu đã cho trong `input`. TxTypeFeeDelegatedSmartContractExecutionWithRatio chỉ được chấp nhận nếu `to` là một tài khoản hợp đồng thông minh. Để chuyển KLAY đến một tài khoản thuộc sở hữu bên ngoài, hãy dùng [TxTypeFeeDelegatedValueTransferWithRatio](#txtypefeedelegatedvaluetransferwithratio). Các thay đổi sau sẽ được tạo ra nhờ loại giao dịch này.
+TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the given data in `input`. TxTypeFeeDelegatedSmartContractExecutionWithRatio is accepted only if `to` is a smart contract account. To transfer KAIA to an externally owned account, use [TxTypeFeeDelegatedValueTransferWithRatio](#txtypefeedelegatedvaluetransferwithratio) instead. The following changes will be made by this transaction type.
 
-1. Nếu `to` là một tài khoản hợp đồng thông minh, mã sẽ được thực thi dựa trên `input`. Nếu không, giao dịch sẽ bị từ chối.
-2. Số dư của người trả phí giảm đi theo tỷ lệ phí của khoản phí giao dịch.
-3. Số dư của người gửi giảm đi một lượng bằng phần còn lại của phí giao dịch. Ví dụ: Nếu `feeRatio` là 30 thì 30% của khoản phí sẽ do người trả phí thanh toán và phần 70% còn lại của khoản phí sẽ do người gửi thanh toán.
-4. Số dùng một lần của người gửi tăng thêm một đơn vị.
-5. Nếu `value` được cung cấp, `value` KLAY được chuyển từ người gửi đến `to` của hợp đồng thông minh. Hợp đồng phải có hàm dự phòng khoản phải trả để nhận KLAY.
+1. If `to` is a smart contract account, the code is executed based on `input`. Otherwise, this transaction will be rejected.
+2. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
+3. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
+4. The sender's nonce increases by one.
+5. If `value` was provided, `value` KAIA is transferred from the sender to the `to` smart contract. The contract should have a payable fallback function to receive KAIA.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính         | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                                                                                                                                |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type               | uint8 (Go)                                                                                   | Loại TxTypeFeeDelegatedSmartContractExecutionWithRatio. Thuộc tính này phải là 0x32.                                                                                                                                                                                                                                                                                                 |
-| nonce              | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                                                                                                                |
-| giá gas            | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas                | uint64 (Go)                                                                                  | Lượng gas tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                                                                                                                     |
-| đến                | common.Address (Go)                                                                          | Địa chỉ thực thi tài khoản hợp đồng thông minh.                                                                                                                                                                                                                                                                                                                                      |
-| giá trị            | \*big.Int (Go)                                                                               | Số lượng KLAY tính bằng `peb` sẽ được chuyển.                                                                                                                                                                                                                                                                                                                                        |
-| từ                 | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                     |
-| nhập               | []byte (Go)                              | Dữ liệu được gắn kèm giao dịch, dùng để thực thi giao dịch.                                                                                                                                                                                                                                                                                                                          |
-| feeRatio           | uint8 (Go)                                                                                   | Tỷ lệ phí của người trả phí. Khoảng hợp lệ là từ 1 đến 99. Số không (0) không được chấp nhận. Số từ 100 trở lên cũng không được chấp nhận.                                                                                                                                                                                                                        |
-| txSignatures       | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                      |
-| feePayer           | common.Address (Go)                                                                          | Địa chỉ của người trả phí.                                                                                                                                                                                                                                                                                                                                                           |
-| feePayerSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người trả phí.                                                                                                                                                                                                                                                                                                                                                            |
+| Attribute          | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                 |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedSmartContractExecutionWithRatio. This must be 0x32.                                                                                                                                                                                                                                                                           |
+| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                                          |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
+| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                                                                                                                                |
+| to                 | common.Address \(Go\)                                                                                                                  | The address of the smart contract account to be executed.                                                                                                                                                                                                                                                                                                                   |
+| value              | \*big.Int \(Go\)                                                                                                                       | The amount of KAIA in `kei` to be transferred.                                                                                                                                                                                                                                                                                                                              |
+| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                            |
+| input              | \[\]byte \(Go\)                                                                                  | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                                                                                                                                           |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                      |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                              |
+| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                                               |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                                                 |
 
-### Mã hóa RLP cho chữ ký của người gửi <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-Để tạo chữ ký của người gửi, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), chainid, 0, 0])
@@ -500,9 +500,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### Mã hóa RLP cho chữ ký của người trả phí <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-Để tạo chữ ký của người trả phí, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), feePayer, chainid, 0, 0])
@@ -510,9 +510,9 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -521,18 +521,18 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, f
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, feeRatio, txSignatures, feePayer, feePayerSignatures])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -569,9 +569,9 @@ SenderTxHash d5e22319cbf020d422d8ba3a07da9d99b9300826637af85b4e061805dcb2c1b0
     Hex:           32f8fc8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0ba46353586b000000000000000000000000bc5951f055a85f41a3b62fd6f68ab7de76d299b21ef845f84326a074ccfee18dc28932396b85617c53784ee366303bce39a2401d8eb602cf73766fa04c937a5ab9401d2cacb3f39ba8c29dbcd44588cc5c7d0b6b4113cfa7b7d9427b945a0043070275d9f6054307ee7348bd660849d90ff845f84325a04a4997524694d535976d7343c1e3a260f99ba53fcb5477e2b96216ec96ebb565a00f8cb31a35399d2b0fbbfa39f259c819a15370706c0449952c7cfc682d200d7c
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -615,32 +615,32 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeFeeDelegatedAccountUpdateWithRatio <a id="txtypefeedelegatedaccountupdatewithratio"></a>
 
-TxTypeFeeDelegatedAccountUpdateWithRatio cập nhật khóa của tài khoản đã cho. Tỷ lệ cho trước của phí giao dịch do người trả phí thanh toán. Các thay đổi sau sẽ diễn ra nhờ loại giao dịch này.
+TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. The given ratio of the transaction fee is paid by the fee payer. The following changes will take place by this transaction type.
 
-1. Số dư của người trả phí giảm đi theo tỷ lệ phí của khoản phí giao dịch.
-2. Số dư của người gửi giảm đi một lượng bằng phần còn lại của phí giao dịch. Ví dụ: Nếu `feeRatio` là 30 thì 30% của khoản phí sẽ do người trả phí thanh toán và phần 70% còn lại của khoản phí sẽ do người gửi thanh toán.
-3. Số dùng một lần của người gửi tăng thêm một đơn vị.
-4. Khóa tài khoản được cập nhật bằng `key`.
-5. Các giao dịch được gửi từ tài khoản sẽ được xác thực bằng `key` này kể từ sau khi giao dịch này đã được thực thi.
+1. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
+2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
+3. The sender's nonce increases by one.
+4. The account's key is updated with `key`.
+5. Transactions sent from the account afterward will be validated with this `key`, once this transaction is executed.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính         | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                                                                                                                                            |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type               | uint8 (Go)                                                                                   | Loại TxTypeFeeDelegatedAccountUpdateWithRatio. Thuộc tính này phải là 0x22.                                                                                                                                                                                                                                                                                                                      |
-| nonce              | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                                                                                                                            |
-| giá gas            | \*big.Int (Go)                                                                               | Hệ số nhân để tính toán số lượng token mà người gửi sẽ thanh toán. Lượng token mà người gửi sẽ thanh toán được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Người gửi sẽ thanh toán khoản phí giao dịch là 10 KLAY nếu gas bằng 10 và gasPrice là 10^18. Hãy xem [Đơn vị của KLAY][]. |
-| gas                | uint64 (Go)                                                                                  | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                                                                                                                     |
-| từ                 | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                                 |
-| khóa               | AccountKey (Go)                                                                              | [AccountKey][] cần cập nhật cho tài khoản.                                                                                                                                                                                                                                               |
-| feeRatio           | uint8 (Go)                                                                                   | Tỷ lệ phí của người trả phí. Khoảng hợp lệ là từ 1 đến 99. Số không (0) không được chấp nhận. Số từ 100 trở lên cũng không được chấp nhận.                                                                                                                                                                                                                                    |
-| txSignatures       | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                                  |
-| feePayer           | common.Address (Go)                                                                          | Địa chỉ của người trả phí.                                                                                                                                                                                                                                                                                                                                                                       |
-| feePayerSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người trả phí.                                                                                                                                                                                                                                                                                                                                                                        |
+| Attribute          | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                               |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedAccountUpdateWithRatio. This must be 0x22.                                                                                                                                                                                                                                                                  |
+| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                        |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A multiplier to get how much the sender will pay in tokens. The amount of tokens the sender will pay is calculated via `gas` \* `gasPrice`. For example, the sender will pay 10 KAIA for a transaction fee if gas is 10 and gasPrice is 10^18. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
+| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                                  |
+| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                          |
+| key                | AccountKey \(Go\)                                                                                                                                      | [AccountKey](../accounts.md#account-key) to be updated to the account.                                                                                                                                                                                                                                                                                    |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                    |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                            |
+| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                             |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                               |
 
-### Mã hóa RLP cho chữ ký của người gửi <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-Để tạo chữ ký của người gửi, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, rlpEncodedKey, feeRatio]), chainid, 0, 0])
@@ -648,9 +648,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### Mã hóa RLP cho chữ ký của người trả phí <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-Để tạo chữ ký của người trả phí, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, from, rlpEncodedKey, feeRatio]), feePayer, chainid, 0, 0])
@@ -658,9 +658,9 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -669,9 +669,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, feeR
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -682,9 +682,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, feeRatio, 
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -719,9 +719,9 @@ SenderTxHash e1d87538509549f4a1eb418f986bc53dc77b7eec3b2150f75cd787951d3e4b7f
     Hex:           22f8e58204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0ba302a1033a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d1ef845f84326a00e5929f96dec2b41343a9e6f0150eef08741fe7dcece88cc5936c49ed19051dca05a07b07017190e0baba32bdf6352f5a358a2798ed3c56e704a63819b87cf8e3f945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0cf8d102de7c6b0a41d3f02aefb7e419522341734c98af233408298d0c424c04ba00286f89cab4668f728d7c269997116a49b80cec8776fc64e60588a9268571e35
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -763,27 +763,27 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeFeeDelegatedCancelWithRatio <a id="txtypefeedelegatedcancelwithratio"></a>
 
-TxTypeFeeDelegatedCancelWithRatio hủy bỏ việc thực thi giao dịch có cùng số dùng một lần trong bể giao dịch. Để biết thêm chi tiết, hãy xem [TxTypeCancel](./basic.md#txtypecancel).
+TxTypeFeeDelegatedCancelWithRatio cancels the execution of the transaction with the same nonce in the transaction pool. For more details, see [TxTypeCancel](./basic.md#txtypecancel).
 
-Các thay đổi sau sẽ được áp dụng nhờ loại giao dịch này. 1. Số dư của người trả phí giảm đi theo tỷ lệ phí nhất định của khoản phí giao dịch. 2. Số dư của người gửi giảm đi một lượng bằng phần còn lại của phí giao dịch. 3. Số dùng một lần của người gửi tăng thêm một đơn vị.
+The following changes will apply by this transaction type. 1. The fee payer's balance decreases by the given fee ratio of the amount of the transaction fee. 2. The sender's balance decreases by the remaining transaction fee. 3. The sender's nonce increases by one.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính         | Mô tả                                                                                                           | Loại                                                                                                                                                                                                                                                                                                                                                                                |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type               | uint8 (Go)                                                                                   | Loại TxTypeFeeDelegatedCancelWithRatio. Thuộc tính này phải là 0x3a.                                                                                                                                                                                                                                                                                                                 |
-| nonce              | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                                                                                                                |
-| giá gas            | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas                | uint64 (Go)                                                                                  | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                                                                                                         |
-| từ                 | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                     |
-| feeRatio           | uint8 (Go)                                                                                   | Tỷ lệ phí của người trả phí. Khoảng hợp lệ là từ 1 đến 99. Số không (0) không được chấp nhận. Số từ 100 trở lên cũng không được chấp nhận.                                                                                                                                                                                                                        |
-| txSignatures       | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch][].                                                                                                                                                                                      |
-| feePayer           | common.Address (Go)                                                                          | Địa chỉ của người trả phí.                                                                                                                                                                                                                                                                                                                                                           |
-| feePayerSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người trả phí.                                                                                                                                                                                                                                                                                                                                                            |
+| Attribute          | Description                                                                                                                                                                 | Type                                                                                                                                                                                                                                                                                                                                                                                        |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedCancelWithRatio. This must be 0x3a.                                                                                                                                                                                                                                                                                           |
+| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                                          |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
+| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                                                    |
+| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                            |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                      |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                              |
+| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                                               |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                                                 |
 
-### Mã hóa RLP cho chữ ký của người gửi <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-Để tạo chữ ký của người gửi, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, feeRatio]), chainid, 0, 0])
@@ -791,9 +791,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### Mã hóa RLP cho chữ ký của người trả phí <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-Để tạo chữ ký của người trả phí, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, from, feeRatio]), feePayer, chainid, 0, 0])
@@ -801,9 +801,9 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -812,9 +812,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, feeRatio, txSignatu
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -825,9 +825,9 @@ TxHashRLP = type + encode([nonce, gasPricke, gas, from, feeRatio, txSignatures, 
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x1
@@ -861,9 +861,9 @@ SenderTxHash c0818be4cffbacfe29be1134e0267e10fd1afb6571f4ccc95dcc67a788bab5e7
     Hex:           3af8c18204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0b1ef845f84326a072efa47960bef40b536c72d7e03ceaf6ca5f6061eb8a3eda3545b1a78fe52ef5a062006ddaf874da205f08b3789e2d014ae37794890fc2e575bf75201563a24ba9945a0043070275d9f6054307ee7348bd660849d90ff845f84326a06ba5ef20c3049323fc94defe14ca162e28b86aa64f7cf497ac8a5520e9615614a04a0a0fc61c10b416759af0ce4ce5c09ca1060141d56d958af77050c9564df6bf
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
@@ -904,32 +904,32 @@ Phần dưới đây cho thấy một đối tượng giao dịch được trả
 
 ## TxTypeFeeDelegatedChainDataAnchoringWithRatio <a id="txtypefeedelegatedchaindataanchoringwithratio"></a>
 
-TxTypeFeeDelegatedChainDataAnchoringWithRatio là một giao dịch có phí ủy thác kèm theo tỷ lệ, dùng để neo dữ liệu chuỗi dịch vụ vào chuỗi chính của Klaytn.
-Các chuỗi dịch vụ gửi định kỳ loại giao dịch này đến chuỗi chính Klaytn để đảm bảo tính bảo mật và độ tin cậy của dữ liệu.
-Để biết thêm chi tiết về việc neo dữ liệu, hãy xem [Neo](../../nodes/service-chain/configure/anchoring.md).
-Vì đây cũng là một giao dịch ủy có phí ủy thác với tỷ lệ cho trước, người trả phí chỉ phải thanh toán phần nhất định của khoản phí giao dịch dựa theo tỷ lệ cho trước, đồng thời người gửi sẽ thanh toán phần còn lại.
-Lưu ý rằng giao dịch này không được phép gửi qua RPC.
-Hiện tại, giao dịch này được thực thi qua các kênh p2p riêng tư vì lý do bảo mật.
-Giao dịch này không làm thay đổi trạng thái của chuỗi khối Klaytn, ngoại trừ việc số dùng một lần của người gửi tăng lên một đơn vị.
+TxTypeFeeDelegatedChainDataAnchoringWithRatio is a fee-delegated transaction, with the ratio, that anchors service chain data to the Kaia mainchain.
+Service chains periodically send this type of transaction to the Kaia mainchain to ensure its security and credibility of data.
+For more details about the data anchoring, see [Anchoring](../../nodes/service-chain/configure/anchoring.md).
+As it is a fee-delegated transaction with the given ratio as well, the fee payer bears only the given portion of the transaction fee based on the given ratio and the sender pays the rest.
+Be mindful that it is not allowed to send this transaction via RPC.
+Currently, this transaction is executed through private p2p channels for security reasons.
+This transaction does not change the state of the Kaia blockchain except the sender's nonce being increased by one.
 
-### Thuộc tính <a id="attributes"></a>
+### Attributes <a id="attributes"></a>
 
-| Thuộc tính         | Loại                                                                                                           | Mô tả                                                                                                                                                                                                                                                                                                                                                                                |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type               | uint8 (Go)                                                                                   | Loại TxTypeFeeDelegatedChainDataAnchoringWithRatio. Thuộc tính này phải là 0x4a.                                                                                                                                                                                                                                                                                                     |
-| nonce              | uint64 (Go)                                                                                  | Giá trị dùng để định danh duy nhất cho một giao dịch của người gửi. Nếu hai giao dịch có cùng một giá trị số dùng một lần do người gửi tạo ra, chỉ có một giao dịch sẽ được thực thi.                                                                                                                                                                                                |
-| giá gas            | \*big.Int (Go)                                                                               | Đơn giá của gas tính bằng `peb` mà người gửi sẽ dùng để thanh toán phí giao dịch. Số tiền phí giao dịch được tính theo công thức `gas` \* `gasPrice`. Ví dụ: Nếu giao dịch tốn 10 đơn vị gas và gasPrice là 10^18, phí giao dịch sẽ là 10 KLAY. Hãy xem [Đơn vị của KLAY][]. |
-| gas                | uint64 (Go)                                                                                  | Giá trị phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                                                                                                                                         |
-| từ                 | common.Address (Go)                                                                          | Địa chỉ của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                                                       |
-| feeRatio           | uint8 (Go)                                                                                   | Tỷ lệ phí của người trả phí. Khoảng hợp lệ là từ 1 đến 99. Số không (0) không được chấp nhận. Số từ 100 trở lên cũng không được chấp nhận.                                                                                                                                                                                                                        |
-| nhập               | []byte (Go)                              | Dữ liệu của chuỗi dịch vụ.                                                                                                                                                                                                                                                                                                                                                           |
-| txSignatures       | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người gửi. Để biết thêm chi tiết, hãy xem [Xác thực chữ ký của giao dịch](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                                                        |
-| feePayer           | common.Address (Go)                                                                          | Địa chỉ của người trả phí.                                                                                                                                                                                                                                                                                                                                                           |
-| feePayerSignatures | []\{\*big.Int, \*big.Int, \*big.Int} (Go) | Chữ ký của người trả phí.                                                                                                                                                                                                                                                                                                                                                            |
+| Attribute          | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                 |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedChainDataAnchoringWithRatio. This must be 0x4a.                                                                                                                                                                                                                                                                               |
+| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                                          |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
+| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                                                    |
+| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                            |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                      |
+| input              | \[\]byte \(Go\)                                                                                  | Data of the service chain.                                                                                                                                                                                                                                                                                                                                                  |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                              |
+| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                                               |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                                                 |
 
-### Mã hóa RLP cho chữ ký của người gửi <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-Để tạo chữ ký của người gửi, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the sender, RLP serialization should be done like the following:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData, feeRatio]), chainid, 0, 0])
@@ -937,9 +937,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### Mã hóa RLP cho chữ ký của người trả phí <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-Để tạo chữ ký của người trả phí, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a signature of the fee payer, RLP serialization should be done like the following:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData, feeRatio]), feePayer, chainid, 0, 0])
@@ -947,9 +947,9 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
 
-Để tạo một SenderTxHash, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a SenderTxHash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -958,9 +958,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, feeRa
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### Mã hóa RLP cho hàm băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
 
-Để tạo một hàm băm giao dịch, quá trình tuần tự hóa RLP phải diễn ra như sau:
+To make a transaction hash, RLP serialization should be done like the following:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -971,9 +971,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, feeRatio, t
 TxHash = keccak256(TxHashRLP)
 ```
 
-### Mã hóa RLP (Ví dụ) <a id="rlp-encoding-example"></a>
+### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
-Phần dưới đây cho thấy kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+The following shows the result of RLP serialization and the transaction object:
 
 ```javascript
 ChainID 0x01
@@ -1008,9 +1008,9 @@ SenderTxHash 0xa0670c01fe39feb2d2442adf7df1957ade3c5abcde778fb5edf99c80c06aa53c
 	Hex:           4af90177128505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000405800658f845f84326a0c612a243bcb3b98958e9cce1a0bc0e170291b33a7f0dbfae4b36dafb5806797da00c734423492ecc21cc53238147c359676fcec43fcc2a0e021d87bb1da49f0abf9433f524631e573329a550296f595c820d6c65213ff845f84325a0a3e40598b67e2bcbaa48fdd258b9d1dcfcc9cc134972560ba042430078a769a5a06707ea362e588e4e5869cffcd5a058749d823aeff13eb95dc1146faff561df32
 ```
 
-### Kết quả đầu ra RPC (Example) <a id="rpc-output-example"></a>
+### RPC Output \(Example\) <a id="rpc-output-example"></a>
 
-Phần dưới đây cho thấy một đối tượng giao dịch được trả về qua JSON RPC.
+The following shows a transaction object returned via JSON RPC.
 
 ```javascript
 {
