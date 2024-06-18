@@ -1,6 +1,6 @@
 # caver.abi
 
-Gói `caver.abi` cho phép bạn giải mã và mã hóa các tham số bằng ABI (Giao diện nhị phân ứng dụng). Gói này dùng để gọi các hàm của một hợp đồng thông minh đã triển khai.
+The `caver.abi` package allows you to decode and encode parameters with an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart contracts.
 
 ## encodeFunctionSignature <a id="encodefunctionsignature"></a>
 
@@ -8,21 +8,21 @@ Gói `caver.abi` cho phép bạn giải mã và mã hóa các tham số bằng A
 caver.abi.encodeFunctionSignature(functionSignature)
 ```
 
-Mã hóa chữ ký hàm thành chữ ký ABI - là 4 byte đầu tiên của hàm băm sha3 của tên hàm bao gồm các loại tham số.
+Encodes the function signature to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including parameter types.
 
-**Tham số**
+**Parameters**
 
-| Tên               | type               | Mô tả                                                                                                                                                                                    |
-| ----------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| functionSignature | chuỗi \| đối tượng | Chữ ký hàm hoặc đối tượng giao diện JSON của hàm cần mã hóa. Nếu đây là một chuỗi thì chuỗi này phải ở dạng `function(type, type,...)`, vd: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| Name              | Type               | Description                                                                                                                                                                                                                                                |
+| ----------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| functionSignature | string \\| object | The function signature or the JSON interface object of the function to encode. If this is a string, it has to be in the form `function(type, type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
-**Giá trị trả về**
+**Return Value**
 
-| type  | Mô tả               |
-| ----- | ------------------- |
-| chuỗi | Chữ ký ABI của hàm. |
+| Type   | Description                                        |
+| ------ | -------------------------------------------------- |
+| string | The ABI signature of the function. |
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 // From a JSON interface object
@@ -50,21 +50,21 @@ Mã hóa chữ ký hàm thành chữ ký ABI - là 4 byte đầu tiên của hà
 caver.abi.encodeEventSignature(eventSignature)
 ```
 
-Mã hóa chữ ký sự kiện thành chữ ký ABI - là hàm băm sha3 của tên sự kiện bao gồm các loại tham số đầu vào.
+Encodes the event signature to its ABI signature, which is the sha3 hash of the event name including input parameter types.
 
-**Tham số**
+**Parameters**
 
-| Tên            | type               | Mô tả                                                                                                                                                                                     |
-| -------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eventSignature | chuỗi \| đối tượng | Chữ ký sự kiện hoặc đối tượng giao diện JSON của sự kiện cần mã hóa. Nếu đây là một chuỗi thì chuỗi này phải ở dạng `event(type,type,...)`, vd: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| Name           | Type               | Description                                                                                                                                                                                                                                   |
+| -------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eventSignature | string \\| object | The event signature or the JSON interface object of the event to encode. If this is a string, it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                   |
-| ----- | ----------------------- |
-| chuỗi | Chữ ký ABI của sự kiện. |
+| Type   | Description                                     |
+| ------ | ----------------------------------------------- |
+| string | The ABI signature of the event. |
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 // From a JSON interface object
@@ -92,24 +92,24 @@ Mã hóa chữ ký sự kiện thành chữ ký ABI - là hàm băm sha3 của t
 caver.abi.encodeParameter(type, parameter)
 ```
 
-Mã hóa một tham số dưới dạng ABI dựa trên loại của tham số đó.
+Encodes a parameter based on its type to its ABI representation.
 
-**Tham số**
+**Parameters**
 
-| Tên       | Loại              | Mô tả                                                                                                             |
-| --------- | ------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| type      | chuỗi \| đối tượng | Xem danh sách các loại tham số tại  [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| parameter | Hỗn hợp            | Tham số thực tế để mã hóa.                                                                                        |
+| Name      | Type               | Description                                                                                                                                             |
+| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type      | string \\| object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
+| parameter | Mixed              | The actual parameter to encode.                                                                                                         |
 
-**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                              |
-| ----- | ---------------------------------- |
-| chuỗi | Tham số được mã hóa dưới dạng ABI. |
+| Type   | Description                                |
+| ------ | ------------------------------------------ |
+| string | The ABI encoded parameter. |
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 > caver.abi.encodeParameter('uint256', '2345675643')
@@ -144,24 +144,24 @@ Mã hóa một tham số dưới dạng ABI dựa trên loại của tham số �
 caver.abi.encodeParameters(typesArray, parameters)
 ```
 
-Mã hóa các tham số hàm dựa trên đối tượng giao diện JSON của các tham số đó.
+Encodes function parameters based on its JSON interface object.
 
-**Tham số**
+**Parameters**
 
-| Tên        | Loại             | Mô tả                                                                                                                                                        |
-| ---------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Mảng \| đối tượng | Một mảng có các loại hoặc giao diện JSON của hàm. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| Tham số    | Mảng              | Các tham số để mã hóa.                                                                                                                                       |
+| Name       | Type              | Description                                                                                                                                                                                        |
+| ---------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typesArray | Array \\| object | An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| parameters | Array             | The parameters to encode.                                                                                                                                                          |
 
-**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                  |
-| ----- | -------------------------------------- |
-| chuỗi | Các tham số được mã hóa dưới dạng ABI. |
+| Type   | Description                                 |
+| ------ | ------------------------------------------- |
+| string | The ABI encoded parameters. |
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 > caver.abi.encodeParameters(['uint256','string'], ['2345675643', 'Hello!%'])
@@ -206,22 +206,22 @@ Mã hóa các tham số hàm dựa trên đối tượng giao diện JSON của 
 caver.abi.encodeFunctionCall(jsonInterface, parameters)
 ```
 
-Mã hóa lệnh gọi hàm bằng cách sử dụng đối tượng giao diện JSON và các tham số đã cho.
+Encodes a function call using its JSON interface object and given parameters.
 
-**Tham số**
+**Parameters**
 
-| Tên           | Loại     | Mô tả                                 |
-| ------------- | --------- | ------------------------------------- |
-| jsonInterface | đối tượng | Đối tượng giao diện JSON của một hàm. |
-| Tham số       | Mảng      | Các tham số để mã hóa.                |
+| Name          | Type   | Description                                              |
+| ------------- | ------ | -------------------------------------------------------- |
+| jsonInterface | object | The JSON interface object of a function. |
+| parameters    | Array  | The parameters to encode.                |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                                 |
-| ----- | ----------------------------------------------------- |
-| chuỗi | Lệnh gọi hàm được mã hóa ABI là chữ ký hàm + tham số. |
+| Type   | Description                                                                                 |
+| ------ | ------------------------------------------------------------------------------------------- |
+| string | The ABI encoded function call, which means function signature + parameters. |
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 > caver.abi.encodeFunctionCall({
@@ -244,24 +244,24 @@ Mã hóa lệnh gọi hàm bằng cách sử dụng đối tượng giao diện 
 caver.abi.decodeFunctionCall(abi, functionCall)
 ```
 
-Giải mã lệnh gọi hàm từ đối tượng abi của hàm hoặc chuỗi abi của hàm và trả về các tham số.
+Decodes a function call from its abi object of a function or function abi string and returns parameters.
 
-**LƯU Ý** `caver.abi.decodeFunctionCall` được hỗ trợ kể từ caver-js phiên bản [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**NOTE** `caver.abi.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
-**Tham số**
+**Parameters**
 
-| Tên          | Loại     | Mô tả                           |
-| ------------ | --------- | ------------------------------- |
-| abi          | đối tượng | Đối tượng abi của hàm.          |
-| functionCall | chuỗi     | Chuỗi lệnh gọi hàm được mã hóa. |
+| Name         | Type   | Description                                       |
+| ------------ | ------ | ------------------------------------------------- |
+| abi          | object | The abi object of a function.     |
+| functionCall | string | The encoded function call string. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại     | Mô tả                                                                                                                                                       |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| đối tượng | Một đối tượng bao gồm các tham số đơn giản. Bạn có thể sử dụng `result[0]` được cung cấp để có thể truy cập giống như một mảng theo thứ tự của các tham số. |
+| Type   | Description                                                                                                                                                                   |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 > caver.abi.decodeFunctionCall({
@@ -290,24 +290,24 @@ Result {
 caver.abi.decodeParameter(type, hexstring)
 ```
 
-Giải mã tham số được mã hóa dưới dạng ABI thành loại JavaScript của tham số đó.
+Decodes an ABI encoded parameter to its JavaScript type.
 
-**Tham số**
+**Parameters**
 
-| Tên       | Loại              | Mô tả                                                                                                            |
-| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| type      | chuỗi \| đối tượng | Xem danh sách các loại tham số tại [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| hexstring | Mảng               | Mã byte ABI để giải mã.                                                                                          |
+| Name      | Type               | Description                                                                                                                                            |
+| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type      | string \\| object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| hexstring | Array              | The ABI byte code to decode.                                                                                                           |
 
-**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại   | Mô tả                 |
-| ------- | --------------------- |
-| Hỗn hợp | Tham số được giải mã. |
+| Type  | Description                            |
+| ----- | -------------------------------------- |
+| Mixed | The decoded parameter. |
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 > caver.abi.decodeParameter('uint256', '0x0000000000000000000000000000000000000000000000000000000000000010')
@@ -341,24 +341,24 @@ Giải mã tham số được mã hóa dưới dạng ABI thành loại JavaScri
 caver.abi.decodeParameters(typesArray, hexstring)
 ```
 
-Giải mã các tham số được mã hóa dưới dạng ABI thành loại JavaScript của các tham số đó.
+Decodes ABI encoded parameters to its JavaScript types.
 
-**Tham số**
+**Parameters**
 
-| Tên        | Loại             | Mô tả                                                                                                                                                                                  |
-| ---------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typesArray | Mảng \| đối tượng | Một mảng có nhiều loại hoặc một mảng các kết quả đầu ra của giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html). |
-| hexstring  | chuỗi             | Mã byte ABI để giải mã.                                                                                                                                                                |
+| Name       | Type              | Description                                                                                                                                                                                            |
+| ---------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typesArray | Array \\| object | An array with types or an array of JSON interface outputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| hexstring  | string            | The ABI byte code to decode.                                                                                                                                                           |
 
-**LƯU Ý** Loại `tuple` được hỗ trợ kể từ caver-js phiên bản [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). Để biết thêm thông tin chi tiết về loại `tuple`, vui lòng tham khảo [Tài liệu về solidity](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại     | Mô tả                                            |
-| --------- | ------------------------------------------------ |
-| đối tượng | Đối tượng kết quả chứa các tham số được giải mã. |
+| Type   | Description                                                          |
+| ------ | -------------------------------------------------------------------- |
+| object | The result object containing the decoded parameters. |
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 > caver.abi.decodeParameters(['string', 'uint256'], '0x000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000ea000000000000000000000000000000000000000000000000000000000000000848656c6c6f212521000000000000000000000000000000000000000000000000')
@@ -436,23 +436,23 @@ Result {
 caver.abi.decodeLog(inputs, hexstring, topics)
 ```
 
-Giải mã dữ liệu bản ghi được mã hóa dưới dạng ABI và dữ liệu chủ đề được lập chỉ mục.
+Decodes ABI encoded log data and indexed topic data.
 
-**Tham số**
+**Parameters**
 
-| Tên       | Loại | Mô tả                                                                                                                                                                                                                                           |
-| --------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| inputs    | Mảng  | Một mảng đầu vào giao diện JSON. Xem danh sách các loại trong [tài liệu về solidity](http://solidity.readthedocs.io/en/develop/types.html).                                                                                                     |
-| hexstring | chuỗi | Mã byte ABI trong trường `data` của bản ghi.                                                                                                                                                                                                    |
-| chủ đề    | Mảng  | Một mảng các chủ đề tham số chỉ mục của bản ghi. Mảng không có chủ đề[0] nếu là sự kiện không ẩn danh, nếu không, mảng sẽ có chủ đề[0]. |
+| Name      | Type   | Description                                                                                                                                                                                                                                                                                |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| inputs    | Array  | An array of JSON interface inputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types.                                                                                                             |
+| hexstring | string | The ABI byte code in the `data` field of a log.                                                                                                                                                                                                                            |
+| topics    | Array  | An array of the index parameter topics of the log. This array doesn't have topic[0] if it is a non-anonymous event, or otherwise, it has topic[0]. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại     | Mô tả                                      |
-| --------- | ------------------------------------------ |
-| đối tượng | Đối tượng kết quả chứa bản ghi đã giải mã. |
+| Type   | Description                                                    |
+| ------ | -------------------------------------------------------------- |
+| object | The result object containing the decoded logs. |
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 > caver.abi.decodeLog([{
@@ -485,23 +485,23 @@ Result {
 caver.abi.encodeContractDeploy(jsonInterface, hexstring [, params])
 ```
 
-Mã hóa bytecode hợp đồng thông minh với các đối số của hàm tạo.
+Encodes smart contract bytecode with the arguments of the constructor.
 
-**Tham số**
+**Parameters**
 
-| Tên           | Loại   | Mô tả                                                           |
-| ------------- | ------- | --------------------------------------------------------------- |
-| jsonInterface | Mảng    | Giao diện JSON của hợp đồng.                                    |
-| hexstring     | chuỗi   | Một bytecode của hợp đồng thông minh sẽ được triển khai.        |
-| params        | Hỗn hợp | (tùy chọn) Các đối số để chuyển đến hàm tạo. |
+| Name          | Type   | Description                                                                         |
+| ------------- | ------ | ----------------------------------------------------------------------------------- |
+| jsonInterface | Array  | The JSON interface of the contract.                                 |
+| hexstring     | string | A bytecode of smart contract to be deployed.                        |
+| params        | Mixed  | (optional) Arguments to pass to the constructor. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                                                                                       |
-| ----- | ----------------------------------------------------------------------------------------------------------- |
-| chuỗi | Việc triển khai hợp đồng thông minh được mã hóa dưới dạng ABI với các đối số hàm tạo là byteCode + tham số. |
+| Type   | Description                                                                                                              |
+| ------ | ------------------------------------------------------------------------------------------------------------------------ |
+| string | The ABI encoded smart contract deployment with constructor arguments, which means byteCode + parameters. |
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 // There is no argument for constructor
