@@ -64,7 +64,7 @@ npx thirdweb create --contract
 
    ii. 선호하는 프레임워크를 선택합니다: **Hardhat** 또는 **Foundry**.
 
-   iii. Name your smart contract.
+   iii. 스마트 컨트랙트의 이름을 지정합니다.
 
    iv. 기본 컨트랙트 유형을 선택합니다: **Empty**, **ERC20**, **ERC721**, 또는 **ERC1155**. 원하는 **extensions**을 추가합니다. 이 튜토리얼에서는 ERC721을 선택하고 확장을 없음으로 설정하겠습니다.
 
@@ -113,7 +113,7 @@ npx thirdweb deploy
 
 - 프레임워크(hardhat, foundry)를 감지합니다.
 - 현재 디렉토리에 있는 모든 컨트랙트를 컴파일합니다.
-- allows you to select which contract(s) you wish to deploy.
+- 배포하고자 하는 컨트랙트를 선택할 수 있습니다.
 - 컴파일된 스마트 컨트랙트 코드(애플리케이션 바이너리 인터페이스 또는 ABI 형태)를 IPFS에 업로드합니다.
 
 2. 배포가 완료되면 대시보드 인터페이스가 열리고 나머지 파라미터를 입력할 수 있습니다.
