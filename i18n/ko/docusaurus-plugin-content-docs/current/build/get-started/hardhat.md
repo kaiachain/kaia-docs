@@ -138,7 +138,7 @@ module.exports = {
 
 ## SBT 스마트 컨트랙트 생성
 
-이 섹션에서는 커뮤니티에서 검증된 코드의 견고한 토대 위에 구축된 안전한 스마트 컨트랙트 개발을 위한 라이브러리인 [Klaytn 컨트랙트](https://github.com/klaytn/klaytn-contracts)를 사용하게 됩니다. 이것은 오픈 제플린 컨트랙트의 포크입니다.
+이 섹션에서는 커뮤니티에서 검증된 코드의 견고한 토대 위에 구축된 안전한 스마트 컨트랙트 개발을 위한 라이브러리인 [Klaytn 컨트랙트](https://github.com/klaytn/klaytn-contracts)를 사용하게 됩니다. It is a fork of open zeppelin contracts.
 
 > 참고: '개발 환경 설정' 섹션의 **3단계**에서 이미 이 라이브러리를 설치했습니다.
 
@@ -180,7 +180,7 @@ contract SoulBoundToken is KIP17, Ownable {
 
 **코드 연습**
 
-이것이 여러분의 첫 스마트 컨트랙트입니다. **1줄**은 Hardhat이 Solidity 버전 0.8.7 이상을 사용한다는 것을 보여줍니다. 그 외에는 KIP17.sol 및 기타 지원 컨트랙트를 가져옵니다. **6~12줄**에서는 KIP17을 계승하는 스마트 컨트랙트가 생성되었습니다. 또한 생성자에서 토큰 이름과 심볼이 전달되었습니다.
+This is your smart contract. **1줄**은 Hardhat이 Solidity 버전 0.8.7 이상을 사용한다는 것을 보여줍니다. 그 외에는 KIP17.sol 및 기타 지원 컨트랙트를 가져옵니다. **6~12줄**에서는 KIP17을 계승하는 스마트 컨트랙트가 생성되었습니다. 또한 생성자에서 토큰 이름과 심볼이 전달되었습니다.
 
 위 코드에서 볼 수 있듯이 토큰 이름과 심볼은 각각 **SoulBoundToken**과 **SBT**로 설정되어 있습니다. 토큰 이름과 심볼은 원하는 대로 변경할 수 있습니다.
 
@@ -300,7 +300,7 @@ npx hardhat test test/sbtTest.ts
 
 테스트에 대한 자세한 안내는 [Hardhat 테스트](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)를 참조하세요.
 
-## 스마트 컨트랙트 배포하기
+## Deploying the smart contract
 
 스크립트는 블록체인 네트워크에 컨트랙트를 배포하는 데 도움이 되는 JavaScripts/Typescript 파일입니다. 이 섹션에서는 스마트 컨트랙트를 위한 스크립트를 생성합니다.
 
@@ -347,7 +347,7 @@ npx hardhat run scripts/sbtDeploy.js --network baobab
 
 **Step 4**: Open [Klaytnscope](https://baobab.klaytnscope.com/) to check if the SBT token has been deployed successfully.
 
-**5단계**: 검색 필드에 배포된 컨트랙트 주소를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 컨트랙트가 표시됩니다.
+**5단계**: 검색 필드에 배포된 컨트랙트 주소를 복사하여 붙여넣고 Enter 키를 누릅니다. You should see the recently deployed contract.
 
 ![](/img/build/get-started/sbtKS.png)
 
