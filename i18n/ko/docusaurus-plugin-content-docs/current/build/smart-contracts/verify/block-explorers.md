@@ -2,33 +2,33 @@
 sidebar_label: Using Block Explorers
 ---
 
-# How to verify Smart Contracts Using Block Explorers
+# 블록 탐색기로 스마트 컨트랙트 검증하기
 
-## Introduction
+## 소개
 
-Usually, the deployer of a smart contract is the only party with access to the code that was actually deployed, and the public cannot read the source code of a contract until the deployer has verified it. However, this is where contract verification comes in as an important step in the smart-contract development cycle, as it helps improve the transparency (for users), convenience (for developers), and security of deployed contracts.
+일반적으로 스마트 컨트랙트 배포자는 실제로 배포된 코드에 접근할 수 있는 유일한 당사자이며, 일반인은 배포자가 검증하기 전까지는 컨트랙트의 소스 코드를 읽을 수 없습니다. 그러나 스마트 컨트랙트 개발 주기에서 중요한 단계인 컨트랙트 검증은 배포된 컨트랙트의 투명성(사용자), 편의성(개발자), 보안을 개선하는 데 도움이 되기 때문에 중요한 역할을 합니다.
 
-Having said that, once a smart contract is validated, block explorers like Klaytnscope and Klaytnfinder also make it possible for the public to interact with the contract's public methods using the block explorer's user interface. This is in addition to the public having direct access to the verified contract source code.
+스마트 컨트랙트의 유효성이 확인되면 Kaiascope와 Kaiafinder와 같은 블록 탐색기를 통해 대중이 블록 탐색기의 사용자 인터페이스를 사용하여 컨트랙트의 공개 메서드와 상호작용할 수 있습니다. 이는 대중이 검증된 컨트랙트 소스 코드에 직접 접근할 수 있는 것 외에도 추가적인 기능입니다.
 
-In this guide, we'll take a look at how to use block explorers to verify deployed smart contracts on the Klaytn Network.
+이 가이드에서는 블록 탐색기를 사용하여 Klaytn 네트워크에 배포된 스마트 컨트랙트를 검증하는 방법을 살펴보겠습니다.
 
-## Prerequisites
+## 전제조건
 
-- [Remix IDE](https://ide.klaytn.foundation/) and [Kaikas Wallet](https://kaikas.zendesk.com/hc/en-us/articles/6657796272793-How-do-I-install-PC-Kaikas-)
-- Enough test KLAY from [faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- [Remix IDE](https://ide.klaytn.foundation/) 및 [Kaikas Wallet](https://kaikas.zendesk.com/hc/en-us/articles/6657796272793-How-do-I-install-PC-Kaikas-)
+- [faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 충분한 테스트 KAIA 준비
 
-## Getting Started
+## 시작하기
 
-In this guide, we will be going over verifying both single contracts and multi-part contracts on the block explorers that exist in the Klaytn ecosystem, viz.:
+이 가이드에서는 카이아 생태계에 존재하는 블록 탐색기, 즉 다음과 같은 블록에서 단일 컨트랙트와 다중 컨트랙트를 모두 검증하는 방법을 살펴볼 것입니다:
 
-- [Klaytnscope](http://scope.klaytn.com)
-- [Klaytnfinder](https://www.klaytnfinder.io/)
+- [Kaiascope](http://scope.klaytn.com)
+- [Kaiafinder](https://www.klaytnfinder.io/)
 
-Without further ado, let's get started!
+더 이상 고민할 필요 없이 시작해 봅시다!
 
-## Deploying a single Contract
+## 단일 컨트랙트 배포하기
 
-To verify a smart contract, you need to deploy the contract first on the target network. Hence, for the sake of this guide, we will be deploying the contract to Klaytn Baobab Testnet. Also, in this tutorial, we will be deploying a simple counter contract named `Counter.sol` on Remix IDE. The code is shown below:
+스마트 컨트랙트를 검증하려면 먼저 컨트랙트를 대상 네트워크에 배포해야 합니다. 따라서 이 가이드에서는 카이아 Kairos 테스트넷에 컨트랙트를 배포하겠습니다. 또한, 이 튜토리얼에서는 'Counter.sol'이라는 간단한 카운터 컨트랙트를 Remix IDE에 배포할 것입니다. 코드는 아래와 같습니다:
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -52,35 +52,35 @@ contract Counter {
 
 :::note
 
-You can check this page for a tutorial on deploying smart contracts using [libraries](../../../references/sdk/sdk.md) on Klaytn Baobab Testnet. You may also use a developer tool such as [Hardhat](../../get-started/hardhat.md), [Foundry](../deploy/foundry.md), [Remix](../deploy/deploy.md#remix-ide)  or another tool if preferred, to deploy the smart contract to Klaytn Baobab Testnet.
+이 페이지에서 카이아 Kairos 테스트넷에서 [라이브러리](../../references/sdk/sdk.md)를 사용하여 스마트 컨트랙트를 배포하는 튜토리얼을 확인할 수 있습니다. 또한, [하드햇](../get-started/hardhat.md), [Foundry](../smart-contracts/deploy/foundry.md), [Remix](../smart-contracts/deploy/deploy.md#remix-ide) 또는 다른 개발자 도구를 사용하여 카이아 Kairos 테스트넷에 스마트 컨트랙트를 배포할 수 있습니다.
 
 :::
 
-## Parameters for single contract verification
+## 단일 컨트랙트 검증을 위한 파라미터
 
-Verifying a contract on the block explorers requires some parameters, and these must be considered while deploying the smart contract. The following are some details related to the contract's compiler and deployment in order to verify a contract successfully:
+블록 탐색기에서 컨트랙트를 검증하려면 몇 가지 매개변수가 필요하며, 스마트 컨트랙트를 배포할 때 이를 고려해야 합니다. 다음은 컨트랙트를 성공적으로 검증하기 위해 컨트랙트의 컴파일러 및 배포와 관련된 몇 가지 세부 사항입니다:
 
 Remix IDE :
 
-- On Remix IDE, navigate to the **Solidity compiler tab**.
+- Remix IDE에서 **Solidity compiler 탭**으로 이동합니다.
 
-  - Observe the **compiler version** used to compile and deploy the contract.
-  - Observe the **Open Source License Type** used in the contract. This means the SPDX license identifier used at the beginning of the Solidity source file. In the `Counter.sol` file we used `// SPDX-License-Identifier: MIT`
-  - Observe the **EVM version** used for deploying contracts.
-  - (Optional) If **optimization** is enabled during compilation, take note of the value of the optimization runs parameter
+  - 컨트랙트를 컴파일하고 배포하는 데 사용된 **compiler version**을 확인합니다.
+  - 컨트랙트에 사용된 **Open Source License Type**을 확인합니다. 이는 Solidity 소스 파일의 시작 부분에 사용된 SPDX 라이선스 식별자를 의미합니다. Counter.sol`파일에서는`// SPDX-License-Identifier: MIT\\`를 사용했습니다.
+  - 컨트랙트 배포에 사용된 **EVM version**을 확인합니다.
+  - (선택 사항) 컴파일 중에 **optimization**이 활성화된 경우, 최적화 실행 파라미터의 값을 기록해 두세요.
 
   ![](/img/build/tutorials/counter-veri-parameters.png)
 
-- On Remix IDE, navigate to **Klaytn tab**.
+- Remix IDE에서 **Kaia 탭**으로 이동합니다.
 
-  - (Optional) If the contract constructor method accepts arguments, take note of the [ABI-encoded form](https://docs.soliditylang.org/en/develop/abi-spec.html) of the constructor arguments
-  - Take note of the contract address of the smart contract on the **Deployed Contracts** tab after successful deployment.
+  - (선택 사항) 컨트랙트 생성자 메서드가 인수를 허용하는 경우, 생성자 인수의 [ABI 인코딩된 형식](https://docs.soliditylang.org/en/develop/abi-spec.html)을 기록해둡니다.
+  - 배포에 성공한 후 **Deployed Contracts** 탭에서 스마트 컨트랙트의 컨트랙트 주소를 기록해 두세요.
 
   ![](/img/build/tutorials/counter-veri-parametersII.png)
 
-## Deploying a multi-part contract
+## 여러 부분으로 구성된 컨트랙트 배포하기
 
-It is important to note that deploying a multi-part contract involves the same steps as deploying a single contract. For the sake of this guide, we will be deploying a simple KIP7 airdrop contract named `airdropToken.sol`. The code is shown below:
+여러 부분으로 구성된 컨트랙트를 배포하는 것은 단일 컨트랙트를 배포하는 것과 동일한 단계를 포함한다는 점에 유의해야 합니다. 이 가이드에서는 'airdropToken.sol'이라는 간단한 KIP7 에어드랍 컨트랙트를 배포하겠습니다. 코드는 아래와 같습니다:
 
 ```solidity
 //SPDX-License-Identifier: MIT
@@ -114,50 +114,50 @@ contract TokenAirdrop is KIP7, Ownable {
 }
 ```
 
-## Parameters for multi-part contract verification
+## 멀티 파트 컨트랙트 검증을 위한 파라미터
 
-The parameters for verifying a multi-part contract are the same as those for a single contract. However, because they are made up of multiple dependent contracts, we need to pre-process all dependencies of the contract into a single solidity file. This preprocessing is usually referred to as smart contract flattening.
+다중 컨트랙트 검증을 위한 파라미터는 단일 컨트랙트 검증을 위한 파라미터와 동일합니다. 그러나 다중 컨트랙트는 여러 개의 종속 컨트랙트로 구성되어 있기 때문에 컨트랙트의 모든 종속성을 하나의 Solidity 파일로 사전 처리해야 합니다. 이러한 전처리를 보통 스마트 컨트랙트 평탄화라고 합니다.
 
-For this reason, we will have to flatten the contract so it can be verified using the new flattened Solidity file on the block explorer.
+따라서 블록 탐색기에서 새로 평탄화된 Solidity 파일을 사용하여 컨트랙트를 검증할 수 있도록 컨트랙트를 평탄화해야 합니다.
 
 Remix IDE:
 
-- On Remix IDE, navigate to the **File explorer tab**.
+- Remix IDE에서 **File explorer 탭**으로 이동합니다.
 
-  - Select the newly created contract under the **contracts** folder
-  - Click or tap with two fingers to see all commands available on the contract.
-  - Select **flatten**
+  - **contracts** 폴더에서 새로 생성한 컨트랙트를 선택합니다.
+  - 두 손가락으로 클릭하거나 탭하여 컨트랙트에서 사용 가능한 모든 명령을 확인합니다.
+  - **flatten**을 선택합니다.
 
   ![](/img/build/tutorials/airdropToken-flattened.png)
 
-  - Once code is flattened, you will see a new contract named `airdropTokens_flattened.sol`.
+  - 코드가 평탄화되면 `airdropTokens_flattened.sol`이라는 이름의 새 컨트랙트가 표시됩니다.
 
   ![](/img/build/tutorials/airdropToken-flattened-file.png)
 
 :::note
 
-There are different tools for flattening a multi-part smart contract into a single Solidity file, such as [Hardhat Flattener](https://hardhat.org/hardhat-runner/docs/advanced/flattening). Kindly refer to the respective smart contract flattening tool's documentation for more detailed instructions on its usage.
+[Hardhat Flattener](https://hardhat.org/hardhat-runner/docs/advanced/flattening)와 같이 여러 부분으로 구성된 스마트 컨트랙트를 단일 Solidity 파일로 평탄화하는 다양한 도구가 있습니다. 자세한 사용법은 각 스마트 컨트랙트 평탄화 도구의 설명서를 참조하시기 바랍니다.
 
 :::
 
-## Verifying the Contract
+## 컨트랙트 검증
 
-Having obtained all of our verification parameters, we will go over the steps for verifying a single smart contract (Counter.sol) and a multi-part smart contract (airdropTokens.sol) on the block explorer in this section.
+모든 검증 매개변수를 얻었으면, 이 섹션에서는 블록 탐색기에서 단일 스마트 컨트랙트(Counter.sol)와 여러 부분으로 구성된 스마트 컨트랙트(airdropTokens.sol)를 검증하는 단계를 살펴보겠습니다.
 
-### 1. Klaytnscope
+### 1. Kaiascope
 
-To verify a single contract and multi-part contracts on Klaytnscope, follow the steps below:
+Kaiascope에서 단일 컨트랙트와 다중 파트 컨트랙트를 확인하려면 아래 단계를 따르세요:
 
-#### 1.1 Verifying a single contract
+#### 1.1 단일 컨트랙트 검증하기
 
-1. Goto the search bar of [Klaytnscope](https://baobab.klaytnscope.com) and paste the deployed contract address.
-2. Navigate to the **contract tab** on that page.
-3. Click on the **Match Contract Source Code** link to submit contract code for verification.
+1. [Kaiascope](https://baobab.klaytnscope.com)의 검색창으로 이동하여 배포된 컨트랙트 주소를 붙여넣습니다.
+2. 해당 페이지의 **contract 탭**으로 이동합니다.
+3. **Match Contract Source Code** 링크를 클릭하여 확인을 위해 컨트랙트 코드를 제출합니다.
 
 ![](/img/build/tutorials/counter-contract-tab.png)
 
-4. On the contract verification page, make sure your account is connected to either Kaikas or Metamask. For this guide, we will be using Kaikas.
-5. Fill in the contract address in the **contract address field**. Note: This field is usually filled with the contract address automatically.
+4. 컨트랙트 확인 페이지에서 계정이 Kaikas 또는 Metamask 중 하나에 연결되어 있는지 확인합니다. 이 가이드에서는 Kaikas를 사용하겠습니다.
+5. **contract address 필드**에 계약 주소를 입력합니다. Note: This field is usually filled with the contract address automatically.
 6. Select the **compiler version** used for the `Counter.sol` example.
 7. Select the **Open Source License Type** used for the `Counter.sol` example. For `Counter.sol` example, select the option, **MIT License (MIT)**. If there was none used, select **No License (None)**.
 8. In the **Source Code field**, select **Source Text** and paste the source code for `Counter.sol` in the text-field.
