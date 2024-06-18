@@ -20,7 +20,7 @@ $ ken account new --password <passwordfile> --datadir <DATADIR>
 $ ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
-**`경고`**: 비밀번호 파일은 테스트용으로만 사용해야 하며, 비밀번호를 파일에 저장하거나 다른 방식으로 노출하는 것은 좋지 않습니다. 비밀번호 파일에 비밀번호 플래그를 사용하는 경우, 본인 외의 다른 사람이 파일을 읽거나 나열할 수 없도록 하는 것이 가장 좋습니다. 다음과 같이 진행합니다.
+**`경고`**: 비밀번호 파일은 테스트용으로만 사용해야 하며, 비밀번호를 파일에 저장하거나 다른 방식으로 노출하는 것은 좋지 않습니다. 비밀번호 파일에 비밀번호 플래그를 사용하는 경우, 본인 외의 다른 사람이 파일을 읽거나 나열할 수 없도록 하는 것이 가장 좋습니다. You achieve this with:
 
 ```bash
 $ touch /path/to/password
