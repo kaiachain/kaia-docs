@@ -27,4 +27,5 @@ Truffle is a great tool for compiling and deploying contract files.
 - Type `$ nvm use 10.16.0` to come back node v10.16.0 after using truffle.
 
 ⚠ If the version is lower than 5, install the truffle version 5.\
+⚠ If the version is lower than 5, install the truffle version 5.\
 `$ sudo npm install -g truffle@5`
