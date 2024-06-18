@@ -65,7 +65,7 @@ Remix IDE :
 - Remix IDE에서 **Solidity compiler 탭**으로 이동합니다.
 
   - 컨트랙트를 컴파일하고 배포하는 데 사용된 **compiler version**을 확인합니다.
-  - 컨트랙트에 사용된 **Open Source License Type**을 확인합니다. 이는 Solidity 소스 파일의 시작 부분에 사용된 SPDX 라이선스 식별자를 의미합니다. Counter.sol`파일에서는`// SPDX-License-Identifier: MIT\`를 사용했습니다.
+  - 컨트랙트에 사용된 **Open Source License Type**을 확인합니다. 이는 Solidity 소스 파일의 시작 부분에 사용된 SPDX 라이선스 식별자를 의미합니다. Counter.sol`파일에서는`// SPDX-License-Identifier: MIT\\`를 사용했습니다.
   - 컨트랙트 배포에 사용된 **EVM version**을 확인합니다.
   - (선택 사항) 컴파일 중에 **optimization**이 활성화된 경우, 최적화 실행 파라미터의 값을 기록해 두세요.
 
@@ -159,9 +159,9 @@ Klaytnscope에서 단일 컨트랙트와 다중 파트 컨트랙트를 확인하
 4. 컨트랙트 확인 페이지에서 계정이 Kaikas 또는 Metamask 중 하나에 연결되어 있는지 확인합니다. 이 가이드에서는 Kaikas를 사용하겠습니다.
 5. **contract address 필드**에 계약 주소를 입력합니다. 참고: 이 필드는 일반적으로 계약 주소로 자동으로 채워집니다.
 6. `Counter.sol` 예제에 사용된 **compiler version**을 선택합니다.
-7. 'Counter.sol' 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
+7. `Counter.sol` 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
 8. **Source Code 필드**에서 **Source Text**를 선택하고 텍스트 필드에 `Counter.sol`의 소스 코드를 붙여넣습니다.
-9. 컴파일 시 활성화된 경우 **Optimization**에 대해 **True**를 선택하고, **Optimization Runs**에서 실행 횟수를 **200**으로 입력합니다.
+9. 컴파일 시 **Optimization**가 활성화된 경우 **True**를 선택하고, **Optimization Runs**의 실행 횟수를 **200**으로 입력합니다.
 10. 계약의 **EVM version**을 선택합니다. `Counter.sol` 예제의 경우, **Istanbul** 옵션을 선택합니다.
 11. 하단의 보안 문자를 클릭하고 **Sign and Submit** 버튼을 클릭하여 확인하고 확인을 시작합니다.
 
@@ -201,7 +201,7 @@ b. Solidity 파일
 
 ![](/img/build/tutorials/airdrop-full-verification.png)
 
-### 2. Klaytnfinder
+### 2. Kaiafinder
 
 클레이튼파인더에서 단일 컨트랙트 및 여러 개의 컨트랙트를 검증하려면 [컨트랙트 제출 요청 페이지](https://baobab.klaytnfinder.io/contracts)로 이동합니다. 단, 계정이 Kaikas 또는 Metamask에 연결되어 있는지 확인하고 아래 단계를 따르세요:
 
@@ -213,9 +213,9 @@ b. Solidity 파일
 2. 배포된 컨트랙트(Counter.sol)의 **contract address**를 입력합니다.
 3. Remix IDE에서 'Counter.sol'을 다운로드하여 **Source Code (Solidity File)** 필드에 업로드합니다.
 4. `Counter.sol` 예제에 사용된 **compiler version**을 선택합니다.
-5. `Counter.sol` 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
+5. 'Counter.sol' 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
 6. 컨트랙트의 **EVM version**을 선택합니다. `Counter.sol` 예제의 경우, **Istanbul** 옵션을 선택합니다.
-7. 컴파일 시 **Optimization**가 활성화된 경우 **True**를 선택하고, **Optimization Runs**의 실행 횟수를 **200**으로 입력합니다.
+7. 컴파일 시 활성화된 경우 **Optimization**에 대해 **True**를 선택하고, **Optimization Runs**에서 실행 횟수를 **200**으로 입력합니다.
 8. (선택 사항) 이 필드에 대한 ABI 인코딩된 생성자 인수를 가져오려면 [abi.hashex.org](http://abi.hashex.org)로 이동하여 아래 이미지에 따라 인코딩된 데이터를 가져옵니다:
 
 ![](/img/build/tutorials/abi-hashex.png)
