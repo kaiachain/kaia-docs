@@ -1,4 +1,4 @@
-# 사전 컴파일된 컨트랙트
+# Precompiled Contracts
 
 Klaytn provides several useful precompiled contracts, none of which are state-changing.
 These contracts are implemented in the platform itself as a native implementation, which means they are part of the Klaytn client specifications.
@@ -74,7 +74,7 @@ function RIPEMD160(bytes calldata data) public view returns (bytes20 h) {
 
 ## 주소 0x04: datacopy\(data\) <a id="address-0x-04-datacopy-data"></a>
 
-0x04 주소는 datacopy \(즉, 신원 함수\)를 구현합니다. 이 함수는 수정 없이 입력 데이터를 직접 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 인라인 어셈블리가 포함된 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
+0x04 주소는 datacopy \(즉, 신원 함수\)를 구현합니다. 이 함수는 수정 없이 입력 데이터를 직접 반환합니다. This precompiled contract is not supported by the Solidity compiler. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callDatacopy(bytes memory data) public returns (bytes memory) {
@@ -92,7 +92,7 @@ function callDatacopy(bytes memory data) public returns (bytes memory) {
 
 ## 주소 0x05: bigModExp\(base, exp, mod\) <a id="address-0x05-bigmodexp-base-exp-mod"></a>
 
-0x05 주소는 `base**exp % mod` 공식을 구현합니다. 주어진 데이터의 결과를 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다. 이 사전 컴파일된 컨트랙트는 임의의 길이의 입력을 지원하지만, 아래 코드에서는 고정된 길이의 입력을 예로 사용합니다.
+0x05 주소는 `base**exp % mod` 공식을 구현합니다. 주어진 데이터의 결과를 반환합니다. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract. 이 사전 컴파일된 컨트랙트는 임의의 길이의 입력을 지원하지만, 아래 코드에서는 고정된 길이의 입력을 예로 사용합니다.
 
 ```text
 function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public returns (bytes32 result) {
@@ -124,7 +124,7 @@ function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public r
 
 ## 주소 0x06: bn256Add\(ax, ay, bx, by\) <a id="address-0x-06-bn-256-add-ax-ay-bx-by"></a>
 
-주소 0x06은 네이티브 타원 커브 점 덧셈을 구현합니다. 이 주소는 커브 bn256에서 \(ax, ay\) 및 \(bx, by\)가 유효한 점인 `(ax, ay) + (bx, by)`를 나타내는 타원 커브 점을 반환합니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
+주소 0x06은 네이티브 타원 커브 점 덧셈을 구현합니다. 이 주소는 커브 bn256에서 \(ax, ay\) 및 \(bx, by\)가 유효한 점인 `(ax, ay) + (bx, by)`를 나타내는 타원 커브 점을 반환합니다. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public returns (bytes32[2] memory result) {
@@ -145,7 +145,7 @@ function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public ret
 
 ## 주소 0x07: bn256ScalarMul\(x, y, scalar\) <a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
 
-주소 0x07은 scalar 값으로 네이티브 타원 곡선 곱셈을 구현합니다. 이 주소는 `scalar * (x, y)`를 나타내는 타원 커브 포인트를 반환하며, \(x, y\)는 커브 bn256에서 유효한 커브 포인트입니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
+주소 0x07은 scalar 값으로 네이티브 타원 곡선 곱셈을 구현합니다. 이 주소는 `scalar * (x, y)`를 나타내는 타원 커브 포인트를 반환하며, \(x, y\)는 커브 bn256에서 유효한 커브 포인트입니다. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
@@ -165,7 +165,7 @@ function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns
 
 ## 주소 0x08: bn256Pairing\(a1, b1, a2, b2, a3, b3, ..., ak, bk\) <a id="address-0x-08-bn-256-pairing-a-1-b-1-a-2-b-2-a-3-b-3-ak-bk"></a>
 
-0x08 주소는 타원 곡선 파싱 연산을 구현하여 zkSNARK 검증을 수행합니다. 자세한 내용은 [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md)을 참조하세요. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
+0x08 주소는 타원 곡선 파싱 연산을 구현하여 zkSNARK 검증을 수행합니다. 자세한 내용은 [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md)을 참조하세요. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
@@ -187,7 +187,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 
 ## Address 0x09: blake2F\(rounds, h, m, t, f\) <a id="address-0x-09-blake2F-rounds-h-m-t-f"></a>
 
-0x09 주소는 BLAKE2b F 압축 기능을 구현합니다. 자세한 내용은 [EIP-152](https://eips.ethereum.org/EIPS/eip-152)를 참고하세요. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
+0x09 주소는 BLAKE2b F 압축 기능을 구현합니다. 자세한 내용은 [EIP-152](https://eips.ethereum.org/EIPS/eip-152)를 참고하세요. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, bytes8[2] memory t, bool f) public view returns (bytes32[2] memory) {
@@ -207,7 +207,7 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
 
 ## Address 0x0A: kzg\(data\) <a id="address-0x-0a-kzg-data"></a>
 
-The address 0x0A implements the KZG proof verification to a given value at a given point. For more information, see [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844). 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
+The address 0x0A implements the KZG proof verification to a given value at a given point. For more information, see [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844). This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callKzg(bytes memory data) public returns (bytes memory) {
@@ -224,7 +224,7 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## 주소 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
 
-0x3FD 주소는 지정된 문자열 `str`을 특정 파일에 인쇄하거나 로거 모듈에 전달합니다. For more information, see [debug_setVMLogTarget](../../../references/json-rpc/debug/set-vm-log-target). 이 사전 컴파일된 컨트랙트는 디버깅 목적으로만 사용해야 하며, 클레이튼 노드가 시작될 때 `--vmlog` 옵션을 활성화해야 한다는 점에 유의하세요. 또한, Klaytn 노드의 로그 레벨이 4 이상이어야 vmLog의 출력을 볼 수 있습니다. 이 사전 컴파일된 컨트랙트는 Solidity 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 미리 컴파일된 컨트랙트를 호출할 수 있습니다.
+0x3FD 주소는 지정된 문자열 `str`을 특정 파일에 인쇄하거나 로거 모듈에 전달합니다. For more information, see [debug_setVMLogTarget](../../../references/json-rpc/debug/set-vm-log-target). 이 사전 컴파일된 컨트랙트는 디버깅 목적으로만 사용해야 하며, 클레이튼 노드가 시작될 때 `--vmlog` 옵션을 활성화해야 한다는 점에 유의하세요. 또한, Klaytn 노드의 로그 레벨이 4 이상이어야 vmLog의 출력을 볼 수 있습니다. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {
