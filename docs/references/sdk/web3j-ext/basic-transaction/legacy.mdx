@@ -1,0 +1,206 @@
+TxTypeLegacyTransaction represents a type of transactions existed previously in Klaytn.
+
+\*\*This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
+
+<CH.Spotlight>
+
+<CH.Code>
+
+```java txTypeLegacyTransaction.java
+package org.web3j.example.transactions;
+
+import java.io.IOException;
+import java.math.BigInteger;
+import org.web3j.crypto.Credentials;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.RawTransaction;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+
+public class LegacyExample implements keySample {
+        /**
+         * 
+         */
+
+        public static void run() throws Exception {
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials klaycredentials = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+                Credentials credentials = Credentials.create(LEGACY_KEY_privkey);
+
+                BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+                BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+                String from = credentials.getAddress();
+                String to = "0x000000000000000000000000000000000000dead";
+                EthChainId EthchainId = web3j.ethChainId().send();
+                long chainId = EthchainId.getChainId().longValue();
+                BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+                                .getTransactionCount();
+                BigInteger value = BigInteger.valueOf(100);
+
+                // send legacy transaction with web3j-credentials
+                RawTransaction raw = KlayRawTransaction.createEtherTransaction(
+                                nonce,
+                                GAS_PRICE,
+                                GAS_LIMIT,
+                                to,
+                                value);
+
+                byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
+                String hexValue = Numeric.toHexString(signedMessage);
+                EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+                System.out.println(transactionResponse.getResult());
+
+                // send legacy transaction with web3j-ext klaycredentials
+                raw = KlayRawTransaction.createEtherTransaction(
+                                nonce,
+                                GAS_PRICE,
+                                GAS_LIMIT,
+                                to,
+                                value);
+
+                signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, klaycredentials);
+                hexValue = Numeric.toHexString(signedMessage);
+                transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+                System.out.println("TxHash : \n " + transactionResponse.getResult());
+                String txHash = transactionResponse.getResult();
+                int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
+                int DEFAULT_BLOCK_TIME = 1 * 1000;
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+                TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
+                                DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+                org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
+                                .waitForTransactionReceipt(txHash);
+                System.out.println("Receipt from eth_getTransactionReceipt : \n" + ethReceipt);
+                TransactionReceipt receipt = web3j.klayGetTransactionReceipt(txHash).send().getResult();
+                System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
+                web3j.shutdown();
+
+        }
+
+}
+```
+
+---
+
+```zsh output
+❯ java txTypeLegacyTransaction.java
+3.523785565427238379
+0xa02e0i90faef4323cb542312de9aac0
+```
+
+</CH.Code>
+
+---
+
+Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+
+```java txTypeLegacyTransaction.java focus=1:20
+
+```
+
+---
+Create a Web3j instance with the specified BAOBAB_URL
+
+```java txTypeLegacyTransaction.java focus=27
+
+```
+
+---
+Creating new credentials using the private key
+
+```java txTypeLegacyTransaction.java focus=28:29
+
+```
+---
+Gas **price** and **gas limit** settings
+
+```java txTypeLegacyTransaction.java focus=31:32
+
+```
+---
+Set the sender's **from** and receiver's **to** address
+
+```java txTypeLegacyTransaction.java focus=33,34
+
+```
+---
+Get the **chain ID** from the network
+
+```java txTypeLegacyTransaction.java focus=35:36
+
+```
+---
+Get the user's **nonce** from the network
+
+```java txTypeLegacyTransaction.java focus=37:38
+
+```
+---
+Define the **value** to transfer from sender to receiver
+
+```java txTypeLegacyTransaction.java focus=39
+
+```
+---
+Create a raw **transaction** using above params
+
+```java txTypeLegacyTransaction.java focus=42:47
+
+```
+---
+For **web3j-credentials**, sign transaction with with `KlayTransactionEncoder.signMessage` and encode to Hex string using `Numeric.toHexString`.
+
+```java txTypeLegacyTransaction.java focus=49:50
+
+```
+---
+Using `ethSendRawTransaction` method to send the signed transaction to the blockchain.
+
+```java txTypeLegacyTransaction.java focus=51:52
+
+```
+---
+For **web3j-ext klaycredentials**, create raw transaction with `KlayRawTransaction.createEtherTransaction`, sign it with `KlayTransactionEncoder.signMessage` and encode to Hex string using `Numeric.toHexString`.
+
+```java txTypeLegacyTransaction.java focus=54:63
+
+```
+---
+Using `ethSendRawTransaction` method to send the signed transaction to the blockchain.
+
+```java txTypeLegacyTransaction.java focus=64:66
+
+```
+---
+Get the receipt hash returned.
+
+<CH.Code>
+
+```java txTypeLegacyTransaction.java focus=67:76
+
+```
+---
+
+```zsh output
+❯ java txTypeLegacyTransaction.java
+0xa02e0i90faef4323cb542312de9aac0
+```
+
+</CH.Code>
+---
+Finally, Shut down web3j instance
+
+```java txTypeLegacyTransaction.java focus=77
+```
+
+</CH.Spotlight>

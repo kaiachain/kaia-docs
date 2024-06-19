@@ -1,0 +1,130 @@
+# Write
+You can make a **"transaction"** interacting with a Smart Contract when you **need to update some state ** in the contract.
+
+<CH.Spotlight>
+<CH.Code>
+
+```java WriteContractExample.java
+package org.web3j.example.contracts;
+
+import java.math.BigInteger;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.tx.gas.StaticGasProvider;
+
+public class WriteContractExample {
+    /**
+     * @throws Exception
+     * 
+     */
+    public static void run() throws Exception {
+
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials credentials = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+        String contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+        BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+        StaticGasProvider gasProvider = new StaticGasProvider(GAS_PRICE, GAS_LIMIT);
+        Counter counter = Counter.load(contractAddr, web3j, credentials.convertToCredentials(), gasProvider);
+
+        // Get number before Contract Write
+        System.out.println("number before : " + counter.number().send());
+
+        // Contract Write (increment function)
+        counter.increment().send();
+
+        // Get number after Contract Write
+        System.out.println("number after : " + counter.number().send());
+    }
+
+}
+```
+---
+```zsh output
+❯ java WriteContractExample.java
+number before : 297
+number after : 298
+```
+</CH.Code>
+
+
+---
+Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+```java WriteContractExample.java focus=1:10
+
+```
+---
+Connect to the Klaytn blockchain using Web3j and specify the URL
+```java WriteContractExample.java focus=19
+
+```
+---
+Create KlayCredentials using the private key
+```java WriteContractExample.java focus=20
+
+```
+---
+Define smart contract address to interact with
+```java WriteContractExample.java focus=21
+
+```
+---
+Define gas price and gas limit for contract transactions
+```java WriteContractExample.java focus=22:23
+
+```
+---
+Create a gas provider with static gas price and gas limit
+```java WriteContractExample.java focus=24
+
+```
+---
+Load the contract using **contact address**, **Web3j instance**, **credentials**, and **gas provider**. You can read and write the contract through this instance
+```java WriteContractExample.java focus=25
+
+```
+---
+Get the current **number** stored in the contract before writing
+<CH.Code>
+```java WriteContractExample.java focus=27:28
+
+```
+
+
+---
+
+```zsh output
+❯ java WriteContractExample.java
+number before : 297
+
+```
+
+</CH.Code>
+---
+Increment the **number** stored in the contract by calling `counter.increment().send()`
+```java WriteContractExample.java focus=30:31
+
+```
+---
+Get the updated **number** stored in the contract after writing
+<CH.Code>
+```java WriteContractExample.java focus=33:34
+
+```
+
+
+---
+
+```zsh output
+❯ java WriteContractExample.java
+number after : 298
+```
+
+</CH.Code>
+
+</CH.Spotlight>
+
