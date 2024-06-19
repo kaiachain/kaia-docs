@@ -1,37 +1,37 @@
 # Kaia Safe
 
-In a typical blockchain platform like Kaia, most users are familiar with single key wallet systems such as Kaikas and MetaMask, which are also known as externally owned accounts (EOA). These accounts make use of traditional key pairs, i.e., public keys and private keys, which isn’t ideal as the private key creates a single point of failure.
+카이아와 같은 일반적인 블록체인 플랫폼에서 대부분의 사용자는 외부 소유 계정(EOA)이라고도 하는 Kaikas나 MetaMask와 같은 단일 키 지갑 시스템에 익숙합니다. 이러한 계정은 기존의 키 쌍, 즉 공개 키와 개인 키를 사용하는데, 개인 키는 단일 장애 지점을 생성하기 때문에 이상적이지 않습니다.
 
-This makes EOAs unsuitable for organisational use, as a compromised private key could lead to the organisation losing all of its crypto funds—such was the case in the [Wintermute hack](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) where $162.5 million was lost.
+1억 6,250만 달러가 손실된 [윈터뮤트 해킹](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-)의 경우처럼 개인 키가 손상되면 조직이 보유한 모든 암호화폐 자금을 잃을 수 있기 때문에 EOA는 조직에서 사용하기에 적합하지 않습니다.
 
-This is where multisig wallets like Kaia Safe come in. Unlike single key wallets, a multi-sig wallet needs multiple parties' private keys to sign and execute a transaction, removing the single point of failure and providing greater security for organisational use cases.
+이것이 바로 Kaia Safe와 같은 다중서명 지갑이 필요한 이유입니다. 다중서명 지갑은 단일 키 지갑과 달리 트랜잭션에 서명하고 실행하기 위해 여러 당사자의 개인키가 필요하므로, 단일 실패 지점을 제거하고 조직 사용 사례에 더 높은 보안을 제공합니다.
 
-## What are MultiSig Wallets? <a id="What are Multisig Wallets"></a>
+## 멀티시그 지갑이란 무엇인가요? <a id="What are Multisig Wallets"></a>
 
-As the name implies, a multi-signature wallet is a digital wallet that requires two, three, or more private keys from different sources to confirm and execute a crypto transaction.
+이름에서 알 수 있듯이 다중 서명 지갑은 암호화폐 거래를 확인하고 실행하기 위해 서로 다른 출처의 개인 키가 2개, 3개 또는 그 이상이 필요한 디지털 지갑입니다.
 
-For example, you can imagine a multi-signature wallet as a safe that has three locks. The three keys required to open the safe are with three different individuals, thus requiring their joint consent to open.
+예를 들어 다중 서명 지갑을 세 개의 자물쇠가 있는 금고로 상상할 수 있습니다. 금고를 여는 데 필요한 세 개의 키는 서로 다른 세 명의 개인에게 있으므로, 금고를 열려면 세 사람의 공동 동의가 필요합니다.
 
-Here are the main benefits of multisig wallets:
+다중서명 지갑의 주요 이점은 다음과 같습니다:
 
-- **Store assets/funds securely:** Companies and protocols can store their funds safely without worrying about a private key leak or one bad actor moving funds without authorization.
+- **자산/자금의 안전한 보관**: 기업과 프로토콜은 개인 키 유출이나 악의적인 공격자가 무단으로 자금을 이동시킬 걱정 없이 자금을 안전하게 보관할 수 있습니다.
 
-- **Enable decentralised decision making:** Companies and business executives can make on-chain decisions on which transactions to execute.
+- **탈중앙화된 의사결정 지원**: 기업과 비즈니스 경영진은 어떤 트랜잭션을 실행할지 온체인에서 결정할 수 있습니다.
 
-- **Two-factor authentication:** With the help of multisig wallets, businesses and individuals can make sure that only those with access to the necessary keys can execute transactions.
+- **이중 인증**: 다중 서명 지갑을 사용하면 기업과 개인은 필요한 키에 액세스할 수 있는 사람만 거래를 실행할 수 있도록 할 수 있습니다.
 
-Next, we will dive into Kaia Safe, a multisig wallet for Klatyn, and how to use it to manage your funds and transactions.
+다음으로 Klatyn의 다중서명 지갑인 Kaia Safe와 이를 사용하여 자금과 트랜잭션을 관리하는 방법에 대해 알아보겠습니다.
 
-## What is Kaia Safe? <a id="What is Kaia Safe"></a>
+## Kaia Safe란? <a id="What is Kaia Safe"></a>
 
-Kaia Safe is a multisig wallet for the Kaia ecosystem. It is a fork of the well-known multisig wallet [Gnosis Safe](https://gnosis-safe.io/).
+Kaia Safe는 카이아 생태계를 위한 다중서명 지갑입니다. 잘 알려진 다중서명 지갑인 [Gnosis Safe](https://gnosis-safe.io/)의 포크입니다.
 
-## Benefits <a id="Benefits of Kaia Safe"></a>
+## Kaia Safe의 장점 <a id="Benefits of Kaia Safe"></a>
 
-- **Store and transfer KAIA and KCTs (KIP7, KIP17)**: Users can deposit and transfer cryptocurrencies (KAIA) and tokens (fungible or non-fungible).
+- \*\*클레이와 KCT(KIP7, KIP17)\*\*를 보관 및 전송할 수 있습니다: 사용자는 암호화폐(KLAY)와 토큰(대체 가능 또는 대체 불가능)을 입금 및 전송할 수 있습니다.
 
-- **Flexibility and security:** The confirmation threshold gives users more flexibility and control over which transactions should be executed, and removes the single point of failure.
+- **유연성 및 보안**: 확인 임계값은 사용자가 어떤 트랜잭션을 실행할지 더 유연하게 제어하고 단일 장애 지점을 제거합니다.
 
-- **Safe apps:** Kaia Safe's functionality is expanded by the addition of custom apps that enable batch transactions and interaction with other dApps. One example of this safe app is the **Transaction Builder** which combines and executes multiple transactions as a batch transaction.
+- **세이프 앱**: 일괄 트랜잭션과 다른 dApp과의 상호작용을 가능하게 하는 커스텀 앱을 추가하여 Kaia Safe의 기능을 확장할 수 있습니다. 이 세이프 앱의 한 예로 여러 트랜잭션을 일괄 트랜잭션으로 결합하고 실행하는 **Transaction Builder**를 들 수 있습니다.
 
-- **Account recovery:** In the event of lost keys, Kaia Safe accounts can be recovered as long as the confirmation threshold can still be met by the remaining keys.
+- **계정 복구**: 키 분실 시 남은 키로 확인 임계값을 충족할 수 있다면 Kaia Safe 계정은 복구할 수 있습니다.
