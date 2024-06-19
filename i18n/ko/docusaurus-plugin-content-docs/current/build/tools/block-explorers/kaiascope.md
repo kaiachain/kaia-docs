@@ -1,238 +1,238 @@
 # Kaiascope
 
-Kaiascope is the block explorer for the Kaia Network. Kaiascope gives you an insight about the Kaia network by monitoring the network health and providing various statistics of Kaia network. You can also explore the block and transaction data and the list of smart contracts on the Kaia network.
+Klaytnscope는 카이아 네트워크의 블록 탐색기입니다. Klaytnscope는 네트워크 상태를 모니터링하고 카이아 네트워크의 다양한 통계를 제공하여 카이아 네트워크에 대한 인사이트를 제공합니다. 또한 카이아 네트워크의 블록과 트랜잭션 데이터, 스마트 컨트랙트 목록을 탐색할 수 있습니다.
 
-- For the Kairos network, visit [https://baobab.klaytnscope.com](https://baobab.klaytnscope.com)
-- For the Mainnet, visit [https://klaytnscope.com/](https://klaytnscope.com/)
+- Kairos 네트워크에 대해서는 [https://baobab.klaytnscope.com](https://baobab.klaytnscope.com)을 방문하십시오.
+- 메인넷에 대해서는 [https://klaytnscope.com/](https://klaytnscope.com/)을 방문하십시오.
 
 ![](/img/build/tools/scope_01_main.png)
 
-## Major Features <a id="major-features"></a>
+## 주요 기능 <a id="major-features"></a>
 
-Please note that some of the features are under development.
+일부 기능은 개발 중이라는 점에 유의하시기 바랍니다.
 
-- Overview of the network
-- Block search
-- Transaction search
-- Account search
-- Event logs search
-- Block proposer information
+- 네트워크 개요
+- 블록 검색
+- 트랜잭션 검색
+- 계정 검색
+- 이벤트 로그 검색
+- 블록 제안자 정보
 
-In the subsequent sections, we will visit the major functions and screenshots of Kaiascope. Functions are grouped by four categories - dashboard, list view, detail view, and search.
+다음 섹션에서는 Klaytnscope의 주요 기능과 스크린샷을 살펴보겠습니다. 기능은 대시보드, 목록 보기, 상세 보기, 검색의 네 가지 카테고리로 분류되어 있습니다.
 
-## Dashboard <a id="dashboard"></a>
+## 대시보드 <a id="dashboard"></a>
 
-Network information is presented in the dashboard. The information includes average block generation time, average number of transactions in a block, number of consensus nodes, and the latest trends in transactions.
+네트워크 정보가 대시보드에 표시됩니다. 이 정보에는 평균 블록 생성 시간, 블록의 평균 트랜잭션 수, 합의 노드 수, 트랜잭션의 최신 동향이 포함됩니다.
 
 ![](/img/build/tools/scope_02_main_indicator.png)
 
-- Block Height: The latest block height. It shows that how many blocks have been generated since the genesis.
-- Network Performance: It shows Kaia's network performance with four indicators.
-  - Consensus Nodes: Above picture shows that 15 nodes are participated in the consensus process.
-  - Avg Block Time \(1 hour\): It shows the average block generation time over the last hour.
-  - Avg Block Time \(24 hours\): It shows the average block generation time over the last 24 hours.
-  - Avg TX Per Block \(24 hours\): The average number of transactions included in one block over the last 24 hours.
-- Transaction History \(14 days\): The graphs show the number of daily transactions over the last 14 days. You can see the trend in the transaction volume over the last two weeks.
+- 블록 높이: 최신 블록 높이입니다. 생성 이후 얼마나 많은 블록이 생성되었는지를 보여줍니다.
+- 네트워크 성능: 카이아의 네트워크 성능을 네 가지 지표로 보여줍니다.
+  - 합의 노드 수: 위 그림은 15개의 노드가 합의 과정에 참여하고 있음을 보여줍니다.
+  - 평균 블록 생성 시간 \(1시간\): 지난 1시간 동안의 평균 블록 생성 시간을 보여줍니다.
+  - Avg Block Time \(24시간\): 지난 24시간 동안의 평균 블록 생성 시간을 보여줍니다.
+  - 블록당 평균 TX \(24시간\): 지난 24시간 동안 하나의 블록에 포함된 평균 트랜잭션 수입니다.
+- 트랜잭션 내역 \(14일\): 그래프는 지난 14일 동안의 일일 트랜잭션 수를 보여줍니다. 지난 2주 동안의 거래량 추세를 확인할 수 있습니다.
 
-### Recent Blocks & Transactions <a id="recent-blocks-transactions"></a>
+### 최근 블록 및 트랜잭션 <a id="recent-blocks-transactions"></a>
 
-These lists show recently created blocks and transactions respectively. You can get the latest information by clicking the refresh button on the upper-right corner in the pane. In the bottom of the list, clicking the ‘view all’ button will take you to the [list view](#list-view).
+이 목록에는 최근에 생성된 블록과 트랜잭션이 각각 표시됩니다. 창 오른쪽 상단의 새로고침 버튼을 클릭하면 최신 정보를 확인할 수 있습니다. 목록 하단에서 '모두 보기' 버튼을 클릭하면 [목록 보기](#list-view)로 이동합니다.
 
 ![](/img/build/tools/scope_03_main_list.png)
 
-### Network Status & Network Selector <a id="network-status-network-selector"></a>
+### 네트워크 상태 및 네트워크 선택기 <a id="network-status-network-selector"></a>
 
 ![](/img/build/tools/network_status.gif)
 
-On the upper-right corner of the site, there are network status indicator and the network selector drop down.
+사이트 오른쪽 상단에는 네트워크 상태 표시기와 네트워크 선택기 드롭다운이 있습니다.
 
-- Network Status Indicator
-  - Network is healthy: Kaiascope is healthy and fully operational. The network status is normal.
-  - Data latency: Kaiascope is undergoing system maintenance. Data is in a delayed state.
-  - Data accuracy: Kaiascope is synchronizing data, please wait.
-- Network Selector Drop Down
-  - You can choose Kaia mainnet and Kairos testnet from the menu.
+- 네트워크 상태 표시기
+  - Network is healthy: Kaiascope is healthy and fully operational. 네트워크 상태가 정상입니다.
+  - 데이터 지연 시간: Klaytnscope가 시스템 점검 중입니다. 데이터가 지연된 상태입니다.
+  - 데이터 정확도: Klaytnscope가 데이터를 동기화하는 중이니 잠시 기다려주세요.
+- 네트워크 선택기 드롭다운
+  - 메뉴에서 카이아 메인넷과 Kairos 테스트넷을 선택할 수 있습니다.
 
-## List View <a id="list-view"></a>
+## 목록 보기 <a id="list-view"></a>
 
-If you want to get a closer look at the status of the Kaia network, you can check the list of recently generated blocks and transactions. To access the list page, click the button on the navigation bar which located on the left of the screen.
+카이아 네트워크의 상태를 자세히 살펴보고 싶다면, 최근에 생성된 블록과 트랜잭션 목록을 확인할 수 있습니다. 목록 페이지에 접근하려면 화면 왼쪽에 있는 탐색 바의 버튼을 클릭하세요.
 
-### Blocks <a id="blocks"></a>
+### 블록 <a id="blocks"></a>
 
 ![](/img/build/tools/scope_04_block_list.png)
 
-A list of recently generated blocks. To update the information, please click the refresh.
+최근에 생성된 블록 목록입니다. 정보를 업데이트하려면 새로고침을 클릭하세요.
 
-- Block: The unique number of the block. Starting from zero \(the genesis block\), it is given sequentially each time a block is generated.
-- Time: Duration of time since the block was generated. You can check the exact date and time by hovering this.
-- Total TXs: The total number of transactions included in the block.
-- Block Proposer: Randomly but deterministically selected Consensus Node that proposed the block. By clicking the address, you can easily go to the details page.
-- Reward: Aggregation of newly minted KAIA \(6.4 KAIA\) and transaction fees used in the block. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Improvement Reserve. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Kaia Token Economy].
-- Size: The size of blocks measured in Byte. The more transactions are included, the larger the block size.
+- 블록: 블록의 고유 번호입니다. 0 \(제네시스 블록\)부터 시작하여 블록이 생성될 때마다 순차적으로 부여됩니다.
+- 시간: 블록이 생성된 후 경과한 시간입니다. 마우스를 가져가면 정확한 날짜와 시간을 확인할 수 있습니다.
+- 총 트랜잭션 수: 블록에 포함된 총 트랜잭션 수입니다.
+- 블록 제안자: 블록을 제안한 무작위적이지만 결정론적으로 선택된 합의 노드입니다. 주소를 클릭하면 상세 정보 페이지로 쉽게 이동할 수 있습니다.
+- 보상: 새로 발행된 KAIA \(6.4 KAIA\)와 블록에 사용된 트랜잭션 수수료의 총합입니다. 목록에는 카이아 거버넌스 카운슬 보상, 기여 증명, 카이아 개선 준비금의 합계만 표시됩니다. 블록 상세 페이지에서 블록 보상 섹션에 커서를 올리면 자세한 정보를 확인할 수 있습니다. 블록 보상 분배 시스템에 대한 자세한 내용은 \\[카이아 토큰 이코노미]에서 확인할 수 있습니다.
+- 크기: 블록의 크기를 바이트 단위로 측정한 값입니다. 트랜잭션이 많이 포함될수록 블록 크기가 커집니다.
 
-### Transactions <a id="transactions"></a>
+### 트랜잭션 <a id="transactions"></a>
 
 ![](/img/build/tools/scope_05_tx_list.png)
 
-A list of recently executed transactions. To update the information, please click the refresh.
+최근에 실행된 트랜잭션 목록입니다. 정보를 업데이트하려면 새로 고침을 클릭하세요.
 
-- TX Hash: The unique identifier of the transaction. For more information, click the hash to go to the detail page. If the transaction fails, a red exclamation mark appears next to it.
-- Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the details page of the block.
-- Time: Duration of time since the transaction was executed. You can check the exact date and time by hovering this.
-- From -&gt; To: The addresses of sender and receiver. By clicking the address, you can easily go to the details page. If the file icon displays next to an address, it means that the address is a contract.
-- TX Type: Type of the transaction. You can apply a filter to get the transactions of a specific type. For more information, please visit [Transactions].
-- Amount: The amount of value transferred through the transaction.
-- TX Fee: The actual cost used to process transaction.
+- TX 해시: 트랜잭션의 고유 식별자입니다. 자세한 내용을 보려면 해시를 클릭하여 상세 정보 페이지로 이동하세요. 트랜잭션이 실패하면 그 옆에 빨간색 느낌표가 표시됩니다.
+- 블록 번호: 해당 트랜잭션이 포함된 블록의 번호입니다. 번호를 클릭하면 해당 블록의 상세 정보 페이지로 이동합니다.
+- 시간: 트랜잭션이 실행된 후 경과한 시간입니다. 마우스를 가져가면 정확한 날짜와 시간을 확인할 수 있습니다.
+- 발신자 -> 수신자: 발신자와 수신자의 주소입니다. 주소를 클릭하면 상세 정보 페이지로 쉽게 이동할 수 있습니다. 주소 옆에 파일 아이콘이 표시되면 해당 주소가 컨트랙트임을 의미합니다.
+- TX 유형: 트랜잭션 유형입니다. 필터를 적용하여 특정 유형의 트랜잭션을 가져올 수 있습니다. 자세한 내용은 \\[Transaction]을 참조하세요.
+- 금액: 트랜잭션을 통해 전송된 금액입니다.
+- TX 수수료: 트랜잭션 처리에 사용된 실제 비용입니다.
 
-## Detail View <a id="detail-view"></a>
+## 상세 보기 <a id="detail-view"></a>
 
-Detailed information about single Block, Transaction, Account, and Contract can be found on this page. To go to the details view, you can search for the entity from the search bar or click the item from the list view.
+단일 블록, 트랜잭션, 계정, 컨트랙트에 대한 자세한 정보는 이 페이지에서 확인할 수 있습니다. 세부 정보 보기로 이동하려면 검색창에서 엔티티를 검색하거나 목록 보기에서 항목을 클릭하면 됩니다.
 
-### Block <a id="block"></a>
+### 블록 <a id="block"></a>
 
 ![](/img/build/tools/scope_08_block_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 개요 <a id="overview"></a>
 
-Overall information about the block.
+블록에 대한 전반적인 정보입니다.
 
-- Time: Elapsed time since the block generation. Exact datetime is also displayed next to it.
-- Hash: The unique identifier of the block. By pressing the copy button, you can easily copy the hash.
-- Parent Hash: The unique identifier of the previous block. Clicking on the hash takes you to the detail view of the parent hash.
-- Total TXs: The total number of transactions included in the block.
-- Block Reward: Aggregation of the newly minted KAIA \(6.4 KAIA\) and the transaction fees collected in the block. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Improvement Reserve. More details about block reward distribution system can be found in the [Kaia Token Economy].
-- Block Size: The size of block measured in Byte. The more transactions are included, the larger the block size.
+- 시간: 블록 생성 이후 경과된 시간입니다. 정확한 날짜 시간도 옆에 표시됩니다.
+- 해시: 블록의 고유 식별자입니다. 복사 버튼을 누르면 해시를 쉽게 복사할 수 있습니다.
+- 부모 해시: 이전 블록의 고유 식별자입니다. 해시를 클릭하면 상위 해시의 상세 보기로 이동합니다.
+- 총 TX: 블록에 포함된 총 트랜잭션 수입니다.
+- 블록 보상: 새로 발행된 KAIA \(6.4 KAIA\)와 블록에서 징수된 트랜잭션 수수료를 합산한 금액입니다. 마우스 커서를 올리면 카이아 거버넌스 카운슬 보상, 기여 증명, 카이아 개선 준비금에 대한 자세한 정보를 확인할 수 있습니다. 블록 보상 분배 시스템에 대한 더 자세한 내용은 \\[카이아 토큰 이코노미]에서 확인할 수 있습니다.
+- 블록 크기: 바이트 단위로 측정된 블록의 크기입니다. 트랜잭션이 많이 포함될수록 블록 크기가 커집니다.
 
-#### Committee <a id="committee"></a>
+#### 위원회 <a id="committee"></a>
 
-List of consensus nodes that proposed and validated the block.
+블록을 제안하고 검증한 합의 노드 목록입니다.
 
-- Block Proposer: Randomly but deterministically selected consensus node that proposed the block. By clicking the address, you can easily go to the detail view of the node.
-- Validators: Consensus nodes that validated the block. By clicking the address, you can easily go to the detail view of the node.
+- 블록 제안자: 블록을 제안한 무작위적이지만 결정론적으로 선택된 합의 노드입니다. 주소를 클릭하면 해당 노드의 상세 정보 보기로 쉽게 이동할 수 있습니다.
+- 검증자: 블록을 검증한 합의 노드입니다. 주소를 클릭하면 해당 노드의 상세 보기로 쉽게 이동할 수 있습니다.
 
-#### Transactions <a id="transactions"></a>
+#### 트랜잭션 <a id="transactions"></a>
 
-List of transactions included in the block.
+블록에 포함된 트랜잭션 목록입니다.
 
-### Transaction <a id="transaction"></a>
+### 트랜잭션 <a id="transaction"></a>
 
 ![](/img/build/tools/scope_09_tx_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 개요 <a id="overview"></a>
 
-Overall information about the transaction.
+거래에 대한 전반적인 정보입니다.
 
-- Status indicator: On the upper-right corner. The indicator whether the transaction succeeded or not.
-- TX Type: Type of the transaction. For more information, please see [Transactions].
-- Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the detail view of the block.
-- From -&gt; To: The addresses of sender and receiver. By clicking the address, you can go to the detail view of the account. If a file icon displays next to the address, it means that address is contract.
-- Fee Payer: Displayed when TX type is either Fee Delegated or Fee Delegated with Ratio. When you click the address of fee payer you can go to the detailed view of the account.
-- Time: Elapsed time since the transaction was executed.
-- Nonce: Number of the transaction sent from the sender's address. Starting from zero, it increases sequentially each time a transaction is sent.
-- Amount: The amount of value transferred in this transaction.
-- Gas Price: Cost per gas measured in KAIA. In Kaia network, Gas Price is fixed.
-- Gas Used: Exact gas that was used to execute the transaction.
-- Gas Limit: Maximum gas that the sender was willing to pay for this transaction.
-- TX Fee: The actual cost used to process transaction. Calculated by multiplying Gas Price by Gas Used.
-- TX Fee by Sender: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the sender.
-- TX Fee by Fee Payer: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the fee payer.
+- 상태 표시기: 오른쪽 상단에 있습니다. 트랜잭션 성공 여부를 나타내는 표시기입니다.
+- TX 유형: 트랜잭션 유형입니다. 자세한 내용은 \\[Transaction]을 참고하시기 바랍니다.
+- 블록 번호: 이 트랜잭션이 포함된 블록의 번호입니다. 번호를 클릭하면 해당 블록의 상세 보기로 이동합니다.
+- 발신자 -> 수신자: 발신자와 수신자의 주소입니다. 주소를 클릭하면 계정의 상세 보기로 이동할 수 있습니다. 주소 옆에 파일 아이콘이 표시되면 해당 주소가 컨트랙트임을 의미합니다.
+- 수수료 납부자: TX 유형이 수수료 위임 또는 비율 위임인 경우 표시됩니다. 수수료 납부자 주소를 클릭하면 해당 계정의 상세 보기로 이동할 수 있습니다.
+- 시간: 트랜잭션이 실행된 후 경과된 시간입니다.
+- Nonce: 발신자 주소에서 전송된 트랜잭션의 횟수입니다. 0부터 시작하여 트랜잭션이 전송될 때마다 순차적으로 증가합니다.
+- 금액: 이 트랜잭션에서 전송된 금액입니다.
+- 가스 가격: KAIA로 측정한 가스당 비용입니다. 카이아 네트워크에서는 가스 가격이 고정되어 있습니다.
+- 가스 사용량: 트랜잭션을 실행하는 데 사용된 정확한 가스입니다.
+- 가스 한도: 트랜잭션을 위해 발신자가 지불할 수 있는 최대 가스 한도입니다.
+- TX 수수료: 트랜잭션을 처리하는 데 사용된 실제 비용입니다. 가스 가격에 가스 사용량을 곱하여 계산됩니다.
+- 발신자별 TX 수수료: TX 유형이 비율 위임 수수료인 경우 표시됩니다. 발신자가 지불한 TX 수수료의 비율입니다.
+- 요금 지불자별 TX 요금: TX 유형이 비율로 위임된 수수료일 때 표시됩니다. 수수료 납부자가 지불한 TX 수수료의 비율입니다.
 
-#### Input Data <a id="input-data"></a>
+#### 입력 데이터 <a id="input-data"></a>
 
-Extra data provided by the sender or contract.
+발신자 또는 컨트랙트에 의해 제공된 추가 데이터.
 
-### Account <a id="account"></a>
+### 계정 <a id="account"></a>
 
 ![](/img/build/tools/scope_10_account_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 개요 <a id="overview"></a>
 
-Overall information about the account.
+계정에 대한 전반적인 정보입니다.
 
-- Address \(Hex\): The unique address of the account.
-- Balance: The total amount of KAIA that this account has.
-- Total TXs: The total number of transactions that this account sent or received.
-- HRA: It informs whether this account type is HRA or not. \(TBD\)
+- 주소 \(Hex\): 계정의 고유 주소입니다.
+- 잔액: 이 계정이 보유한 총 KAIA 수량입니다.
+- 총 트랜잭션 수: 이 계정이 송수신한 총 트랜잭션 수입니다.
+- HRA: 이 계정 유형이 HRA인지 여부를 알려줍니다. \(TBD\)
 
-#### Transactions <a id="transactions"></a>
+#### 트랜잭션 <a id="transactions"></a>
 
-The list of transactions related to this account. The color of the arrow indicates if the account is a sender or receiver.
+이 계정과 관련된 트랜잭션 목록입니다. 화살표의 색은 해당 계정이 발신자인지 수신자인지를 나타냅니다.
 
-### Contract <a id="contract"></a>
+### 트랜젝션 <a id="contract"></a>
 
 ![](/img/build/tools/scope_11_contract_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 개요 <a id="overview"></a>
 
-Overall information about the contract.
+컨트랙트에 대한 전반적인 정보입니다.
 
-- Account \(Hex\): The unique address of the contract.
-- Balance: The total amount of KAIA that this contract has.
-- Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the account.
-- Total TXs: The total number of transactions that this contract received.
-- Contract Created TX: The transaction that deployed this contract. Clicking on the hash takes you to the detail view of the transaction.
-- HRA: It informs whether the contract account type is HRA or not. \(TBD\)
+- 계정 \(Hex\): 컨트랙트의 고유 주소입니다.
+- 잔액: 컨트랙트가 보유한 총 KAIA 수량입니다.
+- 컨트랙트 생성자: 이 컨트랙트를 배포한 계정입니다. 주소를 클릭하면 해당 계정의 상세 보기로 이동할 수 있습니다.
+- 총 트랜잭션 수: 이 컨트랙트가 받은 총 트랜잭션 수입니다.
+- 컨트랙트 생성 TX: 이 컨트랙트를 배포한 트랜잭션입니다. 해시를 클릭하면 트랜잭션의 상세 보기로 이동합니다.
+- HRA: 컨트랙트 계정 유형이 HRA인지 여부를 알려줍니다. \(TBD\)
 
-#### Transactions <a id="transactions"></a>
+#### 트랜잭션 <a id="transactions"></a>
 
-The list of transactions related to this contract.
+이 컨트랙트와 관련된 거래 목록입니다.
 
-## Search <a id="search"></a>
+## 검색 <a id="search"></a>
 
-Through Kaiascope, you can search for the information about account, contract, transactions and blocks. The search bar is placed on every page, making it easy to access. Entering a valid keyword will take you to the detail view of the entity.
+Klaytnscope를 통해 계정, 컨트랙트, 트랜잭션, 블록에 대한 정보를 검색할 수 있습니다. 검색창은 모든 페이지에 배치되어 있어 쉽게 접근할 수 있습니다. 유효한 키워드를 입력하면 해당 엔티티의 상세 보기로 이동합니다.
 
 ![](/img/build/tools/scope_06_search.png)
 
-### Search Keyword <a id="search-keyword"></a>
+### 검색 키워드 <a id="search-keyword"></a>
 
-In the mainnet version, searchable keywords are as follows:
+메인넷 버전에서 검색 가능한 키워드는 다음과 같습니다:
 
-- Block \#
-- TX Hash
-- Address \(Account, Contract\)
-- Human Readable Address \(.klaytn\) \(TBD\)
+- 블록 \#
+- TX 해시
+- 주소 \(계정, 컨트랙트\)
+- 사람이 읽을 수 있는 주소 \(.klaytn\) \(TBD\)
 
-### Keyword Format <a id="keyword-format"></a>
+### 키워드 형식 <a id="keyword-format"></a>
 
-The unique characteristics that distinguish each keyword are as follows:
+각 키워드를 구분하는 고유한 특징은 다음과 같습니다:
 
-#### Block <a id="block"></a>
+#### 블록 <a id="block"></a>
 
-- Decimal numbers only \[0~9\]
+- 소수점만 \[0~9\]
 
-#### TX Hash <a id="tx-hash"></a>
+#### TX 해시 <a id="tx-hash"></a>
 
-- 66 characters long
-- Starts with a prefix `0x`
-- Hexadecimal number only \[0~9, a~f\]
+- 66자 길이
+- 접두사 '0x'로 시작
+- 16진수만 \[0~9, a~f\] 사용 가능
 
-#### Address <a id="address"></a>
+#### 주소 <a id="address"></a>
 
-- 42 characters long
-- Start with a prefix `0x`
-- Hexadecimal number only \[0~9, a~f\]
+- 42자 길이
+- 접두사 '0x'로 시작합니다.
+- 16진수만 \[0~9, a~f\] 입력 가능
 
-#### Human Readable Address \(TBD\) <a id="human-readable-address-tbd"></a>
+#### 사람이 읽을 수 있는 주소 \(TBD\) <a id="human-readable-address-tbd"></a>
 
-- 12~20 characters long
-- Ends in `.klaytn`
+- 12~20자 길이
+- '.klaytn'으로 끝남
 
-### Search Errors <a id="search-errors"></a>
+### 검색 오류 <a id="search-errors"></a>
 
 ![](/img/build/tools/scope_07_noresult.png)
 
-If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
+지정된 형식에 맞지 않거나 정보가 아직 생성되지 않은 키워드를 검색하면 결과 페이지가 표시되지 않습니다.
 
-#### Wrong Format \(TX Hash / Address\) <a id="wrong-format-tx-hash-address"></a>
+#### 잘못된 형식 \(TX 해시/주소\) <a id="wrong-format-tx-hash-address"></a>
 
-- Wrong number of characters
-- Doesn't start with a prefix `0x`
-- Contains special characters or non-hexadecimal characters \[g~z\]
+- 잘못된 문자 수
+- 접두사 `0x`로 시작하지 않음
+- 특수 문자 또는 16진수가 아닌 문자 \[g~z\]가 포함되어 있습니다.
 
-#### Doesn't Exist <a id="doesn-t-exist"></a>
+#### 존재하지 않음 <a id="doesn-t-exist"></a>
 
-- Blocks not yet generated \(if the block number entered was higher than recently generated block number\)
-- Non-existent TX Hash
+- 아직 생성되지 않은 블록 \(입력한 블록 번호가 최근에 생성된 블록 번호보다 높은 경우\)
+- 존재하지 않는 TX 해시
 
 [Transactions]: ../../../learn/transactions/transactions.md
 [Kaia Token Economy]: ../../../learn/token-economy.md
