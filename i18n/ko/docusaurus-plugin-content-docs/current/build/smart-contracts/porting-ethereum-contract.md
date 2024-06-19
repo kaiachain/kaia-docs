@@ -1,4 +1,4 @@
-# Import Ethereum Contracts
+# 이더리움 컨트랙트 이식하기
 
 대부분의 경우 카이아에서 이더리움 컨트랙트를 수정하지 않고 사용할 수 있습니다.
 하지만 다음 두 가지 문제에 유의하세요.
@@ -24,8 +24,8 @@ Kairos 네트워크의 경우 블록 번호 '#86,513,895', 메인 네트워크�
 카이아의 다른 EVM 버전과의 하위 호환성은 보장되지 않습니다.
 따라서 프로토콜 업그레이드 상태에 따라 올바른 타겟 옵션으로 Solidity 코드를 컴파일할 것을 권장합니다.
 
-- Cypress: --evm-version london
-- Baobab: --evm-version london
+- Kairos: --evm-version london
+- Mainnet: --evm-version london
 - 기타(프라이빗/서비스체인): 프로토콜 업그레이드 상태에 따라 결정됨
 
 [solc의 EVM 버전 설정 방법](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)을 참조하세요.
