@@ -104,7 +104,7 @@ contract ISupraSValueFeedExample {
 
 ![](/img/build/tools/sPriceFeed.png)
 
-Tada 🎉! 방금 스마트 컨트랙트에서 통화 가격 피드(ETH/USDT)를 요청하셨습니다.
+축하합니다! 방금 스마트 컨트랙트에서 통화 가격 피드(ETH/USDT)를 요청하셨습니다.
 
 이 글을 쓰는 시점을 기준으로 getEthUsdtPrice()는 8포인트 정밀도 수치인 "185795966200"를 반환했습니다. 실제 ETH/USD 값을 얻으려면 이 수치를 10^8로 나누면 $1857.95966200가 됩니다.
 
