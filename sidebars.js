@@ -40,6 +40,7 @@ const commonSidebar = [
     ],
   },
 //  'misc/klaytn-history',
+  'misc/faq-chain-transition',
   'misc/glossary',
   //'misc/faq',
   'misc/opensource',
