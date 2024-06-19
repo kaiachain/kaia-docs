@@ -10,20 +10,20 @@ sidebar_label: Web3Modal
 
 [Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about)은 개발자가 간단하고 사용자 정의 가능한 구성으로 dApp에서 여러 공급자를 지원할 수 있도록 도와주는 사용하기 쉬운 라이브러리입니다. 지갑 연결, 트랜잭션 수행, 계정 관리를 쉽게 할 수 있습니다.
 
-이 가이드에서는 Web3Modal 라이브러리를 사용해 Kaikas, Klip, MetaMask, Coinbase Wallet 등 여러 지갑을 클레이튼 네트워크에 구축한 dApp에 통합하는 방법을 설명합니다.
+이 가이드에서는 Web3Modal 라이브러리를 사용해 Kaikas, Klip, MetaMask, Coinbase Wallet 등 여러 지갑을 카이아 네트워크에 구축한 dApp에 통합하는 방법을 설명합니다.
 
 ## 전제 조건
 
 - 작동하는 리액트 프로젝트(`npx create-react-app 프로젝트 이름`을 실행하여)
 - 필요한 지갑([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)) 설치.
 - RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../../references/service-providers/public-en.md) 중 하나에서 받을 수 있습니다.
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
 
 ## Web3Modal 및 지갑 공급자 옵션 설정하기
 
 **1단계**: Web3Modal 및 이더리움 라이브러리 설치하기
 
-블록체인과 상호작용하기 위해 Web3Modal과 원하는 라이브러리를 설치합니다. 이 튜토리얼에서는 [Web3Modal](https://github.com/WalletConnect/web3modal)에서 파생되어 Kaikas 지갑과 Klip 지갑을 추가하도록 수정된 [@klaytn/web3modal](https://github.com/WalletConnect/web3modal)을 설치하겠습니다. 또한, 이 튜토리얼에서는 ethers.js를 사용하여 Klaytn 블록체인과 상호작용할 것입니다.
+블록체인과 상호작용하기 위해 Web3Modal과 원하는 라이브러리를 설치합니다. 이 튜토리얼에서는 [Web3Modal](https://github.com/WalletConnect/web3modal)에서 파생되어 Kaikas 지갑과 Klip 지갑을 추가하도록 수정된 [@klaytn/web3modal](https://github.com/WalletConnect/web3modal)을 설치하겠습니다. 또한, 이 튜토리얼에서는 ethers.js를 사용하여 Kaia 블록체인과 상호작용할 것입니다.
 
 ```bash
 npm install @klaytn/web3modal
@@ -338,7 +338,7 @@ const signMessage = async(e) => {
 
 ## 네이티브 트랜잭션 보내기
 
-한 사용자에서 다른 사용자로 KLAY를 보내는 것과 같은 네이티브 트랜잭션을 수행할 수 있습니다.
+한 사용자에서 다른 사용자로 KAIA를 보내는 것과 같은 네이티브 트랜잭션을 수행할 수 있습니다.
 
 ```js
     // add to the existing useState hook.
