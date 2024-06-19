@@ -6,14 +6,14 @@
 
 [SupraOracles](https://supraoracles.com/)은 모든 블록체인, 퍼블릭(L1 및 L2) 또는 프라이빗(기업)을 상호 연결하는 크로스체인 솔루션(데이터 오라클, 자산 브리지, 자동화 네트워크 등)의 수직 통합 툴킷인 새로운 고처리량 오라클 및 인트라레이어(IntraLayer)입니다. 데이터 정확성, 속도, 확장성, 보안성이 뛰어난 차세대 크로스 체인 오라클 솔루션으로 스마트 컨트랙트를 제공합니다.
 
-SupraOracles을 사용하면 스마트 컨트랙트가 가격 데이터 피드에 액세스하여 다양한 탈중앙 금융(DeFi) 사용 사례를 구축할 수 있습니다. 이 튜토리얼에서는 SupraOracles을 사용하여 Remix IDE를 사용해 Klaytn 블록체인에서 가격 피드를 쉽게 가져오는 방법을 설명합니다.
+SupraOracles을 사용하면 스마트 컨트랙트가 가격 데이터 피드에 액세스하여 다양한 탈중앙 금융(DeFi) 사용 사례를 구축할 수 있습니다. 이 튜토리얼에서는 SupraOracles을 사용하여 Remix IDE를 사용해 Kaia 블록체인에서 가격 피드를 쉽게 가져오는 방법을 설명합니다.
 
 ## 전제 조건
 
 - [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 - [Remix IDE](https://remix.ethereum.org/)
-- [Remix 클레이튼 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KLAY 얻기
+- [Remix 카이아 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KAIA 얻기
 
 ## 시작하기
 
@@ -42,7 +42,7 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-이 예제에서는 Klaytn Baobab 테스트넷에서 S-Value Feed를 구현하고 있습니다. 클레이튼 Baobab S-Value 피드 주소는 [여기](https://supraoracles.com/docs/get-started/networks/)에서 확인할 수 있습니다.
+이 예제에서는 Kaia Kairos 테스트넷에서 S-Value Feed를 구현하고 있습니다. 카이아 Kairos S-Value 피드 주소는 [여기](https://supraoracles.com/docs/get-started/networks/)에서 확인할 수 있습니다.
 
 ### 3단계: S-Value 암호화폐 가격 확인하기
 
@@ -70,7 +70,7 @@ return price;
 - 파일 탐색기 탭을 클릭하고, contracts 폴더에 `demoSupraPriceFeed.sol`이라는 이름의 파일을 새로 생성합니다.
 - 새로 생성한 파일에 아래 코드를 붙여넣습니다.
 - Remix에서 **Compile contract**을 클릭합니다.
-- 플러그인을 설치한 후 왼쪽의 Klaytn 탭을 클릭합니다.
+- 플러그인을 설치한 후 왼쪽의 Kaia 탭을 클릭합니다.
 - **Environment** > **Injected Caver** - **Kaikas**를 선택합니다.
 - **Contract**에서 원하는 컨트랙트를 선택합니다. (예: ISupraSValueFeedExample)
 - **Deploy**를 클릭합니다..
@@ -145,4 +145,4 @@ getEthUsdtPrice()
 
 ## 결론
 
-이 튜토리얼에서는 SupraOracles 가격 피드 솔루션을 사용하여 ETH/USD 가격을 요청하는 방법을 배웠습니다. SupraOracles을 사용하면 스마트 컨트랙트에서 난수를 생성할 수도 있습니다. 이 과정이 궁금하다면 클레이튼에 SupraVRF를 통합하는 방법에 대한 [이 가이드](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)를 참고하시기 바랍니다. SupraOracles에 대한 더 자세한 가이드는 [SupraOracles Docs](https://supraoracles.com/docs/development-guides)를 참고하세요.
+이 튜토리얼에서는 SupraOracles 가격 피드 솔루션을 사용하여 ETH/USD 가격을 요청하는 방법을 배웠습니다. SupraOracles을 사용하면 스마트 컨트랙트에서 난수를 생성할 수도 있습니다. 이 과정이 궁금하다면 카이아에 SupraVRF를 통합하는 방법에 대한 [이 가이드](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)를 참고하시기 바랍니다. SupraOracles에 대한 더 자세한 가이드는 [SupraOracles Docs](https://supraoracles.com/docs/development-guides)를 참고하세요.
