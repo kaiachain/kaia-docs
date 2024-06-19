@@ -38,7 +38,7 @@ $ npm install caver-js@X.X.X
 
 ## Starting with caver-js <a href="#starting-with-caver-js" id="starting-with-caver-js"></a>
 
-Once you have finished installing caver-js, you can now connect to a Kaia Node using caver-js.
+Once you have finished installing caver-js, you can now connect to a Klaytn Node using caver-js.
 
 To practice the examples below, first create a test file in the working directory.
 
@@ -56,7 +56,7 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-	const version = await caver.rpc.kaia.getClientVersion()
+	const version = await caver.rpc.klay.getClientVersion()
 	console.log(version)
 }
 
@@ -67,14 +67,14 @@ Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
-Kaia/v1.4.0/linux-amd64/go1.14.1
+Klaytn/v1.4.0/linux-amd64/go1.14.1
 ```
 
-If you see the output of console.log like above, proceed with the steps below. The version number can be different according to the version of the connected Kaia node.
+If you see the output of console.log like above, proceed with the steps below. The version number can be different according to the version of the connected Klaytn node.
 
-### Connecting to a Kaia Node <a href="#connecting-to-a-kaia-node" id="connecting-to-a-kaia-node"></a>
+### Connecting to a Klaytn Node <a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
 
-You can import the caver-js module and connect it to a Kaia Node in the Kairos testnet as shown in the example below:
+You can import the caver-js module and connect it to a Klaytn Node in the Baobab testnet as shown in the example below:
 
 ```javascript
 const Caver = require('caver-js')
@@ -90,7 +90,7 @@ const caver = new Caver('https://your.en.url:8651/')
 
 ## Managing Keyrings <a href="#managing-keyrings" id="managing-keyrings"></a>
 
-[Keyring](api/caver-wallet/keyring.md) is a structure that contains the address of the Kaia account and the private key(s).
+[Keyring](api/caver-wallet/keyring.md) is a structure that contains the address of the Klaytn account and the private key(s).
 
 [Keyring](api/caver-wallet/keyring.md) can be classified into three types depending on the type of key being stored: [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) to store one address and one private key, [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) to store one address and one or more private keys for each role.
 
@@ -163,7 +163,7 @@ The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `c
 
 #### Creating a SingleKeyring with a private key and an address <a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If your private key for your Kaia account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
+If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
 
 ```javascript
 // test.js
@@ -175,9 +175,9 @@ async function testFunction() {
 	const keyring = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key}')
 	console.log(keyring)
 
-	// Create a keyring from a KaiaWalletKey
-	const keyringFromKaiaWalletKey = caver.wallet.keyring.createFromKaiaWalletKey('0x{private key}0x{type}0x{address in hex}')
-	console.log(keyringFromKaiaWalletKey)
+	// Create a keyring from a KlaytnWalletKey
+	const keyringFromKlaytnWalletKey = caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
+	console.log(keyringFromKlaytnWalletKey)
 }
 
 testFunction()
@@ -275,11 +275,11 @@ RoleBasedKeyring {
 
 Looking at the output above, the first element of the keys array, `roleTransactionKey`, has three PrivateKey instances, and the second element, `roleAccountUpdateKey`, has one PrivateKey instance. And the last element of the array, `roleFeePayerKey`, has two PrivateKey instances.
 
-**Note**: Calling functions related to keyring ([caver.wallet.keyring](api/caver-wallet/keyring.md)) or wallet ([caver.wallet](api/caver-wallet/caver-wallet.md)) do not affect the actual Kaia blockchain platform (Kaia).
+**Note**: Calling functions related to keyring ([caver.wallet.keyring](api/caver-wallet/keyring.md)) or wallet ([caver.wallet](api/caver-wallet/caver-wallet.md)) do not affect the actual Klaytn blockchain platform (Klaytn).
 
 ### Adding Keyrings to caver-js <a href="#adding-keyrings-to-caver-js" id="adding-keyrings-to-caver-js"></a>
 
-You can use a keyring easily by using the in-memory wallet provided by caver-js. The following examples illustrate how to add a keyring to a wallet using a keyring instance and a keystore file generated by [Kaia Wallet](https://wallet.klaytn.com/).
+You can use a keyring easily by using the in-memory wallet provided by caver-js. The following examples illustrate how to add a keyring to a wallet using a keyring instance and a keystore file generated by [Klaytn Wallet](https://wallet.klaytn.com/).
 
 ```javascript
 // test.js
@@ -406,11 +406,11 @@ RoleBasedKeyring {
 
 ## Sending a Transaction <a href="#sending-a-transaction" id="sending-a-transaction"></a>
 
-This section will show you how to send KAIA using caver-js on the Kairos network.
+This section will show you how to send KLAY using caver-js on the Baobab network.
 
-### Getting KAIA via Kairos Faucet <a href="#getting-kaia-via-kairos-faucet" id="getting-kaia-via-kairos-faucet"></a>
+### Getting KLAY via Baobab Faucet <a href="#getting-klay-via-baobab-faucet" id="getting-klay-via-baobab-faucet"></a>
 
-If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay). Log in to the Kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
 ### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
@@ -419,13 +419,13 @@ You can use a caver-js wallet to generate a signature of a transaction. You have
 1. Sign a transaction
    * If the keyring you want to use is added to [caver.wallet](api/caver-wallet/caver-wallet.md), you can use `caver.wallet.sign` function to sign.
    * If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the Kaia via `caver.rpc.kaia.sendRawTransaction`.
+2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
 
-**Note:** The sender should have enough number of KAIA.
+**Note:** The sender should have enough number of KLAY.
 
 #### Sign a transaction
 
-Before sending a transaction to Kaia, you should sign a transaction first.
+Before sending a transaction to Klaytn, you should sign a transaction first.
 
 Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet](api/caver-wallet/caver-wallet.md).
 
@@ -465,7 +465,7 @@ Running the above code gives you the following result. When the above code is ex
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### Send the RLP-encoded string of the signed transaction to the Kaia
+#### Send the RLP-encoded string of the signed transaction to the Klaytn
 
 Now you can send a signed transaction to the network like below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
@@ -477,8 +477,8 @@ const caver = new Caver('https://public-en-baobab.klaytn.net/')
 async function testFunction() {
 	const rlpEncoding = `0x{RLP-encoded string}`
 
-	// Send the transaction using `caver.rpc.kaia.sendRawTransaction`.
-	const receipt = await caver.rpc.kaia.sendRawTransaction(rlpEncoding)
+	// Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+	const receipt = await caver.rpc.klay.sendRawTransaction(rlpEncoding)
 	console.log(receipt)
 }
 
@@ -533,8 +533,8 @@ async function testFunction() {
 	// Sign the transaction via transaction.sign
 	await valueTransfer.sign(keyring)
 
-	// Send the transaction to the Kaia using `caver.rpc.kaia.sendRawTransaction`.
-	const receipt = await caver.rpc.kaia.sendRawTransaction(valueTransfer)
+	// Send the transaction to the Klaytn using `caver.rpc.klay.sendRawTransaction`.
+	const receipt = await caver.rpc.klay.sendRawTransaction(valueTransfer)
 	console.log(receipt)
 }
 
@@ -545,23 +545,23 @@ When the above code is executed, the receipt of the transaction is printed like 
 
 ### Checking Receipts <a href="#checking-receipts" id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Kaia by [caver.rpc.kaia.sendRawTransaction](api/caver-rpc/kaia.md#caver-rpc-kaia-sendrawtransaction).
+You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Klaytn by [caver.rpc.klay.sendRawTransaction](api/caver-rpc/klay.md#caver-rpc-klay-sendrawtransaction).
 
 The following example shows how to get a receipt using promises and event emitters.
 
 ```javascript
 // Using a promise - async/await
-const receipt = await caver.rpc.kaia.sendRawTransaction(rawTransaction)
+const receipt = await caver.rpc.klay.sendRawTransaction(rawTransaction)
 console.log(receipt)
 
 // Using a promise
-caver.rpc.kaia.sendRawTransaction(rawTransaction).then(console.log)
+caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 
 // Using an event emitter
-caver.rpc.kaia.sendRawTransaction(rawTransaction).on('receipt', console.log)
+caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.kaia.getTransactionReceipt](api/caver-rpc/kaia.md#caver-rpc-kaia-gettransactionreceipt) RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.kaia.getTransactionReceipt](api/caver-rpc/kaia.md#caver-rpc-kaia-gettransactionreceipt) RPC call.
+As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call.
 
 ```javascript
 // test.js
@@ -569,7 +569,7 @@ const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
-	const receipt = await caver.rpc.kaia.getTransactionReceipt('0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a')
+	const receipt = await caver.rpc.klay.getTransactionReceipt('0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a')
 	console.log(receipt)
 }
 
@@ -604,15 +604,15 @@ $ node ./test.js
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.kaia.getTransactionReceipt](api/caver-rpc/kaia.md#caver-rpc-kaia-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Kaia provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/transactions.md). This section describes some examples that can be used with caver-js.
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/). This section describes some examples that can be used with caver-js.
 
 ### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
 
-Kaia provides [Fee Delegation](../../../learn/transactions/transactions.md#fee-delegation) feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+Klaytn provides [Fee Delegation](../../../learn/transactions/transactions.md#fee-delegation) feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```javascript
 // test.js
@@ -646,7 +646,7 @@ $ node ./test.js
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the Kaia after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```javascript
 // test.js
@@ -687,7 +687,7 @@ const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
 async function testFunction() {
 	const rlpEncoded = '0x{RLP-encoded string}'
-	const receipt = await caver.rpc.kaia.sendRawTransaction(rlpEncoded)
+	const receipt = await caver.rpc.klay.sendRawTransaction(rlpEncoded)
 	console.log(receipt)
 }
 
@@ -732,9 +732,9 @@ $ node ./test.js
 
 ### Account Update <a href="#account-update" id="account-update"></a>
 
-If you want to change the private key(s) for your Kaia account, there are 3 important things you need to remember:
+If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
-1. Kaia validates every transaction you send to it.
+1. Klaytn validates every transaction you send to it.
 2. The validation requires your public keys which exactly corresponds to your private key(s).
 3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
 
@@ -742,15 +742,15 @@ Keeping the 3 things above in your mind, you can change your private key(s) by f
 
 1. Prepare the new private key(s) to create a new keyring.
 2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
-3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Kaia account.
-4. Send AccountUpdate transaction including Account instance to Kaia.
+3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Klaytn account.
+4. Send AccountUpdate transaction including Account instance to Klaytn.
 5. Finally, replace your old keyring to the new one that was created in Step 2.
 
 Please check [Account Update](api/caver-transaction/basic.md#accountupdate) for the details.
 
-To change your AccountKey, you must provide an [Account](api/caver.account.md) instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account](api/caver.account.md) instance contains the address of the Kaia account and the AccountKey to be updated.
+To change your AccountKey, you must provide an [Account](api/caver.account.md) instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account](api/caver.account.md) instance contains the address of the Klaytn account and the AccountKey to be updated.
 
-The code below is an example code that changes the private key(s) you use for your Kaia account along with changing AccountKey of your Kaia account to [AccountKeyPublic](../../../learn/accounts.md#accountkeypublic). Don't forget to prepare your new private key(s).
+The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to [AccountKeyPublic](../../../learn/accounts.md#accountkeypublic). Don't forget to prepare your new private key(s).
 
 ```javascript
 // test.js
@@ -774,7 +774,7 @@ async function testFunction() {
 		gas: 50000,
 	})
 	await caver.wallet.sign(sender.address, updateTx)
-	const receipt = await caver.rpc.kaia.sendRawTransaction(updateTx)
+	const receipt = await caver.rpc.klay.sendRawTransaction(updateTx)
 	console.log(receipt)
 
 	// Update the keyring in caver.wallet for signing afterward.
@@ -816,7 +816,7 @@ new private key string: 0x{private key}
 }
 ```
 
-Here comes how to update AccountKey of your Kaia account with multiple \[AccountKeys]? The example below explains how to create an [Account](api/caver.account.md) instance with multiple private keys that what you want to use (You can create an [Account](api/caver.account.md) instance with multiple public keys via [caver.account.create](api/caver.account.md#caver-account-create)). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+Here comes how to update AccountKey of your Klaytn account with multiple \[AccountKeys]? The example below explains how to create an [Account](api/caver.account.md) instance with multiple private keys that what you want to use (You can create an [Account](api/caver.account.md) instance with multiple public keys via [caver.account.create](api/caver.account.md#caver-account-create)). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
 First, let's create an Account instance to update with [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). For [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig), a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions). The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
@@ -872,7 +872,7 @@ const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdat
 
 ### Smart Contract <a href="#smart-contract" id="smart-contract"></a>
 
-The [caver.contract](api/caver.contract.md) package makes it easy to interact with smart contracts on Kaia. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI (Application Binary Interface) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
+The [caver.contract](api/caver.contract.md) package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI (Application Binary Interface) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
 
 First, we make a simple solidity example like the below. Create a 'test.sol' file and write down the below example.
 
@@ -1079,7 +1079,7 @@ async function testFunction() {
 testFunction()
 ```
 
-In the code above, the `deployer` deploys the contract to the Kaia and returns the deployed contract instance.
+In the code above, the `deployer` deploys the contract to the Klaytn and returns the deployed contract instance.
 
 ```bash
 $ node ./test.js
@@ -1201,7 +1201,7 @@ async function deployWithFeeDelegation() {
 	
 	await caver.wallet.signAsFeePayer(feePayer.address, signed)
 
-	const receipt = await caver.rpc.kaia.sendRawTransaction(signed)
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
 
 	const deployed = caver.contract.create(abi, receipt.contractAddress)
 }
@@ -1365,7 +1365,7 @@ async function deployWithFeeDelegation() {
 	
 	await caver.wallet.signAsFeePayer(feePayer.address, signed)
 
-	const receipt = await caver.rpc.kaia.sendRawTransaction(signed)
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
     console.log(receipt)
 }
 ```
@@ -1418,17 +1418,17 @@ To find more information, see [caver.contract](api/caver.contract.md).
 
 ## Sending a Transaction with multiple signers <a href="#sending-a-transaction-with-multiple-signers" id="sending-a-transaction-with-multiple-signers"></a>
 
-If the Kaia account's AccountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
+If the Klaytn account's AccountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
 
 This section describes how to collect signatures and send the transaction if there are multiple signers.
 
-To run this example, you need to update AccountKey of the Kaia account you use for testing with [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). Please refer to [Account Update](#account-update) for how to update your Kaia account.
+To run this example, you need to update AccountKey of the Klaytn account you use for testing with [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). Please refer to [Account Update](#account-update) for how to update your Klaytn account.
 
 ### Signing sequentially <a href="#signing-sequentially" id="signing-sequentially"></a>
 
 When a transaction is signed using `caver.wallet` or the transaction's `sign` function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
 
-The following example shows how to sign a transaction sequentially with multiple private keys. Let's assume that AccountKey of the account who sends this transaction is AccountKeyWeightedMultiSig of two public keys, which means this Kaia account can use two private key strings, one private key for each user. This is a case that two users share the same Kaia account.
+The following example shows how to sign a transaction sequentially with multiple private keys. Let's assume that AccountKey of the account who sends this transaction is AccountKeyWeightedMultiSig of two public keys, which means this Klaytn account can use two private key strings, one private key for each user. This is a case that two users share the same Klaytn account.
 
 In the example below, user1 and user2 create a `Keyring` instances to be used. After that, each uses its own keyring to sign the transaction. The example below uses `transaction.sign` to sign it.
 
@@ -1521,7 +1521,7 @@ $ node ./test.js
 
 If you run the above code, you can see that user2's signature has been appended in `transactionFromRLP.signatures` and a total of two signatures are included in it.
 
-When all users have signed, send a transaction to the network through `await caver.rpc.kaia.sendRawTransaction(transactionFromRLP)`.
+When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`.
 
 If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signAsFeePayer`.
 
@@ -1566,17 +1566,17 @@ Running the code above outputs one RLP-encoded raw transaction string with all t
 
 When executing `combineSignedRawTransactions` , the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignedRawTransactions`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
 
-The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.kaia.sendRawTransaction(combined)`.
+The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
 
 ## Detecting implementation of KCT interfaces <a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
 
-`caver.kct` provides functions that return information about which interface the given KCT token contract implements. Using this, you can see which interface the KCT token contract deployed on Kaia implements.
+`caver.kct` provides functions that return information about which interface the given KCT token contract implements. Using this, you can see which interface the KCT token contract deployed on Klaytn implements.
 
 ### Detecting KIP-7 interfaces <a href="#detecting-kip-7-interfaces" id="detecting-kip-7-interfaces"></a>
 
 In order to detect the interfaces implemented by the KIP-7 token contract, you can use `caver.kct.kip7.detectInterface(contractAddress)` or `kip7.detectInterface()`.
 
-Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on Kaia using static methods provided in `caver.kct.kip7`.
+Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on Klaytn using static methods provided in `caver.kct.kip7`.
 
 ```javascript
 // test.js
@@ -1604,7 +1604,7 @@ $ node ./test.js
 }
 ```
 
-Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on Kaia using member method of KIP7.
+Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on Klaytn using member method of KIP7.
 
 ```javascript
 // test.js
@@ -1637,7 +1637,7 @@ $ node ./test.js
 
 In order to detect the interfaces implemented by the KIP-17 token contract, you can use `caver.kct.kip17.detectInterface(contractAddress)` or `kip17.detectInterface()`.
 
-Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on Kaia using static methods provided in `caver.kct.kip17`.
+Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on Klaytn using static methods provided in `caver.kct.kip17`.
 
 ```javascript
 // test.js
@@ -1667,7 +1667,7 @@ $ node ./test.js
 }
 ```
 
-Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on Kaia using member method of KIP17.
+Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on Klaytn using member method of KIP17.
 
 ```javascript
 // test.js
@@ -1702,7 +1702,7 @@ $ node ./test.js
 
 In order to detect the interfaces implemented by the KIP-37 token contract, you can use `caver.kct.kip37.detectInterface(contractAddress)` or `kip37.detectInterface()`.
 
-Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on Kaia using static methods provided in `caver.kct.kip37`.
+Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on Klaytn using static methods provided in `caver.kct.kip37`.
 
 ```javascript
 // test.js
@@ -1730,7 +1730,7 @@ $ node ./test.js
 }
 ```
 
-Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on Kaia using member method of KIP37.
+Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on Klaytn using member method of KIP37.
 
 ```javascript
 // test.js

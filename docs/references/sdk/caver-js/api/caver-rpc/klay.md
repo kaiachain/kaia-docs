@@ -1,14 +1,14 @@
-# caver.rpc.kaia
+# caver.rpc.klay
 
-`caver.rpc.kaia` provides JSON-RPC call with `kaia` name space.
+`caver.rpc.klay` provides JSON-RPC call with `klay` name space.
 
-## caver.rpc.kaia.accountCreated <a href="#caver-rpc-kaia-accountcreated" id="caver-rpc-kaia-accountcreated"></a>
+## caver.rpc.klay.accountCreated <a href="#caver-rpc-klay-accountcreated" id="caver-rpc-klay-accountcreated"></a>
 
 ```javascript
-caver.rpc.kaia.accountCreated(address [, blockNumber] [, callback])
+caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 ```
 
-Returns `true` if the account associated with the address is created in the Kaia blockchain platform. It returns `false` otherwise.
+Returns `true` if the account associated with the address is created in the Klaytn blockchain platform. It returns `false` otherwise.
 
 **Parameters**
 
@@ -24,24 +24,24 @@ Returns `true` if the account associated with the address is created in the Kaia
 
 | Type    | Description                                      |
 | ------- | ------------------------------------------------ |
-| boolean | The existence of an input address in the Kaia. |
+| boolean | The existence of an input address in the Klaytn. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.accountCreated('0x{address in hex}').then(console.log)
+> caver.rpc.klay.accountCreated('0x{address in hex}').then(console.log)
 true
 ```
 
-## caver.rpc.kaia.getAccount <a href="#caver-rpc-kaia-getaccount" id="caver-rpc-kaia-getaccount"></a>
+## caver.rpc.klay.getAccount <a href="#caver-rpc-klay-getaccount" id="caver-rpc-klay-getaccount"></a>
 
 ```javascript
-caver.rpc.kaia.getAccount(address [, blockNumber] [, callback])
+caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 ```
 
-Returns the account information of a given address in the Kaia. For more details about the types of an account in Kaia, please refer to [Kaia Account Types](../../../../../learn/accounts.md#kaia-account-types).
+Returns the account information of a given address in the Klaytn. For more details about the types of an account in Klaytn, please refer to [Klaytn Account Types](../../../../../learn/accounts.md#klaytn-account-types).
 
-**NOTE** `caver.rpc.kaia.getAccount` returns the account that exists on the network, so `null` is returned if the account matching the address does not exist on the actual blockchain network.
+**NOTE** `caver.rpc.klay.getAccount` returns the account that exists on the network, so `null` is returned if the account matching the address does not exist on the actual blockchain network.
 
 **Parameters**
 
@@ -63,7 +63,7 @@ Returns the account information of a given address in the Kaia. For more details
 
 ```javascript
 // Get account with EOA
-> caver.rpc.kaia.getAccount('0x{address in hex}').then(console.log)
+> caver.rpc.klay.getAccount('0x{address in hex}').then(console.log)
 {
     accType: 1,
     account: {
@@ -75,7 +75,7 @@ Returns the account information of a given address in the Kaia. For more details
 }
 
 // Get account with SCA
-> caver.rpc.kaia.getAccount('0x{address in hex}').then(console.log)
+> caver.rpc.klay.getAccount('0x{address in hex}').then(console.log)
 {
     accType: 2,
     account: {
@@ -90,21 +90,21 @@ Returns the account information of a given address in the Kaia. For more details
 }
 ```
 
-## caver.rpc.kaia.getAccountKey <a href="#caver-rpc-kaia-getaccountkey" id="caver-rpc-kaia-getaccountkey"></a>
+## caver.rpc.klay.getAccountKey <a href="#caver-rpc-klay-getaccountkey" id="caver-rpc-klay-getaccountkey"></a>
 
 ```javascript
-caver.rpc.kaia.getAccountKey(address [, blockNumber] [, callback])
+caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 ```
 
 Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../../../../../learn/accounts.md#accountkeylegacy) or the account of the given address is a [Smart Contract Account](../../../../../learn/accounts.md#smart-contract-accounts-scas), it will return an empty key value. Please refer to [Account Key](../../../../../learn/accounts.md#account-key) for more details.
 
-**NOTE** `caver.rpc.kaia.getAccountKey` returns an object that differs by each AccountKey type. If a Kaia account matching the given address does not exist in the network, `null` is returned.
+**NOTE** `caver.rpc.klay.getAccountKey` returns an object that differs by each AccountKey type. If a Klaytn account matching the given address does not exist in the network, `null` is returned.
 
 **Parameters**
 
 | Name        | Type             | Description                                                                                                |
 | ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address of Kaia account from which you want to get an object of AccountKey information.              |
+| address     | string           | The address of Klaytn account from which you want to get an object of AccountKey information.              |
 | blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
 | callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -120,22 +120,22 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
-> caver.rpc.kaia.getAccountKey('0x{address in hex}').then(console.log)
+> caver.rpc.klay.getAccountKey('0x{address in hex}').then(console.log)
 { keyType: 1, key: {} }
 
 // AccountKey type: AccountKeyPublic
-> caver.rpc.kaia.getAccountKey('0x{address in hex}').then(console.log)
+> caver.rpc.klay.getAccountKey('0x{address in hex}').then(console.log)
 {
     keyType: 2,
     key: { x:'0xb9a4b...', y:'0x7a285...' }
 }
 
 // AccountKey type: AccountKeyFail
-> caver.rpc.kaia.getAccountKey('0x{address in hex}').then(console.log)
+> caver.rpc.klay.getAccountKey('0x{address in hex}').then(console.log)
 { keyType: 3, key:{} }
 
 // AccountKey type: AccountKeyWeightedMultiSig
-> caver.rpc.kaia.getAccountKey('0x{address in hex}').then(console.log)
+> caver.rpc.klay.getAccountKey('0x{address in hex}').then(console.log)
 {
     keyType: 4,
     key: {
@@ -158,7 +158,7 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 }
 
 // AccountKey type: AccountKeyRoleBased
-> caver.rpc.kaia.getAccountKey('0x{address in hex}').then(console.log)
+> caver.rpc.klay.getAccountKey('0x{address in hex}').then(console.log)
 {
     keyType: 5,
     key: [
@@ -178,10 +178,10 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 }
 ```
 
-## caver.rpc.kaia.encodeAccountKey <a href="#caver-rpc-kaia-encodeaccountkey" id="caver-rpc-kaia-encodeaccountkey"></a>
+## caver.rpc.klay.encodeAccountKey <a href="#caver-rpc-klay-encodeaccountkey" id="caver-rpc-klay-encodeaccountkey"></a>
 
 ```javascript
-caver.rpc.kaia.encodeAccountKey(accountKey [, callback])
+caver.rpc.klay.encodeAccountKey(accountKey [, callback])
 ```
 
 Encodes an object that contains AccountKey information using the Recursive Length Prefix (RLP) encoding scheme. Also you can use [account.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) to get RLP-encoded AccountKey.
@@ -205,11 +205,11 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
-> caver.rpc.kaia.encodeAccountKey({ keyType: 1, key: {} }).then(console.log)
+> caver.rpc.klay.encodeAccountKey({ keyType: 1, key: {} }).then(console.log)
 0x01c0
 
 // AccountKey type: AccountKeyPublic
-> caver.rpc.kaia.encodeAccountKey({
+> caver.rpc.klay.encodeAccountKey({
         keyType: 2,
         key: {
             x: '0xdbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8',
@@ -219,11 +219,11 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
 // AccountKey type: AccountKeyFail
-> caver.rpc.kaia.encodeAccountKey({ keyType: 3, key: {} }).then(console.log)
+> caver.rpc.klay.encodeAccountKey({ keyType: 3, key: {} }).then(console.log)
 0x03c0
 
 // AccountKey type: AccountKeyWeightedMultiSig
-> caver.rpc.kaia.encodeAccountKey({
+> caver.rpc.klay.encodeAccountKey({
         keyType: 4,
         key: {
             threshold: 2,
@@ -248,7 +248,7 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 0x04f84b02f848e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e6156ce029b110ee301a10212d45f1cc56fbd6cd8fc877ab63b5092ac77db907a8a42c41dad3e98d7c64dfb
 
 // AccountKey type: AccountKeyRoleBased
-> caver.rpc.kaia.encodeAccountKey({
+> caver.rpc.klay.encodeAccountKey({
         keyType: 5,
         key: [
             {
@@ -293,14 +293,14 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 
 // Use an AccountKey instance
 > const accountKey = caver.account.create('0x{address in hex}', '0xf1d2e...').accountKey
-> caver.rpc.kaia.encodeAccountKey(accountKey).then(console.log)
+> caver.rpc.klay.encodeAccountKey(accountKey).then(console.log)
 0x02a102f1d2e558cfa07151534cd406b1ac5c25d99e9c1cf925328d14fd15c6fe50df27
 ```
 
-## caver.rpc.kaia.decodeAccountKey <a href="#caver-rpc-kaia-decodeaccountkey" id="caver-rpc-kaia-decodeaccountkey"></a>
+## caver.rpc.klay.decodeAccountKey <a href="#caver-rpc-klay-decodeaccountkey" id="caver-rpc-klay-decodeaccountkey"></a>
 
 ```javascript
-caver.rpc.kaia.decodeAccountKey(encodedKey [, callback])
+caver.rpc.klay.decodeAccountKey(encodedKey [, callback])
 ```
 
 Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.decode](../caver.account.md#caver-account-accountkey-decode) to decode a RLP-encoded AccountKey.
@@ -324,11 +324,11 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
-> caver.rpc.kaia.decodeAccountKey('0x01c0').then(console.log)
+> caver.rpc.klay.decodeAccountKey('0x01c0').then(console.log)
 { keyType: 1, key: {} }
 
 // AccountKey type: AccountKeyPublic
-> caver.rpc.kaia.decodeAccountKey('0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8').then(console.log)
+> caver.rpc.klay.decodeAccountKey('0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8').then(console.log)
 {
     keyType: 2,
     key: {
@@ -338,11 +338,11 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 }
 
 // AccountKey type: AccountKeyFail
-> caver.rpc.kaia.decodeAccountKey('0x03c0').then(console.log)
+> caver.rpc.klay.decodeAccountKey('0x03c0').then(console.log)
 { keyType: 3, key: {} }
 
 // AccountKey type: AccountKeyWeightedMultiSig
-> caver.rpc.kaia.decodeAccountKey('0x04f84b02f848e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e6156ce029b110ee301a10212d45f1cc56fbd6cd8fc877ab63b5092ac77db907a8a42c41dad3e98d7c64dfb').then(console.log)
+> caver.rpc.klay.decodeAccountKey('0x04f84b02f848e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e6156ce029b110ee301a10212d45f1cc56fbd6cd8fc877ab63b5092ac77db907a8a42c41dad3e98d7c64dfb').then(console.log)
 {
     keyType: 4,
     key: {
@@ -368,7 +368,7 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 
 
 // AccountKey type: AccountKeyRoleBased
-> caver.rpc.kaia.decodeAccountKey('0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512db84e04f84b02f848e301a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512de301a10336f6355f5b532c3c160').then(console.log)
+> caver.rpc.klay.decodeAccountKey('0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512db84e04f84b02f848e301a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512de301a10336f6355f5b532c3c160').then(console.log)
 {
     keyType: 5,
     key: [
@@ -412,13 +412,13 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 }
 ```
 
-## caver.rpc.kaia.getBalance <a href="#caver-rpc-kaia-getbalance" id="caver-rpc-kaia-getbalance"></a>
+## caver.rpc.klay.getBalance <a href="#caver-rpc-klay-getbalance" id="caver-rpc-klay-getbalance"></a>
 
 ```javascript
-caver.rpc.kaia.getBalance(address [, blockNumber] [, callback])
+caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 ```
 
-Returns the balance of the account of the given address in Kaia.
+Returns the balance of the account of the given address in Klaytn.
 
 **Parameters**
 
@@ -434,19 +434,19 @@ Returns the balance of the account of the given address in Kaia.
 
 | Type   | Description                                       |
 | ------ | ------------------------------------------------- |
-| string | The current balance for the given address in kei. |
+| string | The current balance for the given address in peb. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getBalance('0x{address in hex}').then(console.log)
+> caver.rpc.klay.getBalance('0x{address in hex}').then(console.log)
 0xde0b6b3a7640000
 ```
 
-## caver.rpc.kaia.getCode <a href="#caver-rpc-kaia-getcode" id="caver-rpc-kaia-getcode"></a>
+## caver.rpc.klay.getCode <a href="#caver-rpc-klay-getcode" id="caver-rpc-klay-getcode"></a>
 
 ```javascript
-caver.rpc.kaia.getCode(address [, blockNumber] [, callback])
+caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 ```
 
 Returns code at a given address.
@@ -470,14 +470,14 @@ Returns code at a given address.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getCode('0x{address in hex}').then(console.log)
+> caver.rpc.klay.getCode('0x{address in hex}').then(console.log)
 0x60806...
 ```
 
-## caver.rpc.kaia.getTransactionCount <a href="#caver-rpc-kaia-gettransactioncount" id="caver-rpc-kaia-gettransactioncount"></a>
+## caver.rpc.klay.getTransactionCount <a href="#caver-rpc-klay-gettransactioncount" id="caver-rpc-klay-gettransactioncount"></a>
 
 ```javascript
-caver.rpc.kaia.getTransactionCount(address [, blockNumber] [, callback])
+caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 
 Returns the total number of transactions sent from an address.
@@ -487,7 +487,7 @@ Returns the total number of transactions sent from an address.
 | Name        | Type             | Description                                                                                                                                                                                                                                                        |
 | ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | address     | string           | The address to get the number of transactions from.                                                                                                                                                                                                                |
-| blockNumber | number \| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the default block parameter. If omitted, `latest` will be used. |
+| blockNumber | number \| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
 | callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                         |
 
 **Return Value**
@@ -501,14 +501,14 @@ Returns the total number of transactions sent from an address.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getTransactionCount('0x{address in hex}').then(console.log)
+> caver.rpc.klay.getTransactionCount('0x{address in hex}').then(console.log)
 0x5f
 ```
 
-## caver.rpc.kaia.isContractAccount <a href="#caver-rpc-kaia-iscontractaccount" id="caver-rpc-kaia-iscontractaccount"></a>
+## caver.rpc.klay.isContractAccount <a href="#caver-rpc-klay-iscontractaccount" id="caver-rpc-klay-iscontractaccount"></a>
 
 ```javascript
-caver.rpc.kaia.isContractAccount(address [, blockNumber] [, callback])
+caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 ```
 
 Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash. Please refer to [Smart Contract Account](../../../../../learn/accounts.md#smart-contract-accounts-scas) for more details.
@@ -532,22 +532,22 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 **Example**
 
 ```javascript
-> caver.rpc.kaia.isContractAccount('0x{address in hex}').then(console.log)
+> caver.rpc.klay.isContractAccount('0x{address in hex}').then(console.log)
 false
 
-> caver.rpc.kaia.isContractAccount('0x{address in hex}').then(console.log)
+> caver.rpc.klay.isContractAccount('0x{address in hex}').then(console.log)
 true
 ```
 
-## caver.rpc.kaia.sign <a href="#caver-rpc-kaia-sign" id="caver-rpc-kaia-sign"></a>
+## caver.rpc.klay.sign <a href="#caver-rpc-klay-sign" id="caver-rpc-klay-sign"></a>
 
 ```javascript
-caver.rpc.kaia.sign(address, message [, blockNumber] [, callback])
+caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-Generates signed data specific to the Kaia. Refer to [Kaia Platform API - kaia_sign](../../../../../json-rpc/klay/sign) to know how the signature is generated.
+Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) to know how the signature is generated.
 
-**NOTE**: This API provides the function to sign a message using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Kaia node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign the message. To sign a transaction with imported account in your Kaia node, use [caver.rpc.kaia.signTransaction](#caver-rpc-kaia-signtransaction).
+**NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
 
 **Parameters**
 
@@ -569,17 +569,17 @@ Generates signed data specific to the Kaia. Refer to [Kaia Platform API - kaia_s
 **Example**
 
 ```javascript
-> caver.rpc.kaia.sign('0x{address in hex}', '0xdeadbeaf').then(console.log)
+> caver.rpc.klay.sign('0x{address in hex}', '0xdeadbeaf').then(console.log)
 0x1066e052c4be821daa4d0a0cd1e9e75ccb200bb4001c2e38853ba41b712a5a226da2acd67c86a13b266e0d75d0a6e7d1551c8924af413267615a5948617c746c1c
 ```
 
-## caver.rpc.kaia.getAccounts <a href="#caver-rpc-kaia-getaccounts" id="caver-rpc-kaia-getaccounts"></a>
+## caver.rpc.klay.getAccounts <a href="#caver-rpc-klay-getaccounts" id="caver-rpc-klay-getaccounts"></a>
 
 ```javascript
-caver.rpc.kaia.getAccounts([callback])
+caver.rpc.klay.getAccounts([callback])
 ```
 
-Returns a list of addresses owned by the Kaia Node.
+Returns a list of addresses owned by the Klaytn Node.
 
 **Parameters**
 
@@ -593,22 +593,22 @@ Returns a list of addresses owned by the Kaia Node.
 
 | Type  | Description                                     |
 | ----- | ----------------------------------------------- |
-| Array | An array of addresses owned by the Kaia Node. |
+| Array | An array of addresses owned by the Klaytn Node. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getAccounts().then(console.log)
+> caver.rpc.klay.getAccounts().then(console.log)
 [
     '0xe1531e916857d1b3a7db92f9187b96a7b43813bf',
     '0x75331c25535052157ff5110ba7d0cf940d3a9ca6'
 ]
 ```
 
-## caver.rpc.kaia.getBlockNumber <a href="#caver-rpc-kaia-getblocknumber" id="caver-rpc-kaia-getblocknumber"></a>
+## caver.rpc.klay.getBlockNumber <a href="#caver-rpc-klay-getblocknumber" id="caver-rpc-klay-getblocknumber"></a>
 
 ```javascript
-caver.rpc.kaia.getBlockNumber([callback])
+caver.rpc.klay.getBlockNumber([callback])
 ```
 
 Returns the number of the most recent block.
@@ -630,17 +630,17 @@ Returns the number of the most recent block.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getBlockNumber().then(console.log)
+> caver.rpc.klay.getBlockNumber().then(console.log)
 0x5d39
 ```
 
-## caver.rpc.kaia.getHeader <a href="#caver-rpc-kaia-getheader" id="caver-rpc-kaia-getheader"></a>
+## caver.rpc.klay.getHeader <a href="#caver-rpc-klay-getheader" id="caver-rpc-klay-getheader"></a>
 
 ```javascript
-caver.rpc.kaia.getHeader(blockNumberOrHash [, callback])
+caver.rpc.klay.getHeader(blockNumberOrHash [, callback])
 ```
 
-Returns a block header by block hash or block number. If the user passes the block hash as a parameter, [caver.rpc.kaia.getHeaderByHash](#caver-rpc-kaia-getheaderbyhash) is called, and if the block number is called as a parameter, [caver.rpc.kaia.getHeaderByNumber](#caver-rpc-kaia-getheaderbynumber) is called.
+Returns a block header by block hash or block number. If the user passes the block hash as a parameter, [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getHeaderByNumber](#caver-rpc-klay-getheaderbynumber) is called.
 
 **Parameters**
 
@@ -655,12 +655,12 @@ Returns a block header by block hash or block number. If the user passes the blo
 
 | Type   | Description                                                                                                                                                      |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.kaia.getHeaderByHash](#caver-rpc-kaia-getheaderbyhash). |
+| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getHeader(1).then(console.log)
+> caver.rpc.klay.getHeader(1).then(console.log)
 {
   baseFeePerGas: '0x0',
   blockScore: '0x1',
@@ -680,10 +680,10 @@ Returns a block header by block hash or block number. If the user passes the blo
 }
 ```
 
-## caver.rpc.kaia.getHeaderByNumber <a href="#caver-rpc-kaia-getheaderbynumber" id="caver-rpc-kaia-getheaderbynumber"></a>
+## caver.rpc.klay.getHeaderByNumber <a href="#caver-rpc-klay-getheaderbynumber" id="caver-rpc-klay-getheaderbynumber"></a>
 
 ```javascript
-caver.rpc.kaia.getHeaderByNumber(blockNumber [, returnTransactionObjects] [, callback])
+caver.rpc.klay.getHeaderByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
 Returns a block header by block number.
@@ -701,12 +701,12 @@ Returns a block header by block number.
 
 | Type   | Description                                                                                                                                                      |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.kaia.getHeaderByHash](#caver-rpc-kaia-getheaderbyhash). |
+| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getHeaderByNumber(765139).then(console.log)
+> caver.rpc.klay.getHeaderByNumber(765139).then(console.log)
 {
   baseFeePerGas: '0x0',
   blockScore: '0x1',
@@ -726,10 +726,10 @@ Returns a block header by block number.
 }
 ```
 
-## caver.rpc.kaia.getHeaderByHash <a href="#caver-rpc-kaia-getheaderbyhash" id="caver-rpc-kaia-getheaderbyhash"></a>
+## caver.rpc.klay.getHeaderByHash <a href="#caver-rpc-klay-getheaderbyhash" id="caver-rpc-klay-getheaderbyhash"></a>
 
 ```javascript
-caver.rpc.kaia.getHeaderByHash(blockHash [, returnTransactionObjects] [, callback])
+caver.rpc.klay.getHeaderByHash(blockHash [, returnTransactionObjects] [, callback])
 ```
 
 Returns the block number of the most recent block by using `blockHash`.
@@ -766,7 +766,7 @@ Returns the block number of the most recent block by using `blockHash`.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getHeaderByHash('0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3').then(console.log)
+> caver.rpc.klay.getHeaderByHash('0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3').then(console.log)
 {
   baseFeePerGas: '0x0',
   blockScore: '0x1',
@@ -786,13 +786,13 @@ Returns the block number of the most recent block by using `blockHash`.
 }
 ```
 
-## caver.rpc.kaia.getBlock <a href="#caver-rpc-kaia-getblock" id="caver-rpc-kaia-getblock"></a>
+## caver.rpc.klay.getBlock <a href="#caver-rpc-klay-getblock" id="caver-rpc-klay-getblock"></a>
 
 ```javascript
-caver.rpc.kaia.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callback])
+caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callback])
 ```
 
-Returns information about a block by block hash or block number. If the user passes the block hash as a parameter, [caver.rpc.kaia.getBlockByHash](#caver-rpc-kaia-getblockbyhash) is called, and if the block number is called as a parameter, [caver.rpc.kaia.getBlockByNumber](#caver-rpc-kaia-getblockbynumber) is called.
+Returns information about a block by block hash or block number. If the user passes the block hash as a parameter, [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getBlockByNumber](#caver-rpc-klay-getblockbynumber) is called.
 
 **Parameters**
 
@@ -808,12 +808,12 @@ Returns information about a block by block hash or block number. If the user pas
 
 | Type   | Description                                                                                                                                             |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A block object. For a detailed description of the return value, please refer to [caver.rpc.kaia.getBlockByHash](#caver-rpc-kaia-getblockbyhash). |
+| object | A block object. For a detailed description of the return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getBlock(1).then(console.log)
+> caver.rpc.klay.getBlock(1).then(console.log)
 {
     baseFeePerGas: '0x0',
     blockscore: '0x1',
@@ -837,10 +837,10 @@ Returns information about a block by block hash or block number. If the user pas
 }
 ```
 
-## caver.rpc.kaia.getBlockByNumber <a href="#caver-rpc-kaia-getblockbynumber" id="caver-rpc-kaia-getblockbynumber"></a>
+## caver.rpc.klay.getBlockByNumber <a href="#caver-rpc-klay-getblockbynumber" id="caver-rpc-klay-getblockbynumber"></a>
 
 ```javascript
-caver.rpc.kaia.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
+caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
 Returns information about a block by block number.
@@ -859,12 +859,12 @@ Returns information about a block by block number.
 
 | Type   | Description                                                                                                                                       |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A block object. For detailed description of return value, please refer to [caver.rpc.kaia.getBlockByHash](#caver-rpc-kaia-getblockbyhash). |
+| object | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getBlockByNumber(1).then(console.log)
+> caver.rpc.klay.getBlockByNumber(1).then(console.log)
 {
     baseFeePerGas: '0x0',
     blockscore: '0x1',
@@ -888,10 +888,10 @@ Returns information about a block by block number.
 }
 ```
 
-## caver.rpc.kaia.getBlockByHash <a href="#caver-rpc-kaia-getblockbyhash" id="caver-rpc-kaia-getblockbyhash"></a>
+## caver.rpc.klay.getBlockByHash <a href="#caver-rpc-klay-getblockbyhash" id="caver-rpc-klay-getblockbyhash"></a>
 
 ```javascript
-caver.rpc.kaia.getBlockByHash(blockHash [, returnTransactionObjects] [, callback])
+caver.rpc.klay.getBlockByHash(blockHash [, returnTransactionObjects] [, callback])
 ```
 
 Returns the block number of the most recent block by using `blockHash`.
@@ -933,7 +933,7 @@ Returns the block number of the most recent block by using `blockHash`.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getBlockByHash('0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b').then(console.log)
+> caver.rpc.klay.getBlockByHash('0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b').then(console.log)
 {
     baseFeePerGas: '0x0',
     blockscore: '0x1',
@@ -957,10 +957,10 @@ Returns the block number of the most recent block by using `blockHash`.
 }
 ```
 
-## caver.rpc.kaia.getBlockReceipts <a href="#caver-rpc-kaia-getblockreceipts" id="caver-rpc-kaia-getblockreceipts"></a>
+## caver.rpc.klay.getBlockReceipts <a href="#caver-rpc-klay-getblockreceipts" id="caver-rpc-klay-getblockreceipts"></a>
 
 ```javascript
-caver.rpc.kaia.getBlockReceipts(blockHash [, callback])
+caver.rpc.klay.getBlockReceipts(blockHash [, callback])
 ```
 
 Returns receipts included in a block identified by block hash.
@@ -978,12 +978,12 @@ Returns receipts included in a block identified by block hash.
 
 | Type  | Description                                                                                                                                                                                                                                                                        |
 | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Array | The transaction receipts included in a block. If the target block contains no transaction, an empty array `[]` is returned. For detailed description of transaction receipt, please refer to [caver.rpc.kaia.getTransactionReceipt](#caver-rpc-kaia-gettransactionreceipt). |
+| Array | The transaction receipts included in a block. If the target block contains no transaction, an empty array `[]` is returned. For detailed description of transaction receipt, please refer to [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt). |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getBlockReceipts('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
+> caver.rpc.klay.getBlockReceipts('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
 [ 
     {
         blockHash: '0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0',
@@ -1015,10 +1015,10 @@ Returns receipts included in a block identified by block hash.
 ]
 ```
 
-## caver.rpc.kaia.getBlockTransactionCountByNumber <a href="#caver-rpc-kaia-getblocktransactioncountbynumber" id="caver-rpc-kaia-getblocktransactioncountbynumber"></a>
+## caver.rpc.klay.getBlockTransactionCountByNumber <a href="#caver-rpc-klay-getblocktransactioncountbynumber" id="caver-rpc-klay-getblocktransactioncountbynumber"></a>
 
 ```javascript
-caver.rpc.kaia.getBlockTransactionCountByNumber(blockNumber [, callback])
+caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])
 ```
 
 Returns the number of transactions in a block matching the given block number.
@@ -1041,14 +1041,14 @@ Returns the number of transactions in a block matching the given block number.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getBlockTransactionCountByNumber(21249).then(console.log)
+> caver.rpc.klay.getBlockTransactionCountByNumber(21249).then(console.log)
 0x1
 ```
 
-## caver.rpc.kaia.getBlockTransactionCountByHash <a href="#caver-rpc-kaia-getblocktransactioncountbyhash" id="caver-rpc-kaia-getblocktransactioncountbyhash"></a>
+## caver.rpc.klay.getBlockTransactionCountByHash <a href="#caver-rpc-klay-getblocktransactioncountbyhash" id="caver-rpc-klay-getblocktransactioncountbyhash"></a>
 
 ```javascript
-caver.rpc.kaia.getBlockTransactionCountByHash(blockHash [, callback])
+caver.rpc.klay.getBlockTransactionCountByHash(blockHash [, callback])
 ```
 
 Returns the number of transactions in a block matching the given block hash.
@@ -1071,14 +1071,14 @@ Returns the number of transactions in a block matching the given block hash.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getBlockTransactionCountByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
+> caver.rpc.klay.getBlockTransactionCountByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
 0x1
 ```
 
-## caver.rpc.kaia.getBlockWithConsensusInfoByNumber <a href="#caver-rpc-kaia-getblockwithconsensusinfobynumber" id="caver-rpc-kaia-getblockwithconsensusinfobynumber"></a>
+## caver.rpc.klay.getBlockWithConsensusInfoByNumber <a href="#caver-rpc-klay-getblockwithconsensusinfobynumber" id="caver-rpc-klay-getblockwithconsensusinfobynumber"></a>
 
 ```javascript
-caver.rpc.kaia.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
+caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
 ```
 
 Returns a block with consensus information matched by the given block number.
@@ -1096,12 +1096,12 @@ Returns a block with consensus information matched by the given block number.
 
 | Type   | Description                                                                                                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| string | An object includes block with consensus information. For detailed description of return value, please refer to [caver.rpc.kaia.getBlockWithConsensusInfoByHash](#caver-rpc-kaia-getblockwithconsensusinfobyhash). |
+| string | An object includes block with consensus information. For detailed description of return value, please refer to [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash). |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getBlockWithConsensusInfoByNumber(21249).then(console.log)
+> caver.rpc.klay.getBlockWithConsensusInfoByNumber(21249).then(console.log)
 {
     blockscore: '0x1',
     committee: ['0xddc2002b729676dfd906484d35bb02a8634d7040', '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e'],
@@ -1152,10 +1152,10 @@ Returns a block with consensus information matched by the given block number.
 }
 ```
 
-## caver.rpc.kaia.getBlockWithConsensusInfoByHash <a href="#caver-rpc-kaia-getblockwithconsensusinfobyhash" id="caver-rpc-kaia-getblockwithconsensusinfobyhash"></a>
+## caver.rpc.klay.getBlockWithConsensusInfoByHash <a href="#caver-rpc-klay-getblockwithconsensusinfobyhash" id="caver-rpc-klay-getblockwithconsensusinfobyhash"></a>
 
 ```javascript
-caver.rpc.kaia.getBlockWithConsensusInfoByHash(blockHash [, callback])
+caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
 ```
 
 Returns a block with consensus information matched by the given hash.
@@ -1199,7 +1199,7 @@ Returns a block with consensus information matched by the given hash.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getBlockWithConsensusInfoByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
+> caver.rpc.klay.getBlockWithConsensusInfoByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
 {
     blockscore: '0x1',
     committee: [ '0x571e5...', '0x5cb1a...', '0x99fb1...', '0xb74ff...' ],
@@ -1275,10 +1275,10 @@ Returns a block with consensus information matched by the given hash.
 }
 ```
 
-## caver.rpc.kaia.getCommittee <a href="#caver-rpc-kaia-getcommittee" id="caver-rpc-kaia-getcommittee"></a>
+## caver.rpc.klay.getCommittee <a href="#caver-rpc-klay-getcommittee" id="caver-rpc-klay-getcommittee"></a>
 
 ```javascript
-caver.rpc.kaia.getCommittee([blockNumber] [, callback])
+caver.rpc.klay.getCommittee([blockNumber] [, callback])
 ```
 
 Returns a list of all validators in the committee at the specified block.
@@ -1301,17 +1301,17 @@ Returns a list of all validators in the committee at the specified block.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getCommittee().then(console.log)
+> caver.rpc.klay.getCommittee().then(console.log)
 [
     '0xddc2002b729676dfd906484d35bb02a8634d7040',
     '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e'
 ]
 ```
 
-## caver.rpc.kaia.getCommitteeSize <a href="#caver-rpc-kaia-getcommitteesize" id="caver-rpc-kaia-getcommitteesize"></a>
+## caver.rpc.klay.getCommitteeSize <a href="#caver-rpc-klay-getcommitteesize" id="caver-rpc-klay-getcommitteesize"></a>
 
 ```javascript
-caver.rpc.kaia.getCommitteeSize([blockNumber] [, callback])
+caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
 ```
 
 Returns the size of the committee at the specified block.
@@ -1334,14 +1334,14 @@ Returns the size of the committee at the specified block.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getCommitteeSize().then(console.log)
+> caver.rpc.klay.getCommitteeSize().then(console.log)
 2
 ```
 
-## caver.rpc.kaia.getCouncil <a href="#caver-rpc-kaia-getcouncil" id="caver-rpc-kaia-getcouncil"></a>
+## caver.rpc.klay.getCouncil <a href="#caver-rpc-klay-getcouncil" id="caver-rpc-klay-getcouncil"></a>
 
 ```javascript
-caver.rpc.kaia.getCouncil([blockNumber] [, callback])
+caver.rpc.klay.getCouncil([blockNumber] [, callback])
 ```
 
 Returns a list of all validators of the council at the specified block.
@@ -1364,17 +1364,17 @@ Returns a list of all validators of the council at the specified block.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getCouncil().then(console.log)
+> caver.rpc.klay.getCouncil().then(console.log)
 [
     '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e',
     '0xddc2002b729676dfd906484d35bb02a8634d7040'
 ]
 ```
 
-## caver.rpc.kaia.getCouncilSize <a href="#caver-rpc-kaia-getcouncilsize" id="caver-rpc-kaia-getcouncilsize"></a>
+## caver.rpc.klay.getCouncilSize <a href="#caver-rpc-klay-getcouncilsize" id="caver-rpc-klay-getcouncilsize"></a>
 
 ```javascript
-caver.rpc.kaia.getCouncilSize([blockNumber] [, callback])
+caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 ```
 
 Returns the size of the council at the specified block.
@@ -1397,14 +1397,14 @@ Returns the size of the council at the specified block.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getCouncilSize().then(console.log)
+> caver.rpc.klay.getCouncilSize().then(console.log)
 2
 ```
 
-## caver.rpc.kaia.getStorageAt <a href="#caver-rpc-kaia-getstorageat" id="caver-rpc-kaia-getstorageat"></a>
+## caver.rpc.klay.getStorageAt <a href="#caver-rpc-klay-getstorageat" id="caver-rpc-klay-getstorageat"></a>
 
 ```javascript
-caver.rpc.kaia.getStorageAt(address, position [, blockNumber] [, callback])
+caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 ```
 
 Returns the value from a storage position at a given address.
@@ -1414,7 +1414,7 @@ Returns the value from a storage position at a given address.
 | Name        | Type             | Description                                                                                                                                                                                 |
 | ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address     | string           | The address to get the storage from.                                                                                                                                                        |
-| position    | number           | The index position of the storage. For more information on `calculating the position`, refer to [kaia_getStorageAt](../../../../../json-rpc/klay/get-storage-at). |
+| position    | number           | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
 | blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                                         |
 | callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                  |
 
@@ -1429,14 +1429,14 @@ Returns the value from a storage position at a given address.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getStorageAt('0x407d73d8a49eeb85d32cf465507dd71d507100c1', 0).then(console.log)
+> caver.rpc.klay.getStorageAt('0x407d73d8a49eeb85d32cf465507dd71d507100c1', 0).then(console.log)
 0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234
 ```
 
-## caver.rpc.kaia.isMinting <a href="#caver-rpc-kaia-isminting" id="caver-rpc-kaia-isminting"></a>
+## caver.rpc.klay.isMinting <a href="#caver-rpc-klay-isminting" id="caver-rpc-klay-isminting"></a>
 
 ```javascript
-caver.rpc.kaia.isMinting([callback])
+caver.rpc.klay.isMinting([callback])
 ```
 
 Returns `true` if client is actively mining new blocks.
@@ -1454,14 +1454,14 @@ Returns `true` if client is actively mining new blocks.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.isMinting().then(console.log)
+> caver.rpc.klay.isMinting().then(console.log)
 true
 ```
 
-## caver.rpc.kaia.isSyncing <a href="#caver-rpc-kaia-issyncing" id="caver-rpc-kaia-issyncing"></a>
+## caver.rpc.klay.isSyncing <a href="#caver-rpc-klay-issyncing" id="caver-rpc-klay-issyncing"></a>
 
 ```javascript
-caver.rpc.kaia.isSyncing([callback])
+caver.rpc.klay.isSyncing([callback])
 ```
 
 Returns an object with data about the sync status or false.
@@ -1474,7 +1474,7 @@ Returns an object with data about the sync status or false.
 
 **Return Value**
 
-`Promise` returns `object|boolean` - `false` if the Kaia Node is not syncing. Otherwise, a sync object is returned:
+`Promise` returns `object|boolean` - `false` if the Klaytn Node is not syncing. Otherwise, a sync object is returned:
 
 | Name          | Type   | Description                                                 |
 | ------------- | ------ | ----------------------------------------------------------- |
@@ -1487,7 +1487,7 @@ Returns an object with data about the sync status or false.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.isSyncing().then(console.log)
+> caver.rpc.klay.isSyncing().then(console.log)
 {
         startingBlock: 100,
         currentBlock: 312,
@@ -1496,14 +1496,14 @@ Returns an object with data about the sync status or false.
         pulledStates: 123455
 }
 
-> caver.rpc.kaia.isSyncing().then(console.log)
+> caver.rpc.klay.isSyncing().then(console.log)
 false
 ```
 
-## caver.rpc.kaia.call <a href="#caver-rpc-kaia-call" id="caver-rpc-kaia-call"></a>
+## caver.rpc.klay.call <a href="#caver-rpc-klay-call" id="caver-rpc-klay-call"></a>
 
 ```javascript
-caver.rpc.kaia.call(callObject [, blockNumber] [, callback])
+caver.rpc.klay.call(callObject [, blockNumber] [, callback])
 ```
 
 Executes a new message call immediately without sending a transaction on the blockchain. It returns data or an error object of JSON RPC if an error occurs.
@@ -1523,9 +1523,9 @@ Executes a new message call immediately without sending a transaction on the blo
 | to       | string | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                |
 | input    | string | (optional) The hash of the method signature and encoded parameters. You can use [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
 | from     | string | (optional) The address the transaction is sent from.                                                                                                |
-| gas      | string | (optional) The gas provided for the transaction execution. `kaia_call` consumes zero gas, but this parameter may be needed by some executions.      |
+| gas      | string | (optional) The gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions.      |
 | gasPrice | string | (optional) The gasPrice used for each paid gas.                                                                                                     |
-| value    | string | (optional) The value sent with this transaction in `kei`.                                                                                           |
+| value    | string | (optional) The value sent with this transaction in `peb`.                                                                                           |
 
 **Return Value**
 
@@ -1538,24 +1538,24 @@ Executes a new message call immediately without sending a transaction on the blo
 **Example**
 
 ```javascript
-> caver.rpc.kaia.call({ 
+> caver.rpc.klay.call({ 
         to: '0x5481a10a47C74f800BDF4955BD77550881bde91C', // contract address
         input: '0x70a08231000000000000000000000000ddc2002b729676dfd906484d35bb02a8634d7040'
     }).then(console.log)
 0x0000000000000000000000000000000000000000000000000de0b6b3a7640000
 ```
 
-## caver.rpc.kaia.estimateGas <a href="#caver-rpc-kaia-estimategas" id="caver-rpc-kaia-estimategas"></a>
+## caver.rpc.klay.estimateGas <a href="#caver-rpc-klay-estimategas" id="caver-rpc-klay-estimategas"></a>
 
 ```javascript
-caver.rpc.kaia.estimateGas(callObject [, blockNumber] [, callback])
+caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
 ```
 
 Generates and returns an estimate of how much `gas` is necessary to allow a transaction to complete. The transaction from this method will not be added to the blockchain.
 
 **Parameters**
 
-See [caver.rpc.kaia.call](#caver-rpc-kaia-call) parameters, expect that all properties are optional.
+See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all properties are optional.
 
 **Return Value**
 
@@ -1568,24 +1568,24 @@ See [caver.rpc.kaia.call](#caver-rpc-kaia-call) parameters, expect that all prop
 **Example**
 
 ```javascript
-> caver.rpc.kaia.estimateGas({ 
+> caver.rpc.klay.estimateGas({ 
         to: '0x5481a10a47C74f800BDF4955BD77550881bde91C', // contract address
         input: '0x095ea7b300000000000000000000000028e4e077686d1aeaf54a1313ff4841181056fe32000000000000000000000000000000000000000000000000000000000000000a'
     }).then(console.log)
 0xb2a0
 ```
 
-## caver.rpc.kaia.estimateComputationCost <a href="#caver-rpc-kaia-estimatecomputationcost" id="caver-rpc-kaia-estimatecomputationcost"></a>
+## caver.rpc.klay.estimateComputationCost <a href="#caver-rpc-klay-estimatecomputationcost" id="caver-rpc-klay-estimatecomputationcost"></a>
 
 ```javascript
-caver.rpc.kaia.estimateComputationCost(callObject [, blockNumber] [, callback])
+caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
 ```
 
-Generates and returns an estimate of how much `computation cost` will be spent to execute the transaction. Kaia limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [caver.rpc.kaia.estimateGas](#caver-rpc-kaia-estimategas).
+Generates and returns an estimate of how much `computation cost` will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
 
 **Parameters**
 
-See [caver.rpc.kaia.call](#caver-rpc-kaia-call) parameters, expect that all properties are optional.
+See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all properties are optional.
 
 **Return Value**
 
@@ -1598,17 +1598,17 @@ See [caver.rpc.kaia.call](#caver-rpc-kaia-call) parameters, expect that all prop
 **Example**
 
 ```javascript
-> caver.rpc.kaia.estimateComputationCost({ 
+> caver.rpc.klay.estimateComputationCost({ 
         to: '0x5481a10a47C74f800BDF4955BD77550881bde91C', // contract address
         input: '0x095ea7b300000000000000000000000028e4e077686d1aeaf54a1313ff4841181056fe32000000000000000000000000000000000000000000000000000000000000000a'
     }).then(console.log)
 0xd761
 ```
 
-## caver.rpc.kaia.getTransactionByBlockHashAndIndex <a href="#caver-rpc-kaia-gettransactionbyblockhashandindex" id="caver-rpc-kaia-gettransactionbyblockhashandindex"></a>
+## caver.rpc.klay.getTransactionByBlockHashAndIndex <a href="#caver-rpc-klay-gettransactionbyblockhashandindex" id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
 
 ```javascript
-caver.rpc.kaia.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
+caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
 ```
 
 Returns information about a transaction by `block hash` and `transaction index` position.
@@ -1627,12 +1627,12 @@ Returns information about a transaction by `block hash` and `transaction index` 
 
 | Type   | Description                                                                                                                   |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| object | A transaction object, see [caver.rpc.kaia.getTransactionByHash](#caver-rpc-kaia-gettransactionbyhash) for more detail. |
+| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more detail. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getTransactionByBlockHashAndIndex('0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576', 0).then(console.log)
+> caver.rpc.klay.getTransactionByBlockHashAndIndex('0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576', 0).then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
     blockNumber: '0xb7',
@@ -1651,10 +1651,10 @@ Returns information about a transaction by `block hash` and `transaction index` 
 }
 ```
 
-## caver.rpc.kaia.getTransactionByBlockNumberAndIndex <a href="#caver-rpc-kaia-gettransactionbyblocknumberandindex" id="caver-rpc-kaia-gettransactionbyblocknumberandindex"></a>
+## caver.rpc.klay.getTransactionByBlockNumberAndIndex <a href="#caver-rpc-klay-gettransactionbyblocknumberandindex" id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
 
 ```javascript
-caver.rpc.kaia.getTransactionByBlockNumberAndIndex(blockNumber, index [, callback])
+caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callback])
 ```
 
 Returns information about a transaction by `block number` and `transaction index` position.
@@ -1673,12 +1673,12 @@ Returns information about a transaction by `block number` and `transaction index
 
 | Type   | Description                                                                                                                   |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| object | A transaction object, see [caver.rpc.kaia.getTransactionByHash](#caver-rpc-kaia-gettransactionbyhash) for more detail. |
+| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more detail. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getTransactionByBlockNumberAndIndex(183, 0).then(console.log)
+> caver.rpc.klay.getTransactionByBlockNumberAndIndex(183, 0).then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
     blockNumber: '0xb7',
@@ -1697,10 +1697,10 @@ Returns information about a transaction by `block number` and `transaction index
 }
 ```
 
-## caver.rpc.kaia.getTransactionByHash <a href="#caver-rpc-kaia-gettransactionbyhash" id="caver-rpc-kaia-gettransactionbyhash"></a>
+## caver.rpc.klay.getTransactionByHash <a href="#caver-rpc-klay-gettransactionbyhash" id="caver-rpc-klay-gettransactionbyhash"></a>
 
 ```javascript
-caver.rpc.kaia.getTransactionByHash(transactionHash [, callback])
+caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
 ```
 
 Returns the information about a transaction requested by transaction hash.
@@ -1726,10 +1726,10 @@ Returns the information about a transaction requested by transaction hash.
 | feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                            |
 | from               | string  | Address of the sender.                                                                                                                                                                                       |
 | gas                | string  | Gas provided by the sender.                                                                                                                                                                                  |
-| gasPrice           | string  | Gas price provided by the sender in kei.                                                                                                                                                                     |
+| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                     |
 | hash               | string  | Hash of the transaction.                                                                                                                                                                                     |
 | humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an Kaia account. See [AccountKey](../../../../../learn/accounts.md#account-key) for more details.                               |
+| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an Klaytn account. See [AccountKey](../../../../../learn/accounts.md#account-key) for more details.                               |
 | input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                         |
 | nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                             |
 | senderTxHash       | string  | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non-fee-delegated transactions.                                            |
@@ -1738,14 +1738,14 @@ Returns the information about a transaction requested by transaction hash.
 | transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                      |
 | type               | string  | A string representing the type of the transaction.                                                                                                                                                           |
 | typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                         |
-| value              | string  | Value transferred in kei.                                                                                                                                                                                    |
+| value              | string  | Value transferred in peb.                                                                                                                                                                                    |
 
 If the transaction is in `pending` status that has not yet been processed, default values for `blockHash`, `blockNumber` and `transactionIndex` are returned. See the example below.
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getTransactionByHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
+> caver.rpc.klay.getTransactionByHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
 {
     blockHash: '0xb273976bad5f3d40ba46839c020f61b1629e2362d351e3c9cb32268afc7cb477',
     blockNumber: '0x74c',
@@ -1767,7 +1767,7 @@ If the transaction is in `pending` status that has not yet been processed, defau
 }
 
 // When transaction is in pending, default values for `blockHash`, `blockNumber` and `trasnactionIndex` are returned.
-> caver.rpc.kaia.getTransactionByHash('0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1').then(console.log)
+> caver.rpc.klay.getTransactionByHash('0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1').then(console.log)
 {
     blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000',
     blockNumber: '0x0',
@@ -1786,15 +1786,15 @@ If the transaction is in `pending` status that has not yet been processed, defau
 }
 ```
 
-## caver.rpc.kaia.getTransactionBySenderTxHash <a href="#caver-rpc-kaia-gettransactionbysendertxhash" id="caver-rpc-kaia-gettransactionbysendertxhash"></a>
+## caver.rpc.klay.getTransactionBySenderTxHash <a href="#caver-rpc-klay-gettransactionbysendertxhash" id="caver-rpc-klay-gettransactionbysendertxhash"></a>
 
 ```javascript
-caver.rpc.kaia.getTransactionBySenderTxHash(senderTxHash [, callback])
+caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 ```
 
 Returns the information about a transaction requested by the sender transaction hash.
 
-Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.kaia.isSenderTxHashIndexingEnabled](#caver-rpc-kaia-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
 
 **Parameters**
 
@@ -1809,12 +1809,12 @@ Please note that this API returns the correct result only if the indexing featur
 
 | Type   | Description                                                                                                                    |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| object | A transaction object, see [caver.rpc.kaia.getTransactionByHash](#caver-rpc-kaia-gettransactionbyhash) for more details. |
+| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more details. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getTransactionBySenderTxHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
+> caver.rpc.klay.getTransactionBySenderTxHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
 {
     blockHash: '0xb273976bad5f3d40ba46839c020f61b1629e2362d351e3c9cb32268afc7cb477',
     blockNumber: '0x74c',
@@ -1836,10 +1836,10 @@ Please note that this API returns the correct result only if the indexing featur
 }
 ```
 
-## caver.rpc.kaia.getTransactionReceipt <a href="#caver-rpc-kaia-gettransactionreceipt" id="caver-rpc-kaia-gettransactionreceipt"></a>
+## caver.rpc.klay.getTransactionReceipt <a href="#caver-rpc-klay-gettransactionreceipt" id="caver-rpc-klay-gettransactionreceipt"></a>
 
 ```javascript
-caver.rpc.kaia.getTransactionReceipt(transactionHash [, callback])
+caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 ```
 
 Returns the receipt of a transaction by transaction hash.
@@ -1869,24 +1869,24 @@ Returns the receipt of a transaction by transaction hash.
 | feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                       |
 | from               | string  | Address of the sender.                                                                                                                                                                                                                  |
 | gas                | string  | Gas provided by the sender.                                                                                                                                                                                                             |
-| gasPrice           | string  | Gas price provided by the sender in kei.                                                                                                                                                                                                |
+| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                |
 | gasUsed            | string  | The amount of gas used by this specific transaction alone.                                                                                                                                                                              |
 | humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                         |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Kaia account.                                                                                                                                                    |
+| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account.                                                                                                                                                    |
 | input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                    |
 | logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                                                 |
 | logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                        |
 | nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                        |
 | senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions. |
 | signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                                   |
-| status             | string  | `0x1` if the transaction was successful, `0x0` if the Kaia Virtual Machine reverted the transaction.                                                                                                                                  |
+| status             | string  | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                  |
 | txError            | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                                           |
 | to                 | string  | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                             |
 | transactionHash    | string  | Hash of the transaction.                                                                                                                                                                                                                |
 | transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                 |
 | type               | string  | A string representing the type of the transaction.                                                                                                                                                                                      |
 | typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                    |
-| value              | string  | Value transferred in kei.                                                                                                                                                                                                               |
+| value              | string  | Value transferred in peb.                                                                                                                                                                                                               |
 
 **NOTE** `effectiveGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
 
@@ -1894,7 +1894,7 @@ Returns the receipt of a transaction by transaction hash.
 
 ```javascript
 // Before the Magma hard fork
-> caver.rpc.kaia.getTransactionReceipt('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
+> caver.rpc.klay.getTransactionReceipt('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
     blockNumber: '0xb7',
@@ -1919,7 +1919,7 @@ Returns the receipt of a transaction by transaction hash.
 }
 
 // After the Magma hard fork
-> caver.rpc.kaia.getTransactionReceipt('0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9').then(console.log)
+> caver.rpc.klay.getTransactionReceipt('0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9').then(console.log)
 {
   blockHash: '0xaa358681023db9d967ff44577a34aea487c37433ebf6ef349baee50f9d1d2f03',
   blockNumber: '0x99',
@@ -1944,15 +1944,15 @@ Returns the receipt of a transaction by transaction hash.
 }
 ```
 
-## caver.rpc.kaia.getTransactionReceiptBySenderTxHash <a href="#caver-rpc-kaia-gettransactionreceiptbysendertxhash" id="caver-rpc-kaia-gettransactionreceiptbysendertxhash"></a>
+## caver.rpc.klay.getTransactionReceiptBySenderTxHash <a href="#caver-rpc-klay-gettransactionreceiptbysendertxhash" id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
 
 ```javascript
-caver.rpc.kaia.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
+caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 ```
 
 Returns the receipt of a transaction by sender transaction hash.
 
-Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.kaia.isSenderTxHashIndexingEnabled](#caver-rpc-kaia-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
 
 **NOTE** Receipt is not available for `pending` transactions whose transactions have not yet been processed.
 
@@ -1969,12 +1969,12 @@ Please note that this API returns the correct result only if the indexing featur
 
 | Type   | Description                                                                                                                             |
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A transaction receipt object, see [caver.rpc.kaia.getTransactionReceipt](#caver-rpc-kaia-gettransactionreceipt) for more detail. |
+| object | A transaction receipt object, see [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getTransactionReceiptBySenderTxHash('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
+> caver.rpc.klay.getTransactionReceiptBySenderTxHash('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
     blockNumber: '0xb7',
@@ -1999,15 +1999,15 @@ Please note that this API returns the correct result only if the indexing featur
 }
 ```
 
-## caver.rpc.kaia.sendRawTransaction <a href="#caver-rpc-kaia-sendrawtransaction" id="caver-rpc-kaia-sendrawtransaction"></a>
+## caver.rpc.klay.sendRawTransaction <a href="#caver-rpc-klay-sendrawtransaction" id="caver-rpc-klay-sendrawtransaction"></a>
 
 ```javascript
-caver.rpc.kaia.sendRawTransaction(signedTransaction [, callback])
+caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
 ```
 
-Sends a `signed transaction` to the Kaia.
+Sends a `signed transaction` to the Klaytn.
 
-The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You can get the RLP-encoded transaction of a signed transaction using `transaction.getRLPEncoding`. For convenience, `caver.rpc.kaia.sendRawTransaction` also accepts a "signed transaction instance" as parameter.
+The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You can get the RLP-encoded transaction of a signed transaction using `transaction.getRLPEncoding`. For convenience, `caver.rpc.klay.sendRawTransaction` also accepts a "signed transaction instance" as parameter.
 
 **Parameters**
 
@@ -2025,14 +2025,14 @@ The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You
 For PromiEvent, the following events are available:
 
 * `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.kaia.getTransactionReceipt](#caver-rpc-kaia-gettransactionreceipt) for more detail.
+* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
 * `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
 
 ```javascript
 // Using promise
-> caver.rpc.kaia.sendRawTransaction('0x08f88...').then(console.log)
+> caver.rpc.klay.sendRawTransaction('0x08f88...').then(console.log)
 {
     blockHash: '0x8bff3eb5444711f53707c1c006dac54164af6f873c0f012aff98479155de3c46',
     blockNumber: '0x18a6',
@@ -2056,26 +2056,26 @@ For PromiEvent, the following events are available:
 }
 
 // Using event emitter
-> caver.rpc.kaia.sendRawTransaction('0x08f88...').on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
+> caver.rpc.klay.sendRawTransaction('0x08f88...').on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.kaia.sendTransaction <a href="#caver-rpc-kaia-sendtransaction" id="caver-rpc-kaia-sendtransaction"></a>
+## caver.rpc.klay.sendTransaction <a href="#caver-rpc-klay-sendtransaction" id="caver-rpc-klay-sendtransaction"></a>
 
 ```javascript
-caver.rpc.kaia.sendTransaction(transaction [, callback])
+caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction `sender` with an "imported account's private key" in your Kaia Node and propagates the transaction to the Kaia.
+Signs a transaction as a transaction `sender` with an "imported account's private key" in your Klaytn Node and propagates the transaction to the Klaytn.
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Kaia node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
 | Name        | Type     | Description                                                                                                |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of a transaction to be sent to the Kaia.                                                     |
+| transaction | object   | An instance of a transaction to be sent to the Klaytn.                                                     |
 | callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -2087,20 +2087,20 @@ For more information about each transaction type, refer to [Transaction](../cave
 For PromiEvent, the following events are available:
 
 * `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.kaia.getTransactionReceipt](#caver-rpc-kaia-gettransactionreceipt) for more detail.
+* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
 * `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
-    from: '0x{address in hex}', // The address of imported account in Kaia Node
+    from: '0x{address in hex}', // The address of imported account in Klaytn Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    value: caver.utils.convertToPeb(10, 'KAIA'),
+    value: caver.utils.convertToPeb(10, 'KLAY'),
     gas: 25000
 })
 // Using promise
-> caver.rpc.kaia.sendTransaction(tx).then(console.log)
+> caver.rpc.klay.sendTransaction(tx).then(console.log)
 {
     blockHash: '0xbfce3abcad0204e363ee9e3b94d15a20c1a4b86ac6cf51dd74db2226ab5b9e99',
     blockNumber: '0x1d18',
@@ -2124,28 +2124,28 @@ For PromiEvent, the following events are available:
 }
 
 // Using event emitter
-> caver.rpc.kaia.sendTransaction(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
+> caver.rpc.klay.sendTransaction(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.kaia.sendTransactionAsFeePayer <a href="#caver-rpc-kaia-sendtransactionasfeepayer" id="caver-rpc-kaia-sendtransactionasfeepayer"></a>
+## caver.rpc.klay.sendTransactionAsFeePayer <a href="#caver-rpc-klay-sendtransactionasfeepayer" id="caver-rpc-klay-sendtransactionasfeepayer"></a>
 
 ```javascript
-caver.rpc.kaia.sendTransactionAsFeePayer(transaction [, callback])
+caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Kaia Node and propagates the transaction to the Kaia.
+Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klaytn Node and propagates the transaction to the Klaytn.
 
 Before using `sendTransaction` as a fee payer, the transaction sender must have signed with valid signature(s) and the `nonce` must have been defined.
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Kaia node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
 | Name        | Type     | Description                                                                                                |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of fee delegated transaction to send to the Kaia.                                            |
+| transaction | object   | An instance of fee delegated transaction to send to the Klaytn.                                            |
 | callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -2157,7 +2157,7 @@ For more information about each transaction type, refer to [Transaction](../cave
 For PromiEvent, the following events are available:
 
 * `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.kaia.getTransactionReceipt](#caver-rpc-kaia-gettransactionreceipt) for more detail.
+* `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
 * `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
 
 **Example**
@@ -2166,7 +2166,7 @@ For PromiEvent, the following events are available:
 > const tx = caver.transaction.feeDelegatedValueTransfer.create({
     from: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    value: caver.utils.toPeb(1, 'KAIA'),
+    value: caver.utils.toPeb(1, 'KLAY'),
     gas: 50000,
     nonce: 1,
     signatures: [
@@ -2176,10 +2176,10 @@ For PromiEvent, the following events are available:
             '0x15d206781cc8ac9ffb02c08545cb832e1f1700b46b886d72bb0cfeb4a230871e',
         ],
     ],
-    feePayer: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in Kaia Node
+    feePayer: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in Klaytn Node
 })
 // Using promise
-> caver.rpc.kaia.signTransaction(tx).then(console.log)
+> caver.rpc.klay.signTransaction(tx).then(console.log)
 {
     blockHash: '0x3be2f5b17eb35d0cf83b493ddfaa96d44cba40d1839778b4a8267f4c0aa61449',
     blockNumber: '0x23ef',
@@ -2205,20 +2205,20 @@ For PromiEvent, the following events are available:
 }
 
 // Using event emitter
-> caver.rpc.kaia.sendTransactionAsFeePayer(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
+> caver.rpc.klay.sendTransactionAsFeePayer(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.kaia.signTransaction <a href="#caver-rpc-kaia-signtransaction" id="caver-rpc-kaia-signtransaction"></a>
+## caver.rpc.klay.signTransaction <a href="#caver-rpc-klay-signtransaction" id="caver-rpc-klay-signtransaction"></a>
 
 ```javascript
-caver.rpc.kaia.signTransaction(transaction [, callback])
+caver.rpc.klay.signTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction sender with an "imported account's private key" in your Kaia Node.
+Signs a transaction as a transaction sender with an "imported account's private key" in your Klaytn Node.
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Kaia node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
@@ -2240,13 +2240,13 @@ For more information about each transaction type, refer to [Transaction](../cave
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
-    from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in Kaia Node
+    from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in Klaytn Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    value: caver.utils.toPeb(10, 'KAIA'),
+    value: caver.utils.toPeb(10, 'KLAY'),
     gas: 25000
 })
 
-> caver.rpc.kaia.signTransaction(tx).then(console.log)
+> caver.rpc.klay.signTransaction(tx).then(console.log)
 {
     raw: '0x08f88...',
     tx: {
@@ -2264,17 +2264,17 @@ For more information about each transaction type, refer to [Transaction](../cave
 }
 ```
 
-## caver.rpc.kaia.signTransactionAsFeePayer <a href="#caver-rpc-kaia-signtransactionasfeepayer" id="caver-rpc-kaia-signtransactionasfeepayer"></a>
+## caver.rpc.klay.signTransactionAsFeePayer <a href="#caver-rpc-klay-signtransactionasfeepayer" id="caver-rpc-klay-signtransactionasfeepayer"></a>
 
 ```javascript
-caver.rpc.kaia.signTransactionAsFeePayer(transaction [, callback])
+caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a transaction as a transaction fee payer with an "imported account's private key" in your Kaia Node.
+Signs a transaction as a transaction fee payer with an "imported account's private key" in your Klaytn Node.
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Kaia node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
@@ -2298,7 +2298,7 @@ For more information about each transaction type, refer to [Transaction](../cave
 > const tx = caver.transaction.feeDelegatedValueTransfer.craete({
     from: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    value: caver.utils.toPeb(1, 'KAIA'),
+    value: caver.utils.toPeb(1, 'KLAY'),
     gas: 50000,
     nonce: 0,
     signatures: [
@@ -2308,10 +2308,10 @@ For more information about each transaction type, refer to [Transaction](../cave
             '0x26dcf6f3702110230b806628165e28771e1152ea864ee4c69557faccd4d3dae8',
         ],
     ],
-    feePayer: '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122', // The address of imported account in Kaia Node
+    feePayer: '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122', // The address of imported account in Klaytn Node
 })
 
-> caver.rpc.kaia.signTransactionAsFeePayer(tx).then(console.log)
+> caver.rpc.klay.signTransactionAsFeePayer(tx).then(console.log)
 {
     raw: '0x09f8e...',
     tx: {
@@ -2331,10 +2331,10 @@ For more information about each transaction type, refer to [Transaction](../cave
 }
 ```
 
-## caver.rpc.kaia.getDecodedAnchoringTransactionByHash <a href="#caver-rpc-kaia-getdecodedanchoringtransactionbyhash" id="caver-rpc-kaia-getdecodedanchoringtransactionbyhash"></a>
+## caver.rpc.klay.getDecodedAnchoringTransactionByHash <a href="#caver-rpc-klay-getdecodedanchoringtransactionbyhash" id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a>
 
 ```javascript
-caver.rpc.kaia.getDecodedAnchoringTransactionByHash(transactionHash [, callback])
+caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback])
 ```
 
 Returns the decoded anchored data in the transaction for the given transaction hash.
@@ -2364,7 +2364,7 @@ Returns the decoded anchored data in the transaction for the given transaction h
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getDecodedAnchoringTransactionByHash('0x59831a092a9f0b48018848f5dd88a457efdbfabec13ea07cd769686741a1cd13').then(console.log)
+> caver.rpc.klay.getDecodedAnchoringTransactionByHash('0x59831a092a9f0b48018848f5dd88a457efdbfabec13ea07cd769686741a1cd13').then(console.log)
 {
     BlockCount: 86400,
     BlockHash: '0x3c44b2ed491be7264b9f6819c67427642447716576b6702a72f6fdc40c41abde',
@@ -2377,10 +2377,10 @@ Returns the decoded anchored data in the transaction for the given transaction h
 }
 ```
 
-## caver.rpc.kaia.getChainId <a href="#caver-rpc-kaia-getchainid" id="caver-rpc-kaia-getchainid"></a>
+## caver.rpc.klay.getChainId <a href="#caver-rpc-klay-getchainid" id="caver-rpc-klay-getchainid"></a>
 
 ```javascript
-caver.rpc.kaia.getChainId([callback])
+caver.rpc.klay.getChainId([callback])
 ```
 
 Returns the chain ID of the chain.
@@ -2402,17 +2402,17 @@ Returns the chain ID of the chain.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getChainId().then(console.log)
+> caver.rpc.klay.getChainId().then(console.log)
 0x2710
 ```
 
-## caver.rpc.kaia.getClientVersion <a href="#caver-rpc-kaia-getclientversion" id="caver-rpc-kaia-getclientversion"></a>
+## caver.rpc.klay.getClientVersion <a href="#caver-rpc-klay-getclientversion" id="caver-rpc-klay-getclientversion"></a>
 
 ```javascript
-caver.rpc.kaia.getClientVersion([callback])
+caver.rpc.klay.getClientVersion([callback])
 ```
 
-Returns the current client version of a Kaia node.
+Returns the current client version of a Klaytn node.
 
 **Parameters**
 
@@ -2426,22 +2426,22 @@ Returns the current client version of a Kaia node.
 
 | Type   | Description                                  |
 | ------ | -------------------------------------------- |
-| string | The current client version of a Kaia node. |
+| string | The current client version of a Klaytn node. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getClientVersion().then(console.log)
-Kaia/v1.3.0+144494d2aa/linux-amd64/go1.13.1
+> caver.rpc.klay.getClientVersion().then(console.log)
+Klaytn/v1.3.0+144494d2aa/linux-amd64/go1.13.1
 ```
 
-## caver.rpc.kaia.getGasPrice <a href="#caver-rpc-kaia-getgasprice" id="caver-rpc-kaia-getgasprice"></a>
+## caver.rpc.klay.getGasPrice <a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a>
 
 ```javascript
-caver.rpc.kaia.getGasPrice([callback])
+caver.rpc.klay.getGasPrice([callback])
 ```
 
-Returns the current price per gas in kei.
+Returns the current price per gas in peb.
 
 **Parameters**
 
@@ -2455,22 +2455,22 @@ Returns the current price per gas in kei.
 
 | Type   | Description                   |
 | ------ | ----------------------------- |
-| string | The current gas price in kei. |
+| string | The current gas price in peb. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getGasPrice().then(console.log)
+> caver.rpc.klay.getGasPrice().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.kaia.getGasPriceAt <a href="#caver-rpc-kaia-getgaspriceat" id="caver-rpc-kaia-getgaspriceat"></a>
+## caver.rpc.klay.getGasPriceAt <a href="#caver-rpc-klay-getgaspriceat" id="caver-rpc-klay-getgaspriceat"></a>
 
 ```javascript
-caver.rpc.kaia.getGasPriceAt([blockNumber] [, callback])
+caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
 ```
 
-Returns the current price per gas in kei for the given block.
+Returns the current price per gas in peb for the given block.
 
 **Parameters**
 
@@ -2485,22 +2485,22 @@ Returns the current price per gas in kei for the given block.
 
 | Type   | Description                   |
 | ------ | ----------------------------- |
-| string | The current gas price in kei. |
+| string | The current gas price in peb. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getGasPriceAt().then(console.log)
+> caver.rpc.klay.getGasPriceAt().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.kaia.getMaxPriorityFeePerGas <a href="#caver-rpc-kaia-getmaxpriorityfeepergas" id="caver-rpc-kaia-getmaxpriorityfeepergas"></a>
+## caver.rpc.klay.getMaxPriorityFeePerGas <a href="#caver-rpc-klay-getmaxpriorityfeepergas" id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
 
 ```javascript
-caver.rpc.kaia.getMaxPriorityFeePerGas([callback])
+caver.rpc.klay.getMaxPriorityFeePerGas([callback])
 ```
 
-Returns a suggested gas tip cap for dynamic fee transactions in kei. Since Kaia has a fixed gas price, this returns the gas price set by Kaia.
+Returns a suggested gas tip cap for dynamic fee transactions in peb. Since Klaytn has a fixed gas price, this returns the gas price set by Klaytn.
 
 **Parameters**
 
@@ -2514,22 +2514,22 @@ Returns a suggested gas tip cap for dynamic fee transactions in kei. Since Kaia 
 
 | Type   | Description                       |
 | ------ | --------------------------------- |
-| string | The suggested gas tip cap in kei. |
+| string | The suggested gas tip cap in peb. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getMaxPriorityFeePerGas().then(console.log)
+> caver.rpc.klay.getMaxPriorityFeePerGas().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.kaia.getLowerBoundGasPrice <a href="#caver-rpc-kaia-getlowerboundgasprice" id="caver-rpc-kaia-getlowerboundgasprice"></a>
+## caver.rpc.klay.getLowerBoundGasPrice <a href="#caver-rpc-klay-getlowerboundgasprice" id="caver-rpc-klay-getlowerboundgasprice"></a>
 
 ```javascript
-caver.rpc.kaia.getLowerBoundGasPrice([callback])
+caver.rpc.klay.getLowerBoundGasPrice([callback])
 ```
 
-Returns the lower bound gas price in kei.
+Returns the lower bound gas price in peb.
 
 **Parameters**
 
@@ -2543,22 +2543,22 @@ Returns the lower bound gas price in kei.
 
 | Type   | Description                       |
 | ------ | --------------------------------- |
-| string | The lower bound gas price in kei. |
+| string | The lower bound gas price in peb. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getLowerBoundGasPrice().then(console.log)
+> caver.rpc.klay.getLowerBoundGasPrice().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.kaia.getUpperBoundGasPrice <a href="#caver-rpc-kaia-getupperboundgasprice" id="caver-rpc-kaia-getupperboundgasprice"></a>
+## caver.rpc.klay.getUpperBoundGasPrice <a href="#caver-rpc-klay-getupperboundgasprice" id="caver-rpc-klay-getupperboundgasprice"></a>
 
 ```javascript
-caver.rpc.kaia.getUpperBoundGasPrice([callback])
+caver.rpc.klay.getUpperBoundGasPrice([callback])
 ```
 
-Returns the upper bound gas price in kei.
+Returns the upper bound gas price in peb.
 
 **Parameters**
 
@@ -2572,19 +2572,19 @@ Returns the upper bound gas price in kei.
 
 | Type   | Description                       |
 | ------ | --------------------------------- |
-| string | The upper bound gas price in kei. |
+| string | The upper bound gas price in peb. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getUpperBoundGasPrice().then(console.log)
+> caver.rpc.klay.getUpperBoundGasPrice().then(console.log)
 0xae9f7bcc00
 ```
 
-## caver.rpc.kaia.getFeeHistory <a href="#caver-rpc-kaia-getfeehistory" id="caver-rpc-kaia-getfeehistory"></a>
+## caver.rpc.klay.getFeeHistory <a href="#caver-rpc-klay-getfeehistory" id="caver-rpc-klay-getfeehistory"></a>
 
 ```javascript
-caver.rpc.kaia.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callback])
+caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callback])
 ```
 
 Returns fee history for the returned block range. This can be a subsection of the requested range if not all blocks are available.
@@ -2612,7 +2612,7 @@ Returns fee history for the returned block range. This can be a subsection of th
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getFeeHistory(3, 'latest', [0.1, 0.2, 0.3]).then(console.log)
+> caver.rpc.klay.getFeeHistory(3, 'latest', [0.1, 0.2, 0.3]).then(console.log)
 {
   oldestBlock: '0xbb701',
   reward: [
@@ -2625,19 +2625,19 @@ Returns fee history for the returned block range. This can be a subsection of th
 }
 ```
 
-## caver.rpc.kaia.createAccessList <a href="#caver-rpc-kaia-createaccesslist" id="caver-rpc-kaia-createaccesslist"></a>
+## caver.rpc.klay.createAccessList <a href="#caver-rpc-klay-createaccesslist" id="caver-rpc-klay-createaccesslist"></a>
 
 ```javascript
-caver.rpc.kaia.createAccessList(txCallObject [, callback])
+caver.rpc.klay.createAccessList(txCallObject [, callback])
 ```
 
-This method creates an accessList based on a given Transaction. The accessList contains all storage slots and addresses read and written by the transaction, except for the sender account and the precompiles. This method uses the same transaction call object and blockNumberOrTag object as `caver.rpc.kaia.call`. An accessList can be used to release stuck contracts that became inaccessible due to gas cost increases. Adding an accessList to your transaction does not necessary result in lower gas usage compared to a transaction without an access list.
+This method creates an accessList based on a given Transaction. The accessList contains all storage slots and addresses read and written by the transaction, except for the sender account and the precompiles. This method uses the same transaction call object and blockNumberOrTag object as `caver.rpc.klay.call`. An accessList can be used to release stuck contracts that became inaccessible due to gas cost increases. Adding an accessList to your transaction does not necessary result in lower gas usage compared to a transaction without an access list.
 
 **Parameters**
 
 | Name           | Type                          | Description                                                                                                               |
 | -------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| callObject     | object                        | A transaction call object. Please see [caver.rpc.kaia.call](#caver-rpc-kaia-call) parameters.                      |
+| callObject     | object                        | A transaction call object. Please see [caver.rpc.klay.call](#caver-rpc-klay-call) parameters.                      |
 | blockParameter | number\|BigNumber\|BN\|string | (optional) A block number, blockhash or the block tag string (`latest` or `earliest`). If omitted, `latest` will be used. |
 | callback       | function                      | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                |
 
@@ -2655,7 +2655,7 @@ This method creates an accessList based on a given Transaction. The accessList c
 **Example**
 
 ```javascript
-> caver.rpc.kaia.createAccessList({
+> caver.rpc.klay.createAccessList({
         from: '0x3bc5885c2941c5cda454bdb4a8c88aa7f248e312',
         data: '0x20965255',
         gasPrice: '0x3b9aca00',
@@ -2665,10 +2665,10 @@ This method creates an accessList based on a given Transaction. The accessList c
 { accessList: [], gasUsed: '0x0' }
 ```
 
-## caver.rpc.kaia.isParallelDBWrite <a href="#caver-rpc-kaia-isparalleldbwrite" id="caver-rpc-kaia-isparalleldbwrite"></a>
+## caver.rpc.klay.isParallelDBWrite <a href="#caver-rpc-klay-isparalleldbwrite" id="caver-rpc-klay-isparalleldbwrite"></a>
 
 ```javascript
-caver.rpc.kaia.isParallelDBWrite([callback])
+caver.rpc.klay.isParallelDBWrite([callback])
 ```
 
 Returns `true` if the node is writing blockchain data in a parallel manner.
@@ -2690,14 +2690,14 @@ Returns `true` if the node is writing blockchain data in a parallel manner.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.isParallelDBWrite().then(console.log)
+> caver.rpc.klay.isParallelDBWrite().then(console.log)
 true
 ```
 
-## caver.rpc.kaia.isSenderTxHashIndexingEnabled <a href="#caver-rpc-kaia-issendertxhashindexingenabled" id="caver-rpc-kaia-issendertxhashindexingenabled"></a>
+## caver.rpc.klay.isSenderTxHashIndexingEnabled <a href="#caver-rpc-klay-issendertxhashindexingenabled" id="caver-rpc-klay-issendertxhashindexingenabled"></a>
 
 ```javascript
-caver.rpc.kaia.isSenderTxHashIndexingEnabled([callback])
+caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
 ```
 
 Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information.
@@ -2719,17 +2719,17 @@ Returns `true` if the node is indexing sender transaction hash to transaction ha
 **Example**
 
 ```javascript
-> caver.rpc.kaia.isSenderTxHashIndexingEnabled().then(console.log)
+> caver.rpc.klay.isSenderTxHashIndexingEnabled().then(console.log)
 true
 ```
 
-## caver.rpc.kaia.getProtocolVersion <a href="#caver-rpc-kaia-getprotocolversion" id="caver-rpc-kaia-getprotocolversion"></a>
+## caver.rpc.klay.getProtocolVersion <a href="#caver-rpc-klay-getprotocolversion" id="caver-rpc-klay-getprotocolversion"></a>
 
 ```javascript
-caver.rpc.kaia.getProtocolVersion([callback])
+caver.rpc.klay.getProtocolVersion([callback])
 ```
 
-Returns the Kaia protocol version of the node. The current version (as of v1.9.0) of Mainnet/Kairos is `istanbul/65`.
+Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
 **Parameters**
 
@@ -2743,19 +2743,19 @@ Returns the Kaia protocol version of the node. The current version (as of v1.9.0
 
 | Type   | Description                              |
 | ------ | ---------------------------------------- |
-| string | The Kaia protocol version of the node. |
+| string | The Klaytn protocol version of the node. |
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getProtocolVersion().then(console.log)
+> caver.rpc.klay.getProtocolVersion().then(console.log)
 0x40
 ```
 
-## caver.rpc.kaia.getRewardbase <a href="#caver-rpc-kaia-getrewardbase" id="caver-rpc-kaia-getrewardbase"></a>
+## caver.rpc.klay.getRewardbase <a href="#caver-rpc-klay-getrewardbase" id="caver-rpc-klay-getrewardbase"></a>
 
 ```javascript
-caver.rpc.kaia.getRewardbase([callback])
+caver.rpc.klay.getRewardbase([callback])
 ```
 
 Returns the rewardbase of the current node. Rewardbase is the address of the account where the block rewards go to. It is only required for CNs.
@@ -2777,14 +2777,14 @@ Returns the rewardbase of the current node. Rewardbase is the address of the acc
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getRewardbase().then(console.log)
+> caver.rpc.klay.getRewardbase().then(console.log)
 0xa9b3a93b2a9fa3fdcc31addd240b04bf8db3414c
 ```
 
-## caver.rpc.kaia.getFilterChanges <a href="#caver-rpc-kaia-getfilterchanges" id="caver-rpc-kaia-getfilterchanges"></a>
+## caver.rpc.klay.getFilterChanges <a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a>
 
 ```javascript
-caver.rpc.kaia.getFilterChanges(filterId [, callback])
+caver.rpc.klay.getFilterChanges(filterId [, callback])
 ```
 
 Polling method for a filter, which returns an array of logs since the last poll.
@@ -2800,9 +2800,9 @@ Polling method for a filter, which returns an array of logs since the last poll.
 
 `Promise` returns `Array` - Array of log objects, or an empty array if nothing has changed since the last poll.
 
-* For filters created with [caver.rpc.kaia.newBlockFilter](#caver-rpc-kaia-newblockfilter), the returns are block hashes, _e.g._, `["0x3454645634534..."]`.
-* For filters created with [caver.rpc.kaia.newPendingTransactionFilter](#caver-rpc-kaia-newpendingtransactionfilter), the returns are transaction hashes, _e.g._, `["0x6345343454645..."]`.
-* For filters created with [caver.rpc.kaia.newFilter](#caver-rpc-kaia-newfilter), logs are objects with the following parameters:
+* For filters created with [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), the returns are block hashes, _e.g._, `["0x3454645634534..."]`.
+* For filters created with [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), the returns are transaction hashes, _e.g._, `["0x6345343454645..."]`.
+* For filters created with [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), logs are objects with the following parameters:
 
 | Name             | Type   | Description                                                                                                                                                                                                                                  |
 | ---------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2818,7 +2818,7 @@ Polling method for a filter, which returns an array of logs since the last poll.
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getFilterChanges('0xafb8e49bbcba9d61a3c616a3a312533e').then(console.log)
+> caver.rpc.klay.getFilterChanges('0xafb8e49bbcba9d61a3c616a3a312533e').then(console.log)
 [ 
     { 
         address: '0x71e503935b7816757AA0314d4E7354dab9D39162',
@@ -2833,15 +2833,15 @@ Polling method for a filter, which returns an array of logs since the last poll.
 ]
 ```
 
-## caver.rpc.kaia.getFilterLogs <a href="#caver-rpc-kaia-getfilterlogs" id="caver-rpc-kaia-getfilterlogs"></a>
+## caver.rpc.klay.getFilterLogs <a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
 
 ```javascript
-caver.rpc.kaia.getFilterLogs(filterId [, callback])
+caver.rpc.klay.getFilterLogs(filterId [, callback])
 ```
 
-Returns an array of all logs matching the filter with the given id. The filter object should be obtained by using [newFilter](#caver-rpc-kaia-newfilter).
+Returns an array of all logs matching the filter with the given id. The filter object should be obtained by using [newFilter](#caver-rpc-klay-newfilter).
 
-Note that filter ids returned by other filter creation functions, such as [caver.rpc.kaia.newBlockFilter](#caver-rpc-kaia-newblockfilter) or [caver.rpc.kaia.newPendingTransactionFilter](#caver-rpc-kaia-newpendingtransactionfilter), cannot be used with this function.
+Note that filter ids returned by other filter creation functions, such as [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) or [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), cannot be used with this function.
 
 **Parameters**
 
@@ -2852,12 +2852,12 @@ Note that filter ids returned by other filter creation functions, such as [caver
 
 **Return Value**
 
-See [caver.rpc.kaia.getFilterChanges](#caver-rpc-kaia-getfilterchanges)
+See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getFilterLogs('0xcac08a7fc32fc625a519644187e9f690').then(console.log);
+> caver.rpc.klay.getFilterLogs('0xcac08a7fc32fc625a519644187e9f690').then(console.log);
 [
     {
         address: '0x55384B52a9E5091B6012717197887dd3B5779Df3',
@@ -2872,10 +2872,10 @@ See [caver.rpc.kaia.getFilterChanges](#caver-rpc-kaia-getfilterchanges)
 ]
 ```
 
-## caver.rpc.kaia.getLogs <a href="#caver-rpc-kaia-getlogs" id="caver-rpc-kaia-getlogs"></a>
+## caver.rpc.klay.getLogs <a href="#caver-rpc-klay-getlogs" id="caver-rpc-klay-getlogs"></a>
 
 ```javascript
-caver.rpc.kaia.getLogs(options [, callback])
+caver.rpc.klay.getLogs(options [, callback])
 ```
 
 Returns an array of all logs matching a given filter object.
@@ -2898,12 +2898,12 @@ The options object can contain the following:
 
 **Return Value**
 
-See [caver.rpc.kaia.getFilterChanges](#caver-rpc-kaia-getfilterchanges)
+See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.getLogs({
+> caver.rpc.klay.getLogs({
         fromBlock: '0x1',
         toBlock: 'latest',
         address:'0x87ac99835e67168d4f9a40580f8f5c33550ba88b'
@@ -2925,13 +2925,13 @@ See [caver.rpc.kaia.getFilterChanges](#caver-rpc-kaia-getfilterchanges)
 ]
 ```
 
-## caver.rpc.kaia.newBlockFilter <a href="#caver-rpc-kaia-newblockfilter" id="caver-rpc-kaia-newblockfilter"></a>
+## caver.rpc.klay.newBlockFilter <a href="#caver-rpc-klay-newblockfilter" id="caver-rpc-klay-newblockfilter"></a>
 
 ```javascript
-caver.rpc.kaia.newBlockFilter([callback])
+caver.rpc.klay.newBlockFilter([callback])
 ```
 
-Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [caver.rpc.kaia.getFilterChanges](#caver-rpc-kaia-getfilterchanges).
+Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
 
 **Parameters**
 
@@ -2950,22 +2950,22 @@ Creates a filter in the node, to notify when a new block arrives. To check if th
 **Example**
 
 ```javascript
-> caver.rpc.kaia.newBlockFilter().then(console.log)
+> caver.rpc.klay.newBlockFilter().then(console.log)
 0xf90906914486a9c22d620e50022b38d5
 ```
 
-## caver.rpc.kaia.newFilter <a href="#caver-rpc-kaia-newfilter" id="caver-rpc-kaia-newfilter"></a>
+## caver.rpc.klay.newFilter <a href="#caver-rpc-klay-newfilter" id="caver-rpc-klay-newfilter"></a>
 
 ```javascript
-caver.rpc.kaia.newFilter(options [, callback])
+caver.rpc.klay.newFilter(options [, callback])
 ```
 
 Creates a filter object using the given filter options, to receive the specific state changes (logs).
 
-* To check if the state has changed, call [caver.rpc.kaia.getFilterChanges](#caver-rpc-kaia-getfilterchanges).
-* To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.kaia.getFilterLogs](#caver-rpc-kaia-getfilterlogs).
+* To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
+* To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
 
-For detailed information about the topics in the filter object, please see [Kaia Platform API - kaia_newFilter](../../../../../json-rpc/klay/new-filter).
+For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
 
 **Parameters**
 
@@ -2994,20 +2994,20 @@ The options object can contain the following:
 **Example**
 
 ```javascript
-> caver.rpc.kaia.newFilter({}).then(console.log)
+> caver.rpc.klay.newFilter({}).then(console.log)
 0x40d40cb9758c6f0d99d9c2ce9c0f823
 
-> caver.rpc.kaia.newFilter({ address: '0x55384B52a9E5091B6012717197887dd3B5779Df3' }).then(console.log)
+> caver.rpc.klay.newFilter({ address: '0x55384B52a9E5091B6012717197887dd3B5779Df3' }).then(console.log)
 0xd165cbf31b9d60346aada33dbefe01b
 ```
 
-## caver.rpc.kaia.newPendingTransactionFilter <a href="#caver-rpc-kaia-newpendingtransactionfilter" id="caver-rpc-kaia-newpendingtransactionfilter"></a>
+## caver.rpc.klay.newPendingTransactionFilter <a href="#caver-rpc-klay-newpendingtransactionfilter" id="caver-rpc-klay-newpendingtransactionfilter"></a>
 
 ```javascript
-caver.rpc.kaia.newPendingTransactionFilter([callback])
+caver.rpc.klay.newPendingTransactionFilter([callback])
 ```
 
-Creates a filter in the node, to receive the information about new pending transaction arrival. To check if the state has changed, call [caver.rpc.kaia.getFilterChanges](#caver-rpc-kaia-getfilterchanges).
+Creates a filter in the node, to receive the information about new pending transaction arrival. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
 
 **Parameters**
 
@@ -3026,17 +3026,17 @@ Creates a filter in the node, to receive the information about new pending trans
 **Example**
 
 ```javascript
-> caver.rpc.kaia.newPendingTransactionFilter().then(console.log)
+> caver.rpc.klay.newPendingTransactionFilter().then(console.log)
 0xe62da1b2a09efcd4168398bdbf586db0
 ```
 
-## caver.rpc.kaia.uninstallFilter <a href="#caver-rpc-kaia-uninstallfilter" id="caver-rpc-kaia-uninstallfilter"></a>
+## caver.rpc.klay.uninstallFilter <a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a>
 
 ```javascript
-caver.rpc.kaia.uninstallFilter(filterId [, callback])
+caver.rpc.klay.uninstallFilter(filterId [, callback])
 ```
 
-Uninstalls a filter with a given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.kaia.getFilterChanges](#caver-rpc-kaia-getfilterchanges) for a period of time.
+Uninstalls a filter with a given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) for a period of time.
 
 **Parameters**
 
@@ -3056,14 +3056,14 @@ Uninstalls a filter with a given id. Should always be called when a watch is no 
 **Example**
 
 ```javascript
-> caver.rpc.kaia.uninstallFilter('0x1426438ffdae5abf43edf4159c5b013b').then(console.log)
+> caver.rpc.klay.uninstallFilter('0x1426438ffdae5abf43edf4159c5b013b').then(console.log)
 true
 ```
 
-## caver.rpc.kaia.sha3 <a href="#caver-rpc-kaia-sha3" id="caver-rpc-kaia-sha3"></a>
+## caver.rpc.klay.sha3 <a href="#caver-rpc-klay-sha3" id="caver-rpc-klay-sha3"></a>
 
 ```javascript
-caver.rpc.kaia.sha3(data[, callback])
+caver.rpc.klay.sha3(data[, callback])
 ```
 
 Returns Keccak-256 (not the standardized SHA3-256) of the given data. You can use [caver.utils.sha3](../caver.utils.md#sha3) instead of this.
@@ -3086,6 +3086,6 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data. You can us
 **Example**
 
 ```javascript
-> caver.rpc.kaia.sha3('0x11223344').then(console.log)
+> caver.rpc.klay.sha3('0x11223344').then(console.log)
 0x36712aa4d0dd2f64a9ae6ac09555133a157c74ddf7c079a70c33e8b4bf70dd73
 ```
