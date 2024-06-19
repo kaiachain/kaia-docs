@@ -10,19 +10,19 @@ sidebar_label: Web3Auth
 
 [Web3Auth](https://web3auth.io/docs/)는 dApp이나 지갑에 플러그인되는 지갑 인프라입니다. Web3 지갑과 애플리케이션을 위한 플러그형 인증 인프라 역할을 합니다. Web3Auth의 뛰어난 사용자 편의성을 통해 주류 및 암호화폐 네이티브 모두 단 몇 분 만에 온보딩할 수 있습니다.
 
-지갑 인프라로서 모든 소셜 로그인, 웹 및 모바일 네이티브 플랫폼, 지갑, 기타 키 관리 방법을 즉시 지원합니다. 이 가이드가 끝날 때쯤이면, 여러분은 클레이튼 네트워크에 구축된 탈중앙화 웹 애플리케이션에 Web3Auth를 통합하게 될 것입니다. 다른 플랫폼(안드로이드, iOS, 리액트 네이티브, 플러터, 유니티)에 Web3Auth를 통합하려면 이 [가이드](https://web3auth.io/docs/pnp/introduction)를 참고하시기 바랍니다.
+지갑 인프라로서 모든 소셜 로그인, 웹 및 모바일 네이티브 플랫폼, 지갑, 기타 키 관리 방법을 즉시 지원합니다. 이 가이드가 끝날 때쯤이면, 여러분은 카이아 네트워크에 구축된 탈중앙화 웹 애플리케이션에 Web3Auth를 통합하게 될 것입니다. 다른 플랫폼(안드로이드, iOS, 리액트 네이티브, 플러터, 유니티)에 Web3Auth를 통합하려면 이 [가이드](https://web3auth.io/docs/pnp/introduction)를 참고하시기 바랍니다.
 
 ## 전제 조건
 
 - 작동하는 리액트 프로젝트(`npx create-react-app project-name` 실행)
 - 필요한 지갑 설치([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)).
 - RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
 - [Web3Auth 대시보드](https://dashboard.web3auth.io/)에서 클라이언트 ID를 받습니다.
 
 ## 설치
 
-dApp에서 Web3Auth를 사용하려면 먼저 필요한 라이브러리와 SDK를 설치해야 합니다. 따라서 ethers.js와 Web3Auth 웹 SDK를 설정해야 합니다. [ethers.js](https://docs.ethers.org/v6/) 또는 [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 라이브러리와 함께 Web3Auth를 사용하여 Klaytn 블록체인과 통신할 수 있습니다. 이 가이드에서는 ethers.js를 사용하겠습니다.
+dApp에서 Web3Auth를 사용하려면 먼저 필요한 라이브러리와 SDK를 설치해야 합니다. 따라서 ethers.js와 Web3Auth 웹 SDK를 설정해야 합니다. [ethers.js](https://docs.ethers.org/v6/) 또는 [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 라이브러리와 함께 Web3Auth를 사용하여 Kaia 블록체인과 통신할 수 있습니다. 이 가이드에서는 ethers.js를 사용하겠습니다.
 
 ```bash
 npm install --save @web3auth/modal
@@ -52,9 +52,9 @@ useEffect(() => {
           chainConfig: {
             chainNamespace: "eip155",
 	        // modify if mainnet => “0x2019”
-            chainId: "0x3e9", // hex of 1001, Klaytn Baobab testnet. 
+            chainId: "0x3e9", // hex of 1001, Kaia Kairos testnet. 
             rpcTarget: "https://public-en-baobab.klaytn.net", // modify if mainnet
-            displayName: "Klaytn Testnet", //  modify if mainnet
+            displayName: "Kaia Testnet", //  modify if mainnet
             blockExplorer: "https://baobab.klaytnscope.com", // modify if mainnet
             ticker: "KLAY",
             tickerName: "KLAY",
@@ -205,10 +205,10 @@ const switchChain = async () => {
     console.log("web3auth not initialized yet");
     return;
   }
-  // add chain - Klaytn Mainnet
+  // add chain - Kaia Mainnet
   await web3auth.addChain({
     chainId: "0x2019",
-    displayName: "Klaytn Cypress",
+    displayName: "Kaia Mainnet",
     chainNamespace: "eip155",
     tickerName: "KLAY",
     ticker: "KLAY",
@@ -295,7 +295,7 @@ return (
 
 ## 네이티브 트랜잭션 보내기
 
-한 사용자에서 다른 사용자로 KLAY를 보내는 것과 같은 네이티브 트랜잭션을 수행할 수 있습니다.
+한 사용자에서 다른 사용자로 KAIA를 보내는 것과 같은 네이티브 트랜잭션을 수행할 수 있습니다.
 
 ```js
     // add to the existing useState hook.
