@@ -1,191 +1,192 @@
-# Kaia Wallet
+# 카이아 지갑
 
-Kaia Wallet is a browser-based account management tool for dApp (decentralized application) developers on Kaia. It helps developers create new accounts or view existing account information directly through a web browser without having to run a Kaia node locally. Kaia Wallet also lets users transfer KAIA or Kaia tokens to other accounts for testing purposes.
+카이아 지갑은 카이아의 dApp(탈중앙화 애플리케이션) 개발자를 위한 브라우저 기반 계정 관리 도구입니다. 개발자는 카이아 노드를 로컬에서 실행할 필요 없이 웹 브라우저를 통해 직접 새 계정을 만들거나 기존 계정 정보를 확인할 수 있습니다. 또한 카이아 지갑은 사용자가 테스트 목적으로 다른 계정으로 KAIA또는 카이아 토큰을 전송할 수 있도록 지원합니다.
 
-#### Important Notice on Security <a id="important-notice-on-security"></a>
+#### 보안 관련 중요 공지사항 <a id="important-notice-on-security"></a>
 
-> **NOTE:** Kaia Wallet is should be used for development and testing purposes only. Do NOT use Kaia Wallet for commercial or personal use, including storage or transfer of KAIA or Kaia tokens. Kaia Wallet has NOT been tested for commercial-level security and may be vulnerable to malicious attacks. Kaia Wallet stores user's private key in the browser's local storage, which may be susceptible to attacks that exploit the browser's security vulnerabilities.
+> 카이아 지갑은 개발 및 테스트 목적으로만 사용해야 합니다. 클레이나 카이아 토큰을 보관하거나 전송하는 등 상업적 또는 개인적 용도로 카이아 지갑을 사용해서는 안됩니다. 카이아 지갑은 상업적 수준의 보안 테스트를 거치지 않았으며, 악의적인 공격에 취약할 수 있습니다. 카이아 지갑은 브라우저의 로컬 저장소에 사용자의 개인키를 저장하며, 이는 브라우저의 보안 취약점을 악용한 공격에 취약할 수 있습니다.
 
-- Kaia Wallet for the Mainnet: [https://wallet.klaytn.com](https://wallet.klaytn.com)
-- Kaia Wallet for the Kairos testnet: [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation)
+- 메인넷용 카이아 지갑: [https://wallet.klaytn.com](https://wallet.klaytn.com)
+- Kairos 테스트넷용 카이아 지갑: [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation)
 
 ![](/img/build/tools/00-main.png)
 
-## Kaia Wallet Functions <a id="kaia-wallet-functions"></a>
+## 카이아 지갑 기능 <a id="klaytn-wallet-functions"></a>
 
-Kaia Wallet provides the following list of features.
+카이아 지갑은 다음과 같은 기능을 제공합니다.
 
-- Account and key management
-  - Create a new account
-  - Load existing account using the private key or keystore file
-  - Download a new keystore file
-- Asset management
-  - View account balance
-  - Add tokens to the wallet
-  - Transfer KAIA and Kaia tokens
-- Kairos testnet KAIA faucet
+- 계정 및 키 관리
+  - 새 계정 만들기
+  - 개인 키 또는 키스토어 파일을 사용하여 기존 계정 불러오기
+  - 새 키스토어 파일 다운로드
+- 자산 관리
+  - 계정 잔액 보기
+  - 지갑에 토큰 추가하기
+  - KAIA및 카이아 토큰 전송하기
+- Kairos 테스트넷 KAIA Faucet
 
-## Create a New Account <a id="create-a-new-account"></a>
+## 새 계정 만들기 <a id="create-a-new-account"></a>
 
-> If you already have a Kaia ccount, you may choose to skip this process and go to [Access Existing Account](#access-existing-account).
+> 이미 카이아 계정이 있는 경우, 이 과정을 건너뛰고 [기존 계정 액세스](#access-existing-account)로 이동하실 수 있습니다.
 
-You can use Kaia Wallet to create new Kaia accounts. To create a new account, click the `Create Account` button on the menu bar on the left, and then follow the steps below.
+카이아 지갑을 사용하여 새로운 카이아 계정을 만들 수 있습니다. 새 계정을 만들려면 왼쪽 메뉴바에서 `Create Account` 버튼을 클릭한 후 아래 단계를 따르세요.
 
-- Step 1. Set password for your new account's keystore file
-- Step 2. Download the keystore file to your local storage
-- Step 3. Save your new account's Kaia Wallet Key
+- 1단계. 새 계정의 키스토어 파일 비밀번호 설정하기
+- 2단계. 키스토어 파일을 로컬 저장소에 다운로드
+- 3단계. 새 계정의 카이아 지갑 키 저장하기
 
-### Before continuing, a few words of caution: <a id="before-continuing-a-few-words-of-caution"></a>
+### 계속하기 전에 몇 가지 주의 사항을 알려드립니다: <a id="before-continuing-a-few-words-of-caution"></a>
 
-- NEVER share your 'Wallet Key' or 'private key'  with anyone. Giving information about your 'Wallet Key' or 'private key' means giving away complete and permanent access to your account.
-- Do not keep this information on a device connected to the Internet. Hackers can steal your credentials from your local storage.
-- Choose a strong password and store critical information in multiple locations.
-- Kaia is UNABLE to restore 'Wallet Key' or 'private key' in case you lose it. Take utmost care not to lose your key information.
+- '월렛 키' 또는 `private `key`를 다른 사람과 절대 공유하지 마세요. '지갑 키' 또는 `private `key`에 대한 정보를 제공한다는 것은 계정에 대한 완전하고 영구적인 액세스 권한을 넘겨주는 것을 의미합니다.
+- 이 정보를 인터넷에 연결된 기기에 보관하지 마세요. 해커가 로컬 저장소에서 자격 증명을 훔칠 수 있습니다.
+- 강력한 비밀번호를 선택하고 중요한 정보를 여러 위치에 저장하세요.
+- 카이아는 '지갑 키' 또는 '개인키'를 분실했을 때 복원할 수 없습니다. 키 정보를 분실하지 않도록 최대한 주의하시기 바랍니다.
 
-### Step 1. Set Password for your Keystore File <a id="step-1-set-password-for-your-keystore-file"></a>
+### 1단계. 키스토어 파일의 비밀번호 설정 <a id="step-1-set-password-for-your-keystore-file"></a>
 
-As the first step in creating a new account, you must create a password for your keystore file. A keystore file is a JSON file that securely stores your Kaia account information, including the account's address and the private key associated with the account. A keystore file's password must be strong enough to meet Kaia's security standard, as the password protects the private key stored within the file.
+새 계정을 만드는 첫 단계로 키스토어 파일에 비밀번호를 생성해야 합니다. 키스토어 파일은 계정 주소와 계정과 연결된 개인키를 포함한 카이아 계정 정보를 안전하게 저장하는 JSON 파일입니다. 키스토어 파일의 비밀번호는 파일에 저장된 개인키를 보호하는 역할을 하므로 카이아의 보안 표준을 충족할 만큼 강력해야 합니다.
 
 ![](/img/build/tools/01-create-new-1.png)
 
-When you click the password input form, a tooltip will appear above and it will show you, as you type in, if the entered password satisfies the security requirements. If your password meets all the requirements, `Next Step` button will be activated. !
+비밀번호 입력 양식을 클릭하면 위에 툴팁이 표시되고 입력한 비밀번호가 보안 요구 사항을 충족하는지 여부를 입력할 때 확인할 수 있습니다. 비밀번호가 모든 요구 사항을 충족하면 `Next Step` 버튼이 활성화됩니다. !
 
-### Step 2. Download the Keystore File <a id="step-2-download-the-keystore-file"></a>
+### 2단계. 키스토어 파일 다운로드 <a id="step-2-download-the-keystore-file"></a>
 
-In the second step, you download the keystore file that has been encrypted with the submitted password. Click the `Download & Next Step` button to immediately download the keystore file and move on to the last step. (Note that if the downloaded keystore file gets lost, you can download a new keystore file in the `View Account Info` menu.)
+두 번째 단계에서는 제출한 비밀번호로 암호화된 키스토어 파일을 다운로드합니다. `Download & Next Step` 버튼을 클릭하면 키스토어 파일을 바로 다운로드하고 마지막 단계로 넘어갑니다. (다운로드한 키스토어 파일을 분실했을 경우 `View Account Info` 메뉴에서 새로운 키스토어 파일을 다운로드할 수 있습니다.)
 
 ![](/img/build/tools/01-create-new-4.png)
 
-### Step 3. Save your Kaia Wallet key and Private Key <a id="step-3-save-your-kaia-wallet-key-and-private-key"></a>
+### 3단계. 카이아 지갑 키와 개인키 저장하기 <a id="step-3-save-your-klaytn-wallet-key-and-private-key"></a>
 
-In the final step, you are shown the Wallet Key and the private key corresponding to your newly created account. You are strongly encouraged to store the key in a separate, disconnected storage.
+마지막 단계에서는 새로 만든 계정에 해당하는 지갑 키와 개인 키가 표시됩니다. 이 키는 연결이 끊긴 별도의 저장소에 보관하실 것을 강력히 권장합니다.
 
-For more in-depth information about Kaia account, please visit Kaia Docs and review the [Accounts](../../../learn/accounts.md) section.
+카이아 계정에 대한 더 자세한 정보는 카이아 문서에서 [Account](../../../learn/accounts.md) 섹션을 참고하세요.
 
 ![](/img/build/tools/01-create-new-5.png)
 
-## Access Existing Account <a id="access-existing-account"></a>
+## 기존 계정에 액세스 <a id="access-existing-account"></a>
 
-To check your account's balance of KAIA or Kaia tokens, or to transfer tokens to another account, you need to access your account. Kaia Wallet offers two ways to access your account.
+계정의 KAIA또는 KAIA토큰 잔액을 확인하거나 다른 계정으로 토큰을 전송하려면 계정에 액세스해야 합니다. 카이아 지갑은 두 가지 방법으로 계정에 접근할 수 있습니다.
 
-- **Using Kaia Wallet Key or Private Key** A Kaia Wallet Key is a string of 110 hexadecimal characters associated with an account, whereas a private key is a string of 64 hexadecimal characters (The character count does not include the "0x" prefixes that indicate hexadecimal numbers. If we count them in, a Kaia Wallet Key is 112 characters long, and a private key is 66 characters long). Using one's private key should always be the last-ditch effort of access, only to be utilized when all else fails. This should not be the main road for anyone to access their accounts. Private keys are the most sensitive information because private keys allow complete access to an account. Therefore, it is extremely important to keep your private key safe, secure, and secret.
-- **Keystore file and password** A keystore file is a JSON file that stores encrypted private key and account address information. This file is encrypted using the user-provided password.
+- **카이아 지갑 키 또는 개인키 사용하기**
+  카이아 지갑 키는 계정과 연결된 110개의 16진수 문자열이고, 개인키는 64개의 16진수 문자열입니다(문자 수에는 16진수를 나타내는 접두사 "0x"가 포함되지 않습니다). 이를 포함하면 카이아 지갑 키의 길이는 112자, 개인키의 길이는 66자입니다). 개인키 사용은 항상 최후의 수단으로 접근해야 하며, 다른 모든 방법이 실패했을 때만 사용해야 합니다. 다른 사람이 계정에 액세스하는 주요 경로가 되어서는 안 됩니다. 개인 키는 계정에 대한 완전한 액세스를 허용하기 때문에 가장 민감한 정보입니다. 따라서 개인 키를 안전하게, 안전하게, 비밀리에 보관하는 것이 매우 중요합니다.
+- **키스토어 파일 및 비밀번호** 키스토어 파일은 암호화된 개인키와 계정 주소 정보를 저장하는 JSON 파일입니다. 이 파일은 사용자가 제공한 비밀번호를 사용하여 암호화됩니다.
 
-### Access Existing Account Using Kaia Wallet Key or Private Key <a id="access-existing-account-using-kaia-wallet-key-or-private-key"></a>
+### 카이아 지갑 키 또는 개인키를 사용하여 기존 계정에 액세스 <a id="access-existing-account-using-klaytn-wallet-key-or-private-key"></a>
 
-#### Step 1. Enter the Wallet Key or Private Key <a id="step-1-enter-the-wallet-key-or-private-key"></a>
+#### 1단계. 지갑 키 또는 개인키 입력 <a id="step-1-enter-the-wallet-key-or-private-key"></a>
 
-To access your account, click the `View Account Info` button from the menu bar on the left, and go to the `Private Key` tab on the screen. Enter the Kaia Wallet Key or private key for the account you wish to access in the input box.
+계정에 접근하려면 왼쪽 메뉴 바에서 `View Account Info` 버튼을 클릭하고 화면의 `Private `key\\` 탭으로 이동합니다. 입력란에 접근하고자 하는 계정의 카이아 지갑 키 또는 개인키를 입력합니다.
 
 ![](/img/build/tools/03-access-1pk-1.png)
 
-#### Step 2. Check the Checkbox and Click 'Access' button <a id="step-2-check-the-checkbox-and-click-access-button"></a>
+#### 2단계. 체크박스에 체크하고 `Access` 버튼 클릭 <a id="step-2-check-the-checkbox-and-click-access-button"></a>
 
-Click the `Access` button to go to your account page. If the key information you provided does not conform to any key format, the `Access` button will not be active.
+`Access` 버튼을 클릭하여 계정 페이지로 이동합니다. 입력한 키 정보가 키 형식에 맞지 않으면 `Access` 버튼이 활성화되지 않습니다.
 
 ![](/img/build/tools/03-access-1pk-2.png)
 
-### Access Existing Account Using Keystore File and Password <a id="access-existing-account-using-keystore-file-and-password"></a>
+### 키스토어 파일 및 비밀번호를 사용하여 기존 계정에 액세스 <a id="access-existing-account-using-keystore-file-and-password"></a>
 
-#### Step 1. Go to the Keystore File Tab <a id="step-1-go-to-the-keystore-file-tab"></a>
+#### 1단계. 키스토어 파일 탭으로 이동 <a id="step-1-go-to-the-keystore-file-tab"></a>
 
-Go to the `Keystore File` tab on the screen.
+화면의 `Keystore File` 탭으로 이동합니다.
 
 ![](/img/build/tools/03-access-2ks-1.png)
 
-#### Step 2. Select the Keystore File to Use <a id="step-2-select-the-keystore-file-to-use"></a>
+#### 2단계. 사용할 키스토어 파일 선택 <a id="step-2-select-the-keystore-file-to-use"></a>
 
-Click the `Upload` button, and locate your keystore file.
+`Upload` 버튼을 클릭하고 키스토어 파일을 찾습니다.
 
 ![](/img/build/tools/03-access-2ks-2.png)
 
-#### Step 3. Enter Keystore File Password <a id="step-3-enter-keystore-file-password"></a>
+#### 3단계. 키스토어 파일 비밀번호 입력 <a id="step-3-enter-keystore-file-password"></a>
 
-Enter the password corresponding to the selected keystore file, and click the `Access` button to go to your account page.
+선택한 키스토어 파일에 해당하는 비밀번호를 입력한 후 `Access` 버튼을 클릭하면 계정 페이지로 이동합니다.
 
 ![](/img/build/tools/03-access-2ks-3.png)
 
-### View Account Info <a id="view-account-info"></a>
+### 계정 정보 보기 <a id="view-account-info"></a>
 
-On this page, you can check your account's address, private key, and Kaia Wallet Key information. On the right side of the page, you can check the balance of your KAIA and other Kaia tokens. Using Kaia Wallet to check account balance is recommended for blockchain application developers who do not wish to unlock their accounts every time a balance check is needed, for security reasons.
+이 페이지에서 계정 주소, 개인키, 카이아 지갑 키 정보를 확인할 수 있습니다. 페이지 오른쪽에서는 보유한 클레이와 다른 카이아 토큰의 잔액을 확인할 수 있습니다. 보안상의 이유로 잔액 확인이 필요할 때마다 계정을 잠금 해제하고 싶지 않은 블록체인 애플리케이션 개발자는 카이아 지갑을 사용하여 계정 잔액을 확인하는 것을 권장합니다.
 
 ![](/img/build/tools/04-balance-3.png)
 
-## How to Add Kaia Tokens <a id="how-to-add-kaia-tokens"></a>
+## 카이아 토큰을 추가하는 방법 <a id="how-to-add-klaytn-tokens"></a>
 
-Kaia Wallet supports KAIA and Kaia tokens to be registered so that their balances can be checked. To register Kaia tokens to Kaia Wallet, please follow the steps below.
+카이아 지갑은 클레이와 카이아 토큰을 등록하여 잔액을 확인할 수 있도록 지원합니다. 카이아 지갑에 카이아 토큰을 등록하려면 아래 단계를 따라주세요.
 
-### Step 1. Access Existing Account's Information <a id="step-1-access-existing-account-s-information"></a>
+### 1단계. 기존 계정의 정보에 액세스하기 <a id="step-1-access-existing-account-s-information"></a>
 
-Go to your account page by following the steps of [Access Existing Account](#access-existing-account).
+[기존 계정에 액세스하기](#access-existing-account)의 단계에 따라 계정 페이지로 이동합니다.
 
-### Step 2. Click the Add Token Button in the Balance Section <a id="step-2-click-the-add-token-button-in-the-balance-section"></a>
+### 2단계. 잔액 섹션에서 토큰 추가 버튼을 클릭합니다 <a id="step-2-click-the-add-token-button-in-the-balance-section"></a>.
 
-Click the '+' button in the bottom-right of the screen in the `Balance` area.
+화면 오른쪽 하단의 `Balance` 영역에서 '+' 버튼을 클릭합니다.
 
 ![](/img/build/tools/05-addtoken-3.png)
 
-### Step 3. Enter Token Information <a id="step-3-enter-token-information"></a>
+### 3단계. 토큰 정보 입력 <a id="step-3-enter-token-information"></a>
 
-Enter the `Token Symbol`, `Token Contract Address`, and `Decimals`. After clicking the `Save` button, you will see the token listed in your account's balance section.
+`Token Symbol`, `Token Contract Address`, `Decimals`를 입력합니다. `Save` 버튼을 클릭하면 계정 잔액 섹션에 토큰이 표시됩니다.
 
 ![](/img/build/tools/05-addtoken-4.png)
 
-## How to Send KAIA and Tokens <a id="how-to-send-kaia-and-tokens"></a>
+## 클레이와 토큰을 보내는 방법 <a id="how-to-send-klay-and-tokens"></a>
 
-You can send KAIA or Kaia tokens to other accounts using Kaia Wallet. When sending KAIA or tokens, you must have the minimum amount of KAIA in your account to pay for the transaction fee.
+카이아 지갑을 사용해 다른 계정으로 KAIA또는 카이아 토큰을 보낼 수 있습니다. KAIA 또는 토큰을 보낼 때는 트랜잭션 수수료를 지불할 수 있는 최소한의 KAIA를 계정에 보유하고 있어야 합니다.
 
-### Step 1. Go to 'Send KAIA & Tokens' menu <a id="step-1-go-to-send-kaia-tokens-menu"></a>
+### 1단계. <a id="step-1-go-to-send-klay-tokens-menu"></a>
 
-Either click the `Send KAIA & Token` button from the menu bar on the left, or the same button on the main page.
+왼쪽 메뉴 바에서 `Send KAIA & Token` 버튼을 클릭하거나 메인 페이지에서 동일한 버튼을 클릭합니다.
 
 ![](/img/build/tools/06-send-1.png)
 
-### Step 2. Access Your Account <a id="step-2-access-your-account"></a>
+### 2단계. 계정에 액세스하기 <a id="step-2-access-your-account"></a>
 
-In case you have not loaded your account into the wallet yet, do so by following the steps in [Access Existing Account](#access-existing-account).
+아직 지갑에 계정을 불러오지 않은 경우, [기존 계정에 액세스](#access-existing-account)의 단계에 따라 불러오시기 바랍니다.
 
-### Step 3. Select the Token to Send <a id="step-3-select-the-token-to-send"></a>
+### 3단계. 전송할 토큰 선택 <a id="step-3-select-the-token-to-send"></a>
 
-Select the token to transfer in `Step 1. Select Tokens` area.
+`Step 1. Select Tokens` 영역에서 전송할 토큰을 선택합니다.
 
 ![](/img/build/tools/06-send-3.png)
 
-### Step 4. Select Token Transfer Information <a id="step-4-select-token-transfer-information"></a>
+### 4단계. 토큰 전송 정보 선택 <a id="step-4-select-token-transfer-information"></a>
 
-After selecting the token to send, move on to `Step 2. Enter the information` section and fill in the necessary information (`To Address` and `Amount to Send`), then click the `Send Transaction` button.
+전송할 토큰을 선택한 후 `Step 2. 필요한 정보(`To Address`, `Amount to Send`)를 입력한 다음 `Send Transaction\\` 버튼을 클릭합니다.
 
 ![](/img/build/tools/06-send-4.png)
 
-### Step 5. Confirm the Transfer <a id="step-5-confirm-the-transfer"></a>
+### 5단계. 송금 확인 <a id="step-5-confirm-the-transfer"></a>
 
-A confirmation page will appear. Double check the amount to transfer and the recipient address. If everything is correct, click `Yes, I'm sure`. Otherwise, you can go back to the previous page to edit the token transfer information.
+확인 페이지가 나타납니다. 송금할 금액과 수취인 주소를 다시 한 번 확인합니다. 모든 것이 정확하다면 `Yes, I'm sure`을 클릭합니다. 그렇지 않으면 이전 페이지로 돌아가 토큰 전송 정보를 수정할 수 있습니다.
 
 ![](/img/build/tools/06-send-9.png)
 
-### Step 6. Review Transfer Details <a id="step-6-review-transfer-details"></a>
+### 6단계. 이전 세부 정보 검토 <a id="step-6-review-transfer-details"></a>
 
-Your transaction request is completed. You can check the status of the transaction on the Kaiascope. Clicking the `View Transaction Info` will launch Kaiascope to show the transaction details.
+트랜잭션 요청이 완료되었습니다. Klaytnscope에서 트랜잭션의 상태를 확인할 수 있습니다. `View Transaction Info`를 클릭하면 카이아 스코프가 실행되어 트랜잭션 상세 정보를 확인할 수 있습니다.
 
 ![](/img/build/tools/06-send-10.png)
 
-## How to Receive Kairos testnet KAIA <a id="how-to-receive-kairos-testnet-klay"></a>
+## Kairos 테스트넷 KAIA를 받는 방법 <a id="how-to-receive-baobab-testnet-klay"></a>
 
-The testnet KAIA faucet runs on the Kairos network. The faucet can be accessed from the [Kairos Kaia Wallet](https://baobab.wallet.klaytn.foundation).
+테스트넷 KAIAFaucet은 Kairos 네트워크에서 실행됩니다. Faucet은 [Kairos Kaia Wallet](https://baobab.wallet.klaytn.foundation)에서 접속할 수 있습니다.
 
-To receive testnet KAIA, you should have a valid Kaia account.
+테스트넷 KAIA를 받으려면 유효한 카이아 계정이 있어야 합니다.
 
-- If you do not have an account, please create one by following the steps in [Create a New Account](#create-a-new-account).
-- Load your account into the wallet by following the steps in [Access Existing Account](#access-existing-account). Testnet KAIA will be sent to the loaded account.
+- 계정이 없는 경우, [새 계정 만들기](#create-a-new-account)의 단계에 따라 계정을 생성하세요.
+- [기존 계정에 접근하기](#access-existing-account)의 단계에 따라 지갑에 계정을 로드합니다. 로드된 계정으로 테스트넷 KAIA가 전송됩니다.
 
-### Step 1. Go to the testnet KAIA Faucet <a id="step-1-go-to-the-testnet-kaia-faucet"></a>
+### 1단계. 테스트넷 KAIA Faucet으로 이동 <a id="step-1-go-to-the-testnet-klay-faucet"></a>
 
-From the [Kairos Kaia Wallet](https://baobab.wallet.klaytn.foundation), `KAIA Faucet` menu on the left bar brings you to the testnet KAIA request page.
+[Kairos 카이아 지갑](https://baobab.wallet.klaytn.foundation)에서 좌측 바의 `KLAY Faucet` 메뉴를 클릭하면 테스트넷 KAIA요청 페이지로 이동합니다.
 
-The requested page will show your address and the current testnet KAIA balance of your account.
+요청 페이지에 주소와 계정의 현재 테스트넷 KAIA 잔액이 표시됩니다.
 
 ![](/img/build/tools/test_klay_faucet.png)
 
-### Step 2. Run Faucet <a id="step-2-run-faucet"></a>
+### 2단계. Run Faucet <a id="step-2-run-faucet"></a>
 
-Clicking `Run Faucet` button will send you 5 testnet KAIA and your balance will be updated. Note that you can run the faucet for each account once every 24 hours.
+`Run Faucet` 버튼을 클릭하면 5개의 테스트넷 KAIA가 전송되고 잔액이 업데이트됩니다. 계정당 24시간에 한 번씩 Faucet를 실행할 수 있습니다.
