@@ -1,21 +1,21 @@
 # Precompiled Contracts
 
-Klaytn provides several useful precompiled contracts, none of which are state-changing.
-These contracts are implemented in the platform itself as a native implementation, which means they are part of the Klaytn client specifications.
+Kaia provides several useful precompiled contracts, none of which are state-changing.
+These contracts are implemented in the platform itself as a native implementation, which means they are part of the Kaia client specifications.
 The precompiled contracts from address 0x01 through 0x0A are the same as those in Ethereum.
 The utility of precompiles falls into four major categories:
 . Elliptic curve digital signature recovery.
 . Hash Methods
 . Memory copying
 . Methods to enable elliptic curve maths for zk proofs.
-Klaytn additionally implements precompiled contracts from 0x3FD through 0x3FF to support new Klaytn features.
+Kaia additionally implements precompiled contracts from 0x3FD through 0x3FF to support new Kaia features.
 
 :::note
 
 Contracts deployed before the istanbul EVM hardfork should use the original addresses.
 
-- 사례 1) 블록 번호 `#75373310`의 Baobab에 배포된 컨트랙트는 0x09, 0x0a, 0x0b를 각각 vmLog, feePayer, validateSender의 주소로 인식하며, blake2f는 사용할 수 없습니다.
-- 사례 2) 블록 번호 `#75373314`의 Baobab에 배포된 컨트랙트는 0x09를 blake2f의 주소로 인식하고 0x3fd, 0x3fe, 0xff를 vmLog, feePayer, validateSender의 주소로 인식합니다.
+- 사례 1) 블록 번호 `#75373310`의 Kairos에 배포된 컨트랙트는 0x09, 0x0a, 0x0b를 각각 vmLog, feePayer, validateSender의 주소로 인식하며, blake2f는 사용할 수 없습니다.
+- 사례 2) 블록 번호 `#75373314`의 Kairos에 배포된 컨트랙트는 0x09를 blake2f의 주소로 인식하고 0x3fd, 0x3fe, 0xff를 vmLog, feePayer, validateSender의 주소로 인식합니다.
 
 Precompiled contracts related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
 
@@ -224,7 +224,7 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## 주소 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
 
-0x3FD 주소는 지정된 문자열 `str`을 특정 파일에 인쇄하거나 로거 모듈에 전달합니다. For more information, see [debug_setVMLogTarget](../../../references/json-rpc/debug/set-vm-log-target). 이 사전 컴파일된 컨트랙트는 디버깅 목적으로만 사용해야 하며, 클레이튼 노드가 시작될 때 `--vmlog` 옵션을 활성화해야 한다는 점에 유의하세요. 또한, Klaytn 노드의 로그 레벨이 4 이상이어야 vmLog의 출력을 볼 수 있습니다. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
+0x3FD 주소는 지정된 문자열 `str`을 특정 파일에 인쇄하거나 로거 모듈에 전달합니다. For more information, see [debug_setVMLogTarget](../../../references/json-rpc/debug/set-vm-log-target). 이 사전 컴파일된 컨트랙트는 디버깅 목적으로만 사용해야 하며, 카이아 노드가 시작될 때 `--vmlog` 옵션을 활성화해야 한다는 점에 유의하세요. 또한, Kaia 노드의 로그 레벨이 4 이상이어야 vmLog의 출력을 볼 수 있습니다. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -251,13 +251,13 @@ function feePayer() internal returns (address addr) {
 
 ## 주소 0x3ff: validateSender\(\) <a id="address-0x-3fe-validatesender"></a>
 
-0x3FF 주소는 메시지로 발신자의 서명을 검증합니다. Klaytn은 [주소에서 키 쌍을 분리](../accounts.md#decoupling-key-pairs-from-addresses)하기 때문에, 서명이 해당 발신자가 제대로 서명했는지 검증해야 합니다. 이를 위해 이 사전 컴파일된 컨트랙트는 세 가지 매개변수를 받습니다:
+0x3FF 주소는 메시지로 발신자의 서명을 검증합니다. Kaia는 [주소에서 키 쌍을 분리](../accounts.md#decoupling-key-pairs-from-addresses)하기 때문에, 서명이 해당 발신자가 제대로 서명했는지 검증해야 합니다. 이를 위해 이 사전 컴파일된 컨트랙트는 세 가지 매개변수를 받습니다:
 
 - 공개키를 받기 위한 발신자 주소
 - 서명을 생성하는 데 사용되는 메시지 해시
 - 발신자의 개인 키가 주어진 메시지 해시를 사용하여 서명한 서명
 
-미리 컴파일된 컨트랙트는 주어진 서명이 발신자의 개인키에 의해 올바르게 서명되었는지 검증합니다. 클레이튼은 기본적으로 다중 서명을 지원하므로 여러 개의 서명이 있을 수 있다는 점에 유의하세요. 서명은 65바이트 길이여야 합니다.
+미리 컴파일된 컨트랙트는 주어진 서명이 발신자의 개인키에 의해 올바르게 서명되었는지 검증합니다. 카이아는 기본적으로 다중 서명을 지원하므로 여러 개의 서명이 있을 수 있다는 점에 유의하세요. 서명은 65바이트 길이여야 합니다.
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
