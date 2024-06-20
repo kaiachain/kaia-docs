@@ -18,7 +18,7 @@ Submits a new vote. If the node has the right to vote based on the governance mo
 | value    | string \\| number \\| boolean | Various types of value for each key.                                                                                                |
 | callback | function                        | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../../json-rpc/governance/vote).
+For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/governance.md#governance_vote).
 
 **Return Value**
 
@@ -76,7 +76,7 @@ Provides the current tally of governance votes. It shows the aggregate approval 
 caver.rpc.governance.getTotalVotingPower([callback])
 ```
 
-Provides the sum of all voting power that CNs have. Each CN has 1.0 \~ 2.0 voting power. In  the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
+Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In  the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
 
 **Parameters**
 
@@ -105,7 +105,7 @@ Provides the sum of all voting power that CNs have. Each CN has 1.0 \~ 2.0 votin
 caver.rpc.governance.getMyVotingPower([callback])
 ```
 
-Provides the voting power of the node. The voting power can be anywhere between 1.0 \~ 2.0. In the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
+Provides the voting power of the node. The voting power can be anywhere between 1.0 ~ 2.0. In the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
 
 **Parameters**
 
@@ -498,9 +498,9 @@ Returns the staking information at a specific block.
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                                                                                                                 |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | Staking information. Refer to [governance_getStakingInfo](../../../../../json-rpc/governance/get-staking-info) for a description of the return result. |
+| Type   | Description                                                                                                                                                                                                          |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | Staking information. Refer to [governance_getStakingInfo](../../../../json-rpc/governance.md#governance_getstakinginfo) for a description of the return result. |
 
 **Example**
 
