@@ -66,7 +66,7 @@ const providerOptions = {
   coinbasewallet: {
     package: CoinbaseWalletSDK, // required
     options: {
-      appName: "Web3Modal Klaytn dApp", // required
+      appName: "Web3Modal Kaia dApp", // required
       infuraId: "NFURA_KEY", // required
       rpc: "https://klaytn-mainnet-rpc.allthatnode.com:8551", // Optional if `infuraId` is provided; otherwise it's required
       chainId: 1001, // Optional. It defaults to 1 if not provided
@@ -76,7 +76,7 @@ const providerOptions = {
   klip: {
     package: KlipWeb3Provider, //required
     options: {
-        bappName: "Web3Modal Klaytn dApp", //required
+        bappName: "Web3Modal Kaia dApp", //required
         rpcUrl: "https://klaytn-mainnet-rpc.allthatnode.com:8551" //required
     }
 },
@@ -282,7 +282,7 @@ const refreshState = () => {
             params: [
               {
                 chainId: toHex(8217),
-                chainName: "Klaytn TestNet",
+                chainName: "Kaia TestNet",
                 rpcUrls: ["https://klaytn-mainnet-rpc.allthatnode.com:8551"],
                 blockExplorerUrls: ["https://baobob.scope.com/"],
               },
