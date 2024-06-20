@@ -8,7 +8,7 @@
 caver.rpc.net.getNetworkId([callback])
 ```
 
-Returns the network identifier (network ID) of the Kaia Node.
+Returns the network identifier (network ID) of the Klaytn Node.
 
 **Parameters**
 
@@ -37,7 +37,7 @@ Returns the network identifier (network ID) of the Kaia Node.
 caver.rpc.net.isListening([callback])
 ```
 
-Returns `true` if the Kaia Node is actively listening for network connections.
+Returns `true` if the Klaytn Node is actively listening for network connections.
 
 **Parameters**
 
@@ -66,7 +66,7 @@ true
 caver.rpc.net.getPeerCount([callback])
 ```
 
-Returns the number of peers currently connected to the Kaia Node.
+Returns the number of peers currently connected to the Klaytn Node.
 
 **Parameters**
 
