@@ -1,6 +1,6 @@
 # Computation Cost
 
-클레이튼은 1초 블록타임을 목표로 하고 있기 때문에 트랜잭션의 실행 시간을 관리해야 합니다. 이를 달성하기 위한 세 가지 접근 방식이 있습니다:
+카이아는 1초 블록타임을 목표로 하고 있기 때문에 트랜잭션의 실행 시간을 관리해야 합니다. 이를 달성하기 위한 세 가지 접근 방식이 있습니다:
 
 1. 거래 가스 한도 제한
 2. 트랜잭션의 실행 시간 제한
@@ -12,7 +12,7 @@
 
 마지막 접근 방식은 트랜잭션의 계산 비용을 제한하는 것입니다. 실제 실행 시간을 기준으로 각 EVM 연산 코드의 계산 비용을 모델링하고 트랜잭션의 계산 비용 합계를 제한합니다. 이 접근 방식을 사용하면 다른 요소를 제거하고 정규화된 실행 시간 단위만 계산하므로 노드들도 합의에 도달할 수 있습니다.
 
-따라서 저희는 클레이튼에 세 번째 옵션을 선택했습니다. The computation cost limit was 100,000,000, but as CPU computing performance has increased, the limit has been raised to 150,000,000 after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../references/json-rpc/klay/estimate-computation-cost). The usage is almost the same as [klay_estimateGas](../../../references/json-rpc/klay/estimate-gas).
+따라서 저희는 카이아에 세 번째 옵션을 선택했습니다. The computation cost limit was 100,000,000, but as CPU computing performance has increased, the limit has been raised to 150,000,000 after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Kaia provides [klay_estimateComputationCost](../../../references/json-rpc/klay/estimate-computation-cost). The usage is almost the same as [klay_estimateGas](../../../references/json-rpc/klay/estimate-gas).
 
 :::note
 
