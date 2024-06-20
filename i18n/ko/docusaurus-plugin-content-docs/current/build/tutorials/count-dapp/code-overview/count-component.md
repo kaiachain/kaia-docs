@@ -199,7 +199,7 @@ export default Count
 
 ### `Count` 컴포넌트의 역할 <a href="#2-count-component-s-role" id="2-count-component-s-role"></a>
 
-`Count` 컴포넌트의 역할은 클레이튼 블록체인에 배포된 Count 컨트랙트와 상호작용하는 것입니다.
+`Count` 컴포넌트의 역할은 카이아 블록체인에 배포된 Count 컨트랙트와 상호작용하는 것입니다.
 
 Count.sol에서 다음과 같이 여러 변수와 함수를 선언했습니다.
 
@@ -217,7 +217,7 @@ Count.js 컴포넌트에는 Count 컨트랙트의 함수 및 변수와 상호작
 `Contract ABI`(애플리케이션 바이너리 인터페이스)를 사용하면 caver는 컨트랙트 메서드를 로컬 함수인 것처럼 호출할 수 있습니다. })`\
 `contractInstance.methods.minus().send({ ... })\`
 
-`Contract address`는 컨트랙트를 컴파일하고 배포한 후 `build/contracts/Count.json` 파일에서 확인할 수 있습니다. 테스트 편의를 위해 클레이튼 테스트넷에 컨트랙트를 배포하고 디렉터리에 `deployedABI`와 `deployedAddress` 파일을 포함시켰습니다. 웹팩 구성 덕분에 변수를 통해 이 파일에 액세스할 수 있습니다. (`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
+`Contract address`는 컨트랙트를 컴파일하고 배포한 후 `build/contracts/Count.json` 파일에서 확인할 수 있습니다. 테스트 편의를 위해 카이아 테스트넷에 컨트랙트를 배포하고 디렉터리에 `deployedABI`와 `deployedAddress` 파일을 포함시켰습니다. 웹팩 구성 덕분에 변수를 통해 이 파일에 액세스할 수 있습니다. (`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
 
 예)\
 `DEPLOYED_ADDRESS`는 배포된 연락처 ddress를 반환합니다.\
@@ -326,9 +326,9 @@ setPlus = () => {
 
 `setPlus` 함수는 Count 컴포넌트에서 가장 중요한 부분입니다. 컨트랙트 함수 `plus`를 호출하여 컨트랙트와 상호작용합니다. 이 함수 역시 컨트랙트 메서드이므로 `this.counterContract.methods`에 포함되어 있습니다.
 
-다만, 데이터를 읽기만 하는 `count`, `lastParticipant`와 달리 `plus` 함수는 클레이튼 블록체인에 데이터를 **쓰는 역할**을 합니다. 비용은 사용된 `gas`의 양으로 측정됩니다.
+다만, 데이터를 읽기만 하는 `count`, `lastParticipant`와 달리 `plus` 함수는 카이아 블록체인에 데이터를 **쓰는 역할**을 합니다. 비용은 사용된 `gas`의 양으로 측정됩니다.
 
-따라서 트랜잭션을 전송하려면 트랜잭션 수수료를 부담할 클레이튼 노드를 알리기 위해 `from:` 속성이 필요합니다. `gas:` 속성은 트랜잭션 발신자가 트랜잭션에 대해 지불하고자 하는 최대 가스 양을 정의합니다.
+따라서 트랜잭션을 전송하려면 트랜잭션 수수료를 부담할 카이아 노드를 알리기 위해 `from:` 속성이 필요합니다. `gas:` 속성은 트랜잭션 발신자가 트랜잭션에 대해 지불하고자 하는 최대 가스 양을 정의합니다.
 
 ```javascript
 this.countContract.methods.plus().send({
