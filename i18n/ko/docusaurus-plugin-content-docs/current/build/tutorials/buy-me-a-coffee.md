@@ -211,7 +211,7 @@ contract BuyMeACoffee {
 
     // buy coffee function
     function buyCoffee(string memory name, string memory message) public payable {
-	  // Must accept more than 0 KLAY for a coffee.
+	  // Must accept more than 0 KAIA for a coffee.
         require(msg.value > 0, "Tip must be greater than zero");
         coffeeId++;
 	
@@ -266,13 +266,13 @@ buyCoffee 함수는 BMC 스마트 컨트랙트의 핵심 구현입니다. 이 �
 
 ```js
 const hre = require("hardhat");
-// Logs the KLAY balances of a specific address.
+// Logs the KAIA balances of a specific address.
 async function getBalance(address) {
     const balanceBigInt = await hre.ethers.provider.getBalance(address);
     return hre.ethers.utils.formatEther(balanceBigInt)
 }
 
-// Logs the KLAY balances for a list of addresses.
+// Logs the KAIA balances for a list of addresses.
 async function getBalances(addresses) {
   let idx = 0;
   for (const address of addresses) {
@@ -485,8 +485,8 @@ async function main() {
 
   const balanceBefore = await getBalance(signer.address);
   const contractBalance = await getBalance(BuyMeACoffee.address);
-  console.log(`Owner balance before withdrawing tips: ${balanceBefore} KLAY`);
-  console.log(`Contract balance before withdrawing tips:  ${contractBalance} KLAY`);
+  console.log(`Owner balance before withdrawing tips: ${balanceBefore} KAIA`);
+  console.log(`Contract balance before withdrawing tips:  ${contractBalance} KAIA`);
 
     // Withdraw funds if there are funds to withdraw.
     if (contractBalance !== "0.0") {
@@ -495,7 +495,7 @@ async function main() {
         await withdrawCoffeTxn.wait();
         // check owner's balance after withdrawing coffee tips
         const balanceAfter = await getBalance(signer.address);
-        console.log(`Owner balance after withdrawing tips ${balanceAfter} KLAY`);
+        console.log(`Owner balance after withdrawing tips ${balanceAfter} KAIA`);
       } else {
         console.log("no funds to withdraw!");
       }
