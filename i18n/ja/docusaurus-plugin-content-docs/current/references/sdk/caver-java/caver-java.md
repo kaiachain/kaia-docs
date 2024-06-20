@@ -2,7 +2,7 @@
 
 ![](/img/references/klaytnXcaver-java.png)
 
-`caver-java` is a lightweight, high modular, convenient Java and Android library to interact with clients (nodes) on the Klaytn network: This library is an interface which allows Java applications to easily communicate with [Klaytn](https://www.klaytn.com) network.
+`caver-java` is a lightweight, high modular, convenient Java and Android library to interact with clients \(nodes\) on the Klaytn network: This library is an interface which allows Java applications to easily communicate with [Klaytn](https://www.klaytn.com) network.
 
 ## Features <a id="features"></a>
 
