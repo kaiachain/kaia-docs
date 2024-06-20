@@ -20,7 +20,7 @@
 | [Favorlet](https://favorlet.io/)                   | Non-custodial | EOA      | 모바일                | 아니요      | 아니요      | 지원    | 아니요    |
 | [Huobi Wallet](https://www.itoken.com/en)          | Non-custodial | EOA      | 모바일                | 아니요      | 아니요      | 지원    | 아니요    |
 | [Kaikas](https://app.kaikas.io/)                   | Non-custodial | EOA      | 모바일, 브라우저          | 아니요      | 예        | 지원    | 아니요    |
-| [Klaytn Safe](https://safe.klaytn.foundation/)     | Non-custodial | 스마트 컨트랙트 | 웹앱                 | 예        | 아니요      | 지원 없음 | 아니오    |
+| [Kaia Safe](https://safe.klaytn.foundation/)       | Non-custodial | 스마트 컨트랙트 | 웹앱                 | 예        | 아니요      | 지원 없음 | 아니오    |
 | [Klip Wallet](https://klipwallet.com/)             | Non-custodial | EOA      | 모바일                | 아니오      | 아니요      | 지원    | 아니요    |
 | [Krystal DeFi](https://krystal.app/)               | Non-custodial | EOA      | 모바일, 웹 앱           | 아니오      | 아니요      | 지원    | 예      |
 | [Math Wallet](https://mathwallet.org/en-us/)       | Custodial     | EOA      | 모바일, 웹 앱, 브라우저     | 아니오      | 예        | 지원    | 예      |
