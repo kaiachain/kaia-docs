@@ -1,16 +1,17 @@
 const zlib = require("zlib");
 const fs = require('fs');
 
-const refactorCodeExample = async (path) => {
+const refactorCodeExample = (path) => {
     const filesToRefactor = [];
-    fs.readdir(path, (err, files) => {
-        files.forEach(async file => {
-            filesToRefactor.push(file);
+    fs.readdir(path, async (err, files) => {
+        files.forEach(file => {
+            if (file.endsWith('api.mdx')) {
+                filesToRefactor.push(path + "/" + file);
+            }
         })
+        const promises = filesToRefactor.map(filePath => refactorOpenAPI(filePath));
+        await Promise.all(promises);
     })
-
-    const promises = filesToRefactor.map(filePath => refactorOpenAPI(filePath));
-    await Promise.all(promises);
 }
 
 const refactorOpenAPI = async ( path ) => {
