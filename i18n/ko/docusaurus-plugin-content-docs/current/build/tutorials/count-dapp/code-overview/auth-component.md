@@ -20,9 +20,9 @@ It is cost-free to read data from contracts.\
 On the other hand, there is a cost for writing data to contract.
 
 참고) `트랜잭션 보내기`\
-컨트랙트나 블록체인에 데이터를 쓰는 것을 '트랜잭션 전송'이라고 합니다. 예를 들어 친구에게 5 KLAY를 보내면 '내가 친구에게 5 KLAY를 보냈다는 데이터를 블록체인에 쓴다'고 생각하시면 됩니다. 컨트랙트 메서드를 호출하는 것도 마찬가지입니다. '내가 변수 X를 100으로 설정했다는 데이터를 컨트랙트에 쓴다'고 생각하시면 됩니다. 블록체인이나 컨트랙트에 데이터를 쓰는 모든 행위를 '트랜잭션 전송'이라고 합니다.
+컨트랙트나 블록체인에 데이터를 쓰는 것을 '트랜잭션 전송'이라고 합니다. 예를 들어 친구에게 5 KAIA를 보내면 '내가 친구에게 5 KAIA를 보냈다는 데이터를 블록체인에 쓴다'고 생각하시면 됩니다. 컨트랙트 메서드를 호출하는 것도 마찬가지입니다. '내가 변수 X를 100으로 설정했다는 데이터를 컨트랙트에 쓴다'고 생각하시면 됩니다. 블록체인이나 컨트랙트에 데이터를 쓰는 모든 행위를 '트랜잭션 전송'이라고 합니다.
 
-컨트랙트에 데이터를 쓰려면 트랜잭션 수수료를 지불할 KLAY가 있는 클레이튼 계정이 있어야 합니다.
+컨트랙트에 데이터를 쓰려면 트랜잭션 수수료를 지불할 KAIA가 있는 카이아 계정이 있어야 합니다.
 
 ### `Auth` 컴포넌트 개요 <a href="#2-auth-component-overview" id="2-auth-component-overview"></a>
 
@@ -137,7 +137,7 @@ handleLogin = () => {
 
   // Access type1: access through keystore + password
   try {
-    const { privateKey: privateKeyFromKeystore } = cav.klay.accounts.decrypt(keystore, password)
+    const { privateKey: privateKeyFromKeystore } = cav.kaia.accounts.decrypt(keystore, password)
     this.integrateWallet(privateKeyFromKeystore)
   } catch (e) {
     this.setState({ keystoreMsg: `Password doesn't match.` })
@@ -154,11 +154,11 @@ handleLogin = () => {
 ```javascript
 /**
  * removeWallet method removes
- * 1) wallet instance from caver.klay.accounts
+ * 1) wallet instance from caver.kaia.accounts
  * 2) 'walletInstance' value from session storage.
  */
 removeWallet = () => {
-  cav.klay.accounts.wallet.clear()
+  cav.kaia.accounts.wallet.clear()
   sessionStorage.removeItem('walletInstance')
   this.reset()
 }
