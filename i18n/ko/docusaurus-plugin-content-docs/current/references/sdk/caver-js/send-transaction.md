@@ -1,6 +1,6 @@
 # Sending a sample transaction
 
-Let's try sending a transaction as a simple warm-up. In this short example, we will be creating a keystore, connecting to Kaia node, as well as creating a transaction - all of this using caver-js!
+Let's try sending a transaction as a simple warm-up. In this short example, we will be creating a keystore, connecting to Klaytn node, as well as creating a transaction - all of this using caver-js!
 
 Don't worry if this is your first time using caver-js. Just follow the simple steps below.
 
@@ -17,13 +17,13 @@ _Note:_ If you get an `nvm: command not found` error after installing nvm, refer
 
 ## 1. Create an Account and Download Keystore <a id="1.-create-an-account-and-download-keystore"></a>
 
-The most simple way to create an account is using the [Kaia Online Toolkit](https://toolkit.klaytn.foundation/misc/generateKeystore).
+The most simple way to create an account is using the [Klaytn Online Toolkit](https://toolkit.klaytn.foundation/misc/generateKeystore).
 
-![Kaia Online Toolkit](/img/references/keystore.png)
+![Klaytn Online Toolkit](/img/references/keystore.png)
 
 Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
 
-**You need KAIA to send a transaction.** You can get test KAIA for the Kairos testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay) for detailed instructions.
+**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
 
 ## 2. Initialize Project <a id="2.-initialize-project"></a>
 
@@ -114,13 +114,13 @@ Let's create a test file named `testcaver.js` like so:
 touch testcaver.js
 ```
 
-We will be writing our code in this file to send a transaction to transfer KAIA.
+We will be writing our code in this file to send a transaction to transfer KLAY.
 
-## 5. Connect to Kaia Node <a id="5.-connect-to-kaia-node"></a>
+## 5. Connect to Klaytn Node <a id="5.-connect-to-klaytn-node"></a>
 
-Since we are sending a transaction to the blockchain network, we need to connect to a Kaia node. We will be using Kaia's testnet Kairos.
+Since we are sending a transaction to the blockchain network, we need to connect to a Klaytn node. We will be using Klaytn's testnet Baobab.
 
-We will import the `caver-js` and `read` module and connect to a Kaia node in the Kairos network as shown below:
+We will import the `caver-js` and `read` module and connect to a Klaytn node in the Baobab network as shown below:
 
 ```javascript
 const Caver = require('caver-js')
@@ -171,9 +171,9 @@ async function sendKlay() {
 
 ## 7. Send Transaction <a id="7.-send-transaction"></a>
 
-We will now create a transaction to transfer some KAIA. This type of transaction is called "value transfer transaction". Let's break down each parameter.
+We will now create a transaction to transfer some KLAY. This type of transaction is called "value transfer transaction". Let's break down each parameter.
 
-The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KAIA, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KAIA into kei. Here, we will send 10 KAIA. For `gas`,
+The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KLAY, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KLAY into peb. Here, we will send 10 KLAY. For `gas`,
 
 ```
 	
@@ -181,15 +181,15 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 	const vt = caver.transaction.valueTransfer.create({
 		from: keyring.address,
 		to: '0x8084fed6b1847448c24692470fc3b2ed87f9eb47',
-		value: caver.utils.toPeb(10, 'KAIA'),
+		value: caver.utils.toPeb(10, 'KLAY'),
 		gas: 25000,
 	})
 
 	// Sign to the transaction
 	const signed = await caver.wallet.sign(keyring.address, vt)
 
-	// Send transaction to the Kaia blockchain platform (Kaia)
-	const receipt = await caver.rpc.kaia.sendRawTransaction(signed)
+	// Send transaction to the Klaytn blockchain platform (Klaytn)
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
 	console.log(receipt)
 }
 ```
@@ -249,7 +249,7 @@ SingleKeyring {
 }
 ```
 
-You can view the transaction details in [Kaiafinder](https://baobab.klaytnfinder.io/) or [Kaiascope](https://scope.klaytn.com) using the `transactionHash`.
+You can view the transaction details in [Klaytnfinder](https://baobab.klaytnfinder.io/) or [Klaytnscope](https://scope.klaytn.com) using the `transactionHash`.
 
 ## 9. Entire Code <a id="9.-run-the-code"></a>
 
@@ -258,7 +258,7 @@ const Caver = require('caver-js')
 const read = require('read')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 
-async function sendKAIA() {
+async function sendKLAY() {
     // Read keystore json file
     	const fs = require('fs')
 	const keystore = fs.readFileSync('./keystore.json', 'utf8')
@@ -275,15 +275,15 @@ async function sendKAIA() {
 	const vt = caver.transaction.valueTransfer.create({
 		from: keyring.address,
 		to: '0x7f1D6235B79688169fd6e15C4E8f540d6799dC75',
-		value: caver.utils.toPeb(10, 'KAIA'),
+		value: caver.utils.toPeb(10, 'KLAY'),
 		gas: 25000,
 	})
 
 	// Sign to the transaction
 	const signed = await caver.wallet.sign(keyring.address, vt)
 
-	// Send transaction to the Kaia blockchain platform (Kaia)
-	const receipt = await caver.rpc.kaia.sendRawTransaction(signed)
+	// Send transaction to the Klaytn blockchain platform (Klaytn)
+	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
 	console.log(receipt)
 }
 
@@ -303,7 +303,7 @@ async function loadPassword() {
 
 }
 
-sendKAIA()
+sendKLAY()
 ```
 
-I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Kaia Forum](https://forum.klaytn.foundation/) for help.
+I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Klaytn Forum](https://forum.klaytn.foundation/) for help.
