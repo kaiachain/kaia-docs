@@ -35,16 +35,14 @@ Before we get into the detail, keep in mind that not all key types apply the key
 ## KeyCreationGas <a id="key-creation-gas"></a>
 
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
-The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
 Please keep in mind that Public key type always has only one registering key, so the gas would be always 20000.
 
 ## KeyValidationGas <a id="key-validation-gas"></a>
 
 `KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
-`KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
 Please keep in mind that Public key type always has only one signature key, so the gas would be always zero.
 
-A Klaytn transaction can also have a feePayer, so the total KeyValidationGas is like this.
+A Kaia transaction can also have a feePayer, so the total KeyValidationGas is like this.
 
 ```
 KeyValidationGas =  (KeyValidationGas for a sender) + (KeyValidationGas for a feePayer)
