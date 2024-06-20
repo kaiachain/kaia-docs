@@ -119,6 +119,15 @@ const config = {
               categoryLinkSource: "tag",
             },
           },
+          web3rpcKaia: {
+            // template: "api.mustache",
+            specPath: "./web3rpc/yaml/web3rpc-kaia.yaml",
+            outputDir: "docs/references/json-rpc/kaia",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
           web3rpcEth: {
             specPath: "./web3rpc/yaml/web3rpc-eth.yaml",
             outputDir: "docs/references/json-rpc/eth",
@@ -293,24 +302,28 @@ const config = {
           highlight: "bash",
           language: "curl",
           logoClass: "bash",
+          codeSampleLanguage: "cURL",
         },
         {
           highlight: "python",
           language: "python",
           logoClass: "python",
-          variant: "requests",
+          codeSampleLanguage: "Python",
+          // variant: "requests",
         },
         {
           highlight: "javascript",
           language: "nodejs",
           logoClass: "nodejs",
-          variant: "axios",
+          codeSampleLanguage: "JavaScript",
+          // variant: "axios",
         },
         {
           highlight: "java",
           language: "java",
           logoClass: "java",
-          variant: "unirest",
+          codeSampleLanguage: "Java",
+          // variant: "unirest",
         },
       ],
       footer: {

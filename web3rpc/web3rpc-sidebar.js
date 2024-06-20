@@ -8,6 +8,7 @@ const personalSidebar = require("../docs/references/json-rpc/personal/sidebar.ts
 const debugSidebar = require("../docs/references/json-rpc/debug/sidebar.ts")
 const mainbridgeSidebar = require("../docs/references/json-rpc/mainbridge/sidebar.ts")
 const subbridgeSidebar = require("../docs/references/json-rpc/subbridge/sidebar.ts")
+const kaiaSidebar = require("../docs/references/json-rpc/kaia/sidebar.ts")
 
 // Function to find the common prefix of labels
 const findCommonLabelPrefix = (sidebar, categories) => {
@@ -40,9 +41,11 @@ const findCommonLabelPrefix = (sidebar, categories) => {
 };
 
 findCommonLabelPrefix(klaySidebar, klaySidebar.slice(1))
+findCommonLabelPrefix(kaiaSidebar, kaiaSidebar.slice(1))
 findCommonLabelPrefix(ethSidebar, ethSidebar.slice(1))
 findCommonLabelPrefix(debugSidebar, debugSidebar.slice(1))
 export const klaySidebarFormatted = klaySidebar.slice(1)
+export const kaiaSidebarFormatted = kaiaSidebar.slice(1)
 export const ethSidebarFormatted = ethSidebar.slice(1)
 export const governanceSidebarFormatted = governanceSidebar.slice(1)
 export const adminSidebarFormatted = adminSidebar.slice(1)

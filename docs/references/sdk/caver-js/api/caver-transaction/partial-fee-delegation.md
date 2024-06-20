@@ -27,7 +27,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| value | string | The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`. |
+| value | string | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
 | from | string | The address of the sender. |
 | to | string | The account address that will receive the transferred value. |
 | gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
@@ -35,9 +35,9 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | signatures | Array | (optional) An array of signatures. |
 | feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
 | feePayer | string | (optional) The address of fee payer. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId. |
+| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
+| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -46,7 +46,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 > caver.transaction.feeDelegatedValueTransferWithRatio({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, 'KAIA'),
+    value: caver.utils.toPeb(1, 'KLAY'),
     gas: 25000,
     feeRatio: 30,
 })
@@ -91,7 +91,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| value | string | The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`. |
+| value | string | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
 | from | string | The address of the sender. |
 | to | string | The account address that will receive the transferred value. |
 | input | string | Data attached to the transaction. The message should be passed to this property. |
@@ -100,9 +100,9 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | signatures | Array | (optional) An array of signatures. |
 | feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
 | feePayer | string | (optional) The address of fee payer. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId. |
+| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
+| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -111,7 +111,7 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 > caver.transaction.feeDelegatedValueTransferMemoWithRatio({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, 'KAIA'),
+    value: caver.utils.toPeb(1, 'KLAY'),
     gas: 25000,
     input: '0x68656c6c6f',
     feeRatio: 30,
@@ -165,9 +165,9 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | signatures | Array | (optional) An array of signatures. |
 | feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
 | feePayer | string | (optional) The address of fee payer. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId. |
+| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
+| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 For how to create an [Account] instance for each `AccountKey` type, refer to [Getting Started - Account Update](../../get-started.md#account-update) or [caver.account.create](../caver.account.md#caver-account-create).
 
@@ -228,16 +228,16 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | input | string | Data attached to the transaction. The byte code of the smart contract to be deployed and its arguments. You can get this through [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy). |
 | gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
 | feeRatio | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed.
-| value | string | (optional, default: `'0x0'`) The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`. |
+| value | string | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
 | to | string | (optional, default: `'0x'`) Address to which the smart contract is deployed. Currently, this value cannot be defined. Specifying the address will be supported in the future. |
 | humanReadable | boolean | (optional, default: `false`) This must be false since human-readable address is not supported yet. |
 | codeFormat | string | (optional, default: `'EVM'`) The code format of smart contract code. The supported value, for now, is EVM only. This value is converted to hex string after the assignment(e.g> `EVM` is converted to `0x0`) internally. |
 | signatures | Array | (optional) An array of signatures. |
 | feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
 | feePayer | string | (optional) The address of fee payer. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId. |
+| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
+| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -298,13 +298,13 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | input | string | Data attached to the transaction, used for transaction execution. The input is an encoded string that indicates a function to call and parameters to be passed to this function. You can get this encoded string through [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
 | gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
 | feeRatio | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed.
-| value | string | (optional, default: `'0x0'`) The amount of KAIA in kei to be transferred. You can use `caver.utils.toPeb`. |
+| value | string | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`. |
 | signatures | Array | (optional) An array of signatures. |
 | feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
 | feePayer | string | (optional) The address of fee payer. |
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId. |
+| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
+| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -362,12 +362,12 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | from | string | The address of the sender. |
 | gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
 | feeRatio | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed.
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | signatures | Array | (optional) An array of signatures. |
 | feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
 | feePayer | string | (optional) The address of fee payer. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId. |
+| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
+| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 
@@ -422,12 +422,12 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 | input | string | Data of the service chain. |
 | gas | string | The maximum amount of transaction fee the transaction is allowed to use. |
 | feeRatio | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed.
-| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.kaia.getTransactionCount(address, 'pending')` will be used to set nonce. |
+| nonce | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
 | signatures | Array | (optional) An array of signatures. |
 | feePayerSignatures | Array | (optional) An array of feePayerSignatures. |
 | feePayer | string | (optional) The address of fee payer. |
-| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.kaia.getGasPrice` will be used to set gasPrice. |
-| chainId | string | (optional) The chain id of the Kaia network. If omitted, `caver.rpc.kaia.getChainId` will be used to set chainId. |
+| gasPrice | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice. |
+| chainId | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
 
 **Example**
 

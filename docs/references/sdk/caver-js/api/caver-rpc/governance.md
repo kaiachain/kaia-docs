@@ -18,7 +18,7 @@ Submits a new vote. If the node has the right to vote based on the governance mo
 | value | string \| number \| boolean | Various types of value for each key. |
 | callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../../json-rpc/governance/vote).
+For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/governance.md#governance_vote).
 
 
 **Return Value**
@@ -501,7 +501,7 @@ Returns the staking information at a specific block.
 
 | Type | Description |
 | --- | --- |
-| object | Staking information. Refer to [governance_getStakingInfo](../../../../../json-rpc/governance/get-staking-info) for a description of the return result. |
+| object | Staking information. Refer to [governance_getStakingInfo](../../../../json-rpc/governance.md#governance_getstakinginfo) for a description of the return result. |
 
 **Example**
 

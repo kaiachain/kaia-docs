@@ -2,7 +2,7 @@
 
 ## What's new?
 
-In caver-java 1.5.0, we adopt Common Architecture. Common Architecture is a new software architecture for Kaia development environment, which is shared by all Kaia SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
+In caver-java 1.5.0, we adopt Common Architecture. Common Architecture is a new software architecture for Klaytn development environment, which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
 
 As caver-java is updated to 1.5.0, the APIs used in 1.4.0 are deprecated except for some APIs.
 
@@ -10,14 +10,14 @@ The APIs newly provided in caver-java 1.5.0 are as follows.
 
 ### caver.account
 
-caver.account is a package used to update AccountKey, which could be one or more public keys (AccountKeyPublic, AccountKeyWeightedMultiSig, and AccountKeyRoleBased) or a special type of keys (AccountKeyLegacy and AccountKeyFail), for a Kaia account.
+caver.account is a package used to update AccountKey, which could be one or more public keys (AccountKeyPublic, AccountKeyWeightedMultiSig, and AccountKeyRoleBased) or a special type of keys (AccountKeyLegacy and AccountKeyFail), for a Klaytn account.
 
 
 - `caver.account` replaces `caver.tx.account` in caver-java 1.4.0
 
 ### caver.wallet
 
-caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Kaia account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Kaia account address.
+caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
 
 - `caver.wallet` replaces `caver.crypto` in caver-java 1.4.0
 - `caver.wallet.KeyStore` replaces `caver.wallet.WalletFile` in caver-java 1.4.0
@@ -30,9 +30,9 @@ caver.transaction is a package that provides functionality related to [Transacti
 
 ### caver.rpc
 
-caver.rpc is a package that provides functionality related to rpc call with Kaia Node.
+caver.rpc is a package that provides functionality related to rpc call with Klaytn Node.
 
-- `caver.rpc.kaia` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, respectively
+- `caver.rpc.klay` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, respectively
 
 ### caver.util
 
@@ -40,7 +40,7 @@ caver.utils provides utility functions.
 
 ### caver.contract
 
-`caver.contract` is a package that makes it easy to handle smart contracts in Kaia. With caver.contract, you can deploy smart contracts and execute them by calling their functions. `caver.contract` first converts smart contract functions and events from ABI\(Application Binary Interface\), calls those functions, and obtains the event information.
+`caver.contract` is a package that makes it easy to handle smart contracts in Klaytn. With caver.contract, you can deploy smart contracts and execute them by calling their functions. `caver.contract` first converts smart contract functions and events from ABI\(Application Binary Interface\), calls those functions, and obtains the event information.
 
 ## Prerequisites <a id="prerequisites"></a>
 
@@ -140,12 +140,12 @@ Currently, we do not support other package managers. As another solution, we pro
   ```
 
 
-## Sending KAIA at a glance
+## Sending KLAY at a glance
 
-This section describes a simple example of using a `keystore file` to send KAIA with a value transfer transaction. The keystore file can be created in [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay). If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay).
+This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
 ```java
-public void sendingKAIA() throws IOException, CipherException, TransactionException {
+public void sendingKLAY() throws IOException, CipherException, TransactionException {
         Caver caver = new Caver(Caver.BAOBAB_URL);
 
         //Read keystore json file.
@@ -159,7 +159,7 @@ public void sendingKAIA() throws IOException, CipherException, TransactionExcept
         //Add to caver wallet.
         caver.wallet.add(keyring);
 
-        BigInteger value = new BigInteger(caver.utils.convertToPeb(BigDecimal.ONE, "KAIA"));
+        BigInteger value = new BigInteger(caver.utils.convertToPeb(BigDecimal.ONE, "KLAY"));
 
         //Create a value transfer transaction
         ValueTransfer valueTransfer = caver.transaction.valueTransfer.create(
@@ -173,8 +173,8 @@ public void sendingKAIA() throws IOException, CipherException, TransactionExcept
         //Sign to the transaction
         valueTransfer.sign(keyring);
 
-        //Send a transaction to the klaytn blockchain platform (Kaia)
-        Bytes32 result = caver.rpc.kaia.sendRawTransaction(valueTransfer.getRawTransaction()).send();
+        //Send a transaction to the klaytn blockchain platform (Klaytn)
+        Bytes32 result = caver.rpc.klay.sendRawTransaction(valueTransfer.getRawTransaction()).send();
         if(result.hasError()) {
             throw new RuntimeException(result.getError().getMessage());
         }
@@ -188,7 +188,7 @@ public void sendingKAIA() throws IOException, CipherException, TransactionExcept
 
 ## Starting with caver-java <a id="starting-with-caver-java"></a>
 
-### Connecting to a Kaia Node <a id="connecting-to-a-kaia-node"></a>
+### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
 
 If you are running an EN, you can connect it to your own node by changing the host and port like below:
 
@@ -199,7 +199,7 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 ## Managing Keyrings <a id="managing-keyrings"></a>
 
-`Keyring` is a structure that contains the address of the Kaia account and the private key(s). 
+`Keyring` is a structure that contains the address of the Klaytn account and the private key(s). 
 
 `Keyring` can be classified into three types depending on the type of key being stored: `SingleKeyring` to store one address and one private key, `MultipleKeyring` to store one address and multiple private keys, and `RoleBasedKeyring` to store one address and one or more private keys for each role.
 
@@ -230,7 +230,7 @@ SingleKeyring keyring = caver.wallet.keyring.createFromPrivateKey(privateKey);
 
 #### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If your private key for your Kaia account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
+If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
 
 ```java
 String address = "0x{address in hex}";
@@ -238,11 +238,11 @@ String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = caver.wallet.keyring.createWithSingleKey(address, privateKey);
 ```
 
-Also, you can derive SingleKeyring instance from Kaia wallet key.
+Also, you can derive SingleKeyring instance from Klaytn wallet key.
 
 ```java
 String klaytnWalletKey = "0x{private key}0x{type}0x{address in hex}";
-SingleKeyring keyring = caver.wallet.keyring.createFromKaiaWalletKey(klaytnWalletKey);
+SingleKeyring keyring = caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey);
 ```
 
 #### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
@@ -288,7 +288,7 @@ RoleBasedKeyring keyring = caver.wallet.keyring.createWithRoleBasedKey(address, 
 
 ### Adding Keyrings to caver-java from a keystore json string.<a id="adding-keyrings-to-caver-java"></a>
 
-You can use a keyring more easily by adding it to the in-memory wallet provided by caver-java. The following examples illustrate how to add a keyring to `caver.wallet` using a keystore JSON file string generated by [Kaia Wallet](https://wallet.klaytn.com/).
+You can use a keyring more easily by adding it to the in-memory wallet provided by caver-java. The following examples illustrate how to add a keyring to `caver.wallet` using a keystore JSON file string generated by [Klaytn Wallet](https://wallet.klaytn.com/).
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -388,11 +388,11 @@ When `caver.wallet.newKeyring` is executed with a private key, a Keyring instanc
 
 ## Sending a Transaction <a id="sending-a-transaction"></a>
 
-This section will show you how to send KAIA using caver-java on the Kairos network.
+This section will show you how to send KLAY using caver-java on the Baobab network.
 
-### Getting KAIA via Kairos Faucet <a id="getting-kaia-via-kairos-faucet"></a>
+### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
 
-If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay). Log in to the Kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
 ### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
@@ -401,13 +401,13 @@ You can use a caver-java wallet to generate a signature of a transaction. You ha
 1. Sign a transaction
 	- If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
 	- If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the Kaia via `caver.rpc.kaia.sendRawTransaction`.
+2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
 
-**Note:** The sender should have enough number of KAIA to be transferred and also to pay the transaction fee.
+**Note:** The sender should have enough number of KLAY to be transferred and also to pay the transaction fee.
 
 #### Sign a transaction
 
-Before sending a transaction to Kaia, you should sign a transaction first. 
+Before sending a transaction to Klaytn, you should sign a transaction first. 
 
 Below is an example of how to sign a transaction if a keyring is added to the `caver.wallet`.
 
@@ -441,7 +441,7 @@ Running the above code gives you the following result. When the above code is ex
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### Send the RLP-encoded string of the signed transaction to the Kaia
+#### Send the RLP-encoded string of the signed transaction to the Klaytn
 
 Now you can send a signed transaction to the network like below. If you want to run the below example, replace "rlpEncoding" with the value of `rlpEncoded` in the code above.
 
@@ -453,8 +453,8 @@ public String sendRawTransaction() {
   String txHash = null;
 
   try {
-      // Send the transaction using `caver.rpc.kaia.sendRawTransaction`.
-      Bytes32 sendResult = caver.rpc.kaia.sendRawTransaction(rlpEncoding).send();
+      // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+      Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoding).send();
       if(sendResult.hasError()) {
           //do something to handle error
       }
@@ -491,8 +491,8 @@ valueTransfer.sign(keyring);
 String rlpEncoded = valueTransfer.getRLPEncoding();
 
 try {
-    // Send the transaction using `caver.rpc.kaia.sendRawTransaction`.
-    Bytes32 sendResult = caver.rpc.kaia.sendRawTransaction(rlpEncoded).send();
+    // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+    Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
     if(sendResult.hasError()) {
         //do something to handle error
     }
@@ -512,7 +512,7 @@ Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b9
 
 ### Checking Receipts <a id="checking-receipts"></a>
 
-You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Kaia by `caver.rpc.kaia.sendRawTransaction`.
+You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Klaytn by `caver.rpc.klay.sendRawTransaction`.
 
 The following example shows how to get a receipt using PollingTransactionReceiptProcessor.
 
@@ -534,14 +534,14 @@ try {
 
 As described in the example above, you can get the result of sending a transaction through TransactionReceiptProcessor. The `transactionHash` field is defined inside the receipt object. 
 
-You can use `caver.rpc.kaia.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.kaia.getTransactionReceipt` RPC call.
+You can use `caver.rpc.klay.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.klay.getTransactionReceipt` RPC call.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
 String txHash = "0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a";
 
 try {
-  TransactionReceipt receipt = caver.rpc.kaia.getTransactionReceipt(txHash).send();
+  TransactionReceipt receipt = caver.rpc.klay.getTransactionReceipt(txHash).send();
   if(receipt.hasError()) {
     // do something to handle error
 
@@ -554,16 +554,16 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.kaia.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 
 ## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
 
-Kaia provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/transactions.md). This section describes some examples that can be used with caver-java.
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/transactions.md). This section describes some examples that can be used with caver-java.
 
 ### Fee Delegation <a id="fee-delegation"></a>
 
-Kaia provides Fee Delegation feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+Klaytn provides Fee Delegation feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -589,7 +589,7 @@ When the above code is executed, the RLP-encoded string will be printed. (The RL
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the Kaia after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's keyring, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's keyring, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -600,7 +600,7 @@ caver.wallet.add(feePayerKeyring);
 String rlpEncoded = "0x{RLP-encoded string}";
 FeeDelegatedValueTransfer feeDelegatedValueTransfer = caver.transaction.feeDelegatedValueTransfer.decode(rlpEncoded);
 feeDelegatedValueTransfer.setFeePayer(feePayerKeyring.getAddress());
-feeDelegatedValueTransfer.setKaiaCall(caver.rpc.klay);
+feeDelegatedValueTransfer.setKlaytnCall(caver.rpc.klay);
 
 caver.wallet.signAsFeePayer(feePayerKeyring.getAddress(), feeDelegatedValueTransfer);
 System.out.println(feeDelegatedValueTransfer.getRLPEncoding());
@@ -621,8 +621,8 @@ TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProc
 
 String rlpEncoded = "0x{RLP-encoded string}";
 try {
-  // Send the transaction using `caver.rpc.kaia.sendRawTransaction`.
-  Bytes32 sendResult = caver.rpc.kaia.sendRawTransaction(rlpEncoding).send();
+  // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
+  Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoding).send();
   if(sendResult.hasError()) {
     //do something to handle error
 
@@ -636,13 +636,13 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.kaia.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ### Account Update <a id="account-update"></a>
 
-If you want to change the private key(s) for your Kaia account, there are 3 important things you need to remember:
+If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
-1. Kaia validates every transaction you send to it.
+1. Klaytn validates every transaction you send to it.
 2. The validation requires your public keys which exactly corresponds to your private key(s).
 3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
 
@@ -650,15 +650,15 @@ Keeping the 3 things above in your mind, you can change your private key(s) by f
 
 1. Prepare the new private key(s) to create a new keyring.
 2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
-3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Kaia account.
-4. Send AccountUpdate transaction including Account instance to Kaia.
+3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Klaytn account.
+4. Send AccountUpdate transaction including Account instance to Klaytn.
 5. Finally, replace your old keyring to the new one that was created in Step 2.
 
 Please check `Account Update` for the details.
 
-To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. An `Account` instance contains the address of the Kaia account and the AccountKey to be updated.
+To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. An `Account` instance contains the address of the Klaytn account and the AccountKey to be updated.
 
-The code below is an example code that changes the private key(s) you use for your Kaia account along with changing AccountKey of your Kaia account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
+The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
 
 ```java
 Caver caver = new Caver(Caver.DEFAULT_URL);
@@ -681,7 +681,7 @@ try {
     caver.wallet.sign(senderKeyring.getAddress(), accountUpdate);
     String rlpEncoded = accountUpdate.getRLPEncoding();
 
-    Bytes32 sendResult = caver.rpc.kaia.sendRawTransaction(rlpEncoded).send();
+    Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
     if(sendResult.hasError()) {
         //do something to handle error
         throw new TransactionException(sendResult.getError().getMessage());
@@ -701,7 +701,7 @@ senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 
 If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
 
-Here comes how to update AccountKey of your Kaia account with multiple `AccountKeys`? The example below explains how to create an `Account` instance with multiple private keys that what you want to use (You can create an `Account` instance with multiple public keys via `caver.account.create`). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+Here comes how to update AccountKey of your Klaytn account with multiple `AccountKeys`? The example below explains how to create an `Account` instance with multiple private keys that what you want to use (You can create an `Account` instance with multiple public keys via `caver.account.create`). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
 First, let's create an Account instance to update with `AccountKeyWeightedMultiSig`. For `AccountKeyWeightedMultiSig`, a threshold and a weight for each key must be defined. To do this, use `caver.account.weightedMultiSigOptions`. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
@@ -756,7 +756,7 @@ Account account = caver.account.createWithAccountKeyFail(keyringToUpdate.address
 
 ### Smart Contract <a id="smart-contract"></a>
 
-The `Contract` class in `caver.contract` package makes it easy to interact with smart contracts on Kaia. All functions of a smart contract automatically converted and stored inside `contract` instance, when its low-level ABI is given. This allows you to interact with a smart contract like you handle a `contract` instance in Java.
+The `Contract` class in `caver.contract` package makes it easy to interact with smart contracts on Klaytn. All functions of a smart contract automatically converted and stored inside `contract` instance, when its low-level ABI is given. This allows you to interact with a smart contract like you handle a `contract` instance in Java.
 
 
 We begin our explanation of dealing with a smart contract in Java by writing a simple solidity example code below. Create a 'test.sol' file and write down the example below.
@@ -889,7 +889,7 @@ Note that the `deploy()` method of the `contract` instance sends transactions fo
     }
 ```
 
-In the code above, the `deployer` deploys the contract to the Kaia and returns the deployed `contract` instance.
+In the code above, the `deployer` deploys the contract to the Klaytn and returns the deployed `contract` instance.
 
 ```bash
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
@@ -965,7 +965,7 @@ If you want to send a transaction with sender and feePayer signed seperately whe
             AbstractTransaction signedTx = contract.sign(sendOptionsForSigning, "constructor", byteCode);
 
             caver.wallet.signAsFeePayer(feePayer.getAddress(), (AbstractFeeDelegatedTransaction)signedTx);
-            Bytes32 txHash = caver.rpc.kaia.sendRawTransaction(signedTx).send();
+            Bytes32 txHash = caver.rpc.klay.sendRawTransaction(signedTx).send();
             TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
 
             TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash.getResult());
@@ -1066,7 +1066,7 @@ If you want to send a transaction with sender and feePayer signed separately whe
             AbstractTransaction executionTx = contract.sign(sendOptionsForExecution, "set", "test", "testValue");
             caver.wallet.signAsFeePayer(feePayer.getAddress(), (AbstractFeeDelegatedTransaction)executionTx);
 
-            Bytes32 txHash_executed = caver.rpc.kaia.sendRawTransaction(executionTx).send();
+            Bytes32 txHash_executed = caver.rpc.klay.sendRawTransaction(executionTx).send();
             TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
 
             TransactionReceipt.TransactionReceiptData receiptData = receiptProcessor.waitForTransactionReceipt(txHash_executed.getResult());
@@ -1211,7 +1211,7 @@ QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
 
 ## Detect KCT interface<a id="detect kct interface"></a>
 
-KCT (Kaia Compatible Token) contracts such as [KIP-7], [KIP-17], and [KIP-37] define and provide various interfaces, and [KIP-13] allows you to see whether a contract complies with KCT specifications and which interface it implements, by sending a query to the contract.
+KCT (Klaytn Compatible Token) contracts such as [KIP-7], [KIP-17], and [KIP-37] define and provide various interfaces, and [KIP-13] allows you to see whether a contract complies with KCT specifications and which interface it implements, by sending a query to the contract.
 
 [KIP-13] was implemented in Caver v1.5.7. It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
 
