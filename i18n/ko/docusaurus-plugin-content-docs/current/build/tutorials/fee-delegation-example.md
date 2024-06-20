@@ -35,12 +35,12 @@ const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+const { rawTransaction: senderRawTransaction } = await caver.kaia.accounts.signTransaction({
   type: 'FEE_DELEGATED_VALUE_TRANSFER',
   from: senderAddress,
   to: toAddress,
   gas: '300000',
-  value: caver.utils.toPeb('1', 'KLAY'),
+  value: caver.utils.toPeb('1', 'KAIA'),
 }, senderPrivateKey)
 ```
 
@@ -58,9 +58,9 @@ const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signT
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "PRIVATE_KEY"
 
-caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
+caver.kaia.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
 
-caver.klay.sendTransaction({
+caver.kaia.sendTransaction({
   senderRawTransaction: senderRawTransaction,
   feePayer: feePayerAddress,
 })
@@ -106,12 +106,12 @@ const toAddress = "TO_ADDRESS";
 
 sendFeeDelegateTx = async() => {
     // sign transaction with private key of sender
-    const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+    const { rawTransaction: senderRawTransaction } = await caver.kaia.accounts.signTransaction({
       type: 'FEE_DELEGATED_VALUE_TRANSFER',
       from: senderAddress,
       to: toAddress,
       gas: '300000',
-      value: caver.utils.toPeb('0.00001', 'KLAY'),
+      value: caver.utils.toPeb('0.00001', 'KAIA'),
     }, senderPrivateKey)
 
     // send signed raw transaction to fee payer's server
@@ -147,14 +147,14 @@ const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATEKEY";
 
 // add fee payer account
-caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
+caver.kaia.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
 
 var net = require('net');
 
 
 feePayerSign = (senderRawTransaction, socket) => {
     // fee payer
-    caver.klay.sendTransaction({
+    caver.kaia.sendTransaction({
       senderRawTransaction: senderRawTransaction,
       feePayer: feePayerAddress,
     })
