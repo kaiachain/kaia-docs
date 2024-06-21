@@ -5,7 +5,7 @@
 TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 KAIA를 전송하고자 할 때 사용됩니다. 카이아는 각 트랜잭션 유형이 하나의 용도로 사용될 수 있도록 여러 트랜잭션 유형을 제공하기 때문에 TxTypeFeeDelegatedValueTransferWithRatio는 외부 소유 계정으로 KAIA를 전송하는 것으로 제한됩니다. 따라서 TxTypeFeeDelegatedValueTransferWithRatio는 `to`가 외부 소유 계정인 경우에만 허용됩니다. 스마트 컨트랙트 계정으로 KAIA를 전송하려면, 대신 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio)을 사용하세요. 이 트랜잭션 유형에 따라 다음과 같은 변경 사항이 적용됩니다.
 
 1. 수수료 납부자의 잔액이 트랜잭션 수수료만큼 감소합니다.
-2. 발신자의 잔액이 트랜잭션 수수료만큼 감소합니다. 예: feeRatio가 30이면 수수료의 30%는 수수료 지불자가 지불하고, 나머지 70%는 spender가 지불합니다.
+2. 발신자의 잔액이 남은 트랜잭션 수수료만큼 감소합니다. 예: feeRatio가 30이면 수수료의 30%는 수수료 지불자가 지불하고, 나머지 70%는 spender가 지불합니다.
 3. 발신자의 nonce가 1 증가합니다.
 4. 발신자에서 수신자에게 `value` KAIA가 전송됩니다.
 
@@ -172,13 +172,13 @@ SenderTxHash 4711ed4023e821425968342c1d50063b6bc3176b1792b7075cfeee3656d450f6
 | from               | common.Address \(Go\)                                                                                                                  | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                           |
 | input              | \[\]byte \(Go\)                                                                                  | 트랜잭션에 첨부된 데이터입니다. 메시지는 이 속성으로 전달되어야 합니다.                                                                                                                                                                                                    |
 | feeRatio           | uint8 \(Go\)                                                                                                                                           | 수수료 납부자의 수수료 비율 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                                                |
-| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                              |
-| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                               |
-| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                 |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                              |
+| feePayer           | common.Address \(Go\)                                                                                                                  | 수수료 납부자의 주소입니다.                                                                                                                                                                                                                                             |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다.                                                                                                                                                                                                                                             |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-To make a signature of the sender, RLP serialization should be done like the following:
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), chainid, 0, 0])
@@ -186,9 +186,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### 수수료 납부자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-To make a signature of the fee payer, RLP serialization should be done like the following:
+수수료 납부자의 서명을 만들기 위해서는 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), feePayer, chainid, 0, 0])
@@ -196,7 +196,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### SenderTxHash용 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -207,9 +207,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, f
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-To make a transaction hash, RLP serialization should be done like the following:
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -220,9 +220,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, feeRati
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+### RLP 인코딩 (예시) <a id="rlp-encoding-example"></a>
 
-The following shows the result of RLP serialization and the transaction object:
+다음은 RLP 직렬화 결과와 트랜잭션 오브젝트를 보여줍니다:
 
 ```javascript
 ChainID 0x1
@@ -259,9 +259,9 @@ SenderTxHash 2c4e8cd3c68a4aacae51c695e857cfc1a019037ca71d8cd1e8ca56ec4eaf55b1
     Hex:           12f8dd8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6f1ef845f84326a0769f0afdc310289f9b24decb5bb765c8d7a87a6a4ae28edffb8b7085bbd9bc78a06a7b970eea026e60ac29bb52aee10661a4222e6bdcdfb3839a80586e584586b4945a0043070275d9f6054307ee7348bd660849d90ff845f84325a0c1c54bdc72ce7c08821329bf50542535fac74f4bba5de5b7881118a461d52834a03a3a64878d784f9af91c2e3ab9c90f17144c47cfd9951e3588c75063c0649ecd
 ```
 
-### RPC Output \(Example\) <a id="rpc-output-example"></a>
+### RPC 출력 (예시) <a id="rpc-output-example"></a>
 
-The following shows a transaction object returned via JSON RPC.
+다음은 JSON RPC를 통해 반환되는 트랜잭션 객체를 보여줍니다.
 
 ```javascript
 {
@@ -305,36 +305,36 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeFeeDelegatedSmartContractDeployWithRatio <a id="txtypefeedelegatedsmartcontractdeploywithratio"></a>
 
-TxTypeFeeDelegatedSmartContractDeployWithRatio deploys a smart contract. The given ratio of the transaction fee is paid by the fee payer. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedSmartContractDeployWithRatio는 스마트 컨트랙트를 배포합니다. 트랜잭션 수수료의 지정된 비율은 수수료 납부자가 지불합니다. 이 트랜잭션 유형에 따라 다음과 같은 변경 사항이 적용됩니다.
 
-1. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
-2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
-3. The sender's nonce increases by one.
-4. A smart contract is deployed with the code in `input`. The deployed address will be returned via `contractAddress` in the receipt.
-5. `value` KAIA is transferred from the sender to the recipient.
+1. 수수료 납부자의 잔액은 트랜잭션 수수료 금액의 수수료 비율만큼 감소합니다.
+2. 발신자의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 예: feeRatio가 30이면 수수료의 30%는 수수료 지불자가 지불하고, 나머지 70%는 발신자가 지불합니다.
+3. 발신자의 nonce가 1 증가합니다.
+4. 스마트 컨트랙트가 `input`에 있는 코드와 함께 배포됩니다. 배포된 주소는 영수증에 있는 `contractAddress`를 통해 반환됩니다.
+5. 발신자에서 수신자에게 `value` KAIA가 전송됩니다.
 
-### Attributes <a id="attributes"></a>
+### 속성 <a id="attributes"></a>
 
-| Attribute          | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                 |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedSmartContractDeployWithRatio. This must be 0x2a.                                                                                                                                                                                                                                                                              |
-| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                                          |
-| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
-| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                                                                                                                                |
-| to                 | \*common.Address \(Go\)                                                                                                                | The account address that will receive the transferred value. Currently, this value must be nil. Specifying the address will be supported in the future.                                                                                                                                                                                     |
-| value              | \*big.Int \(Go\)                                                                                                                       | 이체할 `kei` 단위의 KAIA 금액입니다.                                                                                                                                                                                                                                                                                                                                                   |
-| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                            |
-| input              | \[\]byte \(Go\)                                                                                  | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                                                                                                                                           |
-| humanReadable      | bool \(Go\)                                                                                                                                            | This must be false since human-readable address is not supported yet. If true, the transaction will be rejected.                                                                                                                                                                                                                                            |
-| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                      |
-| codeFormat         | uint8 \(Go\)                                                                                                                                           | The code format of smart contract code. The supported value for now is EVM\(0x00\) only.                                                                                                                                                                                                                                               |
-| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                              |
-| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                                               |
-| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                                                 |
+| 속성                 | 유형                                                                                                                                                                          | 설명                                                                                                                                                                                                                                                                          |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                                                                                                                           | TxTypeFeeDelegatedSmartContractDeployWithRatio의 유형입니다. 0x2a여야 합니다.                                                                                                                                                                          |
+| nonce              | uint64 \(Go\)                                                                                                                                          | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                                                                           |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | 발신자가 트랜잭션 수수료로 지불할 `kei` 단위의 가스 단가입니다. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KAIA가 됩니다. [KAIA 단위](../kaia-native-token.md#units-of-kaia)를 참고하세요. |
+| gas                | uint64 \(Go\)                                                                                                                                          | 트랜잭션이 사용할 수 있는 최대 가스 양입니다.                                                                                                                                                                                                                                  |
+| to                 | \*common.Address \(Go\)                                                                                                                | 이체된 값을 받을 계정 주소입니다. 현재 이 값은 0이어야 합니다. 향후 주소 지정이 지원될 예정입니다.                                                                                                                                                                  |
+| value              | \*big.Int \(Go\)                                                                                                                       | 이체할 `kei` 단위의 KAIA 금액입니다.                                                                                                                                                                                                                                   |
+| from               | common.Address \(Go\)                                                                                                                  | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                           |
+| input              | \[\]byte \(Go\)                                                                                  | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                                                                                                                                                             |
+| humanReadable      | bool \(Go\)                                                                                                                                            | 사람이 읽을 수 있는 주소는 아직 지원되지 않으므로 false이어야 합니다. true이면 트랜잭션이 거부됩니다.                                                                                                                                                                              |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | 수수료 납부자의 수수료 비율 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                                                |
+| codeFormat         | uint8 \(Go\)                                                                                                                                           | 스마트 컨트랙트 코드의 코드 형식입니다. 현재 지원되는 값은 EVM(0x00)만입니다.                                                                                                                                                                         |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                           |
+| feePayer           | common.Address \(Go\)                                                                                                                  | 수수료 납부자의 주소입니다.                                                                                                                                                                                                                                             |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다.                                                                                                                                                                                                                                             |
 
-### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
+### 발신자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-To make a signature of the sender, RLP serialization should be done like the following:
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, humanReadable, feeRatio, codeFormat]), chainid, 0, 0])
@@ -342,9 +342,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### 수수료 납부자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-To make a signature of the fee payer, RLP serialization should be done like the following:
+수수료 납부자의 서명을 만들기 위해서는 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, humanReadable, feeRatio, codeFormat]), feePayer, chainid, 0, 0])
@@ -352,7 +352,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### SenderTxHash용 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -363,9 +363,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, h
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-To make a transaction hash, RLP serialization should be done like the following:
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -376,9 +376,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, humanRe
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+### RLP 인코딩 (예시) <a id="rlp-encoding-example"></a>
 
-The following shows the result of RLP serialization and the transaction object:
+다음은 RLP 직렬화 결과와 트랜잭션 오브젝트를 보여줍니다:
 
 ```javascript
 ChainID 0x1
@@ -417,9 +417,9 @@ SenderTxHash 57dfef9c923cba182cca00fa65d45aaf619613d843d585d3c4026a3bd0797366
     Hex:           2af902da8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0bb901fe608060405234801561001057600080fd5b506101de806100206000396000f3006080604052600436106100615763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631a39d8ef81146100805780636353586b146100a757806370a08231146100ca578063fd6b7ef8146100f8575b3360009081526001602052604081208054349081019091558154019055005b34801561008c57600080fd5b5061009561010d565b60408051918252519081900360200190f35b6100c873ffffffffffffffffffffffffffffffffffffffff60043516610113565b005b3480156100d657600080fd5b5061009573ffffffffffffffffffffffffffffffffffffffff60043516610147565b34801561010457600080fd5b506100c8610159565b60005481565b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604081208054349081019091558154019055565b60016020526000908152604090205481565b336000908152600160205260408120805490829055908111156101af57604051339082156108fc029083906000818181858888f193505050501561019c576101af565b3360009081526001602052604090208190555b505600a165627a7a72305820627ca46bb09478a015762806cc00c431230501118c7c26c30ac58c4e09e51c4f0029011e80f845f84326a0cfe8dc29d31916b3f661a4774cb8d44d39ae700a9fb6ca04327f84bbe4de1486a01616e09ced403420cac1363d14e705b7a323518b1ce5124b16f06871c00ac424945a0043070275d9f6054307ee7348bd660849d90ff845f84325a0e29dae81defc027f059cd6a55ff74156b9c5bdb811460f09fc8d167c01aaaea1a04eba34d4d5ebbce60e4998f03b7a4658263bb21063ddf68ad3b088d670de47c8
 ```
 
-### RPC Output \(Example\) <a id="rpc-output-example"></a>
+### RPC 출력 (예시) <a id="rpc-output-example"></a>
 
-The following shows a transaction object returned via JSON RPC.
+다음은 JSON RPC를 통해 반환되는 트랜잭션 객체를 보여줍니다.
 
 ```javascript
 {
@@ -465,34 +465,34 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeFeeDelegatedSmartContractExecutionWithRatio <a id="txtypefeedelegatedsmartcontractexecutionwithratio"></a>
 
-TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the given data in `input`. TxTypeFeeDelegatedSmartContractExecutionWithRatio is accepted only if `to` is a smart contract account. To transfer KAIA to an externally owned account, use [TxTypeFeeDelegatedValueTransferWithRatio](#txtypefeedelegatedvaluetransferwithratio) instead. The following changes will be made by this transaction type.
+TxTypeFeeDelegatedSmartContractExecution executes a smart contract with the given data in `input`. TxTypeFeeDelegatedSmartContractExecutionWithRatio is accepted only if `to` is a smart contract account. To transfer KAIA to an externally owned account, use [TxTypeFeeDelegatedValueTransferWithRatio](#txtypefeedelegatedvaluetransferwithratio) instead. 이 트랜잭션 유형에 따라 다음과 같은 변경 사항이 적용됩니다.
 
 1. If `to` is a smart contract account, the code is executed based on `input`. Otherwise, this transaction will be rejected.
-2. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
-3. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
-4. The sender's nonce increases by one.
+2. 수수료 납부자의 잔액은 트랜잭션 수수료 금액의 수수료 비율만큼 감소합니다.
+3. 발신자의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 예: feeRatio가 30이면 수수료의 30%는 수수료 지불자가 지불하고, 나머지 70%는 발신자가 지불합니다.
+4. 발신자의 nonce가 1 증가합니다.
 5. If `value` was provided, `value` KAIA is transferred from the sender to the `to` smart contract. The contract should have a payable fallback function to receive KAIA.
 
-### Attributes <a id="attributes"></a>
+### 속성 <a id="attributes"></a>
 
-| Attribute          | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                 |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedSmartContractExecutionWithRatio. This must be 0x32.                                                                                                                                                                                                                                                                           |
-| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                                          |
-| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
-| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of gas the transaction is allowed to use.                                                                                                                                                                                                                                                                                                                |
-| to                 | common.Address \(Go\)                                                                                                                  | The address of the smart contract account to be executed.                                                                                                                                                                                                                                                                                                                   |
-| value              | \*big.Int \(Go\)                                                                                                                       | 이체할 `kei` 단위의 KAIA 금액입니다.                                                                                                                                                                                                                                                                                                                                                   |
-| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                            |
-| input              | \[\]byte \(Go\)                                                                                  | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                                                                                                                                           |
-| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                      |
-| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                              |
-| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                                               |
-| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                                                 |
+| 속성                 | Type                                                                                                                                                                        | 설명                                                                                                                                                                                                                                                                                                           |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedSmartContractExecutionWithRatio. This must be 0x32.                                                                                                                                                                                            |
+| nonce              | uint64 \(Go\)                                                                                                                                          | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                                                                                                            |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KAIA가 됩니다. [KAIA 단위](../kaia-native-token.md#units-of-kaia)를 참고하세요. |
+| gas                | uint64 \(Go\)                                                                                                                                          | 트랜잭션이 사용할 수 있는 최대 가스 양입니다.                                                                                                                                                                                                                                                                   |
+| to                 | common.Address \(Go\)                                                                                                                  | The address of the smart contract account to be executed.                                                                                                                                                                                                                                    |
+| value              | \*big.Int \(Go\)                                                                                                                       | 이체할 `kei` 단위의 KAIA 금액입니다.                                                                                                                                                                                                                                                                    |
+| from               | common.Address \(Go\)                                                                                                                  | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                                                            |
+| input              | \[\]byte \(Go\)                                                                                  | Data attached to the transaction, used for transaction execution.                                                                                                                                                                                                                            |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | 수수료 납부자의 수수료 비율 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                                                                                 |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                                                            |
+| feePayer           | common.Address \(Go\)                                                                                                                  | 수수료 납부자의 주소입니다.                                                                                                                                                                                                                                                                              |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다.                                                                                                                                                                                                                                                                              |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-To make a signature of the sender, RLP serialization should be done like the following:
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), chainid, 0, 0])
@@ -500,9 +500,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### 수수료 납부자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-To make a signature of the fee payer, RLP serialization should be done like the following:
+수수료 납부자의 서명을 만들기 위해서는 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, to, value, from, input, feeRatio]), feePayer, chainid, 0, 0])
@@ -510,7 +510,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### SenderTxHash용 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -521,18 +521,18 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, f
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-To make a transaction hash, RLP serialization should be done like the following:
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 TxHashRLP = type + encode([nonce, gasPrice, gas, to, value, from, input, feeRatio, txSignatures, feePayer, feePayerSignatures])
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+### RLP 인코딩 (예시) <a id="rlp-encoding-example"></a>
 
-The following shows the result of RLP serialization and the transaction object:
+다음은 RLP 직렬화 결과와 트랜잭션 오브젝트를 보여줍니다:
 
 ```javascript
 ChainID 0x1
@@ -569,9 +569,9 @@ SenderTxHash d5e22319cbf020d422d8ba3a07da9d99b9300826637af85b4e061805dcb2c1b0
     Hex:           32f8fc8204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0ba46353586b000000000000000000000000bc5951f055a85f41a3b62fd6f68ab7de76d299b21ef845f84326a074ccfee18dc28932396b85617c53784ee366303bce39a2401d8eb602cf73766fa04c937a5ab9401d2cacb3f39ba8c29dbcd44588cc5c7d0b6b4113cfa7b7d9427b945a0043070275d9f6054307ee7348bd660849d90ff845f84325a04a4997524694d535976d7343c1e3a260f99ba53fcb5477e2b96216ec96ebb565a00f8cb31a35399d2b0fbbfa39f259c819a15370706c0449952c7cfc682d200d7c
 ```
 
-### RPC Output \(Example\) <a id="rpc-output-example"></a>
+### RPC 출력 (예시) <a id="rpc-output-example"></a>
 
-The following shows a transaction object returned via JSON RPC.
+다음은 JSON RPC를 통해 반환되는 트랜잭션 객체를 보여줍니다.
 
 ```javascript
 {
@@ -615,32 +615,32 @@ The following shows a transaction object returned via JSON RPC.
 
 ## TxTypeFeeDelegatedAccountUpdateWithRatio <a id="txtypefeedelegatedaccountupdatewithratio"></a>
 
-TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. The given ratio of the transaction fee is paid by the fee payer. The following changes will take place by this transaction type.
+TxTypeFeeDelegatedAccountUpdateWithRatio updates the key of the given account. 트랜잭션 수수료의 지정된 비율은 수수료 납부자가 지불합니다. The following changes will take place by this transaction type.
 
-1. The fee payer's balance decreases by the fee ratio of the amount of the transaction fee.
-2. The sender's balance decreases by the remaining transaction fee. e.g., If the `feeRatio` is 30, 30% of the fee will be paid by the fee payer, and the remaining 70% of the fee will be paid by the sender.
-3. The sender's nonce increases by one.
+1. 수수료 납부자의 잔액은 트랜잭션 수수료 금액의 수수료 비율만큼 감소합니다.
+2. 발신자의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 예: feeRatio가 30이면 수수료의 30%는 수수료 지불자가 지불하고, 나머지 70%는 발신자가 지불합니다.
+3. 발신자의 nonce가 1 증가합니다.
 4. The account's key is updated with `key`.
 5. Transactions sent from the account afterward will be validated with this `key`, once this transaction is executed.
 
-### Attributes <a id="attributes"></a>
+### 속성 <a id="attributes"></a>
 
-| Attribute          | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                               |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedAccountUpdateWithRatio. This must be 0x22.                                                                                                                                                                                                                                                                  |
-| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                        |
-| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A multiplier to get how much the sender will pay in tokens. The amount of tokens the sender will pay is calculated via `gas` \* `gasPrice`. For example, the sender will pay 10 KAIA for a transaction fee if gas is 10 and gasPrice is 10^18. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
-| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                                  |
-| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                          |
-| key                | AccountKey \(Go\)                                                                                                                                      | [AccountKey](../accounts.md#account-key) to be updated to the account.                                                                                                                                                                                                                                                                                    |
-| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                    |
-| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                            |
-| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                             |
-| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                               |
+| 속성                 | Type                                                                                                                                                                        | 설명                                                                                                                                                                                                                                                                                                                                                                      |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedAccountUpdateWithRatio. This must be 0x22.                                                                                                                                                                                                                                                                |
+| nonce              | uint64 \(Go\)                                                                                                                                          | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                                                                                                                                                                       |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A multiplier to get how much the sender will pay in tokens. The amount of tokens the sender will pay is calculated via `gas` \* `gasPrice`. For example, the sender will pay 10 KAIA for a transaction fee if gas is 10 and gasPrice is 10^18. [KAIA 단위](../kaia-native-token.md#units-of-kaia)를 참고하세요. |
+| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                                |
+| from               | common.Address \(Go\)                                                                                                                  | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                                                                                                                       |
+| key                | AccountKey \(Go\)                                                                                                                                      | [AccountKey](../accounts.md#account-key) to be updated to the account.                                                                                                                                                                                                                                                                                  |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | 수수료 납부자의 수수료 비율 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                                                                                                                                            |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                                                                                                                       |
+| feePayer           | common.Address \(Go\)                                                                                                                  | 수수료 납부자의 주소입니다.                                                                                                                                                                                                                                                                                                                                         |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다.                                                                                                                                                                                                                                                                                                                                         |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-To make a signature of the sender, RLP serialization should be done like the following:
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, rlpEncodedKey, feeRatio]), chainid, 0, 0])
@@ -648,9 +648,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### 수수료 납부자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-To make a signature of the fee payer, RLP serialization should be done like the following:
+수수료 납부자의 서명을 만들기 위해서는 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, from, rlpEncodedKey, feeRatio]), feePayer, chainid, 0, 0])
@@ -658,7 +658,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### SenderTxHash용 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -669,9 +669,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, feeR
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-To make a transaction hash, RLP serialization should be done like the following:
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -682,9 +682,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, rlpEncodedKey, feeRatio, 
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+### RLP 인코딩 (예시) <a id="rlp-encoding-example"></a>
 
-The following shows the result of RLP serialization and the transaction object:
+다음은 RLP 직렬화 결과와 트랜잭션 오브젝트를 보여줍니다:
 
 ```javascript
 ChainID 0x1
@@ -719,9 +719,9 @@ SenderTxHash e1d87538509549f4a1eb418f986bc53dc77b7eec3b2150f75cd787951d3e4b7f
     Hex:           22f8e58204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0ba302a1033a514176466fa815ed481ffad09110a2d344f6c9b78c1d14afc351c3a51be33d1ef845f84326a00e5929f96dec2b41343a9e6f0150eef08741fe7dcece88cc5936c49ed19051dca05a07b07017190e0baba32bdf6352f5a358a2798ed3c56e704a63819b87cf8e3f945a0043070275d9f6054307ee7348bd660849d90ff845f84326a0cf8d102de7c6b0a41d3f02aefb7e419522341734c98af233408298d0c424c04ba00286f89cab4668f728d7c269997116a49b80cec8776fc64e60588a9268571e35
 ```
 
-### RPC Output \(Example\) <a id="rpc-output-example"></a>
+### RPC 출력 (예시) <a id="rpc-output-example"></a>
 
-The following shows a transaction object returned via JSON RPC.
+다음은 JSON RPC를 통해 반환되는 트랜잭션 객체를 보여줍니다.
 
 ```javascript
 {
@@ -765,25 +765,25 @@ The following shows a transaction object returned via JSON RPC.
 
 TxTypeFeeDelegatedCancelWithRatio cancels the execution of the transaction with the same nonce in the transaction pool. For more details, see [TxTypeCancel](./basic.md#txtypecancel).
 
-The following changes will apply by this transaction type. 1. The fee payer's balance decreases by the given fee ratio of the amount of the transaction fee. 2. The sender's balance decreases by the remaining transaction fee. 3. The sender's nonce increases by one.
+The following changes will apply by this transaction type. 1. 수수료 납부자의 잔액은 트랜잭션 수수료 금액의 수수료 비율만큼 감소합니다. 2. 발신자의 잔액은 남은 트랜잭션 수수료만큼 감소합니다. 3. 발신자의 nonce가 1 증가합니다.
 
-### Attributes <a id="attributes"></a>
+### 속성 <a id="attributes"></a>
 
-| Attribute          | Description                                                                                                                                                                 | Type                                                                                                                                                                                                                                                                                                                                                                                        |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedCancelWithRatio. This must be 0x3a.                                                                                                                                                                                                                                                                                           |
-| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                                          |
-| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
-| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                                                    |
-| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                            |
-| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                      |
-| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                              |
-| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                                               |
-| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                                                 |
+| 속성                 | 설명                                                                                                                                                                          | Type                                                                                                                                                                                                                                                                                                         |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedCancelWithRatio. This must be 0x3a.                                                                                                                                                                                                            |
+| nonce              | uint64 \(Go\)                                                                                                                                          | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                                                                                                            |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KAIA가 됩니다. [KAIA 단위](../kaia-native-token.md#units-of-kaia)를 참고하세요. |
+| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                     |
+| from               | common.Address \(Go\)                                                                                                                  | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                                                            |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | 수수료 납부자의 수수료 비율 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                                                                                 |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                                                            |
+| feePayer           | common.Address \(Go\)                                                                                                                  | 수수료 납부자의 주소입니다.                                                                                                                                                                                                                                                                              |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다.                                                                                                                                                                                                                                                                              |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-To make a signature of the sender, RLP serialization should be done like the following:
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, feeRatio]), chainid, 0, 0])
@@ -791,9 +791,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <the sender's private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### 수수료 납부자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-To make a signature of the fee payer, RLP serialization should be done like the following:
+수수료 납부자의 서명을 만들기 위해서는 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, from, feeRatio]), feePayer, chainid, 0, 0])
@@ -801,7 +801,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### SenderTxHash용 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -812,9 +812,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, feeRatio, txSignatu
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-To make a transaction hash, RLP serialization should be done like the following:
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -825,9 +825,9 @@ TxHashRLP = type + encode([nonce, gasPricke, gas, from, feeRatio, txSignatures, 
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+### RLP 인코딩 (예시) <a id="rlp-encoding-example"></a>
 
-The following shows the result of RLP serialization and the transaction object:
+다음은 RLP 직렬화 결과와 트랜잭션 오브젝트를 보여줍니다:
 
 ```javascript
 ChainID 0x1
@@ -861,9 +861,9 @@ SenderTxHash c0818be4cffbacfe29be1134e0267e10fd1afb6571f4ccc95dcc67a788bab5e7
     Hex:           3af8c18204d219830f424094a94f5374fce5edbc8e2a8697c15331677e6ebf0b1ef845f84326a072efa47960bef40b536c72d7e03ceaf6ca5f6061eb8a3eda3545b1a78fe52ef5a062006ddaf874da205f08b3789e2d014ae37794890fc2e575bf75201563a24ba9945a0043070275d9f6054307ee7348bd660849d90ff845f84326a06ba5ef20c3049323fc94defe14ca162e28b86aa64f7cf497ac8a5520e9615614a04a0a0fc61c10b416759af0ce4ce5c09ca1060141d56d958af77050c9564df6bf
 ```
 
-### RPC Output \(Example\) <a id="rpc-output-example"></a>
+### RPC 출력 (예시) <a id="rpc-output-example"></a>
 
-The following shows a transaction object returned via JSON RPC.
+다음은 JSON RPC를 통해 반환되는 트랜잭션 객체를 보여줍니다.
 
 ```javascript
 {
@@ -912,24 +912,24 @@ Be mindful that it is not allowed to send this transaction via RPC.
 Currently, this transaction is executed through private p2p channels for security reasons.
 This transaction does not change the state of the Kaia blockchain except the sender's nonce being increased by one.
 
-### Attributes <a id="attributes"></a>
+### 속성 <a id="attributes"></a>
 
-| Attribute          | Type                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                 |
-| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedChainDataAnchoringWithRatio. This must be 0x4a.                                                                                                                                                                                                                                                                               |
-| nonce              | uint64 \(Go\)                                                                                                                                          | A value used to uniquely identify a sender’s transaction. If two transactions with the same nonce are generated by a sender, only one is executed.                                                                                                                                                                                                          |
-| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. The amount of transaction fee is calculated as `gas` \* `gasPrice`. For example, if the transaction consumes 10 units of gas and gasPrice is 10^18, the transaction fee will be 10 KAIA. See [Unit of KAIA](../kaia-native-token.md#units-of-klay). |
-| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                                                    |
-| from               | common.Address \(Go\)                                                                                                                  | The address of the sender. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                            |
-| feeRatio           | uint8 \(Go\)                                                                                                                                           | Fee ratio of the fee payer. The valid range is between 1 and 99. Zero\(0\) is not allowed. 100 and above are not allowed as well.                                                                                                                                                                      |
-| input              | \[\]byte \(Go\)                                                                                  | Data of the service chain.                                                                                                                                                                                                                                                                                                                                                  |
-| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The sender's signatures. For more details, see [Signature Validation of Transactions](./transactions.md#signature-validation-of-transactions).                                                                                                                                                                                                              |
-| feePayer           | common.Address \(Go\)                                                                                                                  | The address of the fee payer.                                                                                                                                                                                                                                                                                                                                               |
-| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | The fee payer's signatures.                                                                                                                                                                                                                                                                                                                                                 |
+| 속성                 | Type                                                                                                                                                                        | 설명                                                                                                                                                                                                                                                                                                           |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type               | uint8 \(Go\)                                                                                                                                           | The type of TxTypeFeeDelegatedChainDataAnchoringWithRatio. This must be 0x4a.                                                                                                                                                                                                |
+| nonce              | uint64 \(Go\)                                                                                                                                          | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                                                                                                            |
+| gasPrice           | \*big.Int \(Go\)                                                                                                                       | A unit price of gas in `kei` the sender will pay for a transaction fee. 트랜잭션 수수료 금액은 `gas` \* `gasPrice`으로 계산됩니다. 예를 들어, 트랜잭션이 가스 10단위를 소비하고 가스 가격이 10^18이면 트랜잭션 수수료는 10 KAIA가 됩니다. [KAIA 단위](../kaia-native-token.md#units-of-kaia)를 참고하세요. |
+| gas                | uint64 \(Go\)                                                                                                                                          | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                     |
+| from               | common.Address \(Go\)                                                                                                                  | 발신자의 주소입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                                                            |
+| feeRatio           | uint8 \(Go\)                                                                                                                                           | 수수료 납부자의 수수료 비율 유효한 범위는 1에서 99 사이입니다. 0(0)은 허용되지 않습니다. 100 이상도 허용되지 않습니다.                                                                                                                                                                 |
+| input              | \[\]byte \(Go\)                                                                                  | Data of the service chain.                                                                                                                                                                                                                                                                   |
+| txSignatures       | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 발신자의 서명입니다. 자세한 내용은 [트랜잭션의 서명 검증](./transactions.md#signature-validation-of-transactions)을 참고하세요.                                                                                                                                                                            |
+| feePayer           | common.Address \(Go\)                                                                                                                  | 수수료 납부자의 주소입니다.                                                                                                                                                                                                                                                                              |
+| feePayerSignatures | \[\]\{\*big.Int, \*big.Int, \*big.Int\} \(Go\) | 수수료 납부자의 서명입니다.                                                                                                                                                                                                                                                                              |
 
 ### RLP Encoding for Signature of the Sender <a id="rlp-encoding-for-signature-of-the-sender"></a>
 
-To make a signature of the sender, RLP serialization should be done like the following:
+발신자의 서명을 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData, feeRatio]), chainid, 0, 0])
@@ -937,9 +937,9 @@ SigHash = keccak256(SigRLP)
 Signature = sign(SigHash, <private key>)
 ```
 
-### RLP Encoding for Signature of the Fee Payer <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
+### 수수료 납부자 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature-of-the-fee-payer"></a>
 
-To make a signature of the fee payer, RLP serialization should be done like the following:
+수수료 납부자의 서명을 만들기 위해서는 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 SigFeePayerRLP = encode([encode([type, nonce, gasPrice, gas, from, anchoredData, feeRatio]), feePayer, chainid, 0, 0])
@@ -947,7 +947,7 @@ SigFeePayerHash = keccak256(SigFeePayerRLP)
 SignatureFeePayer = sign(SigFeePayerHash, <the fee payer's private key>)
 ```
 
-### RLP Encoding for SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+### SenderTxHash용 RLP 인코딩 <a id="rlp-encoding-for-sendertxhash"></a>
 
 To make a SenderTxHash, RLP serialization should be done like the following:
 
@@ -958,9 +958,9 @@ SenderTxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, feeRa
 SenderTxHash = keccak256(SenderTxHashRLP)
 ```
 
-### RLP Encoding for Transaction Hash <a id="rlp-encoding-for-transaction-hash"></a>
+### 트랜잭션 해시를 위한 RLP 인코딩 <a id="rlp-encoding-for-transaction-hash"></a>
 
-To make a transaction hash, RLP serialization should be done like the following:
+트랜잭션 해시를 만들려면 다음과 같이 RLP 직렬화를 수행해야 합니다:
 
 ```javascript
 txSignatures (a single signature) = [[v, r, s]]
@@ -971,9 +971,9 @@ TxHashRLP = type + encode([nonce, gasPrice, gas, from, anchoredData, feeRatio, t
 TxHash = keccak256(TxHashRLP)
 ```
 
-### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+### RLP 인코딩 (예시) <a id="rlp-encoding-example"></a>
 
-The following shows the result of RLP serialization and the transaction object:
+다음은 RLP 직렬화 결과와 트랜잭션 오브젝트를 보여줍니다:
 
 ```javascript
 ChainID 0x01
@@ -1008,9 +1008,9 @@ SenderTxHash 0xa0670c01fe39feb2d2442adf7df1957ade3c5abcde778fb5edf99c80c06aa53c
 	Hex:           4af90177128505d21dba0085174876e80094a94f5374fce5edbc8e2a8697c15331677e6ebf0bb8aff8ad80b8aaf8a8a00000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000001a00000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000003a0000000000000000000000000000000000000000000000000000000000000000405800658f845f84326a0c612a243bcb3b98958e9cce1a0bc0e170291b33a7f0dbfae4b36dafb5806797da00c734423492ecc21cc53238147c359676fcec43fcc2a0e021d87bb1da49f0abf9433f524631e573329a550296f595c820d6c65213ff845f84325a0a3e40598b67e2bcbaa48fdd258b9d1dcfcc9cc134972560ba042430078a769a5a06707ea362e588e4e5869cffcd5a058749d823aeff13eb95dc1146faff561df32
 ```
 
-### RPC Output \(Example\) <a id="rpc-output-example"></a>
+### RPC 출력 (예시) <a id="rpc-output-example"></a>
 
-The following shows a transaction object returned via JSON RPC.
+다음은 JSON RPC를 통해 반환되는 트랜잭션 객체를 보여줍니다.
 
 ```javascript
 {
