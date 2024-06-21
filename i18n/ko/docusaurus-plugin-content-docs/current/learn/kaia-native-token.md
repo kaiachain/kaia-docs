@@ -1,24 +1,24 @@
-# Kaia native coin - KAIA
+# 카이아 네이티브 코인 - KAIA
 
 ## KAIA <a id="klay"></a>
 
-KAIA is the main internal transferable cryptocurrency of Kaia and is used to pay transaction fees when creating or executing smart contracts or when transferring KAIA.
+KLAY는 카이아의 주요 내부 전송 가능한 암호화폐로, 스마트 컨트랙트를 생성하거나 실행할 때 또는 KAIA를 전송할 때 트랜잭션 수수료를 지불하는 데 사용됩니다.
 
-KAIA is a necessary element--a fuel--for operating the Kaia distributed application platform. It is a form of payment made by the clients of the platform to the consensus nodes \(CNs\) executing the requested operations. To put it another way, KAIA is an incentive; it ensures that developers write high-quality applications \(wasteful code costs more\) and that the network remains healthy \(CNs are compensated for the resources they contribute\).
+KLAY는 카이아 분산 애플리케이션 플랫폼을 운영하기 위한 필수 요소, 즉 연료입니다. 이는 플랫폼의 클라이언트가 요청된 작업을 실행하는 컨센서스 노드 (CN)에게 지불하는 형태입니다. 다시 말해, KAIA는 인센티브이며, 개발자가 고품질의 애플리케이션을 작성하고(낭비적인 코드는 더 많은 비용이 들며) 네트워크가 건강하게 유지되도록 하며(CN은 기여한 리소스에 대해 보상을 받습니다), 이를 통해 개발자가 더 많은 보상을 받도록 합니다.
 
-## Units of KAIA <a id="units-of-klay"></a>
+## KAIA 단위 <a id="units-of-klay"></a>
 
-Kaia uses the following unit system for KAIA.
+카이아는 다음과 같은 단위 시스템을 사용합니다.
 
-- `kei` is the smallest currency unit.
+- `peb`는 가장 작은 화폐 단위입니다.
 - A `Gkei` is 10^9 kei.
-- A `KAIA` is 10^18 kei.
+- `KLAY`는 10^18peb입니다.
 
-| Unit | kei value | kei                       |
+| unit | peb 값     | kKLAY                     |
 | :--- | :-------- | :------------------------ |
-| kei  | 1 kei     | 1                         |
-| Gkei | 10^9 kei  | 1,000,000,000             |
-| KAIA | 10^18 kei | 1,000,000,000,000,000,000 |
+| kpeb | 1 peb     | 1                         |
+| Gkei | 10^9 peb  | 1,000,000,000             |
+| KAIA | 10^18 peb | 1,000,000,000,000,000,000 |
 
 <!-- 
 #### APIs Related to KLAY Units <a id="apis-related-to-kaia-units"></a>
