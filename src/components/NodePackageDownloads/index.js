@@ -4,29 +4,31 @@ import CurrentRelease from './CurrentRelease'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 import './index.css'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
 export default function NodePackageDownloads() {
+  const { siteConfig } = useDocusaurusContext()
   const [releases, setReleases] = useState([])
   const [currentRelease, setCurrentRelease] = useState()
   const size = 10
   const [start, setStart] = useState(0)
   const [showPaginationButton, setShowPaginationButton] = useState(true)
+  const KAIA_RELEASES_API = siteConfig.customFields.KAIA_RELEASES_API
 
   useEffect(() => {
-    fetchReleases();
+    fetchReleases()
   }, [])
 
   const fetchReleases = () => {
-    fetch(
-      'https://airdrop-api.klaytn.foundation/node/releases?start=' + start,
-      {
-        method: 'GET',
-      }
-    )
+    fetch(KAIA_RELEASES_API + start, {
+      method: 'GET',
+    })
       .then((response) => response.json())
       .then((response) => {
         let releasesData = response.data.releases
-        let machineTypes = response.data.machineTypes.filter(item => item.machineType !== "windows")
+        let machineTypes = response.data.machineTypes.filter(
+          (item) => item.machineType !== 'windows'
+        )
         let config = response.data.config
         setReleases([...releases, ...releasesData])
 
@@ -41,7 +43,7 @@ export default function NodePackageDownloads() {
 
           setCurrentRelease(resultFirstRecord)
         }
-        setStart(start+size);
+        setStart(start + size)
         setShowPaginationButton(releasesData.length !== 0)
       })
   }
@@ -63,8 +65,8 @@ export default function NodePackageDownloads() {
           to install kaia and/or associated tools via your favorite package
           manager, please check our installation guide.
           <br /> <br />
-          Please note that currently, the downloadable file for kaia-v1.0.0 is only
-          available as a linux executable.
+          Please note that currently, the downloadable file for kaia-v1.0.0 is
+          only available as a linux executable.
         </p>
         {currentRelease && currentRelease.machineTypes ? (
           <Tabs groupId="machineTypes">
@@ -120,7 +122,11 @@ export default function NodePackageDownloads() {
           <div style={{ alignContent: 'center', padding: '10px' }}>
             These are the current and previous releases of Kaia, updated
             automatically when a new version is tagged in our{' '}
-            <a style={{ textDecoration: 'underline' }} href={currentRelease?.githubUrl}>
+            <a
+              style={{ textDecoration: 'underline' }}
+              target="_blank"
+              href={currentRelease?.githubUrl}
+            >
               GitHub repository.
             </a>
           </div>

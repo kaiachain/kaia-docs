@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Accordion,
   AccordionItem,
@@ -17,8 +17,11 @@ const StableRelease = (props) => {
       <>
         <div className="stable-release-table">
           {props.showPaginationButton && (
-            <div class="stable-release-arrow-container" onClick={props.fetchReleases}>
-                <div class="stable-release-arrow-down"></div>
+            <div
+              className="stable-release-arrow-container"
+              onClick={props.fetchReleases}
+            >
+              <div className="stable-release-arrow-down"></div>
             </div>
           )}
           <div className="stable-release-table-header">
@@ -70,19 +73,23 @@ const StableRelease = (props) => {
                                       createdAt
                                     ).toLocaleString()
                                     // TODO-kaia-docs: remove next line after package updated
-                                    if (tagName === "v1.0.0") {
-                                      if (_binaryName === "homi")
+                                    if (tagName === 'v1.0.0') {
+                                      if (_binaryName === 'homi')
                                         return (
-                                          <div className="stable-release-table-row"> Not supported yet</div>
+                                          <div className="stable-release-table-row">
+                                            {' '}
+                                            Not supported yet
+                                          </div>
                                         )
-                                      else
-                                        return;
+                                      else return
                                     }
 
-                                    let binaryPrefixValue = _config.binaryPrefixes
-                                      ? _config.binaryPrefixes[binaryPrefix]
-                                      : ''
-                                    let binaryFileformat = _config.binaryFileFormat
+                                    let binaryPrefixValue =
+                                      _config.binaryPrefixes
+                                        ? _config.binaryPrefixes[binaryPrefix]
+                                        : ''
+                                    let binaryFileformat =
+                                      _config.binaryFileFormat
                                     binaryFileformat = binaryFileformat.replace(
                                       '{BINARY_NAME}',
                                       _binaryName
@@ -150,7 +157,7 @@ const StableRelease = (props) => {
                                   })
                                 ) : (
                                   <>
-                                  <div className="binarytitle-container">
+                                    <div className="binarytitle-container">
                                       <div className="binarytitle">
                                         {binaryTitle}
                                       </div>

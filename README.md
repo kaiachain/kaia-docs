@@ -50,6 +50,14 @@ This website is built using Docusaurus v3.
 $ yarn
 ```
 
+### Environment variables
+
+Copy and Configure environment variables
+
+```
+cp .env.examples .env
+```
+
 ### Local Development
 
 ```

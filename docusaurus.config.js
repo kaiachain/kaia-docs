@@ -7,6 +7,7 @@ const { navbarItemStrings, legacyDocsLinks } = require('./localeStrings'); // im
 const {
   remarkCodeHike,
 } = require("@code-hike/mdx")
+require('dotenv').config()
 
 process.env.DOCUSAURUS_CURRENT_VERSION = process.env.DOCUSAURUS_CURRENT_VERSION === undefined ? 'current' : process.env.DOCUSAURUS_CURRENT_VERSION
 process.env.DOCUSAURUS_CURRENT_LOCALE = process.env.DOCUSAURUS_CURRENT_LOCALE === 'undefined' || undefined ? 'en' : process.env.DOCUSAURUS_CURRENT_LOCALE
@@ -266,6 +267,11 @@ const config = {
             label: 'Kaia Tech',
           },
           {
+            to: "docs/kaiafaucet",
+            position: 'left',
+            label: 'Faucet 🚰',
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownActiveClassDisabled: true,
@@ -379,6 +385,12 @@ const config = {
         defaultMode: 'dark',
       }
     }),
+    customFields: {
+      'KAIA_RELEASES_API': process.env.KAIA_RELEASES_API,
+      'KAIA_FAUCET_API': process.env.KAIA_FAUCET_API,
+      'MAINNET_RPC_URL': process.env.MAINNET_RPC_URL,
+      'TESTNET_RPC_URL': process.env.TESTNET_RPC_URL
+    }
 }
 
 module.exports = config
