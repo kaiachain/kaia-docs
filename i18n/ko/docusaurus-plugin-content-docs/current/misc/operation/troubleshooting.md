@@ -1,23 +1,23 @@
-# Troubleshooting
+# 문제 해결
 
-## Where can I find a log file for the running Kaia node using the Kaia binary package? <a id="where-can-i-find-a-log-file-for-the-running-kaia-node-using-the-kaia-binary"></a>
+## 카이아 바이너리 패키지를 사용하여 실행 중인 카이아 노드의 로그 파일은 어디에서 찾을 수 있나요? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
 
-**Answer**
+**답변**
 
-You can find a log file in data directory. For example, default location of a log for `kcnd` is `/var/log/kcnd/kcnd.out` when you install `kcnd` RPM package.
+로그 파일은 데이터 디렉터리에서 찾을 수 있습니다. 예를 들어, `kcnd` RPM 패키지를 설치할 때 `kcnd`에 대한 로그의 기본 위치는 `/var/log/kcnd/kcnd.out`입니다.
 
-## Kaia node can not connect to network with `Protocol istanbul/64 failed` and `Genesis block mismatch` error message as below. <a id="kaia-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
+## 아래와 같이 `Protocol istanbul/64 failed` 및 `Genesis block mismatch` 에러 메시지와 함께 카이아 노드가 네트워크에 연결할 수 없습니다. <a id="klaytn-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
 
 ```
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
 ```
 
-**Answer**
+**답변**
 
-This error can happen when `genesis.json` is differ.
-Please stop Kaia node and remove data directory. Then run `ken init` again using correct `genesis.json` as below.
+이 오류는 `genesis.json`이 다를 때 발생할 수 있습니다.
+카이아 노드를 중지하고 데이터 디렉터리를 제거해주세요. 그런 다음 아래와 같이 올바른 `genesis.json`을 사용하여 `ken init`을 다시 실행합니다.
 
-For example, when data directory is `/var/kend/data`.
+예를 들어, 데이터 디렉터리가 `/var/kend/data`인 경우.
 
 ```
 sudo kend stop
@@ -26,7 +26,7 @@ sudo ken init --datadir /var/kend/data genesis.json
 sudo kend start
 ```
 
-## Can't deploy smart contract using truffle with following error message. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
+## 다음 오류 메시지와 함께 Truffle을 사용하여 스마트 컨트랙트를 배포할 수 없습니다. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
 
 ```
 Error: Returned error: The method net_version does not exist/is not available
@@ -43,31 +43,31 @@ Error: Returned error: The method net_version does not exist/is not available
     at process._tickCallback (internal/process/next_tick.js:63:19)
 ```
 
-**Answer**
+**답변**
 
-Enable `net` and other API for RPC console by editing `kend.conf` file as below.
+아래와 같이 `kend.conf` 파일을 편집하여 RPC 콘솔에 `net` 및 기타 API를 활성화합니다.
 
 ```
 RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: admin,debug,klay,miner,net,personal,rpc,txpool,web3
 ```
 
-After updating `kend.conf`, restart Kaia node.
+kend.conf\\`를 업데이트한 후 카이아 노드를 재시작합니다.
 
-## Can't start Kaia node with `Unit not found` error as below after installing binary package. <a id="can-t-start-kaia-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
+## 바이너리 패키지 설치 후 아래와 같이 `Unit not found` 에러가 발생하여 카이아 노드를 시작할 수 없습니다. <a id="can-t-start-klaytn-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
 Failed to start kcnd.service: Unit not found.
 ```
 
-**Answer**
+**답변**
 
-Please reload daemon as below.
+아래와 같이 데몬을 다시 로드하세요.
 
 ```
 sudo systemctl daemon-reload
 ```
 
-## CN can't connect to network with `Add dial candidate from static nodes` log message. <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
+## `Add dial candidate from static nodes` 로그 메시지와 함께 CN이 네트워크에 연결할 수 없습니다. <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
 
 ```
 INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
@@ -75,37 +75,36 @@ INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
 ```
 
-**Answer**
+**답변**
 
-This can happen when `genesis.json` and nodekey/validator information differ.
-Please check nodekey/validator and `genesis.json` file again.
+이 오류는 `genesis.json`과 노드키/검증자(nodekey/validator) 정보가 다를 때 발생할 수 있습니다.
+노드키/검증자 및 `genesis.json` 파일을 다시 확인하시기 바랍니다.
 
-## Kaia node can't start with following error log message. <a id="kaia-node-can-t-start-with-following-error-log-message"></a>
+## 다음 오류 로그 메시지와 함께 Kaia 노드를 시작할 수 없습니다. <a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
 
 ```
 Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/kaia.ipc: bind: invalid argument
 ```
 
-**Answer**
+**답변**
 
-If you see the above protocol stack error message in the log file, it means Kaia failed to start because the full path name of current working directory is too long. Please launch a Kaia node with a shorter full data directory. The maximum allowed length of path name depends on operating system.
+로그 파일에 위의 프로토콜 스택 오류 메시지가 표시된다면, 현재 작업 디렉터리의 전체 경로 이름이 너무 길어서 카이아를 시작하지 못했다는 뜻입니다. 더 짧은 전체 데이터 디렉터리로 카이아 노드를 시작하세요. 경로 이름의 최대 허용 길이는 운영체제에 따라 다릅니다.
 
-## EN can't connect to CC with following log message. <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
+## 다음 로그 메시지와 함께 EN이 CC에 연결할 수 없습니다. <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
 
 ```
 ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad conn=staticdial err="InvalidPeerHierarchy - (PeerIsOnParentChain:false) == (OnChildChain:false)"
 ```
 
-**Answer**
+**답변**
 
-It could happen when genesis of mainchain and service chain differ. Please check genesis of both chain are same.
+메인체인과 서비스 체인의 제네시스가 다를 때 발생할 수 있습니다. 두 체인의 제네시스가 동일한지 확인해 주세요.
 
-## Head state missing error <a id="head-state-missing-error"></a>
+## Head state missing 오류 <a id="head-state-missing-error"></a>
 
 ```
 "ERROR[06/21,14:35:16 +09] [5] Head state missing, repairing chain       number=2955620 hash=66bba2…e15f8d
 Fatal: Error starting protocol stack: rewound to block number 0, but repair failed"
 ```
 
-**Answer**
-Due to a compatibility issue, we strongly recommend to upgrade EN's binary to v0.9.6 if you have been running an EN with older versions (`<=` v0.8.2). If it is your first time upgrading the EN to v0.9.x and want to migrate the data from the older version, you must specify the option `ADDITIONAL="--db.num-statetrie-partitions 1"` in the configuration file when you install the newer version.
+호환성 문제로 인해 이전 버전(`<=` v0.8.2)으로 EN을 실행 중인 경우 EN의 바이너리를 v0.9.6으로 업그레이드할 것을 강력히 권장합니다. EN을 v0.9.x로 처음 업그레이드하고 이전 버전의 데이터를 마이그레이션하려는 경우, 최신 버전을 설치할 때 구성 파일에 `ADDITIONAL="--db.num-statetrie-partitions 1"` 옵션을 지정해야 합니다.
