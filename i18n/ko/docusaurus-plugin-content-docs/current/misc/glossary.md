@@ -1,144 +1,144 @@
-# Glossary
+# 용어집
 
-This glossary provides explanation on technical terms specific to the Kaia Blockchain. It stands as your goto for understanding numerous terms you will encounter while exploring Kaia documentation, guides and tutorials.
+이 용어집은 카이아 블록체인과 관련된 기술 용어에 대한 설명을 제공합니다. 카이아 문서, 가이드, 튜토리얼을 살펴보면서 접하게 될 수많은 용어를 이해하기 위한 길잡이 역할을 합니다.
 
-### anchor
+### 앵커
 
-A cryptographically secure reference to data stored outside of a blockchain. Anchors can be used to link data from different systems together, or to provide tamper-proof evidence of the existence of data at a specific point in time.
+블록체인 외부에 저장된 데이터에 대한 암호학적으로 안전한 참조입니다. 앵커는 서로 다른 시스템의 데이터를 연결하거나 특정 시점의 데이터 존재에 대한 변조 방지 증거를 제공하는 데 사용할 수 있습니다.
 
-### anchoring
+### 앵커링
 
-The process of storing an anchor on a blockchain. This can be done by creating a transaction that contains the hash of the external data, or by creating a smart contract that references the external data (for example, [Anchoring in service chain](../nodes/service-chain/configure/anchoring.md)).
+블록체인에 앵커를 저장하는 과정입니다. 이는 외부 데이터의 해시가 포함된 트랜잭션을 생성하거나 외부 데이터를 참조하는 스마트 컨트랙트를 생성하여 수행할 수 있습니다(예: [서비스 체인에 앵커링](../nodes/service-chain/configure/anchoring.md)).
 
 ### Kairos
 
-The public testnet of the Kaia platform. It is used by developers to test and verify their applications before deploying them to the Mainnet.
+카이아 플랫폼의 퍼블릭 테스트넷입니다. 개발자가 메인넷에 배포하기 전에 애플리케이션을 테스트하고 검증하는 데 사용됩니다.
 
-### block explorer
+### 블록 탐색기
 
-A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status.
+사용자가 블록체인의 데이터를 보고 검색할 수 있는 웹 기반 도구입니다. 블록 탐색기는 일반적으로 블록 높이, 블록 해시, 트랜잭션 해시, 트랜잭션 발신자 및 수신자, 트랜잭션 금액, 트랜잭션 상태와 같은 정보를 표시합니다.
 
-The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Klayfinder](https://www.klaytnfinder.io/).
+카이아에서 사용할 수 있는 블록 탐색기는 [Klaytnscope](../build/tools/block-explorers/klaytnscope.md) 및 [Klayfinder](https://www.klaytnfinder.io/)입니다.
 
-### core cell (CC)
+### 코어 셀(CC, Core Cell)
 
-An entity in the Kaia blockchain architecture that is responsible for executing transactions and generating blocks. A core cell typically consists of a consensus node and multiple proxy nodes.
+트랜잭션을 실행하고 블록을 생성하는 카이아 블록체인 아키텍처의 엔티티입니다. 코어 셀은 일반적으로 합의 노드와 여러 프록시 노드로 구성됩니다.
 
-See also [consensus node (CN)](#consensus-node-cn), [proxy node (PN)](#proxy-node-pn).
+[컨센서스 노드(CN)](#consensus-node-cn), [프록시 노드(PN)](#proxy-node-pn)도 참조하세요.
 
-### core cell node network (CCN)
+### 코어 셀 노드 네트워크(CCN)
 
-A group of core cell nodes that are interconnected
+서로 연결된 코어 셀 노드 그룹입니다.
 
-### consensus node (CN)
+### 합의 노드(CN, Consensus Node)
 
-A node that is responsible for generating and propagating blocks, and for reaching consensus on the state of the Kaia blockchain. Consensus nodes validate submitted transactions and execute valid transactions.
+블록을 생성하고 전파하며, 카이아 블록체인의 상태에 대한 합의에 도달하는 역할을 하는 노드입니다. 합의 노드는 제출된 트랜잭션의 유효성을 검사하고 유효한 트랜잭션을 실행합니다.
 
-### endpoint node (EN)
+### 엔드포인트 노드(EN, Endpoint Node)
 
-A node that serves as an entry point for service chains and DApps to interact with the Kaia blockchain through its exposed RPC APIs. Endpoint nodes synchronize the entire blockchain ledger and allow reading blockchain data or submitting transactions directly to the network without going through a proxy node.
+서비스체인과 dApp이 노출된 RPC API를 통해 카이아 블록체인과 상호작용할 수 있는 진입점 역할을 하는 노드입니다. 엔드포인트 노드는 전체 블록체인 원장을 동기화하고 프록시 노드를 거치지 않고 블록체인 데이터를 읽거나 트랜잭션을 네트워크에 직접 전송할 수 있습니다.
 
-### endpoint node network (ENN)
+### 엔드포인트 노드 네트워크(ENN)
 
-A group of endpoint nodes that are interconnected
+서로 연결된 엔드포인트 노드 그룹입니다.
 
-### externally owned account (EOA)
+### 외부 소유 계정(EOA, Externally Owned Account)
 
-An account on a blockchain that is controlled by a private key. The private key is held by the user and is used to sign transactions. EOAs are the most common type of account on blockchains and are used by individuals and businesses to interact with the blockchain.
+개인 키로 제어되는 블록체인 상의 계정입니다. 개인 키는 사용자가 보유하며 트랜잭션에 서명하는 데 사용됩니다. EOA는 블록체인에서 가장 일반적인 계정 유형으로, 개인과 기업이 블록체인과 상호 작용하는 데 사용됩니다.
 
-See also [smart contract account (SCA)](#smart-contract-account-sca).
+[스마트 컨트랙트 계정(SCA)](#smart-contract-account-sca)도 참조하세요.
 
-### fee delegation
+### 수수료 위임(Fee delegation)
 
-A mechanism in some blockchain networks that enables a user to nominate another account to pay transaction fees on their behalf. This allows the user to submit transactions and have them processed without needing to pay fees directly from their own account balance.
+일부 블록체인 네트워크에서 사용자가 트랜잭션 수수료를 대신 지불할 다른 계정을 지정할 수 있는 메커니즘입니다. 이를 통해 사용자는 자신의 계정 잔액에서 직접 수수료를 지불할 필요 없이 트랜잭션을 제출하고 처리할 수 있습니다.
 
-### governance council (GC)
+### 거버넌스 카운슬(GC, Governance Council)
 
-A group or organization formed to establish and maintain oversight and decision-making authority over a blockchain network. A blockchain governance council typically defines tasks such as establishing operational procedures, resolving disputes, approving protocol upgrades, and representing the interests of all stakeholders in the network.
+블록체인 네트워크에 대한 감독 및 의사 결정 권한을 확립하고 유지하기 위해 구성된 그룹 또는 조직입니다. 블록체인 거버넌스 카운슬은 일반적으로 운영 절차 수립, 분쟁 해결, 프로토콜 업그레이드 승인, 네트워크 내 모든 이해관계자의 이익 대변과 같은 업무를 정의합니다.
 
-### inter-process communication (IPC)
+### 프로세스 간 통신(IPC, Inter-process Communication)
 
-A set of techniques for the exchange of data among two or more processes in one or more computers. It is a fundamental part of operating systems and distributed systems, and is used by many different types of software, including web servers, databases, and graphical user interfaces.
+하나 이상의 컴퓨터에서 두 개 이상의 프로세스 간에 데이터를 교환하기 위한 일련의 기술입니다. 운영 체제 및 분산 시스템의 기본 부분이며 웹 서버, 데이터베이스 및 그래픽 사용자 인터페이스를 비롯한 다양한 유형의 소프트웨어에서 사용됩니다.
 
-### interplanetary file system (IPFS)
+### Interplanetary File System (IPFS)
 
-A peer-to-peer distributed file system that enables users to store and share files in a decentralized manner. IPFS uses a content-addressing scheme to uniquely identify each file, and it stores files in a distributed network of nodes.
+사용자가 분산된 방식으로 파일을 저장하고 공유할 수 있는 피어 투 피어 분산 파일 시스템입니다. IPFS는 콘텐츠 주소 체계를 사용하여 각 파일을 고유하게 식별하고 분산된 노드 네트워크에 파일을 저장합니다.
 
-### Kaia Community Fund (KCF)
+### 카이아 커뮤니티 펀드(KCF, Kaia Community Fund)
 
-A fund established by the Kaia Foundation to support initiatives that contribute to the growth and development of the Kaia blockchain ecosystem. The KCF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KCF is to advance innovation and community growth around Kaia through funded initiatives.
+카이아 재단이 카이아 블록체인 생태계의 성장과 발전에 기여하는 이니셔티브를 지원하기 위해 설립한 기금입니다. KCF는 카이아의 사용과 채택을 확대하기 위해 노력하는 프로젝트, 조직, 개인에게 보조금과 재정적 지원을 제공합니다. KCF의 목표는 자금 지원을 통해 카이아를 둘러싼 혁신과 커뮤니티 성장을 촉진하는 것입니다.
 
-### Kaia endpoint node (KEN)
+### 카이아 엔드포인트 노드(KEN)
 
-See [endpoint node (EN)](#endpoint-node-en).
+[엔드포인트 노드(EN)](#endpoint-node-en)를 참조하세요.
 
-### Kaia Foundation Fund (KFF)
+### 카이아 재단 기금(KFF, Kaia Foundation Fund)
 
-A reserve fund established by the Kaia Foundation to support its operating expenses and long-term initiatives. The KFF aids in funding the Foundation's work to further develop and enhance the Kaia blockchain protocol and ecosystem through research, business development activities, education programs and more.
+카이아 재단이 운영 비용과 장기적인 이니셔티브를 지원하기 위해 설립한 예비 기금입니다. KFF는 연구, 비즈니스 개발 활동, 교육 프로그램 등을 통해 카이아 블록체인 프로토콜과 생태계를 더욱 발전시키고 개선하기 위한 재단의 활동에 자금을 지원합니다.
 
-### Kaia Governance Council (KGC)
+### 카이아 거버넌스 카운슬(KGC, Kaia Governance Council)
 
-A council of organizations that are responsible for governing the Kaia blockchain. The GC members are selected by the Kaia Foundation and are required to operate a consensus node on the Kaia network. The GC is responsible for making decisions about the development and operation of the Kaia blockchain, including upgrades, partnerships, and ecosystem development initiatives.
+카이아 블록체인의 관리를 담당하는 조직들의 협의체입니다. GC 멤버는 카이아 재단이 선정하며, 카이아 네트워크에서 합의 노드를 운영해야 합니다. GC는 업그레이드, 파트너십, 생태계 개발 이니셔티브 등 카이아 블록체인의 개발과 운영에 관한 의사결정을 내릴 책임이 있습니다.
 
-### Kaia Improvement Proposal (KIP)
+### 카이아 개선 제안(KIP, Kaia Improvement Proposal)
 
-A design document providing information to Kaia stakeholders regarding new features or processes for the Kaia blockchain network. KIPs are intended to provide a consistent and controlled mechanism for proposing, reviewing and adopting protocol upgrades and innovations. They allow advocates to collaborate with the Kaia community to refine any potential protocol upgrades before being considered for inclusion in the software.
+카이아 블록체인 네트워크의 새로운 기능이나 프로세스에 관한 정보를 카이아 이해관계자들에게 제공하는 설계 문서입니다. KIP는 프로토콜 업그레이드와 혁신을 제안, 검토, 채택하기 위한 일관되고 통제된 메커니즘을 제공하기 위한 것입니다. 이를 통해 지지자들은 카이아 커뮤니티와 협력하여 잠재적인 프로토콜 업그레이드를 소프트웨어에 포함하기 전에 구체화할 수 있습니다.
 
-Some of typical examples of KIP are [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](http://kips.klaytn.foundation/KIPs/kip-17), and [KIP-37](http://kips.klaytn.foundation/KIPs/kip-37).
+KIP의 대표적인 예로는 [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](http://kips.klaytn.foundation/KIPs/kip-17), [KIP-37](http://kips.klaytn.foundation/KIPs/kip-37)이 있습니다.
 
 ### Kaia State
 
 This is the world state of accounts in Kaia containing the balances, storage variables of the account and the hash of the code or bytecode depending on if the account is an EOA or SCA.
 
-### Kaia virtual machine (KLVM)
+### 카이아 가상머신(KLVM, Kaia virtual machine)
 
-A virtual state machine that executes Kaia smart contracts. It is a quasi-Turing-complete stack-based virtual machine that is derived from the Ethereum Virtual Machine (EVM). The KLVM is responsible for processing and executing smart contracts on the Kaia blockchain.
+카이아 스마트 컨트랙트를 실행하는 가상 상태 머신입니다. 이더리움 가상머신(EVM)에서 파생된 준 튜링 완전 스택 기반 가상머신입니다. KLVM은 카이아 블록체인에서 스마트 컨트랙트를 처리하고 실행하는 역할을 담당합니다.
 
-### Kaia network identifier (KNI)
+### 카이아 네트워크 식별자(KNI, Kaia network identifier)
 
-A unique resource identifier scheme to identify a Kaia node. It consists of nodeID, hostname, port, and discport.
+카이아 노드를 식별하기 위한 고유한 리소스 식별자 체계입니다. nodeID, 호스트명, 포트, 디스크로 구성됩니다.
 
-### proposer
+### 제안자
 
-A role assigned to a consensus node (CN) in each round of block creation. The proposer is randomly but deterministically selected to create the next block. The probability of a CN being enlisted as the proposer is determined by the amount of Kaia tokens, or KAIA, that the CN stakes.
+블록 생성의 각 라운드에서 합의 노드(CN)에 할당된 역할입니다. 제안자는 다음 블록을 생성하기 위해 무작위적이지만 결정론적으로 선택됩니다. CN이 제안자로 선정될 확률은 해당 CN이 보유한 카이아 토큰, 즉 KAIA의 양에 따라 결정됩니다.
 
-### proxy node (PN)
+### 프록시 노드(PN, Proxy Node)
 
-A node that is responsible for relaying transactions from endpoint nodes (ENs) to consensus nodes (CNs). It aids in enhancing the performance of the network by reducing the direct communication load between ENs and CNs.
+엔드포인트 노드(EN)에서 컨센서스 노드(CN)로 트랜잭션을 중계하는 역할을 담당하는 노드입니다. EN과 CN 간의 직접적인 통신 부하를 줄여 네트워크의 성능을 향상시키는 데 도움을 줍니다.
 
-### recursive-length prefix (RLP)
+### Recursive-length Prefix(RLP)
 
-An address prefix format where the length of the prefix is included as part of the address information in computer networking, It allows for more efficient routing by eliminating the need to store prefix lengths separately for each route. Kaia uses recursive-length prefix to represent blockchain addresses.
+컴퓨터 네트워킹에서 접두사의 길이가 주소 정보의 일부로 포함되는 주소 접두사 형식으로, 각 경로마다 접두사 길이를 별도로 저장할 필요가 없어 보다 효율적인 라우팅을 가능하게 합니다. Kaia는 재귀적 길이 접두사를 사용하여 블록체인 주소를 표현합니다.
 
-### remote procedure call (RPC)
+### 원격 프로시저 호출(RPC, Remote Procedure Call)
 
-A communication protocol that allows a program on one computer to execute code or request services from a program located on another, often remote, computer within a network.
+한 컴퓨터의 프로그램이 네트워크 내의 다른 컴퓨터(주로 원격 컴퓨터)에 있는 프로그램에서 코드를 실행하거나 서비스를 요청할 수 있도록 하는 통신 프로토콜입니다.
 
-### soul-bound token (SBT)
+### Soul-bound token(SBT)
 
-A non-transferable token that represents a person's identity and achievements in the Web3 ecosystem. It is a type of non-fungible token (NFT) that is permanently tied to a specific individual or crypto wallet.
+Web3 생태계에서 개인의 정체성과 업적을 나타내는 양도 불가능한 토큰입니다. 특정 개인 또는 암호화폐 지갑에 영구적으로 묶여 있는 대체 불가능한 토큰(NFT)의 일종입니다.
 
-### smart contract account (SCA)
+### 스마트 컨트랙트 계정(SCA,Smart Contract Account)
 
-An account on a blockchain that is controlled by a smart contract. A smart contract is a self-executing contract with the terms of the agreement between buyer and seller directly written into lines of code. SCAs are used to automate transactions and agreements on the blockchain.
+스마트 컨트랙트에 의해 제어되는 블록체인 상의 계정입니다. 스마트 컨트랙트는 구매자와 판매자 간의 컨트랙트 조건이 코드 줄로 직접 작성된 자체 실행형 컨트랙트입니다. SCA는 블록체인에서 거래와 컨트랙트를 자동화하는 데 사용됩니다.
 
-See also [externally owned account (EOA)](#externally-owned-account-eoa).
+[외부 소유 계정(EOA, Externally Owned Account)](#externally-owned-account-eoa)도 참조하세요.
 
-### service chain
+### 서비스 체인
 
-A sidechain or auxiliary blockchain that is connected to the Kaia mainnet. Service chains are designed to meet the specific needs of different applications or industries, such as immediate finality, cross-chain token transfer, and data anchoring to the main chain.
+카이아 메인넷에 연결된 사이드체인 또는 보조 블록체인입니다. 서비스 체인은 즉각적인 완결성, 크로스체인 토큰 전송, 메인체인에 데이터 앵커링 등 다양한 애플리케이션이나 산업의 특정 요구사항을 충족하도록 설계되었습니다.
 
-### service chain consensus node (SCN)
+### 서비스체인 합의 노드(SCN)
 
-A node that is responsible for participating in the consensus process in a Kaia service chain.
+카이아 서비스체인에서 합의 과정에 참여하는 역할을 담당하는 노드입니다.
 
-See also [consensus node (CN)](#consensus-node-cn), [service chain](#service-chain).
+[컨센서스 노드(CN)](#consensus-node-cn), [서비스 체인](#service-chain)도 참조하세요.
 
-### service chain endpoint node (SEN)
+### 서비스체인 엔드포인트 노드(SEN)
 
-A node in a Kaia service chain that provides a public interface for interacting with the service chain.
+서비스체인과 상호작용할 수 있는 퍼블릭 인터페이스를 제공하는 카이아 서비스체인의 노드입니다.
 
-See also [endpoint node (EN)](#endpoint-node-en), [service chain](#service-chain).
+[엔드포인트 노드(EN)](#endpoint-node-en), [서비스 체인](#service-chain)도 참조하세요.
 
 ### state migration
 
@@ -148,6 +148,6 @@ This process involves removing unnecessary or outdated data from the blockchain 
 
 A critical component for managing pending and queued transactions awaiting inclusion in the next blocks within the network.
 
-### validator
+### 검증자
 
-A node that verifies the accuracy of data contained in new blocks and ensures that blocks are processed efficiently across the network. In Kaia's permissionless validation structure, anyone can act as a block validator if they meet certain qualifications while maintaining the existing Governance Council structure and roles.
+새로운 블록에 포함된 데이터의 정확성을 검증하고 블록이 네트워크에서 효율적으로 처리되도록 하는 노드입니다. 카이아의 비허가형 검증 구조에서는 기존의 거버넌스 카운슬 구조와 역할을 유지하면서 일정 자격을 갖추면 누구나 블록 검증자로 활동할 수 있습니다.
