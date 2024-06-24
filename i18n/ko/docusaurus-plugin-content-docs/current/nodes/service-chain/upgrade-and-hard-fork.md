@@ -44,14 +44,14 @@ $ kscnd start
 서비스체인의 JavaScript 콘솔에서 아래와 같이 현재 블록 번호를 확인할 수 있습니다.
 
 ```bash
-$ kscn attach ~/kscnd_home/klay.ipc
+$ kscn attach ~/kscnd_home/kaia.ipc
 Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
-> klay.blockNumber
+> kaia.blockNumber
 1234
 ```
 
@@ -147,10 +147,10 @@ $ kscnd start
 그런 다음 SCN의 JavaScript 콘솔에서 업데이트된 체인 구성을 확인할 수 있습니다.
 
 ```bash
-$ kscn attach ~/kscnd_home/klay.ipc
+$ kscn attach ~/kscnd_home/kaia.ipc
 Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -166,15 +166,15 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
 Magma 하드포크는 동적 가스 요금인 KIP-71을 도입합니다. 여기에는 가스 가격의 상한과 하한이 포함됩니다.
 
-기본적으로 상한은 `750000000000`, 하한은 `25000000000`로 설정되어 있습니다. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](../../../references/json-rpc/governance/chain-config). Obviously, lower bound cannot exceed the upper bound.
+기본적으로 상한은 `750000000000`, 하한은 `25000000000`로 설정되어 있습니다. [거버넌스 API](../../../references/json-rpc/governance/chain-config)를 사용하여 SCN 노드의 Javascript 콘솔에서 이러한 제한을 변경할 수 있습니다. 물론 하한은 상한을 초과할 수 없습니다.
 
 가스 가격을 정적 값으로 설정하려면 가스 가격의 상한과 하한을 같은 값으로 설정해야 합니다. 예를 들어, SCN 노드의 JavaScript 콘솔에서 `governance.vote` API를 사용하여 가스 가격을 `0`으로 설정할 수 있습니다.
 
 ```bash
-$ kscn attach ~/kscnd_home/klay.ipc
+$ kscn attach ~/kscnd_home/kaia.ipc
 Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -193,7 +193,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 epoch를 확인하려면 아래와 같이 `governanace.itemsAt` API를 사용하면 됩니다.
 
 ```javascript
-> governance.itemsAt(klay.blockNumber)
+> governance.itemsAt(kaia.blockNumber)
 {
   governance.governancemode: "none",
   governance.governingnode: "0x05ad406f31e22b74f18c9ed65ed1ccd349bbbee0",
