@@ -1,16 +1,16 @@
-# Install Proxy Nodes
+# 프록시 노드 설치
 
-## Download
+## 다운로드
 
-You can download the latest version of the `kpn`  on [Download](../../downloads/downloads.md) page.
+[다운로드](../../downloads/downloads.md) 페이지에서 최신 버전의 `kpn`을 다운로드할 수 있습니다.
 
-## Installation <a id="installation"></a>
+## 설치 <a id="installation"></a>
 
-### Linux Archive Distribution <a id="linux-archive-distribution"></a>
+### Linux 아카이브 배포 <a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+아카이브 파일은 실행 가능한 바이너리와 다음과 같은 구조의 구성 파일로 구성됩니다.
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**참고**: 파일 구조나 파일 이름을 변경하지 마세요. 변경하면 노드가 제대로 작동하지 않을 수 있습니다.
 
 ```text
 - bin
@@ -20,91 +20,91 @@ The archive file consists of the executable binary and the configuration file st
   |- kpnd.conf
 ```
 
-| File Name                      | File Description                 |
-| :----------------------------- | :------------------------------- |
-| bin/kpn                        | PN executable file               |
-| bin/kpnd                       | PN start/termination script file |
-| conf/kpnd.conf | PN configuration file            |
+| 파일명                            | 파일 설명            |
+| :----------------------------- | :--------------- |
+| bin/kpn                        | PN 실행 파일         |
+| bin/kpnd                       | PN 시작/종료 스크립트 파일 |
+| conf/kpnd.conf | PN 구성 파일         |
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+설치는 다운로드한 패키지의 압축을 풀고 패키지를 설치하려는 위치에 설치하는 것입니다.
 
 ```bash
 $ tar zxf kpn-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+또는,
 
 ```bash
 $ tar zxf kpn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `kpn-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `kpn` and `kpnd` globally. As an example,
+**참고**: 압축되지 않은 디렉터리 `kpn-linux-amd64/bin` 경로를 환경 변수 `$PATH`에 추가하여 `kpn` 및 `kpnd`를 전역적으로 실행할 것을 권장합니다. 예를 들어
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kpn-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+다른 섹션에서는 경로가 변수에 추가되었다고 가정합니다.
 
-### RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+### RPM 배포 (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+다운로드한 RPM 파일을 다음 `yum` 명령으로 설치할 수 있습니다.
 
 ```bash
 $ yum install kpnd-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+또는,
 
 ```bash
 $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Kaia Yum Repo <a id="install-from-kaia-yum-repo"></a>
+### 카이아 Yum 리포지토리에서 설치 <a id="install-from-klaytn-yum-repo"></a>
 
-Alternatively, you can install `kpnd` from the Kaia Yum repo, run:
+또는 카이아 Yum 저장소에서 `kpnd`를 설치하고 실행할 수 있습니다:
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kpnd
 ```
 
-### Installed Location <a id="installed-location"></a>
+### 설치된 위치 <a id="installed-location"></a>
 
-The installed files are located as follows.
+설치된 파일은 다음과 같은 위치에 있습니다.
 
-| File Name                 | Location                                 |
+| 파일명                       | 위치                                       |
 | :------------------------ | :--------------------------------------- |
 | kpn                       | /usr/bin/kpn                             |
 | kpnd.conf | /etc/kpnd/conf/kpnd.conf |
 
-## Configuration <a id="configuration"></a>
+## 구성 <a id="configuration"></a>
 
-The PN configuration is to create a data directory and set up several values in the configuration file `kpnd.conf`.
+PN 설정은 데이터 디렉터리를 생성하고 설정 파일 `kpnd.conf`에서 몇 가지 값을 설정하는 것입니다.
 
-1. Create a PN Data Directory
-2. Install node key
-3. Install `static-node.json`
-4. Configure the PN with `kpnd.conf`.
+1. PN 데이터 디렉터리 생성
+2. 노드 키 설치
+3. `static-node.json` 설치
+4. `kpnd.conf`로 PN을 구성
 
-### PN Data Directory Creation <a id="pn-data-directory-creation"></a>
+### PN 데이터 디렉터리 생성 <a id="pn-data-directory-creation"></a>
 
-Considering the fact that the size of Kaia blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
+카이아 블록체인 데이터의 크기가 항상 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것을 권장합니다. 원하는 경로에 디렉터리를 생성해야 할 수도 있습니다.
 
 ```bash
 $ mkdir -p /var/kpnd/data
 ```
 
-### Install Node Key <a id="install-node-key"></a>
+### 노드 키 설치 <a id="install-node-key"></a>
 
-In order to operate a PN, a `nodekey` is required. The KPN binary will create a new one for you if you do not have it. If you have one, you need to put your `nodekey` into the PN data directory. The way to create a `nodekey` is in the "[Before You Install](./before-you-install.md)" section. The following command line copies the `nodekey` into the PN data directory.
+PN을 작동하려면 `nodekey`가 필요합니다. 노드키가 없는 경우 KPN 바이너리가 새로 생성합니다. 노드키가 있는 경우, PN 데이터 디렉터리에 노드키를 넣어야 합니다. 노드키를 생성하는 방법은 '[설치 전](./before-you-install.md)' 섹션에 있습니다. 다음 명령줄은 `nodekey`를 PN 데이터 디렉터리에 복사합니다.
 
 ```bash
 $ cp nodekey /var/kpnd/data
 ```
 
-### Install `static-nodes.json` <a id="install-static-nodes-json"></a>
+### `static-nodes-json` 설치 <a id="install-static-nodes-json"></a>
 
-The `static-nodes.json` should be created from the PN operator. It contains the addresses that your PN is connected to. It is recommended to add the addresses including your CN and a PN from another Core Cell. Please contact to the Kaia official email for more details \(`bootstrap@klaytn.com` for Mainnet or `baobab@klaytn.com` for Kairos\).
+`static-nodes-json`는 PN 운영자가 생성해야 합니다. 여기에는 PN이 연결된 주소가 포함됩니다. CN과 다른 코어 셀의 PN을 포함한 주소를 추가하는 것을 권장합니다. 자세한 내용은 Kaia 공식 이메일(메인넷의 경우 `bootstrap@klaytn.com`, Kairos의 경우 `baobab@klaytn.com`)로 문의하시기 바랍니다.
 
 **static-nodes.json**
 
@@ -115,22 +115,22 @@ The `static-nodes.json` should be created from the PN operator. It contains the 
 ]
 ```
 
-The node URI of the PN is in the "[Before You Install](./before-you-install.md)" section. \(Note: This IP address is different from CN public IP.\) The following command line copies the `static-nodes.json` file into the PN data directory.
+PN의 노드 URI는 '[설치에 앞서](./before-you-install.md)' 섹션에 있습니다. 다음 명령줄은 `static-nodes.json` 파일을 PN 데이터 디렉터리에 복사합니다.
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
 ```
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### 구성 파일 업데이트 <a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+구성 파일 위치:
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
+- 아카이브 배포의 경우, 설정 디렉터리 위치는 기본적으로 `$INSTALL_PATH/kpn-linux-amd64/conf/`입니다.
+- 패키지 배포의 경우, 설정 디렉터리의 기본 위치는 `/etc/kpnd/conf/`입니다.
 
-#### Add Data Directory  <a id="add-data-directory"></a>
+#### 데이터 디렉터리 추가 <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kpnd.conf`.
+구성 파일 `kpnd.conf`에서 데이터 디렉터리 환경 변수 `$DATA_DIR`을 업데이트해야 합니다.
 
 ```text
 ...
@@ -138,84 +138,84 @@ DATA_DIR=/var/kpnd/data
 ...
 ```
 
-### Fast Sync \(Optional\) <a id="fast-sync-optional"></a>
+### 빠른 동기화 (선택 사항) <a id="fast-sync-optional"></a>
 
-Each PN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new PN is first started, it must download the entire chain data from the network.
+각 PN은 네트워크 체인 데이터의 사본을 유지합니다. 노드가 동기화되지 않은 경우 네트워크의 다른 노드로부터 이 데이터를 가져올 수 있는데, 이 과정을 동기화라고 합니다. 새 PN이 처음 시작되면 네트워크에서 전체 체인 데이터를 다운로드해야 합니다.
 
-To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the PN. This can dramatically reduce the time the PN will spend syncing on first start.
+이 프로세스를 가속화하기 위해 PN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 빠른 동기화를 수행할 수 있습니다. 이렇게 하면 PN을 처음 시작할 때 동기화하는 데 걸리는 시간을 크게 줄일 수 있습니다.
 
-Download the latest chaindata snapshot from the [Mainnet snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Kairos snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kpnd`, extract the snapshot inside the DATA_DIR you configured in `kpnd.conf`.
+[메인넷 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/) 또는 [Kairos 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)에서 최신 체인데이터 스냅샷을 다운로드합니다. `kpnd`를 시작하기 전에 `kpnd.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
 
-For example:
+예를 들어
 
 ```text
 $ tar -C /var/kpnd/data -xvf klaytn-cypress-chaindata-latest.tar.gz
 ```
 
-Or,
+또는,
 
 ```text
 $ tar -C /var/kpnd/data -xvf klaytn-baobab-chaindata-latest.tar.gz
 ```
 
-After the data is extracted, you may start the PN normally.
+데이터 추출이 완료되면 PN을 정상적으로 시작할 수 있습니다.
 
-You can refer to detailed information in the [Chaindata change](../../../misc/operation/chaindata-change.md)
+[체인데이터 변경](../../../misc/operation/chaindata-change.md)에서 자세한 정보를 확인할 수 있습니다.
 
-## Startup the PN <a id="startup-the-pn"></a>
+## PN 시작하기 <a id="startup-the-pn"></a>
 
-### PN Start/Stop  <a id="pn-start-stop"></a>
+### PN 시작/중지 <a id="pn-start-stop"></a>
 
-You can start/stop the Kaia service with the following `systemctl` command.
+다음 `systemctl` 명령어로 카이아 서비스를 시작/중지할 수 있습니다.
 
-**Note**: This requires root privileges.
+**참고**: 루트 권한이 필요합니다.
 
-**start**
+**시작**
 
 ```bash
 $ systemctl start kpnd.service
 
 ```
 
-**stop**
+**중지**
 
 ```bash
 $ systemctl stop kpnd.service
 
 ```
 
-**status**
+**상태**
 
 ```bash
 $ systemctl status kpnd.service
 
 ```
 
-### Troubleshooting <a id="troubleshooting"></a>
+### 문제 해결 <a id="troubleshooting"></a>
 
-If you meet the following error,
+다음 오류가 발생하는 경우,
 
 ```bash
 Failed to start kpnd.service: Unit not found.
 ```
 
-reload the systemd manager configuration with the following command.
+다음 명령으로 systemd 관리자 구성을 다시 로드합니다.
 
 ```bash
 $ systemctl daemon-reload
 ```
 
-## Testing the Core Cell <a id="testing-the-core-cell"></a>
+## 코어 셀 테스트 <a id="testing-the-core-cell"></a>
 
-It is time to check that Core Cell is successfully installed and it is working as expected after installation.
+이제 코어 셀이 성공적으로 설치되었는지, 설치 후 예상대로 작동하는지 확인해야 합니다.
 
-### Process Status <a id="process-status"></a>
+### 프로세스 상태 <a id="process-status"></a>
 
-It is possible to check the status of PN's process using the status commands `systemctl` and `kpnd`.
+상태 명령어 `systemctl`과 `kpnd`를 사용하여 PN의 프로세스 상태를 확인할 수 있습니다.
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM and the status of PN can be checked as follows.
+`systemctl`은 RPM과 함께 설치되며, 아래와 같이 PN의 상태를 확인할 수 있습니다.
 
 ```bash
 $ systemctl status kpnd.service
@@ -224,31 +224,31 @@ $ systemctl status kpnd.service
    Active: active (running) since Wed 2019-01-09 11:42:39 UTC; 1 months 4 days ago
      Docs: man:systemd-sysv-generator(8)
   Process: 29636 ExecStart=/etc/rc.d/init.d/kpnd start (code=exited, status=0/SUCCESS)
- Main PID: 29641 (kpn)
+ Main PID: 29641 (kcn)
    CGroup: /system.slice/kpnd.service
-           └─29641 /usr/local/bin/kpn --networkid 1000 --datadir /kpnd_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
+           └─29641 /usr/local/bin/kcn --networkid 1000 --datadir /kpnd_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
 
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Starting (null)...
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kpnd[29636]: Starting kpnd: [  OK  ]
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the above example.
+위 예시에서 `Active: active (running)`과 같은 현재 상태를 확인할 수 있습니다.
 
 #### kpnd <a id="kcnd-kpnd"></a>
 
-`kpnd` is installed along with the package and the status of PN can be checked as follows.
+패키지와 함께 `kpnd`가 설치되며, 아래와 같이 PN의 상태를 확인할 수 있습니다.
 
 ```bash
 $ kpnd status
 kpnd is running
 ```
 
-### Logs <a id="logs"></a>
+### 로그 <a id="logs"></a>
 
-The log is stored in `kpnd.out` file located in the path defined in the `LOG_DIR` field of the `kpnd.conf` file. When the node works properly, you can see that each block is created per second as follows.
+로그는 `kpnd.conf` 파일의 `LOG_DIR` 필드에 정의된 경로에 위치한 `kpnd.out` 파일에 저장됩니다. 노드가 정상적으로 작동하면 다음과 같이 초당 블록이 생성되는 것을 확인할 수 있습니다.
 
-Example:
+예시:
 
 ```bash
 $ tail kpnd.out
@@ -264,19 +264,19 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-### kpn console <a id="kcn-console-kpn-console"></a>
+### kpn 콘솔 <a id="kcn-console-kpn-console"></a>
 
-Kaia provides a CLI client: `kpn console`. However, a PN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
+카이아는 `kpn console`이라는 CLI 클라이언트를 제공합니다. 그러나 PN은 보안상의 이유로 클라이언트에 대한 RPC 인터페이스를 비활성화할 수 있습니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다.
 
-The IPC file `kaia.ipc` is located in the `data` directory on a PN.
+IPC 파일 `klay.ipc`는 PN의 `data` 디렉터리에 있습니다.
 
-Please execute the following command and check out the result.
+다음 명령을 실행하고 결과를 확인하세요.
 
 ```bash
- $ kpn attach /var/kpnd/data/kaia.ipc
+ $ kpn attach /var/kpnd/data/klay.ipc
  Welcome to the Kaia JavaScript console!
 
- instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  coinbase: 0x67f68fdd9740fd7a1ac366294f05a3fd8df0ed40
  at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
   datadir: /var/kpnd/data
@@ -286,28 +286,28 @@ Please execute the following command and check out the result.
 
 You can check the usable commands on [API Document](../../../references/json-rpc/klay/account-created)
 
-The useful APIs to check the status of a PN:
+PN의 상태를 확인하는 데 유용한 API입니다:
 
-- `kaia.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Kaia nodes currently)
+- `klay.blockNumber` (최신 블록 번호 가져오기)
+- `net.peerCount` (현재 연결된 카이아 노드 수 확인)
 
-#### kaia.blockNumber  <a id="kaia-blocknumber"></a>
+#### klay.blockNumber <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are created (for CNs) or propagated (for CNs and PNs) properly based on your node type.
+최신 블록 번호를 확인하여 노드 유형에 따라 블록이 제대로 생성(CN의 경우)되었는지 또는 전파(CN 및 PN의 경우)되었는지 확인할 수 있습니다.
 
 ```javascript
-> kaia.blockNumber
+> klay.blockNumber
 11573819
 ```
 
-#### net.peerCount  <a id="net-peercount"></a>
+#### net.peerCount <a id="net-peercount"></a>
 
 ```javascript
 > net.peerCount
 14
 ```
 
-The above command line returns a different value based on the node type.
+위의 명령줄은 노드 유형에 따라 다른 값을 반환합니다.
 
-- CN: the number of connected CNs + the number of connected PNs.
-- PN: the number of connected CNs + the number of connected PNs + the number of connected ENs.
+- CN: 연결된 CN의 수 + 연결된 PN의 수입니다.
+- PN: 연결된 CN의 수 + 연결된 PN의 수 + 연결된 EN의 수.
