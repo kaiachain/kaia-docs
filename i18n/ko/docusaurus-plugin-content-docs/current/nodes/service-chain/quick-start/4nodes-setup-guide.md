@@ -1,14 +1,14 @@
-# Install a 4-node service chain
+# 4노드 서비스 체인 설치
 
-This section covers how to set up a multi-node ServiceChain. We will set up a 4-consensus-node ServiceChain with `chainID` 1002, as you can see in the blue border box in the figure below.
+이 섹션에서는 멀티노드 서비스체인을 설정하는 방법을 다룹니다. 아래 그림의 파란색 테두리 상자에서 볼 수 있듯이 chainID 1002로 4-컨센서스 노드 서비스체인을 설정하겠습니다.
 
 ![](/img/nodes/sc-4scn-arch.png)
 
-## Prerequisites <a id="prerequisites"></a>
+## 전제 조건 <a id="prerequisites"></a>
 
-- Download packages for `kscn`, `homi` binary from [Download](../../downloads/downloads.md).
-- 4 Linux or MacOS servers
-- Minimum hardware requirements
+- [다운로드 페이지](../../downloads/downloads.md)에서 `kscn`, `homi` 바이너리용 패키지를 다운로드합니다.
+- Linux 또는 MacOS 서버 4대
+- 최소 하드웨어 요구사항
   - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
   - Please refer to [System Requirements](../system-requirements.md) for more explanation.
 
