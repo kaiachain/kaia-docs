@@ -1,10 +1,10 @@
-# Frequently Used Commands
+# 자주 쓰는 명령어
 
-## How to find the Kaia Directory (Normally “Kaia DIR”)
+## 카이아 디렉터리(일반적으로 "카이아 DIR") 찾는 방법
 
 ---
 
-You can check Kaia directory at `kcn` or `kpn` config. Config file is located under `/etc/kcnd/conf` or `/etc/kpnd/conf`.
+카이아 디렉터리는 `kcn` 또는 `kpn` 설정에서 확인할 수 있습니다. 설정 파일은 `/etc/kcnd/conf` 또는 `/etc/kpnd/conf` 아래에 있습니다.
 
 ```bash
 cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)
@@ -14,11 +14,11 @@ DATA_DIR=/var/kcnd/data/
 LOG_DIR=/var/kcnd/logs/
 ```
 
-## How to connect to Kaia Console
+## 카이아 콘솔에 접속하는 방법
 
 ---
 
-Connect to Kaia API to check node and network status.
+카이아 API에 연결하여 노드 및 네트워크 상태를 확인합니다.
 
 ```bash
 # execute the command below in the Kaia DATA_DIR Path
@@ -26,7 +26,7 @@ $ sudo kcn attach kaia.ipc
 > 
 ```
 
-## Useful APIs
+## 유용한 API
 
 ```bash
 # Check current block Number
@@ -46,7 +46,7 @@ $ sudo kcn attach kaia.ipc
   > admin.removePeer("kni")
 ```
 
-## How to get the API Result only
+## API 결과만 가져오기
 
 ```jsx
 # execute the command below in the Kaia DATA_DIR Path
