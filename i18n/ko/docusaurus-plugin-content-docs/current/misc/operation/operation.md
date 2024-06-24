@@ -1,6 +1,6 @@
-# Operation Guide
+# 운영 가이드
 
-This guide serves as a handy quick reference for Node operators to efficiently configure, monitor, and troubleshoot their Kaia nodes. It covers common tasks like configuring nodes, understanding and analyzing logs, managing chaindata, and using essential commands. The guide aims to help Node operators smoothly run and maintain their blockchain nodes by equipping them with key information and best practices.
+이 가이드는 노드 운영자가 카이아 노드를 효율적으로 구성하고, 모니터링하고, 문제를 해결할 수 있도록 도와주는 편리한 퀵 레퍼런스 역할을 합니다. 이 가이드는 노드 구성, 로그 이해 및 분석, 체인 데이터 관리, 필수 명령어 사용과 같은 일반적인 작업을 다룹니다. 이 가이드는 노드 운영자에게 핵심 정보와 모범 사례를 제공하여 블록체인 노드를 원활하게 운영하고 유지 관리할 수 있도록 돕는 것을 목표로 합니다.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
