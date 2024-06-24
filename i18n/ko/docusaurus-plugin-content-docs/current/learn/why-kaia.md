@@ -90,13 +90,13 @@
 [Multiple Key Pairs and Role-Based Keys]: ./accounts.md#multiple-key-pairs-and-role-based-keys
 [Human-Readable Address]: ./accounts.md#human-readable-address-hra
 [Consensus Mechanism]: ./consensus-mechanism.md
-[Affordable Smart Contract Execution Cost]: computation/klaytn-smart-contract.md#affordable-smart-contract-execution-cost
+[Affordable Smart Contract Execution Cost]: computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost
 [Transaction Fees]: transaction-fees/transaction-fees.md
 [Fee Delegation]: ./transactions/transactions.md#fee-delegation
 [Service Chain]: ./scaling-solutions.md#service-chain
 [Solidity-Smart Contract Language]: ../build/smart-contracts/solidity-smart-contract-language.md
 [Truffle]: ../build/smart-contracts/ide-and-tools/truffle.md
-[Migrating Ethereum App to Kaia]: ../build/tutorials/migrating-ethereum-app-to-klaytn.md
+[Migrating Ethereum App to Kaia]: ../build/tutorials/migrating-ethereum-app-to-kaia.md
 [Incentive Program]: ./token-economy.md
-[Kaia Improvement Reserve]: ./token-economy.md#klaytn-improvement-reserve
-[Kaia Growth Fund]: ./token-economy.md#klaytn-growth-fund
+[Kaia Improvement Reserve]: ./token-economy.md#kaia-improvement-reserve
+[Kaia Growth Fund]: ./token-economy.md#kaia-growth-fund
