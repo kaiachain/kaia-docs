@@ -1,13 +1,13 @@
-# About Kaia Nodes
+# 카이아 노드 소개
 
-The Kaia network is comprised of three types of nodes:
+카이아 네트워크는 세 가지 유형의 노드로 구성됩니다:
 
-- Consensus Node (CN): CNs are responsible for validating transactions and producing new blocks.
-- Proxy Node (PN): PNs relay transactions between CNs and ENs.
-- Endpoint Node (EN): ENs provide public access to the Kaia network.
+- 합의 노드(CN): CN은 트랜잭션의 유효성을 검사하고 새로운 블록을 생성하는 역할을 담당합니다.
+- 프록시 노드(PN): PN은 CN과 EN 사이에서 트랜잭션을 중계합니다.
+- 엔드포인트 노드(EN): EN은 카이아 네트워크에 대한 퍼블릭 액세스를 제공합니다.
 
-To participate in consensus and governance, you are required to run a CN. CNs must meet certain hardware and software requirements, and they must stake KAIA tokens.
+컨센서스 및 거버넌스에 참여하려면 CN을 운영해야 합니다. CN은 특정 하드웨어 및 소프트웨어 요구 사항을 충족해야 하며, KAIA 토큰을 스테이킹해야 합니다.
 
-You can also run a PN or EN to support the Kaia network. PNs and ENs do not require staking, but they do require some technical expertise and resources.
+또한 PN이나 EN을 실행하여 Kaia 네트워크를 지원할 수도 있습니다. PN과 EN은 스테이킹이 필요하지 않지만, 약간의 기술적 전문 지식과 리소스가 필요합니다.
 
-This section provides all the necessary information to set up and operate an Endpoint Node, and contribute to the Kaia network or configure and run a Consensus Node to participation in Kaia's network governance.
+이 섹션에서는 엔드포인트 노드를 설정하고 운영하며 카이아 네트워크에 기여하거나 컨센서스 노드를 구성하고 운영하여 카이아 네트워크 거버넌스에 참여하는 데 필요한 모든 정보를 제공합니다.
