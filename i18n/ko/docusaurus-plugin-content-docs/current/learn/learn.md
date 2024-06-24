@@ -108,7 +108,7 @@ PNN은 PN으로 구성됩니다.
 
 #### 제안자 및 위원회 선정 <a id="proposer-and-committee-selection"></a>
 
-In each round, Klaytn randomly but deterministically selects a Consensus Node
+In each round, Kaia randomly but deterministically selects a Consensus Node
 (CN) as the <LinkWithTooltip to="../misc/glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">proposer</LinkWithTooltip> for the block to be created, and then selects a group of CNs as the committee for the given round. 카이아는 제안자나 위원회 선정에 직접 관여하지 않으며, 대신 각 CN은 가장 최근의 블록에서 파생된 가장 최근의 블록 헤더에서 파생된 난수를 사용하여 암호화 연산을 실행하여 해당 CN이 이번 라운드에 선택되었는지 여부를 증명합니다. CNN의 크기가 작으면 제안자를 제외한 모든 CN을
 위원으로 선정될 수 있습니다.
 
@@ -135,6 +135,6 @@ In each round, Klaytn randomly but deterministically selects a Consensus Node
 
 ## 블록 보상 <a id="block-rewards"></a>
 
-For each round, block reward (which is the sum of 6.4 newly minted <LinkWithTooltip tooltip="The native token of the Kaia blockchain.">KLAY</LinkWithTooltip> and
+For each round, block reward (which is the sum of 6.4 newly minted <LinkWithTooltip tooltip="The native token of the Kaia blockchain.">KAIA</LinkWithTooltip> and
 transaction fees paid to process the block) will be distributed to
 the network participants according to preset distribution ratios. 새로 생성된 블록의 제안자는 CN에게 지급되는 보상의 100%를 받게 되는 반면, 위원회는 아무것도 받지 못합니다. 제안자로 선정될 확률은 CN이 스테이킹한 KAIA의 양에 영향을 받으며, 이는 플랫폼에 더 많은 KAIA를 투자한 CN이 확률적으로 더 많은 보상을 받을 수 있다는 것을 의미합니다. 블록 보상 분배에 대한 자세한 내용은 [카이아 토큰 이코노미](./token-economy.md) 섹션에서 확인할 수 있습니다.
