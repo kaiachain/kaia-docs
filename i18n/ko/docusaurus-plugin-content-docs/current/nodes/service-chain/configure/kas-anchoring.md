@@ -1,60 +1,60 @@
-# Use Data Anchoring with KAS
+# KAS로 데이터 앵커링 사용
 
-As explained in the design section, you can anchor your service chain data to Kaia main chain.
-This page introduces how to enable data anchoring via [KAS (Kaia API Service)](https://www.klaytnapi.com).
+디자인 섹션에서 설명한 것처럼 서비스 체인 데이터를 카이아 메인체인에 앵커링할 수 있습니다.
+이 페이지에서는 [KAS(Kaia API 서비스)](https://www.klaytnapi.com)를 통해 데이터 앵커링을 활성화하는 방법을 소개합니다.
 
-Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Mainnet or Kairos as a proof of existence and immutability of the service chain.
-This ensures the security and credibility of the service chain.
+이 기능을 켜면 서비스 체인의 노드는 서비스 체인의 존재와 불변성을 증명하기 위해 주기적으로 체인 데이터(블록 데이터)를 메인넷 또는 Kairos에 앵커링할 수 있습니다.
+이를 통해 서비스 체인의 보안과 신뢰성을 보장할 수 있습니다.
 
-## Preparation for Using KAS <a id="preparation-with-kas"></a>
+## KAS 사용 준비 <a id="preparation-with-kas"></a>
 
-This section introduces the pre-requisites to use KAS for data anchoring.
+이 섹션에서는 데이터 앵커링에 KAS를 사용하기 위한 전제 조건에 대해 소개합니다.
 
-### Sign Up KAS (Kaia API Service) <a id="sign-up-kas"></a>
+### KAS(카이아 API 서비스) 가입하기 <a id="sign-up-kas"></a>
 
-First, you need to sign up KAS on the [KAS console website](https://www.klaytnapi.com) to get a KAS account.
-Please visit the website above and sign up in KAS.
+먼저, KAS 계정을 발급받기 위해서는 [KAS 콘솔 웹사이트](https://www.klaytnapi.com)에서 KAS를 가입해야 합니다.
+위 웹사이트에 접속하여 KAS에 가입하세요.
 
-[![main page](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
+[![메인 페이지](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
 
-[![sign up](/img/nodes/kas-signup-en.png)](https://www.klaytnapi.com)
+[![가입](/img/nodes/kas-signup-en.png)](https://www.klaytnapi.com)
 
-### Create Credential <a id="check-credential"></a>
+### 인증정보 만들기 <a id="check-credential"></a>
 
-After login, you can create your credential like below.
-The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs.
+로그인 후 아래와 같이 크리덴셜을 생성할 수 있습니다.
+`AccessKey ID`와 `Secret AccessKey` 또는 `Authorization`은 KAS API를 호출할 때 사용됩니다.
 
-![credential](/img/nodes/kas-credential-en.png)
+![자격증명](/img/nodes/kas-credential-en.png)
 
-## Anchor API <a id="anchor-api"></a>
+## 앵커 API <a id="anchor-api"></a>
 
-KAS provides Anchor API, which is designed for data anchoring and surely it is the one that you are going to use for anchoring task.
+KAS는 데이터 앵커링을 위해 설계된 앵커 API를 제공하고 있으며, 앵커링 작업에 사용하실 것입니다.
 
-![anchor api](/img/nodes/kas-anchor-api-en.png)
+![앵커 API](/img/nodes/kas-anchor-api-en.png)
 
-## Create Operator Address <a id="create-kas-credential"></a>
+## 오퍼레이터 주소 생성 <a id="create-kas-credential"></a>
 
-To anchor service chain data via KAS, there should be a Kaia address, enrolled in KAS, that actually send anchoring transaction to Kaia. So, before you set up your service node, you need to create an Kaia account called "operator" via KAS. Please, use KAS console to create this account.
+KAS를 통해 서비스체인 데이터를 앵커링하려면, 실제로 카이아에 앵커링 트랜잭션을 전송하는 카이아 주소가 KAS에 등록되어 있어야 합니다. 따라서 서비스 노드를 설정하기 전에 KAS를 통해 "operator"라는 카이아 계정을 생성해야 합니다. 이 계정은 KAS 콘솔에서 생성할 수 있습니다.
 
-It is important to be noticed that you must **first select the chain** in Kaia to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Mainnet/Kairos).
+주의할 점은 **KAS 콘솔 페이지의 오른쪽 상단에서** 데이터를 앵커링할 체인을 카이아에서 **먼저 선택**해야 한다는 점입니다. 각 체인에 대한 오퍼레이터를 생성해야 합니다(Mainnet/Kairos).
 
-![select chain](/img/nodes/kas-select-chain-en.png)
+![선택 체인](/img/nodes/kas-select-chain-en.png)
 
-Create an operator as below.
+아래와 같이 연산자를 생성합니다.
 
-![create operator](/img/nodes/kas-create-operator-en.png)
+![연산자 만들기](/img/nodes/kas-create-operator-en.png)
 
-Then, you can check your operator list like below.
-Please note that the address of an operator is required for setting your service chain node.
+그러면 아래와 같이 운영자 목록을 확인할 수 있습니다.
+서비스 체인 노드를 설정하려면 오퍼레이터의 주소가 필요합니다.
 
-![create operator](/img/nodes/kas-operator-list-en.png)
+![연산자 만들기](/img/nodes/kas-operator-list-en.png)
 
-## Configure Service Chain Node <a id="configure-service-chain-node"></a>
+## 서비스 체인 노드 구성하기 <a id="configure-service-chain-node"></a>
 
-After obtaining API credentials, Anchor API information (API endpoint and parameters), and an operator account in KAS, then It is time to set up your service chain node.
-You need to edit the configuration file (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) of your service chain node like below.
+KAS에서 API 자격 증명, 앵커 API 정보(API 엔드포인트 및 파라미터), 운영자 계정을 획득했다면 이제 서비스 체인 노드를 설정할 차례입니다.
+아래와 같이 서비스 체인 노드의 설정 파일(`kscnd.conf`, `kspnd.conf`, `ksend.conf`)을 수정해야 합니다.
 
-You should set `SC_SUB_BRIDGE=1` and all `SC_KAS_` prefix items.
+`SC_SUB_BRIDGE=1` 및 모든 `SC_KAS_` 접두사 항목을 설정해야 합니다.
 
 ```bash
 ...
@@ -73,10 +73,10 @@ SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Mainne
 ...
 ```
 
-## Run Service Chain Node <a id="run-service-chain-node"></a>
+## 서비스 체인 노드 실행 <a id="run-service-chain-node"></a>
 
-Now you are good to go. You can run your service chain node.
-You will see the log message related with KAS Anchor API like below.
+이제 준비되었습니다. 서비스 체인 노드를 실행할 수 있습니다.
+아래와 같이 KAS 앵커 API와 관련된 로그 메시지를 확인할 수 있습니다.
 
 ```bash
 ...
@@ -93,8 +93,8 @@ INFO[09/10,18:09:32 +09] [53] Anchored a block via KAS                  blkNum=8
 ...
 ```
 
-## List of Transaction <a id="list-of-transaction"></a>
+## 트랜잭션 목록 <a id="list-of-transaction"></a>
 
-In KAS console website, you can see the list of anchoring transactions that the operator of your service chain has sent at "KAS Console - Service - Anchor - Operators" menu like below.
+KAS 콘솔 웹사이트의 "KAS Console - Service - Anchor - Operators" 메뉴에서 아래와 같이 서비스 체인의 오퍼레이터가 전송한 앵커링 트랜잭션 목록을 확인할 수 있습니다.
 
-![anchoring transaction list](/img/nodes/kas-tx-list-en.png)
+![앵커링 트랜잭션 목록](/img/nodes/kas-tx-list-en.png)
