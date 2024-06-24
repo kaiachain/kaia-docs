@@ -1,69 +1,69 @@
-# Network Configuration
+# 네트워크 구성
 
-A Core Cell can be made up of:
+코어 셀은 다음으로 구성할 수 있습니다:
 
-- multiple subnets (recommended)
-- a single subnet
+- 다중 서브넷(권장)
+- 단일 서브넷
 
-## A Core Cell with Multiple Subnets <a id="a-core-cell-with-multiple-subnets"></a>
+## 여러 서브넷이 있는 코어 셀 <a id="a-core-cell-with-multiple-subnets"></a>
 
-It is recommended to have a two-layer subnet which is used in general web services such as DB + AppServer and Proxy Web Servers. This design of the subnet has more advantages on the security.
+DB + 앱서버, 프록시 웹서버 등 일반적인 웹 서비스에서 사용하는 2계층 서브넷을 사용하는 것을 권장합니다. 이 서브넷 설계는 보안에 더 많은 이점이 있습니다.
 
-Since monitoring servers are also required for managing all servers as another layer, the following section describes how to setup a Core Cell with a three-layer subnet.
+모니터링 서버는 모든 서버를 다른 계층으로 관리하기 위해서도 필요하므로 다음 섹션에서는 3계층 서브넷으로 코어 셀을 설정하는 방법을 설명합니다.
 
-The three-layer subnet consists of the following:
+3계층 서브넷은 다음과 같이 구성됩니다:
 
-- CN Subnet
-- PN Subnet
-- Management (Mgmt) Subnet
+- CN 서브넷
+- PN 서브넷
+- 관리(Mgmt) 서브넷
 
-### CN Subnet <a id="cn-subnet"></a>
+### CN 서브넷 <a id="cn-subnet"></a>
 
-A CN Subnet consists of CN servers in Core Cells. The working CN in a Core Cell is only one, but spare one should be prepared for high availability. IP/Port of all CNs within the Core Cell Network (CCN) must be opened to each other because they try to connect to the others from the outside of the Core Cell. (This connection information can be received from Kairos operators.) The internal communication with other subnets in the Core Cell requires to open default port (32323: default Kaia P2P port number) in order to connect to PNs of the PN Subnet. Furthermore, it is necessary to open other ports such as the CN monitoring port (61001) for the monitoring server and the SSH port (22) for the management purpose. If the multichannel feature is used, another port (32324: default multichannel port) should be opened as well.
+CN 서브넷은 코어 셀의 CN 서버로 구성됩니다. 코어 셀에서 작동하는 CN은 하나뿐이지만 고가용성을 위해 여분의 CN을 준비해야 합니다. 코어 셀 외부에서 다른 코어 셀과 연결을 시도하기 때문에 코어 셀 네트워크(CCN) 내 모든 CN의 IP/포트는 서로 개방되어 있어야 합니다. (이 연결 정보는 Kairos 운영자로부터 받을 수 있습니다.) 코어 셀 내 다른 서브넷과의 내부 통신을 위해서는 기본 포트(32323: 기본 카이아 P2P 포트 번호)를 열어야 PN 서브넷의 PN과 연결할 수 있습니다. 또한, 모니터링 서버를 위한 CN 모니터링 포트(61001), 관리 목적의 SSH 포트(22) 등 다른 포트도 개방해야 합니다. 멀티채널 기능을 사용하는 경우 다른 포트(32324: 기본 멀티채널 포트)도 함께 열어야 합니다.
 
-![CN Subnet](/img/nodes/cn_subnet.png)
+![CN 서브넷](/img/nodes/cn_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                                | Egress |
-| :------------ | :----------------------------------- | :--------------------------------------------------------------------- | :----- |
-| CN Subnet     | PN Subnet                            | P2P: 32323 (32324 for multichannel) | All    |
-| CN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001             | All    |
-| CN Subnet     | Public (Internet) | each CN's IP and P2P port                                              | All    |
+| 원본 서브넷 | 대상 서브넷                     | Ingress                                                       | Egress |
+| :----- | :------------------------- | :------------------------------------------------------------ | :----- |
+| CN 서브넷 | PN 서브넷                     | P2P: 32323(멀티채널의 경우 32324) | 모두     |
+| CN 서브넷 | Mgmt 서브넷                   | SSH: 22, 모니터링: 61001          | 모두     |
+| CN 서브넷 | 공용(인터넷) | 각 CN의 IP 및 P2P 포트                                             | 모두     |
 
-### PN Subnet <a id="pn-subnet"></a>
+### PN 서브넷 <a id="pn-subnet"></a>
 
-A PN Subnet consists of the PN servers to provide services in order to connect to the external ENs.
+PN 서브넷은 외부 EN에 연결하기 위해 서비스를 제공하는 PN 서버로 구성됩니다.
 
-A PN subnet is connected to the following nodes:
+PN 서브넷은 다음 노드에 연결됩니다:
 
-- CNs in Core Cells
-- Some PNs of other Core Cells
-- Core Cell Management Servers (Mgmt, Monitoring)
-- EN nodes
+- 코어 셀의 CN
+- 다른 코어 셀의 일부 PN
+- 코어 셀 관리 서버(관리, 모니터링)
+- EN 노드
 
-![PN Subnet](/img/nodes/pn_subnet.png)
+![PN 서브넷](/img/nodes/pn_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                                | Egress |
-| :------------ | :----------------------------------- | :--------------------------------------------------------------------- | :----- |
-| PN Subnet     | CN Subnet                            | P2P: 32323 (32324 for multichannel) | All    |
-| PN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001             | All    |
-| PN Subnet     | Public (Internet) | P2P: 32323                                             | All    |
+| 원본 서브넷 | 대상 서브넷                     | Ingress                                                       | Egress |
+| :----- | :------------------------- | :------------------------------------------------------------ | :----- |
+| PN 서브넷 | CN 서브넷                     | P2P: 32323(멀티채널의 경우 32324) | 모두     |
+| PN 서브넷 | Mgmt 서브넷                   | SSH: 22, 모니터링: 61001          | 모두     |
+| PN 서브넷 | 공용(인터넷) | P2P: 32323                                    | 모두     |
 
-### Mgmt Subnet <a id="mgmt-subnet"></a>
+### Mgmt 서브넷 <a id="mgmt-subnet"></a>
 
-A Mgmt Subnet is a gateway subnet for the operator to enter into the Core Cell nodes through ssh. A VPN server may be necessary to make the connection together with a monitoring server and a management server installed with a tool to manage the Core Cell nodes.
+Mgmt 서브넷은 운영자가 ssh를 통해 코어 셀 노드에 들어가기 위한 게이트웨이 서브넷입니다. 모니터링 서버 및 코어 셀 노드를 관리하는 도구가 설치된 관리 서버와 함께 연결하기 위해 VPN 서버가 필요할 수 있습니다.
 
-![Management Subnet](/img/nodes/admin_subnet.png)
+![Mgmt 서브넷](/img/nodes/admin_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                                                               | Egress |
-| :------------ | :----------------------------------- | :---------------------------------------------------------------------------------------------------- | :----- |
-| Mgmt Subnet   | CN Subnet                            | All                                                                                                   | All    |
-| Mgmt Subnet   | PN Subnet                            | All                                                                                                   | All    |
-| Mgmt Subnet   | Public (Internet) | VPN (tcp): 443, VPN (udp): 1194 | All    |
+| 원본 서브넷   | 대상 서브넷                     | Ingress                                                                                               | Egress |
+| :------- | :------------------------- | :---------------------------------------------------------------------------------------------------- | :----- |
+| Mgmt 서브넷 | CN 서브넷                     | 모두                                                                                                    | 모두     |
+| Mgmt 서브넷 | PN 서브넷                     | 모두                                                                                                    | 모두     |
+| Mgmt 서브넷 | 공용(인터넷) | VPN (tcp): 443, VPN (udp): 1194 | 모두     |
 
-## A Core Cell with a Single Subnet <a id="a-core-cell-with-a-single-subnet"></a>
+## 단일 서브넷이 있는 코어 셀 <a id="a-core-cell-with-a-single-subnet"></a>
 
-A single subnet of a Core Cell is built for the development/test purpose or under the difficult circumstances to create multiple subnets.
+코어 셀의 단일 서브넷은 개발/테스트 목적 또는 여러 서브넷을 생성하기 어려운 상황에서 구축됩니다.
 
-All nodes are setup under a single CC subnet. Firewall setup is also necessary for the CN to connect to other CNs within the CNN using P2P port (32323, 32324 for multichannel option). The P2P port of the PN is opened to connect with ENs in Endpoint Node Network (ENN) and PNs in the Core Cell Network (CNN). Additionally, an optional VPN and monitoring servers are required to be managed remotely.
+모든 노드는 단일 CC 서브넷 아래에 설정됩니다. CN이 P2P 포트(다중 채널 옵션의 경우 32323, 32324)를 사용하여 CNN 내의 다른 CN에 연결하려면 방화벽 설정도 필요합니다. PN의 P2P 포트는 엔드포인트 노드 네트워크(ENN)의 EN 및 코어 셀 네트워크(CNN)의 PN과 연결하기 위해 열립니다. 또한 원격으로 관리하려면 옵션으로 제공되는 VPN과 모니터링 서버가 필요합니다.
 
-![CC with a Single Subnet](/img/nodes/cc_single_subnet.png)
+![단일 서브넷을 사용하는 CC](/img/nodes/cc_single_subnet.png)
