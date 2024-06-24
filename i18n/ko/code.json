@@ -86,11 +86,11 @@
     "description": "The ARIA label for the navbar color mode toggle"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
-    "message": "어두운 모드",
+    "message": "다크 모드",
     "description": "The name for the dark color mode"
   },
   "theme.colorToggle.ariaLabel.mode.light": {
-    "message": "밝은 모드",
+    "message": "라이트 모드",
     "description": "The name for the light color mode"
   },
   "theme.blog.post.paginator.navAriaLabel": {
@@ -157,7 +157,7 @@
     "description": "The link label to edit the current page"
   },
   "theme.common.headingLinkTitle": {
-    "message": "제목으로 바로 가기",
+    "message": "{heading}으로 이동하기",
     "description": "Title for link to heading"
   },
   "theme.lastUpdated.atDate": {
@@ -269,7 +269,7 @@
     "description": "The 2nd paragraph of the 404 page"
   },
   "theme.docs.breadcrumbs.home": {
-    "message": "홈",
+    "message": "홈페이지",
     "description": "The ARIA label for the home page in the breadcrumbs"
   },
   "theme.docs.sidebar.collapseButtonTitle": {
@@ -301,11 +301,11 @@
     "description": "The ARIA label for hamburger menu button of mobile navigation"
   },
   "theme.docs.sidebar.expandButtonTitle": {
-    "message": "사이드바 열기",
+    "message": "사이드바 펼치기",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.docs.sidebar.expandButtonAriaLabel": {
-    "message": "사이드바 열기",
+    "message": "사이드바 펼치기",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.SearchBar.seeAll": {
@@ -416,7 +416,7 @@
     "description": "The ARIA label for the Escape key button that close the modal"
   },
   "theme.SearchModal.footer.searchByText": {
-    "message": "검색 제공",
+    "message": "사이드바 펼치기",
     "description": "The text explain that the search is making by Algolia"
   },
   "theme.SearchModal.noResultsScreen.noResultsText": {
@@ -476,28 +476,28 @@
     "description": "The unlisted content banner message"
   },
   "Kaia Overview": {
-    "message": "Kaia Overview"
+    "message": "Kaia 개요"
   },
   "Want to know about Kaia?": {
-    "message": "Want to know about Kaia?"
+    "message": "Kaia에 대해 알아보시겠습니까?"
   },
   "Want to start building on Kaia?": {
-    "message": "Want to start building on Kaia?"
+    "message": "Kaia로 뭔가를 만들어 보고 싶은가요?"
   },
   "Instructions on running Kaia's nodes": {
-    "message": "Instructions on running Kaia's nodes"
+    "message": "Kaia 노드를 운영해보고 싶은가요?"
   },
   "Kaia Developer Hub": {
-    "message": "Kaia Developer Hub"
+    "message": "Kaia 개발자 허브"
   },
   "Kaia's Developer portal": {
-    "message": "Kaia's Developer portal"
+    "message": "Kaia 개발자 포털 사이트"
   },
   "Kaia Developer Forum": {
-    "message": "Kaia Developer Forum"
+    "message": "Kaia 개발자 포럼"
   },
   "theme.docs.DocCard.categoryDescription.plurals": {
-    "message": "{count} items",
+    "message": "{count} 항목",
     "description": "The default description for a category card in the generated index about how many items this category includes"
   }
 }
