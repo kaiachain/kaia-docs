@@ -34,7 +34,7 @@
 
 서비스 체인 합의 노드의 아카이브 파일은 다음과 같은 디렉터리 레이아웃을 가지고 있습니다.
 
-| fileName                        | 파일 설명             |
+| 파일명                             | 파일 설명             |
 | :------------------------------ | :---------------- |
 | bin/kscn                        | SCN 실행 파일         |
 | bin/kscnd                       | SCN 시작/종료 스크립트 파일 |
@@ -42,7 +42,7 @@
 
 Homi 바이너리의 아카이브 파일은 다음과 같은 디렉터리 레이아웃을 가지고 있습니다.
 
-| fileName | 파일 설명      |
+| 파일명      | 파일 설명      |
 | :------- | :--------- |
 | bin/homi | HOMI 실행 파일 |
 
@@ -66,7 +66,7 @@ $ yum install homi-vX.X.X.el7.x86_64.rpm
 
 카이아 리눅스 패키지는 실행 가능한 바이너리와 다음과 같은 구조의 설정 파일로 구성되어 있습니다.
 
-| fileName                   | location                                   |
+| 파일명                        | 위치                                         |
 | :------------------------- | :----------------------------------------- |
 | kscn                       | /usr/bin/kscn                              |
 | kscnd.conf | /etc/kscnd/conf/kscnd.conf |
@@ -97,8 +97,8 @@ Created :  homi-output/scripts/genesis.json
 Created :  homi-output/keys/nodekey1
 Created :  homi-output/keys/validator1
 Created :  homi-output/scripts/static-nodes.json
-Created :  homi-output/Klaytn.json
-Created :  homi-output/Klaytn_txpool.json
+Created :  homi-output/Kaia.json
+Created :  homi-output/Kaia_txpool.json
 ```
 
 다음은 제네시스 파일과 노드키 파일의 예시입니다.
@@ -333,7 +333,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  >
 ```
 
-You can check the usable commands on [API Document](../../../references/json-rpc/klay/account-created)
+사용 가능한 명령어는 [API 문서](../../../references/json-rpc/klay/account-created)에서 확인할 수 있습니다.
 
 SCN의 상태를 확인하는 데 유용한 API입니다:
 
@@ -345,7 +345,7 @@ SCN의 상태를 확인하는 데 유용한 API입니다:
 최신 블록 번호를 확인하여 블록이 제대로 전파되었는지 확인할 수 있습니다.
 
 ```text
-> klay.blockNumber
+> kaia.blockNumber
 11573819
 ```
 
