@@ -94,7 +94,7 @@ export const App = () => {
 
 ## 계정 및 잔액 가져오기
 
-이제 `ConnectButton`을 통해 지갑이 성공적으로 연결되었으므로 연결된 사용자의 클레이튼 주소를 조회할 수 있습니다. 또한, `@particle-network/connectkit` 내의 `useParticleProvider`에서 검색한 해당 EIP-1193 공급자 객체를 전달하여 ethers.js를 통해 현재 잔액(KLAY)을 검색할 수 있습니다.
+이제 `ConnectButton`을 통해 지갑이 성공적으로 연결되었으므로 연결된 사용자의 카이아 주소를 조회할 수 있습니다. 또한, `@particle-network/connectkit` 내의 `useParticleProvider`에서 검색한 해당 EIP-1193 공급자 객체를 전달하여 ethers.js를 통해 현재 잔액(KLAY)을 검색할 수 있습니다.
 
 ```js
 import { useParticleProvider } from '@particle-network/connectkit';
@@ -227,7 +227,7 @@ return (
 
 ## 네이티브 트랜잭션 보내기
 
-`signer.signMessage`와 마찬가지로 동일한 공급자 메커니즘을 사용하여 네이티브 트랜잭션을 보낼 수 있으며, 이 경우 KLAY를 사용할 수 있습니다. 이는 `signer.sendTransaction`을 통해 `to`, `value` 등과 같은 표준 필드를 전달하여 수행할 수 있습니다.
+`signer.signMessage`와 마찬가지로 동일한 공급자 메커니즘을 사용하여 네이티브 트랜잭션을 보낼 수 있으며, 이 경우 KAIA를 사용할 수 있습니다. 이는 `signer.sendTransaction`을 통해 `to`, `value` 등과 같은 표준 필드를 전달하여 수행할 수 있습니다.
 
 ```js
     // add to the existing useState hook.

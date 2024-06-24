@@ -1,30 +1,30 @@
-# Thiết lập môi trường
+# Set up environment
 
-> **[MUST] For this tutorial, you must follow the versions specified on the [first page](count-dapp.md#testing-environment) when you are setting up the environment. Please change the node version to 10.16.0 by using nvm before downloading caver-js.**
+> **\[MUST\] For this tutorial, you must follow the versions specified on the [first page](count-dapp.md#testing-environment) when you are setting up the environment. Please change the node version to 10.16.0 by using nvm before downloading caver-js.**
 
-## 1. Cài đặt Node.js (npm) <a id="1-install-node-js-npm"></a>
+## 1. Install Node.js (npm) <a id="1-install-node-js-npm"></a>
 
-- Tải xuống Node.js (npm) từ trang web chính thức: https\://nodejs.org/
-- Cài đặt gói bằng cách nhấp vào tập tin tải xuống.
-- Gõ lệnh `$ node --version` trong cửa sổ lệnh để xác minh `node` đã được cài đặt thành công.
+- Download Node.js (npm) from the official site: https://nodejs.org/
+- Install the package by clicking the download file.
+- Type `$ node --version` in your terminal to verify `node` has been successfully installed.
   ```
   v10.16.0
   ```
 
-⚠ Tại thời điểm viết, phiên bản LTS mới nhất tương thích với `caver-js` là 10.16.0. Nếu bạn dùng phiên bản Node cao hơn, `caver-js` sẽ không cài đặt được. Cài đặt lại Node hoặc sử dụng [NVM (Trình quản lý phiên bản Node)](https://github.com/nvm-sh/nvm) để cài đặt môi trường ổn định.
+⚠ At the time of writing, the latest LTS version that is compatible with `caver-js` is 10.16.0. If you have a higher Node version, `caver-js` cannot be installed. Reinstall the Node or use [NVM (Node Version Manager)](https://github.com/nvm-sh/nvm) to set up a stable environment.
 
-## 2. Cài đặt Truffle <a id="2-install-truffle"></a>
+## 2. Install Truffle <a id="2-install-truffle"></a>
 
-Truffle là công cụ tuyệt vời để biên dịch và triển khai các tập tin hợp đồng.
+Truffle is a great tool for compiling and deploying contract files.
 
-> Sử dụng `nvm` để đặt phiên bản cho nút thành 12.0.0 chỉ khi bạn sử dụng truffle.
+> Use `nvm` to set the node version to 12.0.0 only if you are using truffle.
 
-- Gõ lệnh `$ nvm install 12.0.0`
-- Gõ lệnh `$ nvm use 12.0.0`
-- Gõ lệnh `$ sudo npm install -g truffle` trong cửa sổ lệnh để cài đặt truffle.
-- Gõ lệnh `$ truffle --version` trong cửa sổ lệnh để xác minh `truffle` đã được cài đặt thành công.
-- (**Triển khai hợp đồng thông minh của bạn bằng truffle**)
-- Gõ lệnh `$ nvm use 10.16.0` để quay về nút v10.16.0 sau khi sử dụng truffle.
+- Type `$ nvm install 12.0.0`
+- Type `$ nvm use 12.0.0`
+- Type `$ sudo npm install -g truffle` in your terminal to install the truffle.
+- Type `$ truffle version` in your terminal to verify `truffle` has been installed successfully.
+- (**Deploy your smart contract by using truffle**)
+- Type `$ nvm use 10.16.0` to come back node v10.16.0 after using truffle.
 
-⚠ Nếu phiên bản thấp hơn 5, cài đặt truffle phiên bản 5.\
+⚠ If the version is lower than 5, install the truffle version 5.\
 `$ sudo npm install -g truffle@5`

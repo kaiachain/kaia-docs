@@ -1,41 +1,41 @@
-# Di chuyển hợp đồng Ethereum
+# Import Ethereum Contracts
 
-Trong hầu hết các trường hợp, bạn có thể dùng hợp đồng Ethereum trên Klaytn mà không cần sửa đổi.
-Tuy nhiên, bạn cần lưu ý hai vấn đề sau.
+In most cases, you can use Ethereum contracts on Kaia without any modification.
+However, be aware of the following two issues.
 
-## Hỗ trợ Solidity <a id="solidity-support"></a>
+## Solidity Support <a id="solidity-support"></a>
 
-- Mạng lưới Baobab hiện tương thích với Máy ảo Ethereum (EVM) phiên bản **London**.
-- Mạng lưới Cypress hiện tương thích với Máy ảo Ethereum (EVM) phiên bản **London**.
+- Kairos network is currently compatible with **London** Ethereum Virtual Machine (EVM).
+- Mainnet is currently compatible with **London** Ethereum Virtual Machine (EVM).
 
 :::note
 
-Nâng cấp giao thức v1.7.0 - thay đổi không tương thích bao gồm các mục liên quan đến hard fork **Istanbul** và các mục riêng của Klaytn.
-Nó đã được kích hoạt từ số khối `#75,373,312` đối với mạng lưới Baobab và `#86,816,005` đối với mạng lưới Cypress.
+v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Kaia's own items.
+It has been enabled from block number `#75,373,312` in case of Kairos network and `#86,816,005` for the Mainnet.
 
-Nâng cấp giao thức v1.7.3 - thay đổi không tương thích bao gồm Base Fee từ lần hard fork **London**.
-Nó đã được kích hoạt từ số khối `#80,295,291` đối với mạng lưới Baobab và `#86,816,005` đối với mạng lưới Cypress.
+v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+It has been enabled from block number `#80,295,291` in case of Kairos network and `#86,816,005` for the Mainnet.
 
-Nâng cấp giao thức v1.8.0 - thay đổi không tương thích bao gồm Base Fee từ lần hard fork **London**.
-Nó đã được kích hoạt từ số khối `#86,513,895` đối với mạng lưới Baobab và `#86,816,005` đối với mạng lưới Cypress.
+v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+It has been enabled from block number `#86,513,895` in case of Kairos network and `#86,816,005` for the Mainnet.
 
 :::
 
-Không đảm bảo tính tương thích ngược với các phiên bản EVM khác trên Klaytn.
-Do đó, chúng tôi đặc biệt khuyến nghị biên dịch mã Solidity với tùy chọn mục tiêu chính xác theo trạng thái nâng cấp giao thức.
+Backward compatibility is not guaranteed with other EVM versions on Kaia.
+Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
 
-- Baobab: --evm-version london
-- Cypress: --evm-version london
-- Khác (chuỗi riêng/dịch vụ): được xác định theo trạng thái nâng cấp giao thức
+- Kairos: --evm-version london
+- Mainnet: --evm-version london
+- Others(private/service chain): determined according to the protocol upgrade status
 
-Vui lòng tham khảo [cách thiết lập phiên bản EVM của solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
+Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
 
-Dưới đây là một lệnh ví dụ:
+An example command is shown below:
 
 ```
 $ solc --evm-version london contract.sol
 ```
 
-## Cặp khóa tách rời <a id="decoupled-key-pairs"></a>
+## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>
 
-Klaytn [tách riêng cặp khóa khỏi địa chỉ](../../learn/accounts.md#decoupling-key-pairs-from-addresses). Nếu người dùng [cập nhật tài khoản](../../learn/transactions/basic.md#txtypeaccountupdate), khóa riêng tư cho tài khoản cụ thể sẽ được thay thế bằng một khóa khác. Trong hầu hết các trường hợp, điều này sẽ không ảnh hưởng đến logic kinh doanh của bạn. Tuy nhiên, nếu logic kinh doanh của bạn bao gồm ecrecover, bạn nên cân nhắc sử dụng validateSender. Để biết thêm chi tiết, hãy tham khảo [tại đây](../../learn/computation/precompiled-contracts.md).
+Kaia [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../../learn/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](../../learn/computation/precompiled-contracts.md).

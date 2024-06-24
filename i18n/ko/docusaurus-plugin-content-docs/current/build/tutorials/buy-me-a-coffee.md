@@ -5,7 +5,7 @@
 - [1. 프로젝트 설정](#1-project-setup)
 - [2. 커피 구매 스마트 컨트랙트 생성하기](#2-creating-a-buy-me-a-coffee-smart-contract)
 - [3. 스크립트를 사용하여 컨트랙트 기능 테스트하기](#3-testing-the-contracts-functionalities-using-scripts)
-- [4. 클레이튼 테스트넷에 BMC 스마트 컨트랙트 배포하기](#4-deploying-bmc-smart-contract)
+- [4. 카이아 테스트넷에 BMC 스마트 컨트랙트 배포하기](#4-deploying-bmc-smart-contract)
 - [5. 리액트와 Web3Onbaord로 BMC 프론트엔드 구축하기](#5-building-the-bmc-frontend-with-react-and-web3onboard)
 - [6. Fleek을 사용하여 IPFS에 프론트엔드 코드 배포하기](#6-deploying-frontend-code-on-ipfs-using-fleek)
 - [7. 결론](#7-conclusion)
@@ -21,13 +21,13 @@ Buy Me a Coffee(BMC)는 크리에이터가 팬이나 시청자로부터 금전�
 - 중개자 없이 팬으로부터 직접 후원금을 받을 수 있습니다.
 - 탈중앙화, 즉 플랫폼을 통제하는 중앙 기관이 없습니다.
 
-이 튜토리얼에서는 탈중앙화된 버전의 Buy Me a Coffee(BMC) 플랫폼(프런트엔드 + 스마트 컨트랙트)을 구축하게 됩니다. 이 플랫폼은 서포터가 팁을 줄 수 있는 기존 BMC 플랫폼을 최소한으로 구현한 것으로, 여러분은 컨트랙트의 소유자로서 BMC 스마트 컨트랙트로 전달된 팁을 인출할 수 있습니다. 서포터들은 이 사이트를 사용하여 커피 거래에서 테스트 KLAY와 러블리 메시지를 함께 보낼 수 있습니다.
+In this tutorial. 이 튜토리얼에서는 탈중앙화된 버전의 Buy Me a Coffee(BMC) 플랫폼(프런트엔드 + 스마트 컨트랙트)을 구축하게 됩니다. 이 플랫폼은 서포터가 팁을 줄 수 있는 기존 BMC 플랫폼을 최소한으로 구현한 것으로, 여러분은 컨트랙트의 소유자로서 BMC 스마트 컨트랙트로 전달된 팁을 인출할 수 있습니다. 서포터들은 이 사이트를 사용하여 커피 거래에서 테스트 KAIA와 러블리 메시지를 함께 보낼 수 있습니다.
 
 이 가이드가 끝날 때까지 다음을 사용하여 이 dApp을 만들 수 있습니다:
 
 - Solidity: BMC 스마트 컨트랙트를 작성하기 위해
 - NextJs와 Tailwind: BMC dApp을 위한 프론트엔드 웹사이트 구축용
-- Web3Onboard: 클레이튼 테스트넷 Baobab에 여러 지갑을 연결할 수 있도록 합니다.
+- Web3Onboard: 카이아 테스트넷 Kairos에 여러 지갑을 연결할 수 있도록 합니다.
 - Fleek: Fleek을 사용하면 IPFS에서 BMC dApp을 호스팅할 수 있습니다.
 
 ## 전제 조건 <a href="#2-prerequisites" id="2-prerequisites"></a>
@@ -37,7 +37,7 @@ Buy Me a Coffee(BMC)는 크리에이터가 팬이나 시청자로부터 금전�
 - [Node.js](https://nodejs.org/en/download/package-manager)
 - 후크 등과 같은 JavaScript 및 React 기본 사항에 익숙해야 합니다.
 - [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask 월렛](https://metamask.io/download/) 등 필요한 월렛 설치
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY를 테스트합니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA를 테스트합니다.
 - RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
 - [Fleek](https://app.fleek.co/)에서 계정을 생성합니다.
 
@@ -211,7 +211,7 @@ contract BuyMeACoffee {
 
     // buy coffee function
     function buyCoffee(string memory name, string memory message) public payable {
-	  // Must accept more than 0 KLAY for a coffee.
+	  // Must accept more than 0 KAIA for a coffee.
         require(msg.value > 0, "Tip must be greater than zero");
         coffeeId++;
 	
@@ -252,13 +252,13 @@ contract BuyMeACoffee {
 
 그 후 커피 거래와 관련된 모든 데이터(주소 발신자, 문자열 이름, 정수 타임스탬프, 문자열 메시지)를 저장하는 **buyMeACoffee struct**를 선언했습니다. 그런 다음 이 구조체를 **idToBuyCoffee** 변수를 사용하여 아이디에 매핑했습니다.
 
-buyCoffee 함수는 BMC 스마트 컨트랙트의 핵심 구현입니다. 이 함수는 발신자의 이름과 주소라는 두 가지 매개변수를 받는 지불 가능한 함수입니다. 이 함수는 전송된 KLAY 금액이 0보다 큰지 확인합니다. 다음으로 coffeeId를 증가시킨 다음 커피 트랜잭션 또는 정보를 블록체인에 추가합니다. 마지막으로 커피 트랜잭션의 세부 정보를 포함하는 NewCoffee 이벤트를 발생시킵니다.
+buyCoffee 함수는 BMC 스마트 컨트랙트의 핵심 구현입니다. 이 함수는 발신자의 이름과 주소라는 두 가지 매개변수를 받는 지불 가능한 함수입니다. 이 함수는 전송된 KAIA 금액이 0보다 큰지 확인합니다. 다음으로 coffeeId를 증가시킨 다음 커피 트랜잭션 또는 정보를 블록체인에 추가합니다. 마지막으로 커피 트랜잭션의 세부 정보를 포함하는 NewCoffee 이벤트를 발생시킵니다.
 
 컨트랙트의 총 잔액(`address(this).balance`)을 소유자에게 인출하는 **withdraw()** 함수를 만들었습니다.
 
 마지막으로 **getAllCoffee()** 함수가 생성되었습니다. 이 함수는 시간외에 생성된 모든 커피 트랜잭션을 반환합니다.
 
-이제 BMC 스마트 컨트랙트 작성을 마쳤으니 다음 단계는 스마트 컨트랙트의 기능을 테스트하고, **Klaytn 테스트넷 Baobab**에서 스마트 컨트랙트를 배포하고 상호작용하는 것입니다.
+이제 BMC 스마트 컨트랙트 작성을 마쳤으니 다음 단계는 스마트 컨트랙트의 기능을 테스트하고, **Kaia 테스트넷 Kairos**에서 스마트 컨트랙트를 배포하고 상호작용하는 것입니다.
 
 ## 3. 스크립트를 사용하여 컨트랙트의 기능 테스트하기 <a id="testing-bmc-contract-using-scripts"></a>
 
@@ -266,13 +266,13 @@ buyCoffee 함수는 BMC 스마트 컨트랙트의 핵심 구현입니다. 이 �
 
 ```js
 const hre = require("hardhat");
-// Logs the KLAY balances of a specific address.
+// Logs the KAIA balances of a specific address.
 async function getBalance(address) {
     const balanceBigInt = await hre.ethers.provider.getBalance(address);
     return hre.ethers.utils.formatEther(balanceBigInt)
 }
 
-// Logs the KLAY balances for a list of addresses.
+// Logs the KAIA balances for a list of addresses.
 async function getBalances(addresses) {
   let idx = 0;
   for (const address of addresses) {
@@ -377,9 +377,9 @@ At 1686307887, Japhet, with 0x90F79bf6EB2c4f870365E785982E1f101E93b906, said: "H
 
 ## 4. BMC 스마트 컨트랙트 배포
 
-### 4.1 클레이튼 테스트넷에 BMC 스마트 컨트랙트 배포하기 <a id="deploying-bmc-contract"></a>
+### 4.1 카이아 테스트넷에 BMC 스마트 컨트랙트 배포하기 <a id="deploying-bmc-contract"></a>
 
-BMC 스마트 컨트랙트의 기능을 성공적으로 테스트했다면, 다음 단계에 따라 Klaytn 테스트넷 Baobab에 배포해 보겠습니다:
+BMC 스마트 컨트랙트의 기능을 성공적으로 테스트했다면, 다음 단계에 따라 Kaia 테스트넷 Kairos에 배포해 보겠습니다:
 
 #### 1단계 - .env 파일 만들기
 
@@ -440,7 +440,7 @@ main().catch((error) => {
 });
 ```
 
-이제 모든 설정이 완료되었으므로 아래 명령어를 실행하여 Klaytn 테스트넷 Baobab에 배포해 보겠습니다:
+이제 모든 설정이 완료되었으므로 아래 명령어를 실행하여 Kaia 테스트넷 Kairos에 배포해 보겠습니다:
 
 ```bash
 npx hardhat run scripts/deploy.js --network baobab
@@ -452,7 +452,7 @@ npx hardhat run scripts/deploy.js --network baobab
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-클레이튼 Baobab 네트워크에 BMC 스마트 컨트랙트를 배포한 것을 축하드립니다! 검색창에 주소를 붙여넣으면 Klaytnscope에서 이 트랜잭션을 확인할 수 있습니다.
+카이아 Kairos 네트워크에 BMC 스마트 컨트랙트를 배포한 것을 축하드립니다! 검색창에 주소를 붙여넣으면 Klaytnscope에서 이 트랜잭션을 확인할 수 있습니다.
 
 ### 4.2 BMC 스마트 컨트랙트와 상호작용하기 <a id="interacting-with-bmc-contract"></a>
 
@@ -485,8 +485,8 @@ async function main() {
 
   const balanceBefore = await getBalance(signer.address);
   const contractBalance = await getBalance(BuyMeACoffee.address);
-  console.log(`Owner balance before withdrawing tips: ${balanceBefore} KLAY`);
-  console.log(`Contract balance before withdrawing tips:  ${contractBalance} KLAY`);
+  console.log(`Owner balance before withdrawing tips: ${balanceBefore} KAIA`);
+  console.log(`Contract balance before withdrawing tips:  ${contractBalance} KAIA`);
 
     // Withdraw funds if there are funds to withdraw.
     if (contractBalance !== "0.0") {
@@ -495,7 +495,7 @@ async function main() {
         await withdrawCoffeTxn.wait();
         // check owner's balance after withdrawing coffee tips
         const balanceAfter = await getBalance(signer.address);
-        console.log(`Owner balance after withdrawing tips ${balanceAfter} KLAY`);
+        console.log(`Owner balance after withdrawing tips ${balanceAfter} KAIA`);
       } else {
         console.log("no funds to withdraw!");
       }
@@ -510,7 +510,7 @@ main().catch((error) => {
 
 위의 코드에서 볼 수 있듯이 BMC 컨트랙트를 인스턴스화한 후 스크립트는 컨트랙트 잔액이 0보다 클 때만 withdrawCoffeTips 함수를 실행합니다.  이해가 되시나요?
 
-예! 컨트랙트에 자금이 없는 경우 "출금할 자금 없음"이라는 메시지가 표시되므로 컨트랙트 호출로 인한 가스를 절약할 수 있습니다.
+예! In the event where the contract has no funds, it prints "No funds to withdraw" hence saving us some gas from contract invocation.
 
 실제로 작동하는 모습을 보려면 아래 스크립트를 실행해 보세요:
 
@@ -522,13 +522,13 @@ npx hardhat run scripts/withdraw.js --network baobab
 
 ```bash
 Ayomitans-MacBook-Pro:smart-contract oxpampam$ npx hardhat run scripts/withdraw.js --network baobab
-Owner balance before withdrawing tips: 155.8337532 KLAY
-Contract balance before withdrawing tips:  2.0 KLAY
+Owner balance before withdrawing tips: 155.8337532 KAIA
+Contract balance before withdrawing tips:  2.0 KAIA
 withdrawing funds..
-Owner balance after withdrawing tips 157.83298835 KLAY
+Owner balance after withdrawing tips 157.83298835 KAIA
 ```
 
-출력에서 커피 팁을 인출한 후 소유자 잔액이 2 KLAY 증가한 것을 확인할 수 있습니다.
+출력에서 커피 팁을 인출한 후 소유자 잔액이 2 KAIA 증가한 것을 확인할 수 있습니다.
 
 이제 컨트랙트를 배포하고 모든 기능을 테스트했으니 이제 프론트엔드를 구축할 차례입니다.
 
@@ -545,8 +545,8 @@ cd frontend
 
 다음 단계는 BMC 프론트엔드 웹사이트를 실행하는 데 필요한 종속성을 설치하는 것입니다.  설치해야 할 패키지는 다음과 같습니다:
 
-1. Web3Onbaord 패키지: Web3-Onboard는 클레이튼 블록체인과 같은 EVM 호환 네트워크에 구축된 dApp에서 멀티월렛 호환성을 지원하는 체인에 구애받지 않는 지갑 라이브러리입니다.
-2. ethers.js: [ethers.js](https://docs.ethers.org/v6/), [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)와 같은 라이브러리와 함께 사용할 수 있는 Web3-Onboard 공급자. 이 가이드에서는 ethers.js를 사용하여 사용자 계정 가져오기, 잔액 가져오기, 트랜잭션 서명, 트랜잭션 보내기, 스마트 컨트랙트 읽기 및 쓰기와 같은 Klaytn 블록체인 호출을 해보겠습니다.
+1. Web3Onbaord 패키지: Web3-Onboard는 카이아 블록체인과 같은 EVM 호환 네트워크에 구축된 dApp에서 멀티월렛 호환성을 지원하는 체인에 구애받지 않는 지갑 라이브러리입니다.
+2. ethers.js: [ethers.js](https://docs.ethers.org/v6/), [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)와 같은 라이브러리와 함께 사용할 수 있는 Web3-Onboard 공급자. 이 가이드에서는 ethers.js를 사용하여 사용자 계정 가져오기, 잔액 가져오기, 트랜잭션 서명, 트랜잭션 보내기, 스마트 컨트랙트 읽기 및 쓰기와 같은 Kaia 블록체인 호출을 해보겠습니다.
 
 중요: 프론트엔드/페이지 폴더에서 2개의 파일을 편집해야 합니다.
 
@@ -605,8 +605,8 @@ Init 함수는 Web3-Onboard를 초기화하여 모든 후크가 사용할 수 �
 
 ```js
 const ETH_MAINNET_RPC_URL = `https://ethereum-mainnet-rpc.allthatnode.com/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KLAYTN_MAINNET_URL = `https://klaytn-mainnet-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KLAYTN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
+const KAIATN_MAINNET_URL = `https://klaytn-mainnet-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
+const KAIATN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
   const web3Onboard =  init({
     wallets: modules,
     chains: [
@@ -621,15 +621,15 @@ const KLAYTN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d3223
         id: "0x2019", // chain ID must be in hexadecimal
         token: "KLAY",
         namespace: "evm",
-        label: "Klaytn Mainnet",
-        rpcUrl: KLAYTN_MAINNET_URL
+        label: "Kaia Mainnet",
+        rpcUrl: KAIATN_MAINNET_URL
       },
       {
         id: "0x3e9", // chain ID must be in hexadecimel
         token: "KLAY",
         namespace: "evm",
-        label: "Klaytn Testnet",
-        rpcUrl: KLAYTN_BAOBAB_URL
+        label: "Kaia Testnet",
+        rpcUrl: KAIATN_BAOBAB_URL
       },
      // you can add as much supported chains as possible
     ],
@@ -886,6 +886,6 @@ Fleek은 IPFS에서 최신 사이트와 앱을 구축할 수 있는 인프라입
 
 여기까지 읽어보셨다면 축하드립니다! 이 튜토리얼에서는 Solidity, NextJs, Web3Onbaord, Fleek을 사용해 풀스택 Buy Me A Coffee dApp을 만드는 방법을 배웠습니다. 이는 탈중앙화 플랫폼에서 호스팅되는 탈중앙화 애플리케이션을 만드는 첫 번째 단계입니다.
 
-여기에서 프런트엔드에서 정적으로 1 KLAY를 보내는 것 외에 커피 양을 입력하는 새로운 입력 필드를 추가하는 등 다른 옵션도 살펴볼 수 있습니다. 전체 코드베이스는 [github](https://github.com/ayo-klaytn/buy-me-a-coffee)에서 확인할 수 있으며, 이 [링크](https://spring-fog-0605.on.fleek.co/)를 사용하여 웹사이트를 테스트할 수도 있습니다.
+여기에서 프런트엔드에서 정적으로 1 KAIA를 보내는 것 외에 커피 양을 입력하는 새로운 입력 필드를 추가하는 등 다른 옵션도 살펴볼 수 있습니다. 전체 코드베이스는 [github](https://github.com/ayo-klaytn/buy-me-a-coffee)에서 확인할 수 있으며, 이 [링크](https://spring-fog-0605.on.fleek.co/)를 사용하여 웹사이트를 테스트할 수도 있습니다.
 
-더 자세한 내용은 [클레이튼 문서](https://docs.klaytn.foundation/), [Web3Onbaord 문서](https://onboard.blocknative.com/docs/modules/react), [Fleek 문서](https://docs.fleek.co/tutorials/hosting/)를 참고하시기 바랍니다. 궁금한 점이 있으시면 [Klaytn 포럼](https://forum.klaytn.foundation/)를 참조하세요.
+더 자세한 내용은 [카이아 문서](https://docs.klaytn.foundation/), [Web3Onbaord 문서](https://onboard.blocknative.com/docs/modules/react), [Fleek 문서](https://docs.fleek.co/tutorials/hosting/)를 참고하시기 바랍니다. 궁금한 점이 있으시면 [Kaia 포럼](https://forum.klaytn.foundation/)를 참조하세요.

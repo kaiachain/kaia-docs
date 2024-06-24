@@ -1,36 +1,36 @@
-# Nội địa hóa
+# Internationalization
 
-KlaytnDoc có sẵn bằng các ngôn ngữ sau:
+KaiaDocs is available in the following languages:
 
 - [English](https://docs.klaytn.foundation/)
 - [한국어](https://docs.klaytn.foundation/ko/)
 - [Tiếng Việt](https://docs.klaytn.foundation/vi/)
 
-## Tham gia! <a href="#get-involved" id="get-involved"></a>
+## Get involved! <a href="#get-involved" id="get-involved"></a>
 
-Nếu bạn thông thạo và tự tin về một ngôn ngữ và sẵn sàng đóng góp để biên dịch hoặc cải thiện chất lượng của các tài liệu được bản địa hóa, hãy xem [danh sách các ngôn ngữ hiện đang được dịch](https://crowdin.com/project/klaytn-docs).
+If you are fluent and confident in a language and are willing to contribute to translate or to improve the quality of the localized documents, see [the list of languages currently being translated](https://crowdin.com/project/kaia-docs).
 
-### Làm thế nào để đóng góp bản địa hóa KlaytnDoc thông qua nền tảng Crowdin [![Crowdin](https://badges.crowdin.net/klaytn-docs/localized.svg)](https://crowdin.com/project/klaytn-docs) <a href="#how-to-contribute-klaytndocs-localization-via-crowdin-crowdin-https-badges-crowd" id="how-to-contribute-klaytndocs-localization-via-crowdin-crowdin-https-badges-crowd"></a>
+### How to contribute KaiaDocs localization via Crowdin [![Crowdin](https://badges.crowdin.net/kaia-docs/localized.svg)](https://crowdin.com/project/kaia-docs) <a href="#how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd" id="how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd"></a>
 
-Crowdin là một dịch vụ trang web dịch thuật cộng tác. Để đóng góp vào việc bản địa hóa, vui lòng làm theo các bước sau:
+Crowdin is a web service for collaborative translation. To contribute to localization, please follow these steps:
 
-- Truy cập [Dự án Klaytn-Doc trên Crowdin](https://crowdin.com/project/klaytn-docs).
-- Tạo một tài khoản ở đó.
-- Chọn ngôn ngữ bạn muốn đóng góp. Không tìm thấy ngôn ngữ của mình? Gửi yêu cầu cho chủ sở hữu dự án để khởi tạo một bản dịch bằng ngôn ngữ mới.
-- Tham gia nhóm dịch thuật. Đợi cho đến khi một trong số các quản lý phê duyệt yêu cầu của bạn.
-- Chọn tập tin mà bạn muốn đóng góp.
-- Bạn có thể gửi bản dịch của mình cho một câu, bình chọn cho một bản dịch, hoặc để lại bình luận. Khi bạn gửi một bản dịch, hãy đảm bảo rằng từ ngữ bạn chọn phù hợp với Bảng thuật ngữ của Klaytn.
+- Go to [Kaia-Docs project at Crowdin](https://crowdin.com/project/kaia-docs).
+- Create an account there.
+- Select the language you want to contribute. Can not find your language? Send a request to the project owner to initiate a new language translation.
+- Join the translator team. Wait until one of the managers approves your request.
+- Choose the file you want to contribute.
+- You can submit your translation for a string, vote for a translation, or leave a comment. When you submit a translation, please make sure your word choice conforms to the Kaia Terminologies.
 
 ![](/img/misc/crowdin-editor.png)
 
-Để xem hướng dẫn sử dụng chi tiết cho việc biên tập trực tuyến, vui lòng tham khảo [Tài liệu Crowdin](https://support.crowdin.com/online-editor/) chính thức.
+For detailed usage guidelines for the online-editor, please refer to the official [Crowdin document](https://support.crowdin.com/online-editor/).
 
-Các gợi ý dịch sẽ được những người bảo trì xem xét và phê duyệt trong vài ngày, sau đó sẽ được đưa vào sử dụng trên trang web. Danh sách các trang web bản địa hóa được liệt kê trên đây.
+Translation suggestions will be reviewed and approved by the maintainers in a couple of days, then, will be made available to the web site. The list of localized web sites are listed above.
 
-### Thảo luận <a href="#discussion" id="discussion"></a>
+### Discussion <a href="#discussion" id="discussion"></a>
 
-Tham gia [diễn đàn thảo luận](https://crowdin.com/project/klaytn-docs/discussions) và gặp gỡ các cộng tác viên khác.
+Join the [discussion board](https://crowdin.com/project/kaia-docs/discussions) and meet the fellow contributors.
 
-### Quy tắc ứng xử <a href="#code-of-conduct" id="code-of-conduct"></a>
+### Code of conduct <a href="#code-of-conduct" id="code-of-conduct"></a>
 
-Hãy tôn trọng các thành viên cộng đồng khác. Quản lý dự án có quyền xóa bỏ bất kỳ bài viết hoặc bình luận nào có nội dung không phù hợp mà không cần thông báo trước và có quyền thu hồi tư cách thành viên.
+Please be respectful to fellow community members. Project managers may delete any offensive posts or comments without notice and reserve the right to revoke the membership.

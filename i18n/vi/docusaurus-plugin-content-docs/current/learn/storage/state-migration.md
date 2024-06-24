@@ -1,13 +1,13 @@
-# Di chuyển trạng thái
+# State Migration
 
-Khi càng có nhiều khối được thêm vào chuỗi khối, dữ liệu chuỗi sẽ càng tăng lên. Dữ liệu chuỗi rất cần thiết cho việc vận hành nút, vì thế chúng được lưu trữ trong kho lưu trữ nút dưới dạng cấu trúc dữ liệu, được gọi là trie và sau cùng sẽ đi vào cơ sở dữ liệu, được gọi là LevelDB. Vì thế, với nhiều khối hơn thì sẽ có nhiều dữ liệu chuỗi trong kho lữu trữ hơn, kèm theo đó là chi phí tăng lên. Vì thế, Klaytn hỗ trợ một tính năng gọi là Di chuyển trạng thái cho phép bạn giảm dung lượng lưu trữ cần thiết.
+As more blocks are added to the blockchain, chain data also pile up. Chain data are necessary for node operation, so they are stored in the node storage as a data structure called trie, and ultimately in a database called LevelDB. So with more blocks, comes more chain data in the storage, along with increasing cost. Kaia, therefore, provides a feature called State Migration that allows you to reduce the amount of required storage space.
 
-Di chuyển trạng thái nhắm đến các trie trạng thái, trong đó bao gồm hầu hết dữ liệu chuỗi. Tính năng này sẽ xóa các nút trie trạng thái không cần thiết cho việc xử lý các khối mới. Nó chỉ để lại các nút trie trạng thái có thể tiếp cận được từ gốc trie trạng thái của một khối cụ thể. Sau khi Di chuyển trạng thái, bạn chỉ còn lại những dữ liệu mới nhất cần thiết cho việc đồng bộ hóa nút, trong đó có chưa các nút trie trạng thái của khối đích và các khối mới được thêm vào.
+State Migration targets state tries, which comprise most of the chain data. It deletes state trie nodes that are not required for processing new blocks. It only leaves the state trie nodes that are reachable from the state trie root of a specific block. After State Migration, you are only left with the latest data required for node synchronization, consisting of state trie nodes of the target block as well as newly added blocks.
 
-Lưu ý rằng một nút không thể đọc được các trạng thái cũ từ các khối xuất hiện trước khối đích sau khi Di chuyển trạng thái. Nói cách khác, bạn không thể quay về số dư từ một số khối cũ bằng API klay_getBalance nữa.
+Note that a node can't read old states from blocks previous to the target block after State Migration. In other words, you can't return the balance from an old block number using the `kaia_getBalance` API.
 
-Bạn có thể đọc thêm thông tin chi tiết về cơ chế của tính năng Di chuyển trạng thái tại:
-[Di chuyển trạng thái Klaytn v1.5.0: Thiết kiệm dung lượng lưu trữ nút](https://medium.com/klaytn/klaytn-v1-5-0-state-migration-saving-node-storage-1358d87e4a7a)
-[Di chuyển trạng thái Klaytn: Cách hiệu quả để giảm dữ liệu chuỗi khối](https://medium.com/klaytn/klaytn-state-migration-an-efficient-way-to-reduce-blockchain-data-6615a3b36523)
+More details on the mechanism of State Migration can be found below:
+[Kaia v1.5.0 State Migration: Saving Node Storage](https://medium.com/klaytn/klaytn-v1-5-0-state-migration-saving-node-storage-1358d87e4a7a)
+[Kaia State Migration: An Efficient Way to Reduce Blockchain Data](https://medium.com/klaytn/klaytn-state-migration-an-efficient-way-to-reduce-blockchain-data-6615a3b36523)
 
 To use State Migration, please refer to [`Chaindata Migration`](../../misc/operation/chaindata-migration.md) page of Operation Guide.

@@ -608,7 +608,7 @@ The result of the transaction can be found through the `status` of the receipt. 
 
 ## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/transactions.md). This section describes some examples that can be used with caver-js.
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/). This section describes some examples that can be used with caver-js.
 
 ### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
 
@@ -816,7 +816,7 @@ new private key string: 0x{private key}
 }
 ```
 
-Here comes how to update AccountKey of your Klaytn account with multiple [AccountKeys]? The example below explains how to create an [Account](api/caver.account.md) instance with multiple private keys that what you want to use (You can create an [Account](api/caver.account.md) instance with multiple public keys via [caver.account.create](api/caver.account.md#caver-account-create)). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+Here comes how to update AccountKey of your Klaytn account with multiple \[AccountKeys]? The example below explains how to create an [Account](api/caver.account.md) instance with multiple private keys that what you want to use (You can create an [Account](api/caver.account.md) instance with multiple public keys via [caver.account.create](api/caver.account.md#caver-account-create)). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
 First, let's create an Account instance to update with [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). For [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig), a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions). The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 

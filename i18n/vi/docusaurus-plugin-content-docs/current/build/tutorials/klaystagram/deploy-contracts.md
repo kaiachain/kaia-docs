@@ -1,35 +1,35 @@
-# Triển khai hợp đồng thông minh
+# Deploy smart contracts
 
-## 1. Sao chép Klaystagram DApp <a id="2-clone-klaystagram-dapp"></a>
+## 1. Clone Klaystagram DApp <a id="2-clone-klaystagram-dapp"></a>
 
-### 1) Sao chép kho Klaystagram <a id="1-clone-klaystagram-repository"></a>
+### 1\) Clone Klaystagram repository <a id="1-clone-klaystagram-repository"></a>
 
 ```text
 $ git clone https://github.com/klaytn/klaystagram
 ```
 
-### 2) Cài đặt & Chạy Klaystagram DApp <a id="2-install-run-klaystagram-dapp"></a>
+### 2\) Install & Run Klaystagram DApp <a id="2-install-run-klaystagram-dapp"></a>
 
-Gói bạn vừa sao chép đã sẵn sàng khởi chạy mà không cần sửa đổi gì.
+The package you just cloned is ready to launch without any modification.
 
-Hợp đồng mẫu đã được triển khai cho testnet Baobab và ABI hợp đồng đã bao gồm trong gói của chúng tôi.\
-Mã frontend Klaystagram ban đầu được định cấu hình để kết nối với hợp đồng thông minh trên testnet Baobab.
+The sample contracts are already deployed to the Kairos testnet, and the contract ABI is included in our package.\
+Klaystagram frontend code is initially configured to connect to the smart contract on the Kairos testnet.
 
-Nếu bạn muốn chạy ứng dụng ngay lập tức và xem ứng dụng hoạt động, hãy nhập bên dưới.
+If you want to run the app right away and see how it works, type below.
 
-> Bạn NÊN tuân thủ môi trường thử nghiệm được đề cập ở trang đầu tiên.
+> We HIGHLY recommend you follow the test environment mentioned on the first page.
 
 ```text
 $ npm install
 $ npm run local
 ```
 
-⚠ Vui lòng kiểm tra quyền truy cập vào tập tin và thư mục nếu không thành công.
+⚠ Please check the file and directory permissions if it doesn't work.
 
-Ứng dụng sẽ bật lên ngay lập tức!
-(Ban đầu, việc tải nhiều nguồn cấp dữ liệu có thể mất thời gian.)
+Application will pop up right away!
+(**It may take a long time to load lots of feed images at first.**)
 
-## 2. Soạn hợp đồng thông minh Klaystagram <a id="4-write-klaystagram-smart-contract"></a>
+## 2. Write Klaystagram Smart Contract <a id="4-write-klaystagram-smart-contract"></a>
 
 1. Background
 2. Contract setup
@@ -39,14 +39,14 @@ $ npm run local
    4.2. `transferOwnership`\
    4.3. `getPhoto`
 
-### 1) Hình nền <a id="1-background"></a>
+### 1\) Background <a id="1-background"></a>
 
 We will make a simple contract called "Klaystagram".
 
 - `PhotoData` struct is defined to store various photo data.
 - User can upload photo and transfer the ownership photo via `uploadPhoto` and `transferOwnership` functions.
 
-### 2) Thiết lập hợp đồng <a id="2-contract-setup"></a>
+### 2\) Contract setup <a id="2-contract-setup"></a>
 
 - Specify solidity version. We recommend using 0.5.6 stable version.
 - We will make use of ERC721 standard to build non-fungible tokens.
@@ -62,7 +62,7 @@ import "./ERC721/ERC721Enumerable.sol";
 contract Klaystagram is ERC721, ERC721Enumerable {
 ```
 
-### 3) Đặt sự kiện và cấu trúc dữ liệu <a id="3-set-events-and-data-structure"></a>
+### 3\) Set events and data structure <a id="3-set-events-and-data-structure"></a>
 
 We need to set up an event to keep track of activities on blockchain.
 
@@ -84,11 +84,11 @@ struct PhotoData {
 }
 ```
 
-### 4) Viết hàm <a id="4-write-functions"></a>
+### 4\) Write functions <a id="4-write-functions"></a>
 
 Let's write some functions that interact with the contract. In this tutorial let us only consider two functions: `uploadPhoto` and `transferOwnership`. Check out Klaystagram.sol to see the whole set of functions.
 
-#### 4-1) `uploadPhoto` <a id="4-1-uploadphoto"></a>
+#### 4-1\) `uploadPhoto` <a id="4-1-uploadphoto"></a>
 
 `uploadPhoto` function takes 4 arguments including photo's image source. To keep things simple, `tokenId` will start from 1 and will increase by 1.
 
@@ -121,7 +121,7 @@ function uploadPhoto(bytes memory photo, string memory title, string memory loca
 }
 ```
 
-#### 4-2) `transferOwnership` <a id="4-2-transferownership"></a>
+#### 4-2\) `transferOwnership` <a id="4-2-transferownership"></a>
 
 Let's take a look at `transferOwnership` function. When transferring photo ownership, we need to do two things. First, we have to reassign the owner, and then we have to push new owner address into `ownerHistory` array.
 
@@ -156,9 +156,9 @@ function transferFrom(address from, address to, uint256 tokenId) public {
 }
 ```
 
-#### 4-3) `getPhoto` <a id="4-3-getphoto"></a>
+#### 4-3\) `getPhoto` <a id="4-3-getphoto"></a>
 
-Finally, let's make a getter function that fetches data stored in the smart contract. By calling a single function, we want to fetch every information regarding a specific photo. So `getPhoto` function takes an index(token id) as an argument and returns every element in PhotoData struct.
+Finally, let's make a getter function that fetches data stored in the smart contract. By calling a single function, we want to fetch every information regarding a specific photo. So `getPhoto` function takes an index\(token id\) as an argument and returns every element in PhotoData struct.
 
 ```text
 function getPhoto(uint tokenId) public view
@@ -177,33 +177,33 @@ returns(uint256, address[] memory, bytes memory, string memory, string memory, s
 
 This is it, now we can deploy this contract!
 
-## 3. Triển khai hợp đồng
+## 3. Deploy Contract <a href="#3.-deploy-contract" id="3.-deploy-contract"></a>
 
-1. Nhận testnet KLAY để triển khai hợp đồng
-2. Cấu hình Truffle
-3. Thiết lập triển khai (chọn hợp đồng bạn muốn triển khai)
-4. Triển khai
+1. Get some testnet KAIA to deploy contract
+2. Truffle configuration
+3. Deploy setup (select contract which you want to deploy)
+4. Deploy
 
-### 1) Nhận KLAY <a href="#1-get-some-klay" id="1-get-some-klay"></a>
+### 1) Get some KAIA <a href="#1-get-some-klay" id="1-get-some-klay"></a>
 
-Để triển khai hợp đồng, ta cần có KLAY trong tài khoản của bạn để trả phí gas. Bạn có thể nhận 150 KLAY qua Ví Klaytn trong testnet.
+To deploy contract, we need some KAIA in your account to pay for gas price. You can get 150 KAIA via Kaia Wallet in the testnet.
 
-1. Tạo tài khoản Klaytn của bạn tại [Ví Baobab Klaytnkhóa riêng tư](https://baobab.wallet.klaytn.foundation/create) -> `PRIVATE KEY` sẽ được dùng trong cấu hình Truffle. Sao chép khóa riêng tư vào đâu đó 2.
+1. Create your Kaia account at [Kairos Kaia Wallet](https://baobab.wallet.klaytn.foundation/create) -> `PRIVATE KEY` will be used in truffle configuration. So copy it down somewhere
 
-2. Sau khi tạo tài khoản Klaytn, chạy Faucet để nhận 5 KLAY từ testnet Baobab trong [Vòi Baobab Klaytn](https://baobab.wallet.klaytn.foundation/faucet)
+2. After creating your Kaia account, run faucet to receive 5 Kairos testnet KAIA in [Kairos Kaia Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
-![create-account & run-klay-faucet](/img/build/tutorials/klaystagram-run-faucet.png)
+![create-account & run-kaia-faucet](/img/build/tutorials/klaystagram-run-faucet.png)
 
-### 2. Cấu hình Truffle <a href="#2-truffle-configuration" id="2-truffle-configuration"></a>
+### 2. truffle configuration <a href="#2-truffle-configuration" id="2-truffle-configuration"></a>
 
-`truffle-config.js` là tập tin cấu hình có chứa cấu hình triển khai. Ta sẽ triển khai hợp đồng bằng cách dùng `Private key` vừa tạo ở bước trước. Dán `Private key` có đủ KLAY của bạn vào truffle-config.js
+`truffle-config.js` is a configuration file including deployment configuration. We are going to deploy our contract using `Private key` we've just created in the previous step. Paste your `Private key` that has enough KAIA to truffle-config.js
 
-_CẢNH BÁO: Bạn không nên để lộ khóa riêng tư của mình. Nếu không tài khoản của bạn sẽ bị xâm nhập._
+_WARNING: You shouldn't expose your private key. Otherwise, your account would be hacked._
 
 ```javascript
 // truffle-config.js
 
-const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
+const HDWalletProvider = require("truffle-hdwallet-provider-kaia");
 
 /**
  * truffle network variables
@@ -217,7 +217,7 @@ const NETWORK_ID = '1001'
  */
 const URL = 'https://public-en-baobab.klaytn.net'
 
-// Paste your `Private key` that has enough KLAY to truffle.js
+// Paste your `Private key` that has enough KAIA to truffle.js
 const PRIVATE_KEY = 'your_private_key'
 
 module.exports = {
@@ -239,21 +239,21 @@ module.exports = {
 }
 ```
 
-#### Thuộc tính `networks` <a href="#networks-property" id="networks-property"></a>
+#### `networks` property <a href="#networks-property" id="networks-property"></a>
 
-Xem thuộc tính `networks` ở trên. Mạng lưới `klaytn` có 4 thuộc tính,\
+See `networks` property above. `klaytn` network has 4 properties,\
 `provider`, `network_id`, `gas`, `gasPrice`.
 
-- `provider: () => new HDWalletProvider(PRIVATE_KEY, URL)` Như tên gọi, thuộc tính này tích hợp khóa riêng tư và url được định nghĩa ở trên.
-- `network_id: NETWORK_ID` Chỉ ra ID của mạng lưới trong Klaytn, bạn nên đặt thành `1001` để sử dụng mạng lưới Baobab Klaytn (testnet).
-- `gas: GASLIMIT` Phí gas tối đa bạn sẵn sàng chi trả.
-- `gasPrice: null` Đây là mức giá trên mỗi đơn vị gas. Hiện giá gas trong Klaytn được cố định ở mức `'25000000000'`. Bằng cách đặt thành `null`, truffle sẽ tự động đặt giá gas.
+- `provider: () => new HDWalletProvider(PRIVATE_KEY, URL)` Just as the name indicates, it injects private key and url defined above.
+- `network_id: NETWORK_ID` Specify network id in Kaia, you should set it to `1001` to use Kaia Kairos network (testnet).
+- `gas: GASLIMIT` Maximum gas you are willing to spend.
+- `gasPrice: null` This is price per every gas unit. Currently in Kaia, the gas price is fixed to `'25000000000'`. By setting it to `null`, truffle will automatically set the gas price.
 
-#### Thuộc tính `compiler` <a href="#compiler-property" id="compiler-property"></a>
+#### `compiler` property <a href="#compiler-property" id="compiler-property"></a>
 
-Hãy nhớ rằng ta đã dùng phiên bản 0.5.6 cho hợp đồng Solidity, đồng thời chỉ ra phiên bản trình biên dịch ở đây.
+Remember that for Solidity contract we used version 0.5.6, thus specify compiler version here.
 
-### 3. Thiết lập triển khai <a href="#3-deployment-setup" id="3-deployment-setup"></a>
+### 3. Deployment setup <a href="#3-deployment-setup" id="3-deployment-setup"></a>
 
 `migrations/2_deploy_contracts.js`:
 
@@ -287,34 +287,35 @@ module.exports = function (deployer) {
 }
 ```
 
-Bạn có thể chỉ ra mã hợp đồng bạn sẽ triển khai trong thư mục `contracts/`.
+You can specify which contract code will you deploy in your `contracts/` directory.
 
-1. Nhập tập tin hợp đồng của bạn (`Klaystagram.sol`) qua
+1. Import your contract file (`Klaystagram.sol`) via
 
    `const Klaystagram = artifacts.require('./Klaystagram.sol')`
-2. Dùng `deployer` để triển khai hợp đồng của bạn, `deployer.deploy(Klaystagram)`.
-3. Nếu bạn muốn thêm logic sau khi triển khai hợp đồng, hãy dùng `.then()` (không bắt buộc)
-4. Để lưu `deployedABI` và `deployedAddress` của hợp đồng, hãy dùng `fs` mô-đun node.js
+2. Use `deployer` to deploy your contract, `deployer.deploy(Klaystagram)`.
+3. If you want to add more logic after deploying your contract, use `.then()` (optional)
+4. To save contracts' `deployedABI` and `deployedAddress`, use `fs` node.js module
 
-   `fs.writeFile(filename, content, callback)` (không bắt buộc)
+   `fs.writeFile(filename, content, callback)` (optional)
 
-cf. Để biết thêm thông tin về `artifacts.require()`, hãy tham chiếu tài liệu chính thức của truffle tại [truffle docs](https://trufflesuite.com/docs/truffle/getting-started/running-migrations#artifacts-require-)
+cf. For further information about `artifacts.require()`, refer to truffle official documentation at [truffle docs](https://trufflesuite.com/docs/truffle/getting-started/running-migrations#artifacts-require-)
 
-### 4. Triển khai <a href="#4-deploy" id="4-deploy"></a>
+### 4. Deploy <a href="#4-deploy" id="4-deploy"></a>
 
 ![deploy contract](/img/build/tutorials/klaystagram-deploy-contract.png)
 
-Trong cửa sổ lệnh của bạn, hãy gõ `$ truffle deploy --network baobab`.\
-Hệ thống sẽ triển khai hợp đồng của bạn theo cấu hình `truffle-config.js` và `migrations/2_deploy_contracts.js`.
+In your terminal type `$ truffle deploy --network kairos`.\
+It will deploy your contract according to `truffle-config.js` and `migrations/2_deploy_contracts.js` configuration.
 
-Cửa sổ lệnh sẽ hiển thị địa chỉ hợp đồng đã triển khai nếu triển khai thành công.
+Terminal will display deployed contract address if deployment was successful.
 
 cf) `--reset` option\
-Nếu bạn đưa ra tùy chọn này, Truffle sẽ biên dịch và triển khai lại hợp đồng của bạn ngay cả khi hợp đồng không thay đổi.\ ex) `$ truffle deploy --reset --network baobab`
+If you provide this option, truffle will recompile and redeploy your contract even if contracts haven't changed.\
+ex) `$ truffle deploy --reset --network kairos`
 
-## 4. Chạy ứng dụng
+## 4. Run App
 
 [![Klaystagram Introduction Video](/img/build/tutorials/klaystagram-video-poster.png)](https://vimeo.com/327033594)
 
-Chạy ứng dụng của chúng tôi trong trình duyệt.\
-Lệnh `$ npm run local` sẽ mở một trình duyệt và chạy ứng dụng.
+Run our app in the browser.\
+`$ npm run local` command will open a browser and start an app.

@@ -1,31 +1,31 @@
-# Tính hoàn thiện và cải tiến
+# Finality and Improvements
 
-## Cải tiến đáng kể với khả năng hoàn tất giao dịch tức thì vượt trội <a id="vast-improvements-with-uncompromised-finality"></a>
+## Vast Improvements with uncompromised instant finality <a id="vast-improvements-with-uncompromised-finality"></a>
 
-### Khả năng hoàn tất giao dịch trong 1 giây <a id="finality"></a>
+### 1-second Finality <a id="finality"></a>
 
-Ngay cả với số lượng nút đồng thuận nhiều hơn, hiệu suất tốt hơn và nhiều cải tiến tính năng, Klaytn sẽ duy trì khả năng xác nhận khối trong 1 giây để đảm bảo giao dịch nhanh chóng và không bao giờ bị đảo ngược.
+Even with more consensus nodes, better performance and numerous feature enhancements, Kaia will maintain 1-second block finality to ensure speedy transactions that will never be reversed.
 
-### Thông lượng (TPS) <a id="throughput"></a>
+### Throughput (TPS) <a id="throughput"></a>
 
-Hiệu suất của Klaytn sẽ được tăng cường hơn nữa thông qua sự kết hợp giữa nâng cấp mạng và giải pháp lớp 2 để qua đó, có thể xử lý một số lượng lớn giao dịch.
+Kaia’s performance will be further boosted through a combination of network upgrades and layer 2 solutions, allowing it to handle a massive number of transactions.
 
-### Khả năng mở rộng <a id="scalability"></a>
+### Scalability <a id="scalability"></a>
 
-Klaytn 2.0 sẽ đáp ứng khả năng mở rộng thông qua các chuỗi dịch vụ cùng với giải pháp lớp 2 có thể triển khai và tùy chỉnh dễ dàng của chúng tôi. Các giải pháp khác, chẳng hạn như chia nhỏ mạng (sharding) hoặc mở rộng (rollup), cũng đang được lên kế hoạch triển khai.
+Kaia 2.0 will address scalability through service chains, our easily customizable and deployable L2 solution. Other solutions, such as sharding or rollups, are also being planned for the future.
 
-### Mạng lưới phân tầng <a id="tiered-network"></a>
+### Tiered Network <a id="tiered-network"></a>
 
-Cấu trúc phân tầng của Klaytn phân phối các giao dịch đến các nút đồng thuận một cách hiệu quả bằng cách phân phối khối lượng công việc để có độ ổn định cao hơn. Các nút của chúng tôi cũng được củng cố liên tục để đảm bảo hoạt động liền mạch.
+Kaia’s tiered structure delivers transactions to the consensus nodes effectively by distributing the workload for greater stability. Our nodes are also continuously fortified to ensure seamless operation.
 
-### Khả năng liên thông <a id="interoperability"></a>
+### Interoperability <a id="interoperability"></a>
 
-Các hệ sinh thái khác nhau (chẳng hạn như DEX, Bridge, Oracle, v.v.) sẽ phát triển mạnh mẽ trên Klaytn. Việc chuyển hoặc trao đổi tài sản giữa Klaytn và các chuỗi khối khác sẽ dễ dàng hơn nhiều.
+Various ecosystems (such as DEX, Bridge, Oracle, etc) will flourish on Kaia. The asset transfer or exchange between Kaia and other blockchains will be much easier.
 
-### Trải nghiệm người dùng <a id="user-experience"></a>
+### User Experience <a id="user-experience"></a>
 
-Klaytn mang lại trải nghiệm vượt trội cho người dùng cuối bằng cách cung cấp quy trình xử lý giao dịch nhanh chóng phù hợp với môi trường di động, khả năng cập nhật các khóa bị tiết lộ để giảm thiểu rủi ro và ủy thác phí để chuyển gánh nặng phí giao dịch.
+Kaia delivers a superior end-user experience by providing fast transaction processing suitable for mobile environments, the ability to update exposed keys to mitigate risks, and fee delegation to transfer the transaction fee burden.
 
-### Trải nghiệm nhà phát triển <a id="developer-experience"></a>
+### Developer Experience <a id="developer-experience"></a>
 
-Klaytn hỗ trợ khả năng tương thích với Ethereum, cung cấp quyền truy cập vào bộ công cụ phát triển hoàn chỉnh của Ethereum và cho phép di chuyển dễ dàng các dự án Ethereum. Ngoài ra, chức năng đa chữ ký nhanh chóng và không tốn kém cũng được hỗ trợ ở cấp độ giao thức mà không yêu cầu triển khai hợp đồng thông minh.
+Kaia supports Ethereum equivalence, which provides access to the complete stack of Ethereum development tools and enables effortless migration of Ethereum projects. In addition, fast and inexpensive multi-signature functionality is also supported at a protocol level without requiring a smart contract implementation.

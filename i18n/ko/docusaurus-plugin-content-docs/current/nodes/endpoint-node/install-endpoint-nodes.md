@@ -20,10 +20,10 @@
   |- kend.conf
 ```
 
-| fileName       | 파일 설명            |
-| :------------- | :--------------- |
-| bin/ken        | EN 실행 파일         |
-| bin/kend       | EN 시작/종료 스크립트 파일 |
+| 파일명                            | 파일 설명            |
+| :----------------------------- | :--------------- |
+| bin/ken                        | EN 실행 파일         |
+| bin/kend                       | EN 시작/종료 스크립트 파일 |
 | conf/kend.conf | EN 구성 파일         |
 
 설치는 다운로드한 패키지의 압축을 풀고 패키지를 설치하려는 위치에 설치하는 것입니다.
@@ -60,9 +60,9 @@ $ yum install kend-vX.X.X.el7.x86_64.rpm
 $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### 클레이튼 Yum 리포지토리에서 설치 <a id="install-from-klaytn-yum-repo"></a>
+### 카이아 Yum 리포지토리에서 설치 <a id="install-from-klaytn-yum-repo"></a>
 
-또는 클레이튼 Yum 저장소에서 `kend`를 설치하고 실행할 수 있습니다:
+또는 카이아 Yum 저장소에서 `kend`를 설치하고 실행할 수 있습니다:
 
 ```text
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kend
@@ -72,9 +72,9 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 
 설치된 파일은 다음과 같은 위치에 있습니다.
 
-| fileName  | location                 |
-| :-------- | :----------------------- |
-| ken       | /usr/bin/ken             |
+| 파일명                       | 위치                                       |
+| :------------------------ | :--------------------------------------- |
+| ken                       | /usr/bin/ken                             |
 | kend.conf | /etc/kend/conf/kend.conf |
 
 ## 구성 <a id="configuration"></a>
@@ -86,7 +86,7 @@ EN 설정은 데이터 디렉터리를 생성하고 설정 파일 `kend.conf`에
 
 ### EN 데이터 디렉터리 생성 <a id="en-data-directory-creation"></a>
 
-클레이튼 블록체인 데이터의 크기가 계속 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것이 좋습니다. 원하는 경로에 디렉터리를 생성해야 합니다.
+카이아 블록체인 데이터의 크기가 계속 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것이 좋습니다. 원하는 경로에 디렉터리를 생성해야 합니다.
 
 ```text
 $ sudo mkdir -p /var/kend/data
@@ -113,7 +113,7 @@ DATA_DIR=/var/kend/data
 
 이 프로세스를 가속화하기 위해 EN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 빠른 동기화를 수행할 수 있습니다. 이렇게 하면 EN이 처음 시작할 때 동기화하는 데 걸리는 시간을 크게 줄일 수 있습니다.
 
-[Cypress 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/) 또는 [Baobab 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)에서 최신 체인데이터 스냅샷을 다운로드합니다. `kend`를 시작하기 전에 `kend.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
+[메인넷 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/) 또는 [Kairos 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)에서 최신 체인데이터 스냅샷을 다운로드합니다. `kend`를 시작하기 전에 `kend.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
 
 예를 들어
 
@@ -219,15 +219,15 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 #### ken 콘솔 <a id="ken-console"></a>
 
-클레이튼은 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. IPC 파일 `klay.ipc`는 EN의 `data` 디렉터리에 있습니다.
+카이아는 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. IPC 파일 `klay.ipc`는 EN의 `data` 디렉터리에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
 ```text
-$ ken attach /var/kend/data/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ ken attach /var/kend/data/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: /var/kend/data
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
  >
@@ -238,7 +238,7 @@ You can check the usable commands on [API Document](../../../references/json-rpc
 EN의 상태를 확인하는 데 유용한 API입니다:
 
 - `klay.blockNumber` (최신 블록 번호 가져오기)
-- `net.peerCount` (현재 연결된 클레이튼 노드 수 확인)
+- `net.peerCount` (현재 연결된 카이아 노드 수 확인)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 

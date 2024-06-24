@@ -199,8 +199,10 @@ As we described in [above](#1-overview), `src/pages` contains two page files. On
 In blockchain based app, there are two ways of interacting with contracts.
 
 1\) **Reading** data from contract.\
+2\) **Writing** data to contract.\
 2\) **Writing** data to contract.
 
+Reading data from contract is cost-free.\
 Reading data from contract is cost-free.\
 On the otherhand, there is cost for writing data to contract (Sending a transaction). For this reason, in order to write data, you must have Klaytn account that has some KLAY to pay for it.
 

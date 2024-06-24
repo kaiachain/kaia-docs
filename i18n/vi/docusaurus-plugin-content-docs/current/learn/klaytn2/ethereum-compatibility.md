@@ -1,17 +1,17 @@
-# Tương thích với Ethereum
+# Ethereum Compatibility
 
-## Chúng tôi hỗ trợ khả năng tương thích với Ethereum
+## We Support Ethereum Equivalence
 
 ![](/img/learn/triangle.png)
 
-### 1. Công cụ phát triển <a href="#finality-and-improvements" id="finality-and-improvements"></a>
+### 1. Development Tools <a href="#finality-and-improvements" id="finality-and-improvements"></a>
 
-Bất kỳ công cụ nào có thể chạy trên Ethereum cũng sẽ chạy trơn tru trong hệ sinh thái Klaytn bằng cách làm cho stack kỹ thuật của Klaytn trở nên tương đương với stack kỹ thuật hiện có của Ethereum, trên phương diện giao dịch cho đến thực thi. Công cụ mới được tạo ra trong hệ sinh thái Klaytn có thể được áp dụng đối ứng trong hệ sinh thái Ethereum.
+Any tooling that can run on Ethereum will run seamlessly within the Kaia ecosystem by making Kaia’s technical stack equivalent, from an interfacing and execution perspective, to the existing Ethereum stack. New tooling created in the Kaia ecosystem could be reciprocally adopted within the Ethereum ecosystem.
 
-### 2. EVM và API <a href="#evm-and-api" id="evm-and-api"></a>
+### 2. EVM and API <a href="#evm-and-api" id="evm-and-api"></a>
 
-Bằng cách xây dựng trên các stack hiện có của Etherum, chúng tôi thừa hưởng các cải tiến dành cho cơ sở mã nguồn mở của EVM và các thư viện hỗ trợ. Bằng việc hỗ trợ các Mã vận hành và logic tập hợp kỹ thuật tương đương như vậy trong môi trường EVM Klaytn, ta sẽ thấy hoạt động thực thi cũng được đảm bảo tương đương; và bằng việc hỗ trợ một tập hợp API JSON-RPC với cú pháp vận chuyển điểm cuối tương đương cũng sẽ đảm bảo tính tương đương của giao diện Ethereum đầy đủ.ũng được đảm bảo tương đương; và bằng việc hỗ trợ một tập hợp API JSON-RPC với cú pháp vận chuyển điểm cuối tương đương cũng sẽ đảm bảo khả năng tương thích hoàn toàn của giao diện Ethereum.
+By building on top of existing Ethereum stacks; we inherit any improvements made to the open-source codebases of EVM and supporting libraries. Supporting such equivalent opcodes and stack logic in the Kaia EVM environment would see execution behaviour is guaranteed equivalent; and supporting a set of JSON-RPC APIs with equivalent endpoint payload syntax guarantees full Ethereum interfacing equivalence.
 
-### 3. Đóng góp phát triển cốt lõi <a href="#core-development-contribution" id="core-development-contribution"></a>
+### 3. Core Development Contribution <a href="#core-development-contribution" id="core-development-contribution"></a>
 
-Việc hỗ trợ khả năng tương thích với Ethereum sẽ chuyển đổi hầu hết các giao dịch chung đến cả hai hệ sinh thái Klaytn và Ethereum. Hầu hết các Đề xuất cải tiến Ethereum (EIP) đều có thể được chuyển và áp dụng vào chương trình phát triển cốt lõi của Klaytn, ngược lại, các Đề xuất cải tiến Klaytn (KIP) cũng có thể đóng góp vào sự tiến bộ của Ethereum và EVM.ngược lại, các Đề xuất cải tiến Klaytn (KIP) cũng có thể đóng góp vào sự tiến bộ của Ethereum và EVM. Khi cộng đồng phát triển đóng góp cho một hệ sinh thái, họ thực sự đang đóng góp cho cả hai.
+Supporting Ethereum equivalence translates most to the mutual benefit to both the Kaia and Ethereum ecosystems. The majority of Ethereum Improvement Proposals (EIPs) could be migrated and adopted to the Kaia core development agenda, and in turn Kaia Improvement Proposals (KIPs) could contribute to the advancement of Ethereum and EVM. When the development community contributes to one ecosystem, they are indeed contributing to both.

@@ -1,6 +1,6 @@
 # Glossary
 
-This glossary provides explanation on technical terms specific to the Klaytn Blockchain. It stands as your goto for understanding numerous terms you will encounter while exploring Klaytn documentation, guides and tutorials.
+This glossary provides explanation on technical terms specific to the Kaia Blockchain. It stands as your goto for understanding numerous terms you will encounter while exploring Kaia documentation, guides and tutorials.
 
 ### anchor
 
@@ -10,21 +10,19 @@ A cryptographically secure reference to data stored outside of a blockchain. Anc
 
 The process of storing an anchor on a blockchain. This can be done by creating a transaction that contains the hash of the external data, or by creating a smart contract that references the external data (for example, [Anchoring in service chain](../nodes/service-chain/configure/anchoring.md)).
 
-### Baobab
+### Kairos
 
-The public testnet of the Klaytn platform. It is used by developers to test and verify their applications before deploying them to the Cypress mainnet.
-
-See also [Cypress](#cypress).
+The public testnet of the Kaia platform. It is used by developers to test and verify their applications before deploying them to the Mainnet.
 
 ### block explorer
 
 A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status.
 
-The block explorers available in Klaytn are [Klaytnscope](../build/tools/block-explorers/klaytnscope.md) and [Klayfinder](https://www.klaytnfinder.io/).
+The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Klayfinder](https://www.klaytnfinder.io/).
 
 ### core cell (CC)
 
-An entity in the Klaytn blockchain architecture that is responsible for executing transactions and generating blocks. A core cell typically consists of a consensus node and multiple proxy nodes.
+An entity in the Kaia blockchain architecture that is responsible for executing transactions and generating blocks. A core cell typically consists of a consensus node and multiple proxy nodes.
 
 See also [consensus node (CN)](#consensus-node-cn), [proxy node (PN)](#proxy-node-pn).
 
@@ -34,17 +32,11 @@ A group of core cell nodes that are interconnected
 
 ### consensus node (CN)
 
-A node that is responsible for generating and propagating blocks, and for reaching consensus on the state of the Klaytn blockchain. Consensus nodes validate submitted transactions and execute valid transactions.
-
-### Cypress
-
-The public mainnet of the Klaytn platform. It is the production environment for Klaytn applications and services.
-
-See also Klaytn Testnet [Baobab](#baobab).
+A node that is responsible for generating and propagating blocks, and for reaching consensus on the state of the Kaia blockchain. Consensus nodes validate submitted transactions and execute valid transactions.
 
 ### endpoint node (EN)
 
-A node that serves as an entry point for service chains and DApps to interact with the Klaytn blockchain through its exposed RPC APIs. Endpoint nodes synchronize the entire blockchain ledger and allow reading blockchain data or submitting transactions directly to the network without going through a proxy node.
+A node that serves as an entry point for service chains and DApps to interact with the Kaia blockchain through its exposed RPC APIs. Endpoint nodes synchronize the entire blockchain ledger and allow reading blockchain data or submitting transactions directly to the network without going through a proxy node.
 
 ### endpoint node network (ENN)
 
@@ -72,43 +64,43 @@ A set of techniques for the exchange of data among two or more processes in one 
 
 A peer-to-peer distributed file system that enables users to store and share files in a decentralized manner. IPFS uses a content-addressing scheme to uniquely identify each file, and it stores files in a distributed network of nodes.
 
-### Klaytn Community Fund (KCF)
+### Kaia Community Fund (KCF)
 
-A fund established by the Klaytn Foundation to support initiatives that contribute to the growth and development of the Klaytn blockchain ecosystem. The KCF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Klaytn. The goal of the KCF is to advance innovation and community growth around Klaytn through funded initiatives.
+A fund established by the Kaia Foundation to support initiatives that contribute to the growth and development of the Kaia blockchain ecosystem. The KCF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KCF is to advance innovation and community growth around Kaia through funded initiatives.
 
-### Klaytn endpoint node (KEN)
+### Kaia endpoint node (KEN)
 
 See [endpoint node (EN)](#endpoint-node-en).
 
-### Klaytn Foundation Fund (KFF)
+### Kaia Foundation Fund (KFF)
 
-A reserve fund established by the Klaytn Foundation to support its operating expenses and long-term initiatives. The KFF aids in funding the Foundation's work to further develop and enhance the Klaytn blockchain protocol and ecosystem through research, business development activities, education programs and more.
+A reserve fund established by the Kaia Foundation to support its operating expenses and long-term initiatives. The KFF aids in funding the Foundation's work to further develop and enhance the Kaia blockchain protocol and ecosystem through research, business development activities, education programs and more.
 
-### Klaytn Governance Council (KGC)
+### Kaia Governance Council (KGC)
 
-A council of organizations that are responsible for governing the Klaytn blockchain. The GC members are selected by the Klaytn Foundation and are required to operate a consensus node on the Klaytn network. The GC is responsible for making decisions about the development and operation of the Klaytn blockchain, including upgrades, partnerships, and ecosystem development initiatives.
+A council of organizations that are responsible for governing the Kaia blockchain. The GC members are selected by the Kaia Foundation and are required to operate a consensus node on the Kaia network. The GC is responsible for making decisions about the development and operation of the Kaia blockchain, including upgrades, partnerships, and ecosystem development initiatives.
 
-### Klaytn Improvement Proposal (KIP)
+### Kaia Improvement Proposal (KIP)
 
-A design document providing information to Klaytn stakeholders regarding new features or processes for the Klaytn blockchain network. KIPs are intended to provide a consistent and controlled mechanism for proposing, reviewing and adopting protocol upgrades and innovations. They allow advocates to collaborate with the Klaytn community to refine any potential protocol upgrades before being considered for inclusion in the software.
+A design document providing information to Kaia stakeholders regarding new features or processes for the Kaia blockchain network. KIPs are intended to provide a consistent and controlled mechanism for proposing, reviewing and adopting protocol upgrades and innovations. They allow advocates to collaborate with the Kaia community to refine any potential protocol upgrades before being considered for inclusion in the software.
 
 Some of typical examples of KIP are [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](http://kips.klaytn.foundation/KIPs/kip-17), and [KIP-37](http://kips.klaytn.foundation/KIPs/kip-37).
 
-### Klaytn State
+### Kaia State
 
-This is the world state of accounts in Klaytn containing the balances, storage variables of the account and the hash of the code or bytecode depending on if the account is an EOA or SCA.
+This is the world state of accounts in Kaia containing the balances, storage variables of the account and the hash of the code or bytecode depending on if the account is an EOA or SCA.
 
-### Klaytn virtual machine (KLVM)
+### Kaia virtual machine (KLVM)
 
-A virtual state machine that executes Klaytn smart contracts. It is a quasi-Turing-complete stack-based virtual machine that is derived from the Ethereum Virtual Machine (EVM). The KLVM is responsible for processing and executing smart contracts on the Klaytn blockchain.
+A virtual state machine that executes Kaia smart contracts. It is a quasi-Turing-complete stack-based virtual machine that is derived from the Ethereum Virtual Machine (EVM). The KLVM is responsible for processing and executing smart contracts on the Kaia blockchain.
 
-### Klaytn network identifier (KNI)
+### Kaia network identifier (KNI)
 
-A unique resource identifier scheme to identify a Klaytn node. It consists of nodeID, hostname, port, and discport.
+A unique resource identifier scheme to identify a Kaia node. It consists of nodeID, hostname, port, and discport.
 
 ### proposer
 
-A role assigned to a consensus node (CN) in each round of block creation. The proposer is randomly but deterministically selected to create the next block. The probability of a CN being enlisted as the proposer is determined by the amount of Klaytn tokens, or KLAY, that the CN stakes.
+A role assigned to a consensus node (CN) in each round of block creation. The proposer is randomly but deterministically selected to create the next block. The probability of a CN being enlisted as the proposer is determined by the amount of Kaia tokens, or KAIA, that the CN stakes.
 
 ### proxy node (PN)
 
@@ -116,7 +108,7 @@ A node that is responsible for relaying transactions from endpoint nodes (ENs) t
 
 ### recursive-length prefix (RLP)
 
-An address prefix format where the length of the prefix is included as part of the address information in computer networking, It allows for more efficient routing by eliminating the need to store prefix lengths separately for each route. Klaytn uses recursive-length prefix to represent blockchain addresses.
+An address prefix format where the length of the prefix is included as part of the address information in computer networking, It allows for more efficient routing by eliminating the need to store prefix lengths separately for each route. Kaia uses recursive-length prefix to represent blockchain addresses.
 
 ### remote procedure call (RPC)
 
@@ -134,17 +126,17 @@ See also [externally owned account (EOA)](#externally-owned-account-eoa).
 
 ### service chain
 
-A sidechain or auxiliary blockchain that is connected to the Klaytn mainnet. Service chains are designed to meet the specific needs of different applications or industries, such as immediate finality, cross-chain token transfer, and data anchoring to the main chain.
+A sidechain or auxiliary blockchain that is connected to the Kaia mainnet. Service chains are designed to meet the specific needs of different applications or industries, such as immediate finality, cross-chain token transfer, and data anchoring to the main chain.
 
 ### service chain consensus node (SCN)
 
-A node that is responsible for participating in the consensus process in a Klaytn service chain.
+A node that is responsible for participating in the consensus process in a Kaia service chain.
 
 See also [consensus node (CN)](#consensus-node-cn), [service chain](#service-chain).
 
 ### service chain endpoint node (SEN)
 
-A node in a Klaytn service chain that provides a public interface for interacting with the service chain.
+A node in a Kaia service chain that provides a public interface for interacting with the service chain.
 
 See also [endpoint node (EN)](#endpoint-node-en), [service chain](#service-chain).
 
@@ -158,4 +150,4 @@ A critical component for managing pending and queued transactions awaiting inclu
 
 ### validator
 
-A node that verifies the accuracy of data contained in new blocks and ensures that blocks are processed efficiently across the network. In Klaytn's permissionless validation structure, anyone can act as a block validator if they meet certain qualifications while maintaining the existing Governance Council structure and roles.
+A node that verifies the accuracy of data contained in new blocks and ensures that blocks are processed efficiently across the network. In Kaia's permissionless validation structure, anyone can act as a block validator if they meet certain qualifications while maintaining the existing Governance Council structure and roles.

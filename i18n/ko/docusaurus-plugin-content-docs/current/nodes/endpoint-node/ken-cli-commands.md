@@ -15,7 +15,7 @@ COMMANDS:
    attach      Start an interactive JavaScript environment (connect to node)
    console     Start an interactive JavaScript environment
    dumpconfig  Show configuration values
-   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Klaytn v1.7.0.)
+   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Kaia v1.7.0.)
    init        Bootstrap and initialize a new genesis block
    snapshot    A set of commands based on the snapshot
    version     Show version number
@@ -31,7 +31,7 @@ account, create a new account or update an existing account.
  ...
 Keys are stored under <DATADIR>/keystore.
 It is safe to transfer the entire directory or the individual keys therein
-between klay nodes by simply copying.
+between kaia nodes by simply copying.
 
 Make sure you backup your keys regularly.
 
@@ -57,13 +57,13 @@ participating.
 
 ## JavaScript 콘솔 <a id="javascript-console"></a>
 
-클레이튼 엔드포인트 노드는 JavaScript 콘솔과 함께 제공됩니다. 콘솔 명령줄에서 EN에 클레이튼 API 호출의 일부를 시작할 수 있습니다. JavaScript 콘솔에 접속하려면 다음 명령을 실행하세요.
+카이아 엔드포인트 노드는 JavaScript 콘솔과 함께 제공됩니다. 콘솔 명령줄에서 EN에 카이아 API 호출의 일부를 시작할 수 있습니다. JavaScript 콘솔에 접속하려면 다음 명령을 실행하세요.
 
 ```bash
-$ ken attach ~/kend_home/klay.ipc
-Welcome to the Klaytn JavaScript console
+$ ken attach ~/kend_home/kaia.ipc
+Welcome to the Kaia JavaScript console
 
-!instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+!instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 
@@ -79,7 +79,7 @@ Welcome to the Klaytn JavaScript console
 
 ### 모듈 API <a id="module-apis"></a>
 
-콘솔 프롬프트에 모듈 이름을 입력하면 해당 모듈의 사용 가능한 프로퍼티와 함수를 확인할 수 있습니다. For the details of functions, please see [Klaytn API](../../../references/json-rpc/klay/account-created).
+콘솔 프롬프트에 모듈 이름을 입력하면 해당 모듈의 사용 가능한 프로퍼티와 함수를 확인할 수 있습니다. 함수에 대한 자세한 내용은 [Kaia API](../../../references/json-rpc/klay/account-created)를 참조하세요.
 
 ```javascript
 > personal

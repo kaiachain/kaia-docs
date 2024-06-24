@@ -1,6 +1,6 @@
-# Di chuyển từ web3j
+# Porting from web3j
 
-Chúng tôi đã tạo ra caver-java sao cho tương đồng với [web3j](https://github.com/web3j/web3j) nhất có thể để tạo điều kiện cho tính khả chuyển. Đoạn mã dưới đây cho thấy cách chuyển một ứng dụng được viết bằng web3j sang caver-java.
+We made caver-java as similar as possible to [web3j](https://github.com/web3j/web3j) for portability. The below code snippets show how to port an application written in web3j to caver-java.
 
 ```java
 /* start a client */
@@ -13,7 +13,7 @@ Quantity nonce = caver.klay().getTransactionCount(<address>, <blockParam>).send(
 
 /* convert unit */
 Convert.toWei("1.0", Convert.Unit.ETHER).toBigInteger(); // Web3j
-Convert.toPeb("1.0", Convert.Unit.KLAY).toBigInteger(); // caver-java
+Convert.toPeb("1.0", Convert.Unit.KAIA).toBigInteger(); // caver-java
 
 /* generate wallet file */
 WalletUtils.generateNewWalletFile(<password>, <filepath>); // Web3j

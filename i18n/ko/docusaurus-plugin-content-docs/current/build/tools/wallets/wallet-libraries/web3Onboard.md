@@ -10,18 +10,18 @@ sidebar_label: Web3-Onboard
 
 프로젝트와 개발자는 [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)와 같은 도구를 활용하여 여러 지갑을 탈중앙화 애플리케이션(dApp)에 빠르게 통합할 수 있습니다. Web3-Onboard의 도움으로 사용자 온보딩이 간소화되었습니다. Web3-Onboard는 여러 지갑 지원부터 사용자가 자신의 계정을 다른 체인이나 네트워크에 연결하고 실시간 거래 알림을 받을 수 있는 기능 등 다양한 기능을 갖추고 있습니다.
 
-이 가이드에서는 Web3-Onboard 라이브러리를 사용해 여러 지갑(예: Coinbase Wallet, MetaMask, WalletConnect 등) 을 통합하는 방법, 즉, 클레이튼 네트워크에 구축한 dApp에 통합하는 방법을 설명합니다.
+이 가이드에서는 Web3-Onboard 라이브러리를 사용해 여러 지갑(예: Coinbase Wallet, MetaMask, WalletConnect 등) 을 통합하는 방법, 즉, 카이아 네트워크에 구축한 dApp에 통합하는 방법을 설명합니다. into your dApp built on the Kaia Network.
 
 ## 전제 조건
 
 - 작동하는 리액트 프로젝트(`npx create-react-app project-name` 실행)
 - 필요한 지갑 설치([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)).
 - RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
 
 ## 시작하기
 
-체인에 구애받지 않는 지갑 라이브러리인 Web3-Onboard는 모든 EVM 호환 네트워크를 지원하며, 라이브러리에 새로운 네트워크를 추가할 수 있는 유연성도 제공합니다. 이 가이드에서는 Web3-Onboard를 사용해 Klaytn 메인넷 Cypress와 클레이튼 테스트넷 Baobab을 dApp에 추가해 보겠습니다. 이제 Web3-Onboard를 사용해 다중지갑 호환성을 클레이튼 네트워크에 구축한 dApp에 통합해 보겠습니다.
+체인에 구애받지 않는 지갑 라이브러리인 Web3-Onboard는 모든 EVM 호환 네트워크를 지원하며, 라이브러리에 새로운 네트워크를 추가할 수 있는 유연성도 제공합니다. 이 가이드에서는 Web3-Onboard를 사용해 Kaia 메인넷과 카이아 테스트넷 Kairos를 dApp에 추가해 보겠습니다. 이제 Web3-Onboard를 사용해 다중지갑 호환성을 카이아 네트워크에 구축한 dApp에 통합해 보겠습니다.
 
 ## 온보드 및 지갑 모듈 설정
 
@@ -57,7 +57,7 @@ const modules = [coinbaseWalletSdk, walletConnect, injected];
 
 **3단계**: ethers 설치 및 가져오기
 
-Web3-Onboard 공급자는 [ethers.js](https://docs.ethers.org/v6/), [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)와 같은 라이브러리와 함께 사용할 수 있습니다. 이 가이드에서는 ethers.js를 사용하여 사용자 계정 가져오기, 잔액 가져오기, 트랜잭션 서명, 트랜잭션 보내기, 스마트 컨트랙트 읽기 및 쓰기와 같은 Klaytn 블록체인 호출을 수행하겠습니다.
+Web3-Onboard 공급자는 [ethers.js](https://docs.ethers.org/v6/), [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)와 같은 라이브러리와 함께 사용할 수 있습니다. 이 가이드에서는 ethers.js를 사용하여 사용자 계정 가져오기, 잔액 가져오기, 트랜잭션 서명, 트랜잭션 보내기, 스마트 컨트랙트 읽기 및 쓰기와 같은 Kaia 블록체인 호출을 수행하겠습니다.
 
 ```bash
 npm install --save ethers
@@ -76,8 +76,8 @@ import { ethers } from "ethers";
 ```js
 import Onboard from "@web3-onboard/core";
 const ETH_MAINNET_RPC_URL = `Paste ETH RPC URL`;
-const KLAYTN_MAINNET_URL = `Paste KLAYTN MAINNET URL`
-const KLAYTN_BAOBAB_URL = `Paste KLAYTN BAOBAB URL`
+const KAIATN_MAINNET_URL = `Paste KAIATN MAINNET URL`
+const KAIATN_BAOBAB_URL = `Paste KAIATN BAOBAB URL`
 
 const onboard = Onboard({
   wallets: modules, // created in previous step
@@ -93,15 +93,15 @@ const onboard = Onboard({
       id: "0x2019", // chain ID must be in hexadecimal
       token: "KLAY",
       namespace: "evm",
-      label: "Klaytn Mainnet",
-      rpcUrl: KLAYTN_MAINNET_URL
+      label: "Kaia Mainnet",
+      rpcUrl: KAIATN_MAINNET_URL
     },
     {
       id: "0x3e9", // chain ID must be in hexadecimel
       token: "KLAY",
       namespace: "evm",
-      label: "Klaytn Testnet",
-      rpcUrl: KLAYTN_BAOBAB_URL
+      label: "Kaia Testnet",
+      rpcUrl: KAIATN_BAOBAB_URL
     },
    // you can add as much supported chains as possible
   ],
@@ -142,7 +142,7 @@ export const truncateAddress = (address) => {
   };
 ```
 
-**2단계**: App.js\` 파일에서 함수를 가져옵니다.
+**2단계**: App.js\\` 파일에서 함수를 가져옵니다.
 
 ```js
 import { truncateAddress, toHex } from "./utils";

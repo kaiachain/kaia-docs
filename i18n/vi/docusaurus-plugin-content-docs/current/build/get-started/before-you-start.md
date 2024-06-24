@@ -1,31 +1,31 @@
-# Môi trường phát triển
+# Before You Start
 
-**Mạng Klaytn**
+**Kaia Networks**
 
-- Mạng thử nghiệm Baobab
-- Mạng chính thức Cypress
+- Kairos testnet
+- Mainnet
 
-**Nút điểm cuối**
+**Endpoint Node**
 
-- Bạn cần có [Nút điểm cuối](../../nodes/endpoint-node/endpoint-node.md) để kết nối với mạng lưới Klaytn và để thực hiện cuộc gọi qua API hoặc gửi một giao dịch.
-- `ken` là một nhị phân Nút điểm cuối của Klaytn. `ken` exposes two interfaces, a [command-line interface](../../nodes/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created). `ken` chạy trên Linux và MacOS.
-- `ken` CLI đi kèm với một số chức năng quản lý nút và tiện ích.
+- Your [Endpoint Node](../../nodes/endpoint-node/endpoint-node.md) is needed to connect to the Kaia network and to issue an API call or send a transaction.
+- `ken` is a Kaia Endpoint Node binary. `ken` exposes two interfaces, a [command-line interface](../../nodes/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created). `ken` runs on Linux and MacOS.
+- `ken` CLI comes with several utility and node management functions.
 
-**Phát triển hợp đồng thông minh**
+**Smart Contract Development**
 
-- [Klaytn Plugin for Remix](https://ide.klaytn.foundation) - Klaytn Plugin for Remix, một trình biên dịch dựa trên trình duyệt và IDE.
-- [Truffle](https://github.com/trufflesuite/truffle) - Một công cụ mã nguồn mở dùng để phát triển các hợp đồng thông minh bằng Solidity.
-- [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - Môi trường phát triển cho hợp đồng thông minh và dApps.
-- [Foundry](https://book.getfoundry.sh/) - Foundry là một chuỗi công cụ phát triển hợp đồng thông minh.
-- [Thirdweb](https://portal.thirdweb.com/) - Thirdweb là một khung phát triển web3 hoàn chỉnh cung cấp các dịch vụ để xây dựng, quản lý và phân tích các ứng dụng web3.
+- [Kaia Plugin for Remix](https://ide.klaytn.foundation) - Kaia Plugin for Remix, a browser-based compiler and IDE.
+- [Truffle](https://github.com/trufflesuite/truffle) - An open-source tool for developing smart contracts in Solidity.
+- [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - A development environment for smart contracts and dApps.
+- [Foundry](https://book.getfoundry.sh/) - Foundry is a smart contract development toolchain.
+- [Thirdweb](https://portal.thirdweb.com/) - Thirdweb is a complete web3 development framework that provides services to build, manage, and analyze web3 applications.
 
-**Klaytn SDK**
+**Kaia SDKs**
 
-- [caver-js](../../references/sdk/caver-js/caver-js.md) : Thư viện JavaScript triển khai các API JSON-RPC của Klaytn.
-- [caver-java](../../references/sdk/caver-java/caver-java.md) : Thư viện Java triển khai các API JSON-RPC của Klaytn.
+- [caver-js](../../references/sdk/caver-js/caver-js.md) : A JavaScript library that implements the Kaia JSON-RPC APIs.
+- [caver-java](../../references/sdk/caver-java/caver-java.md) : A Java library that implements the Kaia JSON-RPC APIs.
 
-**Các bộ công cụ của Klaytn**
+**Kaia Toolkits**
 
-- [Klaytnscope](https://klaytnscope.com/) - A block and transaction explorer.
-- [Ví Klaytn](https://wallet.klaytn.com/) - Một công cụ quản lý tài khoản dựa trên trình duyệt.
-- [Klaytn Contracts Wizard](https://wizard.klaytn.foundation/) - An interactive generator to bootstrap your smart contract and learn about Klaytn Contracts.
+- [Kaiascope](https://klaytnscope.com/) - A block and transaction explorer.
+- [Kaia Wallet](https://wallet.klaytn.com/) - A browser-based account management tool.
+- [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) - An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.

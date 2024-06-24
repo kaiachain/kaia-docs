@@ -2,16 +2,17 @@
 
 ## 1. Clone Count DApp <a id="2-clone-count-dapp"></a>
 
-### 1) Clone Count DApp repository <a id="1-clone-count-dapp-repository"></a>
+### 1. Clone Count DApp repository <a id="1-clone-count-dapp-repository"></a>
 
 ```text
 $ git clone https://github.com/klaytn/countbapp
 ```
 
-### 2) Install & Run Count DApp <a id="2-install-run-count-dapp"></a>
+### 2. Install & Run Count DApp <a id="2-install-run-count-dapp"></a>
 
 The package you just cloned is ready to launch without any modification.
 
+The sample contract is already deployed to the Kairos testnet, and the contract ABI is included in our package.\
 The sample contract is already deployed to the Baobab testnet, and the contract ABI is included in our package.\
 Count DApp frontend code is initially configured to connect to the smart contract on the Baobab testnet.
 
@@ -42,9 +43,10 @@ Application will pop up right away!
 We will make a super simple contract called "Count".
 
 a. There would be just one storage variable called `count`.\
+b.\
 b. Users can increase `count` variable by 1 or decrease it by 1. So there would be two functions, `plus` function which increases `count` variable by 1, and `minus` function which decreases `count` variable by 1. That's all!
 
-### 2) Define the variable <a id="2-define-the-variable"></a>
+### 2. Define the variable <a id="2-define-the-variable"></a>
 
 Before setting a variable, we should specify the solidity version. Let's use 0.5.6 stable version.
 
@@ -72,7 +74,7 @@ contract Count {
 }
 ```
 
-### 3) Define functions <a id="3-define-functions"></a>
+### 3. Define functions <a id="3-define-functions"></a>
 
 We need two functions, `plus` and `minus`. Each function's role is:\
 `plus` - increase the `count` by 1. (count = count + 1)\
@@ -101,7 +103,7 @@ To allow the functions to be called outside the contract, functions should be de
 function plus() public { … }
 ```
 
-### 4) Let's do something more <a id="4-let-s-do-something-more"></a>
+### 4. Let's do something more <a id="4-let-s-do-something-more"></a>
 
 We want to add one more feature. How about remembering the last participant's wallet address?
 
@@ -153,6 +155,8 @@ contract Count {
 _NOTE_\
 1\) `public` If you declare a variable or a function as `public`, you can access them outside the blockchain, i.e., you can access this variable or function from your frontend application. You will see how to interact with the contract public methods and variables from the frontend application in the [Count componenent](code-overview/count-component.md) chapter.
 
+2\) `msg.sender`\
+`msg.sender` is the address that initiated the current transaction.\
 2\) `msg.sender`\
 `msg.sender` is the address that initiated the current transaction.\
 To get the address of the transaction sender we can use `msg.sender` variable.
@@ -265,7 +269,7 @@ example)
 }
 ```
 
-### 2. Deploy setup (Which contract do you want to deploy?) <a href="#2-deploy-setup-which-contract-do-you-want-to-deploy" id="2-deploy-setup-which-contract-do-you-want-to-deploy"></a>
+### Deploy setup (Which contract do you want to deploy?) <a href="#2-deploy-setup-which-contract-do-you-want-to-deploy" id="2-deploy-setup-which-contract-do-you-want-to-deploy"></a>
 
 `migrations/2_deploy_contracts.js`:
 
@@ -307,7 +311,7 @@ We want to store the contract ABI and the deployed address in files. `fs` node.j
 Through this post-process, we save our contract address and ABI as `deployedABI` and `deployedAddress` in the directory.\
 For further information about `artifacts.`, visit [truffle document site](https://trufflesuite.com/docs/truffle/getting-started/running-migrations#artifacts-require-).
 
-### 3. Deploy <a href="#3-deploy" id="3-deploy"></a>
+### Deploy <a href="#3-deploy" id="3-deploy"></a>
 
 You need KLAY to deploy a contract. You can receive testnet KLAY on faucet.
 

@@ -1,23 +1,23 @@
-# Khắc phục sự cố
+# Troubleshooting
 
-## Tôi có thể tìm tập tin bản ghi cho nút Klaytn đang chạy bằng gói nhị phân Klaytn ở đâu? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
+## Where can I find a log file for the running Kaia node using the Kaia binary package? <a id="where-can-i-find-a-log-file-for-the-running-kaia-node-using-the-kaia-binary"></a>
 
-**Trả lời**
+**Answer**
 
-Bạn có thể tìm thấy tập tin bản ghi trong thư mục dữ liệu. Ví dụ: Vị trí mặc định của bản ghi cho `kcnd` là `/var/log/kcnd/kcnd.out` khi bạn cài đặt gói RPM `kcnd`.
+You can find a log file in data directory. For example, default location of a log for `kcnd` is `/var/log/kcnd/kcnd.out` when you install `kcnd` RPM package.
 
-## Nút Klaytn không kết nối được với mạng nếu có thông báo lỗi `Giao thức istanbul/64 failed` và `Genesis block mismatch` như bên dưới. <a id="klaytn-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
+## Kaia node can not connect to network with `Protocol istanbul/64 failed` and `Genesis block mismatch` error message as below. <a id="kaia-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
 
 ```
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
 ```
 
-**Trả lời**
+**Answer**
 
-Lỗi này có thể phát sinh khi `genesis.json` thay đổi.
-Vui lòng dừng nút Klaytn và xóa thư mục dữ liệu. Sau đó, chạy lại `ken init` bằng cách sử dụng đúng `genesis.json` như bên dưới.
+This error can happen when `genesis.json` is differ.
+Please stop Kaia node and remove data directory. Then run `ken init` again using correct `genesis.json` as below.
 
-Ví dụ: Khi thư mục dữ liệu là `/var/kend/data`.
+For example, when data directory is `/var/kend/data`.
 
 ```
 sudo kend stop
@@ -26,7 +26,7 @@ sudo ken init --datadir /var/kend/data genesis.json
 sudo kend start
 ```
 
-## Không thể triển khai hợp đồng thông minh bằng cách sử dụng Truffle nếu có thông báo lỗi như sau. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
+## Can't deploy smart contract using truffle with following error message. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
 
 ```
 Error: Returned error: The method net_version does not exist/is not available
@@ -43,31 +43,31 @@ Error: Returned error: The method net_version does not exist/is not available
     at process._tickCallback (internal/process/next_tick.js:63:19)
 ```
 
-**Trả lời**
+**Answer**
 
-Kích hoạt `net` và API khác cho bảng điều khiển RPC bằng cách chỉnh sửa tập tin `kend.conf` như dưới đây.
+Enable `net` and other API for RPC console by editing `kend.conf` file as below.
 
 ```
 RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: admin,debug,klay,miner,net,personal,rpc,txpool,web3
 ```
 
-Sau khi cập nhật `kend.conf`, khởi động lại nút Klaytn.
+After updating `kend.conf`, restart Kaia node.
 
-## Không khởi động được nút Klaytn nếu có lỗi `Unit not found` như dưới đây sau khi cài đặt gói nhị phân. <a id="can-t-start-klaytn-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
+## Can't start Kaia node with `Unit not found` error as below after installing binary package. <a id="can-t-start-kaia-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
 Failed to start kcnd.service: Unit not found.
 ```
 
-**Trả lời**
+**Answer**
 
-Vui lòng tải lại daemon như dưới đây.
+Please reload daemon as below.
 
 ```
 sudo systemctl daemon-reload
 ```
 
-## CN không kết nối được với mạng nếu có thông báo bản ghi `Add dial candidate from static nodes`. <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
+## CN can't connect to network with `Add dial candidate from static nodes` log message. <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
 
 ```
 INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
@@ -75,37 +75,37 @@ INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
 ```
 
-**Trả lời**
+**Answer**
 
-Điều này có thể xảy ra khi `genesis.json` và thông tin khóa nút/nút xác thực khác nhau.
-Vui lòng kiểm tra lại khóa nút/nút xác thực và tập tin `genesis.json`.
+This can happen when `genesis.json` and nodekey/validator information differ.
+Please check nodekey/validator and `genesis.json` file again.
 
-## Không thể khởi động nút Klaytn nếu có thông báo bản ghi lỗi như sau. <a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
+## Kaia node can't start with following error log message. <a id="kaia-node-can-t-start-with-following-error-log-message"></a>
 
 ```
-Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
+Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/kaia.ipc: bind: invalid argument
 ```
 
-**Trả lời**
+**Answer**
 
-Nếu bạn thấy thông báo lỗi tập hợp giao thức ở trên trong tập tin bản ghi, điều đó có nghĩa là Klaytn không khởi động được do tên đường dẫn đầy đủ đến thư mục hiện tại quá dài. Vui lòng khởi chạy nút Klaytn với thư mục dữ liệu đầy đủ ngắn hơn. Độ dài tối đa cho phép của tên đường dẫn phụ thuộc vào hệ điều hành.
+If you see the above protocol stack error message in the log file, it means Kaia failed to start because the full path name of current working directory is too long. Please launch a Kaia node with a shorter full data directory. The maximum allowed length of path name depends on operating system.
 
-## EN không thể kết nối với CC nếu có thông báo bản ghi như sau. <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
+## EN can't connect to CC with following log message. <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
 
 ```
 ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad conn=staticdial err="InvalidPeerHierarchy - (PeerIsOnParentChain:false) == (OnChildChain:false)"
 ```
 
-**Trả lời**
+**Answer**
 
-Điều này có thể xảy ra khi khối khởi tạo của chuỗi chính và chuỗi dịch vụ khác nhau. Vui lòng đảm bảo khối khởi tạo của hai chuỗi giống nhau.
+It could happen when genesis of mainchain and service chain differ. Please check genesis of both chain are same.
 
-## Lỗi thiếu trạng thái tiêu đề <a id="head-state-missing-error"></a>
+## Head state missing error <a id="head-state-missing-error"></a>
 
 ```
 "ERROR[06/21,14:35:16 +09] [5] Head state missing, repairing chain       number=2955620 hash=66bba2…e15f8d
 Fatal: Error starting protocol stack: rewound to block number 0, but repair failed"
 ```
 
-**Trả lời** Do vấn đề tương thích, chúng tôi khuyên bạn nên cập nhật nhị phân của EN lên v0.9.6 nếu bạn vẫn đang chạy EN ở các phiên bản cũ (`<=` v0.8.2).
-Due to a compatibility issue, we strongly recommend to upgrade EN's binary to v0.9.6 if you have been running an EN with older versions (`<=` v0.8.2). Nếu đây là lần đầu bạn cập nhật EN lên v0.9.x và muốn di chuyển dữ liệu từ phiên bản cũ hơn, bạn phải chỉ định tùy chọn `ADDITIONAL="--db.num-statetrie-partitions 1"` trong tập tin cấu hình khi cài đặt phiên bản mới hơn.
+**Answer**
+Due to a compatibility issue, we strongly recommend to upgrade EN's binary to v0.9.6 if you have been running an EN with older versions (`<=` v0.8.2). If it is your first time upgrading the EN to v0.9.x and want to migrate the data from the older version, you must specify the option `ADDITIONAL="--db.num-statetrie-partitions 1"` in the configuration file when you install the newer version.

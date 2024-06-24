@@ -8,7 +8,7 @@ This guide allows you to automatically verify your smart contracts' source code
 
 To verify your contract on klaytn, you need to add the following configuration to your `hardhat.config.js`:
 
-## Cypress
+## Mainnet
 
 ```
 module.exports = {
@@ -37,7 +37,7 @@ module.exports = {
 
 ```
 
-## Baobab
+## Kairos
 
 ```
 module.exports = {

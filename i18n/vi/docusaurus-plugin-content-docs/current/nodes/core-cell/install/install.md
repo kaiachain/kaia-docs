@@ -1,4 +1,4 @@
-# Hướng dẫn cài đặt
+# Install Core Cell
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

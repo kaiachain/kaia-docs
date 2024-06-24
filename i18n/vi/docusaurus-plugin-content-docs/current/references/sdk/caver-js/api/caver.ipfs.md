@@ -1,8 +1,8 @@
 # caver.ipfs
 
-`caver.ipfs` là gói cung cấp chức năng liên quan đến IPFS (InterPlanetary File System).
+`caver.ipfs` is a package that provides functionality related to IPFS (InterPlanetary File System).
 
-**LƯU Ý** `caver.ipfs` được hỗ trợ kể từ caver-js phiên bản [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4).
+**NOTE** `caver.ipfs` is supported since caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4).
 
 ## caver.ipfs.setIPFSNode <a id="caver-ipfs-setipfsnode"></a>
 
@@ -10,21 +10,21 @@
 caver.ipfs.setIPFSNode(host, port, ssl)
 ```
 
-Khởi tạo kết nối với Nút IPFS. Khi thông tin Nút IPFS được đặt thông qua hàm này, bạn có thể tải tệp lên IPFS hoặc tải tệp từ IPFS.
+Initializes a connection with an IPFS Node. When an IPFS Node information is set through this function, you can upload files to IPFS or load files from IPFS.
 
-**Tham số**
+**Parameters**
 
-| Tên  | type    | Mô tả                                                                                        |
-| ---- | ------- | -------------------------------------------------------------------------------------------- |
-| host | chuỗi   | Url Nút IPFS để kết nối.                                                                     |
-| port | số      | Số cổng để sử dụng.                                                                          |
-| ssl  | boolean | Nếu đúng thì giao thức `https` được sử dụng. Nếu không thì giao thức `http` sẽ được sử dụng. |
+| Name | Type    | Description                                                                                                    |
+| ---- | ------- | -------------------------------------------------------------------------------------------------------------- |
+| host | string  | The IPFS Node url to connect with.                                                             |
+| port | number  | The port number to use.                                                                        |
+| ssl  | boolean | If true, the `https` protocol is used. Otherwise, the `http` protocol is used. |
 
-**Giá trị trả về**
+**Return Value**
 
-Không có
+None
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.ipfs.setIPFSNode('localhost', 5001, false)
@@ -36,27 +36,27 @@ Không có
 caver.ipfs.add(data)
 ```
 
-Thêm tập tin vào IPFS. [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) của tệp đã tải lên được trả về.
+Adds a file to IPFS. The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file is returned.
 
-Nếu đường dẫn của tập tin được thông qua, nội dung của tập tin sẽ được tải từ đường dẫn và được tải lên IPFS. Nếu một bộ đệm được thông qua, nó sẽ được tải trực tiếp lên IPFS.
+If the path of a file is passed, the contents of the file are loaded from the path and uploaded to IPFS. If a buffer is passed, it is uploaded to IPFS directly.
 
-**Tham số**
+**Parameters**
 
-| Tên  | Loại                          | Mô tả                                                     |
-| ---- | ------------------------------ | --------------------------------------------------------- |
-| data | chuỗi \| Bộ đệm \| ArrayBuffer | Chuỗi đường dẫn của tập tin hoặc bộ đệm để thêm vào IPFS. |
+| Name | Type                                | Description                                                           |
+| ---- | ----------------------------------- | --------------------------------------------------------------------- |
+| data | string \\| Buffer \\| ArrayBuffer | The path string of a file or a buffer to add to IPFS. |
 
-**LƯU Ý** `Buffer` được hỗ trợ kể từ caver-js phiên bản [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
+**NOTE** `Buffer` is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `string`
+`Promise` returns `string`
 
-| Loại | Mô tả                                                                                                                                               |
-| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| chuỗi | [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) của tập tin đã tải lên. |
+| Type   | Description                                                                                                                                                           |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 // Adds a file with path string.
@@ -74,23 +74,23 @@ QmWmsL95CYvci8JiortAMhezezr8BhAwAVohVUSJBcZcBL
 caver.ipfs.get(hash)
 ```
 
-Trả về tập tin được xử lý bằng đường dẫn IPFS hợp lệ.
+Returns a file addressed by a valid IPFS path.
 
-**Tham số**
+**Parameters**
 
-| Tên  | Loại | Mô tả                                                                                                                                             |
-| ---- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hash | chuỗi | [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) của tệp để tải xuống. |
+| Name | Type   | Description                                                                                                                                                             |
+| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hash | string | An [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `Bộ đệm`
+`Promise` returns `Buffer`
 
-| Loại  | Mô tả                 |
-| ------ | --------------------- |
-| Bộ đệm | Nội dung của tệp tin. |
+| Type   | Description                              |
+| ------ | ---------------------------------------- |
+| Buffer | The content of the file. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.ipfs.get('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
@@ -103,21 +103,21 @@ Trả về tập tin được xử lý bằng đường dẫn IPFS hợp lệ.
 caver.ipfs.toHex(hash)
 ```
 
-Chuyển đổi [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) thành [Multihash](https://multiformats.io/multihash).
+Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to a [Multihash](https://multiformats.io/multihash).
 
-**Tham số**
+**Parameters**
 
-| Tên  | type  | Mô tả                                                                                                                                      |
-| ---- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| hash | chuỗi | [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) để chuyển đổi. |
+| Name | Type   | Description                                                                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hash | string | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                                 |
-| ----- | ----------------------------------------------------- |
-| chuỗi | Chuỗi [Multihash](https://multiformats.io/multihash). |
+| Type   | Description                                                                |
+| ------ | -------------------------------------------------------------------------- |
+| string | The [Multihash](https://multiformats.io/multihash) string. |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.ipfs.toHex('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
@@ -130,21 +130,21 @@ Chuyển đổi [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/con
 caver.ipfs.fromHex(hash)
 ```
 
-Chuyển đổi thành [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) từ [Multihash](https://multiformats.io/multihash).
+Converts to [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) from a [Multihash](https://multiformats.io/multihash).
 
-**Tham số**
+**Parameters**
 
-| Tên  | Loại | Mô tả                                                         |
-| ---- | ----- | ------------------------------------------------------------- |
-| hash | chuỗi | [Multihash](https://multiformats.io/multihash) để chuyển đổi. |
+| Name | Type   | Description                                                                  |
+| ---- | ------ | ---------------------------------------------------------------------------- |
+| hash | string | A [Multihash](https://multiformats.io/multihash) to convert. |
 
-**Giá trị trả về**
+**Return Value**
 
-| Loại | Mô tả                                                                                                                        |
-| ----- | ---------------------------------------------------------------------------------------------------------------------------- |
-| chuỗi | [CID(Định danh nội dung)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
+| Type   | Description                                                                                                                                      |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
 
-**Ví dụ**
+**Example**
 
 ```javascript
 > caver.ipfs.fromHex('0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3')

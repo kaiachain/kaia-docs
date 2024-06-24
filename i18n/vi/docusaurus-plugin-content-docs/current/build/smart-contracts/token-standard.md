@@ -1,16 +1,16 @@
-# Token tương thích với Klaytn (KCTs)
+# Kaia Compatible Tokens (KCTs)
 
-Token tương với thích Klaytn (KCT) là một loại hợp đồng thông minh đặc biệt tuân thủ một số tiêu chuẩn kỹ thuật nhất định. Tất cả những người muốn phát hành token trên Klaytn đều phải tuân thủ tiêu chuẩn kỹ thuật này.
+Kaia Compatible Token (KCT) is a special type of smart contract that implements certain technical specifications. Everyone who wants to issue tokens on top of Kaia must follow the specification.
 
-Các tiêu chuẩn token được xác định trong Klaytn như [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) và [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17).
+Token standards are defined in Kaia such as [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) and [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17).
 
-Có thể xác định các KCT khác để đáp ứng các tiêu chuẩn kỹ thuật cụ thể. Nếu bạn cần các tiêu chuẩn token khác, vui lòng truy cập [Đề xuất cải tiến Klaytn](https://github.com/klaytn/KIPs) và đề xuất một tiêu chuẩn token mới.
+Other KCTs can be defined to meet certain technical specifications. If anyone needs other token standards, please visit [Kaia Improvement Proposal](https://github.com/klaytn/KIPs) and propose a new token standard.
 
-## Tiêu chuẩn Fungible Token (KIP-7) <a id="fungible-token-standard-kip-7"></a>
+## Fungible Token Standard \(KIP-7\) <a id="fungible-token-standard-kip-7"></a>
 
-Fungible token là các token có tính chất đồng nhất và chia được thành nhiều đơn vị. Mỗi fungible token có thể hoán đổi cho nhau do mỗi đơn vị token đều có cùng giá trị. Tương tự như mỗi tờ tiền một USD đều có giá trị như nhau là một USD. Vì khả năng thay thế là một tính năng cần thiết đối với tiền điện tử trong hầu hết các trường hợp, phần lớn các token trên blockchain đều là fungible token.
+Fungible tokens are tokens that have properties of uniformity and divisibility. Every fungible token is interchangeable as each unit of token possesses the same value. Just like every dollar bill has the same value of one dollar. Since fungibility is essential feature to crypto currency in most cases, large proportion of blockchain tokens are fungible tokens.
 
-Để triển khai các thuộc tính này với hợp đồng thông minh, ta có thể sử dụng tiêu chuẩn token KIP-7. Các token tương thích với KIP-7 triển khai giao diện như sau. Lưu ý rằng [KIP-13](https://kips.klaytn.foundation/KIPs/kip-13) cũng phải được triển khai cùng. Đối với ứng dụng ví, có thể triển khai [giao diện ví](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface).
+To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens implement the following interface. Please note that [KIP-13](https://kips.klaytn.foundation/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) can be implemented.
 
 ```solidity
 // IKIP7
@@ -55,19 +55,19 @@ function addPauser(address _account) external;
 function renouncePauser() external;
 ```
 
-Dựa trên giao diện trên đây, các nhà phát triển có thể tùy chỉnh token bằng cách thêm các tính năng và logic mới và triển khai chúng trên mạng lưới Klaytn.
+Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Kaia network.
 
-Để biết thêm thông tin, hãy tham khảo [tài liệu KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) chính thức.
+For more information, refer to the official [KIP-7 documentation](https://kips.klaytn.foundation/KIPs/kip-7).
 
-- Tham khảo ví dụ triển khai tại [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol).
+- An example implementation is available at [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol).
 
-## Tiêu chuẩn Non-fungible Token (KIP-17) <a id="non-fungible-token-standard-kip-17"></a>
+## Non-fungible Token Standard \(KIP-17\) <a id="non-fungible-token-standard-kip-17"></a>
 
-Non-fungible token (NFT) là một loại token đặc biệt đại diện cho một tài sản duy nhất. Như ý nghĩa của cái tên non-fungible (không thể thay thế), mỗi token đều là duy nhất và không thể phân chia thành các đơn vị. Tính duy nhất này của non-fungible token mở ra những chân trời mới cho quá trình số hóa tài sản. Ví dụ: NFT có thể dùng để đại diện cho tác phẩm nghệ thuật số, vật phẩm trò chơi hoặc bất cứ loại tài sản duy nhất nào và cho phép mọi người giao dịch.t nào và cho phép mọi người giao dịch.
+Non-fungible token \(NFT\) is a special type of token that represents a unique asset. As the name non-fungible implies, every single token is unique and non-divisible. This uniqueness of non-fungible token opens up new horizons of asset digitization. For example, it can be used to represent digital art, game items, or any kind of unique assets and allow people to trade them.
 
-Ví dụ, một game sưu tập trên blockchain như [Cryptokitties](https://www.cryptokitties.co/) triển khai non-fungible token để đại diện cho các con mèo với thông tin di truyền khác nhau. Mỗi con mèo đều là duy nhất và không thể hoán đổi, dẫn đến các token của các con mèo khác nhau có giá trị khác nhau.
+For example, a blockchain collection game [Cryptokitties](https://www.cryptokitties.co/) implements non-fungible token to represent different kitties that have different genetic information. Every kitty is unique and non-interchangeable, resulting in different values for different kitty tokens.
 
-Để triển khai non-fungible token, có thể sử dụng [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17). Các hợp đồng token KIP-17 triển khai giao diện như sau. Lưu ý rằng [KIP-13](https://kips.klaytn.foundation/KIPs/kip-13) cũng phải được triển khai cùng. Đối với ứng dụng ví, có thể triển khai [giao diện ví](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface).
+To implement non-fungible token, [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) can be used. KIP-17 token contracts implement the following interface. Please note that [KIP-13](https://kips.klaytn.foundation/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface) can be implemented.
 
 ```solidity
 // IKIP17
@@ -121,18 +121,18 @@ function addPauser(address _account) public;
 function renouncePauser() public;
 ```
 
-Dựa trên giao diện trên đây, các nhà phát triển có thể tùy chỉnh token bằng cách thêm các tính năng và logic mới và triển khai chúng trên mạng lưới Klaytn.
+Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Kaia network.
 
-Để biết thêm thông tin, hãy tham khảo [tài liệu KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) chính thức.
+For more information, refer to the official [KIP-17 documentation](https://kips.klaytn.foundation/KIPs/kip-17).
 
-- Tham khảo ví dụ triển khai tại [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol).
+- An example implementation is available at [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol).
 
-## Tiêu chuẩn token cho chuỗi dịch vụ Klaytn <a id="token-standards-for-klaytn-service-chain"></a>
+## Token Standards for Kaia Service Chain <a id="token-standards-for-kaia-service-chain"></a>
 
-Chuỗi dịch vụ đề cập đến chuỗi con của Klaytn mà neo vào mạng chính blockchain của Klaytn. Khi triển khai một chuỗi dịch vụ, cần sử dụng các loại hợp đồng đặc biệt để hỗ trợ việc chuyển giá trị giữa chuỗi chính và chuỗi dịch vụ. Hiện tại, các hợp đồng này đang được phát triển và khi sẵn sàng, các tiêu chuẩn kỹ thuật về token cho chuỗi dịch vụ Klaytn sẽ được cung cấp trên KlaytnDocs.
+Service chain refers to Kaia's side chain that anchors to Kaia's main blockchain network. When implementing a service chain, special type of contracts are used to support value transfer between the main chain and the service chain. These contracts are currently under development, and when they are ready, the token specifications for Kaia service chain will be provided on KaiaDocs.
 
-## Lưu ý về ERC-20 và ERC-721 <a id="notes-on-erc-20-and-erc-721"></a>
+## Notes on ERC-20 and ERC-721 <a id="notes-on-erc-20-and-erc-721"></a>
 
-Do Klaytn công bố KIP-7 và KIP-17 là các tiêu chuẩn token được Klaytn sử dụng, chúng tôi khuyến nghị triển khai các hợp đồng fungible và non-fungible token lần lượt theo KIP-7 và KIP-17, thay vì theo ERC-20 và ERC-721.
-KIP-7 và KIP-17 dựa trên tiêu chuẩn ERC-20 và ERC-721, nhưng được điều chỉnh cho phù hợp với Klaytn và do đó phù hợp hơn trên hệ sinh thái Klaytn. Tuy ERC-20 và ERC-721 vẫn được hỗ trợ trên mạng lưới Klaytn, nhưng chúng có thể không tương thích với các công cụ khác nhau trong hệ sinh thái Klaytn.
-Để biết thêm thông tin về sự khác biệt giữa các tiêu chuẩn token, vui lòng truy cập [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7#differences-with-erc-20) và [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17#differences-from-erc-721).
+Since Kaia published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721.
+KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Kaia and thus more suitable on Kaia ecosystem. Yet ERC-20 and ERC-721 are still supported on Kaia network, they may not be compatible with various tools in Kaia ecosystem.
+For more information about the differences on token standards, please visit [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7#differences-with-erc-20) and [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17#differences-from-erc-721).

@@ -21,7 +21,7 @@
   },
   "link.item.label.Medium": {
     "message": "Medium",
-    "description": "The label of footer link with label=Medium linking to https://medium.com/klaytn"
+    "description": "The label of footer link with label=Medium linking to https://medium.com/kaiachain"
   },
   "link.item.label.Twitter": {
     "message": "Twitter",
@@ -33,10 +33,18 @@
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/klaytn"
+    "description": "The label of footer link with label=GitHub linking to https://github.com/kaiachain"
   },
   "copyright": {
     "message": "© Klaytn Foundation 2024. All rights reserved.",
     "description": "The footer copyright"
+  },
+  "link.item.label.Kaia Square": {
+    "message": "Kaia Square",
+    "description": "The label of footer link with label=Kaia Square linking to https://square.kaia.io/Home"
+  },
+  "link.item.label.X (formerly Twitter)": {
+    "message": "X (formerly Twitter)",
+    "description": "The label of footer link with label=X (formerly Twitter) linking to https://twitter.com/klaytn_official"
   }
 }

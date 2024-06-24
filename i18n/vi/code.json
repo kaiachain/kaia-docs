@@ -6,103 +6,103 @@
     "message": "{tagline}"
   },
   "Klaytn Overview": {
-    "message": "Klaytn Tổng quan"
+    "message": "Klaytn Overview"
   },
   "Want to know about Klaytn?": {
-    "message": "Anh có muốn biết về Klaytn không?"
+    "message": "Want to know about Klaytn?"
   },
   "Getting Started": {
-    "message": "Bắt đầu"
+    "message": "Getting Started"
   },
   "Want to start building on Klaytn?": {
-    "message": "Anh có muốn bắt đầu xây dựng ở Klaytn không?"
+    "message": "Want to start building on Klaytn?"
   },
   "Node Operators": {
-    "message": "Các nút điều hành"
+    "message": "Node Operators"
   },
   "Instructions on running Klaytn's nodes": {
-    "message": "Hướng dẫn chạy các nút Klaytn"
+    "message": "Instructions on running Klaytn's nodes"
   },
   "API references": {
-    "message": "Tham chiếu API"
+    "message": "API references"
   },
   "APIs and libraries": {
-    "message": "API và Thư viện"
+    "message": "APIs and libraries"
   },
   "Klaytn Developer Hub": {
-    "message": "Trung tâm phát triển Klaytn"
+    "message": "Klaytn Developer Hub"
   },
   "Klaytn's Developer portal": {
-    "message": "Cổng thông tin nhà phát triển Klaytn"
+    "message": "Klaytn's Developer portal"
   },
   "Klaytn Developer Forum": {
-    "message": "Diễn đàn Lập trình Klaytn"
+    "message": "Klaytn Developer Forum"
   },
   "Got a question? Visit our forum!": {
-    "message": "Bạn có câu hỏi? Ghé thăm diễn đàn của chúng tôi!"
+    "message": "Got a question? Visit our forum!"
   },
   "theme.ErrorPageContent.title": {
-    "message": "Trang này đã bị lỗi.",
+    "message": "This page crashed.",
     "description": "The title of the fallback page when the page crashed"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
-    "message": "Trở lại đầu trang",
+    "message": "Scroll back to top",
     "description": "The ARIA label for the back to top button"
   },
   "theme.blog.archive.title": {
-    "message": "Lưu trữ",
+    "message": "Archive",
     "description": "The page & hero title of the blog archive page"
   },
   "theme.blog.archive.description": {
-    "message": "Lưu trữ",
+    "message": "Archive",
     "description": "The page & hero description of the blog archive page"
   },
   "theme.blog.paginator.navAriaLabel": {
-    "message": "Thanh điều hướng của trang danh sách bài viết",
+    "message": "Blog list page navigation",
     "description": "The ARIA label for the blog pagination"
   },
   "theme.blog.paginator.newerEntries": {
-    "message": "Các bài mới hơn",
+    "message": "Newer Entries",
     "description": "The label used to navigate to the newer blog posts page (previous page)"
   },
   "theme.blog.paginator.olderEntries": {
-    "message": "Các bài cũ hơn",
+    "message": "Older Entries",
     "description": "The label used to navigate to the older blog posts page (next page)"
   },
   "theme.blog.post.plurals": {
-    "message": "{count} bài viết",
+    "message": "One post|{count} posts",
     "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.blog.tagTitle": {
-    "message": "{nPosts} được gắn thẻ \"{tagName}\"",
+    "message": "{nPosts} tagged with \"{tagName}\"",
     "description": "The title of the page for a blog tag"
   },
   "theme.tags.tagsPageLink": {
-    "message": "Xem tất cả Thẻ",
+    "message": "View All Tags",
     "description": "The label of the link targeting the tag list page"
   },
   "theme.colorToggle.ariaLabel": {
-    "message": "Chuyển đổi chế độ sáng và tối (hiện tại {mode})",
+    "message": "Switch between dark and light mode (currently {mode})",
     "description": "The ARIA label for the navbar color mode toggle"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
-    "message": "chế độ tối",
+    "message": "dark mode",
     "description": "The name for the dark color mode"
   },
   "theme.colorToggle.ariaLabel.mode.light": {
-    "message": "chế độ sáng",
+    "message": "light mode",
     "description": "The name for the light color mode"
   },
   "theme.blog.post.paginator.navAriaLabel": {
-    "message": "Thanh điều hướng của trang bài viết",
+    "message": "Blog post page navigation",
     "description": "The ARIA label for the blog posts pagination"
   },
   "theme.blog.post.paginator.newerPost": {
-    "message": "Bài mới hơn",
+    "message": "Newer Post",
     "description": "The blog post button label to navigate to the newer/previous post"
   },
   "theme.blog.post.paginator.olderPost": {
-    "message": "Bài cũ hơn",
+    "message": "Older Post",
     "description": "The blog post button label to navigate to the older/next post"
   },
   "theme.docs.breadcrumbs.navAriaLabel": {
@@ -110,369 +110,394 @@
     "description": "The ARIA label for the breadcrumbs"
   },
   "theme.docs.DocCard.categoryDescription": {
-    "message": "{count} mục",
+    "message": "{count} items",
     "description": "The default description for a category card in the generated index about how many items this category includes"
   },
   "theme.docs.paginator.navAriaLabel": {
-    "message": "Trang tài liệu",
+    "message": "Docs pages",
     "description": "The ARIA label for the docs pagination"
   },
   "theme.docs.paginator.previous": {
-    "message": "Trước",
+    "message": "Previous",
     "description": "The label used to navigate to the previous doc"
   },
   "theme.docs.paginator.next": {
-    "message": "Kế tiếp",
+    "message": "Next",
     "description": "The label used to navigate to the next doc"
   },
   "theme.docs.tagDocListPageTitle.nDocsTagged": {
-    "message": "{count} tài liệu đã gắn thẻ",
+    "message": "One doc tagged|{count} docs tagged",
     "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.docs.tagDocListPageTitle": {
-    "message": "{nDocsTagged} với \"{tagName}\"",
+    "message": "{nDocsTagged} with \"{tagName}\"",
     "description": "The title of the page for a docs tag"
   },
   "theme.docs.versionBadge.label": {
-    "message": "Phiên bản: {versionLabel}"
+    "message": "Version: {versionLabel}"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
-    "message": "Đây là tài liệu chưa được phát hành chính thức của {siteTitle} phiên bản {versionLabel}.",
+    "message": "This is unreleased documentation for {siteTitle} {versionLabel} version.",
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
   },
   "theme.docs.versions.unmaintainedVersionLabel": {
-    "message": "Đây là tài liệu của {siteTitle} {versionLabel}, hiện không còn được bảo trì.",
+    "message": "This is documentation for {siteTitle} {versionLabel}, which is no longer actively maintained.",
     "description": "The label used to tell the user that he's browsing an unmaintained doc version"
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
-    "message": "Để xem các cập nhật mới nhất, vui lòng xem phiên bản {latestVersionLink} ({versionLabel}).",
+    "message": "For up-to-date documentation, see the {latestVersionLink} ({versionLabel}).",
     "description": "The label used to tell the user to check the latest version"
   },
   "theme.docs.versions.latestVersionLinkLabel": {
-    "message": "phiên bản mới nhất",
+    "message": "latest version",
     "description": "The label used for the latest version suggestion link label"
   },
   "theme.common.editThisPage": {
-    "message": "Sửa trang này",
+    "message": "Edit this page",
     "description": "The link label to edit the current page"
   },
   "theme.common.headingLinkTitle": {
-    "message": "Đường dẫn trực tiếp tới {heading}",
+    "message": "Direct link to {heading}",
     "description": "Title for link to heading"
   },
   "theme.lastUpdated.atDate": {
-    "message": " vào {date}",
+    "message": " on {date}",
     "description": "The words used to describe on which date a page has been last updated"
   },
   "theme.lastUpdated.byUser": {
-    "message": " bởi {user}",
+    "message": " by {user}",
     "description": "The words used to describe by who the page has been last updated"
   },
   "theme.lastUpdated.lastUpdatedAtBy": {
-    "message": "Cập nhật lần cuối {atDate}{byUser}",
+    "message": "Last updated{atDate}{byUser}",
     "description": "The sentence used to display when a page has been last updated, and by who"
   },
   "theme.navbar.mobileVersionsDropdown.label": {
-    "message": "Phiên bản",
+    "message": "Versions",
     "description": "The label for the navbar versions dropdown on mobile view"
   },
   "theme.NotFound.title": {
-    "message": "Không tìm thấy trang",
+    "message": "Page Not Found",
     "description": "The title of the 404 page"
   },
   "theme.tags.tagsListLabel": {
-    "message": "Thẻ:",
+    "message": "Tags:",
     "description": "The label alongside a tag list"
   },
   "theme.admonition.caution": {
-    "message": "cẩn thận",
+    "message": "caution",
     "description": "The default label used for the Caution admonition (:::caution)"
   },
   "theme.admonition.danger": {
-    "message": "nguy hiểm",
+    "message": "danger",
     "description": "The default label used for the Danger admonition (:::danger)"
   },
   "theme.admonition.info": {
-    "message": "thông tin",
+    "message": "info",
     "description": "The default label used for the Info admonition (:::info)"
   },
   "theme.admonition.note": {
-    "message": "ghi chú",
+    "message": "note",
     "description": "The default label used for the Note admonition (:::note)"
   },
   "theme.admonition.tip": {
-    "message": "mẹo",
+    "message": "tip",
     "description": "The default label used for the Tip admonition (:::tip)"
   },
   "theme.admonition.warning": {
-    "message": "cảnh báo",
+    "message": "warning",
     "description": "The default label used for the Warning admonition (:::warning)"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Đóng",
+    "message": "Close",
     "description": "The ARIA label for close button of announcement bar"
   },
   "theme.blog.sidebar.navAriaLabel": {
-    "message": "Điều hướng các bài viết gần đây trên blog",
+    "message": "Blog recent posts navigation",
     "description": "The ARIA label for recent posts in the blog sidebar"
   },
   "theme.CodeBlock.copied": {
-    "message": "Đã sao chép",
+    "message": "Copied",
     "description": "The copied button label on code blocks"
   },
   "theme.CodeBlock.copyButtonAriaLabel": {
-    "message": "Sao chép code vào bộ nhớ tạm",
+    "message": "Copy code to clipboard",
     "description": "The ARIA label for copy code blocks button"
   },
   "theme.CodeBlock.copy": {
-    "message": "Sao chép",
-    "description": "The exit button label on code blocks"
+    "message": "Copy",
+    "description": "The copy button label on code blocks"
   },
   "theme.CodeBlock.wordWrapToggle": {
-    "message": "Chuyển đổi văn bản xuống dòng",
+    "message": "Toggle word wrap",
     "description": "The title attribute for toggle word wrapping button of code block lines"
   },
   "theme.DocSidebarItem.expandCategoryAriaLabel": {
-    "message": "Mở rộng thể loại thanh bên '{label}'",
+    "message": "Expand sidebar category '{label}'",
     "description": "The ARIA label to expand the sidebar category"
   },
   "theme.DocSidebarItem.collapseCategoryAriaLabel": {
-    "message": "Thu gọn thể loại thanh bên '{label}'",
+    "message": "Collapse sidebar category '{label}'",
     "description": "The ARIA label to collapse the sidebar category"
   },
   "theme.NavBar.navAriaLabel": {
-    "message": "Chính",
+    "message": "Main",
     "description": "The ARIA label for the main navigation"
   },
   "theme.navbar.mobileLanguageDropdown.label": {
-    "message": "Ngôn ngữ",
+    "message": "Languages",
     "description": "The label for the mobile language switcher dropdown"
   },
   "theme.TOCCollapsible.toggleButtonLabel": {
-    "message": "Trên trang này",
+    "message": "On this page",
     "description": "The label used by the button on the collapsible TOC component"
   },
   "theme.blog.post.readMore": {
-    "message": "Đọc tiếp",
+    "message": "Read More",
     "description": "The label used in blog post item excerpts to link to full blog posts"
   },
   "theme.blog.post.readMoreLabel": {
-    "message": "Đọc thêm về {title}",
+    "message": "Read more about {title}",
     "description": "The ARIA label for the link to full blog posts from excerpts"
   },
   "theme.NotFound.p1": {
-    "message": "Chúng tôi không thể tìm thấy những gì bạn đang tìm kiếm.",
+    "message": "We could not find what you were looking for.",
     "description": "The first paragraph of the 404 page"
   },
   "theme.NotFound.p2": {
-    "message": "Vui lòng liên hệ với trang web đã dẫn bạn tới đây và thông báo cho họ biết rằng đường dẫn này bị hỏng.",
+    "message": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
     "description": "The 2nd paragraph of the 404 page"
   },
   "theme.docs.breadcrumbs.home": {
-    "message": "Trang chủ",
+    "message": "Home page",
     "description": "The ARIA label for the home page in the breadcrumbs"
   },
   "theme.docs.sidebar.collapseButtonTitle": {
-    "message": "Thu gọn thanh bên",
+    "message": "Collapse sidebar",
     "description": "The title attribute for collapse button of doc sidebar"
   },
   "theme.docs.sidebar.collapseButtonAriaLabel": {
-    "message": "Thu gọn thanh bên",
+    "message": "Collapse sidebar",
     "description": "The title attribute for collapse button of doc sidebar"
   },
   "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
-    "message": "Đóng thanh điều hướng",
+    "message": "Close navigation bar",
     "description": "The ARIA label for close button of mobile sidebar"
   },
   "theme.blog.post.readingTime.plurals": {
-    "message": "{readingTime} phút để đọc",
+    "message": "One min read|{readingTime} min read",
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.docs.sidebar.navAriaLabel": {
-    "message": "Thanh bên tài liệu",
+    "message": "Docs sidebar",
     "description": "The ARIA label for the sidebar navigation"
   },
   "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
-    "message": "← Trở lại menu chính",
+    "message": "← Back to main menu",
     "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
   },
   "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-    "message": "Ẩn/Hiện thanh điều hướng",
+    "message": "Toggle navigation bar",
     "description": "The ARIA label for hamburger menu button of mobile navigation"
   },
   "theme.docs.sidebar.expandButtonTitle": {
-    "message": "Mở rộng thanh bên",
+    "message": "Expand sidebar",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.docs.sidebar.expandButtonAriaLabel": {
-    "message": "Mở rộng thanh bên",
+    "message": "Expand sidebar",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
   },
   "theme.SearchBar.seeAll": {
-    "message": "Xem tất cả {count} kết quả"
+    "message": "See all {count} results"
   },
   "theme.SearchPage.documentsFound.plurals": {
-    "message": "Tìm thấy {count} kết quả",
+    "message": "One document found|{count} documents found",
     "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.SearchPage.existingResultsTitle": {
-    "message": "Kết quả tìm kiếm cho \"{query}\"",
+    "message": "Search results for \"{query}\"",
     "description": "The search page title for non-empty query"
   },
   "theme.SearchPage.emptyResultsTitle": {
-    "message": "Tìm kiếm",
+    "message": "Search the documentation",
     "description": "The search page title for empty query"
   },
   "theme.SearchPage.inputPlaceholder": {
-    "message": "Nhập từ khóa cần tìm vào đây",
+    "message": "Type your search here",
     "description": "The placeholder for search page input"
   },
   "theme.SearchPage.inputLabel": {
-    "message": "Tìm kiếm",
+    "message": "Search",
     "description": "The ARIA label for search page input"
   },
   "theme.SearchPage.algoliaLabel": {
-    "message": "Tìm kiếm với Algolia",
+    "message": "Search by Algolia",
     "description": "The ARIA label for Algolia mention"
   },
   "theme.SearchPage.noResultsText": {
-    "message": "Không tìm thấy kết quả nào",
+    "message": "No results were found",
     "description": "The paragraph for empty search result"
   },
   "theme.SearchPage.fetchingNewResults": {
-    "message": "Đang tải thêm kết quả...",
+    "message": "Fetching new results...",
     "description": "The paragraph for fetching new search results"
   },
   "theme.SearchBar.label": {
-    "message": "Tìm kiếm",
+    "message": "Search",
     "description": "The ARIA label and placeholder for search button"
   },
   "theme.SearchModal.searchBox.resetButtonTitle": {
-    "message": "Xóa truy vấn",
+    "message": "Clear the query",
     "description": "The label and ARIA label for search box reset button"
   },
   "theme.SearchModal.searchBox.cancelButtonText": {
-    "message": "Hủy bỏ",
+    "message": "Cancel",
     "description": "The label and ARIA label for search box cancel button"
   },
   "theme.SearchModal.startScreen.recentSearchesTitle": {
-    "message": "Gần đây",
+    "message": "Recent",
     "description": "The title for recent searches"
   },
   "theme.SearchModal.startScreen.noRecentSearchesText": {
-    "message": "Không có tìm kiếm nào gần đây",
+    "message": "No recent searches",
     "description": "The text when no recent searches"
   },
   "theme.SearchModal.startScreen.saveRecentSearchButtonTitle": {
-    "message": "Lưu tìm kiếm này",
+    "message": "Save this search",
     "description": "The label for save recent search button"
   },
   "theme.SearchModal.startScreen.removeRecentSearchButtonTitle": {
-    "message": "Xóa tìm kiếm này khỏi lịch sử",
+    "message": "Remove this search from history",
     "description": "The label for remove recent search button"
   },
   "theme.SearchModal.startScreen.favoriteSearchesTitle": {
-    "message": "Yêu thích",
+    "message": "Favorite",
     "description": "The title for favorite searches"
   },
   "theme.SearchModal.startScreen.removeFavoriteSearchButtonTitle": {
-    "message": "Xóa tìm kiếm này khỏi danh sách yêu thích",
+    "message": "Remove this search from favorites",
     "description": "The label for remove favorite search button"
   },
   "theme.SearchModal.errorScreen.titleText": {
-    "message": "Không thể tìm nạp dữ liệu",
+    "message": "Unable to fetch results",
     "description": "The title for error screen of search modal"
   },
   "theme.SearchModal.errorScreen.helpText": {
-    "message": "Bạn nên kiểm tra lại kết nối mạng của mình.",
+    "message": "You might want to check your network connection.",
     "description": "The help text for error screen of search modal"
   },
   "theme.SearchModal.footer.selectText": {
-    "message": "để chọn",
+    "message": "to select",
     "description": "The explanatory text of the action for the enter key"
   },
   "theme.SearchModal.footer.selectKeyAriaLabel": {
-    "message": "Nhập khóa",
+    "message": "Enter key",
     "description": "The ARIA label for the Enter key button that makes the selection"
   },
   "theme.SearchModal.footer.navigateText": {
-    "message": "để điều hướng",
+    "message": "to navigate",
     "description": "The explanatory text of the action for the Arrow up and Arrow down key"
   },
   "theme.SearchModal.footer.navigateUpKeyAriaLabel": {
-    "message": "Mũi tên lên",
+    "message": "Arrow up",
     "description": "The ARIA label for the Arrow up key button that makes the navigation"
   },
   "theme.SearchModal.footer.navigateDownKeyAriaLabel": {
-    "message": "Mũi tên xuống",
+    "message": "Arrow down",
     "description": "The ARIA label for the Arrow down key button that makes the navigation"
   },
   "theme.SearchModal.footer.closeText": {
-    "message": "để đóng",
+    "message": "to close",
     "description": "The explanatory text of the action for Escape key"
   },
   "theme.SearchModal.footer.closeKeyAriaLabel": {
-    "message": "Phím thoát",
+    "message": "Escape key",
     "description": "The ARIA label for the Escape key button that close the modal"
   },
   "theme.SearchModal.footer.searchByText": {
-    "message": "Tìm kiếm theo",
+    "message": "Search by",
     "description": "The text explain that the search is making by Algolia"
   },
   "theme.SearchModal.noResultsScreen.noResultsText": {
-    "message": "Không có kết quả dành cho",
+    "message": "No results for",
     "description": "The text explains that there are no results for the following search"
   },
   "theme.SearchModal.noResultsScreen.suggestedQueryText": {
-    "message": "Thử tìm kiếm",
+    "message": "Try searching for",
     "description": "The text for the suggested query when no results are found for the following search"
   },
   "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
-    "message": "Tin rằng truy vấn này sẽ trả về kết quả?",
+    "message": "Believe this query should return results?",
     "description": "The text for the question where the user thinks there are missing results"
   },
   "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
-    "message": "Hãy để chúng tôi biết.",
+    "message": "Let us know.",
     "description": "The text for the link to report missing results"
   },
   "theme.SearchModal.placeholder": {
-    "message": "Tìm kiếm tài liệu",
+    "message": "Search docs",
     "description": "The placeholder of the input of the DocSearch pop-up modal"
   },
   "theme.CodeBlock.expanded": {
-    "message": "Đã mở rộng",
+    "message": "Expanded",
     "description": "The expanded button label on code blocks"
   },
   "theme.CodeBlock.expandButtonAriaLabel": {
-    "message": "Mở rộng mã sang toàn màn hình",
+    "message": "Expand code to fullscreen",
     "description": "The ARIA label for expand code blocks button"
   },
   "theme.CodeBlock.expand": {
-    "message": "Mở rộng",
+    "message": "Expand",
     "description": "The expand button label on code blocks"
   },
   "theme.CodeBlock.exitButtonAriaLabel": {
-    "message": "Thoát khỏi chế độ xem mở rộng",
+    "message": "Exit expanded view",
     "description": "The ARIA label for exit expanded view button"
   },
   "theme.ErrorPageContent.tryAgain": {
-    "message": "Thử lại",
+    "message": "Try again",
     "description": "The label of the button to try again rendering when the React error boundary captures an error"
   },
   "theme.common.skipToMainContent": {
-    "message": "Nhảy tới nội dung",
+    "message": "Skip to main content",
     "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
   },
   "theme.tags.tagsPageTitle": {
-    "message": "Thẻ",
+    "message": "Tags",
     "description": "The title of the tag list page"
   },
   "theme.unlistedContent.title": {
-    "message": "Trang chưa niêm yết",
+    "message": "Unlisted page",
     "description": "The unlisted content banner title"
   },
   "theme.unlistedContent.message": {
-    "message": "Trang này không được liệt kê. Công cụ tìm kiếm sẽ không lập chỉ mục và chỉ người dùng có liên kết trực tiếp mới có thể truy cập trang này.",
+    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
     "description": "The unlisted content banner message"
+  },
+  "Kaia Overview": {
+    "message": "Kaia Overview"
+  },
+  "Want to know about Kaia?": {
+    "message": "Want to know about Kaia?"
+  },
+  "Want to start building on Kaia?": {
+    "message": "Want to start building on Kaia?"
+  },
+  "Instructions on running Kaia's nodes": {
+    "message": "Instructions on running Kaia's nodes"
+  },
+  "Kaia Developer Hub": {
+    "message": "Kaia Developer Hub"
+  },
+  "Kaia's Developer portal": {
+    "message": "Kaia's Developer portal"
+  },
+  "Kaia Developer Forum": {
+    "message": "Kaia Developer Forum"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "{count} items",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
   }
 }

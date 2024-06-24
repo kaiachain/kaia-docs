@@ -10,7 +10,7 @@
 4\) `Auth` component feature: User can import a keystore file and input password to log in.\
 5\) `Auth` component feature: User can logout and clear the wallet instance information from the browser.
 
-### 1. Background <a href="#1-background" id="1-background"></a>
+### Background <a href="#1-background" id="1-background"></a>
 
 In a blockchain-based app, we usually interact with smart contracts.\
 There are 2 types of interactions with a contract.\
@@ -27,7 +27,7 @@ Calling a contract method is the same. You could think of it as `writing data on
 To write data to contract, you should have a Klaytn account which has KLAY to pay for the transaction fee.\
 `Auth` component helps you log in to your app.
 
-### 2. `Auth` component overview <a href="#2-auth-component-overview" id="2-auth-component-overview"></a>
+### `Auth` component overview <a href="#2-auth-component-overview" id="2-auth-component-overview"></a>
 
 `'Auth.js'` component is the longest code in our tutorial app, so we will break down the code and go over one by one.
 
@@ -38,7 +38,7 @@ Main features are:\
 2\) User can import a keystore file and input password to login.\
 3\) User can logout and clear the wallet instance information from the browser.
 
-### 3. `Auth` component feature: User can input private key to login. <a href="#3-auth-component-feature-user-can-input-private-key-to-login" id="3-auth-component-feature-user-can-input-private-key-to-login"></a>
+### `Auth` component feature: User can input private key to login. <a href="#3-auth-component-feature-user-can-input-private-key-to-login" id="3-auth-component-feature-user-can-input-private-key-to-login"></a>
 
 `integrateWallet` method is needed to login with private key.
 
@@ -70,7 +70,7 @@ It resets the current component's state to the initial state to clear your input
 
 For further information about `privateKeyToAccount` API of caver-js, see [caver.klay.accounts.privateKeyToAccount](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount)
 
-### 4. `Auth` component feature: User can import keystore file and input password to login. <a href="#4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log" id="4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log"></a>
+### `Auth` component feature: User can import keystore file and input password to login. <a href="#4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log" id="4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log"></a>
 
 `handleImport` and `handleLogin` methods are needed to login with a keystore and password.
 
@@ -156,7 +156,7 @@ handleLogin = () => {
 
 For further information about decrypting keystore file with password, see [caver.klay.accounts.decrypt](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#decrypt)
 
-### 5. `Auth` component feature: User can logout, remove wallet instance information from browser. <a href="#5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from" id="5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from"></a>
+### `Auth` component feature: User can logout, remove wallet instance information from browser. <a href="#5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from" id="5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from"></a>
 
 'logout' means removing the wallet instance from the browser and caver.\
 `cav.klay.accounts.wallet.clear()` removes all wallet instances from caver.\

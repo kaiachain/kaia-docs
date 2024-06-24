@@ -31,17 +31,17 @@
 - Click on the upper Networks tab, which is on Ethereum Mainnet as default, and select \[Add network].
 - Enter the Endpoint Node (EN) data of the Klaytn chain.
 
-### Cypress Network Configuration
+### Baobab Network Configuration
 
 | Network Config Item | Value                                  |
 | ------------------- | -------------------------------------- |
-| Network Name        | Klaytn Cypress                         |
+| Network Name        | Kaia Mainnet                           |
 | New RPC URL         | `https://public-en-cypress.klaytn.net` |
 | Block Explorer URL  | `https://klaytnscope.com`              |
 | Chain ID            | 8217                                   |
 | Currency Symbol     | KLAY                                   |
 
-- Click \[Save] to add Klaytn Cypress Network.
+- Click \[Save] to add Klaytn Baobab Network.
 
 ![Network Setup and Custom RPC](/img/build/tutorials/metamask-add-cypress-1.png) ![Network Setup and Custom RPC](/img/build/tutorials/metamask-add-cypress-2.png)
 
@@ -70,17 +70,17 @@
 
 > Here's a simple way. [Connect your wallet to the Klaytn Baobab Network (Testnet)](https://chainlist.org/chain/1001).
 
-### Baobab Network Configuration
+### Cypress Network Configuration
 
 | Network Config Item | Value                                 |
 | ------------------- | ------------------------------------- |
-| Network Name        | Klaytn Baobab                         |
+| Network Name        | Kaia Kairos                           |
 | New RPC URL         | `https://public-en-baobab.klaytn.net` |
 | Block Explorer URL  | `https://baobab.klaytnscope.com `     |
 | Chain ID            | 1001                                  |
 | Currency Symbol     | KLAY                                  |
 
-- Click \[Save] to add Klaytn Baobab Network.
+- Click \[Save] to add Klaytn Cypress Network.
 
 ![Network Setup](/img/build/tutorials/connect-testnet-1.png)
 

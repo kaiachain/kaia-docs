@@ -1,52 +1,52 @@
-# Phí giao dịch
+# Transaction Fees
 
-Phí giao dịch của một giao dịch được tính như sau:
+The transaction fee of one transaction is calculated as follows:
 
 ```text
-Phí giao dịch := (Lượng Gas đã dùng) x (Giá Gas)
+Transaction fee := (Gas used) x (GasPrice)
 ```
 
-Có một sự tương đồng dễ hiểu ở đây, giả sử bạn đang đổ xăng ở một trạm xăng. Giá xăng được nhà máy quyết định hàng ngày, và hôm nay giá xăng là $2. Nếu bạn đổ 15 lít xăng thì bạn sẽ cần phải trả $30 = 15L x $2/1L và $30 đó sẽ được thanh toán từ tài khoản ngân hàng của bạn. Ngoài ra, thông tin giao dịch sẽ được lưu lại ở sổ kế toán.
+As an easy-to-understand analogy in this regard, suppose you're filling up gas at a gas station. The gas price is determined by the refinery every day, and today's price is $2. If you fill 15L up, then you would pay $30 = 15L x $2/1L for it, and the $30 will be paid out of your bank account. Also, the transaction will be recorded in the account book.
 
-Phí giao dịch hoạt động tương tự như trên. Mạng lưới sẽ xác định phí Gas của mỗi block (khối). Giả sử phí Gas hiện tại là 30 ston cho mỗi block. Nếu mỗi giao dịch được gửi `từ` tài khoản bị tính phí 21000 Gas thì 630000 ston = (21000 Gas \* 30 ston) sẽ được thanh toán `từ` tài khoản. Ngoài ra, giao dịch sẽ được ghi lại trong block (khối) và nó sẽ được áp dụng ở trạng thái của tất cả các nút blockchain (chuỗi khối).
+Transaction fee works just the same as above. The network determines the gas price for every block. Suppose the gas price for the current block is 30 Gkei. If a transaction submitted by `from` account was charged 21000 gas, then 630000 Gkei = (21000 gas \* 30 Gkei) would be paid out of the `from` account. Also, the transaction will be recorded in the block, and it will be applied in the state of all blockchain nodes.
 
-Tóm lại, phí giao dịch đã tính này sẽ được trừ vào tài khoản của người gửi hoặc người trả phí. Tuy nhiên, phí giao dịch chỉ có thể được khấu trừ khỏi số dư nếu giao dịch được tạo bởi klay_sendTransaction/eth_sendTransaction. Bởi vì các giao dịch khác không thể thay đổi trạng thái vì chúng không thể được đưa vào block (khối). Chúng chỉ là một mô phỏng theo một cách nào đó.
+Summing it up again, this calculated transaction fee is subtracted from the sender's or fee payer's account. However, the fee can be deducted from the balance only if the transaction is created by kaia_sendTransaction/eth_sendTransaction. Because the other transactions cannot change the state since they cannot be included in the block. They are just a simulation in some way.
 
-Đây là lời giải thích tổng quát về phí giao dịch và từ đây, chúng tôi sẽ đưa ra lời giải thích chi tiết về cách xác định phí Gas và cách tính số Gas.
+This is an overall explanation of the transaction fee, and from this point, we would give a detailed explanation of how gas price is determined and how the gas is calculated.
 
-## Tổng quan về xăng <a id="gas-overview"></a>
+## Gas Overview <a id="gas-overview"></a>
 
-Mọi hành động thay đổi trạng thái của blockchain đều cần có gas. Trong khi xử lý các giao dịch trong một block (khối), chẳng hạn như gửi KLAY, sử dụng tokens KIP-7 hoặc thực hiện hợp đồng, người dùng phải trả tiền cho việc tính toán và sử dụng bộ nhớ. Số tiền thanh toán được quyết định bởi lượng `gas` cần thiết.
+Every action that changes the state of the blockchain requires gas. While processing the transactions in a block, such as sending KAIA, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required.
 
-Lượng `gas` cần thiết được tính bằng cách cộng hai loại gas dưới đây;
+`Gas` required is computed by adding up the next two gases;
 
-- `IntrinsicGas` (Khí nội tại) là một loại khí được tính phí tĩnh dự trên cấu hình của giao dịch, chẳng hạn như kích thước dữ liệu của giao dịch. Để biết thêm chi tiết, vui lòng tham khảo [Intrinsic Gas](intrinsic-gas.md).
-- `ExecutionGas` (Khí thực thi) là một loại gas được tính toán một cách linh hoạt hơn khi thực hiện hợp đồng. Để biết thêm chi tiết, vui lòng tham khảo [Execution Gas](execution-gas.md).
+- `IntrinsicGas` is a gas that is statically charged based on the configuration of the transaction, such as the datasize of the transaction. For more details, please refer to [Intrinsic Gas](intrinsic-gas.md).
+- `ExecutionGas`, on the other hand, is a gas that is dynamically calculated due to the contract execution. For more details, please refer to [Execution Gas](execution-gas.md).
 
-## Tổng quan về giá Gas <a id="gas-price-overview"></a>
+## GasPrice Overview <a id="gas-price-overview"></a>
 
-Không giống như ethereum, Klaytn sử dụng giá gas cố định, ban đầu được gọi là `unitPrice`. Tuy nhiên, kể từ đợt hardfork magma, Klaytn bắt đầu sử dụng giá gas động, khái niệm này mới được thiết kế lại bằng cách sửa đổi basefee (phí tối thiểu) của Ethereum, còn được gọi là `Effective Gas Price (Giá Gas hiệu quả)`. Vì đã có nhiều thay đổi về giá gas nên có thể khá khó hiểu về giá trị đặt cho gasPrice. Vì vậy, chúng tôi đã thực hiện hướng dẫn về cách đặt giá gas bên dưới.
+Unlike the ethereum, Kaia used the fixed gas price, called `unitPrice` at first. However, since magma hardfork, Kaia started to use dynamic gas price which concept is newly redesigned by modifying the Ethereum's basefee, so called `Effective Gas Price`. Since there have been many changes about gas price, it can be pretty confusing on what value to set for gasPrice. So, we've made a guide on how to set the gas price below.
 
-| Mạng lưới | Trước BaseFee                                                                                                                                                                                              | Sau BaseFee                                                                                                                                                                                                                                                                                                                                     |
-| :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| klaytn    | tham số tx gasPrice: do mạng lưới xác định. phải được đặt là `unitPrice` <br/> <br/> gasPrice: dùng tham số tx gasPrice                                    | tham số tx gasPrice: do người dùng xác định. Nó có nghĩa là mức giá cao nhất bạn có thể trả.  (ví dụ suggestGasPrice = 2\*latestBlock.baseFee ) <br/> <br/> gasPrice: gasPrice động, `baseFee`, được xác định bởi mạng lưới. |
-| Ethereum  | tham số tx gasPrice: do người dùng xác định. Nó có nghĩa là mức giá cao nhất bạn có thể trả. <br/> <br/>gasPrice: dùng tham số tx gasPrice | tham số tx gasPrice: do người dùng xác định. Nó có nghĩa là mức giá cao nhất bạn có thể trả. <br/> <br/> gasPrice: gasPrice động, `baseFee+tip`, được xác định bởi mạng lưới.                                                                                   |
+| Network  | Before BaseFee                                                                                                                                                                                    | After BaseFee                                                                                                                                                                                                                                                                                                                                     |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| klaytn   | tx parameter gasPrice: network-defined. must be set as the `unitPrice` <br/> <br/> gasPrice: use the tx parameter gasPrice                        | tx parameter gasPrice: user-defined. It means the price the most you can pay  (e.g. suggestGasPrice = 2\*latestBlock.baseFee ) <br/> <br/> gasPrice: dynamic gasPrice, `baseFee`, which is defined by network. |
+| Ethereum | tx parameter gasPrice: user-defined. it means the price the most you can pay. <br/> <br/> gasPrice: use the tx parameter gasPrice | tx parameter gasPrice: user-defined. It means the price the most you can pay. <br/> <br/> gasPrice: dynamic gasPrice, `baseFee+tip`, which is defined by network.                                                                                                 |
 
-## Cơ chế phí Gas động <a id="dynamic-gas-fee-mechanism"></a>
+## Dynamic Gas Fee Mechanism <a id="dynamic-gas-fee-mechanism"></a>
 
-Kể từ hard fork magma, cơ chế phí gas động đã thay thế chính sách phí cố định hiện có. Chính sách phí gas động cung cấp dịch vụ ổn định cho người dùng bằng cách ngăn chặn việc lạm dụng mạng lưới và sử dụng quá mức dung lượng lưu trữ. Phí gas thay đổi tùy theo tình hình mạng lưới. Đây là bảy thông số ảnh hưởng đến `base fee (phí gas)`:
+Since the magma hard fork, a dynamic gas fee mechanism has replaced the existing fixed fee policy. Dynamic gas fee policy provides a stable service to users by preventing network abuse and storage overuse. The gas fee changes according to the network situation. Seven parameters affect the `base fee(gas fee)`:
 
-1. PREVIOUS_BASE_FEE: Base fee (phí tối thiểu) của block trước đó
-2. GAS_USED_FOR_THE_PREVIOUS_BLOCK: Gas được sử dụng để xử lý tất cả các giao dịch của block trước đó
-3. GAS_TARGET: Lượng gas quyết định mức tăng hoặc giảm base fee (hiện tại là 30 triệu)
-4. MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Giới hạn block gas ngầm định để thực thi được tỷ lệ thay đổi tối đa basefee (hiện tại là 60 triệu)
-5. BASE_FEE_DELTA_REDUCING_DENOMINATOR: Giá trị để đặt basefee tối đa thay đổi thành 5% mỗi block (hiện tại là 20, có thể được quản trị thay đổi sau)
-6. UPPER_BOUND_BASE_FEE: Giá trị tối đa của basefee (hiện tại là 750 ston, có thể được quản trị thay đổi sau)
-7. LOWER_BOUND_BASE_FEE: Giá trị tối thiểu của basefee (hiện tại là 25 ston, có thể được quản trị thay đổi sau)
+1. PREVIOUS_BASE_FEE: Base fee of the previous block
+2. GAS_USED_FOR_THE_PREVIOUS_BLOCK: Gas used to process all transactions of the previous block
+3. GAS_TARGET: The gas amount that determines the increase or decrease of the base fee (30 million at the moment)
+4. MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate (60 million at the moment)
+5. BASE_FEE_DELTA_REDUCING_DENOMINATOR: The value to set the maximum base fee change to 5% per block (20 at the moment, can be changed later by governance)
+6. UPPER_BOUND_BASE_FEE: The maximum value for the base fee (750 Gkei at the moment, can be changed later by governance)
+7. LOWER_BOUND_BASE_FEE: The minimum value for the base fee (25 Gkei at the moment, can be changed later by governance)
 
-## Base Fee (Phí tối thiểu) <a id="base-fee"></a>
+## Base Fee <a id="base-fee"></a>
 
-Ý tưởng cơ bản của thuật toán này là `base fee (phí tối thiểu)` sẽ tăng lên nếu lượng gas được sử dụng vượt quá lượng gas cơ bản và ngược lại. Nó liên quan chặt chẽ đến số lượng giao dịch trong mạng lưới và gas được sử dụng trong quy trình. Có giới hạn trên và dưới cho `base fee` để ngăn phí tăng hoặc giảm vô thời hạn. Ngoài ra còn có giới hạn gas và giá trị điều chỉnh biến động để ngăn chặn những thay đổi đột ngột của `base fee`. Các giá trị này có thể được thay đổi bởi quản trị.
+The basic idea of this algorithm is that the `base fee` would go up if the gas used exceeds the base gas and vice versa. It is closely related to the number of transactions in the network and the gas used in the process. There is an upper and lower limit for the `base fee` to prevent the fee from increasing or decreasing indefinitely. There is also a cap for the gas and an adjustment value for the fluctuation to prevent abrupt changes in the `base fee`. The values can be changed by governance.
 
 ```text
 (BASE_FEE_CHANGE_RATE) = (GAS_USED_FOR_THE_PREVIOUS_BLOCK - GAS_TARGET)
@@ -55,6 +55,6 @@ Kể từ hard fork magma, cơ chế phí gas động đã thay thế chính sá
 (BASE_FEE) = (PREVIOUS_BASE_FEE) + (BASE_FEE_CHANGE_RANGE) 
 ```
 
-`Base fee (phí tối thiểu)` được tính cho mỗi block; có thể có những thay đổi mỗi giây. Các giao dịch từ một block duy nhất sử dụng cùng một khoản `base fee` để tính phí giao dịch. Chỉ những giao dịch có giá gas cao hơn `base fee` của block mới có thể được đưa vào block. Một nửa phí giao dịch cho mỗi block sẽ bị đốt cháy (BURN_RATIO = 0,5, quản trị không thể thay đổi).
+The `base fee` is calculated for every block; there could be changes every second. Transactions from a single block use the same `base fee` to calculate transaction fees. Only transactions with a gas price higher than the block `base fee` can be included in the block. Half of the transaction fee for each block is burned (BURN_RATIO = 0.5, cannot be changed by governance).
 
-> LƯU Ý: Một tính năng quan trọng khiến Klaytn khác biệt với EIP-1559 của Ethereum là nó không có tips (mẹo). Klaytn tuân theo nguyên tắc Đến trước được phục vụ trước (FCFS) cho các giao dịch của mình.
+> NOTE: An important feature that sets Kaia apart from Ethereum's EIP-1559 is that it does not have tips. Kaia follows the First Come, First Served(FCFS) principle for its transactions.

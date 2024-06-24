@@ -18,7 +18,7 @@
 1. 대기 CN 중지: `sudo systemctl stop kcnd`
 2. 스탠바이의 `nodekey`를 장애가 발생한 활성 CN의 `nodekey`로 바꿉니다.
 3. 활성 CN의 IP 주소를 대기 CN에 재할당합니다.
-4. 대기 CN을 시작하고 네트워크와 동기화되었는지 확인합니다: sudo systemctl start kcnd\` 입력합니다.
+4. 대기 CN을 시작하고 네트워크와 동기화되었는지 확인합니다: sudo systemctl start kcnd\\` 입력합니다.
 
 ## 머신 이미지 및 스냅샷 (클라우드용으로 권장) <a id="machine-image-snapshot-recommended-for-cloud"></a>
 
@@ -37,7 +37,7 @@ CC의 PN 노드 중 하나를 사용하여 체인 데이터 스냅샷을 얻습�
 
 1. PN 노드에 연결하고 kpnd를 중지합니다: `sudo systemctl stop kpnd`. 데이터 일관성을 보장하기 위해 먼저 kpnd를 중지하는 것이 중요합니다.
 2. AWS 콘솔을 사용하여 PN의 `DATA_DIR`이 포함된 볼륨의 스냅샷을 생성합니다.
-3. kpnd를 시작합니다: sudo systemctl start kpnd\` 3.
+3. kpnd를 시작합니다: sudo systemctl start kpnd\\` 3.
 
 기본 CN 이미지와 체인데이터 이미지를 사용하여 새 CN을 만듭니다:
 

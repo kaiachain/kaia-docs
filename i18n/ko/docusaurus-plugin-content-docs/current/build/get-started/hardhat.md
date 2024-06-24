@@ -1,10 +1,10 @@
-# Hardhat을 사용하여 첫 스마트 컨트랙트 배포하기
+# How to Verify Smart Contracts Using Hardhat
 
 ![](/img/build/get-started/Klaytn-hardhat.png)
 
 ## 소개
 
-이 섹션에서는 [Hardhat](https://hardhat.org/)을 사용하여 클레이튼 Baobab 네트워크에 Soul-bound token을 배포하는 방법을 안내합니다.
+이 섹션에서는 [Hardhat](https://hardhat.org/)을 사용하여 카이아 Kairos 네트워크에 Soul-bound token을 배포하는 방법을 안내합니다.
 
 Hardhat은 여러분을 도와줄 스마트 컨트랙트 개발 환경입니다:
 
@@ -15,10 +15,10 @@ Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니�
 
 이 가이드가 끝나면 여러분은 다음을 할 수 있을 것입니다:
 
-- 클레이튼에서 Hardhat 프로젝트를 설정합니다.
+- 카이아에서 Hardhat 프로젝트를 설정합니다.
 - 간단한 Soul-bound token 생성하기.
-- Hardhat을 사용하여 스마트 컨트랙트 컴파일하기.
-- Hardhat을 사용하여 스마트 컨트랙트 테스트, 배포 및 상호작용하기.
+- [Verifying contracts using Hardhat on Klaytnscope](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
+- This guide allows you to automatically verify your smart contracts' source code on Klaytnscope straight from your CLI using the Hardhat Verify Plugin.
 - Hardhat 포크 기능 살펴보기.
 
 ## 사전 요구 사항
@@ -28,7 +28,7 @@ Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니�
 - 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
 - [MetaMask](../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
 - RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KLAY 테스트: 충분한 KLAY로 계정에 자금을 충전합니다.
+- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
 - [NodeJS 및 NPM](https://nodejs.org/en/)
 
 ## 개발 환경 설정하기
@@ -105,7 +105,7 @@ touch .env
 - 파일을 생성한 후 다음과 같이 .env 파일을 구성해 보겠습니다:
 
 ```js
- KLAYTN_BAOBAB_URL= "Your Baobab RPC link"
+ KAIA_BAOBAB_URL= "Your Kairos RPC link"
  PRIVATE_KEY= "your private key copied from MetaMask wallet"
 ```
 
@@ -113,7 +113,7 @@ touch .env
 
 **6단계**: Hardhat 설정 설정
 
-다음 구성으로 `hardhat.config.js`를 수정합니다:
+To verify your contract on klaytn, you need to add the following configuration to your `hardhat.config.js`:
 
 ```js
 require("@nomicfoundation/hardhat-toolbox");
@@ -123,8 +123,8 @@ require('dotenv').config()
 module.exports = {
   solidity: "0.8.17",
   networks: {
-    baobab: {
-      url: process.env.KLAYTN_BAOBAB_URL || "",
+    kairos: {
+      url: process.env.KAIA_BAOBAB_URL || "",
       gasPrice: 250000000000,
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
@@ -138,7 +138,7 @@ module.exports = {
 
 ## SBT 스마트 컨트랙트 생성
 
-이 섹션에서는 커뮤니티에서 검증된 코드의 견고한 토대 위에 구축된 안전한 스마트 컨트랙트 개발을 위한 라이브러리인 [Klaytn 컨트랙트](https://github.com/klaytn/klaytn-contracts)를 사용하게 됩니다. 이것은 오픈 제플린 컨트랙트의 포크입니다.
+이 섹션에서는 커뮤니티에서 검증된 코드의 견고한 토대 위에 구축된 안전한 스마트 컨트랙트 개발을 위한 라이브러리인 [Kaia 컨트랙트](https://github.com/klaytn/klaytn-contracts)를 사용하게 됩니다. 이는 오픈 제플린 컨트랙트의 포크입니다.
 
 > 참고: '개발 환경 설정' 섹션의 **3단계**에서 이미 이 라이브러리를 설치했습니다.
 
@@ -180,7 +180,7 @@ contract SoulBoundToken is KIP17, Ownable {
 
 **코드 연습**
 
-이것이 여러분의 첫 스마트 컨트랙트입니다. **1줄**은 Hardhat이 Solidity 버전 0.8.7 이상을 사용한다는 것을 보여줍니다. 그 외에는 KIP17.sol 및 기타 지원 컨트랙트를 가져옵니다. **6~12줄**에서는 KIP17을 계승하는 스마트 컨트랙트가 생성되었습니다. 또한 생성자에서 토큰 이름과 심볼이 전달되었습니다.
+이것이 여러분의 스마트 컨트랙트입니다. **1줄**은 Hardhat이 Solidity 버전 0.8.7 이상을 사용한다는 것을 보여줍니다. 그 외에는 KIP17.sol 및 기타 지원 컨트랙트를 가져옵니다. **6~12줄**에서는 KIP17을 계승하는 스마트 컨트랙트가 생성되었습니다. 또한 생성자에서 토큰 이름과 심볼이 전달되었습니다.
 
 위 코드에서 볼 수 있듯이 토큰 이름과 심볼은 각각 **SoulBoundToken**과 **SBT**로 설정되어 있습니다. 토큰 이름과 심볼은 원하는 대로 변경할 수 있습니다.
 
@@ -337,29 +337,29 @@ main().catch((error) => {
 });
 ```
 
-**3단계**: 터미널에서 다음 명령을 실행하여 Hardhat에 SBT 토큰을 Klaytn 테스트 네트워크(Baobab)에 배포하도록 지시합니다.
+**3단계**: 터미널에서 다음 명령을 실행하여 Hardhat에 SBT 토큰을 Kaia 테스트 네트워크(Kairos)에 배포하도록 지시합니다.
 
 ```bash
-npx hardhat run scripts/sbtDeploy.js --network baobab
+npx hardhat run scripts/sbtDeploy.js --network kairos
 ```
 
 ![](/img/build/get-started/sbtDeploy.png)
 
 **Step 4**: Open [Klaytnscope](https://baobab.klaytnscope.com/) to check if the SBT token has been deployed successfully.
 
-**5단계**: 검색 필드에 배포된 컨트랙트 주소를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 컨트랙트가 표시됩니다.
+**5단계**: 검색 필드에 배포된 컨트랙트 주소를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 계약이 표시됩니다.
 
 ![](/img/build/get-started/sbtKS.png)
 
-## Hardhat 포크
+## Using Hardhat
 
 Hardhat은 개발자에게 메인넷(특정 블록)을 로컬 개발 네트워크에서 시뮬레이션할 수 있는 기능을 제공합니다. 이 기능의 주요 이점 중 하나는 개발자가 배포된 컨트랙트와 상호 작용하고 복잡한 케이스에 대한 테스트를 작성할 수 있다는 것입니다.
 
 이 기능이 효과적으로 작동하려면 아카이브 노드에 연결해야 합니다. 이 기능에 대한 자세한 내용은 [여기](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)에서 확인할 수 있습니다.
 
-### 메인넷 포크
+### Mainnet
 
-이제 Hardhat 프로젝트를 설정했으니 Hardhat을 사용하여 Klaytn 메인넷을 포크해 보겠습니다.  터미널을 열고 다음 명령을 실행합니다.
+이제 Hardhat 프로젝트를 설정했으니 Hardhat을 사용하여 Kaia 메인넷을 포크해 보겠습니다.  터미널을 열고 다음 명령을 실행합니다.
 
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL>
@@ -395,7 +395,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. You can confirm the block number on [klaytnscope](https://klaytnscope.com/).
+출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. 블록번호는 [klaytnscope](https://klaytnscope.com/)에서 확인할 수 있습니다.
 
 ### 블록에서 포크하기
 

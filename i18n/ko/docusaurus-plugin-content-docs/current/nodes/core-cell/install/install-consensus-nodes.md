@@ -20,10 +20,10 @@
   |- kcnd.conf
 ```
 
-| fileName       | 파일 설명            |
-| :------------- | :--------------- |
-| bin/kcn        | CN 실행 파일         |
-| bin/kcnd       | CN 시작/종료 스크립트 파일 |
+| 파일명                            | 파일 설명            |
+| :----------------------------- | :--------------- |
+| bin/kcn                        | CN 실행 파일         |
+| bin/kcnd                       | CN 시작/종료 스크립트 파일 |
 | conf/kcnd.conf | CN 구성 파일         |
 
 설치는 다운로드한 패키지의 압축을 풀고 패키지를 설치하려는 위치에 설치하는 것입니다.
@@ -60,9 +60,9 @@ $ yum install kcnd-vX.X.X.el7.x86_64.rpm
 $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### 클레이튼 Yum 리포지토리에서 설치 <a id="install-from-klaytn-yum-repo"></a>
+### 카이아 Yum 리포지토리에서 설치 <a id="install-from-klaytn-yum-repo"></a>
 
-또는 클레이튼 Yum 저장소에서 `kcnd`를 설치하여 실행할 수 있습니다:
+또는 카이아 Yum 저장소에서 `kcnd`를 설치하여 실행할 수 있습니다:
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kcnd
@@ -72,9 +72,9 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 
 설치된 파일은 다음과 같은 위치에 있습니다.
 
-| fileName  | location                 |
-| :-------- | :----------------------- |
-| kcn       | /usr/bin/kcn             |
+| 파일명                       | 위치                                       |
+| :------------------------ | :--------------------------------------- |
+| kcn                       | /usr/bin/kcn                             |
 | kcnd.conf | /etc/kcnd/conf/kcnd.conf |
 
 ## 구성 <a id="configuration"></a>
@@ -87,7 +87,7 @@ CN 설정은 데이터 디렉터리를 생성하고 설정 파일 `kcnd.conf`에
 
 ### CN 데이터 디렉터리 생성 <a id="cn-data-directory-creation"></a>
 
-클레이튼 블록체인 데이터의 크기가 항상 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것을 권장합니다. 원하는 경로에 디렉터리를 생성해야 할 수도 있습니다.
+카이아 블록체인 데이터의 크기가 항상 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것을 권장합니다. 원하는 경로에 디렉터리를 생성해야 할 수도 있습니다.
 
 ```bash
 $ mkdir -p /var/kcnd/data
@@ -120,7 +120,7 @@ DATA_DIR=/var/kcnd/data
 
 #### 리워드베이스 설정 <a id="setup-rewardbase"></a>
 
-CN 운영자는 클레이튼 네트워크 합의에 참여한 것에 대한 보상으로 KLAY를 받게 됩니다. 따라서 환경설정 파일 `kcnd.conf`에 주소를 설정해야 합니다.
+CN 운영자는 카이아 네트워크 합의에 참여한 것에 대한 보상으로 KAIA를 받게 됩니다. 따라서 환경설정 파일 `kcnd.conf`에 주소를 설정해야 합니다.
 
 새 계정을 만드는 방법은 여러 가지가 있지만, `kcn`을 통해서도 기능을 제공합니다. 다음 명령어로 도움말 메시지를 확인할 수 있습니다.
 
@@ -128,12 +128,12 @@ CN 운영자는 클레이튼 네트워크 합의에 참여한 것에 대한 보�
 $ kcn account new --help
 ```
 
-이 절차를 수행하는 예는 다음과 같습니다. 먼저 보상 KLAY를 받을 새 계정을 만들어야 합니다.
+이 절차를 수행하는 예는 다음과 같습니다. 먼저 보상 KAIA를 받을 새 계정을 만들어야 합니다.
 
 ```bash
 $ kcn account new --datadir ~/kcnd_home
 INFO[03/15,09:04:43 +09] [17] Setting connection type                   nodetype=cn conntype=-0
-INFO[03/15,09:04:43 +09] [17] Maximum peer count                        KLAY=25 LES=0 total=25
+INFO[03/15,09:04:43 +09] [17] Maximum peer count                        KAIA=25 LES=0 total=25
 INFO[03/15,09:04:43 +09] [17] SBN is disabled.
 Your new account is locked with a password. Please give a password. Do not forget this password.
 Passphrase:
@@ -157,7 +157,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 이 프로세스를 가속화하기 위해 CN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 빠른 동기화를 수행할 수 있습니다. 이렇게 하면 CN이 처음 시작할 때 동기화하는 데 소요되는 시간을 크게 줄일 수 있습니다.
 
-[Cypress 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/) 또는 [Baobab 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)에서 최신 체인데이터 스냅샷을 다운로드합니다. `kcnd`를 시작하기 전에 `kcnd.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
+[메인넷 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/) 또는 [Kairos 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)에서 최신 체인데이터 스냅샷을 다운로드합니다. `kcnd`를 시작하기 전에 `kcnd.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
 
 예를 들어
 
@@ -179,7 +179,7 @@ $ tar -C ~/kcnd_home -xvf klaytn-baobab-chaindata-latest.tar.gz
 
 ### CN 시작/중지 <a id="cn-start-stop"></a>
 
-다음 `systemctl` 명령어로 클레이튼 서비스를 시작/중지할 수 있습니다.
+다음 `systemctl` 명령어로 카이아 서비스를 시작/중지할 수 있습니다.
 
 **참고**: 루트 권한이 필요합니다.
 
@@ -225,7 +225,7 @@ $ systemctl daemon-reload
 BLS 공개키 정보는 노드키에서 계산할 수 있습니다. 이를 추출하려면 먼저 노드를 시작합니다. 그리고 다음 명령을 사용합니다:
 
 ```
-kcn account bls-info --datadir /var/kcnd/data
+$ kcn account bls-info --datadir /var/kcnd/data
 ```
 
 결과적으로 `bls-publicinfo-NODEID.json` 파일이 생성됩니다.
@@ -291,17 +291,17 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ### kcn 콘솔 <a id="kcn-console-kpn-console"></a>
 
-클레이튼은 `kcn console`이라는 CLI 클라이언트를 제공합니다. 그러나 CN은 보안상의 이유로 클라이언트에 대한 RPC 인터페이스를 비활성화할 수 있습니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다.
+카이아는 `kcn console`이라는 CLI 클라이언트를 제공합니다. 그러나 CN은 보안상의 이유로 클라이언트에 대한 RPC 인터페이스를 비활성화할 수 있습니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다.
 
 IPC 파일 `klay.ipc`는 CN의 `data` 디렉터리에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
 ```bash
-$ ken attach /var/kend/data/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ ken attach /var/kend/data/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: /var/kend/data
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
  >
@@ -312,7 +312,7 @@ You can check the usable commands on [API Document](../../../../references/json-
 CN의 상태를 확인하는 데 유용한 API입니다:
 
 - `klay.blockNumber` (최신 블록 번호 가져오기)
-- `net.peerCount` (현재 연결된 클레이튼 노드 수 확인)
+- `net.peerCount` (현재 연결된 카이아 노드 수 확인)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 

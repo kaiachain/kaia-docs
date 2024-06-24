@@ -1,19 +1,19 @@
 # 서비스 체인 업그레이드
 
-클레이튼과 서비스체인은 새로운 기능을 개발하고 버그를 수정하기 위해 지속적으로 새로운 버전을 출시하고 있습니다. 이 페이지는 서비스체인 바이너리를 업그레이드하고 서비스체인의 하드포크 블록 번호를 설정하는 방법에 대한 가이드입니다.
+카이아와 서비스체인은 새로운 기능을 개발하고 버그를 수정하기 위해 지속적으로 새로운 버전을 출시하고 있습니다. 이 페이지는 서비스체인 바이너리를 업그레이드하고 서비스체인의 하드포크 블록 번호를 설정하는 방법에 대한 가이드입니다.
 
 ## 업그레이드 <a href="#upgrade" id="upgrade"></a>
 
 이 섹션에서는 ServiceChain 바이너리를 업그레이드하는 방법을 설명합니다.
 
-**참고** 서비스체인 바이너리 업그레이드는 되돌릴 수 없고 이전 버전과 호환되지 않을 수 있으므로 이전 버전으로 다운그레이드할 수 없습니다. 자세한 내용은 릴리스 노트를 참고하세요. 예를 들어, [Klaytn v1.9.0 릴리스 노트](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544)를 참고하세요:
+**참고** 서비스체인 바이너리 업그레이드는 되돌릴 수 없고 이전 버전과 호환되지 않을 수 있으므로 이전 버전으로 다운그레이드할 수 없습니다. 자세한 내용은 릴리스 노트를 참고하세요. 예를 들어, [Kaia v1.9.0 릴리스 노트](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544)를 참고하세요:
 
 > 참고: 이 버전은 스냅샷 동기화를 지원하도록 데이터베이스 버전을 업데이트합니다. v1.9.0으로 업데이트한 후에는 기존 데이터가 있는 이전 버전으로 다운그레이드할 수 없습니다.
 
-아래 링크 중 하나에서 최신 버전의 클레이튼과 서비스체인 바이너리를 받을 수 있습니다:
+아래 링크 중 하나에서 최신 버전의 카이아와 서비스체인 바이너리를 받을 수 있습니다:
 
-- [클레이튼 문서](../downloads/downloads.md)
-- [클레이튼 GitHub 리포지토리](https://github.com/klaytn/klaytn/releases)
+- [카이아 문서](../downloads/downloads.md)
+- [카이아 GitHub 리포지토리](https://github.com/klaytn/klaytn/releases)
 
 서비스체인 바이너리를 업그레이드하려면 서비스체인 노드를 중지하고 바이너리를 교체합니다. 예를 들어, 아래 명령을 사용하여 SCN 노드를 중지하고 바이너리를 최신 버전으로 바꿀 수 있습니다.
 
@@ -31,7 +31,7 @@ $ kscnd start
 
 ## 하드 포크 <a href="#hard-fork" id="hard-fork"></a>
 
-이 섹션에서는 클레이튼 [하드포크](../../misc/klaytn-history.md)를 서비스체인에 적용하는 단계를 설명합니다.
+이 섹션에서는 카이아 [하드포크](../../misc/klaytn-history.md)를 서비스체인에 적용하는 단계를 설명합니다.
 
 서비스체인에 하드포크를 적용하려면 다음을 수행해야 합니다:
 
@@ -39,19 +39,19 @@ $ kscnd start
 2. 서비스체인 바이너리를 하드포크를 지원하는 버전으로 업그레이드합니다.
 3. 서비스체인에서 하드포크 블록 번호를 설정합니다.
 
-### 1) 하드포크에 적합한 블록 번호 선택 <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1) 1) 하드포크에 적합한 블록 번호 선택 <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 서비스체인의 JavaScript 콘솔에서 아래와 같이 현재 블록 번호를 확인할 수 있습니다.
 
 ```bash
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
-> klay.blockNumber
+> kaia.blockNumber
 1234
 ```
 
@@ -122,7 +122,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 }
 ```
 
-클레이튼 하드포크의 역사는 [Klaytn Docs](../../misc/klaytn-history.md)에서 확인할 수 있습니다.
+카이아 하드포크의 역사는 [Kaia Docs](../../misc/klaytn-history.md)에서 확인할 수 있습니다.
 
 원하는 하드포크로 `genesis.json`을 업데이트한 경우 체인 구성을 다시 초기화하고 변경 사항을 적용합니다.
 
@@ -147,10 +147,10 @@ $ kscnd start
 그런 다음 SCN의 JavaScript 콘솔에서 업데이트된 체인 구성을 확인할 수 있습니다.
 
 ```bash
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -166,15 +166,15 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 
 Magma 하드포크는 동적 가스 요금인 KIP-71을 도입합니다. 여기에는 가스 가격의 상한과 하한이 포함됩니다.
 
-기본적으로 상한은 `750000000000`, 하한은 `25000000000`로 설정되어 있습니다. You can change those bounds in the Javascript console of SCN nodes using the [governance APIs](../../../references/json-rpc/governance/chain-config). 분명히 하한은 상한을 초과할 수 없습니다.
+기본적으로 상한은 `750000000000`, 하한은 `25000000000`로 설정되어 있습니다. [거버넌스 API](../../../references/json-rpc/governance/chain-config)를 사용하여 SCN 노드의 Javascript 콘솔에서 이러한 제한을 변경할 수 있습니다. 물론 하한은 상한을 초과할 수 없습니다.
 
 가스 가격을 정적 값으로 설정하려면 가스 가격의 상한과 하한을 같은 값으로 설정해야 합니다. 예를 들어, SCN 노드의 JavaScript 콘솔에서 `governance.vote` API를 사용하여 가스 가격을 `0`으로 설정할 수 있습니다.
 
 ```bash
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 klay:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -193,7 +193,7 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 epoch를 확인하려면 아래와 같이 `governanace.itemsAt` API를 사용하면 됩니다.
 
 ```javascript
-> governance.itemsAt(klay.blockNumber)
+> governance.itemsAt(kaia.blockNumber)
 {
   governance.governancemode: "none",
   governance.governingnode: "0x05ad406f31e22b74f18c9ed65ed1ccd349bbbee0",

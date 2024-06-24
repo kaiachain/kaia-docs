@@ -34,10 +34,10 @@ This chapter explains the **Service Chain Consensus Node (SCN)** installation.
 
 The archive file for Service Chain Consensus Node has the following directory layout.
 
-| File Name       | File Description                  |
-| :-------------- | :-------------------------------- |
-| bin/kscn        | SCN executable file               |
-| bin/kscnd       | SCN start/termination script file |
+| File Name                       | File Description                  |
+| :------------------------------ | :-------------------------------- |
+| bin/kscn                        | SCN executable file               |
+| bin/kscnd                       | SCN start/termination script file |
 | conf/kscnd.conf | SCN configuration file            |
 
 The archive file for homi binary has the following directory layout.
@@ -66,11 +66,11 @@ $ yum install homi-vX.X.X.el7.x86_64.rpm
 
 The Klaytn Linux package consists of the executable binary and the configuration file structured as follows.
 
-| File Name  | Location                   |
-| :--------- | :------------------------- |
-| kscn       | /usr/bin/kscn              |
+| File Name                  | Location                                   |
+| :------------------------- | :----------------------------------------- |
+| kscn                       | /usr/bin/kscn                              |
 | kscnd.conf | /etc/kscnd/conf/kscnd.conf |
-| homi       | /usr/bin/homi              |
+| homi                       | /usr/bin/homi                              |
 
 ## Configuration <a id="configuration"></a>
 

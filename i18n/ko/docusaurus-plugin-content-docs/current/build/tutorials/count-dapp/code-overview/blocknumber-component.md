@@ -9,7 +9,7 @@
 3\) `getBlockNumber` 메서드 상세 정보\
 4\) `getBlockNumber`의 간헐적 호출
 
-### 1) 전체 코드 <a id="1-full-code"></a>
+### 1. 전체 코드 <a id="1-full-code"></a>
 
 ```javascript
 import React, { Component } from 'react'
@@ -81,12 +81,13 @@ class BlockNumber extends Component {
 export default BlockNumber
 ```
 
-### 2) BlockNumber 컴포넌트의 역할 <a id="2-blocknumber-component-s-role"></a>
+### 2. BlockNumber 컴포넌트의 역할 <a id="2-blocknumber-component-s-role"></a>
 
-`BlockNumber` 컴포넌트의 역할은 클레이튼의 현재 블록 번호를 표시하는 것입니다.\
-이 컴포넌트는 매초마다 `caver.klay.getBlockNumber()`를 호출하여 현재 블록 번호를 Klaytn 노드에 요청합니다. 이 컴포넌트는 응답을 받으면 `this.setState({ currentBlockNumber: blockNumber })`를 통해 DOM을 다시 렌더링합니다.
+`BlockNumber` 컴포넌트의 역할은 카이아의 현재 블록 번호를 표시하는 것입니다.\
+이 컴포넌트는 매초마다 `caver.klay.getBlockNumber()`를 호출하여 현재 블록 번호를 Kaia 노드에 요청합니다.\
+It requests the current block number to the Kaia node by calling `caver.kaia.getBlockNumber()` every second. 이 컴포넌트는 응답을 받으면 `this.setState({ currentBlockNumber: blockNumber })`를 통해 DOM을 다시 렌더링합니다.
 
-### 3) `getBlockNumber` 메서드 자세히 보기 <a id="3-getblocknumber-method-in-detail"></a>
+### 3. `getBlockNumber` 메서드 자세히 보기 <a id="3-getblocknumber-method-in-detail"></a>
 
 ```javascript
 /**
@@ -108,7 +109,7 @@ getBlockNumber = async () => {
 
 React의 this.setState와 렌더링 메커니즘에 대한 자세한 내용은 React의 공식 사이트 [https://reactjs.org/docs/state-and-lifecycle.html](https://reactjs.org/docs/state-and-lifecycle.html)에서 확인할 수 있습니다.
 
-### 4) `getBlockNumber`를 간헐적으로 호출하기 <a id="4-call-getblocknumber-intervally"></a>
+### 4. `getBlockNumber`를 간헐적으로 호출하기 <a id="4-call-getblocknumber-intervally"></a>
 
 ```javascript
 /**

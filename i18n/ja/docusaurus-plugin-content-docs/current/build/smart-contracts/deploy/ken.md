@@ -8,7 +8,6 @@ Before you start, let's get familiar with several Klaytn-specific terms.
 - **KLAY**: Klaytn native coin.
 - **caver-js**: A JavaScript implementation of Klaytn JSON-RPC APIs.
 - **Baobab**: Klaytn testnet
-- **Cypress**: Klaytn mainnet
 
 This step by step guide will walk you through the process of launching an Endpoint Node \(EN\) of Baobab testnet and building a basic smart contract with your new account. The tutorial consists of two parts, setting up an EN and deploying a smart contract through your EN.
 

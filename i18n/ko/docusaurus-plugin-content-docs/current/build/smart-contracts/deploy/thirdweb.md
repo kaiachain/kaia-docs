@@ -4,7 +4,7 @@
 
 ## 소개 <a id="introduction"></a>
 
-이 장에서는 [Thirdweb](https://portal.thirdweb.com/)을 사용하여 마켓플레이스 컨트랙트와 그에 해당하는 NFT 수집 컨트랙트를 Klaytn 네트워크에 배포하는 방법을 안내합니다. Thirdweb은 앱과 게임을 탈중앙화 네트워크에 연결하는 데 필요한 모든 것을 제공하는 완전한 웹 3.0 개발 프레임워크입니다.
+이 장에서는 [Thirdweb](https://portal.thirdweb.com/)을 사용하여 마켓플레이스 컨트랙트와 그에 해당하는 NFT 수집 컨트랙트를 Kaia 네트워크에 배포하는 방법을 안내합니다. Thirdweb은 앱과 게임을 탈중앙화 네트워크에 연결하는 데 필요한 모든 것을 제공하는 완전한 웹 3.0 개발 프레임워크입니다.
 
 마켓플레이스 컨트랙트를 사용하면 사용자가 직접 판매 또는 경매를 위해 NFT를 등록할 수 있으며, 오픈시에서와 마찬가지로 NFT의 구매와 판매를 향상시킬 수 있습니다.
 
@@ -113,7 +113,7 @@ npx thirdweb deploy
 
 - 프레임워크(hardhat, foundry)를 감지합니다.
 - 현재 디렉토리에 있는 모든 컨트랙트를 컴파일합니다.
-- 배포할 컨트랙트를 선택할 수 있습니다.
+- 배포하고자 하는 컨트랙트를 선택할 수 있습니다.
 - 컴파일된 스마트 컨트랙트 코드(애플리케이션 바이너리 인터페이스 또는 ABI 형태)를 IPFS에 업로드합니다.
 
 2. 배포가 완료되면 대시보드 인터페이스가 열리고 나머지 파라미터를 입력할 수 있습니다.
@@ -125,7 +125,7 @@ npx thirdweb deploy
      **_royaltyRecipient**: 2차 판매에서 로열티를 받을 지갑 주소
      **_royaltyBps**: 각 2차 판매에 대해 로열티 수령자에게 지급할 베이시스 포인트(bps)(예: 500 = 5%)
 
-3. 컨트랙트를 배포할 네트워크로 `Klaytn Mainnet Cypress`를 선택합니다.
+3. 컨트랙트를 배포할 네트워크로 `Kaia Mainnet`를 선택합니다.
 
 ![](/img/build/get-started/nft-collection-deploy.png)
 
@@ -165,7 +165,7 @@ Thirdweb 배포 명령에 대한 자세한 내용은 [배포 가이드](https://
 
 ## 결론 <a id="conclusion"></a>
 
-축하드립니다! 이 가이드를 끝까지 완료하셨군요. 궁금한 점이 있으시다면, [클레이튼 포럼](https://forum.klaytn.foundation/)을 방문하시거나 [공식 thirdweb 지원](https://support.thirdweb.com/)으로 문의해 주세요. 하지만 아래는 클레이튼에서 Thirdweb으로 빌드하는 동안 필요한 유용한 리소스 목록입니다.
+축하드립니다! 이 가이드를 끝까지 완료하셨군요. 궁금한 점이 있으시다면, [카이아 포럼](https://forum.klaytn.foundation/)을 방문하시거나 [공식 thirdweb 지원](https://support.thirdweb.com/)으로 문의해 주세요. 하지만 아래는 카이아에서 Thirdweb으로 빌드하는 동안 필요한 유용한 리소스 목록입니다.
 
 - [Thirdweb 문서](https://portal.thirdweb.com/)
 - [Thirdweb을 사용해 dApp을 구축하는 방법](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)

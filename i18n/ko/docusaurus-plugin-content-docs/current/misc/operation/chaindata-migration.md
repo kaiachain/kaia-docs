@@ -13,10 +13,10 @@
   - 2부 - 새 디렉터리에 신규 블록 생성 (이후 기존 디렉터리는 삭제됨)
 - 500GB의 여유 공간이 있어야 합니다.
 
-## 클레이튼 콘솔로 이동하기
+## 카이아 콘솔로 이동하기
 
 ```bash
-$ kpn attach klay.ipc
+$ kpn attach kaia.ipc
 
 #start chain data Migration
 > admin.startStateMigration()

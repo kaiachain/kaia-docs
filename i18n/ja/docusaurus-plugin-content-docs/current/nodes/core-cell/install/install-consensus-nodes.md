@@ -20,10 +20,10 @@ The archive file consists of the executable binary and the configuration file st
   |- kcnd.conf
 ```
 
-| File Name      | File Description                 |
-| :------------- | :------------------------------- |
-| bin/kcn        | CN executable file               |
-| bin/kcnd       | CN start/termination script file |
+| File Name                      | File Description                 |
+| :----------------------------- | :------------------------------- |
+| bin/kcn                        | CN executable file               |
+| bin/kcnd                       | CN start/termination script file |
 | conf/kcnd.conf | CN configuration file            |
 
 The installation is the uncompression of the downloaded package where you want to install the package.
@@ -72,9 +72,9 @@ $ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/r
 
 The installed files are located as follows.
 
-| File Name | Location                 |
-| :-------- | :----------------------- |
-| kcn       | /usr/bin/kcn             |
+| File Name                 | Location                                 |
+| :------------------------ | :--------------------------------------- |
+| kcn                       | /usr/bin/kcn                             |
 | kcnd.conf | /etc/kcnd/conf/kcnd.conf |
 
 ## Configuration <a id="configuration"></a>

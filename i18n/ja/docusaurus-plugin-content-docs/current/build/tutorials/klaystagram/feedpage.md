@@ -52,11 +52,7 @@ const FeedPage = () => (
 
 To make component interact with contract, there are 3 steps.
 
-**First**, create `KlaystagramContract` instance to connect contract with front-end.
-
 **Second**, using `KlaystagramContract` instance, make API functions that interact with contract in `redux/actions`.
-
-**Third**, call functions in each component
 
 Let's build it!
 
@@ -65,7 +61,6 @@ Let's build it!
 1. `src/klaytn`
    - caver.js
    - KlaystagramContract.js
-
 2. `src/redux`
 
 ### 1) `src/klaytn` <a id="1-src-klaytn"></a>
@@ -128,20 +123,18 @@ When compiling & deploying `Klaystagram.sol` contract ([5. Deploy Contract](./de
 And thanks to webpack's configuration, we can access it as variable.(`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
 
 - `DEPLOYED_ADDRESS` returns deployed Address.
-
 - `DEPLOYED_ABI` returns Klaystagram contract ABI.
 
 **cf) `contract ABI`(Application Binary Interface)**\
 `contract ABI` is the interface for calling contract methods. With this interface, we can call contract methods as below
 
 - `contractInstance.methods.methodName().call()`
-
 - `contractInstance.methods.methodName().send({ ... })`
 
 **Now we are ready to interact with contract in the application.**\
 _cf. For more information, refer to_ [_caver.klay.Contract_](../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md)_._
 
-### 2) `src/redux` <a id="2-src-redux"></a>
+### 2. `src/redux` <a id="2-src-redux"></a>
 
 We are going to make API functions with Klaystagram instance. After calling API functions, we use redux store to controls all data flow.
 
@@ -187,7 +180,7 @@ Redux store controls all data flow in front-end.
 ![upload photo](/img/build/tutorials/klaystagram-uploadphoto.png)
 
 1. `UploadPhoto` component's role.
-2. Component code.
+2. Component code
 3. Interact with contract.
 4. Update data to store: `updateFeed` function.
 
@@ -199,15 +192,12 @@ Redux store controls all data flow in front-end.
 2. After sending a transaction, show the progress along the transaction life cycle using the `Toast` component.
 3. When the transaction gets into a block, update the new `PhotoData` in the local redux store.
 
-**Limiting content size**
-
 The maximum size of a single transaction is `32KB`. So we restrict the input data (photo and descriptions) not to exceed `30KB` to send it over safely.
 
 - The string data size is restricted to `2KB`.
-
 - Photo is compressed to be less than `28KB` using [`imageCompression()`](https://github.com/klaytn/klaystagram/blob/main/src/utils/imageCompression.js) function.
 
-### 2. Component code <a href="#2-component-code" id="2-component-code"></a>
+### Component code <a href="#2-component-code" id="2-component-code"></a>
 
 ```javascript
 // src/components/UploadPhoto.js
@@ -339,11 +329,9 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(null, mapDispatchToProps)(UploadPhoto)
 ```
 
-### 3. Interact with contract <a href="#3-interact-with-contract" id="3-interact-with-contract"></a>
+### Interact with contract <a href="#3-interact-with-contract" id="3-interact-with-contract"></a>
 
-Let's make a function to write photo data on Klaytn. **Send transaction to contract: `uploadPhoto`**.
-
-Unlike read-only function calls, writing data incurs a transaction fee. The transaction fee is determined by the amount of used `gas`. `gas` is a measuring unit representing how much calculation is needed to process the transaction.
+Let's make a function to write photo data on Klaytn. Unlike read-only function calls, writing data incurs a transaction fee. The transaction fee is determined by the amount of used `gas`. `gas` is a measuring unit representing how much calculation is needed to process the transaction.
 
 For these reasons, sending a transaction needs two property `from` and `gas`.
 
@@ -425,16 +413,12 @@ export const uploadPhoto = (
 After sending transaction, you can get transaction life cycle (`transactionHash`, `receipt`, `error`).
 
 - `transactionHash` event is fired once your signed transaction instance is properly constructed. You can get the transaction hash before sending the transaction over the network.
-
 - `receipt` event is fired when you get a transaction receipt. It means your transaction is included in a block. You can check the block number by `receipt.blockNumber`.
-
 - `error` event is fired when something goes wrong.
 
 ### 4. Update photo in the feed page: `updateFeed` <a href="#4-update-photo-in-the-feed-page-updatefeed" id="4-update-photo-in-the-feed-page-updatefeed"></a>
 
-After successfully sending the transaction to the contract, FeedPage needs to be updated.
-
-In order to update the photo feed, we need to get the new photo data we've just uploaded. Let's call `getPhoto()` with `tokenId`. `tokenId` can be retrieved from the transaction receipt. Then add the new photo data in the local redux store.
+After successfully sending the transaction to the contract, FeedPage needs to be updated. Let's call `getPhoto()` with `tokenId`. `tokenId` can be retrieved from the transaction receipt. Then add the new photo data in the local redux store.
 
 ```javascript
 // src/redux/actions/photo.js
@@ -515,11 +499,11 @@ export const getFeed = () => (dispatch) => {
 }
 ```
 
-### 3. Save data to store: `setFeed` action <a href="#3-save-data-to-store-setfeed-action" id="3-save-data-to-store-setfeed-action"></a>
+### Save data to store: `setFeed` action <a href="#3-save-data-to-store-setfeed-action" id="3-save-data-to-store-setfeed-action"></a>
 
 After we successfully fetch photo data (feed) from the Klaystagram contract, we call `setFeed(feed)` action. This action takes the photo data as a payload and saves it in a redux store.
 
-### 4. Show data in component: `Feed` component <a href="#4-show-data-in-component-feed-component" id="4-show-data-in-component-feed-component"></a>
+### Show data in component: `Feed` component <a href="#4-show-data-in-component-feed-component" id="4-show-data-in-component-feed-component"></a>
 
 ```javascript
 // src/components/Feed.js
@@ -637,8 +621,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(Feed)
 
 At the first time, you can only see the text "No photo :D" because there is no photo data in contract yet.
 
-Let's make a UploadPhoto component to send photo data to contract!
-
 ## 4. TransferOwnership Component <a href="#4.-transferownership-component" id="4.-transferownership-component"></a>
 
 ![transfer ownership](/img/build/tutorials/klaystagram-transferownership.png)
@@ -656,7 +638,7 @@ Let's make a UploadPhoto component to send photo data to contract!
 
 The owner of photo can transfer photo's ownership to another user. By sending `transferOwnership` transaction, new owner's address will be saved in ownership history, which keep tracks of past owner addresses.
 
-### 2. Component code <a href="#2-component-code" id="2-component-code"></a>
+### Component code <a href="#2-component-code" id="2-component-code"></a>
 
 #### 2-1) Rendering `TransferOwnership` button <a href="#2-1-rendering-transferownership-button" id="2-1-rendering-transferownership-button"></a>
 
@@ -762,7 +744,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(null, mapDispatchToProps)(TransferOwnership)
 ```
 
-### 3. Interact with contract: `transferOwnership` method <a href="#3-interact-with-contract-transferownership-method" id="3-interact-with-contract-transferownership-method"></a>
+### Interact with contract: `transferOwnership` method <a href="#3-interact-with-contract-transferownership-method" id="3-interact-with-contract-transferownership-method"></a>
 
 We already made `transferOwnership` function in Klaystagram contract at chapter [4. Write Klaystagram Smart Contract](./deploy-contracts.md#4-write-klaystagram-smart-contract). Let's call it from application.
 
@@ -818,9 +800,7 @@ export const transferOwnership = (tokenId, to) => (dispatch) => {
 }
 ```
 
-### 4. Update information in redux store: `updateOwnerAddress` action <a href="#4-update-information-in-redux-store-updateowneraddress-action" id="4-update-information-in-redux-store-updateowneraddress-action"></a>
-
-After transferring ownership, FeedPhoto needs to be rerendered with new owner's address.
+### Update information in redux store: `updateOwnerAddress` action <a href="#4-update-information-in-redux-store-updateowneraddress-action" id="4-update-information-in-redux-store-updateowneraddress-action"></a>
 
 To update new owner's address, let's call `feed` data from store and find the photo that has the tokenId from the receipt. Then push new owner's address to photo's `ownerHistory` and setFeed.
 

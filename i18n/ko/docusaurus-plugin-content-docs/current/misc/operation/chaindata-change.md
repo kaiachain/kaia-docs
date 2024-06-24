@@ -52,7 +52,7 @@ $ sudo mkdir /var/kcnd2/log
 
 ### 최신 체인 데이터 다운로드
 
-새로운 클레이튼 데이터 DIR의 데이터에 체인 데이터를 다운로드합니다. (체인 데이터에 대한 자세한 내용은 [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/)에서 확인할 수 있습니다.)
+새로운 카이아 데이터 DIR의 데이터에 체인 데이터를 다운로드합니다. (체인 데이터에 대한 자세한 내용은 [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/)에서 확인할 수 있습니다.)
 
 1. 다음 명령으로 다운로드합니다.
 
@@ -90,7 +90,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 1. 스왑 전 클레이튼 데몬 프로세스 중지
 
-   1. _**중요**_ 노드 타입이 CN인 경우 클레이튼 카운슬에서 CN 노드를 제거합니다.
+   1. _**중요**_ 노드 유형이 CN인 경우 Kaia 카운슬에서 CN 노드를 제거합니다.
 
    EN용 패키지는 [CN 시작하기](../../nodes/core-cell/install/install-consensus-nodes.md#startup-the-cn)에서 받을 수 있습니다.
 
@@ -117,7 +117,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 ### 옵션 2 - klaytn 구성 파일에서 DATA_DIR 및 LOG_DIR 업데이트하기
 
-1. 클레이튼 디렉터리 경로 변경
+1. 카이아 디렉터리 경로 변경
    - 옵션 1 - 새 디스크
      - 기존 디스크에서 새 디스크로 `fstab` 값을 변경합니다.
    - 옵션 2 - 현재 디스크
@@ -130,5 +130,5 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 </aside>
 
-1. _**중요**_ 노드 유형이 CN인 경우 Klaytn 카운슬에서 CN 노드를 제거합니다.
+1. _**중요**_ 노드 타입이 CN인 경우 카이아 카운슬에서 CN 노드를 제거합니다.
 2. 프로세스 재시작 또는 인스턴스 재부팅

@@ -214,5 +214,21 @@
   "sidebar.refSidebar.link.API References": {
     "message": "API 레퍼런스",
     "description": "The label for link API References in sidebar refSidebar, linking to https://javadoc.io/doc/com.klaytn.caver/core/"
+  },
+  "sidebar.learnSidebar.category.Transaction Fees": {
+    "message": "트랜잭션 수수료",
+    "description": "The label for category Transaction Fees in sidebar learnSidebar"
+  },
+  "sidebar.buildSidebar.category.Verify Smart Contracts": {
+    "message": "스마트 컨트랙트 검증",
+    "description": "The label for category Verify Smart Contracts in sidebar buildSidebar"
+  },
+  "sidebar.refSidebar.category.caver.kct": {
+    "message": "caver.kct",
+    "description": "The label for category caver.kct in sidebar refSidebar"
+  },
+  "sidebar.kaiaSidebar.doc.DLT Framework": {
+    "message": "DLT 프레임워크",
+    "description": "The label for the doc item DLT Framework in sidebar kaiaSidebar, linking to the doc kaiatech/kaia-dlt-framework"
   }
 }

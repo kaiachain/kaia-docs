@@ -25,5 +25,5 @@ EN에 대한 정확한 물리적 머신 사양은 명시되어 있지 않지만,
 ## 운영 체제 <a id="operating-system"></a>
 
 권장 환경은 [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/)입니다.
-클레이튼 바이너리는 Amazon Linux 2에서 완벽하게 테스트되었지만, 다른 리눅스 기반 환경에서도 작동할 것입니다.
+카이아 바이너리는 Amazon Linux 2에서 완벽하게 테스트되었지만, 다른 리눅스 기반 환경에서도 작동할 것입니다.
 개발 목적으로 macOS 바이너리도 제공됩니다.

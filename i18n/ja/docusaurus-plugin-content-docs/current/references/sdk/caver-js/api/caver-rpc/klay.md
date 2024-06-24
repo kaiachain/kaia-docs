@@ -12,18 +12,18 @@ Returns `true` if the account associated with the address is created in the Klay
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address of the account you want to query to see if it has been created on the network.                                    |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string             | The address of the account you want to query to see if it has been created on the network.                                             |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `boolean`
 
-| Type    | Description                                      |
-| ------- | ------------------------------------------------ |
+| Type    | Description                                                      |
+| ------- | ---------------------------------------------------------------- |
 | boolean | The existence of an input address in the Klaytn. |
 
 **Example**
@@ -45,18 +45,18 @@ Returns the account information of a given address in the Klaytn. For more detai
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address of the account for which you want to get account information.                                                     |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string             | The address of the account for which you want to get account information.                                                              |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                  |
-| ------ | -------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                  |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------- |
 | object | An object that contains the account information. Each account type has different attributes. |
 
 **Example**
@@ -102,18 +102,18 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address of Klaytn account from which you want to get an object of AccountKey information.                                 |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string             | The address of Klaytn account from which you want to get an object of AccountKey information.                                          |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                    |
-| ------ | ---------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                    |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | object | An object that contains AccountKey information. Each AccountKey type has different attributes. |
 
 **Example**
@@ -188,8 +188,8 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 
 **Parameters**
 
-| Name       | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name       | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | accountKey | object   | An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail), [AccountKeyWeightedMultiSig](../caver.account.md#accountkeyweightedmultisig) or [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)). |
 | callback   | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                                                                                                                                              |
 
@@ -197,8 +197,8 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 
 `Promise` returns `string`
 
-| Type   | Description               |
-| ------ | ------------------------- |
+| Type   | Description                               |
+| ------ | ----------------------------------------- |
 | string | A RLP-encoded AccountKey. |
 
 **Example**
@@ -307,8 +307,8 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 
 **Parameters**
 
-| Name       | Type     | Description                                                                                                                   |
-| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name       | Type     | Description                                                                                                                                   |
+| ---------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | encodedKey | string   | A RLP-encoded AccountKey.                                                                                                     |
 | callback   | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -316,8 +316,8 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 
 `Promise` returns `object`
 
-| Type   | Description                                   |
-| ------ | --------------------------------------------- |
+| Type   | Description                                                   |
+| ------ | ------------------------------------------------------------- |
 | object | An object defines `keyType` and `key` inside. |
 
 **Example**
@@ -422,18 +422,18 @@ Returns the balance of the account of the given address in Klaytn.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address of the account for which you want to get balance.                                                                 |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string             | The address of the account for which you want to get balance.                                                                          |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
+| Type   | Description                                                       |
+| ------ | ----------------------------------------------------------------- |
 | string | The current balance for the given address in peb. |
 
 **Example**
@@ -453,18 +453,18 @@ Returns code at a given address.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address to get the code from.                                                                                             |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string             | The address to get the code from.                                                                                                      |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                      |
-| ------ | -------------------------------- |
+| Type   | Description                                      |
+| ------ | ------------------------------------------------ |
 | string | The code from the given address. |
 
 **Example**
@@ -484,18 +484,18 @@ Returns the total number of transactions sent from an address.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                                                                                          |
-| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address to get the number of transactions from.                                                                                                                                                  |
-| blockNumber | number \| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the default block parameter. If omitted, `latest` will be used. |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                        |
+| Name        | Type               | Description                                                                                                                                                                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string             | The address to get the number of transactions from.                                                                                                                                                                                                                                    |
+| blockNumber | number \\| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                          |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                                                    |
-| ------ | -------------------------------------------------------------- |
+| Type   | Description                                                                    |
+| ------ | ------------------------------------------------------------------------------ |
 | string | The number of transactions sent from the given address in hex. |
 
 **Example**
@@ -515,18 +515,18 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address you want to check for isContractAccount.                                                                          |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string             | The address you want to check for isContractAccount.                                                                                   |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `boolean`
 
-| Type    | Description                                                           |
-| ------- | --------------------------------------------------------------------- |
+| Type    | Description                                                                           |
+| ------- | ------------------------------------------------------------------------------------- |
 | boolean | true means the input parameter is an existing smart contract address. |
 
 **Example**
@@ -545,25 +545,25 @@ true
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../../json-rpc/klay/sign) to know how the signature is generated.
+Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) to know how the signature is generated.
 
-**NOTE**: This API provides the function to sign a message using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
+**NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| address     | String           | The address of the imported account to sign the message.                                                                      |
-| message     | String           | Message to sign.                                                                                                              |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | String             | The address of the imported account to sign the message.                                                                               |
+| message     | String             | Message to sign.                                                                                                                       |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                                  |
-| ------ | -------------------------------------------- |
+| Type   | Description                                                  |
+| ------ | ------------------------------------------------------------ |
 | string | The signature made from an imported account. |
 
 **Example**
@@ -583,16 +583,16 @@ Returns a list of addresses owned by the Klaytn Node.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `Array`
 
-| Type  | Description                                     |
-| ----- | ----------------------------------------------- |
+| Type  | Description                                                     |
+| ----- | --------------------------------------------------------------- |
 | Array | An array of addresses owned by the Klaytn Node. |
 
 **Example**
@@ -615,16 +615,16 @@ Returns the number of the most recent block.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                                 |
-| ------ | ------------------------------------------- |
+| Type   | Description                                                 |
+| ------ | ----------------------------------------------------------- |
 | string | The number of the most recent block in hex. |
 
 **Example**
@@ -644,17 +644,17 @@ Returns a block header by block hash or block number. If the user passes the blo
 
 **Parameters**
 
-| Name              | Type             | Description                                                                                                                   |
-| ----------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash | number \| string | The block hash, number or the block tag string.                                                                               |
-| callback          | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name              | Type               | Description                                                                                                                                   |
+| ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash | number \\| string | The block hash, number or the block tag string.                                                                               |
+| callback          | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                                                               |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                                                                               |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
 
 **Example**
@@ -690,17 +690,17 @@ Returns a block header by block number.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | The block number or the block tag string.                                                                                     |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                   |
+| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\| string | The block number or the block tag string.                                                                                     |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                                                               |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                                                                               |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
 
 **Example**
@@ -736,8 +736,8 @@ Returns the block number of the most recent block by using `blockHash`.
 
 **Parameters**
 
-| Name      | Type     | Description                                                                                                                   |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name      | Type     | Description                                                                                                                                   |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockHash | string   | The block hash.                                                                                                               |
 | callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -745,23 +745,23 @@ Returns the block number of the most recent block by using `blockHash`.
 
 `Promise` returns `object` - An object includes the block header:
 
-| Name             | Type   | Description                                                                                                                                                  |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                          |
+| Name             | Type   | Description                                                                                                                                                                                                  |
+| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                                          |
 | blockScore       | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
-| extraData        | string | The "extra data" field of this block.                                                                                                                        |
-| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                            |
-| governanceData   | string | RLP encoded governance configuration                                                                                                                         |
-| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                        |
-| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                               |
-| number           | string | The block number. `null` when it is a pending block.                                                                                                         |
-| parentHash       | string | Hash of the parent block.                                                                                                                                    |
-| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                  |
-| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                         |
-| stateRoot        | string | The root of the final state trie of the block.                                                                                                               |
-| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                          |
-| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                   |
-| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                               |
+| extraData        | string | The "extra data" field of this block.                                                                                                                                                        |
+| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                                                            |
+| governanceData   | string | RLP encoded governance configuration                                                                                                                                                                         |
+| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                                        |
+| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                                               |
+| number           | string | The block number. `null` when it is a pending block.                                                                                                                         |
+| parentHash       | string | Hash of the parent block.                                                                                                                                                                    |
+| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                                                  |
+| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                                                         |
+| stateRoot        | string | The root of the final state trie of the block.                                                                                                                                               |
+| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                                                          |
+| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                                                   |
+| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                                                               |
 
 **Example**
 
@@ -796,18 +796,18 @@ Returns information about a block by block hash or block number. If the user pas
 
 **Parameters**
 
-| Name                     | Type             | Description                                                                                                                                                                         |
-| ------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash        | number \| string | The block hash, number or the block tag string.                                                                                                                                     |
-| returnTransactionObjects | boolean          | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
+| Name                     | Type               | Description                                                                                                                                                                                         |
+| ------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash        | number \\| string | The block hash, number or the block tag string.                                                                                                                                     |
+| returnTransactionObjects | boolean            | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback                 | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                                                      |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Type   | Description                                                                                                                                                                                                                      |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | A block object. For a detailed description of the return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
 **Example**
@@ -847,18 +847,18 @@ Returns information about a block by block number.
 
 **Parameters**
 
-| Name                     | Type             | Description                                                                                                                                                                         |
-| ------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber              | number \| string | The block number or the block which is tagged with a string (`genesis` or `latest`).                                                                             |
-| returnTransactionObjects | boolean          | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
+| Name                     | Type               | Description                                                                                                                                                                                         |
+| ------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber              | number \\| string | The block number or the block which is tagged with a string (`genesis` or `latest`).                                                                             |
+| returnTransactionObjects | boolean            | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback                 | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                                                |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Type   | Description                                                                                                                                                                                                                |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
 
 **Example**
@@ -898,8 +898,8 @@ Returns the block number of the most recent block by using `blockHash`.
 
 **Parameters**
 
-| Name                     | Type     | Description                                                                                                                                                                         |
-| ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name                     | Type     | Description                                                                                                                                                                                         |
+| ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockHash                | string   | The block hash.                                                                                                                                                                     |
 | returnTransactionObjects | boolean  | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
 | callback                 | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
@@ -908,27 +908,27 @@ Returns the block number of the most recent block by using `blockHash`.
 
 `Promise` returns `object` - An object includes block:
 
-| Name             | Type   | Description                                                                                                                                                  |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                          |
+| Name             | Type   | Description                                                                                                                                                                                                  |
+| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                                          |
 | blockScore       | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
-| extraData        | string | The "extra data" field of this block.                                                                                                                        |
-| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                            |
-| governanceData   | string | RLP encoded governance configuration                                                                                                                         |
-| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                        |
-| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                               |
-| number           | string | The block number. `null` when it is a pending block.                                                                                                         |
-| parentHash       | string | Hash of the parent block.                                                                                                                                    |
-| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                  |
-| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                         |
-| size             | string | Integer the size of this block in bytes.                                                                                                                     |
-| stateRoot        | string | The root of the final state trie of the block.                                                                                                               |
-| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                          |
-| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                   |
-| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                               |
-| transactions     | Array  | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter.                                           |
-| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                               |
-| voteData         | string | RLP encoded governance vote of the proposer.                                                                                                                 |
+| extraData        | string | The "extra data" field of this block.                                                                                                                                                        |
+| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                                                            |
+| governanceData   | string | RLP encoded governance configuration                                                                                                                                                                         |
+| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                                        |
+| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                                               |
+| number           | string | The block number. `null` when it is a pending block.                                                                                                                         |
+| parentHash       | string | Hash of the parent block.                                                                                                                                                                    |
+| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                                                  |
+| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                                                         |
+| size             | string | Integer the size of this block in bytes.                                                                                                                                                     |
+| stateRoot        | string | The root of the final state trie of the block.                                                                                                                                               |
+| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                                                          |
+| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                                                   |
+| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                                                               |
+| transactions     | Array  | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter.                                                                           |
+| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                                                               |
+| voteData         | string | RLP encoded governance vote of the proposer.                                                                                                                                                 |
 
 **Example**
 
@@ -967,8 +967,8 @@ Returns receipts included in a block identified by block hash.
 
 **Parameters**
 
-| Name      | Type     | Description                                                                                                                   |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name      | Type     | Description                                                                                                                                   |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockHash | string   | The block hash.                                                                                                               |
 | callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -976,8 +976,8 @@ Returns receipts included in a block identified by block hash.
 
 `Promise` returns `Array`
 
-| Type  | Description                                                                                                                                                                                                                                                                 |
-| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type  | Description                                                                                                                                                                                                                                                                                                                                                                 |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Array | The transaction receipts included in a block. If the target block contains no transaction, an empty array `[]` is returned. For detailed description of transaction receipt, please refer to [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt). |
 
 **Example**
@@ -1025,17 +1025,17 @@ Returns the number of transactions in a block matching the given block number.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                   |
+| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\| string | The block number or the block tag string (`genesis` or `latest`).                                          |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                                           |
-| ------ | ----------------------------------------------------- |
+| Type   | Description                                                           |
+| ------ | --------------------------------------------------------------------- |
 | string | The number of transactions in the given block in hex. |
 
 **Example**
@@ -1055,8 +1055,8 @@ Returns the number of transactions in a block matching the given block hash.
 
 **Parameters**
 
-| Name      | Type     | Description                                                                                                                   |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name      | Type     | Description                                                                                                                                   |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockHash | string   | The block hash.                                                                                                               |
 | callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -1064,8 +1064,8 @@ Returns the number of transactions in a block matching the given block hash.
 
 `Promise` returns `string`
 
-| Type   | Description                                           |
-| ------ | ----------------------------------------------------- |
+| Type   | Description                                                           |
+| ------ | --------------------------------------------------------------------- |
 | string | The number of transactions in the given block in hex. |
 
 **Example**
@@ -1085,17 +1085,17 @@ Returns a block with consensus information matched by the given block number.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                   |
+| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\| string | The block number or the block tag string (`genesis` or `latest`).                                          |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                                                                                                                       |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                                                                                                                                       |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | string | An object includes block with consensus information. For detailed description of return value, please refer to [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash). |
 
 **Example**
@@ -1162,8 +1162,8 @@ Returns a block with consensus information matched by the given hash.
 
 **Parameters**
 
-| Name      | Type     | Description                                                                                                                   |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name      | Type     | Description                                                                                                                                   |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockHash | string   | The block hash.                                                                                                               |
 | callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -1171,30 +1171,30 @@ Returns a block with consensus information matched by the given hash.
 
 `Promise` returns `object` - A block object with consensus information (a proposer and a list of committee members), or null when no block was found:
 
-| Name             | Type   | Description                                                                                                                                               |
-| ---------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | string | Former difficulty. Always 1 in the BFT consensus engine                                                                                                   |
+| Name             | Type   | Description                                                                                                                                                                               |
+| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockScore       | string | Former difficulty. Always 1 in the BFT consensus engine                                                                                                                   |
 | committee        | Array  | Array of addresses of committee members of this block. The committee is a subset of validators who participated in the consensus protocol for this block. |
-| extraData        | string | The "extra data" field of this block.                                                                                                                     |
-| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                         |
-| governanceData   | string | RLP encoded governance configuration                                                                                                                      |
+| extraData        | string | The "extra data" field of this block.                                                                                                                                     |
+| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                                         |
+| governanceData   | string | RLP encoded governance configuration                                                                                                                                                      |
 | hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                     |
 | logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                            |
 | number           | string | The block number. `null` when it is a pending block.                                                                                                      |
-| originProposer   | string | The proposal of 0 round at the same block number.                                                                                                         |
-| parentHash       | string | Hash of the parent block.                                                                                                                                 |
-| proposer         | string | The address of the block proposer.                                                                                                                        |
-| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                               |
-| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                      |
-| round            | number | The round number.                                                                                                                                         |
-| size             | string | Integer the size of this block in bytes.                                                                                                                  |
-| stateRoot        | string | The root of the final state trie of the block.                                                                                                            |
-| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                       |
-| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                |
-| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                            |
-| transactions     | Array  | Array of transaction objects.                                                                                                                             |
-| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                            |
-| voteData         | string | RLP encoded governance vote of the proposer                                                                                                               |
+| originProposer   | string | The proposal of 0 round at the same block number.                                                                                                                         |
+| parentHash       | string | Hash of the parent block.                                                                                                                                                 |
+| proposer         | string | The address of the block proposer.                                                                                                                                        |
+| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                               |
+| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                                      |
+| round            | number | The round number.                                                                                                                                                         |
+| size             | string | Integer the size of this block in bytes.                                                                                                                                  |
+| stateRoot        | string | The root of the final state trie of the block.                                                                                                                            |
+| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                                       |
+| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                                |
+| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                                            |
+| transactions     | Array  | Array of transaction objects.                                                                                                                                             |
+| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                                            |
+| voteData         | string | RLP encoded governance vote of the proposer                                                                                                                                               |
 
 **Example**
 
@@ -1285,17 +1285,17 @@ Returns a list of all validators in the committee at the specified block.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `Array`
 
-| Type  | Description                                                      |
-| ----- | ---------------------------------------------------------------- |
+| Type  | Description                                                                      |
+| ----- | -------------------------------------------------------------------------------- |
 | Array | Addresses of all validators in the committee at the given block. |
 
 **Example**
@@ -1318,17 +1318,17 @@ Returns the size of the committee at the specified block.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `number`
 
-| Type   | Description                                   |
-| ------ | --------------------------------------------- |
+| Type   | Description                                                   |
+| ------ | ------------------------------------------------------------- |
 | number | The size of the committee at the given block. |
 
 **Example**
@@ -1348,17 +1348,17 @@ Returns a list of all validators of the council at the specified block.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `Array`
 
-| Type  | Description                                                                                           |
-| ----- | ----------------------------------------------------------------------------------------------------- |
+| Type  | Description                                                                                                           |
+| ----- | --------------------------------------------------------------------------------------------------------------------- |
 | Array | An array of validator addresses of the council at the given block, or null when no council was found. |
 
 **Example**
@@ -1381,17 +1381,17 @@ Returns the size of the council at the specified block.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
 `Promise` returns `number`
 
-| Type   | Description                                 |
-| ------ | ------------------------------------------- |
+| Type   | Description                                                 |
+| ------ | ----------------------------------------------------------- |
 | number | The size of the council at the given block. |
 
 **Example**
@@ -1411,19 +1411,19 @@ Returns the value from a storage position at a given address.
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                                                                            |
-| ----------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address to get the storage from.                                                                                                                                                   |
-| position    | number           | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../../json-rpc/klay/get-storage-at). |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                 |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                          |
+| Name        | Type               | Description                                                                                                                                                                                                                     |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string             | The address to get the storage from.                                                                                                                                                                            |
+| position    | number             | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                          |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                   |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                         |
-| ------ | ----------------------------------- |
+| Type   | Description                                         |
+| ------ | --------------------------------------------------- |
 | string | The value at this storage position. |
 
 **Example**
@@ -1443,8 +1443,8 @@ Returns `true` if client is actively mining new blocks.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                         |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -1468,16 +1468,16 @@ Returns an object with data about the sync status or false.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object|boolean` - `false` if the Klaytn Node is not syncing. Otherwise, a sync object is returned:
 
-| Name          | Type   | Description                                                 |
-| ------------- | ------ | ----------------------------------------------------------- |
+| Name          | Type   | Description                                                                 |
+| ------------- | ------ | --------------------------------------------------------------------------- |
 | startingBlock | string | The block number in hex where the sync started.             |
 | currentBlock  | string | The block number in hex where the node currently synced to. |
 | highestBlock  | string | The estimated block number in hex to sync to.               |
@@ -1510,29 +1510,29 @@ Executes a new message call immediately without sending a transaction on the blo
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| callObject  | object           | A transaction call object. See the next table for the object's properties.                                                    |
-| blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                            |
+| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| callObject  | object             | A transaction call object. See the next table for the object's properties.                                             |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 `callObject` has the following properties:
 
-| Name     | Type   | Description                                                                                                                                                            |
-| -------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to       | string | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                |
+| Name     | Type   | Description                                                                                                                                                                                                                            |
+| -------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| to       | string | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                                                                |
 | input    | string | (optional) The hash of the method signature and encoded parameters. You can use [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
-| from     | string | (optional) The address the transaction is sent from.                                                                                                |
-| gas      | string | (optional) The gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions.      |
-| gasPrice | string | (optional) The gasPrice used for each paid gas.                                                                                                     |
-| value    | string | (optional) The value sent with this transaction in `peb`.                                                                                           |
+| from     | string | (optional) The address the transaction is sent from.                                                                                                                                                |
+| gas      | string | (optional) The gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions.                                      |
+| gasPrice | string | (optional) The gasPrice used for each paid gas.                                                                                                                                                     |
+| value    | string | (optional) The value sent with this transaction in `peb`.                                                                                                                                           |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                                                                           |
-| ------ | ------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                           |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | string | The returned data of the call. _e.g._, the return value of a smart contract function. |
 
 **Example**
@@ -1561,8 +1561,8 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 
 `Promise` returns `string`
 
-| Type   | Description             |
-| ------ | ----------------------- |
+| Type   | Description                             |
+| ------ | --------------------------------------- |
 | string | The amount of gas used. |
 
 **Example**
@@ -1591,8 +1591,8 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 
 `Promise` returns `string`
 
-| Type   | Description                          |
-| ------ | ------------------------------------ |
+| Type   | Description                                          |
+| ------ | ---------------------------------------------------- |
 | string | The amount of computation cost used. |
 
 **Example**
@@ -1615,8 +1615,8 @@ Returns information about a transaction by `block hash` and `transaction index` 
 
 **Parameters**
 
-| Name      | Type     | Description                                                                                                                   |
-| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name      | Type     | Description                                                                                                                                   |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockHash | string   | The block hash.                                                                                                               |
 | index     | number   | A transaction index position inside the block.                                                                                |
 | callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
@@ -1625,8 +1625,8 @@ Returns information about a transaction by `block hash` and `transaction index` 
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                            |
-| ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                            |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more detail. |
 
 **Example**
@@ -1661,18 +1661,18 @@ Returns information about a transaction by `block number` and `transaction index
 
 **Parameters**
 
-| Name        | Type             | Description                                                                                                                   |
-| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| index       | number           | A transaction index position inside the block.                                                                                |
-| callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type               | Description                                                                                                                                   |
+| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\| string | The block number or the block tag string (`genesis` or `latest`).                                          |
+| index       | number             | A transaction index position inside the block.                                                                                |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                            |
-| ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                            |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more detail. |
 
 **Example**
@@ -1707,8 +1707,8 @@ Returns the information about a transaction requested by transaction hash.
 
 **Parameters**
 
-| Name            | Type     | Description                                                                                                                   |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name            | Type     | Description                                                                                                                                   |
+| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionHash | string   | A transaction hash.                                                                                                           |
 | callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -1716,29 +1716,29 @@ Returns the information about a transaction requested by transaction hash.
 
 `Promise` returns `object` - A transaction object, or `null` when no transaction was found:
 
-| Name               | Type    | Description                                                                                                                                                                                                                                        |
-| ------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                                   |
-| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                                        |
-| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                              |
-| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                            |
+| Name               | Type    | Description                                                                                                                                                                                                                                                                                                        |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                                                                                   |
+| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                                                                                        |
+| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                                                                              |
+| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                                                                            |
 | feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                               |
-| from               | string  | Address of the sender.                                                                                                                                                                                                                             |
-| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                                        |
-| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                           |
-| hash               | string  | Hash of the transaction.                                                                                                                                                                                                                           |
-| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                 |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an Klaytn account. See [AccountKey](../../../../../learn/accounts.md#account-key) for more details.                                                          |
-| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                            |
-| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                                   |
-| senderTxHash       | string  | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non-fee-delegated transactions.                                                               |
+| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                               |
+| from               | string  | Address of the sender.                                                                                                                                                                                                                                                                             |
+| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                                                                                        |
+| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                                                                           |
+| hash               | string  | Hash of the transaction.                                                                                                                                                                                                                                                                           |
+| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                                                                 |
+| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an Klaytn account. See [AccountKey](../../../../../learn/accounts.md#account-key) for more details.                                                                                          |
+| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                                                            |
+| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                                                                                   |
+| senderTxHash       | string  | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non-fee-delegated transactions.                                                                                               |
 | signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                           |
-| to                 | string  | Address of the receiver. `null` when it is a contract deploying transaction.                                                                                                                                                                       |
-| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                            |
-| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                                 |
-| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                               |
-| value              | string  | Value transferred in peb.                                                                                                                                                                                                                          |
+| to                 | string  | Address of the receiver. `null` when it is a contract deploying transaction.                                                                                                                                                                                                       |
+| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                                                                            |
+| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                                                                                 |
+| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                                                                               |
+| value              | string  | Value transferred in peb.                                                                                                                                                                                                                                                                          |
 
 If the transaction is in `pending` status that has not yet been processed, default values for `blockHash`, `blockNumber` and `transactionIndex` are returned. See the example below.
 
@@ -1798,17 +1798,17 @@ Please note that this API returns the correct result only if the indexing featur
 
 **Parameters**
 
-| Name         | Type     | Description                                                                                                                      |
-| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Name         | Type     | Description                                                                                                                                                      |
+| ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for more detail. |
-| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.    |
+| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                    |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                             |
-| ------ | ----------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                             |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more details. |
 
 **Example**
@@ -1848,8 +1848,8 @@ Returns the receipt of a transaction by transaction hash.
 
 **Parameters**
 
-| Name            | Type     | Description                                                                                                                   |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name            | Type     | Description                                                                                                                                   |
+| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionHash | string   | A transaction hash.                                                                                                           |
 | callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -1857,36 +1857,36 @@ Returns the receipt of a transaction by transaction hash.
 
 `Promise` returns `object` - A transaction receipt object, or `null` when no receipt was found:
 
-| Name               | Type    | Description                                                                                                                                                                                                                                                       |
-| ------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                                                  |
-| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                                                       |
-| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                                             |
-| contractAddress    | string  | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                                                       |
-| effectiveGasPrice  | string  | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header.                                         |
-| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                                           |
-| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                |
-| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                              |
-| from               | string  | Address of the sender.                                                                                                                                                                                                                                            |
-| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                                                       |
-| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                                          |
-| gasUsed            | string  | The amount of gas used by this specific transaction alone.                                                                                                                                                                                                        |
-| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                                |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account.                                                                                                                                                           |
-| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                           |
-| logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                                                                           |
-| logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                                                  |
-| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                                                  |
-| senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions. |
-| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                                          |
-| status             | string  | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                                            |
-| txError            | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                                                  |
-| to                 | string  | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                                       |
-| transactionHash    | string  | Hash of the transaction.                                                                                                                                                                                                                                          |
-| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                                           |
-| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                                                |
-| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                                              |
-| value              | string  | Value transferred in peb.                                                                                                                                                                                                                                         |
+| Name               | Type    | Description                                                                                                                                                                                                                                                                                                        |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                                                                                   |
+| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                                                                                        |
+| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                                                                              |
+| contractAddress    | string  | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                                                                                        |
+| effectiveGasPrice  | string  | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header.                                          |
+| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                                                                            |
+| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
+| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                               |
+| from               | string  | Address of the sender.                                                                                                                                                                                                                                                                             |
+| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                                                                                        |
+| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                                                                           |
+| gasUsed            | string  | The amount of gas used by this specific transaction alone.                                                                                                                                                                                                                                         |
+| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                                                                 |
+| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account.                                                                                                                                                                                            |
+| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                                                            |
+| logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                                                                                                            |
+| logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                                                                                   |
+| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                                                                                   |
+| senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions.  |
+| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                           |
+| status             | string  | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                                                                             |
+| txError            | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                                                                                   |
+| to                 | string  | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                                                        |
+| transactionHash    | string  | Hash of the transaction.                                                                                                                                                                                                                                                                           |
+| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                                                                            |
+| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                                                                                 |
+| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                                                                               |
+| value              | string  | Value transferred in peb.                                                                                                                                                                                                                                                                          |
 
 **NOTE** `effectiveGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
 
@@ -1958,17 +1958,17 @@ Please note that this API returns the correct result only if the indexing featur
 
 **Parameters**
 
-| Name         | Type     | Description                                                                                                                      |
-| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Name         | Type     | Description                                                                                                                                                      |
+| ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for more detail. |
-| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.    |
+| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                    |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                                      |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                                      |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | object | A transaction receipt object, see [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail. |
 
 **Example**
@@ -2011,15 +2011,15 @@ The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You
 
 **Parameters**
 
-| Name              | Type             | Description                                                                                                                   |
-| ----------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| signedTransaction | string \| object | A RLP-encoded signed transaction or an instance of signed transaction.                                                        |
-| callback          | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name              | Type               | Description                                                                                                                                   |
+| ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| signedTransaction | string \\| object | A RLP-encoded signed transaction or an instance of signed transaction.                                                        |
+| callback          | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-| Type       | Description                                                                                    |
-| ---------- | ---------------------------------------------------------------------------------------------- |
+| Type       | Description                                                                                                                    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
 
 For PromiEvent, the following events are available:
@@ -2069,19 +2069,19 @@ Signs a transaction as a transaction `sender` with an "imported account's privat
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
-| Name        | Type     | Description                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name        | Type     | Description                                                                                                                                   |
+| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | transaction | object   | An instance of a transaction to be sent to the Klaytn.                                                                        |
 | callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-| Type       | Description                                                                                    |
-| ---------- | ---------------------------------------------------------------------------------------------- |
+| Type       | Description                                                                                                                    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
 
 For PromiEvent, the following events are available:
@@ -2139,19 +2139,19 @@ Before using `sendTransaction` as a fee payer, the transaction sender must have 
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
-| Name        | Type     | Description                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name        | Type     | Description                                                                                                                                   |
+| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | transaction | object   | An instance of fee delegated transaction to send to the Klaytn.                                                               |
 | callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
-| Type       | Description                                                                                    |
-| ---------- | ---------------------------------------------------------------------------------------------- |
+| Type       | Description                                                                                                                    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
 
 For PromiEvent, the following events are available:
@@ -2218,12 +2218,12 @@ Signs a transaction as a transaction sender with an "imported account's private 
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
-| Name        | Type     | Description                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name        | Type     | Description                                                                                                                                   |
+| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | transaction | object   | An instance of a transaction to sign.                                                                                         |
 | callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -2231,8 +2231,8 @@ For more information about each transaction type, refer to [Transaction](../cave
 
 `Promise` returns `object` - An object includes signed transaction:
 
-| Name | Type   | Description                                              |
-| ---- | ------ | -------------------------------------------------------- |
+| Name | Type   | Description                                                              |
+| ---- | ------ | ------------------------------------------------------------------------ |
 | raw  | string | A RLP-encoded signed transaction.                        |
 | tx   | object | The transaction object including the sender's signature. |
 
@@ -2274,12 +2274,12 @@ Signs a transaction as a transaction fee payer with an "imported account's priva
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
-| Name        | Type     | Description                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name        | Type     | Description                                                                                                                                   |
+| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | transaction | object   | An instance of a transaction to sign.                                                                                         |
 | callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -2287,8 +2287,8 @@ For more information about each transaction type, refer to [Transaction](../cave
 
 `Promise` returns `object` - An object includes signed transaction:
 
-| Name | Type   | Description                                  |
-| ---- | ------ | -------------------------------------------- |
+| Name | Type   | Description                                                  |
+| ---- | ------ | ------------------------------------------------------------ |
 | raw  | string | A RLP-encoded signed transaction.            |
 | tx   | object | The transaction object to sign as fee payer. |
 
@@ -2341,8 +2341,8 @@ Returns the decoded anchored data in the transaction for the given transaction h
 
 **Parameters**
 
-| Name            | Type     | Description                                                                                                                   |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name            | Type     | Description                                                                                                                                   |
+| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | transactionHash | string   | A transaction hash.                                                                                                           |
 | callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -2350,16 +2350,16 @@ Returns the decoded anchored data in the transaction for the given transaction h
 
 `Promise` returns `object` - An object includes decoded anchored data:
 
-| Name          | Type   | Description                                                                                                                                                                                                                            |
-| ------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BlockHash     | string | Hash of the child chain block that this anchoring transaction was performed.                                                                                                                                                           |
-| BlockNumber   | number | The child chain block number that this anchoring transaction was performed.                                                                                                                                                            |
-| ParentHash    | string | Hash of the parent block.                                                                                                                                                                                                              |
-| TxHash        | string | The root of the transaction trie of the block.                                                                                                                                                                                         |
-| StateRootHash | string | The root of the final state trie of the block.                                                                                                                                                                                         |
-| ReceiptHash   | string | The root of the receipts trie of the block.                                                                                                                                                                                            |
+| Name          | Type   | Description                                                                                                                                                                                                                                                            |
+| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BlockHash     | string | Hash of the child chain block that this anchoring transaction was performed.                                                                                                                                                                           |
+| BlockNumber   | number | The child chain block number that this anchoring transaction was performed.                                                                                                                                                                            |
+| ParentHash    | string | Hash of the parent block.                                                                                                                                                                                                                              |
+| TxHash        | string | The root of the transaction trie of the block.                                                                                                                                                                                                         |
+| StateRootHash | string | The root of the final state trie of the block.                                                                                                                                                                                                         |
+| ReceiptHash   | string | The root of the receipts trie of the block.                                                                                                                                                                                                            |
 | BlockCount    | number | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, except the case that this transaction was the first anchoring tx after turning on the anchoring. |
-| TxCount       | number | The number of transactions generated in the child chain during this anchoring period.                                                                                                                                                  |
+| TxCount       | number | The number of transactions generated in the child chain during this anchoring period.                                                                                                                                                                  |
 
 **Example**
 
@@ -2387,16 +2387,16 @@ Returns the chain ID of the chain.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                |
-| ------ | -------------------------- |
+| Type   | Description                                |
+| ------ | ------------------------------------------ |
 | string | The chain ID of the chain. |
 
 **Example**
@@ -2416,16 +2416,16 @@ Returns the current client version of a Klaytn node.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                                  |
-| ------ | -------------------------------------------- |
+| Type   | Description                                                  |
+| ------ | ------------------------------------------------------------ |
 | string | The current client version of a Klaytn node. |
 
 **Example**
@@ -2445,16 +2445,16 @@ Returns the current price per gas in peb.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                   |
-| ------ | ----------------------------- |
+| Type   | Description                                   |
+| ------ | --------------------------------------------- |
 | string | The current gas price in peb. |
 
 **Example**
@@ -2474,17 +2474,17 @@ Returns the current price per gas in peb for the given block.
 
 **Parameters**
 
-| Name        | Type     | Description                                                                                                                   |
-| ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number   | (optional) The block number. If omitted, the latest unit price will be returned.                           |
+| Name        | Type     | Description                                                                                                                                   |
+| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | number   | (optional) The block number. If omitted, the latest unit price will be returned.           |
 | callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                   |
-| ------ | ----------------------------- |
+| Type   | Description                                   |
+| ------ | --------------------------------------------- |
 | string | The current gas price in peb. |
 
 **Example**
@@ -2504,16 +2504,16 @@ Returns a suggested gas tip cap for dynamic fee transactions in peb. Since Klayt
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
 | string | The suggested gas tip cap in peb. |
 
 **Example**
@@ -2533,16 +2533,16 @@ Returns the lower bound gas price in peb.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
 | string | The lower bound gas price in peb. |
 
 **Example**
@@ -2562,16 +2562,16 @@ Returns the upper bound gas price in peb.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
 | string | The upper bound gas price in peb. |
 
 **Example**
@@ -2591,23 +2591,23 @@ Returns fee history for the returned block range. This can be a subsection of th
 
 **Parameters**
 
-| Name              | Type                          | Description                                                                                                                                                                                                                                                        |
-| ----------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockCount        | number\|BigNumber\|BN\|string | Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. Less than requested may be returned if not all blocks are available.                                                                                        |
-| lastBlock         | number\|BigNumber\|BN\|string | Highest number block (or block tag string) of the requested range.                                                                                                                                                                              |
-| rewardPercentiles | Array                         | A monotonically increasing list of percentile values to sample from each block’s effective priority fees per gas in ascending order, weighted by gas used. (Example: `['0', '25', '50', '75', '100']` or `['0', '0.5', '1', '1.5', '3', '80']`) |
-| callback          | function                      | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                      |
+| Name              | Type                                | Description                                                                                                                                                                                                                                                                                        |
+| ----------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockCount        | number\\|BigNumber\\|BN\\|string | Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. Less than requested may be returned if not all blocks are available.                                                                        |
+| lastBlock         | number\\|BigNumber\\|BN\\|string | Highest number block (or block tag string) of the requested range.                                                                                                                                                                                              |
+| rewardPercentiles | Array                               | A monotonically increasing list of percentile values to sample from each block’s effective priority fees per gas in ascending order, weighted by gas used. (Example: `['0', '25', '50', '75', '100']` or `['0', '0.5', '1', '1.5', '3', '80']`) |
+| callback          | function                            | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                      |
 
 **Return Value**
 
 `Promise` returns `object` - An object includes fee history:
 
-| Name          | Type   | Description                                                                                                                                                                                                     |
-| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                          |
-| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                  |
+| Name          | Type   | Description                                                                                                                                                                                                                                                     |
+| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                                                          |
+| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                                                  |
 | baseFeePerGas | Array  | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
-| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                      |
+| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                                                      |
 
 **Example**
 
@@ -2635,22 +2635,22 @@ This method creates an accessList based on a given Transaction. The accessList c
 
 **Parameters**
 
-| Name           | Type                          | Description                                                                                                                                                     |
-| -------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject     | object                        | A transaction call object. Please see [caver.rpc.klay.call](#caver-rpc-klay-call) parameters.                                                                   |
-| blockParameter | number\|BigNumber\|BN\|string | (optional) A block number, blockhash or the block tag string (`latest` or `earliest`). If omitted, `latest` will be used. |
-| callback       | function                      | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                   |
+| Name           | Type                                | Description                                                                                                                                                                                     |
+| -------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject     | object                              | A transaction call object. Please see [caver.rpc.klay.call](#caver-rpc-klay-call) parameters.                   |
+| blockParameter | number\\|BigNumber\\|BN\\|string | (optional) A block number, blockhash or the block tag string (`latest` or `earliest`). If omitted, `latest` will be used. |
+| callback       | function                            | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                   |
 
 **Return Value**
 
 `Promise` returns `object` - An object includes an access list:
 
-| Name          | Type   | Description                                                                                                                                                                                                     |
-| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                          |
-| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                  |
+| Name          | Type   | Description                                                                                                                                                                                                                                                     |
+| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                                                          |
+| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                                                  |
 | baseFeePerGas | Array  | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
-| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                      |
+| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                                                      |
 
 **Example**
 
@@ -2675,16 +2675,16 @@ Returns `true` if the node is writing blockchain data in a parallel manner.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `boolean`
 
-| Type    | Description                                                                                                                    |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Type    | Description                                                                                                                                                    |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | boolean | `true` means the node is writing blockchain data in a parallel manner. It is `false` if the node is serially writing the data. |
 
 **Example**
@@ -2704,16 +2704,16 @@ Returns `true` if the node is indexing sender transaction hash to transaction ha
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `boolean`
 
-| Type    | Description                                                                                        |
-| ------- | -------------------------------------------------------------------------------------------------- |
+| Type    | Description                                                                                                        |
+| ------- | ------------------------------------------------------------------------------------------------------------------ |
 | boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
 
 **Example**
@@ -2733,16 +2733,16 @@ Returns the Klaytn protocol version of the node. The current version (as of v1.9
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
+| Type   | Description                                              |
+| ------ | -------------------------------------------------------- |
 | string | The Klaytn protocol version of the node. |
 
 **Example**
@@ -2762,16 +2762,16 @@ Returns the rewardbase of the current node. Rewardbase is the address of the acc
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description             |
-| ------ | ----------------------- |
+| Type   | Description                             |
+| ------ | --------------------------------------- |
 | string | The rewardbase address. |
 
 **Example**
@@ -2791,8 +2791,8 @@ Polling method for a filter, which returns an array of logs since the last poll.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | filterId | String   | The filter id.                                                                                                                |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -2804,15 +2804,15 @@ Polling method for a filter, which returns an array of logs since the last poll.
 - For filters created with [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), the returns are transaction hashes, _e.g._, `["0x6345343454645..."]`.
 - For filters created with [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), logs are objects with the following parameters:
 
-| Name             | Type   | Description                                                                                                                                                                                                                                                                        |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| logIndex         | string | The log index position in the block.                                                                                                                                                                                                                                               |
-| transactionIndex | string | The index position of transactions where this log was created from.                                                                                                                                                                                                                |
-| transactionHash  | string | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                                                           |
-| blockHash        | string | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                                                      |
-| blockNumber      | string | The block number where this log was in. `null` when pending.                                                                                                                                                                                                                       |
-| address          | string | Address from which this log originated.                                                                                                                                                                                                                                            |
-| data             | string | Contains the non-indexed arguments of the log.                                                                                                                                                                                                                                     |
+| Name             | Type   | Description                                                                                                                                                                                                                                                                                                                                                                        |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| logIndex         | string | The log index position in the block.                                                                                                                                                                                                                                                                                                                               |
+| transactionIndex | string | The index position of transactions where this log was created from.                                                                                                                                                                                                                                                                                                |
+| transactionHash  | string | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                                                                                                                           |
+| blockHash        | string | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                                                                                                                      |
+| blockNumber      | string | The block number where this log was in. `null` when pending.                                                                                                                                                                                                                                                                                       |
+| address          | string | Address from which this log originated.                                                                                                                                                                                                                                                                                                                            |
+| data             | string | Contains the non-indexed arguments of the log.                                                                                                                                                                                                                                                                                                                     |
 | topics           | Array  | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (_e.g._, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
 
 **Example**
@@ -2845,8 +2845,8 @@ Note that filter ids returned by other filter creation functions, such as [caver
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | filterId | string   | The filter id.                                                                                                                |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -2882,19 +2882,19 @@ Returns an array of all logs matching a given filter object.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | The filter options. See the below table to find the description.                                                              |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| options  | object   | The filter options. See the below table to find the description.                                              |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 The options object can contain the following:
 
-| Name      | Type             | Description                                                                                                                                                                                                                                                                                              |
-| --------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | number \| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                      |
-| toBlock   | number \| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                         |
-| address   | string \| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                 |
-| topics    | Array            | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
+| Name      | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | number \\| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                                                                                      |
+| toBlock   | number \\| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                                                                         |
+| address   | string \\| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                                                                                                 |
+| topics    | Array              | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
 
 **Return Value**
 
@@ -2935,16 +2935,16 @@ Creates a filter in the node, to notify when a new block arrives. To check if th
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description  |
-| ------ | ------------ |
+| Type   | Description                  |
+| ------ | ---------------------------- |
 | string | A filter id. |
 
 **Example**
@@ -2965,30 +2965,30 @@ Creates a filter object using the given filter options, to receive the specific 
 - To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
 - To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
 
-For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/klay/new-filter).
+For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | The filter options. See the below table to find the description.                                                              |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| options  | object   | The filter options. See the below table to find the description.                                              |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 The options object can contain the following:
 
-| Name      | Type             | Description                                                                                                                                                                                                                                                                                              |
-| --------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | number \| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                      |
-| toBlock   | number \| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                         |
-| address   | string \| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                 |
-| topics    | Array            | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
+| Name      | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | number \\| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                                                                                      |
+| toBlock   | number \\| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                                                                         |
+| address   | string \\| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                                                                                                 |
+| topics    | Array              | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description  |
-| ------ | ------------ |
+| Type   | Description                  |
+| ------ | ---------------------------- |
 | string | A filter id. |
 
 **Example**
@@ -3011,16 +3011,16 @@ Creates a filter in the node, to receive the information about new pending trans
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description  |
-| ------ | ------------ |
+| Type   | Description                  |
+| ------ | ---------------------------- |
 | string | A filter id. |
 
 **Example**
@@ -3040,8 +3040,8 @@ Uninstalls a filter with a given id. Should always be called when a watch is no 
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | filterId | string   | The filter id.                                                                                                                |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -3049,8 +3049,8 @@ Uninstalls a filter with a given id. Should always be called when a watch is no 
 
 `Promise` returns `boolean`
 
-| Type    | Description                                                           |
-| ------- | --------------------------------------------------------------------- |
+| Type    | Description                                                                           |
+| ------- | ------------------------------------------------------------------------------------- |
 | boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
 
 **Example**
@@ -3070,8 +3070,8 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data. You can us
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | data     | String   | The data to be converted into a SHA3 hash.                                                                                    |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -3079,8 +3079,8 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data. You can us
 
 `Promise` returns `string`
 
-| Type   | Description                        |
-| ------ | ---------------------------------- |
+| Type   | Description                                        |
+| ------ | -------------------------------------------------- |
 | string | The SHA3 result of the given data. |
 
 **Example**

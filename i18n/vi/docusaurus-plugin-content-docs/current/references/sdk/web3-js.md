@@ -2,71 +2,71 @@
 
 ![](/img/references/klaytn-web3js.png)
 
-[web3.js](https://web3js.readthedocs.io/) là một thư viện JavaScript cho phép các nhà phát triển tương tác với các mạng chuỗi khối tương tích với EVM như Klaytn. Với các tính năng hỗ trợ của Klaytn dành cho [Sự tương đương với Ethereum](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), các công cụ của Ethereum như web3.js có thể được dùng trên Klaytn mà không cần thực hiện những sửa đổi đáng kể.
+[web3.js](https://web3js.readthedocs.io/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Kaia. With Kaia supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as web3.js can be used on Kaia without any significant modifications.
 
-Do đó, các nhà phát triển có thể tận dụng tính tương thích này và dùng thư viện web3.js để tương tác với một nút Klaytn.
+Thus, developers can leverage this compatibility and use the web3.js library to interact with a Kaia node.
 
-Trong hướng dẫn này, bạn sẽ tìm hiểu cách để dùng thư viện web3.js để gửi một giao dịch, đọc dữ liệu từ chuỗi khối và tương tác với một hợp đồng cõ sẵn trên Mạng Klaytn.
+In this guide, you'll learn how to use the web3.js library to read data from the blockchain, send a transaction and interact with an existing contract on the Kaia Network.
 
-## Điều kiện tiên quyết
+## Prerequisites
 
-- Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
-- [Metamask](../../build/tutorials/connecting-metamask#install-metamask): được dùng để triển khai hợp đồng, ký giao dịch và tương tác với hợp đồng.
-- Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../service-providers/public-en.md) được hỗ trợ.
-- KLAY thử nghiệm từ [Vòi](https://baobab.wallet.klaytn.foundation/faucet): nạp tiền vào tài khoản với một lượng KLAY vừa đủ.
-- [NodeJS và NPM](https://nodejs.org/en/)
+- Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
+- [Metamask](../../build/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
+- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../service-providers/public-en.md).
+- Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
+- [NodeJS and NPM](https://nodejs.org/en/)
 
-## Thiết lập dự án
+## Setup Project
 
-Để bắt đầu, bạn cần tạo một thư mục dự án để chứa các tập tin được tạo trong hướng dẫn này.
+To get started, you need to create a project directory to house the files to be created in this guide.
 
 ```bash
 mkdir web3-js
 cd web3-js
 ```
 
-### Cài đặt web3.js
+### Install web3.js
 
-Để cài đặt web3.js, hãy chạy lệnh sau trong giao diện dòng lệnh:
+To install web3.js run the following command in your terminal:
 
 ```bash
 npm install web3
 ```
 
-### Khởi động web3.js
+### Initialize web3.js
 
-Trong phần hướng dẫn này, chúng ta sẽ tạo một số tập tin mã lập trình để gửi giao dịch, đọc dữ liệu từ chuỗi khối và tương tác với một hợp đồng thông minh có sẵn. Để bắt đầu, bạn cần biết cách để khởi động web3.js cho từng tập tin mã lập trình.
+In this tutorial, we will create a bunch of scripts file to read data from the blockchain, send transactions, and also interact with existing smart contract. To get started, you need to know how to initialize web3.js for each of your script files.
 
-Nhập `web3` vào tập tin mã lập trình.
+Import `web3` into your script file.
 
 ```js
 const { Web3 } = require('web3');
 ```
 
-Sau khi nhập web3 thành công, bạn cần kết nối với Klaytn bằng cách khởi tạo một đối tượng web3.js với một URL PRC của mạng lưới Klaytn. Thêm mã dưới đây vào mã đã có sẵn:
+After successfully importing web3, you need to connect to Kaia by instantiating a new web3.js  object with an RPC URL of the Kaia network. Add the code below to the existing code:
 
 ```js
 const url = "RPC URL"  
 const web3 = new Web3(url);
 ```
 
-Ngoài ra, bạn cần thêm vào khóa riêng tư của mình để ký các giao dịch. Add the code below to the existing code:
+Further, you need to add your private key to sign transactions. Add the code below to the existing code:
 
 ```js
 const privateKey = "Paste private key";
 ```
 
-## Thêm mã dưới đây vào mã đã có sẵn:
+## Reading data from the blockchain
 
-Để đọc dữ liệu từ chuỗi khối, hãy tạo một tập tin `read.js` trong thư mục dự án bằng cách chạy lệnh sau:
+To read data from the blockchain, create a new `read.js` file in your project folder by running this command:
 
 ```bash
 touch read.js
 ```
 
-Sau khi tạo tập tin này, hãy khởi động `web3` như đã thực hiện trong phần `khởi động`. Trong phần này, bạn sẽ tìm hiểu cách đọc dữ liệu từ chuỗi khối (ví dụ như blockNumber, số dư KLAY).
+After creating this file, initialize `web3` as done in the `initialize` section. In this section, you'll learn how to read data from the blockchain (e.g., blockNumber, KAIA balance).
 
-Để xem hành động này, hãy dán mã sau vào `read.js`.
+To see this in action, paste the following code in your `read.js`.
 
 ```js
 const { Web3 } = require('web3');
@@ -82,7 +82,7 @@ async function getLatestBlock() {
 async function getKlayBalance() {
     const klayBalance  = await web3.eth.getBalance("Paste wallet address");
     const formatBalance = await web3.utils.fromWei(klayBalance, 'ether');
-    console.log(`You have ${formatBalance} KLAY`);
+    console.log(`You have ${formatBalance} KAIA`);
 }
 
 // call the following functions
@@ -91,27 +91,27 @@ getKlayBalance();
 
 ```
 
-**Kết quả đầu ra**
+**Output**
 
-Để chạy mã lập trình và đọc dữ liệu từ chuỗi khối, bạn có thể chạy lệnh sau trong giao diện dòng lệnh:
+To run the script and read data from the blockchain, run the following command in your terminal:
 
 ```bash
 node read.js
 ```
 
-Nếu giao dịch thành công, bạn sẽ thấy số khối và số dư KLAY của người dùng được ghi lại trong giao diện dòng lệnh của mình.
+If the transaction was successful, you'll see the block number and user’s KAIA balance logged in your terminal.
 
-## Để gửi giao dịch đến chuỗi khối
+## Sending transaction to the blockchain
 
-Để gửi giao dịch đến chuỗi khối, hãy tạo một tập tin `send.js` mới trong thư mục dự án bằng cách chạy lệnh sau:
+To send transaction to the blockchain, create a new `send.js` file in your project folder by running this command:
 
 ```bash
 touch send.js
 ```
 
-Sau khi tạo tập tin này, hãy khởi động `web3` như đã thực hiện trong phần `khởi động`. Trong phần này, bạn sẽ tìm hiểu cách để gửi một giao dịch đến chuỗi khối, ví dụ như gửi KLAY đến một địa chỉ.
+After creating this file, initialize `web3` as done in the `initialize` section. In this section, you ll learn how to send transaction to the blockchain e.g send KAIA to an address.
 
-Để xem hành động này, hãy dán mã sau vào `send.js`.
+To see this in action, paste the following code in your `send.js`.
 
 ```js
 const { Web3 } = require('web3');
@@ -141,31 +141,31 @@ async function sendTx() {
 sendTx();
 ```
 
-**Kết quả đầu ra**
+**Output**
 
-Để chạy mã lập trình và gửi dữ liệu đến chuỗi khối, bạn có thể chạy lệnh sau trong giao diện dòng lệnh:
+To run the script and send data to the blockchain, run the following command in your terminal:
 
 ```js
 node send.js
 ```
 
-Nếu giao dịch thành công, bạn sẽ thấy biên lai giao dịch được ghi lại trong giao diện dòng lệnh của mình.
+If the transaction was succesful, you'll see the transaction receipt logged in your terminal.
 
 ![](/img/references/send-web3.png)
 
-## Tương tác với hợp đồng thông minh
+## Interacting with smart contracts
 
-Để tương tác với một hợp đồng thông minh có sẵn trên Klaytn, hãy tạo một tập tin `interact.js` trong thư mục dự án bằng cách chạy lệnh sau:
+To interact with an existing smart contract on Kaia, create a new `interact.js` file in your project folder by running this command:
 
 ```bash
 touch interact.js
 ```
 
-Sau khi tạo tập tin này, hãy khởi động `web3` như đã thực hiện trong phần `khởi động`. Trong phần này, bạn sẽ dùng web3.js để tương tác với một hợp đồng thông minh trên Klaytn bằng cách khởi tạo một đối tượng `Contract` bằng ABI và địa chỉ của một hợp đồng đã triển khai.
+After creating this file, initialize `web3` as done in the `initialize` section. In this section, you will use web3.js to interact with a smart contract on Kaia by instantiating a `Contract` object using the ABI and address of a deployed contract.
 
-Vì mục đích của hướng dẫn này, một hợp đồng lưu trữ đơn giản đã được lập và triển khai trên [Remix IDE](../../build/tutorials/connecting-remix.md). Chúng ta sẽ gửi một giao dịch đến hợp đồng bằng cách gọi hàm `store` và đọc dữ liệu từ đó bằng cách gọi hàm `retrieve`.
+For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](../../build/tutorials/connecting-remix.md). We will be sending a transaction to the contract by calling the `store` function and also reading from it by calling the `retrieve` function.
 
-Để xem hành động này, hãy dán mã sau vào `interact.js`.
+To see this in action, paste the following code in your `interact.js`.
 
 ```js
 const { Web3 } = require('web3');
@@ -248,14 +248,14 @@ const abi = [
 
 ```
 
-**Kết quả đầu ra**
+**Output**
 
-Để chạy mã lập trình và tương tác với hợp đồng thông minh, bạn có thể chạy lệnh sau trong giao diện dòng lệnh:
+To run the script and interact with smart contracts, run the following command in your terminal:
 
 ```bash
 node interact.js
 ```
 
-Nếu giao dịch thành công, trong giao diện dòng lệnh của mình, bạn sẽ thấy hàm băm của giao dịch và giá trị được lưu trữ.
+If the transaction was succesful, you'll see the transaction hash and the value stored in your terminal.
 
-Để được hướng dẫn sâu hơn về web3.js, vui lòng tham khảo [tài liệu về web3.js](https://web3js.readthedocs.io/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/sdk-and-libraries-for-interacting-with-klaytn-node/web3-js)
+For more in-depth guide on web3.js, please refer to [web3.js docs](https://web3js.readthedocs.io/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/sdk-and-libraries-for-interacting-with-klaytn-node/web3-js)

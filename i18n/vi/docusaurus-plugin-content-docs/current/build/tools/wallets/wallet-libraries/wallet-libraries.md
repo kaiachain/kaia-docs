@@ -1,6 +1,6 @@
 # Wallet Libraries
 
-Hãy xem cách tích hợp các thư viện ví nổi tiếng vào dApp.
+Let's see how to integrate well-known wallet libraries into dApp.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

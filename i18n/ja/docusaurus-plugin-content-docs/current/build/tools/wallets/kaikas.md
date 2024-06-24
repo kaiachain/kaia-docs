@@ -13,7 +13,7 @@ For developers, please visit [https://docs.kaikas.io](https://docs.kaikas.io) to
 
 Kaikas is a web browser extension available in Chrome. Kaikas is optimized for the desktop environment.
 
-Kaikas offers manageability of user accounts and keys. All transactions are transparently recorded on the Klaytn blockchain, so anybody can access the transaction history by using [Klaytnscope].
+Kaikas offers manageability of user accounts and keys. All transactions are transparently recorded on the Klaytn blockchain, so anybody can access the transaction history by using \[Klaytnscope].
 
 Kaikas is a Hierarchical Deterministic (HD) wallet, meaning that it generates a hierarchical tree-like structure of private/public keys indefinitely from a single seed phrase. The seed phrase consists of mnemonic code words, which makes it easier to remember than phrases made of random alphanumerics. Users' private keys are encrypted and stored in their browsers.
 
@@ -30,4 +30,4 @@ Kaikas supports Klaytn's Baobab testnet as well as the Cypress mainnet. Moreover
 Kaikas simply bridges the gap between you and dApps, empowering you to sign transactions/data flowing to you from dApps with Kaikas account.
 Kaikas is also an aidful utility for developers to handle [fee-delegated transactions](../../../learn/transactions/transactions.md#fee-delegation). Using Kaikas, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
 
-[Klaytnscope]: ../block-explorers/klaytnscope.md
+[Kaiascope]: ../block-explorers/klaytnscope.md

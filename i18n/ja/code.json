@@ -226,7 +226,7 @@
   },
   "theme.CodeBlock.copy": {
     "message": "Copy",
-    "description": "The exit button label on code blocks"
+    "description": "The copy button label on code blocks"
   },
   "theme.CodeBlock.wordWrapToggle": {
     "message": "Toggle word wrap",
@@ -474,5 +474,30 @@
   "theme.unlistedContent.message": {
     "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
     "description": "The unlisted content banner message"
+  },
+  "Kaia Overview": {
+    "message": "Kaia Overview"
+  },
+  "Want to know about Kaia?": {
+    "message": "Want to know about Kaia?"
+  },
+  "Want to start building on Kaia?": {
+    "message": "Want to start building on Kaia?"
+  },
+  "Instructions on running Kaia's nodes": {
+    "message": "Instructions on running Kaia's nodes"
+  },
+  "Kaia Developer Hub": {
+    "message": "Kaia Developer Hub"
+  },
+  "Kaia's Developer portal": {
+    "message": "Kaia's Developer portal"
+  },
+  "Kaia Developer Forum": {
+    "message": "Kaia Developer Forum"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "{count} items",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
   }
 }

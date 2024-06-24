@@ -11,7 +11,7 @@
 5\) Interact with contract: `setPlus` method\
 6\) Transaction life cycle
 
-### 1. Full code <a href="#1-full-code" id="1-full-code"></a>
+### Full code <a href="#1-full-code" id="1-full-code"></a>
 
 ```javascript
 import React, { Component } from 'react'
@@ -197,7 +197,7 @@ class Count extends Component {
 export default Count
 ```
 
-### 2. `Count` component's role <a href="#2-count-component-s-role" id="2-count-component-s-role"></a>
+### `Count` component's role <a href="#2-count-component-s-role" id="2-count-component-s-role"></a>
 
 `'Count'` component's role is interacting with Count contract deployed on the Klaytn blockchain.
 
@@ -210,7 +210,7 @@ In Count.sol, we declared several variables and functions like below:
 
 In Count.js component, we have methods to interact with the functions and variables of the Count contract.
 
-### 3. How to interact with contract? <a href="#3-how-to-interact-with-contract" id="3-how-to-interact-with-contract"></a>
+### How to interact with contract? <a href="#3-how-to-interact-with-contract" id="3-how-to-interact-with-contract"></a>
 
 To interact with the contract, we need a contract instance of the deployed contract.\
 The contract instance can be made through `caver.klay.Contract(ABI, contractAddress)` API of caver-js. For more details, see [caver.klay.Contract](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md#new-contract).
@@ -244,7 +244,7 @@ constructor() {
 
 `this.countContract = new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)` creates a contract instance to interact with the deployed `Count` contract, by passing `DEPLOYED_ABI` and `DEPLOYED_ADDRESS` to the `cav.klay.Contract` API. And this contract instance is stored to `this.countContract`.
 
-### 4. Interact with contract: `getCount` method <a href="#4-interact-with-contract-getcount-method" id="4-interact-with-contract-getcount-method"></a>
+### Interact with contract: `getCount` method <a href="#4-interact-with-contract-getcount-method" id="4-interact-with-contract-getcount-method"></a>
 
 ```javascript
 getCount = async () => {
@@ -288,7 +288,7 @@ componentWillUnmount() {
 We want to fetch the `count` variable per 1 second, it can be achieved by `setInterval`.
 It is the same as we did in the `getBlockNumber` in `BlockNumber.js` which calls `caver.klay.getBlockNumber()` intervally.
 
-### 5. Interact with contract: `setPlus` method <a href="#5-interact-with-contract-setplus-method" id="5-interact-with-contract-setplus-method"></a>
+### Interact with contract: `setPlus` method <a href="#5-interact-with-contract-setplus-method" id="5-interact-with-contract-setplus-method"></a>
 
 ```javascript
 setPlus = () => {
@@ -353,7 +353,7 @@ To send a transaction, use `.send()` instead of `.call()`.
 })
 ```
 
-### 6. Transaction life cycle <a href="#6-transaction-life-cycle" id="6-transaction-life-cycle"></a>
+### Transaction life cycle <a href="#6-transaction-life-cycle" id="6-transaction-life-cycle"></a>
 
 ```javascript
 try{

@@ -1,54 +1,54 @@
-# Bắt đầu
+# Getting Started
 
-Tài liệu này dành cho các nhà phát triển dùng caver-js v1.5.0 trở lên. Nếu bạn đang sử dụng phiên bản cũ hơn, hãy xem [Bắt đầu (\~v1.4.1)](../caver-js-1.4.1/get-started-1.4.1.md  ../caver-js-1.4.1/get-started-1.4.1.md).
+This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (\~v1.4.1)](../caver-js-1.4.1/get-started-1.4.1.md).
 
-## Điều kiện tiên quyết <a href="#prerequisites" id="prerequisites"></a>
+## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-### Phần phụ thuộc <a href="#dependencies" id="dependencies"></a>
+### Dependencies <a href="#dependencies" id="dependencies"></a>
 
-Cần có các gói sau đây để dùng thư viện caver-js.
+The following packages are required to use the caver-js library.
 
 - [Node.js](https://nodejs.org/en/download/)
 - [npm](https://www.npmjs.com/get-npm)
 - [gcc-c++](https://gcc.gnu.org/)
-- [Trình biên dịch Solidity](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
+- [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-**Lưu ý** caver-js có thể chạy trên Node.js phiên bản 12 và 14. Chúng tôi khuyến nghị sử dụng các phiên bản sau:
+**Note** caver-js can run on Node.js versions 12 and 14. The recommended versions are as follows:
 
 - lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
 - lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
-Nếu bạn dùng một phiên bản khác của Node (ví dụ như Node v15), hãy dùng Trình quản lý phiên bản Node ([nvm](https://github.com/nvm-sh/nvm)) để cài đặt và sử dụng phiên bản được caver-js hỗ trợ.
+If you use a different version of the Node (for example, Node v15), utilize the Node Version Manager([nvm](https://github.com/nvm-sh/nvm)) to install and use the version supported by caver-js.
 
-### Cài đặt <a href="#installation" id="installation"></a>
+### Installation <a href="#installation" id="installation"></a>
 
-Để thử dùng, hãy cài đặt caver-js với npm bằng cách dùng lệnh sau:
+To try it out, install caver-js with npm using the following command:
 
 ```
 $ npm install caver-js
 ```
 
-**Lưu ý**: tập tin `package.json` phải tồn tại trên cùng một đường dẫn cài đặt. Nếu nó không tồn tại, `package.json` có thể được tạo qua `npm init`.
+**Note**: `package.json` file should exist on the same install path. If it does not exist, `package.json` can be generated via `npm init`.
 
-Để cài đặt một phiên bản caver-js cụ thể, hãy thử lệnh sau:
+To install a specific version of caver-js, try the following command:
 
 ```
 $ npm install caver-js@X.X.X
 ```
 
-## Bắt đầu với caver-js <a href="#starting-with-caver-js" id="starting-with-caver-js"></a>
+## Starting with caver-js <a href="#starting-with-caver-js" id="starting-with-caver-js"></a>
 
-Khi đã cài xong caver-js, bạn có thể kết nối với một nút Klaytn bằng caver-js.
+Once you have finished installing caver-js, you can now connect to a Klaytn Node using caver-js.
 
-Để thực hành các ví dụ dưới đây, trước tiên, hãy tạo một tập tin thử nghiệm trong thư mục làm việc.
+To practice the examples below, first create a test file in the working directory.
 
 ```bash
 $ touch test.js
 ```
 
-Bạn có thể thấy tập tin `test.js` được tạo ra trong thư mục làm việc.
+You can see the `test.js` file created in the working directory.
 
-Viết mã sau trong test.js.
+Write the following code in test.js.
 
 ```javascript
 // test.js
@@ -63,48 +63,48 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
 Klaytn/v1.4.0/linux-amd64/go1.14.1
 ```
 
-Nếu bạn thấy kết quả đầu ra của console.log như trên, hãy tiếp tục với các bước dưới đây. Số phiên bản có thể sẽ khác theo phiên bản của nút Klaytn được kết nối.
+If you see the output of console.log like above, proceed with the steps below. The version number can be different according to the version of the connected Klaytn node.
 
-### Kết nối với một Nút Klaytn <a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
+### Connecting to a Klaytn Node <a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
 
-Bạn có thể nhập mô-đun caver-js và kết nối nó với một Nút Klaytn trong mạng thử nghiệm Baobab như trong ví dụ dưới đây:
+You can import the caver-js module and connect it to a Klaytn Node in the Baobab testnet as shown in the example below:
 
 ```javascript
 const Caver = require('caver-js')
 const caver = new Caver('https://public-en-baobab.klaytn.net/')
 ```
 
-Nếu bạn đang chạy một EN, bạn có thể kết nối nó với nút của riêng mình bằng cách thay đổi máy chủ và cổng như dưới đây:
+If you are running an EN, you can connect it to your own node by changing the host and port like below:
 
 ```javascript
 const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 ```
 
-## Quản lý Keyring <a href="#managing-keyrings" id="managing-keyrings"></a>
+## Managing Keyrings <a href="#managing-keyrings" id="managing-keyrings"></a>
 
-[Keyring](api/caver-wallet/keyring.md) là một cấu trúc chứa địa chỉ của một tài khoản Klaytn và (các) khóa riêng tư.
+[Keyring](api/caver-wallet/keyring.md) is a structure that contains the address of the Klaytn account and the private key(s).
 
-[Keyring](api/caver-wallet/keyring.md) có thể được phân thành ba loại tùy thuộc vào loại khóa được lưu trữ: [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) chứa một địa chỉ và một khóa riêng tư, [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) chứa một địa chỉ và nhiều khóa riêng tư và [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) chứa một địa chỉ và một hoặc nhiều khóa riêng tư cho từng vai trò.
+[Keyring](api/caver-wallet/keyring.md) can be classified into three types depending on the type of key being stored: [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) to store one address and one private key, [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) to store one address and one or more private keys for each role.
 
-[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) xác định thuộc tính `key` bên trong, và `key` này chứa một khóa riêng tư.
+[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) defines `key` property inside, and this `key` store one private key.
 
-[MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) xác định thuộc tính `keys` bên trong, và `keys` này được triển khai dưới dạng một mảng để chứa nhiều khóa riêng tư.
+[MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
-Thuộc tính `keys` được xác định trong [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) được triển khai dưới dạng một mảng hai chiều (`keys` trống có dạng `[ [], [], [] ]`) có thể bao gồm nhiều khóa cho từng [role](../../../learn/accounts.md#roles). Phần tử đầu tiên của mảng này chứa (các) khóa riêng tư để sử dụng cho `roleTransactionKey`, phần tử thứ hai là (các) khóa riêng tư để sử dụng cho `roleAccountUpdateKey`, và phần tử thứ ba là (các) khóa riêng tư để sử dụng cho `roleFeePayerKey`.
+The `keys` property defined in [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) is implemented as a two-dimensional array (empty `keys` will look like `[ [], [], [] ]`) that can include multiple keys for each [role](../../../learn/accounts.md#roles). The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
 
-### Tạo một Keyring <a href="#creating-a-keyring" id="creating-a-keyring"></a>
+### Creating a Keyring <a href="#creating-a-keyring" id="creating-a-keyring"></a>
 
-#### Tạo một SingleKeyring <a href="#generating-a-singlekeyring" id="generating-a-singlekeyring"></a>
+#### Generating a SingleKeyring <a href="#generating-a-singlekeyring" id="generating-a-singlekeyring"></a>
 
-Bạn có thể tạo ngẫu nhiên một keyring đơn lẻ như dưới đây.
+You can randomly generate a single keyring as shown below.
 
 ```javascript
 // test.js
@@ -119,7 +119,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -129,11 +129,11 @@ SingleKeyring {
 }
 ```
 
-Kết quả thực thi được hiển thị ở trên. Các biến thành viên được xác định bên trong đối tượng cụ thể có thể được truy cập qua `keyring.address` và `keyring.key`.
+The execution result is shown above. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.key`.
 
-#### Tạo một SingleKeyring từ khóa riêng tư <a href="#creating-a-singlekeyring-from-private-key" id="creating-a-singlekeyring-from-private-key"></a>
+#### Creating a SingleKeyring from private key <a href="#creating-a-singlekeyring-from-private-key" id="creating-a-singlekeyring-from-private-key"></a>
 
-Ngoài ra, nếu bạn sở hữu một khóa riêng tư cụ thể, bạn có thể sử dụng khóa này để tạo một keyring như bên dưới.
+Also, if you own a specific private key, you can use it to create a keyring as shown below.
 
 ```javascript
 // test.js
@@ -149,7 +149,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -159,11 +159,11 @@ SingleKeyring {
 }
 ```
 
-Kết quả của `caver.wallet.keyring.createFromPrivateKey`, cũng như kết quả của `caver.wallet.keyring.generate` ở trên, là một đối tượng [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) cụ thể với một địa chỉ được xác định bên trong nó, và một đối tượng [PrivateKey] cụ thể trong `keyring.key`.
+The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) instance with an address defined inside it and a \[PrivateKey] instance in `keyring.key`.
 
-#### Tạo một SingleKeyring bằng một khóa riêng tư và một địa chỉ <a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### Creating a SingleKeyring with a private key and an address <a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-Nếu khóa riêng tư cho tài khoản Klaytn của bạn tách rời khỏi địa chỉ, bạn có thể tạo một keyring bằng địa chỉ đã cho và khóa riêng tư đã cho như dưới đây.
+If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
 
 ```javascript
 // test.js
@@ -183,7 +183,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Chạy mã này trong bảng điều khiển như dưới đây.
+Run the code in your console like below.
 
 ```bash
 $ node ./test.js
@@ -197,9 +197,9 @@ SingleKeyring {
 }
 ```
 
-#### Tạo một MultipleKeyring bằng nhiều khóa riêng tư <a href="#creating-a-multiplekeyring-with-multiple-private-keys" id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### Creating a MultipleKeyring with multiple private keys <a href="#creating-a-multiplekeyring-with-multiple-private-keys" id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-Nếu bạn muốn dùng nhiều khóa riêng tư, bạn có thể tạo một [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) bằng một địa chỉ và nhiều khóa riêng tư. Các ví dụ dưới đây cho thấy cách để tạo ra một [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) bằng nhiều khóa riêng tư.
+If you want to use multiple private keys, you can create a [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) using an address and multiple private keys. The below examples show how to create a [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) with multiple private keys.
 
 ```javascript
 // test.js
@@ -215,7 +215,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -228,11 +228,11 @@ MultipleKeyring {
 }
 ```
 
-Như bạn có thể thấy, `_keys` có nhiều đối tượng PrivateKey cụ thể trong mảng. Các biến thành viên được xác định bên trong đối tượng cụ thể có thể được truy cập qua `keyring.address` và `keyring.keys`.
+As you can see, `_keys` has multiple PrivateKey instances in the array. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
 
-#### Tạo một RoleBasedKeyring bằng các khóa riêng tư <a href="#creating-a-rolebasedkeyring-with-role-based-private-keys" id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+#### Creating a RoleBasedKeyring with private keys <a href="#creating-a-rolebasedkeyring-with-role-based-private-keys" id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-Để sử dụng (các) khóa riêng tư cho từng [role](../../../learn/accounts.md#roles), `caver.wallet.keyring.createWithRoleBasedKey` sẽ được dùng. Mỗi phần tử trong mảng tương ứng với một vai trò được mô tả trong [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring). Ví dụ dưới đây hướng dẫn cách tạo ra một đối tượng [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) cụ thể từ các khóa khác nhau cho từng vai trò.
+To use different private key(s) for each [role](../../../learn/accounts.md#roles), `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role described in [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring). The example below shows how to create a [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) instance from different keys for each role.
 
 ```javascript
 // test.js
@@ -252,7 +252,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -273,13 +273,13 @@ RoleBasedKeyring {
 }
 ```
 
-Nhìn vào kết quả trên, phần tử đầu tiên của mảng khóa `roleTransactionKey` có ba đối tượng PrivateKey cụ thể, và phần tử thứ hai, `roleAccountUpdateKey` có một đối tượng PrivateKey cụ thể. Và phần tử cuối cùng của mảng, `roleFeePayerKey`, có hai đối tượng PrivateKey cụ thể.
+Looking at the output above, the first element of the keys array, `roleTransactionKey`, has three PrivateKey instances, and the second element, `roleAccountUpdateKey`, has one PrivateKey instance. And the last element of the array, `roleFeePayerKey`, has two PrivateKey instances.
 
-**Lưu ý**: Việc gọi các hàm liên quan đến keyring ([caver.wallet.keyring](api/caver-wallet/keyring.md)) hoặc ví ([caver.wallet](api/caver-wallet/caver-wallet.md)) không làm ảnh hưởng đến nền tảng chuỗi khối Klaytn thực tế (Klaytn).
+**Note**: Calling functions related to keyring ([caver.wallet.keyring](api/caver-wallet/keyring.md)) or wallet ([caver.wallet](api/caver-wallet/caver-wallet.md)) do not affect the actual Klaytn blockchain platform (Klaytn).
 
-### Thêm Keyring vào caver-js <a href="#adding-keyrings-to-caver-js" id="adding-keyrings-to-caver-js"></a>
+### Adding Keyrings to caver-js <a href="#adding-keyrings-to-caver-js" id="adding-keyrings-to-caver-js"></a>
 
-Bạn có thể dễ dàng dùng một keyring bằng cách sử dụng ví trong bộ nhớ mà caver-js cung cấp. Các ví dụ dưới đây minh họa cách để thêm một keyring vào ví bằng một đối tượng keyring cụ thể và một tập tin lưu trữ khóa được tạo ra bởi [Ví Klaytn](https://wallet.klaytn.com/).
+You can use a keyring easily by using the in-memory wallet provided by caver-js. The following examples illustrate how to add a keyring to a wallet using a keyring instance and a keystore file generated by [Klaytn Wallet](https://wallet.klaytn.com/).
 
 ```javascript
 // test.js
@@ -322,7 +322,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Chạy trong bảng điều kiển của bạn.
+Run the in your console.
 
 ```bash
 $ node ./test.js
@@ -336,9 +336,9 @@ SingleKeyring {
 }
 ```
 
-Nhìn vào kết quả đầu ra ở trên, bạn có thể truy vấn keyring của mình từ `caver.wallet` sau khi thêm nó vào `caver.wallet`.
+Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
 
-Nếu bạn có một địa chỉ và (các) khóa riêng tư để dùng, bạn có thể dễ dàng tạo ra một keyring và trực tiếp thêm nó vào [caver.wallet](api/caver-wallet/caver-wallet.md) thông qua [caver.wallet.newKeyring](api/caver-wallet/caver-wallet.md#caverwalletgetkeyring).
+If you have an address and private key(s) to use, you can easily create a keyring and add it directly to [caver.wallet](api/caver-wallet/caver-wallet.md) via [caver.wallet.newKeyring](api/caver-wallet/caver-wallet.md#caverwalletgetkeyring).
 
 ```javascript
 // test.js
@@ -366,7 +366,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Kết quả của việc thực thi mã trên được hiển thị dưới đây. Khi `caver.wallet.newKeyring` được thực thi với một khóa riêng tư, một đối tượng Keyring cụ thể với một khóa riêng tư sẽ được tạo ra và thêm vào `caver.wallet`. Đối với nhiều khóa riêng tư, một đối tượng Keyring cụ thể với nhiều khóa riêng tư sẽ được tạo ra. Khi dùng một hoặc nhiều khóa riêng tư làm đối số cho từng vai trò, một phiên bản Keyring với (các) khóa riêng tư khác nhau cho từng vai trò sẽ được tạo ra và thêm vào `caver.wallet`.
+Running the above code gives you the following result. The result of the above code execution is shown below. When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created. When passing one or more private keys for each role as arguments, a Keyring instance with a different private key(s) for each role is created and also added to the `caver.wallet`.
 
 ```bash
 $ node ./test.js
@@ -402,32 +402,32 @@ RoleBasedKeyring {
 }
 ```
 
-`caver.wallet.add` hoặc `caver.wallet.newKeyring` trả về một đối tượng Keyring cụ thể sau khi đã thêm nó vào `caver.wallet`.
+`caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
 
-## Gửi giao dịch <a href="#sending-a-transaction" id="sending-a-transaction"></a>
+## Sending a Transaction <a href="#sending-a-transaction" id="sending-a-transaction"></a>
 
-Phần này sẽ hướng dẫn bạn các để gửi KLAY bằng caver-js trên mạng Baobab.
+This section will show you how to send KLAY using caver-js on the Baobab network.
 
-### Nhận KLAY qua Vòi Baobab <a href="#getting-klay-via-baobab-faucet" id="getting-klay-via-baobab-faucet"></a>
+### Getting KLAY via Baobab Faucet <a href="#getting-klay-via-baobab-faucet" id="getting-klay-via-baobab-faucet"></a>
 
-Nếu bạn cần KLAY để thử nghiệm, bạn có thể nhận KLAY dùng trong mạng thử nghiệm Baobab từ [Ví Klaytn](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Hãy đăng nhập vào Ví Wallet bằng khóa riêng tư hoặc tập tin lưu trữ khóa, và nhận KLAY dùng cho mạng thử nghiệm Baobab qua vòi để thử nghiệm.
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
-### Gửi một giao dịch chuyển giá trị <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
+### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
-Bạn có thể sử dụng ví caver-js để tạo chữ ký của giao dịch. Bạn sẽ phải thực hiện hai bước dưới đây để gửi giao dịch đến mạng lưới.
+You can use a caver-js wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
 
-1. Ký giao dịch
-   - Nếu keyring mà bạn muốn dùng đã được thêm vào [caver.wallet](api/caver-wallet/caver-wallet.md), bạn có thể dùng hàm `caver.wallet.sign` để ký.
-   - Nếu bạn quản ký keyring riêng biệt và không thêm nó vào `caver.wallet`, bạn có thể ký giao dịch thông qua hàm `transaction.sign`.
-2. Gửi chuỗi mã hóa RLP của giao dịch đã ký đến Klaytn qua `caver.rpc.klay.sendRawTransaction`.
+1. Sign a transaction
+   - If the keyring you want to use is added to [caver.wallet](api/caver-wallet/caver-wallet.md), you can use `caver.wallet.sign` function to sign.
+   - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
+2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
 
-**Lưu ý:** Người gửi phải có đủ lượng KLAY.
+**Note:** The sender should have enough number of KLAY.
 
-#### Ký giao dịch
+#### Sign a transaction
 
-Trước khi gửi một giao dịch đến Klaytn, bạn phải ký giao dịch trước.
+Before sending a transaction to Klaytn, you should sign a transaction first.
 
-Dưới đây là ví dụ về cách ký một giao dịch trong trường hợp một keyring đã được thêm vào [caver.wallet](api/caver-wallet/caver-wallet.md).
+Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet](api/caver-wallet/caver-wallet.md).
 
 ```javascript
 // test.js
@@ -457,17 +457,17 @@ async function testFunction() {
 testFunction()
 ```
 
-Mã trên thêm một keyring vào `caver.wallet`, tạo ra một giao dịch và ký giao dịch đó qua `caver.wallet.sign`.
+The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Khi mã trên đã được thực thi, chuỗi mã hóa RLP của giao dịch sẽ hiển thị dưới đây. (Kết quả chuỗi mã hóa RLP mà bạn nhận được có thể khác với kết quả chuỗi hiển thị dưới đây).
+Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### Gửi chuỗi mã hóa RLP của giao dịch đã ký đến Klaytn
+#### Send the RLP-encoded string of the signed transaction to the Klaytn
 
-Giờ bạn có thể gửi một giao dịch đã ký đến mạng lưới như dưới đây. Nếu bạn muốn chạy thử ví dụ bên dưới, hãy thay thế `0x{RLP-encoded string}` bằng giá trị của `rlpEncoded` ở trên.
+Now you can send a signed transaction to the network like below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```javascript
 // test.js
@@ -485,7 +485,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Khi mã trên đã được thực thi, biên lai của giao dịch sẽ hiển thị dưới đây.
+Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
 
 ```bash
 $ node ./test.js
@@ -513,7 +513,7 @@ $ node ./test.js
 }
 ```
 
-Nếu bạn muốn ký một giao dịch và gửi nó đến mạng lưới mà không cần `caver.wallet`, hãy xem ví dụ bên dưới.
+If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
 
 ```javascript
 // test.js
@@ -541,13 +541,13 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi mã trên được triển khai, biên lai của giao dịch sẽ hiển thị ra màn hình như ví dụ trước đó.
+When the above code is executed, the receipt of the transaction is printed like the previous example.
 
-### Kiểm tra biên lai <a href="#checking-receipts" id="checking-receipts"></a>
+### Checking Receipts <a href="#checking-receipts" id="checking-receipts"></a>
 
-Bạn có thể dùng đối tượng promise hoặc lớp phát sinh sự kiện để nhận biên lai của giao dịch khi chuyển giao dịch đó đến Klaytn bằng [caver.rpc.klay.sendRawTransaction](api/caver-rpc/klay.md#caver-rpc-klay-sendrawtransaction).
+You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the Klaytn by [caver.rpc.klay.sendRawTransaction](api/caver-rpc/klay.md#caver-rpc-klay-sendrawtransaction).
 
-Ví dụ dưới đây cho thấy cách để nhận biên lai bằng các đối tượng promise và lớp phát sinh sự kiện.
+The following example shows how to get a receipt using promises and event emitters.
 
 ```javascript
 // Using a promise - async/await
@@ -561,7 +561,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-Như mô tả trong ví dụ trên, bạn có thể nhận được kết quả của việc gửi giao dịch thông qua đối tượng promise hoặc lớp phát sinh sự kiện. Trường `transactionHash` được xác định bên trong đối tượng biên lai. Bạn có thể dùng phương pháp gọi RPC [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) kèm theo `receipt.transactionHash` để truy vấn biên lai của một giao dịch vào bất kỳ lúc nào từ mạng lưới sau khi giao dịch đã được đưa vào một khối. Ví dụ dưới đây cho thấy cách để lấy biên lai bằng cách gọi RPC [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt).
+As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call.
 
 ```javascript
 // test.js
@@ -576,7 +576,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Khi mã trên đã được thực thi, biên lai của giao dịch sẽ hiển thị dưới đây.
+Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
 
 ```bash
 $ node ./test.js
@@ -604,15 +604,15 @@ $ node ./test.js
 }
 ```
 
-Bạn có thể tìm thấy kết quả của giao dịch qua `trạng thái` của biên lai. Để biết thêm chi tiết về các giá trị trả về, hãy xem [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt). Nếu một giao dịch thất bại, bạn có thể kiểm tra thêm thông tin về lỗi tại `txError` của biên lai. Để biết thêm thông tin về `txError`, hãy xem [txError: Thông tin chi tiết về các lỗi giao dịch](../../transaction-error-codes.md).
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
-## Thực thi các loại giao dịch khác <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
+## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Klaytn cung cấp nhiều loại giao dịch đa dạng để đẩy mạnh khả năng mở rộng và hiệu suất. Để biết thêm thông tin, hãy xem [Giao dịch](../../../learn/transactions/). Mục này mô tả một số ví dụ mà bạn có thể sử dụng với caver-js.
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/). This section describes some examples that can be used with caver-js.
 
-### Ủy thác phí <a href="#fee-delegation" id="fee-delegation"></a>
+### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
 
-Klaytn cung cấp tính năng [Ủy thác phí](../../../learn/transactions/transactions.md#fee-delegation). Đây là một ví dụ về việc thực hiện một giao dịch mã hóa RLP khi bạn là người gửi loại giao dịch này:
+Klaytn provides [Fee Delegation](../../../learn/transactions/transactions.md#fee-delegation) feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```javascript
 // test.js
@@ -639,14 +639,14 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi mã trên được thực thi, chuỗi mã hóa RLP sẽ được hiển thị ra màn hình. (Kết quả chuỗi mã hóa RLP mà bạn nhận được có thể khác với kết quả chuỗi hiển thị dưới đây).
+When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 $ node ./test.js
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-Người trả phí có thể gửi giao dịch đến Klaytn sau khi đính kèm `feePayerSignatures` vào chuỗi mã hóa RLP (`rawTransaction`) được ký bởi người gửi giao dịch. Nếu `caver.wallet` cũng có khóa của người trả phí, chữ ký của người trả phí có thể được đưa vào `feeDelegatedTx` bằng cách gọi `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Nếu không, người trả phí sẽ phải tạo `feeDelegatedTx` từ chuỗi mã hóa RLP được người gửi ký, sau đó thêm chữ ký của người trả phí vào đó như được minh họa dưới đây. Nếu bạn muốn chạy thử ví dụ bên dưới, hãy thay thế `0x{RLP-encoded string}` bằng giá trị của `rlpEncoded` ở trên.
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```javascript
 // test.js
@@ -671,14 +671,14 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi mã trên được thực thi, chuỗi mã hóa RLP bao gồm cả chữ ký của người gửi và người trả phí sẽ hiển thị ra màn hình như dưới đây. (Kết quả mà bạn nhận được có thể khác với kết quả chuỗi hiển thị dưới đây).
+When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
 
 ```bash
 $ node ./test.js
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
-Lúc này, giao dịch đã được cả người gửi và người trả phí ký tên, và giờ nó có thể được gửi đến mạng lưới. Thay thế `0x{RLP-encoded string}` bằng kết quả đầu ra chuỗi mã hóa RLP của mã ví dụ ở trên.
+The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
 
 ```javascript
 // test.js
@@ -694,7 +694,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Qua kết quả thực thi của mã trên, bạn có thể kiểm tra kết quả của giao dịch FeeDelegatedValueTransfer.
+Running the above code gives you the following result. Through the execution result of the above code, you can check the FeeDelegatedValueTransfer transaction result.
 
 ```bash
 $ node ./test.js
@@ -730,27 +730,27 @@ $ node ./test.js
 }
 ```
 
-### Cập nhật tài khoản <a href="#account-update" id="account-update"></a>
+### Account Update <a href="#account-update" id="account-update"></a>
 
-Nếu bạn muốn thay đổi (các) khóa riêng tư cho tài khoản Klaytn của mình, có 3 điều quan trọng mà bạn cần ghi nhớ:
+If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
-1. Klaytn xác thực mọi giao dịch mà bạn gửi đến.
-2. Quy trình xác thực yêu cầu sử dụng các khóa công khai tương ứng chính xác với (các) khóa riêng tư của bạn.
-3. Vì thế, việc thay đổi (các) khóa riêng tư thành (các) khóa riêng tư mới sẽ **luôn** **kéo theo** việc thay đổi (các) khóa công khai cũ thành (các) khóa mới. (Các) khóa công khai mới phải được lấy từ (các) khóa riêng tư mới.
+1. Klaytn validates every transaction you send to it.
+2. The validation requires your public keys which exactly corresponds to your private key(s).
+3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
 
-Khi đã ghi nhớ 3 điều trên, bạn có thể thay đổi (các) khóa riêng tư của mình bằng cách thực hiện những bước sau:
+Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
 
-1. Chuẩn bị (các) khóa riêng tư mới để tạo một keyring mới.
-2. Tạo một keyring theo loại (Single keyring, Multiple keyring hoặc Role-based keyring) mà bạn cần.
-3. Tạo một đối tượng Tài khoản cụ thể từ keyring mới. Đối tượng Tài khoản cụ thể này giữ (các) khóa công khai mới cho tài khoản Klaytn của bạn.
-4. Gửi giao dịch AccountUpdate bao gồm cả đối tượng Tài khoản cụ thể đến Klaytn.
-5. Cuối cùng, thay thế keyring cũ bằng keyring mới mà bạn tạo ở Bước 2.
+1. Prepare the new private key(s) to create a new keyring.
+2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
+3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Klaytn account.
+4. Send AccountUpdate transaction including Account instance to Klaytn.
+5. Finally, replace your old keyring to the new one that was created in Step 2.
 
-Vui lòng xem [Cập nhật tài khoản](api/caver-transaction/basic.md#accountupdate) để biết thêm chi tiết.
+Please check [Account Update](api/caver-transaction/basic.md#accountupdate) for the details.
 
-Để thay đổi AccountKey của mình, bạn phải cung cấp một đối tượng [Tài khoản](api/caver.account.md) cụ thể cho trường `tài khoản` trong đối tượng đối số đầu vào của `caver.transaction.tài khoảnUpdate`. Một đối tượng [Account](api/caver.account.md) cu thể có chứa địa chỉ của tài khoản Klaytn và AccountKey cần được cập nhật.
+To change your AccountKey, you must provide an [Account](api/caver.account.md) instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account](api/caver.account.md) instance contains the address of the Klaytn account and the AccountKey to be updated.
 
-Mã dưới đây là một mã ví dụ dùng để thay đổi (các) khóa riêng tư mà bạn dùng cho tài khoản Klaytn của mình, kèm theo việc thay đổi AccountKey của tài khoản Klaytn thành [AccountKeyPublic](../../../learn/accounts.md#accountkeypublic). Đừng quên chuẩn bị (các) khóa riêng tư mới.
+The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to [AccountKeyPublic](../../../learn/accounts.md#accountkeypublic). Don't forget to prepare your new private key(s).
 
 ```javascript
 // test.js
@@ -784,9 +784,9 @@ async function testFunction() {
 testFunction()
 ```
 
-Nếu mã trên được thực thi thành công, bạn sẽ không còn có thể dùng (các) khóa riêng tư cũ để ký bất kỳ giao dịch nào với keyring cũ nữa. Vì thế, bạn phải cập nhật keyring cũ bằng `newKeyring` thông qua `caver.wallet.updateKeyring(newKeyring)`. Khi đã được cập nhật, (các) khóa riêng tư mới được cập nhật sẽ được dùng để ký.
+If the above code is executed successfully, you no longer are able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Trong kết quả thực thi của mã trên, kết quả của khóa riêng tư và cập nhật tài khoản mà bạn cần dùng thay thế được hiển thị ra màn hình như dưới đây.
+Running the above code gives you the following result. In the execution result of the above code, the result of the private key and the account update that you should newly use are printed like below.
 
 ```bash
 $ node ./test.js
@@ -816,9 +816,9 @@ new private key string: 0x{private key}
 }
 ```
 
-Sau đây là hướng dẫn về cách cập nhật AccountKey của tài khoản Klayt có nhiều [AccountKeys]? Ví dụ dưới đây giải thích về cách để tạo một đối tượng [Account](api/caver.account.md) cụ thể với nhiều khóa riêng tư mà bạn muốn sử dụng (Bạn có thể tạo một đối tượng [Account](api/caver.account.md) cụ thể với nhiều khóa công khai qua [caver.tài khoản.create](api/caver.account.md#caver-account-create)). Tương tự như trên, sau khi nạp đối tượng tài khoản cụ thể vừa tạo ra vào trường `tài khoản` bên trong đối tượng giao dịch, phần còn lại của quá trình cập nhật cũng giống như ví dụ ở trên.
+Here comes how to update AccountKey of your Klaytn account with multiple \[AccountKeys]? The example below explains how to create an [Account](api/caver.account.md) instance with multiple private keys that what you want to use (You can create an [Account](api/caver.account.md) instance with multiple public keys via [caver.account.create](api/caver.account.md#caver-account-create)). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
-Trước tiên, hãy dùng tạo một đối tượng Tài khoản cụ thể để cập nhật bằng [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). Đối với [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig), phải xác định ngưỡng và trọng số của từng khóa. Để thực hiện điều này, hãy dùng [caver.tài khoản.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions). Tham số đầu tiên là ngưỡng, và tham số thứ hai là mảng có chứa trọng số cho từng khóa.
+First, let's create an Account instance to update with [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). For [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig), a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions). The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
 ```javascript
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -831,7 +831,7 @@ const options = new caver.account.weightedMultiSigOptions(3, [1, 2, 1])
 const account = newKeyring.toAccount(options)
 ```
 
-Bây giờ, hãy cập nhật AccountKey bằng [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased). [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased) là một loại `AccountKey` xác định khóa để dùng cho từng [role](../../../learn/accounts.md#roles).
+Now let's update AccountKey using [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased). [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased) is an `AccountKey` type that defines the key to use for each [role](../../../learn/accounts.md#roles).
 
 ```javascript
 // Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
@@ -841,7 +841,7 @@ const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, n
 const account = newKeyring.toAccount()
 ```
 
-AccountKeyRoleBased ở trên là một ví dụ về việc sử dụng một khóa công khai cho từng vai trò. Như có thể thấy từ mã trên, từng vai trò tương ứng với một khóa riêng tư. Nếu bạn muốn dùng nhiều khóa riêng tư cho từng vai trò, [caver.tài khoản.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions) phải được xác định cho từng vai trò như minh họa dưới đây.
+The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions) must be defined for each role as shown below.
 
 ```javascript
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
@@ -860,7 +860,7 @@ const options = [
 const account = newKeyring.toAccount(options)
 ```
 
-Nếu bạn muốn cập nhật AccountKey thành [AccountKeyLegacy](../../../learn/accounts.md#accountkeylegacy) hoặc [tài khoảnKeyFail](../../../learn/accounts.md#accountkeyfail), hãy tạo một đối tượng Tài khoản cụ thể như minh họa dưới đây, và gán nó vào trường `tài khoản` của giao dịch.
+If you want to update AccountKey to [AccountKeyLegacy](../../../learn/accounts.md#accountkeylegacy) or [accountKeyFail](../../../learn/accounts.md#accountkeyfail), create an Account instance as shown below and assign it to the `account` field of the transaction.
 
 ```javascript
 // Create an account with AccountKeyLegacy
@@ -870,11 +870,11 @@ const accountWithLegacyKey = caver.account.createWithAccountKeyLegacy(keyringToU
 const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
-### Hợp đồng thông minh <a href="#smart-contract" id="smart-contract"></a>
+### Smart Contract <a href="#smart-contract" id="smart-contract"></a>
 
-Gói [caver.contract](api/caver.contract.md) giúp việc tương tác với hợp đồng thông minh trên Klaytn trở nên dễ dàng hơn. Nó tự động chuyển đổi tất cả các phương pháp của hợp đồng thông minh thành những cuộc gọi javascript khi ABI mức độ thấp (Giao diện nhị phân ứng dụng) được đưa ra. Điều này cho phép bạn tương tác với các hợp đồng thông minh như thể chúng là các đối tượng JavaScript.
+The [caver.contract](api/caver.contract.md) package makes it easy to interact with smart contracts on Klaytn. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI (Application Binary Interface) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
 
-Trước tiên, chúng ta sẽ tạo một ví dụ đơn giản bằng ngôn ngữ solidity như dưới đây. Tạo tập tin "test.sol" và viết vào đó ví dụ dưới đây.
+First, we make a simple solidity example like the below. Create a 'test.sol' file and write down the below example.
 
 ```
 pragma solidity ^0.5.6;
@@ -890,7 +890,7 @@ contract KVstore {
 }
 ```
 
-Bây giờ, chúng ta có thể lập một hợp đồng thông minh để lấy chỉ thị biên dịch và ABI của nó.
+Now we can compile a smart contract to get its bytecode and ABI.
 
 ```
 > solc --abi --bin ./test.sol
@@ -901,11 +901,11 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**LƯU Ý**: Để lập một hợp đồng thông minh, bạn phải cài đặt trước [trình biên dịch solidity](https://solidity.readthedocs.io/en/develop/installing-solidity.html).
+**NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed.
 
-Đối với việc triển khai hợp đồng thông minh, bạn có thể dùng [caver.contract](api/caver.contract.md) để triển khai, hoặc bạn có thể triển khai bằng cách sử dụng [caver.transaction.smartContractDeploy](api/caver-transaction/basic.md#smartcontractdeploy), [caver.transaction.feeDelegatedSmartContractDeploy](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) hoặc [caver.transaction.feeDelegatedSmartContractDeployWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) transaction. Dưới đây là một ví dụ về việc sử dụng [caver.contract](api/caver.contract.md).
+For the smart contract deployment, you can use [caver.contract](api/caver.contract.md) to deploy it, or you can deploy it using [caver.transaction.smartContractDeploy](api/caver-transaction/basic.md#smartcontractdeploy), [caver.transaction.feeDelegatedSmartContractDeploy](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) or [caver.transaction.feeDelegatedSmartContractDeployWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) transaction. Here is an example of using [caver.contract](api/caver.contract.md).
 
-Bạn có thể tạo một đối tượng tài khoản cụ thể như dưới đây bằng cách sử dụng kết quả từ việc lập hợp đồng thông minh.
+You can create a contract instance as below using the result of compiling the smart contract.
 
 ```javascript
 // test.js
@@ -942,7 +942,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -964,9 +964,9 @@ Contract {
 null
 ```
 
-Nhìn vào kết quả đầu ra ở trên, bạn có thể thấy rằng các phương pháp được quản lý thông quan abi bên trong đối tượng Hợp đồng cụ thể. Và vì nó vẫn chưa được triển khai, bạn có thể thấy rằng kết quả của `contractInstance.options.address` có đầu ra là null.
+Looking at the output above, you can see that the methods are managed through abi inside the Contract instance. And since it hasn't been deployed yet, you can see that the result of `contractInstance.options.address` is output as null.
 
-Nếu hợp đồng thông minh đã được triển khai và bạn biết địa chỉ hợp đồng mà tại đó hợp đồng thông minh được triển khai, hãy dùng địa chỉ hợp đồng đó làm tham số thứ hai như dưới đây.
+If the smart contract has already been deployed and you know the contract address where the smart contract was deployed, please pass the contract address to the second parameter as shown below.
 
 ```javascript
 // test.js
@@ -1004,7 +1004,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1026,11 +1026,11 @@ Contract {
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-Vì phiên bản hợp đồng cụ thể này nhận được địa chỉ của hợp đồng thông minh, nó lưu trữ địa chỉ hợp đồng trong `contractInstance.options.address`.
+Since this contract instance received the address of the smart contract, it stores the contract address in `contractInstance.options.address`.
 
-Nếu phiên bản hợp đồng cụ thể được tạo ra, bạn có thể triển khai nó bằng cách đưa chỉ thị biên dịch vào trường `data` như dưới đây.
+If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below.
 
-Lưu ý rằng [caver.contract](api/caver.contract.md) gửi các giao dịch để triển khai và thực thi. Nó dùng các keyring trong `caver.wallet` để ký các giao dịch. Keyring cần dùng phải được thêm vào `caver.wallet` từ trước.
+Note that [caver.contract](api/caver.contract.md) sends transactions for deployment and execution. It uses keyrings in `caver.wallet` to sign transactions. The keyring to be used must be added to `caver.wallet` before.
 
 ```javascript
 // test.js
@@ -1079,7 +1079,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Trong mã trên, `deployer` triển khai hợp đồng trên Klaytn và trả lại đối tượng contract cụ thể đã được triển khai.
+In the code above, the `deployer` deploys the contract to the Klaytn and returns the deployed contract instance.
 
 ```bash
 $ node ./test.js
@@ -1101,7 +1101,7 @@ Contract {
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-Để triển khai một hợp đồng thông minh qua giao dịch có phí ủy thác, hãy xác định `feeDelegation` và `feePayer` như ví dụ dưới đây:
+To deploy a smart contract through fee-delegated transaction, define `feeDelegation` and `feePayer` like the example below:
 
 ```javascript
 // test.js
@@ -1153,7 +1153,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-Nếu bạn muốn gửi một giao dịch trong đó người gửi và người trả phí ký riêng biệt nhau khi triển khai một hợp đồng thông minh qua `caver.contract`, hãy tham khảo mã dưới đây:
+If you want to send a transaction with sender and feePayer signed separately when deploying a smart contract through `caver.contract`, refer to the code below:
 
 ```javascript
 // test.js
@@ -1207,7 +1207,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-Một hợp đồng thông minh có thể được thực thi bằng một trong những phương pháp sau, tùy thuộc vào loại giao dịch thực thi hợp động: lớp `Contract` trong `caver.contract` hoặc [caver.transaction.smartContractExecution](api/caver-transaction/basic.md#smartcontractexecution), [caver.transaction.feeDelegatedSmartContractExecution](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution) hoặc [caver.transaction.feeDelegatedSmartContractExecutionWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio). Để gửi một giao dịch cho việc thực thi hợp đồng thông minh:
+A smart contract can be executed using one of the followings, depending on the type of contract executing transaction: `Contract` class in `caver.contract` or [caver.transaction.smartContractExecution](api/caver-transaction/basic.md#smartcontractexecution), [caver.transaction.feeDelegatedSmartContractExecution](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution), or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio). To send a transaction for executing a smart contract:
 
 ```javascript
 // test.js
@@ -1247,7 +1247,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi mã trên được triển khai, kết quả giao dịch từ việc triển khai `set` xuất hiện như bên dưới.
+When the above code is executed, the transaction result from executing `set` arrives as below.
 
 ```bash
 $ node ./test.js
@@ -1272,7 +1272,7 @@ $ node ./test.js
 }
 ```
 
-Để thực thi một hợp đồng thông minh qua giao dịch có phí ủy thác, hãy xác định `feeDelegation` và `feePayer` như ví dụ dưới đây:
+To execute a smart contract through fee-delegated transaction, define `feeDelegation` and `feePayer` like the example below:
 
 ```javascript
 // test.js
@@ -1320,7 +1320,7 @@ async function executionWithFeeDelegation() {
 }
 ```
 
-Nếu bạn muốn gửi một giao dịch trong đó người gửi và người trả phí ký riêng biệt nhau khi thực thi một hợp đồng thông minh qua `caver.contract`, hãy tham khảo mã dưới đây:
+If you want to send a transaction with sender and feePayer signed separately when executing a smart contract through `caver.contract`, refer to the code below:
 
 ```javascript
 // test.js
@@ -1370,7 +1370,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-Để tải một đối tương hợp đồng cụ thể và gọi một trong các hàm của nó:
+To load a contract instance and call one of its functions:
 
 ```javascript
 // test.js
@@ -1407,30 +1407,30 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi mã trên được thực thi, giá trị sẽ được hiển thị dưới dạng kết quả đầu ra như dưới đây.
+When the above code is executed, the value is shown as an output below.
 
 ```bash
 $ node ./test.js
 testValue
 ```
 
-Để tìm hiểu thêm thông tin, hãy xem [caver.contract](api/caver.contract.md).
+To find more information, see [caver.contract](api/caver.contract.md).
 
-## Gửi một giao dịch có nhiều người ký <a href="#sending-a-transaction-with-multiple-signers" id="sending-a-transaction-with-multiple-signers"></a>
+## Sending a Transaction with multiple signers <a href="#sending-a-transaction-with-multiple-signers" id="sending-a-transaction-with-multiple-signers"></a>
 
-Nếu AccountKey của tài khoản Klaytn là AccountKeyMultiSig hoặc AccountKeyRoleBased, có thể có nhiều người khác nhau quản lý từng khóa.
+If the Klaytn account's AccountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
 
-Phần này mô tả cách để thu thập nhiều chữ ký và gửi giao dịch nếu có nhiều người ký.
+This section describes how to collect signatures and send the transaction if there are multiple signers.
 
-Để chạy ví dụ này, bạn cần cập nhật AccountKey của tài khoản Klaytn mà bạn dùng để thử nghiệm với [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). Vui lòng tham khảo [Cập nhật tài khoản](#account-update) để xem cách cập nhật tài khoản Klaytn.
+To run this example, you need to update AccountKey of the Klaytn account you use for testing with [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). Please refer to [Account Update](#account-update) for how to update your Klaytn account.
 
-### Ký tuần sự <a href="#signing-sequentially" id="signing-sequentially"></a>
+### Signing sequentially <a href="#signing-sequentially" id="signing-sequentially"></a>
 
-Khi một giao dịch được ký bằng `caver.wallet` hoặc hàm `sign` của giao dịch, các chữ ký (hoặc feePayerSignatures) được xác định (hoặc thêm vào) bên trong giao dịch. Bạn có thể lấy chuỗi mã hóa RLP (`rawTransaction`) có chứa các chữ ký (và feePayerSignatures) bằng cách gọi hàm `transaction.getRLPEncoding()` của đối tượng giao dịch cụ thể được ký.
+When a transaction is signed using `caver.wallet` or the transaction's `sign` function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
 
-Ví dụ sau đây cho thấy cách để tuần tự ký một giao dịch với nhiều khóa riêng tư. Giả sử rằng AccountKey của tài khoản gửi giao dịch này là AccountKeyWeightedMultiSig của hai khóa công khai, điều này có nghĩa là tài khoản Klaytn này có thể dùng hai chuỗi khóa riêng tư, một khóa riêng tư cho từng người dùng. Đây là trường hợp có hai người dùng chia sẻ cùng một tài khoảng Klaytn.
+The following example shows how to sign a transaction sequentially with multiple private keys. Let's assume that AccountKey of the account who sends this transaction is AccountKeyWeightedMultiSig of two public keys, which means this Klaytn account can use two private key strings, one private key for each user. This is a case that two users share the same Klaytn account.
 
-Trong ví dụ dưới đây, user1 và user2 tạo ra các đối tượng `Keyring` cụ thể để sử dụng. Sau đó, mỗi người dùng keyring của riêng mình để ký giao dịch. Ví dụ dưới đây sử dụng `transaction.sign` để ký.
+In the example below, user1 and user2 create a `Keyring` instances to be used. After that, each uses its own keyring to sign the transaction. The example below uses `transaction.sign` to sign it.
 
 ```javascript
 // test.js
@@ -1458,7 +1458,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau. Nhìn vào kết quả thực thi của mã trên, nếu user1 ký, một chữ ký sẽ được tạo ra. Nếu user2 ký, chữ ký của user2 sẽ được thêm vào. [SignatureData](api/caver-wallet/keyring.md#signaturedata) là một đối tượng chứa một chữ ký.
+Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData](api/caver-wallet/keyring.md#signaturedata) is an object that stores a signature.
 
 ```bash
 $ node ./test.js
@@ -1471,9 +1471,9 @@ $ node ./test.js
 ]
 ```
 
-Hãy cùng xem cách để ký tuần tự mà không cần chia sẻ cùng một đối tượng giao dịch. Trong ví dụ dưới đây, user1 gửi cho user2 chuỗi mã hóa RLP, chính là kết quả của hàm getRLPEncoding của giao dịch đã ký.
+Then let's see how to sign sequentially without sharing the same transaction object. In the below example, user1 passes RLP-encoded string that is the result of getRLPEncoding function of the signed transaction to user2.
 
-Mã dưới đây giải thích cách để ký và bổ sung chữ ký vào bằng chuỗi mã hóa RLP.
+The code below explains how to sign and append signatures with RLP-encoded string.
 
 ```javascript
 // test.js
@@ -1509,7 +1509,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1519,17 +1519,17 @@ $ node ./test.js
 ]
 ```
 
-Nếu chạy mã trên, bạn có thể thấy rằng chữ ký của user2 đã được đưa vào `transactionFromRLP.signatures` và trong đó có tổng cộng hai chữ ký.
+If you run the above code, you can see that user2's signature has been appended in `transactionFromRLP.signatures` and a total of two signatures are included in it.
 
-Khi tất cả người dùng đã ký, hãy gửi giao dịch đến mạng lưới qua `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`.
+When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`.
 
-Nếu bạn gửi một giao dịch có phí ủy thác, và người trả phí dùng nhiều khóa, bạn có thể tiếp tục với logic trên bằng `caver.wallet.signAsFeePayer`.
+If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signAsFeePayer`.
 
-### Kết hợp các giao dịch thô đã ký <a href="#combining-signed-rawtransactions" id="combining-signed-rawtransactions"></a>
+### Combining signed raw transactions <a href="#combining-signed-rawtransactions" id="combining-signed-rawtransactions"></a>
 
-Nếu bạn nhận được nhiều chuỗi giao dịch thô mã hóa RLP đã ký từ nhiều người, bạn có thể kết hợp chúng thành một chuỗi giao dịch thô mã hóa RLP duy nhất có chứa tất cả các chữ ký.
+If you receive multiple signed RLP-encoded raw transaction strings from several people, you can combine them into a single RLP-encoded raw transaction string that contains all the signatures.
 
-Ví dụ dưới đây cho thấy cách để kết hợp và gửi các giao dịch mã hóa RLP.
+The example below shows how to combine and send the RLP encoded transactions.
 
 ```javascript
 // test.js
@@ -1555,28 +1555,28 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
 0x08f9010d808505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef8d5f8458207f5a094ce13c39d25d44ad1d07ba2fd89f476c4dc6eef6071a2ef1f496f9b04d049e5a00f7abddd548998b0a55e53600a48286c38262fffc6c153a64e8f65a77c11c722f8458207f6a0ceeea7287b2670719d8ac15cf3b21b36fcaf74d58cce99935ce17e100064037aa0499067788d5db5e7c09ed7bfe19764d66684abc06b81e8f54ea254377bc81066f8458207f5a05c3ba89336c7d84d4ce08104cfd6f7ef33cd9f29766a1955baae8bcf964fd50fa015accbbce6bb11847a3b0660491775d64ef6d692ea709b768f64f12968c09240
 ```
 
-Sau khi chạy mã trên, kết quả đầu ra sẽ là một chuỗi giao dịch thô mã hóa RLP có tất cả thông tin chữ ký được kết hợp.
+Running the code above outputs one RLP-encoded raw transaction string with all the signature information combined.
 
-Khi thực thi `combineSignedRawTransactions`, các chuỗi giao dịch thô mã hóa RLP đã ký cần được kết hợp phải giống hệt nhau, ngoại trừ các chữ ký và biến tùy chọn trong đối tượng giao dịch cụ thể. Các biến tùy chọn không có giá trị cho trước trong đối tượng giao dịch cơ sở cụ thể (đối tượng gọi của `combineSignedRawTransactions`) sẽ được quy đổi sang những biến tương ứng trong chuỗi giao dịch thô dưới đây để được hợp nhất ngay sau đó. Nếu phát sinh hiện tượng không nhất quán giữa các chuỗi giao dịch thô, bao gồm giá trị của các biến tùy chọn cần được hợp nhất, sẽ có lỗi xảy ra.
+When executing `combineSignedRawTransactions` , the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignedRawTransactions`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
 
-combineSignedRawTransactions trả về kết quả là một chuỗi mã hóa RLP có chứa tất cả các chữ ký (và feePayerSignatures nếu giao dịch là loại có phí ủy thác). Bạn dùng kết quả này để gửi một giao dịch đến mạng lưới qua `await caver.rpc.klay.sendRawTransaction(combined)`.
+The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
 
-## Phát hiện sự triển khai các giao diện KCT <a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
+## Detecting implementation of KCT interfaces <a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
 
-`caver.kct` cung cấp các hàm trả lại thông tin về giao diện mà hợp đồng token KCT nhất định triển khai. Với phương pháp này, bạn có thể thấy hợp đồng token KCT đã triển khai trên Klaytn áp dụng giao diện nào.
+`caver.kct` provides functions that return information about which interface the given KCT token contract implements. Using this, you can see which interface the KCT token contract deployed on Klaytn implements.
 
-### Phát hiện các giao diện KIP-7 <a href="#detecting-kip-7-interfaces" id="detecting-kip-7-interfaces"></a>
+### Detecting KIP-7 interfaces <a href="#detecting-kip-7-interfaces" id="detecting-kip-7-interfaces"></a>
 
-Để phát hiện các giao diện được áp dụng bởi hợp đồng token KIP-7, bạn có thể dùng `caver.kct.kip7.detectInterface(contractAddress)` hoặc `kip7.detectInterface()`.
+In order to detect the interfaces implemented by the KIP-7 token contract, you can use `caver.kct.kip7.detectInterface(contractAddress)` or `kip7.detectInterface()`.
 
-Dưới đây là mã về cách để phát hiện các giao diện được áp dụng cho hợp đồng token KIP-7 được triển khai trên Klaytn nhờ các phương pháp tĩnh được cung cấp trong `caver.kct.kip7`.
+Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on Klaytn using static methods provided in `caver.kct.kip7`.
 
 ```javascript
 // test.js
@@ -1591,7 +1591,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1604,7 +1604,7 @@ $ node ./test.js
 }
 ```
 
-Dưới đây là mã về cách để phát hiện các giao diện được áp dụng cho hợp đồng token KIP-7 được triển khai trên Klaytn nhờ phương pháp thành viên của KIP7.
+Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on Klaytn using member method of KIP7.
 
 ```javascript
 // test.js
@@ -1620,7 +1620,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1633,11 +1633,11 @@ $ node ./test.js
 }
 ```
 
-### Phát hiện các giao diện KIP-17 <a href="#detecting-kip-17-interfaces" id="detecting-kip-17-interfaces"></a>
+### Detecting KIP-17 interfaces <a href="#detecting-kip-17-interfaces" id="detecting-kip-17-interfaces"></a>
 
-Để phát hiện các giao diện được áp dụng bởi hợp đồng token KIP-17, bạn có thể dùng `caver.kct.kip17.detectInterface(contractAddress)` hoặc `kip17.detectInterface()`.
+In order to detect the interfaces implemented by the KIP-17 token contract, you can use `caver.kct.kip17.detectInterface(contractAddress)` or `kip17.detectInterface()`.
 
-Dưới đây là mã về cách để phát hiện các giao diện được áp dụng cho hợp đồng token KIP-17 được triển khai trên Klaytn nhờ các phương pháp tĩnh được cung cấp trong `caver.kct.kip17`.
+Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on Klaytn using static methods provided in `caver.kct.kip17`.
 
 ```javascript
 // test.js
@@ -1652,7 +1652,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1667,7 +1667,7 @@ $ node ./test.js
 }
 ```
 
-Dưới đây là mã về cách để phát hiện các giao diện được áp dụng cho hợp đồng token KIP-17 được triển khai trên Klaytn nhờ phương pháp thành viên của KIP17.
+Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on Klaytn using member method of KIP17.
 
 ```javascript
 // test.js
@@ -1683,7 +1683,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1698,11 +1698,11 @@ $ node ./test.js
 }
 ```
 
-### Phát hiện các giao diện KIP-37 <a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
+### Detecting KIP-37 interfaces <a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
 
-Để phát hiện các giao diện được áp dụng bởi hợp đồng token KIP-37, bạn có thể dùng `caver.kct.kip37.detectInterface(contractAddress)` hoặc `kip37.detectInterface()`.
+In order to detect the interfaces implemented by the KIP-37 token contract, you can use `caver.kct.kip37.detectInterface(contractAddress)` or `kip37.detectInterface()`.
 
-Dưới đây là mã về cách để phát hiện các giao diện được áp dụng cho hợp đồng token KIP-37 được triển khai trên Klaytn nhờ các phương pháp tĩnh được cung cấp trong `caver.kct.kip37`.
+Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on Klaytn using static methods provided in `caver.kct.kip37`.
 
 ```javascript
 // test.js
@@ -1717,7 +1717,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1730,7 +1730,7 @@ $ node ./test.js
 }
 ```
 
-Dưới đây là mã về cách để phát hiện các giao diện được áp dụng cho hợp đồng token KIP-37 được triển khai trên Klaytn nhờ phương pháp thành viên của KIP37.
+Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on Klaytn using member method of KIP37.
 
 ```javascript
 // test.js
@@ -1746,7 +1746,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Khi chạy mã trên, bạn sẽ nhận được kết quả sau.
+Running the above code gives you the following result.
 
 ```bash
 $ node ./test.js
@@ -1759,18 +1759,18 @@ $ node ./test.js
 }
 ```
 
-## Dự án mẫu <a href="#sample-projects" id="sample-projects"></a>
+## Sample Projects <a href="#sample-projects" id="sample-projects"></a>
 
-Các dự án mẫu phát triển DApp (Ứng dụng chuỗi khối) sử dụng caver-js bao gồm:
+The DApp (Blockchain Application) Development sample projects using caver-js are the following:
 
 - [Count DApp](../../../build/tutorials/count-dapp/count-dapp.md)
 - [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
 
-## Khắc phục sự cố <a href="#troubleshooting" id="troubleshooting"></a>
+## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
 
-- **Lỗi: không thể khắc phục 'fs'** phát sinh trong khi xây dựng với caver-js trong một trình duyệt web:
+- **Error: Can't resolve 'fs'** occurs during the build with caver-js in a web browser:
 
-  - Hãy thêm cấu hình webpack sau.
+  - Add the following webpack configuration.
 
   ```
   module.exports = {
@@ -1782,7 +1782,7 @@ Các dự án mẫu phát triển DApp (Ứng dụng chuỗi khối) sử dụng
    }
   ```
 
-  Nếu sử dụng khuôn khổ web Next.js, bạn có thể thêm cấu hình webpack vào tập tin **next.config.json** như dưới đây:
+  If using Next.js web framework, you can add the webpack configuration to your **next.config.json** file as follows:
 
   ```
   module.exports = {
@@ -1797,7 +1797,7 @@ Các dự án mẫu phát triển DApp (Ứng dụng chuỗi khối) sử dụng
    }
   ```
 
-## Liên kết <a href="#links" id="links"></a>
+## Links <a href="#links" id="links"></a>
 
-- caver-js [Kho GitHub](https://github.com/klaytn/caver-js)
-- caver-js trên [npm](https://www.npmjs.com/package/caver-js)
+- caver-js [GitHub repository](https://github.com/klaytn/caver-js)
+- caver-js on [npm](https://www.npmjs.com/package/caver-js)

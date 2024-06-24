@@ -1,12 +1,12 @@
-# Account
+# 계정 기본 사항
 
 **`경고`**: 비밀번호를 기억하세요. 계정의 비밀번호를 잊어버리면 해당 계정에 액세스할 수 없습니다. **"비밀번호를 잊어버렸습니다"라는 옵션은 없습니다. 절대 분실하지 마세요.**
 
-클레이튼은 개발자가 계정을 관리할 수 있는 두 가지 편리한 명령줄 도구인 `ken`과 `JavaScript 콘솔`을 제공합니다. 개인키를 암호화되지 않은 형식으로 내보내는 것은 지원되지 않는다는 점에 유의하세요.
+카이아는 개발자가 계정을 관리할 수 있는 두 가지 편리한 명령줄 도구인 `ken`과 `JavaScript 콘솔`을 제공합니다. 개인키를 암호화되지 않은 형식으로 내보내는 것은 지원되지 않는다는 점에 유의하세요.
 
 ## ken <a id="ken"></a>
 
-클레이튼 엔드포인트 노드 바이너리 `ken`은 `account` 명령어를 통해 계정 관리를 제공합니다. `account` 명령어를 사용하면 새 계정을 생성하고, 기존 계정을 모두 나열하고, 개인키를 새 계정으로 가져오고, 최신 키 형식으로 마이그레이션하고, 비밀번호를 변경할 수 있습니다.
+카이아 엔드포인트 노드 바이너리 `ken`은 `account` 명령어를 통해 계정 관리를 제공합니다. `account` 명령어를 사용하면 새 계정을 생성하고, 기존 계정을 모두 나열하고, 개인키를 새 계정으로 가져오고, 최신 키 형식으로 마이그레이션하고, 비밀번호를 변경할 수 있습니다.
 
 ### 사용법 <a id="usage"></a>
 
@@ -35,7 +35,7 @@ list [command options] [arguments...]
 
 Print a short summary of all accounts
 
-KLAY OPTIONS:
+KAIA OPTIONS:
   --dbtype value                        Blockchain storage database type ("leveldb", "badger") (default: "leveldb")
   --datadir "/Users/ethan/Library/KEN"  Data directory for the databases and keystore
   --keystore                            Directory for the keystore (default = inside the datadir)
@@ -68,10 +68,10 @@ JavaScript 콘솔에 연결하려면 EN이 실행 중 상태여야 합니다. �
 $ kend start
 Starting kend: OK
 
-$ ken attach ~/kend_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ ken attach ~/kend_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 
@@ -86,8 +86,8 @@ instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
 > personal.newAccount()
 > personal.importRawKey()
 > personal.unlockAccount()
-> klay.accounts
-> klay.getBalance()
+> kaia.accounts
+> kaia.getBalance()
 ```
 
 ### 데이터 디렉터리 <a id="data-directory"></a>

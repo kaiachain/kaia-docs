@@ -155,10 +155,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(App)
 // 1. Inject wallet
 export const integrateWallet = (privateKey) => (dispatch) => {
   // Make wallet instance with caver's privateKeyToAccount API
-  const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)
+  const walletInstance = cav.kaia.accounts.privateKeyToAccount(privateKey)
 
   // To send a transaction, add wallet instance to caver
-  cav.klay.accounts.wallet.add(walletInstance)
+  cav.kaia.accounts.wallet.add(walletInstance)
 
   // To maintain logged-in status, store walletInstance at sessionStorage
   sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
@@ -175,7 +175,7 @@ export const integrateWallet = (privateKey) => (dispatch) => {
 
 // 2. Remove wallet
 export const removeWallet = () => (dispatch) => {
-  cav.klay.accounts.wallet.clear()
+  cav.kaia.accounts.wallet.clear()
   sessionStorage.removeItem('walletInstance')
   return dispatch({
     type: REMOVE_WALLET,
@@ -198,12 +198,11 @@ export const removeWallet = () => (dispatch) => {
 
 블록체인 기반 앱에서 컨트랙트와 상호작용하는 방법에는 두 가지가 있습니다.
 
-1\) 컨트랙트에서 데이터 **읽기**\
-2\) 컨트랙트에 데이터 **쓰기**\
-컨트랙트에서 데이터를 읽는 것은 비용이 들지 않습니다.
+1\) **Reading** data from contract.\
+2\) **Writing** data to contract.
 
-컨트랙트에서 데이터를 읽는 것은 비용이 들지 않습니다.\
-반면에 컨트랙트에 데이터를 쓰는 (트랜잭션 보내기) 작업에는 비용이 발생합니다. 따라서 데이터를 쓰기 위해서는 반드시 KLAY를 보유하고 있는 클레이튼 계정이 있어야 합니다.
+Reading data from contract is cost-free.\
+On the otherhand, there is cost for writing data to contract \(Sending a transaction\). 따라서 데이터를 쓰기 위해서는 반드시 KLAY를 보유하고 있는 클레이튼 계정이 있어야 합니다.
 
 AuthPage에서 `SignupForm`을 통해 클레이튼 계정 (개인키)를 생성할 수 있습니다. 그 후 개인키로 로그인하고 트랜잭션 수수료를 결제할 수 있습니다.
 

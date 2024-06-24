@@ -1,8 +1,8 @@
 ---
-sidebar_label: 부분 수수료 위임
+sidebar_label: Partial Fee Delegation
 ---
 
-# 부분 수수료 위임 유형 트랜잭션 클래스
+# Partial Fee delegation type transaction class
 
 ## FeeDelegatedValueTransferWithRatio <a id="feedelegatedvaluetransferwithratio"></a>
 
@@ -10,43 +10,43 @@ sidebar_label: 부분 수수료 위임
 caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransferWithRatio`는 [수수료 위임 밸류 전송 비율 트랜잭션](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio)을 나타냅니다. `transactionObject`는 아래 프로퍼티를 가지고 `FeeDelegatedValueTransferWithRatio` 트랜잭션을 생성할 수 있습니다.
+`FeeDelegatedValueTransferWithRatio` represents a [fee delegated value transfer with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransferWithRatio` transaction.
 
-`FeeDelegatedValueTransferWithRatio`은 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `FeeDelegatedValueTransfer` 트랜잭션을 생성할 때 `transactionObject`에서 선택적으로 정의할 수 있는 프로퍼티를 나타냅니다.
+`FeeDelegatedValueTransferWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransfer` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `FeeDelegatedValueTransferWithRatio`의 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.feeDelegatedValueTransferWithRatio.create`는 caver-js [v1.6.1](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) 부터 지원됩니다.
+NOTE: You can create an instance of `FeeDelegatedValueTransferWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedValueTransferWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.feeDelegatedValueTransferWithRatio({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.feeDelegatedValueTransferWithRatio.create({...})`로 변경해 주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferWithRatio.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름                 | 유형     | 설명                                                                                                                                               |
-| ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| value              | String | 전송할 peb의 KLAY 양입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                                                                             |
-| from               | String | 발신자의 주소입니다.                                                                                                                                      |
-| to                 | String | 전송된 값을 받을 계정 주소입니다.                                                                                                                              |
-| gas                | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                |
-| feeRatio           | String | 수수료 지불자가 부담하게 될 트랜잭션 수수료의 비율을 구성하는 비율입니다. 이 비율의 유효한 범위는 1에서 99 사이입니다. 0 또는 100 이상의 비율은 허용되지 않습니다.                                                |
-| signatures         | Array  | (선택 사항) 서명의 배열입니다.                                                                                                            |
-| feePayerSignatures | Array  | (선택 사항) 수수료 납부자 서명의 배열입니다.                                                                                                    |
-| feePayer           | String | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                       |
-| nonce              | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다. |
-| gasPrice           | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                               |
-| chainId            | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                          |
+| Name               | Type   | Description                                                                                                                                                                                                                                                |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value              | string | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                              |
+| from               | string | The address of the sender.                                                                                                                                                                                                                 |
+| to                 | string | The account address that will receive the transferred value.                                                                                                                                                                               |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
+| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                      |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                    |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                           |
+| chainId            | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                     |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a feeDelegatedValueTransferWithRatio
 > caver.transaction.feeDelegatedValueTransferWithRatio({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, `klay`),
+    value: caver.utils.toPeb(1, 'KLAY'),
     gas: 25000,
     feeRatio: 30,
 })
@@ -74,44 +74,44 @@ FeeDelegatedValueTransferWithRatio {
 caver.transaction.feeDelegatedValueTransferMemoWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransferMemoWithRatio`은 [수수료 위임 밸류 전송 메모 위드 비율 트랜잭션](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio)을 나타냅니다. `transactionObject`는 아래 프로퍼티를 가지고 `FeeDelegatedValueTransferMemoWithRatio` 트랜잭션을 생성할 수 있습니다.
+`FeeDelegatedValueTransferMemoWithRatio` represents a [fee delegated value transfer memo with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransferMemoWithRatio` transaction.
 
-`FeeDelegatedValueTransferMemoWithRatio`는 아래와 같은 프로퍼티를 멤버 변수로 가집니다. `optional`로 표시된 프로퍼티는 사용자가 `FeeDelegatedValueTransferMemoWithRatio` 트랜잭션을 생성할 때 `transactionObject`에서 선택적으로 정의할 수 있는 프로퍼티를 나타냅니다.
+`FeeDelegatedValueTransferMemoWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransferMemoWithRatio` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `FeeDelegatedValueTransferMemoWithRatio`의 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create`는 caver-js [v1.6.1](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) 부터 지원됩니다.
+NOTE: You can create an instance of `FeeDelegatedValueTransferMemoWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.feeDelegatedValueTransferMemoWithRatio({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create({...})`로 변경해 주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferMemoWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름                 | 유형     | 설명                                                                                                                                               |
-| ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| value              | String | 전송할 peb의 KLAY 양입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                                                                             |
-| from               | String | 발신자의 주소입니다.                                                                                                                                      |
-| to                 | String | 전송된 값을 받을 계정 주소입니다.                                                                                                                              |
-| input              | String | 트랜잭션에 첨부된 데이터입니다. 메시지는 이 프로퍼티로 전달되어야 합니다.                                                                                                        |
-| gas                | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                |
-| feeRatio           | String | 수수료 지불자가 부담하게 될 트랜잭션 수수료의 비율을 구성하는 비율입니다. 이 비율의 유효한 범위는 1에서 99 사이입니다. 0 또는 100 이상의 비율은 허용되지 않습니다.                                                |
-| signatures         | Array  | (선택 사항) 서명의 배열입니다.                                                                                                            |
-| feePayerSignatures | Array  | (선택 사항) 수수료 지불자 서명의 배열입니다.                                                                                                    |
-| feePayer           | String | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                       |
-| nonce              | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다. |
-| gasPrice           | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                               |
-| chainId            | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                          |
+| Name               | Type   | Description                                                                                                                                                                                                                                                |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value              | string | The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                              |
+| from               | string | The address of the sender.                                                                                                                                                                                                                 |
+| to                 | string | The account address that will receive the transferred value.                                                                                                                                                                               |
+| input              | string | Data attached to the transaction. The message should be passed to this property.                                                                                                                                           |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
+| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                      |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                    |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                           |
+| chainId            | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                     |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a feeDelegatedValueTransferMemoWithRatio
 > caver.transaction.feeDelegatedValueTransferMemoWithRatio({
     from: '0x{address in hex}',
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, `klay`),
+    value: caver.utils.toPeb(1, 'KLAY'),
     gas: 25000,
     input: '0x68656c6c6f',
     feeRatio: 30,
@@ -141,37 +141,37 @@ FeeDelegatedValueTransferMemoWithRatio {
 caver.transaction.feeDelegatedAccountUpdateWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedAccountUpdateWithRatio`은 [수수료 위임 계정 업데이트 비율 트랜잭션](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio)을 나타냅니다. `transactionObject`는 아래 속성을 가지고 `FeeDelegatedAccountUpdateWithRatio` 트랜잭션을 생성할 수 있습니다.
+`FeeDelegatedAccountUpdateWithRatio` represents a [fee delegated account update with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio). The `transactionObject` can have properties below to create a `FeeDelegatedAccountUpdateWithRatio` transaction.
 
-`FeeDelegatedAccountUpdateWithRatio`에는 아래와 같은 프로퍼티가 멤버 변수로 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `FeeDelegatedAccountUpdateWithRatio` 트랜잭션을 생성할 때 `transactionObject`에서 선택적으로 정의할 수 있는 프로퍼티를 나타냅니다.
+`FeeDelegatedAccountUpdateWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedAccountUpdateWithRatio` transaction.
 
 :::note
 
-참고: RLP로 인코딩된 문자열에서 `FeeDelegatedAccountUpdateWithRatio` 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.feeDelegatedAccountUpdateWithRatio.create`는 caver-js [v1.6.1](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) 부터 지원됩니다.
+NOTE: You can create an instance of `FeeDelegatedAccountUpdateWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedAccountUpdateWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.feeDelegatedAccountUpdateWithRatio({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.feeDelegatedAccountUpdateWithRatio.create({...})`로 변경해 주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedAccountUpdateWithRatio({...})`, please change it to `caver.transaction.feeDelegatedAccountUpdateWithRatio.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름                 | 유형                                                            | 설명                                                                                                                                             |
-| ------------------ | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | String                                                        | 발신자의 주소입니다.                                                                                                                                    |
-| account            | [Account] | 계정을 업데이트하는 데 필요한 정보가 포함된 [Account] 인스턴스입니다.                                                |
-| gas                | String                                                        | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                              |
-| feeRatio           | String                                                        | 수수료 지불자가 부담하게 될 트랜잭션 수수료의 비율을 구성하는 비율입니다. 이 비율의 유효한 범위는 1에서 99 사이입니다. 0 또는 100 이상의 비율은 허용되지 않습니다.                                              |
-| signatures         | Array                                                         | (선택 사항) 서명의 배열입니다.                                                                                                          |
-| feePayerSignatures | Array                                                         | (선택 사항) 수수료 납부자 서명의 배열입니다.                                                                                                  |
-| feePayer           | String                                                        | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                     |
-| nonce              | String                                                        | (선택 사항) 발신자의 거래를 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다. |
-| gasPrice           | String                                                        | (선택 사항) 발신자가 토큰으로 지불할 금액을 얻기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                              |
-| chainId            | String                                                        | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                        |
+| Name               | Type                                                          | Description                                                                                                                                                                                                                                                |
+| ------------------ | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string                                                        | The address of the sender.                                                                                                                                                                                                                 |
+| account            | [Account] | An [Account] instance that contains the information needed to update your account.                                                                                                     |
+| gas                | string                                                        | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
+| feeRatio           | string                                                        | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| signatures         | Array                                                         | (optional) An array of signatures.                                                                                                                                                                                      |
+| feePayerSignatures | Array                                                         | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
+| feePayer           | string                                                        | (optional) The address of fee payer.                                                                                                                                                                                    |
+| nonce              | string                                                        | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
+| gasPrice           | string                                                        | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                           |
+| chainId            | string                                                        | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                     |
 
-`AccountKey` 유형별로 [Account] 인스턴스를 생성하는 방법은 [시작하기 - 계정 업데이트](../../get-started.md#account-update) 또는 [caver.account.create](../caver.account.md#caver-account-create)를 참조하시기 바랍니다.
+For how to create an [Account] instance for each `AccountKey` type, refer to [Getting Started - Account Update](../../get-started.md#account-update) or [caver.account.create](../caver.account.md#caver-account-create).
 
-**예시**
+**Example**
 
 ```javascript
 // Create a feeDelegatedAccountUpdateWithRatio
@@ -207,39 +207,39 @@ FeeDelegatedAccountUpdateWithRatio {
 caver.transaction.feeDelegatedSmartContractDeployWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractDeployWithRatio`는 [수수료 위임 스마트 컨트랙트 배포 비율 트랜잭션](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio)를 나타냅니다. `transactionObject`는 아래 프로퍼티를 가지고 `FeeDelegatedSmartContractDeployWithRatio` 트랜잭션을 생성할 수 있습니다.
+`FeeDelegatedSmartContractDeployWithRatio` represents a [fee delegated smart contract deploy with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractDeployWithRatio` transaction.
 
-`FeeDelegatedSmartContractDeployWithRatio`은 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `FeeDelegatedSmartContractDeployWithRatio` 트랜잭션을 생성할 때 `transactionObject`에서 선택적으로 정의할 수 있는 프로퍼티를 나타냅니다.
+`FeeDelegatedSmartContractDeployWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractDeployWithRatio` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `FeeDelegatedSmartContractDeployWithRatio`의 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create`는 caver-js [v1.6.1](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) 부터 지원됩니다.
+NOTE: You can create an instance of `FeeDelegatedSmartContractDeployWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.feeDelegatedSmartContractDeployWithRatio({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create({...})`로 변경해 주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractDeployWithRatio({...})`, please change it to `caver.transaction.feeDelegatedSmartContractDeployWithRatio.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름                 | 유형      | 설명                                                                                                                                                              |
-| ------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | String  | 발신자의 주소입니다.                                                                                                                                                     |
-| input              | String  | 트랜잭션에 첨부된 데이터입니다. 배포할 스마트 컨트랙트의 바이트 코드와 그 인수입니다. [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy)를 통해 이 정보를 얻을 수 있습니다.                    |
-| gas                | String  | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                               |
-| feeRatio           | String  | 수수료 지불자가 부담하게 될 트랜잭션 수수료의 비율을 구성하는 비율입니다. 이 비율의 유효한 범위는 1에서 99 사이입니다. 0 또는 100 이상의 비율은 허용되지 않습니다.                                                               |
-| value              | String  | (선택 사항, 기본값: `'0x0'`) 송금할 peb 단위의 KLAY 양입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                                                |
-| to                 | String  | (선택 사항, 기본값: `'0x'`) 스마트 컨트랙트가 배포될 주소입니다. 현재 이 값은 정의할 수 없습니다. 주소 지정은 향후 지원될 예정입니다.                                                           |
-| humanReadable      | Boolean | (선택 사항, 기본값: `false`) 사람이 읽을 수 있는 주소는 아직 지원되지 않으므로 이 값은 false이어야 합니다.                                                                        |
-| codeFormat         | String  | (선택 사항, 기본값: `'EVM'`) 스마트 컨트랙트 코드의 코드 형식입니다. 현재 지원되는 값은 EVM만 있습니다. 이 값은 내부적으로 할당 후 16진수 문자열로 변환됩니다(예: `EVM`은 `0x0`으로 변환). |
-| signatures         | Array   | (선택 사항) 서명의 배열입니다.                                                                                                                           |
-| feePayerSignatures | Array   | (선택 사항) 수수료 납부자 서명의 배열입니다.                                                                                                                   |
-| feePayer           | String  | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                                      |
-| nonce              | String  | (선택 사항) 발신자의 거래를 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다.                  |
-| gasPrice           | String  | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                                              |
-| chainId            | String  | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                                         |
+| Name               | Type    | Description                                                                                                                                                                                                                                                                                                                                    |
+| ------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string  | The address of the sender.                                                                                                                                                                                                                                                                                                     |
+| input              | string  | Data attached to the transaction. The byte code of the smart contract to be deployed and its arguments. You can get this through [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy).                                                       |
+| gas                | string  | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                       |
+| feeRatio           | string  | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed.                                                                                     |
+| value              | string  | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                                                  |
+| to                 | string  | (optional, default: `'0x'`) Address to which the smart contract is deployed. Currently, this value cannot be defined. Specifying the address will be supported in the future.                                                                               |
+| humanReadable      | boolean | (optional, default: `false`) This must be false since human-readable address is not supported yet.                                                                                                                                                                                          |
+| codeFormat         | string  | (optional, default: `'EVM'`) The code format of smart contract code. The supported value, for now, is EVM only. This value is converted to hex string after the assignment(e.g> `EVM` is converted to `0x0`) internally. |
+| signatures         | Array   | (optional) An array of signatures.                                                                                                                                                                                                                                                                          |
+| feePayerSignatures | Array   | (optional) An array of feePayerSignatures.                                                                                                                                                                                                                                                                  |
+| feePayer           | string  | (optional) The address of fee payer.                                                                                                                                                                                                                                                                        |
+| nonce              | string  | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                                                        |
+| gasPrice           | string  | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                                                                                               |
+| chainId            | string  | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                                                                                         |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a feeDelegatedSmartContractDeployWithRatio
@@ -276,37 +276,37 @@ FeeDelegatedSmartContractDeployWithRatio {
 caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractExecutionWithRatio`는 [수수료 위임 스마트 컨트랙트 실행 비율 트랜잭션](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio)을 나타냅니다. `transactionObject`는 아래 프로퍼티를 가지고 `FeeDelegatedSmartContractExecutionWithRatio` 트랜잭션을 생성할 수 있습니다.
+`FeeDelegatedSmartContractExecutionWithRatio` represents a [fee delegated smart contract execution with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractExecutionWithRatio` transaction.
 
-`FeeDelegatedSmartContractExecutionWithRatio`은 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `FeeDelegatedSmartContractExecutionWithRatio` 트랜잭션을 생성할 때 `transactionObject`에서 선택적으로 정의할 수 있는 프로퍼티를 나타냅니다.
+`FeeDelegatedSmartContractExecutionWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractExecutionWithRatio` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `FeeDelegatedSmartContractExecutionWithRatio`의 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create`는 caver-js [v1.6.1](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) 부터 지원됩니다.
+NOTE: You can create an instance of `FeeDelegatedSmartContractExecutionWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.feeDelegatedSmartContractExecutionWithRatio({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create({...})`로 변경해 주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractExecutionWithRatio({...})`, please change it to `caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름                 | 유형     | 설명                                                                                                                                                                                                                                                 |
-| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | String | 발신자의 주소입니다.                                                                                                                                                                                                                                        |
-| to                 | String | 실행할 스마트 컨트랙트 계정의 주소입니다.                                                                                                                                                                                                                            |
-| input              | String | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다. 입력은 호출할 함수와 이 함수에 전달할 매개변수를 나타내는 인코딩된 문자열입니다. 이 인코딩된 문자열은 [caver.abi.encodeFunctionCall](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio)을 통해 얻을 수 있습니다. |
-| gas                | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                                                                                                                  |
-| feeRatio           | String | 수수료 납부자가 부담하게 될 트랜잭션 수수료의 비율을 구성하는 비율입니다. 이 비율의 유효한 범위는 1에서 99 사이입니다. 비율 0 또는 100 이상은 허용되지 않습니다.                                                                                                                                                   |
-| value              | String | (선택 사항, 기본값: `'0x0'`) 송금할 peb 단위의 KLAY 양입니다. `caver.utils.toPeb`을 사용할 수 있습니다.                                                                                                                                                   |
-| signatures         | Array  | (선택 사항) 서명의 배열입니다.                                                                                                                                                                                                              |
-| feePayerSignatures | Array  | (선택 사항) 수수료 납부자 서명의 배열입니다.                                                                                                                                                                                                      |
-| feePayer           | String | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                                                                                                                         |
-| nonce              | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다.                                                                                                   |
-| gasPrice           | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                                                                                                                                 |
-| chainId            | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                                                                                                                            |
+| Name               | Type   | Description                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string | The address of sender.                                                                                                                                                                                                                                                                                                                                       |
+| to                 | string | The address of the smart contract account to be executed.                                                                                                                                                                                                                                                                                                    |
+| input              | string | Data attached to the transaction, used for transaction execution. The input is an encoded string that indicates a function to call and parameters to be passed to this function. You can get this encoded string through [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                                                     |
+| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed.                                                                                                                   |
+| value              | string | (optional, default: `'0x0'`) The amount of KLAY in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                                                                                |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                                                                                                                                        |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                                                                                                                                                |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                                                                                                                                      |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                                                                                                                                      |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                                                                                                                                             |
+| chainId            | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                                                                                                                                       |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a feeDelegatedSmartContractExecutionWithRatio
@@ -342,34 +342,34 @@ FeeDelegatedSmartContractExecutionWithRatio {
 caver.transaction.feeDelegatedCancelWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedCancelWithRatio`은 [수수료 위임 취소 비율 트랜잭션](../caver.abi.md#encodefunctioncall)을 나타냅니다. `transactionObject`는 아래 프로퍼티를 가지고 `FeeDelegatedCancelWithRatio` 트랜잭션을 생성할 수 있습니다.
+`FeeDelegatedCancelWithRatio` represents a [fee delegated cancel with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio). The `transactionObject` can have properties below to create a `FeeDelegatedCancelWithRatio` transaction.
 
-`FeeDelegatedCancelWithRatio`은 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `FeeDelegatedCancelWithRatio` 트랜잭션을 생성할 때 `transactionObject`에서 선택적으로 정의할 수 있는 프로퍼티를 나타냅니다.
+`FeeDelegatedCancelWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedCancelWithRatio` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `FeeDelegatedCancelWithRatio`의 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.feeDelegatedCancelWithRatio.create`는 caver-js [v1.6.1](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) 부터 지원됩니다.
+NOTE: You can create an instance of `FeeDelegatedCancelWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedCancelWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)부터 트랜잭션 생성은 `create` 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.feeDelegatedCancelWithRatio({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.feeDelegatedCancelWithRatio.create({...})`로 변경해주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedCancelWithRatio({...})`, please change it to `caver.transaction.feeDelegatedCancelWithRatio.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름                 | 유형     | 설명                                                                                                                                               |
-| ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| from               | String | 발신자의 주소입니다.                                                                                                                                      |
-| gas                | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                |
-| feeRatio           | String | 수수료 지불자가 부담하게 될 트랜잭션 수수료의 비율을 구성하는 비율입니다. 이 비율의 유효한 범위는 1에서 99 사이입니다. 0 또는 100 이상의 비율은 허용되지 않습니다.                                                |
-| nonce              | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다. |
-| signatures         | Array  | (선택 사항) 서명의 배열입니다.                                                                                                            |
-| feePayerSignatures | Array  | (선택 사항) 수수료 지불자 서명의 배열입니다.                                                                                                    |
-| feePayer           | String | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                       |
-| gasPrice           | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 얻기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                                |
-| chainId            | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                          |
+| Name               | Type   | Description                                                                                                                                                                                                                                                |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string | The address of the sender.                                                                                                                                                                                                                 |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
+| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                      |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                    |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                           |
+| chainId            | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                     |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a feeDelegatedCancelWithRatio
@@ -401,35 +401,35 @@ FeeDelegatedCancelWithRatio {
 caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedChainDataAnchoringWithRatio`는 [수수료 위임 체인 데이터 앵커링 비율 트랜잭션](https://www.npmjs.com/package/caver-js/v/1.6.1)을 나타냅니다. `transactionObject`는 아래 프로퍼티를 가지고 `FeeDelegatedChainDataAnchoringWithRatio` 트랜잭션을 생성할 수 있습니다.
+`FeeDelegatedChainDataAnchoringWithRatio` represents a [fee delegated chain data anchoring with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio). The `transactionObject` can have properties below to create a `FeeDelegatedChainDataAnchoringWithRatio` transaction.
 
-`FeeDelegatedChainDataAnchoringWithRatio`은 아래와 같은 프로퍼티를 멤버 변수로 가지고 있습니다. `optional`로 표시된 프로퍼티는 사용자가 `FeeDelegatedChainDataAnchoringWithRatio` 트랜잭션을 생성할 때 `transactionObject`에서 선택적으로 정의할 수 있는 프로퍼티를 나타냅니다.
+`FeeDelegatedChainDataAnchoringWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedChainDataAnchoringWithRatio` transaction.
 
 :::note
 
-참고: RLP 인코딩된 문자열에서 `FeeDelegatedChainDataAnchoringWithRatio`의 인스턴스를 생성할 수 있습니다. 아래 예시를 참고하시기 바랍니다.
-참고: `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create`는 caver-js [v1.6.1](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio) 부터 지원됩니다.
+NOTE: You can create an instance of `FeeDelegatedChainDataAnchoringWithRatio` from RLP-encoded strings. Please refer to the below example.
+NOTE: `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
-참고: caver-js [v1.8.1-rc.4](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)부터 트랜잭션 생성은 'create' 함수를 통해서만 지원됩니다. 기존에 `new caver.transaction.feeDelegatedChainDataAnchoringWithRatio({...})`와 같은 생성자를 사용하여 트랜잭션을 생성했다면, `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create({...})`로 변경해 주시기 바랍니다.
+NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedChainDataAnchoringWithRatio({...})`, please change it to `caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create({...})`.
 
 :::
 
-**속성**
+**properties**
 
-| 이름                 | 유형     | 설명                                                                                                                                               |
-| ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| from               | String | 발신자의 주소입니다.                                                                                                                                      |
-| input              | String | 서비스 체인의 데이터입니다.                                                                                                                                  |
-| gas                | String | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                |
-| feeRatio           | String | 수수료 납부자가 부담하게 될 트랜잭션 수수료의 비율을 구성하는 비율입니다. 이 비율의 유효한 범위는 1에서 99 사이입니다. 0 또는 100 이상의 비율은 허용되지 않습니다.                                                |
-| nonce              | String | (선택 사항) 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 생략하면 `caver.rpc.klay.getTransactionCount(address, 'pending')`가 nonce를 설정하는 데 사용됩니다. |
-| signatures         | Array  | (선택 사항) 서명의 배열입니다.                                                                                                            |
-| feePayerSignatures | Array  | (선택 사항) 수수료 납부자 서명의 배열입니다.                                                                                                    |
-| feePayer           | String | (선택 사항) 수수료 납부자의 주소입니다.                                                                                                       |
-| gasPrice           | String | (선택 사항) 발신자가 토큰으로 지불할 금액을 구하기 위한 승수입니다. 생략하면 `caver.rpc.klay.getGasPrice`가 가스 가격을 설정하는 데 사용됩니다.                               |
-| chainId            | String | (선택 사항) 클레이튼 네트워크의 체인 아이디입니다. 생략하면 `caver.rpc.klay.getChainId`가 체인아이디를 설정하는 데 사용됩니다.                                          |
+| Name               | Type   | Description                                                                                                                                                                                                                                                |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from               | string | The address of the sender.                                                                                                                                                                                                                 |
+| input              | string | Data of the service chain.                                                                                                                                                                                                                 |
+| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
+| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
+| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
+| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                      |
+| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
+| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                    |
+| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                           |
+| chainId            | string | (optional) The chain id of the Klaytn network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                     |
 
-**예시**
+**Example**
 
 ```javascript
 // Create a feeDelegatedChainDataAnchoringWithRatio

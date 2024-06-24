@@ -1,6 +1,6 @@
 # 토큰 전송
 
-클레이튼 디자인 섹션에서 설명한 것처럼 서비스체인은 부모체인과 자식체인 간의 밸류(KLAY, ERC-20, ERC-721) 전송을 지원합니다.
+카이아 디자인 섹션에서 설명한 것처럼 서비스체인은 부모체인과 자식체인 간의 밸류(KLAY, ERC-20, ERC-721) 전송을 지원합니다.
 이 페이지는 SCN에서 밸류 전송 기능을 활성화하는 방법을 보여줍니다.
 
 EN과 SCN을 설정한 후 체인 간 밸류 전송을 활성화하려면 다음 절차가 필요합니다.
@@ -30,8 +30,8 @@ EN과 SCN을 설정한 후 체인 간 밸류 전송을 활성화하려면 다음
 서비스체인에는 부모 체인 브리지 오퍼레이터 계정과 서비스 체인 브리지 오퍼레이터 계정의 두 가지 오퍼레이터 계정이 있습니다. 각 오퍼레이터 계정은 트랜잭션에 서명하는 데 사용됩니다.
 트랜잭션이 부모 체인으로 값을 이동하면 부모 체인 브리지 오퍼레이터 계정이 트랜잭션에 서명합니다. 자식 체인에는 자식 체인 브리지 오퍼레이터 계정이 사용됩니다.
 사용자가 '값 전송 요청' 트랜잭션을 제출하면 하위 브리지는 브리지 오퍼레이터 계정이 서명한 '값 전송 처리' 트랜잭션을 생성합니다.
-그런 다음 `parentOperator`에게 KLAY를 전송합니다.
-서비스 체인의 가스 가격이 0이 아닌 값으로 설정된 경우, 서비스 체인 브리지 오퍼레이터의 잔액에도 KLAY가 있어야 합니다.
+그런 다음 `parentOperator`에게 KAIA를 전송합니다.
+서비스 체인의 가스 가격이 0이 아닌 값으로 설정된 경우, 서비스 체인 브리지 오퍼레이터의 잔액에도 KAIA가 있어야 합니다.
 
 ### 키 저장소 및 비밀번호 파일 <a id="keystore-and-password-file"></a>
 
@@ -70,10 +70,10 @@ UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 SCN을 정상적으로 실행했다면, 아래와 같이 RPC API를 사용하여 부모/자식 체인 브리지 오퍼레이터 주소를 확인할 수 있습니다.
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
@@ -84,22 +84,22 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-You can refer to the [subbridge API](../../../references/json-rpc/subbridge/parent-operator) for more details.
+자세한 내용은 [subbridge API](../../../references/json-rpc/subbridge/parent-operator)를 참조하세요.
 
-### 브리지 오퍼레이터에게 KLAY 보내기 <a id="send-klay-to-bridge-operators"></a>
+### 브리지 오퍼레이터에게 KAIA 보내기 <a id="send-klay-to-bridge-operators"></a>
 
-`subbridge.parentOperator`와 `subbridge.childOperator`는 트랜잭션을 전송하기에 충분한 KLAY를 가지고 있어야 합니다.
-서비스 체인의 가스 가격이 0이 아닌 값으로 설정된 경우, 서비스 체인 브리지 오퍼레이터의 잔액에도 KLAY가 있어야 합니다.
+`subbridge.parentOperator`와 `subbridge.childOperator`는 트랜잭션을 전송하기에 충분한 KAIA를 가지고 있어야 합니다.
+서비스 체인의 가스 가격이 0이 아닌 값으로 설정된 경우, 서비스 체인 브리지 오퍼레이터의 잔액에도 KAIA가 있어야 합니다.
 
 운영자 계정을 충전한 후 아래와 같이 잔액을 확인할 수 있습니다.
 
 **자식 체인 브리지 운영자**
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
- instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -110,10 +110,10 @@ Welcome to the Klaytn JavaScript console!
 **상위 체인 브리지 오퍼레이터**
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
- instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -124,7 +124,7 @@ Welcome to the Klaytn JavaScript console!
 ## 브리지 컨트랙트 <a id="bridge-contract"></a>
 
 토큰 컨트랙트는 발행/전송 테스트를 위한 것이고, 브리지 컨트랙트는 밸류 전송 요청을 수신/처리하는 데 사용됩니다.
-사용자는 브리지 컨트랙트에 KLAY 전송을 요청하여 자신의 KLAY를 다른 체인으로 전송할 수 있습니다.
+사용자는 브리지 컨트랙트에 KAIA 전송을 요청하여 자신의 KAIA를 다른 체인으로 전송할 수 있습니다.
 KIP-7 토큰 컨트랙트에 `requestERC20Transfer()` 함수를 호출하여 부모 체인과 자식 체인 간에 KIP-7 토큰을 전송할 수 있습니다.
 
 ### 배포 <a id="deployment"></a>
@@ -133,10 +133,10 @@ KIP-7 토큰 컨트랙트에 `requestERC20Transfer()` 함수를 호출하여 부
 이 작업을 수행하기 전에 메인 브리지와 서브 브리지를 연결해야 합니다. 자세한 가이드는 [브리지 구성](bridge-configuration.md)을 참고하시기 바랍니다.
 
 ```javascript
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
@@ -152,7 +152,7 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 }]
 ```
 
-You can refer to the [subbridge API](../../..references/json-rpc/subbridge/deploy-bridge) for more details.
+자세한 내용은 [subbridge API](../../..references/json-rpc/subbridge/deploy-bridge)를 참조하세요.
 
 `subbridge_listBridge`는 브리지 컨트랙트 주소와 해당 컨트랙트의 구독 상태를 보여줍니다.
 서브브릿지는 브리지 컨트랙트 주소 목록을 파일에 저장합니다. 재부팅 시 서브브릿지는 파일에서 브리지 컨트랙트 목록을 다시 로드합니다.
@@ -253,20 +253,20 @@ null
 
 이 명령은 자식 체인 토큰("0x376b72abe1b29cace831bd3f5acdfa967814c9cd")을 자식 체인 브리지 컨트랙트("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")와 함께 등록합니다. 이 단계에서는 부모 체인뿐만 아니라 자식 체인에 브리지 컨트랙트와 토큰 컨트랙트를 모두 배포합니다.
 
-You can refer to the [Service Chain API](../../../references/json-rpc/subbridge/register-token) for more details.
+자세한 내용은 [Service Chain API](../../../references/json-rpc/subbridge/register-token)를 참조하세요.
 
 ## 밸류 전송 요청 <a id="request-value-transfer"></a>
 
 이 섹션에서는 사용자가 밸류 전송을 요청하기 위해 호출할 컨트랙트 메서드에 대해 설명합니다.
 요청 트랜잭션은 0 값을 허용하지 않습니다(KLAY/ERC-20).
 
-### KLAY 전송 <a id="klay-transfer"></a>
+### KAIA 전송 <a id="klay-transfer"></a>
 
 사용자는 아래 방법을 사용하여 **브릿지 컨트랙트**에 "밸류 전송 요청" 트랜잭션을 생성할 수 있습니다.
 
 #### fallback <a id="fallback"></a>
 
-사용자가 브리지의 폴백 기능을 호출하면 상대방 체인에서 요청하는 사용자와 동일한 계정 주소로 KLAY 전송을 요청합니다.
+사용자가 브리지의 폴백 기능을 호출하면 상대방 체인에서 요청하는 사용자와 동일한 계정 주소로 KAIA 전송을 요청합니다.
 
 ```solidity
 function () external payable;
@@ -274,10 +274,10 @@ function () external payable;
 
 #### requestKLAYTransfer <a id="requestklaytransfer"></a>
 
-사용자가 `_to`와 함께 이 함수를 호출하면 상대방 체인에 있는 `_to` 주소로 KLAY 전송을 요청합니다.
+사용자가 `_to`와 함께 이 함수를 호출하면 상대방 체인에 있는 `_to` 주소로 KAIA 전송을 요청합니다.
 
 ```solidity
-function requestKLAYTransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
+function requestKAIATransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
 ```
 
 ### ERC-20 토큰 전송(원스텝) <a id="erc-20-token-transfer-onestep"></a>
@@ -299,7 +299,7 @@ function requestERC20Transfer(address _tokenAddress, address _to, uint256 _value
 function requestValueTransfer(uint256 _amount, address _to, uint256 _feeLimit, bytes calldata _extraData) external
 ```
 
-### ERC-721, KIP-17, KLAY용 밸류 전송 <a id="value-transfer-for-erc721-kip17-and-klay"></a>
+### ERC-721, KIP-17, KAIA용 밸류 전송 <a id="value-transfer-for-erc721-kip17-and-klay"></a>
 
 #### 2단계: 컨트랙트 배포 <a id="step-2-deploy-contracts"></a>
 
@@ -321,16 +321,16 @@ function requestValueTransfer(uint256 _uid, address _to) external
 ### onERC721Received() <a id="unsupported-onERC721Received"></a>
 
 ERC-721 표준에는 [onERC721Received](https://eips.ethereum.org/EIPS/eip-721) 콜백 함수가 있습니다.
-현재 클레이튼 팀이 제공하는 브리지 컨트랙트는 토큰 전송을 위해 `requestERC20Transfer()`와 `requestERC721Transfer()`만 지원하고 있습니다.
+현재 카이아 팀이 제공하는 브리지 컨트랙트는 토큰 전송을 위해 `requestERC20Transfer()`와 `requestERC721Transfer()`만 지원하고 있습니다.
 
 아니면 `onERC721Recieved()`와 같은 추가 작업은 이벤트 수신과 같은 다른 방식으로 구현해야 합니다(예: `event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)`).
 
 ## 밸류 전송 복구
 
-여러 가지 이유로 밸류 전송 요청이 실패할 수 있습니다. 서브 브리지에서 메인 브리지로 또는 메인 브리지에서 서브 브리지로 KLAY 전송을 요청했다고 가정해 봅시다.
-이 경우 수신자 측의 브리지 컨트랙트에 요청된 KLAY 수량보다 충분한 KLAY가 있어야 합니다. 그렇지 않으면 반환 값에 오류 알림 없이 전송이 실패합니다.
+여러 가지 이유로 밸류 전송 요청이 실패할 수 있습니다. 서브 브리지에서 메인 브리지로 또는 메인 브리지에서 서브 브리지로 KAIA 전송을 요청했다고 가정해 봅시다.
+이 경우 수신자 측의 브리지 컨트랙트에 요청된 KAIA 수량보다 충분한 KAIA가 있어야 합니다. 그렇지 않으면 반환 값에 오류 알림 없이 전송이 실패합니다.
 밸류 전송 복구 기능은 처리되지 않은 이벤트를 찾아 일정 간격으로 이벤트 풀에 다시 삽입하는 기능으로, 상대방 브리지가 해당 이벤트를 성공적으로 처리할 수 있을 때 실패한 트랜잭션이 다시 성공할 수 있습니다.
-위 예시의 경우, 실패한 트랜잭션은 상대 브리지에 충분한 KLAY가 있을 때 밸류 전송 복구에 의해 최종적으로 처리될 것입니다.
+위 예시의 경우, 실패한 트랜잭션은 상대 브리지에 충분한 KAIA가 있을 때 밸류 전송 복구에 의해 최종적으로 처리될 것입니다.
 값 전송 복구를 기본값으로 설정하기 위해서는 두 가지 속성을 설정해야 합니다:
 
 ```
@@ -342,7 +342,7 @@ SC_VTRECOVERY_INTERVAL=5
 
 ## ERC-20 인터페이스를 통한 KIP-7 토큰 전송(2단계) <a id="kip-7-token-transfer-via-erc-20-interface-two-step"></a>
 
-서비스체인에는 KLAY/ERC-20 전송에 대한 수수료 징수 기능이 있습니다.
+서비스체인에는 KAIA/ERC-20 전송에 대한 수수료 징수 기능이 있습니다.
 
 **곧 업데이트될 예정입니다.**
 

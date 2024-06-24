@@ -1,160 +1,160 @@
-# Tài khoản
+# Accounts
 
-## Tài khoản Klaytn <a id="klaytn-accounts"></a>
+## Kaia Accounts <a id="kaia-accounts"></a>
 
-### Tổng quan về tài khoản, trạng thái và địa chỉ <a id="overview-of-account-state-and-address"></a>
+### Overview of Account, State, and Address <a id="overview-of-account-state-and-address"></a>
 
-Tài khoản trong Klaytn là một cấu trúc dữ liệu chứa thông tin về số dư của một người hoặc một hợp đồng thông minh. Trạng thái của Klaytn là tập hợp của tất cả các trạng thái của tài khoản trong đó - nghĩa là trạng thái trong quá khứ và hiện tại của tất cả các dữ liệu được lưu trữ trong tất cả các tài khoản của Klaytn. Khi một giao dịch được thực thi trên một nút Klaytn, thì kết quả là trạng thái của Klaytn sẽ thay đổi trên khắp tất cả các nút. Trạng thái của các nút trong mạng lưới Klaytn phải giống nhau nếu chúng đã xử lý các khối giống nhau có cùng thứ tự. Thông tin trạng thái của mỗi tài khoản được liên kết với địa chỉ 20 byte, địa chỉ này được dùng để định danh từng tài khoản.
+An account in Kaia is a data structure containing information about a person's balance or a smart contract. Kaia's state is the collection of all its accounts' states - that is, the past and current state of all data stored across Kaia's accounts. When a transaction is executed on a Kaia node, the state of Kaia consequently changes across all its nodes. The state should be the same across all nodes in the Kaia network if they have processed the same blocks in the same order. State information of each account is associated with a 20-byte address, which is used to identify each account.
 
-### Tách các cặp khóa khỏi địa chỉ <a id="decoupling-key-pairs-from-addresses"></a>
+### Decoupling Key Pairs From Addresses <a id="decoupling-key-pairs-from-addresses"></a>
 
-Một tài khoản là một nền tảng chuỗi khối điển hình liên kết với một địa chỉ đã xử lý mã hóa với độ dài nhất định, thường có dạng: "0x0fe2e20716753082222b52e753854f40afddffd2". Địa chỉ này được gắn chặt với một cặp khóa. Nếu đã chọn một cặp khóa, địa chỉ sẽ được lấy từ mã khóa công khai. Về mặt trải nghiệm người dùng, việc này có nhiều bất lợi. Dưới đây là một số bất lợi đó:
+An account in a typical blockchain platform is associated with a cryptographically processed address of a certain length that usually looks like this: "0x0fe2e20716753082222b52e753854f40afddffd2". This address is strongly coupled with a key pair. If a key pair is chosen, the address is derived from the public key. This has many disadvantages in terms of user experience. Some of them are the following:
 
-- Người dùng không thể có địa chỉ mong muốn.
-- Người dùng không thể dùng nhiều cặp khóa khác nhau để tăng cường bảo mật cho tài khoản của họ.
-- Người dùng không thể thay đổi cặp khóa của tài khoản khi mã khóa riêng tư vô tình bị lộ, hoặc khi người dùng muốn cập nhật mã khóa riêng tư định kỳ để tăng cường bảo mật cho tài khoản.
+- It is impossible for users to have addresses they want.
+- It is impossible for users to use multiple key pairs to increase security of their accounts.
+- It is impossible for users to change the account's key pair when the private key is accidentally exposed or when users want to update the private key periodically to increase the account's security.
 
-Đây là những rào cản lớn khiến người dùng không thể coi địa chỉ là mã định danh trong nền tảng chuỗi khối. Để gỡ bỏ rào cản này, Klaytn hỗ trợ một tính năng cho phép người dùng chọn địa chỉ và cặp khóa của họ. Với tính năng này, người dùng có thể chọn địa chỉ mong muốn và họ có thể dùng nhiều cặp khóa khác nhau để tăng cường bảo mật. Số lượng cặp khóa có thể là một hoặc nhiều hơn và các cặp khóa có thể giữ các vai trò khác nhau. Để biết thêm thông tin chi tiết về nhiều cặp khóa hoặc các mã khóa theo vai trò, vui lòng tham khảo phần [Nhiều cặp khóa & khóa theo vai trò](#multiple-key-pairs-and-role-based-keys).
+Those are big hurdles that users cannot think of an address as an identifier in the blockchain platform. To clear this hurdle, Kaia provides a feature that users can choose their addresses and key pairs. With this feature, users can choose addresses that they want and they can use multiple key pairs to increase security. The number of key pairs can be one or more, and the key pairs can have different roles. For details of multiple key pairs or role-based keys, please refer to [Multiple Key Pairs & Role-Based Keys](#multiple-key-pairs-and-role-based-keys).
 
-Bạn cũng nên lưu ý rằng Klaytn còn hỗ trợ phiên bản cũ, trong đó một cặp khóa và một địa chỉ được liên kết chặt chẽ với nhau.
+It is worth noting that Kaia also supports the old scheme that a key pair and an address are strongly coupled.
 
-### Nhiều cặp khóa và khóa theo vai trò <a id="multiple-key-pairs-and-role-based-keys"></a>
+### Multiple Key Pairs and Role-Based Keys <a id="multiple-key-pairs-and-role-based-keys"></a>
 
-Như đã mô tả ở trên, khi một mã khóa riêng tư bị đánh cắp, bị lộ hoặc bị xâm phạm theo cách nào đó, bạn không thể làm gì để khôi phục tính bảo mật của tài khoản: tùy chọn tốt nhất là tạo một cặp khóa khác để tạo một tài khoản mới, rồi chuyển số dư từ tài khoản cũ bị xâm nhập sang tài khoản mới đó. Việc thiếu sự hỗ trợ cho các phương án dùng khóa nâng cao, ví dụ như đa chữ ký hoặc khóa dành riêng cho từng trường hợp sử dụng lại là một sự bất tiện đáng kể khác. Để giải quyết các vấn đề đó theo cách hiệu quả hơn, tài khoản Klaytn mang đến những khả năng sau:
+As described before, when the private key is stolen, exposed, or somehow compromised, there is nothing to do to restore the account’s security: the best option is to generate another key pair to create a new account, and migrate the balance from the old compromised account to the new one. Lack of support for advanced key schemes such as multi-sig or usage-specific key is yet another source of major inconvenience. To address those problems more efficiently, Kaia accounts provide the following capabilities:
 
-- Tài khoản Klaytn cho phép thay đổi cặp khóa được liên kết với tài khoản.
-- Tài khoản Klaytn hỗ trợ nhiều cặp khóa, cùng với khả năng chỉ định từng khóa cho các mục đích khác nhau.
-- Tài khoản Klaytn duy trì khả năng tương thích với các tài khoản chỉ có một khóa được liên kết chặt chẽ với địa chỉ.
+- Kaia account allows the key pair associated with the account to be changed.
+- Kaia account supports multiple key pairs, along with the ability to assign each key with different purpose.
+- Kaia account maintains compatibility with accounts having a single key that is strongly coupled with the address.
 
-Bằng cách tận dụng khả năng hỗ trợ nhiều khóa theo vai trò của tài khoản Klaytn, người dùng cuối có thể xử lý tốt hơn các tình huống rủi ro về bảo mật trong thực tế, ví dụ như quản lý sai cách mã khóa riêng. Ví dụ, khi một người dùng nhận thấy mã khóa riêng tư của mình đã bị lộ, người dùng này chỉ cần thay thế mã khóa riêng tư bị lộ bằng cách xóa cặp khóa bị lộ khỏi tài khoản của mình và tạo một cặp khóa mới thay thế. Để thực hiện được điều này, chúng ta có thể dùng khóa dành riêng được dùng để cập nhật thông tin tài khoản, được tạo trước và lưu trữ riêng biệt với khóa riêng tư bị xâm phạm.
+By utilizing Kaia account’s role-based multi-key support, end-users can better handle real-life security risk situations such as private key mismanagement. For example, when a user realizes that his or her private key has been exposed, the user can simply replace the compromised private key by removing the exposed key pair from his or her account and creating a new key pair to replace them. This could be achieved by using a dedicated key used for updating account information, created in advance and stored separately from the compromised private key.
 
-### Địa chỉ mà con người đọc được \(HRA\) <a id="human-readable-address-hra"></a>
+### Human-Readable Address \(HRA\) <a id="human-readable-address-hra"></a>
 
-Mặc dù mô hình địa chỉ \(ví dụ: "0x0fe2e20716753082222b52e753854f40afddffd2"\) có điểm mạnh riêng ở chỗ mô hình này bảo vệ hiệu quả quyền riêng tư của chủ tài khoản nhưng cũng gây ra vấn đề lớn về trải nghiệm của người dùng cuối. Trước tiên, não bộ con người rất khó ghi nhớ hoặc thậm chí là nhận ra những địa chỉ như vậy, do đó, lỗi nhập địa chỉ cũng như nhiều lỗi chủ quan khác nhau rất dễ xảy ra, dẫn đến thiệt hại tài chính không nhỏ. Thứ hai, mô hình địa chỉ như vậy sẽ tước mất quyền lựa chọn cách xử lý danh tính theo cách riêng của người dùng cuối để họ có thể dễ ghi nhớ hoặc sử dụng. Kết hợp lại, những vấn đề này là một trong những rào cản khiến người dùng cuối thông thường \(những người đã quen với trải nghiệm người dùng đơn giản và mượt mà hơn do các ứng dụng hoặc dịch vụ di động cũ mang đến\) coi trải nghiệm người dùng dApp là xa lạ, khó hiểu và vô cùng bất tiện. Để vượt qua các thách thức như vậy mà không cần thay đổi kiến trúc ở quy mô lớn, đồng thời vẫn duy trì khả năng tương thích ngược, Klaytn đã chọn cung cấp tính năng ánh xạ giữa địa chỉ 20 byte với chuỗi văn bản có độ dài 20 byte, nhờ đó, người dùng cuối có thể chỉ định các giá trị mà họ mong muốn. Tính năng này trong Klaytn được gọi là địa chỉ mà con người đọc được \(HRA\). Hiện tại, tính năng này vẫn đang trong giai đoạn phát triển và chúng tôi sẽ cung cấp thêm thông tin khi tính năng này sẵn sàng cho việc sử dụng.
+Although the address scheme \(e.g., "0x0fe2e20716753082222b52e753854f40afddffd2"\) has its own strengths in that it efficiently protects the privacy of account holders, it also proposes major problems in terms of end-user experience. First, it is very difficult for a human brain to memorize, or even recognize, such addresses, making them prone to input mistakes and various human errors that often lead to non-trivial financial damages. Second, such scheme takes away from end-users the power to choose one’s own preferred identity handle that’s easier to memorize or use. Combined, these problems are among the toughest usability hurdles that cause dApp user experience for typical end-users \(who are more accustomed to the simpler, frictionless user experience offered by legacy mobile apps or services\) to be perceived as alien, incomprehensible, and severely inconvenient. To overcome such challenges without undergoing architectural modifications at large-scale and while preserving backward compatibility, Kaia opts to provide a mapping between a 20-byte address to a 20-byte length text string that end-users could assign their own preferred values to. This feature in Kaia is called human-readable address \(HRA\). Currently, this feature is under development, and we will provide more information when it is ready.
 
-### Định dạng khóa của ví Klaytn <a id="klaytn-wallet-key-format"></a>
+### Kaia Wallet Key Format <a id="kaia-wallet-key-format"></a>
 
-Định dạng khóa của ví Klaytn được cung cấp giúp dễ dàng xử lý mã khóa riêng tư kèm theo địa chỉ tương ứng. Điều này sẽ giúp người dùng dễ dàng hơn trong việc duy trì mã khóa riêng tư của mình cùng địa chỉ. Định dạng là `0x{private key}0x{type}0x{address in hex}` ở dạng ký hiệu thập lục phân, trong đó `{type}` phải là `00`. Các giá trị khác giữ nguyên. Dưới đây là ví dụ:
+Kaia wallet key format is provided to easily handle a private key along with the corresponding address. It makes easier for a user to maintain his/her private key with an address. The format is `0x{private key}0x{type}0x{address in hex}` in hexadecimal notation, where `{type}` must be `00`. Other values are reserved. An example is shown below:
 
 ```text
 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ```
 
-Định dạng này hiện được hỗ trợ trong [Ví Klaytn](../build/tools/wallets/klaytn-wallet.md).
+This format is currently supported in [Kaia Wallet](../build/tools/wallets/kaia-wallet.md).
 
-### Các loại tài khoản Klaytn <a id="klaytn-account-types"></a>
+### Kaia Account Types <a id="kaia-account-types"></a>
 
-There are two types of accounts in Klaytn: <LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> \(EOAs\), and <LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> \(SCAs\).
+There are two types of accounts in Kaia: <LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> \(EOAs\), and <LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> \(SCAs\).
 
-#### Tài khoản sở hữu bên ngoài \(EOAs\) <a id="externally-owned-accounts-eoas"></a>
+#### Externally Owned Accounts \(EOAs\) <a id="externally-owned-accounts-eoas"></a>
 
-Tài khoản sở hữu bên ngoài chứa các thông tin như số dư và số dùng một lần. Loại tài khoản này không có mã hoặc hệ thống lưu trữ. EOA được kiểm soát bằng khóa riêng tư và không có mã liên kết với chúng. EOA có thể được tạo bằng cặp khóa và nhờ đó, được kiểm soát bởi bất kỳ ai có cặp khóa đó. Khóa tài khoản được mô tả trong phần [Khóa tài khoản](#account-key).
+Externally owned accounts have information such as nonce and balance. This type of accounts does not have code or storage. EOAs are controlled by private keys and do not have code associated with them. An EOA can be created using key pairs and subsequently controlled by anyone with the key pairs. The account key is described in the section [Account Key](#account-key).
 
-**Thuộc tính**
+**Attributes**
 
-| Thuộc tính      | type                                                  | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                           |
-| :-------------- | :---------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type            | uint8 \(Go\)                     | Loại tài khoản sở hữu bên ngoài. Giá trị này phải là **0x1** đối với EOA.                                                                                                                                                                                                                                                                                                       |
-| số dùng một lần | uint64 \(Go\)                    | Một chuỗi số dùng để xác định thứ tự giao dịch. Giao dịch cần xử lý tiếp theo sẽ có cùng số dùng một lần với giá trị này.                                                                                                                                                                                                                                                       |
-| số dư           | \*big.Int \(Go\) | Số lượng KLAY có trong tài khoản.                                                                                                                                                                                                                                                                                                                                                               |
-| humanReadable   | bool \(Go\)                      | Giá trị boolean cho biết tài khoản được liên kết với một địa chỉ mà con người đọc được. Vì [HRA](#human-readable-address-hra) vẫn đang trong quá trình phát triển nên giá trị này đối với mọi tài khoản sẽ là false.                                                                                                                                                            |
-| khóa            | [AccountKey](#account-key)                            | Khóa liên kết với tài khoản này. Trường này có thể là bất kỳ khóa nào trong số [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Chữ ký trong các giao dịch được xác thực bằng khóa này. |
+| Attribute     | Type                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+| :------------ | :---------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type          | uint8 \(Go\)                     | The type of externally owned accounts. It must be **0x1** for EOAs.                                                                                                                                                                                                                                                                                            |
+| nonce         | uint64 \(Go\)                    | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                                        |
+| balance       | \*big.Int \(Go\) | The amount of KAIA the account has.                                                                                                                                                                                                                                                                                                                                            |
+| humanReadable | bool \(Go\)                      | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](#human-readable-address-hra) is under development, this value is false for all accounts.                                                                                                                                                                  |
+| key           | [AccountKey](#account-key)                            | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
 
-#### Tài khoản hợp đồng thông minh \(SCA\) <a id="smart-contract-accounts-scas"></a>
+#### Smart Contract Accounts \(SCAs\) <a id="smart-contract-accounts-scas"></a>
 
-Trái ngược với EOA, SCA có mã liên kết với chung và được kiểm soát bằng mã này. SCA được tạo ra bằng các giao dịch triển khai hợp đồng thông minh; khi đã được triển khai, SCA không thể tự mình khởi tạo giao dịch mới và phải được một tài khoản khác kích hoạt, tài khoản EOA hoặc SCA.
+In contrast to EOAs, SCAs have code associated with them and are controlled by their code. SCAs are created by smart contract deployment transactions; once deployed, an SCA cannot initiate new transactions by itself and must be triggered by another account, either by an EOA or another SCA.
 
-**Thuộc tính**
+**Attributes**
 
-| Thuộc tính      | type                                                                                         | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                           |
-| :-------------- | :------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type            | uint8 \(Go\)                                                            | Loại tài khoản hợp đồng thông minh. Giá trị này phải là **0x2** đối với SCA.                                                                                                                                                                                                                                                                                                    |
-| số dùng một lần | uint64 \(Go\)                                                           | Một chuỗi số dùng để xác định thứ tự giao dịch. Giao dịch cần xử lý tiếp theo sẽ có cùng số dùng một lần với giá trị này.                                                                                                                                                                                                                                                       |
-| số dư           | \*big.Int \(Go\)                                        | Số lượng KLAY có trong tài khoản.                                                                                                                                                                                                                                                                                                                                                               |
-| humanReadable   | bool \(Go\)                                                             | Giá trị boolean cho biết tài khoản được liên kết với một địa chỉ mà con người đọc được. Vì [HRA](#human-readable-address-hra) vẫn đang trong quá trình phát triển nên giá trị này đối với mọi tài khoản sẽ là false.                                                                                                                                                            |
-| khóa            | [AccountKey](#account-key)                                                                   | Khóa liên kết với tài khoản này. Trường này có thể là bất kỳ khóa nào trong số [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Chữ ký trong các giao dịch được xác thực bằng khóa này. |
-| codeHash        | \[\]byte \(Go\)   | Hàm băm của mã hợp đồng thông minh của tài khoản. Giá trị này là bất biến, nghĩa là nó chỉ được đặt khi hợp đồng thông minh được tạo.                                                                                                                                                                                                                                           |
-| storageRoot     | \[32\]byte \(Go\) | Hàm băm 256 bit của gốc của Merkle Patricia Trie có chứa các giá trị của tất cả các biến về lưu trữ trong tài khoản.                                                                                                                                                                                                                                                                            |
-| codeFormat      | uint8 \(Go\)                                                            | Hỗ trợ phiên bản trình thông dịch. Có thể đặt tối đa 16. Hiện tại chỉ hỗ trợ EVM\(0x00\).                                                                                                                                                                                                                                                  |
-| vmVersion       | uint8 \(Go\)                                                            | Thông tin nâng cấp giao thức (nâng cấp căn bản) vào thời điểm triển khai hợp đồng (ví dụ: 0x0(constantinople), 0x1(istanbul,london,...)). Có thể sử dụng tối đa 16. Có thể được tạo tự động cùng với hợp đồng.      |
+| Attribute     | Type                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+| :------------ | :------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type          | uint8 \(Go\)                                                            | The type of smart contract accounts. It must be **0x2** for SCAs.                                                                                                                                                                                                                                                                                              |
+| nonce         | uint64 \(Go\)                                                           | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                                        |
+| balance       | \*big.Int \(Go\)                                        | The amount of KAIA the account has.                                                                                                                                                                                                                                                                                                                                            |
+| humanReadable | bool \(Go\)                                                             | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](#human-readable-address-hra) is under development, this value is false for all accounts.                                                                                                                                                                  |
+| key           | [AccountKey](#account-key)                                                                   | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
+| codeHash      | \[\]byte \(Go\)   | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created.                                                                                                                                                                                                                         |
+| storageRoot   | \[32\]byte \(Go\) | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account.                                                                                                                                                                                                                                                   |
+| codeFormat    | uint8 \(Go\)                                                            | Supporting interpreter version. Up to 16 can be set. Currently, it supports EVM\(0x00\) only.                                                                                                                                                                                                                             |
+| vmVersion     | uint8 \(Go\)                                                            | The protocol upgrade (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,london,...)). Up to 16 can be used. It is automatically created with the contract. |
 
 :::note
 
-LƯU Ý: Kể từ klaytn v1.7.0 trở đi, thuộc tính vmVersion sẽ được thêm vào tài khoản hợp đồng thông minh.
+NOTE: From klaytn v1.7.0 onwards, vmVersion attribute will be added to the Smart Contract Account.
 
 :::
 
-### Mã loại tài khoản Klaytn <a id="klaytn-account-type-id"></a>
+### Kaia Account Type ID <a id="kaia-account-type-id"></a>
 
-Dưới đây là mã loại tài khoản được chỉ định cho từng loại tài khoản.
+Below are the Account Type ID assigned to each Account Type.
 
-| Loại tài khoản                                         | Mã loại tài khoản |
-| ------------------------------------------------------ | ----------------- |
-| Tài khoản sở hữu bên ngoài (EOA)    | 0x1               |
-| Tài khoản hợp đồng thông minh (SCA) | 0x2               |
+| Account Type                                      | Account Type ID |
+| ------------------------------------------------- | --------------- |
+| Externally Owned Account (EOA) | 0x1             |
+| Smart Contract Account (SCA)   | 0x2             |
 
-## Khóa tài khoản <a id="account-key"></a>
+## Account Key <a id="account-key"></a>
 
-Khóa tài khoản tương ứng với cấu trúc khóa liên kết với một tài khoản.
+An account key represents the key structure associated with an account.
 
 ### AccountKeyNil <a id="accountkeynil"></a>
 
-AccountKeyNil tương ứng với một khóa trống. Nếu một tài khoản cố sử dụng đối tượng AccountKeyNil, thì giao dịch sẽ không thành công. AccountKeyNil chỉ được dùng cho các giao dịch TxTypeAccountUpdate với các khóa theo vai trò. Ví dụ, nếu một tài khoản chỉ muốn cập nhật khóa RoleAccountUpdate, thì trường khóa của giao dịch TxTypeAccountUpdate sẽ là:
+AccountKeyNil represents an empty key. If an account tries to have an AccountKeyNil object, the transaction will be failed. AccountKeyNil is used only for TxTypeAccountUpdate transactions with role-based keys. For example, if an account tries to update RoleAccountUpdate key only, the key field of the TxTypeAccountUpdate transaction would be:
 
 `[AccountKeyNil, NewKey, AccountKeyNil]`
 
-Sau đó, chỉ có khóa RoleAccountUpdate mới được cập nhật. Các vai trò khác không được cập nhật. Tham khảo [AccountKeyRoleBased](#accountkeyrolebased) để biết thêm thông tin.
+Then, only the RoleAccountUpdate key is updated. Other roles are not updated. Refer to the [AccountKeyRoleBased](#accountkeyrolebased) for more detail.
 
-#### Thuộc tính <a id="attributes"></a>
+#### Attributes <a id="attributes"></a>
 
-Không có thuộc tính cho AccountKeyNil.
+No attributes for AccountKeyNil.
 
-#### Mã hóa RLP <a id="rlp-encoding"></a>
+#### RLP Encoding <a id="rlp-encoding"></a>
 
 `0x80`
 
 ### AccountKeyLegacy <a id="accountkeylegacy"></a>
 
-AccountKeyLegacy được dùng cho tài khoản có địa chỉ được lấy từ cặp khóa tương ứng. Nếu một tài khoản có AccountKeyLegacy, quy trình xác thực giao dịch sẽ được thực hiện như dưới đây \(như một nền tảng chuỗi khối điển hình đã thực hiện\):
+AccountKeyLegacy is used for the account having an address derived from the corresponding key pair. If an account has AccountKeyLegacy, the transaction validation process is done like below \(as typical Blockchain platforms did\):
 
-- Lấy mã khóa công khai từ `ecrecover(txhash, txsig)`.
-- Lấy địa chỉ của mã khóa công khai.
-- Địa chỉ là người gửi.
+- Get the public key from `ecrecover(txhash, txsig)`.
+- Get the address of the public key.
+- The address is the sender.
 
-#### Thuộc tính <a id="attributes"></a>
+#### Attributes <a id="attributes"></a>
 
-| Thuộc tính | type                              | Mô tả                                                                                |
-| :--------- | :-------------------------------- | :----------------------------------------------------------------------------------- |
-| Type       | uint8 \(Go\) | Loại AccountKeyLegacy. Giá trị này phải là **0x01**. |
+| Attribute | Type                              | Description                                                                          |
+| :-------- | :-------------------------------- | :----------------------------------------------------------------------------------- |
+| Type      | uint8 \(Go\) | The type of AccountKeyLegacy. This must be **0x01**. |
 
-#### Mã hóa RLP <a id="rlp-encoding"></a>
+#### RLP Encoding <a id="rlp-encoding"></a>
 
 `0x01c0`
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
-AccountKeyPublic được dùng cho các tài khoản dùng một khóa công khai.\
-Nếu tài khoản có một đối tượng AccountKeyPublic, thì quy trình xác thực giao dịch sẽ được thực hiện như bên dưới:
+AccountKeyPublic is used for accounts having one public key.\
+If an account has an AccountKeyPublic object, the transaction validation process is done like below:
 
-- Lấy mã khóa công khai từ `ecrecover(txhash, txsig)`.
-- Kiểm tra đảm bảo mã khóa công khai lấy được giống với khóa tương ứng
+- Get the public key derived from `ecrecover(txhash, txsig)`.
+- Check that the derived public key is the same as the corresponding
 
-  mã khóa công khai của tài khoản.
+  account's public key.
 
-#### Thuộc tính <a id="attributes"></a>
+#### Attributes <a id="attributes"></a>
 
-| Thuộc tính | type                                                                                         | Mô tả                                                                                |
-| :--------- | :------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| type       | uint8 \(Go\)                                                            | Loại AccountKeyPublic. Giá trị này phải là **0x02**. |
-| Khóa       | \[33\]byte \(Go\) | Khóa phải là khóa công khai được nén trên S256 curve.                |
+| Attribute | Type                                                                                         | Description                                                                          |
+| :-------- | :------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
+| Type      | uint8 \(Go\)                                                            | The type of AccountKeyPublic. This must be **0x02**. |
+| Key       | \[33\]byte \(Go\) | Key should be a compressed public key on S256 curve.                 |
 
-#### Mã hóa RLP <a id="rlp-encoding"></a>
+#### RLP Encoding <a id="rlp-encoding"></a>
 
 `0x02 + encode(CompressedPubKey)`
 
-**LƯU Ý**: CompressedPubKey là mã khóa công khai ở định dạng nén được định nghĩa trong [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). Tóm lại, dùng 0x02`{PubkeyX}` nếu PubkeyY là số chẵn, hoặc dùng 0x03`{PubkeyX}` trong trường hợp còn lại.
+**NOTE**: CompressedPubKey is a public key in a compressed format defined in [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). In short, 0x02`{PubkeyX}` if PubkeyY is an even number or 0x03`{PubkeyX}` otherwise.
 
-#### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 ```javascript
 prvkey 0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b
@@ -166,49 +166,49 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
 ### AccountKeyFail <a id="accountkeyfail"></a>
 
-Nếu tài khoản có khóa AccountKeyFail, thì quy trình xác thực giao dịch sẽ luôn thất bại. Khóa này có thể được sử dụng cho các tài khoản hợp đồng thông minh để một giao dịch được gửi từ một tài khoản hợp đồng thông minh luôn thất bại.
+If an account has the key AccountKeyFail, the transaction validation process always fails. It can be used for smart contract accounts so that a transaction sent from the smart contract account always fails.
 
-#### Thuộc tính <a id="attributes"></a>
+#### Attributes <a id="attributes"></a>
 
-| Thuộc tính | type                              | Mô tả                                                                              |
-| :--------- | :-------------------------------- | :--------------------------------------------------------------------------------- |
-| Loại      | uint8 \(Go\) | Loại AccountKeyFail. Giá trị này phải là **0x03**. |
+| Attribute | Type                              | Description                                                                       |
+| :-------- | :-------------------------------- | :-------------------------------------------------------------------------------- |
+| Type      | uint8 \(Go\) | The type of AcccountKeyFail. It must be **0x03**. |
 
-#### Mã hóa RLP <a id="rlp-encoding"></a>
+#### RLP Encoding <a id="rlp-encoding"></a>
 
 `0x03c0`
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
-AccountKeyWeightedMultiSig là loại khóa tài khoản có chứa ngưỡng và WeightedPublicKeys có chứa một danh sách gồm một mã khóa công khai và trọng số của nó.
-Để một giao dịch được coi là hợp lệ cho một tài khoản liên kết với AccountKeyWeightedMultiSig, thì cần phải thỏa mã các điều kiện sau:
+AccountKeyWeightedMultiSig is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+In order for a transaction to be valid for an account associated with AccountKeyWeightedMultiSig, the following conditions should be satisfied:
 
-- Tổng trọng số của các mã khóa công khai đã ký phải lớn hơn ngưỡng.
-- Giao dịch không được có chữ ký không hợp lệ.
-- Số lượng mã khóa công khai đã ký phải ít hơn số lượng weightedPublicKey.
+- The weighted sum of the signed public keys should be larger than the threshold.
+- The invalid signature should not be included in the transaction.
+- The number of signed public keys should be less than the number of weightedPublicKeys.
 
 :::note
 
-LƯU Ý: Logic xác thực multiGig sau đây đã thay đổi với quá trình nâng cấp giao thức `IstanbulEVM`, hay còn gọi là "nâng cấp căn bản".
+The following multiSig validation logic has been added with the [IstanbulEVM](docs/misc/klaytn-history.md#istanbul-evm) hardfork.
 
-- Giao dịch không được có chữ ký không hợp lệ.
-- Số lượng mã khóa công khai đã ký phải ít hơn số lượng weightedPublicKey.
+- The invalid signature should not be included in the transaction.
+- The number of signed public keys should be less than the number of weightedPublicKeys.
 
 :::
 
-#### Thuộc tính <a id="attributes"></a>
+#### Attributes <a id="attributes"></a>
 
-| Thuộc tính         | Loại                                                                                                                                                              | Mô tả                                                                                                                                                           |
-| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Loại              | uint8 \(Go\)                                                                                                                                  | Loại AccountKeyWeightedMultiSig. Giá trị này phải là **0x04**.                                                                  |
-| Ngưỡng             | uint \(Go\)                                                                                                                                   | Ngưỡng xác thực. Để được coi là giao dịch hợp lệ thì tổng trọng số của các chữ ký phải lớn hơn hoặc bằng ngưỡng này.            |
-| WeightedPublicKeys | \[\]\{uint, \[33\]byte\} \(Go\) | Một danh sách khóa công khai có trọng số. Một khóa công khai có trọng số có chứa khóa công khai đã được nén và trọng số của nó. |
+| Attribute          | Type                                                                                                                                                               | Description                                                                                                                                                    |
+| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type               | uint8 \(Go\)                                                                                                                                  | The type of AccountKeyWeightedMultiSig. This must be **0x04**.                                                                 |
+| Threshold          | uint \(Go\)                                                                                                                                   | Validation threshold. To be a valid transaction, the weight sum of signatures should be larger than or equal to the threshold. |
+| WeightedPublicKeys | \[\]\{uint, \[33\]byte\} \(Go\) | A list of weighted public keys. A weighted public key contains a compressed public key and its weight.                         |
 
-#### Mã hóa RLP <a id="rlp-encoding"></a>
+#### RLP Encoding <a id="rlp-encoding"></a>
 
 `0x04 + encode([threshold, [[weight, CompressedPubKey1], [weight2, CompressedPubKey2]]])`
 
-#### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 ```javascript
 Threshold 3
@@ -230,38 +230,38 @@ RLP: 0x04f89303f890e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e615
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
-AccountKeyRoleBased tương ứng với một khóa theo vai trò. Các vai trò được nêu rõ trong phần [Các vai trò](#roles).
+AccountKeyRoleBased represents a role-based key. The roles are specified at [Roles](#roles).
 
-#### Thuộc tính <a id="attributes"></a>
+#### Attributes <a id="attributes"></a>
 
-| Thuộc tính | Loại                                                                                                  | Mô tả                                                                                                                                                                                            |
-| :--------- | :----------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Loại      | uint8 \(Go\)                                                                      | Loại AccountKeyRoleBased. Giá trị này phải là **0x05**.                                                                                                          |
-| Khóa       | \[\]\{AccountKey\} \(Go\) | Một danh sách các khóa. Khóa có thể là bất kỳ khóa nào trong số AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail và AccountKeyWeightedMultiSig. |
+| Attribute | Type                                                                                                 | Description                                                                                                                                                            |
+| :-------- | :--------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type      | uint8 \(Go\)                                                                    | The type of AccountKeyRoleBased. It must be **0x05**.                                                                                  |
+| Keys      | \[\]`{AccountKey}` \(Go\) | A list of keys. A key can be any of AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig. |
 
-#### Vai trò <a id="roles"></a>
+#### Roles <a id="roles"></a>
 
-Các vai trò của AccountKeyRoleBased được định nghĩa bên dưới:
+Roles of AccountKeyRoleBased are defined as below:
 
-| Vai trò           | Mô tả                                                                                                                                                                                                                                                                            |
-| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RoleTransaction   | Chỉ mục 0. Khóa mặc định. Các giao dịch khác với TxTypeAccountUpdate cần được ký bởi khóa của vai trò này.                                                                                                                       |
-| RoleAccountUpdate | Chỉ mục 1. Giao dịch TxTypeAccountUpdate phải được ký bởi khóa này. Nếu khóa này không hiển thị trong tài khoản, giao dịch TxTypeAccountUpdate là không hợp lệ khi dùng khóa RoleTransaction.                                    |
-| RoleFeePayer      | Chỉ mục 2. Nếu tài khoản này muốn gửi phí tx thay cho người gửi, thì giao dịch phải được ký bởi khóa này.  Nếu khóa này không hiển thị trong tài khoản, một giao dịch có phí ủy thác sẽ được xác thực bằng khóa RoleTransaction. |
+| Role              | Description                                                                                                                                                                                                                                                                        |
+| :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RoleTransaction   | Index 0. Default key. Transactions other than TxTypeAccountUpdate should be signed by the key of this role.                                                                                                                        |
+| RoleAccountUpdate | Index 1. TxTypeAccountUpdate transaction should be signed by this key. If this key is not present in the account, TxTypeAccountUpdate transaction is validated using RoleTransaction key.                                          |
+| RoleFeePayer      | Index 2. If this account wants to send tx fee instead of the sender, the transaction should be signed by this key.  If this key is not present in the account, a fee-delegated transaction is validated using RoleTransaction key. |
 
-#### Mã hóa RLP <a id="rlp-encoding"></a>
+#### RLP Encoding <a id="rlp-encoding"></a>
 
 `0x05 + encode([key1, key2, key3])`
 
-Lưu ý rằng key1, key2 và key3 có thể là bất kỳ khóa nào trong số các khóa trên \(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail và AccountKeyWeightedMultiSig\).
+Note that key1, key2, and key3 can be any of above keys \(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig\).
 
-#### Các vài trò có thể bỏ qua và có thể mở rộng <a id="omissible-and-expandable-roles"></a>
+#### Omissible and Expandable Roles <a id="omissible-and-expandable-roles"></a>
 
-Các vai trò có thể được bỏ ra khỏi chỉ mục gần nhất và các vai trò đã bỏ qua được ánh xạ đến vai trò đầu tiên. Tuy nhiên, vai trò ở giữa thì không thể bỏ qua được, có nghĩa là không thể đặt RoleTransaction và RoleFeePayer khi không có RoleAccountUpdate. Ví dụ, nếu một khóa dựa trên vai trò được đặt là `0x05 + encode([key1, key2])`, thì RoleFeePayer sẽ có vai trò như thể khóa đó được đặt là `0x05 + encode([key1, key2, key1])`.
+The roles can be omitted from the last index, and the omitted roles are mapped to the first role. However, a role in the middle cannot be omitted, which means RoleTransaction and RoleFeePayer cannot be set without RoleAccountUpdate. For example, if a role-based key is set to `0x05 + encode([key1, key2])`, RoleFeePayer works as if the key is set like `0x05 + encode([key1, key2, key1])`.
 
-Tính năng này cho phép bạn thêm nhiều vai trò hơn trong tương lai. Nếu một vai trò mới được cung cấp, vai trò mới của các tài khoản đã được tạo cùng các vai trò cũ sẽ được ánh xạ đến vai trò đầu tiên.
+This feature allows for more roles to be added in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
 
-#### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
 
 ```javascript
 RoleTransaction Key
@@ -282,14 +282,14 @@ PubkeyY 0x94c27901465af0a703859ab47f8ae17e54aaba453b7cde5a6a9e4a32d45d72b2
 RLP: 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512db84e04f84b02f848e301a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512de301a10336f6355f5b532c3c1606f18fa2be7a16ae200c5159c8031dd25bfa389a4c9c06a302a102c8785266510368d9372badd4c7f4a94b692e82ba74e0b5e26b34558b0f081447
 ```
 
-## Mã loại khóa tài khoản <a id="account-key-type-id"></a>
+## Account Key Type ID <a id="account-key-type-id"></a>
 
-Dưới đây là Mã loại khóa tài khoản được chỉ định cho từng Loại khóa tài khoản.
+Below are the Account Key Type ID assigned to each Account Key Type.
 
-| Loại khóa tài khoản        | Mã loại khóa tài khoản |
-| -------------------------- | ---------------------- |
-| AccountKeyLegacy           | 0x01                   |
-| AccountKeyPublic           | 0x02                   |
-| AccountKeyFail             | 0x03                   |
-| AccountKeyWeightedMultiSig | 0x04                   |
-| AccountKeyRoleBased        | 0x05                   |
+| Account Key Type           | Account Key Type ID |
+| -------------------------- | ------------------- |
+| AccountKeyLegacy           | 0x01                |
+| AccountKeyPublic           | 0x02                |
+| AccountKeyFail             | 0x03                |
+| AccountKeyWeightedMultiSig | 0x04                |
+| AccountKeyRoleBased        | 0x05                |

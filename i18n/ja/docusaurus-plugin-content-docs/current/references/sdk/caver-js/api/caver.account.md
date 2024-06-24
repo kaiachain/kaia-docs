@@ -14,9 +14,9 @@ const account = new caver.account(address, accountKey)
 
 **properties**
 
-| Name       | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                              |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | string | The address of account to be updated.                                                                                                                                                                                                                                                                                                                                                                    |
+| Name       | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | string | The address of account to be updated.                                                                                                                                                                                                                                                                                                                                                                                                    |
 | accountKey | object | The new accountKey to be used in account. This can be an instance of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) or [AccountKeyRoleBased](#accountkeyrolebased). When the transaction is executed, the accountKey of the account stored in the Klaytn is changed to this. |
 
 ### AccountKeyLegacy <a id="accountkeylegacy"></a>
@@ -39,8 +39,8 @@ To create an Account instance with `AccountKeyPublic`, please refer to [caver.ac
 
 **properties**
 
-| Name      | Type   | Description            |
-| --------- | ------ | ---------------------- |
+| Name      | Type   | Description                            |
+| --------- | ------ | -------------------------------------- |
 | publicKey | string | The public key string. |
 
 ### AccountKeyFail <a id="accountkeyfail"></a>
@@ -63,10 +63,10 @@ To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to
 
 **properties**
 
-| Name               | Type   | Description                       |
-| ------------------ | ------ | --------------------------------- |
-| threshold          | number | The validation threshold.         |
-| weightedPublicKeys | Array  | The array of [WeightedPublicKey]. |
+| Name               | Type   | Description                               |
+| ------------------ | ------ | ----------------------------------------- |
+| threshold          | number | The validation threshold. |
+| weightedPublicKeys | Array  | The array of [WeightedPublicKey].         |
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
@@ -97,7 +97,7 @@ const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight,
 | Name      | Type   | Description                                                                                                                                                            |
 | --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | weight    | number | The weight of public key. The weight is used to check whether the weighted sum of public keys is larger than the threshold of the [AccountKeyWeightedMultiSig] object. |
-| publicKey | string | The public key string.                                                                                                                                                 |
+| publicKey | string | The public key string.                                                                                                                                 |
 
 ### WeightedMultiSigOptions <a id="weightedmultisigoptions"></a>
 
@@ -109,8 +109,8 @@ const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(thresh
 
 **properties**
 
-| Name      | Type   | Description                  |
-| --------- | ------ | ---------------------------- |
+| Name      | Type   | Description                                  |
+| --------- | ------ | -------------------------------------------- |
 | threshold | number | The validation threshold.    |
 | weights   | Array  | An array of weights of keys. |
 
@@ -126,16 +126,16 @@ If accountKey is a public key string, an Account instance with [AccountKeyPublic
 
 **Parameters**
 
-| Name       | Type                               | Description                                                                                                                                                |
-| ---------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | string                             | The address of account to be updated.                                                                                                                      |
-| accountKey | string \| Array                    | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
-| options    | [WeightedMultiSigOptions] \| Array | (optional) Options for AccountKeyWeigthedMultiSig.                                                                                      |
+| Name       | Type                                 | Description                                                                                                                                                                |
+| ---------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | string                               | The address of account to be updated.                                                                                                                      |
+| accountKey | string \\| Array                    | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
+| options    | [WeightedMultiSigOptions] \\| Array | (optional) Options for AccountKeyWeigthedMultiSig.                                                                                      |
 
 **Return Value**
 
-| Type      | Description                       |
-| --------- | --------------------------------- |
+| Type      | Description                                       |
+| --------- | ------------------------------------------------- |
 | [Account] | The account instance is returned. |
 
 **Example**
@@ -255,15 +255,15 @@ Creates an Account instance from RLP-encoded AccountKey.
 
 **Parameters**
 
-| Name          | Type   | Description                              |
-| ------------- | ------ | ---------------------------------------- |
+| Name          | Type   | Description                                              |
+| ------------- | ------ | -------------------------------------------------------- |
 | address       | string | The address of an account to be updated. |
 | rlpEncodedKey | string | The RLP-encoded string of AccountKey.    |
 
 **Return Value**
 
-| Type      | Description                       |
-| --------- | --------------------------------- |
+| Type      | Description                                       |
+| --------- | ------------------------------------------------- |
 | [Account] | The account instance is returned. |
 
 **Example**
@@ -293,14 +293,14 @@ Creates an Account instance which has AccountKeyLegacy as an accountKey.
 
 **Parameters**
 
-| Name    | Type   | Description                              |
-| ------- | ------ | ---------------------------------------- |
+| Name    | Type   | Description                                              |
+| ------- | ------ | -------------------------------------------------------- |
 | address | string | The address of an account to be updated. |
 
 **Return Value**
 
-| Type      | Description                       |
-| --------- | --------------------------------- |
+| Type      | Description                                       |
+| --------- | ------------------------------------------------- |
 | [Account] | The account instance is returned. |
 
 **Example**
@@ -323,15 +323,15 @@ Creates an Account instance which has AccountKeyPublic as an accountKey.
 
 **Parameters**
 
-| Name      | Type   | Description                              |
-| --------- | ------ | ---------------------------------------- |
+| Name      | Type   | Description                                              |
+| --------- | ------ | -------------------------------------------------------- |
 | address   | string | The address of an account to be updated. |
 | publicKey | string | The public key string.                   |
 
 **Return Value**
 
-| Type      | Description                       |
-| --------- | --------------------------------- |
+| Type      | Description                                       |
+| --------- | ------------------------------------------------- |
 | [Account] | The account instance is returned. |
 
 **Example**
@@ -354,14 +354,14 @@ Creates an Account instance which has AccountKeyFail as an accountKey.
 
 **Parameters**
 
-| Name    | Type   | Description                              |
-| ------- | ------ | ---------------------------------------- |
+| Name    | Type   | Description                                              |
+| ------- | ------ | -------------------------------------------------------- |
 | address | string | The address of an account to be updated. |
 
 **Return Value**
 
-| Type      | Description                       |
-| --------- | --------------------------------- |
+| Type      | Description                                       |
+| --------- | ------------------------------------------------- |
 | [Account] | The account instance is returned. |
 
 **Example**
@@ -386,14 +386,14 @@ Creates an Account instance which has AccountKeyWeightedMultiSig as an accountKe
 
 | Name           | Type                      | Description                                                                                |
 | -------------- | ------------------------- | ------------------------------------------------------------------------------------------ |
-| address        | string                    | The address of an account to be updated.                                                   |
-| publicKeyArray | Array                     | The array that includes multiple public key strings.                                       |
+| address        | string                    | The address of an account to be updated.                                   |
+| publicKeyArray | Array                     | The array that includes multiple public key strings.                       |
 | options        | [WeightedMultiSigOptions] | (optional) The [WeightedMultiSigOptions] instance that defines threshold and weight array. |
 
 **Return Value**
 
-| Type      | Description                       |
-| --------- | --------------------------------- |
+| Type      | Description                                       |
+| --------- | ------------------------------------------------- |
 | [Account] | The account instance is returned. |
 
 **Example**
@@ -439,16 +439,16 @@ Creates an Account instance which has AccountKeyRoleBased as an accountKey.
 
 **Parameters**
 
-| Name                     | Type   | Description                                                                          |
-| ------------------------ | ------ | ------------------------------------------------------------------------------------ |
-| address                  | string | The address of an account to be updated.                                             |
-| roledBasedPublicKeyArray | Array  | A two-dimensional array containing arrays of public key strings for each role.       |
-| options                  | Array  | (optional) An array that contains [WeightedMultiSigOptions] instances for each role. |
+| Name                     | Type   | Description                                                                                    |
+| ------------------------ | ------ | ---------------------------------------------------------------------------------------------- |
+| address                  | string | The address of an account to be updated.                                       |
+| roledBasedPublicKeyArray | Array  | A two-dimensional array containing arrays of public key strings for each role. |
+| options                  | Array  | (optional) An array that contains [WeightedMultiSigOptions] instances for each role.           |
 
 **Return Value**
 
-| Type      | Description                       |
-| --------- | --------------------------------- |
+| Type      | Description                                       |
+| --------- | ------------------------------------------------- |
 | [Account] | The account instance is returned. |
 
 **Example**
@@ -532,15 +532,15 @@ Decodes an RLP-encoded string of AccountKey and returns an [AccountKeyLegacy](#a
 
 **Parameters**
 
-| Name                 | Type   | Description                          |
-| -------------------- | ------ | ------------------------------------ |
+| Name                 | Type   | Description                                          |
+| -------------------- | ------ | ---------------------------------------------------- |
 | rlpEncodedAccountKey | string | An RLP-encoded string of AccountKey. |
 
 **Return Value**
 
-| Type                                                                                                                                                                                                                            | Description                          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| [AccountKeyLegacy](#accountkeylegacy) \| [AccountKeyPublic](#accountkeypublic) \| [AccountKeyFail](#accountkeyfail) \| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \| [AccountKeyRoleBased](#accountkeyrolebased) | The AccountKey instance is returned. |
+| Type                                                                                                                                                                                                                                    | Description                                          |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| [AccountKeyLegacy](#accountkeylegacy) \\| [AccountKeyPublic](#accountkeypublic) \\| [AccountKeyFail](#accountkeyfail) \\| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \\| [AccountKeyRoleBased](#accountkeyrolebased) | The AccountKey instance is returned. |
 
 **Example**
 
@@ -559,8 +559,8 @@ Return RLP-encoded string of AccountKey.
 
 **Return Value**
 
-| Type   | Description                          |
-| ------ | ------------------------------------ |
+| Type   | Description                                          |
+| ------ | ---------------------------------------------------- |
 | string | A RLP-encoded string of AccountKey . |
 
 **Example**
@@ -572,21 +572,12 @@ Return RLP-encoded string of AccountKey.
 ```
 
 [AccountKey]: ../../../../learn/accounts.md#account-key
-
 [AccountKeyLegacy]: ../../../../learn/accounts.md#accountkeylegacy
-
 [AccountKeyPublic]: ../../../../learn/accounts.md#accountkeypublic
-
 [AccountKeyFail]: ../../../../learn/accounts.md#accountkeyfail
-
 [AccountKeyWeightedMultiSig]: ../../../../learn/accounts.md#accountkeyweightedmultisig
-
 [AccountKeyRoleBased]: ../../../../learn/accounts.md#accountkeyrolebased
-
 [WeightedPublicKey]: #weightedpublickey
-
 [WeightedMultiSigOptions]: #weightedmultisigoptions
-
 [Account]: #account
-
 [role]: ../../../../learn/accounts.md#roles

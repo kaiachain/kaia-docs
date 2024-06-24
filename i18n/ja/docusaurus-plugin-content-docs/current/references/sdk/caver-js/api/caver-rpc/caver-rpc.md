@@ -106,7 +106,5 @@ The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list belo
 - [sha3](./klay.md#caver-rpc-klay-sha3)
 
 [Klay]: klay.md
-
 [Net]: net.md
-
 [Governance]: governance.md

@@ -3,25 +3,19 @@
 ```
 |-- contracts
 |-- migrations
-|-- truffle.js
-|-- static
-|-- src
+|-- truffle-config.js
+|-- static  
+|-- src  
+    |-- styles
     |-- klaytn
       |-- caver.js
-      |-- KlaystagramContract.js
-    |-- redux
-    |-- pages
-      |-- AuthPage.js
-      |-- FeedPage.js
     |-- components
-      |-- UploadPhoto.js
-      |-- Feed.js
-      |-- TransferOwnership.js
-      |-- ...
-    |-- styles
-    |-- utils
+      |-- BlockNumber.js
+      |-- Auth.js
+      |-- Count.js
     |-- index.js
     |-- App.js
+    |-- routes.js
 ```
 
 `contracts/`: Solidity 컨트랙트 파일을 포함합니다.
@@ -48,6 +42,6 @@
 
 - `src/components/Count.js`: 배포된 Count 컨트랙트와의 상호작용을 처리합니다. caver.js를 사용하여 컨트랙트 함수를 호출합니다.
 
-`src/klaytn`: 클레이튼과의 상호작용을 지원하는 파일들이 들어 있습니다.
+`src/klaytn`: 카이아와의 상호작용을 지원하는 파일들이 들어 있습니다.
 
-- `src/klaytn/caver.js`: 설정된 설정 내에서 caver-js를 인스턴스화합니다. (참조) caver-js는 클레이튼 노드에 연결하고, 클레이튼에 배포된 노드 및 스마트 컨트랙트와 상호작용하는 RPC 호출 라이브러리입니다.
+- `src/klaytn/caver.js`: 설정된 설정 내에서 caver-js를 인스턴스화합니다. (참조) caver-js는 카이아 노드에 연결하고, 카이아에 배포된 노드 및 스마트 컨트랙트와 상호작용하는 RPC 호출 라이브러리입니다.

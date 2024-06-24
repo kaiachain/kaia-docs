@@ -1,6 +1,6 @@
-# Hướng dẫn
+# Tutorials
 
-Chương này gồm các ví dụ dApp thực tế với đầy đủ mã nguồn và giải thích.
+This chapter contains practical dApp examples with complete source code and explanations.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

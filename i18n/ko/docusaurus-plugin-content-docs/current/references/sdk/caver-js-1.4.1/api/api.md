@@ -1,3 +1,3 @@
-# API 레퍼런스
+# API References
 
-caver-js에서 제공하는 패키지.
+Packages provided by caver-js.

@@ -1,16 +1,16 @@
 # KAS로 데이터 앵커링 사용
 
-디자인 섹션에서 설명한 것처럼 서비스 체인 데이터를 클레이튼 메인체인에 앵커링할 수 있습니다.
-이 페이지에서는 [KAS(Klaytn API 서비스)](https://www.klaytnapi.com)를 통해 데이터 앵커링을 활성화하는 방법을 소개합니다.
+디자인 섹션에서 설명한 것처럼 서비스 체인 데이터를 카이아 메인체인에 앵커링할 수 있습니다.
+이 페이지에서는 [KAS(Kaia API 서비스)](https://www.klaytnapi.com)를 통해 데이터 앵커링을 활성화하는 방법을 소개합니다.
 
-이 기능을 켜면 서비스 체인의 노드는 서비스 체인의 존재와 불변성을 증명하기 위해 주기적으로 체인 데이터(블록 데이터)를 Cypress 또는 Baobab에 앵커링할 수 있습니다.
+이 기능을 켜면 서비스 체인의 노드는 서비스 체인의 존재와 불변성을 증명하기 위해 주기적으로 체인 데이터(블록 데이터)를 메인넷 또는 Kairos에 앵커링할 수 있습니다.
 이를 통해 서비스 체인의 보안과 신뢰성을 보장할 수 있습니다.
 
 ## KAS 사용 준비 <a id="preparation-with-kas"></a>
 
 이 섹션에서는 데이터 앵커링에 KAS를 사용하기 위한 전제 조건에 대해 소개합니다.
 
-### KAS(클레이튼 API 서비스) 가입하기 <a id="sign-up-kas"></a>
+### KAS(카이아 API 서비스) 가입하기 <a id="sign-up-kas"></a>
 
 먼저, KAS 계정을 발급받기 위해서는 [KAS 콘솔 웹사이트](https://www.klaytnapi.com)에서 KAS를 가입해야 합니다.
 위 웹사이트에 접속하여 KAS에 가입하세요.
@@ -34,9 +34,9 @@ KAS는 데이터 앵커링을 위해 설계된 앵커 API를 제공하고 있으
 
 ## 오퍼레이터 주소 생성 <a id="create-kas-credential"></a>
 
-KAS를 통해 서비스체인 데이터를 앵커링하려면, 실제로 클레이튼에 앵커링 트랜잭션을 전송하는 클레이튼 주소가 KAS에 등록되어 있어야 합니다. 따라서 서비스 노드를 설정하기 전에 KAS를 통해 "operator"라는 클레이튼 계정을 생성해야 합니다. 이 계정은 KAS 콘솔에서 생성할 수 있습니다.
+KAS를 통해 서비스체인 데이터를 앵커링하려면, 실제로 카이아에 앵커링 트랜잭션을 전송하는 카이아 주소가 KAS에 등록되어 있어야 합니다. 따라서 서비스 노드를 설정하기 전에 KAS를 통해 "operator"라는 카이아 계정을 생성해야 합니다. 이 계정은 KAS 콘솔에서 생성할 수 있습니다.
 
-주의할 점은 **KAS 콘솔 페이지의 오른쪽 상단에서** 데이터를 앵커링할 체인을 클레이튼에서 **먼저 선택**해야 한다는 점입니다. 각 체인에 대한 오퍼레이터를 생성해야 합니다(Cypress/Baobab).
+주의할 점은 **KAS 콘솔 페이지의 오른쪽 상단에서** 데이터를 앵커링할 체인을 카이아에서 **먼저 선택**해야 한다는 점입니다. 각 체인에 대한 오퍼레이터를 생성해야 합니다(Mainnet/Kairos).
 
 ![선택 체인](/img/nodes/kas-select-chain-en.png)
 
@@ -69,13 +69,13 @@ SC_KAS_ANCHOR_URL="https://anchor-api.klaytn.com/v1/anchor"             # Anchor
 SC_KAS_ANCHOR_OPERATOR="0x6A3D565C4a2a4cd0Fb3df8EDfb63a151717EA1D7"     # Operator address
 SC_KAS_ANCHOR_ACCESS_KEY="KAJM4BEIR9SKJKAW1G3TT8GX"                     # Credential Access key
 SC_KAS_ANCHOR_SECRET_KEY="KyD5w9ZlZQ7ejj6lDF6elb61u8JH/mXdKqhgr3yF"     # Credential Secret key
-SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Cypress: 8217, Baobab: 1001
+SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Mainnet: 8217, Kairos: 1001
 ...
 ```
 
 ## 서비스 체인 노드 실행 <a id="run-service-chain-node"></a>
 
-이제 준비가 완료되었습니다. 서비스 체인 노드를 실행할 수 있습니다.
+이제 준비되었습니다. 서비스 체인 노드를 실행할 수 있습니다.
 아래와 같이 KAS 앵커 API와 관련된 로그 메시지를 확인할 수 있습니다.
 
 ```bash

@@ -40,7 +40,7 @@ LayerZero(L0)는 옴니체인과 상호 운용 가능한 애플리케이션을 �
 
 ## 시작하기 <a id="getting-started"></a>
 
-이 가이드에서는 EVM 체인에서 토큰을 원활하게 전송할 수 있는 옴니체인 대체 가능한 토큰(OFT) v1에 초점을 맞출 것입니다. 따라서 Hardhat 스마트 컨트랙트 개발 환경을 사용하여 Klaytn Baobab(소스 체인)과 Polygon Mumbai(목적지 체인) 모두에 OFTv1 컨트랙트를 배포할 것입니다.
+이 가이드에서는 EVM 체인에서 토큰을 원활하게 전송할 수 있는 옴니체인 대체 가능한 토큰(OFT) v1에 초점을 맞출 것입니다. 따라서 Hardhat 스마트 컨트랙트 개발 환경을 사용하여 Kaia Kairos(소스 체인)과 Polygon Mumbai(목적지 체인) 모두에 OFTv1 컨트랙트를 배포할 것입니다.
 
 ## 개발 환경 구성하기 <a id="connfiguring-your-development-environment"></a>
 
@@ -54,7 +54,7 @@ Hardhat 프로젝트는 사용자별 값이나 코드 저장소에 포함되지 
 const PRIVATE_KEY = vars.get("PRIVATE_KEY");
 /** @type import('hardhat/config').HardhatUserConfig */
   networks: {
-    baobab: {
+    kairos: {
       url: `https://klaytn-baobab-rpc.allthatnode.com:8551`,
       accounts: [PRIVATE_KEY]
     },
@@ -101,7 +101,7 @@ module.exports = {
     ],
   },
   networks: {
-    baobab: {
+    kairos: {
       url: `https://klaytn-baobab-rpc.allthatnode.com:8551`,
       accounts: [PRIVATE_KEY]
     },
@@ -198,14 +198,14 @@ contract CrossChainToken is OFTCore, ERC20, IOFT {
 
 ## 스마트 컨트랙트 배포하기 <a id="deploying-the-smart-contract"></a>
 
-이 섹션에서는 여기에 있는 [스크립트](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy)를 사용하여 OFTV1 컨트랙트를 Klaytn Baobab(소스 체인)과 Polygon Mumbai(목적지 체인)에 각각 배포합니다. 각 네트워크에 대한 faucet 토큰이 있는지 확인합니다. 클레이튼 Baobab [여기](https://baobab.wallet.klaytn.foundation/faucet) 및 Polygon Mumbai 테스트넷 [여기](https://faucet.polygon.technology/)에서 faucet 토큰을 얻을 수 있습니다.
+이 섹션에서는 여기에 있는 [스크립트](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy)를 사용하여 OFTV1 컨트랙트를 Kaia Kairos(소스 체인)과 Polygon Mumbai(목적지 체인)에 각각 배포합니다. 각 네트워크에 대한 faucet 토큰이 있는지 확인합니다. 카이아 Kairos [여기](https://baobab.wallet.klaytn.foundation/faucet) 및 Polygon Mumbai 테스트넷 [여기](https://faucet.polygon.technology/)에서 faucet 토큰을 얻을 수 있습니다.
 
 각 체인에 컨트랙트를 배포하려면 아래 명령을 실행하세요:
 
-1. **Baobab(소스 체인)에 배포**
+1. **Kairos(소스 체인)에 배포**
 
 ```bash
-npx hardhat run scripts/deploy/src-contract.js --network baobab
+npx hardhat run scripts/deploy/src-contract.js --network kairos
 ```
 
 2. **Mumbai(목적지 체인)에 배포**
@@ -214,7 +214,7 @@ npx hardhat run scripts/deploy/src-contract.js --network baobab
 npx hardhat run scripts/deploy/dest-contract.js --network mumbai
 ```
 
-이제 Baobab과 Mumbai 모두에 OFTV1 컨트랙트가 배포되었어야 합니다. 각 체인의 컨트랙트 주소를 각각의 탐색기에 붙여넣어 배포를 확인할 수 있습니다: [Klaytnscope](https://baobab.klaytnscope.com/account/) 및 [Polygonscan](https://mumbai.polygonscan.com/address/).
+이제 Kairos와 Mumbai 모두에 OFTV1 컨트랙트가 배포되었어야 합니다. 각 체인의 컨트랙트 주소를 각각의 탐색기에 붙여넣어 배포를 확인할 수 있습니다: [Klaytnscope](https://baobab.klaytnscope.com/account/) 및 [Polygonscan](https://mumbai.polygonscan.com/address/).
 
 ## 신뢰할 수 있는 원격 설정하기 <a id="setting-trusted-remote"> </a>
 
@@ -226,7 +226,7 @@ npx hardhat run scripts/deploy/dest-contract.js --network mumbai
 실제로 작동하는지 확인하려면 아래 명령을 실행하세요:
 
 ```bash
-npx hardhat run scripts/set-remote-address/src.js --network baobab
+npx hardhat run scripts/set-remote-address/src.js --network kairos
 ```
 
 2. **대상 체인에서 설정**
@@ -245,7 +245,7 @@ npx hardhat run scripts/set-remote-address/dest.js --network mumbai
 이 스크립트를 실행하려면 아래 명령을 실행합니다:
 
 ```bash
-npx hardhat run scripts/misc.js --network baobab
+npx hardhat run scripts/misc.js --network kairos
 ```
 
 ## sendFrom 기능 실행하기 <a id="executing-sendfrom-functionality"> </a>
@@ -255,7 +255,7 @@ LayerZero OFTV1을 사용하여 한 체인에서 다른 체인으로 토큰을 �
 실제로 작동하는지 확인하려면 아래 명령을 실행하세요:
 
 ```bash
-npx hardhat run scripts/send-from.js --network baobab
+npx hardhat run scripts/send-from.js --network kairos
 ```
 
 [LayerZero 스캔](https://testnet.layerzeroscan.com/)에 트랜잭션 해시를 붙여넣어 크로스체인 트랜잭션을 확인할 수 있습니다.
@@ -274,6 +274,6 @@ npx hardhat run scripts/check-balance.js --network mumbai
 
 ## 결론
 
-축하합니다! LayerZero 옴니체인 컨트랙트 OFTV1을 사용하여 한 번의 트랜잭션 호출로 클레이튼 Baobab에서 Polygon Mumbai로 토큰을 성공적으로 전송할 수 있었습니다. 여기서 한 걸음 더 나아가 사용자가 체인 간에 토큰을 쉽게 이동할 수 있도록 간단한 사용자 인터페이스를 설정할 수 있습니다. 토큰 컨트랙트가 설정되면, [web3klaytn](https://klaytn-foundation.stoplight.io/docs/web3klaytn/0d10ufjmg8ri2-overview) 또는 [ethers.js](https://docs.ethers.org/v5/)와 같은 웹3 라이브러리를 사용하여 **sendFrom()** 함수를 사용자 인터페이스에 연결할 수 있습니다.
+축하합니다! LayerZero 옴니체인 컨트랙트 OFTV1을 사용하여 한 번의 트랜잭션 호출로 카이아 Kairos에서 Polygon Mumbai로 토큰을 성공적으로 전송할 수 있었습니다. 여기서 한 걸음 더 나아가 사용자가 체인 간에 토큰을 쉽게 이동할 수 있도록 간단한 사용자 인터페이스를 설정할 수 있습니다. 토큰 컨트랙트가 설정되면, [web3klaytn](https://klaytn-foundation.stoplight.io/docs/web3klaytn/0d10ufjmg8ri2-overview) 또는 [ethers.js](https://docs.ethers.org/v5/)와 같은 웹3 라이브러리를 사용하여 **sendFrom()** 함수를 사용자 인터페이스에 연결할 수 있습니다.
 
 크로스체인 탈중앙화 거래소, 크로스체인 대출 등과 같은 자체 프로젝트를 부트스트랩하기 위해 [crosschain-oftv1-example](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main)로 빌드를 시작하세요. LayerZero에 대한 자세한 가이드는 [LayerZero 문서](https://layerzero.gitbook.io/docs/) 및 [LayerZero 깃허브 리포지토리](https://github.com/LayerZero-Labs/solidity-examples/tree/main)를 참조하시기 바랍니다.

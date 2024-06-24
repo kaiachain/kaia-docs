@@ -1,51 +1,51 @@
-# 시작하기
+# Getting Started
 
-## 새로운 기능
+## What's new?
 
-caver-java 1.5.0에서는 Common Architecture를 채택했습니다. 커먼 아키텍처는 클레이튼 개발 환경을 위한 새로운 소프트웨어 아키텍처로, 모든 클레이튼 SDK(caver-js/caver-java)에서 공유할 수 있습니다. 간소화된 개발 환경과 다른 프로그래밍 언어로의 손쉬운 확장을 위해 설계되었습니다.
+In caver-java 1.5.0, we adopt Common Architecture. Common Architecture is a new software architecture for Klaytn development environment, which is shared by all Klaytn SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
 
-caver-java가 1.5.0으로 업데이트됨에 따라 1.4.0에서 사용되던 API는 일부 API를 제외하고 더 이상 사용되지 않습니다.
+As caver-java is updated to 1.5.0, the APIs used in 1.4.0 are deprecated except for some APIs.
 
-caver-java 1.5.0에서 새롭게 제공되는 API는 다음과 같습니다.
+The APIs newly provided in caver-java 1.5.0 are as follows.
 
 ### caver.account
 
-caver.account는 클레이튼 계정에 대해 하나 이상의 공개키(AccountKeyPublic, AccountKeyWeightedMultiSig, AccountKeyRoleBased) 또는 특수한 유형의 키(AccountKeyLegacy, AccountKeyFail)일 수 있는 계정키를 업데이트하는 데 사용되는 패키지입니다.
+caver.account is a package used to update AccountKey, which could be one or more public keys (AccountKeyPublic, AccountKeyWeightedMultiSig, and AccountKeyRoleBased) or a special type of keys (AccountKeyLegacy and AccountKeyFail), for a Klaytn account.
 
-- caver-java 1.4.0에서 `caver.account`가 `caver.tx.account`를 대체합니다.
+- `caver.account` replaces `caver.tx.account` in caver-java 1.4.0
 
 ### caver.wallet
 
-caver.wallet은 인메모리 지갑에서 Keyring 인스턴스를 관리하는 패키지입니다. Keyring은 클레이튼 계정의 주소와 개인키를 저장하는 인스턴스로, 이 계정의 주소가 트랜잭션에 서명할 때 사용됩니다. caver.wallet은 모든 유형의 Keyring(SingleKeyring, MultipleKeyring, RoleBasedKeyring)을 허용하고 클레이튼 계정 주소로 Keyring을 관리합니다.
+caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a Klaytn account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their Klaytn account address.
 
-- `caver.wallet`은 caver-java 1.4.0의 `caver.crypto`를 대체합니다.
-- `caver.wallet.KeyStore`은 caver-java 1.4.0의 `caver.wallet.WalletFile`을 대체합니다.
+- `caver.wallet` replaces `caver.crypto` in caver-java 1.4.0
+- `caver.wallet.KeyStore` replaces `caver.wallet.WalletFile` in caver-java 1.4.0
 
 ### caver.transaction
 
-caver.transaction은 [Transaction](../../../learn/transactions/transactions.md#transactions-overview)과 관련된 기능을 제공하는 패키지입니다.
+caver.transaction is a package that provides functionality related to [Transaction](../../../learn/transactions/transactions.md#transactions-overview).
 
-- caver-java 1.4.0에서 `caver.transaction`은 `caver.tx`를 대체합니다.
+- `caver.transaction` replaces `caver.tx` in caver-java 1.4.0
 
 ### caver.rpc
 
-caver.rpc는 클레이튼 노드에서 rpc 호출과 관련된 기능을 제공하는 패키지입니다.
+caver.rpc is a package that provides functionality related to rpc call with Klaytn Node.
 
-- caver-java 1.4.0에서 `caver.rpc.klay`와 `caver.rpc.net`은 각각 `Klay`, `Net` 인터페이스를 대체합니다.
+- `caver.rpc.klay` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, respectively
 
 ### caver.util
 
-caver.utils는 유틸리티 함수를 제공합니다.
+caver.utils provides utility functions.
 
 ### caver.contract
 
-`caver.contract`는 클레이튼에서 스마트 컨트랙트를 쉽게 다룰 수 있도록 도와주는 패키지입니다. caver.contract를 사용하면 스마트 컨트랙트를 배포하고 함수를 호출하여 실행할 수 있습니다. `caver.contract`는 먼저 스마트 컨트랙트 함수와 이벤트를 ABI(Application Binary Interface)에서 변환하고, 해당 함수를 호출하여 이벤트 정보를 가져옵니다.
+`caver.contract` is a package that makes it easy to handle smart contracts in Klaytn. With caver.contract, you can deploy smart contracts and execute them by calling their functions. `caver.contract` first converts smart contract functions and events from ABI\(Application Binary Interface\), calls those functions, and obtains the event information.
 
-## 전제 조건 <a id="prerequisites"></a>
+## Prerequisites <a id="prerequisites"></a>
 
-### 리포지토리 추가하기<a id="adding-a-repository"></a>
+### Adding a Repository <a id="adding-a-repository"></a>
 
-IPFS를 사용하기 전에 라이브러리 리포지토리를 추가해야 합니다. 먼저 다음 리포지토리를 추가하세요.
+A library repository should be added before using IPFS. Please add the following repository first.
 
 **maven**
 
@@ -69,7 +69,7 @@ allprojects {
 }
 ```
 
-### 종속성 추가하기 <a id="adding-a-dependency"></a>
+### Adding a Dependency <a id="adding-a-dependency"></a>
 
 **maven**
 
@@ -87,62 +87,62 @@ allprojects {
 implementation 'com.klaytn.caver:core:1.5.0'
 ```
 
-Android 종속성을 사용하려면 버전 문자열 끝에 -android를 추가하면 됩니다. (예: 1.0.1-android)
+If you want to use Android dependency, just append -android at the end of the version string. \(e.g. 1.0.1-android\)
 
-JSON-RPC 요청 및 응답에 대한 자세한 내용을 보려면 프로젝트에 [LOGBack](https://logback.qos.ch/) 의존성을 포함하세요. 아래는 Gradle 빌드 파일 예시입니다. Maven에도 해당 종속성을 추가할 수 있습니다. caver-java는 [SLF4J](http://www.slf4j.org/) 로깅 파사드를 사용하므로, LOGBack 대신 원하는 로깅 프레임워크로 전환할 수 있습니다.
+If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](http://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
 
 ```groovy
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-**참고**: 중앙 리포지토리에는 RC, Android, Java 버전이 함께 나열되어 있습니다. 와일드카드를 사용하여 버전을 가져오는 경우 플랫폼에 적합하지 않은 버전을 사용하고 있을 수 있습니다.
+**Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
 
-#### 명령줄 도구 <a id="command-line-tool"></a>
+#### Command-line Tool <a id="command-line-tool"></a>
 
-명령줄 도구를 사용하면 명령줄에서 Solidity 스마트 컨트랙트 함수 래퍼를 생성할 수 있습니다.
+The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
 
-**설치 (Homebrew)**
+**Installation \(Homebrew\)**
 
-설치하려면 Java 1.8 이상이 필요합니다.
+Java 1.8+ is required to install this.
 
 ```text
 $ brew tap klaytn/klaytn
 $ brew install caver-java
 ```
 
-설치 후 아래와 같이 'caver-java' 명령을 실행할 수 있습니다:
+After installation you can run command 'caver-java' like below:
 
 ```text
 $ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
 ```
 
-**설치 (기타)**
+**Installation \(Other\)**
 
-현재 다른 패키지 관리자는 지원하지 않습니다. 다른 해결책으로 아래에서 CLI를 빌드하는 방법을 제공합니다.
+Currently, we do not support other package managers. As another solution, we provide a method to build the CLI below.
 
-- caver-java를 다운로드하거나 포크합니다.
+- Download or fork caver-java.
 
-- Gradle을 사용하여 콘솔 모듈에서 'shadowDistZip' 작업을 수행합니다. 그 결과 `console/build/distributions/console-shadow-{version}.zip`이 생성됩니다.
+- Do task 'shadowDistZip' in the console module using Gradle. As a result, `console/build/distributions/console-shadow-{version}.zip` is generated.
 
   ```text
   $ ./gradlew :console:shadowDistZip
   ```
 
-- 빌드 디렉터리에 있는 zip 파일의 압축을 풉니다.
+- Unzip the zip file in the build directory
 
   ```text
   $ unzip ./console/build/distributions/console-shadow-{version}.zip
   ```
 
-- 바이너리 파일을 실행하면 아래와 같이 명령줄 도구가 실행됩니다. macOS 사용자를 위한 셸 스크립트 파일과 Window 사용자를 위한 배치 파일을 찾을 수 있습니다.
+- Execute the binary file to run the command-line tool like below. You can find a shell script file for macOS users and a batch file for Window users.
 
   ```text
   $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
   ```
 
-## KLAY 보내기 한 눈에 보기
+## Sending KLAY at a glance
 
-여기서는 `keystore file`을 이용해 밸류 전송 트랜잭션과 함께 KLAY를 보내는 간단한 예시를 설명합니다. 키스토어 파일은 [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 생성할 수 있습니다. 테스트를 위해 KLAY가 필요한 경우, [Klaytn 지갑](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab 테스트넷 KLAY를 받을 수 있습니다.
+This section describes a simple example of using a `keystore file` to send KLAY with a value transfer transaction. The keystore file can be created in [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
 
 ```java
 public void sendingKLAY() throws IOException, CipherException, TransactionException {
@@ -185,50 +185,50 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
     }
 ```
 
-## caver-java로 시작하기 <a id="starting-with-caver-java"></a>
+## Starting with caver-java <a id="starting-with-caver-java"></a>
 
-### 클레이튼 노드에 연결하기 <a id="connecting-to-a-klaytn-node"></a>
+### Connecting to a Klaytn Node <a id="connecting-to-a-klaytn-node"></a>
 
-EN을 실행 중인 경우 아래와 같이 호스트와 포트를 변경하여 자체 노드에 연결할 수 있습니다:
+If you are running an EN, you can connect it to your own node by changing the host and port like below:
 
 ```java
 Caver caver = new Caver("http://your.en.url:8551/");
 ```
 
-## Keyring 관리하기 <a id="managing-keyrings"></a>
+## Managing Keyrings <a id="managing-keyrings"></a>
 
-`Keyring`은 클레이튼 계정의 주소와 개인키를 담고 있는 구조입니다.
+`Keyring` is a structure that contains the address of the Klaytn account and the private key(s).
 
-`Keyring`은 저장하는 키의 종류에 따라 하나의 주소와 하나의 개인키를 저장하는 `SingleKeyring`, 하나의 주소와 다수의 개인키를 저장하는 `MultiKeyring`, 각 역할별로 하나의 주소와 하나 이상의 개인키를 저장하는 `RoleBasedKeyring` 등 세 가지 유형으로 분류할 수 있습니다.
+`Keyring` can be classified into three types depending on the type of key being stored: `SingleKeyring` to store one address and one private key, `MultipleKeyring` to store one address and multiple private keys, and `RoleBasedKeyring` to store one address and one or more private keys for each role.
 
-`SingleKeyring`은 내부에 `key` 속성을 정의하며, 이 `key`는 하나의 개인키를 저장합니다.
+`SingleKeyring` defines `key` property inside, and this `key` stores one private key.
 
-`MultipleKeyring`은 내부에 `key` 프로퍼티를 정의하고, 이 `key`는 여러 개인키를 저장하기 위해 배열로 구현됩니다.
+`MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
 
-`RoleBasedKeyring`에 정의된 `key` 속성은 3개의 개인 키 배열을 요소로 갖는 목록 객체로 구현되며(빈 `key`는 `[ [], [], [] ]`처럼 보입니다), 각 `role`에 대해 여러 키를 포함할 수 있도록 구현됩니다. 배열의 첫 번째 요소는 `roleTransactionKey`에 사용할 개인 키로, 두 번째 요소는 `roleAccountUpdateKey`에 사용할 개인 키로, 세 번째 요소는 `roleFeePayerKey`에 사용할 개인 키로 채워집니다.
+The `keys` property defined in `RoleBasedKeyring` is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each `role`. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
 
-### Keyring 만들기 <a id="creating-a-keyring"></a>
+### Creating a Keyring <a id="creating-a-keyring"></a>
 
-#### SingleKeyring 생성하기 <a id="generating-a-singlekeyring"></a>
+#### Generating a SingleKeyring <a id="generating-a-singlekeyring"></a>
 
-아래와 같이 하나의 열쇠고리를 무작위로 생성할 수 있습니다.
+You can randomly generate a single keyring as shown below.
 
 ```java
 SingleKeyring keyring = caver.wallet.keyring.generate();
 ```
 
-#### 개인 키로 SingleKeyring 만들기 <a id="creating-a-singlekeyring-from-private-key"></a>
+#### Creating a SingleKeyring from private key <a id="creating-a-singlekeyring-from-private-key"></a>
 
-또한 특정 개인키를 소유하고 있는 경우 이를 사용하여 아래와 같이 Keyring을 만들 수 있습니다.
+Also, if you own a specific private key, you can use it to create a keyring as shown below.
 
 ```java
 String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = caver.wallet.keyring.createFromPrivateKey(privateKey);
 ```
 
-#### 개인키와 주소로 SingleKeyring 만들기 <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-클레이튼 계정의 개인키가 주소와 분리되어 있는 경우, 아래와 같이 주어진 주소와 개인키를 사용하여 Keyring을 만들 수 있습니다.
+If your private key for your Klaytn account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
 
 ```java
 String address = "0x{address in hex}";
@@ -236,16 +236,16 @@ String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = caver.wallet.keyring.createWithSingleKey(address, privateKey);
 ```
 
-또한 클레이튼 지갑 키에서 SingleKeyring 인스턴스를 파생할 수 있습니다.
+Also, you can derive SingleKeyring instance from Klaytn wallet key.
 
 ```java
 String klaytnWalletKey = "0x{private key}0x{type}0x{address in hex}";
 SingleKeyring keyring = caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey);
 ```
 
-#### 여러 개의 개인 키가 있는 MultipleKeyring 만들기 <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-여러 개의 개인키를 사용하려면 주소와 여러 개의 개인키를 사용하여 `MultipleKeyring`을 생성하면 됩니다. 아래 예시는 여러 개의 개인키를 사용하여 `MultipleKeyring`을 생성하는 방법을 보여줍니다.
+If you want to use multiple private keys, you can create a `MultipleKeyring` using an address and multiple private keys. The below examples show how to create a `MultipleKeyring` with multiple private keys.
 
 ```java
 String address = "0x{address in hex}";
@@ -253,9 +253,9 @@ String[] privateKeyArray = new String[] {"0x{private key#1}", "0x{private key#2}
 MultipleKeyring multipleKeyring = caver.wallet.keyring.createWithMultipleKey(address, privateKeyArray);
 ```
 
-#### 개인 키를 사용하여 RoleBasedKeyring 만들기 <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+#### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-각 `role`에 대해 서로 다른 개인키를 사용하려면 `caver.wallet.keyring.createWithRoleBasedKey`가 사용됩니다. 각 배열 요소는 `RoleBasedKeyring`에 설명된 역할을 나타냅니다. 아래 예시는 각 역할에 대해 서로 다른 키로 `RoleBasedKeyring` 인스턴스를 생성하는 방법을 보여줍니다.
+To use different private key(s) for each `role`, `caver.wallet.keyring.createWithRoleBasedKey` is used. Each array element represents a role described in `RoleBasedKeyring`. The example below shows how to create a `RoleBasedKeyring` instance from different keys for each role.
 
 ```java
 String address = "0x{address in hex}";
@@ -283,9 +283,9 @@ String[][] privateKeyArr = new String[][] {
 RoleBasedKeyring keyring = caver.wallet.keyring.createWithRoleBasedKey(address, Arrays.asList(privateKeyArr));
 ```
 
-### 키스토어 JSON string에서 caver-java에 Keyring 추가하기.<a id="adding-keyrings-to-caver-java"></a>
+### Adding Keyrings to caver-java from a keystore json string.<a id="adding-keyrings-to-caver-java"></a>
 
-caver-java에서 제공하는 인메모리 지갑에 Keyring을 추가하면 더 쉽게 사용할 수 있습니다. 아래 예시는 [클레이튼 지갑](https://wallet.klaytn.com/)에서 생성한 키스토어 JSON 파일 문자열을 사용하여 `caver.wallet`에 Keyring을 추가하는 방법을 설명합니다.
+You can use a keyring more easily by adding it to the in-memory wallet provided by caver-java. The following examples illustrate how to add a keyring to `caver.wallet` using a keystore JSON file string generated by [Klaytn Wallet](https://wallet.klaytn.com/).
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -332,9 +332,9 @@ address : 0xc02cec4d0346bf4124deeb55c5216a4138a40a8c
 key : 0x93c90135ae69669e416ba5997d9274f8c8bd60748761fc421e415602d68a13a5
 ```
 
-위의 출력을 보면, `caver.wallet`에 Keyring을 추가한 후 `caver.wallet`에서 Keyring을 조회할 수 있습니다.
+Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
 
-사용할 주소와 개인키가 있는 경우, caver.wallet.newKeyring을 통해 쉽게 Keyring을 생성하고 caver.wallet에 바로 추가할 수 있습니다.
+If you have an address and private key(s) to use, you can easily create a keyring and add it directly to caver.wallet via caver.wallet.newKeyring.
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -378,34 +378,34 @@ String[][] privateKeyArr = new String[][] {
 AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', Arrays.asList(privateKeyArr))
 ```
 
-`caver.wallet.newKeyring`을 개인키와 함께 실행하면 하나의 개인키를 가진 Keyring 인스턴스가 생성되어 `caver.wallet`에 추가됩니다. 개인키가 여러 개인인 경우, 개인키가 여러 개인인 Keyring 인스턴스가 생성되어 `caver.wallet`에 추가됩니다. 역할별로 하나 이상의 개인키가 포함된 2D 문자열 배열을 요소로 전달하면 역할별로 다른 개인키가 포함된 Keyring 인스턴스가 생성되어 `caver.wallet`에 추가됩니다.
+When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created and added to `caver.wallet`. When passing a 2D string array including one or more private keys for each role as an element, a Keyring instance that contains the different private key(s) for each role is created and also added to the `caver.wallet`.
 
-`caver.wallet.add` 또는 `caver.wallet.newKeyring`은 `caver.wallet`에 추가한 후 Keyring 인스턴스를 반환합니다.
+`caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
 
-## 트랜잭션 보내기 <a id="sending-a-transaction"></a>
+## Sending a Transaction <a id="sending-a-transaction"></a>
 
-이 섹션에서는 Baobab 네트워크에서 caver-java를 사용하여 KLAY를 전송하는 방법을 보여드리겠습니다.
+This section will show you how to send KLAY using caver-java on the Baobab network.
 
-### Baobab Faucet를 통해 KLAY받기 <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KLAY via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
 
-테스트용으로 KLAY가 필요한 경우, [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)에서 Baobab 테스트넷 KLAY를 받을 수 있습니다. 개인키 또는 키스토어 파일을 사용하여 클레이튼 지갑에 로그인하고 테스트용 Faucet를 통해 Baobab 테스트넷 KLAY를 받습니다.
+If you need KLAY for testing, you can get Baobab testnet KLAY from the [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the Klaytn Wallet using the private key or the keystore file and receive Baobab testnet KLAY via the faucet for testing.
 
-### 밸류 전송 트랜잭션 보내기 <a id="sending-a-value-transfer-transaction"></a>
+### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
-caver-java 지갑을 사용하여 트랜잭션의 서명을 생성할 수 있습니다. 트랜잭션을 네트워크에 전송하려면 아래의 두 단계를 거쳐야 합니다.
+You can use a caver-java wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
 
-1. 트랜잭션 서명하기
-   - 사용하고자 하는 Keyring이 `caver.wallet`에 추가되어 있다면 `caver.wallet.sign` 함수를 사용하여 서명할 수 있습니다.
-   - `caver.wallet`에 추가하지 않고 Keyring을 별도로 관리하고 있다면 `transaction.sign` 함수를 통해 트랜잭션에 서명할 수 있습니다.
-2. 서명된 트랜잭션의 RLP 인코딩된 문자열을 `caver.rpc.klay.sendRawTransaction`을 통해 클레이튼에 전송합니다.
+1. Sign a transaction
+   - If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
+   - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
+2. Send the RLP-encoded string of the signed transaction to the Klaytn via `caver.rpc.klay.sendRawTransaction`.
 
-\*\*참고: \*\*송금자는 송금할 KLAY와 트랜잭션 수수료를 지불할 수 있을 만큼 충분한 KLAY를 보유하고 있어야 합니다.
+**Note:** The sender should have enough number of KLAY to be transferred and also to pay the transaction fee.
 
-#### 트랜잭션 체결
+#### Sign a transaction
 
-트랜잭션을 클레이튼에 보내기 전에 먼저 트랜잭션에 서명해야 합니다.
+Before sending a transaction to Klaytn, you should sign a transaction first.
 
-아래는 `caver.wallet`에 Keyring이 추가된 경우 트랜잭션에 서명하는 방법의 예시입니다.
+Below is an example of how to sign a transaction if a keyring is added to the `caver.wallet`.
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -429,17 +429,17 @@ String rlpEncoded = valueTransfer.getRLPEncoding();
 System.out.println("RLP-encoded string: " + rlpEncoded)
 ```
 
-위 코드는 `caver.wallet`에 Keyring을 추가하고 트랜잭션을 생성한 후 `caver.wallet.sign`을 통해 트랜잭션에 서명합니다.
+The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
 
-위의 코드를 실행하면 다음과 같은 결과가 표시됩니다. 위 코드가 실행되면 트랜잭션의 RLP 인코딩된 문자열이 아래와 같이 출력됩니다. (실제로 받은 RLP 인코딩된 문자열 출력은 아래 표시된 문자열 출력과 다를 수 있습니다).
+Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### 서명된 트랜잭션의 RLP 인코딩된 문자열을 Klaytn으로 보냅니다.
+#### Send the RLP-encoded string of the signed transaction to the Klaytn
 
-이제 아래와 같이 서명된 트랜잭션을 네트워크에 전송할 수 있습니다. 아래 예제를 실행하려면 위 코드에서 "rlpEncoding"을 `rlpEncoded` 값으로 바꾸세요.
+Now you can send a signed transaction to the network like below. If you want to run the below example, replace "rlpEncoding" with the value of `rlpEncoded` in the code above.
 
 ```java
 public String sendRawTransaction() {
@@ -464,7 +464,7 @@ public String sendRawTransaction() {
 }
 ```
 
-`caver.wallet` 없이 트랜잭션에 서명하고 네트워크에 전송하려면 아래 예시를 참조하세요.
+If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -500,17 +500,17 @@ try {
 }
 ```
 
-위 코드가 실행되면 아래 예시와 같이 트랜잭션 해시(txHash)가 출력됩니다.
+When the above code is executed, the transaction hash (txHash) is printed like the example below.
 
 ```bash
 Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113
 ```
 
-### 영수증 확인 <a id="checking-receipts"></a>
+### Checking Receipts <a id="checking-receipts"></a>
 
-`TransactionReceiptProcessor`를 사용하면 `caver.rpc.klay.sendRawTransaction`으로 클레이튼에 트랜잭션을 전송할 때 트랜잭션의 영수증을 받을 수 있습니다.
+You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the Klaytn by `caver.rpc.klay.sendRawTransaction`.
 
-다음 예는 PollingTransactionReceiptProcessor를 사용하여 영수증을 가져오는 방법을 보여줍니다.
+The following example shows how to get a receipt using PollingTransactionReceiptProcessor.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -528,9 +528,9 @@ try {
 }
 ```
 
-위의 예시에서 설명한 것처럼 TransactionReceiptProcessor를 통해 트랜잭션을 전송한 결과를 얻을 수 있습니다. `transactionHash` 필드는 영수증 객체 내부에 정의되어 있습니다.
+As described in the example above, you can get the result of sending a transaction through TransactionReceiptProcessor. The `transactionHash` field is defined inside the receipt object.
 
-트랜잭션이 블록에 포함된 후 네트워크에서 언제든지 트랜잭션 영수증을 조회하기 위해 `txHash` 문자열과 함께 `caver.rpc.klay.getTransactionReceipt` RPC 호출을 사용할 수 있습니다. 아래 예시는 `caver.rpc.klay.getTransactionReceipt` RPC 호출을 사용하여 영수증을 가져오는 방법을 보여줍니다.
+You can use `caver.rpc.klay.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.klay.getTransactionReceipt` RPC call.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -550,15 +550,15 @@ try {
 }
 ```
 
-트랜잭션의 결과는 영수증의 `status`를 통해 확인할 수 있습니다. 반환 값에 대한 자세한 내용은 `caver.rpc.klay.getTransactionReceipt`을 참조하세요. 트랜잭션이 실패한 경우, 영수증의 `txError`에서 오류에 대한 자세한 내용을 확인할 수 있습니다. txError\`에 대한 자세한 내용은 [txError: 트랜잭션 실패 상세 정보](../../transaction-error-codes.md)를 참고하세요.
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
-## 다른 트랜잭션 유형 실행하기 <a id="executing-other-transaction-types"></a>
+## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
 
-클레이튼은 확장성과 성능을 위해 다양한 트랜잭션 유형을 제공합니다. 자세한 내용은 [Transaction](../../../learn/transactions/transactions.md)을 참고하세요. 이 섹션에서는 caver-java와 함께 사용할 수 있는 몇 가지 예제를 설명합니다.
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/transactions.md). This section describes some examples that can be used with caver-java.
 
-### 수수료 위임 <a id="fee-delegation"></a>
+### Fee Delegation <a id="fee-delegation"></a>
 
-클레이튼은 수수료 위임 기능을 제공합니다. 다음은 여러분이 트랜잭션의 발신자일 때 RLP로 인코딩된 트랜잭션을 만드는 예시입니다:
+Klaytn provides Fee Delegation feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -578,13 +578,13 @@ String rlpEncoded = feeDelegatedValueTransfer.getRLPEncoding();
 System.out.println(rlpEncoded);
 ```
 
-위 코드를 실행하면 RLP로 인코딩된 문자열이 출력됩니다. (출력되는 RLP 인코딩된 문자열은 아래 표시된 문자열 출력과 다를 수 있습니다).
+When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
 
 ```bash
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-수수료 납부자는 트랜잭션 발신자가 서명한 RLP 인코딩된 문자열(`rawTransaction`)에 `feePayerSignatures`를 첨부한 후 트랜잭션을 Klaytn에 전송할 수 있습니다. `caver.wallet`에 수수료 납부자의 Keyring이 있는 경우, `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`를 호출하여 수수료 납부자의 서명을 `feeDelegatedTx`에 주입할 수 있습니다. 그렇지 않으면, 수수료 납부자는 아래 그림과 같이 발신자가 서명한 RLP 인코딩 문자열에서 `feeDelegatedTx`를 생성하고 여기에 수수료 납부자의 서명을 추가해야 합니다. 아래 예제를 실행하려면 위의 `0x{RLP 인코딩된 문자열}`을 `rlpEncoded` 값으로 바꾸면 됩니다.
+The fee payer can send the transaction to the Klaytn after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's keyring, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -601,13 +601,13 @@ caver.wallet.signAsFeePayer(feePayerKeyring.getAddress(), feeDelegatedValueTrans
 System.out.println(feeDelegatedValueTransfer.getRLPEncoding());
 ```
 
-위 코드를 실행하면 발신자의 서명과 수수료 납부자의 서명이 포함된 RLP 인코딩된 문자열이 아래와 같이 출력됩니다. (실제 출력되는 문자열은 아래 표시된 문자열 출력과 다를 수 있습니다.)
+When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
 
 ```bash
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
-이제 트랜잭션에 발신자와 수수료 납부자가 모두 서명했으며 네트워크를 통해 전송할 수 있습니다. 위 예제 코드의 `0x{RLP 인코딩된 문자열}`을 RLP 인코딩된 문자열 출력으로 바꿉니다.
+The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
 
 ```java
 Caver caver = new Caver(Caver.BAOBAB_URL);
@@ -631,29 +631,29 @@ try {
 }
 ```
 
-트랜잭션의 결과는 영수증의 `status`를 통해 확인할 수 있습니다. 반환 값에 대한 자세한 내용은 `caver.rpc.klay.getTransactionReceipt`을 참조하세요. 트랜잭션이 실패한 경우, 영수증의 `txError`에서 오류에 대한 자세한 내용을 확인할 수 있습니다. txError\`에 대한 자세한 내용은 [txError: 트랜잭션 실패 상세 정보](../../transaction-error-codes.md)를 참고하세요.
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
-### 계정 업데이트 <a id="account-update"></a>
+### Account Update <a id="account-update"></a>
 
-클레이튼 계정의 개인키를 변경하려면 3가지 중요한 사항을 기억해야 합니다:
+If you want to change the private key(s) for your Klaytn account, there are 3 important things you need to remember:
 
-1. 클레이튼은 여러분이 보내는 모든 트랜잭션의 유효성을 검사합니다.
-2. 유효성 검사에는 여러분의 개인키와 정확히 일치하는 공개키가 필요합니다.
-3. 따라서 개인키를 새 키로 변경하려면 기존 공개키를 새 키로 변경하는 것이 **항상** \*\*전제되어야 합니다. 새 공개 키는 새 개인 키에서 파생되어야 합니다.
+1. Klaytn validates every transaction you send to it.
+2. The validation requires your public keys which exactly corresponds to your private key(s).
+3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
 
-위의 세 가지 사항을 염두에 두고 아래 단계에 따라 개인키를 변경할 수 있습니다:
+Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
 
-1. 새 Keyring을 만들 새 개인키를 준비합니다.
-2. 필요한 유형(SingleKeyring, MultipleKeyring 또는 RoleBasedKeyring)에 따라 Keyring을 만듭니다.
-3. 새 Keyring에서 계정 인스턴스를 생성합니다. 이 계정 인스턴스는 클레이튼 계정의 새 공개키를 보관합니다.
-4. 계정 인스턴스를 포함한 계정 업데이트 트랜잭션을 클레이튼에 전송합니다.
-5. 마지막으로 기존 Keyring을 2단계에서 생성한 새 Keyring으로 교체합니다.
+1. Prepare the new private key(s) to create a new keyring.
+2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
+3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your Klaytn account.
+4. Send AccountUpdate transaction including Account instance to Klaytn.
+5. Finally, replace your old keyring to the new one that was created in Step 2.
 
-자세한 내용은 `계정 업데이트`에서 확인하세요.
+Please check `Account Update` for the details.
 
-AccountKey를 변경하려면 `caver.transaction.type.AccountUpdate`의 입력 인자 객체에서 `account` 필드에 `Account` 인스턴스를 제공해야 합니다. `Account` 인스턴스에는 업데이트할 클레이튼 계정의 주소와 계정키가 포함되어 있습니다.
+To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. An `Account` instance contains the address of the Klaytn account and the AccountKey to be updated.
 
-아래 코드는 클레이튼 계정에 사용하는 개인키를 변경하는 예시 코드로, 클레이튼 계정의 AccountKey를 `AccountKeyPublic`으로 변경하는 코드입니다. 새로운 개인키를 준비하는 것을 잊지 마세요.
+The code below is an example code that changes the private key(s) you use for your Klaytn account along with changing AccountKey of your Klaytn account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
 
 ```java
 Caver caver = new Caver(Caver.DEFAULT_URL);
@@ -694,11 +694,11 @@ try {
 senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 ```
 
-위 코드가 성공적으로 실행되면 더 이상 이전 Keyring으로 트랜잭션에 서명할 때 이전 개인키를 사용할 수 없습니다. 따라서 `caver.wallet.updateKeyring(newKeyring)`을 통해 기존 Keyring을 `newKeyring`으로 업데이트해야 합니다. 업데이트가 완료되면 새로 업데이트된 개인 키로 서명이 수행됩니다.
+If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
 
-클레이튼 계정의 AccountKey를 여러 개의 `AccountKey`로 업데이트하는 방법은 어떻게 하나요? 아래 예시는 사용하고자 하는 프라이빗 키가 여러 개 있는 `Account` 인스턴스를 생성하는 방법을 설명합니다(`caver.account.create`를 통해 여러 개의 퍼블릭 키가 있는 `Account` 인스턴스를 생성할 수 있습니다). 생성한 계정 인스턴스를 트랜잭션 오브젝트 내부의 `account` 필드에 입력한 후 나머지 업데이트 과정은 위 예시와 동일합니다.
+Here comes how to update AccountKey of your Klaytn account with multiple `AccountKeys`? The example below explains how to create an `Account` instance with multiple private keys that what you want to use (You can create an `Account` instance with multiple public keys via `caver.account.create`). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
 
-먼저, `AccountKeyWeightedMultiSig`로 업데이트할 계정 인스턴스를 생성해 보겠습니다. `AccountKeyWeightedMultiSig`의 경우 각 키에 대한 임계값과 가중치를 정의해야 합니다. 이를 위해 `caver.account.weightedMultiSigOptions`을 사용합니다. 첫 번째 매개변수는 임계값이고 두 번째 매개변수는 각 키에 대한 가중치를 포함하는 배열입니다.
+First, let's create an Account instance to update with `AccountKeyWeightedMultiSig`. For `AccountKeyWeightedMultiSig`, a threshold and a weight for each key must be defined. To do this, use `caver.account.weightedMultiSigOptions`. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
 
 ```java
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -713,7 +713,7 @@ WeightedMultiSigOptions options = new WeightedMultiSigOptions(threshold, Arrays.
 Account account = multipleKeyring.toAccount(options)
 ```
 
-이제 `AccountKeyRoleBased`를 사용하여 AccountKey를 업데이트해 보겠습니다. `AccountKeyRoleBased`는 각 `role`에 사용할 키를 정의하는 `AccountKey` 유형입니다.
+Now let's update AccountKey using `AccountKeyRoleBased`. `AccountKeyRoleBased` is an `AccountKey` type that defines the key to use for each `role`.
 
 ```java
 // Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
@@ -723,7 +723,7 @@ RoleBasedKeyring newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender
 const account = newKeyring.toAccount()
 ```
 
-위의 AccountKeyRoleBased는 각 역할에 대해 하나의 공개 키를 사용하는 예시입니다. 위 코드에서 볼 수 있듯이 각 공개 키는 하나의 개인 키에 해당합니다. 각 역할에 여러 개의 개인키를 사용하려면 아래와 같이 각 역할에 대해 `caver.account.weightedMultiSigOptions`을 정의해야 합니다.
+The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, `caver.account.weightedMultiSigOptions` must be defined for each role as shown below.
 
 ```java
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
@@ -739,7 +739,7 @@ WeightedMultiSigOptions[] options = new WeightedMultiSigOptions[] {
 Account account = newKeyring.toAccount(Arrays.asList(options));
 ```
 
-AccountKey를 `AccountKeyLegacy` 또는 `accountKeyFail`로 업데이트하려면 아래와 같이 Account 인스턴스를 생성하고 트랜잭션의 `account` 필드에 할당합니다. 나머지 업데이트 과정은 다른 계정 키와 동일합니다.
+If you want to update AccountKey to `AccountKeyLegacy` or `accountKeyFail`, create an Account instance as shown below and assign it to the `account` field of the transaction. The rest of the update process is same to that of other AccountKey.
 
 ```java
 // Create an account with AccountKeyLegacy
@@ -749,11 +749,11 @@ Account account = caver.account.createWithAccountKeyLegacy(keyringToUpdate.addre
 Account account = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
-### 스마트 컨트랙트 <a id="smart-contract"></a>
+### Smart Contract <a id="smart-contract"></a>
 
-`caver.contract` 패키지의 `Contract` 클래스를 사용하면 Klaytn에서 스마트 컨트랙트와 쉽게 상호작용할 수 있습니다. 스마트 컨트랙트의 모든 함수는 로우레벨 ABI가 주어지면 `contract` 인스턴스 안에 자동으로 변환되어 저장됩니다. 이를 통해 Java에서 `contract` 인스턴스를 다루는 것처럼 스마트 컨트랙트와 상호작용할 수 있습니다.
+The `Contract` class in `caver.contract` package makes it easy to interact with smart contracts on Klaytn. All functions of a smart contract automatically converted and stored inside `contract` instance, when its low-level ABI is given. This allows you to interact with a smart contract like you handle a `contract` instance in Java.
 
-아래에 간단한 Solidity 예제 코드를 작성하는 것으로 Java에서 스마트 컨트랙트를 다루는 방법에 대한 설명을 시작하겠습니다. 'test.sol' 파일을 생성하고 아래 예제를 작성합니다.
+We begin our explanation of dealing with a smart contract in Java by writing a simple solidity example code below. Create a 'test.sol' file and write down the example below.
 
 ```
 pragma solidity ^0.5.6;
@@ -769,7 +769,7 @@ contract KVstore {
 }
 ```
 
-그런 다음 이 스마트 컨트랙트를 컴파일하여 바이트코드와 ABI를 얻습니다.
+Then, compile this smart contract to get its bytecode and ABI.
 
 ```text
 > solc --abi --bin ./test.sol
@@ -780,16 +780,16 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**참고**: 스마트 컨트랙트를 컴파일하기 위해서는 [Solidity 컴파일러](https://solidity.readthedocs.io/en/develop/installing-solidity.html)가 설치되어 있어야 합니다. 위 프로그램을 컴파일하려면 solc:0.5.6을 설치해야 합니다.
+**NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed. To compile the above program, you need to install solc:0.5.6.
 
-스마트 컨트랙트를 유형별로 배포하려면 아래에 설명된 caver-java 클래스를 사용할 수 있습니다:
+To deploy a smart contract by its type, you can use caver-java classes described below:
 
-- 스마트 컨트랙트 트랜잭션의 발신자 또는 수수료 납부자가 수수료를 지불할 때 `caver.contract` 패키지의 `Contract` 클래스
-- 스마트 컨트랙트 트랜잭션의 발신자가 수수료를 지불할 때 `caver.transaction` 패키지의 `SmartContractDeploy` 클래스
-- 스마트 컨트랙트 트랜잭션의 수수료 지불자가 수수료를 지불할 때 `caver.transaction` 패키지에 있는 `feeDelegatedSmartContractDeploy` 클래스
-- 스마트 컨트랙트 트랜잭션의 수수료 납부자가 수수료를 지불할 때 `caver.transaction` 패키지의 `feeDelegatedSmartContractDeployWithRatio` 클래스
+- `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
+- `SmartContractDeploy` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
+- `feeDelegatedSmartContractDeploy` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
+- `feeDelegatedSmartContractDeployWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
-다음은 `caver.contract` 패키지의 `Contract` 클래스를 활용하는 예제입니다. 스마트 컨트랙트를 컴파일한 후 받은 바이트코드와 ABI로 아래와 같이 `contract` 인스턴스를 생성할 수 있습니다.
+Here is an example of exploiting `Contract` class in `caver.contract` package. You can create a `contract` instance like below from the bytecode and ABI you get after compiling the smart contract.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -811,7 +811,7 @@ Contract JSON ABI
     }
 ```
 
-위 코드를 실행하면 다음과 같은 결과를 얻을 수 있습니다.
+Running the code above gives you the following result.
 
 ```bash
 function set(string,string)
@@ -819,9 +819,9 @@ function get(string)
 ContractAddress : null
 ```
 
-위의 출력을 보면 `contract` 인스턴스가 스마트 컨트랙트 메서드를 소유하고 있음을 알 수 있습니다. 그리고 아직 배포되지 않았기 때문에 `contract.getContractAddress()`의 결과가 null로 출력되는 것을 볼 수 있습니다.
+Looking at the output above, you can see that the `contract` instance owns the smart contract method. And since it hasn't been deployed yet, you can see that the result of `contract.getContractAddress()` is output as null.
 
-이 컨트랙트가 이미 배포되었고 이 컨트랙트가 배포된 컨트랙트 주소를 알고 있다면, 아래와 같이 `contract` 인스턴스 생성자의 세 번째 파라미터로 컨트랙트 주소를 전달합니다.
+If this contract was already deployed and you knew the contract address where this contract was deployed at, pass the contract address as the third parameter of the constructor of the `contract` instance as below.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -845,7 +845,7 @@ ContractAddress : null
     }
 ```
 
-위의 코드를 실행하면 다음과 같은 결과가 표시됩니다.
+Running the code above gives you the following result.
 
 ```bash
 function set(string,string)
@@ -853,11 +853,11 @@ function get(string)
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-`contract` 인스턴스는 생성 시 컨트랙트 주소를 `contractAddress` 프로퍼티로 저장합니다. 이 주소는 게터/세터 함수를 통해 액세스할 수 있습니다(`getContractAddress()` / `setContractAddress()`).
+A `contract` instance stores its contract address as `contractAddress` property when it was created. The address can be accessed through getter / setter function (`getContractAddress()` / `setContractAddress()`).
 
-`contract` 인스턴스가 생성되면, 아래 예시처럼 바이트코드와 생성자의 인자(배포에 필요한 경우)를 전달하여 스마트 컨트랙트를 배포할 수 있습니다.
+Once a `contract` instance is created, you can deploy the smart contract by passing its bytecode and constructor's arguments (when needed for deploying) as the example below.
 
-`contract` 인스턴스의 `deploy()` 메서드는 컨트랙트 배포 및 컨트랙트 실행을 위한 트랜잭션을 전송합니다. 트랜잭션을 전송할 때 `caver.wallet`의 Keyring을 사용하여 서명합니다. 서명하기 전에 사용할 Keyring이 `caver.wallet`에 추가되어 있어야 합니다.
+Note that the `deploy()` method of the `contract` instance sends transactions for contract deployment and contract execution. For sending transactions, it uses Keyrings in `caver.wallet` to sign them. The keyring to be used must have been added to `caver.wallet` before signing.
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -883,20 +883,20 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
     }
 ```
 
-위 코드에서 `deployer`는 컨트랙트를 Klaytn에 배포하고 배포된 `contract` 인스턴스를 반환합니다.
+In the code above, the `deployer` deploys the contract to the Klaytn and returns the deployed `contract` instance.
 
 ```bash
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-스마트 컨트랙트는 트랜잭션을 배포하는 컨트랙트 유형에 따라 다음 클래스 중 하나를 사용하여 배포할 수 있습니다:
+A smart contract can be deployed using one of the following classes, depending on the type of contract deploying transaction:
 
-- 스마트 컨트랙트 트랜잭션의 발신자 또는 수수료 납부자가 수수료를 지불하는 경우 `caver.contract` 패키지의 `Contract` 클래스
-- 스마트 컨트랙트 트랜잭션의 발신자가 수수료를 지불하는 경우 `caver.transaction` 패키지의 `SmartContractDeploy` 클래스
-- 스마트 컨트랙트 트랜잭션의 수수료 지불자가 수수료를 지불할 때 `caver.transaction` 패키지에 있는 `feeDelegatedSmartContractDeploy` 클래스
-- 스마트 컨트랙트 트랜잭션의 수수료 납부자가 수수료를 지불할 때 `caver.transaction` 패키지의 `feeDelegatedSmartContractDeployWithRatio` 클래스
+- `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
+- `SmartContractDeploy` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
+- `feeDelegatedSmartContractDeploy` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
+- `feeDelegatedSmartContractDeployWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
-수수료 위임 트랜잭션을 통해 스마트 컨트랙트를 배포하려면 아래 예시와 같이 `SendOptions` 클래스에서 `feeDelegation` 및 `feePayer` 필드를 정의합니다.
+To deploy a smart contract through a fee-delegated transaction, define  the `feeDelegation` and `feePayer` fields in the `SendOptions` class like the example below.
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -931,7 +931,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
     }
 ```
 
-`caver.contract`을 통해 스마트 컨트랙트를 배포할 때 발신자와 수수료 납부자가 별도로 서명된 트랜잭션을 전송하려면 아래 코드를 참고하세요.
+If you want to send a transaction with sender and feePayer signed seperately when deploying a smart contract through `caver.contract`, refer to the code below.
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -970,14 +970,14 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
     }
 ```
 
-스마트 컨트랙트의 기능을 유형별로 실행하려면 아래에 설명된 caver-java 클래스를 사용할 수 있습니다:
+To execute a smart contract's function by its type, you can use caver-java classes described below:
 
-- 스마트 컨트랙트 트랜잭션의 발신자가 수수료를 지불할 때 `caver.contract` 패키지의 `Contract` 클래스
-- 스마트 컨트랙트 트랜잭션의 발신자가 수수료를 지불할 때 `caver.transaction` 패키지의 `SmartContractExecution` 클래스
-- 스마트 컨트랙트 트랜잭션의 수수료 지불자가 수수료를 지불할 때 `caver.transaction` 패키지에 있는 `FeeDelegatedSmartContractExecution` 클래스
-- 스마트 컨트랙트 트랜잭션의 수수료 납부자가 수수료를 지불할 때 `caver.transaction` 패키지에 있는 `FeeDelegatedSmartContractExecutionWithRatio` 클래스
+- `Contract` class in the `caver.contract` package when the sender of a smart contract transaction pays the fee
+- `SmartContractExecution` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
+- `FeeDelegatedSmartContractExecution` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
+- `FeeDelegatedSmartContractExecutionWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
 
-스마트 컨트랙트에서 함수를 실행하는 방법을 보여드리기 위해 아래 예시 코드에서 컨트랙트 함수 `set`의 입력 파라미터로 문자열 "testValue"를 넣는 컨트랙트 실행 트랜잭션을 전송합니다.
+To show how to execute a function in a smart contract, here we send a contract execution transaction that puts a string "testValue" as the input parameter of the contract function `set` in the example code below.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1002,7 +1002,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
     }
 ```
 
-수수료 위임 트랜잭션을 통해 스마트 컨트랙트의 기능을 실행하려면 아래 예시와 같이 `SendOptions` 클래스에서 `feeDelegation` 및 `feePayer` 필드를 정의합니다.
+To execute a smart contract's function through a fee-delegated transaction, define the `feeDelegation` and `feePayer` fields in the `SendOptions` class like the example below.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1032,7 +1032,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
     }
 ```
 
-`caver.contract`을 통해 스마트 컨트랙트를 실행할 때 발신자와 수수료 납부자가 별도로 서명된 트랜잭션을 전송하려면 아래 코드를 참고하세요:
+If you want to send a transaction with sender and feePayer signed separately when executing a smart contract through `caver.contract`, refer to the code below:
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1068,7 +1068,7 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
     }
 ```
 
-`contract` 인스턴스를 로드하고 해당 함수 중 하나를 호출하려면(트랜잭션을 전송하는 것이 아니라 호출만): 아래 예시는 컨트랙트에서 `get` 함수를 호출하는 것을 보여줍니다.
+To load a `contract` instance and call one of its functions (not sending a transaction but just a call): the below example shows calling a `get` function in a contract.
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1087,31 +1087,31 @@ ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
     }
 ```
 
-위 코드를 실행하면 아래와 같이 값이 출력됩니다.
+When the above code is executed, the value is shown as an output below.
 
 ```bash
 testValue
 ```
 
-자세한 내용은 [caver-java API]를 참조하세요.
+To find more information, see [caver-java API]
 
 ## IPFS <a id="ipfs"></a>
 
-IPFS(InterPlanetary File System)는 파일, 웹사이트, 애플리케이션 및 데이터를 저장하고 액세스하기 위한 분산 파일 시스템입니다.
+IPFS (InterPlanetary File System) is a distributed file system for storing and accessing files, websites, application, and data.
 
-Caver로 IPFS를 통해 파일을 업로드하고 다운로드할 수 있습니다.
+You can upload and download a file through IPFS with Caver.
 
-### IPFS로 연결하기 <a id="connecting-with-ipfs"></a>
+### Connecting with IPFS <a id="connecting-with-ipfs"></a>
 
-`caver.ipfs` 패키지의 `IPFS` 클래스는 `Caver`의 클래스 멤버 변수로 정의되어 있으므로 `Caver`를 통해 IPFS와 상호 작용할 수 있습니다.
+The `IPFS` class in the `caver.ipfs` package is defined as a class member variable in `Caver`, so you can interact with IPFS through `Caver`.
 
-`Caver` 인스턴스를 통해 `IPFS` 인스턴스를 사용하려면, 먼저 `setIPFSNode()` 메서드를 호출하여 IPFS 노드에 연결해야 합니다.
+In order to use an `IPFS` instance through the `Caver` instance, you must call method `setIPFSNode()` first to connect to an IPFS node.
 
-`setIPFSNode()` 함수에는 다음 파라미터가 필요합니다:
+The function `setIPFSNode()` requires following parameters:
 
-- IPFS HTTP API 호스트 URL
-- IPFS HTTP API 호스트 포트 번호
-- 호스트가 SSL을 사용하는지 여부.
+- IPFS HTTP API Host URL
+- IPFS HTTP API Host port number
+- Whether the host use SSL or not.
 
 ```java
 String host = "The URL of an IPFS node";
@@ -1121,11 +1121,11 @@ Caver caver = new Caver();
 caver.ipfs.setIPFSNode(host, port, isSSL);
 ```
 
-### IPFS를 통해 파일 업로드하기<a id="uploading-a-file-through-ipfs"></a>
+### Uploading a file through IPFS<a id="uploading-a-file-through-ipfs"></a>
 
-`IPFS`를 통해 파일을 업로드하려면 아래와 같이 `add()`를 사용하세요.
+To upload a file through `IPFS`, please use `add()` like below.
 
-이 함수는 업로드한 파일의 [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)를 반환합니다.
+This function returns [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file.
 
 ```java
 String filePath = "/path/to/file";
@@ -1133,13 +1133,13 @@ String cid = caver.ipfs.add(filePath);
 System.out.println(cid);
 ```
 
-위 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
 ```
 
-마찬가지로 바이트 배열을 업로드할 수도 있습니다.
+Likewise, you can upload a byte array.
 
 ```java
 String text = "sample data";
@@ -1149,28 +1149,28 @@ String cid = caver.ipfs.add(data);
 System.out.println(cid);
 ```
 
-위 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
 ```
 
-### IPFS에서 파일 다운로드하기<a id="downloading-a-file-from-ipfs"></a>
+### Downloading a file from IPFS<a id="downloading-a-file-from-ipfs"></a>
 
-`IPFS`에서 파일을 다운로드하려면 아래와 같이 `get()`을 사용하세요.
+To download a file from `IPFS`, please use `get()` like below.
 
-이 기능을 사용하려면 다운로드할 파일의 CID가 필요합니다.
+This function requires CID of the file to be downloaded.
 
 ```java
 String cid = "QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq";
 byte[] content = caver.ipfs.get(cid);
 ```
 
-### CID와 멀티해시 간 변환 <a id="conversion-between-cid-and-multihash"></a>
+### Conversion between CID and multihash <a id="conversion-between-cid-and-multihash"></a>
 
-`toHex()`를 사용하여 CID를 [Multihash](https://multiformats.io/multihash/)로 변환할 수 있습니다.
+You can convert a CID to a [Multihash](https://multiformats.io/multihash/) using `toHex()`.
 
-CID는 멀티해시의 Base58 인코딩된 값입니다. `toHex()`는 CID를 디코딩하고 해당 멀티해시를 반환합니다.
+A CID is a Base58 encoded value of a multihash. `toHex()` decodes the CID and returns the corresponding multihash.
 
 ```java
 String cid = "QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk";
@@ -1178,13 +1178,13 @@ String multihash = caver.ipfs.toHex(cid);
 System.out.println(multihash);
 ```
 
-위 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47
 ```
 
-멀티해시를 CID로 변환하려면 `fromHex()`를 사용하세요.
+To convert a multihash to CID, please use `fromHex()`.
 
 ```java
 String multihash = "0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47";
@@ -1192,34 +1192,34 @@ String cid = caver.ipfs.fromHex(multihash);
 System.out.println(cid);
 ```
 
-위 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
 ```
 
-## KCT 인터페이스 감지<a id="detect kct interface"></a>
+## Detect KCT interface<a id="detect kct interface"></a>
 
-[KIP-7], [KIP-17], [KIP-37] 등 KCT(Klaytn Compatible Token) 컨트랙트에서는 다양한 인터페이스를 정의하여 제공하고 있으며, [KIP-13]에서는 컨트랙트에 쿼리를 전송하여 컨트랙트가 KCT 사양을 준수하는지, 어떤 인터페이스를 구현하고 있는지 확인할 수 있습니다.
+KCT (Klaytn Compatible Token) contracts such as [KIP-7], [KIP-17], and [KIP-37] define and provide various interfaces, and [KIP-13] allows you to see whether a contract complies with KCT specifications and which interface it implements, by sending a query to the contract.
 
-[KIP-13]은 Caver v1.5.7에서 구현되었습니다. KCT 컨트랙트 클래스(`KIP7`, `KIP17`, `KIP37`)에 대해 `detectInterface()`를 통해 인터페이스를 감지할 수 있습니다.
+[KIP-13] was implemented in Caver v1.5.7. It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
 
-### KIP-7 인터페이스 감지하기 <a id="detecting-kip-7-interfaces"></a>
+### Detecting KIP-7 Interfaces <a id="detecting-kip-7-interfaces"></a>
 
-KIP-7 인터페이스를 감지하려면 `KIP7` 클래스에서 `detectInterface()`를 사용할 수 있습니다.
-이 함수는 KIP-7 인터페이스 식별자와 인터페이스가 지원되는지 여부에 대한 부울 사이의 매핑을 반환합니다.
+To detect KIP-7 interfaces, you can use `detectInterface()` in the `KIP7` class.
+It returns the mapping between KIP-7 interface identifier and a boolean that the interface is supported or not.
 
-`detectInterface()`는 정적 메서드와 인스턴스 메서드를 모두 지원하므로 필요에 맞는 메서드를 선택해 사용할 수 있습니다.
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
 
-`KIP7`에 대해 `detectInterface()`를 통해 탐지된 인터페이스는 아래 표와 같습니다.
+The interface detected through `detectInterface()` for `KIP7` is shown in the table below.
 
-| 인터페이스         | KIP-13 식별자 |
-| ------------- | ---------- |
-| IKIP7         | 0x65787371 |
-| IKIP7Metadata | 0xa219a025 |
-| IKIP7Mintable | 0xeab83e20 |
-| IKIP7Burnable | 0x3b5a0bf8 |
-| IKIP7Pausable | 0x4d5507ff |
+| Interface     | KIP-13 Identifier |
+| ------------- | ----------------- |
+| IKIP7         | 0x65787371        |
+| IKIP7Metadata | 0xa219a025        |
+| IKIP7Mintable | 0xeab83e20        |
+| IKIP7Burnable | 0x3b5a0bf8        |
+| IKIP7Pausable | 0x4d5507ff        |
 
 ```java
 Caver caver = new Caver(Caver.DEFAULT_URL);
@@ -1238,7 +1238,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-위 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 {
@@ -1250,24 +1250,24 @@ System.out.println(resultJson);
 }
 ```
 
-### KIP-17 인터페이스 감지하기 <a id="detecting-kip-17-interfaces"></a>
+### Detecting KIP-17 Interfaces <a id="detecting-kip-17-interfaces"></a>
 
-KIP-17 토큰 컨트랙트에 구현된 인터페이스를 감지하려면 `KIP17` 클래스에서 `detectInterface()`를 사용하면 됩니다.
-이 함수는 KIP-17 인터페이스 식별자와 인터페이스 지원 간의 매핑을 반환합니다.
+To detect the interface implemented in a KIP-17 token contract, you can use `detectInterface()` in the `KIP17` class.
+It returns the mapping between KIP-17 interface identifier and interface support.
 
-`detectInterface()`는 정적 메서드와 인스턴스 메서드를 모두 지원하므로 필요에 맞는 메서드를 선택해 사용할 수 있습니다.
+`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
 
-`KIP17`에 대해 `detectInterface()`를 통해 탐지된 인터페이스는 아래 표와 같습니다.
+The interface detect through `detectInterface()` for `KIP17` is shown in the table below.
 
-| 인터페이스                  | KIP-13 식별자 |
-| ---------------------- | ---------- |
-| IKIP17                 | 0x80ac58cd |
-| IKIP17Metadata         | 0x5b5e139f |
-| IKIP17Enumerable       | 0x780e9d63 |
-| IKIP17Mintable         | 0xeab83e20 |
-| IKIP17MetadataMintable | 0xfac27f46 |
-| IKIP17Burnable         | 0x42966c68 |
-| IKIP17Pausable         | 0x4d5507ff |
+| Interface              | KIP-13 Identifier |
+| ---------------------- | ----------------- |
+| IKIP17                 | 0x80ac58cd        |
+| IKIP17Metadata         | 0x5b5e139f        |
+| IKIP17Enumerable       | 0x780e9d63        |
+| IKIP17Mintable         | 0xeab83e20        |
+| IKIP17MetadataMintable | 0xfac27f46        |
+| IKIP17Burnable         | 0x42966c68        |
+| IKIP17Pausable         | 0x4d5507ff        |
 
 ```java
 
@@ -1287,7 +1287,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-위 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 {
@@ -1301,22 +1301,22 @@ System.out.println(resultJson);
 }
 ```
 
-### KIP-37 인터페이스 감지하기 <a id="detecting-kip-37-interfaces"></a>
+### Detecting KIP-37 interfaces <a id="detecting-kip-37-interfaces"></a>
 
-KIP-37 토큰 컨트랙트에 구현된 인터페이스를 감지하려면 `KIP37` 클래스에서 `detectInterface()`를 사용하면 됩니다.
-이 함수는 KIP-37 인터페이스 식별자와 인터페이스 지원 간의 매핑을 반환합니다.
+To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class.
+It returns the mapping between KIP-37 interface identifier and interface support.
 
-`detectInterface()`는 정적 메서드와 인스턴스 메서드를 모두 지원하므로 적절한 메서드를 선택하여 사용할 수 있습니다.
+`detectInterface()` supports both static and instance methods, so you can select and use the appropriate method.
 
-`KIP37`에 대한 `detectInterface()`를 통한 인터페이스 검출은 아래 표와 같습니다.
+The interface detection through `detectInterface()` for `KIP37` is shown in the table below.
 
-| 인터페이스          | KIP-13 식별자 |
-| -------------- | ---------- |
-| IKIP37         | 0x6433ca1f |
-| IKIP37Metadata | 0x0e89341c |
-| IKIP37Mintable | 0xdfd9d9ec |
-| IKIP37Burnable | 0x9e094e9e |
-| IKIP37Pausable | 0x0e8ffdb7 |
+| Interface      | KIP-13 Identifier |
+| -------------- | ----------------- |
+| IKIP37         | 0x6433ca1f        |
+| IKIP37Metadata | 0x0e89341c        |
+| IKIP37Mintable | 0xdfd9d9ec        |
+| IKIP37Burnable | 0x9e094e9e        |
+| IKIP37Pausable | 0x0e8ffdb7        |
 
 ```java
 
@@ -1336,7 +1336,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-위 코드의 실행 결과는 아래와 같습니다.
+The execution result of the above code is shown below.
 
 ```java
 {
@@ -1349,11 +1349,7 @@ System.out.println(resultJson);
 ```
 
 [caver-java API]: https://javadoc.io/doc/com.klaytn.caver/core/
-
 [KIP-7]: https://kips.klaytn.foundation/KIPs/kip-7
-
 [KIP-13]: https://kips.klaytn.foundation/KIPs/kip-13
-
 [KIP-17]: https://kips.klaytn.foundation/KIPs/kip-17
-
 [KIP-37]: https://kips.klaytn.foundation/KIPs/kip-37

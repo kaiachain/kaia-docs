@@ -1,12 +1,12 @@
-# Bắt đầu nhanh
+# Quick Start
 
-Hướng dẫn này cung cấp hướng dẫn từng bước để thiết lập mạng lưới ServiceChain và kết nối mạng lưới đó với mạng lưới Baobab Klaytn.
-Bạn cũng sẽ biết cách kích hoạt neo định kỳ và chuyển giá trị chuỗi chéo.
-Để vận hành các dịch vụ blockchain thực tế với ServiceChain, chúng ta cần giải thích về Tính sẵn sàng cao, xây dựng ServiceChain theo bậc và chuyển giao giá trị giữa các ServiceChain kết nối.
+This tutorial provides a step-by-step guide for setting up a ServiceChain network and connecting it to the Kaia Kairos network.
+You will also learn how to enable periodic anchoring and cross-chain value transfer.
+In order to operate the actual blockchain services with the ServiceChain, we will explain High Availability, building a ServiceChain hierarchically, and value transfer between sibling ServiceChains.
 
-- [Thiết lập chuỗi dịch vụ 4 nút](./4nodes-setup-guide.md)
-- [Kết nối với Baobab](./en-scn-connection.md)
-- [Chuyển giá trị chuỗi chéo](./value-transfer.md)
-- [HA cho ServiceChain](./ha-for-sc.md)
-- [Chuỗi dịch vụ lồng nhau](./nested-sc.md)
-- [Chuyển giá trị giữa các chuỗi dịch vụ kết nối](./value-transfer-between-sibling.md)
+- [Setting up a 4-node ServiceChain](./4nodes-setup-guide.md)
+- [Connecting to Kairos](./en-scn-connection.md)
+- [Cross-chain Value Transfer](./value-transfer.md)
+- [HA for ServiceChain](./ha-for-sc.md)
+- [Nested ServiceChain](./nested-sc.md)
+- [Value Transfer between Sibling ServiceChains](./value-transfer-between-sibling.md)

@@ -13,15 +13,15 @@
   - 4.1 `feepayer_server.js` 실행
   - 4.2 `발신자_클라이언트.js` 실행
   - 4.3 `feepayer_server.js` 확인
-  - 4.4 클레이튼 스코프
+  - 4.4 카이아 스코프
 
 ## 1. 소개 <a href="#1-introduction" id="1-introduction"></a>
 
-이 튜토리얼은 caver-js SDK를 사용하여 간단한 서버-클라이언트 예제를 작성하여 클레이튼에서 수수료 위임 밸류 전송 트랜잭션이 어떻게 작동하는지 설명합니다. 이 튜토리얼과 예제 코드는 Baobab 테스트넷을 사용하고 있습니다.
+이 튜토리얼은 caver-js SDK를 사용하여 간단한 서버-클라이언트 예제를 작성하여 카이아에서 수수료 위임 밸류 전송 트랜잭션이 어떻게 작동하는지 설명합니다. 이 튜토리얼과 예제 코드는 Kairos 테스트넷을 사용하고 있습니다.
 
 ## 2. 수수료 위임의 작동 방식 <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
-수수료 위임이 어떻게 작동하는지 간략히 살펴보겠습니다.
+Let's skim through how fee delegation works.
 
 ### 2.1 발신자가 트랜잭션 서명 <a href="#2-1-transaction-signing-by-the-sender" id="2-1-transaction-signing-by-the-sender"></a>
 
@@ -35,12 +35,12 @@ const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
-const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+const { rawTransaction: senderRawTransaction } = await caver.kaia.accounts.signTransaction({
   type: 'FEE_DELEGATED_VALUE_TRANSFER',
   from: senderAddress,
   to: toAddress,
   gas: '300000',
-  value: caver.utils.toPeb('1', 'KLAY'),
+  value: caver.utils.toPeb('1', 'KAIA'),
 }, senderPrivateKey)
 ```
 
@@ -58,9 +58,9 @@ const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signT
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "PRIVATE_KEY"
 
-caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
+caver.kaia.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
 
-caver.klay.sendTransaction({
+caver.kaia.sendTransaction({
   senderRawTransaction: senderRawTransaction,
   feePayer: feePayerAddress,
 })
@@ -106,12 +106,12 @@ const toAddress = "TO_ADDRESS";
 
 sendFeeDelegateTx = async() => {
     // sign transaction with private key of sender
-    const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+    const { rawTransaction: senderRawTransaction } = await caver.kaia.accounts.signTransaction({
       type: 'FEE_DELEGATED_VALUE_TRANSFER',
       from: senderAddress,
       to: toAddress,
       gas: '300000',
-      value: caver.utils.toPeb('0.00001', 'KLAY'),
+      value: caver.utils.toPeb('0.00001', 'KAIA'),
     }, senderPrivateKey)
 
     // send signed raw transaction to fee payer's server
@@ -136,7 +136,7 @@ sendFeeDelegateTx();
 
 ### 3.2 수수료 납부자 서버 <a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
 
-이제 수신된 `senderRawTransaction`을 `feePayerPrivateKey`로 서명하고 이를 Baobab 테스트넷으로 전송하는 수수료 지불자 서버인 `feepayer_server.js`를 작성해 보겠습니다.
+이제 수신된 `senderRawTransaction`을 `feePayerPrivateKey`로 서명하고 이를 Kairos 테스트넷으로 전송하는 수수료 지불자 서버인 `feepayer_server.js`를 작성해 보겠습니다.
 
 아래 예시에서 `"FEEPAYER_ADDRESS"` 및 `"FEEPAYER_PRIVATEKEY"`를 실제 값으로 바꾸어 주세요.
 
@@ -147,14 +147,14 @@ const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATEKEY";
 
 // add fee payer account
-caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
+caver.kaia.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
 
 var net = require('net');
 
 
 feePayerSign = (senderRawTransaction, socket) => {
     // fee payer
-    caver.klay.sendTransaction({
+    caver.kaia.sendTransaction({
       senderRawTransaction: senderRawTransaction,
       feePayer: feePayerAddress,
     })
@@ -185,7 +185,7 @@ console.log('Fee delegate service started ...');
 
 서버는 포트 `1337`에서 수신 대기합니다.
 
-들어오는 `data`가 있으면 `data`에 `feePayerPrivateKey`로 서명하고 이를 클레이튼 블록체인으로 보냅니다. 이 때 `data`는 `sender_client.js`의 `senderRawTransaction`이라고 가정합니다.
+들어오는 `data`가 있으면 `data`에 `feePayerPrivateKey`로 서명하고 이를 카이아 블록체인으로 보냅니다. 이 때 `data`는 `sender_client.js`의 `senderRawTransaction`이라고 가정합니다.
 
 ## 4. 실행 예제 <a href="#4-run-example" id="4-run-example"></a>
 
@@ -217,11 +217,11 @@ Received data from server: Tx hash is 0xd99086aa8188255d4ee885d9f1933b6cc062085c
 Received data from server: Sender Tx hash is 0xe1f630547f287177a0e92198b1c67212b24fc1ad5a1f0b1f94fd6f980281fdba
 ```
 
-`Sender` 개인 키로 트랜잭션에 서명하고 서명된 트랜잭션을 수수료 위임 서비스(즉, 수수료 납부자 서버)로 전송합니다. 그러면 수수료 대납 서비스에서 `fee payer` 주소, `Tx hash`, `Sender Tx hash`가 포함된 응답을 받습니다. `Tx hash`는 클레이튼 네트워크에 전송된 트랜잭션의 해시이며, `Sender Tx hash`는 수수료 납부자의 주소와 서명이 없는 트랜잭션의 해시입니다. 더 자세한 내용은 [SenderTxHash](../../learn/transactions/transactions.md#sendertxhash)를 참고하시기 바랍니다.
+`Sender` 개인 키로 트랜잭션에 서명하고 서명된 트랜잭션을 수수료 위임 서비스(즉, 수수료 납부자 서버)로 전송합니다. 그러면 수수료 대납 서비스에서 `fee payer` 주소, `Tx hash`, `Sender Tx hash`가 포함된 응답을 받습니다. `Tx hash`는 카이아 네트워크에 전송된 트랜잭션의 해시이며, `Sender Tx hash`는 수수료 납부자의 주소와 서명이 없는 트랜잭션의 해시입니다. 더 자세한 내용은 [SenderTxHash](../../learn/transactions/transactions.md#sendertxhash)를 참고하시기 바랍니다.
 
 ### 4.3 `feepayer_server.js` 확인 <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-서버의 콘솔에서 아래와 같은 출력을 확인할 수 있습니다. 클레이튼의 트랜잭션 영수증을 출력합니다.
+서버의 콘솔에서 아래와 같은 출력을 확인할 수 있습니다. 카이아의 트랜잭션 영수증을 출력합니다.
 
 ```
 $ node feepayer_server.js
@@ -277,7 +277,7 @@ receipt { blockHash:
   value: '0x9184e72a000' }
 ```
 
-### 4.4 클레이튼 스코프 <a href="#4-4-klaytn-scope" id="4-4-klaytn-scope"></a>
+### 4.4 카이아 스코프 <a href="#4-4-klaytn-scope" id="4-4-klaytn-scope"></a>
 
 You can also find the above transaction on the [Klaytnscope](https://baobab.klaytnscope.com).
 

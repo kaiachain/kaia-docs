@@ -14,10 +14,10 @@ Initializes a connection with an IPFS Node. When an IPFS Node information is set
 
 **Parameters**
 
-| Name | Type    | Description                                                                    |
-| ---- | ------- | ------------------------------------------------------------------------------ |
-| host | string  | The IPFS Node url to connect with.                                             |
-| port | number  | The port number to use.                                                        |
+| Name | Type    | Description                                                                                                    |
+| ---- | ------- | -------------------------------------------------------------------------------------------------------------- |
+| host | string  | The IPFS Node url to connect with.                                                             |
+| port | number  | The port number to use.                                                                        |
 | ssl  | boolean | If true, the `https` protocol is used. Otherwise, the `http` protocol is used. |
 
 **Return Value**
@@ -42,9 +42,9 @@ If the path of a file is passed, the contents of the file are loaded from the pa
 
 **Parameters**
 
-| Name | Type                            | Description                                           |
-| ---- | ------------------------------- | ----------------------------------------------------- |
-| data | string \| Buffer \| ArrayBuffer | The path string of a file or a buffer to add to IPFS. |
+| Name | Type                                | Description                                                           |
+| ---- | ----------------------------------- | --------------------------------------------------------------------- |
+| data | string \\| Buffer \\| ArrayBuffer | The path string of a file or a buffer to add to IPFS. |
 
 **NOTE** `Buffer` is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
 
@@ -52,8 +52,8 @@ If the path of a file is passed, the contents of the file are loaded from the pa
 
 `Promise` returns `string`
 
-| Type   | Description                                                                                                                                           |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                           |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
 
 **Example**
@@ -78,16 +78,16 @@ Returns a file addressed by a valid IPFS path.
 
 **Parameters**
 
-| Name | Type   | Description                                                                                                                                             |
-| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name | Type   | Description                                                                                                                                                             |
+| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hash | string | An [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
 
 **Return Value**
 
 `Promise` returns `Buffer`
 
-| Type   | Description              |
-| ------ | ------------------------ |
+| Type   | Description                              |
+| ------ | ---------------------------------------- |
 | Buffer | The content of the file. |
 
 **Example**
@@ -107,14 +107,14 @@ Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addre
 
 **Parameters**
 
-| Name | Type   | Description                                                                                                                               |
-| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Name | Type   | Description                                                                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hash | string | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
 
 **Return Value**
 
-| Type   | Description                                                |
-| ------ | ---------------------------------------------------------- |
+| Type   | Description                                                                |
+| ------ | -------------------------------------------------------------------------- |
 | string | The [Multihash](https://multiformats.io/multihash) string. |
 
 **Example**
@@ -134,14 +134,14 @@ Converts to [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addr
 
 **Parameters**
 
-| Name | Type   | Description                                                  |
-| ---- | ------ | ------------------------------------------------------------ |
+| Name | Type   | Description                                                                  |
+| ---- | ------ | ---------------------------------------------------------------------------- |
 | hash | string | A [Multihash](https://multiformats.io/multihash) to convert. |
 
 **Return Value**
 
-| Type   | Description                                                                                                                      |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                      |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
 
 **Example**

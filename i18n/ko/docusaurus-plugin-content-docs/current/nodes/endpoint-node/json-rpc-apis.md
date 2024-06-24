@@ -1,21 +1,21 @@
 # JSON-RPC API
 
-엔드포인트 노드는 JSON-RPC API를 노출합니다. API는 다음과 같이 활성화/비활성화할 수 있습니다. For the detailed API specification, please refer to the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created).
+엔드포인트 노드는 JSON-RPC API를 노출합니다. API는 다음과 같이 활성화/비활성화할 수 있습니다. 자세한 API 사양은 [JSON-RPC APIs](../../../references/json-rpc/klay/account-created)를 참조하세요.
 
-**참고**: HTTP(`rpc`) 또는 웹소켓(`ws`) 인터페이스를 통해 API를 제공하면 모든 사용자가 이 인터페이스에 액세스할 수 있는 API(디앱, 브라우저 탭 등)에 액세스할 수 있습니다. 어떤 API를 활성화할지 활성화할 때 주의하세요. 기본적으로 클레이튼은 `ipc` 인터페이스를 통해 모든 API를 활성화하지만, `rpc`와 `ws`의 경우 필수 모듈을 명시적으로 활성화해야 합니다.
+**참고**: HTTP(`rpc`) 또는 웹소켓(`ws`) 인터페이스를 통해 API를 제공하면 모든 사용자가 이 인터페이스에 액세스할 수 있는 API(디앱, 브라우저 탭 등)에 액세스할 수 있습니다. 어떤 API를 활성화할지 활성화할 때 주의하세요. 기본적으로 카이아는 `ipc` 인터페이스를 통해 모든 API를 활성화하지만, `rpc`와 `ws`의 경우 필수 모듈을 명시적으로 활성화해야 합니다.
 
 ## API 활성화하기 <a id="enabling-apis"></a>
 
 ### 명령줄에서 <a id="from-commandline"></a>
 
-클레이튼 RPC 엔드포인트를 통해 API를 제공하려면 `--${interface}api`
+카이아 RPC 엔드포인트를 통해 API를 제공하려면 `--${interface}api`
 명령줄 인자로 지정하세요.
 
 `ipc`는 플래그 없이 유닉스 소켓(Unix) 또는 네임드 파이프(Windows) 엔드포인트를 통해 모든 API를 제공합니다.
 
-아래 예시와 같이 추가하려는 특정 API를 사용하여 Klaytn 노드를 시작할 수 있습니다. 단, 노드를 실행한 후에는 API를 변경할 수 없다는 점에 유의하세요.
+아래 예시와 같이 추가하려는 특정 API를 사용하여 Kaia 노드를 시작할 수 있습니다. 단, 노드를 실행한 후에는 API를 변경할 수 없다는 점에 유의하세요.
 
-예) `klay`와 `net` 모듈을 활성화한 상태에서 클레이튼 노드 실행하기:
+예) `klay`와 `net` 모듈을 활성화한 상태에서 카이아 노드 실행하기:
 
 ```shell
 $ ken --rpcapi klay,net --rpc --{other options}
@@ -72,7 +72,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rp
 
 활성화된 API는 다음과 같습니다:
 
-- [VM Tracing](../../../references/json-rpc/debug/trace-bad-block) APIs, however with limited functionality (only [pre-defined tracers](../../../references/json-rpc/debug/trace-bad-block) are allowed. See params/tracingOptions)
+- [VM Tracing](../.../../references/json-rpc/debug/trace-bad-block) API를 사용할 수 있지만 기능이 제한되어 있습니다([사전 정의된 tracer](../.../references/json-rpc/debug/trace-bad-block)만 허용됩니다. params/tracingOptions을 참고하세요.)
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 

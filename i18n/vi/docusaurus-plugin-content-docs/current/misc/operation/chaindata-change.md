@@ -1,24 +1,24 @@
-# Thay đổi dữ liệu chuỗi
+# Change Chaindata
 
 <aside>
-💡 HƯỚNG DẪN NÀY DỰA TRÊN Amazon Linux 2
+💡 THIS GUIDE IS BASED ON Amazon Linux 2
 
 </aside>
 
-## **BƯỚC di chuyển** nút CN
+## CN Node **Migration STEP**
 
-### Tạo ổ đĩa mới
+### Create new disk
 
-1. Chuẩn bị ổ đĩa mới (dung lượng 3.500GB) hoặc tạo đường dẫn mới trên ổ đĩa hiện tại (Dung lượng khả dụng của ổ đĩa phải bằng 3.500GB.)
+1. Preparing new disk (3,500GB disk) or creating new path on the current disk (It must have 3,500GB available.)
 
 <aside>
-💡 Giả sử đường dẫn mới là `/var/kcnd2`
+💡 Assuming that the new path is `/var/kcnd2`
 
 </aside>
 
-#### Phương án 1 - Ổ đĩa mới (dung lượng trên 2500GB)
+#### Option 1 - New disk (more than 2500GB)
 
-1. Đính kèm ổ đĩa vào EC2 và chạy lệnh dưới đây
+1. Attach the disk to EC2 and run the command below
 
 ```bash
 $ lsblk
@@ -30,7 +30,7 @@ nvme0n1       259:2    0    8G  0 disk
 └─nvme0n1p128 259:4    0    1M  0 part
 ```
 
-2. Gắn ổ đĩa theo quy trình bên dưới
+2. Mount it following the process below
 
 ```bash
 $ sudo e2fsck -f /dev/nvme2n1
@@ -41,20 +41,20 @@ $ sudo mkdir /var/kcnd2/data
 $ sudo mkdir /var/kcnd2/log
 ```
 
-#### Phương án 2 - Ổ đĩa hiện tại (không khuyến nghị)
+#### Option 2 - Current Disk (not recommended)
 
-1. Tạo thư mục mới
+1. Create New Folder
 
 ```bash
 $ sudo mkdir /var/kcnd2/data
 $ sudo mkdir /var/kcnd2/log
 ```
 
-### Tải xuống dữ liệu chuỗi mới nhất
+### Download the latest chaindata
 
-Tải xuống dữ liệu chuỗi vào dữ liệu của thư mục Klaytn Data DIR mới. (Bạn có thể kiểm tra chi tiết trên dữ liệu chuỗi tại [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/))
+Download Chain Data to the data of the new Kaia Data DIR. (You can check the details on Chain Data in [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/))
 
-1. Tải xuống bằng lệnh dưới đây
+1. Download with the following command
 
 ```bash
 # (Option 1: recommended) curl 
@@ -69,7 +69,7 @@ sudo yum install axel pigz
 $ axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz
 ```
 
-2. Giải nén
+2. Decompress
 
 ```bash
 # (Option 1: recommended) tar
@@ -79,24 +79,24 @@ $ tar -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 ```
 
-## Cấu hình DATA_DIR & LOG_DIR
+## Configure DATA_DIR & LOG_DIR
 
-### Phương án 1 - Hoán đổi đường dẫn cũ & mới
+### Option 1 - Swap the old & new path
 
 <aside>
 🚨 TBD
 
 </aside>
 
-1. Dừng quá trình daemon klaytn trước khi hoán đổi
+1. Stop klaytn daemon process before swap
 
-   1. _**LƯU Ý**_ Nếu loại nút là CN, bạn có thể xóa nút CN khỏi Hội đồng Klaytn
+   1. _**IMPORTANT**_ Remove CN node in Kaia council if the node type is CN
 
-   💡 Bạn có thể nhận gói cho nút EN trong phần [Khởi động CN](../../nodes/core-cell/install/install-consensus-nodes.md#startup-the-cn).
+   💡 You can get packages for EN in the [Startup the CN](../../nodes/core-cell/install/install-consensus-nodes.md#startup-the-cn).
 
-2. Hoán đổi đường dẫn cũ và mới
+2. Swap the old and new path
 
-   1. Ổ đĩa mới
+   1. New Disk
 
       ```bash
       umount /var/kcnd # old path
@@ -104,31 +104,31 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
       mount /dev/nvme2n1 /var/kcnd
       ```
 
-   💡 Các lệnh này nên được thực thi với các đặc quyền thích hợp.
+   💡 These commands should be executed with the appropriate privileges.
 
-   2. Ổ đĩa hiện tại
+   2. Current Disk
 
       ```bash
       sudo mv /var/kcnd /var/kcnd_old # old_path
       sudo mv /var/kcnd2 /var/kcnd # new path
       ```
 
-3. (Tùy chọn) Xóa đường dẫn cũ nếu không còn cần thiết
+3. (Optional) Delete the old path if it is not required anymore
 
-### Phương án 2 - Cập nhật DATA_DIR & LOG_DIR trong tập tin cấu hình Klaytn
+### Option 2 - Update DATA_DIR & LOG_DIR in klaytn config file
 
-1. Thay đổi đường dẫn Klaytn DIR
-   - Phương án 1 - Ổ đĩa mới
-     - Thay đổi giá trị `fstab` từ ổ đĩa cũ sang ổ đĩa mới
-   - Phương án 2 - Ổ đĩa hiện tại
-     - thay đổi đường dẫn DIR từ `kcnd.conf`
+1. Kaia DIR Path Change
+   - Option 1 - New disk
+     - Change `fstab` value from old disk to new disk
+   - Option 2 - Current disk
+     - change the DIR Path from `kcnd.conf`
 
-## Khởi động lại quy trình (hoặc khởi động lại đối tượng)
+## Restart Process(or Reboot Instance)
 
 <aside>
-💡 Nếu cần khởi động lại để thêm ổ đĩa khác, hãy khởi động lại đối tượng.
+💡 If reboot is required to add an additional disk, reboot the instance.
 
 </aside>
 
-1. _**LƯU Ý**_ Nếu loại nút là CN, bạn có thể xóa nút CN khỏi Hội đồng Klaytn
-2. Khởi động lại quy trình hoặc khởi động lại đối tượng
+1. _**IMPORTANT**_ Remove CN node in Kaia council if the node type is CN
+2. Restart process or reboot instance

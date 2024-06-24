@@ -14,8 +14,8 @@ caver.wallet
 
 **properties**
 
-| Name   | Type   | Description                                 |
-| ------ | ------ | ------------------------------------------- |
+| Name   | Type   | Description                                                 |
+| ------ | ------ | ----------------------------------------------------------- |
 | length | number | The number of keyrings in keyringContainer. |
 
 ## caver.wallet.generate <a href="#caver-wallet-generate" id="caver-wallet-generate"></a>
@@ -28,15 +28,15 @@ Generates instances of [SingleKeyring](./keyring.md#singlekeyring) in the keyrin
 
 **Parameters**
 
-| Name             | Type   | Description                                                                    |
-| ---------------- | ------ | ------------------------------------------------------------------------------ |
+| Name             | Type   | Description                                                                                    |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------- |
 | numberOfKeyrings | number | The number of [SingleKeyring](./keyring.md#singlekeyring) instances to create. |
 | entropy          | string | (optional) A random string to increase entropy.             |
 
 **Return Value**
 
-| Type  | Description                                         |
-| ----- | --------------------------------------------------- |
+| Type  | Description                                                         |
+| ----- | ------------------------------------------------------------------- |
 | Array | An array containing the addresses of the generated. |
 
 **Example**
@@ -71,15 +71,15 @@ If `key` is a private key string, a [SingleKeyring](./keyring.md#singlekeyring) 
 
 **Parameters**
 
-| Name    | Type            | Description                                                                                                                                                                |
-| ------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string          | The address string.                                                                                                                                                        |
-| key     | string \| Array | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role](../../../../../learn/accounts.md#roles). |
+| Name    | Type              | Description                                                                                                                                                                                |
+| ------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address | string            | The address string.                                                                                                                                                        |
+| key     | string \\| Array | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role](../../../../../learn/accounts.md#roles). |
 
 **Return Value**
 
-| Type   | Description                                                                                                                                                                                                                    |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Type   | Description                                                                                                                                                                                                                                                    |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | The keyring instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) added to caver.wallet is returned. |
 
 **Example**
@@ -138,14 +138,14 @@ Updates the keyring inside the `caver.wallet`. When a new `keyring` instance ([S
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                                                                                                                                            |
-| ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name    | Type   | Description                                                                                                                                                                                                                            |
+| ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | keyring | object | The new keyring ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) to be stored in `caver.wallet`. |
 
 **Return Value**
 
-| Type   | Description                                                                                                                                                                                                          |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                                                                          |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | object | The updated keyring ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) stored in `caver.wallet`. |
 
 **Example**
@@ -168,14 +168,14 @@ Returns the keyring instance corresponding to the address in `caver.wallet`.
 
 **Parameters**
 
-| Name    | Type   | Description                      |
-| ------- | ------ | -------------------------------- |
+| Name    | Type   | Description                                      |
+| ------- | ------ | ------------------------------------------------ |
 | address | string | The address of keyring to query. |
 
 **Return Value**
 
-| Type   | Description                                                                                                                                                                                                                 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                                                                                 |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | The found keyring instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) stored in `caver.wallet`. |
 
 **Example**
@@ -198,14 +198,14 @@ Returns `true` if there is a keyring matching the address.
 
 **Parameters**
 
-| Name    | Type   | Description                                |
-| ------- | ------ | ------------------------------------------ |
+| Name    | Type   | Description                                                |
+| ------- | ------ | ---------------------------------------------------------- |
 | address | string | The address of keyring to check existence. |
 
 **Return Value**
 
-| Type    | Description                                                                        |
-| ------- | ---------------------------------------------------------------------------------- |
+| Type    | Description                                                                                        |
+| ------- | -------------------------------------------------------------------------------------------------- |
 | boolean | `true` means a keyring matching with the address is existed in the `caver.wallet`. |
 
 **Example**
@@ -225,14 +225,14 @@ Adds an instance of keyring to the `caver.wallet`. If the newly given keyring ha
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                                                                                                                                         |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name    | Type   | Description                                                                                                                                                                                                                         |
+| ------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | keyring | object | A keyring instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) to add to `caver.wallet`. |
 
 **Return Value**
 
-| Type   | Description                                                                                                                                                                                                 |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                                                                 |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | The added keyring ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) in `caver.wallet`. |
 
 **Example**
@@ -255,14 +255,14 @@ Deletes the keyring from `caver.wallet` whose address matches the address of the
 
 **Parameters**
 
-| Name    | Type   | Description                                                |
-| ------- | ------ | ---------------------------------------------------------- |
+| Name    | Type   | Description                                                                |
+| ------- | ------ | -------------------------------------------------------------------------- |
 | address | string | An address of the keyring to be deleted in `caver.wallet`. |
 
 **Return Value**
 
-| Type    | Description                                       |
-| ------- | ------------------------------------------------- |
+| Type    | Description                                                       |
+| ------- | ----------------------------------------------------------------- |
 | boolean | `true` if keyring is removed from `caver.wallet`. |
 
 **Example**
@@ -288,23 +288,23 @@ If the user has not provided the index parameter, `caver.wallet.signMessage` sig
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                                                                                                                                                                       |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string | An address of the keyring to be used.                                                                                                                                                                                                             |
-| message | string | The message to sign.                                                                                                                                                                                                                              |
-| role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                                                 |
+| Name    | Type   | Description                                                                                                                                                                                                                                                                                       |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string | An address of the keyring to be used.                                                                                                                                                                                                                                             |
+| message | string | The message to sign.                                                                                                                                                                                                                                                              |
+| role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                                                                 |
 | index   | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
 **Return Value**
 
-| Type   | Description                                    |
-| ------ | ---------------------------------------------- |
+| Type   | Description                                                    |
+| ------ | -------------------------------------------------------------- |
 | object | An object that includes the result of signing. |
 
 The returned object contains the following:
 
-| Name        | Type   | Description                                              |
-| ----------- | ------ | -------------------------------------------------------- |
+| Name        | Type   | Description                                                              |
+| ----------- | ------ | ------------------------------------------------------------------------ |
 | messageHash | string | The hash of message with Klaytn-specific prefix.         |
 | signatures  | Array  | An array of [SignatureData](./keyring.md#signaturedata). |
 | message     | string | The message to sign.                                     |
@@ -346,10 +346,10 @@ For [Account Update](../caver-transaction/basic.md#accountupdate) transaction, u
 
 **Parameters**
 
-| Name        | Type     | Description                                                                                                                                                                                                                                                                                                                                                              |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                                                                                                                                                    |
-| transaction | object   | An instance of [Transaction](../caver-transaction/caver-transaction.md#class).                                                                                                                                                                                                                                                                                           |
+| Name        | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                                                                                                                                                                                    |
+| transaction | object   | An instance of [Transaction](../caver-transaction/caver-transaction.md#class).                                                                                                                                                                                                                                                                                                                           |
 | index       | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                        |
 | hasher      | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../../learn/transactions/basic.md) for details about the default method for transaction hash generation. |
 
@@ -357,8 +357,8 @@ For [Account Update](../caver-transaction/basic.md#accountupdate) transaction, u
 
 `Promise` returning `object`: The signed transaction.
 
-| Type   | Description                                                                                             |
-| ------ | ------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                             |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | object | A signed transaction instance. The sign(s) is added to the `transaction.signatures`. |
 
 For more information about fields by transaction type, see [caver.transaction](../caver-transaction/caver-transaction.md).
@@ -458,19 +458,19 @@ If the `transaction.feePayer` is not defined, the address of keyring which is fo
 
 **Parameters**
 
-| Name        | Type     | Description                                                                                                                                                                                                                                       |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                             |
-| transaction | object   | An instance of [FeeDelegatedTransaction](../caver-transaction/fee-delegation.md).                                                                                                                                                                 |
+| Name        | Type     | Description                                                                                                                                                                                                                                                                                       |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                                                             |
+| transaction | object   | An instance of [FeeDelegatedTransaction](../caver-transaction/fee-delegation.md).                                                                                                                                                                                                 |
 | index       | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
-| hasher      | function | (optional) A function to get the transaction hash. If hasher is defined as a parameter, this is used to get the transaction hash instead of a default implementation in caver-js.                                              |
+| hasher      | function | (optional) A function to get the transaction hash. If hasher is defined as a parameter, this is used to get the transaction hash instead of a default implementation in caver-js.                                                              |
 
 **Return Value**
 
 `Promise` returning `object`: The signed transaction.
 
-| Type   | Description                                                                                            |
-| ------ | ------------------------------------------------------------------------------------------------------ |
+| Type   | Description                                                                                                                            |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | object | A signed transaction instance. The signing result is appended to the `transaction.feePayerSignatures`. |
 
 For more information about fields by transaction type, see [caver.transaction](../caver-transaction/caver-transaction.md).

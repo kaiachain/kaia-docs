@@ -27,5 +27,5 @@ Truffle은 컨트랙트 파일을 컴파일하고 배포하기 위한 훌륭한 
 - (**Truffle을 사용하여 스마트 컨트랙트 배포**)
 - `nvm use 10.16.0`을 입력하면 Truffle 사용 후 노드 v10.16.0으로 돌아옵니다.
 
-⚠ 버전이 5보다 낮으면 Truffle 버전 5를 설치하세요.\
+⚠ 버전이 5보다 낮으면 Truffle 버전 5를 설치하세요.\\
 `$ sudo npm install -g truffle@5`

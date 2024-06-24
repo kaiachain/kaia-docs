@@ -6,12 +6,12 @@
 
 ## 전제 조건 <a id="prerequisites"></a>
 
-- EN의 메인 브리지와 SCN의 서브 브리지가 연결되어 있어야 합니다. 연결되지 않은 경우, [Baobab 연결](en-scn-connection.md)을 참조하여 연결을 설정하세요.
-- 이 섹션에서는 Baobab과 서비스체인 사이에 브리지를 추가하는 방법을 설명합니다. 같은 방법으로 다른 브리지를 추가하여 HA를 설정할 수도 있습니다.
+- EN의 메인 브리지와 SCN의 서브 브리지가 연결되어 있어야 합니다. 연결되지 않은 경우, [Kairos 연결](en-scn-connection.md)을 참조하여 연결을 설정하세요.
+- 이 섹션에서는 Kairos와 서비스체인 사이에 브리지를 추가하는 방법을 설명합니다. 같은 방법으로 다른 브리지를 추가하여 HA를 설정할 수도 있습니다.
 
 ## 1단계: EN-SCN 간에 다른 브리지 추가 <a id="step-1-adding-another-bridge-between-en-scn"></a>
 
-[Baobab에 연결하기](en-scn-connection.md)에서는 브리지로 연결된 EN과 SCN을 각각 EN-01과 SCN-L2-01로 가정합니다. 이 섹션에서는 EN-02와 SCN-L2-02 사이에 브리지를 하나 더 추가하겠습니다.
+[Kairos에 연결하기](en-scn-connection.md)에서는 브리지로 연결된 EN과 SCN을 각각 EN-01과 SCN-L2-01로 가정합니다. 이 섹션에서는 EN-02와 SCN-L2-02 사이에 브리지를 하나 더 추가하겠습니다.
 동일한 절차를 따르므로 간략하게 설명하겠습니다.
 
 ![](/img/nodes/sc-ha-add-bridge.png)
@@ -39,7 +39,7 @@ SCN-L2-02$ echo '["kni://eb8f21df10c6562...25bae@192.168.0.5:50505?discport=0"]'
 SCN-L2-02의 셸에서 아래 설명과 같이 `kscn-XXXXX-amd64/conf/kscnd.conf`를 편집합니다.
 브리지를 연결하려면 `SC_SUB_BRIDGE`를 1로 설정합니다.
 `SC_PARENT_CHAIN_ID`는 Baobob의 `chainID` 1001로 설정합니다.
-`SC_ANCHORING_PERIOD`는 앵커링 트랜잭션을 부모 체인에 전송할 주기를 결정하는 파라미터입니다. 이 예시에서는 자식 블록 10개마다 앵커 트랜잭션이 부모 체인(Baobab)에 전송됩니다.
+`SC_ANCHORING_PERIOD`는 앵커링 트랜잭션을 부모 체인에 전송할 주기를 결정하는 파라미터입니다. 이 예시에서는 자식 블록 10개마다 앵커 트랜잭션이 부모 체인(Kairos)에 전송됩니다.
 
 ```
 ...

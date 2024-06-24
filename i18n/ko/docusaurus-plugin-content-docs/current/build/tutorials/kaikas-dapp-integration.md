@@ -78,7 +78,7 @@ Example Code: [kaikas-web3onboard-react](https://github.com/klaytn/examples/tree
 
 Libraries like [web3klaytn](#2.1-web3klaytn) & [ethers.js](#2.2-ethersjs-example) abstract just enough to streamline blockchain interactions while still being able to call [Provider](#3-providers) APIs directly.
 
-Using Utility Libraries to connect an account or send native tokens (e.g., KLAY/ETH) will be no different, _in terms of syntax & lines of code_, from calling Providers directly. Where libraries mainly improve are in the following areas:
+Using Utility Libraries to connect an account or send native tokens (e.g., KAIA/ETH) will be no different, _in terms of syntax & lines of code_, from calling Providers directly. Where libraries mainly improve are in the following areas:
 
 - Smart Contract interactions
   - These involve ABIs, encoding inputs, & decoding outputs. Without a library, the code for these can be verbose & error-prone.

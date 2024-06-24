@@ -22,5 +22,9 @@
   "item.label.References": {
     "message": "References",
     "description": "Navbar item with label References"
+  },
+  "item.label.Kaia Tech": {
+    "message": "Kaia Tech",
+    "description": "Navbar item with label Kaia Tech"
   }
 }

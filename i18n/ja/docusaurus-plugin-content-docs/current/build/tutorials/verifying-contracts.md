@@ -201,7 +201,7 @@ Once verification is done, the result of the verification will be displayed in t
 
 ![](/img/build/tutorials/airdrop-full-verification.png)
 
-### 2. Klaytnfinder
+### 2. Kaiafinder
 
 To verify a single contract and multi-part contracts on Klaytnfinder, navigate to the [contract submission request page](https://baobab.klaytnfinder.io/contracts). However, make sure your account is connected to either Kaikas or MetaMask and follow the steps below:
 

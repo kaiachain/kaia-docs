@@ -2,18 +2,18 @@
 
 ![](/img/references/Klaytn-ether.js.png)
 
-[ethers.js](https://docs.ethers.org/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Klaytn. With Klaytn supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as ethers.js can be used on Klaytn without any significant modifications.
+[ethers.js](https://docs.ethers.org/) is a JavaScript library that allows developers to interact with EVM-compatible blockchain networks like Kaia. With Kaia supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as ethers.js can be used on Kaia without any significant modifications.
 
-Thus, developers can leverage this compatibility and use the ethers.js library to interact with a Klaytn node.
+Thus, developers can leverage this compatibility and use the ethers.js library to interact with a Kaia node.
 
-In this guide, you'll learn how to use the ethers.js library to read data from the blockchain, send a transaction and interact with an existing contract on the Klaytn Network.
+In this guide, you'll learn how to use the ethers.js library to read data from the blockchain, send a transaction and interact with an existing contract on the Kaia Network.
 
 ## Prerequisites
 
 - Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
 - [Metamask](../../build/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../service-providers/public-en.md).
-- Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+- Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 - [NodeJS and NPM](https://nodejs.org/en/)
 
 ## Setup Project
@@ -43,7 +43,7 @@ Import `ethers` into your script file.
 const ethers = require('ethers');
 ```
 
-After successfully importing ethers, you need to connect to Klaytn by instantiating a new ethers.js `JsonRpcProvider` object with an RPC URL of the Klaytn network. Add the code below to the existing code:
+After successfully importing ethers, you need to connect to Kaia by instantiating a new ethers.js `JsonRpcProvider` object with an RPC URL of the Kaia network. Add the code below to the existing code:
 
 ```js
 const url = "RPC URL";
@@ -65,7 +65,7 @@ To read data from the blockchain, create a new `read.js` file in your project fo
 touch read.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to read data from the blockchain (e.g., blockNumber, KLAY balance).
+After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to read data from the blockchain (e.g., blockNumber, KAIA balance).
 
 To see this in action, paste the following code in your `read.js`.
 
@@ -78,7 +78,7 @@ async function getBlockNumber() {
 async function getKlayBalance() {
     const klayBalance  = await provider.getBalance("paste wallet address")
     const formatBalance = ethers.formatEther(klayBalance)
-    console.log(`You have ${formatBalance} KLAY`)
+    console.log(`You have ${formatBalance} KAIA`)
 }
 
 // call the functions below:
@@ -95,7 +95,7 @@ To run the script and read data from the blockchain, run the following command i
 node read.js
 ```
 
-If the transaction was succesful, you'll see the block number and user’s KLAY balance in your terminal.
+If the transaction was succesful, you'll see the block number and user’s KAIA balance in your terminal.
 
 ## Sending a transaction to the blockchain
 
@@ -105,7 +105,7 @@ To send a transaction to the blockchain, create a new `send.js` file in your pro
 touch send.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to send a transaction to the blockchain (e.g., send KLAY to an address).
+After creating this file, initialize ethers as done in the `initialize` section. In this section, you will learn how to send a transaction to the blockchain (e.g., send KAIA to an address).
 
 To see this in action, paste the following code in your `send.js`.
 
@@ -151,13 +151,13 @@ If the transaction was successful, you'll see the transaction receipt logged in 
 
 ## Interacting with smart contracts
 
-To interact with an existing smart contract on Klaytn, create a new `interact.js` file in your project folder by running this command:
+To interact with an existing smart contract on Kaia, create a new `interact.js` file in your project folder by running this command:
 
 ```bash
 touch interact.js
 ```
 
-After creating this file, initialize ethers as done in the `initialize` section. In this section, you will use ethers.js to interact with a smart contract on Klaytn by instantiating a `Contract` object using the ABI and address of a deployed contract:
+After creating this file, initialize ethers as done in the `initialize` section. In this section, you will use ethers.js to interact with a smart contract on Kaia by instantiating a `Contract` object using the ABI and address of a deployed contract:
 
 For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](../../build/tutorials/connecting-remix.md). We will be sending a transaction to the contract by calling the `store` function and also reading from it by calling the `retrieve` function.
 

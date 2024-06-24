@@ -1,15 +1,15 @@
-# Thành phần số khối
+# Blocknumber Component
 
 `src/components/BlockNumber.js`:
 
-## Thành phần `BlockNumber` <a id="blocknumber-component"></a>
+## `BlockNumber` component <a id="blocknumber-component"></a>
 
-1\) Mã lệnh đầy đủ\
-2\) Vai trò của thành phần BlockNumber\
-3\) Phương thức `getBlockNumber` chi tiết\
-4\) Gọi `getBlockNumber` sau mỗi khoảng thời gian bằng nhau
+1\) Full code\
+2\) BlockNumber component's role\
+3\) `getBlockNumber` method in detail\
+4\) Call `getBlockNumber` intervally
 
-### 1) Mã lệnh đầy đủ <a id="1-full-code"></a>
+### 1\) Full code <a id="1-full-code"></a>
 
 ```javascript
 import React, { Component } from 'react'
@@ -35,11 +35,11 @@ class BlockNumber extends Component {
 
   /**
    * 'getBlockNumber' method works
-   * 1) get current block number from klaytn node by calling 'cav.klay.getBlockNumber()'
+   * 1) get current block number from klaytn node by calling 'cav.kaia.getBlockNumber()'
    * 2) set 'currentBlockNumber' state to the value fetched from step 1).
    */
   getBlockNumber = async () => {
-    const blockNumber = await cav.klay.getBlockNumber()
+    const blockNumber = await cav.kaia.getBlockNumber()
     this.setState({ currentBlockNumber: blockNumber })
   }
 
@@ -81,34 +81,34 @@ class BlockNumber extends Component {
 export default BlockNumber
 ```
 
-### 2) Vai trò của thành phần BlockNumber <a id="2-blocknumber-component-s-role"></a>
+### 2\) BlockNumber component's role <a id="2-blocknumber-component-s-role"></a>
 
-Vai trò của thành phần `BlockNumber` là hiển thị số khối hiện tải của Klaytn.\
-Nó gửi yêu cầu lấy số khối hiện tại đến nút Klaytn bằng cách gọi `caver.klay.getBlockNumber()` mỗi giây. Thành phần này render lại DOM bằng `this.setState({ currentBlockNumber: blockNumber })` tùy theo phản hồi nhận về.
+`BlockNumber` component's role is showing Kaia's current block number.\
+It requests the current block number to the Kaia node by calling `caver.kaia.getBlockNumber()` every second. This component re-renders DOM through `this.setState({ currentBlockNumber: blockNumber })` upon receiving the response.
 
-### 3) Phương thức `getBlockNumber` chi tiết <a id="3-getblocknumber-method-in-detail"></a>
+### 3\) `getBlockNumber` method in detail <a id="3-getblocknumber-method-in-detail"></a>
 
 ```javascript
 /**
  * 'getBlockNumber' method works
- * 1) get current block number from klaytn node by calling 'cav.klay.getBlockNumber()'
+ * 1) get current block number from klaytn node by calling 'cav.kaia.getBlockNumber()'
  * 2) set 'currentBlockNumber' state to the value fetched from step 1).
  */
 getBlockNumber = async () => {
-  const blockNumber = await cav.klay.getBlockNumber()
+  const blockNumber = await cav.kaia.getBlockNumber()
   this.setState({ currentBlockNumber: blockNumber })
 }
 ```
 
-Phương thức `getBlockNumber` được khai báo như hàm async. Khai báo một hàm như async để dễ xử lý giá trị(promise) không đồng bộ. `cav.klay.getBlockNumber` trả về một promise, và có thể xử lý kết quả đơn giản bằng cách nối thêm từ khóa `await`.
+`getBlockNumber` method is declared as an async function. Declaring a function as async makes dealing with asynchronous value\(promise\) easy. `cav.kaia.getBlockNumber` returns a promise, and the result can be handled easily by appending `await` keyword.
 
-Để biết thêm thông tin về từ khóa async-await, hãy xem trang web MDN của javascript [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+For further information about async-await keyword, see javascript's MDN site [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
-Sau khi gán số khối hiện tại được trả về từ `cav.klay.getBlockNumber()` vào `blockNumber`, chúng tôi gọi API React `this.setState`. `this.setState({ currentBlockNumber: blockNumber })` thực chất là đặt thuộc tính trạng thái `currentBlockNumber` thành `blockNumber`. `this.setState(nextState)` cập nhật trạng thái hiện tại và hoàn trả lại thành phần.
+After assigning the current block number returned from `cav.kaia.getBlockNumber()` to `blockNumber`, we call `this.setState` React API. `this.setState({ currentBlockNumber: blockNumber })` literally sets the state property `currentBlockNumber` to `blockNumber`. `this.setState(nextState)` updates the current state and re-renders the component.
 
-Để biết thêm thông tin về this.setState của React và cơ chế render, truy cập vào trang web chính thức của React [https://reactjs.org/docs/state-and-lifecycle.html](https://reactjs.org/docs/state-and-lifecycle.html)
+For further detail about React's this.setState and rendering mechanism, visit React's official site [https://reactjs.org/docs/state-and-lifecycle.html](https://reactjs.org/docs/state-and-lifecycle.html)
 
-### 4) Gọi `getBlockNumber` sau mỗi khoảng thời gian bằng nhau <a id="4-call-getblocknumber-intervally"></a>
+### 4\) Call `getBlockNumber` intervally <a id="4-call-getblocknumber-intervally"></a>
 
 ```javascript
 /**
@@ -119,7 +119,7 @@ componentDidMount() {
 }
 ```
 
-Vì chúng ta muốn ứng dụng hướng dẫn của mình hiển thị số khối hiện tại liên tục, chúng ta gọi hàm `getBlockNumber` mỗi giây (1000ms). Chúng ta có thể sử dụng hàm `setInterval` để thực hiện điều này. `setInterval(func, delay)` gọi hàm đã cho liên tục với độ trễ đã cho. Hàm `setInterval` trả về id của khoảng thời gian để sử dụng cho việc xóa khoảng thời gian này sau đó nên chúng ta lưu nó vào biến `this.intervalId`.
+Since we want our tutorial app to show current block number lively, we call `getBlockNumber` every second \(1000ms\). We can use `setInterval` function to do this. `setInterval(func, delay)` calls the given function repeatedly with given delay. `setInterval` function returns an interval id which will be used to clear this interval later, so we store it to `this.intervalId` variable.
 
 ```javascript
 /**
@@ -131,4 +131,4 @@ componentWillUnmount() {
 }
 ```
 
-Khi bỏ gắn thành phần, dừng việc lấy số khối hiện tại bằng cách loại bỏ khoảng thời gian.
+When the component unmounts, stop getting the current block number by removing the interval.

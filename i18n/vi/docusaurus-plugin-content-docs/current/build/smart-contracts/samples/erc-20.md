@@ -1,10 +1,10 @@
 # ERC-20
 
-## Giới thiệu <a id="introduction"></a>
+## Introduction <a id="introduction"></a>
 
-Hướng dẫn này giúp bạn tạo một ví dụ về token tương thích với ERC-20, tuân thủ các [Tiêu chuẩn token Klaytn](../token-standard.md), đặc biệt là [Tiêu chuẩn token có thể thay thế (ERC-20)](../token-standard.md#fungible-token-standard-kip-7).
+This tutorial helps you to create an example ERC-20 compatible token that conforms to the [Kaia Token Standards](../token-standard.md), especially [Fungible Token Standard \(ERC-20\)](../token-standard.md#fungible-token-standard-kip-7).
 
-[Tiêu chuẩn token ERC-20](https://eips.ethereum.org/EIPS/eip-20) xác định hai sự kiện và 9 phương pháp (bao gồm 3 phương pháp tùy chọn) như sau. Các token tương thích với ERC-20 là các hợp đồng token triển khai giao diện sau đây.
+[ERC-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20) defines two events and 9 methods \(including 3 optional methods\) as below. ERC-20-compatible tokens are token contracts that implements the following interface.
 
 ```text
 function name() public view returns (string) //optional
@@ -21,22 +21,22 @@ event Transfer(address indexed _from, address indexed _to, uint256 _value)
 event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 ```
 
-Dựa trên giao diện trên đây, các nhà phát triển có thể tùy chỉnh token bằng cách thêm các tính năng và logic mới và triển khai trên mạng lưới Klaytn. Để biết thêm thông tin, hãy tham khảo [tài liệu ERC-20](https://eips.ethereum.org/EIPS/eip-20) chính thức.
+Based on above interface, developers may customize tokens by adding new features and logics, and deploy on Kaia network. For more information, refer to official [ERC-20 documentation](https://eips.ethereum.org/EIPS/eip-20).
 
-Trong hướng dẫn này, bạn sẽ triển khai `MyERC20.sol`, một token tương thích với ERC-20. Token này sẽ phát hành một số lượng token định trước và gửi tất cả các token đó cho chủ sở hữu hợp đồng khi triển khai.
+In this tutorial, you are going to implement `MyERC20.sol`, an ERC-20 compatible token. This token will issue a predefined amount of tokens and sends all of the tokens to the contract owner on its deploy.
 
-`MyERC20.sol` được dựa trên việc triển khai ERC20 của OpenZeppelin. Phần lớn mã trong hướng dẫn này được phân nhánh từ [OpenZeppelin 2.3](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0) và các tập tin Solidity sau được sử dụng để triển khai `MyERC20.sol`.
+`MyERC20.sol` is based on OpenZeppelin's ERC20 implementation. A major part of the code in this tutorial is forked from [OpenZeppelin 2.3 ](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0) and following Solidity files are used to implement `MyERC20.sol`.
 
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol)
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol)
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Detailed.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Detailed.sol)
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/math/SafeMath.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/math/SafeMath.sol)
 
-## 1. Soạn hợp đồng thông minh ERC-20 <a id="1-writing-erc-20-smart-contract"></a>
+## 1. Writing ERC-20 Smart Contract <a id="1-writing-erc-20-smart-contract"></a>
 
-### 1.1 Cấu trúc tổng thể của MyERC20 <a id="1-1-overall-structure-of-myerc20"></a>
+### 1.1 Overall structure of MyERC20 <a id="1-1-overall-structure-of-myerc20"></a>
 
-Dưới đây là mã nguồn đầy đủ của tập tin `MyERC20.sol`. Trong lần triển khai này, hàm `constructor` gọi `_mint` để tạo một số lượng token định trước khi triển khai hợp đồng.
+The complete source code of `MyERC20.sol` is given below. In this implementation, `constructor` invokes `_mint` to mint a predefined amount of token on contract deploy.
 
 ```text
 pragma solidity ^0.5.0;
@@ -426,20 +426,20 @@ contract MyERC20 is IERC20 {
 }
 ```
 
-`MyERC20.sol` bao gồm một giao diện `IERC20`, một thư viện `SafeMath` và một hợp đồng `MyERC20`, triển khai giao diện `IERC20`.
+`MyERC20.sol` consists of one interface `IERC20`, one library `SafeMath` and one contract `MyERC20` which implements `IERC20` interface.
 
-- Giao diện `IERC20` xác định giao diện bắt buộc được mô tả trong [tiêu chuẩn kỹ thuật của ERC-20](https://eips.ethereum.org/EIPS/eip-20).
-- Thư viện `SafeMath` xác định các lớp bọc (wrapper) cho các phép toán số học trong Solidity, kèm theo kiểm tra tràn số để đảm bảo tính toàn vẹn của phép tính với kiểu `uint256` trong Solidity.
-- `MyERC20` triển khai các giao diện `IERC20` và cũng xác định ba phương pháp tùy chọn được mô tả trong [tiêu chuẩn kỹ thuật của ERC-20](https://eips.ethereum.org/EIPS/eip-20).
-  - Ngoài ERC20, hàm `constructor` cũng được xác định và hàm tạo này được sử dụng để đặt tên và ký hiệu cho một token ERC20 mới và để tạo một số lượng token định trước. `constructor` được gọi một lần trong lần triển khai đầu tiên.
+- `IERC20` interface defines mandatory interface described at [ERC-20 specification](https://eips.ethereum.org/EIPS/eip-20).
+- `SafeMath` library defines wrappers over Solidity's arithmetic operations with added overflow checks for safe calculation of `uint256` type of Solidity.
+- `MyERC20` implements `IERC20` interfaces and also defines three optional methods described at [ERC-20 specification](https://eips.ethereum.org/EIPS/eip-20).
+  - In addition to ERC20, `constructor` is defined and this constructor is used to define a new ERC20 token name and symbol, and to mint a predefined amount of token. `constructor` is called once on its first deploy.
 
-### 1.2 Tìm hiểu một số phương pháp quan trọng <a id="1-2-take-a-look-at-important-methods"></a>
+### 1.2 Take a look at important methods <a id="1-2-take-a-look-at-important-methods"></a>
 
-Hãy tìm hiểu chi tiết một số phương pháp quan trọng.
+Let's take a look at some important methods in detail.
 
-#### (1) `function balanceOf(address account) external view returns (uint256);` <a id="1-function-balanceof-address-account-external-view-returns-uint256"></a>
+#### \(1\) `function balanceOf(address account) external view returns (uint256);` <a id="1-function-balanceof-address-account-external-view-returns-uint256"></a>
 
-`balanceOf` là phương pháp bắt buộc của ERC-20. `balanceOf` trả về số dư của địa chỉ đã cho.
+`balanceOf` is a mandatory method of ERC-20. `balanceOf` returns the balance of the given address.
 
 ```text
     function balanceOf(address account) public view returns (uint256) {
@@ -447,19 +447,19 @@ Hãy tìm hiểu chi tiết một số phương pháp quan trọng.
     }
 ```
 
-`balanceOf` chỉ trả về giá trị khóa `tài khoản` được lưu trong `_balances` là kiểu `mapping (address => uint256)` như dưới đây.
+`balanceOf` just returns of value of key `account` stored in `_balances` which is `mapping (address => uint256)` type as below.
 
 ```text
     mapping (address => uint256) private _balances;
 ```
 
-Nếu không có khóa `tài khoản` trong `_balances` thì giá trị trả về chỉ là `0`.
+If there is no key `account` available in `_balances`, then it just returns `0`.
 
-#### (2) `function transfer(address recipient, uint256 amount) external returns (bool);` <a id="2-function-transfer-address-recipient-uint256-amount-external-returns-bool"></a>
+#### \(2\) `function transfer(address recipient, uint256 amount) external returns (bool);` <a id="2-function-transfer-address-recipient-uint256-amount-external-returns-bool"></a>
 
-`transfer` là phương pháp bắt buộc của ERC-20. `transfer` chuyển `amount` token cho `recipient` và hàm MUST kích hoạt sự kiện `Transfer`. Hàm SHOULD thông báo lỗi ngoại lệ nếu số dư tài khoản của người gọi thông báo không có đủ token để chi tiêu.
+`transfer` is a mandatory method of ERC-20. `transfer` transfers `amount` of tokens to `recipient`, and MUST fire the `Transfer` event. The function SHOULD throw if the message caller’s account balance does not have enough tokens to spend.
 
-`transfer` chỉ gọi phương pháp nội bộ `_transfer` thực hiện việc chuyển giao thực tế và tạo sự kiện như sau.
+`transfer` just invokes internal method `_transfer` which implements actual transfer and event as below.
 
 ```text
     function transfer(address recipient, uint256 amount) public returns (bool) {
@@ -468,9 +468,9 @@ Nếu không có khóa `tài khoản` trong `_balances` thì giá trị trả v�
     }
 ```
 
-`_transfer` triển khai hành vi thực tế của phương pháp `transfer` trong tiêu chuẩn ERC-20.
+`_transfer` implements actual behavior of `transfer` method of ERC-20.
 
-Ngoài ra, hàm này ngăn chặn việc gửi token từ hoặc đến địa chỉ không hợp lệ bằng cách sử dụng lệnh `require` như sau.
+In addition, it prevents sending token from or to zero address using `require` as below.
 
 ```text
     function _transfer(address sender, address recipient, uint256 amount) internal {
@@ -483,11 +483,11 @@ Ngoài ra, hàm này ngăn chặn việc gửi token từ hoặc đến địa c
     }
 ```
 
-#### (3) `function approve(address spender, uint256 amount) external returns (bool);` <a id="3-function-approve-address-spender-uint256-amount-external-returns-bool"></a>
+#### \(3\) `function approve(address spender, uint256 amount) external returns (bool);` <a id="3-function-approve-address-spender-uint256-amount-external-returns-bool"></a>
 
-`approve` là phương pháp bắt buộc của ERC-20. Hàm `approve` cho phép `spender` được rút tiền nhiều lần từ tài khoản của bạn, với giá trị lên đến `amount`. Nếu hàm này được gọi nhiều lần, hàm sẽ đơn giản là đặt lại giới hạn ủy quyền với giá trị `amount`.
+`approve` is a mandatory method of ERC-20. `approve` allows `spender` to withdraw from your account multiple times, up to the `amount`. If this function is called multiple times, it simply resets the allowance to `amount`.
 
-`approve` gọi phương pháp nội bộ `_approve` để thực hiện hành vi `approve` thực tế. `msg.sender` được truyền dưới dạng tài khoản `owner`.
+`approve` just invokes internal method `_approve` which implements actual behavior of `approve`. `msg.sender` is passed as the account `owner`.
 
 ```text
     function approve(address spender, uint256 value) public returns (bool) {
@@ -504,15 +504,15 @@ Ngoài ra, hàm này ngăn chặn việc gửi token từ hoặc đến địa c
     }
 ```
 
-Hàm `_approve` cập nhật `_allowances`, đây là một từ điển 2 chiều giữ  `value` được ủy quyền cho `spender` từ `address` cụ thể.
+`_approve` updates `_allowances` which is a 2-dimensional dictionary maintaining allowed `value` for `spender` from specific `address`.
 
 ```text
     mapping (address => mapping (address => uint256)) private _allowances;
 ```
 
-#### (4) `function _mint(address account, uint256 amount) internal` <a id="4-function-_mint-address-account-uint256-amount-internal"></a>
+#### \(4\) `function _mint(address account, uint256 amount) internal` <a id="4-function-_mint-address-account-uint256-amount-internal"></a>
 
-`_mint` không phải là một phần của tiêu chuẩn ERC-20. Tuy nhiên, chúng tôi cần một cách để tạo ra các token ERC-20 mới và đã áp dụng `_mint` để tạo ra các token mới trong lần triển khai này như sau.
+`_mint` is not part of ERC-20. However we need a way to create new ERC-20 tokens and introduced `_mint` to create new tokens in this implementation as below.
 
 ```text
     function _mint(address account, uint256 amount) internal {
@@ -524,42 +524,42 @@ Hàm `_approve` cập nhật `_allowances`, đây là một từ điển 2 chi�
     }
 ```
 
-`_mint` là một phương pháp nội bộ và có thể được gọi bên trong hợp đồng này.
+`_mint` is an internal method and can be invoked inside of this contract.
 
-Trong tiêu chuẩn `MyERC20.sol`, `_mint` được gọi chỉ một lần từ `constructor` khi triển khai hợp đồng thông minh để tạo một số lượng token định trước.
+In `MyERC20.sol`, `_mint` is invoked only once from `constructor` when deploying the smart contract to mint a predefined amount of token.
 
-Nếu bạn muốn phát hành thêm token sau khi triển khai hợp đồng thông minh, bạn phải giới thiệu một phương pháp công khai mới như `mint`. Cần CẨN TRỌNG khi triển khai phương pháp này vì chỉ những người dùng được ủy quyền mới có thể tạo token.
+If you want to issue additional tokens after deploying the smart contract, you have to introduce a new public method such as `mint`. The method should be implemented with CAUTION because only authorized users should be able to mint tokens.
 
-Vui lòng xem ví dụ [ERC20Mintable.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Mintable.sol) của OpenZeppelin để biết thêm chi tiết.
+Please take a look at OpenZeppelin example [ERC20Mintable.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Mintable.sol) for more detail.
 
-## 2. Triển khai hợp đồng thông minh
+## 2. Deploying Smart Contract
 
-Bạn có thể sử dụng Remix Online IDE hoặc Truffle để triển khai hợp đồng thông minh `MyERC20`.
+You can use Remix Online IDE or use Truffle to deploy `MyERC20` smart contract.
 
-### 2.1 Triển khai hợp đồng thông minh bằng Remix Online IDE <a href="#2-1-deploying-smart-contract-using-klaytn-ide" id="2-1-deploying-smart-contract-using-klaytn-ide"></a>
+### 2.1 Deploying smart contract using Remix Online IDE <a href="#2-1-deploying-smart-contract-using-kaia-ide" id="2-1-deploying-smart-contract-using-kaia-ide"></a>
 
-- Vui lòng truy cập [Klaytn Plugin for Remix](https://ide.klaytn.foundation) và tạo hợp đồng `MyERC20`. Toàn bộ mã nguồn đã được cung cấp tại mục [Soạn hợp đồng thông minh ERC-20](#1-writing-erc-20-smart-contract).
-- Chuẩn bị tài khoản của bạn để triển khai hợp đồng.
-  - Nếu bạn chưa có tài khoản, hãy tạo một tài khoản tại [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) hoặc [https://toolkit.klaytn.foundation/tài khoản/tài khoảnKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
-  - Nhận một số KLAY thử nghiệm từ faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
-- Hãy triển khai `MyERC20.sol` với các tham số triển khai là `BAOBABTOKEN`, `BAO` và `8`.
+- Please visit [Kaia Plugin for Remix](https://ide.klaytn.foundation) and create a `MyERC20` contract. The complete source code was given at [Writing ERC-20 Smart Contract](#1-writing-erc-20-smart-contract).
+- Prepare your account which will be used to deploy the contract.
+  - If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
+  - Get some test KAIA from the faucet - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- Let's deploy `MyERC20.sol` with the deploy parameters of `BAOBABTOKEN`, `BAO` and `8`.
 
 ![ERC20-1-deploy](/img/build/smart-contracts/erc20-1-deploy.png)
 
-Sau khi triển khai, bạn có thể gọi hàm `balanceOf` với tài khoản của bạn đã được dùng để triển khai hợp đồng. Bạn sẽ thấy có `10000000000000` token có sẵn trong tài khoản của bạn như dưới đây. Vì bạn đã đặt `decimal` là `8` khi triển khai hợp đồng ở trên, nó đã tạo ra một số cố định là `100000` token trong hàm khởi tạo, với mỗi token có giá trị thập phân là `10^8`. Phương thức `totalSupply` sẽ trả về tổng cung của các token đã tạo, cũng bằng `10000000000000`.
+After deploying, you can invoke `balanceOf` with your account, which was used to deploy the contract. You will find there are `10000000000000` tokens available in your account as below. Because you set `decimal` as `8` when deploying the contract above, it minted a fixed number of `100000` tokens in the constructor, with one token having a decimal value of `10^8`. `totalSupply` method will return the total supply of tokens minted which should be also `10000000000000`.
 
 ![ERC20-2-owner-token](/img/build/smart-contracts/erc20-2-owner_token.png)
 
-`MyERC20` hiện đang hoạt động !
+`MyERC20` is now live !
 
-## 3. Tương tác với token ERC-20 từ Ví Klaytn <a id="3-interacting-with-erc-20-token-from-klaytn-wallet"></a>
+## 3. Interacting with ERC-20 token from Kaia Wallet <a id="3-interacting-with-erc-20-token-from-kaia-wallet"></a>
 
-Bạn có thể sử dụng [Ví Baobab Klaytn](https://baobab.wallet.klaytn.foundation) để truy vấn số dư và chuyển `BAOBABTOKEN` tương thích với ERC-20 mà bạn vừa triển khai.
+You can use [Kairos Kaia Wallet](https://baobab.wallet.klaytn.foundation) to query your balance and transfer the ERC-20 compatible `BAOBABTOKEN` you just deployed.
 
-Bạn có thể thêm token tương thích với ERC-20 vào ví của bạn bằng cách sử dụng địa chỉ của hợp đồng `MyERC20` đã triển khai như dưới đây.
+You can add ERC-20 compatible token in your wallet with the address of the deployed `MyERC20` contract as below.
 
 ![ERC20-3-Add\_token](/img/build/smart-contracts/erc20-3-add_token.png)
 
-Sau khi thêm token ERC-20 vào ứng dụng ví, số dư `BAOBABTOKEN` của bạn sẽ được hiển thị cùng với số dư KLAY như sau. Bạn có thể thấy có `100000` token `BAO` trong tài khoản.
+After adding the ERC-20 token in the wallet app, the balance of your `BAOBABTOKEN` will be shown in addition to the balance of KAIA as below. You can see there is `100000` `BAO` tokens in the account.
 
 ![ERC20-4-wallet-token](/img/build/smart-contracts/erc20-4-wallet-token.png)

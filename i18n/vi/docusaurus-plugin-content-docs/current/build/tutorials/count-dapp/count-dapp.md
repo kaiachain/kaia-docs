@@ -1,37 +1,37 @@
-# Count DApp
+# Build Count DApp
 
-## Mục lục <a href="#table-of-contents" id="table-of-contents"></a>
+## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
 
-- [Thiết lập môi trường](./setup-environment.md)
-- [Triển khai hợp đồng](./deploy-contracts.md)
-- [Cấu trúc thư mục](./directory-structure.md)
-- [Tổng quan về mã Frontend](./code-overview/blocknumber-component.md)
-  - [Thành phần số khối](./code-overview/blocknumber-component.md)
-  - [Thành phần xác thực](./code-overview/auth-component.md)
-  - [Thành phần Count](./code-overview/count-component.md)
+- [Set up environment](./setup-environment.md)
+- [Deploy smart contracts](./deploy-contracts.md)
+- [Directory structure](./directory-structure.md)
+- [Frontend Code Overview](./code-overview/code-overview.md)
+  - [BlockNumber Component](./code-overview/blocknumber-component.md)
+  - [Auth Component](./code-overview/auth-component.md)
+  - [Count Component](./code-overview/count-component.md)
 
-## Môi trường thử nghiệm <a href="#testing-environment" id="testing-environment"></a>
+## Testing Environment <a href="#testing-environment" id="testing-environment"></a>
 
-Count DApp được thử nghiệm trong môi trường sau đây.
+Count DApp is tested in the following environment.
 
 - MacOS Mojave 10.14.5
 - Node 10.16.0 (LTS)
 - npm 6.9.0
 - Python 2.7.10
 
-## Giới thiệu <a href="#introduction" id="introduction"></a>
+## Introduction <a href="#introduction" id="introduction"></a>
 
 ![intro](/img/build/tutorials/tutorial-1intro.gif)
 
-Hướng dẫn này cung cấp chỉ dẫn từng bước để xây dựng ứng dụng Klaytn. Với Klaytn, bạn không cần có kinh nghiệm từ trước. Chúng ta sẽ tạo một ứng dụng web đơn giản tương tác với hợp đồng thông minh cơ bản `Count`.\
-Bất kỳ người dùng nào có tài khoản Klaytn đều có thể tăng và giảm giá trị hiện tại như trong gif trên.
+This tutorial is intended to give a step by step guide to build a Kaia dApp. No previous Kaia experience is needed. We will make a simple web app interacting with a basic smart contract, `Count`.\
+Any user who has a Kaia account can increase and decrease the current value as shown in the above gif.
 
 > **Source Code**\
-> Mã nguồn hoàn chỉnh có ở GitHub, tại đây [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
+> Complete source code can be found on GitHub at [https://github.com/klaytn/countbapp](https://github.com/klaytn/countbapp)
 
-## Đối tượng mục tiêu <a href="#intended-audience" id="intended-audience"></a>
+## Intended Audience <a href="#intended-audience" id="intended-audience"></a>
 
-Bất kỳ ai muốn tìm hiểu cách xây dựng ứng dụng chuỗi khối trên Klaytn. Chúng ta sẽ xây dựng một ứng dụng web tương tác với các hợp đồng thông minh. Để hiểu trọn vẹn hướng dẫn này, người xem phải làm quen với các khái niệm sau.
+Anyone who wants to learn how to build a Blockchain Application on Kaia. We will build a web application that interacts with smart contracts. To complete this tutorial, the audience is expected to be familiar with the following concepts.
 
-- Chúng tôi sẽ xem như bạn đã có kiến thức cơ bản về [React](https://reactjs.org/) và [Redux](https://redux.js.org/).x. Khóa học này không dành cho những người mới bắt đầu.
-- Bạn nên có kiến thức và kinh nghiệm cơ bản về phát triển Solidity. Tuy nhiên, một nhà phát triển SW có kinh nghiệm cũng có thể hoàn thành tác vụ nếu làm theo chỉ dẫn từng bước trong hướng dẫn này.
+- We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
+- Basic knowledge and experience in Solidity development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.

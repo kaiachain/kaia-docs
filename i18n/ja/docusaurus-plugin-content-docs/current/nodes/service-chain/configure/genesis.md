@@ -6,16 +6,16 @@ This page describes the details of `genesis.json` file.
 
 The `genesis.json` file structure is described in the following table.
 
-| Field Name | Description                                                                                                                                  |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| config     | The blokchain configuration. See the section [Config](#config).                                                                              |
+| Field Name | Description                                                                                                                                                  |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| config     | The blokchain configuration. See the section [Config](#config).                                                              |
 | nonce      | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                             |
 | timestamp  | The unix time when a block is created.                                                                                                       |
 | extraData  | The data combined field for signer vanity and RLP-encoded istanbul extra data that contains validator list, proposer seal, and commit seals. |
 | gasLimit   | The maximum gas amount that used in a block.                                                                                                 |
 | difficulty | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                             |
 | mixhash    | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                             |
-| coinbase   | An address to which miner receives the reward. This field is only used for Clique consensus engine.                                          |
+| coinbase   | An address to which miner receives the reward. This field is only used for Clique consensus engine.                          |
 | alloc      | The predefined accounts.                                                                                                                     |
 | number     | The block number field.                                                                                                                      |
 | gasUsed    | The amount of the gas which used for a block.                                                                                                |
@@ -25,8 +25,8 @@ The `genesis.json` file structure is described in the following table.
 
 The `config` field stores the information related to the chain.
 
-| Field Name              | Description                                                                        |
-| ----------------------- | ---------------------------------------------------------------------------------- |
+| Field Name              | Description                                                                                        |
+| ----------------------- | -------------------------------------------------------------------------------------------------- |
 | chainId                 | It identifies the current chain and is used for prevention from the replay attack. |
 | istanbulCompatibleBlock | A block number to which istanbul change is applied.                                |
 | istanbul, clique        | The type of consensus engine.                                                      |
@@ -50,7 +50,7 @@ The field `extraData` is a concatenation of the proposer vanity and the RLP-enco
 | ------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | Vanity        | 32-byte hex string                                                                                               | 0x0000000000000000000000000000000000000000000000000000000000000000                                                                          |
 | Validators    | []address                                                    | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
-| Seal          | byte array of 65 elements                                                                                        | [0x0,...,0x0]                                                                           |
+| Seal          | byte array of 65 elements                                                                                        | [0x0,...,0x0]                           |
 | CommittedSeal | [][]byte | []                                                                                      |
 
 `extraData` with the above data is created by
@@ -71,44 +71,44 @@ The available consensus engines for Klaytn network are Clique and Istanbul. Each
 
 The `clique` field stores the configuration for Proof-Of-Authority (POA) based sealing.
 
-| Fields | Description                                                                                 |
-| ------ | ------------------------------------------------------------------------------------------- |
+| Fields | Description                                                                                                                 |
+| ------ | --------------------------------------------------------------------------------------------------------------------------- |
 | period | The minimum time interval between the consecutive blocks (unit: second). |
-| epoch  | The number of blocks to reset votes and marked as a checkpoint.                             |
+| epoch  | The number of blocks to reset votes and marked as a checkpoint.                                             |
 
 ### Istanbul <a id="istanbul"></a>
 
 The `istanbul` field stores the configuration for Istanbul based sealing.
 
-| Fields | Description                                                                                                                              |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| epoch  | The number of blocks to reset votes to be a checkpoint.                                                                                  |
+| Fields | Description                                                                                                                                                                                              |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| epoch  | The number of blocks to reset votes to be a checkpoint.                                                                                                                                  |
 | policy | The block proposer selection policy. [0: Round Robin, 1: Sticky, 2: Weighted Random] |
-| sub    | Committee size.                                                                                                                          |
+| sub    | Committee size.                                                                                                                                                                          |
 
 ## Governance <a id="governance"></a>
 
 The `governance` field stores governance information for a network.
 
-| Fields         | Description                                                                                                     |
-| -------------- | --------------------------------------------------------------------------------------------------------------- |
+| Fields         | Description                                                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | governanceMode | One of three governance modes. [`none`, `single`, `ballot`] |
-| governingNode  | Designated governing node's address. It only works if the governance mode is `single`.                          |
-| reward         | It stores the reward configuration. See the section [Reward](#reward).                                          |
+| governingNode  | Designated governing node's address. It only works if the governance mode is `single`.          |
+| reward         | It stores the reward configuration. See the section [Reward](#reward).                          |
 
 ### Reward <a id="reward"></a>
 
 The `reward` field stores the information about the network's token economy.
 
-| Fields                 | Description                                                                                    |
-| ---------------------- | ---------------------------------------------------------------------------------------------- |
+| Fields                 | Description                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | mintingAmount          | Amount of peb minted when a block is generated. Double quotation marks are needed for a value. |
 | ratio                  | Distribution rate for a `CN/KIR/PoC` separated by `/`. The sum of all values has to be 100.    |
-| useGiniCoeff           | Use GINI coefficient or not.                                                                   |
-| deferredTxFee          | A way to distribute TX fee for a block.                                                        |
-| stakingUpdateInterval  | Time interval in block height to update staking information.                                   |
-| proposerUpdateInterval | Time interval in block height to update proposer information.                                  |
-| minimumStake           | Minimum amount of peb to join Core Cell Operators.                                             |
+| useGiniCoeff           | Use GINI coefficient or not.                                                                                   |
+| deferredTxFee          | A way to distribute TX fee for a block.                                                                        |
+| stakingUpdateInterval  | Time interval in block height to update staking information.                                                   |
+| proposerUpdateInterval | Time interval in block height to update proposer information.                                                  |
+| minimumStake           | Minimum amount of peb to join Core Cell Operators.                                                             |
 
 ## Example <a id="example"></a>
 

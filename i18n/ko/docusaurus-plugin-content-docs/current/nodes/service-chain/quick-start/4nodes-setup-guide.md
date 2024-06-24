@@ -1,6 +1,6 @@
 # 4노드 서비스 체인 설치
 
-이 섹션에서는 멀티노드 서비스체인을 설정하는 방법을 다룹니다. 아래 그림의 파란색 테두리 상자에서 볼 수 있듯이 `chainID` 1002로 4-컨센서스 노드 서비스체인을 설정하겠습니다.
+이 섹션에서는 멀티노드 서비스체인을 설정하는 방법을 다룹니다. 아래 그림의 파란색 테두리 상자에서 볼 수 있듯이 chainID 1002로 4-컨센서스 노드 서비스체인을 설정하겠습니다.
 
 ![](/img/nodes/sc-4scn-arch.png)
 
@@ -8,9 +8,9 @@
 
 - [다운로드 페이지](../../downloads/downloads.md)에서 `kscn`, `homi` 바이너리용 패키지를 다운로드합니다.
 - Linux 또는 MacOS 서버 4대
-- 최소 하드웨어 요구 사항
-  - CPU: 4코어(인텔 제온 또는 동급), RAM: 16GB, HDD: 50GB
-  - 자세한 설명은 [시스템 요구 사항](../system-requirements.md)을 참조하세요.
+- 최소 하드웨어 요구사항
+  - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
+  - 자세한 설명은 [시스템 요구사항](../system-requirements.md)을 참조하세요.
 
 ## 0단계: 모든 노드에 SCN 설치 <a id="install-scn"></a>
 
@@ -32,7 +32,7 @@ x kscn-XXXXX-amd64/bin/kscn
 $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 ```
 
-SCN은 RHEL, CentOS, Fedora와 같은 다양한 RPM 배포판도 제공합니다. 자세한 내용은 [설치](../install-service-chain.md#installation)를 참조하세요.
+SCN은 RHEL, CentOS, Fedora와 같은 다양한 RPM 배포판도 제공합니다. 자세한 내용은 이 [설치](../install-service-chain.md#installation)를 참조하세요.
 
 ```console
 $ curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo
@@ -73,8 +73,7 @@ x homi-XXXXX-amd64/bin/homi
 ```
 
 `bin` 폴더로 이동하여 다음 옵션으로 `homi`를 실행하여 파일을 생성합니다.
-`homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output`
-Baobab의 `chainID`는 1001이므로 편의상 이 예제에서 구성한 서비스체인의 `chainID`는 1002로 설정합니다. 실제 서비스를 런칭하여 블록체인을 운영할 때는 다른 서비스체인과 체인아이디가 겹치지 않도록 https\://chainlist.defillama.com/ 에서 새로운 체인아이디 값을 등록한 후 사용하는 것을 권장합니다. 서비스체인 포트는 기본 포트인 22323으로 설정되어 있습니다.
+`homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output` Kairos의 `chainID`는 1001이므로 편의상 이 예제에서 구성한 서비스체인의 `chainID`는 1002로 설정합니다. 실제 서비스를 런칭하여 블록체인을 운영할 때는 다른 서비스체인과 체인아이디가 겹치지 않도록 https://chainlist.defillama.com/ 에서 새로운 체인아이디 값을 등록한 후 사용하는 것을 권장합니다. 서비스체인 포트는 기본 포트인 22323으로 설정되어 있습니다.
 
 ```console
 $ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
@@ -94,13 +93,13 @@ Created :  homi-output/keys/validator4
 Created :  homi-output/scripts/static-nodes.json
 Created :  homi-output/keys_test/testkey1
 Created :  homi-output/keys_test/keystore1/0xdC7218621513f71d609653d22C39d79d558d9CDC
-Created :  homi-output/Klaytn.json
-Created :  homi-output/Klaytn_txpool.json
+Created :  homi-output/Kaia.json
+Created :  homi-output/Kaia_txpool.json
 ```
 
 다음 단계에서는 출력 중 `nodekey*`, `genesis.json`, `static-nodes.json`을 사용하겠습니다.
 
-## 2단계: static-nodes.json 사용자 지정 <a id="step-1-create-genesis-json-and-a-key"></a>
+## 2단계: static-nodes.json 사용자 지정 <a id="step-2-customize-static-nodes-json"></a>
 
 텍스트 편집기에서 `homi-output/scripts/static-nodes.json`을 열고 IP 주소와 포트를 노드의 실제 값으로 업데이트합니다.
 이 예제에서는 ServiceChain에 있는 각 SCN 노드의 IP가 아래 그림과 같다고 가정합니다. 여기서 할당하는 포트는 나중에 4단계에서 사용할 것이므로 기억해 두세요.
@@ -125,7 +124,7 @@ $ scp -r path/to/homi-output/ user@192.168.0.3:~/
 $ scp -r path/to/homi-output/ user@192.168.0.4:~/
 ```
 
-## 3단계: 노드 초기화 <a id="step-2-customize-static-nodes-json"></a>
+## 3단계: 노드 초기화 <a id="step-3-node-initialization"></a>
 
 이제 제네시스 파일을 사용하여 각 노드를 초기화하겠습니다. 각 노드에서 다음 명령을 실행합니다.
 홈 디렉터리에 체인 데이터와 로그를 저장하는 데이터 폴더가 생성됩니다.
@@ -139,7 +138,7 @@ $ ls ~/data
 keystore	klay		kscn
 ```
 
-## 4단계: `nodekey` 및 `static-nodes.json` 설치 <a id="step-3-node-initialization"></a>
+## 4단계: `nodekey` 및 `static-nodes.json` 설치 <a id="step-4-install-nodekey"></a>
 
 모든 SCN에서 `static-nodes.json`을 데이터 폴더에 복사합니다.
 
@@ -184,21 +183,21 @@ Starting kscnd: OK
 
 ```console
 $ kscn attach --datadir ~/data
-> klay.blockNumber
+> kaia.blockNumber
 10
 ```
 
 노드를 중지하려면 `kscnd stop` 명령을 사용하면 됩니다.
 
-## (예시) 밸류 전송 트랜잭션 생성 및 확인 <a id="step-4-install-nodekey"></a>
+## (예시) 밸류 전송 트랜잭션 생성 및 확인 <a id="example-creation-and-confirmation-of-a-value-transfer-transaction"></a>
 
 이제 4노드 서비스체인이 실행 중입니다. 서비스체인에서 밸류 전송 트랜잭션을 실행하여 설치를 확인하겠습니다.
 
 ![](/img/nodes/sc-4scn-test.png)
 
-### 1단계: 테스트 계정 가져오기 <a id="step-5-configure-nodes"></a>
+### 1단계: 테스트 계정 가져오기 <a id="step-1-import-the-test-account"></a>
 
-`testkey1`은 1단계에서 `homi`에 의해 자동으로 생성되었습니다. `homi`가 생성한 `genesis.json`에 설명된 대로 테스트 계정에 KLAY가 할당됩니다.
+`testkey1`은 1단계에서 `homi`에 의해 자동으로 생성되었습니다. `homi`가 생성한 `genesis.json`에 설명된 대로 테스트 계정에 KAIA가 할당됩니다.
 
 ```console
 $ kscn account import --datadir ~/data ~/homi-output/keys_test/testkey1
@@ -208,7 +207,7 @@ Repeat passphrase:
 Address: {80119c31cdae67c42c8296929bb4f89b2a52cec4}
 ```
 
-### 2단계: 계정 잠금 해제 <a id="step-6-start-nodes"></a>
+### 2단계: 계정 잠금 해제 <a id="step-2-unlock-the-account"></a>
 
 계정 잠금 해제는 `testkey1`을 가져온 SCN 노드의 콘솔을 통해서만 가능합니다.
 
@@ -220,12 +219,12 @@ Passphrase:
 true
 ```
 
-### 3단계: 트랜잭션 전송 및 잔액 확인 <a id="example-creation-and-confirmation-of-a-value-transfer-transaction"></a>
+### 3단계: 트랜잭션 전송 및 잔액 확인 <a id="step-3-send-a-transaction-and-check-the-balance"></a>
 
 ```console
-> klay.sendTransaction({from: "80119c31cdae67c42c8296929bb4f89b2a52cec4", to: "305c6cc464d5fe1e624679695a20d641a01688e1", value: 10})
+> kaia.sendTransaction({from: "80119c31cdae67c42c8296929bb4f89b2a52cec4", to: "305c6cc464d5fe1e624679695a20d641a01688e1", value: 10})
 "0xa0e7102e8f14200cec8d964aacc1c9ed7c22271078b2b213170c64333cbca8a3"
-> klay.getBalance("305c6cc464d5fe1e624679695a20d641a01688e1")
+> kaia.getBalance("305c6cc464d5fe1e624679695a20d641a01688e1")
 10
 ```
 

@@ -1,49 +1,49 @@
-# Klaystagram
+# Build Klaystagram
 
-## Mục lục <a href="#table-of-contents" id="table-of-contents"></a>
+## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
 
-- [Thiết lập môi trường](./setup-environment.md)
-- [Triển khai hợp đồng](./deploy-contracts.md)
-- [Cấu trúc thư mục](./directory-structure.md)
-- [Tổng quan về mã Frontend](./code-overview.md)
-- [Trang thông tin](./feedpage.md)
-  - [Kết nối hợp đồng với Frontend](./feedpage.md#1-connect-contract-to-frontend)
-  - [Thành phần UploadPhoto](./feedpage.md#2-uploadphoto-component)
-  - [Thành phần nguồn cấp dữ liệu](./feedpage.md#3-feed-component)
-  - [Thành phần TransferOwnership](./feedpage.md#4-transferownership-component)
+- [Set up environment](./setup-environment.md)
+- [Deploy smart contracts](./deploy-contracts.md)
+- [Directory structure](./directory-structure.md)
+- [Code Overview](./code-overview.md)
+- [FeedPage components](./feedpage.md)
+  - [Connect Contract to Frontend](./feedpage.md#1-connect-contract-to-frontend)
+  - [UploadPhoto Component](./feedpage.md#2-uploadphoto-component)
+  - [Feed Component](./feedpage.md#3-feed-component)
+  - [TransferOwnership Component](./feedpage.md#4-transferownership-component)
 
-## Môi trường thử nghiệm <a href="#testing-environment" id="testing-environment"></a>
+## Testing Environment <a href="#testing-environment" id="testing-environment"></a>
 
-DApp Klaystagram được thử nghiệm trong môi trường sau đây.
+Klaystagram DApp is tested in the following environment.
 
 - MacOS Mojave 10.14.5
-- Nút 10.16.0 (LTS)
+- Node 10.16.0 (LTS)
 - npm 6.9.0
 - Python 2.7.10
 
-## Giới thiệu <a href="#introduction" id="introduction"></a>
+## Introduction <a href="#introduction" id="introduction"></a>
 
 [![Klaystagram Introduction Video](/img/build/tutorials/klaystagram-video-poster.png)](https://vimeo.com/327033594)
 
-Trong hướng dẫn này, ta sẽ tìm hiểu cách tạo `Klaystagram`, ứng dụng cấp phép ảnh NFT dựa trên Klaytn. Ứng dụng web đơn giản này yêu cầu kiến thức cơ bản về Solidity, JavaScript và React.
+In this tutorial, we will learn how to make `Klaystagram`, a Kaia-based NFT photo licensing application. This simple web application requires basic knowledge of Solidity, JavaScript and React.
 
-NFT là non-fungible token (token không thể thay thế), một loại token đặc biệt đại diện cho một tài sản duy nhất. Như ý nghĩa của cái tên non-fungible (không thể thay thế), mỗi token đều là duy nhất. Tính duy nhất này của NFT mở ra những chân trời mới cho quá trình số hóa tài sản. Ví dụ: NFT có thể dùng để đại diện cho tác phẩm nghệ thuật số, vật phẩm trò chơi hoặc bất cứ loại tài sản duy nhất nào và cho phép mọi người giao dịch. Để biết thêm thông tin, hãy tham khảo [bài viết](https://coincentral.com/nfts-non-fungible-tokens/) này.
+NFT refers to a non-fungible token, which is a special type of token that represents a unique asset. As the name non-fungible implies, every single token is unique. And this uniqueness of NFT opens up new horizons of asset digitization. For example, it can be used to represent digital art, game items, or any kind of unique assets and allow people to trade them. For more information, refer to this [article](https://coincentral.com/nfts-non-fungible-tokens/).
 
-Trong `Klaystagram`, mỗi token đều đại diện cho những bức ảnh duy nhất của người dùng. Khi người dùng tải ảnh lên, một token duy nhất sẽ được tạo ra, token này chứa dữ liệu ảnh cùng quyền sở hữu kèm theo. Tất cả giao dịch được ghi vào blockchain. Vì vậy, ngay cả nhà cung cấp dịch vụ cũng không thể kiểm soát những ảnh được tải lên. Khi xem xét mục đích của hướng dẫn này, sẽ chỉ có những chức năng chính được triển khai. Sau khi xem xong hướng dẫn này, hãy thử bổ sung một số tính năng thú vị hơn và tạo ra dịch vụ sáng tạo của riêng bạn.
+In `Klaystagram`, every token represents users' unique pictures. When a user uploads a photo, a unique token is created containing the image data and its ownership. All transactions are recorded on the blockchain, so even service providers do not have control over the uploaded photos. Considering the purpose of this tutorial, only core functions will be implemented. After finishing this tutorial, try adding some more cool features and make your own creative service.
 
-Có ba tính năng chính.
+There are three main features.
 
-1. **Photo upload** Người dùng có thể tải ảnh kèm mô tả lên blockchain Klaytn. Ảnh sẽ được token hóa.
-2. **Feed** Người dùng có thể xem tất cả ảnh được tải lên trên blockchain.
-3. **Transfer ownership** Chủ sở hữu ảnh có thể chuyển quyền sở hữu ảnh cho một người dùng khác, đồng thời giao dịch sẽ hiển thị trong phần lịch sử quyền sở hữu.
+1. **Photo upload** Users can upload photos along with descriptions on the Kaia blockchain. The photos will be tokenized.
+2. **Feed** Users can see all the photos uploaded on the blockchain.
+3. **Transfer ownership** The owner of the photo can transfer ownership of the photo to another user, and the transaction will be shown in the ownership history.
 
 > **Source Code**\
-> Mã nguồn hoàn chỉnh có trên GitHub tại [https://github.com/klaytn/klaystagram](https://github.com/klaytn/klaystagram)
+> Complete source code can be found on GitHub at [https://github.com/klaytn/klaystagram](https://github.com/klaytn/klaystagram)
 
-## Đối tượng mục tiêu <a href="#intended-audience" id="intended-audience"></a>
+## Intended Audience <a href="#intended-audience" id="intended-audience"></a>
 
-Chúng ta sẽ xây dựng một ứng dụng web tương tác với các hợp đồng thông minh. Để hiểu trọn vẹn hướng dẫn này, người xem phải làm quen với các khái niệm sau.
+We will build a web application that interacts with smart contracts. To complete this tutorial, the audience is expected to be familiar with the following concepts.
 
-- Chúng tôi sẽ xem như bạn đã có kiến thức cơ bản về [React](https://reactjs.org/) và [Redux](https://redux.js.org/). Khóa học này không dành cho những người mới bắt đầu.
-- Bạn nên có kiến thức và kinh nghiệm cơ bản về phát triển [Solidity](https://solidity.readthedocs.io/en/v0.5.10/). Tuy nhiên, một nhà phát triển SW có kinh nghiệm cũng có thể hoàn thành tác vụ nếu làm theo chỉ dẫn từng bước trong hướng dẫn này.
-- Bất cứ ai quan tâm đến [Token ERC-721](http://erc721.org/).
+- We assume that you have basic knowledge on [React](https://reactjs.org/) and [Redux](https://redux.js.org/). This course is not for absolute beginners.
+- Basic knowledge and experience in [Solidity](https://solidity.readthedocs.io/en/v0.5.10/) development are recommended. However, any experienced SW developer should be able to complete the task by following the step-by-step guideline of this tutorial.
+- Anyone interested in [ERC-721 Tokens](http://erc721.org/).

@@ -1,6 +1,6 @@
-# 클레이튼 2.0
+# Kaia 2.0
 
-## 주권을 다시 사람들에게 <a id="klaytn2"></a>
+## We Are Here to Give Power Back to the People <a id="klaytn2"></a>
 
 2019년, 대한민국의 대표적인 IT 회사 카카오는 기술과 사람이 만드는 더 나은 세상이라는 비전을 실현하기 위해 클레이튼 블록체인을 탄생시켰습니다.
 
@@ -16,20 +16,20 @@
 
 이러한 움직임은 비주류, 크리에이터, 청년, 아웃사이더 - 편견 없이 자기 자신이고 싶은 모두에 의해 시작될 것입니다.
 
-즉 메타버스는 중앙화된 권위체가 소유해서도, 운영해서도 안 됩니다. 메타버스는 사람들이 진정한 소유권을 가지고 제한없이 스스로를 표현할 수 있는 새로운 세상이어야 합니다.
+즉 메타버스는 중앙화된 권위체가 소유해서도, 운영해서도 안 됩니다. It has to be a world where people are granted genuine ownership and the freedom to express their ideas without inhibition.
 
 오픈소스 퍼블릭 블록체인 프로젝트 클레이튼은 모든 커뮤니티의 참여와 기여를 존중하고, 이들을 지지하며, 새로운 세상에 결집시키는 메타버스를 위한 근본적 신뢰 레이어로서 구상되었습니다.
 
 ## 메타버스 빌더를 위한 '원스톱' 체인 <a id="one-stop-chain-for-metaverse-builders"></a>
 
-메타버스 빌더들이 클레이튼을 메타버스를 위한 신뢰 레이어로 사용하며 아이디어를 실현시킬 수 있도록 통합된 솔루션을 제공할 것입니다. 이를 위해 제공하는 것들은 아래와 같습니다.
+메타버스 빌더들이 클레이튼을 메타버스를 위한 신뢰 레이어로 사용하며 아이디어를 실현시킬 수 있도록 통합된 솔루션을 제공할 것입니다. Our integrated offers include the following:
 
 ### 1. 오픈 소스 개발 인프라 패키지 <a id="open-source-dev-infra-package"></a>
 
 - L2 솔루션
 - SDK
 - 스마트 컨트랙트 라이브러리
-- 월렛
+- Wallets
 - 체인 탐색기
 - 오라클
 - 분산 스토리지
@@ -50,17 +50,17 @@
 - 게임 길드
 - 투자 DAO
 - 커뮤니티 DAO
-- 런치패드
+- Launchpads
 - 글로벌 플레이어와의 제휴
 
 ### 4. 관리 및 재정적 지원 <a id="management-and-financial-support"></a>
 
-- 재단 기금 자문
+- Treasury advisory
 - 재단 기금 자문 클레이튼 성장 펀드
 - IP 중심 투자 펀드
 - 성과 인센티브
 - GC 초대
 
-***
+---
 
 클레이튼 2.0을 더 잘 이해하려면 [라이트 페이퍼](https://klaytn.foundation/wp-content/uploads/2022/01/Klaytn-2.0_Light-Paper-20220128.pdf)를 참고하세요.

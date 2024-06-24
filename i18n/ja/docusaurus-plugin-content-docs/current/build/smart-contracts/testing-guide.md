@@ -9,7 +9,7 @@ Truffle provides an automated testing framework. This framework lets you write s
 - In `Javascript` and `TypeScript`, for exercising your contracts from the outside world, just like application.
 - In `Solidity`, for exercising your contracts in advances, bare-to-the-metal scenarios.
 
-### 1. Getting started <a href="#1-getting-started" id="1-getting-started"></a>
+### Getting started <a href="#1-getting-started" id="1-getting-started"></a>
 
 We will follow the [Deployment Guide using Truffle](./deploy/deploy.md#truffle) to create a contract and deploy it. But, before we deploy it, we will add a setter function `setGreet` to the contract for testing purpose. The source code is given below.
 
@@ -60,7 +60,7 @@ First, we will install the Chai assertions library (or any different assertions 
 npm install --save-dev chai truffle-assertions
 ```
 
-### 2. Writing test in Solidity <a href="#2-writing-test-in-solidity" id="2-writing-test-in-solidity"></a>
+### Writing test in Solidity <a href="#2-writing-test-in-solidity" id="2-writing-test-in-solidity"></a>
 
 Testing with Solidity can be a little bit more intuitive than JavaScript tests. Solidity test contracts live alongside JavaScript tests as .sol files.
 
@@ -161,7 +161,7 @@ Compiling your contracts...
 
 Congratulations! Your test has passed.
 
-### 3. Writing test in JavaScript <a href="#3-writing-test-in-javascript" id="3-writing-test-in-javascript"></a>
+### Writing test in JavaScript <a href="#3-writing-test-in-javascript" id="3-writing-test-in-javascript"></a>
 
 Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](https://www.chaijs.com/) assertion library to provide a solid framework for JavaScript test. JavaScript test gives you more flexibility and enables you to write more complex tests.
 
@@ -250,7 +250,7 @@ Compiling your contracts...
 
 Congratulations! Your test has passed.
 
-### 4. Specifying test <a href="#4-specifying-test" id="4-specifying-test"></a>
+### Specifying test <a href="#4-specifying-test" id="4-specifying-test"></a>
 
 You can choose the test file to be executed.
 

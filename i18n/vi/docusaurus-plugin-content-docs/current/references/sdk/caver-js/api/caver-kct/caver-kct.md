@@ -1,3 +1,3 @@
 # caver.kct
 
-Gói caver-js được sử dụng để tương tác với KCT.
+A caver-js package used to interact with a KCT.

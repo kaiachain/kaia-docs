@@ -1,23 +1,23 @@
-# Gói Metaverse
+# Metaverse Package
 
-## Giảm thiểu rào cản gia nhập <a href="#lowering-the-barrier-to-entry" id="lowering-the-barrier-to-entry"></a>
+## Lowering the barrier to entry <a href="#lowering-the-barrier-to-entry" id="lowering-the-barrier-to-entry"></a>
 
-![Klaytn offers end-to-end integration including a built-in L2 solution](/img/learn/mainnet-integration.png)
+![Kaia offers end-to-end integration including a built-in L2 solution](/img/learn/mainnet-integration.png)
 
-Rõ ràng là công nghệ chuỗi khối sẽ đóng vai trò là lớp tin cậy quan trọng cho metaverse.
+It is clear that blockchain technology will serve as the critical trust layer for the metaverse.
 
-Tuy nhiên, với tình trạng non trẻ của công nghệ chuỗi khối và khó khăn trong việc lựa chọn các công cụ và thành phần phù hợp, quá trình phát triển chuỗi khối vẫn còn nhiều trở ngại.
+However, between the fledgling state of blockchain tech and the difficulty of selecting the right tools and components, blockchain development is still filled with hurdles.
 
-Đó là lý do tại sao chúng tôi tập hợp một gói hoàn thiện được thiết kế để giúp những nhà xây dựng metaverse tham gia vào thế giới chuỗi khối một cách suôn sẻ nhất có thể.
+That’s why we put together an end-to-end package that’s designed to help builders of metaverse enter the blockchain world as smoothly as possible.
 
-## 'Gói Metaverse' của Klaytn <a href="#klaytns-metaverse-package" id="klaytns-metaverse-package"></a>
+## Kaia’s ‘Metaverse Package’ <a href="#klaytns-metaverse-package" id="klaytns-metaverse-package"></a>
 
-Cơ sở hạ tầng sơ cấp: Bộ công cụ để tích hợp chuỗi khối toàn diện và xây dựng giải pháp L2 tùy chỉnh SDK và thư viện hợp đồng thông minh Ví và trình khám phá chuỗi Giải pháp lưu trữ phân tán Cầu nối hỗ trợ Oracle
+Primary Infrastructure: Tool sets for end-to-end blockchain integration and building Customized L2 solution SDKs and smart contract libraries Wallets and chain explorers Distributed storage solutions Oracle support Bridges
 
-Cơ sở hạ tầng thứ cấp: Hệ sinh thái hỗ trợ các sản phẩm và dịch vụ Dịch vụ tích hợp/trừu tượng Tích hợp Stablecoin DAO Thị trường NFT DEX và DeFi Giao diện tài chính truyền thống
+Secondary Infrastructure: Ecosystem for supporting products and services Integration/abstraction services Stablecoin integrations DAOs NFT Marketplaces DEX and DeFi Traditional finance interfaces
 
-• Gói này sẽ được quản lý bởi nhà quản lý gói chuyên trách của chúng tôi.
+• This package will be managed by our dedicated package manager.
 
-• Nhà xây dựng có thể dễ dàng xây dựng và tùy chỉnh Lớp 2 cũng như tạo/chuyển tài sản.
+• Builders can easily build and customize Layer 2 as well as create/transfer assets.
 
-Với gói metaverse của chúng tôi, mong muốn của bạn sẽ được hiện thực hóa mà không còn bị cản trở bởi sự phức tạp của chuỗi khối.
+With our metaverse package, the complexity of blockchain will no longer get in the way of realizing your aspirations.

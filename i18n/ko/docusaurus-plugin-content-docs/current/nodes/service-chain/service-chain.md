@@ -7,7 +7,7 @@
 
 ## 서비스 체인 개요 <a id="service-chain-overview"></a>
 
-클레이튼 서비스체인은 다음과 같은 기능을 제공합니다.
+카이아 서비스체인은 다음과 같은 기능을 제공합니다.
 
 - 즉각적인 최종성.
 - 크로스 체인 토큰 전송.
@@ -16,4 +16,4 @@
 
 ![](/img/nodes/sc_connection.png)
 
-서비스 체인에 대한 자세한 내용은 [Klaytn 스케일링 솔루션](../../learn/scaling-solutions.md)을 참고하세요.
+서비스 체인에 대한 자세한 내용은 [Kaia 스케일링 솔루션](../../learn/scaling-solutions.md)을 참고하세요.

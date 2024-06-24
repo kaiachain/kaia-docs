@@ -7,14 +7,14 @@
 ## 전제 조건 <a id="prerequisites"></a>
 
 - [중첩된 서비스체인](nested-sc.md)에서 설명한 서비스체인 구성과 Baobab EN을 진행했다고 가정합니다. 따라서 이전 섹션에서 설명한 내용을 간략하게 설명하겠습니다.
-- 가정과 한계
+- 가정 및 제한 사항
   - 하나의 EN은 서비스체인 L2의 SCN 중 하나에 일대일로 브리징할 수 있습니다. 마찬가지로 서비스체인 L2의 한 SCN은 L3의 SCN 중 하나에 일대일로 연결할 수 있습니다.
   - SCN 노드는 메인 브리지와 서브 브리지를 동시에 가질 수 있습니다. 단, 메인 브리지와 서브 브리지의 포트 번호는 다르게 설정해야 합니다. (예: 메인 브리지: 50505, 서브 브리지: 50506)
-  - L2의 모든 SCN이 EN에 브리지될 필요는 없으며, 마찬가지로 L3의 SCN도 모두 L2에 브리지될 필요는 없습니다. 그러나 고가용성을 위해 체인 간에 두 개 이상의 메인 브리지 및 서브 브리지 쌍이 있는 것이 좋습니다. 이 장에서는 L2와 L3 사이에는 한 쌍만 연결되며, L2와 L3 사이의 고가용성은 Baobab과 L2 사이의 HA와 동일합니다.
+  - L2의 모든 SCN이 EN에 브리지될 필요는 없으며, 마찬가지로 L3의 SCN도 모두 L2에 브리지될 필요는 없습니다. 그러나 고가용성을 위해 체인 간에 두 개 이상의 메인 브리지 및 서브 브리지 쌍이 있는 것이 좋습니다. 이 장에서는 L2와 L3 사이에는 한 쌍만 연결되며, L2와 L3 사이의 고가용성은 Kairos와 L2 사이의 HA와 동일합니다.
 
 ## 1단계: L3용 Homi 데이터 생성 및 업데이트 <a id="step-1-create-and-update-homi"></a>
 
-서비스체인 L2를 구성할 때와 마찬가지로 `homi` 명령어를 실행하여 L3 구축을 위한 스크립트와 설정 파일을 생성합니다. `homi`는 모든 Linux/Mac PC에서 실행할 수 있습니다. Baobab의 `chainID`는 `1001`이고, 앞선 예제에서 L2의 `chainID`는 `1002`로 설정되었기 때문에 편의상 L3의 `chainID`는 `1003`으로 설정합니다. 실제 서비스에서 블록체인을 운영할 때는 다른 서비스체인 및 EVM 체인과의 `chainID` 충돌을 피하기 위해 https\://chainlist.defillama.com/ 에서 새로운 `chainID` 값을 등록해야 합니다.
+서비스체인 L2를 구성할 때와 마찬가지로 `homi` 명령어를 실행하여 L3 구축을 위한 스크립트와 설정 파일을 생성합니다. `homi`는 모든 Linux/Mac PC에서 실행할 수 있습니다. Kairos의 `chainID`는 `1001`이고, 앞선 예제에서 L2의 `chainID`는 `1002`로 설정되었기 때문에 편의상 L3의 `chainID`는 `1003`으로 설정합니다. 실제 서비스에서 블록체인을 운영할 때는 다른 서비스체인 및 EVM 체인과의 `chainID` 충돌을 피하기 위해 https://chainlist.defillama.com/ 에서 새로운 `chainID` 값을 등록해야 합니다.
 
 ```console
 $ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1003 --p2p-port 22323 -o homi-output
@@ -34,8 +34,8 @@ Created :  homi-output/keys/validator4
 Created :  homi-output/scripts/static-nodes.json
 Created :  homi-output/keys_test/testkey1
 Created :  homi-output/keys_test/keystore1/0xdC7218621513f71d609653d22C39d79d558d9CDC
-Created :  homi-output/Klaytn.json
-Created :  homi-output/Klaytn_txpool.json
+Created :  homi-output/Kaia.json
+Created :  homi-output/Kaia_txpool.json
 ```
 
 ![](/img/nodes/sc-nestedsc-ip.png)
@@ -77,7 +77,7 @@ $ cp   ~/homi-output/keys/nodekey{1..4}   ~/data/klay/nodekey
 
 ## 2단계: L3에서 SCN 구성 <a id="step-2-scn-configuration"></a>
 
-ServiceChain L3의 모든 SCN에서 `conf/kscnd.conf`를 다음과 같이 수정합니다: `port`는 서비스체인의 기본 포트인 22323을 사용합니다. `DATA_DIR`은 `~/data`입니다.
+ServiceChain L3의 모든 SCN에서 `conf/kscnd.conf`를 다음과 같이 수정합니다: `PORT`는 서비스체인의 기본 포트인 22323을 사용합니다. `DATA_DIR`은 `~/data`입니다.
 
 ```
 ...
@@ -93,7 +93,7 @@ L3의 모든 SCN 노드에서 ServiceChain을 실행하고 제대로 작동하�
 $ kscnd start
 Starting kscnd: OK
 $ kscn attach --datadir ~/data
-> klay.blockNumber
+> kaia.blockNumber
 10
 ```
 

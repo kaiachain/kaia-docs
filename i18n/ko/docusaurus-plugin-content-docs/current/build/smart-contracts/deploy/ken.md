@@ -2,17 +2,16 @@
 
 ![](/img/build/get-started/klaytnXken.png)
 
-시작하기 전에 몇 가지 클레이튼 관련 용어에 대해 알아봅시다.
+시작하기 전에 몇 가지 카이아 관련 용어에 대해 알아봅시다.
 
-- **엔드포인트 노드 \(EN\)**: 클레이튼 네트워크에 대한 JSON-RPC API 요청을 처리하는 노드입니다. 엔드포인트 노드는 컨센서스에 참여하지 않습니다.
-- **KLAY**: 클레이튼 네이티브 코인.
-- **caver-js**: 클레이튼 JSON-RPC API의 JavaScript 구현.
-- **Baobab**: 클레이튼 테스트넷
-- **Cypress**: 클레이튼 메인넷
+- **엔드포인트 노드 \(EN\)**: 카이아 네트워크에 대한 JSON-RPC API 요청을 처리하는 노드입니다. 엔드포인트 노드는 컨센서스에 참여하지 않습니다.
+- **KLAY**: 카이아 네이티브 코인.
+- **caver-js**: 카이아 JSON-RPC API의 JavaScript 구현.
+- **Kairos**: 카이아 테스트넷
 
-이 단계별 가이드는 Baobab 테스트넷의 엔드포인트 노드 \(EN\)을 시작하고 새 계정으로 기본 스마트 컨트랙트를 구축하는 과정을 단계별로 안내합니다. 이 튜토리얼은 EN을 설정하는 방법과 EN을 통해 스마트 컨트랙트를 배포하는 방법의 두 부분으로 구성되어 있습니다.
+이 단계별 가이드는 Kairos 테스트넷의 엔드포인트 노드 \(EN\)을 시작하고 새 계정으로 기본 스마트 컨트랙트를 구축하는 과정을 단계별로 안내합니다. 이 튜토리얼은 EN을 설정하는 방법과 EN을 통해 스마트 컨트랙트를 배포하는 방법의 두 부분으로 구성되어 있습니다.
 
-> 스마트 컨트랙트를 배포하고 트랜잭션을 제출하려면 KLAY에서 트랜잭션 수수료가 필요하기 때문에 본 가이드에서는 **Baobab** 테스트넷을 사용합니다. 개발 목적으로 테스트넷 KLAY는 [Baobab Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 받을 수 있습니다.
+> 스마트 컨트랙트를 배포하고 트랜잭션을 제출하려면 KAIA에서 트랜잭션 수수료가 필요하기 때문에 본 가이드에서는 **Kairos** 테스트넷을 사용합니다. 개발 목적으로 테스트넷 KAIA는 [Kairos Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 받을 수 있습니다.
 
 ## 엔드포인트 노드 시작 <a href="#launch-an-en" id="launch-an-en"></a>
 
@@ -44,7 +43,7 @@ $ mkdir -p ~/kend_home
 
 ### EN 구성하기 <a href="#configuring-the-en" id="configuring-the-en"></a>
 
-구성 파일인 `kend.conf`는 `ken-xxxxx-amd64/conf/` 아래에 있습니다. 설정 가능한 파라미터에 대한 자세한 내용은 [EN 구성 가이드](../../../misc/operation/configuration.md)를 참고하시기 바랍니다. Baobab 테스트넷의 EN을 실행하려면 아래와 같이 `kend.conf` 파일을 업데이트합니다.
+구성 파일인 `kend.conf`는 `ken-xxxxx-amd64/conf/` 아래에 있습니다. 설정 가능한 파라미터에 대한 자세한 내용은 [EN 구성 가이드](../../../misc/operation/configuration.md)를 참고하시기 바랍니다. Kairos 테스트넷의 EN을 실행하려면 아래와 같이 `kend.conf` 파일을 업데이트합니다.
 
 ```
 # cypress, baobab is only available if you don't specify NETWORK_ID.
@@ -88,17 +87,17 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 
 ### 문제 해결 <a href="#troubleshooting" id="troubleshooting"></a>
 
-클레이튼 엔드포인트 노드 실행에 문제가 있는 경우 [문제 해결](../../../misc/operation/troubleshooting.md)을 참고하시기 바랍니다.
+카이아 엔드포인트 노드 실행에 문제가 있는 경우 [문제 해결](../../../misc/operation/troubleshooting.md)을 참고하시기 바랍니다.
 
 ## 계정 충전하기 <a id="top-up-your-account"></a>
 
 ### 콘솔에 연결하기 <a id="attaching-to-the-console"></a>
 
-클레이튼 엔드포인트 노드는 JavaScript 콘솔과 함께 제공됩니다. 콘솔 명령줄에서 EN에 클레이튼 API 호출의 일부를 시작할 수 있습니다. JavaScript 콘솔에 접속하려면 다음 명령을 실행하세요.
+카이아 엔드포인트 노드는 JavaScript 콘솔과 함께 제공됩니다. 콘솔 명령줄에서 EN에 카이아 API 호출의 일부를 시작할 수 있습니다. JavaScript 콘솔에 접속하려면 다음 명령을 실행하세요.
 
 ```bash
 $ ken attach ~/kend_home/klay.ipc
-Welcome to the Klaytn JavaScript console
+Welcome to the Kaia JavaScript console
 
 !instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
@@ -111,9 +110,9 @@ Welcome to the Klaytn JavaScript console
 
 **참고**: 사용 가능한 기능 목록을 보려면 `klay` 또는 `personal`을 입력하세요.
 
-### 클레이튼 계정 생성하기 <a id="creating-a-new-klaytn-account"></a>
+### 카이아 계정 생성하기 <a id="creating-a-new-klaytn-account"></a>
 
-JavaScript 콘솔에서 새 클레이튼 계정을 생성하려면 다음 명령을 실행합니다. 입력한 비밀번호로 개인키가 암호화됩니다.
+JavaScript 콘솔에서 새 카이아 계정을 생성하려면 다음 명령을 실행합니다. 입력한 비밀번호로 개인키가 암호화됩니다.
 
 ```javascript
 > personal.newAccount()
@@ -129,7 +128,7 @@ $ ls ~/kend_home/keystore/
 UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 ```
 
-### 클레이튼 계정 잠금 해제하기 <a id="unlocking-the-klaytn-account"></a>
+### 카이아 계정 잠금 해제하기 <a id="unlocking-the-klaytn-account"></a>
 
 생성한 계정을 잠금 해제하려면 다음 명령을 실행합니다. 300초 동안 계정이 잠금 해제됩니다.
 
@@ -144,29 +143,29 @@ Passphrase: # enter your passphrase
 true
 ```
 
-### Baobab Faucet에서 테스트넷 KLAY 받기 <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
+### Kairos Faucet에서 테스트넷 KAIA 받기 <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
 
-- KlaytnWallet에서 Baobab Faucet 사용하기.
+- KlaytnWallet에서 Kairos Faucet 사용하기.
 
 - [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/)에 접속합니다.
 
 - 월렛에서 새 계정을 생성하거나 위의 EN JavaScript 콘솔에서 생성한 키스토어 파일을 사용하여 월렛에 로그인할 수 있습니다.
 
-- 왼쪽 창 메뉴에서 "KLAY Faucet"로 이동하여 "Run Faucet" 버튼을 클릭하고 150 KLAY를 받습니다.
+- 왼쪽 창 메뉴에서 "KLAY Faucet"로 이동하여 "Run Faucet" 버튼을 클릭하고 150 KAIA를 받습니다.
 
-  KLAY Faucet은 24시간에 한 번씩 실행할 수 있습니다.
+  KAIA Faucet은 24시간에 한 번씩 실행할 수 있습니다.
 
-- KLAY를 받기 위해 새 계정을 생성한 경우, EN에서 생성한 계정으로 KLAY를 보내세요.
+- KAIA를 받기 위해 새 계정을 생성한 경우, EN에서 생성한 계정으로 KAIA를 보내세요.
 
 ### 계정 잔액 확인하기 <a id="checking-the-balance-in-your-account"></a>
 
 계정 잔액을 확인하려면 다음 명령을 실행하세요.
 
-기본 단위는 peb \(1 KLAY = 10^18 peb\)입니다. KLAY 단위에 대한 자세한 정보는 [KLAY 단위](../../../learn/klaytn-native-coin-klay.md#units-of-klay)에서 확인할 수 있습니다.
+기본 단위는 peb \(1 KAIA = 10^18 peb\)입니다. KAIA 단위에 대한 자세한 정보는 [KLAY 단위](../../../learn/klaytn-native-coin-klay.md#units-of-klay)에서 확인할 수 있습니다.
 
 ```javascript
-> klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
-1e+21  # 1000 KLAY
+> kaia.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
+1e+21  # 1000 KAIA
 ```
 
 ### 콘솔 종료하기 <a id="exiting-the-console"></a>
@@ -190,7 +189,7 @@ $ mkdir $HOME/klaytn
 
 > 진행하려면 `npm`과 `node.js`가 설치되어 있어야 합니다. 시스템에 설치하려면 [get-npm](https://www.npmjs.com/get-npm) 및 [node.js](https://nodejs.org/en/)를 참조하세요.
 
-[caver-js](../../../references/sdk/caver-js/caver-js.md)는 클레이튼 네트워크를 위한 JSON RPC 프레임워크입니다(이더리움의 web3.js에 해당). caver-js를 설치에 앞서에 `npm init` 명령어를 통해 `package.json` 파일을 생성한 후, `npm install caver-js`를 입력해 caver-js를 설치해야 합니다.
+[caver-js](../../../references/sdk/caver-js/caver-js.md)는 카이아 네트워크를 위한 JSON RPC 프레임워크입니다(이더리움의 web3.js에 해당). caver-js를 설치에 앞서에 `npm init` 명령어를 통해 `package.json` 파일을 생성한 후, `npm install caver-js`를 입력해 caver-js를 설치해야 합니다.
 
 ```bash
 $ npm init # initialize npm at the klaytn project directory
@@ -224,18 +223,18 @@ $ rm /Users/username/klaytn/node_modules/websocket/.git
 
 `web3.eth.sendTransaction({ ... })` \(X\)
 
-`caver.klay.sendTransaction({ ... })` \(O\)
+`caver.kaia.sendTransaction({ ... })` \(O\)
 
 ### Truffle 설치하기 <a id="installing-truffle"></a>
 
-이 튜토리얼에서는 Truffle을 사용하여 Solidity로 작성된 스마트 컨트랙트를 컴파일하고 배포합니다. 현재 Klaytn은 Truffle 버전 4.1.15를 지원합니다. Truffle에 대한 자세한 내용은 다음 사이트를 참고하세요:
+이 튜토리얼에서는 Truffle을 사용하여 Solidity로 작성된 스마트 컨트랙트를 컴파일하고 배포합니다. 현재 Kaia는 Truffle 버전 4.1.15를 지원합니다. Truffle에 대한 자세한 내용은 다음 사이트를 참고하세요:
 
 - Truffle 저장소 - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)
 - Truffle 문서 - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)
 
 Truffle을 전역적 또는 지역적으로 설치할 수 있습니다.
 
-- 전역적으로 설치하려면 다음 명령을 실행합니다.
+- Globally using npm by executing the following commands:
 
 ```bash
 $ sudo npm install -g truffle@4.1.15
@@ -260,9 +259,9 @@ $ export PATH=`pwd`:$PATH
 
 ### vvisp 설치하기 <a id="installing-vvisp"></a>
 
-vvisp는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 CLI 도구/프레임워크이며, [HEACHI LABS](https://henesis.io/)에서 제공합니다. 명령어 하나로 클레이튼 스마트 컨트랙트의 환경 설정, 배포, 실행을 쉽게 할 수 있습니다. Truffle 프레임워크를 지원하므로 Truffle에 익숙한 개발자도 어려움 없이 vvisp를 사용할 수 있습니다.
+vvisp는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 CLI 도구/프레임워크이며, [HEACHI LABS](https://henesis.io/)에서 제공합니다. 명령어 하나로 카이아 스마트 컨트랙트의 환경 설정, 배포, 실행을 쉽게 할 수 있습니다. Truffle 프레임워크를 지원하므로 Truffle에 익숙한 개발자도 어려움 없이 vvisp를 사용할 수 있습니다.
 
-여기서는 vvisp를 설치하고 이를 이용해 클레이튼 dApp 개발 환경을 설정하는 방법을 소개합니다.
+여기서는 vvisp를 설치하고 이를 이용해 카이아 dApp 개발 환경을 설정하는 방법을 소개합니다.
 
 - vvisp 리포지토리 - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)
 - vvisp 문서 - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)
@@ -310,15 +309,15 @@ v2.1.0
 
 ## 스마트 컨트랙트 배포 <a id="deploy-a-smart-contract"></a>
 
-이제 클레이튼 스마트 컨트랙트를 개발하고 배포할 준비가 되었습니다!
+이제 카이아 스마트 컨트랙트를 개발하고 배포할 준비가 되었습니다!
 
 ### 프로젝트 디렉터리 만들기 <a id="creating-a-project-directory"></a>
 
 먼저 소스 코드가 있는 디렉터리를 만듭니다.
 
 ```bash
-$ mkdir klaytn-testboard
-$ cd klaytn-testboard
+$ mkdir kaia-testboard
+$ cd kaia-testboard
 ```
 
 ### Truffle 초기화하기 <a id="initializing-truffle"></a>
@@ -331,15 +330,15 @@ $ truffle init
 
 ### Solidity에서 간단한 스마트 컨트랙트 작성하기 <a id="writing-a-simple-smart-contract-in-solidity"></a>
 
-`klaytn-testboard/contracts` 디렉터리에 `KlaytnGreeter.sol`을 생성합니다.
+`klaytn-testboard/contracts` 디렉터리에 `KaiaGreeter.sol`을 생성합니다.
 
 ```bash
 $ cd contracts
-$ touch KlaytnGreeter.sol
-$ vi KlaytnGreeter.sol
+$ touch KaiaGreeter.sol
+$ vi KaiaGreeter.sol
 ```
 
-KlaytnGreeter.sol에 다음 코드를 작성합니다.
+KaiaGreeter.sol에 다음 코드를 작성합니다.
 
 ```text
 pragma solidity 0.5.6;
@@ -352,7 +351,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -374,22 +373,22 @@ $ cd migrations
 $ vi 1_initial_migration.js
 ```
 
-1_initial_migration.js\`를 다음과 같이 수정합니다.
+1_initial_migration.js\\`를 다음과 같이 수정합니다.
 
 ```javascript
 const Migrations = artifacts.require("./Migrations.sol");
-const KlaytnGreeter = artifacts.require("./KlaytnGreeter.sol");
+const KaiaGreeter = artifacts.require("./KaiaGreeter.sol");
 module.exports = function(deployer) {
   deployer.deploy(Migrations);
-  deployer.deploy(KlaytnGreeter, 'Hello, Klaytn');
+  deployer.deploy(KaiaGreeter, 'Hello, Kaia');
 };
 ```
 
 ### Truffle을 사용하여 스마트 컨트랙트 배포하기 <a id="deploying-a-smart-contract-using-truffle"></a>
 
-Truffle.js에 클레이튼의 네트워크 정보를 입력합니다.
+Truffle.js에 카이아의 네트워크 정보를 입력합니다.
 
-**`경고`**: 현재 Klaytn Baobab 네트워크의 가스 가격은 25Gpeb \(**다른 숫자를 사용하려고 하면 오류를 반환합니다**\)로 고정되어 있습니다.
+**`경고`**: 현재 Kaia Kairos 네트워크의 가스 가격은 25Gpeb \(**다른 숫자를 사용하려고 하면 오류를 반환합니다**\)로 고정되어 있습니다.
 
 ```bash
 $ cd ..
@@ -406,9 +405,9 @@ module.exports = {
             host: '127.0.0.1',
             port: 8551,
             from: '0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd', // enter your account address
-            network_id: '1001', // Baobab network id
+            network_id: '1001', // Kairos network id
             gas: 20000000, // transaction gas limit
-            gasPrice: 25000000000, // gasPrice of Baobab is 25 Gpeb
+            gasPrice: 25000000000, // gasPrice of Kairos is 25 Gpeb
         },
     },
     compilers: {
@@ -423,9 +422,9 @@ module.exports = {
 
 **참고**: 배포할 네트워크를 선택하려면 `--network`를 사용하고 덮어쓰려면 `--reset`을 사용합니다.
 
-**참고**: 클레이튼 노드가 실행 중인지 확인하세요.
+**참고**: 카이아 노드가 실행 중인지 확인하세요.
 
-컨트랙트 주소 뒤에 `KlaytnGreeter`'가 표시됩니다:
+컨트랙트 주소 뒤에 `KaiaGreeter`'가 표시됩니다:
 
 ```bash
 $ truffle deploy --network klaytn --reset
@@ -434,9 +433,9 @@ Running migration: 1_initial_migration.js
   Deploying Migrations...
   ... 0x0f5108bd9e51fe6bf71dfc472577e3f55519e0b5d140a99bf65faf26830acfca
   Migrations: 0x97b1b3735c8f2326a262dbbe6c574a8ea1ba0b7d
-  Deploying KlaytnGreeter...
+  Deploying KaiaGreeter...
   ... 0xcba53b6090cb4a118359b27293ba95116a8f35f66ae50fbd23ae1081ce9ffb9e
-  KlaytnGreeter: [SAVE THIS ADDRESS!!] # this is your smart contract address
+  KaiaGreeter: [SAVE THIS ADDRESS!!] # this is your smart contract address
 Saving successful migration to network...
   ... 0x14eb68727ca5a0ac767441c9b7ab077336f9311f71e9854d42c617aebceeec72
 Saving artifacts...
@@ -461,7 +460,7 @@ Passphrase:
 true
 ```
 
-이제 준비가 완료되었습니다. 다시 배포해 보세요.
+이제 준비되었습니다. 다시 배포해 보세요.
 
 ## 배포 확인 <a id="check-the-deployment"></a>
 
@@ -472,25 +471,25 @@ true
 먼저 테스트 파일을 만들어서 엽니다.
 
 ```bash
-$ touch test-klaytn.js
-$ open test-klaytn.js
+$ touch test-kaia.js
+$ open test-kaia.js
 ```
 
-다음 테스트 코드를 작성합니다. 방금 배포한 컨트랙트 주소를 입력해야 합니다.
+다음 테스트 코드를 작성합니다. 방금 배포한 컨트랙트 주소를 입력합니다.
 
 ```javascript
-// test-klaytn.js
+// test-kaia.js
 const Caver = require('caver-js');
 const caver = new Caver('http://127.0.0.1:8551');
 // enter your smart contract address
 const contractAddress = '0x65ca27ed42abeef230a37317a574058ff1372b34'
-caver.klay.getCode(contractAddress).then(console.log);
+caver.kaia.getCode(contractAddress).then(console.log);
 ```
 
 코드를 실행합니다.
 
 ```bash
-$ node test-klaytn.js
+$ node test-kaia.js
 0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610189565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180...
 ```
 
@@ -503,26 +502,26 @@ JavaScript를 사용하여 컨트랙트에서 `greet()`를 호출합니다.
 위에 작성한 테스트 코드에 다음 줄을 추가합니다.
 
 ```javascript
-// test-klaytn.js
+// test-kaia.js
 const Caver = require('caver-js');
 const caver = new Caver('http://127.0.0.1:8551');
 // enter your smart contract address
 const contractAddress = '0x65ca27ed42abeef230a37317a574058ff1372b34'
 
-caver.klay.getCode(contractAddress).then(console.log);
+caver.kaia.getCode(contractAddress).then(console.log);
 // add lines
-const KlaytnGreeter = require('./build/contracts/KlaytnGreeter.json');
+const KaiaGreeter = require('./build/contracts/KaiaGreeter.json');
 // enter your smart contract address
-const klaytnGreeter = new caver.klay.Contract(KlaytnGreeter.abi, contractAddress);
+const klaytnGreeter = new caver.kaia.Contract(KaiaGreeter.abi, contractAddress);
 klaytnGreeter.methods.greet().call().then(console.log);
 ```
 
 테스트 코드를 실행합니다.
 
 ```bash
-$ node test-klaytn.js
-0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610189565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151... # This is from caver.klay.getCode
-Hello, Klaytn # This is from KlyatnGreeter.methods.greet()
+$ node test-kaia.js
+0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610189565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151... # This is from caver.kaia.getCode
+Hello, Kaia # This is from KlyatnGreeter.methods.greet()
 ```
 
-**"안녕하세요, 클레이튼입니다"라는 메시지가 표시되면 작업을 완료한 것입니다. 축하합니다!**
+**"안녕하세요, 카이아입니다"라는 메시지가 표시되면 작업을 완료한 것입니다. 축하합니다!**

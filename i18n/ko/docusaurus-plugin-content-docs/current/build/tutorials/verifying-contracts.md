@@ -10,7 +10,7 @@ sidebar_label: 컨트랙트 검증
 
 스마트 컨트랙트의 유효성이 확인되면 Klaytnscope와 Klaytnfinder와 같은 블록 탐색기를 통해 대중이 블록 탐색기의 사용자 인터페이스를 사용하여 컨트랙트의 공개 메서드와 상호작용할 수 있습니다. 이는 대중이 검증된 컨트랙트 소스 코드에 직접 접근할 수 있는 것 외에도 추가적인 기능입니다.
 
-이 가이드에서는 블록 탐색기를 사용하여 Klaytn 네트워크에 배포된 스마트 컨트랙트를 검증하는 방법을 살펴보겠습니다.
+이 가이드에서는 블록 탐색기를 사용하여 Kaia 네트워크에 배포된 스마트 컨트랙트를 검증하는 방법을 살펴보겠습니다.
 
 ## 전제조건
 
@@ -19,7 +19,7 @@ sidebar_label: 컨트랙트 검증
 
 ## 시작하기
 
-이 가이드에서는 클레이튼 생태계에 존재하는 블록 탐색기, 즉 다음과 같은 블록에서 단일 컨트랙트와 다중 컨트랙트를 모두 검증하는 방법을 살펴볼 것입니다:
+이 가이드에서는 카이아 생태계에 존재하는 블록 탐색기, 즉 다음과 같은 블록에서 단일 컨트랙트와 다중 컨트랙트를 모두 검증하는 방법을 살펴볼 것입니다:
 
 - [Klaytnscope](http://scope.klaytn.com)
 - [Klaytnfinder](https://www.klaytnfinder.io/)
@@ -28,7 +28,7 @@ sidebar_label: 컨트랙트 검증
 
 ## 단일 컨트랙트 배포하기
 
-스마트 컨트랙트를 검증하려면 먼저 컨트랙트를 대상 네트워크에 배포해야 합니다. 따라서 이 가이드에서는 Klaytn Baobab 테스트넷에 컨트랙트를 배포하겠습니다. 또한, 이 튜토리얼에서는 'Counter.sol'이라는 간단한 카운터 컨트랙트를 Remix IDE에 배포할 것입니다. 코드는 아래와 같습니다:
+스마트 컨트랙트를 검증하려면 먼저 컨트랙트를 대상 네트워크에 배포해야 합니다. 따라서 이 가이드에서는 Kaia Kairos 테스트넷에 컨트랙트를 배포하겠습니다. 또한, 이 튜토리얼에서는 'Counter.sol'이라는 간단한 카운터 컨트랙트를 Remix IDE에 배포할 것입니다. 코드는 아래와 같습니다:
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -52,7 +52,7 @@ contract Counter {
 
 :::note
 
-이 페이지에서 클레이튼 Baobab 테스트넷에서 [라이브러리](../../references/sdk/sdk.md)를 사용하여 스마트 컨트랙트를 배포하는 튜토리얼을 확인할 수 있습니다. 또한, [하드햇](../get-started/hardhat.md), [Foundry](../smart-contracts/deploy/foundry.md), [Remix](../smart-contracts/deploy/deploy.md#remix-ide) 또는 다른 개발자 도구를 사용하여 Klaytn Baobab 테스트넷에 스마트 컨트랙트를 배포할 수 있습니다.
+이 페이지에서 카이아 Kairos 테스트넷에서 [라이브러리](../../references/sdk/sdk.md)를 사용하여 스마트 컨트랙트를 배포하는 튜토리얼을 확인할 수 있습니다. 또한, [하드햇](../get-started/hardhat.md), [Foundry](../smart-contracts/deploy/foundry.md), [Remix](../smart-contracts/deploy/deploy.md#remix-ide) 또는 다른 개발자 도구를 사용하여 Kaia Kairos 테스트넷에 스마트 컨트랙트를 배포할 수 있습니다.
 
 :::
 
@@ -65,13 +65,13 @@ Remix IDE :
 - Remix IDE에서 **Solidity compiler 탭**으로 이동합니다.
 
   - 컨트랙트를 컴파일하고 배포하는 데 사용된 **compiler version**을 확인합니다.
-  - 컨트랙트에 사용된 **Open Source License Type**을 확인합니다. 이는 Solidity 소스 파일의 시작 부분에 사용된 SPDX 라이선스 식별자를 의미합니다. Counter.sol`파일에서는`// SPDX-License-Identifier: MIT\`를 사용했습니다.
+  - 컨트랙트에 사용된 **Open Source License Type**을 확인합니다. 이는 Solidity 소스 파일의 시작 부분에 사용된 SPDX 라이선스 식별자를 의미합니다. Counter.sol`파일에서는`// SPDX-License-Identifier: MIT\\`를 사용했습니다.
   - 컨트랙트 배포에 사용된 **EVM version**을 확인합니다.
   - (선택 사항) 컴파일 중에 **optimization**이 활성화된 경우, 최적화 실행 파라미터의 값을 기록해 두세요.
 
   ![](/img/build/tutorials/counter-veri-parameters.png)
 
-- Remix IDE에서 **Klaytn 탭**으로 이동합니다.
+- Remix IDE에서 **Kaia 탭**으로 이동합니다.
 
   - (선택 사항) 컨트랙트 생성자 메서드가 인수를 허용하는 경우, 생성자 인수의 [ABI 인코딩된 형식](https://docs.soliditylang.org/en/develop/abi-spec.html)을 기록해둡니다.
   - 배포에 성공한 후 **Deployed Contracts** 탭에서 스마트 컨트랙트의 컨트랙트 주소를 기록해 두세요.
@@ -159,7 +159,7 @@ Klaytnscope에서 단일 컨트랙트와 다중 파트 컨트랙트를 확인하
 4. 컨트랙트 확인 페이지에서 계정이 Kaikas 또는 Metamask 중 하나에 연결되어 있는지 확인합니다. 이 가이드에서는 Kaikas를 사용하겠습니다.
 5. **contract address 필드**에 계약 주소를 입력합니다. 참고: 이 필드는 일반적으로 계약 주소로 자동으로 채워집니다.
 6. `Counter.sol` 예제에 사용된 **compiler version**을 선택합니다.
-7. 'Counter.sol' 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
+7. 'Counter.sol' 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
 8. **Source Code 필드**에서 **Source Text**를 선택하고 텍스트 필드에 `Counter.sol`의 소스 코드를 붙여넣습니다.
 9. 컴파일 시 활성화된 경우 **Optimization**에 대해 **True**를 선택하고, **Optimization Runs**에서 실행 횟수를 **200**으로 입력합니다.
 10. 계약의 **EVM version**을 선택합니다. `Counter.sol` 예제의 경우, **Istanbul** 옵션을 선택합니다.
@@ -201,9 +201,9 @@ b. Solidity 파일
 
 ![](/img/build/tutorials/airdrop-full-verification.png)
 
-### 2. Klaytnfinder
+### 2. Kaiafinder
 
-클레이튼파인더에서 단일 컨트랙트 및 여러 개의 컨트랙트를 검증하려면 [컨트랙트 제출 요청 페이지](https://baobab.klaytnfinder.io/contracts)로 이동합니다. 단, 계정이 Kaikas 또는 Metamask에 연결되어 있는지 확인하고 아래 단계를 따르세요:
+카이아파인더에서 단일 컨트랙트 및 여러 개의 컨트랙트를 검증하려면 [컨트랙트 제출 요청 페이지](https://baobab.klaytnfinder.io/contracts)로 이동합니다. 단, 계정이 Kaikas 또는 Metamask에 연결되어 있는지 확인하고 아래 단계를 따르세요:
 
 ![](/img/build/tutorials/klaytnfinder-con-sub-page.png)
 
@@ -213,7 +213,7 @@ b. Solidity 파일
 2. 배포된 컨트랙트(Counter.sol)의 **contract address**를 입력합니다.
 3. Remix IDE에서 'Counter.sol'을 다운로드하여 **Source Code (Solidity File)** 필드에 업로드합니다.
 4. `Counter.sol` 예제에 사용된 **compiler version**을 선택합니다.
-5. `Counter.sol` 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
+5. `Counter.sol` 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
 6. 컨트랙트의 **EVM version**을 선택합니다. `Counter.sol` 예제의 경우, **Istanbul** 옵션을 선택합니다.
 7. 컴파일 시 **Optimization**가 활성화된 경우 **True**를 선택하고, **Optimization Runs**의 실행 횟수를 **200**으로 입력합니다.
 8. (선택 사항) 이 필드에 대한 ABI 인코딩된 생성자 인수를 가져오려면 [abi.hashex.org](http://abi.hashex.org)로 이동하여 아래 이미지에 따라 인코딩된 데이터를 가져옵니다:
@@ -240,4 +240,4 @@ Klaytnfinder에서 여러 부분으로 구성된 컨트랙트를 검증하는 �
 
 ## 결론
 
-이 가이드를 따라해 주셔서 감사합니다! 이 튜토리얼에서는 배포된 컨트랙트의 투명성(사용자), 편의성(개발자), 보안을 강화하기 위해 Klaytnscope와 Klaytnfinder만을 사용하여 컨트랙트(단일 및 다중 부분 모두)를 검증하는 방법을 배웠습니다. 자세한 내용은 [Klaytn Docs](https://docs.klaytn.foundation/)를, 궁금한 점이 있으면 [Klaytn Forum](https://forum.klaytn.foundation/)을 참조하세요.
+이 가이드를 따라해 주셔서 감사합니다! 이 튜토리얼에서는 배포된 컨트랙트의 투명성(사용자), 편의성(개발자), 보안을 강화하기 위해 Klaytnscope와 Klaytnfinder만을 사용하여 컨트랙트(단일 및 다중 부분 모두)를 검증하는 방법을 배웠습니다. 자세한 내용은 [Kaia Docs](https://docs.klaytn.foundation/)를, 궁금한 점이 있으면 [Kaia Forum](https://forum.klaytn.foundation/)을 참조하세요.

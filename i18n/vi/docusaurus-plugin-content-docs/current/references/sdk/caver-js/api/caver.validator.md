@@ -1,8 +1,8 @@
 # caver.validator
 
-Gói `caver.validator` cung cấp các hàm xác thực nên được sử dụng khi triển khai ứng dụng trên Klaytn.
+The `caver.validator` package provides validation functions that should be used when implementing applications on Klaytn.
 
-**LƯU Ý** `caver.validator` được hỗ trợ kể từ caver-js phiên bản [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**NOTE** `caver.validator` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
 ## validateSignedMessage <a href="#validatesignedmessage" id="validatesignedmessage"></a>
 
@@ -10,22 +10,22 @@ Gói `caver.validator` cung cấp các hàm xác thực nên được sử dụn
 caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 ```
 
-Xác thực tin nhắn đã ký bằng cách so sánh khóa công khai được khôi phục từ chữ ký với khóa tài khoản của tài khoản Klaytn.
+Validates a signed message by comparing the public key recovered from the signature with the account key of the Klaytn account.
 
-**Tham số**
+**Parameters**
 
-| Tên       | type              | Mô tả                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| thông báo | chuỗi             | Chuỗi tin nhắn thô. Nếu tin nhắn này ở dạng băm với tiền tố dành riêng cho Klaytn, tham số thứ ba sẽ được thông qua dưới dạng `true`.                                                                                                                                                                                                                                                                                             |
-| chữ ký    | đối tượng \| Mảng | Một đối tượng ở định dạng `{ v, r, s }`, một đối tượng `SignatureData` hoặc một mảng `SignatureData`. Mảng '[ v, r, s ]' hoặc '[[ v, r, s ]]' cũng có thể được thông qua dưới dạng tham số và trong trường hợp này, nó được chuyển đổi nội bộ thành `SignatureData` . |
-| address   | chuỗi             | Địa chỉ của tài khoản đã ký tin nhắn.                                                                                                                                                                                                                                                                                                                                                                                             |
-| isHashed  | boolean           | (tùy chọn, mặc định: `false`) Liệu tin nhắn được truyền làm tham số có ở dạng băm với tiền tố `"\x19Klaytn Signed Message:\n" + message.length + message` hay không.                                                                                                                                                                                                                                           |
+| Name       | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message    | string            | The raw message string. If this message is hashed with the Klaytn-specific prefix, the third parameter should be passed as `true`.                                                                                                                                                                                                                                                                                          |
+| signatures | object \\| Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '\[ v, r, s ]' or '\[\[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
+| address    | string            | The address of the account that signed the message.                                                                                                                                                                                                                                                                                                                                                                                         |
+| isHashed   | boolean           | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`.                                                                                                                                                                                                                                          |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `boolean`: Promise sẽ được xử lý bằng một giá trị boolean xác định chữ ký trên tin nhắn có hợp lệ hay không.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the signature on the message is valid or not.
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 const address = '0xa84a1ce657e9d5b383cece6f4ba365e23fa234dd'
@@ -54,19 +54,19 @@ const signature = [
 caver.validator.validateTransaction(tx)
 ```
 
-Xác thực một giao dịch. Hàm này so sánh các khóa công khai từ khóa tài khoản của tài khoản Klaytn với các khóa công khai được khôi phục từ `signatures`. Nếu giao dịch được ủy thác phí với biến `feePayerSignatures` bên trong, hàm này sẽ so sánh các khóa công khai được khôi phục từ `feePayerSignatures` với các khóa công khai của người trả phí.
+Validates a transaction. This function compares the public keys from the account key of the Klaytn account with the public keys recovered from `signatures`. If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
 
-**Tham số**
+**Parameters**
 
-| Tên | Loại     | Mô tả                                                                              |
-| --- | --------- | ---------------------------------------------------------------------------------- |
-| tx  | đối tượng | Đối tượng [Giao dịch](./caver-transaction/caver-transaction.md#class) để xác thực. |
+| Name | Type   | Description                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `boolean`: Promise sẽ được xử lý bằng một giá trị boolean xác định liệu giao dịch có hợp lệ hay không.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transacion is valid or not.
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 // Basic transaction will be validated with `signatures`.
@@ -84,19 +84,19 @@ const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 caver.validator.validateSender(tx)
 ```
 
-Xác thực người gửi giao dịch. Hàm này so sánh các khóa công khai của khóa tài khoản của tài khoản Klaytn với các khóa công khai được khôi phục từ `signatures`.
+Validates the sender of the transaction. This function compares the public keys of the account key of the Klaytn account with the public keys recovered from `signatures`.
 
-**Tham số**
+**Parameters**
 
-| Tên | type      | Mô tả                                                                              |
-| --- | --------- | ---------------------------------------------------------------------------------- |
-| tx  | đối tượng | Đối tượng [Giao dịch](./caver-transaction/caver-transaction.md#class) để xác thực. |
+| Name | Type   | Description                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `boolean`: Promise sẽ được xử lý bằng giá trị boolean xác định liệu giao dịch có hợp lệ hay không.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 const tx = caver.transaction.valueTransfer.create({...})
@@ -109,19 +109,19 @@ const tx = caver.transaction.valueTransfer.create({...})
 caver.validator.validateFeePayer(tx)
 ```
 
-Xác thực người trả phí trong giao dịch. Hàm này so sánh các khóa công khai của khóa tài khoản của người trả phí với các khóa công khai được khôi phục từ `feePayerSignatures`.
+Validates a fee payer in the transaction. This function compares the public keys of the account key of the fee payer with the public keys recovered from `feePayerSignatures`.
 
-**Tham số**
+**Parameters**
 
-| Tên | Loại     | Mô tả                                                                              |
-| --- | --------- | ---------------------------------------------------------------------------------- |
-| tx  | đối tượng | Đối tượng [Giao dịch](./caver-transaction/caver-transaction.md#class) để xác thực. |
+| Name | Type   | Description                                                                                               |
+| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
+| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
 
-**Giá trị trả về**
+**Return Value**
 
-`Promise` trả về `boolean`: Promise sẽ được xử lý bằng giá trị boolean xác định liệu giao dịch có hợp lệ hay không.
+`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
 
-**Ví dụ**
+**Examples**
 
 ```javascript
 const tx = caver.transaction.feeDelegatedValueTransfer.create({...})

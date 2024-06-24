@@ -12,16 +12,16 @@ Returns the network identifier (network ID) of the Klaytn Node.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `number`
 
-| Type   | Description     |
-| ------ | --------------- |
+| Type   | Description                     |
+| ------ | ------------------------------- |
 | number | The network id. |
 
 **Example**
@@ -41,16 +41,16 @@ Returns `true` if the Klaytn Node is actively listening for network connections.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `boolean`
 
-| Type    | Description                               |
-| ------- | ----------------------------------------- |
+| Type    | Description                                               |
+| ------- | --------------------------------------------------------- |
 | boolean | `true` when listening, otherwise `false`. |
 
 **Example**
@@ -70,16 +70,16 @@ Returns the number of peers currently connected to the Klaytn Node.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `string`
 
-| Type   | Description                           |
-| ------ | ------------------------------------- |
+| Type   | Description                                           |
+| ------ | ----------------------------------------------------- |
 | string | The number of connected peers in hex. |
 
 **Example**
@@ -99,16 +99,16 @@ Returns the number of connected nodes by type and the total number of connected 
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Name     | Type     | Description                                                                                                                                   |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
 `Promise` returns `object`
 
-| Type   | Description                                                                           |
-| ------ | ------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                           |
+| ------ | ----------------------------------------------------------------------------------------------------- |
 | object | The number of connected peers by type as well as the total number of connected peers. |
 
 **Example**

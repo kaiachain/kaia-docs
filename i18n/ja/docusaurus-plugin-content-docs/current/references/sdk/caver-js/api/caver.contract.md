@@ -49,28 +49,28 @@ Creates a new contract instance with all its methods and events defined in its J
 
 **Parameters**
 
-| Name          | Type   | Description                                                                                                                                 |
-| ------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| jsonInterface | object | The JSON interface for the contract to instantiate                                                                                          |
+| Name          | Type   | Description                                                                                                                                                 |
+| ------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| jsonInterface | object | The JSON interface for the contract to instantiate                                                                                                          |
 | address       | string | (optional) The address of the smart contract to call. Can be added later using `myContract.options.address = '0x1234..'` |
-| options       | object | (optional) The options of the contract. See the table below for the details.                                             |
+| options       | object | (optional) The options of the contract. See the table below for the details.                             |
 
 The options object contains the following:
 
-| Name          | Type    | Description                                                                                                                                                                                                                                                                                                           |
-| ------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string  | (optional) The address from which transactions should be made.                                                                                                                                                                                                                                     |
-| gasPrice      | string  | (optional) The gas price in peb to use for transactions.                                                                                                                                                                                                                                           |
-| gas           | number  | (optional) The maximum gas provided for a transaction (gas limit).                                                                                                                                                                                                              |
-| data          | string  | (optional) The byte code of the contract. Used when the contract gets deployed.                                                                                                                                                                                                                    |
-| feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                              |
-| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                   |
+| Name          | Type    | Description                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | string  | (optional) The address from which transactions should be made.                                                                                                                                                                                                                                                                                     |
+| gasPrice      | string  | (optional) The gas price in peb to use for transactions.                                                                                                                                                                                                                                                                                           |
+| gas           | number  | (optional) The maximum gas provided for a transaction (gas limit).                                                                                                                                                                                                                                                              |
+| data          | string  | (optional) The byte code of the contract. Used when the contract gets deployed.                                                                                                                                                                                                                                                    |
+| feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                                                                              |
+| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                                                   |
 | feeRatio      | string  | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
 
 **Return Value**
 
-| Type   | Description                                            |
-| ------ | ------------------------------------------------------ |
+| Type   | Description                                                            |
+| ------ | ---------------------------------------------------------------------- |
 | object | The contract instance with all its methods and events. |
 
 **Example**
@@ -89,16 +89,16 @@ The `options` object for the contract instance. `from`, `gas`, `gasPrice`, `feeP
 
 **Properties**
 
-| Name          | Type    | Description                                                                                                                                                                                                                                                                                                           |
-| ------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address       | string  | The address where the contract is deployed.                                                                                                                                                                                                                                                                           |
-| jsonInterface | Array   | The JSON interface of the contract.                                                                                                                                                                                                                                                                                   |
-| from          | string  | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                                                                    |
-| gasPrice      | string  | The gas price in peb to use for transactions.                                                                                                                                                                                                                                                                         |
-| gas           | number  | The maximum gas provided for a transaction (gas limit).                                                                                                                                                                                                                                            |
-| data          | string  | The byte code of the contract. Used when the contract gets deployed.                                                                                                                                                                                                                                                  |
-| feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                              |
-| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                   |
+| Name          | Type    | Description                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address       | string  | The address where the contract is deployed.                                                                                                                                                                                                                                                                                                                           |
+| jsonInterface | Array   | The JSON interface of the contract.                                                                                                                                                                                                                                                                                                                                   |
+| from          | string  | The default address from which the contract deployment/execution transaction is sent. If the `from` address is not defined when creating the transaction, this `myContract.options.from` is always used to create the transaction.                                                                                                                    |
+| gasPrice      | string  | The gas price in peb to use for transactions.                                                                                                                                                                                                                                                                                                                         |
+| gas           | number  | The maximum gas provided for a transaction (gas limit).                                                                                                                                                                                                                                                                                            |
+| data          | string  | The byte code of the contract. Used when the contract gets deployed.                                                                                                                                                                                                                                                                                  |
+| feeDelegation | boolean | (optional) Whether to use fee delegation transaction.                                                                                                                                                                                                                                                                                              |
+| feePayer      | string  | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction.                                                                                                                                                                   |
 | feeRatio      | string  | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
 
 **NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
@@ -137,9 +137,9 @@ The address used for this contract instance `myContract`. All transactions gener
 
 **Property**
 
-| Name    | Type             | Description                                                   |
-| ------- | ---------------- | ------------------------------------------------------------- |
-| address | string \| `null` | The address for this contract or `null` if it is not yet set. |
+| Name    | Type               | Description                                                                   |
+| ------- | ------------------ | ----------------------------------------------------------------------------- |
+| address | string \\| `null` | The address for this contract or `null` if it is not yet set. |
 
 **Example**
 
@@ -161,8 +161,8 @@ The JSON interface object derived from the ABI of this contract `myContract`.
 
 **Property**
 
-| Name          | Type  | Description                                                                                                            |
-| ------------- | ----- | ---------------------------------------------------------------------------------------------------------------------- |
+| Name          | Type  | Description                                                                                                                                            |
+| ------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | jsonInterface | Array | The JSON interface for this contract. Re-setting this will regenerate the methods and events of the contract instance. |
 
 **Example**
@@ -208,14 +208,14 @@ Clones the current contract instance.
 
 **Parameters**
 
-| Name            | Type   | Description                                                                                                                                                                                |
-| --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Name            | Type   | Description                                                                                                                                                                                                                                                |
+| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | contractAddress | String | (optional) The address of the new contract. If omitted, it will be set to the address in the original instance (e.g., `myContract.options.address`). |
 
 **Return Value**
 
-| Type   | Description                       |
-| ------ | --------------------------------- |
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
 | object | The new cloned contract instance. |
 
 **Example**
@@ -243,18 +243,18 @@ Deploys the contract to the Klaytn network. After a successful deployment, the p
 
 **Parameters**
 
-| Name       | Type   | Description                                                                                                         |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
+| Name       | Type   | Description                                                                                                                                                                         |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options    | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
-| byteCode   | string | The byte code of the contract.                                                                                      |
-| parameters | Mixed  | (optional) The parameters that get passed to the constructor on deployment.                      |
+| byteCode   | string | The byte code of the contract.                                                                                                                                      |
+| parameters | Mixed  | (optional) The parameters that get passed to the constructor on deployment.                                                                      |
 
 **Return Value**
 
 `Promise` returning `PromiEvent`: The promise will be resolved with the new contract instance.
 
-| Type       | Description                                                                                                                                                                                                            |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type       | Description                                                                                                                                                                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. If `send()` is called from a `myContract.deploy()`, then the promise will be resolved with the new contract instance. |
 
 For PromiEvent, the following events are available:
@@ -338,28 +338,28 @@ Returns the object used when deploying the smart contract to the Klaytn. You can
 
 **Parameters**
 
-| Name    | Type   | Description                                                                          |
-| ------- | ------ | ------------------------------------------------------------------------------------ |
+| Name    | Type   | Description                                                                                                          |
+| ------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
 | options | object | The options object used for deployment. See the below table to find the description. |
 
 The options object can contain the following:
 
-| Name      | Type   | Description                                                                                   |
-| --------- | ------ | --------------------------------------------------------------------------------------------- |
+| Name      | Type   | Description                                                                                                   |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------- |
 | data      | string | The byte code of the contract.                                                                |
 | arguments | Array  | (optional) The arguments that get passed to the constructor on deployment. |
 
 **Return Value**
 
-| Type   | Description                                                                                                                    |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| Type   | Description                                                                                                                                                    |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | An object in which arguments and functions for contract distribution are defined. See the below table to find the description. |
 
 The object contains the following:
 
-| Name                                                 | Type     | Description                                                                                                                                                        |
-| ---------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| arguments                                            | Array    | The arguments passed in `options.arguments`.                                                                                                                       |
+| Name                                                 | Type     | Description                                                                                                                                                                                        |
+| ---------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| arguments                                            | Array    | The arguments passed in `options.arguments`.                                                                                                                                       |
 | [send](#methods-methodname-send)                     | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance.              |
 | [sign](#methods-methodname-sign)                     | function | The function that will sign a smart contract deploy transaction as a sender. The sign function will return signed transaction.                                     |
 | [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a smart contract deploy transaction as a fee payer. The signAsFeePayer function will return signed transaction.                        |
@@ -443,18 +443,18 @@ The transaction type used for this function depends on the `options` or the valu
 
 **Parameters**
 
-| Name       | Type   | Description                                                                                                         |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
+| Name       | Type   | Description                                                                                                                                                                         |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options    | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details. |
-| methodName | string | The method name of the contract function to execute.                                                                |
-| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function.                        |
+| methodName | string | The method name of the contract function to execute.                                                                                                                |
+| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function.                                                                        |
 
 **Return Value**
 
 `Promise` returns `PromiEvent`
 
-| Type       | Description                                                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type       | Description                                                                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. The promise will be resolved with the new contract instance. |
 
 For PromiEvent, the following events are available:
@@ -590,9 +590,9 @@ The transaction type used for this function depends on the `options` or the valu
 
 **Parameters**
 
-| Name       | Type   | Description                                                                                                                                                                                         |
-| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options    | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details.                                                                                 |
+| Name       | Type   | Description                                                                                                                                                                                                                         |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options    | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details.                                                 |
 | methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name.                           |
 | parameters | Mixed  | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
 
@@ -742,9 +742,9 @@ The transaction type used for this function depends on the `options` or the valu
 
 **Parameters**
 
-| Name       | Type   | Description                                                                                                                                                                                         |
-| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options    | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details.                                                                                 |
+| Name       | Type   | Description                                                                                                                                                                                                                         |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options    | object | The options used for sending. See the table in [methods.methodName.send](#methods-methodname-send) for the details.                                                 |
 | methodName | string | The method name of the contract function to execute. If you want to sign a transaction for deploying the smart contract, use 'constructor' string instead of method name.                           |
 | parameters | Mixed  | (optional) The parameters that get passed to the smart contract function. If you want to sign a smart contract deploy transaction, pass the byteCode and constructor parameters. |
 
@@ -854,11 +854,11 @@ Will call a constant method and execute its smart contract method in the Klaytn 
 
 **Parameters**
 
-| Name       | Type   | Description                                                                                                                                       |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name       | Type   | Description                                                                                                                                                                                                       |
+| ---------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | options    | object | (optional) The options used for calling. See the table in [methods.methodName.call](#methods-methodname-call) for the details. |
-| methodName | string | The method name of the contract function to call.                                                                                                 |
-| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function.                                                      |
+| methodName | string | The method name of the contract function to call.                                                                                                                                                 |
+| parameters | Mixed  | (optional) The parameters that get passed to the smart contract function.                                                                                                      |
 
 **Return Value**
 
@@ -886,14 +886,14 @@ Decodes a function call and returns parameters.
 
 **Parameters**
 
-| Name         | Type   | Description                       |
-| ------------ | ------ | --------------------------------- |
+| Name         | Type   | Description                                       |
+| ------------ | ------ | ------------------------------------------------- |
 | functionCall | string | The encoded function call string. |
 
 **Return Value**
 
-| Type   | Description                                                                                                                                   |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type   | Description                                                                                                                                                                   |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
 
 **Examples**
@@ -974,15 +974,15 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 `Promise` returning `object` - An object in which arguments and functions for contract execution are defined.:
 
-| Name                                                 | Type     | Description                                                                                                                                                                                         |
-| ---------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name                                                 | Type     | Description                                                                                                                                                                                                         |
+| ---------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | arguments                                            | Array    | The arguments passed to this method.                                                                                                                                                                |
 | [call](#methods-methodname-call)                     | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
 | [send](#methods-methodname-send)                     | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                             |
-| [sign](#methods-methodname-sign)                     | function | The function that will sign a transaction as a sender. The sign function will return signed transaction.                                                                                            |
-| [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a transaction as a fee payer. The signAsFeePayer function will return signed transaction.                                                                               |
+| [sign](#methods-methodname-sign)                     | function | The function that will sign a transaction as a sender. The sign function will return signed transaction.                                                                            |
+| [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a transaction as a fee payer. The signAsFeePayer function will return signed transaction.                                                               |
 | [estimateGas](#methods-methodname-estimategas)       | function | The that function will estimate the gas used for the execution.                                                                                                                                     |
-| [encodeABI](#methods-methodname-encodeabi)           | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument.                         |
+| [encodeABI](#methods-methodname-encodeabi)           | function | The function that encodes the ABI for this method. This can be sent using a transaction, calling the method, or passing into another smart contract method as its argument.         |
 
 **NOTE** `sign` and `signAsFeePayer` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -1085,15 +1085,15 @@ Will call a constant method and execute its smart contract method in the Klaytn 
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                                                                             |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | (optional) The options used for calling. See the table below for the details.                                                                                        |
+| Name     | Type     | Description                                                                                                                                                                                             |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options  | object   | (optional) The options used for calling. See the table below for the details.                                                                        |
 | callback | function | (optional) This callback will be fired with the result of the smart contract method execution as the second argument, or with an error object as the first argument. |
 
 The options object can contain the following:
 
-| Name     | Type   | Description                                                                                          |
-| -------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| Name     | Type   | Description                                                                                                          |
+| -------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
 | from     | string | (optional) The address which calling contract methods should be made from.        |
 | gasPrice | string | (optional) The gas price in peb to use for this call.                             |
 | gas      | number | (optional) The maximum gas provided for this call (gas limit). |
@@ -1169,22 +1169,22 @@ The transaction type used for this function depends on the `options` or the valu
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                                |
-| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| options  | object   | The options used for sending. See the table below for the details.                                                                         |
+| Name     | Type     | Description                                                                                                                                                |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options  | object   | The options used for sending. See the table below for the details.                                                         |
 | callback | function | (optional) This callback will be fired first with the "transactionHash", or with an error object as the first argument. |
 
 The options object can contain the following:
 
-| Name          | Type                                | Description                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string                              | The address from which the transaction should be sent. If omitted, `myContract.options.from` will be used.                                                                                                                                                                                                                                                                    |
-| gas           | number                              | The maximum gas provided for this transaction (gas limit).                                                                                                                                                                                                                                                                                                 |
-| gasPrice      | string                              | (optional) The gas price in peb to use for this transaction.                                                                                                                                                                                                                                                                                               |
-| value         | number \| string \| BN \| Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction.                                                                                                                                                                                                                                                    |
-| feeDelegation | boolean                             | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used.                                                                                                                                                                                                                        |
-| feePayer      | string                              | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `myContract.options.feePayer` will be used.                                                                                                                                   |
-| feeRatio      | string                              | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
+| Name          | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | string                                    | The address from which the transaction should be sent. If omitted, `myContract.options.from` will be used.                                                                                                                                                                                                                                                                                                                    |
+| gas           | number                                    | The maximum gas provided for this transaction (gas limit).                                                                                                                                                                                                                                                                                                                                                                 |
+| gasPrice      | string                                    | (optional) The gas price in peb to use for this transaction.                                                                                                                                                                                                                                                                                                                                                               |
+| value         | number \\| string \\| BN \\| Bignumber | (optional) The value in peb to be transferred to the address of the smart contract by this transaction.                                                                                                                                                                                                                                                                                                                    |
+| feeDelegation | boolean                                   | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `myContract.options.feeDelegation` will be used.                                                                                                                                                                                                                                                                        |
+| feePayer      | string                                    | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `myContract.options.feePayer` will be used.                                                                                                                                                                   |
+| feeRatio      | string                                    | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `myContract.options.feeRatio` will be used. |
 
 **NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -1192,8 +1192,8 @@ The options object can contain the following:
 
 `Promise` returns `PromiEvent`
 
-| Type       | Description                                                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type       | Description                                                                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | PromiEvent | A promise combined event emitter. It will be resolved when the transaction receipt is available. The promise will be resolved with the new contract instance. |
 
 For PromiEvent, the following events are available:
@@ -1285,8 +1285,8 @@ The transaction type used for this function depends on the `options` or the valu
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                                                                  |
-| ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name    | Type   | Description                                                                                                                                                                                                  |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](#methods-methodname-send) for the details. |
 
 **Return Value**
@@ -1400,8 +1400,8 @@ The transaction type used for this function depends on the `options` or the valu
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                                                                  |
-| ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name    | Type   | Description                                                                                                                                                                                                  |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | options | object | The options used for creating a transaction. See the parameter table in [methods.methodName.send](#methods-methodname-send) for the details. |
 
 **Return Value**
@@ -1460,25 +1460,25 @@ Will estimate the gas that a method execution will take when executed in the Kla
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                                                            |
-| -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | (optional) The options used for calling. See the table below for the details.                                                                       |
+| Name     | Type     | Description                                                                                                                                                                            |
+| -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options  | object   | (optional) The options used for calling. See the table below for the details.                                                       |
 | callback | function | (optional) This callback will be fired with the result of the gas estimation as the second argument, or with an error object as the first argument. |
 
 The options object can contain the following:
 
-| Name  | Type                                | Description                                                                                                                                                                                                          |
-| ----- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from  | string                              | (optional) The address from which calling the contract method should be made.                                                                                                                     |
-| gas   | number                              | (optional) The maximum gas provided for this call (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
-| value | number \| string \| BN \| Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn.                            |
+| Name  | Type                                      | Description                                                                                                                                                                                                                                                          |
+| ----- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from  | string                                    | (optional) The address from which calling the contract method should be made.                                                                                                                                                     |
+| gas   | number                                    | (optional) The maximum gas provided for this call (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
+| value | number \\| string \\| BN \\| Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn.                                                            |
 
 **Return Value**
 
 `Promise` returns `number`
 
-| Type   | Description                                      |
-| ------ | ------------------------------------------------ |
+| Type   | Description                                                      |
+| ------ | ---------------------------------------------------------------- |
 | number | The used gas for the simulated call/transaction. |
 
 **Example**
@@ -1507,8 +1507,8 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 
 **Return Value**
 
-| Type   | Description                                                  |
-| ------ | ------------------------------------------------------------ |
+| Type   | Description                                                                  |
+| ------ | ---------------------------------------------------------------------------- |
 | string | The encoded ABI byte code to send via a transaction or call. |
 
 **Example**
@@ -1528,17 +1528,17 @@ Subscribes to an event and unsubscribes immediately after the first event or err
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                                                                                      |
-| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                         |
-| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                            |
+| Name     | Type     | Description                                                                                                                                                                                                                                      |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                                                         |
+| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                                            |
 | callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](#getpastevents) for details about the event structure. |
 
 The options object can contain the following:
 
-| Name   | Type   | Description                                                                                                                                                                              |
-| ------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
+| Name   | Type   | Description                                                                                                                                                                                                              |
+| ------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| filter | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.       |
 | topics | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
@@ -1588,17 +1588,17 @@ You can unsubscribe an event by calling the `unsubscribe` function of the subscr
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                                                                                      |
-| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                         |
-| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                            |
+| Name     | Type     | Description                                                                                                                                                                                                                                      |
+| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| event    | string   | The name of the event in the contract, or `allEvents` to get all events.                                                                                                                                                         |
+| options  | object   | (optional) The options used for subscription. See the table below for the details.                                                                                                            |
 | callback | function | This callback will be fired for the first event as the second argument, or an error as the first argument. See [myContract.getPastEvents](#getpastevents) for details about the event structure. |
 
 The options object can contain the following:
 
-| Name   | Type   | Description                                                                                                                                                                              |
-| ------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
+| Name   | Type   | Description                                                                                                                                                                                                              |
+| ------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| filter | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.       |
 | topics | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
@@ -1643,47 +1643,47 @@ Subscribes to an event.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                         |
-| -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | (optional) The options used for subscription. See the table below for the details.                               |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options  | object   | (optional) The options used for subscription. See the table below for the details.               |
 | callback | function | (optional) This callback will be fired for each event as the second argument, or an error as the first argument. |
 
 The options object can contain the following:
 
-| Name      | Type   | Description                                                                                                                                                                              |
-| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter    | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                       |
-| fromBlock | number | (optional) The block number from which to get events.                                                                                                                 |
+| Name      | Type   | Description                                                                                                                                                                                                              |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| filter    | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.       |
+| fromBlock | number | (optional) The block number from which to get events.                                                                                                                                 |
 | topics    | Array  | (optional) This allows you to manually set the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
 
 `EventEmitter`: The event emitter has the following events:
 
-| Name      | Type   | Description                                                                               |
-| --------- | ------ | ----------------------------------------------------------------------------------------- |
-| data      | object | Fires on each incoming event with the event object as an argument.                        |
+| Name      | Type   | Description                                                                                                               |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
+| data      | object | Fires on each incoming event with the event object as an argument.                                        |
 | connected | string | Fires once after the subscription successfully connected. It returns the subscription ID. |
-| error     | object | Fires when an error in the subscription occurs.                                           |
+| error     | object | Fires when an error in the subscription occurs.                                                           |
 
 **NOTE** `connected` is available with caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
 
 The structure of the returned event `object` looks as follows:
 
-| Name             | Type             | Description                                                                                                                                                 |
-| ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string           | The event name.                                                                                                                                             |
-| signature        | string \| `null` | The event signature, `null` if it is an anonymous event.                                                                                                    |
-| address          | string           | Address which from this event originated.                                                                                                                   |
-| returnValues     | object           | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                                                          |
-| logIndex         | number           | Integer of the event index position in the block.                                                                                                           |
-| transactionIndex | number           | Integer of the transaction's index position where the event was created.                                                                                    |
-| transactionHash  | 32-byte string   | Hash of the transaction this event was created in. `null` when it is still pending.                                                                         |
-| blockHash        | 32-byte string   | Hash of the block this event was created in. `null` when it is still pending.                                                                               |
-| blocknumber      | number           | The block number this log was created in. `null` when still pending.                                                                                        |
-| raw\.data        | string           | The data containing non-indexed log parameter.                                                                                                              |
-| raw\.topics      | Array            | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event.                                                     |
-| id               | string           | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
+| Name                         | Type               | Description                                                                                                                                                                 |
+| ---------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event                        | string             | The event name.                                                                                                                                             |
+| signature                    | string \\| `null` | The event signature, `null` if it is an anonymous event.                                                                                                    |
+| address                      | string             | Address which from this event originated.                                                                                                                   |
+| returnValues                 | object             | The return values coming from the event, _e.g._, `{myVar: 1, myVar2: '0x234...'}`.                                          |
+| logIndex                     | number             | Integer of the event index position in the block.                                                                                                           |
+| transactionIndex             | number             | Integer of the transaction's index position where the event was created.                                                                                    |
+| transactionHash              | 32-byte string     | Hash of the transaction this event was created in. `null` when it is still pending.                                                         |
+| blockHash                    | 32-byte string     | Hash of the block this event was created in. `null` when it is still pending.                                                               |
+| blocknumber                  | number             | The block number this log was created in. `null` when still pending.                                                                        |
+| raw\.data   | string             | The data containing non-indexed log parameter.                                                                                                              |
+| raw\.topics | Array              | An array with a maximum of four 32-byte topics, and topic 1-3 contains indexed parameters of the event.                                                     |
+| id                           | string             | A log identifier. It is made through concatenating "log_" string with `keccak256(blockHash + transactionHash + logIndex).substr(0, 8)` |
 
 **Example**
 
@@ -1741,19 +1741,19 @@ Gets past events for this contract.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                                      |
-| -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Name     | Type     | Description                                                                                                                                                      |
+| -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | event    | string   | The name of the event in the contract, or `"allEvents"` to get all events.                                                                       |
-| options  | object   | (optional) The options used for subscription. See the table below for the details.                                            |
+| options  | object   | (optional) The options used for subscription. See the table below for the details.                            |
 | callback | function | (optional) This callback will be fired with an array of event logs as the second argument, or an error as the first argument. |
 
 To options object can contain the following:
 
-| Name      | Type   | Description                                                                                                                                                                           |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| filter    | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.                    |
-| fromBlock | number | (optional) The block number from which to get events.                                                                                                              |
-| toBlock   | number | (optional) The block number to get events up to (defaults to `"latest"`).                                                                       |
+| Name      | Type   | Description                                                                                                                                                                                                           |
+| --------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| filter    | object | (optional) Lets you filter events by indexed parameters, _e.g._, `{filter: {mynumber: [12,13]}}` means all events where "mynumber" is 12 or 13.    |
+| fromBlock | number | (optional) The block number from which to get events.                                                                                                                              |
+| toBlock   | number | (optional) The block number to get events up to (defaults to `"latest"`).                                                                                       |
 | topics    | Array  | (optional) This allows manually setting the topics for the event filter. Given the filter property and event signature, `topic[0]` would not be set automatically. |
 
 **Return Value**
@@ -1762,18 +1762,18 @@ To options object can contain the following:
 
 An event object can contain the following:
 
-| Name             | Type             | Description                                                                                                                                                                                                   |
-| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string           | The event name.                                                                                                                                                                                               |
-| signature        | string \| `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                       |
-| address          | string           | Address this event originated from.                                                                                                                                                                           |
-| returnValues     | object           | The return values coming from the event, e.g. `{myVar: 1, myVar2: '0x234...'}`.                                                                                                                               |
-| logIndex         | number           | The event index position in the block.                                                                                                                                                                        |
-| transactionIndex | number           | The transaction’s index position the event was created in.                                                                                                                                                    |
-| transactionHash  | string           | The hash of the transaction this event was created in.                                                                                                                                                        |
-| blockHash        | string           | The hash of the block this event was created in. null when it’s still pending.                                                                                                                                |
-| blockNumber      | number           | The block number this log was created in. null when still pending.                                                                                                                                            |
-| raw              | object           | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
+| Name             | Type               | Description                                                                                                                                                                                                                                                   |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event            | string             | The event name.                                                                                                                                                                                                                               |
+| signature        | string \\| `null` | The event signature, `null` if it’s an anonymous event.                                                                                                                                                                                       |
+| address          | string             | Address this event originated from.                                                                                                                                                                                                           |
+| returnValues     | object             | The return values coming from the event, e.g. `{myVar: 1, myVar2: '0x234...'}`.                                                                                                                               |
+| logIndex         | number             | The event index position in the block.                                                                                                                                                                                                        |
+| transactionIndex | number             | The transaction’s index position the event was created in.                                                                                                                                                                                    |
+| transactionHash  | string             | The hash of the transaction this event was created in.                                                                                                                                                                                        |
+| blockHash        | string             | The hash of the block this event was created in. null when it’s still pending.                                                                                                                                                |
+| blockNumber      | number             | The block number this log was created in. null when still pending.                                                                                                                                                            |
+| raw              | object             | An object defines `data` and `topic`. `raw.data` containing non-indexed log parameter. `raw.topic` is an array with a maximum of four 32 Byte topics, and topic 1-3 contains indexed parameters of the event. |
 
 **Example**
 

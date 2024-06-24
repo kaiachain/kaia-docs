@@ -1,10 +1,10 @@
 # 이더리움 호환성
 
-클레이튼은 이더리움 호환성을 지원하기 위해 랩드 트랜잭션 타입을 제공합니다. 클레이튼의 이더리움 트랜잭션 타입은 `EthereumTxTypeEnvelope`라는 단일 바이트 타입 구분자를 제외하고는 이더리움의 설계와 동일한 속성과 RLP 인코딩 스키마를 가지고 있습니다. 따라서 사용자는 이더리움 개발 도구에서 생성한 트랜잭션을 클레이튼에 성공적으로 배포할 수 있습니다. 사용자가 `eth` 네임스페이스 API를 사용할 때도 타입 구분자는 생략되므로 이더리움을 사용하는 것처럼 클레이튼을 사용할 수 있습니다. 사용자는 `klay` 네임스페이스 API를 사용하면 기존 클레이튼 트랜잭션 유형과 혼동하지 않고 이더리움 형식의 트랜잭션을 클레이튼 트랜잭션의 한 유형으로 배포하고 조회할 수 있습니다.
+카이아는 이더리움 호환성을 지원하기 위해 랩드 트랜잭션 타입을 제공합니다. 카이아의 이더리움 트랜잭션 타입은 `EthereumTxTypeEnvelope`라는 단일 바이트 타입 구분자를 제외하고는 이더리움의 설계와 동일한 속성과 RLP 인코딩 스키마를 가지고 있습니다. 따라서 사용자는 이더리움 개발 도구에서 생성한 트랜잭션을 카이아에 성공적으로 배포할 수 있습니다. 사용자가 `eth` 네임스페이스 API를 사용할 때도 타입 구분자는 생략되므로 이더리움을 사용하는 것처럼 카이아를 사용할 수 있습니다. 사용자는 `klay` 네임스페이스 API를 사용하면 기존 카이아 트랜잭션 유형과 혼동하지 않고 이더리움 형식의 트랜잭션을 카이아 트랜잭션의 한 유형으로 배포하고 조회할 수 있습니다.
 
 ## EthereumTxTypeEnvelope <a id="ethereumtxtypeenvelope"></a>
 
-EthereumTxTypeEnvelope는 EthereumTransactionType을 나타내는 Raw 트랜잭션의 1바이트 접두사입니다. 이더리움은 [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718)의 확장 가능한 트랜잭션 유형 체계를 채택했으며, 이는 Klaytn과 상충되는 유형 번호 체계를 사용합니다. 서로 다른 두 트랜잭션 타입 체계 간의 충돌을 해결하기 위해 Klaytn은 향후 이더리움 트랜잭션 타입을 분리 및 확장할 수 있는 `EthereumTxTypeEnvelope`를 도입했습니다.
+EthereumTxTypeEnvelope는 EthereumTransactionType을 나타내는 Raw 트랜잭션의 1바이트 접두사입니다. 이더리움은 [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718)의 확장 가능한 트랜잭션 유형 체계를 채택했으며, 이는 Kaia와 상충되는 유형 번호 체계를 사용합니다. 서로 다른 두 트랜잭션 타입 체계 간의 충돌을 해결하기 위해 Kaia는 향후 이더리움 트랜잭션 타입을 분리 및 확장할 수 있는 `EthereumTxTypeEnvelope`를 도입했습니다.
 
 `EthereumTxTypeEnvelope`는 추가 유형 구분자이며, Raw 트랜잭션과 유형 번호 지정에만 사용됩니다. 트랜잭션 해시나 서명 해시에는 사용되지 않습니다. 이를 위해 EIP에 정의된 `EthereumTransactionType`이 사용됩니다.
 
@@ -18,30 +18,30 @@ EthereumTxTypeEnvelope는 EthereumTransactionType을 나타내는 Raw 트랜잭�
 
 :::note
 
-클레이튼 네트워크는 이 트랜잭션 유형을 `EthTxTypeCompatibleBlock` 이후에 처리할 수 있습니다.
+카이아 네트워크는 이 트랜잭션 유형을 `EthTxTypeCompatibleBlock` 이후에 처리할 수 있습니다.
 
 :::
 
 :::note
 
-참고: 이 트랜잭션 유형은 EthereumTransactionType 형식만 지원합니다. [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)과 달리 액세스 리스트 사용으로 인한 트랜잭션 수수료 혜택은 없습니다.
+참고: 이 트랜잭션 유형은 EthereumTransactionType 형식만 지원합니다. EIP-2930](https\://eips.ethereum.org/EIPS/eip-2930)과 달리 액세스 리스트 사용으로 인한 트랜잭션 수수료 측면의 혜택은 없습니다.
 
 :::
 
 ### 속성 <a id="attributes"></a>
 
-| 속성         | 유형                                                                                 | 설명                                                                                                                                                                                                                   |
-| :--------- | :--------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type       | uint8 (Go)                                                      | `EthereumTxTypeEnvelope`와 `EthereumTransactionType`을 연결한 `TxTypeEthereumAccessList`의 유형입니다. 이 값은 0x7801이어야 합니다.                                                                                                      |
-| chainId    | \*big.Int (Go)                                                  | 대상 체인 ID입니다.                                                                                                                                                                                                         |
-| nonce      | uint64 (Go)                                                     | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                                                    |
-| gasPrice   | \*big.Int (Go)                                                  | 발신자가 토큰으로 지불할 금액을 얻기 위한 승수입니다. 발신자가 지불할 토큰의 양은 `gas` \* `gasPrice`를 통해 계산됩니다. 예를 들어, 가스값이 10이고 가스가격이 10^18이면 발신자는 트랜잭션 수수료로 10 KLAY를 지불하게 됩니다. [KLAY 단위]를 참고하세요. |
-| gas        | uint64 (Go)                                                     | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                                                                                    |
-| to         | \*common.Address (Go)                                           | 이체된 값을 받을 계좌 주소입니다.                                                                                                                                                                                                  |
-| value      | \*big.Int (Go)                                                  | 이체할 `peb` 단위의 KLAY 금액입니다.                                                                                                                                                                                            |
-| data       | []byte (Go) | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                                                                                                                      |
-| accessList | type.AccessList (Go)                                            | [](common.Address, []common.Hash)로 구성된 주소 및 저장키 목록입니다.                                    |
-| v, r, s    | \*big.Int (Go)                                                  | 수신자가 발신자의 주소를 얻을 수 있도록 발신자가 생성한 암호화 서명입니다.                                                                                                                                                                           |
+| 속성         | 유형                                                                                 | 설명                                                                                                                                                                                                                                                                                   |
+| :--------- | :--------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type       | uint8 (Go)                                                      | `EthereumTxTypeEnvelope`와 `EthereumTransactionType`을 연결한 `TxTypeEthereumAccessList`의 유형입니다. 이 값은 0x7801이어야 합니다.                                                                                                                                      |
+| chainId    | \*big.Int (Go)                                  | 대상 체인 ID입니다.                                                                                                                                                                                                                                                         |
+| nonce      | uint64 (Go)                                                     | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                                                                                    |
+| gasPrice   | \*big.Int (Go)                                  | 발신자가 토큰으로 지불할 금액을 얻기 위한 승수입니다. 발신자가 지불할 토큰의 양은 `gas` \* `gasPrice`를 통해 계산됩니다. 예를 들어, 가스값이 10이고 가스가격이 10^18이면 발신자는 트랜잭션 수수료로 10 KAIA를 지불하게 됩니다. [KLAY 단위]를 참고하세요. |
+| gas        | uint64 (Go)                                                     | 트랜잭션이 사용할 수 있는 최대 트랜잭션 수수료 금액입니다.                                                                                                                                                                                                                                    |
+| to         | \*common.Address (Go)                           | 이체된 값을 받을 계좌 주소입니다.                                                                                                                                                                                                                                                  |
+| value      | \*big.Int (Go)                                  | 이체할 `peb` 단위의 KAIA 금액입니다.                                                                                                                                                                                                                                            |
+| data       | []byte (Go) | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                                                                                                                                                                      |
+| accessList | type.AccessList (Go)                            | [](common.Address, []common.Hash)로 구성된 주소 및 저장키 목록입니다.                                                    |
+| v, r, s    | \*big.Int (Go)                                  | 수신자가 발신자의 주소를 얻을 수 있도록 발신자가 생성한 암호화 서명입니다.                                                                                                                                                                                                                           |
 
 ### 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 
@@ -186,37 +186,37 @@ RawTx = EthereumTxTypeEnvelope || EthereumTransactionType || encode([chainId, no
 
 :::note
 
-참고: 클레이튼 네트워크는 이 트랜잭션 유형을 `EthTxTypeCompatibleBlock` 이후에 처리할 수 있습니다.
+참고: 카이아 네트워크는 이 트랜잭션 유형을 `EthTxTypeCompatibleBlock` 이후에 처리할 수 있습니다.
 
 :::
 
 :::note
 
-현재 이 트랜잭션 유형은 EthereumTransactionType 형식만 지원합니다. EIP-2930](https\://eips.ethereum.org/EIPS/eip-2930)과 달리 액세스 리스트 사용으로 인한 트랜잭션 수수료 측면의 혜택은 없습니다.
+현재 이 트랜잭션 유형은 EthereumTransactionType 형식만 지원합니다. [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)과 달리 액세스 리스트 사용으로 인한 트랜잭션 수수료 혜택은 없습니다.
 
 :::
 
 :::note
 
-참고: 클레이튼은 가스 가격이 고정되어 있으므로, `gasTipCap`과 `gasFeeCap`은 해당 네트워크의 가스 가격(현재 250 ston)을 사용해야 합니다.
+참고: 카이아는 가스 가격이 고정되어 있으므로, `gasTipCap`과 `gasFeeCap`은 해당 네트워크의 가스 가격(현재 250 ston)을 사용해야 합니다.
 
 :::
 
 ### 속성 <a id="attributes"></a>
 
-| 속성         | 유형                                                                                 | 설명                                                                                                                                                                                          |
-| :--------- | :--------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type       | uint8 (Go)                                                      | `TxTypeEthereumDynamicFee`의 유형으로, `EthereumTxTypeEnvelope`와 `EthereumTransactionType`을 연결한 것입니다. 반드시 `0x7802`여야 합니다.                                                                        |
-| chainId    | \*big.Int (Go)                                                  | 대상 체인 ID입니다.                                                                                                                                                                                |
-| nonce      | uint64 (Go)                                                     | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                           |
-| gasTipCap  | \*big.Int (Go)                                                  | 발신자가 `baseFee`에 추가로 지불할 금액을 얻기 위한 승수입니다. 클레이튼은 가스 가격이 고정되어 있기 때문에 `gasTipCap`과 `gasFeeCap`은 해당 네트워크의 가스 가격(현재 250 ston)을 가져와야 합니다.                                       |
-| gasFeeCap  | \*big.Int (Go)                                                  | 발신자가 토큰으로 지불할 금액을 얻기 위한 승수입니다. 발신자가 지불할 토큰의 양은 `gas` \* `gasFeeCap`을 통해 계산됩니다. 클레이튼은 가스 가격이 고정되어 있기 때문에 `gasTipCap`과 `gasFeeCap`은 해당 네트워크의 가스 가격(현재 250 ston)을 가져와야 합니다. |
-| gas        | uint64 (Go)                                                     | 트랜잭션이 사용할 수 있는 트랜잭션 수수료의 최대 금액입니다.                                                                                                                                                          |
-| to         | \*common.Address (Go)                                           | 이체된 값을 받을 계정 주소입니다.                                                                                                                                                                         |
-| value      | \*big.Int (Go)                                                  | 이체할 `peb` 단위의 KLAY 금액입니다.                                                                                                                                                                   |
-| data       | []byte (Go) | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                                                                                             |
-| accessList | type.AccessList (Go)                                            | [](common.Address, []common.Hash)로 구성된 주소 및 저장키 목록입니다.           |
-| v, r, s    | \*big.Int (Go)                                                  | 수신자가 발신자의 주소를 얻을 수 있도록 발신자가 생성한 암호화 서명입니다.                                                                                                                                                  |
+| 속성         | 유형                                                                                 | 설명                                                                                                                                                                                                                                         |
+| :--------- | :--------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type       | uint8 (Go)                                                      | `TxTypeEthereumDynamicFee`의 유형으로, `EthereumTxTypeEnvelope`와 `EthereumTransactionType`을 연결한 것입니다. 반드시 `0x7802`여야 합니다.                                                                                       |
+| chainId    | \*big.Int (Go)                                  | 대상 체인 ID입니다.                                                                                                                                                                                                               |
+| nonce      | uint64 (Go)                                                     | 발신자의 트랜잭션을 고유하게 식별하는 데 사용되는 값입니다. 발신자가 동일한 nonce를 가진 두 개의 트랜잭션을 생성한 경우 하나만 실행됩니다.                                                                                                                          |
+| gasTipCap  | \*big.Int (Go)                                  | 발신자가 `baseFee`에 추가로 지불할 금액을 얻기 위한 승수입니다. 카이아는 가스 가격이 고정되어 있기 때문에 `gasTipCap`과 `gasFeeCap`은 해당 네트워크의 가스 가격(현재 250 ston)을 가져와야 합니다.                                                       |
+| gasFeeCap  | \*big.Int (Go)                                  | 발신자가 토큰으로 지불할 금액을 얻기 위한 승수입니다. 발신자가 지불할 토큰의 양은 `gas` \* `gasFeeCap`을 통해 계산됩니다. 카이아는 가스 가격이 고정되어 있기 때문에 `gasTipCap`과 `gasFeeCap`은 해당 네트워크의 가스 가격(현재 250 ston)을 가져와야 합니다. |
+| gas        | uint64 (Go)                                                     | 트랜잭션이 사용할 수 있는 트랜잭션 수수료의 최대 금액입니다.                                                                                                                                                                                         |
+| to         | \*common.Address (Go)                           | 이체된 값을 받을 계정 주소입니다.                                                                                                                                                                                                        |
+| value      | \*big.Int (Go)                                  | 이체할 `peb` 단위의 KAIA 금액입니다.                                                                                                                                                                                                  |
+| data       | []byte (Go) | 트랜잭션 실행에 사용되는 트랜잭션에 첨부된 데이터입니다.                                                                                                                                                                                            |
+| accessList | type.AccessList (Go)                            | [](common.Address, []common.Hash)로 구성된 주소 및 저장키 목록입니다.          |
+| v, r, s    | \*big.Int (Go)                                  | 수신자가 발신자의 주소를 얻을 수 있도록 발신자가 생성한 암호화 서명입니다.                                                                                                                                                                                 |
 
 ### 서명을 위한 RLP 인코딩 <a id="rlp-encoding-for-signature"></a>
 

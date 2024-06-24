@@ -1,26 +1,26 @@
 # Core Cell
 
-## Đối tượng mục tiêu  <a id="intended-audience"></a>
+## Intended Audience  <a id="intended-audience"></a>
 
-- Người vận hành Core Cell
-- Nếu bạn muốn tạo và chạy Ứng dụng Blockchain trên Klaytn, bạn không cần phải duy trì Core Cell. Thay vào đó, bạn chỉ cần chạy [Nút điểm cuối](../endpoint-node/endpoint-node.md) để ứng dụng của bạn có thể tương tác với mạng lưới Klaytn.
+- Core Cell Operators
+- If your interest is in making and running Blockchain Applications on Kaia, you don't need to maintain a Core Cell. You need to run an [Endpoint Node](../endpoint-node/endpoint-node.md) instead to make your application interact with Kaia network.
 
-## Tổng quan về Core Cell <a id="core-cell-overview"></a>
+## Core Cell Overview <a id="core-cell-overview"></a>
 
-Core Cell (CC) là một thực thể tham gia vào quá trình đồng thuận đồng thời chịu trách nhiệm thực hiện các giao dịch và tạo khối.
-Core Cell (CC) của Klaytn bao gồm các thành phần sau.
+Core Cell (CC) is an entity that is participating in the consensus process, and is in charge of executing transactions and generating blocks.
+A Kaia Core Cell (CC) consists of the following components.
 
-- Nút đồng thuận (CN): Nút đồng thuận tham gia vào quá trình tạo khối.
-- Nút proxy (PN): Nút proxy cung cấp giao diện cho mạng lưới. Nút proxy chuyển yêu cầu giao dịch đến Nút đồng thuận và truyền các khối xuống Nút điểm cuối.
+- Consensus Node (CN): Consensus Nodes are participating in the block generation process.
+- Proxy Node (PN): Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
 
-Core Cell được khuyến nghị nên bao gồm 1 CN và hai PN hoặc nhiều hơn.
-Một CN kết nối với những CN khác trong Mạng lưới Core Cell để thực hiện đồng thuận.
-CN chỉ chấp nhận kết nối từ PN của nó trong cùng Core Cell để nhận yêu cầu giao dịch và truyền các khối đến mạng lưới.
-PN chỉ chấp nhận kết nối từ EN trong Mạng lưới nút điểm cuối.
+It is recommended that a Core Cell consists of one CN with two or more PNs.
+A CN connects to other CNs within the Core Cell Network to perform consensus.
+CNs only accept connections from their PNs in the same Core Cell to receive transaction requests and propagate blocks to the network.
+PNs accepts connections from any ENs within the Endpoint Node Network.
 
 ![Core Cell Overview](/img/nodes/cn_set.png)
 
-| Tên | Mô tả                                                                                                                                                                                                                                                           | Bảo mật mạng lưới                                                                                                                                                                                                   | Số lượng                                                |
-| :-- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------ |
-| CN  | Nút tạo khối mới với Nút đồng thuận khác trong Mạng lưới Core Cell                                                                                                                                                                                              | Một mạng lưới bao gồm các CN được cấp quyền. (Yêu cầu kiểm soát truy cập IP).                                                                                                                    | 1 đơn vị                                                |
-| PN  | - Một nút gửi giao dịch nhận được từ Mạng lưới nút điểm cuối Klaytn đến CN. <br/>- Nút này truyền các khối đã tạo đến Mạng lưới nút điểm cuối Klaytn. - <br/>- Nút này có thể mở rộng theo chiều ngang tùy thuộc vào số lượng EN trong Mạng lưới nút điểm cuối. | * Nút này được kết nối với CN trong Core Cell. IP và Cổng của nó được yêu cầu công khai để chấp nhận kết nối từ các nút Klaytn khác trên mạng Internet. <br/>- Nút này có thể kết nối với EN thông qua bootnode EN. | Cần ít nhất 1 PN. 2 PN hoặc nhiều hơn được khuyến nghị. |
+| Name | Description                                                                                                                                                                                                                                                                                                         | Network Security                                                                                                                                                                                                                                                                                                               | Quantity                                                                               |
+| :--- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| CN   | A node that creates a new block with other CNs in the Core Cell Network                                                                                                                                                                                                                                             | A network is composed of permissioned CNs. (Requires IP access control).                                                                                                                                                                                                    | 1 unit                                                                                 |
+| PN   | - A node that submits transactions received from the Kaia Endpoint Node Network to the CN. <br/>- It propagates the created blocks to Kaia Endpoint Node Network. <br/>- It can scale out horizontally depending on the number of ENs in the Endpoint Node Network. | * It is connected to the CN in the Core Cell, and its IP and Ports are required to be public to accept connections from other Kaia nodes on the Internet. <br/>- It can connect to other PNs in other Core Cell via PN bootnode. <br/>- It can connect to ENs via EN bootnode. | At least 1 PN required. 2 or more PNs are recommended. |

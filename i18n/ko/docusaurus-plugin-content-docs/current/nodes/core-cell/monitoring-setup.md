@@ -2,7 +2,7 @@
 
 ## 개요 <a id="overview"></a>
 
-클레이튼 팀은 클레이튼 CCN을 모니터링할 수 있는 사이트를 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)에서 제공하고 있습니다. `telegraf` 모니터링 에이전트는 CC의 각 CN/PN에 설치되어 메트릭을 수집하고 모니터링 서버로 전송합니다. 설치가 완료되면 모니터링 사이트를 방문하여 클레이튼 CC의 메트릭을 확인할 수 있습니다.
+카이아 팀은 카이아 CCN을 모니터링할 수 있는 사이트를 [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)에서 제공하고 있습니다. `telegraf` 모니터링 에이전트는 CC의 각 CN/PN에 설치되어 메트릭을 수집하고 모니터링 서버로 전송합니다. 설치가 완료되면 모니터링 사이트를 방문하여 카이아 CC의 메트릭을 확인할 수 있습니다.
 
 설치 과정은 다음과 같습니다:
 
@@ -69,7 +69,7 @@ tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 
 [[outputs.influxdb]]
   urls = [ "http://localhost:" ]
-  database = "klaytn_cypress"
+  database = "klaytn_mainnet"
 
 [[inputs.prometheus]]
   urls = [ "http://localhost:61001/metrics" ]

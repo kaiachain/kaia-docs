@@ -20,15 +20,15 @@ After successful deployment, the promise will be resolved with a new KIP17 insta
 
 **Parameters**
 
-| Name      | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| tokenInfo | object           | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See the below table for the details.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| deployer  | string \| object | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your fields to use when sending transactions, you can pass the object type as a parameter. If you want to use Fee Delegation when deploying KIP-17 contracts, you can define the fields related to fee delegation in the object. For the use of these fields, refer to the parameter description of [approve](#kip17-approve). |
+| Name      | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| tokenInfo | object             | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See the below table for the details.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| deployer  | string \\| object | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your fields to use when sending transactions, you can pass the object type as a parameter. If you want to use Fee Delegation when deploying KIP-17 contracts, you can define the fields related to fee delegation in the object. For the use of these fields, refer to the parameter description of [approve](#kip17-approve). |
 
 The tokenInfo object must contain the following:
 
-| Name   | Type   | Description              |
-| ------ | ------ | ------------------------ |
+| Name   | Type   | Description                              |
+| ------ | ------ | ---------------------------------------- |
 | name   | string | The name of the token.   |
 | symbol | string | The symbol of the token. |
 
@@ -38,9 +38,9 @@ The tokenInfo object must contain the following:
 
 | Name            | Type   | Description                                                                                                                                                                                                                                              |
 | --------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                                           |
+| transactionHash | string | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                           |
 | receipt         | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                                                                 |
+| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                                                 |
 
 **Token Enrollment**
 
@@ -192,8 +192,8 @@ Creates a new KIP17 instance with its bound methods and events.
 
 **Return Value**
 
-| Type   | Description                                           |
-| ------ | ----------------------------------------------------- |
+| Type   | Description                                                           |
+| ------ | --------------------------------------------------------------------- |
 | object | The KIP17 instance with its bound methods and events. |
 
 **Example**
@@ -216,14 +216,14 @@ Clones the current KIP17 instance.
 
 **Parameters**
 
-| Name         | Type   | Description                                                                                                                                                                      |
-| ------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name         | Type   | Description                                                                                                                                                                                                      |
+| ------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | tokenAddress | string | (optional) The address of the smart contract that deployed another KIP-17 token. If omitted, it will be set to the contract address in the original instance. |
 
 **Return Value**
 
-| Type   | Description                               |
-| ------ | ----------------------------------------- |
+| Type   | Description                                               |
+| ------ | --------------------------------------------------------- |
 | object | The clone of the original KIP17 instance. |
 
 **Example**
@@ -279,8 +279,8 @@ Returns `true` if this contract implements the interface defined by `interfaceId
 
 **Parameters**
 
-| Name        | Type   | Description                    |
-| ----------- | ------ | ------------------------------ |
+| Name        | Type   | Description                                    |
+| ----------- | ------ | ---------------------------------------------- |
 | interfaceId | string | The interfaceId to be checked. |
 
 **Return Value**
@@ -376,9 +376,9 @@ Returns the URI for a given token id.
 
 **Parameters**
 
-| Name    | Type                          | Description          |
-| ------- | ----------------------------- | -------------------- |
-| tokenId | BigNumber \| string \| number | The id of the token. |
+| Name    | Type                              | Description                          |
+| ------- | --------------------------------- | ------------------------------------ |
+| tokenId | BigNumber \\| string \\| number | The id of the token. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -403,10 +403,10 @@ Searches the `owner`'s token list for the given index, and returns the token id 
 
 **Parameters**
 
-| Name  | Type                          | Description                                 |
-| ----- | ----------------------------- | ------------------------------------------- |
-| owner | string                        | The address of the account who owns tokens. |
-| index | BigNumber \| string \| number | The index of a token in owner's token list. |
+| Name  | Type                              | Description                                                 |
+| ----- | --------------------------------- | ----------------------------------------------------------- |
+| owner | string                            | The address of the account who owns tokens. |
+| index | BigNumber \\| string \\| number | The index of a token in owner's token list. |
 
 **NOTE** The `index` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -431,9 +431,9 @@ Searches the list of all tokens in this contract for the given index, and return
 
 **Parameters**
 
-| Name  | Type                          | Description                         |
-| ----- | ----------------------------- | ----------------------------------- |
-| index | BigNumber \| string \| number | The index of a token to be queried. |
+| Name  | Type                              | Description                                         |
+| ----- | --------------------------------- | --------------------------------------------------- |
+| index | BigNumber \\| string \\| number | The index of a token to be queried. |
 
 **NOTE** The `index` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -458,8 +458,8 @@ Returns the balance of the given account address. The balance of an account in K
 
 **Parameters**
 
-| Name    | Type   | Description                                               |
-| ------- | ------ | --------------------------------------------------------- |
+| Name    | Type   | Description                                                               |
+| ------- | ------ | ------------------------------------------------------------------------- |
 | address | string | The address of the account to be checked for its balance. |
 
 **Return Value**
@@ -483,9 +483,9 @@ Returns the address of the owner of the specified token id.
 
 **Parameters**
 
-| Name    | Type                          | Description          |
-| ------- | ----------------------------- | -------------------- |
-| tokenId | BigNumber \| string \| number | The id of the token. |
+| Name    | Type                              | Description                          |
+| ------- | --------------------------------- | ------------------------------------ |
+| tokenId | BigNumber \\| string \\| number | The id of the token. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -510,9 +510,9 @@ Returns the address who was permitted to transfer this token, or 'zero' address,
 
 **Parameters**
 
-| Name    | Type                          | Description          |
-| ------- | ----------------------------- | -------------------- |
-| tokenId | BigNumber \| string \| number | The id of the token. |
+| Name    | Type                              | Description                          |
+| ------- | --------------------------------- | ------------------------------------ |
+| tokenId | BigNumber \\| string \\| number | The id of the token. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -542,8 +542,8 @@ Returns `true` if an `operator` is approved to transfer all tokens that belong t
 
 **Parameters**
 
-| Name     | Type   | Description                                                                                     |
-| -------- | ------ | ----------------------------------------------------------------------------------------------- |
+| Name     | Type   | Description                                                                                                     |
+| -------- | ------ | --------------------------------------------------------------------------------------------------------------- |
 | owner    | string | The address of an account that owns tokens and has allowed the operator to send all its tokens. |
 | operator | string | The address of the account approved to send owner's all tokens in place of the owner.           |
 
@@ -571,8 +571,8 @@ Returns `true` if the given account is a minter who can issue new tokens in the 
 
 **Parameters**
 
-| Name    | Type   | Description                                                            |
-| ------- | ------ | ---------------------------------------------------------------------- |
+| Name    | Type   | Description                                                                            |
+| ------- | ------ | -------------------------------------------------------------------------------------- |
 | address | string | The address of the account to be checked for having the minting right. |
 
 **Return Value**
@@ -625,8 +625,8 @@ Returns `true` if the given account is a pauser who can suspend transferring tok
 
 **Parameters**
 
-| Name    | Type   | Description                                                                                   |
-| ------- | ------ | --------------------------------------------------------------------------------------------- |
+| Name    | Type   | Description                                                                                                   |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------- |
 | address | string | The address of the account to be checked for having the right to suspend transferring tokens. |
 
 **Return Value**
@@ -655,25 +655,25 @@ Note that this method will submit a transaction to the Klaytn network, which wil
 
 **Parameters**
 
-| Name      | Type                          | Description                                                                                |
-| --------- | ----------------------------- | ------------------------------------------------------------------------------------------ |
-| to        | string                        | The address of the account who spends tokens in place of the owner.                        |
-| tokenId   | BigNumber \| string \| number | The id of the token the spender is allowed to use.                                         |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. |
+| Name      | Type                              | Description                                                                                                |
+| --------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| to        | string                            | The address of the account who spends tokens in place of the owner.                        |
+| tokenId   | BigNumber \\| string \\| number | The id of the token the spender is allowed to use.                                         |
+| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
 The sendParam object can contain the following:
 
-| Name          | Type                                | Description                                                                                                                                                                                                                                                                                                                                                              |
-| ------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| from          | string                              | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip17.options.from`. If neither of `from` in `sendParam` object nor `kip17.options.from` were not provided, an error would occur.                                                                                                                    |
-| gas           | number \| string                    | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip17.methods.approve(spender, tokenId).estimateGas({from})`.                                                                                                                                            |
-| gasPrice      | number \| string                    | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                                                                                                                                             |
-| value         | number \| string \| BN \| BigNumber | (optional) The value to be transferred in peb.                                                                                                                                                                                                                                                                                                        |
-| feeDelegation | boolean                             | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip17.options.feeDelegation` will be used. If both omitted, fee delegation is not used.                                                                                                                                                                           |
-| feePayer      | string                              | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip17.options.feePayer` will be used. If both omitted, throws an error.                                                                                                 |
-| feeRatio      | string                              | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip17.options.feeRatio` will be used. |
+| Name          | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | string                                    | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip17.options.from`. If neither of `from` in `sendParam` object nor `kip17.options.from` were not provided, an error would occur.                                                                                                                                                    |
+| gas           | number \\| string                        | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip17.methods.approve(spender, tokenId).estimateGas({from})`.                                                                                                                                                                                            |
+| gasPrice      | number \\| string                        | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                                                                                                                                                                                             |
+| value         | number \\| string \\| BN \\| BigNumber | (optional) The value to be transferred in peb.                                                                                                                                                                                                                                                                                                                                                                        |
+| feeDelegation | boolean                                   | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip17.options.feeDelegation` will be used. If both omitted, fee delegation is not used.                                                                                                                                                                                                           |
+| feePayer      | string                                    | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip17.options.feePayer` will be used. If both omitted, throws an error.                                                                                                                 |
+| feeRatio      | string                                    | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip17.options.feeRatio` will be used. |
 
 **NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -750,8 +750,8 @@ Note that the setApprovalForAll method will submit a transaction to the Klaytn n
 
 | Name      | Type    | Description                                                                                                                                                    |
 | --------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to        | string  | The address of an account to be approved/prohibited to transfer the owner's all tokens.                                                                        |
-| approved  | Boolean | This operator will be approved if `true`. The operator will be disallowed if `false`.                                                                          |
+| to        | string  | The address of an account to be approved/prohibited to transfer the owner's all tokens.                                                        |
+| approved  | Boolean | This operator will be approved if `true`. The operator will be disallowed if `false`.                                          |
 | sendParam | object  | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
 
 **Return Value**
@@ -825,12 +825,12 @@ Note that sending this transaction will charge the transaction fee to the transa
 
 **Parameters**
 
-| Name      | Type                          | Description                                                                                                                                                    |
-| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from      | string                        | The address of the owner or the approved operator of the given token.                                                                                          |
-| to        | string                        | The address of the account to receive the token.                                                                                                               |
-| tokenId   | BigNumber \| string \| number | The id of the token you want to transfer.                                                                                                                      |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| Name      | Type                              | Description                                                                                                                                                    |
+| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from      | string                            | The address of the owner or the approved operator of the given token.                                                                          |
+| to        | string                            | The address of the account to receive the token.                                                                                               |
+| tokenId   | BigNumber \\| string \\| number | The id of the token you want to transfer.                                                                                                      |
+| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -907,13 +907,13 @@ Note that sending this transaction will charge the transaction fee to the transa
 
 **Parameters**
 
-| Name      | Type                          | Description                                                                                                                                                    |
-| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from      | string                        | The address of the owner or the approved operator of the given token.                                                                                          |
-| to        | string                        | The address of the account to receive the token.                                                                                                               |
-| tokenId   | BigNumber \| string \| number | The id of the token you want to transfer.                                                                                                                      |
-| data      | Buffer \| string \| number    | (optional) The optional data to send along with the call.                                                                                   |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| Name      | Type                              | Description                                                                                                                                                    |
+| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from      | string                            | The address of the owner or the approved operator of the given token.                                                                          |
+| to        | string                            | The address of the account to receive the token.                                                                                               |
+| tokenId   | BigNumber \\| string \\| number | The id of the token you want to transfer.                                                                                                      |
+| data      | Buffer \\| string \\| number    | (optional) The optional data to send along with the call.                                                                   |
+| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -993,7 +993,7 @@ Note that the addMinter method will submit a transaction to the Klaytn network, 
 
 | Name      | Type   | Description                                                                                                                                                    |
 | --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be added as a minter.                                                                                                            |
+| account   | string | The address of the account to be added as a minter.                                                                                            |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
 
 **NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a minter.
@@ -1138,12 +1138,12 @@ Note that the mintWithTokenURI method will submit a transaction to the Klaytn ne
 
 **Parameters**
 
-| Name      | Type                          | Description                                                                                                                                                    |
-| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to        | string                        | The address of the account to which the minted token will be issued.                                                                                           |
-| tokenId   | BigNumber \| string \| number | The id of the token to be minted.                                                                                                                              |
-| tokenURI  | string                        | The uri string of token to be minted.                                                                                                                          |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| Name      | Type                              | Description                                                                                                                                                    |
+| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| to        | string                            | The address of the account to which the minted token will be issued.                                                                           |
+| tokenId   | BigNumber \\| string \\| number | The id of the token to be minted.                                                                                                              |
+| tokenURI  | string                            | The uri string of token to be minted.                                                                                                          |
+| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -1220,10 +1220,10 @@ Note that the burn method will submit a transaction to the Klaytn network, which
 
 **Parameters**
 
-| Name      | Type                          | Description                                                                                                                                                    |
-| --------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenId   | BigNumber \| string \| number | The id of the token to be destroyed.                                                                                                                           |
-| sendParam | object                        | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| Name      | Type                              | Description                                                                                                                                                    |
+| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenId   | BigNumber \\| string \\| number | The id of the token to be destroyed.                                                                                                           |
+| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
 
 **NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
 
@@ -1446,7 +1446,7 @@ Note that the addPauser method will submit a transaction to the Klaytn network, 
 
 | Name      | Type   | Description                                                                                                                                                    |
 | --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be a new pauser.                                                                                                                 |
+| account   | string | The address of the account to be a new pauser.                                                                                                 |
 | sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
 
 **NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
@@ -1580,5 +1580,4 @@ Note that the renouncePauser method will submit a transaction to the Klaytn netw
 ```
 
 [getTransactionReceipt]: ../caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt
-
 [approve]: #kip17-approve

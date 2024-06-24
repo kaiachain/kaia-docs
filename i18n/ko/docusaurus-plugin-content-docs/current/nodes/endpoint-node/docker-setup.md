@@ -34,10 +34,10 @@ echo "LOG_DIR=/var/kend/logs" >> conf/kend.conf
 
 다음 링크에서 최신 체인 데이터 스냅샷을 다운로드하세요:
 
-- [Cypress 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/)
-- [Cypress 라이브-프루닝 스냅샷 아카이브](https://packages.klaytn.net/cypress/pruning-chaindata/)
-- [Baobab 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)
-- [Baobab 라이브-프루닝 스냅샷 아카이브](http://packages.klaytn.net/baobab/pruning-chaindata/)
+- [메인넷 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/)
+- [메인넷 라이브-프루닝 스냅샷 아카이브](https://packages.klaytn.net/cypress/pruning-chaindata/)
+- [Kairos 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)
+- [Kairos 라이브-프루닝 스냅샷 아카이브](http://packages.klaytn.net/baobab/pruning-chaindata/)
 
 그런 다음 압축을 해제합니다:
 

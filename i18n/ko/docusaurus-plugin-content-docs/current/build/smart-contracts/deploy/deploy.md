@@ -1,16 +1,16 @@
 # 스마트 컨트랙트 배포
 
-클레이튼에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불할 수 있는 충분한 KLAY를 보유한 클레이튼 계정이 있다고 가정합니다. 계정을 생성하려면 [Klaytn 지갑](../../tools/wallets/klaytn-wallet.md)을 방문하세요.
+카이아에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불할 수 있는 충분한 KAIA를 보유한 카이아 계정이 있다고 가정합니다. 계정을 생성하려면 [Kaia 지갑](../../tools/wallets/klaytn-wallet.md)을 방문하세요.
 
 ## Remix 온라인 IDE <a id="remix-ide"></a>
 
-인터넷 브라우저를 열고 [Remix용 클레이튼 플러그인](https://ide.klaytn.foundation)으로 이동합니다.
+인터넷 브라우저를 열고 [Remix용 카이아 플러그인](https://ide.klaytn.foundation)으로 이동합니다.
 
 1. 새 파일을 추가합니다.
 
 ![](/img/build/smart-contracts/01_deployment_ide.png)
 
-2. 새 파일에 다음 샘플 코드(또는 배포하려는 코드)를 복사하여 붙여넣습니다. 이 코드는 Mortal과 KlaytnGreeter라는 두 개의 컨트랙트로 구성되어 있으며, 간단한 "Hello World!"를 실행할 수 있습니다.
+2. 새 파일에 다음 샘플 코드(또는 배포하려는 코드)를 복사하여 붙여넣습니다. 이 코드는 Mortal과 KaiaGreeter라는 두 개의 컨트랙트로 구성되어 있으며, 간단한 "Hello World!"를 실행할 수 있습니다.
 
 ```
 pragma solidity 0.5.12;
@@ -24,7 +24,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -38,11 +38,11 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-3. 아이콘 패널에서 컴파일러를 선택합니다. 원하는 EVM 환경을 선택합니다. Klaytn 네트워크의 경우 Baobab(테스트넷)과 Cypress(메인넷) 중에서 선택할 수 있습니다. 실제 배포하기 전에 샘플 코드를 준수할 준비가 되면 `Compile`을 클릭합니다.
+3. 아이콘 패널에서 컴파일러를 선택합니다. 원하는 EVM 환경을 선택합니다. Kaia 네트워크의 경우 Kairos(테스트넷)과 메인넷 중에서 선택할 수 있습니다. 실제 배포하기 전에 샘플 코드를 준수할 준비가 되면 `Compile`을 클릭합니다.
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. 이제 컨트랙트를 배포할 수 있습니다. 아이콘 패널에서 클레이튼 로고를 클릭합니다. `Account` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 계정에 필요한 스마트 컨트랙트 배포 트랜잭션 비용을 지불할 수 있는 충분한 KLAY가 있는지 확인합니다.
+4. 이제 컨트랙트를 배포할 수 있습니다. 아이콘 패널에서 카이아 로고를 클릭합니다. `Account` 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다. 계정에 필요한 스마트 컨트랙트 배포 트랜잭션 비용을 지불할 수 있는 충분한 KAIA가 있는지 확인합니다.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
@@ -57,7 +57,7 @@ contract KlaytnGreeter is Mortal {
 
 7. 컨트랙트가 성공적으로 배포되면 터미널에서 해당 트랜잭션 영수증과 상세 결과를 확인할 수 있습니다.
 
-8. 기능 버튼을 클릭하여 컨트랙트와 상호작용할 수 있습니다. 함수는 다른 색상으로 표시됩니다. Solidity의 `constant` 또는 `pure` 함수는 파란색 버튼(예시에서는 `greet`)을 가지며 새 트랜잭션을 생성하지 않으므로 가스 비용이 들지 않습니다. 빨간색 버튼(예시에서는 `kill`)은 블록체인의 상태를 변경하고 가스를 소비하며 가치를 받을 수 있는 `payable` 함수를 나타냅니다. 주황색 버튼은 컨트랙트 상태를 변경하지만 값을 받지 않는 \`non-payable\`\` 함수를 나타냅니다.
+8. 기능 버튼을 클릭하여 컨트랙트와 상호작용할 수 있습니다. 함수는 다른 색상으로 표시됩니다. Solidity의 `constant` 또는 `pure` 함수는 파란색 버튼(예시에서는 `greet`)을 가지며 새 트랜잭션을 생성하지 않으므로 가스 비용이 들지 않습니다. 빨간색 버튼(예시에서는 `kill`)은 블록체인의 상태를 변경하고 가스를 소비하며 가치를 받을 수 있는 `payable` 함수를 나타냅니다. 주황색 버튼은 컨트랙트 상태를 변경하지만 값을 받지 않는 \`non-payable\`\\` 함수를 나타냅니다.
 
 ![](/img/build/smart-contracts/06_deployment_functions.png)
 
@@ -65,15 +65,15 @@ contract KlaytnGreeter is Mortal {
 
 ## VVISP <a id="vvisp"></a>
 
-vvisp는 헤이치랩스에서 제공하는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 CLI 도구/프레임워크입니다. 명령어 하나로 클레이튼 스마트 컨트랙트의 환경 설정, 배포, 실행을 쉽게 할 수 있습니다. 자세한 내용은 아래 링크를 참고하세요.
+vvisp는 헤이치랩스에서 제공하는 스마트 컨트랙트 개발을 위한 사용하기 쉬운 CLI 도구/프레임워크입니다. 명령어 하나로 카이아 스마트 컨트랙트의 환경 설정, 배포, 실행을 쉽게 할 수 있습니다. 자세한 내용은 아래 링크를 참고하세요.
 
-- https\://henesis.gitbook.io/vvisp/deploying-smart-contracts
+- https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
 
 컨트랙트를 배포하는 또 다른 방법은 solc로 컨트랙트를 수동으로 컴파일하고 caver-js를 사용하여 배포하는 것입니다.
 
-1. `KlaytnGreeter.sol`을 생성하고 다음 코드를 작성합니다.
+1. `KaiaGreeter.sol`을 생성하고 다음 코드를 작성합니다.
 
 ```
 pragma solidity 0.5.6;
@@ -87,7 +87,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -107,10 +107,10 @@ contract KlaytnGreeter is Mortal {
 $ sudo npm install -g solc@0.5.6
 ```
 
-3. 컨트랙트를 컴파일합니다.
+3. Compile the contract.
 
 ```
-$ solcjs KlaytnGreeter.sol --bin
+$ solcjs KaiaGreeter.sol --bin
 ```
 
 4. caver-js를 설치합니다.
@@ -125,21 +125,21 @@ $ npm install caver-js.
 const Caver = require("caver-js");
 const caver = new Caver("https://public-en-baobab.klaytn.net")
 
-const walletInstance = caver.klay.accounts.privateKeyToAccount(
+const walletInstance = caver.kaia.accounts.privateKeyToAccount(
   '0x3de0c9...' // enter your private key to deploy contract with
 );
-caver.klay.accounts.wallet.add(walletInstance);
+caver.kaia.accounts.wallet.add(walletInstance);
 
 const fs = require('fs')
-const bytecode = fs.readFileSync('./KlaytnGreeter_sol_KlaytnGreeter.bin') // compiled output
+const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // compiled output
 
 const constructorType = ['string']  // enter appropriate constructor type
-const constructorValue = ['Hello, Klaytn!']
+const constructorValue = ['Hello, Kaia!']
 
-const params = caver.klay.abi.encodeParameters(constructorType, constructorValue);
+const params = caver.kaia.abi.encodeParameters(constructorType, constructorValue);
 
-caver.klay.sendTransaction({
-  from: caver.klay.accounts.wallet[0].address,
+caver.kaia.sendTransaction({
+  from: caver.kaia.accounts.wallet[0].address,
   gas: "50000000",
   data: bytecode.toString() + params.substring(2, params.length)
 })

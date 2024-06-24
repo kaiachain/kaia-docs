@@ -1,26 +1,30 @@
 {
   "title": {
-    "message": "Klaytn Tài liệu",
+    "message": "Kaia Docs",
     "description": "The title in the navbar"
   },
   "logo.alt": {
-    "message": "Biểu trưng Klaytn",
+    "message": "Kaia Logo",
     "description": "The alt text of navbar logo"
   },
   "item.label.Learn": {
-    "message": "Giới thiệu",
+    "message": "Learn",
     "description": "Navbar item with label Learn"
   },
   "item.label.Build": {
-    "message": "Xây dựng",
+    "message": "Build",
     "description": "Navbar item with label Build"
   },
   "item.label.Nodes": {
-    "message": "Nút",
+    "message": "Nodes",
     "description": "Navbar item with label Nodes"
   },
   "item.label.References": {
-    "message": "Tham khảo",
+    "message": "References",
     "description": "Navbar item with label References"
+  },
+  "item.label.Kaia Tech": {
+    "message": "Kaia Tech",
+    "description": "Navbar item with label Kaia Tech"
   }
 }

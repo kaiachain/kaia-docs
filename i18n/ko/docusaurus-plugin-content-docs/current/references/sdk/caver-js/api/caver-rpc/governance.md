@@ -1,6 +1,6 @@
 # caver.rpc.governance
 
-`caver.rpc.governance`는 `governance` 네임스페이스를 가진 JSON-RPC 호출을 제공합니다.
+`caver.rpc.governance` provides JSON-RPC call with the `governance` name space.
 
 ## caver.rpc.governance.vote <a id="caver-rpc-governance-vote"></a>
 
@@ -8,27 +8,27 @@
 caver.rpc.governance.vote(key, value [, callback])
 ```
 
-새 투표를 제출합니다. 거버넌스 모드에 따라 노드에 투표 권한이 있는 경우 투표를 제출할 수 있습니다. 그렇지 않은 경우 오류가 발생하고 투표가 무시됩니다.
+Submits a new vote. If the node has the right to vote based on the governance mode, the vote can be submitted. If not, an error will occur and the vote will be ignored.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형                          | 설명                                                                                 |
-| -------- | --------------------------- | ---------------------------------------------------------------------------------- |
-| key      | string                      | 변경할 구성 설정의 이름입니다. 키의 형식은 "domain.field"입니다.                                        |
-| value    | string \| number \| boolean | 각 키에 대한 다양한 유형의 값입니다.                                                              |
-| callback | Function                    | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type                            | Description                                                                                                                                         |
+| -------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key      | string                          | Name of the configuration setting to be changed. Key has the form "domain.field".                   |
+| value    | string \\| number \\| boolean | Various types of value for each key.                                                                                                |
+| callback | function                        | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../../json-rpc/governance/vote).
+For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/governance.md#governance_vote).
 
-**리턴 값**
+**Return Value**
 
-`Promise`는 `string`을 반환합니다.
+`Promise` returns `string`
 
-| 유형     | 설명           |
-| ------ | ------------ |
-| string | 투표 제출 결과입니다. |
+| Type   | Description                                |
+| ------ | ------------------------------------------ |
+| string | Result of vote submission. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.vote('governance.governancemode', 'ballot').then(console.log)
@@ -41,23 +41,23 @@ Your vote was successfully placed.
 caver.rpc.governance.showTally([callback])
 ```
 
-거버넌스 투표의 현재 집계 결과를 제공합니다. 총 찬성률이 백분율로 표시됩니다. 찬성률이 50%를 넘으면 제안된 변경 사항이 통과됩니다.
+Provides the current tally of governance votes. It shows the aggregate approval rate in percentage. The suggested change shall pass when the rate is over 50%.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                               |
-| -------- | -------- | -------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**리턴 값**
+**Return Value**
 
-`Promise`는 `Array`를 반환합니다.
+`Promise` returns `Array`
 
-| 유형    | 설명                              |
-| ----- | ------------------------------- |
-| Array | 투표의 값과 백분율로 표시된 찬성률이 포함된 배열입니다. |
+| Type  | Description                                                                               |
+| ----- | ----------------------------------------------------------------------------------------- |
+| Array | An array containing the vote's value and the approval rate in percentage. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.showTally().then(console.log)
@@ -76,23 +76,23 @@ caver.rpc.governance.showTally([callback])
 caver.rpc.governance.getTotalVotingPower([callback])
 ```
 
-CN이 보유한 모든 투표권의 합계를 제공합니다. 각 CN은 1.0\~2.0의 투표권을 가집니다. `"none"` 및 `"single"` 거버넌스 모드에서 `totalVotingPower`는 어떠한 정보도 제공하지 않습니다.
+Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In  the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                               |
-| -------- | -------- | -------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**리턴 값**
+**Return Value**
 
-`Promise`는 `number`를 반환합니다.
+`Promise` returns `number`
 
-| 유형     | 설명     |
-| ------ | ------ |
-| number | 총 투표권. |
+| Type   | Description                         |
+| ------ | ----------------------------------- |
+| number | Total Voting Power. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getTotalVotingPower().then(console.log)
@@ -105,23 +105,23 @@ CN이 보유한 모든 투표권의 합계를 제공합니다. 각 CN은 1.0\~2.
 caver.rpc.governance.getMyVotingPower([callback])
 ```
 
-노드의 투표권을 제공합니다. 투표권은 1.0 \~ 2.0 사이일 수 있습니다. `"none"` 및 `"single"` 거버넌스 모드에서 `totalVotingPower`는 어떠한 정보도 제공하지 않습니다.
+Provides the voting power of the node. The voting power can be anywhere between 1.0 ~ 2.0. In the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                               |
-| -------- | -------- | -------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개변수로 오류 객체를 반환하고 두 번째 매개변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**리턴 값**
+**Return Value**
 
-`Promise`는 `number`를 반환합니다.
+`Promise` returns `number`
 
-| 유형     | 설명       |
-| ------ | -------- |
-| number | 노드의 투표권. |
+| Type   | Description                          |
+| ------ | ------------------------------------ |
+| number | Node's Voting Power. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getMyVotingPower().then(console.log)
@@ -134,23 +134,23 @@ caver.rpc.governance.getMyVotingPower([callback])
 caver.rpc.governance.getMyVotes([callback])
 ```
 
-해당 epoch에서 내 투표 정보를 제공합니다. 각 투표는 사용자 노드가 새 블록을 생성할 때 블록에 저장됩니다. 현재 epoch가 종료되면 이 정보는 지워집니다.
+Provides my vote information in the epoch. Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                                 |
-| -------- | -------- | ---------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**리턴 값**
+**Return Value**
 
-`Promise`는 `Array`를 반환합니다.
+`Promise` returns `Array`
 
-| 유형    | 설명                    |
-| ----- | --------------------- |
-| Array | epoch 내 노드의 투표 상태입니다. |
+| Type  | Description                                        |
+| ----- | -------------------------------------------------- |
+| Array | Node's Voting status in the epoch. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getMyVotes().then(console.log)
@@ -170,23 +170,23 @@ caver.rpc.governance.getMyVotes([callback])
 caver.rpc.governance.getChainConfig([callback])
 ```
 
-초기 체인 구성을 제공합니다. 초기 구성만 저장하기 때문에 투표를 통해 거버넌스가 변경된 경우 chainConfig의 결과는 현재 상태와 다를 수 있습니다. 현재 정보를 확인하려면 itemAt을 사용하세요.
+Provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of chainConfig will differ from the current states. To see the current information, please use itemsAt.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                                 |
-| -------- | -------- | ---------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**리턴 값**
+**Return Value**
 
-`promise`는 `object`를 반환합니다.
+`Promise` returns `object`
 
-| 유형     | 설명       |
-| ------ | -------- |
-| object | 초기 체인 구성 |
+| Type   | Description                     |
+| ------ | ------------------------------- |
+| object | The initial chain configuration |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getChainConfig().then(console.log)
@@ -224,23 +224,23 @@ caver.rpc.governance.getChainConfig([callback])
 caver.rpc.governance.getNodeAddress([callback])
 ```
 
-사용자가 사용 중인 노드의 주소를 제공합니다. 노드키에서 파생되며 합의 메시지에 서명하는 데 사용됩니다. 그리고 "governingnode"의 값은 검증자의 노드 주소 중 하나이어야 합니다.
+Provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of "governingnode" has to be one of validator's node address.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                                 |
-| -------- | -------- | ---------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**리턴 값**
+**Return Value**
 
-`Promise`는 `string`을 반환합니다.
+`Promise` returns `string`
 
-| 유형     | 설명         |
-| ------ | ---------- |
-| string | 노드의 주소입니다. |
+| Type   | Description                            |
+| ------ | -------------------------------------- |
+| string | The address of a node. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getNodeAddress().then(console.log)
@@ -253,24 +253,24 @@ caver.rpc.governance.getNodeAddress([callback])
 caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 ```
 
-특정 블록의 거버넌스 항목을 반환합니다. 이는 블록의 이전 투표 결과이며 지정된 블록 번호에서 체인의 구성으로 사용됩니다.
+Returns governance items at a specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
 
-**매개변수**
+**Parameters**
 
-| 이름               | 유형               | 설명                                                                                       |
-| ---------------- | ---------------- | ---------------------------------------------------------------------------------------- |
-| blockNumberOrTag | Number \| String | (선택 사항) 블록 번호 또는 `latest` 또는 `earliest` 문자열입니다. 생략하면 `latest`이 사용됩니다. |
-| callback         | Function         | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다.       |
+| Name             | Type               | Description                                                                                                                                            |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumberOrTag | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback         | function           | (optional) Optional callback, which returns an error object as the first parameter and the result as the second.    |
 
-**리턴 값**
+**Return Value**
 
-`promise`는 `object`를 반환합니다.
+`Promise` returns `object`
 
-| 유형     | 설명       |
-| ------ | -------- |
-| object | 거버넌스 항목. |
+| Type   | Description                           |
+| ------ | ------------------------------------- |
+| object | The governance items. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getItemsAt().then(console.log)
@@ -304,23 +304,23 @@ caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 caver.rpc.governance.getPendingChanges([callback])
 ```
 
-충분한 수의 투표를 받았지만 아직 확정되지 않은 항목의 목록을 반환합니다. 현재 epoch가 끝나면 이러한 변경 사항이 최종 확정되고 다음 epoch 이후의 epoch부터 결과가 적용됩니다.
+Returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                                 |
-| -------- | -------- | ---------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**리턴 값**
+**Return Value**
 
-`promise`는 `object`를 반환합니다.
+`Promise` returns `object`
 
-| 유형     | 설명                          |
-| ------ | --------------------------- |
-| object | 키와 값으로 구성된 현재 미확정 변경 사항입니다. |
+| Type   | Description                                                            |
+| ------ | ---------------------------------------------------------------------- |
+| object | Currently pending changes composed of keys and values. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getPendingChanges().then(console.log)
@@ -333,23 +333,23 @@ caver.rpc.governance.getPendingChanges([callback])
 caver.rpc.governance.getIdxCache([callback])
 ```
 
-메모리 캐시에 있는 현재 idxCache의 배열을 반환합니다. idxCache에는 거버넌스 변경이 발생한 블록 번호가 포함되어 있습니다. 캐시에는 기본적으로 최대 1000개의 블록 번호가 메모리에 저장될 수 있습니다.
+Returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                                 |
-| -------- | -------- | ---------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**리턴 값**
+**Return Value**
 
-`promise`는 `object`를 반환합니다.
+`Promise` returns `object`
 
-| 유형    | 설명                     |
-| ----- | ---------------------- |
-| Array | 거버넌스 변경이 발생한 블록 번호입니다. |
+| Type  | Description                                                     |
+| ----- | --------------------------------------------------------------- |
+| Array | Block numbers where governance change happened. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getIdxCache().then(console.log)
@@ -362,23 +362,23 @@ caver.rpc.governance.getIdxCache([callback])
 caver.rpc.governance.getIdxCacheFromDb([callback])
 ```
 
-거버넌스 변경이 발생한 모든 블록 번호가 포함된 배열을 반환합니다. idxCacheFromDb의 결과는 [idxCache](#caver-rpc-governance-getidxcache)의 결과와 같거나 더 길어집니다.
+Returns an array that contains all block numbers at which any governance changes ever took place. The result of idxCacheFromDb is the same or longer than that of [idxCache](#caver-rpc-governance-getidxcache).
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                                 |
-| -------- | -------- | ---------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**리턴 값**
+**Return Value**
 
-`promise`는 `object`를 반환합니다.
+`Promise` returns `object`
 
-| 유형    | 설명                     |
-| ----- | ---------------------- |
-| Array | 거버넌스 변경이 발생한 블록 번호입니다. |
+| Type  | Description                                                     |
+| ----- | --------------------------------------------------------------- |
+| Array | Block numbers where governance change happened. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getIdxCacheFromDb().then(console.log)
@@ -391,29 +391,29 @@ caver.rpc.governance.getIdxCacheFromDb([callback])
 caver.rpc.governance.getItemCacheFromDb([callback])
 ```
 
-주어진 블록에 저장된 거버넌스 정보를 반환합니다. 지정된 블록에 변경 사항이 저장되어 있지 않으면 이 함수는 null을 반환합니다.
+Returns the governance information stored on the given block. If no changes are stored on the given block, the function returns null.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                                 |
-| -------- | -------- | ---------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**매개변수**
+**Parameters**
 
-| 이름          | 유형               | 설명                                                |
-| ----------- | ---------------- | ------------------------------------------------- |
-| blockNumber | Number \| String | 블록 번호 또는 블록에 적용된 거버넌스 변경 사항을 쿼리하기 위한 16진수 문자열입니다. |
+| Name        | Type               | Description                                                                                                |
+| ----------- | ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\| string | A block number, or the hex number string to query the governance change made on the block. |
 
-**리턴 값**
+**Return Value**
 
-`promise`는 `object`를 반환합니다.
+`Promise` returns `object`
 
-| 유형     | 설명                   |
-| ------ | -------------------- |
-| object | 주어진 블록에 저장된 거버넌스 정보. |
+| Type   | Description                                                     |
+| ------ | --------------------------------------------------------------- |
+| object | Stored governance information at a given block. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getItemCacheFromDb(540).then(console.log)
@@ -448,23 +448,23 @@ null
 caver.rpc.governance.getVotes([callback])
 ```
 
-해당 epoch의 모든 노드의 투표를 반환합니다. 이러한 투표는 각 블록의 헤더에서 수집됩니다.
+Returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
 
-**매개변수**
+**Parameters**
 
-| 이름       | 유형       | 설명                                                                                 |
-| -------- | -------- | ---------------------------------------------------------------------------------- |
-| callback | Function | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다. |
+| Name     | Type     | Description                                                                                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-**리턴 값**
+**Return Value**
 
-`promise`는 `object`를 반환합니다.
+`Promise` returns `object`
 
-| 유형    | 설명                         |
-| ----- | -------------------------- |
-| Array | 키, 값, 노드 주소로 구성된 현재 투표입니다. |
+| Type  | Description                                                                |
+| ----- | -------------------------------------------------------------------------- |
+| Array | Current votes composed of keys, values and node addresses. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getVotes().then(console.log)
@@ -485,24 +485,24 @@ caver.rpc.governance.getVotes([callback])
 caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 ```
 
-특정 블록의 스테이킹 정보를 반환합니다.
+Returns the staking information at a specific block.
 
-**매개변수**
+**Parameters**
 
-| 이름               | 유형               | 설명                                                                                       |
-| ---------------- | ---------------- | ---------------------------------------------------------------------------------------- |
-| blockNumberOrTag | Number \| String | (선택 사항) 블록 번호 또는 `latest` 또는 `earliest` 문자열입니다. 생략하면 `latest`이 사용됩니다. |
-| callback         | Function         | (선택 사항) 첫 번째 매개 변수로 오류 객체를 반환하고 두 번째 매개 변수로 결과를 반환하는 선택적 콜백입니다.       |
+| Name             | Type               | Description                                                                                                                                            |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumberOrTag | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback         | function           | (optional) Optional callback, which returns an error object as the first parameter and the result as the second.    |
 
-**리턴 값**
+**Return Value**
 
-`promise`는 `object`를 반환합니다.
+`Promise` returns `object`
 
-| 유형     | 설명                                                                                                                                                              |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | 스테이킹 정보. Refer to [governance_getStakingInfo](../../../../../json-rpc/governance/get-staking-info) for a description of the return result. |
+| Type   | Description                                                                                                                                                                                                          |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | Staking information. Refer to [governance_getStakingInfo](../../../../json-rpc/governance.md#governance_getstakinginfo) for a description of the return result. |
 
-**예시**
+**Example**
 
 ```javascript
 > caver.rpc.governance.getStakingInfo().then(console.log)

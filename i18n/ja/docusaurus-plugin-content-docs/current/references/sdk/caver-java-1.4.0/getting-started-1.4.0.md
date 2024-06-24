@@ -104,7 +104,7 @@ String address = credentials.getAddress();
 
 #### Using a Keystore File <a id="using-a-keystore-file"></a>
 
-If you want to create a new account with a keystore file (you can also create a new keystore file in [Klaytn Wallet]):
+If you want to create a new account with a keystore file (you can also create a new keystore file in \[Klaytn Wallet]):
 
 ```java
 KlayWalletUtils.generateNewWalletFile(
@@ -573,20 +573,12 @@ KlayTransactionReceipt.TransactionReceipt transactionReceipt =  feePayerManager_
 
 The [web3j](https://github.com/web3j/web3j) project for the inspiration. 🙂
 
-[Klaytn Wallet]: ../../../build/tools/wallets/klaytn-wallet.md
-
+[Kaia Wallet]: ../../../build/tools/wallets/klaytn-wallet.md
 [txError]: ../../transaction-error-codes.md
-
 [AccountKeyPublic]: ../../../learn/accounts.md#accountkeypublic
-
 [AccountKey]: ../../../learn/accounts.md#account-key
-
 [Solidity Compiler]: #solidity-compiler
-
 [command-line tool]: #command-line-tool
-
 [Fee Delegation]: ../../../learn/transactions/transactions.md#fee-delegation
-
 [Smart Contract]: #smart-contract
-
 [fee-delegated value transfer]: #value-transfer
