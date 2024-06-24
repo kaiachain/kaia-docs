@@ -1,4 +1,4 @@
-# Internationalization
+# 다국어 지원
 
 KlaytnDocs는 다음 언어를 지원합니다:
 
@@ -14,7 +14,7 @@ KlaytnDocs는 다음 언어를 지원합니다:
 
 crowdin은 공동 번역을 위한 웹 서비스입니다. 로컬라이제이션에 기여하려면 다음 단계를 따르세요:
 
-- [crowdin의 카이아-독스 프로젝트](https://crowdin.com/project/klaytn-docs)로 이동합니다.
+- [crowdin의 카이아-독스 프로젝트](https://crowdin.com/project/kaia-docs)로 이동합니다.
 - 그곳에서 계정을 생성합니다.
 - 기여하고 싶은 언어를 선택합니다. 원하는 언어를 찾을 수 없나요? 프로젝트 소유자에게 새로운 언어 번역을 시작하도록 요청을 보내주세요.
 - 번역가 팀에 참여합니다. 관리자 중 한 명이 요청을 승인할 때까지 기다립니다.
