@@ -1,17 +1,17 @@
-# Use Data Anchoring
+# 데이터 앵커링 사용
 
-As explained in the design section, Service Chain supports the data anchoring feature.
-This page shows how to enable the anchoring function.
-If it is enabled, SCN anchors periodically the child chain block data to the parent chain as proof of existence and immutability.
-This ensures the security and credibility of the service chain.
+디자인 섹션에서 설명한 것처럼 서비스 체인은 데이터 앵커링 기능을 지원합니다.
+이 페이지는 앵커링 기능을 활성화하는 방법을 보여줍니다.
+이 기능을 활성화하면 SCN은 주기적으로 자식 체인 블록 데이터를 부모 체인에 앵커링하여 존재와 불변성을 증명합니다.
+이를 통해 서비스 체인의 보안과 신뢰성을 보장합니다.
 
-## Enable Anchoring <a id="enable-anchoring"></a>
+## 앵커링 활성화 <a id="enable-anchoring"></a>
 
-### Check Parent Operator of SCN <a id="check-parent-operator-of-scn"></a>
+### SCN의 부모 운영자 확인 <a id="check-parent-operator-of-scn"></a>
 
-If you have installed and run an SCN successfully, the parent chain operator account should be generated.
-You can provide a keystore file that you want to use as a parent operator, or if not provided, the SCN will generate the key for you.
-You can check the parent operator address via RPC API, `subbridge_parentOperator`.
+SCN을 성공적으로 설치하고 실행했다면 부모 체인 운영자 계정이 생성되어야 합니다.
+부모 운영자로 사용할 키스토어 파일을 제공하거나, 제공하지 않은 경우 SCN에서 키를 생성합니다.
+부모 운영자 주소는 RPC API `subbridge_parentOperator`를 통해 확인할 수 있습니다.
 
 ```
 $ kscn attach ~/kscnd_home/kaia.ipc
@@ -26,63 +26,63 @@ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 
 ```
 
-_This parent operator account address is derived from a keystore file in `$dataDIR/parent_bridge_account` directory._
+_이 상위 운영자 계정 주소는 `$dataDIR/parent_bridge_account` 디렉터리의 키스토어 파일에서 파생됩니다._
 
-### Add KAIA to Parent Operator account<a id="add-kaia-to-parent-operator-account"></a>
+### 부모 운영자 계정에 KAIA 추가하기<a id="add-klay-to-parent-operator-account"></a>
 
-When SCN anchors the block data, SCN makes an anchoring transaction as a parent operator.
-Therefore the account needs KAIA to pay the transaction fee. You should add enough KAIA to the parent operator account.
+SCN이 블록 데이터를 앵커링할 때, SCN은 부모 운영자로서 앵커링 트랜잭션을 생성합니다.
+따라서 계정은 트랜잭션 수수료를 지불하기 위해 KAIA가 필요합니다. 부모 운영자 계정에 충분한 KAIA를 추가해야 합니다.
 
-### Enable Anchoring <a id="enable-anchoring"></a>
+### 앵커링 활성화 <a id="enable-anchoring"></a>
 
-After sending KAIA, you can check the balance like below.
+KLAY를 전송한 후 아래와 같이 잔액을 확인할 수 있습니다.
 
 ```javascript
 > subbridge.parentOperatorBalance
 1e+50
 ```
 
-Then you can enable anchoring via RPC API, `subbridge.anchoring`, like below.
-You can refer to [subbridge APIs](../../../references/json-rpc/subbridge/anchoring) for more details.
+이후 아래와 같이 RPC API인 `subbridge.anchoring`을 통해 앵커링을 활성화할 수 있습니다.
+자세한 내용은 [subbridge API](../.../../references/json-rpc/subbridge/anchoring)를 참조하세요.
 
 ```
 > subbridge.anchoring(true)
 true
 ```
 
-## Check Anchoring Data <a id="check-anchoring-data"></a>
+## 앵커링 데이터 확인 <a id="check-anchoring-data"></a>
 
-If the anchoring feature is enabled, SCN will periodically anchor the block data to the main chain.
-You can check the anchored data like below.
+앵커링 기능이 활성화되면 SCN은 주기적으로 블록 데이터를 메인 체인에 앵커링합니다.
+앵커링된 데이터는 아래와 같이 확인할 수 있습니다.
 
-### Sub-Bridge <a id="sub-bridge"></a>
+### 하위 브리지 <a id="sub-bridge"></a>
 
-In Sub-Bridge, You can check the latest anchored block number like below.
-You can refer to [subbridge APIs](../../../references/json-rpc/subbridge/latest-anchored-block-number) for more details.
+서브 브리지에서는 아래와 같이 최신 앵커 블록 번호를 확인할 수 있습니다.
+자세한 내용은 [subbridge API](../.../../references/json-rpc/subbridge/latest-anchored-block-number)를 참조하세요.
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
 71025
 ```
 
-Also, you can find the anchoring transaction hash by the service chain block number like below.
+또한 앵커링 트랜잭션 해시는 아래와 같이 서비스 체인 블록 번호로 확인할 수 있습니다.
 
 ```javascript
 > subbridge.getAnchoringTxHashByBlockNumber(1055)
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
-### Main-Bridge <a id="sub-bridge"></a>
+### 메인 브리지 <a id="sub-bridge"></a>
 
-In Main-Bridge, if chain indexing option is enabled, you can find the anchoring tx hash by a service chain block hash like below.
-You can refer to [mainbridge APIs](../../../references/json-rpc/mainbridge/convert-child-chain-block-hash-to-parent-chain-tx-hash) for more details.
+메인 브리지에서 체인 인덱싱 옵션이 활성화된 경우 아래와 같이 서비스 체인 블록 해시로 앵커링 tx 해시를 찾을 수 있습니다.
+자세한 내용은 [mainbridge API](../../../references/json-rpc/mainbridge/convert-child-chain-block-hash-to-parent-chain-tx-hash)를 참조하세요.
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")
 "0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51"
 ```
 
-You can get the decoded anchoring data by anchoring transaction hash like below.
+아래와 같이 트랜잭션 해시를 앵커링하여 디코딩된 앵커링 데이터를 얻을 수 있습니다.
 
 ```javascript
 > kaia.getDecodedAnchoringTransactionByHash("0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51")
