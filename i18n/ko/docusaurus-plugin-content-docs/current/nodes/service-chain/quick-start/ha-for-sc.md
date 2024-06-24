@@ -1,28 +1,28 @@
-# Configure high availability
+# 고가용성(high availability, HA) 구성하기
 
-If only one bridge is used in the ServiceChain, that bridge can become a single point of failure. To solve this, we describe how you can build an HA system with two or more bridges. As shown in the figure below, configure the bridges to be connected in at least two pairs, so that even if there is a problem in one bridge connection, data anchoring and value transfer between chains can still work normally through the other bridge.
+서비스 체인에서 하나의 브리지만 사용하는 경우, 해당 브리지가 단일 장애 지점이 될 수 있습니다. 이 문제를 해결하기 위해 두 개 이상의 브리지로 HA 시스템을 구축하는 방법을 설명합니다. 아래 그림과 같이 브리지를 두 개 이상 쌍으로 연결하도록 구성하면 하나의 브리지 연결에 문제가 발생하더라도 다른 브리지를 통해 체인 간 데이터 앵커링과 값 전송이 정상적으로 작동할 수 있습니다.
 
 ![](/img/nodes/sc-ha-arch.png)
 
-## Prerequisites <a id="prerequisites"></a>
+## 전제 조건 <a id="prerequisites"></a>
 
-- The main bridge of the EN and the sub bridge of the SCN are connected. If it's not, please refer to [Kairos connection](en-scn-connection.md) to establish the connection.
-- This section describes how to add an extra bridge between Kairos and a ServiceChain. In the same way, you can also set up HA by adding another bridge.
+- EN의 메인 브리지와 SCN의 서브 브리지가 연결되어 있어야 합니다. 연결되지 않은 경우, [Kairos 연결](en-scn-connection.md)을 참조하여 연결을 설정하세요.
+- 이 섹션에서는 Kairos와 서비스체인 사이에 브리지를 추가하는 방법을 설명합니다. 같은 방법으로 다른 브리지를 추가하여 HA를 설정할 수도 있습니다.
 
-## Step 1: Adding another Bridge between EN-SCN <a id="step-1-adding-another-bridge-between-en-scn"></a>
+## 1단계: EN-SCN 간에 다른 브리지 추가 <a id="step-1-adding-another-bridge-between-en-scn"></a>
 
-In [Connecting to Kairos](en-scn-connection.md), we assume that the EN and the SCN connected by a bridge as EN-01 and SCN-L2-01, respectively. In this section, we will add another bridge between EN-02 and SCN-L2-02.
-Since it follows the same procedure, we will briefly explain.
+[Kairos에 연결하기](en-scn-connection.md)에서는 브리지로 연결된 EN과 SCN을 각각 EN-01과 SCN-L2-01로 가정합니다. 이 섹션에서는 EN-02와 SCN-L2-02 사이에 브리지를 하나 더 추가하겠습니다.
+동일한 절차를 따르므로 간략하게 설명하겠습니다.
 
 ![](/img/nodes/sc-ha-add-bridge.png)
 
-After building EN-02, set `SC_MAIN_BRIDGE` to 1 in `conf/kend.conf` and restart ken on EN-02.
+EN-02를 빌드한 후 `conf/kend.conf`에서 `SC_MAIN_BRIDGE`를 1로 설정하고 EN-02에서 ken을 재시작합니다.
 
 ```console
 SC_MAIN_BRIDGE=1
 ```
 
-Check the KNI information of EN-02 by the following command:
+다음 명령어로 EN-02의 KNI 정보를 확인합니다:
 
 ```console
 EN-02$ ken attach --datadir ~/data
@@ -30,16 +30,16 @@ EN-02$ ken attach --datadir ~/data
 "kni://eb8f21df10c6562...25bae@[::]:50505?discport=0"
 ```
 
-Log in to SCN-L2-02, and create `main-bridges.json` with the KNI of EN-02. Please make sure that it should be in the JSON array format with a square bracket.
+SCN-L2-02에 로그인하고, KNI가 EN-02인 `main-bridges.json`을 생성합니다. 대괄호로 묶은 JSON 배열 형식이어야 합니다.
 
 ```console
 SCN-L2-02$ echo '["kni://eb8f21df10c6562...25bae@192.168.0.5:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-On the shell of SCN-L2-02, edit `kscn-XXXXX-amd64/conf/kscnd.conf` as described below.
-To connect a bridge, set `SC_SUB_BRIDGE` to 1.
-`SC_PARENT_CHAIN_ID` is set to Kairos's `chainID` 1001.
-`SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring transaction to the parent chain. In this example, an anchor transaction is submitted to the parent chain (Kairos) for every 10 child blocks.
+SCN-L2-02의 셸에서 아래 설명과 같이 `kscn-XXXXX-amd64/conf/kscnd.conf`를 편집합니다.
+브리지를 연결하려면 `SC_SUB_BRIDGE`를 1로 설정합니다.
+`SC_PARENT_CHAIN_ID`는 Baobob의 `chainID` 1001로 설정합니다.
+`SC_ANCHORING_PERIOD`는 앵커링 트랜잭션을 부모 체인에 전송할 주기를 결정하는 파라미터입니다. 이 예시에서는 자식 블록 10개마다 앵커 트랜잭션이 부모 체인(Kairos)에 전송됩니다.
 
 ```
 ...
@@ -51,17 +51,17 @@ SC_ANCHORING_PERIOD=10
 ...
 ```
 
-If you restart ken on EN-02, a bridge will be connected automatically between the EN-02 and the SCN-L2-02 and data anchoring will start from the point where the connection is made as shown in the figure below.
+EN-02에서 ken을 재시작하면 아래 그림과 같이 EN-02와 SCN-L2-02 사이에 브리지가 자동으로 연결되고 연결 지점부터 데이터 앵커링이 시작됩니다.
 
-After adding the bridge between EN-02 and SCN-L2-02, you can now see the connection between the nodes are established as shown in below.
+EN-02와 SCN-L2-02 사이에 브리지를 추가하고 나면 아래와 같이 노드 간 연결이 설정된 것을 확인할 수 있습니다.
 
 ![](/img/nodes/sc-ha-before-register.png)
 
-## Step 2: Registering and Subscribing the Bridge Contract <a id="step-2-registering-and-subscribing-the-bridge-contract"></a>
+## 2단계: 브릿지 컨트랙트 등록 및 구독 <a id="step-2-registering-and-subscribing-the-bridge-contract"></a>
 
-As shown in the figure above, the bridge contract is registered only in EN-01 and SCN-L2-01.
+위 그림과 같이 브리지 컨트랙트는 EN-01과 SCN-L2-01에만 등록되어 있습니다.
 
-Connect to the SCN-L2-02 console and run the APIs for bridge registration, bridge subscription, and token registration. The bridge and token contract were created while deploying the bridge contract with EN-01 and SCN-L2-01 in step 2 of [Cross-Chain Value Transfer](value-transfer.md).
+SCN-L2-02 콘솔에 접속하여 브리지 등록, 브리지 구독, 토큰 등록을 위한 API를 실행합니다. 브리지 컨트랙트와 토큰 컨트랙트는 [크로스체인 밸류 전송](value-transfer.md) 2단계에서 EN-01과 SCN-L2-01에 브리지 컨트랙트를 배포하는 과정에서 생성되었습니다.
 
 ```
 $ kscn attach --datadir ~/data
@@ -75,7 +75,7 @@ null
 
 ![](/img/nodes/sc-ha-before-register2.png)
 
-In the bridge contract, information about adding an extra bridge should be updated. Write the child operator and parent operator information of the added extra bridge in the `erc20/erc20-addOperator4HA.js` file of [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) and execute `node erc20-addOperator4HA.js`.
+브리지 컨트랙트에서 추가 브리지 추가에 대한 정보를 업데이트해야 합니다. 추가한 브리지의 자식 오퍼레이터와 부모 오퍼레이터 정보를 [서비스체인-가치-전송-예시](https://github.com/klaytn/servicechain-value-transfer-examples)의 `erc20/erc20-addOperator4HA.js` 파일에 작성하고 `node erc20-addOperator4HA.js`를 실행합니다.
 
 ```
 // register operator
@@ -83,7 +83,7 @@ await conf.child.newInstanceBridge.methods.registerOperator("0xCHILD_BRIDGE_ADDR
 await conf.parent.newInstanceBridge.methods.registerOperator("0xPARENT_BRIDGE_ADDR").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
 ```
 
-When there are multiple bridges, value transfer can be provided more safely by setting a threshold. Value transfer can be enabled only when an operator above the threshold normally requests value transfer. For example, as in the current example, if there are two bridge pairs and the threshold is set to 2, value transfer can be provided only when both are normally requested. That is, even if one bridge is attacked and sends an abnormal request, it can be prevented. The default value of threshold is 1. In the `erc20/erc20-addOperator4HA.js` file of [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples), uncomment the code below and set the threshold value and then run it to change the threshold for the bridge contract.
+여러 개의 브리지가 있는 경우 임계값을 설정하면 보다 안전하게 값 전송을 제공할 수 있습니다. 임계값을 초과하는 오퍼레이터가 정상적으로 값 전송을 요청하는 경우에만 값 전송을 활성화할 수 있습니다. 예를 들어, 현재 예시와 같이 브리지 쌍이 2개이고 임계값을 2로 설정하면 두 개 모두 정상적으로 요청이 들어올 때만 값 전송을 제공할 수 있습니다. 즉, 하나의 브리지가 공격을 받아 비정상적인 요청을 보내더라도 이를 방지할 수 있습니다. 임계값의 기본값은 1입니다. [서비스체인-가치전송-예시](https://github.com/klaytn/servicechain-value-transfer-examples)의 `erc20/erc20-addOperator4HA.js` 파일에서 아래 코드를 주석 처리하고 임계값을 설정한 후 실행하여 브리지 컨트랙트에 대한 임계값을 변경합니다.
 
 ```
 // // set threshold
@@ -91,8 +91,8 @@ When there are multiple bridges, value transfer can be provided more safely by s
 // await conf.parent.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
 ```
 
-When registration is completed, a bridge contract is registered in both EN-02 and SCN-L2-02 as shown in the figure below to configure HA.
+등록이 완료되면 아래 그림과 같이 EN-02와 SCN-L2-02에 모두 브리지 컨트랙트가 등록되어 HA를 구성합니다.
 
 ![](/img/nodes/sc-ha-after-register.png)
 
-When two or more bridge pairs are connected for HA, data anchoring transactions for the same block occur more than once, and value transfer transactions can also occur multiple times. That is, additional fees are required.
+HA를 위해 두 개 이상의 브리지 쌍이 연결되면 동일한 블록에 대한 데이터 앵커링 트랜잭션이 두 번 이상 발생하며, 밸류 전송 트랜잭션도 여러 번 발생할 수 있습니다. 즉, 추가 수수료가 필요합니다.
