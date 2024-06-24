@@ -1,4 +1,4 @@
-# 자주 묻는 질문
+# Frequently Asked Questions
 
 ## 금고 생성 후 새 소유자를 추가할 수 있나요? <a id="Can i add new owners after creating a safe"></a>
 
@@ -12,13 +12,13 @@
 
 **2단계**: 페이지 오른쪽 하단의 **Add new owner** 버튼을 클릭합니다. 이 버튼을 클릭하면 새 창이 열립니다.
 
-![](/img/build/tools/addOwnersSig.png)
+![](/img/build/tools/kaia-safe/ks-owners-change.png)
 
 **3단계**: 새 소유자의 **name**을 입력하고 **owner's address**를 붙여넣습니다. 그런 다음 페이지 오른쪽 하단의 next 버튼을 클릭합니다.
 
 **4단계**: 새 서명 정책을 설정합니다. 이 경우 기존 서명 정책을 변경하거나 유지할 수 있습니다. 아래 이미지에서는 트랜잭션을 확인하고 실행하려면 소유자 4명 중 2명의 서명이 필요합니다.
 
-![](/img/build/tools/addOwnersBtn.png)
+![](/img/build/tools/kaia-safe/ks-owners-details.png)
 
 **5단계**: 거래를 검토하고 제출합니다.
 
@@ -26,7 +26,7 @@
 
 'Submit'을 클릭하면 연결된 지갑에서 변경 사항을 확인하라는 메시지가 표시됩니다. 기존 서명 정책에 따라 다른 소유자는 일반 거래와 마찬가지로 변경 사항을 확인해야 합니다.
 
-![](/img/build/tools/addSafe.gif)
+![](/img/build/tools/kaia-safe/ks-review-owners.gif)
 
 ## 필수 서명자 확인 횟수를 변경할 수 있나요? <a id="Can i change the number of required signer confirmation"></a>
 
@@ -36,19 +36,19 @@
 
 그러면 현재 서명 정책이 표시되며, 아래 이미지에서 볼 수 있듯이 모든 거래를 확인하려면 소유자 4명 중 2명의 서명이 필요합니다.
 
-![](/img/build/tools/safePolicyThresh.png)
+![](/img/build/tools/kaia-safe/ks-policy-page.png)
 
 **2단계**: **change** 버튼을 클릭합니다.
 
 그러면 새 서명 임계값을 선택할 수 있는 새 창이 나타납니다.
 
-![](/img/build/tools/safePoliciesConf.png)
+![](/img/build/tools/kaia-safe/ks-policy-change-btn.png)
 
 **3단계**: **Submit** 버튼을 클릭합니다.
 
 기존 서명 정책에 따라 일반 거래와 마찬가지로 다른 소유자가 변경 사항을 확인해야 한다는 점에 유의하세요.
 
-![](/img/build/tools/safePolicy.png)
+![](/img/build/tools/kaia-safe/ks-review-policy.gif)
 
 ## 기존 금고는 어떻게 추가하나요? <a id="How do i add an existing safe"></a>
 
@@ -56,9 +56,9 @@ Using your exported Safe data, which contains your added Safe accounts, address 
 
 > Note: You must have downloaded your Safe data as shown in the image below:
 
-![](/img/build/tools/addSafeRev.png)
+![](/img/build/tools/kaia-safe/ks-data-export.png)
 
-![](/img/build/tools/addExistingSafe.png)
+![](/img/build/tools/kaia-safe/ks-export-data.gif)
 
 인터페이스에 기존 안전장치를 추가하거나 로드해야 하는 경우는 다양합니다. 여기에는 다음이 포함될 수 있습니다:
 
@@ -72,15 +72,15 @@ Using your exported Safe data, which contains your added Safe accounts, address 
 
 **Step 2:** Scroll to the **Data Import** card under the **Data** section.
 
-![](/img/build/tools/addSafeOwnerName.png)
+![](/img/build/tools/kaia-safe/ks-data-import-details.png)
 
 Here you can either Drag and Drop a JSON file or choose your file as seen in the image above.
 
 **2단계**: **Add existing safe** 버튼을 클릭합니다.
 
-![](/img/build/tools/addSafeName\\&Addr.png)
+![](/img/build/tools/kaia-safe/ks-data-import.png)
 
-![](/img/build/tools/addSafeNet.png)
+![](/img/build/tools/kaia-safe/ks-import-data.gif)
 
 그러면 이제 금고 계정에 액세스할 수 있습니다.
 
