@@ -67,7 +67,7 @@ Also, you can change the provider URL from **baobab** to **allthatnode**
 ```js smartContractRead.js focus=3:4
 const { Web3 } = require("@klaytn/web3js-ext");
 
-const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
 const web3 = new Web3(provider);
 
 /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
