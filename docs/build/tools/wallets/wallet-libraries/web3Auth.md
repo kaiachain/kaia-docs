@@ -10,19 +10,19 @@ sidebar_label: Web3Auth
 
 [Web3Auth](https://web3auth.io/docs/) is a wallet infrastructure that is plugged into dApps or wallets. It serves as a pluggable authentication infrastructure for web3 wallets and applications. With Web3Auth's excellent user excellence, both mainstream and crypto natives may be onboarded in a matter of minutes.
 
-As a wallet infrastructure, it provides out-of-the-box support for all social logins, web and mobile native platforms, wallets, and other key management methods. By the end of this guide, you will have integrated Web3Auth into your decentralized web application built on the Klaytn Network. To integrate Web3Auth into other platforms (Android, iOS, React Native, Flutter, & Unity), kindly refer to this [guide](https://web3auth.io/docs/pnp/introduction). 
+As a wallet infrastructure, it provides out-of-the-box support for all social logins, web and mobile native platforms, wallets, and other key management methods. By the end of this guide, you will have integrated Web3Auth into your decentralized web application built on the Kaia Network. To integrate Web3Auth into other platforms (Android, iOS, React Native, Flutter, & Unity), kindly refer to this [guide](https://web3auth.io/docs/pnp/introduction). 
 
 ## Prerequisite
 
 * A working react project (by executing `npx create-react-app project-name`)
 * Install the necessary wallets ([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)). 
 * RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 * Get your Client ID from [Web3Auth Dashboard](https://dashboard.web3auth.io/).
 
 ## Installation
 
-To make use of Web3Auth in your dApp, you must install the required libraries and SDK first. Hence, you'll need to set up ethers.js, and the Web3Auth Web SDK. You can use Web3Auth together with either [ethers.js](https://docs.ethers.org/v6/) or [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) libraries to communicate with the Klaytn blockchain. We'll be using ethers.js throughout this guide.
+To make use of Web3Auth in your dApp, you must install the required libraries and SDK first. Hence, you'll need to set up ethers.js, and the Web3Auth Web SDK. You can use Web3Auth together with either [ethers.js](https://docs.ethers.org/v6/) or [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) libraries to communicate with the Kaia blockchain. We'll be using ethers.js throughout this guide.
 
 ```bash
 npm install --save @web3auth/modal
@@ -52,12 +52,12 @@ useEffect(() => {
           chainConfig: {
             chainNamespace: "eip155",
 	        // modify if mainnet => “0x2019”
-            chainId: "0x3e9", // hex of 1001, Klaytn Baobab testnet. 
+            chainId: "0x3e9", // hex of 1001, Kaia Kairos testnet. 
             rpcTarget: "https://public-en-baobab.klaytn.net", // modify if mainnet
-            displayName: "Klaytn Testnet", //  modify if mainnet
+            displayName: "Kaia Testnet", //  modify if mainnet
             blockExplorer: "https://baobab.klaytnscope.com", // modify if mainnet
-            ticker: "KLAY",
-            tickerName: "KLAY",
+            ticker: "KAIA",
+            tickerName: "KAIA",
           },
         })
         setWeb3auth(web3auth);
@@ -205,13 +205,13 @@ const switchChain = async () => {
     console.log("web3auth not initialized yet");
     return;
   }
-  // add chain - Klaytn Mainnet
+  // add chain - Kaia Mainnet
   await web3auth.addChain({
     chainId: "0x2019",
-    displayName: "Klaytn Cypress",
+    displayName: "Kaia Mainnet",
     chainNamespace: "eip155",
-    tickerName: "KLAY",
-    ticker: "KLAY",
+    tickerName: "KAIA",
+    ticker: "KAIA",
     decimals: 18,
     rpcTarget: "https://public-en-cypress.klaytn.net",
     blockExplorer: "https://klaytnscope.com",
@@ -294,13 +294,13 @@ return (
 
 ## Sending Native Transaction
 
-You can perform native transactions, like sending KLAY from one user to another.
+You can perform native transactions, like sending KAIA from one user to another.
 
 ```js
     // add to the existing useState hook.
     const [txHash, setTxHash] = useState();
 
-    const sendKlay = async () => {
+    const sendKaia = async () => {
     
       if (!provider) {
         console.log("provider not initialized yet");
@@ -331,7 +331,7 @@ You can perform native transactions, like sending KLAY from one user to another.
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 

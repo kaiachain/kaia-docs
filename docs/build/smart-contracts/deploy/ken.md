@@ -2,17 +2,16 @@
 
 ![](/img/build/get-started/klaytnXken.png)
 
-Before you start, let's get familiar with several Klaytn-specific terms.
+Before you start, let's get familiar with several Kaia-specific terms.
 
-* **Endpoint Node \(EN\)**: A node that handles the JSON-RPC API requests to the Klaytn network. Endpoint Node does not participate in the consensus.  
-* **KLAY**: Klaytn native coin. 
-* **caver-js**: A JavaScript implementation of Klaytn JSON-RPC APIs.
-* **Baobab**: Klaytn testnet
-* **Cypress**: Klaytn mainnet
+* **Endpoint Node \(EN\)**: A node that handles the JSON-RPC API requests to the Kaia network. Endpoint Node does not participate in the consensus.  
+* **KAIA**: Kaia native coin. 
+* **caver-js**: A JavaScript implementation of Kaia JSON-RPC APIs.
+* **Kairos**: Kaia testnet
 
-This step by step guide will walk you through the process of launching an Endpoint Node \(EN\) of Baobab testnet and building a basic smart contract with your new account. The tutorial consists of two parts, setting up an EN and deploying a smart contract through your EN.
+This step by step guide will walk you through the process of launching an Endpoint Node \(EN\) of Kairos testnet and building a basic smart contract with your new account. The tutorial consists of two parts, setting up an EN and deploying a smart contract through your EN.
 
-> This guide uses the **Baobab** testnet because deploying a smart contract and submitting a transaction require transaction fees in KLAY. For the development purpose, testnet KLAY can be obtained from the [Baobab faucet](https://baobab.wallet.klaytn.foundation/faucet).
+> This guide uses the **Kairos** testnet because deploying a smart contract and submitting a transaction require transaction fees in KAIA. For the development purpose, testnet KAIA can be obtained from the [Kairos faucet](https://baobab.wallet.klaytn.foundation/faucet).
 
 ## Launch an Endpoint Node <a href="#launch-an-en" id="launch-an-en"></a>
 
@@ -44,11 +43,11 @@ $ mkdir -p ~/kend_home
 
 ### Configuring the EN <a href="#configuring-the-en" id="configuring-the-en"></a>
 
-The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../../misc/operation/configuration.md). To launch an EN of Baobab testnet, please update the `kend.conf` file accordingly as follows.
+The configuration file, `kend.conf`, is located under `ken-xxxxx-amd64/conf/`. For the details of configurable parameters, you can refer to the [EN Configuration Guide](../../../misc/operation/configuration.md). To launch an EN of Kairos testnet, please update the `kend.conf` file accordingly as follows.
 
 ```
-# cypress, baobab is only available if you don't specify NETWORK_ID.
-NETWORK="baobab"
+# mainnet, kairos is only available if you don't specify NETWORK_ID.
+NETWORK="kairos"
 # if you specify NETWORK_ID, a private network is created.
 NETWORK_ID=
 ...
@@ -88,32 +87,32 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 
 ### Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
 
-Please refer to the [Troubleshooting](../../../misc/operation/troubleshooting.md) if you have trouble in launching the Klaytn Endpoint Node.
+Please refer to the [Troubleshooting](../../../misc/operation/troubleshooting.md) if you have trouble in launching the Kaia Endpoint Node.
 
 ## Top up your Account <a id="top-up-your-account"></a>
 
 ### Attaching to the Console <a id="attaching-to-the-console"></a>
 
-Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
+Kaia Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Kaia API calls to your EN. To attach to the JavaScript console, execute the following command.
 
 ```bash
-$ ken attach ~/kend_home/klay.ipc
-Welcome to the Klaytn JavaScript console
+$ ken attach ~/kend_home/kaia.ipc
+Welcome to the Kaia JavaScript console
 
-!instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+!instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
  
  >
 ```
 
-**NOTE**: You must wait until it downloads all the blocks. Enter `klay.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.klaytnscope.com/) 
+**NOTE**: You must wait until it downloads all the blocks. Enter `kaia.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.klaytnscope.com/) 
 
-**NOTE**: Type `klay` or `personal` to get the list of available functions.
+**NOTE**: Type `kaia` or `personal` to get the list of available functions.
 
-### Creating a New Klaytn Account <a id="creating-a-new-klaytn-account"></a>
+### Creating a New Kaia Account <a id="creating-a-new-kaia-account"></a>
 
-To create a new Klaytn account from the JavaScript console, execute the following command. Your private key will be encrypted with the passphrase you enter.
+To create a new Kaia account from the JavaScript console, execute the following command. Your private key will be encrypted with the passphrase you enter.
 
 ```javascript
 > personal.newAccount()
@@ -129,7 +128,7 @@ $ ls ~/kend_home/keystore/
 UTC--2019-06-24T11-20-15.590879000Z--75a59b94889a05c03c66c3c84e9d2f8308ca4abd
 ```
 
-### Unlocking the Klaytn Account <a id="unlocking-the-klaytn-account"></a>
+### Unlocking the Kaia Account <a id="unlocking-the-kaia-account"></a>
 
 To unlock the created account, execute the following command. It unlocks the account for 300 seconds.
 
@@ -144,26 +143,26 @@ Passphrase: # enter your passphrase
 true
 ```
 
-### Getting testnet KLAY from the Baobab Faucet <a id="getting-testnet-klay-from-the-baobab-faucet"></a>
+### Getting testnet KAIA from the Kairos Faucet <a id="getting-testnet-kaia-from-the-kairos-faucet"></a>
 
-* Using the Baobab faucet in KlaytnWallet.
+* Using the Kairos faucet in KaiaWallet.
 * Access [https://baobab.wallet.klaytn.foundation](https://baobab.wallet.klaytn.foundation/).
 * You can either create a new account from the Wallet or use the keystore file you created from the EN JavaScript console above to log into the Wallet.
-* Go to "KLAY Faucet" from the left pane menu, and click the "Run Faucet" button to get 150 KLAY.
+* Go to "KAIA Faucet" from the left pane menu, and click the "Run Faucet" button to get 150 KAIA.
 
-  You can run the KLAY Faucet once every 24 hours.
+  You can run the KAIA Faucet once every 24 hours.
 
-* If you created a new account to get KLAY, then send the KLAY to your created account on the EN.
+* If you created a new account to get KAIA, then send the KAIA to your created account on the EN.
 
 ### Checking the Balance in Your Account <a id="checking-the-balance-in-your-account"></a>
 
 To see the balance of your account, execute the following command.
 
-The default unit is peb \(1 KLAY = 10^18 peb\). More information about KLAY units can be found at [Units of KLAY](../../../learn/klaytn-native-coin-klay.md#units-of-klay).
+The default unit is kei \(1 KAIA = 10^18 kei\). More information about KAIA units can be found at [Units of KAIA](../../../learn/kaia-native-token.md#units-of-klay).
 
 ```javascript
-> klay.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
-1e+21  # 1000 KLAY
+> kaia.getBalance('75a59b94889a05c03c66c3c84e9d2f8308ca4abd') # enter your account address
+1e+21  # 1000 KAIA
 ```
 
 ### Exiting the Console <a id="exiting-the-console"></a>
@@ -187,7 +186,7 @@ $ mkdir $HOME/klaytn
 
 > You need `npm` and `node.js` installed to proceed. Please refer to [get-npm](https://www.npmjs.com/get-npm) and [node.js](https://nodejs.org/en/) for installation on your system.
 
-​[caver-js](../../../references/sdk/caver-js/caver-js.md) is a JSON RPC framework for the Klaytn network \(equivalent to web3.js in Ethereum\). Before installing caver-js, you must generate `package.json` file via `npm init` command, and then type `npm install caver-js` to install caver-js.
+​[caver-js](../../../references/sdk/caver-js/caver-js.md) is a JSON RPC framework for the Kaia network \(equivalent to web3.js in Ethereum\). Before installing caver-js, you must generate `package.json` file via `npm init` command, and then type `npm install caver-js` to install caver-js.
 
 ```bash
 $ npm init # initialize npm at the klaytn project directory
@@ -217,15 +216,15 @@ npm ERR!     /Users/username/.npm/_logs/2019-06-25T01_49_37_032Z-debug.log​
 $ rm /Users/username/klaytn/node_modules/websocket/.git
 ```
 
-**Note:** For all the function calls that begin with `web3.eth...` in web3.js, should be replaced with `caver.klay...`.
+**Note:** For all the function calls that begin with `web3.eth...` in web3.js, should be replaced with `caver.kaia...`.
 
 `web3.eth.sendTransaction({ ... })` \(X\) 
 
-`caver.klay.sendTransaction({ ... })` \(O\)
+`caver.kaia.sendTransaction({ ... })` \(O\)
 
 ### Installing Truffle <a id="installing-truffle"></a>
 
-In this tutorial, Truffle is used to compile and deploy smart contracts written in Solidity. Currently, Klaytn supports Truffle version 4.1.15. For further information about Truffle, refer to the following sites:
+In this tutorial, Truffle is used to compile and deploy smart contracts written in Solidity. Currently, Kaia supports Truffle version 4.1.15. For further information about Truffle, refer to the following sites:
 
 * Truffle repository - [https://github.com/trufflesuite/truffle](https://github.com/trufflesuite/truffle)​
 * Truffle documents - [https://trufflesuite.com/docs](https://trufflesuite.com/docs)​
@@ -257,9 +256,9 @@ $ export PATH=`pwd`:$PATH
 
 ### Installing vvisp <a id="installing-vvisp"></a>
 
-vvisp is an easy-to-use cli tool/framework for developing smart contracts, provided by [HEACHI LABS](https://henesis.io/). You can easily set environment, deploy and execute Klaytn smart contracts with a single-command. It supports the Truffle framework, so developers familiar with Truffle can use vvisp without difficulty.
+vvisp is an easy-to-use cli tool/framework for developing smart contracts, provided by [HEACHI LABS](https://henesis.io/). You can easily set environment, deploy and execute Kaia smart contracts with a single-command. It supports the Truffle framework, so developers familiar with Truffle can use vvisp without difficulty.
 
-Here, we introduce how to install vvisp and use it to set up the Klaytn dApp development environment.
+Here, we introduce how to install vvisp and use it to set up the Kaia dApp development environment.
 
 * vvisp repository - [https://github.com/HAECHI-LABS/vvisp](https://github.com/HAECHI-LABS/vvisp)​
 * vvisp document - [https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md](https://github.com/HAECHI-LABS/vvisp/blob/dev/README_KLAYTN.md)​
@@ -307,15 +306,15 @@ v2.1.0
 
 ## Deploy a Smart Contract <a id="deploy-a-smart-contract"></a>
 
-Now we are ready to develop and deploy Klaytn smart contracts!
+Now we are ready to develop and deploy Kaia smart contracts!
 
 ### Creating a Project Directory <a id="creating-a-project-directory"></a>
 
 First of all, create a directory where the source code locates.
 
 ```bash
-$ mkdir klaytn-testboard
-$ cd klaytn-testboard
+$ mkdir kaia-testboard
+$ cd kaia-testboard
 ```
 
 ### Initializing Truffle <a id="initializing-truffle"></a>
@@ -328,15 +327,15 @@ $ truffle init
 
 ### Writing a Simple Smart Contract in Solidity <a id="writing-a-simple-smart-contract-in-solidity"></a>
 
-Create `KlaytnGreeter.sol` at `klaytn-testboard/contracts` directory.
+Create `KaiaGreeter.sol` at `kaia-testboard/contracts` directory.
 
 ```bash
 $ cd contracts
-$ touch KlaytnGreeter.sol
-$ vi KlaytnGreeter.sol
+$ touch KaiaGreeter.sol
+$ vi KaiaGreeter.sol
 ```
 
-Write the following code in KlaytnGreeter.sol.
+Write the following code in KaiaGreeter.sol.
 
 ```text
 pragma solidity 0.5.6;
@@ -349,7 +348,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -375,18 +374,18 @@ Modify `1_initial_migration.js` as the following.
 
 ```javascript
 const Migrations = artifacts.require("./Migrations.sol");
-const KlaytnGreeter = artifacts.require("./KlaytnGreeter.sol");
+const KaiaGreeter = artifacts.require("./KaiaGreeter.sol");
 module.exports = function(deployer) {
   deployer.deploy(Migrations);
-  deployer.deploy(KlaytnGreeter, 'Hello, Klaytn');
+  deployer.deploy(KaiaGreeter, 'Hello, Kaia');
 };
 ```
 
 ### Deploying a Smart Contract using Truffle <a id="deploying-a-smart-contract-using-truffle"></a>
 
-Enter Klaytn's network information into truffle.js.
+Enter Kaia's network information into truffle.js.
 
-**`WARNING`**: Currently Klaytn Baobab network's gasPrice is fixed to 25 Gpeb \(**It returns an error if you attempt to use any other number**\).
+**`WARNING`**: Currently Kaia Kairos network's gasPrice is fixed to 25 Gpeb \(**It returns an error if you attempt to use any other number**\).
 
 ```bash
 $ cd ..
@@ -403,9 +402,9 @@ module.exports = {
             host: '127.0.0.1',
             port: 8551,
             from: '0x75a59b94889a05c03c66c3c84e9d2f8308ca4abd', // enter your account address
-            network_id: '1001', // Baobab network id
+            network_id: '1001', // Kairos network id
             gas: 20000000, // transaction gas limit
-            gasPrice: 25000000000, // gasPrice of Baobab is 25 Gpeb
+            gasPrice: 25000000000, // gasPrice of Kairos is 25 Gpeb
         },
     },
     compilers: {
@@ -420,9 +419,9 @@ Deploy the contract using the following command.
 
 **NOTE**: Use `--network` to select which network to deploy and `--reset` to overwrite.
 
-**NOTE**: Make sure that your Klaytn node is running.
+**NOTE**: Make sure that your Kaia node is running.
 
-Your contract address is displayed followed `KlaytnGreeter`:
+Your contract address is displayed followed `KaiaGreeter`:
 
 ```bash
 $ truffle deploy --network klaytn --reset
@@ -431,9 +430,9 @@ Running migration: 1_initial_migration.js
   Deploying Migrations...
   ... 0x0f5108bd9e51fe6bf71dfc472577e3f55519e0b5d140a99bf65faf26830acfca
   Migrations: 0x97b1b3735c8f2326a262dbbe6c574a8ea1ba0b7d
-  Deploying KlaytnGreeter...
+  Deploying KaiaGreeter...
   ... 0xcba53b6090cb4a118359b27293ba95116a8f35f66ae50fbd23ae1081ce9ffb9e
-  KlaytnGreeter: [SAVE THIS ADDRESS!!] # this is your smart contract address
+  KaiaGreeter: [SAVE THIS ADDRESS!!] # this is your smart contract address
 Saving successful migration to network...
   ... 0x14eb68727ca5a0ac767441c9b7ab077336f9311f71e9854d42c617aebceeec72
 Saving artifacts...
@@ -469,25 +468,25 @@ Use `getCode` for checking the byte code of the deployed smart contract.
 First, create a test file and open it.
 
 ```bash
-$ touch test-klaytn.js
-$ open test-klaytn.js
+$ touch test-kaia.js
+$ open test-kaia.js
 ```
 
 Write the following test code. Make sure you enter the contract address you just deployed.
 
 ```javascript
-// test-klaytn.js
+// test-kaia.js
 const Caver = require('caver-js');
 const caver = new Caver('http://127.0.0.1:8551');
 // enter your smart contract address
 const contractAddress = '0x65ca27ed42abeef230a37317a574058ff1372b34'
-caver.klay.getCode(contractAddress).then(console.log);
+caver.kaia.getCode(contractAddress).then(console.log);
 ```
 
 Run the code.
 
 ```bash
-$ node test-klaytn.js
+$ node test-kaia.js
 0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610189565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151818401526020810190506100a2565b50505050905090810190601f1680156100ea5780820380516001836020036101000a031916815260200191505b509250505060405180...
 ```
 
@@ -500,27 +499,27 @@ Use JavaScript to call the `greet()` in the contract.
 Append the following lines to the test code written above.
 
 ```javascript
-// test-klaytn.js
+// test-kaia.js
 const Caver = require('caver-js');
 const caver = new Caver('http://127.0.0.1:8551');
 // enter your smart contract address
 const contractAddress = '0x65ca27ed42abeef230a37317a574058ff1372b34'
 
-caver.klay.getCode(contractAddress).then(console.log);
+caver.kaia.getCode(contractAddress).then(console.log);
 // add lines
-const KlaytnGreeter = require('./build/contracts/KlaytnGreeter.json');
+const KaiaGreeter = require('./build/contracts/KaiaGreeter.json');
 // enter your smart contract address
-const klaytnGreeter = new caver.klay.Contract(KlaytnGreeter.abi, contractAddress);
+const klaytnGreeter = new caver.kaia.Contract(KaiaGreeter.abi, contractAddress);
 klaytnGreeter.methods.greet().call().then(console.log);
 ```
 
 Run the test code.
 
 ```bash
-$ node test-klaytn.js
-0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610189565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151... # This is from caver.klay.getCode
-Hello, Klaytn # This is from KlyatnGreeter.methods.greet()
+$ node test-kaia.js
+0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610068575b600080fd5b34801561005d57600080fd5b506100666100f8565b005b34801561007457600080fd5b5061007d610189565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bd5780820151... # This is from caver.kaia.getCode
+Hello, Kaia # This is from KlyatnGreeter.methods.greet()
 ```
 
-**If you got "Hello, Klaytn", you've completed the task. Congrats!**
+**If you got "Hello, Kaia", you've completed the task. Congrats!**
 

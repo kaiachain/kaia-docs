@@ -6,14 +6,14 @@
 
 [SupraOracles](https://supraoracles.com/) is a novel, high-throughput Oracle & IntraLayer: a vertically integrated toolkit of cross-chain solutions (data oracles, asset bridges, automation network, and more) that interlink all blockchains, public (L1s and L2s) or private (enterprises). It provides smart contracts with a next-generation cross chain oracle solution that has superior data accuracy, speed, scalability and security.
 
-With SupraOracles, your smart contract can get access to price data feeds to build your various decentralized finance(DeFi) use cases. In this tutorial, you will use SupraOracles  to get price feeds easily on Klaytn blockchain using Remix IDE. 
+With SupraOracles, your smart contract can get access to price data feeds to build your various decentralized finance(DeFi) use cases. In this tutorial, you will use SupraOracles  to get price feeds easily on Kaia blockchain using Remix IDE. 
 
 ## Prerequisites
 
 * [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 * [Remix IDE](https://remix.ethereum.org/)
-* [Klaytn Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+* [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
 ## Getting Started
 
@@ -41,7 +41,7 @@ contract ISupraSValueFeedExample {
     }
 }
 ```
-In this example, we are implementing the S-Value Feed on the Klaytn Baobab TestNet. You can verify the Klaytn Baobab S-Value Feed Address [here](https://supraoracles.com/docs/get-started/networks/).
+In this example, we are implementing the S-Value Feed on the Kaia Kairos TestNet. You can verify the Kaia Kairos S-Value Feed Address [here](https://supraoracles.com/docs/get-started/networks/).
 
 ### Step 3: Get The S-Value Crypto Price
 
@@ -69,7 +69,7 @@ In the example below, we will be deploying the S-Value Price Feed Contract and a
 * Click on File Explorer tab, create a new file named `demoSupraPriceFeed.sol` in the contracts folder
 * Paste the code below in your newly created file
 * In Remix, click **Compile contract**.
-* Click the Klaytn tab on your left having installed the plugin
+* Click the Kaia tab on your left having installed the plugin
 * Select **Environment** > **Injected Caver** - **Kaikas**.
 * In **Contract**, select your contract. For example, ISupraSValueFeedExample.
 * Click **Deploy**.
@@ -145,4 +145,4 @@ getEthUsdtPrice()
 
 ## Conclusion
 
-In this tutorial, you learned how to request an ETH/USD price using the SupraOracle price feed solution. With SupraOracle, you can also generate random numbers in your smart contract. Curious about this process, visit this [guide](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial) on integrating SupraVRF on Klaytn. For more in-depth guides on SupraOracles, please refer to the [SupraOracles Docs](https://supraoracles.com/docs/development-guides).
+In this tutorial, you learned how to request an ETH/USD price using the SupraOracle price feed solution. With SupraOracle, you can also generate random numbers in your smart contract. Curious about this process, visit this [guide](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial) on integrating SupraVRF on Kaia. For more in-depth guides on SupraOracles, please refer to the [SupraOracles Docs](https://supraoracles.com/docs/development-guides).

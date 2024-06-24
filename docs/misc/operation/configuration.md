@@ -1,6 +1,6 @@
 # Configuration
 
-This document explains the configurable properties of the node. Klaytn node package ships with good defaults and requires very little configuration. If you changed any settings of a running node, you must restart the node to reflect the changes.
+This document explains the configurable properties of the node. Kaia node package ships with good defaults and requires very little configuration. If you changed any settings of a running node, you must restart the node to reflect the changes.
 
 ## CN Configuration File location <a id="cn-configuration-file-location"></a>
 
@@ -34,13 +34,13 @@ The configuration file is located in the `conf` directory, whose default locatio
 
 CN and PN have the same configuration file format and the properties. 
 
-Below is a sample configuration file for the CN that participates in the `cypress` network and stores the blockchain data in the default location, which is `~/kcnd_home` with the archive distribution, `/var/kcnd/data` with the package distribution.
+Below is a sample configuration file for the CN that participates in the mainnet and stores the blockchain data in the default location, which is `~/kcnd_home` with the archive distribution, `/var/kcnd/data` with the package distribution.
 
 ```text
 # Configuration file for the kcnd
 
-# cypress, baobab is only available if you don't specify NETWORK_ID.
-NETWORK="cypress"
+# mainnet, kairos is only available if you don't specify NETWORK_ID.
+NETWORK="mainnet"
 # if you specify NETWORK_ID, a private network is created.
 NETWORK_ID=
 PORT=32323
@@ -90,8 +90,8 @@ The configuration file has the following configurable properties. CN and PN conf
 
 | Name | Description |
 | --- | --- |
-| NETWORK | Network name that this node will join.  This value is used when NETWORK_ID is not defined.  ("cypress", "baobab") |
-| NETWORK_ID | Klaytn network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks. <br/>8217 : Cypress (Main network) <br/>1000 : Aspen test network <br/>1001 : Baobab test network |
+| NETWORK | Network name that this node will join.  This value is used when NETWORK_ID is not defined.  ("mainnet", "kairos") |
+| NETWORK_ID | Kaia network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks. <br/>8217 : Mainnet <br/>1000 : Aspen test network <br/>1001 : Kairos test network |
 | PORT | P2P port. (Default: "32323") |
 | SERVER_TYPE | JSON RPC server type.  ("http", "fasthttp") |
 | SYNCMODE | Blockchain sync mode.  ("fast", "full") |
@@ -124,5 +124,5 @@ The configuration file has the following configurable properties. CN and PN conf
 | NO_DISCOVER | Turn off the discovery option if it is set to 1. |
 | BOOTNODES | Comma-separated kni addresses of bootstrap nodes. |
 | ADDITIONAL | For additional command-line options. e.g) --txpool.nolocals |
-| DATA_DIR | Klaytn blockchain data folder path. |
+| DATA_DIR | Kaia blockchain data folder path. |
 | LOG_DIR | Log folder path. |

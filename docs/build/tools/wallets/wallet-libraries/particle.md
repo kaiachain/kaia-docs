@@ -37,7 +37,7 @@ After successfully installing the aforementioned libraries, you'll need to head 
 
 ```js
 import { ModalProvider } from '@particle-network/connectkit';
-import { Klaytn, KlaytnTestnet } from '@particle-network/chains';
+import { Kaia, KaiaTestnet } from '@particle-network/chains';
 import { evmWallets } from '@particle-network/connectors';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
@@ -49,12 +49,12 @@ root.render(
                 clientKey: 'replace with your clientKey',
                 appId: 'replace with your appId',
                 chains: [
-                    KlaytnTestnet, Klaytn
+                    KaiaTestnet, Kaia
                 ],
                 wallet: {    // optional: Wallet modal configuration
                     visible: true, // Display wallet modal
                     supportChains:[
-                        KlaytnTestnet, Klaytn
+                        KaiaTestnet, Kaia
                     ],
                     customStyle: {}, // optional: Custom wallet style
                 },
@@ -95,7 +95,7 @@ export const App = () => {
 
 ## Getting Account and Balance
 
-With a wallet now successfully connected through `ConnectButton`, you can retrieve the users associated Klaytn address. Additionally, you can retrieve its current balance (in KLAY) through ethers.js, passing in the corresponding EIP-1193 provider object retrieved from `useParticleProvider` within `@particle-network/connectkit`.
+With a wallet now successfully connected through `ConnectButton`, you can retrieve the users associated Kaia address. Additionally, you can retrieve its current balance (in KAIA) through ethers.js, passing in the corresponding EIP-1193 provider object retrieved from `useParticleProvider` within `@particle-network/connectkit`.
 
 ```js
 import { useParticleProvider } from '@particle-network/connectkit';
@@ -228,13 +228,13 @@ return (
 
 ## Sending Native Transaction
 
-Similar to `signer.signMessage`, you can use the same provider mechanism to send a native transaction, with KLAY in this case. This can be done through `signer.sendTransaction`, passing in standard fields such as `to`, `value`, and so on.
+Similar to `signer.signMessage`, you can use the same provider mechanism to send a native transaction, with KAIA in this case. This can be done through `signer.sendTransaction`, passing in standard fields such as `to`, `value`, and so on.
 
 ```js
     // add to the existing useState hook.
     const [txHash, setTxHash] = useState();
 
-    const sendKlay = async () => {
+    const sendKaia = async () => {
     
       if (!provider) {
         console.log("provider not initialized yet");
@@ -265,7 +265,7 @@ Similar to `signer.signMessage`, you can use the same provider mechanism to send
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 

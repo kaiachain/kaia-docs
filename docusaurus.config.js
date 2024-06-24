@@ -4,7 +4,6 @@
 const lightCodeTheme = require('prism-react-renderer').themes.github
 const darkCodeTheme = require('prism-react-renderer').themes.dracula
 const { navbarItemStrings, legacyDocsLinks } = require('./localeStrings'); // import locale-dependant navbar items 
-
 const {
   remarkCodeHike,
 } = require("@code-hike/mdx")
@@ -14,8 +13,8 @@ process.env.DOCUSAURUS_CURRENT_LOCALE = process.env.DOCUSAURUS_CURRENT_LOCALE ==
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Klaytn Docs',
-  tagline: 'Welcome to the Klaytn Docs',
+  title: 'Kaia Docs',
+  tagline: 'Welcome to the Kaia Docs',
 
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -23,16 +22,17 @@ const config = {
   onBrokenLinks: 'ignore',
 
   baseUrl: '/',
-  url: 'https://docs.klaytn.foundation',
+  url: 'https://docs.kaia.io',
 
-  organizationName: 'klaytn', //only needed when using `docusaurus deploy`command
-  projectName: 'klaytn-docs', //only needed when using `docusaurus deploy`command
+  organizationName: 'kaia', //only needed when using `docusaurus deploy`command
+  projectName: 'kaia-docs', //only needed when using `docusaurus deploy`command
   deploymentBranch: 'main', //only needed when using `docusaurus deploy`command
   trailingSlash: true, // was "false"
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ko', 'vi'],
+    //locales: ['en', 'ko', 'vi'],
+    locales: ['en'],
     path: 'i18n',
     localeConfigs: {
       en: {
@@ -42,7 +42,7 @@ const config = {
         calendar: 'gregory',
         path: 'en',
       },
-      ko: {
+/**      ko: {
         label: '한국어',
         direction: 'ltr',
         htmlLang: 'ko',
@@ -55,7 +55,7 @@ const config = {
         htmlLang: 'vi',
         calendar: 'gregory',
         path: 'vi',
-      },      
+      },*/
     },
   },
 
@@ -86,9 +86,8 @@ const config = {
             },
           },
           editUrl:
-            'https://github.com/klaytn/klaytn-docs/tree/main/',
+            'https://github.com/kaiachain/kaia-docs/tree/main/',
           
-          // TODO-Klaytn : it will be activated after dacusaurus-openapi bugfix
           docRootComponent: "@theme/DocRoot",
           docItemComponent: "@theme/ApiItem"
         },
@@ -102,7 +101,7 @@ const config = {
     ],
   ],
 
-  scripts: [{src: 'https://umami.lkw1615.synology.me/script.js', async: true, 'data-website-id': '7dc4d49d-3f21-4dd2-8dd7-90a2cc948dc6'}],
+  scripts: [{src: 'https://umami.lkw1615.synology.me/script.js', async: true, 'data-website-id': 'ae21f682-27e8-4670-bf7f-8eec7a2097cf'}],
 
   plugins: [
     [
@@ -115,6 +114,15 @@ const config = {
             // template: "api.mustache",
             specPath: "./web3rpc/yaml/web3rpc-klay.yaml",
             outputDir: "docs/references/json-rpc/klay",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
+          web3rpcKaia: {
+            // template: "api.mustache",
+            specPath: "./web3rpc/yaml/web3rpc-kaia.yaml",
+            outputDir: "docs/references/json-rpc/kaia",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -213,11 +221,18 @@ const config = {
         apiKey: '3ae6c772dbecf845225e7ef3f4ac18be',
         indexName: 'klaytn',
       },
+      announcementBar: {
+        id: 'docs_archive',
+        content: '<div style="font-size: 15px">📢 Kaia docs content is still being updated to reflect the transition from Klaytn and <b>may refer to outdated information until July.</b> 🙏🏻 See <b><a target="_blank" href="https://docs.kaia.io/docs/misc/faq-chain-transition/">Klatyn to Kaia Transition FAQ</a></b> first!</div>',
+        backgroundColor: '#789806',
+        textColor: '#FFFFFF',
+        isCloseable: true,
+      },
       navbar: {
-        title: 'Klaytn Docs',
+        title: 'Kaia Docs',
         logo: {
           alt: 'Klaytn Logo',
-          src: 'img/klaytn-logo.png',
+          src: 'img/kaia-logo.png',
         },
         items: [
           {
@@ -256,7 +271,7 @@ const config = {
             dropdownActiveClassDisabled: true,
             dropdownItemsAfter: [
               {
-                // TODO-Klaytn : it will be activated after navBar bugfix
+                // TODO-Kaia : it will be activated after navBar bugfix
                 // href: legacyDocsLinks[process.env.DOCUSAURUS_CURRENT_LOCALE],
                 // label: navbarItemStrings[process.env.DOCUSAURUS_CURRENT_LOCALE],
                 href: 'https://archive-docs.klaytn.foundation/',
@@ -269,7 +284,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/klaytn',
+            href: 'https://github.com/kaiachain',
             position: 'right',
             alt: 'GitHub repository',
             className: 'header-github-link',
@@ -287,24 +302,28 @@ const config = {
           highlight: "bash",
           language: "curl",
           logoClass: "bash",
+          codeSampleLanguage: "cURL",
         },
         {
           highlight: "python",
           language: "python",
           logoClass: "python",
-          variant: "requests",
+          codeSampleLanguage: "Python",
+          // variant: "requests",
         },
         {
           highlight: "javascript",
           language: "nodejs",
           logoClass: "nodejs",
-          variant: "axios",
+          codeSampleLanguage: "JavaScript",
+          // variant: "axios",
         },
         {
           highlight: "java",
           language: "java",
           logoClass: "java",
-          variant: "unirest",
+          codeSampleLanguage: "Java",
+          // variant: "unirest",
         },
       ],
       footer: {
@@ -314,13 +333,13 @@ const config = {
             title: 'Sites',
             items: [
               {
-                label: 'Klaytn Square',
-                href: 'https://square.klaytn.foundation/Home',
+                label: 'Kaia Square',
+                href: 'https://square.kaia.io/Home',
               },
-              {
+              /*{
                 label: 'Klaytn Online Toolkit',
                 href: 'https://toolkit.klaytn.foundation/',
-              },
+              },*/
             ],
           },
           {
@@ -328,10 +347,10 @@ const config = {
             items: [
               {
                 label: 'Medium',
-                href: 'https://medium.com/klaytn',
+                href: 'https://medium.com/kaiachain',
               },
               {
-                label: 'Twitter',
+                label: 'X (formerly Twitter)',
                 href: 'https://twitter.com/klaytn_official',
               },
             ],
@@ -345,12 +364,12 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/klaytn',
+                href: 'https://github.com/kaiachain',
               },
             ],
           },
         ],
-        copyright: `© Klaytn Foundation ${new Date().getFullYear()}. All rights reserved.`,
+        copyright: `© Kaia Foundation ${new Date().getFullYear()}. All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,

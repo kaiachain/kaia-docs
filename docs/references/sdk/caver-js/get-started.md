@@ -608,7 +608,7 @@ The result of the transaction can be found through the `status` of the receipt. 
 
 ## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/transactions.md). This section describes some examples that can be used with caver-js.
+Klaytn provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/). This section describes some examples that can be used with caver-js.
 
 ### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
 

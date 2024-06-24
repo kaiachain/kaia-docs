@@ -12,8 +12,8 @@ $ git clone https://github.com/klaytn/klaystagram
 
 The package you just cloned is ready to launch without any modification.
 
-The sample contracts are already deployed to the Baobab testnet, and the contract ABI is included in our package.  
-Klaystagram frontend code is initially configured to connect to the smart contract on the Baobab testnet.
+The sample contracts are already deployed to the Kairos testnet, and the contract ABI is included in our package.  
+Klaystagram frontend code is initially configured to connect to the smart contract on the Kairos testnet.
 
 If you want to run the app right away and see how it works, type below.
 
@@ -179,31 +179,31 @@ This is it, now we can deploy this contract!
 
 ## 3. Deploy Contract <a href="#3.-deploy-contract" id="3.-deploy-contract"></a>
 
-1. Get some testnet KLAY to deploy contract
+1. Get some testnet KAIA to deploy contract
 2. Truffle configuration
 3. Deploy setup (select contract which you want to deploy)
 4. Deploy
 
-### 1) Get some KLAY <a href="#1-get-some-klay" id="1-get-some-klay"></a>
+### 1) Get some KAIA <a href="#1-get-some-klay" id="1-get-some-klay"></a>
 
-To deploy contract, we need some KLAY in your account to pay for gas price. You can get 150 KLAY via Klaytn Wallet in the testnet. 
+To deploy contract, we need some KAIA in your account to pay for gas price. You can get 150 KAIA via Kaia Wallet in the testnet. 
 
-1. Create your Klaytn account at [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation/create) -> `PRIVATE KEY` will be used in truffle configuration. So copy it down somewhere 
+1. Create your Kaia account at [Kairos Kaia Wallet](https://baobab.wallet.klaytn.foundation/create) -> `PRIVATE KEY` will be used in truffle configuration. So copy it down somewhere 
 
-2. After creating your Klaytn account, run faucet to receive 5 Baobab testnet KLAY in [Baobab Klaytn Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+2. After creating your Kaia account, run faucet to receive 5 Kairos testnet KAIA in [Kairos Kaia Faucet](https://baobab.wallet.klaytn.foundation/faucet)
 
-![create-account & run-klay-faucet](/img/build/tutorials/klaystagram-run-faucet.png)
+![create-account & run-kaia-faucet](/img/build/tutorials/klaystagram-run-faucet.png)
 
 ### 2) truffle configuration <a href="#2-truffle-configuration" id="2-truffle-configuration"></a>
 
-`truffle-config.js` is a configuration file including deployment configuration. We are going to deploy our contract using `Private key` we've just created in the previous step. Paste your `Private key` that has enough KLAY to truffle-config.js
+`truffle-config.js` is a configuration file including deployment configuration. We are going to deploy our contract using `Private key` we've just created in the previous step. Paste your `Private key` that has enough KAIA to truffle-config.js
 
 _WARNING: You shouldn't expose your private key. Otherwise, your account would be hacked._
 
 ```javascript
 // truffle-config.js
 
-const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
+const HDWalletProvider = require("truffle-hdwallet-provider-kaia");
 
 /**
  * truffle network variables
@@ -217,7 +217,7 @@ const NETWORK_ID = '1001'
  */
 const URL = 'https://public-en-baobab.klaytn.net'
 
-// Paste your `Private key` that has enough KLAY to truffle.js
+// Paste your `Private key` that has enough KAIA to truffle.js
 const PRIVATE_KEY = 'your_private_key'
 
 module.exports = {
@@ -245,9 +245,9 @@ See `networks` property above. `klaytn` network has 4 properties,\
 `provider`, `network_id`, `gas`, `gasPrice`.
 
 * `provider: () => new HDWalletProvider(PRIVATE_KEY, URL)` Just as the name indicates, it injects private key and url defined above.
-* `network_id: NETWORK_ID` Specify network id in Klaytn, you should set it to `1001` to use Klaytn Baobab network (testnet).
+* `network_id: NETWORK_ID` Specify network id in Kaia, you should set it to `1001` to use Kaia Kairos network (testnet).
 * `gas: GASLIMIT` Maximum gas you are willing to spend.
-* `gasPrice: null` This is price per every gas unit. Currently in Klaytn, the gas price is fixed to `'25000000000'`. By setting it to `null`, truffle will automatically set the gas price.
+* `gasPrice: null` This is price per every gas unit. Currently in Kaia, the gas price is fixed to `'25000000000'`. By setting it to `null`, truffle will automatically set the gas price.
 
 #### `compiler` property <a href="#compiler-property" id="compiler-property"></a>
 
@@ -304,14 +304,14 @@ cf. For further information about `artifacts.require()`, refer to truffle offici
 
 ![deploy contract](/img/build/tutorials/klaystagram-deploy-contract.png)
 
-In your terminal type `$ truffle deploy --network baobab`.\
+In your terminal type `$ truffle deploy --network kairos`.\
 It will deploy your contract according to `truffle-config.js` and `migrations/2_deploy_contracts.js` configuration.
 
 Terminal will display deployed contract address if deployment was successful.
 
 cf) `--reset` option\
 If you provide this option, truffle will recompile and redeploy your contract even if contracts haven't changed.\
-ex) `$ truffle deploy --reset --network baobab`
+ex) `$ truffle deploy --reset --network kairos`
 
 ## 4. Run App
 

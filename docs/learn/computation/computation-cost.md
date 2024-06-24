@@ -1,6 +1,6 @@
 # Computation Cost
 
-Since Klaytn aims to maintain 1-second block time, the execution time of transactions has to be managed. Here are three approaches to achieve that: 
+Since Kaia aims to maintain 1-second block time, the execution time of transactions has to be managed. Here are three approaches to achieve that: 
 
 1. Limiting the gas limit of a transaction 
 2. Limiting the execution time of a transaction 
@@ -12,7 +12,7 @@ Limiting the execution time of a transaction was not feasible either because the
 
 The last approach is to limit the computation cost of a transaction. We modelled the computation cost of each EVM opcode based on its actual execution time and limit the sum of computation cost of a transaction. With this approach, we eliminate other factors and only count the normalized execution time unit, and nodes can reach a consensus as well.
 
-Therefore, we chose the third option for Klaytn. The computation cost limit was 100,000,000, but as CPU computing performance has increased, the limit has been raised to 150,000,000 after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Klaytn provides [klay_estimateComputationCost](../../../references/json-rpc/klay/estimate-computation-cost). The usage is almost the same as [klay_estimateGas](../../../references/json-rpc/klay/estimate-gas).
+Therefore, we chose the third option for Kaia. The computation cost limit was 100,000,000, but as CPU computing performance has increased, the limit has been raised to 150,000,000 after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Kaia provides [kaia_estimateComputationCost](../../../references/json-rpc/klay/estimate-computation-cost). The usage is almost the same as [kaia_estimateGas](../../../references/json-rpc/klay/estimate-gas).
 
 :::note
 

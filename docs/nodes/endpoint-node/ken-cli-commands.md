@@ -15,7 +15,7 @@ COMMANDS:
    attach      Start an interactive JavaScript environment (connect to node)
    console     Start an interactive JavaScript environment
    dumpconfig  Show configuration values
-   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Klaytn v1.7.0.)
+   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Kaia v1.7.0.)
    init        Bootstrap and initialize a new genesis block
    snapshot    A set of commands based on the snapshot
    version     Show version number
@@ -31,7 +31,7 @@ account, create a new account or update an existing account.
  ...
 Keys are stored under <DATADIR>/keystore.
 It is safe to transfer the entire directory or the individual keys therein
-between klay nodes by simply copying.
+between kaia nodes by simply copying.
 
 Make sure you backup your keys regularly.
 
@@ -57,13 +57,13 @@ participating.
 
 ## JavaScript Console
 
-Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
+Kaia Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Kaia API calls to your EN. To attach to the JavaScript console, execute the following command.
 
 ```bash
-$ ken attach ~/kend_home/klay.ipc
-Welcome to the Klaytn JavaScript console
+$ ken attach ~/kend_home/kaia.ipc
+Welcome to the Kaia JavaScript console
 
-!instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+!instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 
@@ -79,7 +79,7 @@ attach command connects to the running node, while console command launches a no
 
 ### Module APIs
 
-If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Klaytn API](../../../references/json-rpc/klay/account-created).
+If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Kaia API](../../../references/json-rpc/klay/account-created).
 
 ```javascript
 > personal

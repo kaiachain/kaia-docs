@@ -1,13 +1,13 @@
 # Transfer Value
 
-As explained in the Klaytn design section, Service Chain supports value (KLAY, ERC-20, and ERC-721) transfer between parent chain & child chain.
+As explained in the Kaia design section, Service Chain supports value (KAIA, ERC-20, and ERC-721) transfer between parent chain & child chain.
 This page shows how to enable the value-transfer feature in SCN.
 
 After setting up the EN and SCN, the following procedure is required to enable value-transfer between chains.
 
-1. Check the addresses of the bridge operator accounts and add KLAY to the bridge operator accounts.
+1. Check the addresses of the bridge operator accounts and add KAIA to the bridge operator accounts.
 2. Deploy the bridge contract to the parent/child chains.
-3. Deploy a token (ERC-20 or 721) contract to the parent/child chains. (If you just need KLAY-transfer, you can skip step 3 & 4.)
+3. Deploy a token (ERC-20 or 721) contract to the parent/child chains. (If you just need KAIA-transfer, you can skip step 3 & 4.)
 4. Register the token contracts with the bridge contracts on the parent/child chains.
 5. Subscribe to the bridge contracts on the parent/child chains.
 
@@ -27,8 +27,8 @@ Below contracts communicate with each other via main/sub-bridge to process user'
 For ServiceChain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions.
 If the transaction moves the value to the parent chain, the parent chain bridge operator account signs the transaction. To the child chain, the child chain bridge operator account is used.
 If a user submits a "request value transfer" transaction, the Sub-bridge creates a "handle value transfer" transaction signed by the bridge operator account.
-Therefore, the parent chain bridge operator needs enough KLAY in their balance to pay the transaction fee to the parent chain.
-If the service chain's gas price is set to non-zero, the service chain bridge operator should have KLAY in their balance as well.
+Therefore, the parent chain bridge operator needs enough KAIA in their balance to pay the transaction fee to the parent chain.
+If the service chain's gas price is set to non-zero, the service chain bridge operator should have KAIA in their balance as well.
 
 ### Keystore and Password file <a id="keystore-and-password-file"></a>
 When SCN is booted, the keystore files and password files for the parent/child operators are automatically generated if their keys don't exist.
@@ -63,10 +63,10 @@ UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 If you run SCN successfully, you can check the parent/child chain bridge operator address using RPC API like the following.
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
@@ -79,18 +79,18 @@ instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
 
 You can refer to the [subbridge API](../../../references/json-rpc/subbridge/parent-operator) for more details.
 
-### Send KLAY to Bridge Operators <a id="send-klay-to-bridge-operators"></a>
-Like anchoring, the parent chain bridge operator needs KLAY to make a value-transfer transaction.
-If the service chain's gas price is set to non-zero, the service chain bridge operator should have KLAY in their balance as well.
+### Send KAIA to Bridge Operators <a id="send-kaia-to-bridge-operators"></a>
+Like anchoring, the parent chain bridge operator needs KAIA to make a value-transfer transaction.
+If the service chain's gas price is set to non-zero, the service chain bridge operator should have KAIA in their balance as well.
 
 After topping up the operator accounts, you can check their balances like below.
 
 **Parent chain bridge operator**
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
- instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -100,10 +100,10 @@ Welcome to the Klaytn JavaScript console!
 
 **Child chain bridge operator**
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
- instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -114,7 +114,7 @@ Welcome to the Klaytn JavaScript console!
 ## Bridge Contract <a id="bridge-contract"></a>
 
 For the cross-chain value transfer, a bridge contract should be deployed to the parent/child chains.
-Users can request a KLAY transfer to the bridge contract to send their KLAY to the other chain.
+Users can request a KAIA transfer to the bridge contract to send their KAIA to the other chain.
 Additionally, if token contracts are registered in the bridge contracts, bridge contracts can handle the token transfer between parent and child chains.
 
 ### Deployment <a id="deployment"></a>
@@ -123,10 +123,10 @@ Sub-bridge provides a bridge contract deployment API. You can deploy bridge cont
 Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Bridge Configuration](bridge-configuration.md) to get detailed guideline.
 
 ```javascript
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
@@ -235,25 +235,25 @@ You can refer to the [Service Chain API](../../../references/json-rpc/subbridge/
 
 ## Request Value Transfer <a id="request-value-transfer"></a>
 This section explains the contract methods that will be invoked by a user to request a value transfer.
-Request transaction does not allow zero value (KLAY/ERC-20).
+Request transaction does not allow zero value (KAIA/ERC-20).
 
-### KLAY transfer <a id="klay-transfer"></a>
+### KAIA transfer <a id="kaia-transfer"></a>
 Users can make a "request value transfer" transaction to the **bridge contract** using the below methods.
 
 #### fallback <a id="fallback"></a>
 
-If a user calls the fallback function of the bridge, this requests a KLAY transfer to the same account address as the requesting user in the counterpart chain.
+If a user calls the fallback function of the bridge, this requests a KAIA transfer to the same account address as the requesting user in the counterpart chain.
 
 ```solidity
 function () external payable;
 ```
 
-#### requestKLAYTransfer <a id="requestklaytransfer"></a>
+#### requestKAIATransfer <a id="requestklaytransfer"></a>
 
-If a user calls this function with `_to`, this requests a KLAY transfer to `_to` address in the counterpart chain.
+If a user calls this function with `_to`, this requests a KAIA transfer to `_to` address in the counterpart chain.
 
 ```solidity
-function requestKLAYTransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
+function requestKAIATransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
 ```
 
 ### ERC-20 transfer <a id="erc-20-transfer"></a>
@@ -298,10 +298,10 @@ The `onERC721Received()` works with `safeTransferFrom()` function, but the curre
 Alternatively, a further action like `onERC721Recieved()` should be implemented in another way such as event listening (e.g., `event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)`).
 
 ## Value Transfer Recovery
-Value transfer request may be fail for a number of reasons. Say you requested KLAY transfer from subbridge to mainbridge or from mainbridge to subbridge.
-In that case, the bridge contract on the receiver side must have enough KLAY than the requested amount of KLAY. If not, the transfer would fail without error notification in the return value.
+Value transfer request may be fail for a number of reasons. Say you requested KAIA transfer from subbridge to mainbridge or from mainbridge to subbridge.
+In that case, the bridge contract on the receiver side must have enough KAIA than the requested amount of KAIA. If not, the transfer would fail without error notification in the return value.
 A feature of value transfer recovery finds unhandled events and insert them into event pool again in a given interval, which means the failed transaction can be succeed again when the counterpart bridge can successfully handle that event.
-In case of the above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KLAY.
+In case of the above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KAIA.
 In order to set the value transfer recovery as default, you need to set two properties:
 ```
 SC_VTRECOVERY=1
@@ -309,8 +309,8 @@ SC_VTRECOVERY_INTERVAL=5
 ```
 The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how often the value transfer recovery is executed.
 
-## Collecting Fee for KLAY/ERC-20 transfer <a id="collecting-fee-for-klay-erc-20-transfer"></a>
-In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
+## Collecting Fee for KAIA/ERC-20 transfer <a id="collecting-fee-for-kaia-erc-20-transfer"></a>
+In ServiceChain, there is a fee collecting feature for KAIA/ERC-20 transfers.
 
 **To be updated soon.**
 

@@ -4,12 +4,12 @@ sidebar_label: Using Hardhat
 
 # How to Verify Smart Contracts Using Hardhat
 
-This guide allows you to automatically verify your smart contracts' source code on Klaytnscope straight from your CLI using the Hardhat Verify Plugin. 
+This guide allows you to automatically verify your smart contracts' source code on Kaiascope straight from your CLI using the Hardhat Verify Plugin. 
 
 To verify your contract on klaytn, you need to add the following configuration to your `hardhat.config.js`:
 
 
-## Cypress 
+## Mainnet 
 
 ```
 module.exports = {
@@ -38,7 +38,7 @@ module.exports = {
 
 ```
 
-## Baobab
+## Kairos
 
 ```
 module.exports = {
@@ -75,7 +75,7 @@ npx hardhat verify –network <network> <deployed_address> <parameters>
 npx hardhat verify --network klaytn 0x131b54E65c99d34BCA738F29051fDAceEa91C969 1000000000000000
 ```
 
-In your terminal you should see the source code for your contract was successfully submitted for verification. If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Klaytnscope](https://baobab.klaytnscope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode). 
+In your terminal you should see the source code for your contract was successfully submitted for verification. If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Kaiascope](https://baobab.klaytnscope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode). 
 
 ![](/img/build/smart-contracts/verify/terminal-hh-verify.png) 
 
@@ -84,4 +84,4 @@ In your terminal you should see the source code for your contract was successful
 ## Useful links
 
 * [Configuration for Hardhat Verify Plugin](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
-* [Verifying contracts using Hardhat on Klaytnscope](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
+* [Verifying contracts using Hardhat on Kaiascope](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)

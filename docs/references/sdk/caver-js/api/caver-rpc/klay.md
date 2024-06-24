@@ -487,7 +487,7 @@ Returns the total number of transactions sent from an address.
 | Name        | Type             | Description                                                                                                                                                                                                                                                        |
 | ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | address     | string           | The address to get the number of transactions from.                                                                                                                                                                                                                |
-| blockNumber | number \| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the default block parameter. If omitted, `latest` will be used. |
+| blockNumber | number \| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
 | callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                         |
 
 **Return Value**
@@ -545,9 +545,9 @@ true
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../../json-rpc/klay/sign) to know how the signature is generated.
+Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) to know how the signature is generated.
 
-**NOTE**: This API provides the function to sign a message using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
+**NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
 
 **Parameters**
 
@@ -1414,7 +1414,7 @@ Returns the value from a storage position at a given address.
 | Name        | Type             | Description                                                                                                                                                                                 |
 | ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | address     | string           | The address to get the storage from.                                                                                                                                                        |
-| position    | number           | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../../json-rpc/klay/get-storage-at). |
+| position    | number           | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
 | blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                                         |
 | callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                  |
 
@@ -2069,7 +2069,7 @@ Signs a transaction as a transaction `sender` with an "imported account's privat
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
@@ -2139,7 +2139,7 @@ Before using `sendTransaction` as a fee payer, the transaction sender must have 
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
@@ -2218,7 +2218,7 @@ Signs a transaction as a transaction sender with an "imported account's private 
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
@@ -2274,7 +2274,7 @@ Signs a transaction as a transaction fee payer with an "imported account's priva
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../../json-rpc/personal/import-raw-key) in your Klaytn node. The imported account in your node must be [unlocked](../../../../../json-rpc/personal/unlock-account) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
@@ -2965,7 +2965,7 @@ Creates a filter object using the given filter options, to receive the specific 
 * To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
 * To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
 
-For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../../json-rpc/klay/new-filter).
+For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
 
 **Parameters**
 

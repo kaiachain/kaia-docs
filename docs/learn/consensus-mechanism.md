@@ -2,13 +2,13 @@
 
 A consensus mechanism (algorithm) is a way of reaching a consensus between trustless entities. In blockchain technology, it is used to reach a consensus about if a block is valid or not. The performance of blockchain networks relies on the performance of the adopted consensus mechanisms, and it has a significant impact on the perceived usability of the Blockchain Applications.
 
-Klaytn Mainnet Cypress exhibits the following performance.
+Kaia Mainnet exhibits the following performance.
 - Handles 4,000 transactions per second. 
 - Immediate transaction finality.
 - One-second block generation time. 
 - Over 50 consensus nodes can participate in the consensus process.
 
-In the document, we will go over how Klaytn implemented the high-performing consensus process. 
+In the document, we will go over how Kaia implemented the high-performing consensus process. 
 
 ## Background <a id="background"></a>
 
@@ -31,14 +31,14 @@ The communication between nodes basically progresses as shown below. But there a
 
 As shown above, a participating node in PBFT basically communicates with all nodes in the network in several phases. This characteristic limits the number of nodes because the communication volume increases exponentially as the number of nodes increases.
 
-## Consensus Mechanism in Klaytn <a id="consensus-mechanism-in-klaytn"></a>
-Klaytn is aiming to be an Enterprise-ready and Service-centric platform. Therefore we need to solve the finality problem written above and the network should be able to allow many nodes to participate in the network. To make this possible, Klaytn is using an optimized version of Istanbul BFT, which implements PBFT with modifications to deal with blockchain network's characteristics.
+## Consensus Mechanism in Kaia <a id="consensus-mechanism-in-kaia"></a>
+Kaia is aiming to be an Enterprise-ready and Service-centric platform. Therefore we need to solve the finality problem written above and the network should be able to allow many nodes to participate in the network. To make this possible, Kaia is using an optimized version of Istanbul BFT, which implements PBFT with modifications to deal with blockchain network's characteristics.
 
-In Klaytn, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CNs are managed by CCOs (Core Cell Operators) and are in charge of block generation. These blocks are verified by all nodes in the network. Please refer to [here](./learn.md#klaytn-network-topology) to know more about this network topology.
+In Kaia, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CNs are managed by CCOs (Core Cell Operators) and are in charge of block generation. These blocks are verified by all nodes in the network. Please refer to [here](./learn.md#kaia-network-topology) to know more about this network topology.
 
 ![Network topology](/img/learn/klaytn_network_node.png)
 
-Klaytn achieves fast finality by adopting and improving Istanbul BFT. Because validation and consensus are done for each block there is no fork and the block's finality is guaranteed instantly as soon as the consensus is made. 
+Kaia achieves fast finality by adopting and improving Istanbul BFT. Because validation and consensus are done for each block there is no fork and the block's finality is guaranteed instantly as soon as the consensus is made. 
 
 And also the issue of increasing communication volume in the BFT algorithm is solved by utilizing randomly selected `Committee`. CNs collectively form a `Council` and on each block generation, part of them are selected as a member of `Committee` using a VRF (Verifiable Random Function).
 
@@ -46,4 +46,4 @@ And also the issue of increasing communication volume in the BFT algorithm is so
 
 Because consensus messages are exchanged only between the committee members, the communication volume can be limited under the designed level even though the total number of CNs increases.
 
-Currently, Klaytn Mainnet Cypress can provide a high throughput of 4,000 transactions per second with one-second block generation interval. More than 50 consensus nodes can participate in the CNN (Consensus Node Network) at the moment and the number will continuously increase as Klaytn continues to aggressively optimize the algorithm.
+Currently, Kaia Mainnet can provide a high throughput of 4,000 transactions per second with one-second block generation interval. More than 50 consensus nodes can participate in the CNN (Consensus Node Network) at the moment and the number will continuously increase as Kaia continues to aggressively optimize the algorithm.

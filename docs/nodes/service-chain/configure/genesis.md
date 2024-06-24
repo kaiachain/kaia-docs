@@ -9,12 +9,12 @@ The `genesis.json` file structure is described in the following table.
 |             Field Name         |         Description           |
 | ------------------------------ | ----------------------------- |
 | config                         | The blokchain configuration. See the section [Config](#config). |
-| nonce                          | (deprecated) This field is derived from the Ethereum, but not used in Klaytn. |
+| nonce                          | (deprecated) This field is derived from the Ethereum, but not used in Kaia. |
 | timestamp                      | The unix time when a block is created. |
 | extraData                      | The data combined field for signer vanity and RLP-encoded istanbul extra data that contains validator list, proposer seal, and commit seals. |
 | gasLimit                       | The maximum gas amount that used in a block. |
-| difficulty                     | (deprecated) This field is derived from the Ethereum, but not used in Klaytn. |
-| mixhash                        | (deprecated) This field is derived from the Ethereum, but not used in Klaytn. |
+| difficulty                     | (deprecated) This field is derived from the Ethereum, but not used in Kaia. |
+| mixhash                        | (deprecated) This field is derived from the Ethereum, but not used in Kaia. |
 | coinbase                       | An address to which miner receives the reward. This field is only used for Clique consensus engine. |
 | alloc                          | The predefined accounts. |
 | number                         | The block number field. |
@@ -64,7 +64,7 @@ With this function, the output `extraData` for this example is 0x000000000000000
 
 ## Consensus Engine <a id="consensus-engine"></a>
 
-The available consensus engines for Klaytn network are Clique and Istanbul. Each engine is explained as follows.
+The available consensus engines for Kaia network are Clique and Istanbul. Each engine is explained as follows.
 
 ### Clique <a id="clique"></a>
 
@@ -101,13 +101,13 @@ The `reward` field stores the information about the network's token economy.
 
 |          Fields         |       Description             |
 | ----------------------- | ----------------------------- |
-| mintingAmount           | Amount of peb minted when a block is generated. Double quotation marks are needed for a value. |
+| mintingAmount           | Amount of kei minted when a block is generated. Double quotation marks are needed for a value. |
 | ratio                   | Distribution rate for a `CN/KIR/PoC` separated by `/`. The sum of all values has to be 100.  |
 | useGiniCoeff            | Use GINI coefficient or not. |
 | deferredTxFee           | A way to distribute TX fee for a block. |
 | stakingUpdateInterval   | Time interval in block height to update staking information. |
 | proposerUpdateInterval  | Time interval in block height to update proposer information. |
-| minimumStake            | Minimum amount of peb to join Core Cell Operators. |
+| minimumStake            | Minimum amount of kei to join Core Cell Operators. |
 
 ## Example <a id="example"></a>
 

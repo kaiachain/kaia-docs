@@ -4,7 +4,7 @@ Blockchain oracles serve as a link between the blockchain and other external dat
 
 The need for blockchains to access and connect to external data sources, legacy systems, and advanced computation brought about oracles. The benefits of oracles in the blockchain industry cannot be underestimated, and it is therefore crucial to do your research before choosing your oracles when creating hybrid smart contracts. Avoiding centralized oracles is therefore encouraged since leveraging decentralized oracles is important for developing your decentralized apps. On one hand, centralized oracles are controlled by a single entity and, as such, have a single point of failure, making smart contracts vulnerable to attacks. On the other hand, decentralized oracles are designed to fly above the limitations of centralized oracles by eliminating the single point of failure. A decentralized oracle comprises multiple participants in a peer-to-peer network that form consensus on off-chain data before sending it to a smart contract.
 
-The following providers have integrated with Klaytn to deliver decentralized oracle services:
+The following providers have integrated with Kaia to deliver decentralized oracle services:
 
 * [Orakl Network](https://docs.orakl.network)
 * [Witnet](https://docs.witnet.io/)

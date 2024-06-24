@@ -1,10 +1,10 @@
 # Accounts
 
-## Klaytn Accounts <a id="klaytn-accounts"></a>
+## Kaia Accounts <a id="kaia-accounts"></a>
 
 ### Overview of Account, State, and Address <a id="overview-of-account-state-and-address"></a>
 
-An account in Klaytn is a data structure containing information about a person's balance or a smart contract. Klaytn's state is the collection of all its accounts' states - that is, the past and current state of all data stored across Klaytn's accounts. When a transaction is executed on a Klaytn node, the state of Klaytn consequently changes across all its nodes. The state should be the same across all nodes in the Klaytn network if they have processed the same blocks in the same order. State information of each account is associated with a 20-byte address, which is used to identify each account.
+An account in Kaia is a data structure containing information about a person's balance or a smart contract. Kaia's state is the collection of all its accounts' states - that is, the past and current state of all data stored across Kaia's accounts. When a transaction is executed on a Kaia node, the state of Kaia consequently changes across all its nodes. The state should be the same across all nodes in the Kaia network if they have processed the same blocks in the same order. State information of each account is associated with a 20-byte address, which is used to identify each account.
 
 ### Decoupling Key Pairs From Addresses <a id="decoupling-key-pairs-from-addresses"></a>
 
@@ -14,37 +14,37 @@ An account in a typical blockchain platform is associated with a cryptographical
 * It is impossible for users to use multiple key pairs to increase security of their accounts.
 * It is impossible for users to change the account's key pair when the private key is accidentally exposed or when users want to update the private key periodically to increase the account's security.
 
-Those are big hurdles that users cannot think of an address as an identifier in the blockchain platform. To clear this hurdle, Klaytn provides a feature that users can choose their addresses and key pairs. With this feature, users can choose addresses that they want and they can use multiple key pairs to increase security. The number of key pairs can be one or more, and the key pairs can have different roles. For details of multiple key pairs or role-based keys, please refer to [Multiple Key Pairs & Role-Based Keys](#multiple-key-pairs-and-role-based-keys).
+Those are big hurdles that users cannot think of an address as an identifier in the blockchain platform. To clear this hurdle, Kaia provides a feature that users can choose their addresses and key pairs. With this feature, users can choose addresses that they want and they can use multiple key pairs to increase security. The number of key pairs can be one or more, and the key pairs can have different roles. For details of multiple key pairs or role-based keys, please refer to [Multiple Key Pairs & Role-Based Keys](#multiple-key-pairs-and-role-based-keys).
 
-It is worth noting that Klaytn also supports the old scheme that a key pair and an address are strongly coupled.
+It is worth noting that Kaia also supports the old scheme that a key pair and an address are strongly coupled.
 
 ### Multiple Key Pairs and Role-Based Keys <a id="multiple-key-pairs-and-role-based-keys"></a>
 
-As described before, when the private key is stolen, exposed, or somehow compromised, there is nothing to do to restore the account’s security: the best option is to generate another key pair to create a new account, and migrate the balance from the old compromised account to the new one. Lack of support for advanced key schemes such as multi-sig or usage-specific key is yet another source of major inconvenience. To address those problems more efficiently, Klaytn accounts provide the following capabilities:
+As described before, when the private key is stolen, exposed, or somehow compromised, there is nothing to do to restore the account’s security: the best option is to generate another key pair to create a new account, and migrate the balance from the old compromised account to the new one. Lack of support for advanced key schemes such as multi-sig or usage-specific key is yet another source of major inconvenience. To address those problems more efficiently, Kaia accounts provide the following capabilities:
 
-* Klaytn account allows the key pair associated with the account to be changed.
-* Klaytn account supports multiple key pairs, along with the ability to assign each key with different purpose.
-* Klaytn account maintains compatibility with accounts having a single key that is strongly coupled with the address.
+* Kaia account allows the key pair associated with the account to be changed.
+* Kaia account supports multiple key pairs, along with the ability to assign each key with different purpose.
+* Kaia account maintains compatibility with accounts having a single key that is strongly coupled with the address.
 
-By utilizing Klaytn account’s role-based multi-key support, end-users can better handle real-life security risk situations such as private key mismanagement. For example, when a user realizes that his or her private key has been exposed, the user can simply replace the compromised private key by removing the exposed key pair from his or her account and creating a new key pair to replace them. This could be achieved by using a dedicated key used for updating account information, created in advance and stored separately from the compromised private key.
+By utilizing Kaia account’s role-based multi-key support, end-users can better handle real-life security risk situations such as private key mismanagement. For example, when a user realizes that his or her private key has been exposed, the user can simply replace the compromised private key by removing the exposed key pair from his or her account and creating a new key pair to replace them. This could be achieved by using a dedicated key used for updating account information, created in advance and stored separately from the compromised private key.
 
 ### Human-Readable Address \(HRA\) <a id="human-readable-address-hra"></a>
 
-Although the address scheme \(e.g., "0x0fe2e20716753082222b52e753854f40afddffd2"\) has its own strengths in that it efficiently protects the privacy of account holders, it also proposes major problems in terms of end-user experience. First, it is very difficult for a human brain to memorize, or even recognize, such addresses, making them prone to input mistakes and various human errors that often lead to non-trivial financial damages. Second, such scheme takes away from end-users the power to choose one’s own preferred identity handle that’s easier to memorize or use. Combined, these problems are among the toughest usability hurdles that cause dApp user experience for typical end-users \(who are more accustomed to the simpler, frictionless user experience offered by legacy mobile apps or services\) to be perceived as alien, incomprehensible, and severely inconvenient. To overcome such challenges without undergoing architectural modifications at large-scale and while preserving backward compatibility, Klaytn opts to provide a mapping between a 20-byte address to a 20-byte length text string that end-users could assign their own preferred values to. This feature in Klaytn is called human-readable address \(HRA\). Currently, this feature is under development, and we will provide more information when it is ready.
+Although the address scheme \(e.g., "0x0fe2e20716753082222b52e753854f40afddffd2"\) has its own strengths in that it efficiently protects the privacy of account holders, it also proposes major problems in terms of end-user experience. First, it is very difficult for a human brain to memorize, or even recognize, such addresses, making them prone to input mistakes and various human errors that often lead to non-trivial financial damages. Second, such scheme takes away from end-users the power to choose one’s own preferred identity handle that’s easier to memorize or use. Combined, these problems are among the toughest usability hurdles that cause dApp user experience for typical end-users \(who are more accustomed to the simpler, frictionless user experience offered by legacy mobile apps or services\) to be perceived as alien, incomprehensible, and severely inconvenient. To overcome such challenges without undergoing architectural modifications at large-scale and while preserving backward compatibility, Kaia opts to provide a mapping between a 20-byte address to a 20-byte length text string that end-users could assign their own preferred values to. This feature in Kaia is called human-readable address \(HRA\). Currently, this feature is under development, and we will provide more information when it is ready.
 
-### Klaytn Wallet Key Format <a id="klaytn-wallet-key-format"></a>
+### Kaia Wallet Key Format <a id="kaia-wallet-key-format"></a>
 
-Klaytn wallet key format is provided to easily handle a private key along with the corresponding address. It makes easier for a user to maintain his/her private key with an address. The format is `0x{private key}0x{type}0x{address in hex}` in hexadecimal notation, where `{type}` must be `00`. Other values are reserved. An example is shown below:
+Kaia wallet key format is provided to easily handle a private key along with the corresponding address. It makes easier for a user to maintain his/her private key with an address. The format is `0x{private key}0x{type}0x{address in hex}` in hexadecimal notation, where `{type}` must be `00`. Other values are reserved. An example is shown below:
 
 ```text
 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ```
 
-This format is currently supported in [Klaytn Wallet](../build/tools/wallets/klaytn-wallet.md).
+This format is currently supported in [Kaia Wallet](../build/tools/wallets/kaia-wallet.md).
 
-### Klaytn Account Types <a id="klaytn-account-types"></a>
+### Kaia Account Types <a id="kaia-account-types"></a>
 
-There are two types of accounts in Klaytn: <LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> \(EOAs\), and <LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> \(SCAs\).
+There are two types of accounts in Kaia: <LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> \(EOAs\), and <LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> \(SCAs\).
 
 #### Externally Owned Accounts \(EOAs\) <a id="externally-owned-accounts-eoas"></a>
 
@@ -56,7 +56,7 @@ Externally owned accounts have information such as nonce and balance. This type 
 | :--- | :--- | :--- |
 | type | uint8 \(Go\) | The type of externally owned accounts. It must be **0x1** for EOAs. |
 | nonce | uint64 \(Go\) | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value. |
-| balance | \*big.Int \(Go\) | The amount of KLAY the account has. |
+| balance | \*big.Int \(Go\) | The amount of KAIA the account has. |
 | humanReadable | bool \(Go\) | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](#human-readable-address-hra) is under development, this value is false for all accounts. |
 | key | [AccountKey](#account-key) | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
 
@@ -70,7 +70,7 @@ In contrast to EOAs, SCAs have code associated with them and are controlled by t
 | :--- | :--- | :--- |
 | type | uint8 \(Go\) | The type of smart contract accounts. It must be **0x2** for SCAs. |
 | nonce | uint64 \(Go\) | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value. |
-| balance | \*big.Int \(Go\) | The amount of KLAY the account has. |
+| balance | \*big.Int \(Go\) | The amount of KAIA the account has. |
 | humanReadable | bool \(Go\) | A boolean value indicating that the account is associated with a human-readable address. Since [HRA](#human-readable-address-hra) is under development, this value is false for all accounts. |
 | key | [AccountKey](#account-key) | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
 | codeHash | \[\]byte \(Go\) | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created. |
@@ -84,7 +84,7 @@ NOTE: From klaytn v1.7.0 onwards, vmVersion attribute will be added to the Smart
 
 :::
 
-### Klaytn Account Type ID <a id="klaytn-account-type-id"></a>
+### Kaia Account Type ID <a id="kaia-account-type-id"></a>
 Below are the Account Type ID assigned to each Account Type.
 
 | Account Type | Account Type ID |

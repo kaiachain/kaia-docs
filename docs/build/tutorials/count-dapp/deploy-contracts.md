@@ -12,8 +12,8 @@ $ git clone https://github.com/klaytn/countbapp
 
 The package you just cloned is ready to launch without any modification.
 
-The sample contract is already deployed to the Baobab testnet, and the contract ABI is included in our package.  
-Count DApp frontend code is initially configured to connect to the smart contract on the Baobab testnet.
+The sample contract is already deployed to the Kairos testnet, and the contract ABI is included in our package.  
+Count DApp frontend code is initially configured to connect to the smart contract on the Kairos testnet.
 
 If you want to run the app right away and see how it works, type below.
 
@@ -174,7 +174,7 @@ This line will make the `lastParticipant` to have the `msg.sender`.
 
 `truffle-config.js` file describes how to deploy your contract code. You can configure below items in truffle-config.js
 
-**1) Who will deploy the contract (Which Klaytn account will deploy the contract)?**\
+**1) Who will deploy the contract (Which Kaia account will deploy the contract)?**\
 **2) Which network will you deploy to?**\
 **3) How many gas are you willing to pay to deploy the contract?**
 
@@ -187,7 +187,7 @@ _WARNING: You shouldn't expose your private key. Otherwise, your account would b
 If you want to deploy your contract using the private key, `provider` option is needed.
 
 1\) Pass your private key as the 1st argument of `new HDWalletProvider()`.\
-2\) Pass your Klaytn node's URL as the 2nd argument of `new HDWalletProvider()`.
+2\) Pass your Kaia node's URL as the 2nd argument of `new HDWalletProvider()`.
 
 example)
 
@@ -203,7 +203,7 @@ example)
 ```
 
 ```javascript
-const HDWalletProvider = require("truffle-hdwallet-provider-klaytn");
+const HDWalletProvider = require("truffle-hdwallet-provider-kaia");
 
 const NETWORK_ID = '1001'
 const GASLIMIT = '8500000'
@@ -221,7 +221,7 @@ module.exports = {
      * DEPLOY METHOD 1: By private key.
      * You shouldn't expose your private key. Otherwise, your account would be hacked!!
      */
-    baobab: {
+    kairos: {
       provider: () => new HDWalletProvider(PRIVATE_KEY, URL),
       network_id: NETWORK_ID,
       gas: GASLIMIT,
@@ -231,27 +231,27 @@ module.exports = {
 }
 ```
 
-See `networks` property in the above code. It has `baobab` key which has 4 properties, `provider`, `network_id`, `gas`, `gasPrice`.
+See `networks` property in the above code. It has `kairos` key which has 4 properties, `provider`, `network_id`, `gas`, `gasPrice`.
 
 `provider: new HDWalletProvider(PRIVATE_KEY, URL)` line informs the contract deployer account and the target network node URL.
 
-`network_id: NETWORK_ID` line specifies the network id in Klaytn. Use `1001` for the Baobab network (testnet).
+`network_id: NETWORK_ID` line specifies the network id in Kaia. Use `1001` for the Kairos network (testnet).
 
 `gas: GASLIMIT` line informs how much gas limit will you endure to deploy your contract.
 
-`gasPrice: null` line informs truffle how much price will you pay per gas unit. Currently in Klaytn, the price is fixed to `25000000000`. If you set it to `null`, truffle will set the value with the fixed gas price automatically.
+`gasPrice: null` line informs truffle how much price will you pay per gas unit. Currently in Kaia, the price is fixed to `25000000000`. If you set it to `null`, truffle will set the value with the fixed gas price automatically.
 
 #### DEPLOY METHOD 2: By unlocked account (difficult) <a href="#deploy-method-2-by-unlocked-account-difficult" id="deploy-method-2-by-unlocked-account-difficult"></a>
 
-To deploy a contract by unlocked account, you should have your Klaytn full node.\
-Access your Klaytn node console by typing `$ klay attach http://localhost:8551` If you don't have a Klaytn account in the node, generate it by typing `personal.newAccount()` on the console.\
+To deploy a contract by unlocked account, you should have your Kaia full node.\
+Access your Kaia node console by typing `$ kaia attach http://localhost:8551` If you don't have a Kaia account in the node, generate it by typing `personal.newAccount()` on the console.\
 If you already have one, unlock your account through `personal.unlockAccount()`.
 
 After ensuring account is unlocked,\
 you should set the properties, `host`, `port`, `network_id`, and `from`. 1) Which network to deploy (`host`, `port`, `network_id`)\
 2\) Who will deploy (`from`) 3) How much gas will you endure to deploy your contract (`gas`)
 
-Put your unlocked account address on `from`. If you're running your own Klaytn full node, set the node's host to `host` and node's port to `port`.
+Put your unlocked account address on `from`. If you're running your own Kaia full node, set the node's host to `host` and node's port to `port`.
 
 example)
 
@@ -310,21 +310,21 @@ For further information about `artifacts.`, visit [truffle document site](https:
 
 ### 3) Deploy <a href="#3-deploy" id="3-deploy"></a>
 
-You need KLAY to deploy a contract. You can receive testnet KLAY on faucet.
+You need KAIA to deploy a contract. You can receive testnet KAIA on faucet.
 
-* On Klaytn wallet [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet), there is a faucet providing 150 KLAY per 86400 blocks in Klaytn Baobab testnet. After creating your Klaytn account, run faucet to receive 150 KLAY.
+* On Kaia wallet [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet), there is a faucet providing 150 KAIA per 86400 blocks in Kaia Kairos testnet. After creating your Kaia account, run faucet to receive 150 KAIA.
 
 ![deploy](/img/build/tutorials/tutorial-3deploy.gif)
 
-Type `$ truffle deploy --network baobab`.\
+Type `$ truffle deploy --network kairos`.\
 It will deploy your contract according to the configurations defined in `truffle-config.js` and `migrations/2_deploy_contracts.js`.
 
 cf) `--reset` option\
-After deploying your contract, if you type `$ truffle deploy --network baobab` again, nothing will happen.\
+After deploying your contract, if you type `$ truffle deploy --network kairos` again, nothing will happen.\
 Because truffle deploys a contract only when there are changes in the contract, otherwise truffle will not do anything.\
 If you want to re-deploy your contract anyway, there is an option `--reset`.\
 If you provide this option, truffle will deploy your contract even the content of contract hasn't changed.\
-ex) `$ truffle deploy --reset --network baobab`
+ex) `$ truffle deploy --reset --network kairos`
 
 To recap,
 

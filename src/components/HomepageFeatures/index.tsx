@@ -1,13 +1,22 @@
 import React from 'react'
 import Link from '@docusaurus/Link'
 import styled from 'styled-components'
+import { useColorMode } from '@docusaurus/theme-common';
 
-import img1 from '../../images/thum_01_L.png'
-import img2 from '../../images/thum_02_L.png'
-import img3 from '../../images/thum_03_L.png'
-import img4 from '../../images/thum_04_L.png'
-import img5 from '../../images/thum_05_L.png'
-import img6 from '../../images/thum_06_L.png'
+// Import both light and dark theme images
+import img1Light from '../../images/thum_01_L.png';
+import img2Light from '../../images/thum_02_L.png';
+import img3Light from '../../images/thum_03_L.png';
+import img4Light from '../../images/thum_04_L.png';
+import img5Light from '../../images/thum_05_L.png';
+import img6Light from '../../images/thum_06_L.png';
+
+import img1Dark from '../../images/thum_01_D.png'; // Assuming you have dark versions
+import img2Dark from '../../images/thum_02_D.png';
+import img3Dark from '../../images/thum_03_D.png';
+import img4Dark from '../../images/thum_04_D.png';
+import img5Dark from '../../images/thum_05_D.png';
+import img6Dark from '../../images/thum_06_D.png';
 
 import View from '../View'
 import style from '@site/src/consts/style'
@@ -17,7 +26,8 @@ import Translate, { translate } from '@docusaurus/Translate'
 
 type FeatureType = {
   title: JSX.Element
-  imgSrc: string
+  imgSrcLight: string; // Add a property for the light theme image
+  imgSrcDark: string; // Add a property for the dark theme image
   description: JSX.Element
   to: string
 }
@@ -44,44 +54,52 @@ const StyledImgBox = styled(View)`
 
 const featureList: FeatureType[] = [
   {
-    title: <Translate>Klaytn Overview</Translate>,
-    imgSrc: img1,
-    description: <Translate>Want to know about Klaytn?</Translate>,
+    title: <Translate>Kaia Overview</Translate>,
+    imgSrcLight: img1Light, // Use the light theme image here
+    imgSrcDark: img1Dark, // Use the dark theme image here
+    description: <Translate>Want to know about Kaia?</Translate>,
     to: '/docs/learn',
   },
   {
     title: <Translate>Getting Started</Translate>,
-    imgSrc: img2,
-    description: <Translate>Want to start building on Klaytn?</Translate>,
+    imgSrcLight: img2Light,
+    imgSrcDark: img2Dark,
+    description: <Translate>Want to start building on Kaia?</Translate>,
     to: '/docs/build',
   },
   {
     title: <Translate>Node Operators</Translate>,
-    imgSrc: img3,
-    description: <Translate>Instructions on running Klaytn's nodes</Translate>,
+    imgSrcLight: img3Light,
+    imgSrcDark: img3Dark,
+    description: <Translate>Instructions on running Kaia's nodes</Translate>,
     to: '/docs/nodes',
   },
   {
     title: <Translate>API references</Translate>,
-    imgSrc: img4,
+    imgSrcLight: img4Light,
+    imgSrcDark: img4Dark,
     description: <Translate>APIs and libraries</Translate>,
     to: '/docs/references',
   },
   {
-    title: <Translate>Klaytn Developer Hub</Translate>,
-    imgSrc: img5,
-    description: <Translate>Klaytn's Developer portal</Translate>,
+    title: <Translate>Kaia Developer Hub</Translate>,
+    imgSrcLight: img5Light,
+    imgSrcDark: img5Dark,
+    description: <Translate>Kaia's Developer portal</Translate>,
     to: 'https://developer.klaytn.foundation',
   },
   {
-    title: <Translate>Klaytn Developer Forum</Translate>,
-    imgSrc: img6,
+    title: <Translate>Kaia Developer Forum</Translate>,
+    imgSrcLight: img6Light,
+    imgSrcDark: img6Dark,
     description: <Translate>Got a question? Visit our forum!</Translate>,
     to: 'https://forum.klaytn.foundation',
   },
 ]
 
-function Feature({ imgSrc, title, description, to }: FeatureType) {
+function Feature({ imgSrcLight, imgSrcDark, title, description, to }: FeatureType) {
+  const { colorMode } = useColorMode();
+  const imgSrc = colorMode === 'dark' ? imgSrcDark : imgSrcLight; // Select image based on theme
   return (
     <View>
       <Link to={to}>

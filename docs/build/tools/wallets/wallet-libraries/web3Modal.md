@@ -10,20 +10,20 @@ sidebar_label: Web3Modal
 
 [Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about) is a simple-to-use library that helps developers add support for multiple providers in their dApps with a simple, customizable configuration. It makes connecting wallets, performing transactions, and managing accounts easy. 
 
-In this guide, you will use the web3Modal library to integrate multiple wallets such as Kaikas, Klip, Metamask, Coinbase Wallet, etc. into your dApp built on the Klaytn Network.
+In this guide, you will use the web3Modal library to integrate multiple wallets such as Kaikas, Klip, Metamask, Coinbase Wallet, etc. into your dApp built on the Kaia Network.
 
 ## Prerequisite
 
 * A working react project (by executing `npx create-react-app project-name`)
 * Install the necessary wallets ([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)). 
 * RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/service-providers/public-en.md).
-* Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
+* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 
 ## Setting up Web3Modal and Wallet Provider Options
 
 **Step 1**: Installing Web3Modal and an Ethereum library
 
-Install web3Modal and your preferred library for interacting with the blockchain. In this tutorial, we will be installing [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal) which was derived from [Web3Modal](https://github.com/WalletConnect/web3modal) and modified to add Kaikas wallet and Klip wallet. Also, this tutorial will use ethers.js to interact with the Klaytn blockchain.
+Install web3Modal and your preferred library for interacting with the blockchain. In this tutorial, we will be installing [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal) which was derived from [Web3Modal](https://github.com/WalletConnect/web3modal) and modified to add Kaikas wallet and Klip wallet. Also, this tutorial will use ethers.js to interact with the Kaia blockchain.
 
 ```bash
 npm install @klaytn/web3modal
@@ -65,7 +65,7 @@ const providerOptions = {
   coinbasewallet: {
     package: CoinbaseWalletSDK, // required
     options: {
-      appName: "Web3Modal Klaytn dApp", // required
+      appName: "Web3Modal Kaia dApp", // required
       infuraId: "NFURA_KEY", // required
       rpc: "https://klaytn-mainnet-rpc.allthatnode.com:8551", // Optional if `infuraId` is provided; otherwise it's required
       chainId: 1001, // Optional. It defaults to 1 if not provided
@@ -75,7 +75,7 @@ const providerOptions = {
   klip: {
     package: KlipWeb3Provider, //required
     options: {
-        bappName: "Web3Modal Klaytn dApp", //required
+        bappName: "Web3Modal Kaia dApp", //required
         rpcUrl: "https://klaytn-mainnet-rpc.allthatnode.com:8551" //required
     }
 },
@@ -281,7 +281,7 @@ As established previously, Web3Modal does not have built-in support for Ethereum
             params: [
               {
                 chainId: toHex(8217),
-                chainName: "Klaytn TestNet",
+                chainName: "Kaia TestNet",
                 rpcUrls: ["https://klaytn-mainnet-rpc.allthatnode.com:8551"],
                 blockExplorerUrls: ["https://baobob.scope.com/"],
               },
@@ -337,12 +337,12 @@ const signMessage = async(e) => {
 
 ## Sending Native Transaction
 
-You can perform native transactions, like sending KLAY from one user to another.
+You can perform native transactions, like sending KAIA from one user to another.
 
 ```js
     // add to the existing useState hook.
     const [txHash, setTxHash] = useState();
-    const sendKlay = async () => {
+    const sendKaia = async () => {
     if (!provider) return;
       const destination = “paste recipient address”;
 
@@ -369,7 +369,7 @@ You can perform native transactions, like sending KLAY from one user to another.
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 ```
@@ -550,7 +550,7 @@ Node fs error, add browser {fs: false} to package.json
 
 This occurs when you install Klip-web3-provider.  To fix this issue,  follow these steps:
 
-**Step 1**: Open up and navigate to your node_modules folder. Look for the @Klaytn/klip-web3-provider folder and navigate to it's package.json file as shown below:
+**Step 1**: Open up and navigate to your node_modules folder. Look for the @Kaia/klip-web3-provider folder and navigate to it's package.json file as shown below:
 
 > **@klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json** 
  

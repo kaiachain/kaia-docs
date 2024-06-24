@@ -1,6 +1,6 @@
 # Multi-Channel
 
-A Klaytn node can be run with **Multi-channel**.
+A Kaia node can be run with **Multi-channel**.
 
 If a node is executed with multi-channel configuration, 2 ports are set up for communication. On the otherhand, if a node is executed with single channel configuration, 1 port is set up.
 If 2 multi-channel nodes are trying to connect, a connection is established using 2 ports. Otherwise, they will use 1 port for communication.
@@ -28,5 +28,5 @@ In this case, all messages related to blocks, transactions, and consensus protoc
 
 To set port numbers in KNI, please refer to [the KNI scheme](./kni.md).
 * Single Channel : A single channel node uses one port (default is 32323).
-* Multi-Channel: A multi-channel node uses two ports. The ports can be specified in `port` and `subport`. In Klaytn, the default values of `port` and `subport` are 32323 and 32324, respectively.
-    * You might not set `subport` when connecting to multi-channel node. In this case, at first, a Klaytn node tries to connect using a single-channel. In handshake process, the actual peer's port numbers are revealed. If the peer is a multi-channel node, the ongoing connection will be canceled and a reconnection will be made with the updated ports.
+* Multi-Channel: A multi-channel node uses two ports. The ports can be specified in `port` and `subport`. In Kaia, the default values of `port` and `subport` are 32323 and 32324, respectively.
+    * You might not set `subport` when connecting to multi-channel node. In this case, at first, a Kaia node tries to connect using a single-channel. In handshake process, the actual peer's port numbers are revealed. If the peer is a multi-channel node, the ongoing connection will be canceled and a reconnection will be made with the updated ports.

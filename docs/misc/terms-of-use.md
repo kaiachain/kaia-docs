@@ -2,15 +2,15 @@
 
 ## 1. Your Use of Open Source Software <a id="1-your-use-of-open-source-software"></a>
 
-We may make \(but are not obligated to make\) the source code of Klaytn Blockchain Network Platform \("Platform"\), the software on the Platform, etc. for download as open source software. If you use this open source software, you agree to be bound by and comply with any license that applies to this open source software. You will not indicate that you are associated with us in connection with your use, modifications or distributions of this open source software.
+We may make \(but are not obligated to make\) the source code of Kaia Blockchain Network Platform \("Platform"\), the software on the Platform, etc. for download as open source software. If you use this open source software, you agree to be bound by and comply with any license that applies to this open source software. You will not indicate that you are associated with us in connection with your use, modifications or distributions of this open source software.
 
 ## 2. Services Provided on the Platform <a id="2-services-provided-on-the-platform"></a>
 
-The Platform is a combination of peer-to-peer subnetworks of nodes transmitting transactions and blocks to execute value transfers and run smart contracts. The Core Cell Network \("CCN"\), which is one of the subnetworks that constitute the Platform, verifies and executes transactions that occur on the Platform. The CCN is operated by Klaytn Governance Council, which is a collective group of Core Cell Operators, and Klaytn is not directly involved in any services that are provided in or individual transactions that occur on the Platform.
+The Platform is a combination of peer-to-peer subnetworks of nodes transmitting transactions and blocks to execute value transfers and run smart contracts. The Core Cell Network \("CCN"\), which is one of the subnetworks that constitute the Platform, verifies and executes transactions that occur on the Platform. The CCN is operated by Kaia Governance Council, which is a collective group of Core Cell Operators, and Kaia is not directly involved in any services that are provided in or individual transactions that occur on the Platform.
 
 ## 3. Your Installation of dApp on the Platform <a id="3-your-installation-of-dapp-on-the-platform"></a>
 
-Your use of open source software is free of charge. However, you may be required to pay a certain number of KLAY as a transaction fee in order to execute a transaction on the Platform, including the installation of the dApp on the Platform.
+Your use of open source software is free of charge. However, you may be required to pay a certain number of KAIA as a transaction fee in order to execute a transaction on the Platform, including the installation of the dApp on the Platform.
 
 Once transaction is executed successfully and respective block generation is verified successfully by the Platform’s mechanism, the block is irreversibly stored in the blockchain. As such, your installation of the dApp and any other transactions on the Platform, as well as the submission of transaction fee is final and irrevocable.
 

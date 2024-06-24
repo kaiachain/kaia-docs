@@ -9,7 +9,7 @@ To offer decentralized oracle services, Witnet relies on a distributed network o
 
 ## Usage
 
-This oracle network is currently running on the Klaytn Cypress Mainnet and Klaytn Baobab Testnet. To get started with connecting to the data feeds and randomness on Klaytn, refer to the following guides:
+This oracle network is currently running on the Kaia Mainnet and Kaia Kairos Testnet. To get started with connecting to the data feeds and randomness on Kaia, refer to the following guides:
 
 * [Witnet Price-Feed Tutorial](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/witnet-tutorial)
-* [Random Number Generation on Klaytn with Witnet](https://medium.com/klaytn/random-number-generation-on-klaytn-with-witnet-ae136dad0562)
+* [Random Number Generation on Kaia with Witnet](https://medium.com/klaytn/random-number-generation-on-klaytn-with-witnet-ae136dad0562)

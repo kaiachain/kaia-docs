@@ -1,6 +1,6 @@
-# Klaytn Hard Fork History
+# Kaia Hard Fork History
 
-This page shows all the hard forks to the Klaytn blockchain.
+This page shows all the hard forks to the Kaia blockchain.
 
 ## Randao
 | ` ` | Baobab                        | Cypress                       |

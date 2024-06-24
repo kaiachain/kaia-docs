@@ -10,7 +10,7 @@ As an easy-to-understand analogy in this regard, suppose you're filling up gas a
 
 Transaction fee works just the same as above. Suppose a transaction spent 21000 gas and the effective gas price of the transaction was 25 Gkei. Then the gas fee is 525000 Gkei. This amount would be deducted from the sender (`from` account) balance.
 
-## Gas used <a id="gas-overview"></a>
+## Gas used <a id="gas-used"></a>
 
 Every action that changes the state of the blockchain requires gas. While processing the transactions in a block, such as sending KAIA, using ERC-20 tokens, or executing a contract, the sender has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required. The gas has no unit, and we just say like "21000 gas".
 
@@ -21,7 +21,7 @@ Gas of a transaction comprises of two components:
 
 The gas used amount is only determined after the transaction is executed. As such, you can find the gas used amount of a transaction from its receipt.
 
-## Effective gas price <a id="gas-price-overview"></a>
+## Effective gas price <a id="effective-gas-price"></a>
 
 Effective gas price of a transaction is calculated from many variables:
 
@@ -96,4 +96,3 @@ See [KIP-162](https://github.com/klaytn/kips/blob/main/KIPs/kip-162.md) for deta
 
 - You can retrieve the suggested `gasPrice` and `maxFeePerGas` value from the `kaia_gasPrice` and `eth_gasPrice` APIs. But the user, SDK or wallet can always choose their own value out of discretion as long as they exceed the current base fee.
 - A suggested `maxPriorityFeePerGas` value is served by `kaia_maxPriorityFeePerGas` and `eth_maxPriorityFeePerGas` APIs from the effective tip of previously mined transactions. But the user, SDK or wallet can always choose their own value out of discretion. Kaia RPC nodes with default settings uses P=60 and N=20 but the configuration can differ by nodes. Use `kaia_feeHistory` and `eth_feeHistory` API for more customized result.
-

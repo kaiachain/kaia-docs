@@ -4,20 +4,20 @@ Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For
 
 **NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone
 access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs
-you enable. By default, Klaytn enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
+you enable. By default, Kaia enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
 
 ## Enabling APIs  <a id="enabling-apis"></a>
 
 ### From Commandline <a id="from-commandline"></a>
 
-To offer the APIs over the Klaytn RPC endpoints, please specify them with the `--${interface}api`
+To offer the APIs over the Kaia RPC endpoints, please specify them with the `--${interface}api`
 command-line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
 
 `ipc` offers all APIs over the unix socket (Unix) or named pipe (Windows) endpoint without any flag.
 
-You can launch a Klaytn node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
+You can launch a Kaia node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
 
-Example) launching a Klaytn node with `klay` and `net` modules enabled:
+Example) launching a Kaia node with `kaia` and `net` modules enabled:
 
 ```shell
 $ ken --rpcapi klay,net --rpc --{other options}
@@ -37,7 +37,7 @@ example over an `rpc` interface:
 **IPC**
 
 ```javascript
-$ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U klay.ipc
+$ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kaia.ipc
 ```
 
 **HTTP**

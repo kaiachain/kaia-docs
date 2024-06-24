@@ -18,6 +18,7 @@ const deleteEndpoint = (path) => {
 }
 
 deleteEndpoint('../docs/references/json-rpc/klay')
+deleteEndpoint('../docs/references/json-rpc/kaia')
 deleteEndpoint('../docs/references/json-rpc/eth')
 deleteEndpoint('../docs/references/json-rpc/debug')
 deleteEndpoint('../docs/references/json-rpc/admin')

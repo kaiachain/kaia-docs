@@ -7,7 +7,7 @@
 
 ## Overview <a id="1-overview"></a>
 
-In this section, we are going to build front-end. This tutorial's main purpose is to learn how to connect contract with front-end code. We will thus briefly explain React codes and focus on the API functions interacting with contract deployed on Klaytn.
+In this section, we are going to build front-end. This tutorial's main purpose is to learn how to connect contract with front-end code. We will thus briefly explain React codes and focus on the API functions interacting with contract deployed on Kaia.
 
 ```text
 |-- src
@@ -28,11 +28,11 @@ In this section, we are going to build front-end. This tutorial's main purpose i
     |-- App.js
 ```
 
-`src/klaytn`: Contains files that help interact with Klaytn blockchain.
+`src/klaytn`: Contains files that help interact with Kaia blockchain.
 
 * `src/klaytn/caver.js`: Instantiates caver within configured setting.  
 
-  cf\) caver-js is a RPC library which makes a connection to Klaytn node, interacting with node or smart contract deployed on klaytn.
+  cf\) caver-js is a RPC library which makes a connection to Kaia node, interacting with node or smart contract deployed on klaytn.
 
 * `src/klaytn/Klaystagram.js`: Creates an instance of contract using caver-js API. You can interact with contract through the instance.
 
@@ -58,7 +58,7 @@ In this section, we are going to build front-end. This tutorial's main purpose i
 
 `'App.js'` is root component file for overall components. It renders two pages depending on user's login status. Each page has functions that interact with contract. You must add wallet instance to caver to send transactions to blockchain. Let’s briefly look at the code for overview.
 
-cf. caver-js\(or `cav` in the code\) is a library for interacting with Klaytn blockchain. We are going to learn in detail in the next chapter - [7-1. Connect Contract to Frontend](./feedpage.md#7-1-connect-contract-to-frontend)
+cf. caver-js\(or `cav` in the code\) is a library for interacting with Kaia blockchain. We are going to learn in detail in the next chapter - [7-1. Connect Contract to Frontend](./feedpage.md#7-1-connect-contract-to-frontend)
 
 ```javascript
 // src/App.js
@@ -155,10 +155,10 @@ If you have never logged in before, `walletInstance` session may not exist. Othe
 // 1. Inject wallet
 export const integrateWallet = (privateKey) => (dispatch) => {
   // Make wallet instance with caver's privateKeyToAccount API
-  const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)
+  const walletInstance = cav.kaia.accounts.privateKeyToAccount(privateKey)
 
   // To send a transaction, add wallet instance to caver
-  cav.klay.accounts.wallet.add(walletInstance)
+  cav.kaia.accounts.wallet.add(walletInstance)
 
   // To maintain logged-in status, store walletInstance at sessionStorage
   sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
@@ -175,7 +175,7 @@ export const integrateWallet = (privateKey) => (dispatch) => {
 
 // 2. Remove wallet
 export const removeWallet = () => (dispatch) => {
-  cav.klay.accounts.wallet.clear()
+  cav.kaia.accounts.wallet.clear()
   sessionStorage.removeItem('walletInstance')
   return dispatch({
     type: REMOVE_WALLET,
@@ -183,7 +183,7 @@ export const removeWallet = () => (dispatch) => {
 }
 ```
 
-cf. For further information about caver's `privateKeyToAccount` API, see [caver.klay.accounts.privateKeyToAccount](../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount).
+cf. For further information about caver's `privateKeyToAccount` API, see [caver.kaia.accounts.privateKeyToAccount](../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#privatekeytoaccount).
 
 **3. Render the page** Redux will initialize `isLoggedIn` state to true or false, depending on whether walletInstance exists in the session storage
 
@@ -202,9 +202,9 @@ In blockchain based app, there are two ways of interacting with contracts.
 2\) **Writing** data to contract.
 
 Reading data from contract is cost-free.  
-On the otherhand, there is cost for writing data to contract \(Sending a transaction\). For this reason, in order to write data, you must have Klaytn account that has some KLAY to pay for it.
+On the otherhand, there is cost for writing data to contract \(Sending a transaction\). For this reason, in order to write data, you must have Kaia account that has some KAIA to pay for it.
 
-In AuthPage, `SignupForm` helps you to create a Klaytn account \(private key\). After that, you can log in with the private key and pay for the transaction fee.
+In AuthPage, `SignupForm` helps you to create a Kaia account \(private key\). After that, you can log in with the private key and pay for the transaction fee.
 
 If you want to learn more about the two different login methods \(private key / keystore\),  
 please refer to the [5.2. Auth Component](../count-dapp/code-overview/auth-component.md) page.

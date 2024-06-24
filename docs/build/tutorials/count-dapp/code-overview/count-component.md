@@ -25,12 +25,12 @@ class Count extends Component {
   constructor() {
     super()
     // ** 1. Create contract instance **
-    // ex:) new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+    // ex:) new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
     // You can call contract method through this instance.
     // Now you can access the instance by `this.countContract` variable.
     this.countContract = DEPLOYED_ABI
       && DEPLOYED_ADDRESS
-      && new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+      && new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
     this.state = {
       count: '',
       lastParticipant: '',
@@ -57,7 +57,7 @@ class Count extends Component {
   }
 
   setPlus = () => {
-    const walletInstance = cav.klay.accounts.wallet && cav.klay.accounts.wallet[0]
+    const walletInstance = cav.kaia.accounts.wallet && cav.kaia.accounts.wallet[0]
 
     // Need to integrate wallet for calling contract method.
     if (!walletInstance) return
@@ -95,7 +95,7 @@ class Count extends Component {
   }
 
   setMinus = () => {
-    const walletInstance = cav.klay.accounts.wallet && cav.klay.accounts.wallet[0]
+    const walletInstance = cav.kaia.accounts.wallet && cav.kaia.accounts.wallet[0]
 
     // Need to integrate wallet for calling contract method.
     if (!walletInstance) return
@@ -199,7 +199,7 @@ export default Count
 
 ### 2) `Count` component's role <a href="#2-count-component-s-role" id="2-count-component-s-role"></a>
 
-`'Count'` component's role is interacting with Count contract deployed on the Klaytn blockchain.
+`'Count'` component's role is interacting with Count contract deployed on the Kaia blockchain.
 
 In Count.sol, we declared several variables and functions like below:
 
@@ -213,7 +213,7 @@ In Count.js component, we have methods to interact with the functions and variab
 ### 3) How to interact with contract? <a href="#3-how-to-interact-with-contract" id="3-how-to-interact-with-contract"></a>
 
 To interact with the contract, we need a contract instance of the deployed contract.\
-The contract instance can be made through `caver.klay.Contract(ABI, contractAddress)` API of caver-js. For more details, see [caver.klay.Contract](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md#new-contract).
+The contract instance can be made through `caver.kaia.Contract(ABI, contractAddress)` API of caver-js. For more details, see [caver.kaia.Contract](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.Contract.md#new-contract).
 
 With `Contract ABI`(Application Binary Interface), caver can call the contract method as if it is a local function,\
 for example)\
@@ -221,7 +221,7 @@ for example)\
 `contractInstance.methods.plus().send({ ... })`\
 `contractInstance.methods.minus().send({ ... })`
 
-`Contract address` can be found in the `build/contracts/Count.json` file after compiling and deploying the contract. For your testing convenience, we deployed the contract to the Klaytn testnet, and included the `deployedABI` and `deployedAddress` files in the directory. Those files contain the ABI of the Count contract and the deployed contract address.\
+`Contract address` can be found in the `build/contracts/Count.json` file after compiling and deploying the contract. For your testing convenience, we deployed the contract to the Kaia testnet, and included the `deployedABI` and `deployedAddress` files in the directory. Those files contain the ABI of the Count contract and the deployed contract address.\
 Thanks to the webpack configuration, we can access them via variables. (`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
 
 For example)\
@@ -232,17 +232,17 @@ For example)\
 constructor() {
   super()
   // ** 1. Create contract instance **
-  // ex:) new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+  // ex:) new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
   // You can call contract method through this instance.
   // Now you can access the instance by `this.countContract` variable.
   this.countContract = DEPLOYED_ABI
     && DEPLOYED_ADDRESS
-    && new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+    && new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
   ...
 }
 ```
 
-`this.countContract = new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)` creates a contract instance to interact with the deployed `Count` contract, by passing `DEPLOYED_ABI` and `DEPLOYED_ADDRESS` to the `cav.klay.Contract` API. And this contract instance is stored to `this.countContract`.
+`this.countContract = new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)` creates a contract instance to interact with the deployed `Count` contract, by passing `DEPLOYED_ABI` and `DEPLOYED_ADDRESS` to the `cav.kaia.Contract` API. And this contract instance is stored to `this.countContract`.
 
 ### 4) Interact with contract: `getCount` method <a href="#4-interact-with-contract-getcount-method" id="4-interact-with-contract-getcount-method"></a>
 
@@ -273,7 +273,7 @@ We can fetch the `lastParticipant` address by calling `this.countContract.method
 
 After fetching those variables, we set the state properties, `count` and `lastParticipant` with the received values.
 
-For further information about calling contract methods, see [caver.klay.Contract](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md#methods)
+For further information about calling contract methods, see [caver.kaia.Contract](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.Contract.md#methods)
 
 ```javascript
 componentDidMount() {
@@ -286,13 +286,13 @@ componentWillUnmount() {
 ```
 
 We want to fetch the `count` variable per 1 second, it can be achieved by `setInterval`.
-It is the same as we did in the `getBlockNumber` in `BlockNumber.js` which calls `caver.klay.getBlockNumber()` intervally.
+It is the same as we did in the `getBlockNumber` in `BlockNumber.js` which calls `caver.kaia.getBlockNumber()` intervally.
 
 ### 5) Interact with contract: `setPlus` method <a href="#5-interact-with-contract-setplus-method" id="5-interact-with-contract-setplus-method"></a>
 
 ```javascript
 setPlus = () => {
-  const walletInstance = cav.klay.accounts.wallet && cav.klay.accounts.wallet[0]
+  const walletInstance = cav.kaia.accounts.wallet && cav.kaia.accounts.wallet[0]
 
   // Need to integrate wallet for calling contract method.
   if (!walletInstance) return
@@ -332,10 +332,10 @@ setPlus = () => {
 
 `setPlus` function is the most important part in Count component. It interacts with the contract by calling contract function `plus`. Since this function is also a contract method, it is contained in the `this.counterContract.methods`.
 
-However, unlike `count` and `lastParticipant` that just reads data, `plus` function **writes data** to the Klaytn blockchain.\
+However, unlike `count` and `lastParticipant` that just reads data, `plus` function **writes data** to the Kaia blockchain.\
 Reading data is free, however writing data incurs cost for the use of computation and storage. The cost is measured by the amount of `gas` used.
 
-By this reason, sending a transaction needs `from:` property to inform the Klaytn node who is responsible for the transaction fee. `gas:` property defines the maximum amount of gas the transaction sender is willing to pay for the transaction.
+By this reason, sending a transaction needs `from:` property to inform the Kaia node who is responsible for the transaction fee. `gas:` property defines the maximum amount of gas the transaction sender is willing to pay for the transaction.
 
 ```javascript
 this.countContract.methods.plus().send({
@@ -435,5 +435,5 @@ try{
 
 ![check-transaction](/img/build/tutorials/tutorial-check-your-transaction.gif)
 
-After sending a transaction, you can check your transaction detail using Klaytnscope.\
+After sending a transaction, you can check your transaction detail using Kaiascope.\
 Check it in `https://baobab.klaytnscope.com/tx/${txHash}`.

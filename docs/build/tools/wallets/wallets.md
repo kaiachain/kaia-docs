@@ -1,8 +1,8 @@
 # Wallets 
 
-Wallets on Klaytn allows for access to accounts controlled by private keys, thus facilitating private key management, signing crypto transactions and also provides an interface to access(i.e send and receive) digital assets. This section provides a list of Klaytn supported wallets. Lets get started!
+Wallets on Kaia allows for access to accounts controlled by private keys, thus facilitating private key management, signing crypto transactions and also provides an interface to access(i.e send and receive) digital assets. This section provides a list of Kaia supported wallets. Lets get started!
 
-> **Note**: The wallets provided below are third party wallets that have integrated with Klaytn and as such it’s much advised for users to do their due diligence before using them. 
+> **Note**: The wallets provided below are third party wallets that have integrated with Kaia and as such it’s much advised for users to do their due diligence before using them. 
 
 
 | Wallet      | Custody |     Account Type        |  Platforms            |    Multi-sig         |        Browser Extension     |      NFT       |   Bridge Support          |
@@ -21,7 +21,7 @@ Wallets on Klaytn allows for access to accounts controlled by private keys, thus
 | [Favorlet](https://favorlet.io/)   | Non-custodial        |  EOA           |  Mobile           |  No           |   No          |  Support           | No            |
 | [Huobi Wallet](https://www.itoken.com/en)   | Non-custodial        |   EOA          |      Mobile       |      No       |    No         |    Support         |  No           |
 | [Kaikas](https://app.kaikas.io/)   | Non-custodial        |   EOA          |  Mobile, Browser           |  No           |    Yes         |    Support         |   No          |
-| [Klaytn Safe](https://safe.klaytn.foundation/)   | Non-custodial        |  Smart Contract           |  Web App           |  Yes           | No            |   Support         |    No         |
+| [Kaia Safe](https://safe.klaytn.foundation/)   | Non-custodial        |  Smart Contract           |  Web App           |  Yes           | No            |   Support         |    No         |
 | [Klip Wallet](https://klipwallet.com/)   | Non-custodial        |    EOA         |  Mobile           |  No           |      No       |   Support          |  No           |
 | [Krystal DeFi](https://krystal.app/)   | Non-custodial        |  EOA           |   Mobile, Web App          |   No          |  No           |  Support            |  Yes           |
 | [Math Wallet](https://mathwallet.org/en-us/)   | Custodial        |  EOA           |   Mobile, Web App, Browser          |    No         |   Yes          |  Support           |    Yes         |

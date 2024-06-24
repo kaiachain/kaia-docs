@@ -7,7 +7,7 @@
 3. [Providers](#3-providers)
 
 ## Introduction
-[Kaikas](https://docs.kaikas.io) is a non-custodial wallet, similar to [Metamask](https://metamask.io), with additional support for Klaytn-specific [Transactions](https://docs.klaytn.foundation/docs/learn/transactions) & [Accounts](https://docs.klaytn.foundation/docs/learn/accounts). This article will guide you through integrating [Kaikas](https://docs.kaikas.io) with a decentralized application (dApp), from High-level (abstract) to Low-level (fine-grained) implementations.
+[Kaikas](https://docs.kaikas.io) is a non-custodial wallet, similar to [Metamask](https://metamask.io), with additional support for Kaia-specific [Transactions](https://docs.klaytn.foundation/docs/learn/transactions) & [Accounts](https://docs.klaytn.foundation/docs/learn/accounts). This article will guide you through integrating [Kaikas](https://docs.kaikas.io) with a decentralized application (dApp), from High-level (abstract) to Low-level (fine-grained) implementations.
 
 For the sake of this guide, we will be dividing Kaikas dApp integration into three main categories:
 
@@ -77,7 +77,7 @@ Example Code: [kaikas-web3onboard-react](https://github.com/klaytn/examples/tree
 
 Libraries like [web3klaytn](#2.1-web3klaytn) & [ethers.js](#2.2-ethersjs-example) abstract just enough to streamline blockchain interactions while still being able to call [Provider](#3-providers) APIs directly.
 
-Using Utility Libraries to connect an account or send native tokens (e.g., KLAY/ETH) will be no different, *in terms of syntax & lines of code*, from calling Providers directly. Where libraries mainly improve are in the following areas:
+Using Utility Libraries to connect an account or send native tokens (e.g., KAIA/ETH) will be no different, *in terms of syntax & lines of code*, from calling Providers directly. Where libraries mainly improve are in the following areas:
 
 * Smart Contract interactions
   * These involve ABIs, encoding inputs, & decoding outputs. Without a library, the code for these can be verbose & error-prone.
@@ -87,7 +87,7 @@ Using Utility Libraries to connect an account or send native tokens (e.g., KLAY/
 
 ### 2.1. web3klaytn
 
-[web3klaytn](https://github.com/klaytn/web3klaytn) is a set of drop-in extensions for other Utility Libraries, like [ethers.js](https://docs.ethers.io/v6) & [web3.js](https://web3js.org). It allows you to use your preferred library while exposing first-party support for [Klaytn-specific methods](https://docs.klaytn.foundation/docs/references/json-rpc):
+[web3klaytn](https://github.com/klaytn/web3klaytn) is a set of drop-in extensions for other Utility Libraries, like [ethers.js](https://docs.ethers.io/v6) & [web3.js](https://web3js.org). It allows you to use your preferred library while exposing first-party support for [Kaia-specific methods](https://docs.klaytn.foundation/docs/references/json-rpc):
 
 * Transaction, Account, & Account Key types
 * Fee Delegation
@@ -113,4 +113,4 @@ Example Code: [kaikas-ethersjs](https://github.com/klaytn/examples/tree/main/too
 
 ## 3. Providers
 
-At the lowest level is the Provider, [`window.klaytn`](https://docs.kaikas.io/02_api_reference/01_klaytn_provider) (Kaikas itself). You might prefer [Utility Libraries](#2-utility-libraries), but knowledge of Provider APIs helps debug & understand how dependent libraries work. Referring to [Klaytn's JSON-RPC API][Klaytn-API] is necessary for using Klaytn-specific methods like [`klay_getAccount`](https://docs.klaytn.foundation/docs/references/json-rpc/klay/get-account), [`klay_sendTransactionAsFeePayer`](https://docs.klaytn.foundation/docs/references/json-rpc/klay/send-transaction-as-fee-payer), & more.
+At the lowest level is the Provider, [`window.klaytn`](https://docs.kaikas.io/02_api_reference/01_klaytn_provider) (Kaikas itself). You might prefer [Utility Libraries](#2-utility-libraries), but knowledge of Provider APIs helps debug & understand how dependent libraries work. Referring to [Kaia's JSON-RPC API][Kaia-API] is necessary for using Kaia-specific methods like [`kaia_getAccount`](https://docs.klaytn.foundation/docs/references/json-rpc/klay/get-account), [`kaia_sendTransactionAsFeePayer`](https://docs.klaytn.foundation/docs/references/json-rpc/klay/send-transaction-as-fee-payer), & more.

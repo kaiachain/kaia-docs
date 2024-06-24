@@ -8,20 +8,20 @@
 
 ## ServiceChain Overview <a id="service-chain-overview"></a>
 
-ServiceChain is an enterprise-level blockchain to meet companies' requirements such as value transfer, security, high performance, and customization. Klaytn ServiceChain provides the following features:
+ServiceChain is an enterprise-level blockchain to meet companies' requirements such as value transfer, security, high performance, and customization. Kaia ServiceChain provides the following features:
 
 - Immediate finality
-- Token transfer between Klaytn chains
+- Token transfer between Kaia chains
 - Data anchoring to the main chain for data integrity
 - Multi-sig bridge contract to meet enterprise-level security requirements
 
 ![](/img/nodes/sc-overview.png)
 
 
-Read the [Klaytn Scaling Solution](../../learn/scaling-solutions.md) for more details about the ServiceChain. And the following videos will help you understand Klaytn ServiceChain.
+Read the [Kaia Scaling Solution](../../learn/scaling-solutions.md) for more details about the ServiceChain. And the following videos will help you understand Kaia ServiceChain.
 
-- [Horizontal Scaling through Service Chain in Klaytn | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
-- [High Availability Architecture of Klaytn Service Chain | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
+- [Horizontal Scaling through Service Chain in Kaia | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
+- [High Availability Architecture of Kaia Service Chain | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
 
 
 ## Download <a id="download"></a>
@@ -66,7 +66,7 @@ $ yum install homi-vX.X.X.el7.x86_64.rpm
 
 ### Installed Location <a id="scn-configuration"></a>
 
-The Klaytn Linux package consists of the executable binary and the configuration file structured as follows.
+The Kaia Linux package consists of the executable binary and the configuration file structured as follows.
 
 | File Name | Location |
 | :--- | :--- |
@@ -97,8 +97,8 @@ Created :  homi-output/scripts/genesis.json
 Created :  homi-output/keys/nodekey1
 Created :  homi-output/keys/validator1
 Created :  homi-output/scripts/static-nodes.json
-Created :  homi-output/Klaytn.json
-Created :  homi-output/Klaytn_txpool.json
+Created :  homi-output/Kaia.json
+Created :  homi-output/Kaia_txpool.json
 ```
  
 Below are examples of genesis file and nodekey file.
@@ -137,14 +137,14 @@ $ cat homi-output/keys/nodekey1
 ```
 
 Please change the chainID in the genesis file. Use your own number to prevent a replay attack.
-(Do not use the same chainID with Klaytn Cypress (8217) and Baobab (1001))
+(Do not use the same chainID with Kaia Mainnet (8217) and Kairos (1001))
 
 If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file.
 (You can find more details in [Genesis JSON](../service-chain/configure/genesis.md).)
 
 ### SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. 
+Considering the fact that the size of Kaia blockchain data keeps increasing, it is recommended to use a big enough storage. 
 You can create the data directory on your desired path.
 In this document, we create `~/kscnd_home` as a data directory. 
 
@@ -179,7 +179,7 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
 ```
 
 #### Install nodekey <a id="install_nodekey"></a>
-Copy `homi-output/keys/nodekey1` to the `klay` directory in the SCN's data directory like below. 
+Copy `homi-output/keys/nodekey1` to the `kaia` directory in the SCN's data directory like below. 
 
 ```bash
 $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
@@ -217,7 +217,7 @@ Otherwise, now you can finish the configuration and you are ready to run the ser
 
 ## Starting/Stopping SCN <a id="starting-stopping-scn"></a>
 
-Depending on your installation type, you can start/stop the Klaytn service with the following `systemctl`  or `kscnd` command.
+Depending on your installation type, you can start/stop the Kaia service with the following `systemctl`  or `kscnd` command.
 
 **start**
 
@@ -314,15 +314,15 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 #### kscn console <a id="kscn-console"></a>
 
-Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
+Kaia provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `kaia.ipc` is located in the `data` directory on an SCN.
 
 Please execute the following command and check out the result.
 
 ```text
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach ~/kscnd_home/kaia.ipc
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
@@ -333,15 +333,15 @@ You can check the usable commands on [API Document](../../../references/json-rpc
 
 The useful APIs to check the status of SCN:
 
-* `klay.blockNumber` (to get the latest block number)
-* `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+* `kaia.blockNumber` (to get the latest block number)
+* `net.peerCount` (to get the number of the connected Kaia nodes currently)
 
-#### klay.blockNumber <a id="klay-blocknumber"></a>
+#### kaia.blockNumber <a id="kaia-blocknumber"></a>
 
 You can get the latest block number to see if blocks are propagated properly.
 
 ```text
-> klay.blockNumber
+> kaia.blockNumber
 11573819
 ```
 

@@ -4,7 +4,7 @@
 
 ## Introduction <a id="introduction"></a>
 
-This section will guide you through deploying a Marketplace contract and a corresponding NFT collection contract to Klaytn Network using [ThirdWeb](https://portal.thirdweb.com/). Thirdweb is a complete web3 development framework that provides everything you need to connect your apps and games to decentralized networks.
+This section will guide you through deploying a Marketplace contract and a corresponding NFT collection contract to Kaia Network using [ThirdWeb](https://portal.thirdweb.com/). Thirdweb is a complete web3 development framework that provides everything you need to connect your apps and games to decentralized networks.
 
 Marketplace contract allows users to list NFTs for direct sale or auction, thus enhancing the buying and selling of NFTs, just like it’s done on OpenSea.
 
@@ -43,7 +43,7 @@ In this section, we will create and deploy a marketplace contract using thirdweb
 
 ![](/img/build/get-started/marketplace-deployed.png)
 
-Once the transaction has been successfully executed, you can verify your deployment by pasting the contract address in the search bar of [Klaytnscope](https://klaytnscope.com/).
+Once the transaction has been successfully executed, you can verify your deployment by pasting the contract address in the search bar of [Kaiascope](https://klaytnscope.com/).
 
 ## Creating and deploying an NFT collection contract using thirdweb CLI <a id="creating-deploying-using-thirdweb-cli"></a>
 
@@ -120,7 +120,7 @@ Executing this command will trigger the following actions:
     * **_royaltyRecipient**: wallet address to receive royalties from secondary sales
     * **_royaltyBps**: basis points (bps) that will be given to the royalty recipient for each secondary sale, e.g., 500 = 5%
 
-3. Select `Klaytn Mainnet Cypress` as the network to deploy the contract to.
+3. Select `Kaia Mainnet` as the network to deploy the contract to.
 
 ![](/img/build/get-started/nft-collection-deploy.png)
 
@@ -160,7 +160,7 @@ In this section, we will mint an NFT and also transferring it to another account
 
 ## Conclusion <a id="conclusion"></a>
 
-Congratulations! if you made it to the end of this guide. If you have any questions, visit the [Klaytn Forum](https://forum.klaytn.foundation/) or reach out to the [official thirdweb support](https://support.thirdweb.com/). However, below is a list of useful resources you might need while further building with Thirdweb on Klaytn.
+Congratulations! if you made it to the end of this guide. If you have any questions, visit the [Kaia Forum](https://forum.klaytn.foundation/) or reach out to the [official thirdweb support](https://support.thirdweb.com/). However, below is a list of useful resources you might need while further building with Thirdweb on Kaia.
 
 * [Thirdweb Docs](https://portal.thirdweb.com/)
 * [How to build a dApp using Thirdweb](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)

@@ -21,10 +21,10 @@ On the other hand, there is a cost for writing data to contract.
 
 cf) `Sending a transaction`\
 Writing data to contracts or blockchain is called 'sending a transaction'.\
-For example, if you send 5 KLAY to your friend, you could think of it as `writing data to the blockchain that I sent 5 KLAY to my friend`.\
+For example, if you send 5 KAIA to your friend, you could think of it as `writing data to the blockchain that I sent 5 KAIA to my friend`.\
 Calling a contract method is the same. You could think of it as `writing data onto the contract that I set variable X to 100`. All actions related to writing data to blockchain or contract is called `sending a transaction`.
 
-To write data to contract, you should have a Klaytn account which has KLAY to pay for the transaction fee.\
+To write data to contract, you should have a Kaia account which has KAIA to pay for the transaction fee.\
 `Auth` component helps you log in to your app.
 
 ### 2) `Auth` component overview <a href="#2-auth-component-overview" id="2-auth-component-overview"></a>
@@ -44,8 +44,8 @@ Main features are:\
 
 ```javascript
 integrateWallet = (privateKey) => {
-  const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)
-  cav.klay.accounts.wallet.add(walletInstance)
+  const walletInstance = cav.kaia.accounts.privateKeyToAccount(privateKey)
+  cav.kaia.accounts.wallet.add(walletInstance)
   sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
   this.reset()
 }
@@ -53,11 +53,11 @@ integrateWallet = (privateKey) => {
 
 `integateWallet` function takes `privateKey` as an argument, use it to generate a wallet instance.
 
-Line 1: `const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)`\
+Line 1: `const walletInstance = cav.kaia.accounts.privateKeyToAccount(privateKey)`\
 It stores the wallet instance made by `privateKeyToAccount` API to the `walletInstance` variable.
 
-Line 2: `cav.klay.accounts.wallet.add(walletInstance)`\
-To send a transaction, you should add a wallet instance to caver through `cav.klay.accounts.wallet.add(walletInstance)`.
+Line 2: `cav.kaia.accounts.wallet.add(walletInstance)`\
+To send a transaction, you should add a wallet instance to caver through `cav.kaia.accounts.wallet.add(walletInstance)`.
 
 Line 3: `sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))`\
 `sessionStorage.setItem` is a browser API used for storing a value to the browser's session storage.\
@@ -68,7 +68,7 @@ cf) Items in the session storage disappears when the user closes the browser tab
 Line 4: `this.reset()`\
 It resets the current component's state to the initial state to clear your input.
 
-For further information about `privateKeyToAccount` API of caver-js, see [caver.klay.accounts.privateKeyToAccount](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount)
+For further information about `privateKeyToAccount` API of caver-js, see [caver.kaia.accounts.privateKeyToAccount](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#privatekeytoaccount)
 
 ### 4) `Auth` component feature: User can import keystore file and input password to login. <a href="#4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log" id="4-auth-component-feature-user-can-import-keystore-file-and-input-password-to-log"></a>
 
@@ -131,7 +131,7 @@ Fill password into `<input>` element. Entered value will be stored as `password`
 />
 ```
 
-Both the keystore file and its password are ready. We can now decrypt the keystore file to extract the private key through `cav.klay.accounts.decrypt(keystore, password)` API.\
+Both the keystore file and its password are ready. We can now decrypt the keystore file to extract the private key through `cav.kaia.accounts.decrypt(keystore, password)` API.\
 This API returns a wallet instance containing the private key. After importing the private key, we can use `integrateWallet` method we've visited earlier.
 
 ```javascript
@@ -146,7 +146,7 @@ handleLogin = () => {
 
   // Access type1: access through keystore + password
   try {
-    const { privateKey: privateKeyFromKeystore } = cav.klay.accounts.decrypt(keystore, password)
+    const { privateKey: privateKeyFromKeystore } = cav.kaia.accounts.decrypt(keystore, password)
     this.integrateWallet(privateKeyFromKeystore)
   } catch (e) {
     this.setState({ keystoreMsg: `Password doesn't match.` })
@@ -154,25 +154,25 @@ handleLogin = () => {
 }
 ```
 
-For further information about decrypting keystore file with password, see [caver.klay.accounts.decrypt](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#decrypt)
+For further information about decrypting keystore file with password, see [caver.kaia.accounts.decrypt](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#decrypt)
 
 ### 5) `Auth` component feature: User can logout, remove wallet instance information from browser. <a href="#5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from" id="5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from"></a>
 
 'logout' means removing the wallet instance from the browser and caver.\
-`cav.klay.accounts.wallet.clear()` removes all wallet instances from caver.\
+`cav.kaia.accounts.wallet.clear()` removes all wallet instances from caver.\
 `sessionStorage.removeItem('walletInstance')` removes the wallet instance from the browser's session storage.
 
 ```javascript
 /**
  * removeWallet method removes
- * 1) wallet instance from caver.klay.accounts
+ * 1) wallet instance from caver.kaia.accounts
  * 2) 'walletInstance' value from session storage.
  */
 removeWallet = () => {
-  cav.klay.accounts.wallet.clear()
+  cav.kaia.accounts.wallet.clear()
   sessionStorage.removeItem('walletInstance')
   this.reset()
 }
 ```
 
-For further information about clearing a wallet instance from caver-js, see [caver.klay.accounts.wallet.clear](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#wallet-clear)
+For further information about clearing a wallet instance from caver-js, see [caver.kaia.accounts.wallet.clear](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#wallet-clear)
