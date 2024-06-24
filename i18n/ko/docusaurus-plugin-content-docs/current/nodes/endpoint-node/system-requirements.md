@@ -18,12 +18,12 @@ EN의 경우 다음 사양을 권장합니다.
 
 EN에 대한 정확한 물리적 머신 사양은 명시되어 있지 않지만, Cloud VM 섹션에 나와 있는 것과 유사한 하드웨어 구성을 가진 물리적 머신이면 EN을 작동하는 데 충분합니다.
 
-## Storage Requirements <a id="storage-requirements"></a>
+## 스토리지 요구 사항 <a id="storage-requirements"></a>
 
-Assuming 100 TPS in average,  300 bytes average transaction size, and 1-second block latency, the expected EN daily storage requirement is 2.5 GB/day (=300x100x86400).
+평균 100 TPS, 평균 트랜잭션 크기 300바이트, 블록 지연 시간 1초를 가정할 때, 예상되는 EN 일일 스토리지 요구량은 2.5GB/일(=300x100x86400)입니다.
 
-## Operating System <a id="operating-system"></a>
+## 운영 체제 <a id="operating-system"></a>
 
-Recommended environment is [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/).
-Kaia binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well.
-macOS binaries are also provided for development purpose.
+권장 환경은 [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/)입니다.
+카이아 바이너리는 Amazon Linux 2에서 완벽하게 테스트되었지만, 다른 리눅스 기반 환경에서도 작동할 것입니다.
+개발 목적으로 macOS 바이너리도 제공됩니다.
