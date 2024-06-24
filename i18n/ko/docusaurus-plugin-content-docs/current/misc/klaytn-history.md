@@ -44,16 +44,16 @@ Ethereum's Shanghai hardfork items were introduced with the [v1.11.0 release](ht
 
 ### Summary
 
-KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It includes an implementation of [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103) that is a technical specification of treasury rebalance([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
+KIP-103 하드포크는 [v1.10.2 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.10.2)와 함께 도입되었습니다. 여기에는 Treasury 리밸런싱의 기술 사양인 [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103)의 구현이 포함되어 있습니다([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
 
 ### Treasury Rebalance <a id="treasury-rebalance"></a>
 
-| ` `                                | Baobab                                     | Cypress                                    |
-| ---------------------------------- | ------------------------------------------ | ------------------------------------------ |
-| TreasuryRebalance contract address | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
-| KCV address                        | 0xaa8d19a5e17e9e1bA693f13aB0E079d274a7e51E | 0x4f04251064274252D27D4af55BC85b68B3adD992 |
-| KFF address                        | 0x8B537f5BC7d176a94D7bF63BeFB81586EB3D1c0E | 0x85D82D811743b4B8F3c48F3e48A1664d1FfC2C10 |
-| KCF address                        | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 |
+| ` `                       | Baobab                                     | Cypress                                    |
+| ------------------------- | ------------------------------------------ | ------------------------------------------ |
+| TreasuryRebalance 컨트랙트 주소 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
+| KCV 주소                    | 0xaa8d19a5e17e9e1bA693f13aB0E079d274a7e51E | 0x4f04251064274252D27D4af55BC85b68B3adD992 |
+| KFF 주소                    | 0x8B537f5BC7d176a94D7bF63BeFB81586EB3D1c0E | 0x85D82D811743b4B8F3c48F3e48A1664d1FfC2C10 |
+| KCF 주소                    | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 |
 
 ## Kore <a id="kore"></a>
 
@@ -64,7 +64,7 @@ KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/kl
 
 ### Summary
 
-Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.0). It is an implementation of the on-chain governance voting method ([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)), a new GC reward structure ([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)), and EVM changes.
+Kore 하드포크는 [v1.10.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.10.0)와 함께 도입되었습니다. 온체인 거버넌스 투표 방식([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)), 새로운 GC 보상 구조([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)) 및 EVM 변경 사항을 구현한 것입니다.
 
 ## Magma <a id="magma"></a>
 
@@ -75,18 +75,18 @@ Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klayt
 
 ### Summary
 
-Magma hardfork was introduced with the [v1.9.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.9.0). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
+Magma 하드포크는 [v1.9.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.9.0)와 함께 도입되었습니다. 여기에는 동적 가스비 가격 책정 메커니즘인 [#1493](https://github.com/klaytn/klaytn/pull/1493)이 포함되어 있으며, [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71)의 구현입니다.)
 
 ## EthTxType <a id="eth-tx-type"></a>
 
 | ` `          | Baobab                                                        | Cypress                                                       |
 | ------------ | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| Date         | Mar 27, 2022 23:56:31 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
+| Date         | 2022년 3월 27일 23:56:31 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+9 |
 | Block number | `#86,513,895`                                                 | `#86,816,005`                                                 |
 
 ### Summary
 
-Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.8.0). It includes new transactions types to support Ethereum transaction types: TxTypeEthereumAccessListand TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158)).
+이더리움의 EthereumTransactionType 변경은 [v1.8.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.8.0)에서 도입되었습니다. 여기에는 EthereumTransactionType을 지원하기 위한 새로운 트랜잭션 유형이 포함됩니다: TxTypeEthereumAccessList와 TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158)).
 
 ## London EVM <a id="london-evm"></a>
 
@@ -97,15 +97,15 @@ Ethereum's EthTxType changes were introduced with the [v1.8.0 release](https://g
 
 ### Summary
 
-Ethereum's London hard fork items were introduced with the [v1.7.3 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.3), which includes BaseFee EVM opcode for Ethereum London EVM compatibility ([#1065](https://github.com/klaytn/klaytn/pull/1065), [#1066](https://github.com/klaytn/klaytn/pull/1066), [#1096](https://github.com/klaytn/klaytn/pull/1096)).
+이더리움의 London 하드포크 항목은 [v1.7.3 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.7.3)와 함께 도입되었으며, 여기에는 이더리움 London EVM 호환을 위한 BaseFee EVM Opcode([#1065](https://github.com/klaytn/klaytn/pull/1065), [#1066](https://github.com/klaytn/klaytn/pull/1066), [#1096](https://github.com/klaytn/klaytn/pull/1096)가 포함되어 있습니다.)
 
 ## Istanbul EVM <a id="istanbul-evm"></a>
 
-| ` `          | Baobab                                                        | Cypress                                                      |
-| ------------ | ------------------------------------------------------------- | ------------------------------------------------------------ |
-| Date         | Nov 17, 2021 23:42:13 / UTC+9 | Mar 31, 2022 12:14:39 / UTC+ |
-| Block number | `#75,373,312`                                                 | `#86,816,005`                                                |
+| ` `          | Baobab                                                            | Cypress                                                       |
+| ------------ | ----------------------------------------------------------------- | ------------------------------------------------------------- |
+| Date         | 2021 년 11 월 17 일 23:42:13 / UTC+9 | 2022년 3월 31일 12:14:39 / UTC+9 |
+| Block number | `#75,373,312`                                                     | `#86,816,005`                                                 |
 
 ### Summary
 
-Ethereum's Istanbul hard fork items were introduced with the [v1.7.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.7.0), which includes changes from [EIP-152](https://eips.ethereum.org/EIPS/eip-152), [EIP-1108](https://eips.ethereum.org/EIPS/eip-1108), [EIP-1344](https://eips.ethereum.org/EIPS/eip-1344), [EIP-1844](https://eips.ethereum.org/EIPS/eip-1844), and [EIP-2200](https://eips.ethereum.org/EIPS/eip-2200).
+이더리움의 Istanbul 하드포크 항목은 [v1.7.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.7.0)와 함께 도입되었으며, 여기에는 [EIP-152](https://eips.ethereum.org/EIPS/eip-152), [EIP-1108](https://eips.ethereum.org/EIPS/eip-1108), [EIP-1344](https://eips.ethereum.org/EIPS/eip-1344), [EIP-1844](https://eips.ethereum.org/EIPS/eip-1844), [EIP-2200](https://eips.ethereum.org/EIPS/eip-2200)의 변경 사항이 포함되어 있습니다.
