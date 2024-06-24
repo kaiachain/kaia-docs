@@ -1,19 +1,19 @@
-# Migrate Chaindata
+# 체인데이터 마이그레이션
 
 <aside>
-💡 Run migration only for PN and EN nodes (not CN)
+💡 PN 및 EN 노드(CN 제외)에 대해서만 마이그레이션 실행
 
 </aside>
 
-## Things to know before this job <a id="things-to-know-before-this-job"></a>
+## 이 작업 전에 알아두어야 할 사항 <a id="things-to-know-before-this-job"></a>
 
-- It needs m6i.8xlarge spec (32 cores and 128GB memory) or higher
-- 7 days for full progress (Migration is divided in 2 parts)
-  - Part 1 - Migrate DB to a new directory (The message “State migration is completed”  appears)
-  - Part 2 - New Block generation on new directory (old directory will be deleted after this)
-- 500GB free space should be available
+- m6i.8xlarge 사양(32코어, 128GB 메모리) 이상 필요
+- 전체 진행에 7일 소요(마이그레이션은 2부로 나누어 진행)
+  - 1부 - 새 디렉터리로 DB 마이그레이션 (상태 마이그레이션 완료 메시지 표시)
+  - 2부 - 새 디렉터리에 신규 블록 생성 (이후 기존 디렉터리는 삭제됨)
+- 500GB의 여유 공간이 있어야 합니다.
 
-## Go to Kaia Console
+## 카이아 콘솔로 이동하기
 
 ```bash
 $ kpn attach kaia.ipc
