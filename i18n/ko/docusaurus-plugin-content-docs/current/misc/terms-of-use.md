@@ -1,35 +1,35 @@
-# Terms of Use
+# 사용 약관
 
-## 1. Your Use of Open Source Software <a id="1-your-use-of-open-source-software"></a>
+## 1. 오픈 소스 소프트웨어 사용 <a id="1-your-use-of-open-source-software"></a>
 
-We may make \(but are not obligated to make\) the source code of Kaia Blockchain Network Platform \("Platform"\), the software on the Platform, etc. for download as open source software. If you use this open source software, you agree to be bound by and comply with any license that applies to this open source software. You will not indicate that you are associated with us in connection with your use, modifications or distributions of this open source software.
+당사는 카이아 블록체인 네트워크 플랫폼 ("플랫폼")의 소스코드, 플랫폼 상의 소프트웨어 등을 오픈소스 소프트웨어로 다운로드할 수 있도록 만들 수 있습니다(단, 만들 의무는 없습니다). 귀하가 이 오픈소스 소프트웨어를 사용하는 경우, 귀하는 이 오픈소스 소프트웨어에 적용되는 모든 라이선스에 구속되고 이를 준수하는 데 동의합니다. 귀하는 이 오픈 소스 소프트웨어의 사용, 수정 또는 배포와 관련하여 귀하가 당사와 관련이 있음을 표시하지 않습니다.
 
-## 2. Services Provided on the Platform <a id="2-services-provided-on-the-platform"></a>
+## 2. 플랫폼에서 제공되는 서비스 <a id="2-services-provided-on-the-platform"></a>
 
-The Platform is a combination of peer-to-peer subnetworks of nodes transmitting transactions and blocks to execute value transfers and run smart contracts. The Core Cell Network \("CCN"\), which is one of the subnetworks that constitute the Platform, verifies and executes transactions that occur on the Platform. The CCN is operated by Kaia Governance Council, which is a collective group of Core Cell Operators, and Kaia is not directly involved in any services that are provided in or individual transactions that occur on the Platform.
+플랫폼은 트랜잭션을 전송하는 노드들의 P2P 하위 네트워크와 밸류 전송을 실행하고 스마트 컨트랙트를 실행하기 위한 블록의 조합입니다. 플랫폼을 구성하는 하위 네트워크 중 하나인 코어 셀 네트워크 ("CCN")는 플랫폼에서 발생하는 트랜잭션을 검증하고 실행합니다. CCN은 코어 셀 운영자들의 집단인 Kaia 거버넌스 카운슬에 의해 운영되며, 카이아는 플랫폼에서 제공되는 서비스나 플랫폼에서 발생하는 개별 트랜잭션에 직접 관여하지 않습니다.
 
-## 3. Your Installation of dApp on the Platform <a id="3-your-installation-of-dapp-on-the-platform"></a>
+## 3. 플랫폼에 dApp 설치 <a id="3-your-installation-of-dapp-on-the-platform"></a>
 
-Your use of open source software is free of charge. However, you may be required to pay a certain number of KAIA as a transaction fee in order to execute a transaction on the Platform, including the installation of the dApp on the Platform.
+오픈 소스 소프트웨어의 사용은 무료입니다. 그러나 플랫폼에 dApp을 설치하는 등 플랫폼에서 트랜잭션을 실행하기 위해서는 트랜잭션 수수료로 일정 수의 KAIA를 지불해야 할 수 있습니다.
 
-Once transaction is executed successfully and respective block generation is verified successfully by the Platform’s mechanism, the block is irreversibly stored in the blockchain. As such, your installation of the dApp and any other transactions on the Platform, as well as the submission of transaction fee is final and irrevocable.
+트랜잭션이 성공적으로 실행되고 플랫폼의 메커니즘에 의해 각 블록 생성이 성공적으로 확인되면, 해당 블록은 블록체인에 비가역적으로 저장됩니다. 따라서 플랫폼에서 dApp 설치 및 기타 거래와 트랜잭션 수수료 제출은 최종적이며 취소할 수 없습니다.
 
-## 4. User Content <a id="4-user-content"></a>
+## 4. 사용자 콘텐츠 <a id="4-user-content"></a>
 
-If you or the users of your dApp post, upload, input, provide or submit any content on the Platform \(collectively, your "User Content"\), you must ensure that the User Content provided by you or the users of your dApp at that or at any other time is true, accurate, up to date and complete and that any User Content you or the users of your dApp post, upload, input, provide or submit via the Platform do not breach or infringe legal rights of any third party. To the extent that is technically possible, you agree to prevent, remove or block access of any User Content that you or the users of your dApp post, upload, input, provide or submit via the Platform that violate or may violate legal rights \(such as rights of privacy and publicity\) of others or any applicable laws or regulations. We do not own, control or endorse any User Content that is transmitted, stored or processed via the Platform or sent to us and we are not responsible or liable for any User Content. We make no assurance that any of Your Content will be secured or that such content will remain confidential.
+귀하 또는 귀하의 dApp 사용자가 플랫폼에 콘텐츠를 게시, 업로드, 입력, 제공 또는 제출하는 경우(총칭하여 "사용자 콘텐츠"라 함), 귀하는 귀하 또는 귀하의 dApp 사용자가 해당 시점 또는 다른 시점에 제공하는 사용자 콘텐츠가 진실하고 정확하며 최신의 완전한 것이며 귀하 또는 귀하의 dApp 사용자가 플랫폼을 통해 게시, 업로드, 입력, 제공 또는 제출하는 모든 사용자 콘텐츠가 제3자의 법적 권리를 위반하거나 침해하지 않도록 보장해야 합니다. 귀하는 기술적으로 가능한 범위 내에서 귀하 또는 귀하의 dApp 사용자가 플랫폼을 통해 게시, 업로드, 입력, 제공 또는 제출하는 사용자 콘텐츠가 타인의 법적 권리(예: 프라이버시 및 퍼블리시티권) 또는 관련 법률이나 규정을 위반하거나 위반할 가능성이 있는 경우 이를 방지, 제거 또는 접근을 차단하는 데 동의합니다. 당사는 플랫폼을 통해 전송, 저장 또는 처리되거나 당사로 전송된 사용자 콘텐츠를 소유, 통제 또는 보증하지 않으며, 사용자 콘텐츠에 대해 어떠한 책임이나 의무도 지지 않습니다. 당사는 귀하의 콘텐츠가 안전하게 보호되거나 그러한 콘텐츠가 기밀로 유지될 것이라고 보장하지 않습니다.
 
-You are solely responsible and liable for all of your User Content and for your use of any interactive features, links or information or content on the Platform, and you represent and warrant that \(i\) you own all intellectual property rights \(or have obtained all necessary permissions\) to provide your User Content and to grant the licenses in these Terms of Use; \(ii\) your User Content will not violate any agreements or confidentiality obligations; and \(iii\) your User Content will not violate, infringe or misappropriate any intellectual property right or other proprietary right, including the right of publicity or privacy, of any person or entity.
+귀하는 귀하의 모든 사용자 콘텐츠와 플랫폼 상의 대화형 기능, 링크, 정보 또는 콘텐츠 사용에 대한 전적인 책임과 의무가 있으며, 귀하는 (i) 귀하가 사용자 콘텐츠를 제공하고 본 이용약관의 라이선스를 부여하기 위해 모든 지적재산권을 소유하거나 필요한 모든 허가를 취득했음을 진술하고 보증합니다; (ii) 귀하의 사용자 콘텐츠가 컨트랙트 또는 기밀유지 의무를 위반하지 않을 것; (iii) 귀하의 사용자 콘텐츠가 다른 개인이나 단체의 지적재산권 또는 퍼블리시티권 또는 프라이버시권을 포함한 기타 소유권을 위반, 침해 또는 오용하지 않을 것.
 
-You shall not include in User Content, or upload, transmit to or create or include in the Services environment any production data or any sensitive, proprietary, confidential or other data with particular data protection requirements such as personal data or personally identifiable information relating to an identified or identifiable natural person.
+귀하는 사용자 콘텐츠에 개인 데이터 또는 식별되거나 식별 가능한 자연인과 관련된 개인 식별 정보 등 특정 데이터 보호 요구 사항이 있는 민감한 데이터, 독점 데이터, 기밀 데이터 또는 기타 데이터를 서비스 환경에 업로드, 전송, 생성 또는 포함해서는 안 됩니다.
 
-You are prohibited from using the Platform to post or transmit any threatening, libellous, defamatory, obscene, scandalous, inflammatory, pornographic or profane material, any material that is contrary to applicable local, federal, or international laws and regulations, or any material that could constitute or encourage unlawful conduct. You must ensure that your User Content do not include such materials. We may from time to time monitor or review material transmitted or posted using the Network, and we reserve the right to delete any material we deem inappropriate.
+귀하는 플랫폼을 사용하여 협박, 비방, 명예훼손, 외설, 스캔들, 선동, 음란물 또는 불경한 자료, 해당 지역, 연방 또는 국제 법률 및 규정에 위배되는 자료, 불법 행위를 구성하거나 조장할 수 있는 자료를 게시하거나 전송하는 것이 금지되어 있습니다. 귀하는 귀하의 사용자 콘텐츠에 이러한 자료가 포함되지 않도록 해야 합니다. 당사는 네트워크를 사용하여 전송되거나 게시된 자료를 수시로 모니터링하거나 검토할 수 있으며, 부적절하다고 판단되는 자료를 삭제할 권리를 보유합니다.
 
-We are under no obligation to do so and assume no responsibility or liability arising from any material transmitted or posted using the Platform.
+당사는 그렇게 할 의무가 없으며, 플랫폼을 사용하여 전송 또는 게시된 자료로 인해 발생하는 어떠한 책임이나 의무도 부담하지 않습니다.
 
-You understand that any information you or users of your dApp upload to the Platform will be distributed among the blockchain nodes and may not removable due to technical limitations of the blockchain technology.
+귀하는 귀하 또는 귀하의 dApp 사용자가 플랫폼에 업로드하는 모든 정보가 블록체인 노드에 배포되며 블록체인 기술의 기술적 한계로 인해 삭제할 수 없음을 이해합니다.
 
-You are entirely responsible for any and all activities that occur under your account or your dApp \(if any\). You agree to notify us immediately of any unauthorized use of your User Content, your dApp or account or any other breach of security. We will not be liable for any loss or damages that you may incur as a result of someone else using your User Content, your dApp or account, either with or without your knowledge. However, you could be held liable for losses incurred by us or another party due to someone else using your User Content, your dApp or account. You may not use anyone else’s User Content, your dApp or account at any time without the permission of such person or entity.
+귀하는 귀하의 계정 또는 귀하의 dApp(있는 경우)에서 발생하는 모든 활동에 대해 전적으로 책임을 집니다. 귀하는 귀하의 사용자 콘텐츠, 귀하의 dApp 또는 계정의 무단 사용 또는 기타 보안 위반에 대해 즉시 당사에 알리는 데 동의합니다. 당사는 귀하가 인지하든 인지하지 못하든 다른 사람이 귀하의 사용자 콘텐츠, 귀하의 dApp 또는 계정을 사용함으로써 귀하에게 발생할 수 있는 손실이나 손해에 대해 책임을 지지 않습니다. 그러나 다른 사람이 귀하의 사용자 콘텐츠, 귀하의 dApp 또는 계정을 사용함으로써 당사 또는 다른 당사자가 입은 손실에 대해서는 귀하가 책임을 져야 할 수 있습니다. 귀하는 해당 개인이나 단체의 허가 없이 다른 사람의 사용자 콘텐츠, 귀하의 dApp 또는 계정을 언제든지 사용할 수 없습니다.
 
-By posting, uploading, inputting, providing or submitting your User Content to the Platform, you grant to participants of the Platform and any necessary sub-licensees a non-exclusive, worldwide, perpetual, right and permission to use, reproduce, copy, edit, modify, translate, reformat, create derivative works from, distribute, transmit, publicly perform and publicly display your User Content and sub-license such rights to others.
+플랫폼에 사용자 콘텐츠를 게시, 업로드, 입력, 제공 또는 제출함으로써 귀하는 플랫폼 참여자 및 필요한 하위 라이선스 사용자에게 사용자 콘텐츠를 사용, 복제, 복사, 편집, 수정, 번역, 재포맷, 파생 저작물 생성, 배포, 전송, 공개 공연 및 공개 전시할 수 있는 비독점적이고 전 세계적이며 영구적인 권리와 권한을 부여하고 타인에게 그러한 권리를 재라이선스할 수 있습니다.
 
-If we have reason to believe that there is likely to be a breach of security, breach or misuse of the Platform or if you breach any of your obligations under these terms, we may suspend your use of the Platform at any time and for any reason.
+당사는 보안 위반, 플랫폼의 위반 또는 오용이 발생할 가능성이 있다고 믿을 만한 이유가 있거나 귀하가 본 약관에 따른 귀하의 의무를 위반하는 경우 언제, 어떤 이유로든 귀하의 플랫폼 사용을 일시 중단할 수 있습니다.
