@@ -152,7 +152,7 @@ Truffle을 처음 사용하는 경우, [테스트 가이드](../build/smart-cont
 [여러 서명자가 있는 트랜잭션 보내기](../references/sdk/caver-js-1.4.1/get-started-1.4.1.md#sending-a-transaction-with-multiple-signer)에 서명을 수집하는 두 가지 방법에 대한 좋은 설명이 나와 있습니다.
 관련 caver-js API는 다음과 같습니다. API 설명에서 코드 예시를 살펴보세요.
 
-- [caver.klay.accounts.signTransaction](../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#signtransaction)
-- [caver.klay.accounts.feePayerSignTransaction](../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#feepayersigntransaction)
-- [caver.klay.accounts.combinesignatures](../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#combinesignatures)
-- [caver.klay.sendSignedTransaction](../references/sdk/caver-js-1.4.1/api/caver.klay/transaction/transaction.md#sendsignedtransaction)
+- [caver.kaia.accounts.signTransaction](../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#signtransaction)
+- [caver.kaia.accounts.feePayerSignTransaction](../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#feepayersigntransaction)
+- [caver.kaia.accounts.combinesignatures](../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#combinesignatures)
+- [caver.kaia.sendSignedTransaction](../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/transaction.md#sendsignedtransaction)
