@@ -1,4 +1,4 @@
-# Governance
+# 거버넌스
 
 ## 개요 <a id="overview"></a>
 
