@@ -1,43 +1,40 @@
-# JSON-RPC APIs
+# JSON-RPC API
 
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created).
+엔드포인트 노드는 JSON-RPC API를 노출합니다. API는 다음과 같이 활성화/비활성화할 수 있습니다. 자세한 API 사양은 [JSON-RPC APIs](../../../references/json-rpc/klay/account-created)를 참조하세요.
 
-**NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone
-access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs
-you enable. By default, Kaia enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
+**참고**: HTTP(`rpc`) 또는 웹소켓(`ws`) 인터페이스를 통해 API를 제공하면 모든 사용자가 이 인터페이스에 액세스할 수 있는 API(디앱, 브라우저 탭 등)에 액세스할 수 있습니다. 어떤 API를 활성화할지 활성화할 때 주의하세요. 기본적으로 카이아는 `ipc` 인터페이스를 통해 모든 API를 활성화하지만, `rpc`와 `ws`의 경우 필수 모듈을 명시적으로 활성화해야 합니다.
 
-## Enabling APIs  <a id="enabling-apis"></a>
+## API 활성화하기 <a id="enabling-apis"></a>
 
-### From Commandline <a id="from-commandline"></a>
+### 명령줄에서 <a id="from-commandline"></a>
 
-To offer the APIs over the Kaia RPC endpoints, please specify them with the `--${interface}api`
-command-line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
+카이아 RPC 엔드포인트를 통해 API를 제공하려면 `--${interface}api`
+명령줄 인자로 지정하세요.
 
-`ipc` offers all APIs over the unix socket (Unix) or named pipe (Windows) endpoint without any flag.
+`ipc`는 플래그 없이 유닉스 소켓(Unix) 또는 네임드 파이프(Windows) 엔드포인트를 통해 모든 API를 제공합니다.
 
-You can launch a Kaia node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
+아래 예시와 같이 추가하려는 특정 API를 사용하여 Kaia 노드를 시작할 수 있습니다. 단, 노드를 실행한 후에는 API를 변경할 수 없다는 점에 유의하세요.
 
-Example) launching a Kaia node with `kaia` and `net` modules enabled:
+예) `klay`와 `net` 모듈을 활성화한 상태에서 카이아 노드 실행하기:
 
 ```shell
 $ ken --rpcapi klay,net --rpc --{other options}
 ```
 
-The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
+HTTP RPC 인터페이스는 `--rpc` 플래그를 사용하여 명시적으로 활성화해야 합니다.
 
-### Using Configuration <a id="using-configuration"></a>
+### 구성 파일 사용 <a id="using-configuration"></a>
 
-Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](../../misc/operation/configuration.md).
+[구성 파일](../../misc/operation/configuration.md)에서 `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` 및 `WS_API` 속성을 업데이트하세요.
 
-## Querying Enabled APIs <a id="querying-enabled-apis"></a>
+## 사용 가능한 API 쿼리하기 <a id="querying-enabled-apis"></a>
 
-To determine which APIs an interface provides, the `modules` JSON-RPC method can be invoked. For
-example over an `rpc` interface:
+인터페이스가 어떤 API를 제공하는지 확인하려면 `modules` JSON-RPC 메서드를 호출할 수 있습니다. `rpc` 인터페이스를 예로 들자면,
 
 **IPC**
 
 ```javascript
-$ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kaia.ipc
+$ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U klay.ipc
 ```
 
 **HTTP**
@@ -46,7 +43,7 @@ $ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kai
 $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' https://public-en-baobab.klaytn.net
 ```
 
-will give all enabled modules including the version number:
+이로써 버전 번호를 포함하여 활성화된 모든 모듈을 반환합니다:
 
 ```
 {
@@ -66,21 +63,20 @@ will give all enabled modules including the version number:
 }
 ```
 
-## Disabling unsafe debug APIs <a id="disabling-unsafe-debug-apis"></a>
+## 안전하지 않은 디버그 API 비활성화 <a id="disabling-unsafe-debug-apis"></a>
 
-Some debug namespace APIs are unsafe/unappropriate to be opened to public.
-We recommend you to provide the debug namespace APIs to authorized users only.
-However, if you want to maintain a public EN and provide debug namespace APIs to the public,
-we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs
-that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs.
+일부 디버그 네임스페이스 API는 안전하지 않거나 공개하기에 부적절합니다.
+디버그 네임스페이스 API는 권한이 있는 사용자에게만 제공하는 것이 좋습니다.
+그러나 공개 EN을 유지하면서 디버그 네임스페이스 API를 일반에 제공하려는 경우
+안전하지 않거나 부적절한 API를 비활성화하는 `rpc.unsafe-debug.disable` 플래그를 설정하고 디버그 네임스페이스 API의 하위 집합만 활성화하도록 설정하도록 강력히 권장합니다.
 
-The enabled APIs are as follows:
+활성화된 API는 다음과 같습니다:
 
-- [VM Tracing](../../../references/json-rpc/debug/trace-bad-block) APIs, however with limited functionality (only [pre-defined tracers](../../../references/json-rpc/debug/trace-bad-block) are allowed. See params/tracingOptions)
+- [VM Tracing](../.../../references/json-rpc/debug/trace-bad-block) API를 사용할 수 있지만 기능이 제한되어 있습니다([사전 정의된 tracer](../.../references/json-rpc/debug/trace-bad-block)만 허용됩니다. params/tracingOptions을 참고하세요.)
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 
-To set the `rpc.unsafe-debug.disable` flag, append the following line in the `kend.conf` file.
+`rpc.unsafe-debug.disable` 플래그를 설정하려면 `kend.conf` 파일에 다음 줄을 추가합니다.
 
 ```
 ADDITIONAL="$ADDITIONAL --rpc.unsafe-debug.disable"
