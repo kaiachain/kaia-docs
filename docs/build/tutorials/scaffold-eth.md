@@ -10,7 +10,7 @@ In this tutorial, you will learn how to deploy, run a contract and build a dApp 
 
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-To get started in this guide, you will need:
+To get started with in this guide, you will need:
 * [Node (>= v18.17)](https://nodejs.org/en/download/)
 * Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
 * Familiarity with Javascript and React basics such as hooks
@@ -107,7 +107,7 @@ kaia: {
 For more information on using Hardhat with Kaia, please check [Hardhat guide](https://docs.kaia.io/docs/build/get-started/hardhat/) for more details.
 
 ### Deploy Contract to Kaia
-Having configured hardhat to support Kaia network, the next thing we want to do is to compile and deploy the sample contract. 
+After configuring Hardhat to support the Kaia network, the next step is to compile and deploy the sample contract. 
 
 First, you can compile your contract by running:
 
@@ -206,7 +206,7 @@ You should now be able to access a React-based dApp frontend at http://localhost
 
 ## Conclusion
 
-Congratulations on using the Scaffold-ETH 2 to deploy and run a contract and a dApp on Kaia. Now that you understand the workings of Scaffold-ETH 2, feel free to create and deploy your own smart contracts and modify the frontend to fit your dApp's needs!
+Congratulations! You have successfully used Scaffold-ETH 2 to deploy a contract and run a dApp on Kaia. Now that you understand the workings of Scaffold-ETH 2, feel free to create and deploy your own smart contracts and modify the frontend to fit your dApp's needs!
 
 Visit [Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io/) for more information and [Kaia Forum](https://forum.klaytn.foundation/) if you have any questions.
 
