@@ -238,8 +238,8 @@ Sign the value transfer tx by user's private key
 raw transaction of signed tx: 0x09f88882030e850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0701261726a21b97f33d245940102ec1db848fa6f1015ce6dbf82f36fcdf70eb9a0514a9bd7a5f5f572fca20cf1bf884025e25508a59442d1f7cc433b0dae564dac
 ````
 
-## </CH.Code>
-
+</CH.Code>
+---
 Recover the **signer's address** from the signature in signed tx
 
 <CH.Code>
@@ -255,8 +255,8 @@ Recover the **signer's address** from the signature in signed tx
 recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 ```
 
-## </CH.Code>
-
+</CH.Code>
+---
 Sign the value transfer tx by fee payer's private key
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=32:33
@@ -280,8 +280,8 @@ Recover the **fee payer's address** from the signature in signed tx
 recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
 ````
 
-## </CH.Code>
-
+</CH.Code>
+---
 You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
 
 <CH.Code>
@@ -321,8 +321,8 @@ decoded transaction: {
 
 ````
 
-## </CH.Code>
-
+</CH.Code>
+---
 Send the tx to the blockchain. It will return the tx hash, which will be used to wait the receipt
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=41

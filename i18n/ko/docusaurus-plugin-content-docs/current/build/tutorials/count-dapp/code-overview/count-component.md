@@ -25,12 +25,12 @@ class Count extends Component {
   constructor() {
     super()
     // ** 1. Create contract instance **
-    // ex:) new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+    // ex:) new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
     // You can call contract method through this instance.
     // Now you can access the instance by `this.countContract` variable.
     this.countContract = DEPLOYED_ABI
       && DEPLOYED_ADDRESS
-      && new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+      && new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
     this.state = {
       count: '',
       lastParticipant: '',
@@ -57,7 +57,7 @@ class Count extends Component {
   }
 
   setPlus = () => {
-    const walletInstance = cav.klay.accounts.wallet && cav.klay.accounts.wallet[0]
+    const walletInstance = cav.kaia.accounts.wallet && cav.kaia.accounts.wallet[0]
 
     // Need to integrate wallet for calling contract method.
     if (!walletInstance) return
@@ -95,7 +95,7 @@ class Count extends Component {
   }
 
   setMinus = () => {
-    const walletInstance = cav.klay.accounts.wallet && cav.klay.accounts.wallet[0]
+    const walletInstance = cav.kaia.accounts.wallet && cav.kaia.accounts.wallet[0]
 
     // Need to integrate wallet for calling contract method.
     if (!walletInstance) return
@@ -210,14 +210,19 @@ Count.sol에서 다음과 같이 여러 변수와 함수를 선언했습니다.
 
 Count.js 컴포넌트에는 Count 컨트랙트의 함수 및 변수와 상호작용하는 메서드가 있습니다.
 
-### 3. How to interact with contract? 컨트랙트와 상호작용하는 방법 <a href="#3-how-to-interact-with-contract" id="3-how-to-interact-with-contract"></a> <a href="#5-interact-with-contract-setplus-method" id="5-interact-with-contract-setplus-method"></a>
+### 컨트랙트와 상호작용하는 방법 <a href="#3-how-to-interact-with-contract" id="3-how-to-interact-with-contract"></a>
 
+컨트랙트와 상호 작용하려면 배포된 컨트랙트의 컨트랙트 인스턴스가 필요합니다.\
 컨트랙트 인스턴스는 caver-js의 `caver.klay.Contract(ABI, contractAddress)` API를 통해 만들 수 있습니다. 자세한 내용은 [caver.klay.Contract](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md#new-contract)를 참고하세요.
 
-`Contract ABI`(애플리케이션 바이너리 인터페이스)를 사용하면 caver는 컨트랙트 메서드를 로컬 함수인 것처럼 호출할 수 있습니다. })`\
-`contractInstance.methods.minus().send({ ... })\`
+`Contract ABI`(애플리케이션 바이너리 인터페이스)를 사용하면 caver는 컨트랙트 메서드를 로컬 함수인 것처럼 호출할 수 있습니다.\
+예)\
+`contractInstance.methods.count().call()`\
+`contractInstance.methods.plus().send({ ... })`\
+`contractInstance.methods.minus().send({ ... })`
 
-`Contract address`는 컨트랙트를 컴파일하고 배포한 후 `build/contracts/Count.json` 파일에서 확인할 수 있습니다. 테스트 편의를 위해 카이아 테스트넷에 컨트랙트를 배포하고 디렉터리에 `deployedABI`와 `deployedAddress` 파일을 포함시켰습니다. 웹팩 구성 덕분에 변수를 통해 이 파일에 액세스할 수 있습니다. (`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
+`Contract address`는 컨트랙트를 컴파일하고 배포한 후 `build/contracts/Count.json` 파일에서 확인할 수 있습니다. 테스트 편의를 위해 카이아 테스트넷에 컨트랙트를 배포하고 디렉터리에 `deployedABI`와 `deployedAddress` 파일을 포함시켰습니다. 이러한 파일에는 Count 컨트랙트의 ABI와 배포된 컨트랙트 주소가 포함되어 있습니다.\
+웹팩 구성 덕분에 변수를 통해 이 파일에 액세스할 수 있습니다. (`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
 
 예)\
 `DEPLOYED_ADDRESS`는 배포된 연락처 ddress를 반환합니다.\
@@ -227,12 +232,12 @@ Count.js 컴포넌트에는 Count 컨트랙트의 함수 및 변수와 상호작
 constructor() {
   super()
   // ** 1. Create contract instance **
-  // ex:) new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+  // ex:) new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
   // You can call contract method through this instance.
   // Now you can access the instance by `this.countContract` variable.
   this.countContract = DEPLOYED_ABI
     && DEPLOYED_ADDRESS
-    && new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+    && new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
   ...
 }
 ```
@@ -259,7 +264,8 @@ getCount = async () => {
 }
 ```
 
-Since we have a contract instance, we can call contract methods. 여기에는 컨트랙트의 함수(예: `count`, `lastParticipant`, `plus`, `minus`)가 포함됩니다.
+컨트랙트 인스턴스가 있으므로 컨트랙트 메서드를 호출할 수 있습니다. 컨트랙트 인스턴스에는 `methods`라는 프로퍼티가 있습니다.\
+여기에는 컨트랙트의 함수(예: `count`, `lastParticipant`, `plus`, `minus`)가 포함됩니다.
 
 위 코드에서 `getCount` 함수는 컨트랙트 함수 호출이 프로미스 객체를 반환하기 때문에 `async`로 선언되어 있습니다. `this.countContract.methods.count().call()`를 호출하여 `count`를 가져올 수 있습니다.
 
@@ -286,7 +292,7 @@ componentWillUnmount() {
 
 ```javascript
 setPlus = () => {
-  const walletInstance = cav.klay.accounts.wallet && cav.klay.accounts.wallet[0]
+  const walletInstance = cav.kaia.accounts.wallet && cav.kaia.accounts.wallet[0]
 
   // Need to integrate wallet for calling contract method.
   if (!walletInstance) return
@@ -326,7 +332,8 @@ setPlus = () => {
 
 `setPlus` 함수는 Count 컴포넌트에서 가장 중요한 부분입니다. 컨트랙트 함수 `plus`를 호출하여 컨트랙트와 상호작용합니다. 이 함수 역시 컨트랙트 메서드이므로 `this.counterContract.methods`에 포함되어 있습니다.
 
-다만, 데이터를 읽기만 하는 `count`, `lastParticipant`와 달리 `plus` 함수는 카이아 블록체인에 데이터를 **쓰는 역할**을 합니다. 비용은 사용된 `gas`의 양으로 측정됩니다.
+다만, 데이터를 읽기만 하는 `count`, `lastParticipant`와 달리 `plus` 함수는 카이아 블록체인에 데이터를 **쓰는 역할**을 합니다.\
+데이터를 읽는 것은 무료이지만 데이터를 쓰는 것은 계산 및 저장소 사용에 대한 비용이 발생합니다. 비용은 사용된 `gas`의 양으로 측정됩니다.
 
 따라서 트랜잭션을 전송하려면 트랜잭션 수수료를 부담할 카이아 노드를 알리기 위해 `from:` 속성이 필요합니다. `gas:` 속성은 트랜잭션 발신자가 트랜잭션에 대해 지불하고자 하는 최대 가스 양을 정의합니다.
 
@@ -428,5 +435,5 @@ try{
 
 ![거래 확인](/img/build/tutorials/tutorial-check-your-transaction.gif)
 
-After sending a transaction, you can check your transaction detail using Klaytnscope.\
-Check it in `https://baobab.klaytnscope.com/tx/${txHash}`.
+트랜잭션을 전송한 후, Kaiascope을 사용하여 트랜잭션 세부 정보를 확인할 수 있습니다.\
+`https://baobab.klaytnscope.com/tx/${txHash}`에서 확인할 수 있습니다.
