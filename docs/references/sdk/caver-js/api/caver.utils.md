@@ -776,19 +776,80 @@ caver.utils.convertFromPeb(number [, unit])
 '0.000000000000000001'
 ```
 
+## convertToKei <a href="#tokei" id="tokei"></a>
+
+```javascript
+caver.utils.convertToKei(number [, unit])
+```
+
+Converts any KAIA value into kei.
+
+**NOTE**: "kei" is the smallest KAIA unit, and you should always use "kei" as the unit of KAIA. Convert to "KAIA" only for display reasons.
+
+**Parameters**
+
+| Name   | Type                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| number | string \| number \| BN | The value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| unit   | string                 | <p>(optional, defaults to <code>"KAIA"</code>) The unit of KAIA to convert from. <code>number</code> will be multiplied by one of the following multipliers for the unit provided:- <code>kei</code>: '1'- <code>Gkei</code>: '1000000000'- <code>KAIA</code>: '1000000000000000000'</p> |
+
+**Return Value**
+
+| Type         | Description                                                                                                                      |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| string \| BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
+
+**Examples**
+
+```javascript
+> caver.utils.convertToKei('1', 'KAIA')
+'1000000000000000000'
+
+> caver.utils.convertToKei(caver.utils.toBN(1), 'KAIA')
+<BN: de0b6b3a7640000>
+```
+
+## convertFromKei <a href="#convertfromkei" id="convertfromkei"></a>
+
+```javascript
+caver.utils.convertFromKei(number [, unit])
+```
+
+**NOTE**: "kei" is the smallest KAIA unit, and you should always use "kei" as the unit of KAIA. Convert to "KAIA" only for display reasons.
+
+**Parameters**
+
+| Name   | Type                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------ | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| number | string \| number \| BN \| BigNumber | The value in kei.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| unit   | string                              | <p>(optional, defaults to <code>"KAIA"</code>) The unit of KAIA to convert your "kei" into. <code>number</code> will be divided by one of the following denominators for the unit provided:- <code>kei</code>: '1'- <code>Gkei</code>: '1000000000'- <code>KAIA</code>: '1000000000000000000'</p> |
+
+**Return Value**
+
+| Type   | Description        |
+| ------ | ------------------ |
+| string | The string number. |
+
+**Examples**
+
+```javascript
+> caver.utils.convertFromKei('1', 'KAIA')
+'0.000000000000000001'
+```
+
 ## unitMap <a href="#unitmap" id="unitmap"></a>
 
 ```javascript
 caver.utils.unitMap
 ```
 
-Shows all possible KLAY values and their amount in peb.
+Shows all possible KLAY (or KAIA) values and their amount in peb (or kei).
 
 **Return Value**
 
 | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | <p>With the following properties:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'- <code>TKLAY</code>: '1000000000000000000000000000000'</p> |
+| Object | <p>With the following properties:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'- <code>TKLAY</code>: '1000000000000000000000000000000'- <code>kei</code>: '1'- <code>Gkei</code>: '1000000000'- <code>KAIA</code>: '1000000000000000000'</p> |
 
 **Examples**
 
@@ -806,7 +867,10 @@ Shows all possible KLAY values and their amount in peb.
   kKLAY: '1000000000000000000000',
   MKLAY: '1000000000000000000000000',
   GKLAY: '1000000000000000000000000000',
-  TKLAY: '1000000000000000000000000000000'
+  TKLAY: '1000000000000000000000000000000',
+  kei: '1',
+  Gkei: '1000000000',
+  KAIA: '1000000000000000000',
 }
 ```
 
@@ -816,13 +880,13 @@ Shows all possible KLAY values and their amount in peb.
 caver.utils.klayUnit
 ```
 
-Shows all KLAY units.
+Shows all KLAY (or KAIA) units.
 
 **Return Value**
 
 | Type   | Description                                                                                                                                                                               |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | An object in which the units of KLAY used in Klaytn are defined. Each unit has its name and pebFactor. pebFactor is used when converting KLAY currently translated in each unit to 'peb'. |
+| Object | An object in which the units of KLAY used in Klaytn (or the units of KAIA used in KAIA) are defined. Each unit has its name and pebFactor. pebFactor is used when converting KLAY (or KAIA) currently translated in each unit to 'peb' (or 'kei'). |
 
 **Examples**
 
@@ -840,7 +904,35 @@ Shows all KLAY units.
     kKLAY: { unit: 'kKLAY', pebFactor: 21 },
     MKLAY: { unit: 'MKLAY', pebFactor: 24 },
     GKLAY: { unit: 'GKLAY', pebFactor: 27 },
-    TKLAY: { unit: 'TKLAY', pebFactor: 30 }
+    TKLAY: { unit: 'TKLAY', pebFactor: 30 },
+    kei: { unit: 'kei', pebFactor: 0 },
+    Gkei: { unit: 'Gkei', pebFactor: 9 },
+    KAIA: { unit: 'KAIA', pebFactor: 18 }
+}
+```
+
+## kaiaUnit <a href="#kaiaunit" id="kaiaunit"></a>
+
+```javascript
+caver.utils.kaiaUnit
+```
+
+Shows all KAIA units.
+
+**Return Value**
+
+| Type   | Description                                                                                                                                                                               |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Object | An object in which the units of KAIA used in KAIA are defined. Each unit has its name and keiFactor. keiFactor is used when converting KAIA currently translated in each unit to 'kei'. |
+
+**Examples**
+
+```javascript
+> caver.utils.kaiaUnit
+{
+    kei: { unit: 'kei', keiFactor: 0 },
+    Gkei: { unit: 'Gkei', keiFactor: 9 },
+    KAIA: { unit: 'KAIA', keiFactor: 18 }
 }
 ```
 
