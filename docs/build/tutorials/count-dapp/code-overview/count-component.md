@@ -25,12 +25,12 @@ class Count extends Component {
   constructor() {
     super()
     // ** 1. Create contract instance **
-    // ex:) new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+    // ex:) new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
     // You can call contract method through this instance.
     // Now you can access the instance by `this.countContract` variable.
     this.countContract = DEPLOYED_ABI
       && DEPLOYED_ADDRESS
-      && new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+      && new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
     this.state = {
       count: '',
       lastParticipant: '',
@@ -57,7 +57,7 @@ class Count extends Component {
   }
 
   setPlus = () => {
-    const walletInstance = cav.kaia.accounts.wallet && cav.kaia.accounts.wallet[0]
+    const walletInstance = cav.klay.accounts.wallet && cav.klay.accounts.wallet[0]
 
     // Need to integrate wallet for calling contract method.
     if (!walletInstance) return
@@ -95,7 +95,7 @@ class Count extends Component {
   }
 
   setMinus = () => {
-    const walletInstance = cav.kaia.accounts.wallet && cav.kaia.accounts.wallet[0]
+    const walletInstance = cav.klay.accounts.wallet && cav.klay.accounts.wallet[0]
 
     // Need to integrate wallet for calling contract method.
     if (!walletInstance) return
@@ -232,17 +232,17 @@ For example)\
 constructor() {
   super()
   // ** 1. Create contract instance **
-  // ex:) new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+  // ex:) new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
   // You can call contract method through this instance.
   // Now you can access the instance by `this.countContract` variable.
   this.countContract = DEPLOYED_ABI
     && DEPLOYED_ADDRESS
-    && new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+    && new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
   ...
 }
 ```
 
-`this.countContract = new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)` creates a contract instance to interact with the deployed `Count` contract, by passing `DEPLOYED_ABI` and `DEPLOYED_ADDRESS` to the `cav.kaia.Contract` API. And this contract instance is stored to `this.countContract`.
+`this.countContract = new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)` creates a contract instance to interact with the deployed `Count` contract, by passing `DEPLOYED_ABI` and `DEPLOYED_ADDRESS` to the `cav.klay.Contract` API. And this contract instance is stored to `this.countContract`.
 
 ### 4) Interact with contract: `getCount` method <a href="#4-interact-with-contract-getcount-method" id="4-interact-with-contract-getcount-method"></a>
 
@@ -292,7 +292,7 @@ It is the same as we did in the `getBlockNumber` in `BlockNumber.js` which calls
 
 ```javascript
 setPlus = () => {
-  const walletInstance = cav.kaia.accounts.wallet && cav.kaia.accounts.wallet[0]
+  const walletInstance = cav.klay.accounts.wallet && cav.klay.accounts.wallet[0]
 
   // Need to integrate wallet for calling contract method.
   if (!walletInstance) return

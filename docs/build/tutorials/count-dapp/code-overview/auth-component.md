@@ -44,8 +44,8 @@ Main features are:\
 
 ```javascript
 integrateWallet = (privateKey) => {
-  const walletInstance = cav.kaia.accounts.privateKeyToAccount(privateKey)
-  cav.kaia.accounts.wallet.add(walletInstance)
+  const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)
+  cav.klay.accounts.wallet.add(walletInstance)
   sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
   this.reset()
 }
@@ -53,11 +53,11 @@ integrateWallet = (privateKey) => {
 
 `integateWallet` function takes `privateKey` as an argument, use it to generate a wallet instance.
 
-Line 1: `const walletInstance = cav.kaia.accounts.privateKeyToAccount(privateKey)`\
+Line 1: `const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)`\
 It stores the wallet instance made by `privateKeyToAccount` API to the `walletInstance` variable.
 
-Line 2: `cav.kaia.accounts.wallet.add(walletInstance)`\
-To send a transaction, you should add a wallet instance to caver through `cav.kaia.accounts.wallet.add(walletInstance)`.
+Line 2: `cav.klay.accounts.wallet.add(walletInstance)`\
+To send a transaction, you should add a wallet instance to caver through `cav.klay.accounts.wallet.add(walletInstance)`.
 
 Line 3: `sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))`\
 `sessionStorage.setItem` is a browser API used for storing a value to the browser's session storage.\
@@ -131,7 +131,7 @@ Fill password into `<input>` element. Entered value will be stored as `password`
 />
 ```
 
-Both the keystore file and its password are ready. We can now decrypt the keystore file to extract the private key through `cav.kaia.accounts.decrypt(keystore, password)` API.\
+Both the keystore file and its password are ready. We can now decrypt the keystore file to extract the private key through `cav.klay.accounts.decrypt(keystore, password)` API.\
 This API returns a wallet instance containing the private key. After importing the private key, we can use `integrateWallet` method we've visited earlier.
 
 ```javascript
@@ -146,7 +146,7 @@ handleLogin = () => {
 
   // Access type1: access through keystore + password
   try {
-    const { privateKey: privateKeyFromKeystore } = cav.kaia.accounts.decrypt(keystore, password)
+    const { privateKey: privateKeyFromKeystore } = cav.klay.accounts.decrypt(keystore, password)
     this.integrateWallet(privateKeyFromKeystore)
   } catch (e) {
     this.setState({ keystoreMsg: `Password doesn't match.` })
@@ -159,7 +159,7 @@ For further information about decrypting keystore file with password, see [caver
 ### 5) `Auth` component feature: User can logout, remove wallet instance information from browser. <a href="#5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from" id="5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from"></a>
 
 'logout' means removing the wallet instance from the browser and caver.\
-`cav.kaia.accounts.wallet.clear()` removes all wallet instances from caver.\
+`cav.klay.accounts.wallet.clear()` removes all wallet instances from caver.\
 `sessionStorage.removeItem('walletInstance')` removes the wallet instance from the browser's session storage.
 
 ```javascript
@@ -169,7 +169,7 @@ For further information about decrypting keystore file with password, see [caver
  * 2) 'walletInstance' value from session storage.
  */
 removeWallet = () => {
-  cav.kaia.accounts.wallet.clear()
+  cav.klay.accounts.wallet.clear()
   sessionStorage.removeItem('walletInstance')
   this.reset()
 }

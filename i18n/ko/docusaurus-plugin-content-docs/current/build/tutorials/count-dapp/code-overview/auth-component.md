@@ -137,7 +137,7 @@ handleLogin = () => {
 
   // Access type1: access through keystore + password
   try {
-    const { privateKey: privateKeyFromKeystore } = cav.kaia.accounts.decrypt(keystore, password)
+    const { privateKey: privateKeyFromKeystore } = cav.klay.accounts.decrypt(keystore, password)
     this.integrateWallet(privateKeyFromKeystore)
   } catch (e) {
     this.setState({ keystoreMsg: `Password doesn't match.` })
@@ -158,7 +158,7 @@ handleLogin = () => {
  * 2) 'walletInstance' value from session storage.
  */
 removeWallet = () => {
-  cav.kaia.accounts.wallet.clear()
+  cav.klay.accounts.wallet.clear()
   sessionStorage.removeItem('walletInstance')
   this.reset()
 }

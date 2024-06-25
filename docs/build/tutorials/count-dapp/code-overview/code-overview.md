@@ -117,7 +117,7 @@ class App extends Component {
     // If 'walletInstance' value exists, add it to caver's wallet
     if (walletFromSession) {
       try {
-        cav.kaia.accounts.wallet.add(JSON.parse(walletFromSession))
+        cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
       } catch (e) {
         // If value in sessionStorage is invalid wallet instance,
         // remove it from sessionStorage.
@@ -169,7 +169,7 @@ componentWillMount() {
   // If 'walletInstance' value exists, add it to caver's wallet
   if (walletFromSession) {
     try {
-      cav.kaia.accounts.wallet.add(JSON.parse(walletFromSession))
+      cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
     } catch (e) {
       // If value in sessionStorage is invalid wallet instance,
       // remove it from sessionStorage.
@@ -182,7 +182,7 @@ componentWillMount() {
 `componentWillMount` checks if there is a `walletInstance` session in the browser's sessionStorage.  
 `walletInstance` session may not exist if you have never logged in our tutorial app.  
 Otherwise, `walletInstance` session will exist as a JSON string, if so, it attempts to add the wallet instance to the caver's wallet.  
-You can add a wallet instance to caver through `cav.kaia.accounts.wallet.add(JSON.parse(walletFromSession))`.  
+You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.  
 For further information related `caver.kaia.accounts.wallet.add`, see [caver.kaia.accounts.wallet.add](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#wallet-add)
 
 cf\) `JSON.parse` is needed since `walletInstance` session is stored as a JSON string.
