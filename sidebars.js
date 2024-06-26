@@ -213,6 +213,7 @@ const sidebars = {
           ],
         },*/
         'build/tutorials/fee-delegation-example',
+        'build/tutorials/scaffold-eth',
         'build/tutorials/buy-me-a-coffee',
         'build/tutorials/connecting-metamask',
         'build/tutorials/connecting-remix',

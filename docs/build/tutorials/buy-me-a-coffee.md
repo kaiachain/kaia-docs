@@ -578,9 +578,9 @@ Init function initializes web3-Onboard and makes it available for all hooks to u
 To see this in action, paste the code below the previous code in your `_app.js `file:
 
 ```js
-const ETH_MAINNET_RPC_URL = `https://ethereum-mainnet-rpc.allthatnode.com/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KAIA_MAINNET_URL = `https://klaytn-mainnet-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KAIA_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
+const ETH_MAINNET_RPC_URL = `https://ethereum-mainnet.g.allthatnode.com/full/evm`;
+const KAIA_MAINNET_URL = `https://klaytn-mainnet.g.allthatnode.com/full/evm`;
+const KAIA_BAOBAB_URL = `https://klaytn-baobab.g.allthatnode.com/full/evm`;
   const web3Onboard =  init({
     wallets: modules,
     chains: [
