@@ -101,11 +101,11 @@ getBlockNumber = async () => {
 }
 ```
 
-`getBlockNumber` 메서드는 비동기 함수로 선언됩니다. 함수를 비동기로 선언하면 비동기 값(프로미스)을 쉽게 처리할 수 있습니다. `cav.klay.getBlockNumber`는 프로미스를 반환하며, `await` 키워드를 추가하면 결과를 쉽게 처리할 수 있습니다.
+`getBlockNumber` 메서드는 비동기 함수로 선언됩니다. 함수를 비동기로 선언하면 비동기 값(프로미스)을 쉽게 처리할 수 있습니다. `cav.klay.getBlockNumber` returns a promise, and the result can be handled easily by appending `await` keyword.
 
 비동기 대기 키워드에 대한 자세한 내용은 JavaScript MDN 사이트 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)를 참조하세요.
 
-`cav.klay.getBlockNumber()`에서 반환된 현재 블록 번호를 `blockNumber`에 할당하고 나서, `this.setState` React API를 호출합니다. `this.setState({ currentBlockNumber: blockNumber })`는 말 그대로 상태 속성 `currentBlockNumber`를 `blockNumber`로 설정합니다. `this.setState(nextState)`는 현재 상태를 업데이트하고 컴포넌트를 다시 렌더링합니다.
+After assigning the current block number returned from `cav.klay.getBlockNumber()` to `blockNumber`, we call `this.setState` React API. `this.setState({ currentBlockNumber: blockNumber })`는 말 그대로 상태 속성 `currentBlockNumber`를 `blockNumber`로 설정합니다. `this.setState(nextState)`는 현재 상태를 업데이트하고 컴포넌트를 다시 렌더링합니다.
 
 React의 this.setState와 렌더링 메커니즘에 대한 자세한 내용은 React의 공식 사이트 [https://reactjs.org/docs/state-and-lifecycle.html](https://reactjs.org/docs/state-and-lifecycle.html)에서 확인할 수 있습니다.
 
