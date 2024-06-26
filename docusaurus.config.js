@@ -320,6 +320,10 @@ const config = {
             title: 'Sites',
             items: [
               {
+                label: 'Kaia Developer Hub',
+                href: 'https://developer.klaytn.foundation/',
+              },
+              {
                 label: 'Kaia Square',
                 href: 'https://square.kaia.io/Home',
               },
@@ -332,6 +336,10 @@ const config = {
           {
             title: 'Community',
             items: [
+              {
+                label: 'Kaia Developer Forum',
+                href: 'https://forum.klaytn.foundation/',
+              },
               {
                 label: 'Medium',
                 href: 'https://medium.com/kaiachain',

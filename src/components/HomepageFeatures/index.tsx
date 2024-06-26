@@ -8,15 +8,19 @@ import img1Light from '../../images/thum_01_L.png';
 import img2Light from '../../images/thum_02_L.png';
 import img3Light from '../../images/thum_03_L.png';
 import img4Light from '../../images/thum_04_L.png';
+/*
 import img5Light from '../../images/thum_05_L.png';
 import img6Light from '../../images/thum_06_L.png';
+*/
 
 import img1Dark from '../../images/thum_01_D.png'; // Assuming you have dark versions
 import img2Dark from '../../images/thum_02_D.png';
 import img3Dark from '../../images/thum_03_D.png';
 import img4Dark from '../../images/thum_04_D.png';
+/*
 import img5Dark from '../../images/thum_05_D.png';
 import img6Dark from '../../images/thum_06_D.png';
+*/
 
 import View from '../View'
 import style from '@site/src/consts/style'
@@ -38,7 +42,7 @@ const StyledSection = styled.section`
 
 const StyledGrid = styled(View)`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding: 60px 0;
   gap: 40px;
 
@@ -49,20 +53,42 @@ const StyledGrid = styled(View)`
 
 // Style the Feature component as a card
 const StyledFeature = styled(View)`
-  border: 1px solid #abd908; /* Add a subtle border */
-  padding: 20px;
+  padding: 0;
   border-radius: 10px; /* Round the corners */
-  text-align: left;
+  text-align: center;
+  overflow: hidden;
   transition: transform 0.2s ease; /* Add a smooth hover effect */
+  background-color: ${() => {
+    const { colorMode } = useColorMode();
+    return colorMode === 'dark' ? 'black' : 'inherit';
+  }};
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
 
   &:hover {
     transform: translateY(-5px); /* Lift the card slightly on hover */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.15), 0 6px 8px rgba(0, 0, 0, 0.15);
   }
 `
 
 const StyledImgBox = styled(View)`
-  align-items: center;
-  padding-bottom: 20px;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+`
+
+// Create a new styled component for the image
+const StyledImg = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`
+
+// Create a new styled component for the content
+const StyledContent = styled(View)`
+  padding: 20px;
 `
 
 const featureList: FeatureType[] = [
@@ -94,6 +120,7 @@ const featureList: FeatureType[] = [
     description: <Translate>APIs and libraries</Translate>,
     to: '/docs/references',
   },
+  /*
   {
     title: <Translate>Kaia Developer Hub</Translate>,
     imgSrcLight: img5Light,
@@ -108,21 +135,22 @@ const featureList: FeatureType[] = [
     description: <Translate>Got a question? Visit our forum!</Translate>,
     to: 'https://forum.klaytn.foundation',
   },
+  */
 ]
 
 function Feature({ imgSrcLight, imgSrcDark, title, description, to }: FeatureType) {
   const { colorMode } = useColorMode();
   const imgSrc = colorMode === 'dark' ? imgSrcDark : imgSrcLight;
   return (
-    <StyledFeature> {/* Wrap with StyledFeature for card styling */}
-      <Link to={to}>
+    <StyledFeature>
+      <Link to={to} style={{ textDecoration: 'none', color: 'inherit' }}>
         <StyledImgBox>
-          <FormBgImg src={imgSrc} style={{ width: '100%', height: 150 }} />
+          <StyledImg src={imgSrc} alt={title.toString()} />
         </StyledImgBox>
-        <View>
+        <StyledContent>
           <h3>{title}</h3>
           <p>{description}</p>
-        </View>
+        </StyledContent>
       </Link>
     </StyledFeature>
   )
