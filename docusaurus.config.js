@@ -119,6 +119,15 @@ const config = {
               categoryLinkSource: "tag",
             },
           },
+          web3rpcKaia: {
+            // template: "api.mustache",
+            specPath: "./web3rpc/yaml/web3rpc-kaia.yaml",
+            outputDir: "docs/references/json-rpc/kaia",
+            sidebarOptions: { // optional, instructs plugin to generate sidebar.js
+              groupPathsBy: "tag", // group sidebar items by operation "tag"
+              categoryLinkSource: "tag",
+            },
+          },
           web3rpcEth: {
             specPath: "./web3rpc/yaml/web3rpc-eth.yaml",
             outputDir: "docs/references/json-rpc/eth",
@@ -214,7 +223,7 @@ const config = {
       },
       announcementBar: {
         id: 'docs_archive',
-        content: '<div style="font-size: 15px">📢 Kaia docs is now open, but <b>some content is still being updated to reflect the transition from Klaytn and may refer to outdated information until July.</b> Thank you for your understanding. 🙏🏻</div>',
+        content: '<div style="font-size: 15px">📢 Kaia docs content is still being updated to reflect the transition from Klaytn and <b>may refer to outdated information until July.</b> 🙏🏻 See <b><a target="_blank" href="https://docs.kaia.io/docs/misc/faq-chain-transition/">Klatyn to Kaia Transition FAQ</a></b> first!</div>',
         backgroundColor: '#789806',
         textColor: '#FFFFFF',
         isCloseable: true,
@@ -293,24 +302,28 @@ const config = {
           highlight: "bash",
           language: "curl",
           logoClass: "bash",
+          codeSampleLanguage: "cURL",
         },
         {
           highlight: "python",
           language: "python",
           logoClass: "python",
-          variant: "requests",
+          codeSampleLanguage: "Python",
+          // variant: "requests",
         },
         {
           highlight: "javascript",
           language: "nodejs",
           logoClass: "nodejs",
-          variant: "axios",
+          codeSampleLanguage: "JavaScript",
+          // variant: "axios",
         },
         {
           highlight: "java",
           language: "java",
           logoClass: "java",
-          variant: "unirest",
+          codeSampleLanguage: "Java",
+          // variant: "unirest",
         },
       ],
       footer: {
