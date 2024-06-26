@@ -105,20 +105,20 @@ import { cav } from 'klaytn/caver'
 
 /**
  * 1. Create contract instance
- * ex:) new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+ * ex:) new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
  * You can call contract method through this instance.
  */
 
 const KlaystagramContract = DEPLOYED_ABI
   && DEPLOYED_ADDRESS
-  && new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+  && new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
 
 export default KlaystagramContract
 ```
 
 To interact with contract, we need a contract instance.
 
-`KlaystagramContract` creates a contract instance to interact with Klaystagram contract, by providing `DEPLOYED_ABI`\(Application Binary Interface\) and `DEPLOYED_ADDRESS` to `cav.kaia.Contract` API.
+`KlaystagramContract` creates a contract instance to interact with Klaystagram contract, by providing `DEPLOYED_ABI`\(Application Binary Interface\) and `DEPLOYED_ADDRESS` to `cav.klay.Contract` API.
 
 When compiling & deploying `Klaystagram.sol` contract \([5. Deploy Contract](./deploy-contracts.md#3.-deploy-contract)\), we already created `deployedABI` and `deployedAddress` files. They contain ABI of Klaystagram contract and deployed contract address.
 
