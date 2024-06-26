@@ -155,10 +155,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(App)
 // 1. Inject wallet
 export const integrateWallet = (privateKey) => (dispatch) => {
   // Make wallet instance with caver's privateKeyToAccount API
-  const walletInstance = cav.kaia.accounts.privateKeyToAccount(privateKey)
+  const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)
 
   // To send a transaction, add wallet instance to caver
-  cav.kaia.accounts.wallet.add(walletInstance)
+  cav.klay.accounts.wallet.add(walletInstance)
 
   // To maintain logged-in status, store walletInstance at sessionStorage
   sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))
@@ -175,7 +175,7 @@ export const integrateWallet = (privateKey) => (dispatch) => {
 
 // 2. Remove wallet
 export const removeWallet = () => (dispatch) => {
-  cav.kaia.accounts.wallet.clear()
+  cav.klay.accounts.wallet.clear()
   sessionStorage.removeItem('walletInstance')
   return dispatch({
     type: REMOVE_WALLET,
