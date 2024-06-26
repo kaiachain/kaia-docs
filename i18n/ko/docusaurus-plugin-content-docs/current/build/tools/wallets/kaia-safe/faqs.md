@@ -8,17 +8,17 @@
 
 아래 단계에서는 Safe 계정을 만든 후 새 소유자 또는 서명자를 추가하는 방법을 설명합니다.
 
-**Step 1:** Go to **Settings** in the sidebar menu, you ll see the **Manage Safe Account signers** card under the **Setup** section.
+**1단계: 사이드바 메뉴의 \*\* Settings**으로 이동하면 \*\* Setup\*\* 섹션 아래에 **Manage Safe Account signers** 카드가 표시됩니다.
 
 **2단계**: 페이지 오른쪽 하단의 **Add new owner** 버튼을 클릭합니다. 이 버튼을 클릭하면 새 창이 열립니다.
 
-![](/img/build/tools/addOwnersSig.png)
+![](/img/build/tools/kaia-safe/ks-owners-change.png)
 
 **3단계**: 새 소유자의 **name**을 입력하고 **owner's address**를 붙여넣습니다. 그런 다음 페이지 오른쪽 하단의 next 버튼을 클릭합니다.
 
 **4단계**: 새 서명 정책을 설정합니다. 이 경우 기존 서명 정책을 변경하거나 유지할 수 있습니다. 아래 이미지에서는 트랜잭션을 확인하고 실행하려면 소유자 4명 중 2명의 서명이 필요합니다.
 
-![](/img/build/tools/addOwnersBtn.png)
+![](/img/build/tools/kaia-safe/ks-owners-details.png)
 
 **5단계**: 거래를 검토하고 제출합니다.
 
@@ -26,39 +26,39 @@
 
 'Submit'을 클릭하면 연결된 지갑에서 변경 사항을 확인하라는 메시지가 표시됩니다. 기존 서명 정책에 따라 다른 소유자는 일반 거래와 마찬가지로 변경 사항을 확인해야 합니다.
 
-![](/img/build/tools/addSafe.gif)
+![](/img/build/tools/kaia-safe/ks-review-owners.gif)
 
 ## 필수 서명자 확인 횟수를 변경할 수 있나요? <a id="Can i change the number of required signer confirmation"></a>
 
 예! 아래 단계에 따라 필요한 서명자 확인 횟수를 변경할 수 있습니다. 이는 금고 계정과 관련된 거래를 확인하는 데 필요한 소유자 또는 서명자를 변경하고 싶을 수 있으므로 중요한 사항입니다.
 
-**Step 1:** Go to **Settings** in the sidebar menu, you ll see the **Required Confirmation** card under the **Setup** section.
+**1단계: **사이드바 메뉴의 \*\* Settings**으로 이동하면 \*\* Setup** 섹션 아래에 **Required Confirmation** 카드가 표시됩니다.
 
 그러면 현재 서명 정책이 표시되며, 아래 이미지에서 볼 수 있듯이 모든 거래를 확인하려면 소유자 4명 중 2명의 서명이 필요합니다.
 
-![](/img/build/tools/safePolicyThresh.png)
+![](/img/build/tools/kaia-safe/ks-policy-page.png)
 
 **2단계**: **change** 버튼을 클릭합니다.
 
 그러면 새 서명 임계값을 선택할 수 있는 새 창이 나타납니다.
 
-![](/img/build/tools/safePoliciesConf.png)
+![](/img/build/tools/kaia-safe/ks-policy-change-btn.png)
 
 **3단계**: **Submit** 버튼을 클릭합니다.
 
 기존 서명 정책에 따라 일반 거래와 마찬가지로 다른 소유자가 변경 사항을 확인해야 한다는 점에 유의하세요.
 
-![](/img/build/tools/safePolicy.png)
+![](/img/build/tools/kaia-safe/ks-review-policy.gif)
 
 ## 기존 금고는 어떻게 추가하나요? <a id="How do i add an existing safe"></a>
 
-Using your exported Safe data, which contains your added Safe accounts, address book, and settings, you can easily add your Safe account.
+추가된 세이프 계정, 주소록 및 설정이 포함된 내보낸 세이프 데이터를 사용하여 세이프 계정을 쉽게 추가할 수 있습니다.
 
-> Note: You must have downloaded your Safe data as shown in the image below:
+> 참고: 아래 이미지와 같이 세이프 데이터를 다운로드해야 합니다:
 
-![](/img/build/tools/addSafeRev.png)
+![](/img/build/tools/kaia-safe/ks-data-export.png)
 
-![](/img/build/tools/addExistingSafe.png)
+![](/img/build/tools/kaia-safe/ks-export-data.gif)
 
 인터페이스에 기존 안전장치를 추가하거나 로드해야 하는 경우는 다양합니다. 여기에는 다음이 포함될 수 있습니다:
 
@@ -68,19 +68,19 @@ Using your exported Safe data, which contains your added Safe accounts, address 
 
 다음 단계에 따라 기존 금고를 추가하는 절차를 진행하겠습니다. **참고**: 서명자의 지갑이 연결되어 있는지 확인하시기 바랍니다.
 
-**1단계**: 사이드바 메뉴에서 _Settings_으로 이동하여 _Owners_ 섹션을 선택합니다.
+**1단계: \*\* Settings** 탭으로 이동합니다.
 
-**Step 2:** Scroll to the **Data Import** card under the **Data** section.
+**2단계: \*\* Data** 섹션 아래의 **Data Import** 카드로 스크롤합니다.
 
-![](/img/build/tools/addSafeOwnerName.png)
+![](/img/build/tools/kaia-safe/ks-data-import-details.png)
 
-Here you can either Drag and Drop a JSON file or choose your file as seen in the image above.
+여기에서 JSON 파일을 끌어다 놓거나 위 이미지와 같이 파일을 선택할 수 있습니다.
 
-**2단계**: **Add existing safe** 버튼을 클릭합니다.
+**3단계: \*\* Import** 버튼을 클릭합니다.
 
-![](/img/build/tools/addSafeName\\&Addr.png)
+![](/img/build/tools/kaia-safe/ks-data-import.png)
 
-![](/img/build/tools/addSafeNet.png)
+![](/img/build/tools/kaia-safe/ks-import-data.gif)
 
 그러면 이제 금고 계정에 액세스할 수 있습니다.
 
@@ -104,7 +104,7 @@ Here you can either Drag and Drop a JSON file or choose your file as seen in the
 
 금고의 임계값은 거래가 성공적으로 실행되기 전에 승인해야 하는 최소 소유자 계정 수입니다. 임계값을 1보다 크게 설정하여 하나의 계정으로 거래를 실행하는 것보다 항상 최소 하나의 추가 계정이 있어야 금고 거래를 검증하고 실행할 수 있도록 하는 것이 좋습니다. 이렇게 하면 공격자가 하나의 계정에 액세스하더라도 자금을 이동할 수 없습니다.
 
-따라서 한 명의 소유자가 계정에 액세스할 수 없게 되더라도 사용자가 금고에 있는 모든 돈을 즉시 잠그지 않고 다른 소유자가 계속 거래를 수행할 수 있으며, 예를 들어 분실된 소유자 계정을 대체할 수 있습니다. 이것이 복구 메커니즘의 역할을 한다고 주장할 수 있습니다.
+또한 전체 소유자의 51%(예: 3명 중 2명, 5명 중 3명 등)의 임계값을 선택하는 것이 좋습니다.  따라서 한 명의 소유자가 계정에 액세스할 수 없게 되더라도 사용자가 금고에 있는 모든 돈을 즉시 잠그지 않고 다른 소유자가 계속 거래를 수행할 수 있으며, 예를 들어 손실된 소유자 계정을 대체할 수 있습니다. 이것이 복구 메커니즘의 역할을 한다고 주장할 수 있습니다.
 
 **어떤 지갑과 호환되나요?**
-현재 Kaia Safe는 [MetaMask](../../../tutorials/connecting-metamask)와 호환됩니다.
+현재 Kaia Safe는 [Kaikas](https://docs.kaikas.io/), [MetaMask](../../../tutorials/connecting-metamask)와 호환됩니다.

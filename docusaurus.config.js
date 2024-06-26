@@ -32,7 +32,7 @@ const config = {
   i18n: {
     defaultLocale: 'en',
     //locales: ['en', 'ko', 'vi'],
-    locales: ['en'],
+    locales: ['en', `ko`],
     path: 'i18n',
     localeConfigs: {
       en: {
@@ -42,14 +42,14 @@ const config = {
         calendar: 'gregory',
         path: 'en',
       },
-/**      ko: {
+      ko: {
         label: '한국어',
         direction: 'ltr',
         htmlLang: 'ko',
         calendar: 'gregory',
         path: 'ko',
       },
-      vi: {
+/**      vi: {
         label: 'Tiếng Việt',
         direction: 'ltr',
         htmlLang: 'vi',

@@ -184,7 +184,7 @@ class Count extends Component {
 
     this.countContract = DEPLOYED_ABI
       && DEPLOYED_ADDRESS
-      && new cav.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+      && new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
   }
 
   // ...
