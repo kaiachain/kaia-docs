@@ -604,9 +604,9 @@ Init 함수는 Web3-Onboard를 초기화하여 모든 후크가 사용할 수 �
 실제로 작동하는 모습을 보려면 `_app.js` 파일에 이전 코드 아래에 코드를 붙여넣으세요:
 
 ```js
-const ETH_MAINNET_RPC_URL = `https://ethereum-mainnet-rpc.allthatnode.com/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KAIATN_MAINNET_URL = `https://klaytn-mainnet-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KAIATN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
+const ETH_MAINNET_RPC_URL = `https://ethereum-mainnet.g.allthatnode.com/full/evm`;
+const KAIA_MAINNET_URL = `https://klaytn-mainnet.g.allthatnode.com/full/evm`;
+const KAIA_BAOBAB_URL = `https://klaytn-baobab.g.allthatnode.com/full/evm`;
   const web3Onboard =  init({
     wallets: modules,
     chains: [
@@ -619,25 +619,25 @@ const KAIATN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d3223
       },
       {
         id: "0x2019", // chain ID must be in hexadecimal
-        token: "KLAY",
+        token: "KAIA",
         namespace: "evm",
         label: "Kaia Mainnet",
-        rpcUrl: KAIATN_MAINNET_URL
+        rpcUrl: KAIA_MAINNET_URL
       },
       {
         id: "0x3e9", // chain ID must be in hexadecimel
-        token: "KLAY",
+        token: "KAIA",
         namespace: "evm",
         label: "Kaia Testnet",
-        rpcUrl: KAIATN_BAOBAB_URL
+        rpcUrl: KAIA_BAOBAB_URL
       },
      // you can add as much supported chains as possible
     ],
     appMetadata: {
-      name: "Klaytn-web3-onboard-App", // change to your dApp name
+      name: "Kaia-web3-onboard-App", // change to your dApp name
       icon: "paste your icon url"
       logo: "paste your logo url"
-      description: "Web3Onboard-Klaytn",
+      description: "Web3Onboard-Kaia",
       recommendedInjectedWallets: [
         { name: "Coinbase", url: "https://wallet.coinbase.com/" },
         { name: "MetaMask", url: "https://metamask.io" }
