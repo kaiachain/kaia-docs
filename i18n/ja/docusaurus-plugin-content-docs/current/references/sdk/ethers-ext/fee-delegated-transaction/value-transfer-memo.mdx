@@ -111,7 +111,7 @@ const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16f
 const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
 
 async function main() {
-  const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+  const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
   const senderWallet = new Wallet(senderPriv, provider);
   const feePayerWallet = new Wallet(feePayerPriv, provider);
 
