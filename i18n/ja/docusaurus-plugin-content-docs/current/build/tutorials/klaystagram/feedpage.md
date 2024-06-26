@@ -116,7 +116,7 @@ export default KlaystagramContract
 
 To interact with contract, we need a contract instance.
 
-`KlaystagramContract` creates a contract instance to interact with Klaystagram contract, by providing `DEPLOYED_ABI`(Application Binary Interface) and `DEPLOYED_ADDRESS` to `cav.klay.Contract` API.
+`KlaystagramContract` creates a contract instance to interact with Klaystagram contract, by providing `DEPLOYED_ABI`\(Application Binary Interface\) and `DEPLOYED_ADDRESS` to `cav.klay.Contract` API.
 
 When compiling & deploying `Klaystagram.sol` contract ([5. Deploy Contract](./deploy-contracts.md#3.-deploy-contract)), we already created `deployedABI` and `deployedAddress` files. They contain ABI of Klaystagram contract and deployed contract address.
 
