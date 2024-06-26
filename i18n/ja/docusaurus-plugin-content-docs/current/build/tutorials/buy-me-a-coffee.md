@@ -605,9 +605,9 @@ Init function initializes web3-Onboard and makes it available for all hooks to u
 To see this in action, paste the code below the previous code in your `_app.js `file:
 
 ```js
-const ETH_MAINNET_RPC_URL = `https://ethereum-mainnet-rpc.allthatnode.com/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KLAYTN_MAINNET_URL = `https://klaytn-mainnet-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KLAYTN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
+const ETH_MAINNET_RPC_URL = `https://ethereum-mainnet.g.allthatnode.com/full/evm`;
+const KAIA_MAINNET_URL = `https://klaytn-mainnet.g.allthatnode.com/full/evm`;
+const KAIA_BAOBAB_URL = `https://klaytn-baobab.g.allthatnode.com/full/evm`;
   const web3Onboard =  init({
     wallets: modules,
     chains: [
@@ -620,25 +620,25 @@ const KLAYTN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d3223
       },
       {
         id: "0x2019", // chain ID must be in hexadecimal
-        token: "KLAY",
+        token: "KAIA",
         namespace: "evm",
-        label: "Klaytn Mainnet",
-        rpcUrl: KLAYTN_MAINNET_URL
+        label: "Kaia Mainnet",
+        rpcUrl: KAIA_MAINNET_URL
       },
       {
         id: "0x3e9", // chain ID must be in hexadecimel
-        token: "KLAY",
+        token: "KAIA",
         namespace: "evm",
-        label: "Klaytn Testnet",
-        rpcUrl: KLAYTN_BAOBAB_URL
+        label: "Kaia Testnet",
+        rpcUrl: KAIA_BAOBAB_URL
       },
      // you can add as much supported chains as possible
     ],
     appMetadata: {
-      name: "Klaytn-web3-onboard-App", // change to your dApp name
+      name: "Kaia-web3-onboard-App", // change to your dApp name
       icon: "paste your icon url"
       logo: "paste your logo url"
-      description: "Web3Onboard-Klaytn",
+      description: "Web3Onboard-Kaia",
       recommendedInjectedWallets: [
         { name: "Coinbase", url: "https://wallet.coinbase.com/" },
         { name: "MetaMask", url: "https://metamask.io" }
