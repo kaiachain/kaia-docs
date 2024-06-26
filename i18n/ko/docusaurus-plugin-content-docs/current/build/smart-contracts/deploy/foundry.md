@@ -153,7 +153,7 @@ $ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Cou
 **예시**
 
 ```bash
-forge create --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N --private-key hhdhdhdhprivatekeyhdhdhdhud src/Counter.sol:Counter
+forge create --rpc-url https://klaytn-baobab.g.allthatnode.com/full/evm --private-key hhdhdhdhprivatekeyhdhdhdhud src/Counter.sol:Counter
 ```
 
 **경고: 개인 키 인수를 MetaMask의 개인 키로 바꾸세요. 개인키가 노출되지 않도록 각별히 주의하세요.**
@@ -181,7 +181,7 @@ cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
 **예시**
 
 ```bash
-cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N
+cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab.g.allthatnode.com/full/evm
 ```
 
 **출력**
@@ -213,7 +213,7 @@ cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --
 **예제**
 
 ```bash
-cast send --rpc-url=https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N  0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
+cast send --rpc-url=https://klaytn-baobab.g.allthatnode.com/full/evm 0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
 ```
 
 **출력**
@@ -223,7 +223,7 @@ cast send --rpc-url=https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2
 **크로스체크 번호**
 
 ```bash
-cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N
+cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab.g.allthatnode.com/full/evm
 ```
 
 **출력**
