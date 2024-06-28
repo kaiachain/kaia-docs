@@ -1,5 +1,7 @@
 # Build a dApp using Scaffold-ETH 2
 
+![](/img/banners/kaia-scaffold.png)
+
 ## Introduction <a href="#introduction" id="introduction"></a>
 
 Scaffold-ETH 2 is an open-source toolkit for building decentralized applications (dApps) on Ethereum and other EVM-compatible blockchains, like Kaia. Developers can easily deploy a Solidity smart contract and launch a dApp with a React frontend thanks to Scaffold-ETH 2.

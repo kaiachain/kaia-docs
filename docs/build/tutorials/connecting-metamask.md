@@ -1,6 +1,6 @@
 # Connect MetaMask to Kaia
 
-![](/img/build/tutorials/klaytnXmetamask.png)
+![](/img/banners/kaia-metamask.png)
 
 > **Note**: MetaMask is mostly used as a wallet for Ethereum, but it is also compatible with Kaia due to the identical address structures. Kaia also has a browser extension wallet called [Kaikas](../tools/wallets/kaikas.md), so it basically provides the same features as MetaMask, except for Remix.
 

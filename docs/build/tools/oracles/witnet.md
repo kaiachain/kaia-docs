@@ -1,8 +1,8 @@
 # Witnet
 
-## Introduction
+![](/img/banners/kaia-witnet.png)
 
-![](/img/build/tools/klaytnXwitnet.png)
+## Introduction
 
 The [Witnet](https://docs.witnet.io/) multichain decentralized oracle enables smart contracts to actualize their potential by providing them access to all sorts of valuable external data sets. These valuable data sets include sports results, stock prices, weather forecasts, randomness, et al.
 To offer decentralized oracle services, Witnet relies on a distributed network of peer nodes— colloquially called witnesses—who earn Wit tokens as a reward for retrieving web data and reporting it directly to the smart contracts. The witnesses are responsible for sourcing, retrieving, and verifying the data sets. To ensure transparency, each anonymous peer is incentivized to report the retrieved data honestly and is punished or slashed for any wrongdoing.

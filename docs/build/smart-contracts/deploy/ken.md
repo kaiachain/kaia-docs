@@ -1,6 +1,6 @@
 # Deploy smart contract using KEN
 
-![](/img/build/get-started/klaytnXken.png)
+![](/img/banners/kaia-ken.png)
 
 Before you start, let's get familiar with several Kaia-specific terms.
 
