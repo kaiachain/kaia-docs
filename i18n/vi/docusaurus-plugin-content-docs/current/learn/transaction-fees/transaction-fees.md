@@ -3,58 +3,96 @@
 The transaction fee of one transaction is calculated as follows:
 
 ```text
-Transaction fee := (Gas used) x (GasPrice)
+gas fee := (gas used) x (effective gas price)
 ```
 
 As an easy-to-understand analogy in this regard, suppose you're filling up gas at a gas station. The gas price is determined by the refinery every day, and today's price is $2. If you fill 15L up, then you would pay $30 = 15L x $2/1L for it, and the $30 will be paid out of your bank account. Also, the transaction will be recorded in the account book.
 
-Transaction fee works just the same as above. The network determines the gas price for every block. Suppose the gas price for the current block is 30 Gkei. If a transaction submitted by `from` account was charged 21000 gas, then 630000 Gkei = (21000 gas \* 30 Gkei) would be paid out of the `from` account. Also, the transaction will be recorded in the block, and it will be applied in the state of all blockchain nodes.
+Transaction fee works just the same as above. Suppose a transaction spent 21000 gas and the effective gas price of the transaction was 25 Gkei. Then the gas fee is 525000 Gkei. This amount would be deducted from the sender (`from` account) balance.
 
-Summing it up again, this calculated transaction fee is subtracted from the sender's or fee payer's account. However, the fee can be deducted from the balance only if the transaction is created by kaia_sendTransaction/eth_sendTransaction. Because the other transactions cannot change the state since they cannot be included in the block. They are just a simulation in some way.
+## Gas used <a id="gas-used"></a>
 
-This is an overall explanation of the transaction fee, and from this point, we would give a detailed explanation of how gas price is determined and how the gas is calculated.
+Every action that changes the state of the blockchain requires gas. While processing the transactions in a block, such as sending KAIA, using ERC-20 tokens, or executing a contract, the sender has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required. The gas has no unit, and we just say like "21000 gas".
 
-## Gas Overview <a id="gas-overview"></a>
+Gas of a transaction comprises of two components:
 
-Every action that changes the state of the blockchain requires gas. While processing the transactions in a block, such as sending KAIA, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required.
+- `IntrinsicGas` is the gas statically charged based on the transaction body itself, such as the size of the input. For more details, please refer to [Intrinsic Gas](intrinsic-gas.md).
+- `ExecutionGas` is the gas dynamically calculated during the execution. For more details, please refer to [Execution Gas](execution-gas.md).
 
-`Gas` required is computed by adding up the next two gases;
+The gas used amount is only determined after the transaction is executed. As such, you can find the gas used amount of a transaction from its receipt.
 
-- `IntrinsicGas` is a gas that is statically charged based on the configuration of the transaction, such as the datasize of the transaction. For more details, please refer to [Intrinsic Gas](intrinsic-gas.md).
-- `ExecutionGas`, on the other hand, is a gas that is dynamically calculated due to the contract execution. For more details, please refer to [Execution Gas](execution-gas.md).
+## Effective gas price <a id="effective-gas-price"></a>
 
-## GasPrice Overview <a id="gas-price-overview"></a>
+Effective gas price of a transaction is calculated from many variables:
 
-Unlike the ethereum, Kaia used the fixed gas price, called `unitPrice` at first. However, since magma hardfork, Kaia started to use dynamic gas price which concept is newly redesigned by modifying the Ethereum's basefee, so called `Effective Gas Price`. Since there have been many changes about gas price, it can be pretty confusing on what value to set for gasPrice. So, we've made a guide on how to set the gas price below.
+- Hardfork level
+- Gas price fields in the transaction submitted by the sender
+  - `maxFeePerGas` (often referred to as feeCap) field exists in the type 2 transactions.
+  - `maxPriorityFeePerGas` (often referred to as tipCap) field exists in the type 2 transactions.
+  - `gasPrice` field exists in every other transaction types.
+- `baseFeePerGas` (often referred to as baseFee) of the block the transaction is executed in
 
-| Network  | Before BaseFee                                                                                                                                                                                    | After BaseFee                                                                                                                                                                                                                                                                                                                                     |
-| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| klaytn   | tx parameter gasPrice: network-defined. must be set as the `unitPrice` <br/> <br/> gasPrice: use the tx parameter gasPrice                        | tx parameter gasPrice: user-defined. It means the price the most you can pay  (e.g. suggestGasPrice = 2\*latestBlock.baseFee ) <br/> <br/> gasPrice: dynamic gasPrice, `baseFee`, which is defined by network. |
-| Ethereum | tx parameter gasPrice: user-defined. it means the price the most you can pay. <br/> <br/> gasPrice: use the tx parameter gasPrice | tx parameter gasPrice: user-defined. It means the price the most you can pay. <br/> <br/> gasPrice: dynamic gasPrice, `baseFee+tip`, which is defined by network.                                                                                                 |
+### Before Magma hardfork (fixed unit price)
 
-## Dynamic Gas Fee Mechanism <a id="dynamic-gas-fee-mechanism"></a>
+Before Magma hardfork, the transaction fee of all transactions is the fixed value called `unitPrice`. This unitPrice can be adjusted via governance. All transactions must submit the gas price field that equals to the current unitPrice. The unit price mechanism avoids UX frustration due to gas price estimation in the gas fee auction market and allows service providers to easily predict gas fee budget.
 
-Since the magma hard fork, a dynamic gas fee mechanism has replaced the existing fixed fee policy. Dynamic gas fee policy provides a stable service to users by preventing network abuse and storage overuse. The gas fee changes according to the network situation. Seven parameters affect the `base fee(gas fee)`:
+The `unitPrice` at a given block can be found through the `kaia_getParams` API.
 
-1. PREVIOUS_BASE_FEE: Base fee of the previous block
-2. GAS_USED_FOR_THE_PREVIOUS_BLOCK: Gas used to process all transactions of the previous block
-3. GAS_TARGET: The gas amount that determines the increase or decrease of the base fee (30 million at the moment)
-4. MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate (60 million at the moment)
-5. BASE_FEE_DELTA_REDUCING_DENOMINATOR: The value to set the maximum base fee change to 5% per block (20 at the moment, can be changed later by governance)
-6. UPPER_BOUND_BASE_FEE: The maximum value for the base fee (750 Gkei at the moment, can be changed later by governance)
-7. LOWER_BOUND_BASE_FEE: The minimum value for the base fee (25 Gkei at the moment, can be changed later by governance)
+### After Magma hardfork (KIP-71 dynamic base fee)
 
-## Base Fee <a id="base-fee"></a>
+Since Magma hardfork, the network decides a gas price value `baseFeePerGas` (or simply baseFee) every block depending on the network congestion. The baseFee increases if the transaction traffic is higher than a threshold, and decreases otherwise. The transaction traffic is measured in the block gas used. As transaction executions in a block gets heavier, the network perceives higher congestion, likely to increase the baseFee.
 
-The basic idea of this algorithm is that the `base fee` would go up if the gas used exceeds the base gas and vice versa. It is closely related to the number of transactions in the network and the gas used in the process. There is an upper and lower limit for the `base fee` to prevent the fee from increasing or decreasing indefinitely. There is also a cap for the gas and an adjustment value for the fluctuation to prevent abrupt changes in the `base fee`. The values can be changed by governance.
+Unlike [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md), Magma gas policy has no tip (tip is introduced since Kaia hardfork). Instead, the FCFS (first-come first-serve) policy is implemented to protect the network from spamming.
 
-```text
-(BASE_FEE_CHANGE_RATE) = (GAS_USED_FOR_THE_PREVIOUS_BLOCK - GAS_TARGET)
-(ADJUSTED_BASE_FEE_CHANGE_RATE) = (BASE_FEE_CHANGE_RATE) / (GAS_TARGET) / (BASE_FEE_DELTA_REDUCING_DENOMINATOR)
-(BASE_FEE_CHANGE_RANGE) = (PREVIOUS_BASE_FEE) * (ADJUSTED_BASE_FEE_CHANGE_RATE)
-(BASE_FEE) = (PREVIOUS_BASE_FEE) + (BASE_FEE_CHANGE_RANGE) 
+#### baseFee calculation
+
+The baseFee calculation depends on following parameters:
+
+- Block congestion data
+  - PREVIOUS_BASE_FEE: Base fee of the previous block
+  - PREVIOUS_BLOCK_GAS_USED: Gas used to process all transactions of the previous block
+- Tuning parameters which can be changed later via governance
+  - GAS_TARGET: The gas amount that determines the increase or decrease of the base fee
+  - MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate. This
+  - BASE_FEE_DENOMINATOR: The value to set the maximum base fee change per block
+  - UPPER_BOUND_BASE_FEE: The maximum value for the base fee
+  - LOWER_BOUND_BASE_FEE: The minimum value for the base fee
+
+Below is an oversimplified version of the baseFee calculation. In its essense, the base fee change is proportional to the difference between GAS_TARGET and PREVIOUS_BLOCK_GAS_USED, and other parameters controls the change speed or bounds the baseFee. Refer to [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) for the exact formula.
+
+```
+              min(PREVIOUS_BLOCK_GAS_USED, MAX_BLOCK_GAS_USED_FOR_BASE_FEE) - GAS_TARGET
+changeRate = ----------------------------------------------------------------------------
+                                BASE_FEE_DENOMINATOR * GAS_TARGET
+
+nextBaseFeeBeforeBound = PREVIOUS_BASE_FEE * (1 + changeRate)
+
+nextBaseFee = max(min(nextBaseFeeBeforeBound, UPPER_BOUND_BASE_FEE), LOWER_BOUND_BASE_FEE)
 ```
 
-The `base fee` is calculated for every block; there could be changes every second. Transactions from a single block use the same `base fee` to calculate transaction fees. Only transactions with a gas price higher than the block `base fee` can be included in the block. Half of the transaction fee for each block is burned (BURN_RATIO = 0.5, cannot be changed by governance).
+The tuning parameters at a given block can be found through the `kaia_getParams` API. The `baseFeePerGas` of each block can be found through the `kaia_getBlock*` and `eth_getBlock*` APIs.
 
-> NOTE: An important feature that sets Kaia apart from Ethereum's EIP-1559 is that it does not have tips. Kaia follows the First Come, First Served(FCFS) principle for its transactions.
+#### Gas fee burn
+
+Since Magma hardfork, half of the block gas fee is burnt. See [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) for details.
+
+Since Kore hardfork, most of the block gas fee is burnt. See [KIP-82](https://kips.klaytn.foundation/KIPs/kip-82) for details.
+
+### After Kaia hardfork (KIP-162 priority fee)
+
+Since Kaia hardfork, the transactions can specify nonzero priority fee (or simply tip) to increase the block inclusion possibility. The Kaia gas policy is similar to [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) in that transactions pay the baseFee plus the effective tip.
+
+The effective gas price of a transaction is defined as `min(baseFee + tipCap, feeCap)`. For type-2 transactions, the transaction fields `maxPriorityFeePerGas` and `maxFeePerGas` naturally becomes the tipCap and feeCap. However, other transaction types only have one `gasPrice` field. For those types, tipCap and feeCap are both equals to `gasPrice`. Consequently their effective gas price becomes `min(baseFee + tipCap, feeCap) = min(baseFee + gasPrice, gasPrice) = gasPrice`, which is identical to gas price auction mechanism.
+
+See [KIP-162](https://github.com/klaytn/kips/blob/main/KIPs/kip-162.md) for details.
+
+### Summary
+
+| Hardfork     | `gasPrice` requirement                                                                     | `maxFeePerGas` requirement                                                                 | `maxPriorityFeePerGas` requirement                                                                                                                     | calculated `effectiveGasPrice`                                                                                                          |
+| ------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Before Magma | must be unitPrice                                                                          | must be unitPrice<br>(only after EthTxType fork)                        | must be unitPrice<br>(only after EthTxType fork)                                                                                    | unitPrice                                                                                                                               |
+| After Magma  | at least baseFee<br>(suggested: 2\*baseFee)             | at least baseFee<br>(suggested: 2\*baseFee)             | ignored                                                                                                                                                | baseFee                                                                                                                                 |
+| After Kaia   | at least baseFee<br>(suggested: baseFee + suggestedTip) | at least baseFee<br>(suggested: baseFee + suggestedTip) | up to user, SDK, wallet<br>(suggestedTip: P percentile effective tip among the transactions from the last N blocks) | tx type 2: min(baseFee + feeCap, tipCap),<br>other types: `gasPrice` for other types |
+
+- You can retrieve the suggested `gasPrice` and `maxFeePerGas` value from the `kaia_gasPrice` and `eth_gasPrice` APIs. But the user, SDK or wallet can always choose their own value out of discretion as long as they exceed the current base fee.
+- A suggested `maxPriorityFeePerGas` value is served by `kaia_maxPriorityFeePerGas` and `eth_maxPriorityFeePerGas` APIs from the effective tip of previously mined transactions. But the user, SDK or wallet can always choose their own value out of discretion. Kaia RPC nodes with default settings uses P=60 and N=20 but the configuration can differ by nodes. Use `kaia_feeHistory` and `eth_feeHistory` API for more customized result.
