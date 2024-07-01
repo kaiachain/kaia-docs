@@ -165,7 +165,7 @@ For further information about decrypting keystore file with password, see [caver
 ```javascript
 /**
  * removeWallet method removes
- * 1) wallet instance from caver.kaia.accounts
+ * 1) wallet instance from caver.klay.accounts
  * 2) 'walletInstance' value from session storage.
  */
 removeWallet = () => {
