@@ -28,4 +28,6 @@ Truffle is a great tool for compiling and deploying contract files.
 
 ⚠ If the version is lower than 5, install the truffle version 5.\
 ⚠ If the version is lower than 5, install the truffle version 5.\
+`$ sudo npm install -g truffle@5`\
+⚠ If the version is lower than 5, install the truffle version 5.\
 `$ sudo npm install -g truffle@5`
