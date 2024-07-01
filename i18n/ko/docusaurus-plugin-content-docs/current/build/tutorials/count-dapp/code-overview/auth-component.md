@@ -50,11 +50,11 @@ integrateWallet = (privateKey) => {
 
 인자로 `privateKey`를 받아 지갑 인스턴스를 생성하는 `integateWallet` 함수를 사용합니다.
 
-Line 1: `const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)`\
-It stores the wallet instance made by `privateKeyToAccount` API to the `walletInstance` variable.
+1행: `const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)`\
+이 함수는 `privateKeyToAccount` API로 만든 지갑 인스턴스를 `walletInstance` 변수에 저장합니다.
 
-Line 2: `cav.klay.accounts.wallet.add(walletInstance)`\
-To send a transaction, you should add a wallet instance to caver through `cav.klay.accounts.wallet.add(walletInstance)`.
+2행: `cav.klay.accounts.wallet.add(walletInstance)`\
+트랜잭션을 전송하려면 `cav.klay.accounts.wallet.add(walletInstance)`를 통해 caver에 지갑 인스턴스를 추가해야 합니다.
 
 3행: `sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))`\
 `sessionStorage.setItem`는 브라우저의 세션 저장소에 값을 저장하는 데 사용되는 브라우저 API입니다.
@@ -123,8 +123,7 @@ handleImport = (e) => {
 />
 ```
 
-키스토어 파일과 비밀번호가 모두 준비되었습니다. We can now decrypt the keystore file to extract the private key through `cav.klay.accounts.decrypt(keystore, password)` API.\
-This API returns a wallet instance containing the private key. 개인키를 가져온 후 앞서 살펴본 `integrateWallet` 메서드를 사용할 수 있습니다.
+키스토어 파일과 비밀번호가 모두 준비되었습니다. 이제 `cav.klay.accounts.decrypt(키스토어, 비밀번호)` API를 통해 키스토어 파일을 복호화하여 개인키를 추출할 수 있습니다. 개인키를 가져온 후 앞서 살펴본 `integrateWallet` 메서드를 사용할 수 있습니다.
 
 ```javascript
 handleLogin = () => {
@@ -150,9 +149,7 @@ handleLogin = () => {
 
 ### `Auth` 컴포넌트 기능: 사용자가 로그아웃하고 브라우저에서 지갑 인스턴스 정보를 제거할 수 있습니다. <a href="#5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from" id="5-auth-component-feature-user-can-logout-remove-wallet-instance-information-from"></a>
 
-'logout' means removing the wallet instance from the browser and caver.\
-`cav.klay.accounts.wallet.clear()` removes all wallet instances from caver.\
-`sessionStorage.removeItem('walletInstance')` removes the wallet instance from the browser's session storage.
+'로그아웃'은 브라우저와 caver에서 지갑 인스턴스를 제거하는 것을 의미합니다.
 
 ```javascript
 /**
