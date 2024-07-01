@@ -106,7 +106,7 @@ const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c5974
 const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
 const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
 
-const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
+const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
 const web3 = new Web3(provider);
 const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
 const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
