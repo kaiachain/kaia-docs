@@ -4,7 +4,7 @@ sidebar_label: Particle Network
 
 # Integrate Particle Network into a dApp
 
-![](/img/build/tools/particle.png)
+![](/img/banners/kaia-particle.png)
 
 ## Introduction
 
