@@ -90,9 +90,9 @@ See [KIP-162](https://github.com/klaytn/kips/blob/main/KIPs/kip-162.md) for deta
 
 | Hardfork | `gasPrice` requirement | `maxFeePerGas` requirement | `maxPriorityFeePerGas` requirement | calculated `effectiveGasPrice` |
 | - | - | - | - | - |
-| Before Magma | must be unitPrice | must be unitPrice<br>(only after EthTxType fork) | must be unitPrice<br>(only after EthTxType fork) | unitPrice
-| After Magma | at least baseFee<br>(suggested: 2*baseFee) | at least baseFee<br>(suggested: 2*baseFee) | ignored | baseFee
-| After Kaia |  at least baseFee<br>(suggested: baseFee + suggestedTip) | at least baseFee<br>(suggested: baseFee + suggestedTip) | up to user, SDK, wallet<br>(suggestedTip: P percentile effective tip among the transactions from the last N blocks) | tx type 2: min(baseFee + feeCap, tipCap),<br>other types: `gasPrice` for other types
+| Before Magma | must be unitPrice | must be unitPrice<br/>(only after EthTxType fork) | must be unitPrice<br/>(only after EthTxType fork) | unitPrice
+| After Magma | at least baseFee<br/>(suggested: 2*baseFee) | at least baseFee<br/>(suggested: 2*baseFee) | ignored | baseFee
+| After Kaia |  at least baseFee<br/>(suggested: baseFee + suggestedTip) | at least baseFee<br/>(suggested: baseFee + suggestedTip) | up to user, SDK, wallet<br/>(suggestedTip: P percentile effective tip among the transactions from the last N blocks) | tx type 2: min(baseFee + feeCap, tipCap),<br/>other types: `gasPrice` for other types
 
 - You can retrieve the suggested `gasPrice` and `maxFeePerGas` value from the `kaia_gasPrice` and `eth_gasPrice` APIs. But the user, SDK or wallet can always choose their own value out of discretion as long as they exceed the current base fee.
 - A suggested `maxPriorityFeePerGas` value is served by `kaia_maxPriorityFeePerGas` and `eth_maxPriorityFeePerGas` APIs from the effective tip of previously mined transactions. But the user, SDK or wallet can always choose their own value out of discretion. Kaia RPC nodes with default settings uses P=60 and N=20 but the configuration can differ by nodes. Use `kaia_feeHistory` and `eth_feeHistory` API for more customized result.
