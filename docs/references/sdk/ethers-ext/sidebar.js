@@ -38,6 +38,13 @@ export const sidebar = {
                         'references/sdk/ethers-ext/account-management/sign-message/role-based-recover-msg',
                     ],
                 },
+                {
+                    type: 'category', 
+                    label: 'keystore',
+                    items: [
+                        'references/sdk/ethers-ext/account-management/keystore/keystoreV3',
+                    ],
+                },
             ],
         },
         {
