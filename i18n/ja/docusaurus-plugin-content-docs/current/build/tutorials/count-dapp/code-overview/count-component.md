@@ -225,7 +225,7 @@ for example)\
 Thanks to the webpack configuration, we can access them via variables. (`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
 
 For example)\
-`DEPLOYED_ADDRESS` returns the deployed contact address.\
+`DEPLOYED_ADDRESS` returns the deployed contact ddress.\
 `DEPLOYED_ABI` returns the Count contract ABI.
 
 ```javascript
