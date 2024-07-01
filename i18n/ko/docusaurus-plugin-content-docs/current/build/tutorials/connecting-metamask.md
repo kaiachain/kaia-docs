@@ -1,6 +1,6 @@
 # MetaMask를 카이아에 연결하기
 
-![](/img/build/tutorials/klaytnXmetamask.png)
+![](/img/banners/kaia-metamask.png)
 
 > **주석**: MetaMask는 주로 이더리움 지갑으로 사용되지만 주소 구조가 동일하기 때문에 카이아와도 호환이 가능합니다. 카이아에도 [Kaikas](../tools/wallets/kaikas.md)라는 브라우저 확장 지갑이 있어 기본적으로 MetaMask와 동일한 기능을 제공하지만 Remix를 제외하고는 동일합니다.
 
