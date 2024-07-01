@@ -101,7 +101,7 @@ const { Wallet, TxType, AccountKeyType} = require("@klaytn/ethers-ext");
 const senderAddr = "0xecbf243ac167a3b5097fef758e07881582a89027";
 const senderPriv = "0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d";
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
+const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
 const wallet = new Wallet(senderPriv, provider);
 
 async function main() {
