@@ -44,6 +44,11 @@ export const sidebar = {
                         'references/sdk/web3js-ext/account-management/sign-message/public-recover-msg',
                         'references/sdk/web3js-ext/account-management/sign-message/role-based-recover-msg'
                     ]
+                },
+                {
+                    type: 'category',
+                    label: 'keystore',
+                    items: ['references/sdk/web3js-ext/account-management/keystore/keystoreV3']
                 }
             ]
         },
