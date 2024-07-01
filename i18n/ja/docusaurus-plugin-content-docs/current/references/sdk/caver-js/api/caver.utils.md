@@ -77,9 +77,9 @@ Safely converts any given value (including [BigNumber.js](http://mikemcl.github.
 
 **Parameters**
 
-| Name   | Type               | Description                                        |
-| ------ | ------------------ | -------------------------------------------------- |
-| number | string \\| number | number to convert to a big number. |
+| Name   | Type        | Description                                        |
+| ------ | ----------- | -------------------------------------------------- |
+| number | number \\ | number to convert to a big number. |
 
 **Return Value**
 
@@ -437,9 +437,9 @@ Converts any given value to HEX. The numeric strings will be interpreted as numb
 
 **Parameters**
 
-| Name  | Type                                      | Description                                  |
-| ----- | ----------------------------------------- | -------------------------------------------- |
-| mixed | string \\| number \\| BN \\| BigNumber | The input to convert to HEX. |
+| Name  | Type        | Description                                  |
+| ----- | ----------- | -------------------------------------------- |
+| mixed | string \\ | The input to convert to HEX. |
 
 **Return Value**
 
@@ -532,9 +532,9 @@ Returns the HEX representation of a given number value.
 
 **Parameters**
 
-| Name   | Type                                      | Description                                   |
-| ------ | ----------------------------------------- | --------------------------------------------- |
-| number | string \\| number \\| BN \\| BigNumber | A number as string or number. |
+| Name   | Type        | Description                                   |
+| ------ | ----------- | --------------------------------------------- |
+| number | string \\ | A number as string or number. |
 
 **Return Value**
 
@@ -725,16 +725,16 @@ Converts any KLAY value into peb.
 
 **Parameters**
 
-| Name   | Type                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| number | string \\| number \\| BN | The value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| unit   | string                     | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert from. <code>number</code> will be multiplied by one of the following multipliers for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
+| Name   | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| number | string \\ | The value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| unit   | string      | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert from. <code>number</code> will be multiplied by one of the following multipliers for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
 
 **Return Value**
 
-| Type           | Description                                                                                                                                      |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| string \\| BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
+| Type        | Description                                                                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| string \\ | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
 
 **Examples**
 
@@ -756,10 +756,10 @@ caver.utils.convertFromPeb(number [, unit])
 
 **Parameters**
 
-| Name   | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------ | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| number | string \\| number \\| BN \\| BigNumber | The value in peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| unit   | string                                    | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert your "peb" into. <code>number</code> will be divided by one of the following denominators for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
+| Name   | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| number | string \\ | The value in peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| unit   | string      | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert your "peb" into. <code>number</code> will be divided by one of the following denominators for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
 
 **Return Value**
 
@@ -786,16 +786,16 @@ Converts any KAIA value into kei.
 
 **Parameters**
 
-| Name   | Type                       | Description                                                                                                                                                                                                                                                                              |
-| ------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| number | string \\| number \\| BN | The value.                                                                                                                                                                                                                                                               |
-| unit   | string                     | <p>(optional, defaults to <code>"KAIA"</code>) The unit of KAIA to convert from. <code>number</code> will be multiplied by one of the following multipliers for the unit provided:- <code>kei</code>: '1'- <code>Gkei</code>: '1000000000'- <code>KAIA</code>: '1000000000000000000'</p> |
+| Name   | Type        | Description                                                                                                                                                                                                                                                                              |
+| ------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| number | string \\ | The value.                                                                                                                                                                                                                                                               |
+| unit   | string      | <p>(optional, defaults to <code>"KAIA"</code>) The unit of KAIA to convert from. <code>number</code> will be multiplied by one of the following multipliers for the unit provided:- <code>kei</code>: '1'- <code>Gkei</code>: '1000000000'- <code>KAIA</code>: '1000000000000000000'</p> |
 
 **Return Value**
 
-| Type           | Description                                                                                                                                      |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| string \\| BN | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
+| Type        | Description                                                                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| string \\ | If the number parameter is an instance of [BN](https://github.com/indutny/bn.js/), it returns a BN instance, otherwise a string. |
 
 **Examples**
 
@@ -817,10 +817,10 @@ caver.utils.convertFromKei(number [, unit])
 
 **Parameters**
 
-| Name   | Type                                      | Description                                                                                                                                                                                                                                                                                       |
-| ------ | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| number | string \\| number \\| BN \\| BigNumber | The value in kei.                                                                                                                                                                                                                                                                 |
-| unit   | string                                    | <p>(optional, defaults to <code>"KAIA"</code>) The unit of KAIA to convert your "kei" into. <code>number</code> will be divided by one of the following denominators for the unit provided:- <code>kei</code>: '1'- <code>Gkei</code>: '1000000000'- <code>KAIA</code>: '1000000000000000000'</p> |
+| Name   | Type        | Description                                                                                                                                                                                                                                                                                       |
+| ------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| number | string \\ | The value in kei.                                                                                                                                                                                                                                                                 |
+| unit   | string      | <p>(optional, defaults to <code>"KAIA"</code>) The unit of KAIA to convert your "kei" into. <code>number</code> will be divided by one of the following denominators for the unit provided:- <code>kei</code>: '1'- <code>Gkei</code>: '1000000000'- <code>KAIA</code>: '1000000000000000000'</p> |
 
 **Return Value**
 
@@ -841,13 +841,13 @@ caver.utils.convertFromKei(number [, unit])
 caver.utils.unitMap
 ```
 
-Shows all possible KLAY (or KAIA) values and their amount in peb (or kei).
+Shows all possible KLAY values and their amount in peb.
 
 **Return Value**
 
-| Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | <p>With the following properties:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'- <code>TKLAY</code>: '1000000000000000000000000000000'- <code>kei</code>: '1'- <code>Gkei</code>: '1000000000'- <code>KAIA</code>: '1000000000000000000'</p> |
+| Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Object | <p>With the following properties:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'- <code>TKLAY</code>: '1000000000000000000000000000000'</p> |
 
 **Examples**
 
@@ -865,10 +865,7 @@ Shows all possible KLAY (or KAIA) values and their amount in peb (or kei).
   kKLAY: '1000000000000000000000',
   MKLAY: '1000000000000000000000000',
   GKLAY: '1000000000000000000000000000',
-  TKLAY: '1000000000000000000000000000000',
-  kei: '1',
-  Gkei: '1000000000',
-  KAIA: '1000000000000000000',
+  TKLAY: '1000000000000000000000000000000'
 }
 ```
 
@@ -878,13 +875,13 @@ Shows all possible KLAY (or KAIA) values and their amount in peb (or kei).
 caver.utils.klayUnit
 ```
 
-Shows all KLAY (or KAIA) units.
+Shows all KLAY units.
 
 **Return Value**
 
-| Type   | Description                                                                                                                                                                                                                                                                                                                                                 |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | An object in which the units of KLAY used in Klaytn (or the units of KAIA used in KAIA) are defined. Each unit has its name and pebFactor. pebFactor is used when converting KLAY (or KAIA) currently translated in each unit to 'peb' (or 'kei'). |
+| Type   | Description                                                                                                                                                                                                                               |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Object | An object in which the units of KLAY used in Klaytn are defined. Each unit has its name and pebFactor. pebFactor is used when converting KLAY currently translated in each unit to 'peb'. |
 
 **Examples**
 
@@ -902,10 +899,7 @@ Shows all KLAY (or KAIA) units.
     kKLAY: { unit: 'kKLAY', pebFactor: 21 },
     MKLAY: { unit: 'MKLAY', pebFactor: 24 },
     GKLAY: { unit: 'GKLAY', pebFactor: 27 },
-    TKLAY: { unit: 'TKLAY', pebFactor: 30 },
-    kei: { unit: 'kei', pebFactor: 0 },
-    Gkei: { unit: 'Gkei', pebFactor: 9 },
-    KAIA: { unit: 'KAIA', pebFactor: 18 }
+    TKLAY: { unit: 'TKLAY', pebFactor: 30 }
 }
 ```
 
@@ -915,23 +909,18 @@ Shows all KLAY (or KAIA) units.
 caver.utils.kaiaUnit
 ```
 
-Shows all KAIA units.
+BN \\
 
 **Return Value**
 
-| Type   | Description                                                                                                                                                                                                                             |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | An object in which the units of KAIA used in KAIA are defined. Each unit has its name and keiFactor. keiFactor is used when converting KAIA currently translated in each unit to 'kei'. |
+| Type   | Description                                                                  |
+| ------ | ---------------------------------------------------------------------------- |
+| Object | object \\ Each unit has its name and keiFactor. string \\ |
 
 **Examples**
 
 ```javascript
-> caver.utils.kaiaUnit
-{
-    kei: { unit: 'kei', keiFactor: 0 },
-    Gkei: { unit: 'Gkei', keiFactor: 9 },
-    KAIA: { unit: 'KAIA', keiFactor: 18 }
-}
+number \\
 ```
 
 ## padLeft <a href="#padleft" id="padleft"></a>
@@ -1070,9 +1059,9 @@ Converts a negative number into a two's complement.
 
 **Parameters**
 
-| Name | Type                              | Description                            |
-| ---- | --------------------------------- | -------------------------------------- |
-| num  | number \\| string \\| BigNumber | The number to convert. |
+| Name | Type           | Description                            |
+| ---- | -------------- | -------------------------------------- |
+| num  | BigNumber \\ | The number to convert. |
 
 **Return Value**
 
@@ -1298,9 +1287,9 @@ This function converts the input to a [Buffer](https://nodejs.org/api/buffer.htm
 
 **Parameters**
 
-| Name  | Type                                                                         | Description                                            |
-| ----- | ---------------------------------------------------------------------------- | ------------------------------------------------------ |
-| input | Buffer \\| string \\| number \\| Array \\| BN \\| BigNumber \\| object | The value to be converted to a Buffer. |
+| Name  | Type                                                         | Description                                            |
+| ----- | ------------------------------------------------------------ | ------------------------------------------------------ |
+| input | BigNumber number \\ BigNumber Buffer \\ number \\ BN \\ | The value to be converted to a Buffer. |
 
 **NOTE** `BigNumber` type is supported since caver-js [v1.6.4](https://www.npmjs.com/package/caver-js/v/1.6.4).
 
@@ -1363,9 +1352,9 @@ This function converts a number to a [Buffer](https://nodejs.org/api/buffer.html
 
 **Parameters**
 
-| Name  | Type                                      | Description                                           |
-| ----- | ----------------------------------------- | ----------------------------------------------------- |
-| input | string \\| number \\| BN \\| BigNumber | A number to be converted to a Buffer. |
+| Name  | Type        | Description                                           |
+| ----- | ----------- | ----------------------------------------------------- |
+| input | string \\ | A number to be converted to a Buffer. |
 
 **Return Value**
 
@@ -1653,9 +1642,9 @@ The block number should be one of the types below:
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                                                               |
-| ----------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | string \\| number | The block number to validate. This can be block number in number type or block tag(`latest`, `pending`, `earliest`, `genesis`) string. |
+| Name        | Type        | Description                                                                                                                                                                               |
+| ----------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\ | The block number to validate. This can be block number in number type or block tag(`latest`, `pending`, `earliest`, `genesis`) string. |
 
 **Return Value**
 
@@ -1718,9 +1707,9 @@ In caver-js, if signatures or feePayerSignatures is empty, the value representin
 
 **Parameters**
 
-| Name | Type              | Description                                                                                                                                                                     |
-| ---- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sig  | object \\| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata) or array of [SignatureData](caver-wallet/keyring.md#signaturedata) to check empty or not. |
+| Name | Type        | Description                                                                                                                                                                     |
+| ---- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sig  | object \\ | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata) or array of [SignatureData](caver-wallet/keyring.md#signaturedata) to check empty or not. |
 
 **Return Value**
 
@@ -1869,11 +1858,11 @@ Recovers the Klaytn address that was used to sign the given data.
 
 **Parameters**
 
-| Name      | Type              | Description                                                                                                                                                                                                                                                                             |
-| --------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message   | string            | Either message or hashed message.                                                                                                                                                                                                                                       |
-| signature | object \\| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                                                                                                  |
-| isHashed  | boolean           | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
+| Name      | Type        | Description                                                                                                                                                                                                                                                                             |
+| --------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message   | string      | Either message or hashed message.                                                                                                                                                                                                                                       |
+| signature | object \\ | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                                                                                                  |
+| isHashed  | boolean     | (optional, default: `false`) If the last parameter is `true`, the given `message` will NOT automatically be prefixed with `"\x19Klaytn Signed Message:\n" + message.length + message`, and will be assumed to be already prefixed. |
 
 **Return Value**
 
@@ -1909,11 +1898,11 @@ Recovers the public key that was used to sign the given data.
 
 **Parameters**
 
-| Name      | Type              | Description                                                                                                                                                                                                        |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| message   | string            | Either message or hashed message.                                                                                                                                                                  |
-| signature | object \\| Array | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                             |
-| isHashed  | boolean           | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
+| Name      | Type       | Description                                                                                                                                                                                                        |
+| --------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| message   | string     | Either message or hashed message.                                                                                                                                                                  |
+| signature | Array \\ | An instance of [SignatureData](caver-wallet/keyring.md#signaturedata).                                                                                                                             |
+| isHashed  | boolean    | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Klaytn Signed Message:\n" + message.length + message`. |
 
 **Return Value**
 
