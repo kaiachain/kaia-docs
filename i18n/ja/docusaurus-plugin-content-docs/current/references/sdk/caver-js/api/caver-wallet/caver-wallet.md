@@ -71,10 +71,10 @@ If `key` is a private key string, a [SingleKeyring](./keyring.md#singlekeyring) 
 
 **Parameters**
 
-| Name    | Type              | Description                                                                                                                                                                                |
-| ------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address | string            | The address string.                                                                                                                                                        |
-| key     | string \\| Array | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role](../../../../../learn/accounts.md#roles). |
+| Name    | Type        | Description                                                                                                                                                                                |
+| ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address | string      | The address string.                                                                                                                                                        |
+| key     | string \\ | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role](../../../../../learn/accounts.md#roles). |
 
 **Return Value**
 
