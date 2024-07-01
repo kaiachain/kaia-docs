@@ -1,6 +1,6 @@
 # Kaikas
 
-![](/img/build/tools/klaytnXkaikas.png)
+![](/img/banners/kaia-kaikas.png)
 
 Kaikas는 카이아 네트워크를 위한 브라우저 확장 지갑입니다. 구글 크롬에서 사용할 수 있는 Kaikas는 웹 브라우저를 통해 카이아 네트워크와 상호작용할 수 있는 안전하고 사용하기 쉬운 수단을 제공합니다. Kaikas를 사용하면 KAIA와 카이아 기반 토큰을 저장하고 거래할 수 있습니다. 또한 웹 기반 dApp(탈중앙 애플리케이션)의 요청에 서명할 수 있습니다.
 
