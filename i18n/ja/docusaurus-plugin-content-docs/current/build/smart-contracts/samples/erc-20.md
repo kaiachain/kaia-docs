@@ -558,7 +558,7 @@ You can use [Baobab Klaytn Wallet](https://baobab.wallet.klaytn.foundation) to q
 
 You can add ERC-20 compatible token in your wallet with the address of the deployed `MyERC20` contract as below.
 
-![ERC20-3-Add\\_token](/img/build/smart-contracts/erc20-3-add_token.png)
+![ERC20-3-Add\\\_token](/img/build/smart-contracts/erc20-3-add_token.png)
 
 After adding the ERC-20 token in the wallet app, the balance of your `BAOBABTOKEN` will be shown in addition to the balance of KLAY as below. You can see there is `100000` `BAO` tokens in the account.
 
