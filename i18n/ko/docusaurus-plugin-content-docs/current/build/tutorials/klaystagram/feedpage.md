@@ -116,7 +116,7 @@ export default KlaystagramContract
 
 컨트랙트와 상호작용하려면 컨트랙트 인스턴스가 필요합니다.
 
-`KlaystagramContract` creates a contract instance to interact with Klaystagram contract, by providing `DEPLOYED_ABI`\(Application Binary Interface\) and `DEPLOYED_ADDRESS` to `cav.klay.Contract` API.
+`Klaystagram `contract`는 `cav.klay.Contract`API에`DEPLOYED_ABI`\(애플리케이션 바이너리 인터페이스\)와 `DEPLOYED_ADDRESS\\\`를 제공하여 Klaystagram 컨트랙트와 상호작용할 컨트랙트 인스턴스를 생성합니다.
 
 `Klaystagram.sol` 컨트랙트를 컴파일하고 배포할 때 ([5. 배포 컨트랙트](./deploy-contracts.md#3.-deploy-contract)) 이미 `deployedABI`와 `deployedAddress` 파일을 생성했습니다. 이 파일에는 Klaystagram 컨트랙트의 ABI와 배포된 컨트랙트 주소가 들어 있습니다.
 
