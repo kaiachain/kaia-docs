@@ -12,11 +12,11 @@ Returns `true` if the account associated with the address is created in the Klay
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address of the account you want to query to see if it has been created on the network.                                             |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string      | The address of the account you want to query to see if it has been created on the network.                                             |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -45,11 +45,11 @@ Returns the account information of a given address in the Klaytn. For more detai
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address of the account for which you want to get account information.                                                              |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string      | The address of the account for which you want to get account information.                                                              |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -102,11 +102,11 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address of Klaytn account from which you want to get an object of AccountKey information.                                          |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string      | The address of Klaytn account from which you want to get an object of AccountKey information.                                          |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -422,11 +422,11 @@ Returns the balance of the account of the given address in Klaytn.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address of the account for which you want to get balance.                                                                          |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string      | The address of the account for which you want to get balance.                                                                          |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -453,11 +453,11 @@ Returns code at a given address.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address to get the code from.                                                                                                      |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string      | The address to get the code from.                                                                                                      |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -484,11 +484,11 @@ Returns the total number of transactions sent from an address.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                                                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address to get the number of transactions from.                                                                                                                                                                                                                                    |
-| blockNumber | number \\| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                          |
+| Name        | Type        | Description                                                                                                                                                                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string      | The address to get the number of transactions from.                                                                                                                                                                                                                                    |
+| blockNumber | number \\ | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                          |
 
 **Return Value**
 
@@ -515,11 +515,11 @@ Returns `true` if an input account has a non-empty codeHash at the time of a spe
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address you want to check for isContractAccount.                                                                                   |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string      | The address you want to check for isContractAccount.                                                                                   |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -551,12 +551,12 @@ Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - kl
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | String             | The address of the imported account to sign the message.                                                                               |
-| message     | String             | Message to sign.                                                                                                                       |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | String      | The address of the imported account to sign the message.                                                                               |
+| message     | String      | Message to sign.                                                                                                                       |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -644,10 +644,10 @@ Returns a block header by block hash or block number. If the user passes the blo
 
 **Parameters**
 
-| Name              | Type               | Description                                                                                                                                   |
-| ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash | number \\| string | The block hash, number or the block tag string.                                                                               |
-| callback          | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name              | Type        | Description                                                                                                                                   |
+| ----------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash | number \\ | The block hash, number or the block tag string.                                                                               |
+| callback          | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -690,10 +690,10 @@ Returns a block header by block number.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                   |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \\| string | The block number or the block tag string.                                                                                     |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type        | Description                                                                                                                                   |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\ | The block number or the block tag string.                                                                                     |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -796,11 +796,11 @@ Returns information about a block by block hash or block number. If the user pas
 
 **Parameters**
 
-| Name                     | Type               | Description                                                                                                                                                                                         |
-| ------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash        | number \\| string | The block hash, number or the block tag string.                                                                                                                                     |
-| returnTransactionObjects | boolean            | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
+| Name                     | Type        | Description                                                                                                                                                                                         |
+| ------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumberOrHash        | number \\ | The block hash, number or the block tag string.                                                                                                                                     |
+| returnTransactionObjects | boolean     | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback                 | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
 
 **Return Value**
 
@@ -847,11 +847,11 @@ Returns information about a block by block number.
 
 **Parameters**
 
-| Name                     | Type               | Description                                                                                                                                                                                         |
-| ------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber              | number \\| string | The block number or the block which is tagged with a string (`genesis` or `latest`).                                                                             |
-| returnTransactionObjects | boolean            | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
+| Name                     | Type        | Description                                                                                                                                                                                         |
+| ------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber              | number \\ | The block number or the block which is tagged with a string (`genesis` or `latest`).                                                                             |
+| returnTransactionObjects | boolean     | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
+| callback                 | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
 
 **Return Value**
 
@@ -1025,10 +1025,10 @@ Returns the number of transactions in a block matching the given block number.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                   |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \\| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type        | Description                                                                                                                                   |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\ | The block number or the block tag string (`genesis` or `latest`).                                          |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -1085,10 +1085,10 @@ Returns a block with consensus information matched by the given block number.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                   |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \\| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type        | Description                                                                                                                                   |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\ | The block number or the block tag string (`genesis` or `latest`).                                          |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -1285,10 +1285,10 @@ Returns a list of all validators in the committee at the specified block.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -1318,10 +1318,10 @@ Returns the size of the committee at the specified block.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -1348,10 +1348,10 @@ Returns a list of all validators of the council at the specified block.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -1381,10 +1381,10 @@ Returns the size of the council at the specified block.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 **Return Value**
 
@@ -1411,12 +1411,12 @@ Returns the value from a storage position at a given address.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                                                                                                     |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string             | The address to get the storage from.                                                                                                                                                                            |
-| position    | number             | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                          |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                   |
+| Name        | Type        | Description                                                                                                                                                                                                                     |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string      | The address to get the storage from.                                                                                                                                                                            |
+| position    | number      | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                          |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                   |
 
 **Return Value**
 
@@ -1510,11 +1510,11 @@ Executes a new message call immediately without sending a transaction on the blo
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| callObject  | object             | A transaction call object. See the next table for the object's properties.                                             |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| Name        | Type        | Description                                                                                                                                            |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| callObject  | object      | A transaction call object. See the next table for the object's properties.                                             |
+| blockNumber | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
 
 `callObject` has the following properties:
 
@@ -1661,11 +1661,11 @@ Returns information about a transaction by `block number` and `transaction index
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                   |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \\| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| index       | number             | A transaction index position inside the block.                                                                                |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name        | Type        | Description                                                                                                                                   |
+| ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\ | The block number or the block tag string (`genesis` or `latest`).                                          |
+| index       | number      | A transaction index position inside the block.                                                                                |
+| callback    | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -2011,10 +2011,10 @@ The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You
 
 **Parameters**
 
-| Name              | Type               | Description                                                                                                                                   |
-| ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| signedTransaction | string \\| object | A RLP-encoded signed transaction or an instance of signed transaction.                                                        |
-| callback          | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name              | Type        | Description                                                                                                                                   |
+| ----------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| signedTransaction | string \\ | A RLP-encoded signed transaction or an instance of signed transaction.                                                        |
+| callback          | function    | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
 
@@ -2591,12 +2591,12 @@ Returns fee history for the returned block range. This can be a subsection of th
 
 **Parameters**
 
-| Name              | Type                                | Description                                                                                                                                                                                                                                                                                        |
-| ----------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockCount        | number\\|BigNumber\\|BN\\|string | Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. Less than requested may be returned if not all blocks are available.                                                                        |
-| lastBlock         | number\\|BigNumber\\|BN\\|string | Highest number block (or block tag string) of the requested range.                                                                                                                                                                                              |
-| rewardPercentiles | Array                               | A monotonically increasing list of percentile values to sample from each block’s effective priority fees per gas in ascending order, weighted by gas used. (Example: `['0', '25', '50', '75', '100']` or `['0', '0.5', '1', '1.5', '3', '80']`) |
-| callback          | function                            | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                      |
+| Name              | Type          | Description                                                                                                                                                                                                                                                                                        |
+| ----------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockCount        | BigNumber\\ | Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. Less than requested may be returned if not all blocks are available.                                                                        |
+| lastBlock         | BigNumber\\ | Highest number block (or block tag string) of the requested range.                                                                                                                                                                                              |
+| rewardPercentiles | Array         | A monotonically increasing list of percentile values to sample from each block’s effective priority fees per gas in ascending order, weighted by gas used. (Example: `['0', '25', '50', '75', '100']` or `['0', '0.5', '1', '1.5', '3', '80']`) |
+| callback          | function      | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                      |
 
 **Return Value**
 
@@ -2635,11 +2635,11 @@ This method creates an accessList based on a given Transaction. The accessList c
 
 **Parameters**
 
-| Name           | Type                                | Description                                                                                                                                                                                     |
-| -------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject     | object                              | A transaction call object. Please see [caver.rpc.klay.call](#caver-rpc-klay-call) parameters.                   |
-| blockParameter | number\\|BigNumber\\|BN\\|string | (optional) A block number, blockhash or the block tag string (`latest` or `earliest`). If omitted, `latest` will be used. |
-| callback       | function                            | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                   |
+| Name           | Type          | Description                                                                                                                                                                                     |
+| -------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callObject     | object        | A transaction call object. Please see [caver.rpc.klay.call](#caver-rpc-klay-call) parameters.                   |
+| blockParameter | BigNumber\\ | (optional) A block number, blockhash or the block tag string (`latest` or `earliest`). If omitted, `latest` will be used. |
+| callback       | function      | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                   |
 
 **Return Value**
 
@@ -2889,12 +2889,12 @@ Returns an array of all logs matching a given filter object.
 
 The options object can contain the following:
 
-| Name      | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | number \\| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                                                                                      |
-| toBlock   | number \\| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                                                                         |
-| address   | string \\| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                                                                                                 |
-| topics    | Array              | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
+| Name      | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | number \\ | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                                                                                      |
+| toBlock   | number \\ | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                                                                         |
+| address   | string \\ | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                                                                                                 |
+| topics    | Array       | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
 
 **Return Value**
 
@@ -2976,12 +2976,12 @@ For detailed information about the topics in the filter object, please see [Klay
 
 The options object can contain the following:
 
-| Name      | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | number \\| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                                                                                      |
-| toBlock   | number \\| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                                                                         |
-| address   | string \\| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                                                                                                 |
-| topics    | Array              | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
+| Name      | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fromBlock | number \\ | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                                                                                      |
+| toBlock   | number \\ | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                                                                         |
+| address   | string \\ | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                                                                                                 |
+| topics    | Array       | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
 
 **Return Value**
 
