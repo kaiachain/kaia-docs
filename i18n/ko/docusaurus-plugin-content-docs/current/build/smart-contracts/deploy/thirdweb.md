@@ -1,6 +1,6 @@
 # Thirdweb으로 스마트 컨트랙트 배포하기
 
-![](/img/build/get-started/klaytnXthirdweb.png)
+![](/img/banners/kaia-thirdweb.png)
 
 ## 소개 <a id="introduction"></a>
 
