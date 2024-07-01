@@ -1,6 +1,6 @@
 # Deploying Smart Contract Using Thirdweb
 
-![](/img/build/get-started/klaytnXthirdweb.png)
+![](/img/banners/kaia-thirdweb.png)
 
 ## Introduction <a id="introduction"></a>
 
