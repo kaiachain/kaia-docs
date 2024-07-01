@@ -1,6 +1,6 @@
 # How to Verify Smart Contracts Using Hardhat
 
-![](/img/build/get-started/Klaytn-hardhat.png)
+![](/img/banners/kaia-hardhat.png)
 
 ## 소개
 
