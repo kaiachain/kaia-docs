@@ -224,9 +224,9 @@ Count.js 컴포넌트에는 Count 컨트랙트의 함수 및 변수와 상호작
 `Contract address`는 컨트랙트를 컴파일하고 배포한 후 `build/contracts/Count.json` 파일에서 확인할 수 있습니다. 테스트 편의를 위해 카이아 테스트넷에 컨트랙트를 배포하고 디렉터리에 `deployedABI`와 `deployedAddress` 파일을 포함시켰습니다. 이러한 파일에는 Count 컨트랙트의 ABI와 배포된 컨트랙트 주소가 포함되어 있습니다.\
 웹팩 구성 덕분에 변수를 통해 이 파일에 액세스할 수 있습니다. (`DEPLOYED_ADDRESS`, `DEPLOYED_ABI`)
 
-For example)\
-`DEPLOYED_ADDRESS` returns the deployed contact address.\
-`DEPLOYED_ABI` returns the Count contract ABI.
+예)\
+`DEPLOYED_ADDRESS`는 배포된 연락처 ddress를 반환합니다.\
+`DEPLOYED_ABI`는 카운트 contract ABI를 반환합니다.
 
 ```javascript
 constructor() {
@@ -242,7 +242,7 @@ constructor() {
 }
 ```
 
-`this.countContract = new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)` creates a contract instance to interact with the deployed `Count` contract, by passing `DEPLOYED_ABI` and `DEPLOYED_ADDRESS` to the `cav.klay.Contract` API. 그리고 이 컨트랙트 인스턴스는 `this.countContract`에 저장됩니다.
+`this.countContract = new cav.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)`는 배포된 `Count` 컨트랙트와 상호작용할 컨트랙트 인스턴스를 생성하고, `DEPLOYED_ABI`와 `DEPLOYED_ADDRESS`를 `cav.klay.Contract` API에 전달합니다. 그리고 이 컨트랙트 인스턴스는 `this.countContract`에 저장됩니다.
 
 ### 컨트랙트와 상호작용: `getCount` 메서드 <a href="#4-interact-with-contract-getcount-method" id="4-interact-with-contract-getcount-method"></a>
 
