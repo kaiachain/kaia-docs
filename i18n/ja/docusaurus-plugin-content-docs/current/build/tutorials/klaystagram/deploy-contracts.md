@@ -2,16 +2,18 @@
 
 ## 1. Clone Klaystagram DApp <a id="2-clone-klaystagram-dapp"></a>
 
-### 1. Clone Klaystagram repository <a id="1-clone-klaystagram-repository"></a>
+### Clone Klaystagram repository <a id="1-clone-klaystagram-repository"></a>
 
 ```text
 $ git clone https://github.com/klaytn/klaystagram
 ```
 
-### 2. Install & Run Klaystagram DApp <a id="2-install-run-klaystagram-dapp"></a>
+### Install & Run Klaystagram DApp <a id="2-install-run-klaystagram-dapp"></a>
 
 The package you just cloned is ready to launch without any modification.
 
+The sample contracts are already deployed to the Baobab testnet, and the contract ABI is included in our package.\
+Klaystagram frontend code is initially configured to connect to the smart contract on the Baobab testnet.\
 The sample contracts are already deployed to the Baobab testnet, and the contract ABI is included in our package.\
 Klaystagram frontend code is initially configured to connect to the smart contract on the Baobab testnet.\
 Klaystagram frontend code is initially configured to connect to the smart contract on the Kairos testnet.
@@ -47,7 +49,7 @@ We will make a simple contract called "Klaystagram".
 - `PhotoData` struct is defined to store various photo data.
 - User can upload photo and transfer the ownership photo via `uploadPhoto` and `transferOwnership` functions.
 
-### 2. Contract setup <a id="2-contract-setup"></a>
+### Contract setup <a id="2-contract-setup"></a>
 
 - Specify solidity version. We recommend using 0.5.6 stable version.
 - We will make use of ERC721 standard to build non-fungible tokens.
@@ -63,7 +65,7 @@ import "./ERC721/ERC721Enumerable.sol";
 contract Klaystagram is ERC721, ERC721Enumerable {
 ```
 
-### 3. Set events and data structure <a id="3-set-events-and-data-structure"></a>
+### Set events and data structure <a id="3-set-events-and-data-structure"></a>
 
 We need to set up an event to keep track of activities on blockchain.
 
@@ -85,7 +87,7 @@ struct PhotoData {
 }
 ```
 
-### 4. Write functions <a id="4-write-functions"></a>
+### Write functions <a id="4-write-functions"></a>
 
 Let's write some functions that interact with the contract. In this tutorial let us only consider two functions: `uploadPhoto` and `transferOwnership`. Check out Klaystagram.sol to see the whole set of functions.
 
