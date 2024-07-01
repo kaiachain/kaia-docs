@@ -1,8 +1,8 @@
 # Orakl Network
 
-## Introduction
+![](/img/banners/kaia-orakl.png)
 
-![](/img/build/tools/klaytnXorakl.png)
+## Introduction
 
 [Orakl Network](https://docs.orakl.network) is a decentralized oracle network that allows smart contracts to securely access off-chain data and other resources. It prides itself in being a native token oracle that provides [Data Feed](https://docs.orakl.network/developers-guide/data-feed), [VRF](https://docs.orakl.network/developers-guide/vrf), [Request-Response](https://docs.orakl.network/developers-guide/request-response) and [Proof of Reserve](https://docs.orakl.network/developers-guide/proof-of-reserve) solutions.
 
