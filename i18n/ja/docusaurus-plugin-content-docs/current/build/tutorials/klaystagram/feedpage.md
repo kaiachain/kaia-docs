@@ -116,7 +116,7 @@ export default KlaystagramContract
 
 To interact with contract, we need a contract instance.
 
-`KlaystagramContract` creates a contract instance to interact with Klaystagram contract, by providing `DEPLOYED_ABI`\(Application Binary Interface\) and `DEPLOYED_ADDRESS` to `cav.klay.Contract` API.
+`KlaystagramContract` creates a contract instance to interact with Klaystagram contract, by providing `DEPLOYED_ABI`(Application Binary Interface) and `DEPLOYED_ADDRESS` to `cav.klay.Contract` API.
 
 When compiling & deploying `Klaystagram.sol` contract ([5. Deploy Contract](./deploy-contracts.md#3.-deploy-contract)), we already created `deployedABI` and `deployedAddress` files. They contain ABI of Klaystagram contract and deployed contract address.
 
@@ -134,7 +134,7 @@ And thanks to webpack's configuration, we can access it as variable.(`DEPLOYED_A
 **Now we are ready to interact with contract in the application.**\
 _cf. For more information, refer to_ [_caver.klay.Contract_](../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md)_._
 
-### 2. `src/redux` <a id="2-src-redux"></a>
+### `src/redux` <a id="2-src-redux"></a>
 
 We are going to make API functions with Klaystagram instance. After calling API functions, we use redux store to controls all data flow.
 
