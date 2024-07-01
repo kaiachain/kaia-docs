@@ -91,9 +91,15 @@ export default renderRoutes
 
 `'routes.js'` contains the route definition for our tutorial app.\
 `'routes.js'` contains the route definition for our tutorial app.\
+`'routes.js'` contains the route definition for our tutorial app.\
 As a root component, `'App.js'` component renders child components defined in `'route.js'` file.\
 By above code, `'Count'` component would be rendered as a children of rootComponent when browser's URL path is `"/"`.\
-By above code, `'Count'` component would be rendered as a children of rootComponent when browser's URL path is `"/"`.
+By above code, `'Count'` component would be rendered as a children of rootComponent when browser's URL path is `"/"`.\
+It renders `BlockNumber`, `Auth` and `{this.props.children}` component.\
+`{this.props.children}` will be populated according to `routes.js` file.\
+If your browser's url path is `/`, it will render `<Count />` component.\
+`{this.props.children}` will be populated according to `routes.js` file.\
+If your browser's url path is `/`, it will render `<Count />` component.
 
 For further information, visit React router github [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)
 
@@ -186,7 +192,15 @@ componentWillMount() {
 `componentWillMount` checks if there is a `walletInstance` session in the browser's sessionStorage.\
 `walletInstance` session may not exist if you have never logged in our tutorial app.\
 Otherwise, `walletInstance` session will exist as a JSON string, if so, it attempts to add the wallet instance to the caver's wallet.\
+`componentWillMount` checks if there is a `walletInstance` session in the browser's sessionStorage.\
+`walletInstance` session may not exist if you have never logged in our tutorial app.\
+Otherwise, `walletInstance` session will exist as a JSON string, if so, it attempts to add the wallet instance to the caver's wallet.\
+`componentWillMount` checks if there is a `walletInstance` session in the browser's sessionStorage.\
+`walletInstance` session may not exist if you have never logged in our tutorial app.\
+Otherwise, `walletInstance` session will exist as a JSON string, if so, it attempts to add the wallet instance to the caver's wallet.\
 You can add a wallet instance to caver through `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`.\
+For further information related `caver.klay.accounts.wallet.add`, see [caver.klay.accounts.wallet.add](../../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#wallet-add)\
+For further information related `caver.kaia.accounts.wallet.add`, see [caver.kaia.accounts.wallet.add](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#wallet-add)\
 For further information related `caver.kaia.accounts.wallet.add`, see [caver.kaia.accounts.wallet.add](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#wallet-add)
 
 cf) `JSON.parse` is needed since `walletInstance` session is stored as a JSON string.
@@ -212,6 +226,8 @@ export default cav
 ```
 
 `caver-js` library makes a connection to a Kaia node.\
+`caver-js` library makes a connection to a Klaytn node.\
+After the connection is made, you can get the current block number from the node and invoke contract methods.\
 `caver-js` library makes a connection to a Klaytn node.\
 After the connection is made, you can get the current block number from the node and invoke contract methods.
 
