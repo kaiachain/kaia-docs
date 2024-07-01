@@ -66,9 +66,9 @@ const providerOptions = {
   coinbasewallet: {
     package: CoinbaseWalletSDK, // required
     options: {
-      appName: "Web3Modal Kaia dApp", // required
+      appName: "Web3Modal Klaytn dApp", // required
       infuraId: "NFURA_KEY", // required
-      rpc: "https://klaytn-mainnet.g.allthatnode.com/full/evm", // Optional if `infuraId` is provided; otherwise it's required
+      rpc: "https://klaytn-mainnet-rpc.allthatnode.com:8551", // Optional if `infuraId` is provided; otherwise it's required
       chainId: 1001, // Optional. It defaults to 1 if not provided
       darkMode: false // Optional. Use dark theme, defaults to false
     }
@@ -76,8 +76,8 @@ const providerOptions = {
   klip: {
     package: KlipWeb3Provider, //required
     options: {
-        bappName: "Web3Modal Kaia dApp", //required
-        rpcUrl: "https://klaytn-mainnet.g.allthatnode.com/full/evm" //required
+        bappName: "Web3Modal Klaytn dApp", //required
+        rpcUrl: "https://klaytn-mainnet-rpc.allthatnode.com:8551" //required
     }
 },
   kaikas: {
@@ -282,8 +282,8 @@ As established previously, Web3Modal does not have built-in support for Ethereum
             params: [
               {
                 chainId: toHex(8217),
-                chainName: "Kaia TestNet",
-                rpcUrls: ["https://klaytn-mainnet.g.allthatnode.com/full/evm"],
+                chainName: "Klaytn TestNet",
+                rpcUrls: ["https://klaytn-mainnet-rpc.allthatnode.com:8551"],
                 blockExplorerUrls: ["https://baobob.scope.com/"],
               },
             ],
