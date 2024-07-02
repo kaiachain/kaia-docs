@@ -1,4 +1,4 @@
-# How to Verify Smart Contracts Using Hardhat
+# Hardhat을 사용하여 첫 스마트 컨트랙트 배포하기
 
 ![](/img/banners/kaia-hardhat.png)
 
