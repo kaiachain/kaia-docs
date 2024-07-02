@@ -3,38 +3,38 @@
 한 거래의 트랜잭션 수수료는 다음과 같이 계산됩니다:
 
 ```text
-Transaction fee := (Gas used) x (GasPrice)
+가스 요금 := (사용한 가스) x (유효 가스 가격)
 ```
 
 이와 관련하여 이해하기 쉬운 비유로 주유소에서 기름을 넣는다고 가정해 보겠습니다. 가스 가격은 정유사에서 매일 결정하며, 오늘의 가격은 2달러입니다. 15L를 주유하면 $30 = 15L x $2/1L를 지불하게 되고, 30달러는 은행 계좌에서 지급됩니다. 또한 거래는 장부에 기록됩니다.
 
-트랜잭션 수수료는 위와 동일한 방식으로 작동합니다. Suppose a transaction spent 21000 gas and the effective gas price of the transaction was 25 Gkei. Then the gas fee is 525000 Gkei. This amount would be deducted from the sender (`from` account) balance.
+트랜잭션 수수료는 위와 동일한 방식으로 작동합니다. 거래에서 21000가스를 사용했고 거래의 유효 가스 가격이 25Gkei라고 가정해 보겠습니다. 그러면 가스 요금은 525000Gkei입니다. 이 금액은 발신자(`from ` 계정) 잔액에서 차감됩니다.
 
-## Gas 개요 <a id="gas-overview"></a>
+## 가스 소비 <a id="gas-used"></a>
 
-블록체인의 상태를 변경하는 모든 작업에는 gas가 필요합니다. 블록에서 트랜잭션을 처리하는 동안 KAIA를 전송하거나, KIP-7 토큰을 사용하거나, 컨트랙트를 실행할 때 사용자는 연산 및 저장소 사용량에 대한 비용을 지불해야 합니다. 지불 금액은 필요한 'gas'의 양에 따라 결정됩니다. The gas has no unit, and we just say like "21000 gas".
+블록체인의 상태를 변경하는 모든 작업에는 gas가 필요합니다. KAIA를 전송하거나 ERC-20 토큰을 사용하거나 컨트랙트를 실행하는 등 블록에서 트랜잭션을 처리하는 동안 발신자는 계산 및 저장소 사용 비용을 지불해야 합니다. 지불 금액은 필요한 'gas'의 양에 따라 결정됩니다. 가스에는 단위가 없으며 그냥 "21000 가스"라고 말합니다.
 
-Gas of a transaction comprises of two components:
+트랜잭션의 가스는 두 가지 구성 요소로 이루어져 있습니다:
 
-- `IntrinsicGas`는 트랜잭션의 데이터 크기와 같은 트랜잭션의 구성에 따라 정적으로 부과되는 gas입니다. For more details, please refer to [Intrinsic Gas](intrinsic-gas.md).
-- 반면에 `ContractExecutionGas`는 컨트랙트 실행에 따라 동적으로 계산되는 gas입니다. For more details, please refer to [Execution Gas](execution-gas.md).
+- `IntrinsicGas`는 입력 크기와 같은 트랜잭션 본문 자체에 따라 정적으로 충전되는 가스입니다. 자세한 내용은 [Intrinsic Gas](intrinsic-gas.md)를 참조하세요.
+- `ExecutionGas `는 실행 중에 동적으로 계산되는 가스입니다. 자세한 내용은 [Execution Gas](execution-gas.md)를 참조하세요.
 
-The gas used amount is only determined after the transaction is executed. As such, you can find the gas used amount of a transaction from its receipt.
+가스 사용량은 트랜잭션이 실행된 후에만 결정됩니다. 따라서 영수증에서 거래의 가스 사용량을 확인할 수 있습니다.
 
-## Gas 가격 개요 <a id="gas-price-overview"></a>
+## 유효 가스 가격 <a id="effective-gas-price"></a>
 
-Effective gas price of a transaction is calculated from many variables:
+거래의 유효 가스 가격은 여러 변수를 통해 계산됩니다:
 
-- Hardfork level
-- Gas price fields in the transaction submitted by the sender
-  - `maxFeePerGas` (often referred to as feeCap) field exists in the type 2 transactions.
-  - `maxPriorityFeePerGas` (often referred to as tipCap) field exists in the type 2 transactions.
-  - `gasPrice` field exists in every other transaction types.
-- `baseFeePerGas` (often referred to as baseFee) of the block the transaction is executed in
+- 하드포크 레벨
+- 발신자가 제출한 거래의 가스 가격 필드
+  - `maxFeePerGas `(흔히 수수료 상한이라고도 함) 필드는 유형 2 거래에 존재합니다.
+  - 유형 2 트랜잭션에 `maxPriorityFeePerGas`(흔히 tipCap이라고도 함) 필드가 존재합니다.
+  - `gasPrice ` 필드는 다른 모든 거래 유형에 존재합니다.
+- 트랜잭션이 실행되는 블록의 `baseFeePerGas`(종종 baseFee라고도 함)
 
-### Before Magma hardfork (fixed unit price)
+### Magma 하드포크 이전(고정 단가)
 
-Before Magma hardfork, the transaction fee of all transactions is the fixed value called `unitPrice`. This unitPrice can be adjusted via governance. All transactions must submit the gas price field that equals to the current unitPrice. The unit price mechanism avoids UX frustration due to gas price estimation in the gas fee auction market and allows service providers to easily predict gas fee budget.
+Magma 하드포크 이전에는 모든 트랜잭션의 트랜잭션 수수료가 'unitPrice'이라는 고정값으로 정해져 있었습니다. 이 단가는 거버넌스를 통해 조정할 수 있습니다.이 단가는 거버넌스를 통해 조정할 수 있습니다. 모든 거래는 현재 단위가격과 동일한 가스 가격 필드를 제출해야 합니다. 단가 메커니즘은 가스 요금 경매 시장에서 가스 요금 예측으로 인한 UX 불만을 방지하고 서비스 제공업체가 가스 요금 예산을 쉽게 예측할 수 있도록 합니다.단가 메커니즘은 가스 요금 경매 시장에서 가스 요금 예측으로 인한 UX 불만을 방지하고 서비스 제공업체가 가스 요금 예산을 쉽게 예측할 수 있도록 합니다.
 
 The `unitPrice` at a given block can be found through the `kaia_getParams` API.
 
