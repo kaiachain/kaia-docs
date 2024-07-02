@@ -36,60 +36,63 @@
 
 Magma 하드포크 이전에는 모든 트랜잭션의 트랜잭션 수수료가 'unitPrice'이라는 고정값으로 정해져 있었습니다. 이 단가는 거버넌스를 통해 조정할 수 있습니다.이 단가는 거버넌스를 통해 조정할 수 있습니다. 모든 거래는 현재 단위가격과 동일한 가스 가격 필드를 제출해야 합니다. 단가 메커니즘은 가스 요금 경매 시장에서 가스 요금 예측으로 인한 UX 불만을 방지하고 서비스 제공업체가 가스 요금 예산을 쉽게 예측할 수 있도록 합니다.단가 메커니즘은 가스 요금 경매 시장에서 가스 요금 예측으로 인한 UX 불만을 방지하고 서비스 제공업체가 가스 요금 예산을 쉽게 예측할 수 있도록 합니다.
 
-The `unitPrice` at a given block can be found through the `kaia_getParams` API.
+특정 블록의 'unitPrice'은 `kaia_getParams` API를 통해 확인할 수 있습니다.
 
-### After Magma hardfork (KIP-71 dynamic base fee)
+### Magma 하드포크 이후 (KIP-71 동적 기본 수수료)
 
-네트워크는 모든 블록의 gas 가격을 결정합니다. The baseFee increases if the transaction traffic is higher than a threshold, and decreases otherwise. The transaction traffic is measured in the block gas used. As transaction executions in a block gets heavier, the network perceives higher congestion, likely to increase the baseFee.
+Magma 하드포크 이후, 네트워크는 네트워크 혼잡도에 따라 매 블록마다 가스 가격 값인 `baseFeePerGas`(또는 간단히 baseFee)를 결정합니다. baseFee는 트랜잭션 트래픽이 임계값보다 높으면 증가하고 그렇지 않으면 감소합니다. 트랜잭션 트래픽은 사용된 블록 가스에서 측정됩니다. 블록 내 트랜잭션 실행이 많아질수록 네트워크는 더 높은 혼잡도를 감지하여 baseFee를 증가시킬 가능성이 높습니다.
 
-Unlike [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md), Magma gas policy has no tip (tip is introduced since Kaia hardfork). Instead, the FCFS (first-come first-serve) policy is implemented to protect the network from spamming.
+Magma 가스 정책은 [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)와 달리 팁이 없습니다(Kaia 하드포크 이후 팁이 도입되었습니다). 대신 스팸으로부터 네트워크를 보호하기 위해 FCFS(선착순) 정책을 시행합니다.
 
-#### baseFee calculation
+#### baseFee 계산
 
-The baseFee calculation depends on following parameters:
+baseFee 계산은 다음 매개 변수에 따라 달라집니다:
 
-- Block congestion data
+- 블록 혼잡 데이터
   - PREVIOUS_BASE_FEE: 이전 블록의 기본 수수료
-  - GAS_USED_FOR_THE_PREVIOUS_BLOCK: 이전 블록의 모든 트랜잭션을 처리하는 데 사용된 gas
-- Tuning parameters which can be changed later via governance
-  - GAS_TARGET: 기본 수수료의 증감을 결정하는 gas 금액(현재 3,000만)
-  - MAX_BLOCK_GAS_USED_FOR_BASE_FEE: 최대 기본 수수료 변경율을 적용하는 암시적 블록 gas 한도(현재 6천만) This
-  - BASE_FEE_DELTA_REDUCING_DENOMINATOR: 최대 기본 수수료 변경을 블록당 5%로 설정하는 값 (현재 20, 추후 거버넌스에 의해 변경 가능)
-  - UPPER_BOUND_BASE_FEE: 기본 수수료의 최대값 (현재 750 ston, 추후 거버넌스에 의해 변경될 수 있음) 기본 수수료 <a id="base-fee"></a>
-  - LOWER_BOUND_BASE_FEE: 기본 수수료의 최소값 (현재 25 ston, 추후 거버넌스에 의해 변경될 수 있음)
+  - PREVIOUS_BLOCK_GAS_USED: 이전 블록의 모든 트랜잭션을 처리하는 데 사용된 가스입니다.
+- 거버넌스를 통해 나중에 변경할 수 있는 매개변수 조정
+  - GAS_TARGET: 기본 요금의 인상 또는 인하를 결정하는 가스 금액입니다.
+  - MAX_BLOCK_GAS_USED_FOR_BASE_FEE: 최대 기본 수수료 변경 비율을 적용하기 위한 암시적 블록 가스 제한입니다. This
+  - BASE_FEE_DENOMINATOR: 블록당 최대 기본 수수료 변경을 설정하는 값입니다.
+  - UPPER_BOUND_BASE_FEE: 기본 수수료의 최대값
+  - LOWER_BOUND_BASE_FEE: 기본 수수료의 최소값
 
-Below is an oversimplified version of the baseFee calculation. In its essense, the base fee change is proportional to the difference between GAS_TARGET and PREVIOUS_BLOCK_GAS_USED, and other parameters controls the change speed or bounds the baseFee. Refer to [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) for the exact formula.
+아래는 기본 수수료 계산을 지나치게 단순화한 버전입니다. 본질적으로 기본 수수료 변경은 GAS_TARGET과 PREVIOUS_BLOCK_GAS_USED의 차이에 비례하며, 다른 매개변수는 변경 속도를 제어하거나 기본 수수료의 한계를 지정합니다. 정확한 공식은 [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md)을 참조하세요.
 
 ```
-(BASE_FEE_CHANGE_RATE) = (GAS_USED_FOR_THE_PREVIOUS_BLOCK - GAS_TARGET)
-(ADJUSTED_BASE_FEE_CHANGE_RATE) = (BASE_FEE_CHANGE_RATE) / (GAS_TARGET) / (BASE_FEE_DELTA_REDUCING_DENOMINATOR)
-(BASE_FEE_CHANGE_RANGE) = (PREVIOUS_BASE_FEE) * (ADJUSTED_BASE_FEE_CHANGE_RATE)
-(BASE_FEE) = (PREVIOUS_BASE_FEE) + (BASE_FEE_CHANGE_RANGE) 
+              min(PREVIOUS_BLOCK_GAS_USED, MAX_BLOCK_GAS_USED_FOR_BASE_FEE) - GAS_TARGET
+changeRate = ----------------------------------------------------------------------------
+                                BASE_FEE_DENOMINATOR * GAS_TARGET
+
+nextBaseFeeBeforeBound = PREVIOUS_BASE_FEE * (1 + changeRate)
+
+nextBaseFee = max(min(nextBaseFeeBeforeBound, UPPER_BOUND_BASE_FEE), LOWER_BOUND_BASE_FEE)
 ```
 
-The tuning parameters at a given block can be found through the `kaia_getParams` API. The `baseFeePerGas` of each block can be found through the `kaia_getBlock*` and `eth_getBlock*` APIs.
+특정 블록의 튜닝 파라미터는 `kaia_getParams` API를 통해 확인할 수 있습니다. 각 블록의 `baseFeePerGas`는 `kaia_getBlock*` 및 `eth_getBlock*` API를 통해 확인할 수 있습니다.
 
-#### Gas fee burn
+#### 가스 요금 소각
 
-Since Magma hardfork, half of the block gas fee is burnt. See [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md) for details.
+Magma 하드포크 이후, 블록 가스 수수료의 절반이 소진됩니다. 자세한 내용은 [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md)을 참조하세요.
 
-Since Kore hardfork, most of the block gas fee is burnt. See [KIP-82](https://kips.klaytn.foundation/KIPs/kip-82) for details.
+Kore 하드포크 이후, 대부분의 블록 가스 수수료가 소진되었습니다. 자세한 내용은 [KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)를 참조하세요.
 
-### After Kaia hardfork (KIP-162 priority fee)
+### Kaia 하드포크 이후 (KIP-162 우선권 수수료)
 
-Since Kaia hardfork, the transactions can specify nonzero priority fee (or simply tip) to increase the block inclusion possibility. The Kaia gas policy is similar to [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) in that transactions pay the baseFee plus the effective tip.
+Kaia 하드포크 이후, 트랜잭션은 블록 포함 가능성을 높이기 위해 0이 아닌 우선순위 수수료(또는 간단히 팁)를 지정할 수 있습니다. Kaia 가스 정책은 거래 시 기본 수수료에 유효 팁을 더하여 지불한다는 점에서 [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)와 유사합니다.
 
-The effective gas price of a transaction is defined as `min(baseFee + tipCap, feeCap)`. For type-2 transactions, the transaction fields `maxPriorityFeePerGas` and `maxFeePerGas` naturally becomes the tipCap and feeCap. However, other transaction types only have one `gasPrice` field. For those types, tipCap and feeCap are both equals to `gasPrice`. Consequently their effective gas price becomes `min(baseFee + tipCap, feeCap) = min(baseFee + gasPrice, gasPrice) = gasPrice`, which is identical to gas price auction mechanism.
+트랜잭션의 유효 가스 가격은 `min(baseFee + tipCap, feeCap)`으로 정의됩니다. 유형 2 트랜잭션의 경우, 트랜잭션 필드인 `maxPriorityFeePerGas`와 `maxFeePerGas`는 자연스럽게 tipCap과 feeCap이 됩니다. 그러나 다른 트랜잭션 유형에는 `gasPrice` 필드가 하나만 있습니다. 이러한 유형의 경우 tipCap과 feeCap은 모두 `gasPrice`와 같습니다. 결과적으로 유효 가스 가격은 `min(baseFee + tipCap, feeCap) = min(baseFee + gasPrice, gasPrice) = gasPrice`가 되며, 이는 가스 가격 경매 메커니즘과 동일합니다.
 
-See [KIP-162](https://github.com/klaytn/kips/blob/main/KIPs/kip-162.md) for details.
+자세한 내용은 [KIP-162](https://github.com/klaytn/kips/blob/main/KIPs/kip-162.md)를 참조하세요.
 
-### Summary
+### 요약
 
-| Hardfork     | `gasPrice` requirement                                                                      | `maxFeePerGas` requirement                                                                  | `maxPriorityFeePerGas` requirement                                                                                                                      | calculated `effectiveGasPrice`                                                                                                           |
-| ------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Before Magma | must be unitPrice                                                                           | must be unitPrice<br/>(only after EthTxType fork)                        | must be unitPrice<br/>(only after EthTxType fork)                                                                                    | unitPrice                                                                                                                                |
-| After Magma  | at least baseFee<br/>(suggested: 2\*baseFee)             | at least baseFee<br/>(suggested: 2\*baseFee)             | ignored                                                                                                                                                 | baseFee                                                                                                                                  |
-| After Kaia   | at least baseFee<br/>(suggested: baseFee + suggestedTip) | at least baseFee<br/>(suggested: baseFee + suggestedTip) | up to user, SDK, wallet<br/>(suggestedTip: P percentile effective tip among the transactions from the last N blocks) | tx type 2: min(baseFee + feeCap, tipCap),<br/>other types: `gasPrice` for other types |
+| 하드포크        | `gasPrice` 요구 사항                                                                            | `maxFeePerGas` 요구 사항                                                                        | `maxPriorityFeePerGas ` 요구 사항                                                                                                                           | 계산된 \`effectiveGasPrice'                                                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Magma 이전    | must be unitPrice                                                                           | must be unitPrice<br/>(only after EthTxType fork)                        | must be unitPrice<br/>(only after EthTxType fork)                                                                                    | unitPrice                                                                                                                                |
+| After Magma | at least baseFee<br/>(suggested: 2\*baseFee)             | at least baseFee<br/>(suggested: 2\*baseFee)             | ignored                                                                                                                                                 | baseFee                                                                                                                                  |
+| After Kaia  | at least baseFee<br/>(suggested: baseFee + suggestedTip) | at least baseFee<br/>(suggested: baseFee + suggestedTip) | up to user, SDK, wallet<br/>(suggestedTip: P percentile effective tip among the transactions from the last N blocks) | tx type 2: min(baseFee + feeCap, tipCap),<br/>other types: `gasPrice` for other types |
 
 - You can retrieve the suggested `gasPrice` and `maxFeePerGas` value from the `kaia_gasPrice` and `eth_gasPrice` APIs. But the user, SDK or wallet can always choose their own value out of discretion as long as they exceed the current base fee.
 - A suggested `maxPriorityFeePerGas` value is served by `kaia_maxPriorityFeePerGas` and `eth_maxPriorityFeePerGas` APIs from the effective tip of previously mined transactions. But the user, SDK or wallet can always choose their own value out of discretion. Kaia RPC nodes with default settings uses P=60 and N=20 but the configuration can differ by nodes. Use `kaia_feeHistory` and `eth_feeHistory` API for more customized result.
