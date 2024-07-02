@@ -39,7 +39,7 @@ To apply the hard fork to the ServiceChain, you need to:
 2. Upgrade the ServiceChain binary to a version that supports the hard fork
 3. Set the hard fork block number in the ServiceChain
 
-### 1) 1) Pick an appropriate block number for the hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1) 1) 1) Pick an appropriate block number for the hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 In the Javascript console of the ServiceChain, you can check the current block number as shown below.
 

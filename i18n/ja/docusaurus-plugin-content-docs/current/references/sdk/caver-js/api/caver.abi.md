@@ -12,9 +12,9 @@ Encodes the function signature to its ABI signature, which are the first 4 bytes
 
 **Parameters**
 
-| Name              | Type               | Description                                                                                                                                                                                                                                                |
-| ----------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| functionSignature | string \\| object | The function signature or the JSON interface object of the function to encode. If this is a string, it has to be in the form `function(type, type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| Name              | Type        | Description                                                                                                                                                                                                                                                |
+| ----------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| functionSignature | string \\ | The function signature or the JSON interface object of the function to encode. If this is a string, it has to be in the form `function(type, type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
 
 **Return Value**
 
@@ -54,9 +54,9 @@ Encodes the event signature to its ABI signature, which is the sha3 hash of the 
 
 **Parameters**
 
-| Name           | Type               | Description                                                                                                                                                                                                                                   |
-| -------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eventSignature | string \\| object | The event signature or the JSON interface object of the event to encode. If this is a string, it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| Name           | Type        | Description                                                                                                                                                                                                                                   |
+| -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eventSignature | string \\ | The event signature or the JSON interface object of the event to encode. If this is a string, it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
 
 **Return Value**
 
@@ -96,10 +96,10 @@ Encodes a parameter based on its type to its ABI representation.
 
 **Parameters**
 
-| Name      | Type               | Description                                                                                                                                             |
-| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type      | string \\| object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
-| parameter | Mixed              | The actual parameter to encode.                                                                                                         |
+| Name      | Type        | Description                                                                                                                                             |
+| --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type      | string \\ | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
+| parameter | Mixed       | The actual parameter to encode.                                                                                                         |
 
 **NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
@@ -148,10 +148,10 @@ Encodes function parameters based on its JSON interface object.
 
 **Parameters**
 
-| Name       | Type              | Description                                                                                                                                                                                        |
-| ---------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typesArray | Array \\| object | An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| parameters | Array             | The parameters to encode.                                                                                                                                                          |
+| Name       | Type       | Description                                                                                                                                                                                        |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| typesArray | Array \\ | An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| parameters | Array      | The parameters to encode.                                                                                                                                                          |
 
 **NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
@@ -294,10 +294,10 @@ Decodes an ABI encoded parameter to its JavaScript type.
 
 **Parameters**
 
-| Name      | Type               | Description                                                                                                                                            |
-| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type      | string \\| object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexstring | Array              | The ABI byte code to decode.                                                                                                           |
+| Name      | Type        | Description                                                                                                                                            |
+| --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type      | string \\ | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| hexstring | Array       | The ABI byte code to decode.                                                                                                           |
 
 **NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 
@@ -345,10 +345,10 @@ Decodes ABI encoded parameters to its JavaScript types.
 
 **Parameters**
 
-| Name       | Type              | Description                                                                                                                                                                                            |
-| ---------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Array \\| object | An array with types or an array of JSON interface outputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexstring  | string            | The ABI byte code to decode.                                                                                                                                                           |
+| Name       | Type       | Description                                                                                                                                                                                            |
+| ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| typesArray | Array \\ | An array with types or an array of JSON interface outputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
+| hexstring  | string     | The ABI byte code to decode.                                                                                                                                                           |
 
 **NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
 

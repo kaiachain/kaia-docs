@@ -1,8 +1,8 @@
 # SafePal S1
 
-## Introduction <a id="introduction"></a>
+![](/img/banners/kaia-safepal.png)
 
-![](/img/build/tools/klaytnXsafepal.png)
+## Introduction <a id="introduction"></a>
 
 Hardware wallets reinvented the wheel by keeping private keys (needed for signing transactions) in an offline environment separate from internet connections, avoiding the numerous hacks or threats that arise from software wallets reliant on internet connectivity. This way, users' crypto assets are more secured and shielded from internet dangers brought on by software wallets.
 

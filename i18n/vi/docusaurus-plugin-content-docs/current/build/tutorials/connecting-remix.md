@@ -1,6 +1,6 @@
 # Connect Remix to Kaia
 
-![](/img/build/tutorials/klaytnXremix.png)
+![](/img/banners/kaia-remix.png)
 
 ## What is Remix <a href="#what-is-remix" id="what-is-remix"></a>
 

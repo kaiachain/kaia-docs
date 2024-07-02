@@ -1,8 +1,8 @@
 # Kaia Contracts Wizard
 
-## 소개
+![](/img/banners/kaia-kcw.png)
 
-![](/img/build/tools/klaytn-kcw-banner.png)
+## 소개
 
 카이아는 원활한 개발자 경험을 제공하는 것을 우선시하며, 이것이 바로 Kaia Contracts Wizard(KCW)를 만든 원동력입니다. KCW는 스마트 컨트랙트를 손쉽게 부트스트랩하고 [Kaia 컨트랙트](https://github.com/klaytn/klaytn-contracts)에서 제공되는 안전하고 검증된 컴포넌트를 활용할 수 있는 대화형 도구입니다. 즉, 카이아 컨트랙트의 구성요소를 활용하여 스마트 컨트랙트를 개발하는 과정을 간소화합니다. Kaia Contracts Wizard는 OpenZeppelin 마법사의 기반 위에 구축되어 스마트 컨트랙트 개발의 보안을 더욱 강화한다는 점에 주목할 필요가 있습니다.
 

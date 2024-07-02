@@ -1,6 +1,6 @@
 # Deploy smart contract using Foundry
 
-![](/img/build/get-started/klaytn-foundry.png)
+![](/img/banners/kaia-foundry.png)
 
 ## Introduction
 

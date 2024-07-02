@@ -30,9 +30,9 @@ You can publish it to the decentralized SubQuery Network, the most open, perform
 
 Here are some additional resources to help you get started with the Covalent API:
 
-- [SubQuery Website](https://subquery.network/?utm_source=klaytn\\&utm_medium=partner-docs)
-- [Documentation](https://academy.subquery.network/?utm_source=klaytn\\&utm_medium=partner-docs)
-- [SubQuery Klaytn Support Announcement](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn\\&utm_medium=partner-docs)
-- [Klaytn Quick Start](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn\\&utm_medium=partner-docs)
+- [SubQuery Website](https://subquery.network/?utm_source=klaytn\\\&utm_medium=partner-docs)
+- [Documentation](https://academy.subquery.network/?utm_source=klaytn\\\&utm_medium=partner-docs)
+- [SubQuery Klaytn Support Announcement](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn\\\&utm_medium=partner-docs)
+- [Klaytn Quick Start](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn\\\&utm_medium=partner-docs)
 - [Klaytn Starter Project](https://github.com/subquery/ethereum-subql-starter/tree/main/Klaytn/klaytn-starter)
-- [Discord Support](https://discord.com/invite/subquery/?utm_source=klaytn\\&utm_medium=partner-docs)
+- [Discord Support](https://discord.com/invite/subquery/?utm_source=klaytn\\\&utm_medium=partner-docs)

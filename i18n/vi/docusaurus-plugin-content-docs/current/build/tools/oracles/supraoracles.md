@@ -1,8 +1,8 @@
 # SupraOracles
 
-## Introduction
+![](/img/banners/kaia-supra.png)
 
-![](/img/build/tools/klaytnXsupraOracles.png)
+## Introduction
 
 [SupraOracles](https://supraoracles.com/) is a novel, high-throughput Oracle & IntraLayer: a vertically integrated toolkit of cross-chain solutions (data oracles, asset bridges, automation network, and more) that interlink all blockchains, public (L1s and L2s) or private (enterprises). It provides smart contracts with a next-generation cross chain oracle solution that has superior data accuracy, speed, scalability and security.
 
@@ -131,7 +131,7 @@ getEthUsdtPrice()
 // example assumes that the ethers library has been imported and is accessible within your scope
 const getEthUsdtPrice = async () => {
 ////for ethers version 6.0
-const provider = new ethers.JsonRpcProvider("https://klaytn-baobab-rpc.allthatnode.com:8551")
+const provider = new ethers.JsonRpcProvider("https://klaytn-baobab.g.allthatnode.com/full/evm")
 ////for ethers version <= 5.7.2
 //const provider = new ethers.providers.JsonRpcProvider('https://public-en-baobab.klaytn.net')
 const abi = [{ "inputs": [ { "internalType": "string", "name": "marketPair", "type": "string" } ], "name": "checkPrice", "outputs": [ { "internalType": "int256", "name": "price", "type": "int256" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "stateMutability": "view", "type": "function" } ]

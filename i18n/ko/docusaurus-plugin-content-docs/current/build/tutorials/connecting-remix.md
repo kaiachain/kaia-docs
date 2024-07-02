@@ -1,6 +1,6 @@
 # Remix를 카이아에 연결하기
 
-![](/img/build/tutorials/klaytnXremix.png)
+![](/img/banners/kaia-remix.png)
 
 ## Remix란?
 

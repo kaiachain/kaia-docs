@@ -1,8 +1,8 @@
 # SupraOracles
 
-## Introduction
+![](/img/banners/kaia-supra.png)
 
-![](/img/build/tools/klaytnXsupraOracles.png)
+## Introduction
 
 [SupraOracles](https://supraoracles.com/) is a novel, high-throughput Oracle & IntraLayer: a vertically integrated toolkit of cross-chain solutions (data oracles, asset bridges, automation network, and more) that interlink all blockchains, public (L1s and L2s) or private (enterprises). It provides smart contracts with a next-generation cross chain oracle solution that has superior data accuracy, speed, scalability and security.
 

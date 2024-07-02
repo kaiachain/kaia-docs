@@ -1,6 +1,6 @@
 # Foundry로 스마트 컨트랙트 배포하기
 
-![](/img/build/get-started/klaytn-foundry.png)
+![](/img/banners/kaia-foundry.png)
 
 ## 소개
 

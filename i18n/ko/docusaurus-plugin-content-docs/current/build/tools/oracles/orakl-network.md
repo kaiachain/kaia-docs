@@ -1,8 +1,8 @@
 # 오라클 네트워크
 
-## 소개
+![](/img/banners/kaia-orakl.png)
 
-![](/img/build/tools/klaytnXorakl.png)
+## 소개
 
 [오라클 네트워크](https://docs.orakl.network/docs/developers-guide/readme)는 스마트 컨트랙트가 오프체인 데이터 및 기타 리소스에 안전하게 접근할 수 있도록 하는 탈중앙화 오라클 네트워크입니다. 오라클은 [데이터 피드](https://docs.orakl.network/developers-guide/data-feed), [VRF](https://docs.orakl.network/developers-guide/vrf), [요청-응답](https://docs.orakl.network/developers-guide/request-response) 및 [준비금 증명](https://docs.orakl.network/developers-guide/proof-of-reserve) 솔루션을 제공하는 카이아 네이티브 오라클이라는 자부심을 가지고 있습니다.
 

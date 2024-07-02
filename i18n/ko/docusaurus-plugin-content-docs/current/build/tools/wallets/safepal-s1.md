@@ -1,8 +1,8 @@
 # SafePal S1
 
-## 소개 <a id="introduction"></a>
+![](/img/banners/kaia-safepal.png)
 
-![](/img/build/tools/klaytnXsafepal.png)
+## 소개 <a id="introduction"></a>
 
 하드웨어 지갑은 인터넷 연결에 의존하는 소프트웨어 지갑에서 발생하는 수많은 해킹이나 위협을 피하기 위해 거래 서명에 필요한 개인키를 인터넷 연결과 분리된 오프라인 환경에 보관함으로써 암호화폐 지갑의 역사를 새로 썼습니다. 이렇게 하면 사용자의 암호화폐 자산이 더욱 안전하게 보호되고 소프트웨어 지갑으로 인한 인터넷 위험으로부터 보호됩니다.
 

@@ -12,11 +12,11 @@ Submits a new vote. If the node has the right to vote based on the governance mo
 
 **Parameters**
 
-| Name     | Type                            | Description                                                                                                                                         |
-| -------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key      | string                          | Name of the configuration setting to be changed. Key has the form "domain.field".                   |
-| value    | string \\| number \\| boolean | Various types of value for each key.                                                                                                |
-| callback | function                        | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| Name     | Type        | Description                                                                                                                                         |
+| -------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key      | string      | Name of the configuration setting to be changed. Key has the form "domain.field".                   |
+| value    | string \\ | Various types of value for each key.                                                                                                |
+| callback | function    | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
 For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/governance.md#governance_vote).
 
@@ -257,10 +257,10 @@ Returns governance items at a specific block. It is the result of previous votin
 
 **Parameters**
 
-| Name             | Type               | Description                                                                                                                                            |
-| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumberOrTag | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback         | function           | (optional) Optional callback, which returns an error object as the first parameter and the result as the second.    |
+| Name             | Type        | Description                                                                                                                                            |
+| ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumberOrTag | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback         | function    | (optional) Optional callback, which returns an error object as the first parameter and the result as the second.    |
 
 **Return Value**
 
@@ -401,9 +401,9 @@ Returns the governance information stored on the given block. If no changes are 
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                |
-| ----------- | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \\| string | A block number, or the hex number string to query the governance change made on the block. |
+| Name        | Type        | Description                                                                                                |
+| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------- |
+| blockNumber | number \\ | A block number, or the hex number string to query the governance change made on the block. |
 
 **Return Value**
 
@@ -489,10 +489,10 @@ Returns the staking information at a specific block.
 
 **Parameters**
 
-| Name             | Type               | Description                                                                                                                                            |
-| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumberOrTag | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback         | function           | (optional) Optional callback, which returns an error object as the first parameter and the result as the second.    |
+| Name             | Type        | Description                                                                                                                                            |
+| ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| blockNumberOrTag | number \\ | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
+| callback         | function    | (optional) Optional callback, which returns an error object as the first parameter and the result as the second.    |
 
 **Return Value**
 

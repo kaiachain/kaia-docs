@@ -85,6 +85,8 @@ export default BlockNumber
 
 `BlockNumber` 컴포넌트의 역할은 카이아의 현재 블록 번호를 표시하는 것입니다.\
 이 컴포넌트는 매초마다 `caver.klay.getBlockNumber()`를 호출하여 현재 블록 번호를 Kaia 노드에 요청합니다.\
+`BlockNumber` 컴포넌트의 역할은 카이아의 현재 블록 번호를 표시하는 것입니다.\
+이 컴포넌트는 매초마다 `caver.klay.getBlockNumber()`를 호출하여 현재 블록 번호를 Kaia 노드에 요청합니다.\
 It requests the current block number to the Kaia node by calling `caver.kaia.getBlockNumber()` every second. 이 컴포넌트는 응답을 받으면 `this.setState({ currentBlockNumber: blockNumber })`를 통해 DOM을 다시 렌더링합니다.
 
 ### 3. `getBlockNumber` 메서드 자세히 보기 <a id="3-getblocknumber-method-in-detail"></a>

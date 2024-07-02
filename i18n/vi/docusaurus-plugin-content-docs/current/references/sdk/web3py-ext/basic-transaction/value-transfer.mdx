@@ -3,8 +3,9 @@
 TxTypeValueTransfer is used when a user wants to send KLAY.
 
 - As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KLAY to an externally owned account (EOA).
-  <CH.Spotlight>
-  <CH.Code>
+
+<CH.Spotlight>
+<CH.Code>
 
 ```py txTypeValueTransferTransaction.py
 from web3py_ext import extend
@@ -121,7 +122,7 @@ from web3py_ext.utils.klaytn_utils import to_pretty
 from cytoolz import merge
 
 w3 = Web3(Web3.HTTPProvider(
-  'https://klaytn-mainnet-rpc.allthatnode.com:8551'
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
   ))
 
 def web3_value_transfer_sign_recover():

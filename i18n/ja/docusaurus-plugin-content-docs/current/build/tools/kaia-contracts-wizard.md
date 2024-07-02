@@ -1,8 +1,8 @@
 # Kaia Contracts Wizard
 
-## Introduction
+![](/img/banners/kaia-kcw.png)
 
-![](/img/build/tools/klaytn-kcw-banner.png)
+## Introduction
 
 Kaia prioritizes providing a seamless developer experience, which is the driving force behind the creation of the Kaia Contracts Wizard (KCW). KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Kaia Contracts](https://github.com/klaytn/klaytn-contracts). In essence, it simplifies the process of developing smart contracts by leveraging the components of Kaia contracts. It's worth noting that the Kaia contracts wizard is built on the foundation of the OpenZeppelin Wizard, further bolstering the security of smart contract development.
 

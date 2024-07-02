@@ -4,7 +4,7 @@ sidebar_label: Web3-Onboard
 
 # Web3-Onboard를 dApp에 통합하기
 
-![](/img/build/tools/klaytnXweb3Onboard.png)
+![](/img/banners/kaia-web3Onboard.png)
 
 ## 소개
 

@@ -38,7 +38,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |                                                  | `wss://archive-en.cypress.klaytn.net/ws`   | klay,eth,net | Archive |
 | [OnFinality](https://onfinality.io/)             | `wss://klaytn.api.onfinality.io/public-ws` | klay,eth,net | Full    |
 
-## Testnet (Kairos) Public JSON-RPC Endpoints
+### Testnet (Kairos) Public JSON-RPC Endpoints
 
 **HTTPS**
 

@@ -1,6 +1,6 @@
 # Deploy your first smart contract using Hardhat
 
-![](/img/build/get-started/Klaytn-hardhat.png)
+![](/img/banners/kaia-hardhat.png)
 
 ## Introduction
 

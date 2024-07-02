@@ -1,6 +1,6 @@
 # KEN으로 스마트 컨트랙트 배포하기
 
-![](/img/build/get-started/klaytnXken.png)
+![](/img/banners/kaia-ken.png)
 
 시작하기 전에 몇 가지 카이아 관련 용어에 대해 알아봅시다.
 
