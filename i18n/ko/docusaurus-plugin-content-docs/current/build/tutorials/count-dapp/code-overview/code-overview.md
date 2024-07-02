@@ -1,12 +1,12 @@
 # 프론트엔드 코드 개요
 
-1. `src/App.js`
+1. `src/index.js` - 앱의 엔트리 포인트
 2. `static/index.html` - index.html
 3. `src/routes.js` - 경로 정의 포함
-4. `src/components`: 페이지를 구성하는 컴포넌트 파일을 포함합니다.
-5. `src/klaytn`: 카이아 블록체인과 상호작용하는 데 도움이 되는 파일들이 들어 있습니다. cf) caver-js는 카이아 노드에 연결하여 노드 또는 카이아에 배포된 스마트 컨트랙트와 상호작용하는 RPC 라이브러리입니다. `src/klaytn/Klaystagram.js`: caver-js API를 사용하여 컨트랙트 인스턴스를 생성합니다.
+4. `src/App.js`: 앱의 루트 컴포넌트 파일.
+5. `src/klaytn/caver.js` - 카이아 노드와의 연결을 생성합니다.
 
-## `src/pages` <a id="2-src-pages"></a>
+## `src/index.js`: <a id="1-src-index-js"></a>
 
 ```javascript
 import ReactDOM from 'react-dom'
@@ -32,11 +32,11 @@ if (module.hot) {
 }
 ```
 
-`index.js`는 튜토리얼 앱의 메인 JavaScript 파일입니다. It is the entry point of our app.
+`index.js`는 튜토리얼 앱의 메인 JavaScript 파일입니다. 이것이 저희 앱의 시작점입니다.
 
 'react-dom' 라이브러리를 사용하여 제공된 컨테이너('#root')의 DOM에 React 엘리먼트를 렌더링하고 컴포넌트에 대한 참조를 반환합니다. 간단히 말해, 'react-dom'을 통해 튜토리얼 앱의 DOM은 `public/index.html` 파일에 `<div id="root"></div>`로 채워질 것입니다.
 
-## <a id="3-what-we-are-going-to-learn"></a>
+## `static/index.html`: <a id="2-static-index-html"></a>
 
 ```markup
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ if (module.hot) {
 
 자세한 내용은 React 공식 사이트 [https://reactjs.org/docs/react-dom.html#render](https://reactjs.org/docs/react-dom.html#render)에서 확인할 수 있습니다.
 
-## `src/pages`
+## `src/routes.js`: <a id="3-src-routes-js"></a>
 
 ```javascript
 import React from 'react'
