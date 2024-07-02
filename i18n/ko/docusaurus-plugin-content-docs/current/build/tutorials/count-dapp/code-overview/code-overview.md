@@ -89,95 +89,58 @@ const renderRoutes = rootComponent => (
 export default renderRoutes
 ```
 
-cf) caver-js는 카이아 노드에 연결하여 노드 또는 카이아에 배포된 스마트 컨트랙트와 상호작용하는 RPC 라이브러리입니다.\
-`App.js`는 전체 컴포넌트의 루트 컴포넌트 파일입니다.\
-`BlockNumber`, `Auth` 및 `{this.props.children}` 컴포넌트를 렌더링합니다.\
-이 `{this.props.children}` 컴포넌트는 `routes.js` 파일에 따라 채워집니다.\
-브라우저의 URL 경로가 `/`인 경우 `<Count />` 컴포넌트를 렌더링합니다.
+`'routes.js'`에는 튜토리얼 앱의 경로 정의가 포함되어 있습니다.\
+루트 컴포넌트로서 `'App.js'` 컴포넌트는 `'route.js'` 파일에 정의된 하위 컴포넌트를 렌더링합니다.\
+위 코드에서는 브라우저의 URL 경로가 `"/"`인 경우 `'Count'` 컴포넌트가 rootComponent의 자식으로 렌더링됩니다.
 
 자세한 내용은 React 라우터 GitHub [https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md](https://github.com/ReactTraining/react-router/blob/v3.2.1/docs/API.md)에서 확인하세요.
 
-## App.js <a id="1-app-js"></a>
+## `src/App.js`: <a id="4-src-app-js"></a>
 
 ```javascript
-// src/App.js
-
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import AuthPage from 'pages/AuthPage'
-import FeedPage from 'pages/FeedPage'
-import Nav from 'components/Nav'
-import Footer from 'components/Footer'
-import Modal from 'components/Modal'
-import Toast from 'components/Toast'
 
-import * as authActions from 'redux/actions/auth'
+import { cav } from 'klaytn/caver'
+import BlockNumber from 'components/BlockNumber'
+import Auth from 'components/Auth'
 
 import './App.scss'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
+  componentWillMount() {
     /**
-     * 1. Initialize `isLoggedIn` state
-     * cf) sessionStorage is internet browser's feature
-     * which stores data until the browser tab is closed.
+     * sessionStorage is internet browser's feature which stores data
+     * until the browser tab is closed.
      */
     const walletFromSession = sessionStorage.getItem('walletInstance')
-    const { integrateWallet, removeWallet } = this.props
 
+    // If 'walletInstance' value exists, add it to caver's wallet
     if (walletFromSession) {
       try {
-        /**
-         * 2-1. Integrate wallet
-         * If 'walletInstance' value exists,
-         * intergrateWallet method adds the instance to caver's wallet and redux store
-         * cf) redux/actions/auth.js -> integrateWallet()
-         */
-        integrateWallet(JSON.parse(walletFromSession).privateKey)
+        cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
       } catch (e) {
-        /**
-         * 2-2. Remove wallet
-         * If value in sessionStorage is invalid wallet instance,
-         * removeWallet method removes the instance from caver's wallet and redux store
-         * cf) redux/actions/auth.js -> removeWallet()
-         */
-        removeWallet()
+        // If value in sessionStorage is invalid wallet instance,
+        // remove it from sessionStorage.
+        sessionStorage.removeItem('walletInstance')
       }
     }
   }
-  /**
-   * 3. Render the page
-   * Redux will initialize isLoggedIn state to true or false,
-   * depending on whether walletInstance exists in the session storage
-   */
+
   render() {
-    const { isLoggedIn } = this.props
     return (
       <div className="App">
-        <Modal />
-        <Toast />
-        {isLoggedIn && <Nav />}
-        {isLoggedIn ? <FeedPage /> : <AuthPage />}
-        <Footer />
+        <BlockNumber />
+        <Auth />
+        {this.props.children}
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  isLoggedIn: state.auth.isLoggedIn,
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  integrateWallet: (privateKey) => dispatch(authActions.integrateWallet(privateKey)),
-  removeWallet: () => dispatch(authActions.removeWallet()),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App
 ```
 
-`src/App.js`: 튜토리얼 앱의 전체 컴포넌트를 위한 루트 컴포넌트 파일입니다.
+`'App.js'`는 튜토리얼 앱의 루트 컴포넌트 파일입니다.
 
 ```javascript
 render() {
@@ -191,51 +154,40 @@ render() {
 }
 ```
 
-`src/klaytn`: 카이아 블록체인과 상호작용하는 데 도움이 되는 파일들이 들어 있습니다.\
-이 파일이 앱의 시작점입니다.\
-It renders `BlockNumber`, `Auth` and `{this.props.children}` component.\
-이 파일이 앱의 시작점입니다.\
-If your browser's url path is `/`, it will render `<Count />` component.
+`BlockNumber`, `Auth` 및 `{this.props.children}` 컴포넌트를 렌더링합니다.\
+`{this.props.children}`는 `routes.js` 파일에 따라 채워집니다.\
+브라우저의 URL 경로가 `/`인 경우 `<Count />` 컴포넌트를 렌더링합니다.
 
 ```javascript
-컴포넌트가 마운트되기 전에 브라우저의 세션스토리지에 `walletInstance` 세션이 있는지 확인합니다.\
-지갑 삽입/제거\*\*\
-한 번도 로그인한 적이 없다면 `walletInstance` 세션이 존재하지 않을 수 있습니다.\
-그렇지 않은 경우, 세션스토리지에 `walletInstance` 세션이 JSON string로 존재할 수 있습니다.\
-삽입 - 세션스토리지에 지갑 인스턴스가 존재한다면, caver와 리덕스 스토어에 지갑 인스턴스를 추가해 보세요.\
-참고) caver의 `privateKeyToAccount` API에 대한 자세한 내용은 [caver.klay.accounts.privateKeyToAccount](../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount)를 참고하세요.
+componentWillMount() {
+  /**
+   * sessionStorage is internet browser's feature which stores data
+   * until the browser tab is closed.
+   */
+  const walletFromSession = sessionStorage.getItem('walletInstance')
+
+  // If 'walletInstance' value exists, add it to caver's wallet
+  if (walletFromSession) {
+    try {
+      cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))
+    } catch (e) {
+      // If value in sessionStorage is invalid wallet instance,
+      // remove it from sessionStorage.
+      sessionStorage.removeItem('walletInstance')
+    }
+  }
+}
 ```
 
-컴포넌트가 마운트되기 전에 브라우저의 세션스토리지에 `walletInstance` 세션이 있는지 확인합니다.\
-지갑 삽입/제거\*\*\
-한 번도 로그인한 적이 없다면 `walletInstance` 세션이 존재하지 않을 수 있습니다.\
-그렇지 않은 경우, 세션스토리지에 `walletInstance` 세션이 JSON string로 존재할 수 있습니다.\
-// redux/actions/auth.js// 1. Inject wallet
-export const integrateWallet = (privateKey) => (dispatch) => {
-// Make wallet instance with caver's privateKeyToAccount API
-const walletInstance = cav.klay.accounts.privateKeyToAccount(privateKey)// To send a transaction, add wallet instance to caver
-cav.klay.accounts.wallet.add(walletInstance)// To maintain logged-in status, store walletInstance at sessionStorage
-sessionStorage.setItem('walletInstance', JSON.stringify(walletInstance))// To access walletInstance information throughout the whole application, save it to redux store
-return dispatch({
-type: INTEGRATE_WALLET,
-payload: {
-privateKey,
-address: walletInstance.address,
-},
-})
-}// 2. Remove wallet
-export const removeWallet = () => (dispatch) => {
-cav.klay.accounts.wallet.clear()
-sessionStorage.removeItem('walletInstance')
-return dispatch({
-type: REMOVE_WALLET,
-})
-}\
-참고) caver의 `privateKeyToAccount` API에 대한 자세한 내용은 [caver.klay.accounts.privateKeyToAccount](../../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#privatekeytoaccount)를 참고하세요.
+`componentWillMount`는 브라우저의 세션스토리지에 `walletInstance` 세션이 있는지 확인합니다.\
+튜토리얼 앱에 로그인한 적이 없는 경우 `walletInstance` 세션이 존재하지 않을 수 있습니다.\
+그렇지 않으면 `walletInstance` 세션이 JSON 문자열로 존재하며, 이 경우 caver 지갑에 지갑 인스턴스를 추가하려고 시도합니다.\
+caver에 지갑 인스턴스를 추가하려면 `cav.klay.accounts.wallet.add(JSON.parse(walletFromSession))`를 통해 지갑 인스턴스를 추가할 수 있습니다.\
+`caver.kaia.accounts.wallet.add`와 관련된 자세한 내용은 [caver.kaia.accounts.wallet.add](../../../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#wallet-add)를 참고하시기 바랍니다.
 
 참고) `walletInstance` 세션이 JSON string로 저장되므로 `JSON.parse`가 필요합니다.
 
-## `src/klaytn/caver.js`: 설정된 설정 내에서 caver를 인스턴스화합니다.
+## `src/klaytn/caver.js`: <a id="5-src-kaia-caver-js"></a>
 
 ```javascript
 /**
@@ -255,9 +207,8 @@ export const cav = new Caver(config.rpcURL)
 export default cav
 ```
 
-참고) caver-js(또는 코드에서 `cav`)는 카이아 블록체인과 상호작용하기 위한 라이브러리입니다.\
-참고) caver-js(또는 코드에서 `cav`)는 카이아 블록체인과 상호작용하기 위한 라이브러리입니다.\
-After the connection is made, you can get the current block number from the node and invoke contract methods.
+`caver-js` 라이브러리는 Kaia 노드에 연결합니다.\
+연결이 완료되면 노드에서 현재 블록 번호를 가져와 컨트랙트 메서드를 호출할 수 있습니다.
 
 특정 카이아 노드를 'rpcURL'에 지정하여 연결할 수 있습니다.
 
