@@ -4,7 +4,7 @@ sidebar_label: Particle Network
 
 # Particle Network를 dApp에 통합하기
 
-![](/img/build/tools/particle.png)
+![](/img/banners/kaia-particle.png)
 
 ## 소개
 

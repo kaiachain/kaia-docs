@@ -126,11 +126,11 @@ If accountKey is a public key string, an Account instance with [AccountKeyPublic
 
 **Parameters**
 
-| Name       | Type                                 | Description                                                                                                                                                                |
-| ---------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | string                               | The address of account to be updated.                                                                                                                      |
-| accountKey | string \\| Array                    | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
-| options    | [WeightedMultiSigOptions] \\| Array | (optional) Options for AccountKeyWeigthedMultiSig.                                                                                      |
+| Name       | Type                           | Description                                                                                                                                                                |
+| ---------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address    | string                         | The address of account to be updated.                                                                                                                      |
+| accountKey | string \\                    | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
+| options    | [WeightedMultiSigOptions] \\ | (optional) Options for AccountKeyWeigthedMultiSig.                                                                                      |
 
 **Return Value**
 
@@ -538,9 +538,9 @@ Decodes an RLP-encoded string of AccountKey and returns an [AccountKeyLegacy](#a
 
 **Return Value**
 
-| Type                                                                                                                                                                                                                                    | Description                                          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| [AccountKeyLegacy](#accountkeylegacy) \\| [AccountKeyPublic](#accountkeypublic) \\| [AccountKeyFail](#accountkeyfail) \\| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \\| [AccountKeyRoleBased](#accountkeyrolebased) | The AccountKey instance is returned. |
+| Type                                                           | Description                                          |
+| -------------------------------------------------------------- | ---------------------------------------------------- |
+| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \\ | The AccountKey instance is returned. |
 
 **Example**
 

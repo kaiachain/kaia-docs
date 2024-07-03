@@ -243,10 +243,10 @@ If `key` is a private key string, a [SingleKeyring](#singlekeyring) instance tha
 
 **Parameters**
 
-| Name    | Type              | Description                                                                                                                                                                                                  |
-| ------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address | string            | An address of keyring.                                                                                                                                                                       |
-| key     | string \\| Array | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role](../../../../../learn/accounts.md#roles). |
+| Name    | Type        | Description                                                                                                                                                                                                  |
+| ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address | string      | An address of keyring.                                                                                                                                                                       |
+| key     | string \\ | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role](../../../../../learn/accounts.md#roles). |
 
 **Return Value**
 
@@ -720,9 +720,9 @@ Returns the public key string(s). If `keyring` is an instance of [SingleKeyring]
 
 **Return Value**
 
-| Type              | Description                                    |
-| ----------------- | ---------------------------------------------- |
-| string \\| Array | The public key of the keyring. |
+| Type        | Description                                    |
+| ----------- | ---------------------------------------------- |
+| string \\ | The public key of the keyring. |
 
 **Example**
 
@@ -811,12 +811,12 @@ When signing transactions, it is recommended to use [caver.wallet.sign](./caver-
 
 **Parameters**
 
-| Name            | Type               | Description                                                                                                                                                                                                                                                                                       |
-| --------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string             | The hash string of a transaction to sign.                                                                                                                                                                                                                                         |
-| chainId         | string \\| number | The chain id of the Klaytn blockchain platform.                                                                                                                                                                                                                                   |
-| role            | number             | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                                                                 |
-| index           | number             | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| Name            | Type        | Description                                                                                                                                                                                                                                                                                       |
+| --------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transactionHash | string      | The hash string of a transaction to sign.                                                                                                                                                                                                                                         |
+| chainId         | string \\ | The chain id of the Klaytn blockchain platform.                                                                                                                                                                                                                                   |
+| role            | number      | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                                                                 |
+| index           | number      | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
 **Return Value**
 
@@ -976,9 +976,9 @@ Returns the private key(s) used by the role entered as a parameter.
 
 **Return Value**
 
-| Type                                 | Description                                                                                                                               |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| [PrivateKey](#privatekey) \\| Array | An instance of [PrivateKey](#privatekey) or an array containing the [PrivateKey](#privatekey) instances used by the role. |
+| Type                           | Description                                                                                                                               |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| [PrivateKey](#privatekey) \\ | An instance of [PrivateKey](#privatekey) or an array containing the [PrivateKey](#privatekey) instances used by the role. |
 
 **Example**
 
@@ -1074,9 +1074,9 @@ Depending on the type of the private key(s) in the keyring, the returned [Accoun
 
 **Parameters**
 
-| Name    | Type                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) \\| Array | (optional) [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) instance containing information that should be defined when updating your existing account to the one with a number of private keys. If keyring uses different private keys for each role, a [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) instance must be defined for each role in an array. If keyring uses more than one private key and options parameter is not defined, the default [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) with the threshold of 1 and the weight of 1 for each key will be used. |
+| Name    | Type                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options | [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) \\ | (optional) [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) instance containing information that should be defined when updating your existing account to the one with a number of private keys. If keyring uses different private keys for each role, a [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) instance must be defined for each role in an array. If keyring uses more than one private key and options parameter is not defined, the default [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) with the threshold of 1 and the weight of 1 for each key will be used. |
 
 **Return Value**
 

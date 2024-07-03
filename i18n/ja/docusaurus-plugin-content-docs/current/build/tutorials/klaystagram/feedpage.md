@@ -134,7 +134,7 @@ And thanks to webpack's configuration, we can access it as variable.(`DEPLOYED_A
 **Now we are ready to interact with contract in the application.**\
 _cf. For more information, refer to_ [_caver.klay.Contract_](../../../references/sdk/caver-js-1.4.1/api/caver.klay.Contract.md)_._
 
-### 2. `src/redux` <a id="2-src-redux"></a>
+### `src/redux` <a id="2-src-redux"></a>
 
 We are going to make API functions with Klaystagram instance. After calling API functions, we use redux store to controls all data flow.
 

@@ -1,6 +1,6 @@
 # Deploy smart contract using Foundry
 
-![](/img/build/get-started/klaytn-foundry.png)
+![](/img/banners/kaia-foundry.png)
 
 ## Introduction
 
@@ -153,7 +153,7 @@ $ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Cou
 **Example**
 
 ```bash
-forge create --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N --private-key hhdhdhdhprivatekeyhdhdhdhud src/Counter.sol:Counter
+forge create --rpc-url https://klaytn-baobab.g.allthatnode.com/full/evm --private-key hhdhdhdhprivatekeyhdhdhdhud src/Counter.sol:Counter
 ```
 
 **WARNING: Replace the private key argument with your private key from MetaMask. Be very careful not to expose your private key.**
@@ -181,7 +181,7 @@ cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
 **Example**
 
 ```bash
-cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N
+cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab.g.allthatnode.com/full/evm
 ```
 
 **Output**
@@ -213,7 +213,7 @@ cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --
 **Example**
 
 ```bash
-cast send --rpc-url=https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N  0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
+cast send --rpc-url=https://klaytn-baobab.g.allthatnode.com/full/evm 0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
 ```
 
 **Output**
@@ -223,7 +223,7 @@ cast send --rpc-url=https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2
 **Crosscheck Number**
 
 ```bash
-cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZEPI2cs0OHloJ6seI4Wfy36N
+cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab.g.allthatnode.com/full/evm
 ```
 
 **Output**

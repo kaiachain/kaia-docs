@@ -2,17 +2,19 @@
 
 ## 1. Clone Count DApp <a id="2-clone-count-dapp"></a>
 
-### 1. Clone Count DApp repository <a id="1-clone-count-dapp-repository"></a>
+### Clone Count DApp repository <a id="1-clone-count-dapp-repository"></a>
 
 ```text
 $ git clone https://github.com/klaytn/countbapp
 ```
 
-### 2. Install & Run Count DApp <a id="2-install-run-count-dapp"></a>
+### Install & Run Count DApp <a id="2-install-run-count-dapp"></a>
 
 The package you just cloned is ready to launch without any modification.
 
 The sample contract is already deployed to the Kairos testnet, and the contract ABI is included in our package.\
+The sample contract is already deployed to the Baobab testnet, and the contract ABI is included in our package.\
+Count DApp frontend code is initially configured to connect to the smart contract on the Baobab testnet.\
 The sample contract is already deployed to the Baobab testnet, and the contract ABI is included in our package.\
 Count DApp frontend code is initially configured to connect to the smart contract on the Baobab testnet.
 
@@ -44,9 +46,10 @@ We will make a super simple contract called "Count".
 
 a. There would be just one storage variable called `count`.\
 b.\
+b.\
 b. Users can increase `count` variable by 1 or decrease it by 1. So there would be two functions, `plus` function which increases `count` variable by 1, and `minus` function which decreases `count` variable by 1. That's all!
 
-### 2. Define the variable <a id="2-define-the-variable"></a>
+### Define the variable <a id="2-define-the-variable"></a>
 
 Before setting a variable, we should specify the solidity version. Let's use 0.5.6 stable version.
 
@@ -74,7 +77,7 @@ contract Count {
 }
 ```
 
-### 3. Define functions <a id="3-define-functions"></a>
+### Define functions <a id="3-define-functions"></a>
 
 We need two functions, `plus` and `minus`. Each function's role is:\
 `plus` - increase the `count` by 1. (count = count + 1)\
@@ -103,7 +106,7 @@ To allow the functions to be called outside the contract, functions should be de
 function plus() public { … }
 ```
 
-### 4. Let's do something more <a id="4-let-s-do-something-more"></a>
+### Let's do something more <a id="4-let-s-do-something-more"></a>
 
 We want to add one more feature. How about remembering the last participant's wallet address?
 
@@ -157,6 +160,9 @@ _NOTE_\
 
 2\) `msg.sender`\
 `msg.sender` is the address that initiated the current transaction.\
+2\) `msg.sender`\
+`msg.sender` is the address that initiated the current transaction.\
+To get the address of the transaction sender we can use `msg.sender` variable.\
 2\) `msg.sender`\
 `msg.sender` is the address that initiated the current transaction.\
 To get the address of the transaction sender we can use `msg.sender` variable.

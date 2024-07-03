@@ -28,4 +28,6 @@ Truffle은 컨트랙트 파일을 컴파일하고 배포하기 위한 훌륭한 
 
 ⚠ If the version is lower than 5, install the truffle version 5.\
 ⚠ 버전이 5보다 낮으면 Truffle 버전 5를 설치하세요.\
+`$ sudo npm install -g truffle@5`\
+⚠ 버전이 5보다 낮으면 Truffle 버전 5를 설치하세요.\
 `$ sudo npm install -g truffle@5`

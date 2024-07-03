@@ -4,7 +4,7 @@ sidebar_label: Web3Modal
 
 # Web3Modal을 dApp에 통합하기
 
-![](/img/build/tools/klaytnXwebModal.png)
+![](/img/banners/kaia-web3Modal\(wc\).png)
 
 ## 소개
 

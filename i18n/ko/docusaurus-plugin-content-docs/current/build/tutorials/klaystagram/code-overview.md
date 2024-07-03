@@ -199,8 +199,10 @@ export const removeWallet = () => (dispatch) => {
 블록체인 기반 앱에서 컨트랙트와 상호작용하는 방법에는 두 가지가 있습니다.
 
 1\) **Reading** data from contract.\
+2\) **Writing** data to contract.\
 2\) **Writing** data to contract.
 
+Reading data from contract is cost-free.\
 Reading data from contract is cost-free.\
 On the otherhand, there is cost for writing data to contract \(Sending a transaction\). 따라서 데이터를 쓰기 위해서는 반드시 KLAY를 보유하고 있는 클레이튼 계정이 있어야 합니다.
 

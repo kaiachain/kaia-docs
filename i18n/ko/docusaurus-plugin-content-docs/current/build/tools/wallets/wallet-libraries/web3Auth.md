@@ -4,7 +4,7 @@ sidebar_label: Web3Auth
 
 # Web3Auth를 dApp에 통합하기
 
-![](/img/build/tools/klaytnXweb3Auth.png)
+![](/img/banners/kaia-web3Auth.png)
 
 ## 소개
 

@@ -4,7 +4,7 @@ sidebar_label: Web3Auth
 
 # Integrate Web3Auth into a dApp
 
-![](/img/build/tools/klaytnXweb3Auth.png)
+![](/img/banners/kaia-web3Auth.png)
 
 ## Introduction
 

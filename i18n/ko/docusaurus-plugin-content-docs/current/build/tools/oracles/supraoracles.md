@@ -1,8 +1,8 @@
 # SupraOracles
 
-## 소개
+![](/img/banners/kaia-supra.png)
 
-![](/img/build/tools/klaytnXsupraOracles.png)
+## 소개
 
 [SupraOracles](https://supraoracles.com/)은 모든 블록체인, 퍼블릭(L1 및 L2) 또는 프라이빗(기업)을 상호 연결하는 크로스체인 솔루션(데이터 오라클, 자산 브리지, 자동화 네트워크 등)의 수직 통합 툴킷인 새로운 고처리량 오라클 및 인트라레이어(IntraLayer)입니다. 데이터 정확성, 속도, 확장성, 보안성이 뛰어난 차세대 크로스 체인 오라클 솔루션으로 스마트 컨트랙트를 제공합니다.
 
