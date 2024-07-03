@@ -45,7 +45,9 @@ recoveredAddr rpc 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7 true
 ```
 
 </CH.Code>
+
 ---
+
 Import the **ethers** and **@klaytn/ethers-ext** packages to add klaytn features on ethers.js
 
 ```js SignMsgWithLegacyExample.js focus=1:3
@@ -80,7 +82,7 @@ const { Wallet } = require("@klaytn/ethers-ext");
 const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
 const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
 const wallet = new Wallet(senderPriv, provider);
 
 async function main() {
@@ -135,7 +137,9 @@ Sign the message with sender's **wallet**
 ````
 
 </CH.Code>
+
 ---
+
 Recover the address from signed message using `ethers.utils.verifyMessage`
 
 <CH.Code>
@@ -149,7 +153,9 @@ recoveredAddr lib 0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7 true
 ````
 
 </CH.Code>
+
 ---
+
 Recover the address from signed message using `klay_recoverFromMessage`
 
 <CH.Code>
