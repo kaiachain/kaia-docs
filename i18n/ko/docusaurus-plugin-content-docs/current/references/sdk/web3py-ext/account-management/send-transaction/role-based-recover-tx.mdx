@@ -53,7 +53,9 @@ recovered 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
 ```
 
 </CH.Code>
+
 ---
+
 Import **extend** from **web3py_ext** to extend web3 to klaytn web3
 
 ```py web3_role_based_value_transfer_sign_recover.py focus=1:2
@@ -91,7 +93,7 @@ from web3py_ext.transaction.transaction import (
 )
 from cytoolz import merge
 
-w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet-rpc.allthatnode.com:8551'))
+w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet.g.allthatnode.com/full/evm'))
 
 def web3_tx_sign_recover_role_based():
     txRoleUser = Account.from_key_pair(
@@ -187,7 +189,9 @@ tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a rec
 ````
 
 </CH.Code>
+
 ---
+
 Recover sender address with **Account.recover_transaction** from signed transaction
 
 <CH.Code>
