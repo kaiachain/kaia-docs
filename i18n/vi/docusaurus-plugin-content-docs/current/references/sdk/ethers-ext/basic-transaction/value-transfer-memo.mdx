@@ -60,7 +60,9 @@ receipt {
 }
 ```
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Import the **ethers** and **@klaytn/ethers-ext** packages to add klaytn features on ethers.js
 
@@ -96,7 +98,7 @@ const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
 const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
 const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
-const provider = new ethers.providers.JsonRpcProvider('https://klaytn-mainnet-rpc.allthatnode.com:8551')
+const provider = new ethers.providers.JsonRpcProvider('https://klaytn-mainnet.g.allthatnode.com/full/evm')
 const wallet = new Wallet(senderPriv, provider);
 
 async function main() {
@@ -150,7 +152,9 @@ Send the tx to the blockchain. Function `sendTransaction` internally signs with 
 sentTx 0x57fdd7fec672b9e66e9bef766aca109babbfbb3c71b62544f10bd9bd3dceee85
 ```
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 The **wait** function returns the tx receipt if it is completed in the blockchain. 
 
@@ -183,6 +187,8 @@ receipt {
 }
 ```
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 </CH.Spotlight>
