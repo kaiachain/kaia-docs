@@ -54,7 +54,9 @@ recoveredAddr lib 0x2bf611d14d330fD3688D10F2201321eACc8AA2Ce true
 recoveredAddr rpc 0x2bf611d14d330fd3688d10f2201321eacc8aa2ce true
 ```
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Import the **@klaytn/web3js-ext** packages to add klaytn features on web3
 
@@ -90,7 +92,7 @@ const senderPriv1 = "0x31fadf868e68fd2e3f7a1c528023c9a86a45db850e9d6b82c1a82d4c7
 const senderPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 const senderPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
 
-const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
 const web3 = new Web3(provider);
 
 async function main() {
@@ -155,7 +157,9 @@ Sign the message with sender's **wallet**
 }
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Recover the address from signed message using `web3.eth.accounts.recover`
 
@@ -169,7 +173,9 @@ Recover the address from signed message using `web3.eth.accounts.recover`
 recoveredAddr lib 0x2bf611d14d330fd3688d10f2201321eacc8aa2ce true
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Recover the address from signed message using `web3.klay.recoverFromMessage`
 
