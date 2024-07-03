@@ -53,7 +53,7 @@ The baseFee calculation depends on following parameters:
   - GAS_USED_FOR_THE_PREVIOUS_BLOCK: Gas used to process all transactions of the previous block
 - Tuning parameters which can be changed later via governance
   - GAS_TARGET: The gas amount that determines the increase or decrease of the base fee (30 million at the moment)
-  - MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate (60 million at the moment) This
+  - MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate.
   - BASE_FEE_DELTA_REDUCING_DENOMINATOR: The value to set the maximum base fee change to 5% per block (20 at the moment, can be changed later by governance)
   - UPPER_BOUND_BASE_FEE: The maximum value for the base fee (750 ston at the moment, can be changed later by governance)
   - LOWER_BOUND_BASE_FEE: The minimum value for the base fee (25 ston at the moment, can be changed later by governance)
