@@ -44,7 +44,9 @@ sender 0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA
 recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 ```
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Import necessary utils from **eth_utils**, **web3** and **eth_account**
 
@@ -79,7 +81,7 @@ from eth_account.messages import encode_defunct
 from eth_utils.curried import to_hex
 from web3py_ext import extend
 
-w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet-rpc.allthatnode.com:8551'))
+w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet.g.allthatnode.com/full/evm'))
 
 def web3_role_based_value_transfer_message_recover():
     user = Account.from_key_pair(
@@ -149,7 +151,9 @@ Print out the signature and its length
 132
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Recover sender address with **Account.recover_message** from signed message
 
