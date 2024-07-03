@@ -112,6 +112,7 @@ number after 297
 
 ```
 </CH.Code>
+
 ---
 
 Import the **web3** and **@klaytn/web3js-ext** packages to add klaytn features on web3
@@ -230,6 +231,7 @@ number before 296
 ```
 
 </CH.Code>
+
 ---
 Encoded the contract method data with  `contract.methods.increment().encodeABI()`
 ```js smartContractWriteFeeDelegated.js focus=45
@@ -254,6 +256,7 @@ senderTxHashRLP 0x31f8844c850ba43b7400830111939495be48607498109030592c08adc9577c
 ```
 
 </CH.Code>
+
 ---
 Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
 <CH.Code>
@@ -268,6 +271,7 @@ signedTx 0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f
 ```
 
 </CH.Code>
+
 ---
 Send the transaction to blockchain. It will return the transaction receipt
 <CH.Code>
@@ -308,6 +312,7 @@ receipt {
 ```
 
 </CH.Code>
+
 ---
 Get the updated value of **number**
 <CH.Code>
