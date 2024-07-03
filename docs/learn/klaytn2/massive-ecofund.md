@@ -7,16 +7,10 @@ Initially issued reserve tokens will also be used as a resource for investment
 in the ecosystem expansion.
 
 ## Grant <a id="grant"></a>
-Kaia currently runs two major grant programs which are: 
-* [Kaia Community Fund (KCF)](../token-economy.md#kaia-community-fund)
-* [Kaia Foundation Fund (KFF)](../token-economy.md#kaia-foundation-fund). 
+Kaia currently runs two major grant programs which are:
 
-## Invest <a id="invest"></a>
-
-### KGF Investment Program <a id="kgf-investment-program"></a>
-• Invests in early-stage projects with potential to have a positive impact on Kaia
-
-• 54% of the newly issued tokens are the main financial resource of the Kaia Growth Fund
+* [Kaia Ecosystem Fund (KEF)](../token-economy.md#kaia-ecosystem-fund)
+* [Kaia Infrastructure Fund (KIF)](../token-economy.md#kaia-infrastructure-fund).
 
 ## Reward <a id="reward"></a>
 

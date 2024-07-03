@@ -9,7 +9,7 @@ Key design goals are;
 - Lower the barriers to entry for end-users.
 - Ease the technology adoption process for industry.
 
-Kaia launched its [Mainnet](https://klaytnscope.com), on Jun/27/2019 with the following specifications.
+Kaia continues to generate blocks on top of the Klaytn blockchain launched on June 27, 2019, with the following specifications:
 
 - 1-second block generation and confirmation time.
 - 4,000 transactions per second.
