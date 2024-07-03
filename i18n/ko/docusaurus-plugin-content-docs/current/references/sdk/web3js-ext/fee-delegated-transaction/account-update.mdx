@@ -195,7 +195,9 @@ Generating the **public key** from the **new private key** using `getPublicKeyFr
 ````
 
 </CH.Code>
+
 ---
+
 Creating a transaction object with `type: TxType.FeeDelegatedAccountUpdate` and `key` contains new public key
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=20:29
@@ -220,7 +222,9 @@ senderTxHashRLP 0x21f88d0c850ba43b7400830205949430908464d76604420162a6c880c0e1c7
 ```
 
 </CH.Code>
+
 ---
+
 Use **fee payer** account to sign the transaction with `signTransactionAsFeePayer`
 
 <CH.Code>
@@ -237,7 +241,9 @@ signedTx 0xbf72aae23989ca58eabfca9bd84b1ad9d60354e22b55102f5f5d4af18725a58e
 ````
 
 </CH.Code>
+
 ---
+
 Send the signed transaction to blockchain with `web3.eth.sendSignedTransaction`. It will return the transaction receipt
 
 <CH.Code>
