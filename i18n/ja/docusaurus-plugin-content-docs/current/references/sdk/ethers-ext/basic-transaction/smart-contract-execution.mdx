@@ -76,7 +76,9 @@ receipt {
 }
 ```
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Import the **ethers** and **@klaytn/ethers-ext** modules to add Klaytn features on ethers.js.
 
@@ -111,7 +113,7 @@ const { Wallet, TxType } = require("@klaytn/ethers-ext");
 const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
 const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
 const wallet = new Wallet(senderPriv, provider);
 
 const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
