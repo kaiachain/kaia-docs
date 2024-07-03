@@ -53,7 +53,7 @@ baseFee 계산은 다음 매개 변수에 따라 달라집니다:
   - PREVIOUS_BLOCK_GAS_USED: 이전 블록의 모든 트랜잭션을 처리하는 데 사용된 가스입니다.
 - 거버넌스를 통해 나중에 변경할 수 있는 매개변수 조정
   - GAS_TARGET: 기본 요금의 인상 또는 인하를 결정하는 가스 금액입니다.
-  - MAX_BLOCK_GAS_USED_FOR_BASE_FEE: 최대 기본 수수료 변경 비율을 적용하기 위한 암시적 블록 가스 제한입니다. This
+  - MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate.
   - BASE_FEE_DENOMINATOR: 블록당 최대 기본 수수료 변경을 설정하는 값입니다.
   - UPPER_BOUND_BASE_FEE: 기본 수수료의 최대값
   - LOWER_BOUND_BASE_FEE: 기본 수수료의 최소값
@@ -88,11 +88,11 @@ Kaia 하드포크 이후, 트랜잭션은 블록 포함 가능성을 높이기 �
 
 ### 요약
 
-| 하드포크     | `gasPrice` 요구 사항                                                               | `maxFeePerGas` 요구 사항                                                           | `maxPriorityFeePerGas ` 요구 사항                                                                          | 계산된 \`effectiveGasPrice'                                                                                         |
-| -------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| Magma 이전 | unitPrice이어야 함                                                                 | unitPrice<br/>이어야 함(EthTxType 포크 이후에만 해당).  | unitPrice<br/>이어야 함(EthTxType 포크 이후에만 해당).                          | unitPrice                                                                                                        |
-| Magma 이후 | 최소 baseFee<br/>(권장: 2\*baseFee)             | 최소 baseFee<br/>(권장: 2\*baseFee)             | 무시됨                                                                                                    | baseFee                                                                                                          |
-| Kaia 이후  | 최소 baseFee<br/>(권장: baseFee + suggestedTip) | 최소 baseFee<br/>(권장: baseFee + suggestedTip) | 사용자, SDK, 지갑에 달려있음<br/>(suggestedTip: 마지막 N 블록의 트랜잭션 중 P 백분위수 유효 팁) | tx 유형 2: min(baseFee + feeCap, tipCap),<br/>기타 유형: `gasPrice` |
+| 하드포크     | `gasPrice` 요구 사항                                                               | `maxFeePerGas` 요구 사항                                                                        | `maxPriorityFeePerGas ` 요구 사항                                                                          | 계산된 \`effectiveGasPrice'                                                                                         |
+| -------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| Magma 이전 | unitPrice이어야 함                                                                 | unitPrice<br/>이어야 함(EthTxType 포크 이후에만 해당).               | must be unitPrice<br/>(only after EthTxType fork)                                   | unitPrice                                                                                                        |
+| Magma 이후 | 최소 baseFee<br/>(권장: 2\*baseFee)             | at least baseFee<br/>(suggested: 2\*baseFee)             | 무시됨                                                                                                    | baseFee                                                                                                          |
+| Kaia 이후  | 최소 baseFee<br/>(권장: baseFee + suggestedTip) | at least baseFee<br/>(suggested: baseFee + suggestedTip) | 사용자, SDK, 지갑에 달려있음<br/>(suggestedTip: 마지막 N 블록의 트랜잭션 중 P 백분위수 유효 팁) | tx 유형 2: min(baseFee + feeCap, tipCap),<br/>기타 유형: `gasPrice` |
 
 - 제안된 `gasPrice` 및 `maxFeePerGas` 값은 `kaia_gasPrice` 및 `eth_gasPrice` API에서 검색할 수 있습니다. 그러나 사용자, SDK 또는 지갑은 현재 기본 수수료를 초과하는 한 언제든지 재량에 따라 자체 가치를 선택할 수 있습니다.
 - 제안된 `maxPriorityFeePerGas` 값은 이전에 채굴된 트랜잭션의 유효 팁에서 `kaia_maxPriorityFeePerGas` 및 `eth_maxPriorityFeePerGas` API를 통해 제공됩니다. 그러나 사용자, SDK 또는 지갑은 언제든지 재량에 따라 자신의 가치를 선택할 수 있습니다. 기본 설정이 있는 Kaia RPC 노드는 P=60, N=20을 사용하지만 노드에 따라 구성이 다를 수 있습니다. 보다 맞춤화된 결과를 얻으려면 `kaia_feeHistory` 및 `eth_feeHistory` API를 사용하세요.
