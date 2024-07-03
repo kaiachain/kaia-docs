@@ -61,7 +61,9 @@ receipt {
 }
 ```
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Import the **@klaytn/web3js-ext** packages to add klaytn features on web3
 
@@ -97,7 +99,7 @@ const { Web3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@klay
 const senderAddr = "0xecbf243ac167a3b5097fef758e07881582a89027";
 const senderPriv = "0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d";
 
-const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
 const web3 = new Web3(provider);
 const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
 
@@ -158,7 +160,9 @@ Sign the transaction with **sender's wallet**
 signedTx 0x5fedabfb343f607fe0f0adfa9ef54d738312bbec98bfc02839cdae2e968f5f90
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Send the signed tx to the blockchain. It will return the **receipt** of the transaction
 
