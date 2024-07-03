@@ -56,7 +56,9 @@ recoveredAddr lib 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b true
 recoveredAddr rpc 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b true
 ```
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Import the **ethers** and **@klaytn/ethers-ext** packages to add klaytn features on ethers.js
 
@@ -95,7 +97,7 @@ const senderNewPriv1 = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f71
 const senderNewPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 const senderNewPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
 const wallet1 = new Wallet(senderAddr, senderNewPriv1, provider);
 const wallet2 = new Wallet(senderAddr, senderNewPriv2, provider);
 const wallet3 = new Wallet(senderAddr, senderNewPriv3, provider);
@@ -151,7 +153,9 @@ Sign the message with sender's **wallet3**
 }
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Recover the address from signed message using `ethers.utils.verifyMessage`
 
@@ -165,7 +169,9 @@ Recover the address from signed message using `ethers.utils.verifyMessage`
 recoveredAddr lib 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b true
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Recover the address from signed message using `klay_recoverFromMessage`
 
