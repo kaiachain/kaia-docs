@@ -115,7 +115,9 @@ number after 297
 ```
 
 </CH.Code>
+
 ---
+
 Import the **web3** and **@klaytn/web3js-ext** packages to add klaytn features on web3
 
 ```js smartContractWriteFeeDelegated.js focus=1
@@ -150,7 +152,7 @@ const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3
 const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
 const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
 
-const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
 const web3 = new Web3(provider);
 const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
 const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
@@ -254,7 +256,9 @@ number before 296
 ````
 
 </CH.Code>
+
 ---
+
 Encoded the contract method data with  `contract.methods.increment().encodeABI()`
 
 ```js smartContractWriteFeeDelegated.js focus=45
@@ -285,7 +289,9 @@ senderTxHashRLP 0x31f8844c850ba43b7400830111939495be48607498109030592c08adc9577c
 ````
 
 </CH.Code>
+
 ---
+
 Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
 
 <CH.Code>
@@ -300,7 +306,9 @@ signedTx 0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f
 ````
 
 </CH.Code>
+
 ---
+
 Send the transaction to blockchain. It will return the transaction receipt
 
 <CH.Code>
@@ -341,7 +349,9 @@ receipt {
 ````
 
 </CH.Code>
+
 ---
+
 Get the updated value of **number**
 
 <CH.Code>
