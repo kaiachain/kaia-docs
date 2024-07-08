@@ -40,6 +40,7 @@ const commonSidebar = [
     ],
   },
 //  'misc/klaytn-history',
+  'references/public-en',
   'misc/faq-chain-transition',
   'misc/glossary',
   //'misc/faq',
@@ -389,6 +390,7 @@ const sidebars = {
   ],
   refSidebar: [
     'references/references',
+    'references/public-en',
     {
       type:"category",
       label:"RPC API Reference",
@@ -402,15 +404,6 @@ const sidebars = {
         require("./web3rpc/web3rpc-sidebar").txpoolSidebarFormatted,
         require("./web3rpc/web3rpc-sidebar").personalSidebarFormatted,
         require("./web3rpc/web3rpc-sidebar").debugSidebarFormatted,
-      ],
-    },
-    'references/transaction-error-codes',
-    {
-      type: 'category',
-      label: 'RPC Service Providers',
-      link: {type: 'doc', id: 'references/service-providers/service-providers'},
-      items: [
-        'references/service-providers/public-en',       
       ],
     },
     {
@@ -496,6 +489,7 @@ const sidebars = {
           ],
         },
         'references/sdk/viem/viem',
+        'references/sdk/transaction-error-codes',        
       ],
     },
     ...commonSidebar,
