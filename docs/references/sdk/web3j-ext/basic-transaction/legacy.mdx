@@ -1,4 +1,4 @@
-TxTypeLegacyTransaction represents a type of transactions existed previously in Klaytn.
+TxTypeLegacyTransaction represents a type of transactions existed previously in Kaia.
 
 \*\*This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
 
@@ -20,16 +20,16 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 import org.web3j.tx.response.PollingTransactionReceiptProcessor;
 import org.web3j.tx.response.TransactionReceiptProcessor;
 import org.web3j.example.keySample;
 
 public class LegacyExample implements keySample {
         /**
-         * 
+         *
          */
 
         public static void run() throws Exception {
@@ -102,13 +102,14 @@ public class LegacyExample implements keySample {
 
 ---
 
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
 
 ```java txTypeLegacyTransaction.java focus=1:20
 
 ```
 
 ---
+
 Create a Web3j instance with the specified BAOBAB_URL
 
 ```java txTypeLegacyTransaction.java focus=27
@@ -116,72 +117,95 @@ Create a Web3j instance with the specified BAOBAB_URL
 ```
 
 ---
+
 Creating new credentials using the private key
 
 ```java txTypeLegacyTransaction.java focus=28:29
 
 ```
+
 ---
+
 Gas **price** and **gas limit** settings
 
 ```java txTypeLegacyTransaction.java focus=31:32
 
 ```
+
 ---
+
 Set the sender's **from** and receiver's **to** address
 
 ```java txTypeLegacyTransaction.java focus=33,34
 
 ```
+
 ---
+
 Get the **chain ID** from the network
 
 ```java txTypeLegacyTransaction.java focus=35:36
 
 ```
+
 ---
+
 Get the user's **nonce** from the network
 
 ```java txTypeLegacyTransaction.java focus=37:38
 
 ```
+
 ---
+
 Define the **value** to transfer from sender to receiver
 
 ```java txTypeLegacyTransaction.java focus=39
 
 ```
+
 ---
+
 Create a raw **transaction** using above params
 
 ```java txTypeLegacyTransaction.java focus=42:47
 
 ```
+
 ---
+
 For **web3j-credentials**, sign transaction with with `KlayTransactionEncoder.signMessage` and encode to Hex string using `Numeric.toHexString`.
 
 ```java txTypeLegacyTransaction.java focus=49:50
 
 ```
+
 ---
+
 Using `ethSendRawTransaction` method to send the signed transaction to the blockchain.
 
 ```java txTypeLegacyTransaction.java focus=51:52
 
 ```
+
 ---
+
 For **web3j-ext klaycredentials**, create raw transaction with `KlayRawTransaction.createEtherTransaction`, sign it with `KlayTransactionEncoder.signMessage` and encode to Hex string using `Numeric.toHexString`.
 
 ```java txTypeLegacyTransaction.java focus=54:63
 
 ```
+
 ---
+
 Using `ethSendRawTransaction` method to send the signed transaction to the blockchain.
 
 ```java txTypeLegacyTransaction.java focus=64:66
 
 ```
+
 ---
+
 Get the receipt hash returned.
 
 <CH.Code>
@@ -189,6 +213,7 @@ Get the receipt hash returned.
 ```java txTypeLegacyTransaction.java focus=67:76
 
 ```
+
 ---
 
 ```zsh output
@@ -199,9 +224,11 @@ Get the receipt hash returned.
 </CH.Code>
 
 ---
+
 Finally, Shut down web3j instance
 
 ```java txTypeLegacyTransaction.java focus=77
+
 ```
 
 </CH.Spotlight>

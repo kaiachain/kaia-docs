@@ -1,53 +1,57 @@
 # Value Transfer With Memo
-**TxTypeValueTransferMemo** is used when a user wants to send KLAY with a specific message.
 
-
+**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
 
 # Fee Delegation
 
 <CH.Spotlight>
     <CH.Code>
 
-``` js TxTypeFeeDelegatedValueTransferMemo.js
-const { Wallet, TxType, parseKlay } = require("@klaytn/ethers-ext");
-const ethers = require("ethers");
+```js TxTypeFeeDelegatedValueTransferMemo.js
+const { Wallet, TxType, parseKlay } = require('@kaiachain/ethers-ext')
+const ethers = require('ethers')
 
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
-const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
-const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const feePayerAddr = '0xcb0eb737dfda52756495a5e08a9b37aab3b271da'
+const feePayerPriv =
+  '0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4'
+const recieverAddr = '0xc40b6909eb7085590e1c26cb3becc25368e249e9'
 
 async function main() {
-  const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
-  const senderWallet = new Wallet(senderPriv, provider);
-  const feePayerWallet = new Wallet(feePayerPriv, provider);
+  const provider = new ethers.providers.JsonRpcProvider(
+    'https://public-en-baobab.klaytn.net'
+  )
+  const senderWallet = new Wallet(senderPriv, provider)
+  const feePayerWallet = new Wallet(feePayerPriv, provider)
 
   let tx = {
     type: TxType.FeeDelegatedValueTransferMemo,
     to: recieverAddr,
-    value: parseKlay("0.01"),
+    value: parseKlay('0.01'),
     from: senderAddr,
-    input: "0x1234567890",
-  };
+    input: '0x1234567890',
+  }
 
-  tx = await senderWallet.populateTransaction(tx);
-  console.log(tx);
+  tx = await senderWallet.populateTransaction(tx)
+  console.log(tx)
 
-  const senderTxHashRLP = await senderWallet.signTransaction(tx);
-  console.log("senderTxHashRLP", senderTxHashRLP);
+  const senderTxHashRLP = await senderWallet.signTransaction(tx)
+  console.log('senderTxHashRLP', senderTxHashRLP)
 
-  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
-  console.log("sentTx", sentTx);
+  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP)
+  console.log('sentTx', sentTx)
 
-  const rc = await sentTx.wait();
-  console.log("receipt", rc);
+  const rc = await sentTx.wait()
+  console.log('receipt', rc)
 }
 
-main();
+main()
 ```
 
 ---
+
 ```zsh output
 ❯ node TxTypeFeeDelegatedValueTransferMemo.js
 senderTxHashRLP 0x11f88d8203ac850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f5a0bf499bb98ac755430724cb9cf8deb3e2d43baa0f4dc97036d06bd66c91e74f2ca0092f32dbabd626964eeccfe7a1cfc0d14088ece28f7efde952c341428a531785
@@ -71,98 +75,113 @@ receipt {
   byzantium: true
 }
 ```
+
 </CH.Code>
 
 ---
 
-Import the **ethers** and **@klaytn/ethers-ext** packages to add klaytn features on ethers.js
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=1:2
 
 ```
+
 ---
+
 Define **sender address, sender private key, fee payer address, fee payer private key and reciever address**
+
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=4:8
 
 ```
+
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified Kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
 
 ```
+
 ---
 
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
-const { Wallet, TxType, parseKlay } = require("@klaytn/ethers-ext");
-const ethers = require("ethers");
+const { Wallet, TxType, parseKlay } = require('@kaiachain/ethers-ext')
+const ethers = require('ethers')
 
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
-const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
-const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const feePayerAddr = '0xcb0eb737dfda52756495a5e08a9b37aab3b271da'
+const feePayerPriv =
+  '0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4'
+const recieverAddr = '0xc40b6909eb7085590e1c26cb3becc25368e249e9'
 
 async function main() {
-  const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
-  const senderWallet = new Wallet(senderPriv, provider);
-  const feePayerWallet = new Wallet(feePayerPriv, provider);
+  const provider = new ethers.providers.JsonRpcProvider(
+    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+  )
+  const senderWallet = new Wallet(senderPriv, provider)
+  const feePayerWallet = new Wallet(feePayerPriv, provider)
 
   let tx = {
     type: TxType.FeeDelegatedValueTransferMemo,
     to: recieverAddr,
-    value: parseKlay("0.01"),
+    value: parseKlay('0.01'),
     from: senderAddr,
-    input: "0x1234567890",
-  };
+    input: '0x1234567890',
+  }
 
-  tx = await senderWallet.populateTransaction(tx);
-  console.log(tx);
+  tx = await senderWallet.populateTransaction(tx)
+  console.log(tx)
 
-  const senderTxHashRLP = await senderWallet.signTransaction(tx);
-  console.log("senderTxHashRLP", senderTxHashRLP);
+  const senderTxHashRLP = await senderWallet.signTransaction(tx)
+  console.log('senderTxHashRLP', senderTxHashRLP)
 
-  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
-  console.log("sentTx", sentTx);
+  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP)
+  console.log('sentTx', sentTx)
 
-  const rc = await sentTx.wait();
-  console.log("receipt", rc);
+  const rc = await sentTx.wait()
+  console.log('receipt', rc)
 }
 
-main();
+main()
 ```
+
 ---
 
 Create a sender's wallet from private key
 
-
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=12
 
 ```
----
 
+---
 
 Create fee payer's wallet from private key
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=13
 
 ```
+
 ---
-Declare transaction with the fields such as **type, from, to, value, input**.  
+
+Declare transaction with the fields such as **type, from, to, value, input**.
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=15:21
+
 ```
 
 ---
+
 Populating transaction with additional information using **senderWallet.populateTransaction**
+
 <CH.Code>
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=23:24
-```
 
+```
 
 ---
 
@@ -184,12 +203,12 @@ Populating transaction with additional information using **senderWallet.populate
 </CH.Code>
 
 ---
+
 Signing the transaction with the **sender's private key**
 
 <CH.Code>
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=26:27
 ```
-
 
 ---
 
@@ -201,7 +220,9 @@ senderTxHashRLP 0x11f88d8202fa850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc2
 </CH.Code>
 
 ---
+
 Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+
 <CH.Code>
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=29:30
@@ -218,13 +239,15 @@ sentTx 0xac225ead53297c95b747abd84e7224ecbc1b40f459a532fd22a67143aa83b4ae
 </CH.Code>
 
 ---
-The **wait** function returns the tx receipt if the tx was sent to the blockchain successfully. 
+
+The **wait** function returns the tx receipt if the tx was sent to the blockchain successfully.
 
 <CH.Code>
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=32:33
 
 ```
+
 ---
 
 ```zsh output
@@ -252,4 +275,5 @@ receipt {
 </CH.Code>
 
 ---
+
 </CH.Spotlight>

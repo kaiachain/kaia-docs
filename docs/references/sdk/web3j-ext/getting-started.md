@@ -1,4 +1,4 @@
-# Web3j extension for Klaytn
+# Web3j extension for Kaia
 
 ## Requirements
 ### Setting Java
@@ -6,7 +6,7 @@
 - Visit https://adoptopenjdk.net/ site
 - Download OpenJDK
 
-## Install Web3j Klaytn extension
+## Install Web3j Kaia extension
 
 To add the [Gradle Library](https://docs.gradle.org/current/userguide/getting_started.html) to your project:
 ```shell
@@ -28,9 +28,9 @@ See [example](./web3j-ext/src/main/java/org/web3j/example).
 For basic web3j usage, you can learn through [Web3j tutorial](https://docs.web3j.io/4.10.0/quickstart/) .
 
 ### Send Fee Delegated Transaction on Baobab Test network
-If you want to know more about the concept of fee delegated transaction supported by Klaytn network, please refer to [Klaytn docs](https://docs.klaytn.foundation/content/klaytn/design/transactions).
+If you want to know more about the concept of fee delegated transaction supported by Kaia network, please refer to [Kaia docs](https://docs.klaytn.foundation/content/klaytn/design/transactions).
 
-Check FeeDelegatedValueTransferExample.java file in web3j-ext [examples](https://github.com/klaytn/web3klaytn/tree/dev/web3j-ext/web3j-ext/src/main/java/org/web3j/example).
+Check FeeDelegatedValueTransferExample.java file in web3j-ext [examples](https://github.com/kaiachain/kaia-sdk/tree/dev/web3j-ext/web3j-ext/src/main/java/org/web3j/example).
 ```file
 package org.web3j.example;
 
@@ -46,9 +46,9 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 
 public class FeeDelegatedValueTransferExample implements keySample {

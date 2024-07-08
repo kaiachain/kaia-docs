@@ -1,6 +1,6 @@
 # Value Transfer Memo
-**TxTypeValueTransferMemo** is used when a user wants to send KLAY with a specific message.
 
+**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
 
 <CH.Spotlight>
 <CH.Code>
@@ -24,9 +24,9 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 public class FeeDelegatedValueTransferMemoExample {
 
@@ -44,7 +44,7 @@ public class FeeDelegatedValueTransferMemoExample {
 		BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
 				.getTransactionCount();
 		BigInteger value = BigInteger.valueOf(100);
-		String data = "Klaytn Web3j";
+		String data = "Kaia Web3j";
 		byte[] payload = data.getBytes();
 
 		TxType.Type type = Type.FEE_DELEGATED_VALUE_TRANSFER_MEMO;
@@ -87,80 +87,99 @@ public class FeeDelegatedValueTransferMemoExample {
 }
 ```
 
-
-
-
 ---
+
 ```zsh output
 ❯ java FeeDelegatedValueTransferMemo.java
 output
 ```
+
 </CH.Code>
 
-
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
 
 ```java FeeDelegatedValueTransferMemo.java focus=1:21s
 
 ```
+
 ---
 
-Connect to the Klaytn blockchain using Web3j and specify the URL
+Connect to the Kaia blockchain using Web3j and specify the URL
+
 ```java FeeDelegatedValueTransferMemo.java focus=26
 
 ```
+
 ---
+
 Creating **sender** and **fee payer** credentials using private keys.
 
 ```java FeeDelegatedValueTransferMemo.java focus=27:28
 
 ```
+
 ---
+
 Define gas price and gas limit for the transaction
 
 ```java FeeDelegatedValueTransferMemo.java focus=30:31
 
 ```
+
 ---
+
 Get the sender's address from `credentials.getAddress()`
 
 ```java FeeDelegatedValueTransferMemo.java focus=32
 
 ```
+
 ---
-Get the chain ID from the **Klaytn** network
+
+Get the chain ID from the **Kaia** network
 
 ```java FeeDelegatedValueTransferMemo.java focus=33:34
 
 ```
+
 ---
+
 Initialize variables for transaction parameters
 
 ```java FeeDelegatedValueTransferMemo.java focus=35:42
 
 ```
+
 ---
+
 Create a raw transaction object.
 
 ```java FeeDelegatedValueTransferMemo.java focus=44:52
 
 ```
+
 ---
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`. 
+
+Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
 
 ```java FeeDelegatedValueTransferMemo.java focus=54:55
 
 ```
+
 ---
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`. 
+
+Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
 
 ```java FeeDelegatedValueTransferMemo.java focus=57:58
 
 ```
 
 ---
-Sending the signed transaction to Klaytn network
+
+Sending the signed transaction to Kaia network
+
 <CH.Code>
 
 ```java FeeDelegatedValueTransferMemo.java focus=60:63
@@ -171,14 +190,16 @@ Sending the signed transaction to Klaytn network
 
 ```zsh output
 ❯ java FeeDelegatedValueTransferMemo.java
-TxHash : 
+TxHash :
  0x3daa6c374bcd7407ff7dbd1403e9644d3551de8968601e5ab6fb779baf8caf19
 ```
 
 </CH.Code>
 
 ---
+
 Getting the transaction receipt
+
 <CH.Code>
 
 ```java FeeDelegatedValueTransferMemo.java focus=64:70
@@ -189,7 +210,7 @@ Getting the transaction receipt
 
 ```zsh output
 ❯ java FeeDelegatedValueTransferMemo.java
-receipt : 
+receipt :
 class TransactionReceipt {
     blockHash: 0x986bc12a221e2cdd6d646675986821212249cdb537386c5efb575559bb45cfd1
     blockNumber: 0x89286a8
@@ -227,19 +248,22 @@ class TransactionReceipt {
 </CH.Code>
 
 ---
+
 Shutting down the Web3j instance
 
 ```java FeeDelegatedValueTransferMemo.java focus=71
 
 ```
+
 ---
+
 Decoding the raw transaction to get the transaction type
+
 <CH.Code>
 
 ```java FeeDelegatedValueTransferMemo.java focus=73:75
 
 ```
-
 
 ---
 

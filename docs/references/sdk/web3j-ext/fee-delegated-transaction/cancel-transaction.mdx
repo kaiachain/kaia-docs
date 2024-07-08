@@ -1,6 +1,6 @@
 # Cancel
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
 
+**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
 
 <CH.Spotlight>
 <CH.Code>
@@ -23,16 +23,16 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 /**
- * 
+ *
  */
 public class FeeDelegatedCancelExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -89,15 +89,13 @@ public class FeeDelegatedCancelExample implements keySample {
 }
 ```
 
-
-
-
 ---
+
 ```zsh output
 ❯ java FeeDelegatedCancel.java
-TxHash : 
+TxHash :
  0x2e9abcc9d23fc32e3a2afb55172e5925b9543b445f1a8fbdb8b7aa50d9bad812
-receipt : 
+receipt :
 class TransactionReceipt {
     blockHash: 0xa1985b9c6a7cd8d58ef511915a677e33c5d6029d95f9223fec3febed65500051
     blockNumber: 0x8def165
@@ -134,22 +132,25 @@ class TransactionReceipt {
 }
 TxType : FEE_DELEGATED_CANCEL
 ```
+
 </CH.Code>
 
-
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
 
 ```java FeeDelegatedCancel.java focus=1:20
 
 ```
----
-Create a Web3j instance with the specified BAOBAB_URL
 
+---
+
+Create a Web3j instance with the specified BAOBAB_URL
 
 ```java FeeDelegatedCancel.java focus=32
 
 ```
+
 ---
 
 Load credentials for **sender** and **fee payer**
@@ -157,93 +158,104 @@ Load credentials for **sender** and **fee payer**
 ```java FeeDelegatedCancel.java focus=33:34
 
 ```
+
 ---
+
 Gas **price** and **gas limit** settings
 
-
 ```java FeeDelegatedCancel.java focus=36:37
-```
----
-Set the sender's **from** address using `credentials.getAddress`
 
+```
+
+---
+
+Set the sender's **from** address using `credentials.getAddress`
 
 ```java FeeDelegatedCancel.java focus=38
 
 ```
----
-Get the **chain ID** from the network
 
+---
+
+Get the **chain ID** from the network
 
 ```java FeeDelegatedCancel.java focus=39:40
 
 ```
----
-Getting the **nonce** for the sender's address
 
+---
+
+Getting the **nonce** for the sender's address
 
 ```java FeeDelegatedCancel.java focus=41:42
 
 ```
----
-Set the transaction type to **FEE_DELEGATED_CANCEL**
 
+---
+
+Set the transaction type to **FEE_DELEGATED_CANCEL**
 
 ```java FeeDelegatedCancel.java focus=44
 
 ```
 
 ---
-Create a raw transaction for canceling **pending transaction**
 
+Create a raw transaction for canceling **pending transaction**
 
 ```java FeeDelegatedCancel.java focus=46:51
 
 ```
----
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`. 
 
+---
+
+Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
 
 ```java FeeDelegatedCancel.java focus=53:54
 
 ```
----
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`. 
 
+---
+
+Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
 
 ```java FeeDelegatedCancel.java focus=56:57
 
 ```
+
 ---
-Sending the signed transaction to Klaytn network
+
+Sending the signed transaction to Kaia network
 
 <CH.Code>
 
 ```java FeeDelegatedCancel.java focus=59:62
 
 ```
+
 ---
 
 ```zsh output
 ❯ java FeeDelegatedCancel.java
-TxHash : 
+TxHash :
  0x2e9abcc9d23fc32e3a2afb55172e5925b9543b445f1a8fbdb8b7aa50d9bad812
 ```
 
 </CH.Code>
 
 ---
-Getting the transaction receipt
 
+Getting the transaction receipt
 
 <CH.Code>
 ```java FeeDelegatedCancel.java focus=64:73
 
-```
+````
 ---
 
 ```zsh output
 ❯ java FeeDelegatedCancel.java
-receipt : 
+receipt :
 class TransactionReceipt {
     blockHash: 0xa1985b9c6a7cd8d58ef511915a677e33c5d6029d95f9223fec3febed65500051
     blockNumber: 0x8def165
@@ -278,7 +290,7 @@ class TransactionReceipt {
     typeInt: 57
     value: null
 }
-```
+````
 
 </CH.Code>
 
@@ -289,6 +301,7 @@ Shutdown the web3j instance
 ```java FeeDelegatedCancel.java focus=74
 
 ```
+
 ---
 
 Decoding the raw transaction to get the transaction type
@@ -296,14 +309,14 @@ Decoding the raw transaction to get the transaction type
 <CH.Code>
 ```java FeeDelegatedCancel.java focus=76:78
 
-```
+````
 ---
 
 ```zsh output
 ❯ java FeeDelegatedCancel.java
 TxType : FEE_DELEGATED_CANCEL
 
-```
+````
 
 </CH.Code>
 

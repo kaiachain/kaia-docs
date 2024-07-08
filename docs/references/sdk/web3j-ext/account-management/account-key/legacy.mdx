@@ -23,10 +23,10 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 public class AccountUpdateWithLegacyExample {
 
@@ -83,13 +83,14 @@ public class AccountUpdateWithLegacyExample {
 ```
 
 ---
+
 ```zsh output
 ❯ java AccountUpdateWithLegacyExample.java
-TxHash : 
+TxHash :
  0x7b435e127119d8ee2edf8d49377ed150e4579cc3c991e0272a519a5d7f3f17b2
-Receipt from eth_getTransactionReceipt : 
+Receipt from eth_getTransactionReceipt :
 TransactionReceipt{transactionHash='0x7b435e127119d8ee2edf8d49377ed150e4579cc3c991e0272a519a5d7f3f17b2', transactionIndex='0x1', blockHash='0xc1d491e001410664e0a1e68c20d69890a587dede6beae43c20fa1899935425ba', blockNumber='0x90e59b5', cumulativeGasUsed='0x3240d', gasUsed='0x5208', contractAddress='null', root='null', status='0x1', from='0xa2a8854b1802d8cd5de631e690817c253d6a9153', to='0xa2a8854b1802d8cd5de631e690817c253d6a9153', logs=[], logsBloom='0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000', revertReason='null', type='0x0', effectiveGasPrice='0x5d21dba00'}
-Receipt from klay_getTransactionReceipt : 
+Receipt from klay_getTransactionReceipt :
 class TransactionReceipt {
     blockHash: 0xc1d491e001410664e0a1e68c20d69890a587dede6beae43c20fa1899935425ba
     blockNumber: 0x90e59b5
@@ -122,29 +123,33 @@ class TransactionReceipt {
 }
 TxType : ACCOUNT_UPDATE
 ```
+
 </CH.Code>
 
-
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
 
 ```java AccountUpdateWithLegacyExample.java focus=1:21
 
 ```
+
 ---
+
 Create a **credentials** from private key
+
 ```java AccountUpdateWithLegacyExample.java focus=27
 
 ```
+
 ---
 
 Create a Web3j instance with the specified BAOBAB_URL
 
-
 ```java AccountUpdateWithLegacyExample.java focus=28
 
 ```
+
 ---
 
 Also, you can change the default provider. For example, using the alchemy provider.
@@ -167,10 +172,10 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 public class AccountUpdateWithLegacyExample {
 
@@ -227,78 +232,96 @@ public class AccountUpdateWithLegacyExample {
 ```
 
 ---
+
 Gas **price** and **gas limit** settings
 
 ```java AccountUpdateWithLegacyExample.java focus=30:31
 
 ```
+
 ---
+
 Get **chain ID** from the network
 
 ```java AccountUpdateWithLegacyExample.java focus=33:34
 
 ```
+
 ---
+
 Get the **nonce** for the sender's address
 
 ```java AccountUpdateWithLegacyExample.java focus=35:36
 
 ```
+
 ---
+
 Generate a **new account key** for account update
 
 ```java AccountUpdateWithLegacyExample.java focus=38
 
 ```
+
 ---
+
 Set transaction type as **ACCOUNT_UPDATE**
+
 ```java AccountUpdateWithLegacyExample.java focus=40
 
 ```
+
 ---
+
 Create a **raw transaction** for account update
 
 ```java AccountUpdateWithLegacyExample.java focus=42:48
 
 ```
+
 ---
+
 Sign the transaction
 
 ```java AccountUpdateWithLegacyExample.java focus=50
 
 ```
+
 ---
-Send the **signed transaction** to Klaytn network
+
+Send the **signed transaction** to Kaia network
 
 <CH.Code>
 ```java AccountUpdateWithLegacyExample.java focus=51:54
 
-```
+````
 
 
 ---
 
 ```zsh output
 ❯ java AccountUpdateWithLegacyExample.java
-TxHash : 
+TxHash :
  0x7b435e127119d8ee2edf8d49377ed150e4579cc3c991e0272a519a5d7f3f17b2
-```
+````
 
 </CH.Code>
 
 ---
+
 Wait for the transaction to be completed and get the transaction receipt
+
 <CH.Code>
 ```java AccountUpdateWithLegacyExample.java focus=56:65
 
-```
+````
 ---
 
 ```zsh output
 ❯ java AccountUpdateWithLegacyExample.java
-Receipt from eth_getTransactionReceipt : 
+Receipt from eth_getTransactionReceipt :
 TransactionReceipt{transactionHash='0x7b435e127119d8ee2edf8d49377ed150e4579cc3c991e0272a519a5d7f3f17b2', transactionIndex='0x1', blockHash='0xc1d491e001410664e0a1e68c20d69890a587dede6beae43c20fa1899935425ba', blockNumber='0x90e59b5', cumulativeGasUsed='0x3240d', gasUsed='0x5208', contractAddress='null', root='null', status='0x1', from='0xa2a8854b1802d8cd5de631e690817c253d6a9153', to='0xa2a8854b1802d8cd5de631e690817c253d6a9153', logs=[], logsBloom='0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000', revertReason='null', type='0x0', effectiveGasPrice='0x5d21dba00'}
-Receipt from klay_getTransactionReceipt : 
+Receipt from klay_getTransactionReceipt :
 class TransactionReceipt {
     blockHash: 0xc1d491e001410664e0a1e68c20d69890a587dede6beae43c20fa1899935425ba
     blockNumber: 0x90e59b5
@@ -329,29 +352,32 @@ class TransactionReceipt {
     typeInt: 32
     value: null
 }
-```
+````
 
 </CH.Code>
 
 ---
-Shut down the Web3j instance
 
+Shut down the Web3j instance
 
 ```java AccountUpdateWithLegacyExample.java focus=66
 
 ```
+
 ---
+
 Decode the raw transaction to get the transaction type
+
 <CH.Code>
 ```java AccountUpdateWithLegacyExample.java focus=68:70
 
-```
+````
 ---
 
 ```zsh output
 ❯ java AccountUpdateWithLegacyExample.java
 TxType : ACCOUNT_UPDATE
-```
+````
 
 </CH.Code>
 </CH.Spotlight>

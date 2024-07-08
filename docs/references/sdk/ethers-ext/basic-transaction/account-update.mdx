@@ -1,23 +1,28 @@
 # Account Update
+
 <CH.Spotlight>
 <CH.Code>
 
 ```js TxTypeAccountUpdate.js
-const ethers = require("ethers");
-const { Wallet, TxType, AccountKeyType } = require("@klaytn/ethers-ext");
+const ethers = require('ethers')
+const { Wallet, TxType, AccountKeyType } = require('@kaiachain/ethers-ext')
 
 // Using senderPriv == senderNewPriv to execute this example repeatedly.
 // But you might want to register a different private key.
-const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderAddr = '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const senderNewPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
-const wallet = new Wallet(senderAddr, senderPriv, provider); // decoupled account
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const wallet = new Wallet(senderAddr, senderPriv, provider) // decoupled account
 
 async function main() {
-  const pub = ethers.utils.computePublicKey(senderNewPriv, true);
-  console.log("pub", pub);
+  const pub = ethers.utils.computePublicKey(senderNewPriv, true)
+  console.log('pub', pub)
 
   const tx = {
     type: TxType.AccountUpdate,
@@ -25,23 +30,21 @@ async function main() {
     key: {
       type: AccountKeyType.Public,
       key: pub,
-    }
-  };
+    },
+  }
 
-  const sentTx = await wallet.sendTransaction(tx);
-  console.log("sentTx", sentTx.hash);
+  const sentTx = await wallet.sendTransaction(tx)
+  console.log('sentTx', sentTx.hash)
 
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
 
-
-
-
 ---
+
 ```zsh output
 ❯ node TxTypeAccountUpdate.js
 pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
@@ -65,15 +68,17 @@ receipt {
   byzantium: true
 }
 ```
+
 </CH.Code>
 
 ---
 
-Import the **ethers** and **@klaytn/ethers-ext** packages to add klaytn features on ethers.js
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
 
 ```js TxTypeAccountUpdate.js focus=1:2
 
 ```
+
 ---
 
 Define **sender address, sender private key and new private key** to be changed
@@ -81,33 +86,39 @@ Define **sender address, sender private key and new private key** to be changed
 ```js TxTypeAccountUpdate.js focus=6:8
 
 ```
----
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
+---
+
+Set up the provider with the specified Kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js TxTypeAccountUpdate.js focus=10
 
 ```
+
 ---
 
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js TxTypeAccountUpdate.js focus=10
-const ethers = require("ethers");
-const { Wallet, TxType, AccountKeyType } = require("@klaytn/ethers-ext");
+const ethers = require('ethers')
+const { Wallet, TxType, AccountKeyType } = require('@kaiachain/ethers-ext')
 
 // Using senderPriv == senderNewPriv to execute this example repeatedly.
 // But you might want to register a different private key.
-const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderAddr = '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const senderNewPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
-const wallet = new Wallet(senderAddr, senderPriv, provider); // decoupled account
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const wallet = new Wallet(senderAddr, senderPriv, provider) // decoupled account
 
 async function main() {
-  const pub = ethers.utils.computePublicKey(senderNewPriv, true);
-  console.log("pub", pub);
+  const pub = ethers.utils.computePublicKey(senderNewPriv, true)
+  console.log('pub', pub)
 
   const tx = {
     type: TxType.AccountUpdate,
@@ -115,36 +126,40 @@ async function main() {
     key: {
       type: AccountKeyType.Public,
       key: pub,
-    }
-  };
+    },
+  }
 
-  const sentTx = await wallet.sendTransaction(tx);
-  console.log("sentTx", sentTx.hash);
+  const sentTx = await wallet.sendTransaction(tx)
+  console.log('sentTx', sentTx.hash)
 
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
+
 ---
+
 Create a sender's wallet with the **private key** and **provider**
 
 ```js TxTypeAccountUpdate.js focus=11
 
 ```
+
 ---
+
 Compute the **public key** from the new private key
 
 <CH.Code>
 ```js TxTypeAccountUpdate.js focus=14:15
 
-```
+````
 ---
 
 ```zsh output
 pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
-```
+````
 
 </CH.Code>
 
@@ -163,22 +178,23 @@ Send the tx to the blockchain. Function `sendTransaction` internally signs with 
 <CH.Code>
 ```js TxTypeAccountUpdate.js focus=26:27
 
-```
+````
 ---
 
 ```zsh output
 sentTx 0xb803b60ec33633910e4a4d2238c1d1acf1fcca4123b78c2bd252d6c0c1416ca0
-```
+````
+
 </CH.Code>
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain. 
+The **wait** function returns the tx receipt if it is completed in the blockchain.
 
 <CH.Code>
 ```js TxTypeAccountUpdate.js focus=29:30
 
-```
+````
 ---
 ```zsh output
 receipt {
@@ -199,10 +215,8 @@ receipt {
   type: 0,
   byzantium: true
 }
-```
+````
 
 </CH.Code>
 
 </CH.Spotlight>
-
-

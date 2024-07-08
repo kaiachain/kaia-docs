@@ -1,5 +1,7 @@
 # Value Transfer Memo
-**TxTypeValueTransferMemo** is used when a user wants to send KLAY with a specific message.
+
+**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+
 <CH.Spotlight>
 <CH.Code>
 
@@ -18,19 +20,19 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 import org.web3j.tx.response.PollingTransactionReceiptProcessor;
 import org.web3j.tx.response.TransactionReceiptProcessor;
 import org.web3j.example.keySample;
 
 /**
- * 
+ *
  */
 public class ValueTransferMemoExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -48,7 +50,7 @@ public class ValueTransferMemoExample implements keySample {
                 .getTransactionCount();
         BigInteger value = BigInteger.valueOf(100);
 
-        String data = "Klaytn Web3j";
+        String data = "Kaia Web3j";
         byte[] payload = data.getBytes();
 
         TxType.Type type = Type.VALUE_TRANSFER_MEMO;
@@ -89,94 +91,118 @@ public class ValueTransferMemoExample implements keySample {
 ```
 
 ---
+
 ```zsh output
 ❯ java ValueTransferMemo.java
 output
 ```
-</CH.Code>
 
+</CH.Code>
 
 ---
 
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
+
 ```java ValueTransferMemo.java focus=1:20
 
 ```
 
 ---
-Connect to the Klaytn blockchain using Web3j and specify the URL
+
+Connect to the Kaia blockchain using Web3j and specify the URL
 
 ```java ValueTransferMemo.java focus=32
 
 ```
 
 ---
+
 Create KlayCredentials using the private key
+
 ```java ValueTransferMemo.java focus=33
 
 ```
 
 ---
+
 Define gas price and gas limit for the transaction
+
 ```java ValueTransferMemo.java focus=35:36
+
 ```
 
 ---
+
 Get the sender's address from `credentials.getAddress()`
+
 ```java ValueTransferMemo.java focus=37
 
 ```
 
 ---
-Get the chain ID from the **Klaytn** network
+
+Get the chain ID from the **Kaia** network
+
 ```java ValueTransferMemo.java focus=38:39
 
 ```
 
 ---
+
 Initialize variables for transaction parameters
+
 ```java ValueTransferMemo.java focus=40:48
 
 ```
+
 ---
+
 Create a raw transaction object.
+
 ```java ValueTransferMemo.java focus=50:58
 
 ```
+
 ---
+
 Sign the raw transaction
+
 ```java ValueTransferMemo.java focus=60
 
 ```
 
 ---
-Send the transaction to Klaytn network.
+
+Send the transaction to Kaia network.
+
  <CH.Code>
 ```java ValueTransferMemo.java focus=61:64
 
-```
+````
 
 ---
 
 ```zsh output
 ❯ java ValueTransferMemo.java
-TxHash : 
+TxHash :
  0xacd91fd0ab27fddfe7e68f32eb7e87285ea3ad58f04bbb49fc30e20093930c30
-```
+````
 
 </CH.Code>
 
 ---
-Get the **transaction receipt** and using the transaction hash 
+
+Get the **transaction receipt** and using the transaction hash
+
 <CH.Code>
 ```java ValueTransferMemo.java focus=66:75
 
-```
+````
 ---
 
 ```zsh output
 ❯ java ValueTransferMemo.java
-receipt : 
+receipt :
 class TransactionReceipt {
     blockHash: 0xfe2bade86f8cf8fb894d3f1935b59aaa3022f3332437a9797d6877735cbcd4ad
     blockNumber: 0x89285f8
@@ -208,21 +234,26 @@ class TransactionReceipt {
     typeInt: 16
     value: 0x64
 }
-```
+````
 
 </CH.Code>
 
 ---
+
 Shut down the Web3j connection
+
 ```java ValueTransferMemo.java focus=76
 
 ```
+
 ---
+
 Decode the raw transaction to get the transaction type
+
 <CH.Code>
 ```java ValueTransferMemo.java focus=78:79
 
-```
+````
 
 
 ---
@@ -230,7 +261,7 @@ Decode the raw transaction to get the transaction type
 ```zsh output
 ❯ java ValueTransferMemo.java
 TxType: VALUE_TRANSFER_MEMO
-```
+````
 
 </CH.Code>
 

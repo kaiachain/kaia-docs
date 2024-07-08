@@ -1,6 +1,6 @@
 # Value Transfer Memo
-**TxTypeValueTransferMemo** is used when a user wants to send KLAY with a specific message.
 
+**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
 
 <CH.Spotlight>
 <CH.Code>
@@ -33,7 +33,7 @@ def web3_value_transfer_with_memo_sign_recover():
     })
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
 
@@ -51,7 +51,8 @@ web3_value_transfer_with_memo_sign_recover()
 ```
 
 ---
-```zsh output
+
+````zsh output
 ❯ node ValueTransferWithMemo.py
 raw transaction of signed tx: 0x10f896820366850ba43b74008301042894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a91538c546573744d656d6f44617461f847f8458207f6a00daff49a09fbb8382654be6461d75e67def4d26442bf7bc8014da04d9d3b6f6da044fb682a3cd21e94e4dcf97cde1e0416d96dad2f15d353529a5db85873192c5b
 
@@ -76,29 +77,38 @@ decoded transaction: {
   "chainId": 1001
 }
 tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 receipt:  AttributeDict({'blockHash': HexBytes('0x2ff2f47d724ccd645010adde8cebdb88edc4a31ffa415b34230f620544ecea6c'), 'blockNumber': 147340972, 'contractAddress': None, 'cumulativeGasUsed': 22200, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 22200, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28'), 'transactionIndex': 0, 'type': 0})```
-```
+````
+
 </CH.Code>
 
 ---
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
 ```py ValueTransferWithMemo.py focus=1,2
 
 ```
 
 ---
+
 Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
+
 ```py ValueTransferWithMemo.py focus=3:10
 
 ```
 
 ---
-Create a Web3 instance with the specified Klaytn **Baobab** testnet URL
+
+Create a Web3 instance with the specified Kaia **Baobab** testnet URL
+
 ```py ValueTransferWithMemo.py focus=12:14
 
 ```
 
 ---
+
 Also, you can change the provider URL from **baobab** to **allthatnode**
+
 ```python ValueTransferWithMemo.py focus=12:14
 from web3py_ext import extend
 from web3 import Web3
@@ -127,7 +137,7 @@ def web3_value_transfer_with_memo_sign_recover():
     })
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
 
@@ -145,71 +155,91 @@ web3_value_transfer_with_memo_sign_recover()
 ```
 
 ---
+
 Load an account from private key
+
 ```python ValueTransferWithMemo.py focus=17
 
 ```
 
 ---
+
 Create an empty transaction of type **TxType.VALUE_TRANSFER_MEMO**. You can use **empty_tx** util to get a tx with default fields filled.
+
 ```py ValueTransferWithMemo.py focus=4,5,8,19
 
 ```
 
 ---
+
 Merge the **additional fields** like **from**, **to** and **value** into the empty tx by using the **merge** util.
+
 ```py ValueTransferWithMemo.py focus=10,20:24
 
 ```
 
 ---
+
 You can use the **Web3.to_peb** util to convert decimal
+
 ```py ValueTransferWithMemo.py focus=23
 
 ```
 
 ---
+
 Especially **write down** what you want to record in the **data** field in a binary format
+
 ```py ValueTransferWithMemo.py focus=24
 
 ```
 
 ---
+
 Use **fill_transaction** to add more params to transaction object like gas limit...
+
 ```python ValueTransferWithMemo.py focus=4,6,8,26
 
 ```
 
 ---
+
 Sign the value transfer tx by user's private key
+
 <CH.Code>
 ```python ValueTransferWithMemo.py focus=28:30
 
-```
+````
 ---
 ```zsh output
 raw transaction of signed tx: 0x10f896820366850ba43b74008301042894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a91538c546573744d656d6f44617461f847f8458207f6a00daff49a09fbb8382654be6461d75e67def4d26442bf7bc8014da04d9d3b6f6da044fb682a3cd21e94e4dcf97cde1e0416d96dad2f15d353529a5db85873192c5b
-```
+````
+
 </CH.Code>
 
 ---
+
 Recover the **signer's address** from the signature in signed tx
+
 <CH.Code>
 ```python ValueTransferWithMemo.py focus=32:33
 
-```
+````
 ---
 ```zsh output
 recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
-```
+````
+
 </CH.Code>
 
 ---
+
 You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+
 <CH.Code>
 ```python ValueTransferWithMemo.py focus=35:36
 
-```
+````
 ---
 ```zsh output
 decoded transaction: {
@@ -230,33 +260,41 @@ decoded transaction: {
   ],
   "chainId": 1001
 }
-```
+````
+
 </CH.Code>
 
 ---
+
 Send the tx to the blockchain. It will return the tx hash, which will be used to wait the receipt
+
 ```python ValueTransferWithMemo.py focus=38
 
 ```
 
 ---
+
 The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+
 <CH.Code>
 ```python ValueTransferWithMemo.py focus=39:40
 
-```
+````
 ---
 ```zsh output
 tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 receipt:  AttributeDict({'blockHash': HexBytes('0x2ff2f47d724ccd645010adde8cebdb88edc4a31ffa415b34230f620544ecea6c'), 'blockNumber': 147340972, 'contractAddress': None, 'cumulativeGasUsed': 22200, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 22200, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28'), 'transactionIndex': 0, 'type': 0})```
-```
+````
+
 </CH.Code>
 
 ---
+
 Finally, get the result.
+
 <CH.Code>
 ```python ValueTransferWithMemo.py focus=42
 
-```
+```````
 ---
 ```zsh output
 ❯ node ValueTransferWithMemo.py
@@ -283,7 +321,8 @@ decoded transaction: {
   "chainId": 1001
 }
 tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 receipt:  AttributeDict({'blockHash': HexBytes('0x2ff2f47d724ccd645010adde8cebdb88edc4a31ffa415b34230f620544ecea6c'), 'blockNumber': 147340972, 'contractAddress': None, 'cumulativeGasUsed': 22200, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 22200, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28'), 'transactionIndex': 0, 'type': 0})``````
-```
+```````
+
 </CH.Code>
 
 </CH.Spotlight>

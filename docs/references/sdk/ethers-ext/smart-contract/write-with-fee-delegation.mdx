@@ -1,22 +1,26 @@
 # Write (Fee Delegation)
-You can make a **"transaction"** that including **payment request** to feepayer when you want to execute the Smart Contract.
 
+You can make a **"transaction"** that including **payment request** to feepayer when you want to execute the Smart Contract.
 
 <CH.Spotlight>
 <CH.Code>
 
 ```js writeWithFeeDelegation.js
-const ethers = require("ethers");
-const { Wallet, TxType } = require("@klaytn/ethers-ext");
+const ethers = require('ethers')
+const { Wallet, TxType } = require('@kaiachain/ethers-ext')
 
-const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
-const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
-const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
-const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const senderAddr = '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7'
+const senderPriv =
+  '0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49'
+const feePayerAddr = '0xcb0eb737dfda52756495a5e08a9b37aab3b271da'
+const feePayerPriv =
+  '0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4'
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
-const senderWallet = new Wallet(senderPriv, provider);
-const feePayerWallet = new Wallet(feePayerPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const senderWallet = new Wallet(senderPriv, provider)
+const feePayerWallet = new Wallet(feePayerPriv, provider)
 
 /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
 // SPDX-License-Identifier: UNLICENSED
@@ -41,39 +45,42 @@ contract Counter {
     }
 }
 */
-const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
-const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+const abi =
+  '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]'
+const contractAddr = '0x95Be48607498109030592C08aDC9577c7C2dD505'
 
 async function main() {
-  const counter = new ethers.Contract(contractAddr, abi, senderWallet);
+  const counter = new ethers.Contract(contractAddr, abi, senderWallet)
 
-  console.log("number before", (await counter.number()).toString());
+  console.log('number before', (await counter.number()).toString())
 
-  const data = (await counter.populateTransaction.increment()).data;
+  const data = (await counter.populateTransaction.increment()).data
   const tx = {
     type: TxType.FeeDelegatedSmartContractExecution,
     from: senderAddr,
     to: contractAddr,
     value: 0,
     data: data,
-  };
+  }
 
   // Sign transaction by sender
-  const populatedTx = await senderWallet.populateTransaction(tx);
-  const senderTxHashRLP = await senderWallet.signTransaction(populatedTx);
-  console.log("senderTxHashRLP", senderTxHashRLP);
+  const populatedTx = await senderWallet.populateTransaction(tx)
+  const senderTxHashRLP = await senderWallet.signTransaction(populatedTx)
+  console.log('senderTxHashRLP', senderTxHashRLP)
 
   // Sign and send transaction by fee payer
-  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP)
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 
-  console.log("number after", (await counter.number()).toString());
+  console.log('number after', (await counter.number()).toString())
 }
 
-main();
+main()
 ```
+
 ---
+
 ```zsh output
 ❯ node writeWithFeeDelegation.js
 number before 293
@@ -109,40 +116,53 @@ receipt {
 }
 number after 294
 ```
+
 </CH.Code>
 
-
 ---
-Import the **ethers** and **@klaytn/ethers-ext** modules to add Klaytn features on ethers.js.
+
+Import the **ethers** and **@kaiachain/ethers-ext** modules to add Kaia features on ethers.js.
+
 ```js writeWithFeeDelegation.js focus=1:2
 
 ```
+
 ---
+
 Define **sender, fee payer address and sender private key**
+
 ```js writeWithFeeDelegation.js focus=4:7
 
 ```
+
 ---
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+Set up the provider with the specified Kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
 ```js writeWithFeeDelegation.js focus=9
 
 ```
+
 ---
 
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js writeWithFeeDelegation.js focus=9
-const ethers = require("ethers");
-const { Wallet, TxType } = require("@klaytn/ethers-ext");
+const ethers = require('ethers')
+const { Wallet, TxType } = require('@kaiachain/ethers-ext')
 
-const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
-const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
-const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
-const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const senderAddr = '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7'
+const senderPriv =
+  '0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49'
+const feePayerAddr = '0xcb0eb737dfda52756495a5e08a9b37aab3b271da'
+const feePayerPriv =
+  '0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4'
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
-const senderWallet = new Wallet(senderPriv, provider);
-const feePayerWallet = new Wallet(feePayerPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const senderWallet = new Wallet(senderPriv, provider)
+const feePayerWallet = new Wallet(feePayerPriv, provider)
 
 /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
 // SPDX-License-Identifier: UNLICENSED
@@ -167,105 +187,136 @@ contract Counter {
     }
 }
 */
-const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
-const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+const abi =
+  '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]'
+const contractAddr = '0x95Be48607498109030592C08aDC9577c7C2dD505'
 
 async function main() {
-  const counter = new ethers.Contract(contractAddr, abi, senderWallet);
+  const counter = new ethers.Contract(contractAddr, abi, senderWallet)
 
-  console.log("number before", (await counter.number()).toString());
+  console.log('number before', (await counter.number()).toString())
 
-  const data = (await counter.populateTransaction.increment()).data;
+  const data = (await counter.populateTransaction.increment()).data
   const tx = {
     type: TxType.FeeDelegatedSmartContractExecution,
     from: senderAddr,
     to: contractAddr,
     value: 0,
     data: data,
-  };
+  }
 
   // Sign transaction by sender
-  const populatedTx = await senderWallet.populateTransaction(tx);
-  const senderTxHashRLP = await senderWallet.signTransaction(populatedTx);
-  console.log("senderTxHashRLP", senderTxHashRLP);
+  const populatedTx = await senderWallet.populateTransaction(tx)
+  const senderTxHashRLP = await senderWallet.signTransaction(populatedTx)
+  console.log('senderTxHashRLP', senderTxHashRLP)
 
   // Sign and send transaction by fee payer
-  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP)
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 
-  console.log("number after", (await counter.number()).toString());
+  console.log('number after', (await counter.number()).toString())
 }
 
-main();
+main()
 ```
+
 ---
+
 Create a sender's wallet using the sender's private key and the provider
+
 ```js writeWithFeeDelegation.js focus=10
 
 ```
+
 ---
+
 Create a fee payer's wallet using the sender's private key and the provider
+
 ```js writeWithFeeDelegation.js focus=11
 
 ```
+
 ---
+
 Set the **Abi** generated from solidity code
+
 ```js writeWithFeeDelegation.js focus=36
 
 ```
+
 ---
+
 Define **contract address** to interact with
+
 ```js writeWithFeeDelegation.js focus=37
 
 ```
+
 ---
+
 Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+
 ```js writeWithFeeDelegation.js focus=40
 
 ```
+
 ---
+
 Get the value of **number** from contract by using method **counter.number()**
+
 <CH.Code>
 ```js writeWithFeeDelegation.js focus=42
 
-```
+````
 ---
 ```zsh output
 ❯ node TxTypeFeeDelegatedValueTransfer.js
 number before 292
-```
+````
+
 </CH.Code>
 
 ---
+
 Create a transaction data to update the **number** value
+
 ```js writeWithFeeDelegation.js focus=44
 
 ```
+
 ---
+
 Create a transaction object with data from previous step
+
 ```js writeWithFeeDelegation.js focus=42:48
 
 ```
+
 ---
+
 Sign the transaction with sender's wallet
+
 <CH.Code>
 ```js writeWithFeeDelegation.js focus=53:56
 
-```
+````
 ---
 ```zsh output
 ❯ node TxTypeFeeDelegatedValueTransfer.js
 senderTxHashRLP 0x31f8843a850ba43b7400830111939495be48607498109030592c08adc9577c7c2dd505809424e8efd18d65bcb6b3ba15a4698c0b0d69d13ff784d09de08af847f8458207f5a014ebdbabc74b5b93770f1f0980b67af59fa47a1bf450d0c27928a5f3f831219aa0027c3a6262e28dfad9166ec8d7a5d77da55272d18a3c1b656024764f8cb3379a
-```
+````
+
 </CH.Code>
 
 ---
+
 Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+
 <CH.Code>
 ```js writeWithFeeDelegation.js focus=58:61
 
-```
+````
 ---
 ```zsh output
 ❯ node TxTypeFeeDelegatedValueTransfer.js
@@ -298,21 +349,24 @@ receipt {
   type: 0,
   byzantium: true
 }
-```
+````
+
 </CH.Code>
 
 ---
+
 Get the updated value **number** by using method **counter.number()**
+
 <CH.Code>
 ```js writeWithFeeDelegation.js focus=63
 
-```
+````
 ---
 ```zsh output
 ❯ node TxTypeFeeDelegatedValueTransfer.js
 number after 293
-```
-</CH.Code>
+````
 
+</CH.Code>
 
 </CH.Spotlight>

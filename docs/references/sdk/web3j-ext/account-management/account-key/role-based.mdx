@@ -29,10 +29,10 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 public class AccountUpdateWithRoleBasedExample {
 
@@ -98,14 +98,16 @@ public class AccountUpdateWithRoleBasedExample {
 
 }
 ```
+
 ---
+
 ```zsh output
 ❯ java AccountUpdateWithRoleBasedExample.java
-TxHash : 
+TxHash :
  0xefdaed1bdfdaa26b7f4512d2d3cf413735e3ed56d3510a7a9101d2cee1d0181c
-Receipt from eth_getTransactionReceipt : 
+Receipt from eth_getTransactionReceipt :
 TransactionReceipt{transactionHash='0xefdaed1bdfdaa26b7f4512d2d3cf413735e3ed56d3510a7a9101d2cee1d0181c', transactionIndex='0x1', blockHash='0xaff11b719196dc64d161fabce82d74f0dc91f8d6d9aa0bcbb721f9006d0029f4', blockNumber='0x90e5932', cumulativeGasUsed='0x377d6', gasUsed='0x13c68', contractAddress='null', root='null', status='0x1', from='0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea', to='0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea', logs=[], logsBloom='0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000', revertReason='null', type='0x0', effectiveGasPrice='0x5d21dba00'}
-Receipt from klay_getTransactionReceipt : 
+Receipt from klay_getTransactionReceipt :
 class TransactionReceipt {
     blockHash: 0xaff11b719196dc64d161fabce82d74f0dc91f8d6d9aa0bcbb721f9006d0029f4
     blockNumber: 0x90e5932
@@ -138,24 +140,25 @@ class TransactionReceipt {
 }
 TxType : ACCOUNT_UPDATE
 ```
+
 </CH.Code>
 
-
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
 
 ```java AccountUpdateWithRoleBasedExample.java focus=1:27
 
 ```
+
 ---
 
 Create a Web3j instance with the specified BAOBAB_URL
 
-
 ```java AccountUpdateWithRoleBasedExample.java focus=33
 
 ```
+
 ---
 
 Also, you can change the default provider. For example, using the alchemy provider.
@@ -184,10 +187,10 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 public class AccountUpdateWithRoleBasedExample {
 
@@ -253,63 +256,79 @@ public class AccountUpdateWithRoleBasedExample {
 
 }
 ```
+
 ---
+
 Create 3 diffent **credentials** from private keys
 
 ```java AccountUpdateWithRoleBasedExample.java focus=34:36
 
 ```
+
 ---
+
 Gas **price** and **gas limit** settings
 
 ```java AccountUpdateWithRoleBasedExample.java focus=38:39
 
 ```
+
 ---
 
 Get **chain ID** from the network
 
-
 ```java AccountUpdateWithRoleBasedExample.java focus=41:42
 
 ```
+
 ---
 
 Get the **nonce** for the sender's address
 
-
 ```java AccountUpdateWithRoleBasedExample.java focus=43:44
 
 ```
+
 ---
+
 Generate **new account keys** and theirs **weight** for account update
 
 ```java AccountUpdateWithRoleBasedExample.java focus=46:54
 
 ```
+
 ---
+
 Combine generated **weight account keys** into a list
 
 ```java AccountUpdateWithRoleBasedExample.java focus=56:58
 
 ```
+
 ---
+
 Specify the **role** for each key, the possible role are transaction, update, fee payer.
 
 ```java AccountUpdateWithRoleBasedExample.java focus=60:63
 
 ```
+
 ---
+
 Combine **generated role key** into a list
 
 ```java AccountUpdateWithRoleBasedExample.java focus=65:67
 
 ```
+
 ---
+
 Set transaction type as **ACCOUNT_UPDATE**
+
 ```java AccountUpdateWithRoleBasedExample.java focus=69
 
 ```
+
 ---
 
 Create a **raw transaction** for account update
@@ -317,47 +336,52 @@ Create a **raw transaction** for account update
 ```java AccountUpdateWithRoleBasedExample.java focus=71:77
 
 ```
+
 ---
+
 Sign the transaction
 
 ```java AccountUpdateWithRoleBasedExample.java focus=79
 
 ```
+
 ---
-Send the **signed transaction** to Klaytn network
+
+Send the **signed transaction** to Kaia network
 
 <CH.Code>
 ```java AccountUpdateWithRoleBasedExample.java focus=80:83
 
-```
+````
 
 
 ---
 
 ```zsh output
 ❯ java AccountUpdateWithRoleBasedExample.java
-TxHash : 
+TxHash :
  0xefdaed1bdfdaa26b7f4512d2d3cf413735e3ed56d3510a7a9101d2cee1d0181c
-```
+````
 
 </CH.Code>
 
 ---
+
 Wait for the transaction to be completed and get the transaction receipt
 
 <CH.Code>
 ```java AccountUpdateWithRoleBasedExample.java focus=85:94
 
-```
+````
 
 
 ---
 
 ```zsh output
 ❯ java AccountUpdateWithRoleBasedExample.java
-Receipt from eth_getTransactionReceipt : 
+Receipt from eth_getTransactionReceipt :
 TransactionReceipt{transactionHash='0xefdaed1bdfdaa26b7f4512d2d3cf413735e3ed56d3510a7a9101d2cee1d0181c', transactionIndex='0x1', blockHash='0xaff11b719196dc64d161fabce82d74f0dc91f8d6d9aa0bcbb721f9006d0029f4', blockNumber='0x90e5932', cumulativeGasUsed='0x377d6', gasUsed='0x13c68', contractAddress='null', root='null', status='0x1', from='0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea', to='0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea', logs=[], logsBloom='0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000', revertReason='null', type='0x0', effectiveGasPrice='0x5d21dba00'}
-Receipt from klay_getTransactionReceipt : 
+Receipt from klay_getTransactionReceipt :
 class TransactionReceipt {
     blockHash: 0xaff11b719196dc64d161fabce82d74f0dc91f8d6d9aa0bcbb721f9006d0029f4
     blockNumber: 0x90e5932
@@ -388,24 +412,26 @@ class TransactionReceipt {
     typeInt: 32
     value: null
 }
-```
+````
 
 </CH.Code>
 
 ---
-Shut down the Web3j instance
 
+Shut down the Web3j instance
 
 ```java AccountUpdateWithRoleBasedExample.java focus=95
 
 ```
+
 ---
+
 Decode the raw transaction to get the transaction type
 
 <CH.Code>
 ```java AccountUpdateWithRoleBasedExample.java focus=97:99
 
-```
+````
 
 
 ---
@@ -413,7 +439,7 @@ Decode the raw transaction to get the transaction type
 ```zsh output
 ❯ java AccountUpdateWithRoleBasedExample.java
 TxType : ACCOUNT_UPDATE
-```
+````
 
 </CH.Code>
 </CH.Spotlight>

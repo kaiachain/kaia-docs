@@ -16,15 +16,15 @@ import org.web3j.crypto.KlayCredentials;
 import org.web3j.crypto.KlaySignatureData;
 import org.web3j.crypto.Sign.SignatureData;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromMessageResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
 
 /**
- * 
+ *
  */
 public class SignMsgWithRoleBasedExample implements keySample {
         /**
-         * 
+         *
          */
 
         public static void run() throws Exception {
@@ -70,6 +70,7 @@ public class SignMsgWithRoleBasedExample implements keySample {
 
 }
 ```
+
 ---
 
 ```zsh output
@@ -80,24 +81,24 @@ Result address for update key : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
 Result address for feepayer key : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 ```
 
-
 </CH.Code>
 
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
 
 ```java SignMsgWithRoleBasedExample.java focus=1:12
 
 ```
+
 ---
 
 Create a Web3j instance with the specified BAOBAB_URL
 
-
 ```java SignMsgWithRoleBasedExample.java focus=23
 
 ```
+
 ---
 
 Also, you can change the default provider. For example, using the alchemy provider.
@@ -113,15 +114,15 @@ import org.web3j.crypto.KlayCredentials;
 import org.web3j.crypto.KlaySignatureData;
 import org.web3j.crypto.Sign.SignatureData;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromMessageResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
 
 /**
- * 
+ *
  */
 public class SignMsgWithRoleBasedExample implements keySample {
         /**
-         * 
+         *
          */
 
         public static void run() throws Exception {
@@ -169,38 +170,53 @@ public class SignMsgWithRoleBasedExample implements keySample {
 ```
 
 ---
+
 Load different **role-based credentials** from theirs key pairs
 
 ```java SignMsgWithRoleBasedExample.java focus=24:29
 
 ```
+
 ---
+
 Get the first credential **address**
+
 ```java SignMsgWithRoleBasedExample.java focus=30
 
 ```
+
 ---
+
 Define any message to sign
+
 ```java SignMsgWithRoleBasedExample.java focus=31
 
 ```
+
 ---
-Set the **block number** to be the latest block in the Klaytn network
+
+Set the **block number** to be the latest block in the Kaia network
+
 ```java SignMsgWithRoleBasedExample.java focus=32
 
 ```
+
 ---
+
 Sign the **message** with all 3 role-based credentials in order and get the signature outputs as string
 
 ```java SignMsgWithRoleBasedExample.java focus=34:41
 
 ```
+
 ---
-Recover the **addresses** from 3 message responses and compare them to the original **from** address 
+
+Recover the **addresses** from 3 message responses and compare them to the original **from** address
+
 <CH.Code>
 ```java SignMsgWithRoleBasedExample.java focus=43:57
 
-```
+````
 
 
 ---
@@ -211,13 +227,16 @@ Original address : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
 Result address for transaction key : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 Result address for update key : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
 Result address for feepayer key : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
-```
+````
 
 </CH.Code>
 
 ---
+
 Shut down the Web3j instance
+
 ```java SignMsgWithRoleBasedExample.java focus=59
 
 ```
+
 </CH.Spotlight>

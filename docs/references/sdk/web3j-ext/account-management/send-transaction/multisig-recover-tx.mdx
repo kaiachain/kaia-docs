@@ -3,9 +3,8 @@
 **AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
 
 In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-    * The weighted sum of the signed public keys should be larger than the threshold.
-    * The invalid signature should not be included in the transaction.
-    * The number of signed public keys should be less than the number of weightedPublicKeys.
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
 
 <CH.Spotlight>
 <CH.Code>
@@ -26,17 +25,17 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromTransactionResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromTransactionResponse;
 import org.web3j.utils.Numeric;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 
 /**
- * 
+ *
  */
 public class SignTxWithMultiSigExample implements keySample {
         /**
-         * 
+         *
          */
 
         public static void run() throws Exception {
@@ -89,33 +88,35 @@ public class SignTxWithMultiSigExample implements keySample {
 
 }
 ```
+
 ---
+
 ```zsh output
 ❯ java SignTxWithMultiSigExample.java
-TxHash : 
+TxHash :
  0x957734684be8f79a21cef4de1842709b84c92e3920d656165ddb951981987b5a
 Original address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 Result address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 ```
 
-
 </CH.Code>
 
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
 
 ```java SignTxWithMultiSigExample.java focus=1:19
 
 ```
+
 ---
 
 Create a Web3j instance with the specified BAOBAB_URL
 
-
 ```java SignTxWithMultiSigExample.java focus=30
 
 ```
+
 ---
 
 Also, you can change the default provider. For example, using the alchemy provider.
@@ -136,17 +137,17 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromTransactionResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromTransactionResponse;
 import org.web3j.utils.Numeric;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 
 /**
- * 
+ *
  */
 public class SignTxWithMultiSigExample implements keySample {
         /**
-         * 
+         *
          */
 
         public static void run() throws Exception {
@@ -199,91 +200,116 @@ public class SignTxWithMultiSigExample implements keySample {
 
 }
 ```
+
 ---
+
 Create 3 **multi-sig credentials** from theirs key pairs
+
 ```java SignTxWithMultiSigExample.java focus=31:36
 
 ```
+
 ---
+
 **Gas price** and **gas limit** settings
 
 ```java SignTxWithMultiSigExample.java focus=38:39
 
 ```
+
 ---
+
 Set the **sender** address equal to the loaded credential's address
 
 ```java SignTxWithMultiSigExample.java focus=40
 
 ```
+
 ---
+
 Get **chain ID** from the network
 
 ```java SignTxWithMultiSigExample.java focus=41:42
 
 ```
+
 ---
+
 Set the **receiver** address equal to any valid address
 
 ```java SignTxWithMultiSigExample.java focus=43
 
 ```
+
 ---
+
 Get the **nonce** for the sender's address
 
 ```java SignTxWithMultiSigExample.java focus=44:45
 
 ```
+
 ---
+
 Set the **value** to transfer
 
 ```java SignTxWithMultiSigExample.java focus=46
 
 ```
+
 ---
+
 Set transaction type as **VALUE_TRANSFER**
+
 ```java SignTxWithMultiSigExample.java focus=48
 
 ```
+
 ---
+
 Create a raw transaction for value transfer
 
 ```java SignTxWithMultiSigExample.java focus=50:57
 
 ```
+
 ---
+
 Sign the transaction in order with **3 credentials**
 
 ```java SignTxWithMultiSigExample.java focus=59:61
 
 ```
+
 ---
-Send the **signed transaction** to Klaytn network
+
+Send the **signed transaction** to Kaia network
 
 <CH.Code>
 ```java SignTxWithMultiSigExample.java focus=63:65
 
-```
+````
 
 
 ---
 
 ```zsh output
 ❯ java SignTxWithMultiSigExample.java
-TxHash : 
+TxHash :
  0x957734684be8f79a21cef4de1842709b84c92e3920d656165ddb951981987b5a
 
-```
+````
 
 </CH.Code>
 
-
 ---
+
 Recover the **sender address** from signed transaction and compare it to the **from** address
+
 <CH.Code>
 ```java SignTxWithMultiSigExample.java focus=67:71
 
-```
+````
 
 
 ---
@@ -292,14 +318,13 @@ Recover the **sender address** from signed transaction and compare it to the **f
 ❯ java SignTxWithMultiSigExample.java
 Original address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 Result address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
-```
+````
 
 </CH.Code>
 
-
 ---
-Shut down the Web3j instance
 
+Shut down the Web3j instance
 
 ```java SignTxWithMultiSigExample.java focus=73
 

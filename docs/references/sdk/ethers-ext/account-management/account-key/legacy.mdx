@@ -6,17 +6,20 @@
 <CH.Code>
 
 ```js AccountUpdateWithLegacy.js
-const { ethers } = require("ethers");
+const { ethers } = require('ethers')
 
-const { Wallet, TxType, AccountKeyType} = require("@klaytn/ethers-ext");
+const { Wallet, TxType, AccountKeyType } = require('@kaiachain/ethers-ext')
 
 // Using legacy AccountKey to execute this example repeatedly.
 // But you might want to register a different Accountkey.
-const senderAddr = "0xecbf243ac167a3b5097fef758e07881582a89027";
-const senderPriv = "0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d";
+const senderAddr = '0xecbf243ac167a3b5097fef758e07881582a89027'
+const senderPriv =
+  '0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d'
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
-const wallet = new Wallet(senderPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const wallet = new Wallet(senderPriv, provider)
 
 async function main() {
   const tx = {
@@ -24,20 +27,21 @@ async function main() {
     from: senderAddr,
     key: {
       type: AccountKeyType.Legacy,
-    }
-  };
+    },
+  }
 
-  const sentTx = await wallet.sendTransaction(tx);
-  console.log("sentTx", sentTx.hash);
+  const sentTx = await wallet.sendTransaction(tx)
+  console.log('sentTx', sentTx.hash)
 
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 }
 
-main().catch(console.error);
+main().catch(console.error)
 ```
 
 ---
+
 ```zsh output
 ❯ js AccountUpdateWithLegacy.js
 pub 0x026e63942bece2c9c346fba11c493dc0d7ae0ab14b7b75c6d988619228cbb4e996
@@ -61,43 +65,52 @@ receipt {
   byzantium: true
 }
 ```
+
 </CH.Code>
 
 ---
 
-Import the **ethers** and **@klaytn/ethers-ext** packages to add klaytn features on ethers.js
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
 
 ```js AccountUpdateWithLegacy.js focus=1:3
 
 ```
+
 ---
+
 Define sender **address** and **private key**
 
 ```js AccountUpdateWithLegacy.js focus=7:8
 
 ```
+
 ---
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+Set up the provider with the specified Kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js AccountUpdateWithLegacy.js focus=10
 
 ```
+
 ---
 
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js AccountUpdateWithLegacy.js focus=10
-const { ethers } = require("ethers");
+const { ethers } = require('ethers')
 
-const { Wallet, TxType, AccountKeyType} = require("@klaytn/ethers-ext");
+const { Wallet, TxType, AccountKeyType } = require('@kaiachain/ethers-ext')
 
 // Using legacy AccountKey to execute this example repeatedly.
 // But you might want to register a different Accountkey.
-const senderAddr = "0xecbf243ac167a3b5097fef758e07881582a89027";
-const senderPriv = "0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d";
+const senderAddr = '0xecbf243ac167a3b5097fef758e07881582a89027'
+const senderPriv =
+  '0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d'
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
-const wallet = new Wallet(senderPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const wallet = new Wallet(senderPriv, provider)
 
 async function main() {
   const tx = {
@@ -105,25 +118,29 @@ async function main() {
     from: senderAddr,
     key: {
       type: AccountKeyType.Legacy,
-    }
-  };
+    },
+  }
 
-  const sentTx = await wallet.sendTransaction(tx);
-  console.log("sentTx", sentTx.hash);
+  const sentTx = await wallet.sendTransaction(tx)
+  console.log('sentTx', sentTx.hash)
 
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 }
 
-main().catch(console.error);
+main().catch(console.error)
 ```
+
 ---
+
 Create a sender's wallet with the **private key** and **provider**
 
 ```js AccountUpdateWithLegacy.js focus=11
 
 ```
+
 ---
+
 Declare a transaction in the **key** field with the value `AccountKeyType.Legacy`
 
 ```js AccountUpdateWithLegacy.js focus=18:25
@@ -131,26 +148,29 @@ Declare a transaction in the **key** field with the value `AccountKeyType.Legacy
 ```
 
 ---
+
 Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
 
 <CH.Code>
 ```js AccountUpdateWithLegacy.js focus=22:23
 
-```
+````
 ---
 
 ```zsh output
 sentTx 0x5fedabfb343f607fe0f0adfa9ef54d738312bbec98bfc02839cdae2e968f5f90
-```
+````
+
 </CH.Code>
 
 ---
-The **wait** function returns the tx receipt if it is completed in the blockchain. 
+
+The **wait** function returns the tx receipt if it is completed in the blockchain.
 
 <CH.Code>
 ```js AccountUpdateWithLegacy.js focus=25:26
 
-```
+````
 ---
 ```zsh output
 receipt {
@@ -171,7 +191,7 @@ receipt {
   type: 0,
   byzantium: true
 }
-```
+````
 
 </CH.Code>
 

@@ -1,8 +1,6 @@
 # Account Update
 
-
 # Fee Delegation
-
 
 <CH.Spotlight>
 <CH.Code>
@@ -26,12 +24,12 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 /**
- * 
+ *
  */
 public class FeeDelegatedAccountUpdateExample implements keySample {
 
@@ -94,11 +92,12 @@ public class FeeDelegatedAccountUpdateExample implements keySample {
 ```
 
 ---
+
 ```zsh output
 ❯ java FeeDelegatedAccountUpdateExample.java
-TxHash : 
+TxHash :
  0xdc81bb3ae59a0fdbb9a6616aeaf1b05f7252681edcf71b121ebc0d43d7dde024
-receipt : 
+receipt :
 class TransactionReceipt {
     blockHash: 0x350799aaabe33fa8e1ee69a680aca014deb7b2d75562a3181342aafd5a477905
     blockNumber: 0x8def123
@@ -135,51 +134,59 @@ class TransactionReceipt {
 }
 TxType : FEE_DELEGATED_ACCOUNT_UPDATE
 ```
+
 </CH.Code>
 
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
 
 ```java FeeDelegatedAccountUpdateExample.java focus=1:21
 
 ```
+
 ---
-Connect to the Klaytn blockchain using Web3j and specify the URL
+
+Connect to the Kaia blockchain using Web3j and specify the URL
 
 ```java FeeDelegatedAccountUpdateExample.java focus=30
 
 ```
----
-Creating **sender** and **fee payer** credentials using private keys.
 
+---
+
+Creating **sender** and **fee payer** credentials using private keys.
 
 ```java FeeDelegatedAccountUpdateExample.java focus=31:32
 
 ```
 
-
 ---
-Define gas price and gas limit for the transaction
 
+Define gas price and gas limit for the transaction
 
 ```java FeeDelegatedAccountUpdateExample.java focus=33:34
 
 ```
+
 ---
+
 Get the sender's address from `credentials.getAddress()`
+
 ```java FeeDelegatedAccountUpdateExample.java focus=35
 
 ```
 
 ---
-Get the chain ID from the **Klaytn** network
+
+Get the chain ID from the **Kaia** network
 
 ```java FeeDelegatedAccountUpdateExample.java focus=36:37
 
 ```
 
 ---
+
 Getting the **nonce** for the sender's address
 
 ```java FeeDelegatedAccountUpdateExample.java focus=38:39
@@ -187,25 +194,24 @@ Getting the **nonce** for the sender's address
 ```
 
 ---
-Generating a new account key for account update
 
+Generating a new account key for account update
 
 ```java FeeDelegatedAccountUpdateExample.java focus=41
 
 ```
 
 ---
-Creating a raw transaction for account update
 
+Creating a raw transaction for account update
 
 ```java FeeDelegatedAccountUpdateExample.java focus=47:53
 
 ```
 
-
 ---
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`. 
 
+Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
 
 ```java FeeDelegatedAccountUpdateExample.java focus=55:56
 
@@ -213,41 +219,41 @@ Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`
 
 ---
 
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`. 
-
+Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
 
 ```java FeeDelegatedAccountUpdateExample.java focus=58:59
 
 ```
+
 ---
-Sending the signed transaction to Klaytn network
+
+Sending the signed transaction to Kaia network
 
 <CH.Code>
 ```java FeeDelegatedAccountUpdateExample.java focus=61:64
 
-```
+````
 
 
 ---
 
 ```zsh output
 ❯ java FeeDelegatedAccountUpdateExample.java
-TxHash : 
+TxHash :
  0xdc81bb3ae59a0fdbb9a6616aeaf1b05f7252681edcf71b121ebc0d43d7dde024
-receipt : 
-```
+receipt :
+````
 
 </CH.Code>
 
-
 ---
-Getting the transaction receipt
 
+Getting the transaction receipt
 
 <CH.Code>
 ```java FeeDelegatedAccountUpdateExample.java focus=65:74
 
-```
+````
 
 
 ---
@@ -288,25 +294,26 @@ class TransactionReceipt {
     typeInt: 33
     value: null
 }
-```
+````
 
 </CH.Code>
 
-
 ---
-Shutting down the Web3j instance
 
+Shutting down the Web3j instance
 
 ```java FeeDelegatedAccountUpdateExample.java focus=75
 
 ```
+
 ---
+
 Decoding the raw transaction to get the transaction type
 
 <CH.Code>
 ```java FeeDelegatedAccountUpdateExample.java focus=77:80
 
-```
+````
 
 
 
@@ -316,7 +323,7 @@ Decoding the raw transaction to get the transaction type
 ❯ java FeeDelegatedAccountUpdateExample.java
 TxType : FEE_DELEGATED_ACCOUNT_UPDATE
 
-```
+````
 
 </CH.Code>
 

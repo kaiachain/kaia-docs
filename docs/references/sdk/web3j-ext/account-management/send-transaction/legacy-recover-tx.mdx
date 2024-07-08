@@ -19,17 +19,17 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromTransactionResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromTransactionResponse;
 import org.web3j.utils.Numeric;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 
 /**
- * 
+ *
  */
 public class SignTxWithLegacyExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -73,31 +73,35 @@ public class SignTxWithLegacyExample implements keySample {
 
 }
 ```
+
 ---
+
 ```zsh output
 ❯ java SignTxWithLegacyExample.java
-TxHash : 
+TxHash :
  0x957734684be8f79a21cef4de1842709b84c92e3920d656165ddb951981987b5a
 Original address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 ```
+
 </CH.Code>
 
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
 
 ```java SignTxWithLegacyExample.java focus=1:19
 
 ```
+
 ---
 
 Create a Web3j instance with the specified BAOBAB_URL
 
-
 ```java SignTxWithLegacyExample.java focus=30
 
 ```
+
 ---
 
 Also, you can change the default provider. For example, using the alchemy provider.
@@ -118,17 +122,17 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromTransactionResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromTransactionResponse;
 import org.web3j.utils.Numeric;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 
 /**
- * 
+ *
  */
 public class SignTxWithLegacyExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -172,92 +176,116 @@ public class SignTxWithLegacyExample implements keySample {
 
 }
 ```
+
 ---
+
 Create a **credential** from private key
+
 ```java SignTxWithLegacyExample.java focus=31
 
 ```
+
 ---
+
 Gas **price** and **gas limit** settings
 
 ```java SignTxWithLegacyExample.java focus=33:34
 
 ```
+
 ---
+
 Set the **sender** address equal to the loaded credential's address
 
 ```java SignTxWithLegacyExample.java focus=35
 
 ```
----
-Get **chain ID** from the network
 
+---
+
+Get **chain ID** from the network
 
 ```java SignTxWithLegacyExample.java focus=36:37
 
 ```
+
 ---
+
 Set the **receiver** address equal to any valid address
 
 ```java SignTxWithLegacyExample.java focus=38
 
 ```
+
 ---
+
 Get the **nonce** for the sender's address
 
 ```java SignTxWithLegacyExample.java focus=39:40
 
 ```
+
 ---
+
 Set the value to transfer
 
 ```java SignTxWithLegacyExample.java focus=41
 
 ```
+
 ---
+
 Set transaction type as **VALUE_TRANSFER**
+
 ```java SignTxWithLegacyExample.java focus=43
 
 ```
+
 ---
+
 Create a raw transaction for value transfer
 
 ```java SignTxWithLegacyExample.java focus=45:52
 
 ```
+
 ---
+
 Sign the transaction
 
 ```java SignTxWithLegacyExample.java focus=54
 
 ```
+
 ---
-Send the **signed transaction** to Klaytn network
+
+Send the **signed transaction** to Kaia network
 
 <CH.Code>
 ```java SignTxWithLegacyExample.java focus=55:57
 
-```
+````
 
 
 ---
 
 ```zsh output
 ❯ java SignTxWithLegacyExample.java
-TxHash : 
+TxHash :
  0x957734684be8f79a21cef4de1842709b84c92e3920d656165ddb951981987b5a
 
-```
+````
 
 </CH.Code>
 
-
 ---
+
 Recover the sender address from signed transaction and compare it to the **from** address
+
 <CH.Code>
 ```java SignTxWithLegacyExample.java focus=59:62
 
-```
+````
 
 
 ---
@@ -266,13 +294,13 @@ Recover the sender address from signed transaction and compare it to the **from*
 ❯ java SignTxWithLegacyExample.java
 Original address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
-```
+````
 
 </CH.Code>
 
 ---
-Shut down the Web3j instance
 
+Shut down the Web3j instance
 
 ```java SignTxWithLegacyExample.java focus=64
 

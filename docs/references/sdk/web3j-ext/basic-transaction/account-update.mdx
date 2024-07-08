@@ -1,6 +1,5 @@
 # Account Update
 
-
 <CH.Spotlight>
 <CH.Code>
 
@@ -22,17 +21,17 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 /**
- * 
+ *
  */
 public class AccountUpdateExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run(KlayCredentials credentials) throws Exception {
@@ -91,15 +90,13 @@ public class AccountUpdateExample implements keySample {
 
 ```
 
-
-
-
 ---
+
 ```zsh output
 ❯ java AccountUpdateExample.java
-TxHash : 
+TxHash :
  0x3518b0ba53160e39741d151fef3813230ea8793e12499bc21a08bd8b75adab1c
-receipt : 
+receipt :
 class TransactionReceipt {
     blockHash: 0xbc9def91ea0b147a9a587ec767a9442085699cfc19508fa1fe1de917d6558154
     blockNumber: 0x8dea85e
@@ -132,27 +129,25 @@ class TransactionReceipt {
 }
 TxType : ACCOUNT_UPDATE
 ```
+
 </CH.Code>
 
-
-
-
-
-
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`)
+
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`)
 
 ```java AccountUpdateExample.java focus=1:21
 
 ```
+
 ---
 
 Create a Web3j instance with the specified BAOBAB_URL
 
-
 ```java AccountUpdateExample.java focus=33
 
 ```
+
 ---
 
 Also, you can change the default provider. For example, using the alchemy provider.
@@ -175,17 +170,17 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 /**
- * 
+ *
  */
 public class AccountUpdateExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run(KlayCredentials credentials) throws Exception {
@@ -242,65 +237,78 @@ public class AccountUpdateExample implements keySample {
 }
 
 ```
+
 ---
+
 Creating new credentials using PUBLIC_KEY_privkey and PUBLIC_KEY_address
 
 ```java AccountUpdateExample.java focus=34
 
 ```
+
 ---
+
 Gas **price** and **gas limit** settings
 
 ```java AccountUpdateExample.java focus=36:37
 
 ```
+
 ---
+
 Get **chain ID** from the network
 
 ```java AccountUpdateExample.java focus=39:40
 
 ```
----
-Get the **nonce** for the sender's address
 
+---
+
+Get the **nonce** for the sender's address
 
 ```java AccountUpdateExample.java focus=41:42
 
 ```
+
 ---
+
 Generate a **new account key** for account update
 
 ```java AccountUpdateExample.java focus=44:46
 
 ```
----
 
+---
 
 Create a **raw transaction** for account update
 
 ```java AccountUpdateExample.java focus=50:56
 
 ```
+
 ---
+
 Sign the transaction
 
 ```java AccountUpdateExample.java focus=58
 
 ```
+
 ---
-Send the **signed transaction** to Klaytn network
+
+Send the **signed transaction** to Kaia network
+
 <CH.Code>
 
 ```java AccountUpdateExample.java focus=59:62
 
 ```
 
-
 ---
 
 ```zsh output
 ❯ java AccountUpdateExample.java
-TxHash : 
+TxHash :
  0x3518b0ba53160e39741d151fef3813230ea8793e12499bc21a08bd8b75adab1c
 
 ```
@@ -308,19 +316,20 @@ TxHash :
 </CH.Code>
 
 ---
+
 Get the **transaction receipt** and using the transaction hash
 
 <CH.Code>
 ```java AccountUpdateExample.java focus=64:73
 
-```
+````
 
 
 ---
 
 ```zsh output
 ❯ java AccountUpdateExample.java
-receipt : 
+receipt :
 class TransactionReceipt {
     blockHash: 0xbc9def91ea0b147a9a587ec767a9442085699cfc19508fa1fe1de917d6558154
     blockNumber: 0x8dea85e
@@ -351,7 +360,7 @@ class TransactionReceipt {
     typeInt: 32
     value: null
 }
-```
+````
 
 </CH.Code>
 
@@ -359,19 +368,18 @@ class TransactionReceipt {
 
 Shutting down the Web3j instance
 
-
 ```java AccountUpdateExample.java focus=74
 
 ```
+
 ---
+
 Decoding the raw transaction to get the transaction type
-
-
 
 <CH.Code>
 ```java AccountUpdateExample.java focus=76:78
 
-```
+````
 
 
 ---
@@ -380,9 +388,8 @@ Decoding the raw transaction to get the transaction type
 ❯ java AccountUpdateExample.java
 TxType : ACCOUNT_UPDATE
 
-```
+````
 
 </CH.Code>
-
 
 </CH.Spotlight>

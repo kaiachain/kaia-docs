@@ -1,41 +1,44 @@
 # Cancel
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
 
+**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
 
 <CH.Spotlight>
 <CH.Code>
 
 ```js TxCancelType.js
-const { KlaytnWeb3, TxType } = require("@klaytn/web3js-ext");
-const { Web3 } = require("web3");
+const { KlaytnWeb3, TxType } = require('@kaiachain/web3js-ext')
+const { Web3 } = require('web3')
 
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
 
 async function main() {
-  const provider = new Web3.providers.HttpProvider("https://public-en-baobab.klaytn.net");
-  const web3 = new KlaytnWeb3(provider);
-  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+  const provider = new Web3.providers.HttpProvider(
+    'https://public-en-baobab.klaytn.net'
+  )
+  const web3 = new KlaytnWeb3(provider)
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
 
   const tx = {
     type: TxType.Cancel,
     from: senderAddr,
-  };
+  }
 
-  const signResult = await senderAccount.signTransaction(tx);
-  console.log("rawTx", signResult.rawTransaction);
+  const signResult = await senderAccount.signTransaction(tx)
+  console.log('rawTx', signResult.rawTransaction)
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
 
-
-
-
 ---
+
 ```zsh output
 ❯ js TxCancelType.js
 signedTx 0xe9a22708a547b5db4b1787603bdeed4b530b83ca2ba277dffba265061e675896
@@ -56,57 +59,73 @@ receipt {
 }
 
 ```
+
 </CH.Code>
 
 ---
-Import the **web3** and **@klaytn/web3js-ext** packages to add klaytn features on web3
+
+Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ```js TxCancelType.js focus=1:2
 
 ```
+
 ---
+
 Define **sender address and sender private key**
 
 ```js TxCancelType.js focus=4:5
 
 ```
+
 ---
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+
+Set up the provider with the specified Kaia **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
 
 ```js TxCancelType.js focus=8
 
 ```
+
 ---
+
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js TxCancelType.js focus=8
 
 ```
+
 ---
+
 Create a **KlaytnWeb3** instance using the provider
 
 ```js TxCancelType.js focus=9
 
 ```
+
 ---
+
 Convert the sender's private key to an account using **web3.eth.accounts.privateKeyToAccount**
 
 ```js TxCancelType.js focus=10
 
 ```
+
 ---
+
 Define a transaction object for the Cancel transaction, params `type: TxType.Cancel` and `from: senderAddr` are required
 
 ```js TxCancelType.js focus=12:15
 
 ```
+
 ---
+
 Sign the transaction with the **sender**'s account
 
 <CH.Code>
 ```js TxCancelType.js focus=17:18
 
-```
+````
 
 
 ---
@@ -114,17 +133,18 @@ Sign the transaction with the **sender**'s account
 ```zsh output
 ❯ node TxCancelType.js
 signedTx 0xe9a22708a547b5db4b1787603bdeed4b530b83ca2ba277dffba265061e675896
-```
+````
 
 </CH.Code>
 
 ---
+
 Send the signed transaction to blockchain and print the **receipt**
 
 <CH.Code>
 ```js TxCancelType.js focus=20:21
 
-```
+````
 
 
 ---
@@ -146,7 +166,7 @@ receipt {
   transactionIndex: 0n,
   type: 0n
 }
-```
+````
 
 </CH.Code>
 </CH.Spotlight>

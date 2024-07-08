@@ -4,7 +4,7 @@
 
 ## Class <a href="#class" id="class"></a>
 
-`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Klaytn's account](../../../../../learn/accounts.md#klaytn-accounts).
+`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Kaia's account](../../../../../learn/accounts.md#klaytn-accounts).
 
 `Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring](#singlekeyring) to store one address and one private key, [MultipleKeyring](#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](#rolebasedkeyring) to store one address and one or more private keys for each role.
 
@@ -306,13 +306,13 @@ RoleBasedKeyring {
 caver.wallet.keyring.createFromPrivateKey(key)
 ```
 
-Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format).
+Creates a `SingleKeyring` instance from a private key string or a [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format).
 
 **Parameters**
 
 | Name | Type   | Description                                                                                                                         |
 | ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| key  | string | This parameter can be either a private key or [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format). |
+| key  | string | This parameter can be either a private key or [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format). |
 
 **Return Value**
 
@@ -330,7 +330,7 @@ SingleKeyring {
     _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 
-// Create singleKeyring from KlaytnWalletKey
+// Create singleKeyring from KaiaWalletKey
 > caver.wallet.keyring.createFromPrivateKey('0x{private key}0x{type}0x{address in hex}')
 SingleKeyring {
     _address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
@@ -344,13 +344,13 @@ SingleKeyring {
 caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 ```
 
-Creates a `SingleKeyring` instance from a [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string.
+Creates a `SingleKeyring` instance from a [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string.
 
 **Parameters**
 
 | Name            | Type   | Description                                                                                      |
 | --------------- | ------ | ------------------------------------------------------------------------------------------------ |
-| klaytnWalletKey | string | The [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string. |
+| klaytnWalletKey | string | The [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string. |
 
 **Return Value**
 
@@ -814,7 +814,7 @@ When signing transactions, it is recommended to use [caver.wallet.sign](./caver-
 | Name            | Type             | Description                                                                                                                                                                                                                    |
 | --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | transactionHash | string           | The hash string of a transaction to sign.                                                                                                                                                                                      |
-| chainId         | string \| number | The chain id of the Klaytn blockchain platform.                                                                                                                                                                                |
+| chainId         | string \| number | The chain id of the Kaia blockchain platform.                                                                                                                                                                                |
 | role            | number           | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                              |
 | index           | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
 
@@ -906,7 +906,7 @@ This function is only used for certain transaction types. Therefore, it is recom
 keyring.signMessage(message, role [, index])
 ```
 
-Signs message with Klaytn-specific prefix. This calculates a Klaytn-specific signature with:
+Signs message with Kaia-specific prefix. This calculates a Kaia-specific signature with:
 
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
@@ -932,7 +932,7 @@ The returned object contains the following:
 
 | Name        | Type   | Description                                            |
 | ----------- | ------ | ------------------------------------------------------ |
-| messageHash | string | The hash of message with Klaytn-specific prefix.       |
+| messageHash | string | The hash of message with Kaia-specific prefix.       |
 | signatures  | Array  | An array of [SignatureData](#signaturedata). |
 | message     | string | The message to sign.                                   |
 
@@ -1041,13 +1041,13 @@ PrivateKey { _privateKey: '0x{private key}' }
 keyring.getKlaytnWalletKey()
 ```
 
-Returns the [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string for the keyring. With [MultipleKeyring](#multiplekeyring) or [RoleBasedKeyring](#rolebasedkeyring), [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) cannot be used. In this case, use [keyring.encrypt](#keyring-encrypt).
+Returns the [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string for the keyring. With [MultipleKeyring](#multiplekeyring) or [RoleBasedKeyring](#rolebasedkeyring), [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) cannot be used. In this case, use [keyring.encrypt](#keyring-encrypt).
 
 **Return Value**
 
 | Type   | Description                                                                                              |
 | ------ | -------------------------------------------------------------------------------------------------------- |
-| string | The [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) of the keyring. |
+| string | The [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) of the keyring. |
 
 **Example**
 
@@ -1062,9 +1062,9 @@ Returns the [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key
 keyring.toAccount([options])
 ```
 
-Returns the [Account](../caver.account.md#account) instance for updating the [AccountKey](../../../../../learn/accounts.md#account-key) of the [Klaytn accounts](../../../../../learn/accounts.md#klaytn-accounts). The [Account](../caver.account.md#account) instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Klaytn Network and used for validating transactions. For more details about [Account](../caver.account.md#account), see [Account Update](../../get-started.md#account-update).
+Returns the [Account](../caver.account.md#account) instance for updating the [AccountKey](../../../../../learn/accounts.md#account-key) of the [Kaia accounts](../../../../../learn/accounts.md#klaytn-accounts). The [Account](../caver.account.md#account) instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to Kaia Network and used for validating transactions. For more details about [Account](../caver.account.md#account), see [Account Update](../../get-started.md#account-update).
 
-Note that if you update the [AccountKey](../../../../../learn/accounts.md#account-key) of the [Account](../../../../../learn/accounts.md#klaytn-accounts) stored in the Klaytn, the old private key(s) cannot be used anymore. See [Getting started](../../get-started.md#account-update) on how to use the returned [Account](../caver.account.md#account) instance to update information in your [Klaytn account](../../../../../learn/accounts.md#klaytn-accounts) on Klaytn.
+Note that if you update the [AccountKey](../../../../../learn/accounts.md#account-key) of the [Account](../../../../../learn/accounts.md#klaytn-accounts) stored in the Kaia, the old private key(s) cannot be used anymore. See [Getting started](../../get-started.md#account-update) on how to use the returned [Account](../caver.account.md#account) instance to update information in your [Kaia account](../../../../../learn/accounts.md#klaytn-accounts) on Kaia.
 
 Depending on the type of the private key(s) in the keyring, the returned [Account](../caver.account.md#account) instances can be classified as follows.
 
@@ -1082,7 +1082,7 @@ Depending on the type of the private key(s) in the keyring, the returned [Accoun
 
 | Type                                   | Description                                                                                                                                                                                                                                                                                                                                         |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Account](../caver.account.md#account) | An Account instance to be used when a user updates AccountKey for their account in the Klaytn. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Klaytn beforehand. |
+| [Account](../caver.account.md#account) | An Account instance to be used when a user updates AccountKey for their account in the Kaia. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to Kaia beforehand. |
 
 **Example**
 

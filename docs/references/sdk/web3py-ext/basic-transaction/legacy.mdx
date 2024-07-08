@@ -1,4 +1,4 @@
-TxTypeLegacyTransaction represents a type of transactions existed previously in Klaytn.
+TxTypeLegacyTransaction represents a type of transactions existed previously in Kaia.
 
 \*\*This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
 
@@ -27,13 +27,13 @@ def web3_legacy_value_transfer_sign_recover():
         'value' : Web3.to_peb(10, "klay"),
     }
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
-    
+
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
-    
+
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
     print("\nrecovered sender address", recovered_tx)
-    
+
     decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
     print("\ndecoded transaction:", to_pretty(decoded_tx))
 
@@ -73,25 +73,33 @@ tx hash:  b'y\xe4+\xff\x8b\xed\x11D\xd9N\x85\xd4\x0f3\r\x82+\x8d\xc4$3\xaek\xc0\
 </CH.Code>
 
 ---
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3. In this case if you want to use **klaytn specific** util like **Web3.to_peb**, you should extend
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3. In this case if you want to use **kaia specific** util like **Web3.to_peb**, you should extend
+
 ```py txTypeLegacyTransaction.py focus=1,2
 
 ```
 
 ---
+
 Import necessary utils from **eth_account**, **web3py_ext**
+
 ```py txTypeLegacyTransaction.py focus=3:7
 
 ```
 
 ---
-Create a Web3 instance with the specified Klaytn **Baobab** testnet URL
+
+Create a Web3 instance with the specified Kaia **Baobab** testnet URL
+
 ```py txTypeLegacyTransaction.py focus=9:11
 
 ```
 
 ---
+
 Also, you can change the provider URL from **baobab** to **allthatnode**
+
 ```python txTypeLegacyTransaction.py focus=9:11
 from web3py_ext import extend
 from web3 import Web3
@@ -113,13 +121,13 @@ def web3_legacy_value_transfer_sign_recover():
         'value' : Web3.to_peb(10, "klay"),
     }
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
-    
+
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
-    
+
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
     print("\nrecovered sender address", recovered_tx)
-    
+
     decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
     print("\ndecoded transaction:", to_pretty(decoded_tx))
 
@@ -131,6 +139,7 @@ web3_legacy_value_transfer_sign_recover()
 ```
 
 ---
+
 Load an account from private key
 
 ```python txTypeLegacyTransaction.py focus=14
@@ -138,51 +147,61 @@ Load an account from private key
 ```
 
 ---
+
 Define the **legacy tx** with only **from**, **to**, **value** fields. Use unit converter **Web3.to_peb**
-``` python txTypeLegacyTransaction.py focus=15:19
+
+```python txTypeLegacyTransaction.py focus=15:19
 
 ```
 
 ---
+
 Use **fill_transaction** to add more params to transaction object like gas limit...
+
 ```python txTypeLegacyTransaction.py focus=20
 
 ```
 
 ---
+
 Sign the legacy tx by user's private key
+
 <CH.Code>
 ```python txTypeLegacyTransaction.py focus=22:23
 
-```
+````
 
 ---
 ```zsh output
 raw transaction of signed tx: 0x02f8738203e982036480850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a9153888ac7230489e8000080c080a0bf6b983904416f360b1563a92e162d15cd67efb22593873f63ccee150f4e1547a02fa3f5582c060e94b73b1cafdfa662fca93866484ef0953c06aa99d1aeceb491
-```
+````
 
 </CH.Code>
 
 ---
+
 Recover the **signer's address** from the signature in signed tx
+
 <CH.Code>
 ```python txTypeLegacyTransaction.py focus=25:26
 
-```
+````
 
 ---
 ```zsh output
 recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
-```
+````
 
 </CH.Code>
 
 ---
+
 You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+
 <CH.Code>
 ```python txTypeLegacyTransaction.py focus=28:29
 
-```
+````
 ---
 ```zsh output
 decoded transaction: {
@@ -200,11 +219,12 @@ decoded transaction: {
   "s": 21548393259938899817541519708353317088336325701153952868361768013661633164433,
   "type": 2
 }
-```
+````
 
 </CH.Code>
 
 ---
+
 Send the tx to the blockchain. It will return the tx hash, which will be used to wait the receipt
 
 ```python txTypeLegacyTransaction.py focus=31
@@ -212,24 +232,28 @@ Send the tx to the blockchain. It will return the tx hash, which will be used to
 ```
 
 ---
+
 The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+
 <CH.Code>
 ```python txTypeLegacyTransaction.py focus=32
 
-```
+````
 ---
 ```zsh output
 tx hash:  b'y\xe4+\xff\x8b\xed\x11D\xd9N\x85\xd4\x0f3\r\x82+\x8d\xc4$3\xaek\xc0\x0b\x81\x97\x8f\xd1\xeb\xb5\xd1' receipt:  AttributeDict({'blockHash': HexBytes('0x53b38f1b5a53f67d34ab648581ae7425f1915e49ca3869ae14c56df405791a02'), 'blockNumber': 147332771, 'contractAddress': None, 'cumulativeGasUsed': 557368, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x79e42bff8bed1144d94e85d40f330d822b8dc42433ae6bc00b81978fd1ebb5d1'), 'transactionIndex': 3, 'type': 2})
-```
+````
 
 </CH.Code>
 
 ---
+
 Finally, get the result.
+
 <CH.Code>
 ```python txTypeLegacyTransaction.py focus=35
 
-```
+````
 ---
 ```zsh output
 raw transaction of signed tx: 0x02f8738203e982036480850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a9153888ac7230489e8000080c080a0bf6b983904416f360b1563a92e162d15cd67efb22593873f63ccee150f4e1547a02fa3f5582c060e94b73b1cafdfa662fca93866484ef0953c06aa99d1aeceb491
@@ -252,7 +276,7 @@ decoded transaction: {
   "type": 2
 }
 tx hash:  b'y\xe4+\xff\x8b\xed\x11D\xd9N\x85\xd4\x0f3\r\x82+\x8d\xc4$3\xaek\xc0\x0b\x81\x97\x8f\xd1\xeb\xb5\xd1' receipt:  AttributeDict({'blockHash': HexBytes('0x53b38f1b5a53f67d34ab648581ae7425f1915e49ca3869ae14c56df405791a02'), 'blockNumber': 147332771, 'contractAddress': None, 'cumulativeGasUsed': 557368, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x79e42bff8bed1144d94e85d40f330d822b8dc42433ae6bc00b81978fd1ebb5d1'), 'transactionIndex': 3, 'type': 2})
-```
+````
 
 </CH.Code>
 

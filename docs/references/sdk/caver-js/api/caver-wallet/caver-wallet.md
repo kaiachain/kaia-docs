@@ -278,7 +278,7 @@ true
 caver.wallet.signMessage(address, message, role [, index])
 ```
 
-Signs the message with Klaytn-specific prefix using keyring stored in caver.wallet. This calculates a Klaytn-specific signature with:
+Signs the message with Kaia-specific prefix using keyring stored in caver.wallet. This calculates a Kaia-specific signature with:
 
 ```
 sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
@@ -305,7 +305,7 @@ The returned object contains the following:
 
 | Name        | Type   | Description                                            |
 | ----------- | ------ | ------------------------------------------------------ |
-| messageHash | string | The hash of message with Klaytn-specific prefix.       |
+| messageHash | string | The hash of message with Kaia-specific prefix.       |
 | signatures  | Array  | An array of [SignatureData](./keyring.md#signaturedata). |
 | message     | string | The message to sign.                                   |
 

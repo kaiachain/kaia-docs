@@ -16,15 +16,15 @@ import org.web3j.crypto.KlayCredentials;
 import org.web3j.crypto.KlaySignatureData;
 import org.web3j.crypto.Sign.SignatureData;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromMessageResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
 
 /**
- * 
+ *
  */
 public class SignMsgWithPubkeyExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -49,6 +49,7 @@ public class SignMsgWithPubkeyExample implements keySample {
 
 }
 ```
+
 ---
 
 ```zsh output
@@ -57,24 +58,24 @@ Original address : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 ```
 
-
 </CH.Code>
 
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
+Import necessary classes from the Web3j and Kaia libraries(`web3j-ext`).
 
 ```java SignMsgWithPubkeyExample.java focus=1:12
 
 ```
+
 ---
 
 Create a Web3j instance with the specified BAOBAB_URL
 
-
 ```java SignMsgWithPubkeyExample.java focus=23
 
 ```
+
 ---
 
 Also, you can change the default provider. For example, using the alchemy provider.
@@ -90,15 +91,15 @@ import org.web3j.crypto.KlayCredentials;
 import org.web3j.crypto.KlaySignatureData;
 import org.web3j.crypto.Sign.SignatureData;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromMessageResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
 
 /**
- * 
+ *
  */
 public class SignMsgWithPubkeyExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -125,33 +126,45 @@ public class SignMsgWithPubkeyExample implements keySample {
 ```
 
 ---
+
 Load a **credential** from the **public key's** key pair and get its address
 
 ```java SignMsgWithPubkeyExample.java focus=24:26
 
 ```
+
 ---
+
 Define any message to sign
+
 ```java SignMsgWithPubkeyExample.java focus=27
 
 ```
+
 ---
-Set the **block number** to be the latest block in the Klaytn network
+
+Set the **block number** to be the latest block in the Kaia network
+
 ```java SignMsgWithPubkeyExample.java focus=28
 
 ```
+
 ---
+
 Sign the **message** with using `KlaySignatureData.signPrefixedMessage`
 
 ```java SignMsgWithPubkeyExample.java focus=30:31
 
 ```
+
 ---
-Recover the **address** and compare it to the original address 
+
+Recover the **address** and compare it to the original address
+
 <CH.Code>
 ```java SignMsgWithPubkeyExample.java focus=33:36
 
-```
+````
 
 
 ---
@@ -160,14 +173,16 @@ Recover the **address** and compare it to the original address
 ❯ java SignMsgWithPubkeyExample.java
 Original address : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
-```
+````
 
 </CH.Code>
 
-
 ---
+
 Shut down the Web3j instance
+
 ```java SignMsgWithPubkeyExample.java focus=38
 
 ```
+
 </CH.Spotlight>

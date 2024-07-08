@@ -1,25 +1,29 @@
 # Smart Contract Execution
+
 **TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
 
 <CH.Spotlight>
 <CH.Code>
 
 ```js smartContractExecution.js
-const ethers = require("ethers");
-const { Wallet, TxType } = require("@klaytn/ethers-ext");
+const ethers = require('ethers')
+const { Wallet, TxType } = require('@kaiachain/ethers-ext')
 
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
-const wallet = new Wallet(senderPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const wallet = new Wallet(senderPriv, provider)
 
-const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
-const abi = ["function setNumber(uint256 newNumber)"];
+const contractAddr = '0x95Be48607498109030592C08aDC9577c7C2dD505'
+const abi = ['function setNumber(uint256 newNumber)']
 
 async function main() {
-  const contract = new ethers.Contract(contractAddr, abi, provider);
-  const data = contract.interface.encodeFunctionData("setNumber", ["0x123"]);
+  const contract = new ethers.Contract(contractAddr, abi, provider)
+  const data = contract.interface.encodeFunctionData('setNumber', ['0x123'])
 
   const tx = {
     type: TxType.SmartContractExecution,
@@ -27,18 +31,20 @@ async function main() {
     to: contractAddr,
     value: 0,
     data: data,
-  };
+  }
 
-  const sentTx = await wallet.sendTransaction(tx);
-  console.log("sentTx", sentTx.hash);
+  const sentTx = await wallet.sendTransaction(tx)
+  console.log('sentTx', sentTx.hash)
 
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
+
 ---
+
 ```zsh output
 ❯ node smartContractExecution.js
 sentTx 0x6ee58de9d1fd46da6f595112cc6ce060ef560796f78650e8a18fb32f20ec5343
@@ -72,47 +78,56 @@ receipt {
   byzantium: true
 }
 ```
+
 </CH.Code>
 
 ---
-Import the **ethers** and **@klaytn/ethers-ext** modules to add Klaytn features on ethers.js.
+
+Import the **ethers** and **@kaiachain/ethers-ext** modules to add Kaia features on ethers.js.
 
 ```js smartContractExecution.js focus=1:2
 
 ```
+
 ---
+
 Define **sender address and sender private key**
 
 ```js smartContractExecution.js focus=4:5
 
 ```
----
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
+---
+
+Set up the provider with the specified Kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js smartContractExecution.js focus=7
 
 ```
+
 ---
 
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js smartContractExecution.js focus=7
-const ethers = require("ethers");
-const { Wallet, TxType } = require("@klaytn/ethers-ext");
+const ethers = require('ethers')
+const { Wallet, TxType } = require('@kaiachain/ethers-ext')
 
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
-const wallet = new Wallet(senderPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const wallet = new Wallet(senderPriv, provider)
 
-const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
-const abi = ["function setNumber(uint256 newNumber)"];
+const contractAddr = '0x95Be48607498109030592C08aDC9577c7C2dD505'
+const abi = ['function setNumber(uint256 newNumber)']
 
 async function main() {
-  const contract = new ethers.Contract(contractAddr, abi, provider);
-  const data = contract.interface.encodeFunctionData("setNumber", ["0x123"]);
+  const contract = new ethers.Contract(contractAddr, abi, provider)
+  const data = contract.interface.encodeFunctionData('setNumber', ['0x123'])
 
   const tx = {
     type: TxType.SmartContractExecution,
@@ -120,18 +135,20 @@ async function main() {
     to: contractAddr,
     value: 0,
     data: data,
-  };
+  }
 
-  const sentTx = await wallet.sendTransaction(tx);
-  console.log("sentTx", sentTx.hash);
+  const sentTx = await wallet.sendTransaction(tx)
+  console.log('sentTx', sentTx.hash)
 
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
+
 ---
+
 Create a sender's wallet using the sender's private key and the provider
 
 ```js smartContractExecution.js focus=8
@@ -139,53 +156,63 @@ Create a sender's wallet using the sender's private key and the provider
 ```
 
 ---
+
 Set the **contract address** you want to execute into the to field and set **ABI**
 
 ```js smartContractExecution.js focus=10:11
 
 ```
+
 ---
+
 Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
 
 ```js smartContractExecution.js focus=14
 
 ```
+
 ---
+
 Encode the function name and parameter with the **encodeFunctionData** function
 
 ```js smartContractExecution.js focus=15
 
 ```
+
 ---
+
 Declare a transaction object
 
 ```js smartContractExecution.js focus=17:24
 
 ```
+
 ---
+
 Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
 
 <CH.Code>
 ```js smartContractExecution.js focus=25:26
 
-```
+````
 
 
 ---
 
 ```zsh output
 sentTx 0xc0443ebef5f43edab8e76663d22bc7411720ec9b63af14301305718448881ee4
-```
+````
 
 </CH.Code>
 
 ---
-The **wait** function returns the tx receipt if it is completed in the blockchain. 
+
+The **wait** function returns the tx receipt if it is completed in the blockchain.
 
 <CH.Code>
 ```js smartContractExecution.js focus=28:29
 
-```
+````
 ---
 
 ```zsh output
@@ -219,7 +246,7 @@ receipt {
   byzantium: true
 }
 
-```
+````
 
 </CH.Code>
 </CH.Spotlight>
