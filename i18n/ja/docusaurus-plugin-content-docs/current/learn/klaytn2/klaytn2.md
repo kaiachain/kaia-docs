@@ -57,7 +57,7 @@ can easily utilize Klaytn as the trust layer for the metaverse to bring their id
 ### 4. Management and Financial Support <a id="management-and-financial-support"></a>
 
 - Treasury advisory
-- Klaytn Growth Fund
+- Kaia Infrastructure Fund
 - IP-centric Investment Fund
 - Performance incentives
 - GC invitation
