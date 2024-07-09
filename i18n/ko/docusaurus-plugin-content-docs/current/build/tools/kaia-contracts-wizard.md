@@ -57,7 +57,7 @@ Kaia Contracts Wizard의 여러 부분을 살펴봤다면 이제 원하는 컨�
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)가 설치되어 있는지 확인합니다.
 - [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) 코드를 복제합니다.
 - [MetaMask](../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고 트랜잭션에 서명하고 컨트랙트와 상호작용하는 데 사용됩니다.
-- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
+- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../references/public-en.md).
 - [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
 
 ### 시작하기
