@@ -11,7 +11,7 @@ Hardhat은 여러분을 도와줄 스마트 컨트랙트 개발 환경입니다:
 - 스마트 컨트랙트 개발 및 컴파일.
 - 스마트 컨트랙트 및 dApp 디버깅, 테스트, 배포.
 
-Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니다. 즉, 한 번 획득하면 다른 사용자에게 판매하거나 양도할 수 없습니다. SBT의 작동 방식과 사용 사례에 대해 자세히 알아보시려면 비탈릭 부테린이 작성한 [참고 문서](https://vitalik.ca/general/2022/01/26/soulbound.html)를 확인하시기 바랍니다.
+Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니다. 즉, 한 번 획득하면 다른 사용자에게 판매하거나 양도할 수 없습니다. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
 
 이 가이드가 끝나면 여러분은 다음을 할 수 있을 것입니다:
 
