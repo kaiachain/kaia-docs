@@ -26,7 +26,7 @@ const commonSidebar = [
   },
   {
     type: 'category',
-    label: 'Operation Guide',
+    label: 'Node Quick Reference',
     link: {type: 'doc', id: 'misc/operation/operation'},
     items: [
       'misc/operation/configuration',
@@ -180,38 +180,6 @@ const sidebars = {
       label: 'Tutorials',
       link: {type: 'doc', id: 'build/tutorials/tutorials'},
       items: [
-/**        {
-          type: 'category',
-          label: 'Build Count DApp',
-          link: {type: 'doc', id: 'build/tutorials/count-dapp/count-dapp'},
-          items: [
-            'build/tutorials/count-dapp/setup-environment',
-            'build/tutorials/count-dapp/deploy-contracts',
-            'build/tutorials/count-dapp/directory-structure',
-            {
-              type: 'category',
-              label: 'Frontend Code Overview',
-              link: {type: 'doc', id: 'build/tutorials/count-dapp/code-overview/code-overview'},
-              items: [
-                'build/tutorials/count-dapp/code-overview/blocknumber-component',
-                'build/tutorials/count-dapp/code-overview/auth-component',
-                'build/tutorials/count-dapp/code-overview/count-component',
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Build Klaystagram',
-          link: {type: 'doc', id: 'build/tutorials/klaystagram/klaystagram'},
-          items: [
-            'build/tutorials/klaystagram/setup-environment',
-            'build/tutorials/klaystagram/deploy-contracts',
-            'build/tutorials/klaystagram/directory-structure',
-            'build/tutorials/klaystagram/code-overview',
-            'build/tutorials/klaystagram/feedpage',
-          ],
-        },*/
         'build/tutorials/fee-delegation-example',
         'build/tutorials/scaffold-eth',
         'build/tutorials/buy-me-a-coffee',
@@ -219,7 +187,6 @@ const sidebars = {
         'build/tutorials/connecting-remix',
         'build/tutorials/kaikas-dapp-integration',
         'build/tutorials/migrating-ethereum-app-to-kaia',
-        // {type: 'doc', label: 'Verify Contracts', id: 'build/tutorials/verifying-contracts'},
       ],
     },
     {
