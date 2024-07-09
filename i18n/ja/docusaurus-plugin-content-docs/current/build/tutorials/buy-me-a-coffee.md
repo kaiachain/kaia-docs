@@ -38,7 +38,7 @@ To complete this tutorial, you will need:
 - Familiarity with Javascript and React basics such as hooks etc
 - Installation of  the necessary wallets, such as [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask Wallet](https://metamask.io/download/)
 - Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet).
-- RPC Endpoint: you can obtain this from one of the supported [endpoint providers](../../references/service-providers/public-en.md).
+- RPC Endpoint: you can obtain this from one of the supported [endpoint providers](../../references/public-en.md).
 - Creation of an account on [Fleek](https://app.fleek.co/).
 
 ## 1. Project Setup <a id="1-project-setup"></a>
