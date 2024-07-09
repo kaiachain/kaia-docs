@@ -38,7 +38,7 @@ In this tutorial. 이 튜토리얼에서는 탈중앙화된 버전의 Buy Me a C
 - 후크 등과 같은 JavaScript 및 React 기본 사항에 익숙해야 합니다.
 - [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask 월렛](https://metamask.io/download/) 등 필요한 월렛 설치
 - [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA를 테스트합니다.
-- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
+- RPC Endpoint: you can obtain this from one of the supported [endpoint providers](../../references/public-en.md).
 - [Fleek](https://app.fleek.co/)에서 계정을 생성합니다.
 
 ## 1. 프로젝트 설정 <a id="1-project-setup"></a>
