@@ -11,7 +11,7 @@ Hardhat is a smart-contract development environment that will help you:
 - Develop and compile smart contracts.
 - Debug, test, and deploy smart contracts and dApps.
 
-Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.ca/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
+Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
 
 By the end of this guide you will be able to:
 
