@@ -57,7 +57,7 @@ Kaia는 EVM과 호환되며 모든 이더리움 London EVM 기능을 지원합�
 
 ## 테스트와 개발을 위한 카이아의 퍼블릭 노드 프로바이더가 있나요? <a id="node-providers"></a>
 
-카이아의 퍼블릭 노드 프로바이더와 네트워크 도메인은 이 [목록](../references/service-providers/public-en#public-json-rpc-endpoint-providers)을 참조하세요.
+Refer to this [list](../references/public-en#public-json-rpc-endpoint-providers) for Kaia’s Public Node Providers and the network domains.
 
 ## KAIA를 테스트할 수 있는 Faucet이 있나요? <a id="are-there-faucets"></a>
 
