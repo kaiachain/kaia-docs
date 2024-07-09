@@ -8,13 +8,13 @@ Kaia’s token economy is designed to create sustainable funding structures for 
 
 Kaia’s funding structure runs continuously with Kaia network’s block generation. With every new block, newly issued KAIA and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
 
-- Kaia Governance Council (GC) Reward:
-  - GC Block Proposer Reward: 10%
-  - GC Staking Award: 40%
-- Kaia Community Fund \(KCF\): 30%
-- Kaia Foundation Fund \(KFF\): 20%
+- Validators and Community: 50%
+  - Block proposer rewards: 20% of the 50% (10% of total)
+  - Staking rewards: 80% of the 50% (40% of total)
+- Kaia Ecosystem Fund (KEF): 25%
+- Kaia Infrastructure Fund (KIF): 25%
 
-6.4 KAIA will be minted for every new block. This implies that approximately 200 million KAIA will be minted annually, which is equivalent to 2% annual inflation against the 10 billion KAIA issued at genesis \(the annual inflation rate is subject to change through the Kaia Governance Process\). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
+6.4 KAIA will be minted for every new block. This implies that approximately 200 million KAIA will be minted annually, which is equivalent to 5.2% annual inflation against the total KAIA tokens in the market (the annual inflation rate is subject to change through the Kaia Governance Process). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
 
 ## Kaia Governance Council Reward <a id="kaia-governance-council-reward"></a>
 
@@ -42,26 +42,31 @@ Causing Liveness Failure:
 - A Council member selected as Proposer must create a valid block
 - A Council member selected as Validator must validate the block proposed by the Proposer
 
-## Kaia Community Fund <a id="kaia-community-fund"></a>
+## Kaia Ecosystem Fund <a id="kaia-ecosystem-fund"></a>
 
-The Kaia Community Fund (KCF) was established to support Kaia's mission of enabling greater transparency and verifiability. It's important to keep in mind that the former Kaia Growth Fund (KGF) and Kaia Improvement Reserve (KIR) have merged to become the new Kaia Community Fund (KCF).
+The Kaia Ecosystem Fund (KEF) was established to support Kaia's mission of enabling greater transparency and verifiability. It is funded by 25% of the total KAIA issued when creating a block.
 
-The Kaia Community Fund will be used to fund activities that improves the Kaia ecosystem, such as:
+The Kaia Ecosystem Fund will be used to fund activities that improve the Kaia ecosystem, such as:
 
-1. **Rewarding Proof of Contribution**: The KCF will provide follow-up support, such as gas fee support to projects that have made significant on-chain contributions to the Kaia ecosystem among services that have already been developed.
-2. **Building our Developer Community**: The KCF will support various initiatives including hackathons, development education programs, collaborative research with the industry, and collaboration with various DAOs to foster and grow the Kaia developer community.
-3. **Fostering Ecosystem Services and Infrastructure**: The KCF will support essential ecosystem infrastructure, alongside the development of services with clear utility and provide marketing support.
-4. **Kaia Eco Fund Indirect Investment**: The KCF will make indirect mid-to long-term investments by entrusting specialized crypto VCs, and most of the profits generated upon subsequent investment recovery will be returned to the Kaia ecosystem.
+1. **Service Contribution Reward (SCR)**: The KEF will provide rewards to service developers or users operating on the integrated ecosystem, as compensation for directly or indirectly contributing to the enhancement of the ecosystem's value.
+2. **Building our Developer Community**: The KEF will support various initiatives including hackathons, development education programs, collaborative research with academia, and collaboration with various DAOs to foster and grow the Kaia developer community.
+3. **Fostering Ecosystem Services and Infrastructure**: The KEF will support essential ecosystem infrastructure, alongside the development of services with clear utility and provide marketing support.
+4. **Kaia Eco Fund Indirect Investment**: The KEF will make indirect mid-to long-term investments by entrusting specialized crypto VCs. A portion of the profits generated upon subsequent investment recovery will be either burned or returned to the Kaia ecosystem.
+5. **Governance Committee Budget**: This budget is allocated for the operation of committees in specific sectors such as Gaming, DeFi, and Community. These committees aim to grow the Kaia Blockchain ecosystem in their respective sectors.
+6. **Other ecosystem and community-building activities**
 
-The administration of the Kaia Community Fund follows a process in which the GC reviews and approves the use of funds in public forums on [Kaia Square](https://square.klaytn.foundation/Home). The Foundation will submit a budget proposal for each category to the GC for approval. Within the approved budget, each specific use will be reviewed and approved again by the GC. In the meantime, the KCF is currently being run as a [pilot program](https://klaytn.foundation/kcf-grant-pilot/) and interested parties can visit the [Kaia Governance Forum](https://govforum.klaytn.foundation/t/operational-procedures-of-the-kcf-grant-program-pilot/288) for more details about the program.
+The administration of the Kaia Ecosystem Fund follows a process in which the Governance Council (GC) reviews and approves the use of funds in public forums on [Kaia Square](https://square.klaytn.foundation/Home). The Foundation will submit a quarterly budget proposal for each category to the GC for approval. Within the approved budget, each specific use will be reviewed and approved again by the GC. All execution details are transparently disclosed.
 
-## Kaia Foundation Fund <a id="kaia-foundation-fund"></a>
+New proposals for the use of KEF can be made via the GC, requiring individual approval. Plans are in place to develop a structure allowing more ecosystem participants to efficiently propose and participate in KEF use. For categories requiring specialized and rapid decision-making, separate governance committees may operate.
 
-Kaia Foundation Fund (KFF) is an operational fund that will focus on this two main categories:
+## Kaia Infrastructure Fund <a id="kaia-infrastructure-fund"></a>
 
-1. **Ecosystem Support**: This includes providing minor financial assistance, securing new GC members, liquidity provisions, and developing / funding services led by the Foundation.
-2. **Foundation Operations**: This includes operating expenses such as development, accounting, infrastructure operations, marketing, and labor, as well as financial management and investment attraction costs.
+Kaia Infrastructure Fund (KIF) is an operational fund that will focus on these main categories:
 
-Similar to KCF, KFF will be executed autonomously and transparently after obtaining approval from the GC via on-chain voting.
+1. **Mainnet and Essential Infrastructure R&D**: This includes advancing research on the latest technologies related to mainnet and infrastructure, foundation-led service development, and infrastructure establishment.
+2. **Ecosystem Acceleration**: This includes token swap, financial support for small-scale Kaia Blockchain ecosystem partners, attracting new GC members, and providing market liquidity.
+3. **Foundation Operations**: This includes operating expenses such as development, accounting, legal affairs, IT infrastructure operations, marketing, and labor costs, as well as financial management and fundraising costs.
 
-For more information, kindly read this [article](https://medium.com/klaytn/klaytn-tokenomics-optimization-governance-proposal-securing-a-sustainable-verifiable-token-1efd2a49b04e).
+KIF is funded by 25% of the total KAIA issued when creating a block. It is executed by the foundation through an internal control system after a prior announcement of the budget plan for each detailed category. All execution details are transparently disclosed.
+
+The foundation directly establishes a budget plan and executes the funds for KIF. To ensure transparent execution, the foundation discloses the budget plans and execution details in advance and afterward.
