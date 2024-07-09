@@ -232,7 +232,9 @@ const config = {
         title: 'Kaia Docs',
         logo: {
           alt: 'Klaytn Logo',
-          src: 'img/kaia-logo.png',
+          src: 'img/kaia_logo_L.svg',
+          srcDark: 'img/kaia_logo_D.svg',
+          width: 150,
         },
         items: [
           {
