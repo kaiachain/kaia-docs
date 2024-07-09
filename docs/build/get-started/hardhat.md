@@ -26,7 +26,7 @@ To follow this tutorial, the following are the prerequisites:
 
 * Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 * [Metamask](../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/service-providers/public-en.md).
+* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
 * Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 * [NodeJS and NPM](https://nodejs.org/en/)
 

@@ -16,7 +16,7 @@ As a wallet infrastructure, it provides out-of-the-box support for all social lo
 
 * A working react project (by executing `npx create-react-app project-name`)
 * Install the necessary wallets ([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)). 
-* RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/service-providers/public-en.md).
+* RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
 * Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 * Get your Client ID from [Web3Auth Dashboard](https://dashboard.web3auth.io/).
 
