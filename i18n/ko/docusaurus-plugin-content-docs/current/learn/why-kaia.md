@@ -64,7 +64,7 @@
 ### 풀-스위트, 프로토콜 수준의 에코 펀드 <a id="contribution-reward"></a>
 
 - 카이아는 생태계를 지원하는 인센티브가 온체인 프로토콜 토큰노믹스로 인코딩된 최초이자 최대 규모의 사례입니다. 새로 발행되는 토큰의 50%는 생태계에 재투자됩니다.
-- [카이아 커뮤니티 기금](token-economy.md#klaytn-community-fund) 및 [카이아 재단 기금](token-economy.md#klaytn-foundation-fund)을 참고하세요.
+- See [Kaia Ecosystem Fund](token-economy.md#kaia-ecosystem-fund) and [Kaia Infrastructure Fund](token-economy.md#kaia-infrastructure-fund).
   ​
   ​
 
@@ -98,5 +98,3 @@
 [Truffle]: ../build/smart-contracts/ide-and-tools/truffle.md
 [Migrating Ethereum App to Kaia]: ../build/tutorials/migrating-ethereum-app-to-kaia.md
 [Incentive Program]: ./token-economy.md
-[Kaia Improvement Reserve]: ./token-economy.md#kaia-improvement-reserve
-[Kaia Growth Fund]: ./token-economy.md#kaia-growth-fund
