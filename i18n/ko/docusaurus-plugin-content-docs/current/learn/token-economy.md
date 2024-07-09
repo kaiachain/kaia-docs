@@ -8,13 +8,13 @@
 
 카이아의 자금 구조는 카이아 네트워크의 블록 생성과 함께 지속적으로 운영됩니다. 새로운 블록이 생성될 때마다 새로 발행된 KAIA와 해당 블록에서 사용된 트랜잭션 수수료의 합계(통칭하여 "블록 보상"이라 함)가 합산되어 미리 정해진 비율에 따라 다음 세 개의 대상 계좌에 분배됩니다:
 
-- 카이아 거버넌스 카운슬(GC) 보상:
-  - GC 블록 제안자 보상: 10%
-  - GC 스테이킹 보상: 40%
-- 카이아 커뮤니티 펀드 (KCF): 30%
-- 카이아 재단 기금 (KFF): 20%
+- Validators and Community: 50%
+  - Block proposer rewards: 20% of the 50% (10% of total)
+  - Staking rewards: 80% of the 50% (40% of total)
+- Kaia Ecosystem Fund (KEF): 25%
+- Kaia Infrastructure Fund (KIF): 25%
 
-새로운 블록이 생성될 때마다 6.4 KAIA가 발행됩니다. 이는 연간 약 2억 KAIA가 발행된다는 것을 의미하며, 이는 제네시스에서 발행된 100억 KAIA 대비 연간 2%의 인플레이션에 해당합니다(연간 인플레이션율은 Kaia 거버넌스 프로세스를 통해 변경될 수 있습니다). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
+새로운 블록이 생성될 때마다 6.4 KAIA가 발행됩니다. This implies that approximately 200 million KAIA will be minted annually, which is equivalent to 5.2% annual inflation against the total KAIA tokens in the market (the annual inflation rate is subject to change through the Kaia Governance Process). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
 
 ## 카이아 거버넌스 카운슬 보상 <a id="klaytn-governance-council-reward"></a>
 
@@ -42,26 +42,31 @@ Liveness Failure 야기:
 - 제안자로 선정된 카운슬 멤버는 유효한 블록을 생성해야 합니다.
 - 검증자로 선정된 카운슬 멤버는 제안자가 제안한 블록의 유효성을 검사해야 합니다.
 
-## 카이아 커뮤니티 펀드 <a id="klaytn-community-fund"></a>
+## Kaia Ecosystem Fund <a id="kaia-ecosystem-fund"></a>
 
-카이아 커뮤니티 기금(KCF)은 더 높은 투명성과 검증 가능성을 실현하고자 하는 카이아의 미션을 지원하기 위해 설립되었습니다. 기존 카이아 성장 기금(KGF)과 카이아 개선 준비금(KIR)이 합쳐져 새로운 카이아 커뮤니티 기금(KCF)이 되었다는 점을 기억해두시기 바랍니다.
+The Kaia Ecosystem Fund (KEF) was established to support Kaia's mission of enabling greater transparency and verifiability. It is funded by 25% of the total KAIA issued when creating a block.
 
-카이아 커뮤니티 펀드는 다음과 같이 카이아 생태계를 개선하는 활동에 자금을 지원하는 데 사용됩니다:
+The Kaia Ecosystem Fund will be used to fund activities that improve the Kaia ecosystem, such as:
 
-1. **기여 증명(Proof of Contribution)에 대한 보상**: 이미 개발된 서비스 중 카이아 생태계에 기여도가 높은 프로젝트에 대해 가스비 지원 등 후속 지원을 제공합니다.
-2. **개발자 커뮤니티 구축**: 재단은 카이아 개발자 커뮤니티를 육성하고 성장시키기 위해 해커톤, 개발 교육 프로그램, 업계와의 공동 연구, 다양한 DAO와의 협업 등 다양한 이니셔티브를 지원할 예정입니다.
-3. **생태계 서비스 및 인프라 육성**: KCF는 명확한 효용성을 가진 서비스 개발과 마케팅 지원과 함께 필수적인 생태계 인프라를 지원할 것입니다.
-4. **카이아 에코 펀드 간접 투자**: KCF는 크립토 전문 VC에 위탁하여 중장기 간접 투자를 진행하며, 추후 투자금 회수 시 발생하는 수익의 대부분을 카이아 생태계에 환원할 예정입니다.
+1. **Service Contribution Reward (SCR)**: The KEF will provide rewards to service developers or users operating on the integrated ecosystem, as compensation for directly or indirectly contributing to the enhancement of the ecosystem's value.
+2. **Building our Developer Community**: The KEF will support various initiatives including hackathons, development education programs, collaborative research with academia, and collaboration with various DAOs to foster and grow the Kaia developer community.
+3. **Fostering Ecosystem Services and Infrastructure**: The KEF will support essential ecosystem infrastructure, alongside the development of services with clear utility and provide marketing support.
+4. **Kaia Eco Fund Indirect Investment**: The KEF will make indirect mid-to long-term investments by entrusting specialized crypto VCs. A portion of the profits generated upon subsequent investment recovery will be either burned or returned to the Kaia ecosystem.
+5. **Governance Committee Budget**: This budget is allocated for the operation of committees in specific sectors such as Gaming, DeFi, and Community. These committees aim to grow the Kaia Blockchain ecosystem in their respective sectors.
+6. **Other ecosystem and community-building activities**
 
-카이아 커뮤니티 기금의 운영은 GC가 [카이아 스퀘어](https://square.klaytn.foundation/Home)의 공개 포럼에서 기금 사용을 검토하고 승인하는 절차를 따릅니다. 재단은 각 카테고리에 대한 예산 제안서를 GC에 제출하여 승인을 받습니다. 승인된 예산 범위 내에서 구체적인 사용처에 대한 검토와 GC의 재승인이 이루어집니다. 한편, KCF는 현재 [파일럿 프로그램](https://klaytn.foundation/kcf-grant-pilot/)으로 운영되고 있으며, 관심 있는 분들은 [카이아 거버넌스 포럼](https://govforum.klaytn.foundation/t/operational-procedures-of-the-kcf-grant-program-pilot/288)에서 프로그램에 대한 자세한 내용을 확인할 수 있습니다.
+The administration of the Kaia Ecosystem Fund follows a process in which the Governance Council (GC) reviews and approves the use of funds in public forums on [Kaia Square](https://square.klaytn.foundation/Home). The Foundation will submit a quarterly budget proposal for each category to the GC for approval. 승인된 예산 범위 내에서 구체적인 사용처에 대한 검토와 GC의 재승인이 이루어집니다. All execution details are transparently disclosed.
 
-## 카이아 재단 펀드 <a id="klaytn-foundation-fund"></a>
+New proposals for the use of KEF can be made via the GC, requiring individual approval. Plans are in place to develop a structure allowing more ecosystem participants to efficiently propose and participate in KEF use. For categories requiring specialized and rapid decision-making, separate governance committees may operate.
 
-카이아 재단 기금(KFF)은 이 두 가지 카테고리에 집중할 운영 기금입니다:
+## Kaia Infrastructure Fund <a id="kaia-infrastructure-fund"></a>
 
-1. **생태계 지원**: 여기에는 소정의 재정 지원, 신규 GC 멤버 확보, 유동성 공급, 재단 주도의 서비스 개발/펀딩 등이 포함됩니다.
-2. **재단 운영**: 개발, 회계, 인프라 운영, 마케팅, 인건비 등의 운영 비용과 재무 관리 및 투자유치 비용이 포함됩니다.
+Kaia Infrastructure Fund (KIF) is an operational fund that will focus on these main categories:
 
-KFF는 KCF와 마찬가지로 온체인 투표를 통해 GC의 승인을 받은 후 자율적이고 투명하게 집행될 예정입니다.
+1. **Mainnet and Essential Infrastructure R&D**: This includes advancing research on the latest technologies related to mainnet and infrastructure, foundation-led service development, and infrastructure establishment.
+2. **Ecosystem Acceleration**: This includes token swap, financial support for small-scale Kaia Blockchain ecosystem partners, attracting new GC members, and providing market liquidity.
+3. **Foundation Operations**: This includes operating expenses such as development, accounting, legal affairs, IT infrastructure operations, marketing, and labor costs, as well as financial management and fundraising costs.
 
-자세한 내용은 이 [기사](https://medium.com/klaytn/klaytn-tokenomics-optimization-governance-proposal-securing-a-sustainable-verifiable-token-1efd2a49b04e)를 참조하세요.
+KIF is funded by 25% of the total KAIA issued when creating a block. It is executed by the foundation through an internal control system after a prior announcement of the budget plan for each detailed category. All execution details are transparently disclosed.
+
+The foundation directly establishes a budget plan and executes the funds for KIF. To ensure transparent execution, the foundation discloses the budget plans and execution details in advance and afterward.
