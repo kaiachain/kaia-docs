@@ -26,7 +26,7 @@ To follow this tutorial, the following are the prerequisites:
 
 - Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 - [MetaMask](../../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/service-providers/public-en.md).
+- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/public-en.md).
 - Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 - Install [Rust](https://www.rust-lang.org/tools/install) and [Foundry](https://github.com/foundry-rs/foundry#installation).
 
@@ -142,7 +142,7 @@ forge build
 
 ## Deploying your contracts
 
-To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](../../../references/service-providers/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask#install-metamask).
+To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask#install-metamask).
 
 **Step 1**: To deploy your contract to the Kaia Kairos network, run the command below:
 
