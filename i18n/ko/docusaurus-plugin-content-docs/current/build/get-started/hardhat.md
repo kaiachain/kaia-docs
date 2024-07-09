@@ -27,7 +27,7 @@ Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니�
 
 - 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
 - [MetaMask](../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
-- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
+- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
 - [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
 - [NodeJS 및 NPM](https://nodejs.org/en/)
 
