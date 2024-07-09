@@ -64,17 +64,17 @@ A set of techniques for the exchange of data among two or more processes in one 
 
 A peer-to-peer distributed file system that enables users to store and share files in a decentralized manner. IPFS uses a content-addressing scheme to uniquely identify each file, and it stores files in a distributed network of nodes.
 
-### Klaytn Community Fund (KCF)
+### Kaia Ecosystem Fund (KEF)
 
-A fund established by the Klaytn Foundation to support initiatives that contribute to the growth and development of the Klaytn blockchain ecosystem. The KCF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Klaytn. The goal of the KCF is to advance innovation and community growth around Klaytn through funded initiatives.
+A fund established by the Klaytn Foundation to support initiatives that contribute to the growth and development of the Klaytn blockchain ecosystem. The KEF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KEF is to advance innovation and community growth around Kaia through funded initiatives.
 
 ### Klaytn endpoint node (KEN)
 
 See [endpoint node (EN)](#endpoint-node-en).
 
-### Klaytn Foundation Fund (KFF)
+### Kaia Infrastructure Fund (KIF)
 
-A reserve fund established by the Klaytn Foundation to support its operating expenses and long-term initiatives. The KFF aids in funding the Foundation's work to further develop and enhance the Klaytn blockchain protocol and ecosystem through research, business development activities, education programs and more.
+A reserve fund established by the Klaytn Foundation to support its operating expenses and long-term initiatives. The KIF aids in funding the Foundation's work to further develop and enhance the Kaia blockchain protocol and ecosystem through research, business development activities, education programs and more.
 
 ### Klaytn Governance Council (KGC)
 
