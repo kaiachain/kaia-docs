@@ -9,7 +9,7 @@
 - 최종 사용자의 진입 장벽을 낮춥니다.
 - 업계의 기술 채택 프로세스를 간소화합니다.
 
-Kaia launched its mainnet, [Cypress](https://klaytnscope.com), on Jun/27/2019 with the following specifications.
+Kaia continues to generate blocks on top of the Klaytn blockchain launched on June 27, 2019, with the following specifications:
 
 - 1초의 블록 생성 및 확인 시간.
 - 초당 4,000건의 트랜잭션.
