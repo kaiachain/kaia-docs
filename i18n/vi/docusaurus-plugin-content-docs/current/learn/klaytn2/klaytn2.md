@@ -57,7 +57,7 @@ can easily utilize Kaia as the trust layer for the metaverse to bring their idea
 ### 4. Management and Financial Support <a id="management-and-financial-support"></a>
 
 - Treasury advisory
-- Kaia Growth Fund
+- Kaia Infrastructure Fund
 - IP-centric Investment Fund
 - Performance incentives
 - GC invitation
