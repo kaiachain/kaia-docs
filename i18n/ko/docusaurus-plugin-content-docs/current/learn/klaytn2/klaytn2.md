@@ -56,7 +56,7 @@
 ### 4. 관리 및 재정적 지원 <a id="management-and-financial-support"></a>
 
 - Treasury advisory
-- 재단 기금 자문 클레이튼 성장 펀드
+- Kaia Infrastructure Fund
 - IP 중심 투자 펀드
 - 성과 인센티브
 - GC 초대
