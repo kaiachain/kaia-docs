@@ -25,18 +25,11 @@ function HomepageHeader() {
     align-items: center;
   `;
 
-  const StyledTitleImage = styled.img`
-    width: 300px;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px;
-  `;
-
   const tagline = siteConfig.tagline
 
   return (
     <StyledHeaderBox>
-      <StyledTitleImage src={titleImg} alt={siteConfig.title} />
+      <img src={titleImg} alt={siteConfig.title} className="styled-title-image" />
       <p style={{ color: 'inherit' }}>
         <Translate values={{ tagline: tagline }}>{'{tagline}'}</Translate>
       </p>
