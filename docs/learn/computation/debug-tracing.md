@@ -13,9 +13,9 @@ There are various methods where you can retrieve debug traces
 
 The go-to method is to calling the `debug_trace*` JSON-RPC APIs.
 
-### Tracer type
+### Tracer types
 
-To get traces with the debug API, you first need to decide what kind of information you want to learn. Most commonly, you'll want to use `callTracer` to understand the interaction between contracts i.e. internal transactions. There are other tracer types like `prestateTracer` and structLogger that allow you to debug the same transaction from multiple angles. Below lists some frequently used tracers. 
+To get traces with the debug API, you first need to decide what kind of information you want to learn. Most commonly, you'll want to use `callTracer` to understand the interaction between contracts i.e. internal transactions. There are other tracer types like `prestateTracer` and structLogger that allow you to debug the same transaction from multiple angles. Below lists some frequently used tracers.
 
 **NOTE**: Since Kaia v1.0.1 `callTracer` and `fastCallTracer` are identical as they consolidated to one native (Go) implementation.
 
@@ -28,7 +28,7 @@ To get traces with the debug API, you first need to decide what kind of informat
   - `revertTracer` returns the revert reason, if any. This can be replaced by `callTracer` which returns `.reverted.reason` and `.revertReason` fields.
   - Refer to [API reference](../../references/json-rpc/debug/trace-transaction) for the full list of supported tracers.
 - StructLog is the tracer activated when you don't specify any tracer. The execution of every opcode is shown in detail which is extremely heavy and usually too verbose for application debugging.
-- Custom JS tracer is also supported, unless the node prohibits its use with `--rpc.unsafe-debug.disable` option. You can submit a piece of JavaScript code that gets invoked alongside transaction execution. Below is an example custom tracer that prints the gasUsed after each opcode `"{gasUsed: [], step: function(log) { this.gasUsed.push(log.getGas()); }, result: function() { return this.gasUsed; }, fault: function() {}}"`. You can find more about custom JS tracer [here](https://docs.chainstack.com/reference/custom-js-tracing-ethereum) and [here](https://geth.ethereum.org/docs/developers/evm-tracing/custom-tracer). 
+- Custom JS tracer is also supported, unless the node prohibits its use with `--rpc.unsafe-debug.disable` option. You can submit a piece of JavaScript code that gets invoked alongside transaction execution. Below is an example custom tracer that prints the gasUsed after each opcode `"{gasUsed: [], step: function(log) { this.gasUsed.push(log.getGas()); }, result: function() { return this.gasUsed; }, fault: function() {}}"`. You can find more about custom JS tracer [here](https://docs.chainstack.com/reference/custom-js-tracing-ethereum) and [here](https://geth.ethereum.org/docs/developers/evm-tracing/custom-tracer).
 
 ### CallTracer special cases
 
@@ -95,7 +95,7 @@ Chaindatafetcher (CDF) is a unique feature of Kaia where block processing result
 
 ### Connecting to Kafka
 
-Prepare a Kafka cluster first. Below is an example docker compose but you can use any Kafka installation with any topic. However, only the ____ authentication is currently supported.
+Prepare a Kafka cluster first. You can test chaindatafetcher with below example docker compose configuration, but you can use any Kafka installation. However, only the ____ authentication is currently supported.
 
 ```yaml
 # Test kafka docker-compose.yml. Not for production.
@@ -134,7 +134,7 @@ local.klaytn.chaindatafetcher.en-0.tracegroup.v1
 
 The `ken` command line flags `--chaindatafetcher.*` let you customize topic names, partitions, replicas and other Kafka configurations.
 
-### Traces from currently processing block
+### Traces from currently syncing block
 
 If the chaindatafetcher is configured and the node is syncing blocks, then execution results of those blocks will be automatically published. With the default setting, only `blockgroup` topic is populated. To enable internal tx tracing alongside block sync, specify `--vm.internaltx`.
 

@@ -85,6 +85,7 @@ const sidebars = {
         //'learn/computation/kaia-smart-contract',
         //'learn/computation/kaia-virtual-machine',
         'learn/computation/precompiled-contracts',
+        'learn/computation/debug-tracing',
       ],
     },
     {
