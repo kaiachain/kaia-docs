@@ -11,7 +11,6 @@ Hence, the main benefit of using an existing Public EN is that it allows you to 
 - The node providers are not responsible for any damage or losses caused in relation to traffic or interaction with the nodes.
 - If traffic is concentrated on certain nodes, you may experience service delay.
 - To prevent too many requests, rate limits may apply on a per-node basis, which are subject to change without prior notification.
-  
 
 ## Public JSON-RPC Endpoints
 
@@ -23,17 +22,6 @@ Please keep in mind that these endpoints are provided to the community for testi
 Since we cannot guarantee uptime and stability of the endpoints, do not use them for commercial purposes.
 
 **HTTPS**
-
-| Service Provider                                 | Endpoints                                           | Namespaces   | Type    |
-| ------------------------------------------------ | --------------------------------------------------- | ------------ | ------- |
-| [Kaia Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`              | klay,eth,net | Full    |
-|                                                  | `https://archive-en.cypress.klaytn.net`             | klay,eth,net | Archive |
-| [All That Node](www.allthatnode.com)             | `https://klaytn-mainnet.g.allthatnode.com/full/evm` | klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/)           | `https://klaytn.blockpi.network/v1/rpc/public`      | klay,eth,net | Full    |
-| [OnFinality](https://onfinality.io/)             | `https://klaytn.api.onfinality.io/public`           | klay,eth,net | Full    |
-| [Pokt Network](https://pokt.network/)            | `https://klaytn-rpc.gateway.pokt.network/`          | klay,eth,net | Full    |
-
-**WebSocket** 
 
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
@@ -198,7 +186,7 @@ Ankr's distributed node network creates a powerful synergy, allowing developers 
 
 ### NodeReal
 
-NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
+NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
 
 #### Features
 
