@@ -27,7 +27,7 @@ const commonSidebar = [
   {
     type: 'category',
     label: 'Node Quick Reference',
-    link: { type: 'doc', id: 'misc/operation/operation' },
+    link: {type: 'doc', id: 'misc/operation/operation'},
     items: [
       'misc/operation/configuration',
       'misc/operation/node-log',
@@ -39,7 +39,7 @@ const commonSidebar = [
       'misc/operation/upstream-en',
     ],
   },
-  //  'misc/klaytn-history',
+//  'misc/klaytn-history',
   'references/public-en',
   'misc/faq-chain-transition',
   'misc/glossary',
@@ -466,7 +466,7 @@ const sidebars = {
         'references/sdk/viem/viem',
       ],
     },
-    'references/transaction-error-codes',
+    'references/transaction-error-codes', 
     ...commonSidebar,
   ],
   kaiaSidebar: [
