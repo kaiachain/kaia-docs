@@ -186,7 +186,7 @@ Ankr's distributed node network creates a powerful synergy, allowing developers 
 
 ### NodeReal
 
-NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
+NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
 
 #### Features
 
