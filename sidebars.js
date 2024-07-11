@@ -101,7 +101,14 @@ const sidebars = {
     'learn/scaling-solutions',
     'learn/kaia-native-token',
     'learn/token-economy',
-    'learn/governance',
+    {
+      type: 'category',
+      label: 'Governance',
+      items: [
+        'learn/governance',
+        'learn/governance-by-kip',
+      ],
+    },
 /**     {
       type: 'category',
       link: {type: 'doc', id: 'learn/klaytn2/klaytn2'},
