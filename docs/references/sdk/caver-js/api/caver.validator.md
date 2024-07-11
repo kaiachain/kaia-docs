@@ -1,6 +1,6 @@
 # caver.validator
 
-The `caver.validator` package provides validation functions that should be used when implementing applications on Kaia.
+The `caver.validator` package provides validation functions that should be used when implementing applications on kaia.
 
 **NOTE** `caver.validator` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
@@ -10,13 +10,13 @@ The `caver.validator` package provides validation functions that should be used 
 caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 ```
 
-Validates a signed message by comparing the public key recovered from the signature with the account key of the Kaia account.
+Validates a signed message by comparing the public key recovered from the signature with the account key of the kaia account.
 
 **Parameters**
 
 | Name       | Type            | Description                                                                                                                                                                                                                                                  |
 | ---------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| message    | string          | The raw message string. If this message is hashed with the Kaia-specific prefix, the third parameter should be passed as `true`.                                                                                                                           |
+| message    | string          | The raw message string. If this message is hashed with the kaia-specific prefix, the third parameter should be passed as `true`.                                                                                                                           |
 | signatures | object \| Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '\[ v, r, s ]' or '\[\[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
 | address    | string          | The address of the account that signed the message.                                                                                                                                                                                                          |
 | isHashed   | boolean         | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Kaia Signed Message:\n" + message.length + message`.                                                                                                |
@@ -54,7 +54,7 @@ const signature = [
 caver.validator.validateTransaction(tx)
 ```
 
-Validates a transaction. This function compares the public keys from the account key of the Kaia account with the public keys recovered from `signatures`. If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
+Validates a transaction. This function compares the public keys from the account key of the kaia account with the public keys recovered from `signatures`. If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
 
 **Parameters**
 
@@ -84,7 +84,7 @@ const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 caver.validator.validateSender(tx)
 ```
 
-Validates the sender of the transaction. This function compares the public keys of the account key of the Kaia account with the public keys recovered from `signatures`.
+Validates the sender of the transaction. This function compares the public keys of the account key of the kaia account with the public keys recovered from `signatures`.
 
 **Parameters**
 

@@ -63,7 +63,7 @@ ValueTransfer {
 caver.transaction.getTransactionByHash('0x{transaction hash}')
 ```
 
-Queries a transaction from Kaia and converts to a caver transaction instance.
+Queries a transaction from kaia and converts to a caver transaction instance.
 
 **NOTE** `caver.transaction.getTransactionByHash` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
@@ -71,11 +71,11 @@ Queries a transaction from Kaia and converts to a caver transaction instance.
 
 | Name            | Type   | Description                                       |
 | --------------- | ------ | ------------------------------------------------- |
-| transactionHash | string | The transaction hash string to query from Kaia. |
+| transactionHash | string | The transaction hash string to query from kaia. |
 
 **Return Value**
 
-`Promise` returning `object`: An instance of [Transaction](#class). If it fails to receive a transaction object from Kaia, an error occurs.
+`Promise` returning `object`: An instance of [Transaction](#class). If it fails to receive a transaction object from kaia, an error occurs.
 
 | Type   | Description                                                                                                |
 | ------ | ---------------------------------------------------------------------------------------------------------- |
@@ -182,7 +182,7 @@ For [Account Update](./basic.md#accountupdate) transaction, use [roleAccountUpda
 
 | Name    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | object \| string | A private key string ([KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| keyring | object \| string | A private key string ([KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
 | index   | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                      |
 | hasher  | Function         | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
@@ -294,7 +294,7 @@ If the `keyring` to be used for signing the transaction was added to `caver.wall
 
 | Name    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | object \| string | A private key string ([KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If the private key string or [KaiaWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
+| keyring | object \| string | A private key string ([KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If the private key string or [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
 | index   | number           | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                                      |
 | hasher  | Function         | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
@@ -611,7 +611,7 @@ transaction.fillTransaction()
 
 Fills in the optional variables in transaction.
 
-If the `gasPrice`, `nonce`, or `chainId` of the transaction are not defined, this method asks the default values for these optional variables and preset them by sending JSON RPC call to the connected Kaia Node.
+If the `gasPrice`, `nonce`, or `chainId` of the transaction are not defined, this method asks the default values for these optional variables and preset them by sending JSON RPC call to the connected kaia Node.
 
 Use [caver.rpc.klay.getGasPrice](../caver-rpc/klay.md#caver-rpc-klay-getgasprice) to get `gasPrice`, [caver.rpc.klay.getTransactionCount](../caver-rpc/klay.md#caver-rpc-klay-gettransactioncount) to get `nonce` and [caver.rpc.klay.getChainId](../caver-rpc/klay.md#caver-rpc-klay-getchainid) call to get `chainId`.
 

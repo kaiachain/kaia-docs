@@ -1,6 +1,6 @@
 # Sending a sample transaction
 
-Let's try sending a transaction as a simple warm-up. In this short example, we will be creating a keystore, connecting to Kaia node, as well as creating a transaction - all of this using caver-js!
+Let's try sending a transaction as a simple warm-up. In this short example, we will be creating a keystore, connecting to kaia node, as well as creating a transaction - all of this using caver-js!
 
 Don't worry if this is your first time using caver-js. Just follow the simple steps below.
 
@@ -116,11 +116,11 @@ touch testcaver.js
 We will be writing our code in this file to send a transaction to transfer KAIA.
 
 
-## 5. Connect to Kaia Node <a id="5.-connect-to-klaytn-node"></a> 
+## 5. Connect to kaia Node <a id="5.-connect-to-klaytn-node"></a> 
 
-Since we are sending a transaction to the blockchain network, we need to connect to a Kaia node. We will be using Kaia's testnet Baobab.
+Since we are sending a transaction to the blockchain network, we need to connect to a kaia node. We will be using kaia's testnet Baobab.
 
-We will import the `caver-js` and `read` module and connect to a Kaia node in the Baobab network as shown below:
+We will import the `caver-js` and `read` module and connect to a kaia node in the Baobab network as shown below:
 
 ```javascript
 const Caver = require('caver-js')
@@ -188,7 +188,7 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 	// Sign to the transaction
 	const signed = await caver.wallet.sign(keyring.address, vt)
 
-	// Send transaction to the Kaia blockchain platform (Kaia)
+	// Send transaction to the kaia blockchain platform (kaia)
 	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
 	console.log(receipt)
 }
@@ -283,7 +283,7 @@ async function sendKLAY() {
 	// Sign to the transaction
 	const signed = await caver.wallet.sign(keyring.address, vt)
 
-	// Send transaction to the Kaia blockchain platform (Kaia)
+	// Send transaction to the kaia blockchain platform (kaia)
 	const receipt = await caver.rpc.klay.sendRawTransaction(signed)
 	console.log(receipt)
 }

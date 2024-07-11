@@ -1,11 +1,11 @@
-# Ethers.js Extension for Kaia
+# Ethers.js Extension for kaia
 
-Ethers.js Extension for Kaia offers:
+Ethers.js Extension for kaia offers:
 
-- Drop-in replacement to `ethers.Wallet` that handles both Ethereum and Kaia transaction types
+- Drop-in replacement to `ethers.Wallet` that handles both Ethereum and kaia transaction types
   involving AccountKey and TxTypes.
 - Drop-in replacement to `ethers.providers.JsonRpcProvider` that provides accesses to both Ethereum RPCs and
-  Kaia-specific RPCs.
+  kaia-specific RPCs.
 - Drop-in replacement to `ethers.Web3Provider` to work with both MetaMask (`window.ethereum`) and Kaikas (`window.klaytn`)
 
 ## Note for ethers v6

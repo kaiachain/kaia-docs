@@ -28,7 +28,7 @@ const txWallet = new Wallet(senderAddr, senderRoleTransactionPriv, provider)
 
 async function main() {
   let tx = {
-    // use Kaia TxType to send transaction from Kaia typed account
+    // use kaia TxType to send transaction from kaia typed account
     type: TxType.ValueTransfer,
     from: senderAddr,
     to: recieverAddr,
@@ -115,7 +115,7 @@ Define receiver's **address**
 
 ---
 
-Set up the provider with the specified Kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js SignTxWithRoleBasedExample.js focus=12
 
@@ -148,7 +148,7 @@ const txWallet = new Wallet(senderAddr, senderRoleTransactionPriv, provider)
 
 async function main() {
   let tx = {
-    // use Kaia TxType to send transaction from Kaia typed account
+    // use kaia TxType to send transaction from kaia typed account
     type: TxType.ValueTransfer,
     from: senderAddr,
     to: recieverAddr,
@@ -216,7 +216,7 @@ rawTx 0x08f88641850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e987
 
 ---
 
-Send the **signed transaction** to Kaia network
+Send the **signed transaction** to kaia network
 
 <CH.Code>
 ```js SignTxWithRoleBasedExample.js focus=28:29
