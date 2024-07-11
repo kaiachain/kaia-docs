@@ -19,7 +19,7 @@ To get traces with the debug API, you first need to decide what kind of informat
 
 **NOTE**: Since Kaia v1.0.1 `callTracer` and `fastCallTracer` are identical as they consolidated to one native (Go) implementation.
 
-**NOTE**: Since Kaia v1.0.1 `callTracer` and `fastCallTracer` outputs are updated to more correctly reflect the execution. The same transaction could have yielded different trace in previous versions.
+**NOTE**: Since Kaia v1.0.1 `callTracer` and `fastCallTracer` outputs are updated to more correctly reflect the execution. The same transaction could have yielded different trace in previous versions. See the [GitHub PR](https://github.com/kaiachain/kaia/pull/15) for the details.
 
 - Predefined tracers
   - `callTracer` traces contract calls and contract creation within a transaction (internal tx). Returns the specific call or create opcode, revert reason, and gas spending at each call frame. Its use has been discouraged for slow speed, but since v1.0.1 the problem was resolved. Developers can safely use this tracer.
@@ -92,6 +92,8 @@ When an full-mode node serves the debug trace APIs it may undergo historical sta
 ## Using chaindatafetcher
 
 Chaindatafetcher (CDF) is a unique feature of Kaia where block processing results are published into Kafka queue to simplify building downstream data services. For instance a block explorer can utilize CDF to populate its database.
+
+**NOTE**: Since Kaia v1.0.1 tracegroup (internally callTracer) outputs are updated to more correctly reflect the execution. The same transaction could have yielded different trace in previous versions. See the [GitHub PR](https://github.com/kaiachain/kaia/pull/15) for the details.
 
 ### Connecting to Kafka
 
