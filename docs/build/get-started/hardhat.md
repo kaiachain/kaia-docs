@@ -10,7 +10,7 @@ Hardhat is a smart-contract development environment that will help you:
 * Develop and compile smart contracts.
 * Debug, test, and deploy smart contracts and dApps.
 
-Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.ca/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
+Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
 
 By the end of this guide you will be able to: 
 * Set up a Hardhat project on Kaia.
@@ -26,7 +26,7 @@ To follow this tutorial, the following are the prerequisites:
 
 * Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 * [Metamask](../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/service-providers/public-en.md).
+* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
 * Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 * [NodeJS and NPM](https://nodejs.org/en/)
 

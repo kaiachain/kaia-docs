@@ -12,7 +12,7 @@ In this guide, you'll learn how to use the viem library to read data from the bl
 
 * Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
 * [Metamask](../../build/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../service-providers/public-en.md).
+* RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../public-en.md).
 * Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
 * [NodeJS and NPM](https://nodejs.org/en/)
 * [TS-node](https://www.npmjs.com/package/ts-node): used for running TypeScript scripts.
@@ -39,7 +39,7 @@ In this tutorial, we will create a bunch of scripts file to read data from the b
 
 ### 2. Set up Public Client & Transport
 
-Firstly, you need to set up your Public [Client](https://viem.sh/docs/clients/intro) with a desired [Transport](https://viem.sh/docs/clients/intro) & [Chain](https://viem.sh/docs/chains/introduction). A Public Client is an interface to **public** [JSON-RPC API](https://docs.klaytn.foundation/docs/references/service-providers/public-en/) methods such as retrieving block numbers, transactions, reading from smart contracts, etc through [Public Actions](https://viem.sh/docs/actions/public/introduction).
+Firstly, you need to set up your Public [Client](https://viem.sh/docs/clients/intro) with a desired [Transport](https://viem.sh/docs/clients/intro) & [Chain](https://viem.sh/docs/chains/introduction). A Public Client is an interface to **public** [JSON-RPC API](https://docs.klaytn.foundation/docs/references/public-en/) methods such as retrieving block numbers, transactions, reading from smart contracts, etc through [Public Actions](https://viem.sh/docs/actions/public/introduction).
 
 ```ts
 import { createPublicClient, http } from 'viem'
