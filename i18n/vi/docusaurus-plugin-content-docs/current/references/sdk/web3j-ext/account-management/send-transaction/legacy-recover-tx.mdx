@@ -19,17 +19,17 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromTransactionResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromTransactionResponse;
 import org.web3j.utils.Numeric;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 
 /**
- * 
+ *
  */
 public class SignTxWithLegacyExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -78,7 +78,7 @@ public class SignTxWithLegacyExample implements keySample {
 
 ```zsh output
 ❯ java SignTxWithLegacyExample.java
-TxHash : 
+TxHash :
  0x957734684be8f79a21cef4de1842709b84c92e3920d656165ddb951981987b5a
 Original address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
@@ -88,7 +88,7 @@ Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 
 ---
 
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ```java SignTxWithLegacyExample.java focus=1:19
 
@@ -122,17 +122,17 @@ import org.web3j.crypto.transaction.type.TxType.Type;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromTransactionResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromTransactionResponse;
 import org.web3j.utils.Numeric;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 
 /**
- * 
+ *
  */
 public class SignTxWithLegacyExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -259,7 +259,7 @@ Sign the transaction
 
 ---
 
-Send the **signed transaction** to Klaytn network
+Send the **signed transaction** to kaia network
 
 <CH.Code>
 ```java SignTxWithLegacyExample.java focus=55:57
@@ -271,7 +271,7 @@ Send the **signed transaction** to Klaytn network
 
 ```zsh output
 ❯ java SignTxWithLegacyExample.java
-TxHash : 
+TxHash :
  0x957734684be8f79a21cef4de1842709b84c92e3920d656165ddb951981987b5a
 
 ````
