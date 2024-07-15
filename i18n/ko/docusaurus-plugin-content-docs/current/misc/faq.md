@@ -24,11 +24,7 @@
 
 ## 카이아란? <a id="what-is-klaytn"></a>
 
-카이아는 레이어1 블록체인 플랫폼으로 짧은 지연시간, 높은 TPS, 즉각적인 완결성을 자랑합니다. 게임을 구축하고 [메타버스](../learn/klaytn2/metaverse-package)를 구현하는 데 최적화된 블록체인입니다.
-
-## 카이아 2.0이란? <a id="what-is-klaytn-2.0"></a>
-
-카이아 2.0은 이더리움 이퀄런스와 포괄적인 메타버스 패키지를 지원하여 블록체인 구축 경험을 용이하게 하는 메타버스에 집중하는 카이아의 전환을 의미합니다. 카이아 2.0에 대한 더 자세한 내용은 [라이트 페이퍼](https://klaytn.foundation/wp-content/uploads/Lightpaper.pdf)를 참고하시기 바랍니다.
+카이아는 레이어1 블록체인 플랫폼으로 짧은 지연시간, 높은 TPS, 즉각적인 완결성을 자랑합니다. It is the optimal blockchain for building games and realizing the metaverse, supporting Ethereum Equivalence. It provides the comprehensive [Metaverse Package](https://metaverse-knowledge-kit.kaia.io/) to facilitate blockchain building experience. To better understand Kaia, please refer to our [Light Paper](https://klaytn.foundation/wp-content/themes/klaytn/download/lightpaper.pdf).
 
 ## 카이아는 어떻게 이더리움과 동등성을 지원하나요? <a id="how-ethereum-equivalence"></a>
 
@@ -44,7 +40,7 @@ Kaia는 EVM과 호환되며 모든 이더리움 London EVM 기능을 지원합�
 
 ## 카이아로 dApp 개발은 어디서 시작할 수 있나요? <a id="dapp-development"></a>
 
-이더리움에서 마이그레이션하든, 처음부터 카이아를 기반으로 구축하든, 필요한 모든 도구와 인프라를 지원합니다. 카이아 플러그인을 사용하여 [Remix IDE](../build//tutorials/connecting-remix)에서 스마트 컨트랙트를 테스트하거나, [MetaMask](../build/tutorials/connecting-metamask) 지갑과 [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)에 연결할 수 있습니다. 카이아의 sdk 'caver'는 [caver-js](https://github.com/klaytn/caver-js)로 제공되며, [튜토리얼](../build/tutorials/tutorials.md)을 참고하여 카이아에서 dApp을 구축해볼 수 있습니다.
+이더리움에서 마이그레이션하든, 처음부터 카이아를 기반으로 구축하든, 필요한 모든 도구와 인프라를 지원합니다. 카이아 플러그인을 사용하여 [Remix IDE](../build//tutorials/connecting-remix)에서 스마트 컨트랙트를 테스트하거나, [MetaMask](../build/tutorials/connecting-metamask) 지갑과 [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)에 연결할 수 있습니다. Kaia’s sdk `caver` is available as [caver-js](https://github.com/kaiachain/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
 
 ## 카이아는 오픈소스인가요? <a id="is-klaytn-open-source"></a>
 
@@ -61,8 +57,8 @@ Refer to this [list](../references/public-en#public-json-rpc-endpoint-providers)
 
 ## KAIA를 테스트할 수 있는 Faucet이 있나요? <a id="are-there-faucets"></a>
 
-여기에서 개발 및 테스트 목적으로 테스트 KAIA를 받을 수 있습니다:
-[KLAY Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+You can get test KAIA for development and testing purposes here:
+[Kaia Faucet](https://kairos.wallet.kaia.io/faucet)
 [AllThatNode Faucet](https://www.allthatnode.com/faucet/klaytn.dsrv)
 
 ## 퍼블릭 RPC 엔드포인트 상태는 어떻게 확인하나요? <a id="rpc-endpoint-status"></a>
@@ -81,7 +77,7 @@ Cypress는 Kaia 메인넷, Kairos는 테스트넷입니다.
 메인넷:
 
 - EN 다운로드 : [다운로드 페이지](../nodes/downloads/downloads.md)에서 메인넷 패키지를 선택합니다.
-- Klaytnscope : https://klaytnscope.com
+- Kaiascope : https://kaiascope.com/
 - 카이아 지갑 : https://wallet.klaytn.com
 
 Kairos 테스트넷:
@@ -89,7 +85,7 @@ Kairos 테스트넷:
 - EN 다운로드 : [다운로드 페이지](../nodes/downloads/downloads.md)에서 Kairos 패키지를 선택합니다.
 - Klaytnscope : https://baobab.klaytnscope.com
 - 카이아 지갑 : https://baobab.wallet.klaytn.foundation
-- Kairos Faucet : https://baobab.wallet.klaytn.foundation/faucet
+- Kairos Faucet : https://kairos.wallet.kaia.io/faucet
 
 ## 카이아 SDK가 있나요? 어떤 언어로 제공되나요? <a id="klaytn-sdks"></a>
 
