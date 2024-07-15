@@ -1,6 +1,4 @@
-# Governance
-
-## Overview <a id="overview"></a>
+# Overview
 
 ### Kaia Governance: Taking the First Step to Decentralization <a id="kaia-governance-taking-the-first-step-to-decentralization"></a>
 
