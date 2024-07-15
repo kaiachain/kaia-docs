@@ -15,7 +15,7 @@ Kaia continues to generate blocks on top of the Klaytn blockchain launched on Ju
 - 4,000 transactions per second.
 - Low gas price that is almost 1/10 of Ethereum.
 - Runs EVM (Ethereum Virtual Machine) and supports the execution of Solidity contracts.
-- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="../misc/glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Klaytn blockchain development and operations.">Klaytn Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="../misc/glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Klaytnscope](https://klaytnscope.com).
+- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="../misc/glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Klaytn blockchain development and operations.">Klaytn Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="../misc/glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Kaiascope](https://kaiascope.com/).
 - More than 50 initial service partners have committed to launch Blockchain Applications on Klaytn.
 
 ## Klaytn: The Big Picture <a id="klaytn-the-big-picture"></a>
