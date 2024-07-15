@@ -80,7 +80,7 @@ Below is the gas cost table for precompiled contracts in Klaytn. `Input` is a by
 | 0x02    | sha256hash            | numOfWords(input) \* 12 + 60                                                                                            |
 | 0x03    | ripemd160hash         | numOfWords(input) \* 120 + 600                                                                                          |
 | 0x04    | dataCopy              | numOfWords(input) \* 3 + 15                                                                                             |
-| 0x05    | bigModExp             | see the code [here](https://github.com/klaytn/klaytn/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)        |
+| 0x05    | bigModExp             | see the code [here](https://github.com/kaiachain/kaia/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)       |
 | 0x06    | bn256Add              | 150                                                                                                                                        |
 | 0x07    | bn256ScalarMul        | 6,000                                                                                                                                      |
 | 0x08    | bn256Pairing          | numOfPairings(input) \* 34,000 + 45,000                                                                                 |
