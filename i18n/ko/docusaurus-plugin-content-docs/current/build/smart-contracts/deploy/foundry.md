@@ -27,7 +27,7 @@ Foundry는 빠르고 모듈화된 스마트 컨트랙트 개발을 가능하게 
 - 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
 - [MetaMask](../../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/public-en.md).
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
+- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
 - [Rust](https://www.rust-lang.org/tools/install) 및 [Foundry](https://github.com/foundry-rs/foundry#installation)를 설치합니다.
 
 ## 개발 환경 설정하기
@@ -276,7 +276,7 @@ anvil --fork-url https://archive-en.cypress.klaytn.net
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-위 작업의 결과는 [16진수를 10진수로 변환](https://www.rapidtables.com/convert/number/hex-to-decimal.html)을 사용하여 변환할 수 있습니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. 이를 확인하려면 [Klaytnscope](https://klaytnscope.com/block/118704896?tabId=txList)에서 블록 번호를 상호 참조하세요.
+위 작업의 결과는 [16진수를 10진수로 변환](https://www.rapidtables.com/convert/number/hex-to-decimal.html)을 사용하여 변환할 수 있습니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. To verify this, cross-reference the block number on [Kaiascope](https://kaiascope.com/block/118704896?tabId=txList).
 
 ### 실사례
 
