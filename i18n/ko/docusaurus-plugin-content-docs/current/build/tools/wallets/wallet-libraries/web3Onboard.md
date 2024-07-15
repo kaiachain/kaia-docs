@@ -17,7 +17,7 @@ sidebar_label: Web3-Onboard
 - 작동하는 리액트 프로젝트(`npx create-react-app project-name` 실행)
 - 필요한 지갑 설치([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)).
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
+- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
 
 ## 시작하기
 
