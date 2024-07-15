@@ -541,7 +541,7 @@ Remix 온라인 IDE를 사용하거나 Truffle을 사용하여 `MyERC20` 스마�
 - [Remix용 카이아 플러그인](https://ide.klaytn.foundation)을 방문하여 `MyERC20` 컨트랙트를 생성하세요. 전체 소스코드는 [ERC-20 스마트 컨트랙트 작성하기](#1-writing-erc-20-smart-contract)에서 확인하실 수 있습니다.
 - 컨트랙트 배포에 사용할 계정을 준비합니다.
   - 아직 계정이 없다면 [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) 또는 [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy)에서 계정을 생성합니다.
-  - [https://baobab.wallet.klaytn.foundation/faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KAIA를 받습니다.
+  - Get some test KAIA from the faucet - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
 - 배포 파라미터를 `BAOBABTOKEN`, `BAO`, `8`로 설정하여 `MyERC20.sol`을 배포해 봅시다.
 
 ![ERC20-1-deploy](/img/build/smart-contracts/erc20-1-deploy.png)
