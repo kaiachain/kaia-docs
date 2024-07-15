@@ -3,9 +3,9 @@
 이 페이지는 카이아 노드의 중요하거나 자주 묻는 로그에 대해 자세히 설명합니다.
 카이아 로그를 수정하거나 새로 추가/삭제한 경우, 이 페이지도 수정해 주세요.
 
-로그 유형에 대한 자세한 내용은 [log_modules.go](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go)를 참조하세요.
+For more detailed information about log types, you can refer to [log_modules.go](https://github.com/kaiachain/kaia/blob/dev/log/log_modules.go)
 
-비정상적인 상황이 발생하면 [github](https://github.com/klaytn/klaytn/issues), [Kaia 포럼](https://forum.klaytn.foundation/), [Discord](https://discord.io/KlaytnOfficial)를 통해 카이아 팀에 신고해주시기 바랍니다.
+If you encounter any abnormal situation, please report it to the klaytn team via [github](https://github.com/kaiachain/kaia/issues), [Kaia Forum](https://forum.klaytn.foundation/), or [Discord](https://discord.io/KaiaOfficial).
 
 ## 오류 로그
 
