@@ -1,6 +1,6 @@
 # caver.rpc
 
-`caver.rpc` is a package that provides functionality related to rpc call with Klaytn Node.
+`caver.rpc` is a package that provides functionality related to rpc call with kaia Node.
 
 ## Class <a id="class"></a>
 
@@ -22,7 +22,7 @@ caver.rpc
 
 ## JSON-RPC calls <a id="json-rpc-calls"></a>
 
-The `caver.rpc.klay` allows you to interact with the Klaytn nodes. The list below enumerates the API functions that are currently supported in `caver-js`.
+The `caver.rpc.klay` allows you to interact with the kaia nodes. The list below enumerates the API functions that are currently supported in `caver-js`.
 
 ### [Account](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
 
