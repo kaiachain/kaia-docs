@@ -15,7 +15,7 @@ In this tutorial, you will utilize the VRF functionality from Orakl Network to r
 - [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 - [Remix IDE](https://remix.ethereum.org/)
 - [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet)
 
 ## Getting Started
 
@@ -46,7 +46,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### Step 2: Initialize VRF Coordinator
 
-To request for random words in your smart contract, you need to initialize the [`VRFCoordinator`](https://github.com/Bisonai/orakl/blob/master/contracts-v0.1/src/v0.1/VRFCoordinator.sol) smart contract. It is recommended to bond `VRFCoordinator` interface with `VRFCoordinator` address supplied through a constructor parameter, and use it for random word requests (`requestRandomWords`). The `VRFCoordinator` contract is deployed both on Kaia Kairos [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://baobab.klaytnfinder.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499) and Kaia Mainnet [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.klaytnfinder.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb).
+To request for random words in your smart contract, you need to initialize the [`VRFCoordinator`](https://github.com/Bisonai/orakl/blob/master/contracts-v0.1/src/v0.1/VRFCoordinator.sol) smart contract. It is recommended to bond `VRFCoordinator` interface with `VRFCoordinator` address supplied through a constructor parameter, and use it for random word requests (`requestRandomWords`). The `VRFCoordinator` contract is deployed both on Kaia Kairos [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://kairos.kaiascan.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499) and Kaia Mainnet [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.kaiascan.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb).
 
 ```solidity
   IVRFCoordinator COORDINATOR;
