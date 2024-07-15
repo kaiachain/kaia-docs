@@ -5,7 +5,7 @@ You can make a **"transaction"** that including **payment request** to feepayer 
 <CH.Spotlight>
 <CH.Code>
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py
+```py contract_interaction_with_fee_delegation_kaia_type.py
 from web3py_ext import extend
 from web3 import Web3
 from eth_account import Account
@@ -21,7 +21,7 @@ w3 = Web3(Web3.HTTPProvider(
 def contract_interaction_with_fee_delegation_klaytn_type():
     user = Account.from_key('0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49')
     fee_delegator = Account.from_key('0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4')
-    
+
     c = w3.eth.contract(
       address="0x95Be48607498109030592C08aDC9577c7C2dD505",
       abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
@@ -29,7 +29,7 @@ def contract_interaction_with_fee_delegation_klaytn_type():
 
     # view before write transaction
     print('\nnumber before: ', c.functions.number().call())
-    
+
     # sender sign with fee delegated smart contract execution type
     tx = c.functions.increment().build_transaction({
         "type":TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION,
@@ -46,7 +46,7 @@ def contract_interaction_with_fee_delegation_klaytn_type():
     )
     tx_hash = w3.eth.send_raw_transaction(feepayer_signed_tx.rawTransaction)
     print('receipt: ', w3.eth.wait_for_transaction_receipt(tx_hash))
-    
+
     # view after write transaction
     print('\nnumber after: ', c.functions.number().call())
 
@@ -56,7 +56,7 @@ contract_interaction_with_fee_delegation_klaytn_type()
 ---
 
 ```zsh output
-❯ py contract_interaction_with_fee_delegation_klaytn_type.py
+❯ py contract_interaction_with_fee_delegation_kaia_type.py
 
 number before:  294
 receipt:  AttributeDict({'blockHash': HexBytes('0xa1ecb35a068736c6257915f8a89dfeec30cace985dc244a1b82c887fd9360f3a'), 'blockNumber': 147174601, 'contractAddress': None, 'cumulativeGasUsed': 377941, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 38014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'topics': [HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000127'), 'blockNumber': 147174601, 'transactionHash': HexBytes('0xded6817cb1c5112a2a4c8aebd0c74a56bfcdde10c393261b7e8212db67958743'), 'transactionIndex': 2, 'blockHash': HexBytes('0xa1ecb35a068736c6257915f8a89dfeec30cace985dc244a1b82c887fd9360f3a'), 'logIndex': 6, 'removed': False})], 'logsBloom': HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'), 'status': 1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash': HexBytes('0xded6817cb1c5112a2a4c8aebd0c74a56bfcdde10c393261b7e8212db67958743'), 'transactionIndex': 2, 'type': 0})
@@ -68,9 +68,9 @@ number after:  295
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=1:2
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=1:2
 
 ```
 
@@ -78,15 +78,15 @@ Import **extend** from **web3py_ext** to extend web3 to klaytn web3
 
 Import necessary utils from **web3** and **eth_account**
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=3:7
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=3:7
 
 ```
 
 ---
 
-Create a Web3 instance with the Klaytn Baobab testnet endpoint
+Create a Web3 instance with the kaia Baobab testnet endpoint
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=9:11
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=9:11
 
 ```
 
@@ -94,7 +94,7 @@ Create a Web3 instance with the Klaytn Baobab testnet endpoint
 
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=9:11
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=9:11
 from web3py_ext import extend
 from web3 import Web3
 from eth_account import Account
@@ -104,13 +104,13 @@ from web3py_ext.transaction.transaction import (
 )
 
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet-rpc.allthatnode.com:8551'
+    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
     ))
 
 def contract_interaction_with_fee_delegation_klaytn_type():
     user = Account.from_key('0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49')
     fee_delegator = Account.from_key('0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4')
-    
+
     c = w3.eth.contract(
       address="0x95Be48607498109030592C08aDC9577c7C2dD505",
       abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
@@ -118,7 +118,7 @@ def contract_interaction_with_fee_delegation_klaytn_type():
 
     # view before write transaction
     print('\nnumber before: ', c.functions.number().call())
-    
+
     # sender sign with fee delegated smart contract execution type
     tx = c.functions.increment().build_transaction({
         "type":TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION,
@@ -135,7 +135,7 @@ def contract_interaction_with_fee_delegation_klaytn_type():
     )
     tx_hash = w3.eth.send_raw_transaction(feepayer_signed_tx.rawTransaction)
     print('receipt: ', w3.eth.wait_for_transaction_receipt(tx_hash))
-    
+
     # view after write transaction
     print('\nnumber after: ', c.functions.number().call())
 
@@ -146,7 +146,7 @@ contract_interaction_with_fee_delegation_klaytn_type()
 
 Load the **user** and **fee delegator** account from each private key
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=14:15
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=14:15
 
 ```
 
@@ -154,7 +154,7 @@ Load the **user** and **fee delegator** account from each private key
 
 Create the **contract instance** with its address and ABI
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=17:20
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=17:20
 
 ```
 
@@ -162,7 +162,7 @@ Create the **contract instance** with its address and ABI
 
 Set the contract address that you deployed in the deploy tutorial (**Counter contract**). You can see the address in your deploy tx receipt
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=18
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=18
 
 ```
 
@@ -170,7 +170,7 @@ Set the contract address that you deployed in the deploy tutorial (**Counter con
 
 Set the contract abi. You can get the ABI after compiled in remix or solc compiler
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=19
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=19
 
 ```
 
@@ -179,7 +179,7 @@ Set the contract abi. You can get the ABI after compiled in remix or solc compil
 Call the view function of the contract and **print** the result
 
 <CH.Code>
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=22:23
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=22:23
 
 ````
 ---
@@ -194,7 +194,7 @@ number before:  294
 
 Make a tx with **build_transaction** that returns the tx instance along with passed fields as parameter. You should set the **TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION** type to request fee delegation to fee payer
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=26:29
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=26:29
 
 ```
 
@@ -202,7 +202,7 @@ Make a tx with **build_transaction** that returns the tx instance along with pas
 
 **increment()** automatically makes the function call data and set it to the **data** field
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=26
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=26
 
 ```
 
@@ -210,7 +210,7 @@ Make a tx with **build_transaction** that returns the tx instance along with pas
 
 Use **fill_transaction** to add **rest of the fields** of the transaction like **gas limit**, **Nonce**, etc. You can print all the fields after this line if you want to see
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=30
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=30
 
 ```
 
@@ -218,7 +218,7 @@ Use **fill_transaction** to add **rest of the fields** of the transaction like *
 
 Sign the transaction with the **user's** private key
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=31
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=31
 
 ```
 
@@ -226,7 +226,7 @@ Sign the transaction with the **user's** private key
 
 Sign the transaction as **fee payer** with the fee delegator's key. You need to pass the fee payer's address as well.
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=33:38
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=33:38
 
 ```
 
@@ -234,7 +234,7 @@ Sign the transaction as **fee payer** with the fee delegator's key. You need to 
 
 Send the raw transaction and get the **transaction hash**
 
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=39
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=39
 
 ```
 
@@ -243,7 +243,7 @@ Send the raw transaction and get the **transaction hash**
 Wait for the transaction **receipt**
 
 <CH.Code>
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=40
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=40
 
 ````
 ---
@@ -258,7 +258,7 @@ receipt:  AttributeDict({'blockHash': HexBytes('0xa1ecb35a068736c6257915f8a89dfe
 Check if contract has **updated** the state
 
 <CH.Code>
-```py contract_interaction_with_fee_delegation_klaytn_type.py focus=42:43
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=42:43
 
 ````
 ---
