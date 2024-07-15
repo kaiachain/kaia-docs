@@ -13,7 +13,7 @@ With SupraOracles, your smart contract can get access to price data feeds to bui
 - [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 - [Remix IDE](https://remix.ethereum.org/)
 - [Klaytn Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet)
 
 ## Getting Started
 
