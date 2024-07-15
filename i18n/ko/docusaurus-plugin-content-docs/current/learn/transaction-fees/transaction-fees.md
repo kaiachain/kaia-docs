@@ -58,7 +58,7 @@ baseFee 계산은 다음 매개 변수에 따라 달라집니다:
   - UPPER_BOUND_BASE_FEE: 기본 수수료의 최대값
   - LOWER_BOUND_BASE_FEE: 기본 수수료의 최소값
 
-아래는 기본 수수료 계산을 지나치게 단순화한 버전입니다. 본질적으로 기본 수수료 변경은 GAS_TARGET과 PREVIOUS_BLOCK_GAS_USED의 차이에 비례하며, 다른 매개변수는 변경 속도를 제어하거나 기본 수수료의 한계를 지정합니다. 정확한 공식은 [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md)을 참조하세요.
+아래는 기본 수수료 계산을 지나치게 단순화한 버전입니다. 본질적으로 기본 수수료 변경은 GAS_TARGET과 PREVIOUS_BLOCK_GAS_USED의 차이에 비례하며, 다른 매개변수는 변경 속도를 제어하거나 기본 수수료의 한계를 지정합니다. Refer to [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md) for the exact formula.
 
 ```
               min(PREVIOUS_BLOCK_GAS_USED, MAX_BLOCK_GAS_USED_FOR_BASE_FEE) - GAS_TARGET
@@ -74,7 +74,7 @@ nextBaseFee = max(min(nextBaseFeeBeforeBound, UPPER_BOUND_BASE_FEE), LOWER_BOUND
 
 #### 가스 요금 소각
 
-Magma 하드포크 이후, 블록 가스 수수료의 절반이 소진됩니다. 자세한 내용은 [KIP-71](https://github.com/klaytn/kips/blob/main/KIPs/kip-71.md)을 참조하세요.
+Magma 하드포크 이후, 블록 가스 수수료의 절반이 소진됩니다. See [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md) for details.
 
 Kore 하드포크 이후, 대부분의 블록 가스 수수료가 소진되었습니다. 자세한 내용은 [KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)를 참조하세요.
 
@@ -84,7 +84,7 @@ Kaia 하드포크 이후, 트랜잭션은 블록 포함 가능성을 높이기 �
 
 트랜잭션의 유효 가스 가격은 `min(baseFee + tipCap, feeCap)`으로 정의됩니다. 유형 2 트랜잭션의 경우, 트랜잭션 필드인 `maxPriorityFeePerGas`와 `maxFeePerGas`는 자연스럽게 tipCap과 feeCap이 됩니다. 그러나 다른 트랜잭션 유형에는 `gasPrice` 필드가 하나만 있습니다. 이러한 유형의 경우 tipCap과 feeCap은 모두 `gasPrice`와 같습니다. 결과적으로 유효 가스 가격은 `min(baseFee + tipCap, feeCap) = min(baseFee + gasPrice, gasPrice) = gasPrice`가 되며, 이는 가스 가격 경매 메커니즘과 동일합니다.
 
-자세한 내용은 [KIP-162](https://github.com/klaytn/kips/blob/main/KIPs/kip-162.md)를 참조하세요.
+See [KIP-162](https://github.com/kaiachain/kips/blob/main/KIPs/kip-162.md) for details.
 
 ### 요약
 
