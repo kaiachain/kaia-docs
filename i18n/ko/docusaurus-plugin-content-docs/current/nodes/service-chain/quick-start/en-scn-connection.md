@@ -31,7 +31,7 @@ EN-01$ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
 EN 서버에서 `Kairos` 네트워크용 `genesis.json`을 다운로드합니다.
 
 ```
-EN-01$ curl -X GET https://packages.klaytn.net/baobab/genesis.json -o ~/genesis.json
+EN-01$ curl -X GET https://packages.kaia.io/kairos/genesis.json -o ~/genesis.json
 ```
 
 ## 2단계: EN 노드 초기화 <a id="step-2-en-node-initialization"></a>
