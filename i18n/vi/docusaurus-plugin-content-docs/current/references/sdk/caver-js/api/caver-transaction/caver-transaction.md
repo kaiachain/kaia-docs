@@ -63,19 +63,19 @@ ValueTransfer {
 caver.transaction.getTransactionByHash('0x{transaction hash}')
 ```
 
-Queries a transaction from Klaytn and converts to a caver transaction instance.
+Queries a transaction from kaia and converts to a caver transaction instance.
 
 **NOTE** `caver.transaction.getTransactionByHash` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
 **Parameters**
 
-| Name            | Type   | Description                                                       |
-| --------------- | ------ | ----------------------------------------------------------------- |
-| transactionHash | string | The transaction hash string to query from Klaytn. |
+| Name            | Type   | Description                                                     |
+| --------------- | ------ | --------------------------------------------------------------- |
+| transactionHash | string | The transaction hash string to query from kaia. |
 
 **Return Value**
 
-`Promise` returning `object`: An instance of [Transaction](#class). If it fails to receive a transaction object from Klaytn, an error occurs.
+`Promise` returning `object`: An instance of [Transaction](#class). If it fails to receive a transaction object from kaia, an error occurs.
 
 | Type   | Description                                                                                                                            |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -471,7 +471,7 @@ transaction.getRLPEncoding()
 
 Returns a RLP-encoded transaction string.
 
-For information on how to make the RLP-encoded string for each transaction type, see [Klaytn Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make the RLP-encoded string for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
 **Return Value**
 
@@ -515,7 +515,7 @@ transaction.getTransactionHash()
 
 Returns a `transactionHash`.
 
-For information on how to make the transaction hash for each transaction type, see [Klaytn Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make the transaction hash for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
 **Return Value**
 
@@ -540,7 +540,7 @@ Returns a [senderTxHash](../../../../../learn/transactions/transactions.md#sende
 
 The [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) are the same for basic transactions.
 
-For information on how to make the [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for each transaction type, see [Klaytn Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make the [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
 **Return Value**
 
@@ -563,7 +563,7 @@ transaction.getRLPEncodingForSignature()
 
 Returns a RLP-encoded transaction string for making the signature of the transaction sender. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
 **Return Value**
 
@@ -586,7 +586,7 @@ transaction.getRLPEncodingForFeePayerSignature()
 
 Returns a RLP-encoded transaction string for making the signature of the fee payer. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Klaytn Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
 **NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
@@ -611,7 +611,7 @@ transaction.fillTransaction()
 
 Fills in the optional variables in transaction.
 
-If the `gasPrice`, `nonce`, or `chainId` of the transaction are not defined, this method asks the default values for these optional variables and preset them by sending JSON RPC call to the connected Klaytn Node.
+If the `gasPrice`, `nonce`, or `chainId` of the transaction are not defined, this method asks the default values for these optional variables and preset them by sending JSON RPC call to the connected kaia Node.
 
 Use [caver.rpc.klay.getGasPrice](../caver-rpc/klay.md#caver-rpc-klay-getgasprice) to get `gasPrice`, [caver.rpc.klay.getTransactionCount](../caver-rpc/klay.md#caver-rpc-klay-gettransactioncount) to get `nonce` and [caver.rpc.klay.getChainId](../caver-rpc/klay.md#caver-rpc-klay-getchainid) call to get `chainId`.
 
