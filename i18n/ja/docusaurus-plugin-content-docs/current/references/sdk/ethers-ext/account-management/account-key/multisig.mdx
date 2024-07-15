@@ -3,35 +3,39 @@
 **AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
 
 In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-    _ The weighted sum of the signed public keys should be larger than the threshold.
-    _ The invalid signature should not be included in the transaction.
-    \* The number of signed public keys should be less than the number of weightedPublicKeys.
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
 
 <CH.Spotlight>
 <CH.Code>
 
 ```js AccountUpdateWithMultiSigExample.js
-const { ethers } = require("ethers");
+const { ethers } = require('ethers')
 
-const { Wallet, TxType, AccountKeyType } = require("@klaytn/ethers-ext");
+const { Wallet, TxType, AccountKeyType } = require('@kaiachain/ethers-ext')
 
 // Using same senderNewPriv keys to execute this example repeatedly.
 // But you might want to register the different private keys.
-const senderAddr = "0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e";
-const senderNewPriv1 = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a";
-const senderNewPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const senderNewPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const senderAddr = '0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e'
+const senderNewPriv1 =
+  '0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a'
+const senderNewPriv2 =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const senderNewPriv3 =
+  '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
-const wallet1 = new Wallet(senderAddr, senderNewPriv1, provider);
-const wallet2 = new Wallet(senderAddr, senderNewPriv2, provider);
-const wallet3 = new Wallet(senderAddr, senderNewPriv3, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const wallet1 = new Wallet(senderAddr, senderNewPriv1, provider)
+const wallet2 = new Wallet(senderAddr, senderNewPriv2, provider)
+const wallet3 = new Wallet(senderAddr, senderNewPriv3, provider)
 
 async function main() {
-  const pub1 = ethers.utils.computePublicKey(senderNewPriv1, true);
-  const pub2 = ethers.utils.computePublicKey(senderNewPriv2, true);
-  const pub3 = ethers.utils.computePublicKey(senderNewPriv3, true);
-  console.log({ pub1, pub2, pub3 });
+  const pub1 = ethers.utils.computePublicKey(senderNewPriv1, true)
+  const pub2 = ethers.utils.computePublicKey(senderNewPriv2, true)
+  const pub3 = ethers.utils.computePublicKey(senderNewPriv3, true)
+  console.log({ pub1, pub2, pub3 })
 
   const tx = {
     type: TxType.AccountUpdate,
@@ -44,31 +48,31 @@ async function main() {
         [1, pub1],
         [1, pub2],
         [1, pub3],
-      ]
-    }
-  };
+      ],
+    },
+  }
 
   // The example senderAddr actually requires only 2 signature (threshold = 2),
   // but we use 3 signatures to show different ways to sign a transaction.
 
   // sign 1: First signer sign from the tx object
-  const populatedTx = await wallet1.populateTransaction(tx);
-  const rawTx1 = await wallet1.signTransaction(populatedTx);
-  console.log("rawTx1", rawTx1);
+  const populatedTx = await wallet1.populateTransaction(tx)
+  const rawTx1 = await wallet1.signTransaction(populatedTx)
+  console.log('rawTx1', rawTx1)
 
   // sign 2: Middle signer sign from the rawTx
-  const rawTx2 = await wallet2.signTransaction(rawTx1);
-  console.log("rawTx2", rawTx2);
+  const rawTx2 = await wallet2.signTransaction(rawTx1)
+  console.log('rawTx2', rawTx2)
 
   // sign 3: Last signer sign and send from the rawTx
-  const sentTx3 = await wallet3.sendTransaction(rawTx2);
-  console.log("sentTx3", sentTx3.hash);
+  const sentTx3 = await wallet3.sendTransaction(rawTx2)
+  console.log('sentTx3', sentTx3.hash)
 
-  const receipt = await sentTx3.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx3.wait()
+  console.log('receipt', receipt)
 }
 
-main().catch(console.error);
+main().catch(console.error)
 ```
 
 ---
@@ -107,7 +111,7 @@ receipt {
 
 ---
 
-Import the **ethers** and **@klaytn/ethers-ext** packages to add klaytn features on ethers.js
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
 
 ```js AccountUpdateWithMultiSigExample.js focus=1:3
 
@@ -123,7 +127,7 @@ Define sender **address**, sender **private key** and new **muti-sig private key
 
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js AccountUpdateWithMultiSigExample.js focus=12
 
@@ -134,27 +138,32 @@ Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js AccountUpdateWithMultiSigExample.js focus=12
-const { ethers } = require("ethers");
+const { ethers } = require('ethers')
 
-const { Wallet, TxType, AccountKeyType } = require("@klaytn/ethers-ext");
+const { Wallet, TxType, AccountKeyType } = require('@kaiachain/ethers-ext')
 
 // Using same senderNewPriv keys to execute this example repeatedly.
 // But you might want to register the different private keys.
-const senderAddr = "0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e";
-const senderNewPriv1 = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a";
-const senderNewPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const senderNewPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const senderAddr = '0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e'
+const senderNewPriv1 =
+  '0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a'
+const senderNewPriv2 =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const senderNewPriv3 =
+  '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
-const wallet1 = new Wallet(senderAddr, senderNewPriv1, provider);
-const wallet2 = new Wallet(senderAddr, senderNewPriv2, provider);
-const wallet3 = new Wallet(senderAddr, senderNewPriv3, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const wallet1 = new Wallet(senderAddr, senderNewPriv1, provider)
+const wallet2 = new Wallet(senderAddr, senderNewPriv2, provider)
+const wallet3 = new Wallet(senderAddr, senderNewPriv3, provider)
 
 async function main() {
-  const pub1 = ethers.utils.computePublicKey(senderNewPriv1, true);
-  const pub2 = ethers.utils.computePublicKey(senderNewPriv2, true);
-  const pub3 = ethers.utils.computePublicKey(senderNewPriv3, true);
-  console.log({ pub1, pub2, pub3 });
+  const pub1 = ethers.utils.computePublicKey(senderNewPriv1, true)
+  const pub2 = ethers.utils.computePublicKey(senderNewPriv2, true)
+  const pub3 = ethers.utils.computePublicKey(senderNewPriv3, true)
+  console.log({ pub1, pub2, pub3 })
 
   const tx = {
     type: TxType.AccountUpdate,
@@ -167,32 +176,31 @@ async function main() {
         [1, pub1],
         [1, pub2],
         [1, pub3],
-      ]
-    }
-  };
+      ],
+    },
+  }
 
   // The example senderAddr actually requires only 2 signature (threshold = 2),
   // but we use 3 signatures to show different ways to sign a transaction.
 
   // sign 1: First signer sign from the tx object
-  const populatedTx = await wallet1.populateTransaction(tx);
-  const rawTx1 = await wallet1.signTransaction(populatedTx);
-  console.log("rawTx1", rawTx1);
+  const populatedTx = await wallet1.populateTransaction(tx)
+  const rawTx1 = await wallet1.signTransaction(populatedTx)
+  console.log('rawTx1', rawTx1)
 
   // sign 2: Middle signer sign from the rawTx
-  const rawTx2 = await wallet2.signTransaction(rawTx1);
-  console.log("rawTx2", rawTx2);
+  const rawTx2 = await wallet2.signTransaction(rawTx1)
+  console.log('rawTx2', rawTx2)
 
   // sign 3: Last signer sign and send from the rawTx
-  const sentTx3 = await wallet3.sendTransaction(rawTx2);
-  console.log("sentTx3", sentTx3.hash);
+  const sentTx3 = await wallet3.sendTransaction(rawTx2)
+  console.log('sentTx3', sentTx3.hash)
 
-  const receipt = await sentTx3.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx3.wait()
+  console.log('receipt', receipt)
 }
 
-main().catch(console.error);
-
+main().catch(console.error)
 ```
 
 ---
@@ -265,7 +273,7 @@ rawTx2 0x20f9012474850ba43b7400830f42409482c6a8d94993d49cfd0c1d30f0f8caa65782cc7
 
 ---
 
-Sign the transaction with the third wallet and send it to Klaytn network
+Sign the transaction with the third wallet and send it to kaia network
 
 <CH.Code>
 ```js AccountUpdateWithMultiSigExample.js focus=50:52
@@ -281,7 +289,7 @@ sentTx3 0x722b434220cd61c80cf827672bc79006183629399a4f1ad0c98552a47cbb7e07
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain. 
+The **wait** function returns the tx receipt if it is completed in the blockchain.
 
 <CH.Code>
 ```js AccountUpdateWithMultiSigExample.js focus=54:55
