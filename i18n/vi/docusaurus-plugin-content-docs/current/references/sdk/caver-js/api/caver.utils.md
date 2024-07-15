@@ -337,7 +337,7 @@ false
 caver.utils.isAddress(address)
 ```
 
-Checks if a given string is a valid Klaytn address. It will also check the checksum if the address has upper and lowercase letters.
+Checks if a given string is a valid kaia address. It will also check the checksum if the address has upper and lowercase letters.
 
 **Parameters**
 
@@ -347,9 +347,9 @@ Checks if a given string is a valid Klaytn address. It will also check the check
 
 **Return Value**
 
-| Type    | Description                                                         |
-| ------- | ------------------------------------------------------------------- |
-| boolean | `true` if a given string is a valid Klaytn address. |
+| Type    | Description                                                       |
+| ------- | ----------------------------------------------------------------- |
+| boolean | `true` if a given string is a valid kaia address. |
 
 **Examples**
 
@@ -376,7 +376,7 @@ false // wrong checksum
 caver.utils.toChecksumAddress(address)
 ```
 
-Converts an upper or lowercase Klaytn address to a checksum address.
+Converts an upper or lowercase kaia address to a checksum address.
 
 **Parameters**
 
@@ -719,16 +719,16 @@ Returns a HEX string from a byte array.
 caver.utils.convertToPeb(number [, unit])
 ```
 
-Converts any KLAY value into peb.
+Converts any KAIA value into peb.
 
-**NOTE**: "peb" is the smallest KLAY unit, and you should always use "peb" as the unit of KLAY. Convert to "KLAY" only for display reasons.
+**NOTE**: "peb" is the smallest KAIA unit, and you should always use "peb" as the unit of KAIA. Convert to "KAIA" only for display reasons.
 
 **Parameters**
 
 | Name   | Type                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | number | string \\| number \\| BN | The value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| unit   | string                     | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert from. <code>number</code> will be multiplied by one of the following multipliers for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
+| unit   | string                     | <p>(optional, defaults to <code>"KAIA"</code>) The unit of KAIA to convert from. <code>number</code> will be multiplied by one of the following multipliers for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KAIA</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
 
 **Return Value**
 
@@ -739,10 +739,10 @@ Converts any KLAY value into peb.
 **Examples**
 
 ```javascript
-> caver.utils.convertToPeb('1', 'KLAY')
+> caver.utils.convertToPeb('1', 'KAIA')
 '1000000000000000000'
 
-> caver.utils.convertToPeb(caver.utils.toBN(1), 'KLAY')
+> caver.utils.convertToPeb(caver.utils.toBN(1), 'KAIA')
 <BN: de0b6b3a7640000>
 ```
 
@@ -752,14 +752,14 @@ Converts any KLAY value into peb.
 caver.utils.convertFromPeb(number [, unit])
 ```
 
-**NOTE**: "peb" is the smallest KLAY unit, and you should always use "peb" as the unit of KLAY. Convert to "KLAY" only for display reasons.
+**NOTE**: "peb" is the smallest KAIA unit, and you should always use "peb" as the unit of KAIA. Convert to "KAIA" only for display reasons.
 
 **Parameters**
 
 | Name   | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------ | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | number | string \\| number \\| BN \\| BigNumber | The value in peb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| unit   | string                                    | <p>(optional, defaults to <code>"KLAY"</code>) The unit of KLAY to convert your "peb" into. <code>number</code> will be divided by one of the following denominators for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
+| unit   | string                                    | <p>(optional, defaults to <code>"KAIA"</code>) The unit of KAIA to convert your "peb" into. <code>number</code> will be divided by one of the following denominators for the unit provided:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KAIA</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'</p> |
 
 **Return Value**
 
@@ -770,7 +770,7 @@ caver.utils.convertFromPeb(number [, unit])
 **Examples**
 
 ```javascript
-> caver.utils.convertFromPeb('1', 'KLAY')
+> caver.utils.convertFromPeb('1', 'KAIA')
 '0.000000000000000001'
 ```
 
@@ -841,13 +841,13 @@ caver.utils.convertFromKei(number [, unit])
 caver.utils.unitMap
 ```
 
-Shows all possible KLAY (or KAIA) values and their amount in peb (or kei).
+Shows all possible KAIA (or KAIA) values and their amount in peb (or kei).
 
 **Return Value**
 
 | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | <p>With the following properties:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KLAY</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'- <code>TKLAY</code>: '1000000000000000000000000000000'- <code>kei</code>: '1'- <code>Gkei</code>: '1000000000'- <code>KAIA</code>: '1000000000000000000'</p> |
+| Object | <p>With the following properties:- <code>peb</code>: '1'- <code>kpeb</code>: '1000'- <code>Mpeb</code>: '1000000'- <code>Gpeb</code>: '1000000000'- <code>Ston</code>: '1000000000'- <code>uKLAY</code>: '1000000000000'- <code>mKLAY</code>: '1000000000000000'- <code>KAIA</code>: '1000000000000000000'- <code>kKLAY</code>: '1000000000000000000000'- <code>MKLAY</code>: '1000000000000000000000000'- <code>GKLAY</code>: '1000000000000000000000000000'- <code>TKLAY</code>: '1000000000000000000000000000000'- <code>kei</code>: '1'- <code>Gkei</code>: '1000000000'- <code>KAIA</code>: '1000000000000000000'</p> |
 
 **Examples**
 
@@ -861,7 +861,7 @@ Shows all possible KLAY (or KAIA) values and their amount in peb (or kei).
   Ston: '1000000000',
   uKLAY: '1000000000000',
   mKLAY: '1000000000000000',
-  KLAY: '1000000000000000000',
+  KAIA: '1000000000000000000',
   kKLAY: '1000000000000000000000',
   MKLAY: '1000000000000000000000000',
   GKLAY: '1000000000000000000000000000',
@@ -878,13 +878,13 @@ Shows all possible KLAY (or KAIA) values and their amount in peb (or kei).
 caver.utils.klayUnit
 ```
 
-Shows all KLAY (or KAIA) units.
+Shows all KAIA (or KAIA) units.
 
 **Return Value**
 
-| Type   | Description                                                                                                                                                                                                                                                                                                                                                 |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object | An object in which the units of KLAY used in Klaytn (or the units of KAIA used in KAIA) are defined. Each unit has its name and pebFactor. pebFactor is used when converting KLAY (or KAIA) currently translated in each unit to 'peb' (or 'kei'). |
+| Type   | Description                                                                                                                                                                                                                                                                                                                                               |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Object | An object in which the units of KAIA used in kaia (or the units of KAIA used in KAIA) are defined. Each unit has its name and pebFactor. pebFactor is used when converting KAIA (or KAIA) currently translated in each unit to 'peb' (or 'kei'). |
 
 **Examples**
 
@@ -898,7 +898,7 @@ Shows all KLAY (or KAIA) units.
     ston: { unit: 'ston', pebFactor: 9 },
     uKLAY: { unit: 'uKLAY', pebFactor: 12 },
     mKLAY: { unit: 'mKLAY', pebFactor: 15 },
-    KLAY: { unit: 'KLAY', pebFactor: 18 },
+    KAIA: { unit: 'KAIA', pebFactor: 18 },
     kKLAY: { unit: 'kKLAY', pebFactor: 21 },
     MKLAY: { unit: 'MKLAY', pebFactor: 24 },
     GKLAY: { unit: 'GKLAY', pebFactor: 27 },
@@ -1124,7 +1124,7 @@ Returns `true` if the given transaction is a smart contract deploy transaction. 
 ```javascript
 > caver.utils.isContractDeployment(caver.transaction.legacyTransaction.create({
     to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
-    value: caver.utils.toPeb(1, 'KLAY'),
+    value: caver.utils.toPeb(1, 'KAIA'),
     gas: 25000,
 }))
 false
@@ -1838,7 +1838,7 @@ Parses [KlaytnWalletKey](../../../../learn/accounts.md#klaytn-wallet-key-format)
 caver.utils.hashMessage(message)
 ```
 
-Hashes message with Klaytn specific prefix: `keccak256("\x19Klaytn Signed Message:\n" + len(message) + message))`
+Hashes message with kaia specific prefix: `keccak256("\x19Klaytn Signed Message:\n" + len(message) + message))`
 
 **Parameters**
 
@@ -1848,9 +1848,9 @@ Hashes message with Klaytn specific prefix: `keccak256("\x19Klaytn Signed Messag
 
 **Return Value**
 
-| Type   | Description                                                     |
-| ------ | --------------------------------------------------------------- |
-| string | The hashed message with Klaytn specific prefix. |
+| Type   | Description                                                   |
+| ------ | ------------------------------------------------------------- |
+| string | The hashed message with kaia specific prefix. |
 
 **Examples**
 
@@ -1865,7 +1865,7 @@ Hashes message with Klaytn specific prefix: `keccak256("\x19Klaytn Signed Messag
 caver.utils.recover(message, signature [, isHashed])
 ```
 
-Recovers the Klaytn address that was used to sign the given data.
+Recovers the kaia address that was used to sign the given data.
 
 **Parameters**
 
@@ -1877,9 +1877,9 @@ Recovers the Klaytn address that was used to sign the given data.
 
 **Return Value**
 
-| Type   | Description                                                |
-| ------ | ---------------------------------------------------------- |
-| string | The Klaytn address used to sign this data. |
+| Type   | Description                                              |
+| ------ | -------------------------------------------------------- |
+| string | The kaia address used to sign this data. |
 
 **Examples**
 
@@ -1952,7 +1952,7 @@ Recovers the public key that was used to sign the given data.
 caver.utils.publicKeyToAddress('0x{public key}')
 ```
 
-Returns an address derived from a public key. This function simply converts the public key string into an address form by hashing it. It has nothing to do with an actual account on Klaytn.
+Returns an address derived from a public key. This function simply converts the public key string into an address form by hashing it. It has nothing to do with an actual account on kaia.
 
 **NOTE** `caver.utils.publicKeyToAddress` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
 
