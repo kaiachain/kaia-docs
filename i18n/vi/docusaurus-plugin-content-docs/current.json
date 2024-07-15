@@ -200,27 +200,27 @@
     "description": "The label for category Transaction in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver-java (1.5.0 or later)": {
-    "message": "caver-java (1.5.0 or later)",
+    "message": "caver-java (1.5.0 trở lên)",
     "description": "The label for category caver-java (1.5.0 or later) in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver-java (1.4.0 or earlier)": {
-    "message": "caver-java (1.4.0 or earlier)",
+    "message": "caver-java (1.4.0 hoặc sớm hơn)",
     "description": "The label for category caver-java (1.4.0 or earlier) in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Operation Guide": {
-    "message": "Operation Guide",
+    "message": "Hướng dẫn vận hành",
     "description": "The label for category Operation Guide in sidebar refSidebar"
   },
   "sidebar.refSidebar.link.API References": {
-    "message": "API References",
+    "message": "Tham khảo API",
     "description": "The label for link API References in sidebar refSidebar, linking to https://javadoc.io/doc/com.klaytn.caver/core/"
   },
   "sidebar.learnSidebar.category.Transaction Fees": {
-    "message": "Transaction Fees",
+    "message": "Phí giao dịch",
     "description": "The label for category Transaction Fees in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Verify Smart Contracts": {
-    "message": "Verify Smart Contracts",
+    "message": "Xác minh hợp đồng thông minh",
     "description": "The label for category Verify Smart Contracts in sidebar buildSidebar"
   },
   "sidebar.refSidebar.category.caver.kct": {
