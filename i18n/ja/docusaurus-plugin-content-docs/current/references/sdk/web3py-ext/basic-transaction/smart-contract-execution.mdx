@@ -22,7 +22,7 @@ w3 = Web3(Web3.HTTPProvider(
     ))
 
 def web3_smart_contract_execution_sign_recover():
-    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8') 
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
 
     smart_contract_execution_tx = empty_tx(TxType.SMART_CONTRACT_EXECUTION)
     smart_contract_execution_tx = merge(smart_contract_execution_tx, {
@@ -32,13 +32,13 @@ def web3_smart_contract_execution_sign_recover():
     })
     smart_contract_execution_tx = fill_transaction(smart_contract_execution_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(smart_contract_execution_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
 
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
     print("\nrecovered sender address", recovered_tx)
-    
+
     decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
     print("\ndecoded transaction:", to_pretty(decoded_tx))
 
@@ -82,7 +82,7 @@ tx hash:  0xde228b907506204482ec8e82a7409c3ab887b4c0e586d8d85287ef46c3549b3e rec
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ```py smart_contract_execution_sign_recover.py focus=1,2
 
@@ -98,7 +98,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
 
 ---
 
-Create a Web3 instance with the specified Klaytn **Baobab** testnet URL
+Create a Web3 instance with the specified kaia **Baobab** testnet URL
 
 ```py smart_contract_execution_sign_recover.py focus=12:14
 
@@ -121,11 +121,11 @@ from web3py_ext.utils.klaytn_utils import to_pretty
 from cytoolz import merge
 
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet-rpc.allthatnode.com:8551'
+    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
     ))
 
 def web3_smart_contract_execution_sign_recover():
-    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8') 
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
 
     smart_contract_execution_tx = empty_tx(TxType.SMART_CONTRACT_EXECUTION)
     smart_contract_execution_tx = merge(smart_contract_execution_tx, {
@@ -135,13 +135,13 @@ def web3_smart_contract_execution_sign_recover():
     })
     smart_contract_execution_tx = fill_transaction(smart_contract_execution_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(smart_contract_execution_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
 
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
     print("\nrecovered sender address", recovered_tx)
-    
+
     decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
     print("\ndecoded transaction:", to_pretty(decoded_tx))
 
