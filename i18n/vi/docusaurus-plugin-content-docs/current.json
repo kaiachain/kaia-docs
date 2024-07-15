@@ -1,18 +1,18 @@
 {
   "version.label": {
-    "message": "Current",
+    "message": "Hiện tại",
     "description": "The label for version current"
   },
   "sidebar.learnSidebar.category.Transactions": {
-    "message": "Transactions",
+    "message": "Giao dịch",
     "description": "The label for category Transactions in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Computation": {
-    "message": "Computation",
+    "message": "Tính toán",
     "description": "The label for category Computation in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Storage Layer": {
-    "message": "Storage Layer",
+    "message": "Lớp lưu trữ",
     "description": "The label for category Storage Layer in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Klaytn 2.0": {
@@ -20,31 +20,31 @@
     "description": "The label for category Klaytn 2.0 in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Operation Guide": {
-    "message": "Operation Guide",
+    "message": "Hướng dẫn vận hành",
     "description": "The label for category Operation Guide in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Get Started": {
-    "message": "Get Started",
+    "message": "Tổng quan",
     "description": "The label for category Get Started in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Account Basics": {
-    "message": "Account Basics",
+    "message": "Quản lý tài khoản",
     "description": "The label for category Account Basics in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Smart Contracts": {
-    "message": "Smart Contracts",
+    "message": "Hợp đồng thông minh",
     "description": "The label for category Smart Contracts in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Deploy Smart Contracts": {
-    "message": "Deploy Smart Contracts",
+    "message": "Hướng dẫn triển khai",
     "description": "The label for category Deploy Smart Contracts in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Sample Contracts": {
-    "message": "Sample Contracts",
+    "message": "Hợp đồng mẫu",
     "description": "The label for category Sample Contracts in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Tutorials": {
-    "message": "Tutorials",
+    "message": "Hướng dẫn",
     "description": "The label for category Tutorials in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Build Count DApp": {
@@ -60,11 +60,11 @@
     "description": "The label for category Build Klaystagram in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Tools": {
-    "message": "Tools",
+    "message": "Dụng Cụ",
     "description": "The label for category Tools in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Wallets": {
-    "message": "Wallets",
+    "message": "Ví",
     "description": "The label for category Wallets in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Klaytn Safe": {
@@ -72,7 +72,7 @@
     "description": "The label for category Klaytn Safe in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Wallet Libraries": {
-    "message": "Wallet Libraries",
+    "message": "Thư viện ví",
     "description": "The label for category Wallet Libraries in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Oracles": {
@@ -88,11 +88,11 @@
     "description": "The label for category Cross-chain in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Block Explorers": {
-    "message": "Block Explorers",
+    "message": "Trình duyệt khối",
     "description": "The label for category Block Explorers in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Operation Guide": {
-    "message": "Operation Guide",
+    "message": "Hướng dẫn vận hành",
     "description": "The label for category Operation Guide in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.link.Klaytnfinder": {
@@ -100,11 +100,11 @@
     "description": "The label for link Klaytnfinder in sidebar buildSidebar, linking to https://www.klaytnfinder.io/"
   },
   "sidebar.buildSidebar.doc.Verify Contracts": {
-    "message": "Verify Contracts",
+    "message": "Xác minh hợp đồng",
     "description": "The label for the doc item Verify Contracts in sidebar buildSidebar, linking to the doc build/tutorials/verifying-contracts"
   },
   "sidebar.nodeSidebar.category.Endpoint Node": {
-    "message": "Endpoint Node",
+    "message": "Nút điểm cuối",
     "description": "The label for category Endpoint Node in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Core Cell": {
@@ -112,31 +112,31 @@
     "description": "The label for category Core Cell in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Install Core Cell": {
-    "message": "Install Core Cell",
+    "message": "Hướng dẫn cài đặt",
     "description": "The label for category Install Core Cell in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Service Chain": {
-    "message": "Service Chain",
+    "message": "Chuỗi dịch vụ",
     "description": "The label for category Service Chain in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Quick Start": {
-    "message": "Quick Start",
+    "message": "Bắt đầu nhanh",
     "description": "The label for category Quick Start in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Configure Service Chain": {
-    "message": "Configure Service Chain",
+    "message": "Cấu hình Chuỗi Dịch vụ",
     "description": "The label for category Configure Service Chain in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Node Package Downloads": {
-    "message": "Node Package Downloads",
+    "message": "Tải xuống gói nút",
     "description": "The label for category Node Package Downloads in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Operation Guide": {
-    "message": "Operation Guide",
+    "message": "Hướng dẫn vận hành",
     "description": "The label for category Operation Guide in sidebar nodeSidebar"
   },
   "sidebar.refSidebar.category.RPC API Reference": {
-    "message": "RPC API Reference",
+    "message": "Tham chiếu API RPC",
     "description": "The label for category RPC API Reference in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.eth": {
@@ -152,15 +152,15 @@
     "description": "The label for category debug in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Service Chain API Reference": {
-    "message": "Service Chain API Reference",
+    "message": "Tham khảo API chuỗi dịch vụ",
     "description": "The label for category Service Chain API Reference in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.RPC Service Providers": {
-    "message": "RPC Service Providers",
+    "message": "Dịch vụ RPC",
     "description": "The label for category RPC Service Providers in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.SDKs and Libraries": {
-    "message": "SDKs and Libraries",
+    "message": "Dịch vụ RPC",
     "description": "The label for category SDKs and Libraries in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver": {
@@ -168,11 +168,11 @@
     "description": "The label for category caver in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver-js (1.5.0 or later)": {
-    "message": "caver-js (1.5.0 or later)",
+    "message": "caver-js (1.5.0 trở lên)",
     "description": "The label for category caver-js (1.5.0 or later) in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.API References": {
-    "message": "API References",
+    "message": "Tham khảo API",
     "description": "The label for category API References in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver.wallet": {
@@ -188,7 +188,7 @@
     "description": "The label for category caver.rpc in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver-js (1.4.1 or earlier)": {
-    "message": "caver-js (1.4.1 or earlier)",
+    "message": "caver-js (1.4.1 hoặc sớm hơn)",
     "description": "The label for category caver-js (1.4.1 or earlier) in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver.klay": {
@@ -196,7 +196,7 @@
     "description": "The label for category caver.klay in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Transaction": {
-    "message": "Transaction",
+    "message": "Giao dịch",
     "description": "The label for category Transaction in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver-java (1.5.0 or later)": {
