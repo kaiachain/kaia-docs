@@ -1,4 +1,4 @@
-TxTypeLegacyTransaction represents a type of transactions existed previously in Klaytn.
+TxTypeLegacyTransaction represents a type of transactions existed previously in kaia.
 
 \*\*This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
 
@@ -20,16 +20,16 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 import org.web3j.tx.response.PollingTransactionReceiptProcessor;
 import org.web3j.tx.response.TransactionReceiptProcessor;
 import org.web3j.example.keySample;
 
 public class LegacyExample implements keySample {
         /**
-         * 
+         *
          */
 
         public static void run() throws Exception {
@@ -102,7 +102,7 @@ public class LegacyExample implements keySample {
 
 ---
 
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ```java txTypeLegacyTransaction.java focus=1:20
 
