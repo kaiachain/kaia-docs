@@ -1,4 +1,4 @@
-TxTypeLegacyTransaction represents a type of transactions existed previously in Klaytn.
+TxTypeLegacyTransaction represents a type of transactions existed previously in kaia.
 
 \*\*This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
 
@@ -27,13 +27,13 @@ def web3_legacy_value_transfer_sign_recover():
         'value' : Web3.to_peb(10, "klay"),
     }
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
-    
+
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
-    
+
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
     print("\nrecovered sender address", recovered_tx)
-    
+
     decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
     print("\ndecoded transaction:", to_pretty(decoded_tx))
 
@@ -74,7 +74,7 @@ tx hash:  b'y\xe4+\xff\x8b\xed\x11D\xd9N\x85\xd4\x0f3\r\x82+\x8d\xc4$3\xaek\xc0\
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3. In this case if you want to use **klaytn specific** util like **Web3.to_peb**, you should extend
+Import **extend** from **web3py_ext** to extend web3 to kaia web3. In this case if you want to use **kaia specific** util like **Web3.to_peb**, you should extend
 
 ```py txTypeLegacyTransaction.py focus=1,2
 
@@ -90,7 +90,7 @@ Import necessary utils from **eth_account**, **web3py_ext**
 
 ---
 
-Create a Web3 instance with the specified Klaytn **Baobab** testnet URL
+Create a Web3 instance with the specified kaia **Baobab** testnet URL
 
 ```py txTypeLegacyTransaction.py focus=9:11
 
@@ -110,7 +110,7 @@ from web3py_ext.transaction.transaction import (
 from web3py_ext.utils.klaytn_utils import to_pretty
 
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet-rpc.allthatnode.com:8551'
+    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
     ))
 
 def web3_legacy_value_transfer_sign_recover():
@@ -121,13 +121,13 @@ def web3_legacy_value_transfer_sign_recover():
         'value' : Web3.to_peb(10, "klay"),
     }
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
-    
+
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
-    
+
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
     print("\nrecovered sender address", recovered_tx)
-    
+
     decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
     print("\ndecoded transaction:", to_pretty(decoded_tx))
 
