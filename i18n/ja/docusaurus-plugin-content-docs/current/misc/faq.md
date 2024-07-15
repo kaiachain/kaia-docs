@@ -24,11 +24,7 @@
 
 ## What is Kaia? <a id="what-is-klaytn"></a>
 
-Klaytn is the Layer 1 blockchain platform with low latency, high TPS and immediate finality. It is the optimal blockchain for building games and realizing the [metaverse](../learn/klaytn2/metaverse-package).
-
-## What is Klaytn 2.0? <a id="what-is-klaytn-2.0"></a>
-
-Klaytn 2.0 marks Klaytn’s transition to focus on the metaverse, supporting Ethereum Equivalence and the comprehensive Metaverse Package to facilitate blockchain building experience. To better understand Klaytn 2.0, please refer to our [Light Paper](https://klaytn.foundation/wp-content/uploads/Lightpaper.pdf).
+Klaytn is the Layer 1 blockchain platform with low latency, high TPS and immediate finality. It is the optimal blockchain for building games and realizing the metaverse, supporting Ethereum Equivalence. It provides the comprehensive [Metaverse Package](https://metaverse-knowledge-kit.kaia.io/) to facilitate blockchain building experience. To better understand Kaia, please refer to our [Light Paper](https://klaytn.foundation/wp-content/themes/klaytn/download/lightpaper.pdf).
 
 ## How does Klaytn support Ethereum equivalence? <a id="how-ethereum-equivalence"></a>
 
@@ -44,7 +40,7 @@ To provide maximum convenience for dApp developers, Klaytn has devised a way to 
 
 ## Where can I start dApp development with Klaytn? <a id="dapp-development"></a>
 
-Whether you are migrating from Ethereum, or building on Klaytn from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Klaytn Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi). Klaytn’s sdk `caver` is available as [caver-js](https://github.com/klaytn/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Klaytn.
+Whether you are migrating from Ethereum, or building on Klaytn from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Klaytn Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk `caver` is available as [caver-js](https://github.com/kaiachain/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
 
 ## Is Klaytn Open Source? <a id="is-klaytn-open-source"></a>
 
@@ -61,8 +57,8 @@ Refer to this [list](../references/public-en#public-json-rpc-endpoint-providers)
 
 ## Are there faucets to get test KLAY? <a id="are-there-faucets"></a>
 
-You can get test KLAY for development and testing purposes here:
-[Klay Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+You can get test KAIA for development and testing purposes here:
+[Kaia Faucet](https://kairos.wallet.kaia.io/faucet)
 [AllThatNode Faucet](https://www.allthatnode.com/faucet/klaytn.dsrv)
 
 ## How do I check for Public RPC endpoint status? <a id="rpc-endpoint-status"></a>
@@ -81,7 +77,7 @@ Below is information relating to each network.
 Cypress mainnet:
 
 - EN download : Choose the Baobab package from the [download page](../nodes/downloads/downloads.md).
-- Klaytnscope : https://klaytnscope.com
+- Kaiascope : https://kaiascope.com/
 - Klaytn Wallet : https://wallet.klaytn.com
 
 Baobab testnet:
@@ -89,7 +85,7 @@ Baobab testnet:
 - EN download : Choose the Cypress package from the [download page](../nodes/downloads/downloads.md).
 - Klaytnscope : https://baobab.klaytnscope.com
 - Klaytn Wallet : https://baobab.wallet.klaytn.foundation
-- Baobab Faucet : https://baobab.wallet.klaytn.foundation/faucet
+- Kairos Faucet : https://kairos.wallet.kaia.io/faucet
 
 ## Are there any Klaytn SDKs? In what languages? <a id="klaytn-sdks"></a>
 
