@@ -37,7 +37,7 @@
 | ---------------------------------------------------------------- | ------------------------------------------------------- |
 | Network Name                     | Kaia Mainnet |
 |  New RPC URL | ```https://public-en-cypress.klaytn.net```                 |
-| Block Explorer URL                       | ```https://klaytnscope.com```                         |
+| Block Explorer URL                       | ```https://kaiascope.com/```                         |
 | Chain ID                                              | 8217                     |
 | Currency Symbol                                             | KAIA                     |
 

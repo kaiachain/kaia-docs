@@ -102,18 +102,6 @@ const sidebars = {
     'learn/kaia-native-token',
     'learn/token-economy',
     'learn/governance',
-/**     {
-      type: 'category',
-      link: {type: 'doc', id: 'learn/klaytn2/klaytn2'},
-      label: 'Klaytn 2.0',
-      items: [
-        'learn/klaytn2/decentralizing-governance',
-        'learn/klaytn2/ethereum-compatibility',
-        'learn/klaytn2/finality-and-improvements',
-        'learn/klaytn2/massive-ecofund',
-        'learn/klaytn2/metaverse-package',
-      ],
-    },*/
     ...commonSidebar,
   ],
   buildSidebar: [
