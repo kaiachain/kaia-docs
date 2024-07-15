@@ -1799,5 +1799,5 @@ The DApp (Blockchain Application) Development sample projects using caver-js are
 
 ## Links <a href="#links" id="links"></a>
 
-- caver-js [GitHub repository](https://github.com/klaytn/caver-js)
+- caver-js [GitHub repository](https://github.com/kaiachain/caver-js)
 - caver-js on [npm](https://www.npmjs.com/package/caver-js)
