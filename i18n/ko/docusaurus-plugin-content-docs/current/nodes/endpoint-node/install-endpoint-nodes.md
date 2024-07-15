@@ -113,7 +113,7 @@ DATA_DIR=/var/kend/data
 
 이 프로세스를 가속화하기 위해 EN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 빠른 동기화를 수행할 수 있습니다. 이렇게 하면 EN이 처음 시작할 때 동기화하는 데 걸리는 시간을 크게 줄일 수 있습니다.
 
-[메인넷 스냅샷 아카이브](http://packages.klaytn.net/cypress/chaindata/) 또는 [Kairos 스냅샷 아카이브](http://packages.klaytn.net/baobab/chaindata/)에서 최신 체인데이터 스냅샷을 다운로드합니다. `kend`를 시작하기 전에 `kend.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
+Download the latest chaindata snapshot from the [Mainnet snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Kairos snapshot archive](https://packages.kaia.io/kairos/chaindata/). `kend`를 시작하기 전에 `kend.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
 
 예를 들어
 
