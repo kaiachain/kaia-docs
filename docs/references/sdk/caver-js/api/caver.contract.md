@@ -1,6 +1,6 @@
 # caver.contract
 
-The `caver.contract` object makes it easy to interact with smart contracts on the Klaytn blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with the contract object in javascript into low-level ABI calls over RPC for you.
+The `caver.contract` object makes it easy to interact with smart contracts on the kaia blockchain platform. When you create a new contract object, you have to provide the JSON interface for that smart contract and caver-js will automatically convert all calls with the contract object in javascript into low-level ABI calls over RPC for you.
 
 This allows you to interact with smart contracts as if they were JavaScript objects.
 
@@ -235,7 +235,7 @@ Contract {
 myContract.deploy(options, byteCode [, param1 [, param2 [, ...]]])
 ```
 
-Deploys the contract to the Klaytn network. After a successful deployment, the promise will be resolved with a new contract instance. Unlike the usability of the existing [myContract.deploy](#mycontract-deploy) function, this function sends a transaction directly to the Klaytn network. You don't need to call `send()` with the returned object.
+Deploys the contract to the kaia network. After a successful deployment, the promise will be resolved with a new contract instance. Unlike the usability of the existing [myContract.deploy](#mycontract-deploy) function, this function sends a transaction directly to the kaia network. You don't need to call `send()` with the returned object.
 
 **NOTE** `caver.wallet` must contains keyring instances corresponding to `from` and `feePayer` in `options` or `myContract.options` to make signatures.
 
@@ -334,7 +334,7 @@ For PromiEvent, the following events are available:
 myContract.deploy(options)
 ```
 
-Returns the object used when deploying the smart contract to the Klaytn. You can send the smart contract deploy transaction via calling `myContract.deploy({ data, arguments }).send(options)`. After a successful deployment, the promise will be resolved with a new contract instance.
+Returns the object used when deploying the smart contract to the kaia. You can send the smart contract deploy transaction via calling `myContract.deploy({ data, arguments }).send(options)`. After a successful deployment, the promise will be resolved with a new contract instance.
 
 **Parameters**
 
@@ -360,7 +360,7 @@ The object contains the following:
 | Name                                                                  | Type     | Description                                                                                                                                                        |
 | --------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | arguments                                                             | Array    | The arguments passed in `options.arguments`.                                                                                                                       |
-| [send](#methods-methodname-send)                     | function | The function that will deploy the contract to the Klaytn. The promise as the result of this function will be resolved with the new contract instance.              |
+| [send](#methods-methodname-send)                     | function | The function that will deploy the contract to the kaia. The promise as the result of this function will be resolved with the new contract instance.              |
 | [sign](#methods-methodname-sign)                     | function | The function that will sign a smart contract deploy transaction as a sender. The sign function will return signed transaction.                                     |
 | [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a smart contract deploy transaction as a fee payer. The signAsFeePayer function will return signed transaction.                        |
 | [estimateGas](#methods-methodname-estimategas)       | function | The function that will estimate the gas used for the deployment. The execution of this function does not deploy the contract.                                      |
@@ -848,7 +848,7 @@ myContract.call('methodName', [param1 [, param2 [, ...]]])
 myContract.call(options, 'methodName', [param1 [, param2 [, ...]]])
 ```
 
-Will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
+Will call a constant method and execute its smart contract method in the kaia Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state.
 
 **NOTE** `myContract.call` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
 
@@ -977,8 +977,8 @@ Parameters of any method that belongs to this smart contract, defined in the JSO
 | Name                                                                  | Type     | Description                                                                                                                                                                      |
 | --------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | arguments                                                             | Array    | The arguments passed to this method.                                                                                                                                             |
-| [call](#methods-methodname-call)                     | function | The function that will call and execute a constant method in its smart contract on Klaytn Virtual Machine without sending a transaction (cannot alter the smart contract state). |
-| [send](#methods-methodname-send)                     | function | The function that will send a transaction to the Klaytn and execute its method (can alter the smart contract state).                                                             |
+| [call](#methods-methodname-call)                     | function | The function that will call and execute a constant method in its smart contract on kaia Virtual Machine without sending a transaction (cannot alter the smart contract state). |
+| [send](#methods-methodname-send)                     | function | The function that will send a transaction to the kaia and execute its method (can alter the smart contract state).                                                             |
 | [sign](#methods-methodname-sign)                     | function | The function that will sign a transaction as a sender. The sign function will return signed transaction.                                                                         |
 | [signAsFeePayer](#methods-methodname-signasfeepayer) | function | The function that will sign a transaction as a fee payer. The signAsFeePayer function will return signed transaction.                                                            |
 | [estimateGas](#methods-methodname-estimategas)       | function | The that function will estimate the gas used for the execution.                                                                                                                  |
@@ -1081,7 +1081,7 @@ myContract.methods.methodName([param1 [, param2 [, ...]]]).call(options [, callb
 myContract.methods['methodName']([param1 [, param2 [, ...]]]).call(options [, callback])
 ```
 
-Will call a constant method and execute its smart contract method in the Klaytn Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state. It is recommended to use [myContract.call](#mycontract-call) provided as a short-cut function.
+Will call a constant method and execute its smart contract method in the kaia Virtual Machine without sending any transaction. Note that calling cannot alter the smart contract state. It is recommended to use [myContract.call](#mycontract-call) provided as a short-cut function.
 
 **Parameters**
 
@@ -1456,7 +1456,7 @@ The transaction type used for this function depends on the `options` or the valu
 myContract.methods.methodName([param1 [, param2 [, ...]]]).estimateGas(options [, callback])
 ```
 
-Will estimate the gas that a method execution will take when executed in the Klaytn Virtual Machine. The estimation can differ from the actual gas used when later sending a transaction, as the state of the smart contract can be different at that time.
+Will estimate the gas that a method execution will take when executed in the kaia Virtual Machine. The estimation can differ from the actual gas used when later sending a transaction, as the state of the smart contract can be different at that time.
 
 **Parameters**
 
@@ -1471,7 +1471,7 @@ The options object can contain the following:
 | ----- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | from  | string                              | (optional) The address from which calling the contract method should be made.                                                                                                  |
 | gas   | number                              | (optional) The maximum gas provided for this call (gas limit). Setting a specific value helps to detect out of gas errors. If all gas is used, it will return the same number. |
-| value | number \| string \| BN \| Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to Klaytn.         |
+| value | number \| string \| BN \| Bignumber | (optional) The value in peb that would be transferred to the address of the smart contract if the transaction for executing this contract function was sent to kaia.         |
 
 **Return Value**
 

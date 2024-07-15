@@ -45,7 +45,7 @@ def web3_fee_delegated_value_transfer():
 
     fee_delegated_value_transfer_tx = fill_transaction(fee_delegated_value_transfer_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
 
     signed_tx = Account.sign_transaction(fee_delegated_value_transfer_tx, user.key)
 

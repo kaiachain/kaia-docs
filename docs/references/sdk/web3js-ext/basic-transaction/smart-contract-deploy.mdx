@@ -1,21 +1,26 @@
 # Smart Contract Deploy
+
 **TxTypeSmartContractDeploy** deploys a smart contract to the given address. The following changes will be made by this transaction type.
 
 <CH.Spotlight>
 <CH.Code>
 
 ```js SmartContractDeploy.js
-const { KlaytnWeb3, TxType } = require("@klaytn/web3js-ext");
-const { Web3 } = require("web3");
+const { KlaytnWeb3, TxType } = require('@kaiachain/web3js-ext')
+const { Web3 } = require('web3')
 
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const bytecode = "0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033";
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const bytecode =
+  '0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033'
 
 async function main() {
-  const provider = new Web3.providers.HttpProvider("https://public-en-baobab.klaytn.net");
-  const web3 = new KlaytnWeb3(provider);
-  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+  const provider = new Web3.providers.HttpProvider(
+    'https://public-en-baobab.klaytn.net'
+  )
+  const web3 = new KlaytnWeb3(provider)
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
 
   const tx = {
     type: TxType.SmartContractDeploy,
@@ -23,22 +28,22 @@ async function main() {
     data: bytecode, // both 'data' and 'input' works
     humanReadable: false, // must be false
     codeFormat: 0, // must be 0
-  };
+  }
 
-  const signResult = await senderAccount.signTransaction(tx);
-  console.log("rawTx", signResult.rawTransaction);
+  const signResult = await senderAccount.signTransaction(tx)
+  console.log('rawTx', signResult.rawTransaction)
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
 
-
-
-
 ---
+
 ```zsh output
 ❯ js SmartContractDeploy.js
 signedTx 0x07b3209f1e56484f9a61885b25ddb398668b6d423ca98fea5004f1a1b87d1532
@@ -59,17 +64,17 @@ receipt {
 }
 
 ```
-</CH.Code>
 
+</CH.Code>
 
 ---
 
-Import the **web3** and **@klaytn/web3js-ext** packages to add klaytn features on web3
-
+Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ```js SmartContractDeploy.js focus=1:2
 
 ```
+
 ---
 
 Define **sender address and sender private key**
@@ -77,76 +82,88 @@ Define **sender address and sender private key**
 ```js SmartContractDeploy.js focus=4:5
 
 ```
+
 ---
+
 Smart contract **bytecode** to deploy, you can retreive it from compiled solidity code
 
 ```js SmartContractDeploy.js focus=6
 
 ```
+
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
-
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
 
 ```js SmartContractDeploy.js focus=9
 
 ```
+
 ---
+
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js SmartContractDeploy.js focus=9
 
 ```
+
 ---
 
 Create a **KlaytnWeb3** instance using the provider
 
-
 ```js SmartContractDeploy.js focus=10
 
 ```
+
 ---
 
 Convert the sender's private key to an account using **web3.eth.accounts.privateKeyToAccount**
 
-
 ```js SmartContractDeploy.js focus=11
 
 ```
+
 ---
 
 Define a transaction object for the Cancel transaction
+
 ```js SmartContractDeploy.js focus=13:19
 
 ```
+
 ---
 
 Set `type: TxType.SmartContractDeploy` for the transaction type of deploying contract
+
 ```js SmartContractDeploy.js focus=14
 
 ```
+
 ---
 
 Set `data: bytecode` or `input: bytecode` for the source of the contract
+
 ```js SmartContractDeploy.js focus=16
 
 ```
+
 ---
 
 Set params **from, humanReadable, codeFormat** as value in example
+
 ```js SmartContractDeploy.js focus=15,17,18
 
 ```
----
-Sign the transaction with the **sender**'s account
 
+---
+
+Sign the transaction with the **sender**'s account
 
 <CH.Code>
 
 ```js SmartContractDeploy.js focus=21:22
 
 ```
-
 
 ---
 
@@ -158,13 +175,13 @@ signedTx 0x07b3209f1e56484f9a61885b25ddb398668b6d423ca98fea5004f1a1b87d1532
 </CH.Code>
 
 ---
-Send the signed transaction to the Klaytn network. It will return the transaction receipt
 
+Send the signed transaction to the kaia network. It will return the transaction receipt
 
 <CH.Code>
 ```js SmartContractDeploy.js focus=24:25
 
-```
+````
 
 
 ---
@@ -186,9 +203,8 @@ receipt {
   transactionIndex: 0n,
   type: 0n
 }
-```
+````
 
 </CH.Code>
-
 
 </CH.Spotlight>

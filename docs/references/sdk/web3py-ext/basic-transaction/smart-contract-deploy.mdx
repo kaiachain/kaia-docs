@@ -1,4 +1,5 @@
 # Smart Contract Deploy
+
 **TxTypeSmartContractDeploy** deploys a smart contract to the given address. The following changes will be made by this transaction type.
 
 <CH.Spotlight>
@@ -21,7 +22,7 @@ w3 = Web3(Web3.HTTPProvider(
     ))
 
 def web3_smart_contract_deploy_sign_recover():
-    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8') 
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
 
     smart_contract_deploy_tx = empty_tx(TxType.SMART_CONTRACT_DEPLOY)
     smart_contract_deploy_tx = merge(smart_contract_deploy_tx, {
@@ -30,7 +31,7 @@ def web3_smart_contract_deploy_sign_recover():
     })
     smart_contract_deploy_tx = fill_transaction(smart_contract_deploy_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(smart_contract_deploy_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
 
@@ -46,7 +47,9 @@ def web3_smart_contract_deploy_sign_recover():
 
 web3_smart_contract_deploy_sign_recover()
 ```
+
 ---
+
 ```zsh output
 ❯ py smart_contract_deploy_sign_recover.py
 raw transaction of signed tx: 0x28f90b24820...d24781265ed459
@@ -75,29 +78,37 @@ decoded transaction: {
 }
 tx hash:  0x523337afd7e76ef4987054a9f4d3e6461496a81ef61cc46782f455e391f550cb receipt:  AttributeDict({'blockHash': HexBytes('0x3a55647e73f2212d924a65cf5f1290bc6d8f31f515654fbd2c34b43d0943e932'), 'blockNumber': 147341828, 'contractAddress': '0x5c16830351d6c9986B2eEf4f836280b6C6eF0c92', 'cumulativeGasUsed': 1045271, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 702544, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': None, 'transactionHash': HexBytes('0x523337afd7e76ef4987054a9f4d3e6461496a81ef61cc46782f455e391f550cb'), 'transactionIndex': 2, 'type': 0})
 ```
+
 </CH.Code>
 
-
 ---
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
 ```py smart_contract_deploy_sign_recover.py focus=1,2
 
 ```
 
 ---
+
 Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
+
 ```py smart_contract_deploy_sign_recover.py focus=3:10
 
 ```
 
 ---
-Create a Web3 instance with the specified Klaytn **Baobab** testnet URL
+
+Create a Web3 instance with the specified kaia **Baobab** testnet URL
+
 ```py smart_contract_deploy_sign_recover.py focus=12:14
 
 ```
 
 ---
+
 Also, you can change the provider URL from **baobab** to **allthatnode**
+
 ```python smart_contract_deploy_sign_recover.py focus=12:14
 from web3py_ext import extend
 from web3 import Web3
@@ -115,7 +126,7 @@ w3 = Web3(Web3.HTTPProvider(
     ))
 
 def web3_smart_contract_deploy_sign_recover():
-    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8') 
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
 
     smart_contract_deploy_tx = empty_tx(TxType.SMART_CONTRACT_DEPLOY)
     smart_contract_deploy_tx = merge(smart_contract_deploy_tx, {
@@ -124,7 +135,7 @@ def web3_smart_contract_deploy_sign_recover():
     })
     smart_contract_deploy_tx = fill_transaction(smart_contract_deploy_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(smart_contract_deploy_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
 
@@ -142,65 +153,83 @@ web3_smart_contract_deploy_sign_recover()
 ```
 
 ---
+
 Load an account from private key
+
 ```python smart_contract_deploy_sign_recover.py focus=17
 
 ```
 
 ---
+
 Create an empty transaction of type **TxType.SMART_CONTRACT_DEPLOY**. You can use **empty_tx** util to get a tx with default fields filled.
+
 ```py smart_contract_deploy_sign_recover.py focus=4,5,8,19
 
 ```
 
 ---
+
 Merge the **additional fields** like **from** and **data** into the empty tx by using the **merge** util.
+
 ```py smart_contract_deploy_sign_recover.py focus=10,20:23
 
 ```
 
 ---
+
 Set the **compiled bytecode** from the solidity code you want to deploy to the blockchain network
+
 ```py smart_contract_deploy_sign_recover.py focus=22
 
 ```
 
 ---
+
 Use **fill_transaction** to add more params to transaction object like gas limit...
+
 ```python smart_contract_deploy_sign_recover.py focus=4,6,8,24
 
 ```
 
 ---
+
 Sign the value transfer tx by user's private key
+
 <CH.Code>
 ```python smart_contract_deploy_sign_recover.py focus=26:28
 
-```
+````
 ---
 ```zsh output
 raw transaction of signed tx: 0x28f90b24820...d24781265ed459
-```
+````
+
 </CH.Code>
 
 ---
+
 Recover the **signer's address** from the signature in signed tx
+
 <CH.Code>
 ```python smart_contract_deploy_sign_recover.py focus=30:31
 
-```
+````
 ---
 ```zsh output
 recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
-```
+````
+
 </CH.Code>
 
 ---
+
 You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+
 <CH.Code>
 ```python smart_contract_deploy_sign_recover.py focus=33:34
 
-```
+````
 ---
 ```zsh output
 decoded transaction: {
@@ -223,33 +252,41 @@ decoded transaction: {
   ],
   "chainId": 1001
 }
-```
+````
+
 </CH.Code>
 
 ---
+
 Send the **tx** to the blockchain. It will return the tx hash, which will be used to wait the receipt
+
 ```python smart_contract_deploy_sign_recover.py focus=36
 
 ```
 
 ---
+
 The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+
 <CH.Code>
 ```python smart_contract_deploy_sign_recover.py focus=37:38
 
-```
+````
 ---
 ```zsh output
 tx hash:  0xd47018a0bc908e18f980bc59ee454e6016317300e4f207341eaa77a8c841bc0f receipt:  AttributeDict({'blockHash': HexBytes('0xe873b7f3bb39ce89131fbbfc727bca00f1998a4b617e89d1db20d55fc479e32d'), 'blockNumber': 147339314, 'contractAddress': None, 'cumulativeGasUsed': 352123, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0xd47018a0bc908e18f980bc59ee454e6016317300e4f207341eaa77a8c841bc0f'), 'transactionIndex': 2, 'type': 0})```
-```
+````
+
 </CH.Code>
 
 ---
+
 Finally, get the result.
+
 <CH.Code>
 ```python smart_contract_deploy_sign_recover.py focus=40
 
-```
+````
 ---
 ```zsh output
 ❯ node smart_contract_deploy_sign_recover.py
@@ -278,7 +315,8 @@ decoded transaction: {
   "chainId": 1001
 }
 tx hash:  0x523337afd7e76ef4987054a9f4d3e6461496a81ef61cc46782f455e391f550cb receipt:  AttributeDict({'blockHash': HexBytes('0x3a55647e73f2212d924a65cf5f1290bc6d8f31f515654fbd2c34b43d0943e932'), 'blockNumber': 147341828, 'contractAddress': '0x5c16830351d6c9986B2eEf4f836280b6C6eF0c92', 'cumulativeGasUsed': 1045271, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 702544, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': None, 'transactionHash': HexBytes('0x523337afd7e76ef4987054a9f4d3e6461496a81ef61cc46782f455e391f550cb'), 'transactionIndex': 2, 'type': 0})
-```
+````
+
 </CH.Code>
 
 </CH.Spotlight>
