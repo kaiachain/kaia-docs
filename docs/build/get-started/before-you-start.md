@@ -26,6 +26,6 @@
 
 **Kaia Toolkits**
 
-* [Kaiascope](https://klaytnscope.com/) - A block and transaction explorer.
+* [Kaiascope](https://kaiascope.com/) - A block and transaction explorer.
 * [Kaia Wallet](https://wallet.klaytn.com/) - A browser-based account management tool.
 * [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) - An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.

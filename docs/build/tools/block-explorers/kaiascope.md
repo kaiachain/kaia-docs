@@ -3,7 +3,7 @@
 Kaiascope is the block explorer for the Kaia Network. Kaiascope gives you an insight about the Kaia network by monitoring the network health and providing various statistics of Kaia network. You can also explore the block and transaction data and the list of smart contracts on the Kaia network.
 
 * For the Kairos network, visit [https://baobab.klaytnscope.com](https://baobab.klaytnscope.com)
-* For the Mainnet, visit [https://klaytnscope.com/](https://klaytnscope.com/)
+* For the Mainnet, visit [https://kaiascope.com/](https://kaiascope.com/)
 
 ![](/img/build/tools/scope_01_main.png)
 
