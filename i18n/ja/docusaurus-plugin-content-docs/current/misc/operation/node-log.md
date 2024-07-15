@@ -3,9 +3,9 @@
 This page details some important or frequently asked logs from Klaytn nodes.
 If the Klaytn log is modified or newly added/deleted, please edit this page as well.
 
-For more detailed information about log types, you can refer to [log_modules.go](https://github.com/klaytn/klaytn/blob/dev/log/log_modules.go)
+For more detailed information about log types, you can refer to [log_modules.go](https://github.com/kaiachain/kaia/blob/dev/log/log_modules.go)
 
-If you encounter any abnormal situation, please report it to the klaytn team via [github](https://github.com/klaytn/klaytn/issues), [Klaytn Forum](https://forum.klaytn.foundation/), or [Discord](https://discord.io/KlaytnOfficial).
+If you encounter any abnormal situation, please report it to the klaytn team via [github](https://github.com/kaiachain/kaia/issues), [Kaia Forum](https://forum.klaytn.foundation/), or [Discord](https://discord.io/KaiaOfficial).
 
 ## Error Logs
 
