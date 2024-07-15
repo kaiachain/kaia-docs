@@ -1,8 +1,8 @@
 # Value Transfer
 
-TxTypeValueTransfer is used when a user wants to send KLAY.
+TxTypeValueTransfer is used when a user wants to send KAIA.
 
-- As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KLAY to an externally owned account (EOA).
+- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
 
 <CH.Spotlight>
 <CH.Code>
@@ -33,7 +33,7 @@ def web3_fee_delegated_value_transfer_sign_recover():
     })
     fee_delegated_value_transfer_tx = fill_transaction(fee_delegated_value_transfer_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(fee_delegated_value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
@@ -99,7 +99,7 @@ tx hash:  0x5234733f874f5c8a77d6628be9958166f039f82a278888c4a6acaab17c2509ab rec
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=1:2
 
@@ -115,7 +115,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
 
 ---
 
-Create a Web3 instance with the specified Klaytn **Baobab** testnet URL
+Create a Web3 instance with the specified kaia **Baobab** testnet URL
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=12
 
@@ -137,7 +137,7 @@ from web3py_ext.transaction.transaction import (
 from web3py_ext.utils.klaytn_utils import to_pretty
 from cytoolz import merge
 
-w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet-rpc.allthatnode.com:8551'))
+w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet.g.allthatnode.com/full/evm'))
 
 def web3_fee_delegated_value_transfer_sign_recover():
     user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
@@ -151,7 +151,7 @@ def web3_fee_delegated_value_transfer_sign_recover():
     })
     fee_delegated_value_transfer_tx = fill_transaction(fee_delegated_value_transfer_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(fee_delegated_value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
