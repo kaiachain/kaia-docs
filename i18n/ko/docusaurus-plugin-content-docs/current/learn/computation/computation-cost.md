@@ -197,7 +197,7 @@ Exceptionally, the limit for call/estimateGas/estimateComputationCost is always 
 | 0x02    | sha256hash            | numOfWords(input) / 32 \* 100 + 1,000                                                                                                  |
 | 0x03    | ripemd160hash         | numOfWords(input) / 32 \* 10 + 100                                                                                                     |
 | 0x04    | dataCopy              | 0                                                                                                                                                         |
-| 0x05    | bigModExp             | see the code [here](https://github.com/klaytn/klaytn/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)                       |
+| 0x05    | bigModExp             | see the code [here](https://github.com/kaiachain/kaia/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)                      |
 | 0x06    | bn256Add              | 8,000                                                                                                                                                     |
 | 0x07    | bn256ScalarMul        | 100,000                                                                                                                                                   |
 | 0x08    | bn256Pairing          | numOfPairings(input) \* 1,000,000 + 2,000,000                                                                                          |
