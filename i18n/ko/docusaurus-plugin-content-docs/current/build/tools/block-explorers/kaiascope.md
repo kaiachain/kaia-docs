@@ -3,7 +3,7 @@
 Klaytnscope는 카이아 네트워크의 블록 탐색기입니다. Klaytnscope는 네트워크 상태를 모니터링하고 카이아 네트워크의 다양한 통계를 제공하여 카이아 네트워크에 대한 인사이트를 제공합니다. 또한 카이아 네트워크의 블록과 트랜잭션 데이터, 스마트 컨트랙트 목록을 탐색할 수 있습니다.
 
 - Kairos 네트워크에 대해서는 [https://baobab.klaytnscope.com](https://baobab.klaytnscope.com)을 방문하십시오.
-- 메인넷에 대해서는 [https://klaytnscope.com/](https://klaytnscope.com/)을 방문하십시오.
+- For the Mainnet, visit [https://kaiascope.com/](https://kaiascope.com/)
 
 ![](/img/build/tools/scope_01_main.png)
 
