@@ -47,7 +47,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
 |[Kaia Foundation](https://www.klaytn.foundation)|`https://public-en-kairos.node.kaia.io`|klay,eth,net|Full|
-||`https://archive-en.baobab.klaytn.net/`|klay,eth,net|Archive|
+||`https://archive-en-kairos.node.kaia.io/`|klay,eth,net|Archive|
 |[All That Node](www.allthatnode.com)|`https://klaytn-baobab.g.allthatnode.com/full/evm`|klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://klaytn-baobab.blockpi.network/v1/rpc/public`|klay,eth,net|Full|
 
@@ -55,8 +55,8 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
-|[Kaia Foundation](https://www.klaytn.foundation)|`wss://public-en-baobab.klaytn.net/ws`|klay,eth,net|Full|
-||`wss://archive-en.baobab.klaytn.net/ws`|klay,eth,net|Archive|
+|[Kaia Foundation](https://www.klaytn.foundation)|`wss://public-en-kairos.node.kaia.io/ws`|klay,eth,net|Full|
+||`wss://archive-en-kairos.node.kaia.io/ws`|klay,eth,net|Archive|
 
 ## RPC Service Providers
 

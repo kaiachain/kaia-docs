@@ -21,7 +21,7 @@ The most simple way to create an account is using the [Klaytn Online Toolkit](ht
 
 Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
 
-**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://baobab.wallet.klaytn.foundation/faucet). Refer to [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://kairos.wallet.kaia.io/faucet). Refer to [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
 
 ## 2. Initialize Project <a id="2.-initialize-project"></a>
 
@@ -250,7 +250,7 @@ SingleKeyring {
 }
 ```
 
-You can view the transaction details in [Klaytnfinder](https://baobab.klaytnfinder.io/) or [Klaytnscope](https://scope.klaytn.com) using the `transactionHash`.
+You can view the transaction details in [Kaiascan](https://kairos.kaiascan.io/) or [Klaytnscope](https://scope.klaytn.com) using the `transactionHash`.
 
 ## 9. Entire Code <a id="9.-run-the-code"></a>
 
