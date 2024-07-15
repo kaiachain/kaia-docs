@@ -24,11 +24,7 @@
 
 ## What is Kaia? <a id="what-is-kaia"></a>
 
-Kaia is the Layer 1 blockchain platform with low latency, high TPS and immediate finality. It is the optimal blockchain for building games and realizing the [metaverse](../learn/klaytn2/metaverse-package).
-
-## What is Kaia 2.0? <a id="what-is-kaia-2.0"></a>
-
-Kaia 2.0 marks Kaia’s transition to focus on the metaverse, supporting Ethereum Equivalence and the comprehensive Metaverse Package to facilitate blockchain building experience. To better understand Kaia 2.0, please refer to our [Light Paper](https://klaytn.foundation/wp-content/uploads/Lightpaper.pdf).
+Kaia is the Layer 1 blockchain platform with low latency, high TPS and immediate finality. It is the optimal blockchain for building games and realizing the metaverse, supporting Ethereum Equivalence. It provides the comprehensive [Metaverse Package](https://metaverse-knowledge-kit.kaia.io/) to facilitate blockchain building experience. To better understand Kaia, please refer to our [Light Paper](https://klaytn.foundation/wp-content/themes/klaytn/download/lightpaper.pdf).
 
 ## How does Kaia support Ethereum equivalence? <a id="how-ethereum-equivalence"></a>
 
@@ -44,7 +40,7 @@ To provide maximum convenience for dApp developers, Kaia has devised a way to [d
 
 ## Where can I start dApp development with Kaia? <a id="dapp-development"></a>
 
-Whether you are migrating from Ethereum, or building on Kaia from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Kaia Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk `caver` is available as [caver-js](https://github.com/klaytn/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
+Whether you are migrating from Ethereum, or building on Kaia from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Kaia Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk `caver` is available as [caver-js](https://github.com/kaiachain/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
 
 ## Is Kaia Open Source? <a id="is-kaia-open-source"></a>
 
@@ -62,7 +58,7 @@ Refer to this [list](../references/public-en#public-json-rpc-endpoint-providers)
 ## Are there faucets to get test KAIA? <a id="are-there-faucets"></a>
 
 You can get test KAIA for development and testing purposes here:
-[Kaia Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+[Kaia Faucet](https://kairos.wallet.kaia.io/faucet)
 [AllThatNode Faucet](https://www.allthatnode.com/faucet/klaytn.dsrv)
 
 ## How do I check for Public RPC endpoint status? <a id="rpc-endpoint-status"></a>
@@ -81,7 +77,7 @@ Below is information relating to each network.
 Mainnet:
 
 - EN download : Choose the Mainnet package from the [download page](../nodes/downloads/downloads.md).
-- Kaiascope : https://klaytnscope.com
+- Kaiascope : https://kaiascope.com/
 - Kaia Wallet : https://wallet.klaytn.com
 
 Kairos testnet:
@@ -89,7 +85,7 @@ Kairos testnet:
 - EN download : Choose the Kairos package from the [download page](../nodes/downloads/downloads.md).
 - Kaiascope : https://baobab.klaytnscope.com
 - Kaia Wallet : https://baobab.wallet.klaytn.foundation
-- Kairos Faucet : https://baobab.wallet.klaytn.foundation/faucet
+- Kairos Faucet : https://kairos.wallet.kaia.io/faucet
 
 ## Are there any Kaia SDKs? In what languages? <a id="kaia-sdks"></a>
 
