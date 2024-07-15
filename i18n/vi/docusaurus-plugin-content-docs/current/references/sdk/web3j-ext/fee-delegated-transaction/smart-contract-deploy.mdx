@@ -23,16 +23,16 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 /**
- * 
+ *
  */
 public class FeeDelegatedSmartContractDeployExample implements keySample {
     /**
-     * 
+     *
      */
     public static void run() throws Exception {
 
@@ -108,7 +108,7 @@ public class FeeDelegatedSmartContractDeployExample implements keySample {
 
 ---
 
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ```java FeeDelegatedSmartContractDeployExample.java focus=1:20
 
@@ -116,7 +116,7 @@ Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
 ---
 
-Connect to the Klaytn blockchain using Web3j and specify the URL
+Connect to the kaia blockchain using Web3j and specify the URL
 
 ```java FeeDelegatedSmartContractDeployExample.java focus=31
 
@@ -164,7 +164,7 @@ Define **contract bytecode**, you can get it from compiled solidity code
 
 ---
 
-Get the chain ID from the **Klaytn** network
+Get the chain ID from the **Kaia** network
 
 ```java FeeDelegatedSmartContractDeployExample.java focus=41:42
 
@@ -188,7 +188,7 @@ Create a raw transaction
 
 ---
 
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`. 
+Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
 
 ```java FeeDelegatedSmartContractDeployExample.java focus=62:63
 
@@ -196,7 +196,7 @@ Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`
 
 ---
 
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`. 
+Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
 
 ```java FeeDelegatedSmartContractDeployExample.java focus=65:66
 
@@ -204,7 +204,7 @@ Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAs
 
 ---
 
-Sending the signed transaction to Klaytn network
+Sending the signed transaction to kaia network
 
 <CH.Code>
 ```java FeeDelegatedSmartContractDeployExample.java focus=68:71
@@ -216,7 +216,7 @@ Sending the signed transaction to Klaytn network
 
 ```zsh output
 ❯ java FeeDelegatedSmartContractDeployExample.java
-TxHash : 
+TxHash :
  0x104c9b6d8c325e49000a9f108d451456a5c147fd5ab863f9746286549202978d
 ````
 
@@ -236,7 +236,7 @@ Getting the transaction receipt
 
 ```zsh output
 ❯ java FeeDelegatedSmartContractDeployExample.java
-receipt : 
+receipt :
 class TransactionReceipt {
     blockHash: 0x448c2466eb20cc45891434790a14c129a0e4acec656d3e0a34adc995be961bc1
     blockNumber: 0x8def1ae
