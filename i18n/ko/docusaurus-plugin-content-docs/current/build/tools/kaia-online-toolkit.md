@@ -12,7 +12,7 @@
 
 '카이아 온라인 툴킷'의 링크입니다. 자유롭게 사용해보세요.
 
-- [GitHub 리포지토리](https://github.com/klaytn/klaytn-online-toolkit)
+- [Github Repository](https://github.com/kaiachain/kaia-online-toolkit)
 - [툴킷 페이지](https://toolkit.klaytn.foundation)
 - [카이아 SDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
 
