@@ -4,7 +4,7 @@
 
 토큰 표준은 [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) 등 Klaytn에 정의되어 있습니다.
 
-특정 기술 사양을 충족하기 위해 다른 KCT를 정의할 수 있습니다. 다른 토큰 표준이 필요하신 분은 [Kaia Improvement Proposal](https://github.com/klaytn/KIPs)을 방문하여 새로운 토큰 표준을 제안해 주세요.
+특정 기술 사양을 충족하기 위해 다른 KCT를 정의할 수 있습니다. If anyone needs other token standards, please visit [Kaia Improvement Proposal](https://github.com/kaiachain/KIPs) and propose a new token standard.
 
 ## 대체 가능한 토큰 표준 (KIP-7) <a id="fungible-token-standard-kip-7"></a>
 
