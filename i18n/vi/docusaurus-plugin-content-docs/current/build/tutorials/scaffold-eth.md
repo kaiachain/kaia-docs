@@ -18,7 +18,7 @@ To get started with in this guide, you will need:
 - Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
 - Familiarity with Javascript and React basics such as hooks
 - [Metamask Wallet](https://metamask.io/download/)
-- Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet)
 - RPC Endpoint: you can obtain this from one of the supported [endpoint providers](https://docs.kaia.io/docs/references/public-en/)
 
 ## Setting up development environment <a href="#setting-up-dev-environment" id="setting-up-dev-environment"></a>
