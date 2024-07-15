@@ -1,6 +1,4 @@
-# Governance
-
-## Overview <a id="overview"></a>
+# Overview
 
 ### Klaytn Governance: Taking the First Step to Decentralization <a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
 
