@@ -23,16 +23,16 @@ import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 
 /**
- * 
+ *
  */
 public class FeeDelegatedCancelExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -93,9 +93,9 @@ public class FeeDelegatedCancelExample implements keySample {
 
 ```zsh output
 ❯ java FeeDelegatedCancel.java
-TxHash : 
+TxHash :
  0x2e9abcc9d23fc32e3a2afb55172e5925b9543b445f1a8fbdb8b7aa50d9bad812
-receipt : 
+receipt :
 class TransactionReceipt {
     blockHash: 0xa1985b9c6a7cd8d58ef511915a677e33c5d6029d95f9223fec3febed65500051
     blockNumber: 0x8def165
@@ -137,7 +137,7 @@ TxType : FEE_DELEGATED_CANCEL
 
 ---
 
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ```java FeeDelegatedCancel.java focus=1:20
 
@@ -209,7 +209,7 @@ Create a raw transaction for canceling **pending transaction**
 
 ---
 
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`. 
+Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
 
 ```java FeeDelegatedCancel.java focus=53:54
 
@@ -217,7 +217,7 @@ Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`
 
 ---
 
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`. 
+Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
 
 ```java FeeDelegatedCancel.java focus=56:57
 
@@ -225,7 +225,7 @@ Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAs
 
 ---
 
-Sending the signed transaction to Klaytn network
+Sending the signed transaction to kaia network
 
 <CH.Code>
 
@@ -237,7 +237,7 @@ Sending the signed transaction to Klaytn network
 
 ```zsh output
 ❯ java FeeDelegatedCancel.java
-TxHash : 
+TxHash :
  0x2e9abcc9d23fc32e3a2afb55172e5925b9543b445f1a8fbdb8b7aa50d9bad812
 ```
 
@@ -255,7 +255,7 @@ Getting the transaction receipt
 
 ```zsh output
 ❯ java FeeDelegatedCancel.java
-receipt : 
+receipt :
 class TransactionReceipt {
     blockHash: 0xa1985b9c6a7cd8d58ef511915a677e33c5d6029d95f9223fec3febed65500051
     blockNumber: 0x8def165
