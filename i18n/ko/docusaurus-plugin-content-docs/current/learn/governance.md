@@ -1,6 +1,4 @@
-# 거버넌스
-
-## 개요 <a id="overview"></a>
+# Overview
 
 ### 카이아 거버넌스: 탈중앙화를 위한 첫걸음 <a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
 
