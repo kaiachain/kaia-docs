@@ -32,11 +32,11 @@ def web3_tx_sign_recover_pubkey():
     })
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
-    
+
     tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
-    
+
     recovered = w3.klay.recover_from_transaction(signed_tx.rawTransaction.hex(), "latest")
     print("\nsender", user.address, "\nrecovered", recovered)
 
@@ -49,7 +49,7 @@ web3_tx_sign_recover_pubkey()
 ❯ python txTypeLegacyTransaction.py
 tx hash:  0x26b8f66ac07e666163c65396fb24a5940ccc5bdc84a1de5301550f7fe096e2d3 receipt:  AttributeDict({'blockHash': HexBytes('0x1731103ca6b336d0b1f6731632e7339f710f2316b5efb63882108bd0a5207f45'), 'blockNumber': 150557786, 'contractAddress': None, 'cumulativeGasUsed': 21000, 'effectiveGasPrice': 25000000000, 'from': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'transactionHash': HexBytes('0x26b8f66ac07e666163c65396fb24a5940ccc5bdc84a1de5301550f7fe096e2d3'), 'transactionIndex': 0, 'type': 0})
 
-sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b 
+sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b
 recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 ```
 
@@ -57,7 +57,7 @@ recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ```py web3_public_value_transfer_sign_recover.py focus=1:2
 
@@ -110,11 +110,11 @@ def web3_tx_sign_recover_pubkey():
     })
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
-    
+
     tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
-    
+
     recovered = w3.klay.recover_from_transaction(signed_tx.rawTransaction.hex(), "latest")
     print("\nsender", user.address, "\nrecovered", recovered)
 
@@ -147,7 +147,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**from**: the sender's address, **to**: target address to receive klay.
+**from**: the sender's address, **to**: target address to receive kaia.
 
 ```py web3_public_value_transfer_sign_recover.py focus=21:22
 
@@ -155,7 +155,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**value** field means how many klay you want to send and you can use the **Web3.to_peb** utils to convert klay to peb unit.
+**value** field means how many kaia you want to send and you can use the **Web3.to_peb** utils to convert kaia to peb unit.
 
 ```py web3_public_value_transfer_sign_recover.py focus=23
 
@@ -204,7 +204,7 @@ Recover sender address with **Account.recover_transaction** from signed transact
 
 ```zsh output
 ❯ python web3_public_value_transfer_sign_recover.py
-sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b 
+sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b
 recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 ````
 
