@@ -1,6 +1,6 @@
 # Value Transfer Memo
 
-**TxTypeValueTransferMemo** is used when a user wants to send KLAY with a specific message.
+**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
 
 <CH.Spotlight>
 <CH.Code>
@@ -33,7 +33,7 @@ def web3_value_transfer_with_memo_sign_recover():
     })
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
 
@@ -83,7 +83,7 @@ tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 rec
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ```py ValueTransferWithMemo.py focus=1,2
 
@@ -99,7 +99,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
 
 ---
 
-Create a Web3 instance with the specified Klaytn **Baobab** testnet URL
+Create a Web3 instance with the specified kaia **Baobab** testnet URL
 
 ```py ValueTransferWithMemo.py focus=12:14
 
@@ -122,7 +122,7 @@ from web3py_ext.utils.klaytn_utils import to_pretty
 from cytoolz import merge
 
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet-rpc.allthatnode.com:8551'
+    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
     ))
 
 def web3_value_transfer_with_memo_sign_recover():
@@ -137,7 +137,7 @@ def web3_value_transfer_with_memo_sign_recover():
     })
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
 
-    # sign the klaytn specific transaction type with web3py
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
 
