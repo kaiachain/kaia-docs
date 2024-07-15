@@ -26,6 +26,6 @@
 
 **카이아 툴킷**
 
-- [Klaytnscope](https://klaytnscope.com/) - A block and transaction explorer.
+- [Kaiascope](https://kaiascope.com/) - A block and transaction explorer.
 - [Kaia Wallet](https://wallet.klaytn.com/) - 브라우저 기반 계정 관리 도구.
 - [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) - 스마트 컨트랙트를 부트스트랩하고 카이아 컨트랙트에 대해 알아볼 수 있는 대화형 생성기입니다.
