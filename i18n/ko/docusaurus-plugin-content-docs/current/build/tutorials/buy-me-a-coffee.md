@@ -37,7 +37,7 @@ In this tutorial. 이 튜토리얼에서는 탈중앙화된 버전의 Buy Me a C
 - [Node.js](https://nodejs.org/en/download/package-manager)
 - 후크 등과 같은 JavaScript 및 React 기본 사항에 익숙해야 합니다.
 - [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask 월렛](https://metamask.io/download/) 등 필요한 월렛 설치
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA를 테스트합니다.
+- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet).
 - RPC Endpoint: you can obtain this from one of the supported [endpoint providers](../../references/public-en.md).
 - [Fleek](https://app.fleek.co/)에서 계정을 생성합니다.
 
