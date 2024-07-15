@@ -6,41 +6,53 @@
 <CH.Code>
 
 ```js TxFeeDelegatedCancel.js
-const { KlaytnWeb3, TxType, parseTransaction } = require("@klaytn/web3js-ext");
-const { Web3 } = require("web3");
+const {
+  KlaytnWeb3,
+  TxType,
+  parseTransaction,
+} = require('@kaiachain/web3js-ext')
+const { Web3 } = require('web3')
 
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
-const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const feePayerAddr = '0xcb0eb737dfda52756495a5e08a9b37aab3b271da'
+const feePayerPriv =
+  '0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4'
 
 async function main() {
-  const provider = new Web3.providers.HttpProvider("https://public-en-baobab.klaytn.net");
-  const web3 = new KlaytnWeb3(provider);
-  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+  const provider = new Web3.providers.HttpProvider(
+    'https://public-en-baobab.klaytn.net'
+  )
+  const web3 = new KlaytnWeb3(provider)
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
 
   const tx = {
     type: TxType.FeeDelegatedCancel,
     from: senderAddr,
-  };
+  }
 
-  const signResult1 = await senderAccount.signTransaction(tx);
-  console.log("senderRawTx", signResult1.rawTransaction);
-  console.log("senderTx", parseTransaction(signResult1.rawTransaction));
+  const signResult1 = await senderAccount.signTransaction(tx)
+  console.log('senderRawTx', signResult1.rawTransaction)
+  console.log('senderTx', parseTransaction(signResult1.rawTransaction))
 
   // Next step is usually done in the backend by the service provider.
   // But for the sake of demonstration, feePayer signature is done here.
 
-  const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
-  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
-  console.log("rawTx", signResult2.rawTransaction);
-  console.log("tx", parseTransaction(signResult2.rawTransaction));
+  const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv)
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(
+    signResult1.rawTransaction
+  )
+  console.log('rawTx', signResult2.rawTransaction)
+  console.log('tx', parseTransaction(signResult2.rawTransaction))
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult2.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
 
 ---
@@ -71,7 +83,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@klaytn/web3js-ext** packages to add klaytn features on web3
+Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ```js TxFeeDelegatedCancel.js focus=1:2
 
@@ -87,7 +99,7 @@ Define **sender**, **fee payer** addresses, and their \*private keys\*\*
 
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
 
 ```js TxFeeDelegatedCancel.js focus=10
 
@@ -98,41 +110,53 @@ Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js TxFeeDelegatedCancel.js focus=10
-const { KlaytnWeb3, TxType, parseTransaction } = require("@klaytn/web3js-ext");
-const { Web3 } = require("web3");
+const {
+  KlaytnWeb3,
+  TxType,
+  parseTransaction,
+} = require('@kaiachain/web3js-ext')
+const { Web3 } = require('web3')
 
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
-const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const feePayerAddr = '0xcb0eb737dfda52756495a5e08a9b37aab3b271da'
+const feePayerPriv =
+  '0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4'
 
 async function main() {
-  const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
-  const web3 = new KlaytnWeb3(provider);
-  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+  const provider = new Web3.providers.HttpProvider(
+    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+  )
+  const web3 = new KlaytnWeb3(provider)
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
 
   const tx = {
     type: TxType.FeeDelegatedCancel,
     from: senderAddr,
-  };
+  }
 
-  const signResult1 = await senderAccount.signTransaction(tx);
-  console.log("senderRawTx", signResult1.rawTransaction);
-  console.log("senderTx", parseTransaction(signResult1.rawTransaction));
+  const signResult1 = await senderAccount.signTransaction(tx)
+  console.log('senderRawTx', signResult1.rawTransaction)
+  console.log('senderTx', parseTransaction(signResult1.rawTransaction))
 
   // Next step is usually done in the backend by the service provider.
   // But for the sake of demonstration, feePayer signature is done here.
 
-  const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
-  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
-  console.log("rawTx", signResult2.rawTransaction);
-  console.log("tx", parseTransaction(signResult2.rawTransaction));
+  const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv)
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(
+    signResult1.rawTransaction
+  )
+  console.log('rawTx', signResult2.rawTransaction)
+  console.log('tx', parseTransaction(signResult2.rawTransaction))
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult2.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
 
 ---
