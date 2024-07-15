@@ -28,7 +28,7 @@ module.exports = {
         chainId: 8217,
         urls: {
           apiURL: "https://api-cypress.klaytnscope.com/api",
-          browserURL: "https://klaytnscope.com",
+          browserURL: "https://kaiascope.com/",
         },
       },
     ]
