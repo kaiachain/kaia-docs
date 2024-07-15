@@ -18,7 +18,7 @@
 
 사용자가 블록체인의 데이터를 보고 검색할 수 있는 웹 기반 도구입니다. 블록 탐색기는 일반적으로 블록 높이, 블록 해시, 트랜잭션 해시, 트랜잭션 발신자 및 수신자, 트랜잭션 금액, 트랜잭션 상태와 같은 정보를 표시합니다.
 
-카이아에서 사용할 수 있는 블록 탐색기는 [Klaytnscope](../build/tools/block-explorers/klaytnscope.md) 및 [Klayfinder](https://www.klaytnfinder.io/)입니다.
+The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Kaiascan](https://www.kaiascan.io/).
 
 ### 코어 셀(CC, Core Cell)
 
