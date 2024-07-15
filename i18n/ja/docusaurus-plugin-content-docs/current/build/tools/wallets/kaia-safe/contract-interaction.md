@@ -6,7 +6,7 @@ In this section, you will be interacting with and sending a transaction to a sim
 
 - [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../../tutorials/connecting-metamask#send-klay)
 - [Remix](https://remix.ethereum.org/) & [Kaia Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Obtain test KAIA from the [Faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- Obtain test KAIA from the [Faucet](https://kairos.wallet.kaia.io/faucet)
 
 **Step 1:** Navigate to [Remix](https://remix.ethereum.org/)
 
