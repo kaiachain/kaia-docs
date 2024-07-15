@@ -18,7 +18,7 @@ The public testnet of the Klaytn platform. It is used by developers to test and 
 
 A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status.
 
-The block explorers available in Klaytn are [Klaytnscope](../build/tools/block-explorers/klaytnscope.md) and [Klayfinder](https://www.klaytnfinder.io/).
+The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Kaiascan](https://www.kaiascan.io/).
 
 ### core cell (CC)
 
