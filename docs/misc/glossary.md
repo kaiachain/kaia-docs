@@ -14,7 +14,7 @@ The public testnet of the Kaia platform. It is used by developers to test and ve
 ### block explorer
 A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status. 
 
-The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Klayfinder](https://www.kaiascan.io/).
+The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Kaiascan](https://www.kaiascan.io/).
 
 ### core cell (CC)
 
