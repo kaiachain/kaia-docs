@@ -13,7 +13,7 @@ In this guide, you'll learn how to use the viem library to read data from the bl
 * Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
 * [Metamask](../../build/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 * RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../public-en.md).
-* Test KAIA from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KAIA.
+* Test KLAY from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KLAY.
 * [NodeJS and NPM](https://nodejs.org/en/)
 * [TS-node](https://www.npmjs.com/package/ts-node): used for running TypeScript scripts.
 
