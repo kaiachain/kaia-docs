@@ -4,23 +4,23 @@
     "description": "The title in the navbar"
   },
   "logo.alt": {
-    "message": "Kaia Logo",
+    "message": "Biểu trưng Kaia",
     "description": "The alt text of navbar logo"
   },
   "item.label.Learn": {
-    "message": "Learn",
+    "message": "Giới thiệu",
     "description": "Navbar item with label Learn"
   },
   "item.label.Build": {
-    "message": "Build",
+    "message": "Giới thiệu",
     "description": "Navbar item with label Build"
   },
   "item.label.Nodes": {
-    "message": "Nodes",
+    "message": "Nút",
     "description": "Navbar item with label Nodes"
   },
   "item.label.References": {
-    "message": "References",
+    "message": "Tham khảo",
     "description": "Navbar item with label References"
   },
   "item.label.Kaia Tech": {
