@@ -59,6 +59,7 @@ perspective, to the existing Ethereum stack. New tooling created in the Kaia eco
 ​
 Lastly, the ground rules:
 ​
+
 :::note
 
 Kaia does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancements, and the protocol stays stable with strongly committed stakeholders.
