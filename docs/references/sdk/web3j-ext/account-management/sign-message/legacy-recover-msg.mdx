@@ -14,15 +14,15 @@ import org.web3j.crypto.KlayCredentials;
 import org.web3j.crypto.KlaySignatureData;
 import org.web3j.crypto.Sign.SignatureData;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromMessageResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
 
 /**
- * 
+ *
  */
 public class SignMsgWithLegacyExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -46,29 +46,33 @@ public class SignMsgWithLegacyExample implements keySample {
 
 }
 ```
+
 ---
+
 ```zsh output
 ❯ java SignMsgWithLegacyExample.java
 Original address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 ```
+
 </CH.Code>
 
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ```java SignMsgWithLegacyExample.java focus=1:12
 
 ```
+
 ---
 
 Create a Web3j instance with the specified BAOBAB_URL
 
-
 ```java SignMsgWithLegacyExample.java focus=23
 
 ```
+
 ---
 
 Also, you can change the default provider. For example, using the alchemy provider.
@@ -84,15 +88,15 @@ import org.web3j.crypto.KlayCredentials;
 import org.web3j.crypto.KlaySignatureData;
 import org.web3j.crypto.Sign.SignatureData;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
-import org.web3j.protocol.klaytn.core.method.response.KlayRecoverFromMessageResponse;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
 
 /**
- * 
+ *
  */
 public class SignMsgWithLegacyExample implements keySample {
     /**
-     * 
+     *
      */
 
     public static void run() throws Exception {
@@ -118,33 +122,45 @@ public class SignMsgWithLegacyExample implements keySample {
 ```
 
 ---
+
 Load a **credential** from private key and get its address
 
 ```java SignMsgWithLegacyExample.java focus=24:25
 
 ```
+
 ---
+
 Define any message to sign
+
 ```java SignMsgWithLegacyExample.java focus=26
 
 ```
+
 ---
-Set the **block number** to be the latest block in the Klaytn network
+
+Set the **block number** to be the latest block in the kaia network
+
 ```java SignMsgWithLegacyExample.java focus=27
 
 ```
+
 ---
+
 Sign the **message** and convert the signature to string
 
 ```java SignMsgWithLegacyExample.java focus=29:30
 
 ```
+
 ---
-Recover the **address** and compare it to the original address 
+
+Recover the **address** and compare it to the original address
+
 <CH.Code>
 ```java SignMsgWithLegacyExample.java focus=32:35
 
-```
+````
 
 
 ---
@@ -153,13 +169,16 @@ Recover the **address** and compare it to the original address
 ❯ java SignMsgWithLegacyExample.java
 Original address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
-```
+````
 
 </CH.Code>
 
 ---
+
 Shut down the Web3j instance
+
 ```java SignMsgWithLegacyExample.java focus=37
 
 ```
+
 </CH.Spotlight>

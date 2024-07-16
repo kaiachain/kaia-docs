@@ -198,7 +198,7 @@ In the next section, we will be exploring the execution of functions in their ap
 
 ## Deploying the smart contract <a id="deploying-the-smart-contract"></a>
 
-In this section, you will make use of the [script](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy) here to deploy the OFTV1 contract on Kaia Kairos (source chain) and Polygon Mumbai (destination chain) respectively. Ensure you have tokens from a faucet for the respective network. You can acquire faucet tokens for the Kaia Kairos [here](https://baobab.wallet.klaytn.foundation/faucet) and  Polygon Mumbai testnet [here](https://faucet.polygon.technology/).
+In this section, you will make use of the [script](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy) here to deploy the OFTV1 contract on Kaia Kairos (source chain) and Polygon Mumbai (destination chain) respectively. Ensure you have tokens from a faucet for the respective network. You can acquire faucet tokens for the Kaia Kairos [here](https://kairos.wallet.kaia.io/faucet) and  Polygon Mumbai testnet [here](https://faucet.polygon.technology/).
 
 To deploy the contracts on the respective chains, run the command below:
 

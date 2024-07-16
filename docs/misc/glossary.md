@@ -14,7 +14,7 @@ The public testnet of the Kaia platform. It is used by developers to test and ve
 ### block explorer
 A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status. 
 
-The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Klayfinder](https://www.klaytnfinder.io/).
+The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Kaiascan](https://www.kaiascan.io/).
 
 ### core cell (CC)
 
@@ -60,17 +60,17 @@ A set of techniques for the exchange of data among two or more processes in one 
 
 A peer-to-peer distributed file system that enables users to store and share files in a decentralized manner. IPFS uses a content-addressing scheme to uniquely identify each file, and it stores files in a distributed network of nodes.
 
-### Kaia Community Fund (KCF)
+### Kaia Ecosystem Fund (KEF)
 
-A fund established by the Kaia Foundation to support initiatives that contribute to the growth and development of the Kaia blockchain ecosystem. The KCF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KCF is to advance innovation and community growth around Kaia through funded initiatives.
+A fund established by the Kaia Foundation to support initiatives that contribute to the growth and development of the Kaia blockchain ecosystem. The KEF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KEF is to advance innovation and community growth around Kaia through funded initiatives.
 
 ### Kaia endpoint node (KEN)
 
 See [endpoint node (EN)](#endpoint-node-en).
 
-### Kaia Foundation Fund (KFF)
+### Kaia Infrastructure Fund (KIF)
 
-A reserve fund established by the Kaia Foundation to support its operating expenses and long-term initiatives. The KFF aids in funding the Foundation's work to further develop and enhance the Kaia blockchain protocol and ecosystem through research, business development activities, education programs and more.
+A reserve fund established by the Kaia Foundation to support its operating expenses and long-term initiatives. The KIF aids in funding the Foundation's work to further develop and enhance the Kaia blockchain protocol and ecosystem through research, business development activities, education programs and more.
 
 ### Kaia Governance Council (KGC)
 

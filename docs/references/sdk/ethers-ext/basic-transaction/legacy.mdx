@@ -1,4 +1,4 @@
-TxTypeLegacyTransaction represents a type of transactions existed previously in Klaytn.
+TxTypeLegacyTransaction represents a type of transactions existed previously in kaia.
 
 \*\*This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
 
@@ -7,16 +7,19 @@ TxTypeLegacyTransaction represents a type of transactions existed previously in 
 <CH.Code>
 
 ```js txTypeLegacyTransaction.js
-const ethers = require("ethers");
+const ethers = require('ethers')
 
-const { Wallet, parseKlay } = require("@klaytn/ethers-ext");
+const { Wallet, parseKlay } = require('@kaiachain/ethers-ext')
 
-const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const recieverAddr = '0xc40b6909eb7085590e1c26cb3becc25368e249e9'
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
-const wallet = new Wallet(senderPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const wallet = new Wallet(senderPriv, provider)
 
 async function main() {
   const tx = {
@@ -25,18 +28,17 @@ async function main() {
     // here, type will be 2 because no gas-related fields are set.
     from: senderAddr,
     to: recieverAddr,
-    value: parseKlay("0.01"),
-  };
+    value: parseKlay('0.01'),
+  }
 
-  const sentTx = await wallet.sendTransaction(tx);
-  console.log("sentTx", sentTx.hash);
+  const sentTx = await wallet.sendTransaction(tx)
+  console.log('sentTx', sentTx.hash)
 
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 }
 
-main();
-
+main()
 ```
 
 ---
@@ -75,39 +77,47 @@ Import the **ethers** package that can interact with the Ethereum Blockchain and
 ```
 
 ---
-Import **@klaytn/ethers-ext** packages to add klaytn features on ethers.js
+
+Import **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+
 ```js txTypeLegacyTransaction.js focus=3
 
 ```
 
 ---
+
 Define sender address, sender private key and reciever address
+
 ```js txTypeLegacyTransaction.js focus=5:7
 
 ```
 
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js txTypeLegacyTransaction.js focus=9
 
 ```
+
 ---
 
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js txTypeLegacyTransaction.js focus=9
-const ethers = require("ethers");
+const ethers = require('ethers')
 
-const { Wallet, parseKlay } = require("@klaytn/ethers-ext");
+const { Wallet, parseKlay } = require('@kaiachain/ethers-ext')
 
-const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const recieverAddr = '0xc40b6909eb7085590e1c26cb3becc25368e249e9'
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
-const wallet = new Wallet(senderPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const wallet = new Wallet(senderPriv, provider)
 
 async function main() {
   const tx = {
@@ -116,19 +126,19 @@ async function main() {
     // here, type will be 2 because no gas-related fields are set.
     from: senderAddr,
     to: recieverAddr,
-    value: parseKlay("0.01"),
-  };
+    value: parseKlay('0.01'),
+  }
 
-  const sentTx = await wallet.sendTransaction(tx);
-  console.log("sentTx", sentTx.hash);
+  const sentTx = await wallet.sendTransaction(tx)
+  console.log('sentTx', sentTx.hash)
 
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 }
 
-main();
-
+main()
 ```
+
 ---
 
 Init Wallet instance with the private key and provider.
@@ -136,12 +146,15 @@ Init Wallet instance with the private key and provider.
 ```js txTypeLegacyTransaction.js focus=10
 
 ```
+
 ---
-Declare a transaction with the fields such as **from, to, value**. 
+
+Declare a transaction with the fields such as **from, to, value**.
 
 ```js txTypeLegacyTransaction.js focus=13:20
 
 ```
+
 ---
 
 Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
@@ -149,21 +162,22 @@ Send the tx to the blockchain. Function `sendTransaction` internally signs with 
 <CH.Code>
 ```js txTypeLegacyTransaction.js focus=22:23
 
-```
+````
 ---
 ```zsh output
 sentTx 0xf4f0cac1985c2880fa170b650e23148f7a2c93d46bf2193603e4fc15ec5eca95
-```
+````
+
 </CH.Code>
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain. 
+The **wait** function returns the tx receipt if it is completed in the blockchain.
 
 <CH.Code>
 ```js txTypeLegacyTransaction.js focus=25:26
 
-```
+````
 ---
 ```zsh output
 receipt {
@@ -184,6 +198,7 @@ receipt {
   type: 2,
   byzantium: true
 }
-```
+````
+
 </CH.Code>
 </CH.Spotlight>

@@ -8,7 +8,7 @@
 caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 ```
 
-Returns `true` if the account associated with the address is created in the Klaytn blockchain platform. It returns `false` otherwise.
+Returns `true` if the account associated with the address is created in the kaia blockchain platform. It returns `false` otherwise.
 
 **Parameters**
 
@@ -24,7 +24,7 @@ Returns `true` if the account associated with the address is created in the Klay
 
 | Type    | Description                                      |
 | ------- | ------------------------------------------------ |
-| boolean | The existence of an input address in the Klaytn. |
+| boolean | The existence of an input address in the kaia. |
 
 **Example**
 
@@ -39,7 +39,7 @@ true
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 ```
 
-Returns the account information of a given address in the Klaytn. For more details about the types of an account in Klaytn, please refer to [Klaytn Account Types](../../../../../learn/accounts.md#klaytn-account-types).
+Returns the account information of a given address in the kaia. For more details about the types of an account in kaia, please refer to [Kaia Account Types](../../../../../learn/accounts.md#klaytn-account-types).
 
 **NOTE** `caver.rpc.klay.getAccount` returns the account that exists on the network, so `null` is returned if the account matching the address does not exist on the actual blockchain network.
 
@@ -98,13 +98,13 @@ caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 
 Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../../../../../learn/accounts.md#accountkeylegacy) or the account of the given address is a [Smart Contract Account](../../../../../learn/accounts.md#smart-contract-accounts-scas), it will return an empty key value. Please refer to [Account Key](../../../../../learn/accounts.md#account-key) for more details.
 
-**NOTE** `caver.rpc.klay.getAccountKey` returns an object that differs by each AccountKey type. If a Klaytn account matching the given address does not exist in the network, `null` is returned.
+**NOTE** `caver.rpc.klay.getAccountKey` returns an object that differs by each AccountKey type. If a kaia account matching the given address does not exist in the network, `null` is returned.
 
 **Parameters**
 
 | Name        | Type             | Description                                                                                                |
 | ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------- |
-| address     | string           | The address of Klaytn account from which you want to get an object of AccountKey information.              |
+| address     | string           | The address of kaia account from which you want to get an object of AccountKey information.              |
 | blockNumber | number \| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.        |
 | callback    | function         | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
@@ -418,7 +418,7 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 ```
 
-Returns the balance of the account of the given address in Klaytn.
+Returns the balance of the account of the given address in kaia.
 
 **Parameters**
 
@@ -545,9 +545,9 @@ true
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) to know how the signature is generated.
+Generates signed data specific to the kaia. Refer to [Kaia Platform API - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) to know how the signature is generated.
 
-**NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your Klaytn node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
+**NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your kaia node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
 
 **Parameters**
 
@@ -579,7 +579,7 @@ Generates signed data specific to the Klaytn. Refer to [Klaytn Platform API - kl
 caver.rpc.klay.getAccounts([callback])
 ```
 
-Returns a list of addresses owned by the Klaytn Node.
+Returns a list of addresses owned by the kaia Node.
 
 **Parameters**
 
@@ -593,7 +593,7 @@ Returns a list of addresses owned by the Klaytn Node.
 
 | Type  | Description                                     |
 | ----- | ----------------------------------------------- |
-| Array | An array of addresses owned by the Klaytn Node. |
+| Array | An array of addresses owned by the kaia Node. |
 
 **Example**
 
@@ -1474,7 +1474,7 @@ Returns an object with data about the sync status or false.
 
 **Return Value**
 
-`Promise` returns `object|boolean` - `false` if the Klaytn Node is not syncing. Otherwise, a sync object is returned:
+`Promise` returns `object|boolean` - `false` if the kaia Node is not syncing. Otherwise, a sync object is returned:
 
 | Name          | Type   | Description                                                 |
 | ------------- | ------ | ----------------------------------------------------------- |
@@ -1581,7 +1581,7 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
 ```
 
-Generates and returns an estimate of how much `computation cost` will be spent to execute the transaction. Klaytn limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
+Generates and returns an estimate of how much `computation cost` will be spent to execute the transaction. kaia limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
 
 **Parameters**
 
@@ -1729,7 +1729,7 @@ Returns the information about a transaction requested by transaction hash.
 | gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                     |
 | hash               | string  | Hash of the transaction.                                                                                                                                                                                     |
 | humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                              |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an Klaytn account. See [AccountKey](../../../../../learn/accounts.md#account-key) for more details.                               |
+| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an kaia account. See [AccountKey](../../../../../learn/accounts.md#account-key) for more details.                               |
 | input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                         |
 | nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                             |
 | senderTxHash       | string  | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non-fee-delegated transactions.                                            |
@@ -1872,14 +1872,14 @@ Returns the receipt of a transaction by transaction hash.
 | gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                |
 | gasUsed            | string  | The amount of gas used by this specific transaction alone.                                                                                                                                                                              |
 | humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                         |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a Klaytn account.                                                                                                                                                    |
+| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a kaia account.                                                                                                                                                    |
 | input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                    |
 | logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                                                 |
 | logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                        |
 | nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                        |
 | senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions. |
 | signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                                   |
-| status             | string  | `0x1` if the transaction was successful, `0x0` if the Klaytn Virtual Machine reverted the transaction.                                                                                                                                  |
+| status             | string  | `0x1` if the transaction was successful, `0x0` if the kaia Virtual Machine reverted the transaction.                                                                                                                                  |
 | txError            | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                                           |
 | to                 | string  | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                             |
 | transactionHash    | string  | Hash of the transaction.                                                                                                                                                                                                                |
@@ -2005,7 +2005,7 @@ Please note that this API returns the correct result only if the indexing featur
 caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
 ```
 
-Sends a `signed transaction` to the Klaytn.
+Sends a `signed transaction` to the kaia.
 
 The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You can get the RLP-encoded transaction of a signed transaction using `transaction.getRLPEncoding`. For convenience, `caver.rpc.klay.sendRawTransaction` also accepts a "signed transaction instance" as parameter.
 
@@ -2065,17 +2065,17 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction `sender` with an "imported account's private key" in your Klaytn Node and propagates the transaction to the Klaytn.
+Signs a transaction as a transaction `sender` with an "imported account's private key" in your kaia Node and propagates the transaction to the kaia.
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
 | Name        | Type     | Description                                                                                                |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of a transaction to be sent to the Klaytn.                                                     |
+| transaction | object   | An instance of a transaction to be sent to the kaia.                                                     |
 | callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -2094,7 +2094,7 @@ For PromiEvent, the following events are available:
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
-    from: '0x{address in hex}', // The address of imported account in Klaytn Node
+    from: '0x{address in hex}', // The address of imported account in kaia Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.convertToPeb(10, 'KLAY'),
     gas: 25000
@@ -2133,19 +2133,19 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your Klaytn Node and propagates the transaction to the Klaytn.
+Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your kaia Node and propagates the transaction to the kaia.
 
 Before using `sendTransaction` as a fee payer, the transaction sender must have signed with valid signature(s) and the `nonce` must have been defined.
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
 | Name        | Type     | Description                                                                                                |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of fee delegated transaction to send to the Klaytn.                                            |
+| transaction | object   | An instance of fee delegated transaction to send to the kaia.                                            |
 | callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -2176,7 +2176,7 @@ For PromiEvent, the following events are available:
             '0x15d206781cc8ac9ffb02c08545cb832e1f1700b46b886d72bb0cfeb4a230871e',
         ],
     ],
-    feePayer: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in Klaytn Node
+    feePayer: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in kaia Node
 })
 // Using promise
 > caver.rpc.klay.signTransaction(tx).then(console.log)
@@ -2214,11 +2214,11 @@ For PromiEvent, the following events are available:
 caver.rpc.klay.signTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction sender with an "imported account's private key" in your Klaytn Node.
+Signs a transaction as a transaction sender with an "imported account's private key" in your kaia Node.
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
@@ -2240,7 +2240,7 @@ For more information about each transaction type, refer to [Transaction](../cave
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
-    from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in Klaytn Node
+    from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e', // The address of imported account in kaia Node
     to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     value: caver.utils.toPeb(10, 'KLAY'),
     gas: 25000
@@ -2270,11 +2270,11 @@ For more information about each transaction type, refer to [Transaction](../cave
 caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a transaction as a transaction fee payer with an "imported account's private key" in your Klaytn Node.
+Signs a transaction as a transaction fee payer with an "imported account's private key" in your kaia Node.
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your Klaytn node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
 
 **Parameters**
 
@@ -2308,7 +2308,7 @@ For more information about each transaction type, refer to [Transaction](../cave
             '0x26dcf6f3702110230b806628165e28771e1152ea864ee4c69557faccd4d3dae8',
         ],
     ],
-    feePayer: '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122', // The address of imported account in Klaytn Node
+    feePayer: '0xe8b3a6ef12f9506e1df9fd445f9bb4488a482122', // The address of imported account in kaia Node
 })
 
 > caver.rpc.klay.signTransactionAsFeePayer(tx).then(console.log)
@@ -2412,7 +2412,7 @@ Returns the chain ID of the chain.
 caver.rpc.klay.getClientVersion([callback])
 ```
 
-Returns the current client version of a Klaytn node.
+Returns the current client version of a kaia node.
 
 **Parameters**
 
@@ -2426,13 +2426,13 @@ Returns the current client version of a Klaytn node.
 
 | Type   | Description                                  |
 | ------ | -------------------------------------------- |
-| string | The current client version of a Klaytn node. |
+| string | The current client version of a kaia node. |
 
 **Example**
 
 ```javascript
 > caver.rpc.klay.getClientVersion().then(console.log)
-Klaytn/v1.3.0+144494d2aa/linux-amd64/go1.13.1
+kaia/v1.3.0+144494d2aa/linux-amd64/go1.13.1
 ```
 
 ## caver.rpc.klay.getGasPrice <a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a>
@@ -2500,7 +2500,7 @@ Returns the current price per gas in peb for the given block.
 caver.rpc.klay.getMaxPriorityFeePerGas([callback])
 ```
 
-Returns a suggested gas tip cap for dynamic fee transactions in peb. Since Klaytn has a fixed gas price, this returns the gas price set by Klaytn.
+Returns a suggested gas tip cap for dynamic fee transactions in peb. Since kaia has a fixed gas price, this returns the gas price set by kaia.
 
 **Parameters**
 
@@ -2729,7 +2729,7 @@ true
 caver.rpc.klay.getProtocolVersion([callback])
 ```
 
-Returns the Klaytn protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
+Returns the kaia protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
 
 **Parameters**
 
@@ -2743,7 +2743,7 @@ Returns the Klaytn protocol version of the node. The current version (as of v1.9
 
 | Type   | Description                              |
 | ------ | ---------------------------------------- |
-| string | The Klaytn protocol version of the node. |
+| string | The kaia protocol version of the node. |
 
 **Example**
 
@@ -2965,7 +2965,7 @@ Creates a filter object using the given filter options, to receive the specific 
 * To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
 * To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
 
-For detailed information about the topics in the filter object, please see [Klaytn Platform API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
+For detailed information about the topics in the filter object, please see [Kaia Platform API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
 
 **Parameters**
 
