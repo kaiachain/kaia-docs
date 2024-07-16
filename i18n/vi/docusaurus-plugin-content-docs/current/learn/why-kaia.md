@@ -79,7 +79,8 @@ As per this principle, Kaia has been designed to meet the following requirements
   ​
   Lastly, the ground rules:
   ​
-  :::note
+
+:::note
 
 Kaia does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancements, and the protocol stays stable with strongly committed stakeholders.
 
