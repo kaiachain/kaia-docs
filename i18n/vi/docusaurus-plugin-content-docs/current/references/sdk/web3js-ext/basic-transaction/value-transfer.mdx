@@ -1,40 +1,45 @@
 # Value Transfer
 
-TxTypeValueTransfer is used when a user wants to send KLAY.
+TxTypeValueTransfer is used when a user wants to send KAIA.
 
-- As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KLAY to an externally owned account (EOA).
+- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
 
 <CH.Spotlight>
 <CH.Code>
 
 ```js txTypeValueTransferTransaction.js
-const { KlaytnWeb3, TxType, toPeb } = require("@klaytn/web3js-ext");
-const { Web3 } = require("web3");
+const { KlaytnWeb3, TxType, toPeb } = require('@kaiachain/web3js-ext')
+const { Web3 } = require('web3')
 
-const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const recieverAddr = '0xc40b6909eb7085590e1c26cb3becc25368e249e9'
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
 
 async function main() {
-  const provider = new Web3.providers.HttpProvider("https://public-en-baobab.klaytn.net");
-  const web3 = new KlaytnWeb3(provider);
-  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+  const provider = new Web3.providers.HttpProvider(
+    'https://public-en-baobab.klaytn.net'
+  )
+  const web3 = new KlaytnWeb3(provider)
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
 
   const tx = {
     type: TxType.ValueTransfer,
     from: senderAddr,
     to: recieverAddr,
-    value: toPeb("0.01", "KLAY"),
-  };
+    value: toPeb('0.01', 'KLAY'),
+  }
 
-  const signResult = await senderAccount.signTransaction(tx);
-  console.log("rawTx", signResult.rawTransaction);
+  const signResult = await senderAccount.signTransaction(tx)
+  console.log('rawTx', signResult.rawTransaction)
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
 
 ---
@@ -64,7 +69,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@klaytn/web3js-ext** packages to add klaytn features on web3
+Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ```js txTypeValueTransferTransaction.js focus=1:2
 
@@ -80,7 +85,7 @@ Define **sender, receiver address and sender private key**
 
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
 
 ```js txTypeValueTransferTransaction.js focus=9
 
@@ -91,33 +96,38 @@ Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider
 Also, you can change the default provider. For example, using the alchemy provider.
 
 ```js txTypeValueTransferTransaction.js focus=9
-const { KlaytnWeb3, TxType, toPeb } = require("@klaytn/web3js-ext");
-const { Web3 } = require("web3");
+const { KlaytnWeb3, TxType, toPeb } = require('@kaiachain/web3js-ext')
+const { Web3 } = require('web3')
 
-const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
-const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
-const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const recieverAddr = '0xc40b6909eb7085590e1c26cb3becc25368e249e9'
+const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
+const senderPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
 
 async function main() {
-  const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet.g.allthatnode.com/full/evm");
-  const web3 = new KlaytnWeb3(provider);
-  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+  const provider = new Web3.providers.HttpProvider(
+    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+  )
+  const web3 = new KlaytnWeb3(provider)
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
 
   const tx = {
     type: TxType.ValueTransfer,
     from: senderAddr,
     to: recieverAddr,
-    value: toPeb("0.01", "KLAY"),
-  };
+    value: toPeb('0.01', 'KLAY'),
+  }
 
-  const signResult = await senderAccount.signTransaction(tx);
-  console.log("rawTx", signResult.rawTransaction);
+  const signResult = await senderAccount.signTransaction(tx)
+  console.log('rawTx', signResult.rawTransaction)
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
 
 ---
@@ -138,7 +148,7 @@ Declare transaction params such as **type, from, to, value**
 
 ---
 
-Sign the transaction with **sender** account 
+Sign the transaction with **sender** account
 
 <CH.Code>
 
@@ -153,7 +163,9 @@ Sign the transaction with **sender** account
 signedTx 0x9f7ef299e96a4648ccef2195897380ecd2bed589aac93d8711049e864dcdbca8
 ```
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Send the signed transaction to blockchain and print the **receipt**
 

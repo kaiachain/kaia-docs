@@ -3,9 +3,8 @@
 **AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
 
 In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-    _ The weighted sum of the signed public keys should be larger than the threshold.
-    _ The invalid signature should not be included in the transaction.
-    \* The number of signed public keys should be less than the number of weightedPublicKeys.
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
 
 <CH.Spotlight>
 <CH.Code>
@@ -21,7 +20,7 @@ from web3py_ext.transaction.transaction import (
 )
 from cytoolz import merge
 
-w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet-rpc.allthatnode.com:8551'))
+w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet.g.allthatnode.com/full/evm'))
 
 def web3_tx_sign_recover_multisig():
     user1 = Account.from_key_pair(
@@ -51,7 +50,7 @@ def web3_tx_sign_recover_multisig():
     tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
-    
+
     recovered = w3.klay.recover_from_transaction(signed_tx.rawTransaction.hex(), "latest")
     print("\nsender", user1.address, "\nrecovered", recovered)
 
@@ -64,7 +63,7 @@ web3_tx_sign_recover_multisig()
 ❯ py web3_multisig_value_transfer_sign_recover.py
 tx hash:  0xe5c4f8b3bd90bf86660eff4f6e4b51dec84e49ac50adcfff7ca983dcfb2db31d receipt:  AttributeDict({'blockHash': HexBytes('0x8e0df2104f3f829e06a23808563b07b22c729e04285ebe76aad08f0fecfb4183'), 'blockNumber': 150557795, 'contractAddress': None, 'cumulativeGasUsed': 51000, 'effectiveGasPrice': 25000000000, 'from': '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E', 'gasUsed': 51000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E', 'transactionHash': HexBytes('0xe5c4f8b3bd90bf86660eff4f6e4b51dec84e49ac50adcfff7ca983dcfb2db31d'), 'transactionIndex': 0, 'type': 0})
 
-sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E 
+sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
 recovered 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 ```
 
@@ -72,7 +71,7 @@ recovered 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=1:2
 
@@ -139,7 +138,7 @@ def web3_tx_sign_recover_multisig():
     tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
-    
+
     recovered = w3.klay.recover_from_transaction(signed_tx.rawTransaction.hex(), "latest")
     print("\nsender", user1.address, "\nrecovered", recovered)
 
@@ -172,7 +171,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**from**: the sender's address, **to**: target address to receive klay.
+**from**: the sender's address, **to**: target address to receive kaia.
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=29:30
 
@@ -180,7 +179,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**value** field means how many klay you want to send and you can use the **Web3.to_peb** utils to convert klay to peb unit.
+**value** field means how many kaia you want to send and you can use the **Web3.to_peb** utils to convert kaia to peb unit.
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=31
 
@@ -223,7 +222,9 @@ Sign the **signed_tx** with the **user2** and **user3** private keys
 tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a receipt:  AttributeDict({'blockHash': HexBytes('0xcd0b362591ab28e4c5c423561ea525ad7f19e1fbc177aeef640aece7d53fc83d'), 'blockNumber': 147156811, 'contractAddress': None, 'cumulativeGasUsed': 271841, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 81000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash': HexBytes('0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a'), 'transactionIndex': 1, 'type': 0})
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Recover user1 address with **Account.recover_transaction** from signed transaction from **user3**
 
@@ -235,7 +236,7 @@ Recover user1 address with **Account.recover_transaction** from signed transacti
 
 ```zsh output
 ❯ python web3_multisig_value_transfer_sign_recover.py
-sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E 
+sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
 recovered 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 ````
 

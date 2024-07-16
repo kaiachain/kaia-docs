@@ -24,7 +24,7 @@ Computation cost related hardfork changes can be found at the bottom of this pag
 
 A series of opcodes or precompiled contracts are executed sequentially when executing a transaction. To limit the execution time of a transaction, we have made a deterministic execution time calculation model for opcodes and precompiled contracts based on real execution time.
 
-Based on this model, predetermined computation cost values for opcodes and precompiled contracts are added to the total computation cost. If the total value exceeds computation cost limit, transaction execution is aborted and returns [ComputationCostLimitReached(0x0a)](../../references/transaction-error-codes.md) error.
+Based on this model, predetermined computation cost values for opcodes and precompiled contracts are added to the total computation cost. If the total value exceeds computation cost limit, transaction execution is aborted and returns [ComputationCostLimitReached(0x0a)](../../references/sdk/transaction-error-codes.md) error.
 
 When setting the computation cost limit value, we set `--opcode-computation-cost-limit` flag value as a limit if it is set as a non-zero value. If it's zero, the limit is set to the default computation cost limit defined for each specific hardfork.
 Exceptionally, the limit for call/estimateGas/estimateComputationCost is always set to unlimited and is not influenced by flag or hardfork values. However, execution still can be aborted due to other limits such as gas cap.
@@ -197,7 +197,7 @@ Exceptionally, the limit for call/estimateGas/estimateComputationCost is always 
 | 0x02    | sha256hash            | numOfWords(input) / 32 \* 100 + 1,000                                                                                                  |
 | 0x03    | ripemd160hash         | numOfWords(input) / 32 \* 10 + 100                                                                                                     |
 | 0x04    | dataCopy              | 0                                                                                                                                                         |
-| 0x05    | bigModExp             | see the code [here](https://github.com/klaytn/klaytn/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)                       |
+| 0x05    | bigModExp             | see the code [here](https://github.com/kaiachain/kaia/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)                      |
 | 0x06    | bn256Add              | 8,000                                                                                                                                                     |
 | 0x07    | bn256ScalarMul        | 100,000                                                                                                                                                   |
 | 0x08    | bn256Pairing          | numOfPairings(input) \* 1,000,000 + 2,000,000                                                                                          |

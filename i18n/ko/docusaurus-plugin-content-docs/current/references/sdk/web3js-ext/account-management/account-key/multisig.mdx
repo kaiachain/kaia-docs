@@ -3,32 +3,41 @@
 **AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
 
 In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-    _ The weighted sum of the signed public keys should be larger than the threshold.
-    _ The invalid signature should not be included in the transaction.
-    \* The number of signed public keys should be less than the number of weightedPublicKeys.
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
 
 <CH.Spotlight>
 <CH.Code>
 
 ```js AccountUpdateWithMultiSigExample.js
-const { Web3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@klaytn/web3js-ext");
+const {
+  Web3,
+  TxType,
+  AccountKeyType,
+  getPublicKeyFromPrivate,
+} = require('@kaiachain/web3js-ext')
 
-const senderAddr = "0x2bf611d14d330fd3688d10f2201321eacc8aa2ce";
-const senderPriv1 = "0x31fadf868e68fd2e3f7a1c528023c9a86a45db850e9d6b82c1a82d4c75b469d1";
-const senderPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const senderPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const senderAddr = '0x2bf611d14d330fd3688d10f2201321eacc8aa2ce'
+const senderPriv1 =
+  '0x31fadf868e68fd2e3f7a1c528023c9a86a45db850e9d6b82c1a82d4c75b469d1'
+const senderPriv2 =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const senderPriv3 =
+  '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
 
-const provider = new Web3.providers.HttpProvider("https://public-en-baobab.klaytn.net");
-const web3 = new Web3(provider);
-const senderAccount1 = web3.eth.accounts.privateKeyToAccount(senderPriv1);
-const senderAccount2 = web3.eth.accounts.privateKeyToAccount(senderPriv2);
-const senderAccount3 = web3.eth.accounts.privateKeyToAccount(senderPriv3);
+const provider = new Web3.providers.HttpProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const web3 = new Web3(provider)
+const senderAccount1 = web3.eth.accounts.privateKeyToAccount(senderPriv1)
+const senderAccount2 = web3.eth.accounts.privateKeyToAccount(senderPriv2)
+const senderAccount3 = web3.eth.accounts.privateKeyToAccount(senderPriv3)
 
 async function main() {
-  const pub1 = getPublicKeyFromPrivate(senderPriv1);
-  const pub2 = getPublicKeyFromPrivate(senderPriv2);
-  const pub3 = getPublicKeyFromPrivate(senderPriv3);
-  console.log({ pub1, pub2, pub3 });
+  const pub1 = getPublicKeyFromPrivate(senderPriv1)
+  const pub2 = getPublicKeyFromPrivate(senderPriv2)
+  const pub3 = getPublicKeyFromPrivate(senderPriv3)
+  console.log({ pub1, pub2, pub3 })
 
   let tx = {
     type: TxType.AccountUpdate,
@@ -41,30 +50,36 @@ async function main() {
         [1, pub1],
         [1, pub2],
         [1, pub3],
-      ]
-    }
-  };
+      ],
+    },
+  }
 
   // The example senderAddr actually requires only 2 signature,
   // but we use 3 signatures to show different ways to sign a transaction.
 
   // sign 1: First signer sign from the tx object
-  const signResult1 = await senderAccount1.signTransaction(tx);
-  console.log("rawTx1", signResult1.rawTransaction);
+  const signResult1 = await senderAccount1.signTransaction(tx)
+  console.log('rawTx1', signResult1.rawTransaction)
 
   // sign 2: Rest of the signers sign from the rawTx
-  const signResult2 = await senderAccount2.signTransaction(signResult1.rawTransaction);
-  console.log("rawTx2", signResult2.rawTransaction);
+  const signResult2 = await senderAccount2.signTransaction(
+    signResult1.rawTransaction
+  )
+  console.log('rawTx2', signResult2.rawTransaction)
 
   // sign 3: Last signer sign from the rawTx then send it
-  const signResult3 = await senderAccount3.signTransaction(signResult2.rawTransaction);
-  console.log("signedTx3", signResult3.transactionHash);
+  const signResult3 = await senderAccount3.signTransaction(
+    signResult2.rawTransaction
+  )
+  console.log('signedTx3', signResult3.transactionHash)
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult3.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult3.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main().catch(console.error);
+main().catch(console.error)
 ```
 
 ---
@@ -103,7 +118,7 @@ receipt {
 
 ---
 
-Import the **@klaytn/web3js-ext** packages to add klaytn features on web3
+Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ```js AccountUpdateWithMultiSigExample.js focus=1
 
@@ -119,7 +134,7 @@ Define sender **address**, sender **private key** and new **muti-sig private key
 
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
 
 ```js AccountUpdateWithMultiSigExample.js focus=8
 
@@ -130,24 +145,34 @@ Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js AccountUpdateWithMultiSigExample.js focus=8
-const { Web3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@klaytn/web3js-ext");
+const {
+  Web3,
+  TxType,
+  AccountKeyType,
+  getPublicKeyFromPrivate,
+} = require('@kaiachain/web3js-ext')
 
-const senderAddr = "0x2bf611d14d330fd3688d10f2201321eacc8aa2ce";
-const senderPriv1 = "0x31fadf868e68fd2e3f7a1c528023c9a86a45db850e9d6b82c1a82d4c75b469d1";
-const senderPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const senderPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const senderAddr = '0x2bf611d14d330fd3688d10f2201321eacc8aa2ce'
+const senderPriv1 =
+  '0x31fadf868e68fd2e3f7a1c528023c9a86a45db850e9d6b82c1a82d4c75b469d1'
+const senderPriv2 =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const senderPriv3 =
+  '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
 
-const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
-const web3 = new Web3(provider);
-const senderAccount1 = web3.eth.accounts.privateKeyToAccount(senderPriv1);
-const senderAccount2 = web3.eth.accounts.privateKeyToAccount(senderPriv2);
-const senderAccount3 = web3.eth.accounts.privateKeyToAccount(senderPriv3);
+const provider = new Web3.providers.HttpProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const web3 = new Web3(provider)
+const senderAccount1 = web3.eth.accounts.privateKeyToAccount(senderPriv1)
+const senderAccount2 = web3.eth.accounts.privateKeyToAccount(senderPriv2)
+const senderAccount3 = web3.eth.accounts.privateKeyToAccount(senderPriv3)
 
 async function main() {
-  const pub1 = getPublicKeyFromPrivate(senderPriv1);
-  const pub2 = getPublicKeyFromPrivate(senderPriv2);
-  const pub3 = getPublicKeyFromPrivate(senderPriv3);
-  console.log({ pub1, pub2, pub3 });
+  const pub1 = getPublicKeyFromPrivate(senderPriv1)
+  const pub2 = getPublicKeyFromPrivate(senderPriv2)
+  const pub3 = getPublicKeyFromPrivate(senderPriv3)
+  console.log({ pub1, pub2, pub3 })
 
   let tx = {
     type: TxType.AccountUpdate,
@@ -160,30 +185,36 @@ async function main() {
         [1, pub1],
         [1, pub2],
         [1, pub3],
-      ]
-    }
-  };
+      ],
+    },
+  }
 
   // The example senderAddr actually requires only 2 signature,
   // but we use 3 signatures to show different ways to sign a transaction.
 
   // sign 1: First signer sign from the tx object
-  const signResult1 = await senderAccount1.signTransaction(tx);
-  console.log("rawTx1", signResult1.rawTransaction);
+  const signResult1 = await senderAccount1.signTransaction(tx)
+  console.log('rawTx1', signResult1.rawTransaction)
 
   // sign 2: Rest of the signers sign from the rawTx
-  const signResult2 = await senderAccount2.signTransaction(signResult1.rawTransaction);
-  console.log("rawTx2", signResult2.rawTransaction);
+  const signResult2 = await senderAccount2.signTransaction(
+    signResult1.rawTransaction
+  )
+  console.log('rawTx2', signResult2.rawTransaction)
 
   // sign 3: Last signer sign from the rawTx then send it
-  const signResult3 = await senderAccount3.signTransaction(signResult2.rawTransaction);
-  console.log("signedTx3", signResult3.transactionHash);
+  const signResult3 = await senderAccount3.signTransaction(
+    signResult2.rawTransaction
+  )
+  console.log('signedTx3', signResult3.transactionHash)
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult3.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult3.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main().catch(console.error);
+main().catch(console.error)
 ```
 
 ---
@@ -245,7 +276,9 @@ rawTx1 0x20f8dd74850ba43b7400830f42409482c6a8d94993d49cfd0c1d30f0f8caa65782cc7eb
 ````
 
 </CH.Code>
+
 ---
+
 Sign the transaction with the second wallet
 
 <CH.Code>
@@ -259,7 +292,9 @@ rawTx2 0x20f9012474850ba43b7400830f42409482c6a8d94993d49cfd0c1d30f0f8caa65782cc7
 ````
 
 </CH.Code>
+
 ---
+
 Sign the transaction with the third wallet
 
 <CH.Code>
@@ -273,8 +308,10 @@ signedTx3 0x722b434220cd61c80cf827672bc79006183629399a4f1ad0c98552a47cbb7e07
 ````
 
 </CH.Code>
+
 ---
-Send the transaction to Klaytn network and returns the tx receipt if it is completed in the blockchain. 
+
+Send the transaction to kaia network and returns the tx receipt if it is completed in the blockchain.
 
 <CH.Code>
 ```js AccountUpdateWithMultiSigExample.js focus=50:51

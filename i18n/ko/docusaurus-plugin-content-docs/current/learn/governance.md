@@ -1,6 +1,4 @@
-# 거버넌스
-
-## 개요 <a id="overview"></a>
+# Overview
 
 ### 카이아 거버넌스: 탈중앙화를 위한 첫걸음 <a id="klaytn-governance-taking-the-first-step-to-decentralization"></a>
 
@@ -21,7 +19,7 @@
 - **기술**
   - 플랫폼의 기술 업데이트와 관련된 사항. 블록체인의 기본 구조(예: 계정 구조), 새로운 기능(예: L2 솔루션) 또는 소프트웨어 업데이트 일정에 대한 이슈가 여기에 포함됩니다.
 - **이코노미**
-  - KAIA추가 발행 및 분배 구조, 트랜잭션 수수료 변경, 카이아 개선 준비금 지출 승인 등과 관련된 이슈가 이 카테고리에 포함됩니다.
+  - Issues relating to additional issuance of KAIA and its distribution structure, changes in transaction fees, and Kaia Ecosystem Fund spending approval etc. are included in this category.
 - **거버넌스 규칙**
   - 거버넌스 주체와 프로세스, 거버넌스 기관의 책임과 권한에 대한 규칙이 이 범주에 포함됩니다.
 

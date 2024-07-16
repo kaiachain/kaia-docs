@@ -13,7 +13,7 @@
 아래 링크 중 하나에서 최신 버전의 카이아와 서비스체인 바이너리를 받을 수 있습니다:
 
 - [카이아 문서](../downloads/downloads.md)
-- [카이아 GitHub 리포지토리](https://github.com/klaytn/klaytn/releases)
+- [Kaia Github Repository](https://github.com/kaiachain/kaia/releases)
 
 서비스체인 바이너리를 업그레이드하려면 서비스체인 노드를 중지하고 바이너리를 교체합니다. 예를 들어, 아래 명령을 사용하여 SCN 노드를 중지하고 바이너리를 최신 버전으로 바꿀 수 있습니다.
 

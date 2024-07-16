@@ -24,10 +24,10 @@ import org.web3j.protocol.core.methods.request.Transaction;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.KlayCallResponse;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.KlayCallResponse;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 import org.web3j.tx.gas.StaticGasProvider;
 import org.web3j.abi.FunctionEncoder;
 import org.web3j.abi.datatypes.Function;
@@ -38,7 +38,7 @@ import java.util.Collections;
 public class WriteContractWithFeeDelegationExample {
         /**
          * @throws Exception
-         * 
+         *
          */
         public static void run() throws Exception {
 
@@ -111,7 +111,7 @@ number after : 50
 
 ---
 
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ```java WriteContractWithFeeDelegationExample.java focus=1:28
 
@@ -119,7 +119,7 @@ Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
 ---
 
-Connect to the Klaytn blockchain using Web3j and specify the URL
+Connect to the kaia blockchain using Web3j and specify the URL
 
 ```java WriteContractWithFeeDelegationExample.java focus=37
 
@@ -167,7 +167,7 @@ Getting the **nonce** for the sender's address
 
 ---
 
-Get the chain ID from the **Klaytn** network
+Get the chain ID from the **Kaia** network
 
 ```java WriteContractWithFeeDelegationExample.java focus=46:47
 
@@ -216,7 +216,9 @@ number before : 298
 ````
 
 </CH.Code>
+
 ---
+
 Set params for calling method `setNumber` to the contract
 
 ```java WriteContractWithFeeDelegationExample.java focus=55:60
@@ -241,7 +243,7 @@ Create a raw transaction
 
 ---
 
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`. 
+Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
 
 ```java WriteContractWithFeeDelegationExample.java focus=74:75
 
@@ -249,7 +251,7 @@ Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`
 
 ---
 
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`. 
+Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
 
 ```java WriteContractWithFeeDelegationExample.java focus=77:78
 
@@ -257,7 +259,7 @@ Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAs
 
 ---
 
-Sending the signed transaction to Klaytn network
+Sending the signed transaction to kaia network
 
 ```java WriteContractWithFeeDelegationExample.java focus=80
 
@@ -290,7 +292,9 @@ number after : 50
 ````
 
 </CH.Code>
+
 ---
+
 Shutting down the Web3j instance
 
 ```java WriteContractWithFeeDelegationExample.java focus=89

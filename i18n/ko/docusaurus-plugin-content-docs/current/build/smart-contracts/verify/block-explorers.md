@@ -8,21 +8,21 @@ sidebar_label: 블록 탐색기 사용하기
 
 일반적으로 스마트 컨트랙트 배포자는 실제로 배포된 코드에 접근할 수 있는 유일한 당사자이며, 일반인은 배포자가 검증하기 전까지는 컨트랙트의 소스 코드를 읽을 수 없습니다. 그러나 스마트 컨트랙트 개발 주기에서 중요한 단계인 컨트랙트 검증은 배포된 컨트랙트의 투명성(사용자), 편의성(개발자), 보안을 개선하는 데 도움이 되기 때문에 중요한 역할을 합니다.
 
-스마트 컨트랙트의 유효성이 확인되면 Kaiascope와 Kaiafinder와 같은 블록 탐색기를 통해 대중이 블록 탐색기의 사용자 인터페이스를 사용하여 컨트랙트의 공개 메서드와 상호작용할 수 있습니다. 이는 대중이 검증된 컨트랙트 소스 코드에 직접 접근할 수 있는 것 외에도 추가적인 기능입니다.
+Having said that, once a smart contract is validated, block explorers like Kaiascope and Kaiascan also make it possible for the public to interact with the contract's public methods using the block explorer's user interface. 이는 대중이 검증된 컨트랙트 소스 코드에 직접 접근할 수 있는 것 외에도 추가적인 기능입니다.
 
 이 가이드에서는 블록 탐색기를 사용하여 Klaytn 네트워크에 배포된 스마트 컨트랙트를 검증하는 방법을 살펴보겠습니다.
 
 ## 전제조건
 
 - [Remix IDE](https://ide.klaytn.foundation/) 및 [Kaikas Wallet](https://kaikas.zendesk.com/hc/en-us/articles/6657796272793-How-do-I-install-PC-Kaikas-)
-- [faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 충분한 테스트 KAIA 준비
+- Enough test KAIA from [faucet](https://kairos.wallet.kaia.io/faucet)
 
 ## 시작하기
 
 이 가이드에서는 카이아 생태계에 존재하는 블록 탐색기, 즉 다음과 같은 블록에서 단일 컨트랙트와 다중 컨트랙트를 모두 검증하는 방법을 살펴볼 것입니다:
 
 - [Kaiascope](http://scope.klaytn.com)
-- [Kaiafinder](https://www.klaytnfinder.io/)
+- [Kaiascan](https://www.kaiascan.io/)
 
 더 이상 고민할 필요 없이 시작해 봅시다!
 
@@ -201,9 +201,9 @@ b. Solidity 파일
 
 ![](/img/build/tutorials/airdrop-full-verification.png)
 
-### 2. Kaiafinder
+### 2. Kaiascan
 
-Kaiafinder에서 단일 컨트랙트 및 여러 개의 컨트랙트를 검증하려면 [컨트랙트 제출 요청 페이지](https://baobab.klaytnfinder.io/contracts)로 이동합니다. 단, 계정이 Kaikas 또는 Metamask에 연결되어 있는지 확인하고 아래 단계를 따르세요:
+To verify a single contract and multi-part contracts on Kaiascan, navigate to the [contract submission request page](https://kairos.kaiascan.io/contracts). 단, 계정이 Kaikas 또는 Metamask에 연결되어 있는지 확인하고 아래 단계를 따르세요:
 
 ![](/img/build/tutorials/klaytnfinder-con-sub-page.png)
 
@@ -230,7 +230,7 @@ Kaiafinder에서 단일 컨트랙트 및 여러 개의 컨트랙트를 검증하
 
 ### 2.2 다중 컨트랙트 검증하기
 
-Kaiafinder에서 여러 부분으로 구성된 컨트랙트를 검증하는 것은 단일 컨트랙트를 검증하는 것과 동일한 단계를 따릅니다. 다만, **Source Code(Solidity File)** 필드에 `airdropToken_flattened.sol` 파일을 업로드할 것이라는 점에 유의해야 합니다.
+Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. 다만, **Source Code(Solidity File)** 필드에 `airdropToken_flattened.sol` 파일을 업로드할 것이라는 점에 유의해야 합니다.
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
@@ -240,4 +240,4 @@ Kaiafinder에서 여러 부분으로 구성된 컨트랙트를 검증하는 것�
 
 ## 결론
 
-이 가이드를 따라해 주셔서 감사합니다! 이 튜토리얼에서는 배포된 컨트랙트의 투명성(사용자), 편의성(개발자), 보안을 강화하기 위해 Kaiascope와 Kaiafinder만을 사용하여 컨트랙트(단일 및 다중 부분 모두)를 검증하는 방법을 배웠습니다. 자세한 내용은 [Kaia Docs](https://docs.klaytn.foundation/)를, 궁금한 점이 있으면 [Kaia Forum](https://forum.klaytn.foundation/)을 참조하세요.
+이 가이드를 따라해 주셔서 감사합니다! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascope and Kaiascan solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. 자세한 내용은 [Kaia Docs](https://docs.klaytn.foundation/)를, 궁금한 점이 있으면 [Kaia Forum](https://forum.klaytn.foundation/)을 참조하세요.

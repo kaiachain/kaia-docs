@@ -15,7 +15,7 @@
 - [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 - [Remix IDE](https://remix.ethereum.org/)
 - [Remix 카이아 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KAIA 얻기
+- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet)
 
 ## 시작하기
 
@@ -46,7 +46,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### 2단계: VRF 코디네이터 초기화하기
 
-스마트 컨트랙트에서 난수 요청을 하려면 [VRFCoordinator](https://github.com/Bisonai-CIC/orakl/blob/master/contracts/src/v0.1/VRFCoordinator.sol) 스마트 컨트랙트를 초기화해야 합니다. 생성자 파라미터를 통해 제공된 VRFCoordinator 주소와 VRFCoordinator 인터페이스를 본딩하여 난수 요청(requestRandomWordsPayment)에 사용하는 것을 권장합니다. VRFCoordinator\` 컨트랙트는 카이아 Kairos [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://baobab.klaytnfinder.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499)와 카이아 메인넷 [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.klaytnfinder.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb)에 모두 배포되어 있습니다.
+스마트 컨트랙트에서 난수 요청을 하려면 [VRFCoordinator](https://github.com/Bisonai-CIC/orakl/blob/master/contracts/src/v0.1/VRFCoordinator.sol) 스마트 컨트랙트를 초기화해야 합니다. 생성자 파라미터를 통해 제공된 VRFCoordinator 주소와 VRFCoordinator 인터페이스를 본딩하여 난수 요청(requestRandomWordsPayment)에 사용하는 것을 권장합니다. The `VRFCoordinator` contract is deployed both on Kaia Kairos [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://kairos.kaiascan.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499) and Kaia Mainnet [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.kaiascan.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb).
 
 ```solidity
   IVRFCoordinator COORDINATOR;

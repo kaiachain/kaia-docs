@@ -22,10 +22,10 @@ import org.web3j.protocol.core.methods.request.Transaction;
 import org.web3j.protocol.core.methods.response.EthChainId;
 import org.web3j.protocol.core.methods.response.EthSendTransaction;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.utils.Numeric;
-import org.web3j.protocol.klaytn.core.method.response.KlayCallResponse;
-import org.web3j.protocol.klaytn.core.method.response.TransactionReceipt;
+import org.web3j.protocol.kaia.core.method.response.KlayCallResponse;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 import org.web3j.tx.gas.StaticGasProvider;
 import org.web3j.abi.FunctionEncoder;
 import org.web3j.abi.datatypes.Function;
@@ -36,7 +36,7 @@ import java.util.Collections;
 public class WriteContractWithKlaytnTxTypeExample {
         /**
          * @throws Exception
-         * 
+         *
          */
         public static void run() throws Exception {
 
@@ -106,7 +106,7 @@ number after : 50
 
 ---
 
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=1:28
 
@@ -114,7 +114,7 @@ Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
 
 ---
 
-Connect to the Klaytn blockchain using Web3j and specify the URL
+Connect to the kaia blockchain using Web3j and specify the URL
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=37
 
@@ -193,7 +193,9 @@ Set params for calling method `setNumber` to the contract
 number before : 298
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Set the transaction type to **SMART_CONTRACT_EXECUTION**
 
@@ -219,7 +221,7 @@ Sign the transaction with `KlayTransactionEncoder.signMessage`
 
 ---
 
-Send the **signed transaction** to Klaytn network
+Send the **signed transaction** to kaia network
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=75:76
 
@@ -250,7 +252,9 @@ Get the updated number stored in the contract after writing
 number after : 50
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Shutdown the web3j instance
 

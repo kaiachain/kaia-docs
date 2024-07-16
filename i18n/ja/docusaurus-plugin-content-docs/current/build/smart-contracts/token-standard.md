@@ -4,7 +4,7 @@ Klaytn Compatible Token (KCT) is a special type of smart contract that implement
 
 Token standards are defined in Klaytn such as [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) and [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17).
 
-Other KCTs can be defined to meet certain technical specifications. If anyone needs other token standards, please visit [Klaytn Improvement Proposal](https://github.com/klaytn/KIPs) and propose a new token standard.
+Other KCTs can be defined to meet certain technical specifications. If anyone needs other token standards, please visit [Kaia Improvement Proposal](https://github.com/kaiachain/KIPs) and propose a new token standard.
 
 ## Fungible Token Standard (KIP-7) <a id="fungible-token-standard-kip-7"></a>
 

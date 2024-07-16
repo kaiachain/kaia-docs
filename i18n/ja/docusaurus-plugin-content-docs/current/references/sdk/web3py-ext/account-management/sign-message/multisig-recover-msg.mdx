@@ -3,9 +3,8 @@
 **AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
 
 In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-    _ The weighted sum of the signed public keys should be larger than the threshold.
-    _ The invalid signature should not be included in the transaction.
-    \* The number of signed public keys should be less than the number of weightedPublicKeys.
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
 
 <CH.Spotlight>
 <CH.Code>
@@ -45,11 +44,13 @@ web3_multisig_value_transfer_sign_recover()
 0xb7057812498a0a6f740fb218ce5ef945dce3b8437e5662fc707dad72e096b7036f98e96d48dd10de502a1d0ce0ae91e048357721dc7502a9aa2018561c06a97d1b
 132
 
-sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E 
+sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
 recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 ```
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Import necessary utils from **eth_utils**, **web3** and **eth_account**
 
@@ -59,7 +60,7 @@ Import necessary utils from **eth_utils**, **web3** and **eth_account**
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ```py web3_multisig_value_transfer_message_recover.py focus=5
 
@@ -84,7 +85,7 @@ from eth_account.messages import encode_defunct
 from eth_utils.curried import to_hex
 from web3py_ext import extend
 
-w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet-rpc.allthatnode.com:8551'))
+w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet.g.allthatnode.com/full/evm'))
 
 def web3_multisig_value_transfer_message_recover():
     user = Account.from_key_pair(
@@ -154,7 +155,9 @@ Print out the signature and its length
 132
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Recover sender address with **Account.recover_message** from signed message
 
@@ -166,7 +169,7 @@ Recover sender address with **Account.recover_message** from signed message
 
 ```zsh output
 ❯ python web3_multisig_value_transfer_message_recover.py
-sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E 
+sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
 recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 ````
 

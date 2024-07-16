@@ -1,6 +1,4 @@
-# Governance
-
-## Overview <a id="overview"></a>
+# Overview
 
 ### Kaia Governance: Taking the First Step to Decentralization <a id="kaia-governance-taking-the-first-step-to-decentralization"></a>
 
@@ -21,7 +19,7 @@ The main topics that can be decided through the governance structure include the
 - **Technology**
   - Matters related to the technical update of the platform. Here the issues on the blockchain's basic structure (e.g., Account Structure), new features (e.g., L2 solution), or software update schedule are included.
 - **Economy**
-  - Issues relating to additional issuance of KAIA and its distribution structure, changes in transaction fees, and Kaia Improvement Reserve spending approval etc. are included in this category.
+  - Issues relating to additional issuance of KAIA and its distribution structure, changes in transaction fees, and Kaia Ecosystem Fund spending approval etc. are included in this category.
 - **Governing Rule**
   - The governance subjects and processes, as well as the rules for the responsibilities and rights of governing bodies, are included in this category.
 

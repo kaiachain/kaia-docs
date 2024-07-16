@@ -38,12 +38,14 @@ web3_public_value_transfer_message_recover()
 0x875445e2197ec28e913a1775a40ca8c5a0a9e1806c72e08e01a54caf2b65640d09ff852643df23277c46469ef7f5e84ed96c5553b6ad648a4255a0c5dca58bdc1c
 132
 
-sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b 
+sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b
 recovered 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 ```
 
 </CH.Code>
+
 ---
+
 Import necessary utils from **eth_utils**, **web3** and **eth_account**
 
 ```py web3_public_value_transfer_message_recover.py focus=1:4
@@ -52,7 +54,7 @@ Import necessary utils from **eth_utils**, **web3** and **eth_account**
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ```py web3_public_value_transfer_message_recover.py focus=5
 
@@ -77,7 +79,7 @@ from eth_account.messages import encode_defunct
 from eth_utils.curried import to_hex
 from web3py_ext import extend
 
-w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet-rpc.allthatnode.com:8551'))
+w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet.g.allthatnode.com/full/evm'))
 
 def web3_public_value_transfer_message_recover():
     user = Account.from_key_pair(
@@ -146,7 +148,9 @@ Print out the signature and its length
 ````
 
 </CH.Code>
+
 ---
+
 Recover sender address with **Account.recover_message** from signed message
 
 <CH.Code>
@@ -157,7 +161,7 @@ Recover sender address with **Account.recover_message** from signed message
 
 ```zsh output
 ❯ python web3_public_value_transfer_message_recover.py
-sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b 
+sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b
 recovered 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 ````
 

@@ -69,7 +69,7 @@ As per this principle, Kaia has been designed to meet the following requirements
 ### A Full-suite, Protocol-level Eco Fund <a id="contribution-reward"></a>
 
 - Kaia is the first and the largest example in which the incentives supporting the ecosystem are encoded in an on-chain protocol tokenomics. 50% of the newly minted tokens are reinvested in the ecosystem.
-- See [Kaia Community Fund](token-economy.md#kaia-community-fund) and [Kaia Foundation Fund](token-economy.md#kaia-foundation-fund).
+- See [Kaia Ecosystem Fund](token-economy.md#kaia-ecosystem-fund) and [Kaia Infrastructure Fund](token-economy.md#kaia-infrastructure-fund).
   ​
   ​
 
@@ -79,7 +79,8 @@ As per this principle, Kaia has been designed to meet the following requirements
   ​
   Lastly, the ground rules:
   ​
-  :::note
+
+:::note
 
 Kaia does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancements, and the protocol stays stable with strongly committed stakeholders.
 
@@ -107,5 +108,3 @@ Kaia does not sacrifice blockchain’s core characteristics to achieve the above
 [Truffle]: ../build/smart-contracts/ide-and-tools/truffle.md
 [Migrating Ethereum App to Kaia]: ../build/tutorials/migrating-ethereum-app-to-kaia.md
 [Incentive Program]: ./token-economy.md
-[Kaia Improvement Reserve]: ./token-economy.md#kaia-improvement-reserve
-[Kaia Growth Fund]: ./token-economy.md#kaia-growth-fund

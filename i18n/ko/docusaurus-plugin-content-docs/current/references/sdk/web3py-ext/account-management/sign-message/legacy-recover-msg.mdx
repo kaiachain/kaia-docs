@@ -25,12 +25,14 @@ web3_legacy_value_transfer_sign_recover()
 
 ```zsh output
 ❯ python web3_legacy_value_transfer_message_recover.py
-sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153 
+sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 ```
 
 </CH.Code>
+
 ---
+
 Import necessary utils from **eth_utils** and **eth_account**
 
 ```py web3_legacy_value_transfer_message_recover.py focus=1:3
@@ -39,7 +41,7 @@ Import necessary utils from **eth_utils** and **eth_account**
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ```py web3_legacy_value_transfer_message_recover.py focus=4
 
@@ -89,7 +91,7 @@ Recover sender address with **Account.recover_message** from signed message
 
 ```zsh output
 ❯ python web3_legacy_value_transfer_message_recover.py
-sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153 
+sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 ````
 

@@ -8,21 +8,21 @@ sidebar_label: Using Block Explorers
 
 Usually, the deployer of a smart contract is the only party with access to the code that was actually deployed, and the public cannot read the source code of a contract until the deployer has verified it. However, this is where contract verification comes in as an important step in the smart-contract development cycle, as it helps improve the transparency (for users), convenience (for developers), and security of deployed contracts.
 
-Having said that, once a smart contract is validated, block explorers like Kaiascope and Kaiafinder also make it possible for the public to interact with the contract's public methods using the block explorer's user interface. This is in addition to the public having direct access to the verified contract source code.
+Having said that, once a smart contract is validated, block explorers like Kaiascope and Kaiascan also make it possible for the public to interact with the contract's public methods using the block explorer's user interface. This is in addition to the public having direct access to the verified contract source code.
 
 In this guide, we'll take a look at how to use block explorers to verify deployed smart contracts on the Kaia Network.
 
 ## Prerequisites
 
 - [Remix IDE](https://ide.klaytn.foundation/) and [Kaikas Wallet](https://kaikas.zendesk.com/hc/en-us/articles/6657796272793-How-do-I-install-PC-Kaikas-)
-- Enough test KAIA from [faucet](https://baobab.wallet.klaytn.foundation/faucet)
+- Enough test KAIA from [faucet](https://kairos.wallet.kaia.io/faucet)
 
 ## Getting Started
 
 In this guide, we will be going over verifying both single contracts and multi-part contracts on the block explorers that exist in the Kaia ecosystem, viz.:
 
 - [Kaiascope](http://scope.klaytn.com)
-- [Kaiafinder](https://www.klaytnfinder.io/)
+- [Kaiascan](https://www.kaiascan.io/)
 
 Without further ado, let's get started!
 
@@ -201,9 +201,9 @@ Once verification is done, the result of the verification will be displayed in t
 
 ![](/img/build/tutorials/airdrop-full-verification.png)
 
-### 2. Kaiafinder
+### 2. Kaiascan
 
-To verify a single contract and multi-part contracts on Kaiafinder, navigate to the [contract submission request page](https://baobab.klaytnfinder.io/contracts). However, make sure your account is connected to either Kaikas or MetaMask and follow the steps below:
+To verify a single contract and multi-part contracts on Kaiascan, navigate to the [contract submission request page](https://kairos.kaiascan.io/contracts). However, make sure your account is connected to either Kaikas or MetaMask and follow the steps below:
 
 ![](/img/build/tutorials/klaytnfinder-con-sub-page.png)
 
@@ -230,7 +230,7 @@ To verify a single contract and multi-part contracts on Kaiafinder, navigate to 
 
 ### 2.2 Verifying multiple-part contract
 
-Verifying a multi-part contract on Kaiafinder follows the same step as verifying a single contract. However, it is important to note we will be uploading the `airdropToken_flattened.sol` file in the **Source Code(Solidity File)** field.
+Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. However, it is important to note we will be uploading the `airdropToken_flattened.sol` file in the **Source Code(Solidity File)** field.
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
@@ -240,4 +240,4 @@ After filling the verification parameters, click on the **Sign and Submit** butt
 
 ## Conclusion
 
-Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascope and Kaiafinder solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.klaytn.foundation/) for more information and [Kaia Forum](https://forum.klaytn.foundation/) if you have any questions.
+Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascope and Kaiascan solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.klaytn.foundation/) for more information and [Kaia Forum](https://forum.klaytn.foundation/) if you have any questions.

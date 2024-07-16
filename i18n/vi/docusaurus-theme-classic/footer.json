@@ -1,14 +1,14 @@
 {
   "link.title.Sites": {
-    "message": "Sites",
+    "message": "Các trang web",
     "description": "The title of the footer links column with title=Sites in the footer"
   },
   "link.title.Community": {
-    "message": "Community",
+    "message": "Cộng đồng",
     "description": "The title of the footer links column with title=Community in the footer"
   },
   "link.title.More": {
-    "message": "More",
+    "message": "Thêm",
     "description": "The title of the footer links column with title=More in the footer"
   },
   "link.item.label.Klaytn Square": {

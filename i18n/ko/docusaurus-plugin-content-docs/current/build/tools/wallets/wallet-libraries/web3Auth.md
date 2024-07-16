@@ -16,8 +16,8 @@ sidebar_label: Web3Auth
 
 - 작동하는 리액트 프로젝트(`npx create-react-app project-name` 실행)
 - 필요한 지갑 설치([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)).
-- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
+- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
+- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
 - [Web3Auth 대시보드](https://dashboard.web3auth.io/)에서 클라이언트 ID를 받습니다.
 
 ## 설치
@@ -210,11 +210,11 @@ const switchChain = async () => {
     chainId: "0x2019",
     displayName: "Kaia Mainnet",
     chainNamespace: "eip155",
-    tickerName: "KLAY",
-    ticker: "KLAY",
+    tickerName: "KAIA",
+    ticker: "KAIA",
     decimals: 18,
     rpcTarget: "https://public-en-cypress.klaytn.net",
-    blockExplorer: "https://klaytnscope.com",
+    blockExplorer: "https://kaiascope.com/",
   });
   // switch chain
   await web3auth.switchChain({chainId: "0x2019"});

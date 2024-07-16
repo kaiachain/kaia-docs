@@ -198,7 +198,7 @@ contract CrossChainToken is OFTCore, ERC20, IOFT {
 
 ## 스마트 컨트랙트 배포하기 <a id="deploying-the-smart-contract"></a>
 
-이 섹션에서는 여기에 있는 [스크립트](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy)를 사용하여 OFTV1 컨트랙트를 Kaia Kairos(소스 체인)과 Polygon Mumbai(목적지 체인)에 각각 배포합니다. 각 네트워크에 대한 faucet 토큰이 있는지 확인합니다. 카이아 Kairos [여기](https://baobab.wallet.klaytn.foundation/faucet) 및 Polygon Mumbai 테스트넷 [여기](https://faucet.polygon.technology/)에서 faucet 토큰을 얻을 수 있습니다.
+이 섹션에서는 여기에 있는 [스크립트](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy)를 사용하여 OFTV1 컨트랙트를 Kaia Kairos(소스 체인)과 Polygon Mumbai(목적지 체인)에 각각 배포합니다. 각 네트워크에 대한 faucet 토큰이 있는지 확인합니다. You can acquire faucet tokens for the Kaia Kairos [here](https://kairos.wallet.kaia.io/faucet) and  Polygon Mumbai testnet [here](https://faucet.polygon.technology/).
 
 각 체인에 컨트랙트를 배포하려면 아래 명령을 실행하세요:
 

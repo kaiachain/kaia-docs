@@ -44,7 +44,7 @@
 
 ![](/img/build/get-started/marketplace-deployed.png)
 
-트랜잭션이 성공적으로 실행되면, 컨트랙트 주소를 [Klaytnscope](https://klaytnscope.com/)의 검색창에 붙여넣으면 배포를 확인할 수 있습니다.
+Once the transaction has been successfully executed, you can verify your deployment by pasting the contract address in the search bar of [Kaiascope](https://kaiascope.com/).
 
 ## Thirdweb CLI를 사용하여 NFT 수집 컨트랙트 생성 및 배포 <a id="creating-deploying-using-thirdweb-cli"></a>
 

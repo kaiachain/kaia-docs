@@ -6,14 +6,17 @@ You can make a **"transaction"** interacting with a Smart Contract when you **ne
 <CH.Code>
 
 ```js smartContractWrite.js
-const ethers = require("ethers");
-const { Wallet } = require("@klaytn/ethers-ext");
+const ethers = require('ethers')
+const { Wallet } = require('@kaiachain/ethers-ext')
 
-const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
-const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+const senderAddr = '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7'
+const senderPriv =
+  '0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49'
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
-const wallet = new Wallet(senderPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const wallet = new Wallet(senderPriv, provider)
 
 /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
 // SPDX-License-Identifier: UNLICENSED
@@ -38,22 +41,23 @@ contract Counter {
     }
 }
 */
-const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
-const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+const abi =
+  '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]'
+const contractAddr = '0x95Be48607498109030592C08aDC9577c7C2dD505'
 
 async function main() {
-  const counter = new ethers.Contract(contractAddr, abi, wallet);
+  const counter = new ethers.Contract(contractAddr, abi, wallet)
 
-  console.log("number before", (await counter.number()).toString());
+  console.log('number before', (await counter.number()).toString())
 
-  const sentTx = await counter.increment();
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const sentTx = await counter.increment()
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 
-  console.log("number after", (await counter.number()).toString());
+  console.log('number after', (await counter.number()).toString())
 }
 
-main();
+main()
 ```
 
 ---
@@ -117,7 +121,7 @@ number after 292
 
 ---
 
-Import the **ethers** and **@klaytn/ethers-ext** modules to add Klaytn features on ethers.js.
+Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
 
 ```js smartContractWrite.js focus=1:2
 
@@ -133,7 +137,7 @@ Define **sender address** and **private key**
 
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js smartContractWrite.js focus=7
 
@@ -144,14 +148,17 @@ Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js smartContractWrite.js focus=7
-const ethers = require("ethers");
-const { Wallet } = require("@klaytn/ethers-ext");
+const ethers = require('ethers')
+const { Wallet } = require('@kaiachain/ethers-ext')
 
-const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
-const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+const senderAddr = '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7'
+const senderPriv =
+  '0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49'
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
-const wallet = new Wallet(senderPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const wallet = new Wallet(senderPriv, provider)
 
 /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
 // SPDX-License-Identifier: UNLICENSED
@@ -176,22 +183,23 @@ contract Counter {
     }
 }
 */
-const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
-const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+const abi =
+  '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]'
+const contractAddr = '0x95Be48607498109030592C08aDC9577c7C2dD505'
 
 async function main() {
-  const counter = new ethers.Contract(contractAddr, abi, wallet);
+  const counter = new ethers.Contract(contractAddr, abi, wallet)
 
-  console.log("number before", (await counter.number()).toString());
+  console.log('number before', (await counter.number()).toString())
 
-  const sentTx = await counter.increment();
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const sentTx = await counter.increment()
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 
-  console.log("number after", (await counter.number()).toString());
+  console.log('number after', (await counter.number()).toString())
 }
 
-main();
+main()
 ```
 
 ---
@@ -241,7 +249,9 @@ number before 293
 ````
 
 </CH.Code>
+
 ---
+
 Create a transaction data to update the **number** value
 
 ```js smartContractWrite.js focus=41
@@ -250,7 +260,7 @@ Create a transaction data to update the **number** value
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain. 
+The **wait** function returns the tx receipt if it is completed in the blockchain.
 
 <CH.Code>
 ```js smartContractWrite.js focus=42:43
@@ -311,7 +321,9 @@ receipt {
 ````
 
 </CH.Code>
+
 ---
+
 Get the updated value **number** by using method **counter.number()**
 
 <CH.Code>

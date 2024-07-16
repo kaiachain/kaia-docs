@@ -6,16 +6,24 @@
 <CH.Code>
 
 ```js AccountUpdateWithLegacy.js
-const { Web3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@klaytn/web3js-ext");
+const {
+  Web3,
+  TxType,
+  AccountKeyType,
+  getPublicKeyFromPrivate,
+} = require('@kaiachain/web3js-ext')
 
 // Using senderPriv == senderNewPriv to execute this example repeatedly.
 // But you might want to register a different private key.
-const senderAddr = "0xecbf243ac167a3b5097fef758e07881582a89027";
-const senderPriv = "0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d";
+const senderAddr = '0xecbf243ac167a3b5097fef758e07881582a89027'
+const senderPriv =
+  '0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d'
 
-const provider = new Web3.providers.HttpProvider("https://public-en-baobab.klaytn.net");
-const web3 = new Web3(provider);
-const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const provider = new Web3.providers.HttpProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const web3 = new Web3(provider)
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
 
 async function main() {
   const tx = {
@@ -23,17 +31,19 @@ async function main() {
     from: senderAddr,
     key: {
       type: AccountKeyType.Legacy,
-    }
-  };
+    },
+  }
 
-  const signResult = await senderAccount.signTransaction(tx);
-  console.log("signedTx", signResult.transactionHash);
+  const signResult = await senderAccount.signTransaction(tx)
+  console.log('signedTx', signResult.transactionHash)
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main().catch(console.error);
+main().catch(console.error)
 ```
 
 ---
@@ -62,8 +72,10 @@ receipt {
 ```
 
 </CH.Code>
+
 ---
-Import the **@klaytn/web3js-ext** packages to add klaytn features on web3
+
+Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ```js AccountUpdateWithLegacy.js focus=1
 
@@ -79,7 +91,7 @@ Define **sender address, sender private key and new private key** to be changed
 
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
 
 ```js AccountUpdateWithLegacy.js focus=8
 
@@ -90,16 +102,24 @@ Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js AccountUpdateWithLegacy.js focus=8
-const { Web3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@klaytn/web3js-ext");
+const {
+  Web3,
+  TxType,
+  AccountKeyType,
+  getPublicKeyFromPrivate,
+} = require('@kaiachain/web3js-ext')
 
 // Using senderPriv == senderNewPriv to execute this example repeatedly.
 // But you might want to register a different private key.
-const senderAddr = "0xecbf243ac167a3b5097fef758e07881582a89027";
-const senderPriv = "0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d";
+const senderAddr = '0xecbf243ac167a3b5097fef758e07881582a89027'
+const senderPriv =
+  '0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d'
 
-const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
-const web3 = new Web3(provider);
-const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const provider = new Web3.providers.HttpProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const web3 = new Web3(provider)
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
 
 async function main() {
   const tx = {
@@ -107,17 +127,19 @@ async function main() {
     from: senderAddr,
     key: {
       type: AccountKeyType.Legacy,
-    }
-  };
+    },
+  }
 
-  const signResult = await senderAccount.signTransaction(tx);
-  console.log("signedTx", signResult.transactionHash);
+  const signResult = await senderAccount.signTransaction(tx)
+  console.log('signedTx', signResult.transactionHash)
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main().catch(console.error);
+main().catch(console.error)
 ```
 
 ---
@@ -159,7 +181,9 @@ signedTx 0x5fedabfb343f607fe0f0adfa9ef54d738312bbec98bfc02839cdae2e968f5f90
 ````
 
 </CH.Code>
+
 ---
+
 Send the signed tx to the blockchain. It will return the **receipt** of the transaction
 
 <CH.Code>

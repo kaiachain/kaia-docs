@@ -389,7 +389,7 @@ class Count extends Component {
             </p>
             <a
               target="_blank"
-              href={`https://klaytnscope.com/tx/${txHash}`}
+              href={`https://kaiascope.com/tx/${txHash}`}
               className="Count__lastTransactionLink"
             >
               {txHash}

@@ -18,7 +18,7 @@
 
 사용자가 블록체인의 데이터를 보고 검색할 수 있는 웹 기반 도구입니다. 블록 탐색기는 일반적으로 블록 높이, 블록 해시, 트랜잭션 해시, 트랜잭션 발신자 및 수신자, 트랜잭션 금액, 트랜잭션 상태와 같은 정보를 표시합니다.
 
-카이아에서 사용할 수 있는 블록 탐색기는 [Klaytnscope](../build/tools/block-explorers/klaytnscope.md) 및 [Klayfinder](https://www.klaytnfinder.io/)입니다.
+The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Kaiascan](https://www.kaiascan.io/).
 
 ### 코어 셀(CC, Core Cell)
 
@@ -64,17 +64,17 @@
 
 사용자가 분산된 방식으로 파일을 저장하고 공유할 수 있는 피어 투 피어 분산 파일 시스템입니다. IPFS는 콘텐츠 주소 체계를 사용하여 각 파일을 고유하게 식별하고 분산된 노드 네트워크에 파일을 저장합니다.
 
-### 카이아 커뮤니티 펀드(KCF, Kaia Community Fund)
+### Kaia Ecosystem Fund (KEF)
 
-카이아 재단이 카이아 블록체인 생태계의 성장과 발전에 기여하는 이니셔티브를 지원하기 위해 설립한 기금입니다. KCF는 카이아의 사용과 채택을 확대하기 위해 노력하는 프로젝트, 조직, 개인에게 보조금과 재정적 지원을 제공합니다. KCF의 목표는 자금 지원을 통해 카이아를 둘러싼 혁신과 커뮤니티 성장을 촉진하는 것입니다.
+카이아 재단이 카이아 블록체인 생태계의 성장과 발전에 기여하는 이니셔티브를 지원하기 위해 설립한 기금입니다. The KEF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KEF is to advance innovation and community growth around Kaia through funded initiatives.
 
 ### 카이아 엔드포인트 노드(KEN)
 
 [엔드포인트 노드(EN)](#endpoint-node-en)를 참조하세요.
 
-### 카이아 재단 기금(KFF, Kaia Foundation Fund)
+### Kaia Infrastructure Fund (KIF)
 
-카이아 재단이 운영 비용과 장기적인 이니셔티브를 지원하기 위해 설립한 예비 기금입니다. KFF는 연구, 비즈니스 개발 활동, 교육 프로그램 등을 통해 카이아 블록체인 프로토콜과 생태계를 더욱 발전시키고 개선하기 위한 재단의 활동에 자금을 지원합니다.
+카이아 재단이 운영 비용과 장기적인 이니셔티브를 지원하기 위해 설립한 예비 기금입니다. The KIF aids in funding the Foundation's work to further develop and enhance the Kaia blockchain protocol and ecosystem through research, business development activities, education programs and more.
 
 ### 카이아 거버넌스 카운슬(KGC, Kaia Governance Council)
 

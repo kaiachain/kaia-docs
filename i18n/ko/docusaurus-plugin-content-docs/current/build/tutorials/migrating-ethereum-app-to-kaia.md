@@ -220,12 +220,12 @@ class Count extends Component {
   constructor() {
     super()
     // ** 1. Create contract instance **
-    // ex:) new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+    // ex:) new caver.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
     // You can call contract method through this instance.
     // Now you can access the instance by `this.countContract` variable.
     this.countContract = DEPLOYED_ABI
       && DEPLOYED_ADDRESS
-      && new caver.klay.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
+      && new caver.kaia.Contract(DEPLOYED_ABI, DEPLOYED_ADDRESS)
     this.state = {
       count: '',
       lastParticipant: '',
@@ -252,7 +252,7 @@ class Count extends Component {
   }
 
   setPlus = () => {
-    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+    const walletInstance = caver.kaia.accounts.wallet && caver.kaia.accounts.wallet[0]
 
     // Need to integrate wallet for calling contract method.
     if (!walletInstance) return
@@ -296,7 +296,7 @@ class Count extends Component {
   }
 
   setMinus = () => {
-    const walletInstance = caver.klay.accounts.wallet && caver.klay.accounts.wallet[0]
+    const walletInstance = caver.kaia.accounts.wallet && caver.kaia.accounts.wallet[0]
 
     // Need to integrate wallet for calling contract method.
     if (!walletInstance) return
@@ -389,7 +389,7 @@ class Count extends Component {
             </p>
             <a
               target="_blank"
-              href={`https://klaytnscope.com/tx/${txHash}`}
+              href={`https://kaiascope.com/tx/${txHash}`}
               className="Count__lastTransactionLink"
             >
               {txHash}

@@ -4,47 +4,61 @@
 <CH.Code>
 
 ```js TxTypeFeeDelegatedAccountUpdate.js
-const { Web3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@klaytn/web3js-ext");
+const {
+  Web3,
+  TxType,
+  AccountKeyType,
+  getPublicKeyFromPrivate,
+} = require('@kaiachain/web3js-ext')
 
 // Using senderPriv == senderNewPriv to execute this example repeatedly.
 // But you might want to register a different private key.
-const senderAddr = "0x30908464d76604420162a6c880c0e1c7e641bad7";
-const senderPriv = "0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b";
-const senderNewPriv = "0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b";
-const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
-const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const senderAddr = '0x30908464d76604420162a6c880c0e1c7e641bad7'
+const senderPriv =
+  '0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b'
+const senderNewPriv =
+  '0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b'
+const feePayerAddr = '0xcb0eb737dfda52756495a5e08a9b37aab3b271da'
+const feePayerPriv =
+  '0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4'
 
-const provider = new Web3.providers.HttpProvider("https://public-en-baobab.klaytn.net");
-const web3 = new Web3(provider);
-const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
-const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+const provider = new Web3.providers.HttpProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const web3 = new Web3(provider)
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv)
 
 async function main() {
-  const publicKey = getPublicKeyFromPrivate(senderNewPriv);
-  console.log({ publicKey });
+  const publicKey = getPublicKeyFromPrivate(senderNewPriv)
+  console.log({ publicKey })
 
   const tx = {
     type: TxType.FeeDelegatedAccountUpdate,
     from: senderAddr,
     key: {
       type: AccountKeyType.Public,
-      key: publicKey
+      key: publicKey,
     },
-  };
+  }
 
   // Sign transaction by sender
-  const signResult1 = await senderAccount.signTransaction(tx);
-  console.log("senderTxHashRLP", signResult1.rawTransaction);
+  const signResult1 = await senderAccount.signTransaction(tx)
+  console.log('senderTxHashRLP', signResult1.rawTransaction)
 
   // Sign and send transaction by fee payer
-  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
-  console.log("signedTx", signResult2.transactionHash);
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(
+    signResult1.rawTransaction
+  )
+  console.log('signedTx', signResult2.transactionHash)
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult2.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main();
+main()
 ```
 
 ---
@@ -78,7 +92,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@klaytn/web3js-ext** packages to add klaytn features on web3
+Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=1
 
@@ -102,7 +116,7 @@ Define **fee payer address** and **private key**
 
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=11:12
 
@@ -113,50 +127,61 @@ Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=11
-const { Web3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@klaytn/web3js-ext");
+const {
+  Web3,
+  TxType,
+  AccountKeyType,
+  getPublicKeyFromPrivate,
+} = require('@kaiachain/web3js-ext')
 
 // Using senderPriv == senderNewPriv to execute this example repeatedly.
 // But you might want to register a different private key.
-const senderAddr = "0x30908464d76604420162a6c880c0e1c7e641bad7";
-const senderPriv = "0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b";
-const senderNewPriv = "0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b";
-const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
-const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const senderAddr = '0x30908464d76604420162a6c880c0e1c7e641bad7'
+const senderPriv =
+  '0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b'
+const senderNewPriv =
+  '0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b'
+const feePayerAddr = '0xcb0eb737dfda52756495a5e08a9b37aab3b271da'
+const feePayerPriv =
+  '0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4'
 
-const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
-const web3 = new Web3(provider);
-const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
-const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+const provider = new Web3.providers.HttpProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const web3 = new Web3(provider)
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv)
 
 async function main() {
-  const publicKey = getPublicKeyFromPrivate(senderNewPriv);
-  console.log({ publicKey });
+  const publicKey = getPublicKeyFromPrivate(senderNewPriv)
+  console.log({ publicKey })
 
   const tx = {
     type: TxType.FeeDelegatedAccountUpdate,
     from: senderAddr,
     key: {
       type: AccountKeyType.Public,
-      key: publicKey
+      key: publicKey,
     },
-  };
+  }
 
   // Sign transaction by sender
-  const signResult1 = await senderAccount.signTransaction(tx);
-  console.log("senderTxHashRLP", signResult1.rawTransaction);
+  const signResult1 = await senderAccount.signTransaction(tx)
+  console.log('senderTxHashRLP', signResult1.rawTransaction)
 
   // Sign and send transaction by fee payer
-  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
-  console.log("signedTx", signResult2.transactionHash);
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(
+    signResult1.rawTransaction
+  )
+  console.log('signedTx', signResult2.transactionHash)
 
-  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
-  console.log("receipt", receipt);
+  const receipt = await web3.eth.sendSignedTransaction(
+    signResult2.rawTransaction
+  )
+  console.log('receipt', receipt)
 }
 
-main();
-
-    
-
+main()
 ```
 
 ---
@@ -195,7 +220,9 @@ Generating the **public key** from the **new private key** using `getPublicKeyFr
 ````
 
 </CH.Code>
+
 ---
+
 Creating a transaction object with `type: TxType.FeeDelegatedAccountUpdate` and `key` contains new public key
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=20:29
@@ -220,7 +247,9 @@ senderTxHashRLP 0x21f88d0c850ba43b7400830205949430908464d76604420162a6c880c0e1c7
 ```
 
 </CH.Code>
+
 ---
+
 Use **fee payer** account to sign the transaction with `signTransactionAsFeePayer`
 
 <CH.Code>
@@ -237,7 +266,9 @@ signedTx 0xbf72aae23989ca58eabfca9bd84b1ad9d60354e22b55102f5f5d4af18725a58e
 ````
 
 </CH.Code>
+
 ---
+
 Send the signed transaction to blockchain with `web3.eth.sendSignedTransaction`. It will return the transaction receipt
 
 <CH.Code>

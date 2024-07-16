@@ -24,7 +24,7 @@ def web3_tx_sign_recover_legacy():
     }
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
-    
+
     tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
@@ -41,7 +41,7 @@ web3_tx_sign_recover_legacy()
 ❯ py web3_legacy_value_transfer_sign_recover.py
 tx hash:  0x26e3137f5a44e64c7238367dc9d4270e63aaedd584ad7854509612fe82d24f74 receipt:  AttributeDict({'blockHash': HexBytes('0xfa5dc338557b4bb74ed640bb95f3249f258469e2ff805f38b437287dce4a5d73'), 'blockNumber': 150557816, 'contractAddress': None, 'cumulativeGasUsed': 21000, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x26e3137f5a44e64c7238367dc9d4270e63aaedd584ad7854509612fe82d24f74'), 'transactionIndex': 0, 'type': 2})
 
-sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153 
+sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 ```
 
@@ -49,7 +49,7 @@ recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=1:2
 
@@ -84,7 +84,7 @@ from web3py_ext.transaction.transaction import (
 )
 
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet-rpc.allthatnode.com:8551'
+    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
 ))
 
 def web3_legacy_value_transfer_sign_recover():
@@ -96,7 +96,7 @@ def web3_legacy_value_transfer_sign_recover():
     }
     value_transfer_tx = fill_transaction(value_transfer_tx, w3)
     signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
-    
+
     tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
     tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
@@ -125,7 +125,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**from**: the sender's address, **to**: target address to receive klay.
+**from**: the sender's address, **to**: target address to receive kaia.
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=15:16
 
@@ -133,7 +133,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**value** field means how many klay you want to send and you can use the **Web3.to_peb** utils to convert klay to peb unit.
+**value** field means how many kaia you want to send and you can use the **Web3.to_peb** utils to convert kaia to peb unit.
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=17
 
@@ -168,7 +168,9 @@ Sign the transaction with **sender** private key
 tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a receipt:  AttributeDict({'blockHash': HexBytes('0xcd0b362591ab28e4c5c423561ea525ad7f19e1fbc177aeef640aece7d53fc83d'), 'blockNumber': 147156811, 'contractAddress': None, 'cumulativeGasUsed': 271841, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 81000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash': HexBytes('0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a'), 'transactionIndex': 1, 'type': 0})
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Recover sender address with **Account.recover_transaction** from signed transaction
 

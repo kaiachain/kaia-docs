@@ -35,9 +35,9 @@ Synching from the genesis block is time-consuming. You may perform a fast sync b
 Download the latest chaindata snapshot from the following links:
 
 - [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/)
-- [Cypress live-pruning snapshot archive](https://packages.klaytn.net/cypress/pruning-chaindata/)
-- [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/)
-- [Baobab live-pruning snapshot archive](http://packages.klaytn.net/baobab/pruning-chaindata/)
+- [Mainnet live-pruning snapshot archive](https://packages.kaia.io/kairos/pruning-chaindata/)
+- [Kairos snapshot archive](https://packages.kaia.io/kairos/chaindata/)
+- [Kairos live-pruning snapshot archive](https://packages.kaia.io/kairos/pruning-chaindata/)
 
 Then uncompress:
 

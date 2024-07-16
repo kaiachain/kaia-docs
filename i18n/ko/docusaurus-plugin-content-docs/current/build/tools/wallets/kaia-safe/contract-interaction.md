@@ -6,7 +6,7 @@
 
 - [MetaMask](https://metamask.io/download/) & [카이아 MetaMask 설정](../../../tutorials/connecting-metamask#send-klay)
 - [Remix](https://remix.ethereum.org/) & [Kaia Remix 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 테스트 KAIA를 받습니다.
+- Obtain test KAIA from the [Faucet](https://kairos.wallet.kaia.io/faucet)
 
 **1단계**: [Remix](https://remix.ethereum.org/)로 이동합니다.
 

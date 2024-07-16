@@ -11,7 +11,7 @@ Before you start, let's get familiar with several Klaytn-specific terms.
 
 This step by step guide will walk you through the process of launching an Endpoint Node \(EN\) of Baobab testnet and building a basic smart contract with your new account. The tutorial consists of two parts, setting up an EN and deploying a smart contract through your EN.
 
-> This guide uses the **Baobab** testnet because deploying a smart contract and submitting a transaction require transaction fees in KLAY. For the development purpose, testnet KLAY can be obtained from the [Baobab faucet](https://baobab.wallet.klaytn.foundation/faucet).
+> This guide uses the **Baobab** testnet because deploying a smart contract and submitting a transaction require transaction fees in KLAY. For the development purpose, testnet KAIA can be obtained from the [Kairos faucet](https://kairos.wallet.kaia.io/faucet).
 
 ## Launch an Endpoint Node <a href="#launch-an-en" id="launch-an-en"></a>
 

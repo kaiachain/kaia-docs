@@ -4,5 +4,5 @@
 
 카이아가 지원하는 탐색기 목록은 아래와 같습니다:
 
-- [Kaiascope](https://klaytnscope.com/)
-- [Kaiafinder](https://www.klaytnfinder.io/)
+- [Kaiascope](https://kaiascope.com/)
+- [Kaiascan](https://www.kaiascan.io/)

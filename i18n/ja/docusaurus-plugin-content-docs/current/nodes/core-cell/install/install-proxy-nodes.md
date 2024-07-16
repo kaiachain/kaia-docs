@@ -144,7 +144,7 @@ Each PN maintains a copy of the network's chain data. If a node is out of sync, 
 
 To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the PN. This can dramatically reduce the time the PN will spend syncing on first start.
 
-Download the latest chaindata snapshot from the [Cypress snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Baobab snapshot archive](http://packages.klaytn.net/baobab/chaindata/). Before starting `kpnd`, extract the snapshot inside the DATA_DIR you configured in `kpnd.conf`.
+Download the latest chaindata snapshot from the [Mainnet snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Kairos snapshot archive](https://packages.kaia.io/kairos/chaindata/). Before starting `kpnd`, extract the snapshot inside the DATA_DIR you configured in `kpnd.conf`.
 
 For example:
 

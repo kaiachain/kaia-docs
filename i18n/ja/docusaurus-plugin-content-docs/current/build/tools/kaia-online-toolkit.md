@@ -12,7 +12,7 @@
 
 Here are the links for `Kaia Online Toolkit`. Feel free to use it :)
 
-- [Github Repository](https://github.com/klaytn/klaytn-online-toolkit)
+- [Github Repository](https://github.com/kaiachain/kaia-online-toolkit)
 - [Toolkit Page](https://toolkit.klaytn.foundation)
 - [Kaia SDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
 

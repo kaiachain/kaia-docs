@@ -6,44 +6,58 @@
 <CH.Code>
 
 ```js SignTxWithRoleBasedExample.js
-const { ethers } = require("ethers");
+const { ethers } = require('ethers')
 
-const { Wallet, TxType, parseKlay } = require("@klaytn/ethers-ext");
+const { Wallet, TxType, parseKlay } = require('@kaiachain/ethers-ext')
 
-const senderAddr = "0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea";
-const senderPriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
-const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
-const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
-const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea'
+const senderPriv =
+  '0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda'
+const senderRoleTransactionPriv =
+  '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
+const senderRoleAccountUpdatePriv =
+  '0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda'
+const senderRoleFeePayerPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const recieverAddr = '0xc40b6909eb7085590e1c26cb3becc25368e249e9'
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
-const txWallet = new Wallet(senderAddr, senderRoleTransactionPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://public-en-baobab.klaytn.net'
+)
+const txWallet = new Wallet(senderAddr, senderRoleTransactionPriv, provider)
 
 async function main() {
-  let tx = { // use Klaytn TxType to send transaction from Klaytn typed account
+  let tx = {
+    // use kaia TxType to send transaction from kaia typed account
     type: TxType.ValueTransfer,
     from: senderAddr,
     to: recieverAddr,
-    value: parseKlay("0.01"),
+    value: parseKlay('0.01'),
     gasLimit: 100000,
-  };
+  }
 
-  const populatedTx = await txWallet.populateTransaction(tx);
-  const rawTx = await txWallet.signTransaction(populatedTx);
-  console.log("rawTx", rawTx);
+  const populatedTx = await txWallet.populateTransaction(tx)
+  const rawTx = await txWallet.signTransaction(populatedTx)
+  console.log('rawTx', rawTx)
 
-  const sentTx = await txWallet.sendTransaction(tx);
-  console.log("sentTx", sentTx.hash);
+  const sentTx = await txWallet.sendTransaction(tx)
+  console.log('sentTx', sentTx.hash)
 
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 
-  const addr = await provider.send("klay_recoverFromTransaction", [rawTx, "latest"]);
-  console.log("recoveredAddr rpc", addr, addr.toLowerCase() === senderAddr.toLowerCase());
+  const addr = await provider.send('klay_recoverFromTransaction', [
+    rawTx,
+    'latest',
+  ])
+  console.log(
+    'recoveredAddr rpc',
+    addr,
+    addr.toLowerCase() === senderAddr.toLowerCase()
+  )
 }
 
-main().catch(console.error);
+main().catch(console.error)
 ```
 
 ---
@@ -77,7 +91,7 @@ recoveredAddr rpc 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea true
 
 ---
 
-Import the **ethers** and **@klaytn/ethers-ext** packages to add klaytn features on ethers.js
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
 
 ```js SignTxWithRoleBasedExample.js focus=1:3
 
@@ -101,7 +115,7 @@ Define receiver's **address**
 
 ---
 
-Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js SignTxWithRoleBasedExample.js focus=12
 
@@ -112,44 +126,58 @@ Set up the provider with the specified Klaytn **Baobab** testnet URL. A provider
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js SignTxWithRoleBasedExample.js focus=12
-const { ethers } = require("ethers");
+const { ethers } = require('ethers')
 
-const { Wallet, TxType, parseKlay } = require("@klaytn/ethers-ext");
+const { Wallet, TxType, parseKlay } = require('@kaiachain/ethers-ext')
 
-const senderAddr = "0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea";
-const senderPriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
-const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
-const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
-const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
-const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea'
+const senderPriv =
+  '0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda'
+const senderRoleTransactionPriv =
+  '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
+const senderRoleAccountUpdatePriv =
+  '0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda'
+const senderRoleFeePayerPriv =
+  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const recieverAddr = '0xc40b6909eb7085590e1c26cb3becc25368e249e9'
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
-const txWallet = new Wallet(senderAddr, senderRoleTransactionPriv, provider);
+const provider = new ethers.providers.JsonRpcProvider(
+  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+)
+const txWallet = new Wallet(senderAddr, senderRoleTransactionPriv, provider)
 
 async function main() {
-  let tx = { // use Klaytn TxType to send transaction from Klaytn typed account
+  let tx = {
+    // use kaia TxType to send transaction from kaia typed account
     type: TxType.ValueTransfer,
     from: senderAddr,
     to: recieverAddr,
-    value: parseKlay("0.01"),
+    value: parseKlay('0.01'),
     gasLimit: 100000,
-  };
+  }
 
-  const populatedTx = await txWallet.populateTransaction(tx);
-  const rawTx = await txWallet.signTransaction(populatedTx);
-  console.log("rawTx", rawTx);
+  const populatedTx = await txWallet.populateTransaction(tx)
+  const rawTx = await txWallet.signTransaction(populatedTx)
+  console.log('rawTx', rawTx)
 
-  const sentTx = await txWallet.sendTransaction(tx);
-  console.log("sentTx", sentTx.hash);
+  const sentTx = await txWallet.sendTransaction(tx)
+  console.log('sentTx', sentTx.hash)
 
-  const receipt = await sentTx.wait();
-  console.log("receipt", receipt);
+  const receipt = await sentTx.wait()
+  console.log('receipt', receipt)
 
-  const addr = await provider.send("klay_recoverFromTransaction", [rawTx, "latest"]);
-  console.log("recoveredAddr rpc", addr, addr.toLowerCase() === senderAddr.toLowerCase());
+  const addr = await provider.send('klay_recoverFromTransaction', [
+    rawTx,
+    'latest',
+  ])
+  console.log(
+    'recoveredAddr rpc',
+    addr,
+    addr.toLowerCase() === senderAddr.toLowerCase()
+  )
 }
 
-main().catch(console.error);
+main().catch(console.error)
 ```
 
 ---
@@ -184,9 +212,11 @@ Sign the transaction with the wallet that has role **sending transaction**, the 
 rawTx 0x08f88641850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc10000945bd2fb3c21564c023a4a735935a2b7a238c4cceaf847f8458207f6a04886eb1e6d8d5ee59fe4d125b40080409c3341fdc0a7e04b612e7d802edbeaeba0415c08f73a3789f6c27177bb5326579ffbe96f8e0db7090b08ce2fe059d949a9
 ```
 
-## </CH.Code>
+</CH.Code>
 
-Send the **signed transaction** to Klaytn network
+---
+
+Send the **signed transaction** to kaia network
 
 <CH.Code>
 ```js SignTxWithRoleBasedExample.js focus=28:29
@@ -198,7 +228,9 @@ Send the **signed transaction** to Klaytn network
 sentTx 0x3f7ee99c699ad2143bf0fac72dac1ff689c992e382e4705f7366aceaecc09477
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Wait for the transaction to be **completed** and print the **receipt**
 
@@ -229,7 +261,9 @@ receipt {
 }
 ````
 
-## </CH.Code>
+</CH.Code>
+
+---
 
 Recover the address from signed transaction using `klay_recoverFromMessage`
 

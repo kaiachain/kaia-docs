@@ -9,13 +9,13 @@
 - 최종 사용자의 진입 장벽을 낮춥니다.
 - 업계의 기술 채택 프로세스를 간소화합니다.
 
-Kaia launched its mainnet, [Cypress](https://klaytnscope.com), on Jun/27/2019 with the following specifications.
+Kaia continues to generate blocks on top of the Klaytn blockchain launched on June 27, 2019, with the following specifications:
 
 - 1초의 블록 생성 및 확인 시간.
 - 초당 4,000건의 트랜잭션.
 - 이더리움의 1/10에 불과한 낮은 가스 가격.
 - EVM(이더리움 가상 머신)을 실행하고 Solidity 컨트랙트 실행을 지원합니다.
-- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="../misc/glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="../misc/glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Klaytnscope](https://klaytnscope.com).
+- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="../misc/glossary#klaytn-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="../misc/glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Kaiascope](https://kaiascope.com/).
 - 50개 이상의 초기 서비스 파트너들이 카이아에서 블록체인 애플리케이션을 출시하기로 약속했습니다.
 
 ## 카이아: 개관 <a id="klaytn-the-big-picture"></a>

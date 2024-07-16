@@ -1,12 +1,12 @@
 # caver.kct.kip17
 
-`caver.kct.kip17` helps you easily handle a smart contract that implements [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) as a JavaScript object on the Klaytn blockchain.
+`caver.kct.kip17` helps you easily handle a smart contract that implements [KIP-17](https://kips.kaia.io/KIPs/kip-17) as a JavaScript object on the kaia blockchain.
 
 The `caver.kct.kip17` inherits [caver.contract](../caver.contract.md) to implement the KIP-17 token contract. The `caver.kct.kip17` holds the same properties of `caver.contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.kct.kip17`.
 
-The code that implements KIP-17 for caver-js is available on the [Klaytn Contracts Github Repo](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP17). KIP-17 for caver-js supports Ownable interface. Using this, you can designate a contract owner when deploying a contract
+The code that implements KIP-17 for caver-js is available on the [Kaia Contracts Github Repo](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17). KIP-17 for caver-js supports Ownable interface. Using this, you can designate a contract owner when deploying a contract
 
-For more information about KIP-17, see [Klaytn Improvement Proposals](https://kips.klaytn.foundation/KIPs/kip-17).
+For more information about KIP-17, see [Kaia Improvement Proposals](https://kips.kaia.io/KIPs/kip-17).
 
 ## caver.kct.kip17.deploy <a id="caver-klay-kip17-deploy"></a>
 
@@ -14,7 +14,7 @@ For more information about KIP-17, see [Klaytn Improvement Proposals](https://ki
 caver.kct.kip17.deploy(tokenInfo, deployer)
 ```
 
-Deploys the KIP-17 token contract to the Klaytn blockchain. A contract deployed using caver.kct.kip17.deploy is a non-fungible token that follows the KIP-17 standard.
+Deploys the KIP-17 token contract to the kaia blockchain. A contract deployed using caver.kct.kip17.deploy is a non-fungible token that follows the KIP-17 standard.
 
 After successful deployment, the promise will be resolved with a new KIP17 instance.
 
@@ -22,8 +22,8 @@ After successful deployment, the promise will be resolved with a new KIP17 insta
 
 | Name      | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| tokenInfo | object      | The information needed to deploy KIP-17 token contract on the Klaytn blockchain. See the below table for the details.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| deployer  | string \\ | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KLAY to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your fields to use when sending transactions, you can pass the object type as a parameter. If you want to use Fee Delegation when deploying KIP-17 contracts, you can define the fields related to fee delegation in the object. For the use of these fields, refer to the parameter description of [approve](#kip17-approve). |
+| tokenInfo | object      | The information needed to deploy KIP-17 token contract on the kaia blockchain. See the below table for the details.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| deployer  | string \\ | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KAIA to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your fields to use when sending transactions, you can pass the object type as a parameter. If you want to use Fee Delegation when deploying KIP-17 contracts, you can define the fields related to fee delegation in the object. For the use of these fields, refer to the parameter description of [approve](#kip17-approve). |
 
 The tokenInfo object must contain the following:
 
@@ -58,9 +58,9 @@ The tokenInfo object must contain the following:
 
    - Optimization: --optimize-run 200
 
-   - Source code: [KIP17 Contracts Github Link](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/kip17Token.sol).
+   - Source code: [KIP17 Contracts Github Link](https://github.com/kaiachain/caver-js/blob/dev/packages/caver-kct/src/kip17Token.sol).
 
-4. ABI-encoded Value: [kip17JsonInterface at dev · klaytn/caver-js · GitHub](https://github.com/klaytn/caver-js/blob/dev/packages/caver-kct/src/kctHelper.js#L408-L1319)
+4. ABI-encoded Value: [kip17JsonInterface at dev · kaiachain/caver-js · GitHub](https://github.com/kaiachain/caver-js/blob/dev/packages/caver-kct/src/kctHelper.js#L408-L1319)
 
 **Example**
 
@@ -131,7 +131,7 @@ Returns the information of the interface implemented by the token contract. This
 
 **Return Value**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.foundation/KIPs/kip-17#kip-13-identifiers) is implemented.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.kaia.io/KIPs/kip-17#kip-13-identifiers) is implemented.
 
 **Example**
 
@@ -252,7 +252,7 @@ None
 
 **Return Value**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.klaytn.foundation/KIPs/kip-17#kip-13-identifiers) is implemented.
+`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.kaia.io/KIPs/kip-17#kip-13-identifiers) is implemented.
 
 **Example**
 
@@ -651,7 +651,7 @@ kip17.approve(to, tokenId [, sendParam])
 
 Approves another address to transfer a token of the given token id. The zero address indicates there is no approved address. There can only be one approved address per token. This method is allowed to call only by the token owner or an approved operator.
 
-Note that this method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -744,7 +744,7 @@ kip17.setApprovalForAll(to, approved [, sendParam])
 
 Approves the given operator `to`, or disallow the given operator, to transfer all tokens of the owner.
 
-Note that the setApprovalForAll method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the setApprovalForAll method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -901,7 +901,7 @@ kip17.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 
 Safely transfers the token of the given token id `tokenId` from the token owner's balance to another address. The address that was authorized to send the token owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip17Instance.options.from`. Unless both `sendParam.from` and `kip17Instance.options.from` are provided, an error would occur.
 
-If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.
+If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.kaia.io/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.
 
 Note that sending this transaction will charge the transaction fee to the transaction sender.
 
@@ -987,7 +987,7 @@ kip17.addMinter(account [, sendParam])
 
 Adds an account as a minter, who are permitted to mint tokens.
 
-Note that the addMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the addMinter method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1061,7 +1061,7 @@ kip17.renounceMinter([sendParam])
 
 Renounces the right to mint tokens. Only a minter address can renounce the minting right.
 
-Note that the renounceMinter method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the renounceMinter method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1134,7 +1134,7 @@ kip17.mintWithTokenURI(to, tokenId, tokenURI [, sendParam])
 
 Creates a token with the given uri and assigns them to the given account. This method increases the total supply of this token.
 
-Note that the mintWithTokenURI method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the mintWithTokenURI method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1216,7 +1216,7 @@ kip17.burn(tokenId [, sendParam])
 
 Destroys the token of the given token id. Without `sendParam.from` nor `kip17.options.from` being provided, an error would occur.
 
-Note that the burn method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the burn method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1294,7 +1294,7 @@ kip17.pause([sendParam])
 
 Suspends functions related to sending tokens.
 
-Note that the pause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the pause method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1367,7 +1367,7 @@ kip17.unpause([sendParam])
 
 Resumes the paused contract.
 
-Note that the unpause method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the unpause method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1440,7 +1440,7 @@ kip17.addPauser(account [, sendParam])
 
 Adds an account as a pauser that has the right to suspend the contract.
 
-Note that the addPauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the addPauser method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 
@@ -1514,7 +1514,7 @@ kip17.renouncePauser([sendParam])
 
 Renounces the right to pause the contract. Only a pauser address can renounce its own pausing right.
 
-Note that the renouncePauser method will submit a transaction to the Klaytn network, which will charge the transaction fee to the sender.
+Note that the renouncePauser method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
 
 **Parameters**
 

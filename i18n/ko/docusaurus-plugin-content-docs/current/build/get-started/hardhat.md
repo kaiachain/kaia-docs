@@ -11,7 +11,7 @@ Hardhat은 여러분을 도와줄 스마트 컨트랙트 개발 환경입니다:
 - 스마트 컨트랙트 개발 및 컴파일.
 - 스마트 컨트랙트 및 dApp 디버깅, 테스트, 배포.
 
-Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니다. 즉, 한 번 획득하면 다른 사용자에게 판매하거나 양도할 수 없습니다. SBT의 작동 방식과 사용 사례에 대해 자세히 알아보시려면 비탈릭 부테린이 작성한 [참고 문서](https://vitalik.ca/general/2022/01/26/soulbound.html)를 확인하시기 바랍니다.
+Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니다. 즉, 한 번 획득하면 다른 사용자에게 판매하거나 양도할 수 없습니다. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
 
 이 가이드가 끝나면 여러분은 다음을 할 수 있을 것입니다:
 
@@ -27,8 +27,8 @@ Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니�
 
 - 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
 - [MetaMask](../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
-- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../references/service-providers/public-en.md) 중 하나에서 얻을 수 있습니다.
-- [Faucet](https://baobab.wallet.klaytn.foundation/faucet)에서 KAIA 테스트: 충분한 KAIA로 계정에 자금을 충전합니다.
+- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
+- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
 - [NodeJS 및 NPM](https://nodejs.org/en/)
 
 ## 개발 환경 설정하기
@@ -395,7 +395,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. 블록번호는 [klaytnscope](https://klaytnscope.com/)에서 확인할 수 있습니다.
+출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. You can confirm the block number on [klaytnscope](https://kaiascope.com/).
 
 ### 블록에서 포크하기
 
