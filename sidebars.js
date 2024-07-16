@@ -454,7 +454,8 @@ const sidebars = {
         'references/sdk/viem/viem',
       ],
     },
-    'references/transaction-error-codes',    
+    'references/signed-message',
+    'references/transaction-error-codes',
     ...commonSidebar,
   ],
   kaiaSidebar: [
