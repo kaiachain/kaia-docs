@@ -70,21 +70,26 @@
 
 ### 커뮤니티 공동 구축 <a id="community-co-building"></a>
 
-- 카이아는 프로토콜 설계 외에도 커뮤니티 공동 구축을 통해 영역을 확장할 것이며, 여기에는 게임 길드, 투자 DAO, 커뮤니티 DAO, 글로벌 플레이어와의 제휴 등과 같은 다양한 종류의 커뮤니티가 포함됩니다.
+- In addition to the protocol design, Kaia will expand its territory through community co-building; it includes kinds of communities such as game guilds, investment DAOs, community DAOs, alliance with global players, etc.
+  ​
+  Lastly, the ground rules:
+  ​
 
-카이아는 위에서 언급한 개선점을 달성하기 위해 블록체인의 핵심 특성을 희생하지 않으며, 강력한 이해관계자들과 함께 프로토콜을 안정적으로 유지합니다.
+:::note
+
+Kaia does not sacrifice blockchain’s core characteristics to achieve the above-mentioned enhancements, and the protocol stays stable with strongly committed stakeholders.
 
 :::
 
-### 투명성, 보안 및 탈중앙화 <a id="transparency-security-and-decentralization"></a>
+### Transparency, Security and Decentralization <a id="transparency-security-and-decentralization"></a>
 
-- 누구나 블록체인 상에서 트랜잭션을 요청하고, 트랜잭션 결과를 조회하고 확인할 수 있습니다.
-- 카이아는 탈중앙화된 네트워크이기 때문에 어떤 악의적인 노드도 데이터 무결성을 깨뜨릴 수 없습니다.
+- Anyone can request transactions as well as retrieve and confirm transactions results on the blockchain.
+- Kaia is a decentralized network where no single malicious node can break the data integrity.
   ​
 
-### 안정성을 갖춘 탈중앙화를 실현하는 DAO, 빌더, 기업의 거버넌스 <a id="governance-by-trusted-entities"></a>
+### Governance by DAOs, Builders and Enterprises Realizes Decentralization with Stability <a id="governance-by-trusted-entities"></a>
 
-- 현재 카이아 거버넌스 카운슬(GC)의 기존 기업들 외에도 DAO, 빌더 등 더 많은 탈중앙화 주체들을 GC에 참여시킴으로써 수백 명의 거버넌스 참여자들과 함께 전례 없는 방식으로 전체 카이아 거버넌스 구조를 재구축할 수 있는 가능성을 열어가고 있습니다.
+- In addition to the current traditional enterprises as Kaia Governance Council (GC), by bringing more decentralized entities such as DAOs and builders into the GC, we are opening up the potential to rebuild the entire Kaia governance structure in an unprecedented way with hundreds of governance participants.
 
 [Decoupling of Key Pairs from Addresses]: ./accounts.md#decoupling-key-pairs-from-addresses
 [Multiple Key Pairs and Role-Based Keys]: ./accounts.md#multiple-key-pairs-and-role-based-keys
