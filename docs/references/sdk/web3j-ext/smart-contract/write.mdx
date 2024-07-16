@@ -1,4 +1,5 @@
 # Write
+
 You can make a **"transaction"** interacting with a Smart Contract when you **need to update some state ** in the contract.
 
 <CH.Spotlight>
@@ -13,13 +14,13 @@ import org.web3j.tx.response.PollingTransactionReceiptProcessor;
 import org.web3j.tx.response.TransactionReceiptProcessor;
 import org.web3j.example.keySample;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.klaytn.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.tx.gas.StaticGasProvider;
 
 public class WriteContractExample {
     /**
      * @throws Exception
-     * 
+     *
      */
     public static void run() throws Exception {
 
@@ -43,56 +44,81 @@ public class WriteContractExample {
 
 }
 ```
+
 ---
+
 ```zsh output
 ❯ java WriteContractExample.java
 number before : 297
 number after : 298
 ```
+
 </CH.Code>
 
-
 ---
-Import necessary classes from the Web3j and Klaytn libraries(`web3j-ext`).
+
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+
 ```java WriteContractExample.java focus=1:10
 
 ```
+
 ---
-Connect to the Klaytn blockchain using Web3j and specify the URL
+
+Connect to the kaia blockchain using Web3j and specify the URL
+
 ```java WriteContractExample.java focus=19
 
 ```
+
 ---
+
 Create KlayCredentials using the private key
+
 ```java WriteContractExample.java focus=20
 
 ```
+
 ---
+
 Define smart contract address to interact with
+
 ```java WriteContractExample.java focus=21
 
 ```
+
 ---
+
 Define gas price and gas limit for contract transactions
+
 ```java WriteContractExample.java focus=22:23
 
 ```
+
 ---
+
 Create a gas provider with static gas price and gas limit
+
 ```java WriteContractExample.java focus=24
 
 ```
+
 ---
+
 Load the contract using **contact address**, **Web3j instance**, **credentials**, and **gas provider**. You can read and write the contract through this instance
+
 ```java WriteContractExample.java focus=25
 
 ```
+
 ---
+
 Get the current **number** stored in the contract before writing
+
 <CH.Code>
 ```java WriteContractExample.java focus=27:28
 
-```
+````
 
 
 ---
@@ -101,21 +127,26 @@ Get the current **number** stored in the contract before writing
 ❯ java WriteContractExample.java
 number before : 297
 
-```
+````
 
 </CH.Code>
 
 ---
+
 Increment the **number** stored in the contract by calling `counter.increment().send()`
+
 ```java WriteContractExample.java focus=30:31
 
 ```
+
 ---
+
 Get the updated **number** stored in the contract after writing
+
 <CH.Code>
 ```java WriteContractExample.java focus=33:34
 
-```
+````
 
 
 ---
@@ -123,9 +154,8 @@ Get the updated **number** stored in the contract after writing
 ```zsh output
 ❯ java WriteContractExample.java
 number after : 298
-```
+````
 
 </CH.Code>
 
 </CH.Spotlight>
-

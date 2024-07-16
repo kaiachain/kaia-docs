@@ -3,24 +3,16 @@ import Link from '@docusaurus/Link'
 import styled from 'styled-components'
 import { useColorMode } from '@docusaurus/theme-common';
 
-// Import both light and dark theme images
 import img1Light from '../../images/thum_01_L.png';
 import img2Light from '../../images/thum_02_L.png';
 import img3Light from '../../images/thum_03_L.png';
 import img4Light from '../../images/thum_04_L.png';
-/*
-import img5Light from '../../images/thum_05_L.png';
-import img6Light from '../../images/thum_06_L.png';
-*/
 
-import img1Dark from '../../images/thum_01_D.png'; // Assuming you have dark versions
+import img1Dark from '../../images/thum_01_D.png';
 import img2Dark from '../../images/thum_02_D.png';
 import img3Dark from '../../images/thum_03_D.png';
 import img4Dark from '../../images/thum_04_D.png';
-/*
-import img5Dark from '../../images/thum_05_D.png';
-import img6Dark from '../../images/thum_06_D.png';
-*/
+
 
 import View from '../View'
 import style from '@site/src/consts/style'
@@ -120,22 +112,6 @@ const featureList: FeatureType[] = [
     description: <Translate>APIs and libraries</Translate>,
     to: '/docs/references',
   },
-  /*
-  {
-    title: <Translate>Kaia Developer Hub</Translate>,
-    imgSrcLight: img5Light,
-    imgSrcDark: img5Dark,
-    description: <Translate>Kaia's Developer portal</Translate>,
-    to: 'https://developer.klaytn.foundation',
-  },
-  {
-    title: <Translate>Kaia Developer Forum</Translate>,
-    imgSrcLight: img6Light,
-    imgSrcDark: img6Dark,
-    description: <Translate>Got a question? Visit our forum!</Translate>,
-    to: 'https://forum.klaytn.foundation',
-  },
-  */
 ]
 
 function Feature({ imgSrcLight, imgSrcDark, title, description, to }: FeatureType) {

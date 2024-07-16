@@ -1,8 +1,6 @@
 # Deploy
+
 Web3 SDKs support to interact with Smart Contract via contract instance, not low-level transaction.
-
-
-
 
 <CH.Spotlight>
 <CH.Code>
@@ -57,38 +55,50 @@ contract_deploy_with_legacy()
 ```
 
 ---
+
 ```zsh output
 ❯ py smart_contract_deploy.py
 AttributeDict({'blockHash': HexBytes('0xf990e2fcedc5e814c274b7582cfba6f9beae24f2314504a2ef7b9373397dd7a9'), 'blockNumber': 147171529, 'contractAddress': '0xc0F9ca7fC3D7bd3c0B302D8942dA398159520908', 'cumulativeGasUsed': 457185, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 260744, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': None, 'transactionHash': HexBytes('0x97b15a334ba0693f3a1780779555d6c9c13481d3cae9f70f32887fbdb81ce29b'), 'transactionIndex': 1, 'type': 2})
 ```
+
 </CH.Code>
 
 ---
-Import **extend** from **web3py_ext** to extend web3 to klaytn web3
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
 ```py smart_contract_deploy.py focus=1:2
 
 ```
 
 ---
+
 Import necessary utils
+
 ```py smart_contract_deploy.py focus=3:4
 
 ```
 
 ---
+
 Load an account from private key
+
 ```py smart_contract_deploy.py focus=6
 
 ```
 
 ---
-Create a Web3 instance with the specified Klaytn **Baobab** testnet URL
+
+Create a Web3 instance with the specified kaia **Baobab** testnet URL
+
 ```py smart_contract_deploy.py focus=7:9
 
 ```
 
 ---
+
 Also, you can change the provider URL from **baobab** to **allthatnode**.
+
 ```py smart_contract_deploy.py focus=7:9
 from web3py_ext import extend
 from web3 import Web3
@@ -139,24 +149,31 @@ contract_deploy_with_legacy()
 ```
 
 ---
+
 Define an **account list** as a list type to use middleware
+
 ```py smart_contract_deploy.py focus=10
 
 ```
 
 ---
+
 If you want to automatically sign and send when using **transact** function, use **construct_sign_and_send_raw_middleware**
+
 ```py smart_contract_deploy.py focus=11,40:42
 
 ```
 
 ---
+
 These are the **contract** that is compiled into bytecode and will be deployed to the Baobab testnet
+
 ```py smart_contract_deploy.py focus=18:35,37
 
 ```
 
 ---
+
 Initialize a Web3 contract instance with bytecode and ABI
 
 ```py smart_contract_deploy.py focus=36:39
@@ -164,28 +181,35 @@ Initialize a Web3 contract instance with bytecode and ABI
 ```
 
 ---
+
 Set the contract **bytebode** and **abi**. You can get the bytecode and abi after compiled in remix or solc compiler
+
 ```py smart_contract_deploy.py focus=37,38
 
 ```
 
 ---
+
 Deploy the smart contract by sending a tx. This automatically sign and send the tx that include constructor call data
 
 ```py smart_contract_deploy.py focus=40:42
 
 ```
+
 ---
+
 Wait for the transaction **receipt**
+
 <CH.Code>
 ```py smart_contract_deploy.py focus=43:44
 
-```
+````
 ---
 ```zsh output
 ❯ py smart_contract_deploy.py
 AttributeDict({'blockHash': HexBytes('0xf990e2fcedc5e814c274b7582cfba6f9beae24f2314504a2ef7b9373397dd7a9'), 'blockNumber': 147171529, 'contractAddress': '0xc0F9ca7fC3D7bd3c0B302D8942dA398159520908', 'cumulativeGasUsed': 457185, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 260744, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': None, 'transactionHash': HexBytes('0x97b15a334ba0693f3a1780779555d6c9c13481d3cae9f70f32887fbdb81ce29b'), 'transactionIndex': 1, 'type': 2})
-```
+````
+
 </CH.Code>
 
 </CH.Spotlight>
