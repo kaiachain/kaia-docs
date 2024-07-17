@@ -46,7 +46,7 @@ const commonSidebar = [
   //'misc/faq',
   'misc/opensource',
   'misc/terms-of-use',
-  //'misc/internationalization',
+  'misc/internationalization',
 ];
 
 const sidebars = {
