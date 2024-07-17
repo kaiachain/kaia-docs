@@ -48,10 +48,10 @@ After confirming your report meets the above criteria, [submit the issue](https:
 
 If you are fluent in a language other than English and want to contribute translations or improve the localized documentation, [submit an issue](https://github.com/kaiachain/kaia-docs/issues). Please use [labels](#usage-of-labels) to specify your issue as `content-translation`.
 
-You need to use the [Crowdin](https://crowdin.com/project/klaytn-docs) platform to contribute translations. For more information, see the [Internationalization](https://docs.klaytn.foundation/docs/misc/internationalization/) page.
+You need to use the [Crowdin](https://crowdin.com/project/kaia-docs) platform to contribute translations. For more information, see the [Internationalization](https://docs.kaia.io/misc/internationalization/) page.
 
 > [!IMPORTANT]  
-> For content translation, avoid using a pull request to submit changes by modifying the files under the [i18n](https://github.com/klaytn/klaytn-docs/tree/main/i18n) directory directly. </br> </br> Unlike other types of contribution, the translations are managed by Crowdin localization management platform. If a translation is submitted and has been approved in Crowdin, an automated PR will be made to Kaia docs repo. Once the PR is approved and merged by the project moderators, the localized Kaia docs will be updated with the suggested changes (merged content).
+> For content translation, avoid using a pull request to submit changes by modifying the files under the [i18n](https://github.com/kaiachain/kaia-docs/tree/main/i18n) directory directly. </br> </br> Unlike other types of contribution, the translations are managed by Crowdin localization management platform. If a translation is submitted and has been approved in Crowdin, an automated PR will be made to Kaia docs repo. Once the PR is approved and merged by the project moderators, the localized Kaia docs will be updated with the suggested changes (merged content).
 
 ## Usage of Labels
 
