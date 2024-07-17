@@ -105,9 +105,9 @@ const sidebars = {
     {
       type: 'category',
       label: 'Governance',
+      link: {type: 'doc', id: 'learn/governance/governance'},
       items: [
-        'learn/governance',
-        'learn/governance-by-kip',
+        'learn/governance/governance-by-kip',
       ],
     },
     ...commonSidebar,
