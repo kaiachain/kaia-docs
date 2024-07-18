@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import StableRelease from './StableRelease'
+import ArchiveRelease from './ArchiveRelease'
 import CurrentRelease from './CurrentRelease'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
@@ -11,18 +11,17 @@ export default function NodePackageDownloads() {
   const size = 10
   const [start, setStart] = useState(0)
   const [showPaginationButton, setShowPaginationButton] = useState(true)
+  const [showVersions, setShowVersions] = useState(false)
+  const [allVersionsLoaded, setAllVersionsLoaded] = useState(false)
 
   useEffect(() => {
-    fetchReleases();
+    fetchReleases()
   }, [])
 
   const fetchReleases = () => {
-    fetch(
-      'https://airdrop-api.klaytn.foundation/node/releases?start=' + start,
-      {
-        method: 'GET',
-      }
-    )
+    fetch('https://airdrop-api.klaytn.foundation/node/releases?start=' + start, {
+      method: 'GET',
+    })
       .then((response) => response.json())
       .then((response) => {
         let releasesData = response.data.releases
@@ -41,9 +40,19 @@ export default function NodePackageDownloads() {
 
           setCurrentRelease(resultFirstRecord)
         }
-        setStart(start+size);
+        setStart(start + size)
         setShowPaginationButton(releasesData.length !== 0)
+        if (releasesData.length < size) {
+          setAllVersionsLoaded(true)
+        }
       })
+  }
+
+  const handleShowVersionsClick = () => {
+    setShowVersions(!showVersions)
+    if (!showVersions && !allVersionsLoaded) {
+      fetchReleases()
+    }
   }
 
   return (
@@ -62,14 +71,12 @@ export default function NodePackageDownloads() {
           develop builds, can be found further down the page. If you're looking
           to install kaia and/or associated tools via your favorite package
           manager, please check our installation guide.
-          <br /> <br />
-          Please note that currently, the downloadable file for kaia-v1.0.0 is only
-          available as a linux executable.
         </p>
         {currentRelease && currentRelease.machineTypes ? (
           <Tabs groupId="machineTypes">
             {currentRelease.machineTypes.map((_tab, _index) => (
               <TabItem
+                key={_index}
                 value={_tab.machineType.toLocaleLowerCase()}
                 label={_tab.machineType.toUpperCase()}
                 default={_tab.default}
@@ -115,7 +122,7 @@ export default function NodePackageDownloads() {
               alignContent: 'center',
             }}
           >
-            Stable releases
+            Archived releases
           </div>
           <div style={{ alignContent: 'center', padding: '10px' }}>
             These are the current and previous releases of Kaia, updated
@@ -125,15 +132,16 @@ export default function NodePackageDownloads() {
             </a>
           </div>
         </div>
-        {currentRelease && currentRelease.machineTypes ? (
+        {showVersions && (
           <Tabs groupId="machineTypes">
             {currentRelease.machineTypes.map((_tab, _index) => (
               <TabItem
+                key={_index}
                 value={_tab.machineType.toLocaleLowerCase()}
                 label={_tab.machineType.toUpperCase()}
                 default={_tab.default}
               >
-                <StableRelease
+                <ArchiveRelease
                   tabConfig={currentRelease.machineTypes.filter(
                     (_machine) => _machine.machineType == _tab.machineType
                   )}
@@ -144,15 +152,12 @@ export default function NodePackageDownloads() {
               </TabItem>
             ))}
           </Tabs>
-        ) : (
-          <>
-            <div style={{ width: '100%' }}>
-              <div style={{ margin: '10px auto', width: '100px' }}>
-                <span className="loader"></span>
-              </div>
-            </div>
-          </>
         )}
+        <div style={{ textAlign: 'center', margin: '20px' }}>
+            <button onClick={handleShowVersionsClick} className="show-versions-button">
+                {showVersions ? 'Hide versions' : 'Show more versions'}
+            </button>
+        </div>
       </div>
     </div>
   )
