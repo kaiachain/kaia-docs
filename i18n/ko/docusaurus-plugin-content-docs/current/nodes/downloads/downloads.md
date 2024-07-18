@@ -10,5 +10,5 @@ sidebar_label: 노드 패키지 다운로드
 
 Git을 써서 소스 코드를 가져올 수 있습니다. 문서는 GoDoc에서 확인하세요.
 
-- [github/klaytn](https://github.com/kaiachain/kaia)
-- [godoc/klaytn](https://godoc.org/github.com/klaytn/klaytn)
+- [github/kaia](https://github.com/kaiachain/kaia)
+- [godoc/kaia](https://godoc.org/github.com/kaiachain/kaia)
