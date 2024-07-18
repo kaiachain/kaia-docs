@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import StableRelease from './StableRelease'
+import ArchiveRelease from './ArchiveRelease'
 import CurrentRelease from './CurrentRelease'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
@@ -71,9 +71,6 @@ export default function NodePackageDownloads() {
           develop builds, can be found further down the page. If you're looking
           to install kaia and/or associated tools via your favorite package
           manager, please check our installation guide.
-          <br /> <br />
-          Please note that currently, the downloadable file for kaia-v1.0.0 is only
-          available as a linux executable.
         </p>
         {currentRelease && currentRelease.machineTypes ? (
           <Tabs groupId="machineTypes">
@@ -144,7 +141,7 @@ export default function NodePackageDownloads() {
                 label={_tab.machineType.toUpperCase()}
                 default={_tab.default}
               >
-                <StableRelease
+                <ArchiveRelease
                   tabConfig={currentRelease.machineTypes.filter(
                     (_machine) => _machine.machineType == _tab.machineType
                   )}

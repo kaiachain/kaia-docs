@@ -57,16 +57,6 @@ const CurrentRelease = (props) => {
                         binaryPrefixValue
                       )
 
-                      // TODO-kaia-docs: remove next skips when all packages & docker are ready
-                      if (tagName === "v1.0.0"){
-                        if (binaryFileformat.includes("darwin") || binaryFileformat.includes("rpm") ||
-                          _binaryName === "kscn" || _binaryName === "kspn" || _binaryName === "ksen" || _binaryName === "docker" ||
-                          _binaryName === "homi" || _binaryName === "kbnd" || _binaryName === "kgen" || _binaryName === "kbn"){
-                          return;
-                        }
-                        baseUrl = "https://packages.klaytn.net/baobab/kaia-v1.0.0/" + _binaryName + "-v1.0.0-linux-amd64"
-                        binaryFileformat = _binaryName + "-v1.0.0-linux-amd64"
-                      }
                       return (
                         <a
                           target="_blank"

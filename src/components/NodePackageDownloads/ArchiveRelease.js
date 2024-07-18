@@ -8,7 +8,7 @@ import {
   Box,
 } from '@chakra-ui/react'
 
-const StableRelease = (props) => {
+const ArchiveRelease = (props) => {
   const releaseData = props.releaseData
 
   if (releaseData && props.tabConfig && props.tabConfig.length > 0) {
@@ -55,7 +55,7 @@ const StableRelease = (props) => {
                   "v1.10.2": "KIP-103",
                   "v1.11.0": "Shanghai",
                   "v1.12.0": "Cancun",
-                  "1.0.0": "Kaia",
+                  "v1.0.0": "Kaia",
                 }
                 return (
                   <>
@@ -96,15 +96,6 @@ const StableRelease = (props) => {
                                   _config.binaryNames.map((_binaryName) => {
                                     let binaryPrefix = _release.type
                                     const tagName = _release.tag_name
-                                    // Only for the kaia-v1.0.0, there's no downloadable package.
-                                    if (tagName === "v1.0.0") {
-                                      if (_binaryName === "homi")
-                                        return (
-                                          <div className="stable-release-table-row"> Not supported</div>
-                                        )
-                                      else
-                                        return;
-                                    }
 
                                     let binaryPrefixValue = _config.binaryPrefixes
                                       ? _config.binaryPrefixes[binaryPrefix]
@@ -143,7 +134,25 @@ const StableRelease = (props) => {
                                       '{BINARY_PREFIX}',
                                       binaryPrefixValue
                                     )
-
+                                    if (tagName === "v1.0.0") {
+                                      if (tabConfig.machineType !== "linux") {
+                                        //console.log(tabConfig.machineType, _binaryName)
+                                        if (_binaryName === "homi" || _binaryName === "docker") {
+                                          return ( <div className="stable-release-table-row">
+                                            Only linux executable file is available. Packages are not supported.</div> )
+                                        } else {
+                                          return;
+                                        }
+                                      }
+                                      if (tabConfig.machineType === "linux") {
+                                        if (binaryTitle === "FOR KAIA MAINNET" && (_binaryName === "kcn" || _binaryName === "kpn" || _binaryName === "ken")) {
+                                          baseUrl = "https://packages.klaytn.net/baobab/kaia-v1.0.0/" + _binaryName + "-v1.0.0-linux-amd64"
+                                          binaryFileformat = _binaryName + "-v1.0.0-linux-amd64"
+                                        } else {
+                                          return;
+                                        }
+                                      }
+                                    }
                                     if (baseUrl) {
                                       return (
                                         <div className="stable-release-table-row">
@@ -192,4 +201,4 @@ const StableRelease = (props) => {
   }
 }
 
-export default StableRelease
+export default ArchiveRelease
