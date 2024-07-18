@@ -49,8 +49,8 @@ export default function NodePackageDownloads() {
   }
 
   const handleShowVersionsClick = () => {
-    setShowVersions(true)
-    if (!allVersionsLoaded) {
+    setShowVersions(!showVersions)
+    if (!showVersions && !allVersionsLoaded) {
       fetchReleases()
     }
   }
@@ -156,13 +156,11 @@ export default function NodePackageDownloads() {
             ))}
           </Tabs>
         )}
-        {!showVersions && (
-          <div style={{ textAlign: 'center', margin: '20px' }}>
+        <div style={{ textAlign: 'center', margin: '20px' }}>
             <button onClick={handleShowVersionsClick} className="show-versions-button">
-              Show more versions
+                {showVersions ? 'Hide versions' : 'Show more versions'}
             </button>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   )
