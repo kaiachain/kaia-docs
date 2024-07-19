@@ -31,16 +31,16 @@ jobs:
       - name: Installing dependencies
         run: |
           yarn install && yarn upgrade @docusaurus/preset-classic @docusaurus/core --latest
-      - name: Clone web3klaytn
+      - name: Clone kaia-sdk
         run: |
-          git clone -b dev https://github.com/klaytn/web3klaytn.git
-          cd web3klaytn/documentation && yarn install && cd -
+          git clone -b dev https://github.com/kaiachain/kaia-sdk.git
+          cd kaia-sdk/documentation && yarn install && cd -
 
       - name: Generate .mdx files
         env:
           RPC_SPEC_DIR: ../../web3rpc/yaml
         run: |
-          cd web3klaytn/documentation && bash generate-docs.sh split && cd -
+          cd kaia-sdk/documentation && bash generate-docs.sh split && cd -
           cd web3rpc && bash -x web3rpc.sh && cd - && yarn build && exit 0
       - name: Build static files
         run: yarn build
