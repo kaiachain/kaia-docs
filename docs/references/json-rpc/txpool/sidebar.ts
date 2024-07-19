@@ -6,30 +6,6 @@ const sidebar: SidebarsConfig = {
       type: "doc",
       id: "references/json-rpc/txpool/web-3-rpc",
     },
-    {
-      type: "category",
-      label: "txpool",
-      items: [
-        {
-          type: "doc",
-          id: "references/json-rpc/txpool/content",
-          label: "txpool_content",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "references/json-rpc/txpool/inspect",
-          label: "txpool_inspect",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "references/json-rpc/txpool/status",
-          label: "txpool_status",
-          className: "api-method post",
-        },
-      ],
-    },
   ],
 };
 

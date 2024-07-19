@@ -22,5 +22,3 @@ yarn-error.log*
 yarn.lock
 config.json
 .idea
-docs/references/json-rpc/*
-web3rpc/yaml/*
