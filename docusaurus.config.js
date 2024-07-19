@@ -31,8 +31,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    //locales: ['en', 'ko', 'vi'],
-    locales: ['en', `ko`],
+    locales: ['en', 'ko', 'vi'],
     path: 'i18n',
     localeConfigs: {
       en: {
@@ -49,13 +48,13 @@ const config = {
         calendar: 'gregory',
         path: 'ko',
       },
-/**      vi: {
+      vi: {
         label: 'Tiếng Việt',
         direction: 'ltr',
         htmlLang: 'vi',
         calendar: 'gregory',
         path: 'vi',
-      },*/
+      },
     },
   },
 
@@ -64,10 +63,9 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        blog: {
-          showReadingTime: true,
-        },
+        blog: false,
         docs: {
+          routeBasePath: '/', // Serve the docs at the site's root
           beforeDefaultRemarkPlugins: [
             [
               remarkCodeHike, { 
@@ -113,7 +111,7 @@ const config = {
           web3rpcKlay: {
             // template: "api.mustache",
             specPath: "./web3rpc/yaml/web3rpc-klay.yaml",
-            outputDir: "docs/references/json-rpc/klay",
+            outputDir: "references/json-rpc/klay",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -122,7 +120,7 @@ const config = {
           web3rpcKaia: {
             // template: "api.mustache",
             specPath: "./web3rpc/yaml/web3rpc-kaia.yaml",
-            outputDir: "docs/references/json-rpc/kaia",
+            outputDir: "references/json-rpc/kaia",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -130,7 +128,7 @@ const config = {
           },
           web3rpcEth: {
             specPath: "./web3rpc/yaml/web3rpc-eth.yaml",
-            outputDir: "docs/references/json-rpc/eth",
+            outputDir: "references/json-rpc/eth",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -138,7 +136,7 @@ const config = {
           },
           web3rpcDebug: {
             specPath: "./web3rpc/yaml/web3rpc-debug.yaml",
-            outputDir: "docs/references/json-rpc/debug",
+            outputDir: "references/json-rpc/debug",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -146,7 +144,7 @@ const config = {
           },
           web3rpcAdmin: {
             specPath: "./web3rpc/yaml/web3rpc-admin.yaml",
-            outputDir: "docs/references/json-rpc/admin",
+            outputDir: "references/json-rpc/admin",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -154,7 +152,7 @@ const config = {
           },
           web3rpcPersonal: {
             specPath: "./web3rpc/yaml/web3rpc-personal.yaml",
-            outputDir: "docs/references/json-rpc/personal",
+            outputDir: "references/json-rpc/personal",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -162,7 +160,7 @@ const config = {
           },
           web3rpcNet: {
             specPath: "./web3rpc/yaml/web3rpc-net.yaml",
-            outputDir: "docs/references/json-rpc/net",
+            outputDir: "references/json-rpc/net",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -170,7 +168,7 @@ const config = {
           },
           web3rpcGovernance: {
             specPath: "./web3rpc/yaml/web3rpc-governance.yaml",
-            outputDir: "docs/references/json-rpc/governance",
+            outputDir: "references/json-rpc/governance",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -178,7 +176,7 @@ const config = {
           },
           web3rpcTxpool: {
             specPath: "./web3rpc/yaml/web3rpc-txpool.yaml",
-            outputDir: "docs/references/json-rpc/txpool",
+            outputDir: "references/json-rpc/txpool",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -186,7 +184,7 @@ const config = {
           },
           web3rpcMainbridge: {
             specPath: "./web3rpc/yaml/web3rpc-mainbridge.yaml",
-            outputDir: "docs/references/json-rpc/mainbridge",
+            outputDir: "references/json-rpc/mainbridge",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -194,7 +192,7 @@ const config = {
           },
           web3rpcSubbridge: {
             specPath: "./web3rpc/yaml/web3rpc-subbridge.yaml",
-            outputDir: "docs/references/json-rpc/subbridge",
+            outputDir: "references/json-rpc/subbridge",
             sidebarOptions: { // optional, instructs plugin to generate sidebar.js
               groupPathsBy: "tag", // group sidebar items by operation "tag"
               categoryLinkSource: "tag",
@@ -223,7 +221,7 @@ const config = {
       },
       announcementBar: {
         id: 'docs_archive',
-        content: '<div style="font-size: 15px">📢 Kaia docs content is still being updated to reflect the transition from Klaytn and <b>may refer to outdated information until July.</b> 🙏🏻 See <b><a target="_blank" href="https://docs.kaia.io/docs/misc/faq-chain-transition/">Klatyn to Kaia Transition FAQ</a></b> first!</div>',
+        content: '<div style="font-size: 15px">📢 Kaia docs content is still being updated to reflect the transition from Klaytn and <b>may refer to outdated information until July.</b> 🙏🏻 See <b><a target="_blank" href="https://docs.kaia.io/misc/faq-chain-transition/">Klatyn to Kaia Transition FAQ</a></b> first!</div>',
         backgroundColor: '#789806',
         textColor: '#FFFFFF',
         isCloseable: true,
@@ -238,31 +236,31 @@ const config = {
         },
         items: [
           {
-            to: "docs/learn",
+            to: "learn",
             position: 'left',
             sidebarid: 'learnSidebar',
             label: 'Learn',
           },
           {
-            to: "docs/build",
+            to: "build",
             position: 'left',
             sidebarid: 'buildSidebar',
             label: 'Build',
           },
           {
-            to: "docs/nodes",
+            to: "nodes",
             position: 'left',
             sidebarid: 'nodeSidebar',
             label: 'Nodes',
           },
           {
-            to: "docs/references",
+            to: "references",
             position: 'left',
             sidebarid: 'refSidebar',
             label: 'References',
           },
           {
-            to: "docs/kaiatech",
+            to: "kaiatech",
             position: 'left',
             sidebarid: 'kaiaSidebar',
             label: 'Kaia Tech',

@@ -46,7 +46,7 @@ const commonSidebar = [
   //'misc/faq',
   'misc/opensource',
   'misc/terms-of-use',
-  //'misc/internationalization',
+  'misc/internationalization',
 ];
 
 const sidebars = {
@@ -105,9 +105,9 @@ const sidebars = {
     {
       type: 'category',
       label: 'Governance',
+      link: {type: 'doc', id: 'learn/governance/governance'},
       items: [
-        'learn/governance',
-        'learn/governance-by-kip',
+        'learn/governance/governance-by-kip',
       ],
     },
     ...commonSidebar,
@@ -374,10 +374,10 @@ const sidebars = {
       label: 'SDKs and Libraries',
       link: {type: 'doc', id: 'references/sdk/sdk'},
       items: [
-        // require("./docs/references/sdk/ethers-ext/sidebar").sidebar,
-        // require("./docs/references/sdk/web3js-ext/sidebar").sidebar,
-        // require("./docs/references/sdk/web3j-ext/sidebar").sidebar,
-        // require("./docs/references/sdk/web3py-ext/sidebar").sidebar,
+        // require("./references/sdk/ethers-ext/sidebar").sidebar,
+        // require("./references/sdk/web3js-ext/sidebar").sidebar,
+        // require("./references/sdk/web3j-ext/sidebar").sidebar,
+        // require("./references/sdk/web3py-ext/sidebar").sidebar,
         {
           type: 'category',
           label: 'caver-js',

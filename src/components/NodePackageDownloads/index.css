@@ -162,11 +162,19 @@
 .stable-release-table-header-item-tag,
 .stable-release-table-row-item-tag {
   width: 100px;
+  font-size: 16px;
+}
+
+.stable-release-table-header-item-hardfork,
+.stable-release-table-row-item-hardfork {
+  width: 120px;
+  font-size: 16px;
 }
 
 .stable-release-table-header-item-published,
 .stable-release-table-row-item-published {
   width: 200px;
+  font-size: 15px;
 }
 
 .stable-release-accordion-button {
