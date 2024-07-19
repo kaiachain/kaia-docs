@@ -89,28 +89,28 @@ const featureList: FeatureType[] = [
     imgSrcLight: img1Light, // Use the light theme image here
     imgSrcDark: img1Dark, // Use the dark theme image here
     description: <Translate>Want to know about Kaia?</Translate>,
-    to: '/docs/learn',
+    to: '/learn',
   },
   {
     title: <Translate>Getting Started</Translate>,
     imgSrcLight: img2Light,
     imgSrcDark: img2Dark,
     description: <Translate>Want to start building on Kaia?</Translate>,
-    to: '/docs/build',
+    to: '/build',
   },
   {
     title: <Translate>Node Operators</Translate>,
     imgSrcLight: img3Light,
     imgSrcDark: img3Dark,
     description: <Translate>Instructions on running Kaia's nodes</Translate>,
-    to: '/docs/nodes',
+    to: '/nodes',
   },
   {
     title: <Translate>API references</Translate>,
     imgSrcLight: img4Light,
     imgSrcDark: img4Dark,
     description: <Translate>APIs and libraries</Translate>,
-    to: '/docs/references',
+    to: '/references',
   },
 ]
 
