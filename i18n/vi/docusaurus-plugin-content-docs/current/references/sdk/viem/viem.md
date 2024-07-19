@@ -38,7 +38,7 @@ In this tutorial, we will create a bunch of scripts file to read data from the b
 
 ### 2. Set up Public Client & Transport
 
-Firstly, you need to set up your Public [Client](https://viem.sh/docs/clients/intro) with a desired [Transport](https://viem.sh/docs/clients/intro) & [Chain](https://viem.sh/docs/chains/introduction). A Public Client is an interface to **public** [JSON-RPC API](https://docs.klaytn.foundation/docs/references/public-en/) methods such as retrieving block numbers, transactions, reading from smart contracts, etc through [Public Actions](https://viem.sh/docs/actions/public/introduction).
+Firstly, you need to set up your Public [Client](https://viem.sh/docs/clients/intro) with a desired [Transport](https://viem.sh/docs/clients/intro) & [Chain](https://viem.sh/docs/chains/introduction). A Public Client is an interface to **public** [JSON-RPC API](https://docs.kaia.io/references/public-en/) methods such as retrieving block numbers, transactions, reading from smart contracts, etc through [Public Actions](https://viem.sh/docs/actions/public/introduction).
 
 ```ts
 import { createPublicClient, http } from 'viem'
