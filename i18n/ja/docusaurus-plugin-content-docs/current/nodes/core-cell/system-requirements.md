@@ -19,7 +19,7 @@ The following sections show the recommended specifications for both CNs and PNs.
 
 Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
 
-You can use and apply a live-pruning option to use live-pruning DB. For more details, please refer https\://docs.klaytn.foundation/docs/learn/storage/live-pruning/. However, note that live-pruning spec is not recommended for CNs but this may change in the future.
+You can use and apply a live-pruning option to use live-pruning DB. For more details, please refer https://docs.kaia.io/learn/storage/live-pruning/. However, note that live-pruning spec is not recommended for CNs but this may change in the future.
 
 ### Cloud VM <a id="cloud-vm"></a>
 
