@@ -374,10 +374,10 @@ const sidebars = {
       label: 'SDKs and Libraries',
       link: {type: 'doc', id: 'references/sdk/sdk'},
       items: [
-        // require("./docs/references/sdk/ethers-ext/sidebar").sidebar,
-        // require("./docs/references/sdk/web3js-ext/sidebar").sidebar,
-        // require("./docs/references/sdk/web3j-ext/sidebar").sidebar,
-        // require("./docs/references/sdk/web3py-ext/sidebar").sidebar,
+        // require("./references/sdk/ethers-ext/sidebar").sidebar,
+        // require("./references/sdk/web3js-ext/sidebar").sidebar,
+        // require("./references/sdk/web3j-ext/sidebar").sidebar,
+        // require("./references/sdk/web3py-ext/sidebar").sidebar,
         {
           type: 'category',
           label: 'caver-js',
