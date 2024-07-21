@@ -25,8 +25,8 @@ const ArchiveRelease = (props) => {
             <div className="stable-release-table-header-item-release">
               Release
             </div>
-            <div className="stable-release-table-header-item-tag">
-              Tag
+            <div className="stable-release-table-header-item-release_note">
+              Release note
             </div>
             <dev className="stable-release-table-header-item-hardfork">
               Hardfork
@@ -62,10 +62,10 @@ const ArchiveRelease = (props) => {
                     <Accordion allowMultiple={true}>
                       <AccordionItem>
                         <AccordionButton className="stable-release-accordion-button">
-                          <Box as="span" flex="1" textAlign="left" className="stable-release-accordion-box">
+                          <Box as="span" flex="2.3" textAlign="left" className="stable-release-accordion-box">
                             {_release.type.toUpperCase()} {_release.tag_name}
                           </Box>
-                          <div className="stable-release-table-row-item-tag">
+                          <div className="stable-release-table-row-item-release_note">
                             <a
                                 href={`${tabConfig.gitBaseUrls[_release.type]}/releases/tag/${_release.tag_name}`}
                                 target="_blank"
@@ -202,3 +202,4 @@ const ArchiveRelease = (props) => {
 }
 
 export default ArchiveRelease
+
