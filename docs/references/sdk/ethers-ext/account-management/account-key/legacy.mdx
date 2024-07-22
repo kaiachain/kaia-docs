@@ -6,20 +6,17 @@
 <CH.Code>
 
 ```js AccountUpdateWithLegacy.js
-const { ethers } = require('ethers')
+const { ethers } = require("ethers");
 
-const { Wallet, TxType, AccountKeyType } = require('@kaiachain/ethers-ext')
+const { Wallet, TxType, AccountKeyType} = require("@kaiachain/ethers-ext");
 
 // Using legacy AccountKey to execute this example repeatedly.
 // But you might want to register a different Accountkey.
-const senderAddr = '0xecbf243ac167a3b5097fef758e07881582a89027'
-const senderPriv =
-  '0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d'
+const senderAddr = "0xecbf243ac167a3b5097fef758e07881582a89027";
+const senderPriv = "0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d";
 
-const provider = new ethers.providers.JsonRpcProvider(
-  'https://public-en-baobab.klaytn.net'
-)
-const wallet = new Wallet(senderPriv, provider)
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
+const wallet = new Wallet(senderPriv, provider);
 
 async function main() {
   const tx = {
@@ -27,17 +24,17 @@ async function main() {
     from: senderAddr,
     key: {
       type: AccountKeyType.Legacy,
-    },
-  }
+    }
+  };
 
-  const sentTx = await wallet.sendTransaction(tx)
-  console.log('sentTx', sentTx.hash)
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
 
-  const receipt = await sentTx.wait()
-  console.log('receipt', receipt)
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
 }
 
-main().catch(console.error)
+main().catch(console.error);
 ```
 
 ---
@@ -97,20 +94,17 @@ Set up the provider with the specified kaia **Baobab** testnet URL. A provider i
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js AccountUpdateWithLegacy.js focus=10
-const { ethers } = require('ethers')
+const { ethers } = require("ethers");
 
-const { Wallet, TxType, AccountKeyType } = require('@kaiachain/ethers-ext')
+const { Wallet, TxType, AccountKeyType} = require("@kaiachain/ethers-ext");
 
 // Using legacy AccountKey to execute this example repeatedly.
 // But you might want to register a different Accountkey.
-const senderAddr = '0xecbf243ac167a3b5097fef758e07881582a89027'
-const senderPriv =
-  '0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d'
+const senderAddr = "0xecbf243ac167a3b5097fef758e07881582a89027";
+const senderPriv = "0xc696ccd259792f2ffb87e0012e4a37ae3526a3224686225af679e3aaa2aeab0d";
 
-const provider = new ethers.providers.JsonRpcProvider(
-  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
-)
-const wallet = new Wallet(senderPriv, provider)
+const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const wallet = new Wallet(senderPriv, provider);
 
 async function main() {
   const tx = {
@@ -118,17 +112,17 @@ async function main() {
     from: senderAddr,
     key: {
       type: AccountKeyType.Legacy,
-    },
-  }
+    }
+  };
 
-  const sentTx = await wallet.sendTransaction(tx)
-  console.log('sentTx', sentTx.hash)
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
 
-  const receipt = await sentTx.wait()
-  console.log('receipt', receipt)
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
 }
 
-main().catch(console.error)
+main().catch(console.error);
 ```
 
 ---
@@ -143,7 +137,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 Declare a transaction in the **key** field with the value `AccountKeyType.Legacy`
 
-```js AccountUpdateWithLegacy.js focus=18:25
+```js AccountUpdateWithLegacy.js focus=14:20
 
 ```
 
