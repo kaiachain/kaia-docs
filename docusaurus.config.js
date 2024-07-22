@@ -376,6 +376,19 @@ const config = {
               },
             ],
           },
+          {
+            title: 'Legal',
+            items: [
+              {
+                label: 'Terms of Use',
+                href: 'https://docs.kaia.io/misc/terms-of-use/',
+              },
+              {
+                label: 'Open Source',
+                href: 'https://docs.kaia.io/misc/opensource/',
+              },
+            ],
+          },
         ],
         copyright: `© Kaia Foundation ${new Date().getFullYear()}. All rights reserved.`,
       },

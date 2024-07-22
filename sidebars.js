@@ -42,10 +42,9 @@ const commonSidebar = [
   //  'misc/klaytn-history',
   'references/public-en',
   'misc/faq-chain-transition',
+  'misc/finschia',
   'misc/glossary',
   //'misc/faq',
-  'misc/opensource',
-  'misc/terms-of-use',
   'misc/internationalization',
 ]
 
