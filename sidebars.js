@@ -44,8 +44,6 @@ const commonSidebar = [
   'misc/faq-chain-transition',
   'misc/glossary',
   //'misc/faq',
-  'misc/opensource',
-  'misc/terms-of-use',
   'misc/internationalization',
 ];
 
