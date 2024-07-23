@@ -141,41 +141,109 @@
 
 .stable-release-table-header {
   display: flex;
+  width: 100%;
   flex-direction: row;
   padding: 15px 20px;
   margin-bottom: 10px;
   background-color: var(--docusaurus-highlighted-code-line-bg);
+  border-bottom: 1px solid rgb(171 169 169);
+
 }
 
 .stable-release-table-row {
   display: flex;
+  width: 100%;
   flex-direction: row;
   padding: 10px 20px;
   color: var(--ifm-link-color);
+  
+}
+.stable-release-accordion-box{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
 }
 
-.stable-release-table-header-item-release,
-.stable-release-table-row-item-release {
-  width: 450px;
+
+.stable-release-table-row-item-release{
+  flex: 1;
+  text-align: left;
 }
 
-.stable-release-table-header-item-tag,
-.stable-release-table-row-item-tag {
-  width: 100px;
+
+.stable-release-table-header-item-release{
+  flex: 2;
+  text-align: left;
+  font-weight: bold;
+}
+
+.stable-release-table-header-item-release_note,
+.stable-release-table-row-item-release_note {
+  flex: 2; /* Adjust flex-basis as needed */
+  text-align: left;
+  font-weight: bold;
+
+}
+
+.stable-release-table-header-item-hardfork,
+.stable-release-table-row-item-hardfork {
+  flex: 2; /* Adjust flex-basis as needed */
+  text-align: left;
+  font-weight: bold;
+
 }
 
 .stable-release-table-header-item-published,
 .stable-release-table-row-item-published {
-  width: 200px;
+  flex: 2; /* Adjust flex-basis as needed */
+  text-align: left;
+  font-weight: bold;
+
 }
+
 
 .stable-release-accordion-button {
   background-color: var(--ifm-footer-background-color);
   border: 1px solid rgb(171 169 169);
+  border-top:none;
   padding: 20px;
   cursor: pointer;
 }
 
+
 .stable-release-accordion-box {
   font-size: 16px;
 }
+
+.show-versions-button {
+  background-color: var(--ifm-footer-background-color);
+  color: var(--ifm-link-color);
+  border: 1px solid rgb(171, 169, 169);
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.show-versions-button:hover {
+  background-color: var(--ifm-link-color);
+  color: var(--ifm-footer-background-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

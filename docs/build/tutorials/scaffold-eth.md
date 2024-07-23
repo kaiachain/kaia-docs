@@ -18,7 +18,7 @@ To get started with in this guide, you will need:
 * Familiarity with Javascript and React basics such as hooks
 * [Metamask Wallet](https://metamask.io/download/)
 * Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet)
-* RPC Endpoint: you can obtain this from one of the supported [endpoint providers](https://docs.kaia.io/docs/references/public-en/)
+* RPC Endpoint: you can obtain this from one of the supported [endpoint providers](https://docs.kaia.io/references/public-en/)
 
 ## Setting up development environment <a href="#setting-up-dev-environment" id="setting-up-dev-environment"></a>
 
@@ -106,7 +106,7 @@ kaia: {
 },
 ```
 
-For more information on using Hardhat with Kaia, please check [Hardhat guide](https://docs.kaia.io/docs/build/get-started/hardhat/) for more details.
+For more information on using Hardhat with Kaia, please check [Hardhat guide](https://docs.kaia.io/build/get-started/hardhat/) for more details.
 
 ### Deploy Contract to Kaia
 After configuring Hardhat to support the Kaia network, the next step is to compile and deploy the sample contract. 
@@ -173,7 +173,7 @@ As you can see above, to verify your contracts, you have to pass in the network 
 ![Verify on Klaytnscope](/img/build/tutorials/sc-verify-klaytnscope.png)
 
 
-For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the H[ardhat-Verify-Plugins guide](https://docs.kaia.io/docs/build/smart-contracts/verify/hardhat/).
+For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).
 
 ## Next.js Configuration <a href="#nextjs-configuration" id="nextjs-configuration"></a>
 

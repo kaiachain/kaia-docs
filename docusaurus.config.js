@@ -31,8 +31,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    //locales: ['en', 'ko', 'vi'],
-    locales: ['en', `ko`],
+    locales: ['en', 'ko', 'vi'],
     path: 'i18n',
     localeConfigs: {
       en: {
@@ -49,13 +48,13 @@ const config = {
         calendar: 'gregory',
         path: 'ko',
       },
-/**      vi: {
+      vi: {
         label: 'Tiếng Việt',
         direction: 'ltr',
         htmlLang: 'vi',
         calendar: 'gregory',
         path: 'vi',
-      },*/
+      },
     },
   },
 
@@ -64,10 +63,9 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        blog: {
-          showReadingTime: true,
-        },
+        blog: false,
         docs: {
+          routeBasePath: '/', // Serve the docs at the site's root
           beforeDefaultRemarkPlugins: [
             [
               remarkCodeHike, { 
@@ -223,7 +221,7 @@ const config = {
       },
       announcementBar: {
         id: 'docs_archive',
-        content: '<div style="font-size: 15px">📢 Kaia docs content is still being updated to reflect the transition from Klaytn and <b>may refer to outdated information until July.</b> 🙏🏻 See <b><a target="_blank" href="https://docs.kaia.io/docs/misc/faq-chain-transition/">Klatyn to Kaia Transition FAQ</a></b> first!</div>',
+        content: '<div style="font-size: 15px">📢 Kaia docs content is still being updated to reflect the transition from Klaytn and <b>may refer to outdated information until July.</b> 🙏🏻 See <b><a target="_blank" href="https://docs.kaia.io/misc/faq-chain-transition/">Klatyn to Kaia Transition FAQ</a></b> first!</div>',
         backgroundColor: '#789806',
         textColor: '#FFFFFF',
         isCloseable: true,
@@ -238,31 +236,31 @@ const config = {
         },
         items: [
           {
-            to: "docs/learn",
+            to: "learn",
             position: 'left',
             sidebarid: 'learnSidebar',
             label: 'Learn',
           },
           {
-            to: "docs/build",
+            to: "build",
             position: 'left',
             sidebarid: 'buildSidebar',
             label: 'Build',
           },
           {
-            to: "docs/nodes",
+            to: "nodes",
             position: 'left',
             sidebarid: 'nodeSidebar',
             label: 'Nodes',
           },
           {
-            to: "docs/references",
+            to: "references",
             position: 'left',
             sidebarid: 'refSidebar',
             label: 'References',
           },
           {
-            to: "docs/kaiatech",
+            to: "kaiatech",
             position: 'left',
             sidebarid: 'kaiaSidebar',
             label: 'Kaia Tech',
@@ -375,6 +373,19 @@ const config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/kaiachain',
+              },
+            ],
+          },
+          {
+            title: 'Legal',
+            items: [
+              {
+                label: 'Terms of Use',
+                href: 'https://docs.kaia.io/misc/terms-of-use/',
+              },
+              {
+                label: 'Open Source',
+                href: 'https://docs.kaia.io/misc/opensource/',
               },
             ],
           },
