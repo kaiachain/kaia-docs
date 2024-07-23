@@ -100,7 +100,14 @@ const ArchiveRelease = (props) => {
                                     let binaryPrefixValue = _config.binaryPrefixes
                                       ? _config.binaryPrefixes[binaryPrefix]
                                       : ''
+                                    let binaryVersionValue = _config.binaryVersion
+                                      ? _config.binaryVersion[binaryPrefix]
+                                      : ''
                                     let binaryFileformat = _config.binaryFileFormat
+                                    binaryFileformat = binaryFileformat.replace(
+                                      '{BINARY_VERSION}',
+                                      binaryVersionValue
+                                    )
                                     binaryFileformat = binaryFileformat.replace(
                                       '{BINARY_NAME}',
                                       _binaryName

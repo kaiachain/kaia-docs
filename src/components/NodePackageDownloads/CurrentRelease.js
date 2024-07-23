@@ -18,16 +18,20 @@ const CurrentRelease = (props) => {
                 <div className="current-release-binary-title">
                   {_config.binaryTitle}
                 </div>
-                {/*{tagName && (*/}
-                {/*  <div className="current-release-tag-name">{tagName}</div>*/}
-                {/*)}*/}
                 <div className="current-release-binary-names-section">
                   {_config.binaryNames &&
                     _config.binaryNames.map((_binaryName) => {
                       let binaryPrefixValue = _config.binaryPrefixes
                         ? _config.binaryPrefixes[binaryPrefix]
                         : ''
+                      let binaryVersionValue = _config.binaryVersion
+                        ? _config.binaryVersion[binaryPrefix]
+                        : ''
                       let binaryFileformat = _config.binaryFileFormat
+                      binaryFileformat = binaryFileformat.replace(
+                        '{BINARY_VERSION}',
+                        binaryVersionValue
+                      )
                       binaryFileformat = binaryFileformat.replace(
                         '{BINARY_NAME}',
                         _binaryName

@@ -11,7 +11,6 @@
   margin-top: 20px;
   font-size: 13px;
   background-color: var(--docusaurus-highlighted-code-line-bg);
-  /*height: 170px;*/
 }
 
 .current-release-binary-title {
@@ -36,11 +35,9 @@
 }
 
 .current-release-binary-names-section-binary-name {
-  /*background-color: rgba(9, 10, 17, 0.8);*/
   margin-right: 10px;
   padding: 5px 10px;
   border-radius: 5px;
-  /*color: #065F79;*/
 }
 
 .current-release-releasetag {
@@ -101,7 +98,6 @@
 
 .stable-release-arrow-container {
   width: 25px;
-  /* cubic-bezier-easing = sine / mehr Beispiele: https://easings.net/ */
   animation: bounce 1600ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
   cursor: pointer;
   height: 20px;
@@ -134,7 +130,7 @@
 }
 
 @keyframes bounce {
-50% {
+  50% {
     transform: translateY(-15px);
   }
 }
@@ -147,7 +143,6 @@
   margin-bottom: 10px;
   background-color: var(--docusaurus-highlighted-code-line-bg);
   border-bottom: 1px solid rgb(171 169 169);
-
 }
 
 .stable-release-table-row {
@@ -156,22 +151,19 @@
   flex-direction: row;
   padding: 10px 20px;
   color: var(--ifm-link-color);
-  
 }
-.stable-release-accordion-box{
+.stable-release-accordion-box {
   display: flex;
   width: 100%;
   flex-direction: row;
 }
 
-
-.stable-release-table-row-item-release{
+.stable-release-table-row-item-release {
   flex: 1;
   text-align: left;
 }
 
-
-.stable-release-table-header-item-release{
+.stable-release-table-header-item-release {
   flex: 2;
   text-align: left;
   font-weight: bold;
@@ -179,37 +171,32 @@
 
 .stable-release-table-header-item-release_note,
 .stable-release-table-row-item-release_note {
-  flex: 2; /* Adjust flex-basis as needed */
+  flex: 2;
   text-align: left;
   font-weight: bold;
-
 }
 
 .stable-release-table-header-item-hardfork,
 .stable-release-table-row-item-hardfork {
-  flex: 2; /* Adjust flex-basis as needed */
+  flex: 2;
   text-align: left;
   font-weight: bold;
-
 }
 
 .stable-release-table-header-item-published,
 .stable-release-table-row-item-published {
-  flex: 2; /* Adjust flex-basis as needed */
+  flex: 2;
   text-align: left;
   font-weight: bold;
-
 }
-
 
 .stable-release-accordion-button {
   background-color: var(--ifm-footer-background-color);
   border: 1px solid rgb(171 169 169);
-  border-top:none;
+  border-top: none;
   padding: 20px;
   cursor: pointer;
 }
-
 
 .stable-release-accordion-box {
   font-size: 16px;
@@ -231,19 +218,3 @@
   background-color: var(--ifm-link-color);
   color: var(--ifm-footer-background-color);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
