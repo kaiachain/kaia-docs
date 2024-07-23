@@ -50,6 +50,7 @@ kaia.recoverFromMessage('0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a', '0x6162636
 In Ethereum and several EVM chains, it is widely used practice to prefix the messages with `"\x19Ethereum Signed Message:\n" + len(message)` before signing them. For details, please refer to [EIP-191](https://eips.ethereum.org/EIPS/eip-191). Kaia nodes and SDKs support this feature. As with KIP-97, the application has to take care with replay protection when using EIP-191. Nevertheless, using EIP-191 ensures compatibility with other ecosystem tools and streamlines the message handling logic, without the need for EIP/KIP branches.
 
 EIP-191 signatures are supported by:
+- Ethereum wallets (e.g. MetaMask)
 - Ethereum SDKs (ethers.js, web3.js, web3j, web3py, viem, etc)
 - [kaia-sdk](https://github.com/kaiachain/kaia-sdk) suite (ethers-ext, web3js-ext, web3j-ext, web3py-ext), as they inherit the message signing features from their respective Ethereum SDKs ([see docs](../sdk))
 - In Kaia nodes since v1.0.1, [`eth_sign`](../json-rpc/eth/sign), [`kaia_sign`](../json-rpc/kaia/sign), [`personal_sign`](../json-rpc/personal/sign) [`personal_ecRecover`](../json-rpc/personal/ec-recover) RPCs
@@ -82,6 +83,18 @@ kaia.recoverFromMessage('0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a', '0x6162636
 
 ## EIP-712 Typed Structured Data
 
-While EIP-191 and KIP-97 were standards for signing a single string, EIP-712 is a standard for signing application data structured in JSON format. This format is more human-readable and efficient to process on EVM. For details, please refer to [EIP-712](https://eips.ethereum.org/EIPS/eip-712). Note that this standard cannot fully prevent replay attacks. As with other standards, applications must take care about replay protection mechanisms.
+While EIP-191 and KIP-97 were standards for signing a single string, EIP-712 is a standard for signing application data structured in JSON format. This format is more human-readable and efficient to process on EVM. For details, please refer to [EIP-712](https://eips.ethereum.org/EIPS/eip-712). Note that this standard cannot fully prevent replay attacks. As with other standards, applications must take care about replay protection mechanisms. You can find more about the APIs such as `eth_signTypedData_v1`, `eth_signTypedData_v3`, and `eth_signTypedData_v4` [here](https://docs.metamask.io/wallet/concepts/signing-methods/)
 
-Some wallets like [MetaMask](https://docs.metamask.io/wallet/how-to/sign-data#use-eth_signtypeddata_v4) support EIP-712 via its `eth_signTypedData_v4` method.
+EIP-712 signatures are supported by:
+- Ethereum wallets (e.g. MetaMask)
+- Kaikas
+
+Kaikas example:
+
+```js
+const data = '{"domain":{"chainId":1,"name":"Ether Mail","verifyingContract":"0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC","version":"1"},"message":{"contents":"Hello, Bob!","attachedMoneyInEth":4.2,"from":{"name":"Cow","wallets":["0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826","0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF"]},"to":[{"name":"Bob","wallets":["0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB","0xB0BdaBea57B0BDABeA57b0bdABEA57b0BDabEa57","0xB0B0b0b0b0b0B000000000000000000000000000"]}]},"primaryType":"Mail","types":{"EIP712Domain":[{"name":"name","type":"string"},{"name":"version","type":"string"},{"name":"chainId","type":"uint256"},{"name":"verifyingContract","type":"address"}],"Group":[{"name":"name","type":"string"},{"name":"members","type":"Person[]"}],"Mail":[{"name":"from","type":"Person"},{"name":"to","type":"Person[]"},{"name":"contents","type":"string"}],"Person":[{"name":"name","type":"string"},{"name":"wallets","type":"address[]"}]}}';
+window.klaytn.request({ method: "eth_signTypedData_v4", params: ["0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a", data] })
+```
+
+See [here](https://docs.metamask.io/wallet/how-to/sign-data/) to learn how the example was built.
+
