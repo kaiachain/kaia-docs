@@ -98,7 +98,7 @@ The Kaia node's `eth_maxPriorityFeePerGas` RPC shall:
 - Return 0 if the network is uncongested. Network is considered uncongested when the next baseFeePerGas equals the UPPER_BOUND_BASE_FEE.
 - Otherwise return P percentile effective priority fees among the transactions in the last N blocks. Kaia nodes with default settings uses P=60 and N=20 but the configuration can differ by nodes.
 
-A type-2 transaction's `maxFeePerGas` should be a higher than the network's next baseFee to ensure the transaction gets processed even if the baseFee rises. Common formula is `lastBaseFee*2 + maxPriorityFeePerGas`. Another options is to use `eth_gasPrice` RPC. It takes at least 15 seconds for baseFee to double when BASE_FEE_DENOMINATOR is 20.
+A type-2 transaction's `maxFeePerGas` should be a higher than the network's next baseFee to ensure the transaction gets processed even if the baseFee rises. Common formula is `lastBaseFee*2 + maxPriorityFeePerGas`. It takes at least 15 seconds for baseFee to double when BASE_FEE_DENOMINATOR is 20. Another option is to use `eth_gasPrice` RPC. 
 
 For transactions of other tx types, more care should be taken when choosing an appropriate `gasPrice`. Because for these tx types, the gasPrice is spent as-is regardless of the baseFee. On the other hand, gasPrice must be at least network's baseFee. Therefore, applications and users would want to avoid setting gasPrice too high, while at the same time matching the network's baseFee. One strategy would be setting the `gasPrice` a little higher than the next baseFee so it can withstand a few baseFee rises. You can call `eth_gasPrice` RPC to retrieve the recommended gas price.
 
