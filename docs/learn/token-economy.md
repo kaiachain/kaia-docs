@@ -71,3 +71,23 @@ Kaia Infrastructure Fund (KIF) is an operational fund that will focus on these m
 KIF is funded by 25% of the total KAIA issued when creating a block. It is executed by the foundation through an internal control system after a prior announcement of the budget plan for each detailed category. All execution details are transparently disclosed.
 
 The foundation directly establishes a budget plan and executes the funds for KIF. To ensure transparent execution, the foundation discloses the budget plans and execution details in advance and afterward.
+
+## Treasury Rebalancing
+
+To ensure the flexibility and adaptability of Kaia's token economy, a Treasury Rebalance mechanism has been implemented. This process allows for adjustments to the treasury funds in response to changing ecosystem needs and market conditions.
+
+### Treasury Rebalance Contract
+
+The Treasury Rebalance Contract is a smart contract designed to manage the rebalancing process in a transparent and secure manner. At its core, the contract operates as a finite state machine, progressing through stages such as initialization, registration, approval, and finalization. This structured approach ensures that all stakeholders have the opportunity to review and approve changes before they are implemented.
+
+Key features of this contract include:
+
+1. **Flexible Balance Adjustment**: The contract supports both increases and decreases in total fund balance, enabling comprehensive treasury management.
+2. **Aligned Rebalance Timing**: The rebalance block number can be set to align with relevant hard fork block numbers, providing better synchronization with network upgrades.
+3. **Transparent Execution**: The entire rebalancing process is recorded on the blockchain through the TreasuryRebalance contract, maintaining the ecosystem's commitment to openness and verifiability.
+4. **Validator Consensus**: The rebalance event occurs only after reaching consensus among block validators, ensuring network-wide agreement on the changes.
+5. **Immutable Record**: After execution, a detailed memo of the rebalance event is uploaded to the contract, providing an immutable record of the changes for future reference and auditing.
+
+This Treasury Rebalancing mechanism allows Kaia to maintain a dynamic and responsive token economy, better serving the evolving needs of its ecosystem while upholding principles of transparency and security. By leveraging smart contract technology and a consensus-based approach, it provides a structured and verifiable way to adjust treasury funds, ensuring that the Kaia blockchain can adapt to changing circumstances while maintaining the trust of its community.
+
+For the information on the Treasury Rebalance contract addresses, please refer to [KIP-160](./governance/governance-by-kip.md#kip-160-an-update-on-treasury-fund-rebalancing-) and [KIP-103](./governance/governance-by-kip.md#kip-103-treasury-fund-rebalancing-).
