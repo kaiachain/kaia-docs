@@ -89,3 +89,5 @@ Key features of this contract include:
 5. **Immutable Record**: After execution, a detailed memo of the rebalance event is uploaded to the contract, providing an immutable record of the changes for future reference and auditing.
 
 This Treasury Rebalancing mechanism allows Kaia to maintain a dynamic and responsive token economy, better serving the evolving needs of its ecosystem while upholding principles of transparency and security. By leveraging smart contract technology and a consensus-based approach, it provides a structured and verifiable way to adjust treasury funds, ensuring that the Kaia blockchain can adapt to changing circumstances while maintaining the trust of its community.
+
+For the information on the Treasury Rebalance contract addresses, please refer to [KIP-160](./governance/governance-by-kip.md#kip-160-an-update-on-treasury-fund-rebalancing-) and [KIP-103](./governance/governance-by-kip.md#kip-103-treasury-fund-rebalancing-).
