@@ -19,7 +19,7 @@ window.ethereum.request({ method: "eth_sign", params: ["0xbC7d1aBe33E6EC19cA873A
 
 ## KIP-97 Klaytn Signed Message
 
-Some Kaia nodes and SDKs has been providing the way to prefix messages with "Klaytn Signed Message" before signing them. For details, please refer to [KIP-97](https://kips.kaia.io/KIPs/kip-97). Having the Klaytn- prefix can mitigate signature replay across chains, but the prefix alone cannot fully prevent replay attacks. Applications must employ replay protection mechanisms including random challenges or timestamps, to defend from replay attacks within an application.
+Some Kaia nodes and SDKs has been providing the way to prefix messages with `"\x19Klaytn Signed Message:\n" + len(message)` before signing them. For details, please refer to [KIP-97](https://kips.kaia.io/KIPs/kip-97). Having the Klaytn- prefix can mitigate signature replay across chains, but the prefix alone cannot fully prevent replay attacks. Applications must employ replay protection mechanisms including random challenges or timestamps, to defend from replay attacks within an application.
 
 KIP-97 signatures are supported by:
 - Kaikas [`klay_sign`](https://docs.kaikas.io/02_api_reference) method
@@ -47,7 +47,7 @@ kaia.recoverFromMessage('0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a', '0x6162636
 
 ## EIP-191 Ethereum Signed Message
 
-In Ethereum and several EVM chains, it is widely used practice to prefix the messages with "Ethereum Signed Message" before signing them. For details, please refer to [EIP-191](https://eips.ethereum.org/EIPS/eip-191). Kaia nodes and SDKs support this feature. As with KIP-97, the application has to take care with replay protection when using EIP-191. Nevertheless, using EIP-191 ensures compatibility with other ecosystem tools and streamlines the message handling logic, without the need for EIP/KIP branches.
+In Ethereum and several EVM chains, it is widely used practice to prefix the messages with `"\x19Ethereum Signed Message:\n" + len(message)` before signing them. For details, please refer to [EIP-191](https://eips.ethereum.org/EIPS/eip-191). Kaia nodes and SDKs support this feature. As with KIP-97, the application has to take care with replay protection when using EIP-191. Nevertheless, using EIP-191 ensures compatibility with other ecosystem tools and streamlines the message handling logic, without the need for EIP/KIP branches.
 
 EIP-191 signatures are supported by:
 - Ethereum SDKs (ethers.js, web3.js, web3j, web3py, viem, etc)
