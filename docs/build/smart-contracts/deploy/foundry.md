@@ -27,7 +27,7 @@ To follow this tutorial, the following are the prerequisites:
 * Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 * [MetaMask](../../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 * RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/public-en.md).
-* Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
+* Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 * Install [Rust](https://www.rust-lang.org/tools/install) and [Foundry](https://github.com/foundry-rs/foundry#installation).
 
 ## Setting Up Your Development Environment 
