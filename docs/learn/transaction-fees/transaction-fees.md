@@ -92,18 +92,18 @@ See [KIP-162](https://github.com/kaiachain/kips/blob/main/KIPs/kip-162.md) for d
 
 ### Finding the appropriate gas price after Kaia
 
-If your application or wallet utilizes type-2 transactions (EIP-1559 type), ensure you set a reasonable priority fee. You can also call the `eth_maxPriorityFeePerGas` RPC to retrieve the recommended priority fee (tx.maxPriorityFeePerGas). When the network uncongested, a zero priority fee transaction should have no disadvantage in transaction processing. When the network is congested it is safer to specify some priority fee to compete with other transactions.
+If your application or wallet utilizes type-2 transactions (EIP-1559 type), ensure you set a reasonable priority fee. You can also call the `eth_maxPriorityFeePerGas` RPC to retrieve the recommended priority fee (tx.maxPriorityFeePerGas). When the network is uncongested, a zero priority fee transaction should have no disadvantage in transaction processing. When the network is congested it is safer to specify a nonzero priority fee to compete with other transactions.
 
 The Kaia node's `eth_maxPriorityFeePerGas` RPC shall:
-- Return 0 if the network is uncongested. Network is considered uncongested when the next baseFeePerGas equals the UPPER_BOUND_BASE_FEE.
+- Return 0 if the network is uncongested. The network is considered uncongested when the next baseFeePerGas equals the UPPER_BOUND_BASE_FEE.
 - Otherwise return P percentile effective priority fees among the transactions in the last N blocks. Kaia nodes with default settings uses P=60 and N=20 but the configuration can differ by nodes.
 
-A type-2 transaction's `maxFeePerGas` should be a higher than the network's next baseFee to ensure the transaction gets processed even if the baseFee rises. Common formula is `lastBaseFee*2 + maxPriorityFeePerGas`. It takes at least 15 seconds for baseFee to double when BASE_FEE_DENOMINATOR is 20. Another option is to use `eth_gasPrice` RPC. 
+A type-2 transaction's `maxFeePerGas` should be higher than the network's next baseFee to ensure the transaction gets processed even if the baseFee rises. A common formula is `lastBaseFee*2 + maxPriorityFeePerGas`. It takes at least 15 seconds for baseFee to double when BASE_FEE_DENOMINATOR is 20. Another option is to use `eth_gasPrice` RPC. 
 
 For transactions of other tx types, more care should be taken when choosing an appropriate `gasPrice`. Because for these tx types, the gasPrice is spent as-is regardless of the baseFee. On the other hand, gasPrice must be at least network's baseFee. Therefore, applications and users would want to avoid setting gasPrice too high, while at the same time matching the network's baseFee. One strategy would be setting the `gasPrice` a little higher than the next baseFee so it can withstand a few baseFee rises. You can call `eth_gasPrice` RPC to retrieve the recommended gas price.
 
 The Kaia node's `eth_gasPrice` RPC shall:
-- Return (next baseFee) * M + (eth_maxPriorityFeePerGas). Multiplier M is heuristically chosen as 1.10 under uncongested network and 1.15 under congested network. When BASE_FEE_DENOMINATOR is 20, the M=1.10 can withstand at least 1 baseFee increase and M=1.15 can withstand at least 2 baseFee increases. Considering that the baseFee usually does not rise at top speed of 5%, the multiplier should actually be enough for a few baseFee increases.
+- Return (next baseFee) * M + (eth_maxPriorityFeePerGas). Multiplier M is heuristically chosen as 1.10 under uncongested network and 1.15 under congested network. When BASE_FEE_DENOMINATOR is 20, the M=1.10 can withstand at least one baseFee increase (1.05) and M=1.15 can withstand at least two consecutive baseFee increase (1.05\*1.05). Considering that the baseFee usually does not rise at top speed of 5%, the multiplier should actually be enough for a few baseFee increases.
 
 ### Gas price summary
 
