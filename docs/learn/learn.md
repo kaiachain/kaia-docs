@@ -54,7 +54,7 @@ Kaia uses an optimized version of Istanbul BFT, implementing Practical Byzantine
 2. Block generation by the elected proposer.
 3. Block verification and signing by the committee.
 
-This consensus mechanism enables Kaia to achieve high performance, processing 4,000 transactions per second with instant transaction finality.
+This [consensus mechanism](consensus-mechanism.md) enables Kaia to achieve high performance, processing 4,000 transactions per second with instant transaction finality.
 
 ## Block Generation and Propagation
 
@@ -90,7 +90,7 @@ Kaia is designed for seamless interaction with other blockchain networks:
 
 ## Token Economy
 
-Kaia's native token, KAIA, plays a central role in the blockchain's economy:
+Kaia's native token, [KAIA](kaia-native-token.md), plays a central role in the blockchain's economy:
 
 - KAIA tokens are issued automatically with each new block.
 - Initial annual inflation rate: 5.2%.
