@@ -1,190 +1,128 @@
-# Overview
+# Kaia Overview
 
-Kaia is a highly optimized, BFT-based public blockchain that aims to meet the enterprise-grade reliability.
-Key design goals are;
+Kaia is a highly optimized, BFT-based public blockchain designed to meet enterprise-grade reliability and performance standards. This overview details Kaia's architecture, features, and ecosystem.
 
-- Immediate finality.
-- High TPS that meets real-world use cases.
-- Lower the cost of running Blockchain Applications.
-- Lower the barriers to entry for end-users.
-- Ease the technology adoption process for industry.
+## Key Design Goals
 
-Kaia continues to generate blocks on top of the Klaytn blockchain launched on June 27, 2019, with the following specifications:
+Kaia blockchain aims to:
+
+- Achieve immediate finality for transactions.
+- Provide high transaction processing speed for real-world use cases.
+- Lower the cost of running blockchain applications.
+- Reduce barriers to entry for end-users.
+- Facilitate easy technology adoption for various industries.
+
+## Core Specifications
+
+Kaia blockchain offers:
 
 - 1-second block generation and confirmation time.
-- 4,000 transactions per second.
-- Low gas price that is almost 1/10 of Ethereum.
-- Runs EVM (Ethereum Virtual Machine) and supports the execution of Solidity contracts.  
-- 19 reputable corporations worldwide initially formed <LinkWithTooltip to="../misc/glossary#kaia-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia Governance Council</LinkWithTooltip> to operate <LinkWithTooltip to="../misc/glossary#consensus-node-cn" tooltip="Consensus node (CN) validates transactions, builds blocks,<br />  and achieves network agreement.">consensus nodes</LinkWithTooltip>. The current number of consensus nodes is shown in the [Kaiascope](https://kaiascope.com/).
-- More than 50 initial service partners have committed to launch Blockchain Applications on Kaia.
+- Processing capability of 4,000 transactions per second.
+- Low gas price, approximately 1/10 of Ethereum.
+- EVM (Ethereum Virtual Machine) compatibility, supporting Solidity contracts.
+- Governance by reputable corporations worldwide forming <LinkWithTooltip to="../misc/glossary#kaia-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia Governance Council</LinkWithTooltip>.
 
-## Kaia: The Big Picture <a id="kaia-the-big-picture"></a>
+## Network Architecture
 
-Kaia can be partitioned into three logical subnetworks based on their roles and purposes. The below figure displays the high-level view of the Kaia ecosystem.
+Kaia's network is structured into three logical subnetworks:
 
 ![Kaia Ecosystem and its Logical Subnetworks (CCN, ENN, SCN)](/img/learn/klaytn_network_overview.png)
 
-### Core Cell Network (CCN) <a id="core-cell-network-ccn"></a>
+1. **Core Cell Network (CCN)**: Consists of [Core Cells (CCs)](../nodes/core-cell) responsible for transaction verification, execution, and block creation.
 
-CCN consists of Core Cells (CCs) that verify and execute transactions submitted through Endpoint Nodes (ENs).
-CCN is responsible for creating and propagating blocks throughout the network.
+2. **Endpoint Node Network (ENN)**: Composed of [Endpoint Nodes (ENs)](../nodes/endpoint-node) that handle RPC API requests and process data for service chains.
 
-### Endpoint Node Network (ENN) <a id="endpoint-node-network-enn"></a>
+3. **[Service Chain](../nodes/service-chain) Network (SCN)**: Auxiliary blockchains independently operated by dApps, connected to the main chain via ENs.
 
-ENN consists of Endpoint Nodes (ENs) that mainly create transactions, handle RPC API requests, and process data requests from service chains.
-
-### Service Chain Network (SCN) <a id="service-chain-network-scn"></a>
-
-SCNs are Kaia subnetworks composed of auxiliary blockchains independently operated by dApps (Decentralized Applications). Service chains are connected to the main chain via ENs.
-
-**Core Cell Network** and **Endpoint Node Network** form a Kaia main chain or mainnet.
-Blockchain Applications can run on the Kaia main chain, Mainnet, or can operate on their own blockchains called **Service Chains**. If you want to have a dedicated execution environment for your application that guarantees high TPS and configurable network policies, we recommend using Service Chain. 
-
-> To set up a Service Chain for your application, read the [installation and operation guide of Service Chain](../nodes/service-chain/quick-start/quick-start.md).
-
-## Kaia Network Topology <a id="kaia-network-topology"></a>
-
-In this section, we will describe the network topology of Kaia main chain.
-A tiered network architecture with role-based node types is implemented in Kaia to optimize the network performance.
-
-### Role-based Node Types <a id="role-based-node-types"></a>
-
-Before we go over the Kaia main chain network topology,
-we need to get familiar with the different types of Kaia nodes.
-
-#### Core Cell (CC): Consensus Node (CN) + Proxy Node (PN) <a id="core-cell-cc-consensus-node-cn-proxy-node-pn"></a>
-
-A Core Cell (CC) is composed of a single **Consensus Node (CN)** and two **Proxy Nodes (PNs)**.
-Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes. 
-
-> If you are interested in being a Core Cell Operator, read the [installation and operation guide of Core Cell](../nodes/core-cell/install/before-you-install.md).
-
-#### Endpoint Node (EN) <a id="endpoint-node-en"></a>
-
-ENs serve as endpoints for Kaia
-network handling RPC API requests and processing data sent to and from service
-chains. 
-
-> To set up an Endpoint Node for your application, read the [installation and operation guide of Endpoint Node](../nodes/endpoint-node/endpoint-node.md).
-
-#### Bootnode <a id="bootnode"></a>
-
-Bootnodes are special-type nodes operated by Kaia to help newly joining nodes
-register to the network and to discover other nodes to connect with.
-CN bootnodes reside within the CNN and are not exposed to the public, while PN
-and EN bootnodes are publicly visible.  PN bootnodes only allow permitted PNs to
-be registered, and let eligible PNs connect with ENs.  EN bootnodes provide ENs
-with information on which PNs to connect to. 
-
-### Tiered Networks <a id="tiered-networks"></a>
-
-CNs, PNs, and ENs form logical networks, Consensus Node Network (CNN), Proxy Node Network (PNN), and Endpoint Node Network (ENN), respectively.
-
-Below figure shows the overall topology of Kaia mainnet, where Core Cell Network
-(CCN) is further broken down into Consensus Node Network (CNN) and Proxy Node Network (PNN). 
-Endpoint Node Network (ENN) is also shown as the surrounding network connected directly to PNN.
+### Node Types
 
 ![Kaia Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](/img/learn/klaytn_network_node.png)
 
+1. **Core Cell (CC)**: Composed of one Consensus Node (CN) and two Proxy Nodes (PNs).
+   - **Consensus Node (CN)**: Participates in block generation.
+   - **Proxy Node (PN)**: Provides network interface, transmits transaction requests, and propagates blocks.
 
-#### Consensus Node Network (CNN) <a id="consensus-node-network-cnn"></a>
+2. **Endpoint Node (EN)**: Serves as network endpoints, handling API requests and data processing.
 
-CNs form a full-mesh network among themselves called CNN. CNN applies BFT over
-a WAN (wide area network) and requires each CN to satisfy [stringent hardware and network resource requirements](./../nodes/core-cell/system-requirements.md) to carry out BFT consensus at a sufficient performance level. 
+3. **Bootnode**: Special nodes operated by Kaia to help new nodes join the network.
 
-#### Proxy Node Network (PNN) <a id="proxy-node-network-pnn"></a>
+## Consensus Algorithm
 
-PNN consists of PNs. 
-Typically, PNs maintain just one connection with a PN in a neighboring Core Cell. 
-The number of peer connections is subject to change depending on the network configuration.
+Kaia uses an optimized version of Istanbul BFT, implementing Practical Byzantine Fault Tolerance (PBFT) with blockchain-specific modifications. The consensus process involves:
 
-#### Endpoint Node Network (ENN) <a id="endpoint-node-network-enn"></a>
+1. Election of a committee (<LinkWithTooltip to="../misc/glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">proposer</LinkWithTooltip> and <LinkWithTooltip to="../misc/glossary#validator" tooltip="A node verifying data, ensuring efficient block processing.">validator</LinkWithTooltip>) using Verifiable Random Function (VRF).
+2. Block generation by the elected proposer.
+3. Block verification and signing by the committee.
 
-The outermost subnetwork, ENN, is solely composed of ENs connected
-to each other and also to a number of PNs.
+This consensus mechanism enables Kaia to achieve high performance, processing 4,000 transactions per second with instant transaction finality.
 
+## Block Generation and Propagation
 
-## Block Generation and Propagation <a id="block-generation-and-propagation"></a>
+- Blocks are generated in rounds, targeting a 1-second interval.
+- Proposer and committee selection is random but deterministic.
+- Blocks require signatures from more than two-thirds of committee members.
+- Separate propagation channels for blocks and transactions (multichannel approach) manage network congestion.
 
-Block generation and propagation design, along with the consensus
-algorithm used, plays an important role in reducing the latency of a
-blockchain platform.
+## Kaia Virtual Machine (KVM)
 
-### Block Generation Cycle <a id="block-generation-cycle"></a>
+The Kaia Virtual Machine (KVM) provides a robust environment for smart contract execution:
 
-A 'round' is a block generation cycle in Kaia. Each round generates a new
-block, and is immediately followed by the start of a new round. Kaia targets
-each round to be approximately one second, although block generation interval
-may be influenced by network traffic and node operation conditions.
+- Based on the Ethereum Virtual Machine (EVM).
+- Supports all EVM opcodes and additional Kaia-specific precompiled contracts.
+- Compatible with Solidity and Ethereum development tools (e.g. Remix, Hardhat, Foundry).
+- Allows developers to port Ethereum smart contracts to Kaia with minimal modifications.
 
-#### Proposer and Committee Selection <a id="proposer-and-committee-selection"></a>
+## Security Measures
 
-In each round, Kaia randomly but deterministically selects a Consensus Node
-(CN) as the <LinkWithTooltip to="../misc/glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">proposer</LinkWithTooltip> for the block to be created, and then selects a group of CNs as the committee for the given round. Kaia is not directly involved in
-the selection of either the proposer or committee; instead, each CN uses a
-random number derived from the most recent block header to run a cryptographic
-operation which yields proof that the CN has (or has not) been selected for
-this round. The committee size should be Byzantine resistant; if the size of
-the CNN is small, all CNs (except the proposer) are eligible to be selected as
-committee members.
+Kaia implements several security measures:
 
-#### Block Proposal and Validation <a id="block-proposal-and-validation"></a>
+- VRF for random selection of block proposers, adding unpredictability to the process.
+- Separation of validator keys and reward keys to protect validators from potential key theft.
+- Transparent block verification process, with all committee members verifying signatures on proposed blocks.
 
-Once selected, the proposer broadcasts its proof of selection for the round
-(i.e., a cryptographic proof verifiable by the public key of the proposer) to
-all CNs. Thereafter, the CNs selected as committee for the given round responds
-to the proposer with their own proofs of selection, notifying the proposer to
-whom to broadcast the new block to be proposed. The proposer then selects a set
-of transactions from its transaction pool and creates a block by ordering them.
-Lastly, the proposer executes consensus with the committee to agree upon and
-finalize the newly created block. Note that Kaia plans to continuously
-improve its consensus algorithm to achieve higher security and efficiency.
+## Interoperability
 
-### Block Propagation <a id="block-propagation"></a>
+Kaia is designed for seamless interaction with other blockchain networks:
 
-A proposed block must receive signatures from more than two-thirds of the
-committee members to be successfully finalized. When the committee reaches
-consensus, the new block is propagated to all CNs and the consensus round ends.
-Once the new block is propagated to all CNs, the information of the newly
-created block can be made available to all Kaia network participants by
-delivering block header and body data to ENN through PNN.
+- EVM-compatible, allowing easy deployment of Ethereum smart contracts.
+- Designed to interoperate with other EVM-SDK based chains.
+- Supports cross-platform transactions and smart contract execution.
 
-## Public Disclosure and Open Validation <a id="public-disclosure-and-open-validation"></a>
+## Token Economy
 
-Service providers and end-users on Kaia network can freely validate block
-generation results and check if the CN committee have generated the block
-according to proper procedures. Such validation includes checking if the block
-header contains more than two-thirds of the committee signatures. All CNs must
-support open validation and are required to post their public keys (used to
-sign blocks) in a publicly accessible space (e.g., block headers). Open
-validation promotes transparency, deter censorship, and prevent malicious
-behaviors.
+Kaia's native token, KAIA, plays a central role in the blockchain's economy:
 
-## Separated Propagation Channels for Blocks and Transactions (Multichannel Propagation) <a id="separated-propagation-channels-for-blocks-and-transactions-multichannel-propagat"></a>
+- KAIA tokens are issued automatically with each new block.
+- Initial annual inflation rate: 5.2%.
+- Block rewards are distributed as follows:
+  - CCO and Community: 50% (20% Block Creator rewards, 80% Staking rewards)
+  - KEF (Kaia Ecosystem Fund): 25%
+  - KIF (Kaia Infrastructure Fund): 25%
 
-A network's latency is heavily affected by its degree of congestion. Assuming
-the network's throughput remains constant, increased number of transactions
-will cause the network's latency to be proportionately delayed. Latency delay
-is a critical issue in dApps;
-typical users of legacy mobile apps or web services will not tolerate response
-time that takes more than a few seconds, and blockchain services have no reason
-to assume a higher user tolerance.
+This distribution model incentivizes network participation while supporting the growth and development of the Kaia ecosystem.
 
-Kaia adopts a multichannel approach in order to handle network congestion
-issues. By assigning separate propagation channels for transactions and blocks,
-Kaia network is able to propagate newly created blocks in a timely manner
-even when the network faces heavy congestion with high number of transactions.
-In this way, Kaia ensures that dApps on its network can stay responsive to
-end-user requests regardless of intermittent network traffic spikes.
+## Governance
 
-## Block Rewards <a id="block-rewards"></a>
+Kaia implements an on-chain governance system designed to be fair and inclusive:
 
-For each round, block reward (which is the sum of 6.4 newly minted <LinkWithTooltip tooltip="The native token of the Kaia blockchain.">KAIA</LinkWithTooltip> and
-transaction fees paid to process the block) will be distributed to
-the network participants according to preset distribution ratios. The proposer
-of the newly created block will receive 100% of the reward to be awarded to
-CNs, whereas the committee will receive none. Note that the probability of
-being selected as the proposer is influenced by the amount of KAIA staked by
-the CN, implying that a CN with more KAIA invested in the platform will
-probabilistically receive more rewards. Details of block reward distribution
-can be found in the [Kaia Token Economy](./token-economy.md) section.
+- Voting rights are proportional to the amount of KAIA tokens staked.
+- A cap on voting rights prevents suppression of minority opinions.
+- Delegation of voting power is allowed.
+- All governance proposals are recorded on-chain, ensuring transparency.
+
+## Auditability and Transparency
+
+Kaia prioritizes transparency and auditability:
+
+- All transactions provide an immutable and verifiable history of state changes.
+- Two primary tools for blockchain exploration:
+  - [Kaiascope](https://kaiascope.com/): A comprehensive blockchain explorer.
+  - [Kaiascan](http://kaiascan.io/): A user-friendly interface for quick blockchain data lookups.
+- The "Square" voting platform discloses all expenses and quarterly known transactions.
+
+## Network Monitoring
+
+To ensure optimal performance and reliability, Kaia implements:
+
+- A multi-channel approach to manage network congestion.
+- Dedicated network monitoring for all validators.
