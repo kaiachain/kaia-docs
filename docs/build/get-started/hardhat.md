@@ -60,7 +60,7 @@ npm install --save-dev hardhat
 * Paste the code below to install other dependencies
 
 ```bash
-npm install dotenv @klaytn/contracts
+npm install dotenv @kaiachain/contracts
 ```
 
 > Note: This installs other dependencies needed for this project ranging from `hardhat`, `klaytn/contract`, `dotenv` et al. 
@@ -137,7 +137,7 @@ Now that we have our development environment all set, let's get into writing our
 
 ## Creating SBT Smart Contract
 
-In this section, you will use the [Kaia Contracts](https://github.com/klaytn/klaytn-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts. 
+In this section, you will use the [Kaia Contracts](https://github.com/kaiachain/kaia-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts. 
 
 > Note: You already installed this library in **step 3** of the `Setting Development Environment` section.
 
@@ -149,9 +149,9 @@ In this section, you will use the [Kaia Contracts](https://github.com/klaytn/kla
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
-import "@klaytn/contracts/utils/Counters.sol";
-import "@klaytn/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
+import "@kaiachain/contracts/utils/Counters.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
 
 contract SoulBoundToken is KIP17, Ownable {
     using Counters for Counters.Counter;

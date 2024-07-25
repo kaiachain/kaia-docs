@@ -16,7 +16,7 @@ caver.rpc
 
 | Name | Type | Description |
 | --- | --- | --- |
-| klay | [Klay] | The [Klay] providing JSON-RPC call with  the`klay` name space. |
+| klay | [Klay] | The [Klay] providing JSON-RPC call with  the `klay` name space. |
 | net | [Net] | The [Net] providing JSON-RPC call with the `net` name space. |
 | governance | [Governance] | The [Governance] providing JSON-RPC call with the `governance` name space. |
 

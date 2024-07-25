@@ -22,9 +22,9 @@ Kaia uses the following unit system for KAIA.
 
 
 <!-- 
-#### APIs Related to KLAY Units <a id="apis-related-to-kaia-units"></a>
+#### APIs Related to KAIA Units <a id="apis-related-to-kaia-units"></a>
 
-`kaia.toPeb` and `kaia.fromPeb` are convenient APIs for converting between KLAY units.
+`kaia.toPeb` and `kaia.fromPeb` are convenient APIs for converting between KAIA units.
 
 ```text
 $ ./kaia attach data/dd/kaia.ipc
@@ -35,7 +35,7 @@ $ ./kaia attach data/dd/kaia.ipc
 "0.000000025"
 > kaia.fromPeb(25, "Gkei")
 "0.000000025"
-> kaia.fromPeb(25, "KLAY")
+> kaia.fromPeb(25, "KAIA")
 "0.000000000000000025"
 > kaia.toPeb(25, "peb")
 "25"
