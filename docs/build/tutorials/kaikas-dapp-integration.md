@@ -75,7 +75,7 @@ Example Code: [kaikas-web3onboard-react](https://github.com/klaytn/examples/tree
 
 ## 2. Utility Libraries
 
-Libraries like [kaia-sdk](#2.1-kaia-sdk) & [ethers.js](#2.2-ethersjs-example) abstract just enough to streamline blockchain interactions while still being able to call [Provider](#3-providers) APIs directly.
+Libraries like [kaia-sdk](#21-kaia-sdk) & [ethers.js](#22-ethersjs-example) abstract just enough to streamline blockchain interactions while still being able to call [Provider](#3-providers) APIs directly.
 
 Using Utility Libraries to connect an account or send native tokens (e.g., KAIA/ETH) will be no different, *in terms of syntax & lines of code*, from calling Providers directly. Where libraries mainly improve are in the following areas:
 
