@@ -21,6 +21,10 @@ Gas of a transaction comprises of two components:
 
 The gas used amount is only determined after the transaction is executed. As such, you can find the gas used amount of a transaction from its receipt.
 
+### Finding the appropriate gasLimit
+
+Every transaction must specify a gasLimit which is the maximum gas the transaction can spend. The sender can also utilize the `eth_estimateGas` and `kaia_estimateGas` RPCs to find the appropriate gasLimit for a transaction. Alternatively, the sender can manually specify a big enough number. Specifying a high gasLimit does not automatically charge high gas fee, so using a fixed number is a viable option. However, the sender having only a few tokens cannot specify too high gasLimit because the sender has to own at least `gasLimit * effectiveGasPrice` in its balance regardless of the actual gasUsed.
+
 ## Effective gas price <a id="effective-gas-price"></a>
 
 Effective gas price of a transaction is calculated from many variables:
@@ -86,13 +90,27 @@ The effective gas price of a transaction is defined as `min(baseFee + tipCap, fe
 
 See [KIP-162](https://github.com/kaiachain/kips/blob/main/KIPs/kip-162.md) for details.
 
-### Summary
+### Finding the appropriate gas price after Kaia
 
-| Hardfork     | `gasPrice` requirement                                                                      | `maxFeePerGas` requirement                                                                  | `maxPriorityFeePerGas` requirement                                                                                                                      | calculated `effectiveGasPrice`                                                                                                           |
-| ------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Before Magma | must be unitPrice                                                                           | must be unitPrice<br/>(only after EthTxType fork)                        | must be unitPrice<br/>(only after EthTxType fork)                                                                                    | unitPrice                                                                                                                                |
-| After Magma  | at least baseFee<br/>(suggested: 2\*baseFee)             | at least baseFee<br/>(suggested: 2\*baseFee)             | ignored                                                                                                                                                 | baseFee                                                                                                                                  |
-| After Kaia   | at least baseFee<br/>(suggested: baseFee + suggestedTip) | at least baseFee<br/>(suggested: baseFee + suggestedTip) | up to user, SDK, wallet<br/>(suggestedTip: P percentile effective tip among the transactions from the last N blocks) | tx type 2: min(baseFee + feeCap, tipCap),<br/>other types: `gasPrice` for other types |
+If your application or wallet utilizes type-2 transactions (EIP-1559 type), ensure you set a reasonable priority fee. You can also call the `eth_maxPriorityFeePerGas` RPC to retrieve the recommended priority fee (tx.maxPriorityFeePerGas). When the network is uncongested, a zero priority fee transaction should have no disadvantage in transaction processing. When the network is congested it is safer to specify a nonzero priority fee to compete with other transactions.
 
-- You can retrieve the suggested `gasPrice` and `maxFeePerGas` value from the `kaia_gasPrice` and `eth_gasPrice` APIs. But the user, SDK or wallet can always choose their own value out of discretion as long as they exceed the current base fee.
-- A suggested `maxPriorityFeePerGas` value is served by `kaia_maxPriorityFeePerGas` and `eth_maxPriorityFeePerGas` APIs from the effective tip of previously mined transactions. But the user, SDK or wallet can always choose their own value out of discretion. Kaia RPC nodes with default settings uses P=60 and N=20 but the configuration can differ by nodes. Use `kaia_feeHistory` and `eth_feeHistory` API for more customized result.
+The Kaia node's `eth_maxPriorityFeePerGas` RPC shall:
+
+- Return 0 if the network is uncongested. The network is considered uncongested when the next baseFeePerGas equals the UPPER_BOUND_BASE_FEE.
+- Otherwise return P percentile effective priority fees among the transactions in the last N blocks. Kaia nodes with default settings uses P=60 and N=20 but the configuration can differ by nodes.
+
+A type-2 transaction's `maxFeePerGas` should be higher than the network's next baseFee to ensure the transaction gets processed even if the baseFee rises. A common formula is `lastBaseFee*2 + maxPriorityFeePerGas`. It takes at least 15 seconds for baseFee to double when BASE_FEE_DENOMINATOR is 20. Another option is to use `eth_gasPrice` RPC.
+
+For transactions of other tx types, more care should be taken when choosing an appropriate `gasPrice`. Because for these tx types, the gasPrice is spent as-is regardless of the baseFee. On the other hand, gasPrice must be at least network's baseFee. Therefore, applications and users would want to avoid setting gasPrice too high, while at the same time matching the network's baseFee. One strategy would be setting the `gasPrice` a slightly higher than the next baseFee so it can accommodate a few baseFee rises. You can call `eth_gasPrice` RPC to retrieve the recommended gas price.
+
+The Kaia node's `eth_gasPrice` RPC shall:
+
+- Return (next baseFee) \* M + (eth_maxPriorityFeePerGas). Multiplier M is heuristically chosen as 1.10 under uncongested network and 1.15 under congested network. When BASE_FEE_DENOMINATOR is 20, the M=1.10 can withstand at least one baseFee increase (1.05) and M=1.15 can withstand at least two consecutive baseFee increase (1.05\*1.05). Considering that the baseFee usually does not rise at top speed of 5%, the multiplier should actually be enough for a few baseFee increases.
+
+### Gas price summary
+
+| Hardfork     | `gasPrice` requirement                                                                           | `maxFeePerGas` requirement                                                                       | `maxPriorityFeePerGas` requirement                                                                                                | calculated `effectiveGasPrice`                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Before Magma | must be unitPrice                                                                                | must be unitPrice<br/>(only after EthTxType fork)                             | must be unitPrice<br/>(only after EthTxType fork)                                                              | unitPrice                                                                                                                 |
+| After Magma  | at least baseFee<br/>(recommended: 2\*baseFee)                | at least baseFee<br/>(recommended: 2\*baseFee)                | ignored                                                                                                                           | baseFee                                                                                                                   |
+| After Kaia   | at least baseFee<br/>(recommended: baseFee\*M + suggestedTip) | at least baseFee<br/>(recommended: baseFee\*2 + suggestedTip) | up to users, wallets, and SDKs<br/>(recommended: suggestedTip = 0 or P percentile in N blocks) | tx type 2: min(baseFee + feeCap, tipCap),<br/>other tx types: gasPrice |
