@@ -15,7 +15,7 @@ Having said that, once a smart contract is validated, block explorers like Kaias
 ## 전제조건
 
 - [Remix IDE](https://ide.klaytn.foundation/) 및 [Kaikas Wallet](https://kaikas.zendesk.com/hc/en-us/articles/6657796272793-How-do-I-install-PC-Kaikas-)
-- Enough test KAIA from [faucet](https://kairos.wallet.kaia.io/faucet)
+- Enough test KAIA from [faucet](https://faucet.kaia.io)
 
 ## 시작하기
 
