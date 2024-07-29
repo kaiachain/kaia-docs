@@ -11,7 +11,7 @@
 
 이 단계별 가이드는 Kairos 테스트넷의 엔드포인트 노드 \(EN\)을 시작하고 새 계정으로 기본 스마트 컨트랙트를 구축하는 과정을 단계별로 안내합니다. 이 튜토리얼은 EN을 설정하는 방법과 EN을 통해 스마트 컨트랙트를 배포하는 방법의 두 부분으로 구성되어 있습니다.
 
-> 스마트 컨트랙트를 배포하고 트랜잭션을 제출하려면 KAIA에서 트랜잭션 수수료가 필요하기 때문에 본 가이드에서는 **Kairos** 테스트넷을 사용합니다. For the development purpose, testnet KAIA can be obtained from the [Kairos faucet](https://kairos.wallet.kaia.io/faucet).
+> 스마트 컨트랙트를 배포하고 트랜잭션을 제출하려면 KAIA에서 트랜잭션 수수료가 필요하기 때문에 본 가이드에서는 **Kairos** 테스트넷을 사용합니다. For the development purpose, testnet KAIA can be obtained from the [Kairos faucet](https://faucet.kaia.io).
 
 ## 엔드포인트 노드 시작 <a href="#launch-an-en" id="launch-an-en"></a>
 
