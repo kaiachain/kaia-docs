@@ -36,7 +36,7 @@ Kaia's Kairos and Mainnet currently have the following restrictions on the trans
 * A transaction which has bigger execution cost than the computation cost limit will be discarded. Please refer to [computation cost](./computation-cost.md)
 * As of the Shanghai hardfork, there is an additional gas cost for contract creation based on the length of the initcode, charged at 2 gas for every 32-byte chunk of initcode.
 
-### Restriction on Smart Contract Deployment <a id="restriction-on-smart-contract-deployment"></a>
+### Restrictions on Smart Contract Deployment <a id="restriction-on-smart-contract-deployment"></a>
 
 Kaia implements several restrictions on smart contract deployment:
 
