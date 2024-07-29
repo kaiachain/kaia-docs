@@ -541,7 +541,7 @@ You can use Remix Online IDE or use Truffle to deploy `MyERC20` smart contract.
 * Please visit [Kaia Plugin for Remix](https://ide.klaytn.foundation) and create a `MyERC20` contract. The complete source code was given at [Writing ERC-20 Smart Contract](#1-writing-erc-20-smart-contract).
 * Prepare your account which will be used to deploy the contract.
   * If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.klaytn.foundation/account/accountKeyLegacy](https://toolkit.klaytn.foundation/account/accountKeyLegacy).
-  * Get some test KAIA from the faucet - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
+  * Get some test KAIA from the faucet - [https://faucet.kaia.io](https://faucet.kaia.io)
 * Let's deploy `MyERC20.sol` with the deploy parameters of `BAOBABTOKEN`, `BAO` and `8`.
 
 ![ERC20-1-deploy](/img/build/smart-contracts/erc20-1-deploy.png)
