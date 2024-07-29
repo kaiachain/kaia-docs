@@ -35,7 +35,7 @@ This mechanism aims to introduce unpredictability in the block creation and comm
 
 ### Restrictions on Transaction Execution <a id="restrictions-on-transaction-execution"></a>
 
-Kaia's Kairos and Mainnet currently have the following restrictions on the transaction execution:
+Kaia Mainnet and Kairos Testnet currently have the following restrictions on the transaction execution:
 
 * You can set gasPrice of the transaction, but it means it's the most you can pay. The actual gasPrice will be determined by network. For more detailed information, see [gas price overview](../transaction-fees/transaction-fees.md#gas-price-overview)
 * A transaction which has bigger execution cost than the computation cost limit will be discarded. Please refer to [computation cost](./computation-cost.md)
