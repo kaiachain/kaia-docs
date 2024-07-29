@@ -58,8 +58,9 @@ Refer to this [list](../references/public-en#public-json-rpc-endpoint-providers)
 ## KAIA를 테스트할 수 있는 Faucet이 있나요? <a id="are-there-faucets"></a>
 
 You can get test KAIA for development and testing purposes here:
-[Kaia Faucet](https://kairos.wallet.kaia.io/faucet)
+[Kaia Faucet](https://faucet.kaia.io)
 [AllThatNode Faucet](https://www.allthatnode.com/faucet/klaytn.dsrv)
+[NODIT Faucet](https://kaiafaucet.com)
 
 ## 퍼블릭 RPC 엔드포인트 상태는 어떻게 확인하나요? <a id="rpc-endpoint-status"></a>
 
@@ -85,7 +86,7 @@ Kairos 테스트넷:
 - EN 다운로드 : [다운로드 페이지](../nodes/downloads/downloads.md)에서 Kairos 패키지를 선택합니다.
 - Klaytnscope : https://baobab.klaytnscope.com
 - 카이아 지갑 : https://baobab.wallet.klaytn.foundation
-- Kairos Faucet : https://kairos.wallet.kaia.io/faucet
+- Kairos Faucet : https://faucet.kaia.io
 
 ## 카이아 SDK가 있나요? 어떤 언어로 제공되나요? <a id="klaytn-sdks"></a>
 
