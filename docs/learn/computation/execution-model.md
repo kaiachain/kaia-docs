@@ -12,21 +12,26 @@ When a transaction is executed successfully, it is included in the current block
 
 When block generation is complete, the block is propagated to all the other CNs. The other CNs all verify the propagated block and reach consensus on the verification results by using the BFT consensus algorithm. When the verification process completes successfully by the majority of CNs, the block is stored in the blockchain. Because the BFT consensus algorithm satisfies the immediate finality property, the block is final and will never be removed. After a block is finalized, the execution of all the transactions in that block are irreversibly guaranteed, and their execution results can be returned to the sender if requested.
 
-## Enhanced Randomness in Block Proposer Selection and Reward Distribution <a id="enhanced-randomness-in-block-proposer-selection-and-reward-distribution"></a>
+## Enhanced Randomness in Block Proposer and Committee Selection <a id="enhanced-randomness-in-block-proposer-and-committee-selection"></a>
 
-Kaia has implemented a new mechanism to introduce verifiable on-chain randomness in the block proposer selection and reward distribution processes. This mechanism involves two new fields in the block header: `randomReveal` and `mixHash`.
+Kaia has implemented a new mechanism to introduce verifiable on-chain randomness in the block proposer and committee selection processes. This mechanism involves two new fields in the block header: `randomReveal` and `mixHash`.
 
-In this system, validators generate and commit to random values. The `randomReveal` field in a block contains the revealed random value from a previous commitment. The `mixHash` is then computed using this revealed random value along with other block data, creating a source of randomness for the network.
+In this system, block proposers generate and commit to random values. The `randomReveal` field in a block contains the proposer's signature, generated using a specific signature scheme, and is calculated based on the current block number being proposed. The `mixHash` is then computed using this revealed random value along with other block data, creating a source of randomness for the network.
 
-The block proposer selection process utilizes this generated randomness. The use of this randomness aims to make the selection process more unpredictable and fair, enhancing the overall security of the network.
+The block proposer and committee selection processes utilize this generated randomness. The use of this randomness aims to make the selection processes more unpredictable and fair, enhancing the overall security of the network. One particular use case for this mechanism is allowing block proposers to remain private until the previous block is completed, adding an extra layer of security to the network.
 
-A key change in this mechanism is the separation of reward distribution from block creation. Rather than distributing rewards immediately upon block creation, the distribution is delayed. A separate transaction for reward distribution is included in a subsequent block. This transaction uses the randomness generated in the current block to determine reward distribution.
+The execution flow creates a cycle where each block's randomness influences future block proposer and committee selections. This introduces an element of unpredictability to these processes while maintaining their verifiability.
 
-The execution flow creates a cycle where each block's randomness influences future block proposer selections and reward distributions. This introduces an element of unpredictability to these processes while maintaining their verifiability.
+It's important to note that while this randomness is used in selection processes, rewards are still distributed at the end of block mining by directly modifying states, based on staking amounts. The randomness determines which validators are selected to be part of the committee that receives rewards, not the amount of rewards distributed.
 
-Validators can verify the correctness of the revealed random values by checking them against previously committed hashes. The network can then use this verified randomness in its consensus and reward distribution processes.
+Several security considerations are crucial to this mechanism:
 
-This mechanism aims to introduce unpredictability in the block creation process while maintaining verifiability. It's important to note that while this system provides a framework for enhanced randomness, the specific implementations of proposer selection and reward distribution algorithms using this randomness may evolve over time as the network develops and improves.
+* To prevent replay attacks, each `randomReveal` value must be unique for each block.
+* Block proposers must honestly generate and submit their `randomReveal` to prevent manipulation of the `mixHash`.
+* Proposers must keep their `randomReveal` secret until the block proposal to prevent prediction and potential manipulation by other participants.
+* The `randomReveal` must be properly signed and validated to prevent tampering.
+
+This mechanism aims to introduce unpredictability in the block creation and committee selection processes while maintaining verifiability. It's important to note that while this system provides a framework for enhanced randomness, the specific implementations of proposer and committee selection algorithms using this randomness may evolve over time as the network develops and improves.
 
 ### Restrictions on Transaction Execution <a id="restrictions-on-transaction-execution"></a>
 
