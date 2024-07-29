@@ -15,7 +15,7 @@ In this guide, we'll take a look at how to use block explorers to verify deploye
 ## Prerequisites
 
 - [Remix IDE](https://ide.klaytn.foundation/) and [Kaikas Wallet](https://kaikas.zendesk.com/hc/en-us/articles/6657796272793-How-do-I-install-PC-Kaikas-)
-- Enough test KAIA from [faucet](https://kairos.wallet.kaia.io/faucet)
+- Enough test KAIA from [faucet](https://faucet.kaia.io)
 
 ## Getting Started
 
