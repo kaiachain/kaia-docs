@@ -15,7 +15,7 @@
 - [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
 - [Remix IDE](https://remix.ethereum.org/)
 - [Remix 카이아 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet)
+- Test KAIA from [Faucet](https://faucet.kaia.io)
 
 ## 시작하기
 
