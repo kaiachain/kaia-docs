@@ -22,7 +22,7 @@ LOG_MAXBACKUPS=10
 LOG_MAXAGE=30 # maximum number of days to retain a log file
 LOG_COMPRESS=1 # setting 1 to compress the backup logs in gz format
 ```
-It is recommended to download and use the package which version is v1.11.0 or higher. You can download it in Binaries section of the release note(e.g., [v1.11.0 release note](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)). Make sure next three files are v1.11.0 or higher: configuration file, daemon, and binary. Otherwise, it won't work.
+It is recommended to download and use the package which version is v1.0.0 or higher. You can download it in Binaries section of the release note(e.g., [v1.11.0 release note](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)). Make sure next three files are v1.0.0 or higher: configuration file, daemon, and binary. Otherwise, it won't work.
 
 ## Normal Log Status
 

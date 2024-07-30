@@ -237,4 +237,4 @@ After filling the verification parameters, click on the **Sign and Submit** butt
 
 ## Conclusion
 
-Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascope and Kaiascan solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.klaytn.foundation/) for more information and [Kaia Forum](https://forum.klaytn.foundation/) if you have any questions.
+Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascope and Kaiascan solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.klaytn.foundation/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.

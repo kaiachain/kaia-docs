@@ -307,4 +307,4 @@ async function loadPassword() {
 sendKLAY()
 ```
 
-I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Kaia Forum](https://forum.klaytn.foundation/) for help.
+I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Kaia Forum](https://devforum.kaia.io/) for help.

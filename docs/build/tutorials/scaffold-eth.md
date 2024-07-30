@@ -210,7 +210,7 @@ You should now be able to access a React-based dApp frontend at http://localhost
 
 Congratulations! You have successfully used Scaffold-ETH 2 to deploy a contract and run a dApp on Kaia. Now that you understand the workings of Scaffold-ETH 2, feel free to create and deploy your own smart contracts and modify the frontend to fit your dApp's needs!
 
-Visit [Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io/) for more information and [Kaia Forum](https://forum.klaytn.foundation/) if you have any questions.
+Visit [Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
 
 
 
