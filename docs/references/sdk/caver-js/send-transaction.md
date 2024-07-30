@@ -15,7 +15,7 @@ First install the following packages.
 *Note:* If you get an `nvm: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
  
 ## 1. Create an Account and Download Keystore <a id="1.-create-an-account-and-download-keystore"></a>
-The most simple way to create an account is using the [Kaia Online Toolkit](https://toolkit.klaytn.foundation/misc/generateKeystore).
+The most simple way to create an account is using the [Kaia Online Toolkit](https://toolkit.kaia.io/misc/generateKeystore).
 
 ![Kaia Online Toolkit](/img/references/keystore.png)
 
