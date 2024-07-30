@@ -1,14 +1,14 @@
 # Signed message standards
 
-Wallet private keys are primarily used to sign transactions, but the same key can also be used to sign any application-specific messages. Users can use signed message to allow users to cryptographically authorize an action. This off-chain signaturess can save gas and transaction count on the blockchain.
+Wallet private keys are primarily used to sign transactions, but the same key can also be used to sign any application-specific messages. Users can use signed messages to cryptographically authorize actions. These off-chain signatures can save gas and reduce transaction count on the blockchain.
 
-There are various technical methods, or standards to message signing. Sure, digital signature is a fundamental function of ECDSA. Nevertheless, several standards were devised to separate message signature from transaction signature and to improve interoperability between applications. Without signature standards, message signing functions could sign arbitrary ashes so the user signs malicious transaction hashes disguised as messages. To prevent this from happening, messagge signing standards modifies the message so the signature cannot be used for other purposes.
+There are various technical methods, or standards, for message signing. Sure, digital signature is a fundamental function of ECDSA. Nevertheless, several standards were devised to separate message signature from transaction signature and to improve interoperability between applications. Without signature standards, message signing functions could sign arbitrary hashes so the user signs malicious transaction hashes disguised as messages. To prevent this from happening, message signing standards modify the message so the signature cannot be used for other purposes.
 
 Different wallets and SDKs support varying range of those standards, so you should choose an appropriate method suited for your application.
 
 ## Signing raw message
 
-Signing the massage as-is is the most simple approach. Because this is risky for the reasons mentioned above, it is rarely used today.
+Signing the message as-is is the simplest approach. Because this is risky for the reasons mentioned above, it is rarely used today.
 
 Among the ecosystem tools, MetaMask supports raw message signing via `eth_sign` method after explicit user consent. This feature is only maintained for backwards compatibility and must not be used in new projects. It's worth reading the article [What is 'eth sign' and why is it a risk?](https://support.metamask.io/privacy-and-security/what-is-eth_sign-and-why-is-it-a-risk/)
 
@@ -19,7 +19,7 @@ window.ethereum.request({ method: "eth_sign", params: ["0xbC7d1aBe33E6EC19cA873A
 
 ## KIP-97 Klaytn Signed Message
 
-Some Kaia nodes and SDKs has been providing the way to prefix messages with `"\x19Klaytn Signed Message:\n" + len(message)` before signing them. For details, please refer to [KIP-97](https://kips.kaia.io/KIPs/kip-97). Having the Klaytn- prefix can mitigate signature replay across chains, but the prefix alone cannot fully prevent replay attacks. Applications must employ replay protection mechanisms including random challenges or timestamps, to defend from replay attacks within an application.
+Some Kaia nodes and SDKs have been providing a way to prefix messages with `"\x19Klaytn Signed Message:\n" + len(message)` before signing them. For details, please refer to [KIP-97](https://kips.kaia.io/KIPs/kip-97). Having the Klaytn- prefix can mitigate signature replay across chains, but the prefix alone cannot fully prevent replay attacks. Applications must employ replay protection mechanisms, including random challenges or timestamps, to defend against replay attacks within an application.
 
 KIP-97 signatures are supported by:
 - Kaikas [`klay_sign`](https://docs.kaikas.io/02_api_reference) method
@@ -47,7 +47,7 @@ kaia.recoverFromMessage('0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a', '0x6162636
 
 ## EIP-191 Ethereum Signed Message
 
-In Ethereum and several EVM chains, it is widely used practice to prefix the messages with `"\x19Ethereum Signed Message:\n" + len(message)` before signing them. For details, please refer to [EIP-191](https://eips.ethereum.org/EIPS/eip-191). Kaia nodes and SDKs support this feature. As with KIP-97, the application has to take care with replay protection when using EIP-191. Nevertheless, using EIP-191 ensures compatibility with other ecosystem tools and streamlines the message handling logic, without the need for EIP/KIP branches.
+In Ethereum and several EVM chains, it is widely used practice to prefix the messages with `"\x19Ethereum Signed Message:\n" + len(message)` before signing them. For details, please refer to [EIP-191](https://eips.ethereum.org/EIPS/eip-191). Kaia nodes and SDKs support this feature. Like KIP-97, EIP-191 requires applications to implement replay protection mechanisms. Nevertheless, using EIP-191 ensures compatibility with other ecosystem tools and streamlines the message handling logic, without the need for EIP/KIP branches.
 
 EIP-191 signatures are supported by:
 - Ethereum wallets (e.g. MetaMask)
