@@ -12,12 +12,45 @@ When a transaction is executed successfully, it is included in the current block
 
 When block generation is complete, the block is propagated to all the other CNs. The other CNs all verify the propagated block and reach consensus on the verification results by using the BFT consensus algorithm. When the verification process completes successfully by the majority of CNs, the block is stored in the blockchain. Because the BFT consensus algorithm satisfies the immediate finality property, the block is final and will never be removed. After a block is finalized, the execution of all the transactions in that block are irreversibly guaranteed, and their execution results can be returned to the sender if requested.
 
+## Enhanced Randomness in Block Proposer and Committee Selection <a id="enhanced-randomness-in-block-proposer-and-committee-selection"></a>
+
+Kaia has implemented a new mechanism to introduce verifiable on-chain randomness in the block proposer and committee selection processes. This mechanism involves two new fields in the block header: `randomReveal` and `mixHash`.
+
+In this system, block proposers generate and commit to random values. The `randomReveal` field in a block contains the proposer's signature, generated using a specific signature scheme, and is calculated based on the current block number being proposed. The `mixHash` is then computed using this revealed random value along with other block data, creating a source of randomness for the network.
+
+The block proposer and committee selection processes utilize this generated randomness. The use of this randomness aims to make the selection processes more unpredictable and fair, enhancing the overall security of the network. One particular use case for this mechanism is allowing block proposers to remain private until the previous block is completed, adding an extra layer of security to the network.
+
+The execution flow creates a cycle where each block's randomness influences future block proposer and committee selections. This introduces an element of unpredictability to these processes while maintaining their verifiability.
+
+It's important to note that while this randomness is used in selection processes, rewards are still distributed at the end of block mining by directly modifying states, based on staking amounts. The randomness determines which validators are selected to be part of the committee that receives rewards, not the amount of rewards distributed.
+
+Several security considerations are crucial to this mechanism:
+
+* To prevent replay attacks, each `randomReveal` value must be unique for each block.
+* Block proposers must honestly generate and submit their `randomReveal` to prevent manipulation of the `mixHash`.
+* Proposers must keep their `randomReveal` secret until the block proposal to prevent prediction and potential manipulation by other participants.
+* The `randomReveal` must be properly signed and validated to prevent tampering.
+
+This mechanism aims to introduce unpredictability in the block creation and committee selection processes while maintaining verifiability. It's important to note that while this system provides a framework for enhanced randomness, the specific implementations of proposer and committee selection algorithms using this randomness may evolve over time as the network develops and improves.
+
 ### Restrictions on Transaction Execution <a id="restrictions-on-transaction-execution"></a>
 
-Kaia's Kairos and Mainnet currently have the following restrictions on the transaction execution:
+Kaia Mainnet and Kairos Testnet currently have the following restrictions on the transaction execution:
 
 * You can set gasPrice of the transaction, but it means it's the most you can pay. The actual gasPrice will be determined by network. For more detailed information, see [gas price overview](../transaction-fees/transaction-fees.md#gas-price-overview)
 * A transaction which has bigger execution cost than the computation cost limit will be discarded. Please refer to [computation cost](./computation-cost.md)
+* As of the Shanghai hardfork, there is an additional gas cost for contract creation based on the length of the initcode, charged at 2 gas for every 32-byte chunk of initcode.
+
+### Restrictions on Smart Contract Deployment <a id="restriction-on-smart-contract-deployment"></a>
+
+Kaia implements several restrictions on smart contract deployment:
+
+* As of the Kore hardfork, deployment of new contract code starting with the 0xEF byte is not allowed, as per [EIP-3541](https://eips.ethereum.org/EIPS/eip-3541).
+* Since the Shanghai hardfork:
+  * Deployment of new contract code is rejected if the initcode length exceeds 49,152 bytes.
+  * The length of the new contract code cannot exceed 24,576 bytes.
+  * These limitations are based on [EIP-3860](https://eips.ethereum.org/EIPS/eip-3860).
+  * Smart contract account (SCA) overwriting over externally owned accounts (EOA) is enabled.
 
 ## Data Structures <a id="data-structures"></a>
 
@@ -74,14 +107,13 @@ A _smart contract_ consists of a collection of code \(functions\) and data \(sta
 
 ### Creating Smart Contracts <a id="creating-smart-contracts"></a>
 
-A smart contract can be created in the Kaia blockchain by sending a transaction to an empty address with the binary as data. The binary can be in various formats; however, Kaia currently supports one binary format, EVM bytecode. It is worth pointing out that this transaction requires a payment for execution. The account balance on the sender's account will be reduced according to the transaction fee model after the transaction has been stored in a block. After some time, the transaction should appear in a block, which confirms that the state it entails reached a consensus. At this point, the smart contract now exists in the Kaia blockchain. 
-- As [eip-3541](https://eips.ethereum.org/EIPS/eip-3541) is brought at the Kore hardfork, deployment of a new code starting with the 0xEF byte is not allowed.
-- As [eip-3860](https://eips.ethereum.org/EIPS/eip-3860) is brought at the Shanghai hardfork, deployment of a new code is rejected if the initcode length exceeds 49152 bytes and the length of the new contract code cannot exceed 24576 bytes.
-- SCA overwriting over EOA is enabled after Shanghai hardfork.
+A smart contract can be created in the Kaia blockchain by sending a transaction to an empty address with the binary as data. The binary can be in various formats; however, Kaia currently supports one binary format, EVM bytecode. It is worth pointing out that this transaction requires a payment for execution. The account balance on the sender's account will be reduced according to the transaction fee model after the transaction has been stored in a block. After some time, the transaction should appear in a block, which confirms that the state it entails reached a consensus. At this point, the smart contract now exists in the Kaia blockchain.
 
 ### Executing Smart Contracts <a id="executing-smart-contracts"></a>
 
-A function of a smart contract can be called and executed either by sending a transaction to the smart contract or by calling the function locally in the node. When a function is called by sending a transaction, the function is executed by processing a transaction. This entails a cost in KAIA for sending the transaction, and the call will be recorded forever on the blockchain. The return value of calls made in this manner is the hash of the transaction. When the function is invoked locally, it is executed locally in the Kaia Virtual Machine \(KLVM\), and the call returns the return value of the function. Calls made in this manner are not recorded on the blockchain; thus, they cannot modify the internal state of the contract. This type of call is referred to as a constant function call. Calls made in this manner do not cost any KAIA. Constant function calls should be used when only the return value is of interest, while a transaction should be used when side effects on the contract state are of interest.
+A function of a smart contract can be called and executed either by sending a transaction to the smart contract or by calling the function locally in the node. When a function is called by sending a transaction, the function is executed by processing a transaction. This entails a cost in KAIA for sending the transaction, and the call will be recorded forever on the blockchain. The return value of calls made in this manner is the hash of the transaction. When the function is invoked locally, it is executed locally in the Kaia Virtual Machine \(KVM\), and the call returns the return value of the function. Calls made in this manner are not recorded on the blockchain; thus, they cannot modify the internal state of the contract. This type of call is referred to as a constant function call. Calls made in this manner do not cost any KAIA. Constant function calls should be used when only the return value is of interest, while a transaction should be used when side effects on the contract state are of interest.
+
+When executing a smart contract function through a transaction, gas costs are incurred. The exact gas cost depends on the operations performed by the function and is calculated based on predefined gas costs for each EVM operation.
 
 ### Disabling Smart Contracts <a id="disabling-smart-contracts"></a>
 
@@ -94,4 +126,3 @@ Kaia will provide ways to upgrade a deployed smart contract to address the incon
 * Only authorized accounts or the owner of a smart contract should be able to upgrade the smart contract.
 * Upgraded smart contracts should be able to manipulate existing data maintained by the old smart contract.
 * Other smart contracts that refer to the old smart contracts should be able to determine whether to use newer, upgraded versions of those smart contracts.
-
