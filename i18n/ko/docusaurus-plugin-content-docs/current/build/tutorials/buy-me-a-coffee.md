@@ -888,4 +888,4 @@ Fleek은 IPFS에서 최신 사이트와 앱을 구축할 수 있는 인프라입
 
 여기에서 프런트엔드에서 정적으로 1 KAIA를 보내는 것 외에 커피 양을 입력하는 새로운 입력 필드를 추가하는 등 다른 옵션도 살펴볼 수 있습니다. 전체 코드베이스는 [github](https://github.com/ayo-klaytn/buy-me-a-coffee)에서 확인할 수 있으며, 이 [링크](https://spring-fog-0605.on.fleek.co/)를 사용하여 웹사이트를 테스트할 수도 있습니다.
 
-더 자세한 내용은 [카이아 문서](https://docs.klaytn.foundation/), [Web3Onbaord 문서](https://onboard.blocknative.com/docs/modules/react), [Fleek 문서](https://docs.fleek.co/tutorials/hosting/)를 참고하시기 바랍니다. 궁금한 점이 있으시면 [Kaia 포럼](https://forum.klaytn.foundation/)를 참조하세요.
+더 자세한 내용은 [카이아 문서](https://docs.klaytn.foundation/), [Web3Onbaord 문서](https://onboard.blocknative.com/docs/modules/react), [Fleek 문서](https://docs.fleek.co/tutorials/hosting/)를 참고하시기 바랍니다. If you have any questions, visit [Kaia Forum](https://devforum.kaia.io/).
