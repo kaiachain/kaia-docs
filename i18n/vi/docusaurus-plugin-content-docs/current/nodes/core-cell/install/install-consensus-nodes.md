@@ -220,7 +220,7 @@ $ systemctl daemon-reload
 
 ### Export BLS public key info <a id="export-bls-public-key-info"></a>
 
-If the network has activated or will activate the Randao hardfork, each CN maintainer must submit its BLS public key info to the [KIP-113 smart contract](https://kips.klaytn.foundation/KIPs/kip-113).
+If the network has activated or will activate the Randao hardfork, each CN maintainer must submit its BLS public key info to the [KIP-113 smart contract](https://kips.kaia.io/KIPs/kip-113).
 
 The BLS public key info can be calculated from the nodekey. To extract it, first start the node. Then use the command:
 
