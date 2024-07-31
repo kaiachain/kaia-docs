@@ -220,7 +220,7 @@ $ systemctl daemon-reload
 
 ### BLS 공개키 정보 내보내기 <a id="export-bls-public-key-info"></a>
 
-네트워크가 Randao 하드포크를 활성화했거나 활성화할 예정이라면, 각 CN 관리자는 BLS 공개키 정보를 [KIP-113 스마트 컨트랙트](https://kips.klaytn.foundation/KIPs/kip-113)에 제출해야 합니다.
+If the network has activated or will activate the Randao hardfork, each CN maintainer must submit its BLS public key info to the [KIP-113 smart contract](https://kips.kaia.io/KIPs/kip-113).
 
 BLS 공개키 정보는 노드키에서 계산할 수 있습니다. 이를 추출하려면 먼저 노드를 시작합니다. 그리고 다음 명령을 사용합니다:
 
