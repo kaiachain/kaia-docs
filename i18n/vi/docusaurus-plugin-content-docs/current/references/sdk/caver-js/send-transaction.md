@@ -17,13 +17,13 @@ _Note:_ If you get an `nvm: command not found` error after installing nvm, refer
 
 ## 1. Create an Account and Download Keystore <a id="1.-create-an-account-and-download-keystore"></a>
 
-The most simple way to create an account is using the [Kaia Online Toolkit](https://toolkit.klaytn.foundation/misc/generateKeystore).
+The most simple way to create an account is using the [Kaia Online Toolkit](https://toolkit.kaia.io/misc/generateKeystore).
 
 ![Kaia Online Toolkit](/img/references/keystore.png)
 
 Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
 
-**You need KLAY to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://faucet.kaia.io). Refer to [Klaytn Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+**You need KAIA to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://faucet.kaia.io). Refer to [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
 
 ## 2. Initialize Project <a id="2.-initialize-project"></a>
 
@@ -306,4 +306,4 @@ async function loadPassword() {
 sendKLAY()
 ```
 
-I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Kaia Forum](https://forum.klaytn.foundation/) for help.
+I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Kaia Forum](https://devforum.kaia.io/) for help.
