@@ -76,7 +76,7 @@ EOA와 달리 SCA는 연결된 코드가 있으며 해당 코드에 의해 제�
 
 :::note
 
-참고: klaytn v1.7.0 이후부터는 스마트 컨트랙트 계정에 vmVersion 속성이 추가됩니다.
+NOTE: From kaia v1.7.0 onwards, vmVersion attribute will be added to the Smart Contract Account.
 
 :::
 
