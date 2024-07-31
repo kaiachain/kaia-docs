@@ -61,7 +61,7 @@ npm install --save-dev hardhat
 - 다른 종속성을 설치하려면 아래 코드를 붙여넣으세요.
 
 ```bash
-npm install dotenv @klaytn/contracts
+npm install dotenv @kaiachain/contracts
 ```
 
 > 참고: 이 프로젝트에 필요한 `hardhat`, `klaytn/contract`, `dotenv` 등의 기타 종속성을 설치합니다.
@@ -138,7 +138,7 @@ module.exports = {
 
 ## SBT 스마트 컨트랙트 생성
 
-이 섹션에서는 커뮤니티에서 검증된 코드의 견고한 토대 위에 구축된 안전한 스마트 컨트랙트 개발을 위한 라이브러리인 [Kaia 컨트랙트](https://github.com/klaytn/klaytn-contracts)를 사용하게 됩니다. 이는 오픈 제플린 컨트랙트의 포크입니다.
+In this section, you will use the [Kaia Contracts](https://github.com/kaiachain/kaia-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. 이는 오픈 제플린 컨트랙트의 포크입니다.
 
 > 참고: '개발 환경 설정' 섹션의 **3단계**에서 이미 이 라이브러리를 설치했습니다.
 
@@ -150,9 +150,9 @@ module.exports = {
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
-import "@klaytn/contracts/utils/Counters.sol";
-import "@klaytn/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
+import "@kaiachain/contracts/utils/Counters.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
 
 contract SoulBoundToken is KIP17, Ownable {
     using Counters for Counters.Counter;
@@ -417,4 +417,4 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 출력은 16진수를 반환하며, 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 변환하면 `105701850`과 같아야 합니다.
 
-Hardhat에 대한 더 자세한 가이드는 [Hardhat 문서](https://hardhat.org/hardhat-runner/docs/getting-started)를 참조하세요. 또한 이 가이드의 전체 코드 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/hardhat/soulbound-tokens)에서 확인할 수 있습니다.
+Hardhat에 대한 더 자세한 가이드는 [Hardhat 문서](https://hardhat.org/hardhat-runner/docs/getting-started)를 참조하세요. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens)
