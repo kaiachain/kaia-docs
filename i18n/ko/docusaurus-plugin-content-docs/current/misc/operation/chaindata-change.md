@@ -88,7 +88,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 </aside>
 
-1. 스왑 전 클레이튼 데몬 프로세스 중지
+1. Stop kaia daemon process before swap
 
    1. _**중요**_ 노드 유형이 CN인 경우 Kaia 카운슬에서 CN 노드를 제거합니다.
 
@@ -115,7 +115,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 3. (선택 사항) 더 이상 필요하지 않은 경우 이전 경로를 삭제합니다.
 
-### 옵션 2 - klaytn 구성 파일에서 DATA_DIR 및 LOG_DIR 업데이트하기
+### Option 2 - Update DATA_DIR & LOG_DIR in kaia config file
 
 1. 카이아 디렉터리 경로 변경
    - 옵션 1 - 새 디스크
