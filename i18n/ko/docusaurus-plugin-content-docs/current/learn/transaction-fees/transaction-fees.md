@@ -80,7 +80,7 @@ nextBaseFee = max(min(nextBaseFeeBeforeBound, UPPER_BOUND_BASE_FEE), LOWER_BOUND
 
 Magma 하드포크 이후, 블록 가스 수수료의 절반이 소진됩니다. See [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md) for details.
 
-Kore 하드포크 이후, 대부분의 블록 가스 수수료가 소진되었습니다. 자세한 내용은 [KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)를 참조하세요.
+Kore 하드포크 이후, 대부분의 블록 가스 수수료가 소진되었습니다. See [KIP-82](https://kips.kaia.io/KIPs/kip-82) for details.
 
 ### Kaia 하드포크 이후 (KIP-162 우선권 수수료)
 
