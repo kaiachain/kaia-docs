@@ -26,7 +26,7 @@ To get traces with the debug API, you first need to decide what kind of informat
   - `fastCallTracer` is a Golang implementation of `callTracer`. But since v1.0.1 the two are identical, so there is no need to use fastCallTracer anymore.
   - `prestateTracer` returns information needed to construct a custom local genesis state that this transaction can run on. Useful for creating a test case out of live blockchain data.
   - `revertTracer` returns the revert reason, if any. This can be replaced by `callTracer` which returns `.reverted.reason` and `.revertReason` fields.
-  - Refer to [API reference](../../references/json-rpc/debug/trace-transaction) for the full list of supported tracers.
+  - Refer to [API reference](../../../references/json-rpc/debug/trace-transaction) for the full list of supported tracers.
 - structLogger is the tracer activated when you don't specify any tracer. The execution of every opcode is shown in detail which is extremely heavy and usually too verbose for application debugging.
 - Custom JS tracer is also supported, unless the node prohibits its use with `--rpc.unsafe-debug.disable` option. You can submit a piece of JavaScript code that gets invoked alongside transaction execution. Below is an example custom tracer that prints the gasUsed after each opcode `"{gasUsed: [], step: function(log) { this.gasUsed.push(log.getGas()); }, result: function() { return this.gasUsed; }, fault: function() {}}"`. You can find more about custom JS tracer [here](https://docs.chainstack.com/reference/custom-js-tracing-ethereum) and [here](https://geth.ethereum.org/docs/developers/evm-tracing/custom-tracer).
 
