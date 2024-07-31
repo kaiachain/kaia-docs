@@ -46,7 +46,7 @@ KIP-103 was introduced with the v1.10.2 release. It introduces a Treasury Fund R
 
 The KGP-6 proposal aims to establish a sustainable and verifiable KAIA token economy. It was approved by the Governance Council, with 26 out of 31 members voting in favor. The proposal includes contributions from various organizations such as 1inch, Swapscanner, Ground X, and others. The goal is to create a more robust and transparent ecosystem for the KAIA token.
 
-## Treasury Rebalance ​
+### Treasury Rebalance ​
 
 |                                    | Baobab                                     | Cypress                                    |
 | ---------------------------------- | ------------------------------------------ | ------------------------------------------ |
