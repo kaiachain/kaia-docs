@@ -493,4 +493,4 @@ This error occurs when you use webpack version 5. In this version, NodeJS polyfi
 
 ## Next Step
 
-For more in-depth guides on Web3-Onboard, please refer to [Blocknative Docs](https://docs.blocknative.com/onboard) and [Blocknative Github repository](https://github.com/blocknative/onboard). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/web3Onboard-sample).
+For more in-depth guides on Web3-Onboard, please refer to [Blocknative Docs](https://docs.blocknative.com/onboard) and [Blocknative Github repository](https://github.com/blocknative/onboard). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Onboard-sample).
