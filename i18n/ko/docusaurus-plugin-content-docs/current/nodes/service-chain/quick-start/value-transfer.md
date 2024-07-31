@@ -149,7 +149,7 @@ $ node erc20-transfer-2step.js
 
 ## ERC-20 인터페이스를 통한 KIP-7 토큰 전송(2단계) <a id="kip-7-token-transfer-via-erc-20-interface-two-step"></a>
 
-[KIP-7](https://kips.klaytn.foundation/KIPs/kip-7)은 ERC-20과 호환되는 토큰 표준입니다. KIP-7 토큰 컨트랙트에 `requestERC20Transfer()` 함수를 호출하여 부모 체인과 자식 체인 간에 KIP-7 토큰을 전송할 수 있습니다.
+[KIP-7](https://kips.kaia.io/KIPs/kip-7) is a token standard compatible with ERC-20. KIP-7 토큰 컨트랙트에 `requestERC20Transfer()` 함수를 호출하여 부모 체인과 자식 체인 간에 KIP-7 토큰을 전송할 수 있습니다.
 ERC-20 인터페이스를 통해 KIP-7 토큰을 전송하는 경우, `approve()` 함수를 호출하여 트랜잭션 발신자를 대신하여 브리지가 토큰을 전송할 수 있도록 합니다. 그런 다음 `requestERC20Transfer()` 함수를 호출합니다.
 아래 명령은 브리지 컨트랙트와 KIP-7 컨트랙트를 배포합니다.
 
