@@ -90,9 +90,9 @@ KIP의 대표적인 예로는 [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7),
 
 This is the world state of accounts in Kaia containing the balances, storage variables of the account and the hash of the code or bytecode depending on if the account is an EOA or SCA.
 
-### 카이아 가상머신(KLVM, Kaia virtual machine)
+### Kaia virtual machine (KVM)
 
-카이아 스마트 컨트랙트를 실행하는 가상 상태 머신입니다. 이더리움 가상머신(EVM)에서 파생된 준 튜링 완전 스택 기반 가상머신입니다. KLVM은 카이아 블록체인에서 스마트 컨트랙트를 처리하고 실행하는 역할을 담당합니다.
+카이아 스마트 컨트랙트를 실행하는 가상 상태 머신입니다. 이더리움 가상머신(EVM)에서 파생된 준 튜링 완전 스택 기반 가상머신입니다. The KVM is responsible for processing and executing smart contracts on the Kaia blockchain.
 
 ### 카이아 네트워크 식별자(KNI, Kaia network identifier)
 
