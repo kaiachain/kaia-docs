@@ -13,7 +13,7 @@ In this guide, you'll learn how to use the viem library to read data from the bl
 - Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
 - [Metamask](../../build/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../public-en.md).
-- Test KLAY from [Faucet](https://faucet.kaia.io): fund your account with sufficient KLAY.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 - [NodeJS and NPM](https://nodejs.org/en/)
 - [TS-node](https://www.npmjs.com/package/ts-node): used for running TypeScript scripts.
 
@@ -318,4 +318,4 @@ If the transaction was successful, you'll see the transaction hash and the value
 
 ![](/img/references/viem-interact.png)
 
-For more in-depth guide on viem, please refer to [viem docs](https://viem.sh/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/sdk-and-libraries-for-interacting-with-klaytn-node/viem).
+For more in-depth guide on viem, please refer to [viem docs](https://viem.sh/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/sdk-and-libraries-for-interacting-with-klaytn-node/viem).
