@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Kaia prioritizes providing a seamless developer experience, which is the driving force behind the creation of the Kaia Contracts Wizard (KCW). KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Kaia Contracts](https://github.com/klaytn/klaytn-contracts). In essence, it simplifies the process of developing smart contracts by leveraging the components of Kaia contracts. It's worth noting that the Kaia contracts wizard is built on the foundation of the OpenZeppelin Wizard, further bolstering the security of smart contract development.
+Kaia prioritizes providing a seamless developer experience, which is the driving force behind the creation of the Kaia Contracts Wizard (KCW). KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Kaia Contracts](https://github.com/kaiachain/kaia-contracts). In essence, it simplifies the process of developing smart contracts by leveraging the components of Kaia contracts. It's worth noting that the Kaia contracts wizard is built on the foundation of the OpenZeppelin Wizard, further bolstering the security of smart contract development.
 
 In this guide you will:
 * Understand the basic functionality of Kaia Contracts Wizard.
@@ -17,9 +17,9 @@ Kaia Contracts Wizard posits itself as the fastest and easiest way to write your
 
 As it is, the Kaia contracts wizard supports the following token standards:
 
-* [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) — This is a fungible token standard for Kaia. Fungible means that all tokens are divisible and interchangeable, that is, have the same value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
-* [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) — This is a non-fungible token standard for Kaia. Non-fungible means that each token is indivisible, and therefore, unique. A KIP17 token can represent ownership of a unique item, whether physical property or virtual collectibles — like a picture, item in a game, real estate, and so on.
-* [KIP-37](https://kips.klaytn.foundation/KIPs/kip-37) — This is known as the multi-token standard for Kaia, because it can represent both fungible and non-fungible tokens in a single smart contract.
+* [KIP-7](https://kips.kaia.io/KIPs/kip-7) — This is a fungible token standard for Kaia. Fungible means that all tokens are divisible and interchangeable, that is, have the same value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
+* [KIP-17](https://kips.kaia.io/KIPs/kip-17) — This is a non-fungible token standard for Kaia. Non-fungible means that each token is indivisible, and therefore, unique. A KIP17 token can represent ownership of a unique item, whether physical property or virtual collectibles — like a picture, item in a game, real estate, and so on.
+* [KIP-37](https://kips.kaia.io/KIPs/kip-37) — This is known as the multi-token standard for Kaia, because it can represent both fungible and non-fungible tokens in a single smart contract.
 
 In line with our [Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9) support, Kaia contracts wizard also supports [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), [ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/), [ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/). 
 
@@ -31,9 +31,9 @@ Kaia Contracts Wizard is comprised of the following sections:
 
 * **Features section**: comprises all features available for each token standard. You can find more information about the different extensions available for each tokens in the following links:
 
-    * [KIP7](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
-    * [KIP17](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
-    * [KIP37](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
+    * [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
+    * [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
+    * [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
 * **Access Control section**: comprises all the available access control mechanisms for each token standard.
 
@@ -45,7 +45,7 @@ Having explored the different parts of the Kaia contracts wizard, you can now se
 
 ## Customizing and Deploying Kaia Contracts on Kaia Network
 
-In this section, you will deploy the generated code from klaytn contracts wizard to the Kaia Testnet Kairos using Foundry. The generated code will serve as a starting point and customized further to fit an airdrop contract for KIP7 and KIP17 tokens.  While on the other end the generated code for KIP37 will be used as it is. 
+In this section, you will deploy the generated code from kaia contracts wizard to the Kaia Testnet Kairos using Foundry. The generated code will serve as a starting point and customized further to fit an airdrop contract for KIP7 and KIP17 tokens.  While on the other end the generated code for KIP37 will be used as it is. 
 
 Let’s get started! 
 
@@ -81,8 +81,8 @@ Here is the generated code:
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP7/KIP7.sol";
-import "@klaytn/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
 contract KIP7TokenAirdrop is KIP7, Ownable {
     constructor() KIP7("KIP7 Token Airdrop", "KTA") {}
     function supportsInterface(bytes4 interfaceId)
@@ -105,8 +105,8 @@ The next thing is to modify the code above to suit our airdrop implementation wh
 ```solidity
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP7/KIP7.sol";
-import "@klaytn/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
 contract KIP7TokenAirdrop is KIP7, Ownable {
     constructor() KIP7("KIP7 Token Airdrop", "KTA") {
     }
@@ -157,10 +157,10 @@ Here is the generated code:
 ```solidity 
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
-import "@klaytn/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
-import "@klaytn/contracts/access/Ownable.sol";
-import "@klaytn/contracts/utils/Counters.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/utils/Counters.sol";
 contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
@@ -193,10 +193,10 @@ The next thing is to modify the code above to suit our airdrop implementation wh
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
-import "@klaytn/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
-import "@klaytn/contracts/access/Ownable.sol";
-import "@klaytn/contracts/utils/Counters.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/utils/Counters.sol";
 contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
@@ -255,8 +255,8 @@ Here is the generated code:
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP37/KIP37.sol";
-import "@klaytn/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/KIP/token/KIP37/KIP37.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
 contract KIP37MultiToken is KIP37, Ownable {
     constructor() KIP37("") {}
     function setURI(string memory newuri) public onlyOwner {

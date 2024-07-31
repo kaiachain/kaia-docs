@@ -48,7 +48,7 @@ By [WalletConnect](https://walletconnect.com), [Web3Modal](https://web3modal.com
 
 :::note
 
-Example Code: [kaikas-web3modal](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/kaikas-web3modal)
+Example Code: [kaikas-web3modal](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-web3modal)
 
 :::  
 
@@ -69,13 +69,13 @@ By [Blocknative](https://www.blocknative.com), [Web3-Onboard](https://onboard.bl
 
 :::note
 
-Example Code: [kaikas-web3onboard-react](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/kaikas-web3onboard-react)
+Example Code: [kaikas-web3onboard-react](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-web3onboard-react)
 
 :::
 
 ## 2. Utility Libraries
 
-Libraries like [web3klaytn](#2.1-web3klaytn) & [ethers.js](#2.2-ethersjs-example) abstract just enough to streamline blockchain interactions while still being able to call [Provider](#3-providers) APIs directly.
+Libraries like [kaia-sdk](#21-kaia-sdk) & [ethers.js](#22-ethersjs-example) abstract just enough to streamline blockchain interactions while still being able to call [Provider](#3-providers) APIs directly.
 
 Using Utility Libraries to connect an account or send native tokens (e.g., KAIA/ETH) will be no different, *in terms of syntax & lines of code*, from calling Providers directly. Where libraries mainly improve are in the following areas:
 
@@ -85,16 +85,16 @@ Using Utility Libraries to connect an account or send native tokens (e.g., KAIA/
   * string error codes/messages are mapped to error Classes with custom properties & methods.
 * Documentation & Type-safety
 
-### 2.1. web3klaytn
+### 2.1. kaia-sdk
 
-[web3klaytn](https://github.com/klaytn/web3klaytn) is a set of drop-in extensions for other Utility Libraries, like [ethers.js](https://docs.ethers.io/v6) & [web3.js](https://web3js.org). It allows you to use your preferred library while exposing first-party support for [Kaia-specific methods](https://docs.kaia.io/references/json-rpc/kaia/account-created/):
+[kaia-sdk](https://github.com/kaiachain/kaia-sdk) is a set of drop-in extensions for other Utility Libraries, like [ethers.js](https://docs.ethers.io/v6) & [web3.js](https://web3js.org). It allows you to use your preferred library while exposing first-party support for [Kaia-specific methods](https://docs.kaia.io/references/json-rpc/kaia/account-created/):
 
 * Transaction, Account, & Account Key types
 * Fee Delegation
 
 :::note
 
-Example Code: [kaikas-web3klaytn](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/kaikas-web3klaytn)
+Example Code: [kaikas-web3klaytn](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-web3klaytn)
 
 :::
 
@@ -107,7 +107,7 @@ Example Code: [kaikas-web3klaytn](https://github.com/klaytn/examples/tree/main/t
 
 :::note
 
-Example Code: [kaikas-ethersjs](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/kaikas-ethersjs)
+Example Code: [kaikas-ethersjs](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-ethersjs)
 
 :::
 

@@ -16,7 +16,7 @@ kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 
 **port** is used to make connections with peer nodes through TCP. In Kaia, the default `port` is `32323` and the default `subport` is `32324`. Note that the default `subport` is configured as `port + 1` in `kend.conf`. Depending on the number of TCP listening ports, Kaia offers two [types of connections](./multiport.md).
 
-**discport** is used for checking if the known neighbors are reachable klaytn nodes and fetching their neighbors' addresses for new connections. Note that this is a UDP port.
+**discport** is used for checking if the known neighbors are reachable kaia nodes and fetching their neighbors' addresses for new connections. Note that this is a UDP port.
 By default, the UDP port, or `discport`, uses the same port with the TCP port.
 If the node uses a different port for `discport`, it can be specified by the `discport` query parameter.
 

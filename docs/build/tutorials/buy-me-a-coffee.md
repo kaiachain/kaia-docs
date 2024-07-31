@@ -859,4 +859,4 @@ If you’ve made it this far, congratulations! In this tutorial, you have learne
 
 From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KAIA statically. You can have access to the full codebase here on [github](https://github.com/ayo-klaytn/buy-me-a-coffee) and also test the website using this [link](https://spring-fog-0605.on.fleek.co/).
 
-If you want more information, visit [Kaia Docs](https://docs.klaytn.foundation/), [Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react), and [Fleek Docs](https://docs.fleek.co/tutorials/hosting/). If you have any questions, visit [Kaia Forum](https://forum.klaytn.foundation/).
+If you want more information, visit [Kaia Docs](https://docs.klaytn.foundation/), [Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react), and [Fleek Docs](https://docs.fleek.co/tutorials/hosting/). If you have any questions, visit [Kaia Forum](https://devforum.kaia.io/).

@@ -90,7 +90,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 </aside>
 
-1. Stop klaytn daemon process before swap
+1. Stop kaia daemon process before swap
     1. ***IMPORTANT*** Remove CN node in Kaia council if the node type is CN 
 
     💡 You can get packages for EN in the [Startup the CN](../../nodes/core-cell/install/install-consensus-nodes.md#startup-the-cn).
@@ -114,7 +114,7 @@ $ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
 
 3. (Optional) Delete the old path if it is not required anymore
 
-### Option 2 - Update DATA_DIR & LOG_DIR in klaytn config file
+### Option 2 - Update DATA_DIR & LOG_DIR in kaia config file
 
 1. Kaia DIR Path Change
     - Option 1 - New disk

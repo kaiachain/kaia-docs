@@ -83,8 +83,8 @@ It is important to note that deploying a multi-part contract involves the same s
 ```solidity
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP7/KIP7.sol";
-import "@klaytn/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
 // the creator of the project mints certian amount of fungible tokens directly to a certain selection of wallets.
 contract TokenAirdrop is KIP7, Ownable {
     constructor() KIP7("Token Aidrop Demo", "TAD") {
@@ -237,4 +237,4 @@ After filling the verification parameters, click on the **Sign and Submit** butt
 
 ## Conclusion
 
-Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascope and Kaiascan solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.klaytn.foundation/) for more information and [Kaia Forum](https://forum.klaytn.foundation/) if you have any questions.
+Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascope and Kaiascan solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.klaytn.foundation/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.

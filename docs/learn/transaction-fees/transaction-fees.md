@@ -80,7 +80,7 @@ The tuning parameters at a given block can be found through the `kaia_getParams`
 
 Since Magma hardfork, half of the block gas fee is burnt. See [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md) for details.
 
-Since Kore hardfork, most of the block gas fee is burnt. See [KIP-82](https://kips.klaytn.foundation/KIPs/kip-82) for details.
+Since Kore hardfork, most of the block gas fee is burnt. See [KIP-82](https://kips.kaia.io/KIPs/kip-82) for details.
 
 ### After Kaia hardfork (KIP-162 priority fee)
 
