@@ -90,9 +90,9 @@ Some of typical examples of KIP are [KIP-7](http://kips.klaytn.foundation/KIPs/k
 
 This is the world state of accounts in Klaytn containing the balances, storage variables of the account and the hash of the code or bytecode depending on if the account is an EOA or SCA.
 
-### Klaytn virtual machine (KLVM)
+### Kaia virtual machine (KVM)
 
-A virtual state machine that executes Klaytn smart contracts. It is a quasi-Turing-complete stack-based virtual machine that is derived from the Ethereum Virtual Machine (EVM). The KLVM is responsible for processing and executing smart contracts on the Klaytn blockchain.
+A virtual state machine that executes Klaytn smart contracts. It is a quasi-Turing-complete stack-based virtual machine that is derived from the Ethereum Virtual Machine (EVM). The KVM is responsible for processing and executing smart contracts on the Kaia blockchain.
 
 ### Klaytn network identifier (KNI)
 
