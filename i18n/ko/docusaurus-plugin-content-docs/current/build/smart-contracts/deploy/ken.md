@@ -17,7 +17,7 @@
 
 ### 엔드포인트 노드 다운로드 및 초기화(EN) <a href="#download-and-initialize-an-endpoint-node-en" id="download-and-initialize-an-endpoint-node-en"></a>
 
-제공된 [ken 바이너리 패키지](../../../nodes/downloads/downloads.md#get-the-packages)의 압축을 풀고 파일을 klaytn 폴더에 복사합니다.
+Unzip the provided [ken binary package](../../../nodes/downloads/downloads.md#get-the-packages) and copy the files into the kaia folder.
 
 **참고**: `ken`으로 시작하는 적절한 패키지를 다운로드하세요.
 
@@ -181,7 +181,7 @@ $
 
 ### caver-js 설치하기 <a id="installing-caver-js"></a>
 
-이렇게 klaytn 프로젝트 디렉터리를 생성하는 것이 좋습니다:
+We recommend to create a kaia project directory such that:
 
 ```bash
 $ mkdir $HOME/klaytn
@@ -192,7 +192,7 @@ $ mkdir $HOME/klaytn
 [caver-js](../../../references/sdk/caver-js/caver-js.md)는 카이아 네트워크를 위한 JSON RPC 프레임워크입니다(이더리움의 web3.js에 해당). caver-js를 설치에 앞서에 `npm init` 명령어를 통해 `package.json` 파일을 생성한 후, `npm install caver-js`를 입력해 caver-js를 설치해야 합니다.
 
 ```bash
-$ npm init # initialize npm at the klaytn project directory
+$ npm init # initialize npm at the kaia project directory
 $ npm install caver-js
 ```
 
@@ -427,7 +427,7 @@ module.exports = {
 컨트랙트 주소 뒤에 `KaiaGreeter`'가 표시됩니다:
 
 ```bash
-$ truffle deploy --network klaytn --reset
+$ truffle deploy --network kaia --reset
 Using network 'klaytn'.
 Running migration: 1_initial_migration.js
   Deploying Migrations...
