@@ -1,17 +1,17 @@
-# Before You Start
+# Môi trường phát triển
 
-**Kaia Networks**
+**Mạng Kaia**
 
-- Kairos testnet
+- Mạng thử nghiệm Kairos
 - Mainnet
 
-**Endpoint Node**
+**Nút điểm cuối**
 
-- Your [Endpoint Node](../../nodes/endpoint-node/endpoint-node.md) is needed to connect to the Kaia network and to issue an API call or send a transaction.
-- `ken` is a Kaia Endpoint Node binary. `ken` exposes two interfaces, a [command-line interface](../../nodes/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created). `ken` runs on Linux and MacOS.
-- `ken` CLI comes with several utility and node management functions.
+- Bạn cần có [Nút điểm cuối](../../nodes/endpoint-node/endpoint-node.md) để kết nối với mạng lưới Kaia và để thực hiện cuộc gọi qua API hoặc gửi một giao dịch.
+- `ken` là một nhị phân Nút điểm cuối của Kaia. `ken` exposes two interfaces, a [command-line interface](../../nodes/endpoint-node/ken-cli-commands.md) and the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created). `ken` chạy trên Linux và MacOS.
+- `ken` CLI đi kèm với một số chức năng quản lý nút và tiện ích.
 
-**Smart Contract Development**
+**Phát triển hợp đồng thông minh**
 
 - [Kaia Plugin for Remix](https://ide.klaytn.foundation) - Kaia Plugin for Remix, a browser-based compiler and IDE.
 - [Truffle](https://github.com/trufflesuite/truffle) - An open-source tool for developing smart contracts in Solidity.
