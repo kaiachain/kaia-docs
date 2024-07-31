@@ -70,7 +70,7 @@ KIP-82 represents a significant step towards a more equitable and stable governa
 **Date: 2022-09-19**
 
 KIP-81 was introduced with v1.10.0 and activated at the Kore hardfork. It introduced a stake-based voting mechanism through its governance portal. This approach shifts from the current system, where each Governance Council (GC) member casts one vote, to a model where voting power is determined by the amount of staked KAIA, with a cap to prevent any single entity from gaining excessive influence.
-A GC member will receive one vote per a certain amount of staked KAIA (initially set at 5 million KLAY), with a cap of one less than the total number of GC members. For instance, if there are 35 GC members, the maximum voting power is 34 votes, preventing monopolies.
+A GC member will receive one vote per a certain amount of staked KAIA (initially set at 5 million KAIA), with a cap of one less than the total number of GC members. For instance, if there are 35 GC members, the maximum voting power is 34 votes, preventing monopolies.
 With this system, governance topics are discussed in the Governance Forum and voted on through Klaytn Square, ensuring responsibility and transparency in decision-making.
 This change aims to make the voting process more transparent and reflect the interests of those most invested in Kaia. By linking voting power to the staking amount, the system incentivizes greater participation and alignment of interests, ensuring that those who contribute more to the ecosystem have a proportionate influence on its decisions.
 
