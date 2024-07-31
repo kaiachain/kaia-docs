@@ -17,7 +17,7 @@ This step by step guide will walk you through the process of launching an Endpoi
 
 ### Download and Initialize an Endpoint Node (EN) <a href="#download-and-initialize-an-endpoint-node-en" id="download-and-initialize-an-endpoint-node-en"></a>
 
-Unzip the provided [ken binary package](../../../nodes/downloads/downloads.md#get-the-packages) and copy the files into the klaytn folder.
+Unzip the provided [ken binary package](../../../nodes/downloads/downloads.md#get-the-packages) and copy the files into the kaia folder.
 
 **Note**: Please download appropriate package starting with `ken`.
 
@@ -181,7 +181,7 @@ $
 
 ### Installing caver-js <a id="installing-caver-js"></a>
 
-We recommend to create a klaytn project directory such that:
+We recommend to create a kaia project directory such that:
 
 ```bash
 $ mkdir $HOME/klaytn
@@ -192,7 +192,7 @@ $ mkdir $HOME/klaytn
 ​[caver-js](../../../references/sdk/caver-js/caver-js.md) is a JSON RPC framework for the Klaytn network \(equivalent to web3.js in Ethereum\). Before installing caver-js, you must generate `package.json` file via `npm init` command, and then type `npm install caver-js` to install caver-js.
 
 ```bash
-$ npm init # initialize npm at the klaytn project directory
+$ npm init # initialize npm at the kaia project directory
 $ npm install caver-js
 ```
 
@@ -427,15 +427,15 @@ Deploy the contract using the following command.
 Your contract address is displayed followed `KlaytnGreeter`:
 
 ```bash
-$ truffle deploy --network klaytn --reset
+$ truffle deploy --network kaia --reset
 Using network 'klaytn'.
 Running migration: 1_initial_migration.js
   Deploying Migrations...
   ... 0x0f5108bd9e51fe6bf71dfc472577e3f55519e0b5d140a99bf65faf26830acfca
   Migrations: 0x97b1b3735c8f2326a262dbbe6c574a8ea1ba0b7d
-  Deploying KlaytnGreeter...
+  Deploying KaiaGreeter...
   ... 0xcba53b6090cb4a118359b27293ba95116a8f35f66ae50fbd23ae1081ce9ffb9e
-  KlaytnGreeter: [SAVE THIS ADDRESS!!] # this is your smart contract address
+  KaiaGreeter: [SAVE THIS ADDRESS!!] # this is your smart contract address
 Saving successful migration to network...
   ... 0x14eb68727ca5a0ac767441c9b7ab077336f9311f71e9854d42c617aebceeec72
 Saving artifacts...
