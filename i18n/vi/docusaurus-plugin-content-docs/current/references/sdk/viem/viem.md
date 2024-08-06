@@ -13,7 +13,7 @@ In this guide, you'll learn how to use the viem library to read data from the bl
 - Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
 - [Metamask](../../build/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../public-en.md).
-- Test KLAY from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KLAY.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 - [NodeJS and NPM](https://nodejs.org/en/)
 - [TS-node](https://www.npmjs.com/package/ts-node): used for running TypeScript scripts.
 
@@ -38,7 +38,7 @@ In this tutorial, we will create a bunch of scripts file to read data from the b
 
 ### 2. Set up Public Client & Transport
 
-Firstly, you need to set up your Public [Client](https://viem.sh/docs/clients/intro) with a desired [Transport](https://viem.sh/docs/clients/intro) & [Chain](https://viem.sh/docs/chains/introduction). A Public Client is an interface to **public** [JSON-RPC API](https://docs.klaytn.foundation/docs/references/public-en/) methods such as retrieving block numbers, transactions, reading from smart contracts, etc through [Public Actions](https://viem.sh/docs/actions/public/introduction).
+Firstly, you need to set up your Public [Client](https://viem.sh/docs/clients/intro) with a desired [Transport](https://viem.sh/docs/clients/intro) & [Chain](https://viem.sh/docs/chains/introduction). A Public Client is an interface to **public** [JSON-RPC API](https://docs.kaia.io/references/public-en/) methods such as retrieving block numbers, transactions, reading from smart contracts, etc through [Public Actions](https://viem.sh/docs/actions/public/introduction).
 
 ```ts
 import { createPublicClient, http } from 'viem'
@@ -318,4 +318,4 @@ If the transaction was successful, you'll see the transaction hash and the value
 
 ![](/img/references/viem-interact.png)
 
-For more in-depth guide on viem, please refer to [viem docs](https://viem.sh/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/sdk-and-libraries-for-interacting-with-klaytn-node/viem).
+For more in-depth guide on viem, please refer to [viem docs](https://viem.sh/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/sdk-and-libraries-for-interacting-with-klaytn-node/viem).

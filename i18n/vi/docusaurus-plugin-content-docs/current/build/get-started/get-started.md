@@ -1,6 +1,6 @@
-# Get Started
+# Tổng quan
 
-Try and get familiar with Kaia. This chapter is the starting point of your journey to Kaia dApps.
+Dùng thử và làm quen với Kaia. Chương này là điểm khởi đầu cho hành trình của bạn đến các dApp Kaia.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

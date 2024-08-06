@@ -2,75 +2,125 @@
 
 The Klaytn blockchain is undergoing a transition to the Kaia blockchain. This FAQ addresses common questions and concerns for CEXs, node providers, wallet providers, dApp builders, and retail users familiar with the Klaytn ecosystem, to ensure a smooth transition.
 
-- [As an RPC node provider, what changes do I need to make to my infrastructure to support the transition from Klaytn to Kaia, and will there be any breaking changes in the RPC APIs?](#as-an-rpc-node-provider-what-changes-do-i-need-to-make-to-my-infrastructure-to-support-the-transition-from-klaytn-to-kaia-and-will-there-be-any-breaking-changes-in-the-rpc-apis-)
-- [Is Kaia a new chain with a different chain ID, or an upgrade based on the Klaytn chain?](#is-kaia-a-new-chain-with-a-different-chain-id-or-an-upgrade-based-on-the-klaytn-chain-)
-- [Is KAIA a rebrand from KLAY or a completely new token?](#is-kaia-a-rebrand-from-klay-or-a-completely-new-token-)
-- [Will Kaia be on the Klaytn mainnet or a different mainnet?](#will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-)
-- [Will the current Klaytn mainnet continue to work after the rebrand?](#will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-)
-- [When will the KAIA market open?](#when-will-the-kaia-market-open-)
-- [Will Klaytn provide a swap or migration website for new KAIA tokens?](#will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-)
-- [Will there be any delay in receiving KAIA tokens?](#will-there-be-any-delay-in-receiving-kaia-tokens-)
-- [Is there a limit on the amount for swapping KLAY and FNSA tokens?](#is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-)
-- [Is it necessary to update the brand name from Klaytn to Kaia in the wallet?](#is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-)
-- [What happens if we don't upgrade to the Kaia brand after the mainnet upgrade?](#what-happens-if-we-dont-upgrade-to-the-kaia-brand-after-the-mainnet-upgrade-)
-- [What will happen to Klaytnscope, the default explorer?](#what-will-happen-to-klaytnscope-the-default-explorer-)
-- [What support will Kaia Foundation provide for the migration of Klaytn and Finschia apps?](#what-support-will-kaia-foundation-provide-for-the-migration-of-klaytn-and-finschia-apps-)
-- [Will Kaia Foundation continue to provide code audit grants as Klaytn Foundation did?](#will-kaia-foundation-continue-to-provide-code-audit-grants-as-klaytn-foundation-did-)
+- KLAY and FNSA holders
+  - [What will happen to KLAY and FNSA?](#what-will-happen-to-klay-and-fnsa-)
+  - [Will I need to create a new wallet for Kaia?](#will-i-need-to-create-a-new-wallet-for-kaia-)
+  - [Will Klaytn provide a swap or migration website for new KAIA tokens?](#will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-)
+  - [Will there be any delay in receiving KAIA tokens?](#will-there-be-any-delay-in-receiving-kaia-tokens-)
+  - [Is there a limit on the amount for swapping KLAY and FNSA tokens?](#is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-)
+  - [I'm currently staking FNSA. Will I need to wait 7 days to unstake my FNSA to swap to KAIA?](#im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-)
 
-## As an RPC node provider, what changes do I need to make to my infrastructure to support the transition from Klaytn to Kaia, and will there be any breaking changes in the RPC APIs? <a id="as-an-rpc-node-provider-what-changes-do-i-need-to-make-to-my-infrastructure-to-support-the-transition-from-klaytn-to-kaia-and-will-there-be-any-breaking-changes-in-the-rpc-apis-"></a>
+- DApp builders
+  - [What do DApps on Klaytn need to do to migrate to Kaia?](#what-do-dapps-on-klaytn-need-to-do-to-migrate-to-kaia-)
+  - [What do DApps on Finschia need to do to migrate to Kaia?](#what-do-dapps-on-finschia-need-to-do-to-migrate-to-kaia-)
+  - [Will Kaia Foundation continue to provide code audit grants as Klaytn Foundation did?](#will-kaia-foundation-continue-to-provide-code-audit-grants-as-klaytn-foundation-did-)
+
+- Wallet providers
+  - [Is it necessary to update the brand name from Klaytn to Kaia in the wallet?](#is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-)
+  - [What happens if we don't upgrade to the Kaia brand after the mainnet upgrade?](#what-happens-if-we-dont-upgrade-to-the-kaia-brand-after-the-mainnet-upgrade-)
+  - [What will happen to Klaytnscope, the default explorer?](#what-will-happen-to-klaytnscope-the-default-explorer-)
+
+- Centralized exchanges
+  - [Is KAIA a rebrand from KLAY or a completely new token?](#is-kaia-a-rebrand-from-klay-or-a-completely-new-token-)
+  - [Will Kaia be on the Klaytn mainnet or a different mainnet?](#will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-)
+  - [Will the current Klaytn mainnet continue to work after the rebrand?](#will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-)
+  - [When will the KAIA market open?](#when-will-the-kaia-market-open-)
+
+- RPC node providers
+  - [What changes do I need to make to my infrastructure to support the transition from Klaytn to Kaia, and will there be any breaking changes in the RPC APIs?](#as-an-rpc-node-provider-what-changes-do-i-need-to-make-to-my-infrastructure-to-support-the-transition-from-klaytn-to-kaia-and-will-there-be-any-breaking-changes-in-the-rpc-apis-)
+  - [Is Kaia a new chain with a different chain ID, or an upgrade based on the Klaytn chain?](#is-kaia-a-new-chain-with-a-different-chain-id-or-an-upgrade-based-on-the-klaytn-chain-)
+
+## KLAY and FNSA holders
+
+### What will happen to KLAY and FNSA? <a id="what-will-happen-to-klay-and-fnsa-"></a>
+
+Once the KAIA coin launches, your KLAY balance will automatically be reflected as KAIA. When the Kaia Portal goes live, FNSA holders will be able to utilize its swap service to burn their FNSA tokens on the Finschia network and claim an equivalent value of KLAY tokens in preparation for the KLAY to KAIA transition. Please read [this post](https://medium.com/lineblockchain/preparations-for-the-upcoming-kaia-chain-token-swap-d9ccd853eda4) to learn more about swapping your FNSA to KLAY.
+
+### Will I need to create a new wallet for Kaia? <a id="will-i-need-to-create-a-new-wallet-for-kaia-"></a>
+
+Your Klaytn wallet will be usable on Kaia, but you will need to update the RPC and block explorer URLS if you are using a 3rd-party multi chain wallet such as Metamask. These will be provided at a later date. Finschia wallet holders will need to create a Kaia wallet, and a website will be provided for FNSA holders to burn their tokens and claim an equivalent value of KAIA.
+
+### Will Klaytn provide a swap or migration website for new KAIA tokens? <a id="will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-"></a>
+
+No action is required from users. KLAY tokens will be automatically renamed to KAIA tokens.
+
+### Will there be any delay in receiving KAIA tokens? <a id="will-there-be-any-delay-in-receiving-kaia-tokens-"></a>
+
+The token swap will be delayed by at least 30 minutes Timelock for safety. Relayers and RPC nodes may incur insignificant additional delays
+
+### Is there a limit on the amount for swapping KLAY and FNSA tokens? <a id="is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-"></a>
+
+There is no limit for swapping and bridging the two tokens.
+
+### I'm currently staking FNSA. Will I need to wait 7 days to unstake my FNSA to swap to KAIA? <a id="im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-"></a>
+
+With the upcoming launch of Kaia, a governance vote will be proposed on the Finschia network to smoothly integrate token and governance mechanisms, including potentially reducing the unbonding time from 7 days to a couple of hours. If the vote passes, FNSA holders will be able to unstake and swap without having to wait a week.
+
+## DApp builders
+
+### What do DApps on Klaytn need to do to migrate to Kaia? <a id="what-do-dapps-on-klaytn-need-to-do-to-migrate-to-kaia-"></a>
+
+Klaytn apps will work seamlessly with the Kaia chain, requiring only rebranding. The team will provide branding guidelines. For existing Finschia apps, tech updates and marketing support will be provided through their business channels.
+
+### What do DApps on Finschia need to do to migrate to Kaia? <a id="what-do-dapps-on-finschia-need-to-do-to-migrate-to-kaia-"></a>
+
+For DApps in the Finschia ecosystem to migrate to Kaia, a process similar to migrating from a Cosmwasm chain to an EVM chain is required. Additional migration support will be shared once available, but if you need immediate assistance please contact Finschia Foundation.
+
+### Will Kaia Foundation continue to provide code audit grants as Klaytn Foundation did? <a id="will-kaia-foundation-continue-to-provide-code-audit-grants-as-klaytn-foundation-did-"></a>
+
+Yes, audit grants will remain the same along with other grant and funding programs available for Klaytn.
+
+## Wallet providers
+
+### Is it necessary to update the brand name from Klaytn to Kaia in the wallet? <a id="is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-"></a>
+
+Yes, eco-partners will be informed when the update is required.
+
+### What happens if we don't upgrade to the Kaia brand after the mainnet upgrade? <a id="what-happens-if-we-dont-upgrade-to-the-kaia-brand-after-the-mainnet-upgrade-"></a>
+
+There will be no functional issues after the mainnet upgrade. Rebranding can be done later.
+
+### What will happen to Klaytnscope, the default explorer? <a id="what-will-happen-to-klaytnscope-the-default-explorer-"></a>
+
+Klaytnscope will continue to work as before and will be upgraded after three months.
+
+## Centralized exchanges
+
+### Is KAIA a rebrand from KLAY or a completely new token? <a id="is-kaia-a-rebrand-from-klay-or-a-completely-new-token-"></a>
+
+KAIA is a rebrand from KLAY, but there will be changes in supply due to the merger of Klaytn and Finschia chains. KLAY will continue to be used with the updated name and ticker symbol. It is recommended to renew the token chart if possible.
+
+### Will Kaia be on the Klaytn mainnet or a different mainnet? <a id="will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-"></a>
+
+Kaia will continue to be on the Klaytn mainnet.
+
+### Will the current Klaytn mainnet continue to work after the rebrand? <a id="will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-"></a>
+
+Yes, the mainnet's operation will remain unaffected. The transition to Kaia primarily involves a name change and technical upgrades occurring behind the scenes.
+
+### When will the KAIA market open? <a id="when-will-the-kaia-market-open-"></a>
+
+The KAIA market will open in Q3 2024, we will share the exact block number closer to the date.
+
+## RPC node providers
+
+### What changes do I need to make to my infrastructure to support the transition from Klaytn to Kaia, and will there be any breaking changes in the RPC APIs? <a id="as-an-rpc-node-provider-what-changes-do-i-need-to-make-to-my-infrastructure-to-support-the-transition-from-klaytn-to-kaia-and-will-there-be-any-breaking-changes-in-the-rpc-apis-"></a>
 
 Most RPC APIs will remain the same on the Kaia chain, with the exception of namespace changes from klay_ to kaia_. However, klay_ will still be available for backward compatibility.
 
 To support the transition from Klaytn to Kaia, RPC node providers will need to upgrade their binary to the Kaia version once it is released. No immediate action is required before the upgrade.
 
-## Is Kaia a new chain with a different chain ID, or an upgrade based on the Klaytn chain? <a id="is-kaia-a-new-chain-with-a-different-chain-id-or-an-upgrade-based-on-the-klaytn-chain-"></a>
+### Is Kaia a new chain with a different chain ID, or an upgrade based on the Klaytn chain? <a id="is-kaia-a-new-chain-with-a-different-chain-id-or-an-upgrade-based-on-the-klaytn-chain-"></a>
 
 Kaia is a hard fork of the Klaytn chain, and the chain ID remains unchanged. The previous testnet "Baobab" has been renamed to "Kairos," while the mainnet "Cypress" is now referred to as "Mainnet" or "Kaia Mainnet." The original URLs related to Klaytn such as docs, website, public endpoints, and package download links will remain for three months to ensure a smooth transition.
 
-## Is KAIA a rebrand from KLAY or a completely new token? <a id="is-kaia-a-rebrand-from-klay-or-a-completely-new-token-"></a>
+## Resources
 
-KAIA is a rebrand from KLAY, but there will be changes in supply due to the merger of Klaytn and Finschia chains. KLAY will continue to be used with the updated name and ticker symbol. It is recommended to renew the token chart if possible.
+Here are the main information sources for the chain merge:
 
-## Will Kaia be on the Klaytn mainnet or a different mainnet? <a id="will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-"></a>
-
-Kaia will continue to be on the Klaytn mainnet.
-
-## Will the current Klaytn mainnet continue to work after the rebrand? <a id="will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-"></a>
-
-Yes, the mainnet's operation will remain unaffected. The transition to Kaia primarily involves a name change and technical upgrades occurring behind the scenes.
-
-## When will the KAIA market open? <a id="when-will-the-kaia-market-open-"></a>
-
-KAIA team is committed to open the KAIA market as soon as possible but the exact block number and dates will be shared later.
-
-## Will Klaytn provide a swap or migration website for new KAIA tokens? <a id="will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-"></a>
-
-No action is required from users. KLAY tokens will be automatically renamed to KAIA tokens.
-
-## Will there be any delay in receiving KAIA tokens? <a id="will-there-be-any-delay-in-receiving-kaia-tokens-"></a>
-
-The token swap will be delayed by at least 30 minutes Timelock for safety. Relayers and RPC nodes may incur insignificant additional delays
-
-## Is there a limit on the amount for swapping KLAY and FNSA tokens? <a id="is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-"></a>
-
-There is no limit for swapping and bridging the two tokens.
-
-## Is it necessary to update the brand name from Klaytn to Kaia in the wallet? <a id="is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-"></a>
-
-Yes, eco-partners will be informed when the update is required.
-
-## What happens if we don't upgrade to the Kaia brand after the mainnet upgrade? <a id="what-happens-if-we-dont-upgrade-to-the-kaia-brand-after-the-mainnet-upgrade-"></a>
-
-There will be no functional issues after the mainnet upgrade. Rebranding can be done later.
-
-## What will happen to Klaytnscope, the default explorer? <a id="what-will-happen-to-klaytnscope-the-default-explorer-"></a>
-
-Klaytnscope will continue to work as before and will be upgraded after three months.
-
-## What support will Kaia Foundation provide for the migration of Klaytn and Finschia apps? <a id="what-support-will-kaia-foundation-provide-for-the-migration-of-klaytn-and-finschia-apps-"></a>
-
-Klaytn apps will work seamlessly with the Kaia chain, requiring only rebranding. The team will provide branding guidelines. For existing Finschia apps, tech updates and marketing support will be provided through their business channels.
-
-## Will Kaia Foundation continue to provide code audit grants as Klaytn Foundation did? <a id="will-kaia-foundation-continue-to-provide-code-audit-grants-as-klaytn-foundation-did-"></a>
-
-Yes, audit grants will remain the same.
+- [Governance proposal](https://govforum.klaytn.foundation/t/kgp-25-klaytn-finschia-mainnet-merge/719)
+- [Our vision behind the merge](https://medium.com/klaytn/finschia-klaytn-chain-merge-proposal-our-vision-for-asias-1-blockchain-ecosystem-7de1588e28c0)
+- [Crafting the core of Kaia DeFi](https://medium.com/klaytn/crafting-the-core-of-project-dragons-defi-ecosystem-0fa561e02f56)
+- [Responding to institutional demand](https://medium.com/klaytn/project-dragon-responding-to-institutional-demand-bd36e2e1e2a6)
+- [Supplementary data and insights](https://medium.com/klaytn/project-dragon-supplementary-data-and-insights-d36abd25ca0f)
+- [The Kaia brand story](https://medium.com/klaytn/say-hello-to-kaia-4182ccafe456)

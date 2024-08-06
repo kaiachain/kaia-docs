@@ -6,21 +6,18 @@ You can make a **"transaction"** that including **payment request** to feepayer 
 <CH.Code>
 
 ```js smartContractWriteFeeDelegated.js
-const { Web3, TxType } = require('@kaiachain/web3js-ext')
+const { Web3, TxType } = require("@kaiachain/web3js-ext");
 
-const senderAddr = '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7'
-const senderPriv =
-  '0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49'
-const feePayerAddr = '0xcb0eb737dfda52756495a5e08a9b37aab3b271da'
-const feePayerPriv =
-  '0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4'
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
 
-const provider = new Web3.providers.HttpProvider(
-  'https://public-en-baobab.klaytn.net'
-)
-const web3 = new Web3(provider)
-const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
-const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv)
+const provider = new Web3.providers.HttpProvider("https://public-en-baobab.klaytn.net");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
 
 /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
 // SPDX-License-Identifier: UNLICENSED
@@ -45,49 +42,37 @@ contract Counter {
     }
 }
 */
-const contractAbi = JSON.parse(
-  '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]'
-)
-const contractAddr = '0x95Be48607498109030592C08aDC9577c7C2dD505'
+const contractAbi = JSON.parse('[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]');
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
 
 async function main() {
-  const contract = new web3.eth.Contract(contractAbi, contractAddr)
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
 
-  console.log(
-    'number before',
-    (await contract.methods.number().call()).toString()
-  )
+  console.log("number before", (await contract.methods.number().call()).toString());
 
-  const data = contract.methods.increment().encodeABI()
+  const data = contract.methods.increment().encodeABI();
   const tx = {
     type: TxType.FeeDelegatedSmartContractExecution,
     from: senderAddr,
     to: contractAddr,
     data: data,
-  }
+  };
 
   // Sign transaction by sender
-  const signResult1 = await senderAccount.signTransaction(tx)
-  console.log('senderTxHashRLP', signResult1.rawTransaction)
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
 
   // Sign and send transaction by fee payer
-  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(
-    signResult1.rawTransaction
-  )
-  console.log('signedTx', signResult2.transactionHash)
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
 
-  const receipt = await web3.eth.sendSignedTransaction(
-    signResult2.rawTransaction
-  )
-  console.log('receipt', receipt)
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
 
-  console.log(
-    'number after',
-    (await contract.methods.number().call()).toString()
-  )
+  console.log("number after", (await contract.methods.number().call()).toString());
 }
 
-main()
+main();
 ```
 
 ---
@@ -159,21 +144,18 @@ Set up the provider with the specified kaia **Baobab** testnet URL. A provider i
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js smartContractWriteFeeDelegated.js focus=8:9
-const { Web3, TxType } = require('@kaiachain/web3js-ext')
+const { Web3, TxType } = require("@kaiachain/web3js-ext");
 
-const senderAddr = '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7'
-const senderPriv =
-  '0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49'
-const feePayerAddr = '0xcb0eb737dfda52756495a5e08a9b37aab3b271da'
-const feePayerPriv =
-  '0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4'
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
 
-const provider = new Web3.providers.HttpProvider(
-  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
-)
-const web3 = new Web3(provider)
-const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv)
-const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv)
+const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
 
 /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
 // SPDX-License-Identifier: UNLICENSED
@@ -198,49 +180,37 @@ contract Counter {
     }
 }
 */
-const contractAbi = JSON.parse(
-  '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]'
-)
-const contractAddr = '0x95Be48607498109030592C08aDC9577c7C2dD505'
+const contractAbi = JSON.parse('[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]');
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
 
 async function main() {
-  const contract = new web3.eth.Contract(contractAbi, contractAddr)
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
 
-  console.log(
-    'number before',
-    (await contract.methods.number().call()).toString()
-  )
+  console.log("number before", (await contract.methods.number().call()).toString());
 
-  const data = contract.methods.increment().encodeABI()
+  const data = contract.methods.increment().encodeABI();
   const tx = {
     type: TxType.FeeDelegatedSmartContractExecution,
     from: senderAddr,
     to: contractAddr,
     data: data,
-  }
+  };
 
   // Sign transaction by sender
-  const signResult1 = await senderAccount.signTransaction(tx)
-  console.log('senderTxHashRLP', signResult1.rawTransaction)
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
 
   // Sign and send transaction by fee payer
-  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(
-    signResult1.rawTransaction
-  )
-  console.log('signedTx', signResult2.transactionHash)
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
 
-  const receipt = await web3.eth.sendSignedTransaction(
-    signResult2.rawTransaction
-  )
-  console.log('receipt', receipt)
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
 
-  console.log(
-    'number after',
-    (await contract.methods.number().call()).toString()
-  )
+  console.log("number after", (await contract.methods.number().call()).toString());
 }
 
-main()
+main();
 ```
 
 ---

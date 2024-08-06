@@ -83,7 +83,7 @@ See [DESIGN](./DESIGN.md) for source code organization.
   web3.eth.signTransaction(obj)
   ```
 
-### aia RPCs
+### kaia RPCs
 
 - Following functions calls kaia RPCs. See [src/web3.ts](./src/web3.ts)
   ```js

@@ -165,7 +165,7 @@ Thirdweb 배포 명령에 대한 자세한 내용은 [배포 가이드](https://
 
 ## 결론 <a id="conclusion"></a>
 
-축하드립니다! 이 가이드를 끝까지 완료하셨군요. 궁금한 점이 있으시다면, [카이아 포럼](https://forum.klaytn.foundation/)을 방문하시거나 [공식 thirdweb 지원](https://support.thirdweb.com/)으로 문의해 주세요. 하지만 아래는 카이아에서 Thirdweb으로 빌드하는 동안 필요한 유용한 리소스 목록입니다.
+축하드립니다! 이 가이드를 끝까지 완료하셨군요. If you have any questions, visit the [Kaia Forum](https://devforum.kaia.io/) or reach out to the [official thirdweb support](https://support.thirdweb.com/). 하지만 아래는 카이아에서 Thirdweb으로 빌드하는 동안 필요한 유용한 리소스 목록입니다.
 
 - [Thirdweb 문서](https://portal.thirdweb.com/)
 - [Thirdweb을 사용해 dApp을 구축하는 방법](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)

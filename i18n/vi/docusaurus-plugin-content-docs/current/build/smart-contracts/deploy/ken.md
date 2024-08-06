@@ -11,13 +11,13 @@ Before you start, let's get familiar with several Kaia-specific terms.
 
 This step by step guide will walk you through the process of launching an Endpoint Node \(EN\) of Kairos testnet and building a basic smart contract with your new account. The tutorial consists of two parts, setting up an EN and deploying a smart contract through your EN.
 
-> This guide uses the **Kairos** testnet because deploying a smart contract and submitting a transaction require transaction fees in KAIA. For the development purpose, testnet KAIA can be obtained from the [Kairos faucet](https://kairos.wallet.kaia.io/faucet).
+> This guide uses the **Kairos** testnet because deploying a smart contract and submitting a transaction require transaction fees in KAIA. For the development purpose, testnet KAIA can be obtained from the [Kairos faucet](https://faucet.kaia.io).
 
 ## Launch an Endpoint Node <a href="#launch-an-en" id="launch-an-en"></a>
 
 ### Download and Initialize an Endpoint Node (EN) <a href="#download-and-initialize-an-endpoint-node-en" id="download-and-initialize-an-endpoint-node-en"></a>
 
-Unzip the provided [ken binary package](../../../nodes/downloads/downloads.md#get-the-packages) and copy the files into the klaytn folder.
+Unzip the provided [ken binary package](../../../nodes/downloads/downloads.md#get-the-packages) and copy the files into the kaia folder.
 
 **Note**: Please download appropriate package starting with `ken`.
 
@@ -181,7 +181,7 @@ $
 
 ### Installing caver-js <a id="installing-caver-js"></a>
 
-We recommend to create a klaytn project directory such that:
+We recommend to create a kaia project directory such that:
 
 ```bash
 $ mkdir $HOME/klaytn
@@ -192,7 +192,7 @@ $ mkdir $HOME/klaytn
 ​[caver-js](../../../references/sdk/caver-js/caver-js.md) is a JSON RPC framework for the Kaia network \(equivalent to web3.js in Ethereum\). Before installing caver-js, you must generate `package.json` file via `npm init` command, and then type `npm install caver-js` to install caver-js.
 
 ```bash
-$ npm init # initialize npm at the klaytn project directory
+$ npm init # initialize npm at the kaia project directory
 $ npm install caver-js
 ```
 
@@ -427,7 +427,7 @@ Deploy the contract using the following command.
 Your contract address is displayed followed `KaiaGreeter`:
 
 ```bash
-$ truffle deploy --network klaytn --reset
+$ truffle deploy --network kaia --reset
 Using network 'klaytn'.
 Running migration: 1_initial_migration.js
   Deploying Migrations...

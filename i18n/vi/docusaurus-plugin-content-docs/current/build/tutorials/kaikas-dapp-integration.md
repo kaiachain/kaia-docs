@@ -8,7 +8,7 @@
 
 ## Introduction
 
-[Kaikas](https://docs.kaikas.io) is a non-custodial wallet, similar to [Metamask](https://metamask.io), with additional support for Kaia-specific [Transactions](https://docs.klaytn.foundation/docs/learn/transactions) & [Accounts](https://docs.klaytn.foundation/docs/learn/accounts). This article will guide you through integrating [Kaikas](https://docs.kaikas.io) with a decentralized application (dApp), from High-level (abstract) to Low-level (fine-grained) implementations.
+[Kaikas](https://docs.kaikas.io) is a non-custodial wallet, similar to [Metamask](https://metamask.io), with additional support for Kaia-specific [Transactions](https://docs.kaia.io/learn/transactions) & [Accounts](https://docs.kaia.io/learn/accounts). This article will guide you through integrating [Kaikas](https://docs.kaikas.io) with a decentralized application (dApp), from High-level (abstract) to Low-level (fine-grained) implementations.
 
 For the sake of this guide, we will be dividing Kaikas dApp integration into three main categories:
 
@@ -28,7 +28,7 @@ Many dApps utilize frontend frameworks for state management & delivering reactiv
 
 UI Libraries provide components for user interactions, like `ConnectWallet` component. They also save you the hassle of managing low-level states, like Multiple Accounts & Multiple Networks. You can look at the underlying [Utility Library](#2-utility-libraries) or [Provider](#3-providers) for complex or low-level interactions.
 
-While most UI libraries have built-in support for Metamask, integrating Kaikas is also easy since its [API](https://docs.klaytn.foundation/docs/references/json-rpc) is built on [Metamask's](https://docs.metamask.io/wallet/reference/json-rpc-api). Even if a library doesn't natively support Kaikas, extending it for Kaikas integration is straightforward. For example, these are 2 popular libraries for [React](https://react.dev) or [Next.js](https://nextjs.org):
+While most UI libraries have built-in support for Metamask, integrating Kaikas is also easy since its [API](https://docs.kaia.io/references/json-rpc/kaia/account-created/) is built on [Metamask's](https://docs.metamask.io/wallet/reference/json-rpc-api). Even if a library doesn't natively support Kaikas, extending it for Kaikas integration is straightforward. For example, these are 2 popular libraries for [React](https://react.dev) or [Next.js](https://nextjs.org):
 
 - [Web3Modal](#1.1-web3modal-example)
 - [Web3-Onboard](#1.2-web3-onboard-example)
@@ -49,7 +49,7 @@ By [WalletConnect](https://walletconnect.com), [Web3Modal](https://web3modal.com
 
 :::note
 
-Example Code: [kaikas-web3modal](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/kaikas-web3modal)
+Example Code: [kaikas-web3modal](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-web3modal)
 
 :::
 
@@ -70,13 +70,13 @@ By [Blocknative](https://www.blocknative.com), [Web3-Onboard](https://onboard.bl
 
 :::note
 
-Example Code: [kaikas-web3onboard-react](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/kaikas-web3onboard-react)
+Example Code: [kaikas-web3onboard-react](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-web3onboard-react)
 
 :::
 
 ## 2. Utility Libraries
 
-Libraries like [web3klaytn](#2.1-web3klaytn) & [ethers.js](#2.2-ethersjs-example) abstract just enough to streamline blockchain interactions while still being able to call [Provider](#3-providers) APIs directly.
+Libraries like [kaia-sdk](#21-kaia-sdk) & [ethers.js](#22-ethersjs-example) abstract just enough to streamline blockchain interactions while still being able to call [Provider](#3-providers) APIs directly.
 
 Using Utility Libraries to connect an account or send native tokens (e.g., KAIA/ETH) will be no different, _in terms of syntax & lines of code_, from calling Providers directly. Where libraries mainly improve are in the following areas:
 
@@ -86,16 +86,16 @@ Using Utility Libraries to connect an account or send native tokens (e.g., KAIA/
   - string error codes/messages are mapped to error Classes with custom properties & methods.
 - Documentation & Type-safety
 
-### 2.1. web3klaytn
+### 2.1. kaia-sdk
 
-[web3klaytn](https://github.com/klaytn/web3klaytn) is a set of drop-in extensions for other Utility Libraries, like [ethers.js](https://docs.ethers.io/v6) & [web3.js](https://web3js.org). It allows you to use your preferred library while exposing first-party support for [Kaia-specific methods](https://docs.klaytn.foundation/docs/references/json-rpc):
+[kaia-sdk](https://github.com/kaiachain/kaia-sdk) is a set of drop-in extensions for other Utility Libraries, like [ethers.js](https://docs.ethers.io/v6) & [web3.js](https://web3js.org). It allows you to use your preferred library while exposing first-party support for [Kaia-specific methods](https://docs.kaia.io/references/json-rpc/kaia/account-created/):
 
 - Transaction, Account, & Account Key types
 - Fee Delegation
 
 :::note
 
-Example Code: [kaikas-web3klaytn](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/kaikas-web3klaytn)
+Example Code: [kaikas-web3klaytn](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-web3klaytn)
 
 :::
 
@@ -108,10 +108,10 @@ Example Code: [kaikas-web3klaytn](https://github.com/klaytn/examples/tree/main/t
 
 :::note
 
-Example Code: [kaikas-ethersjs](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/kaikas-ethersjs)
+Example Code: [kaikas-ethersjs](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-ethersjs)
 
 :::
 
 ## 3. Providers
 
-At the lowest level is the Provider, [`window.klaytn`](https://docs.kaikas.io/02_api_reference/01_klaytn_provider) (Kaikas itself). You might prefer [Utility Libraries](#2-utility-libraries), but knowledge of Provider APIs helps debug & understand how dependent libraries work. Referring to [Kaia's JSON-RPC API][Kaia-API] is necessary for using Kaia-specific methods like [`kaia_getAccount`](https://docs.klaytn.foundation/docs/references/json-rpc/klay/get-account), [`kaia_sendTransactionAsFeePayer`](https://docs.klaytn.foundation/docs/references/json-rpc/klay/send-transaction-as-fee-payer), & more.
+At the lowest level is the Provider, [`window.klaytn`](https://docs.kaikas.io/02_api_reference/01_klaytn_provider) (Kaikas itself). You might prefer [Utility Libraries](#2-utility-libraries), but knowledge of Provider APIs helps debug & understand how dependent libraries work. Referring to [Kaia's JSON-RPC API][Kaia-API] is necessary for using Kaia-specific methods like [`kaia_getAccount`](https://docs.kaia.io/references/json-rpc/kaia/get-account/), [`kaia_sendTransactionAsFeePayer`](https://docs.kaia.io/references/json-rpc/kaia/send-transaction-as-fee-payer/), & more.

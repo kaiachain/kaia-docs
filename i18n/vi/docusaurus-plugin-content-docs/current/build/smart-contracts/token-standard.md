@@ -2,7 +2,7 @@
 
 Kaia Compatible Token (KCT) is a special type of smart contract that implements certain technical specifications. Everyone who wants to issue tokens on top of Kaia must follow the specification.
 
-Token standards are defined in Kaia such as [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) and [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17).
+Token standards are defined in Kaia such as [KIP-7](https://kips.kaia.io/KIPs/kip-7) and [KIP-17](https://kips.kaia.io/KIPs/kip-17).
 
 Other KCTs can be defined to meet certain technical specifications. If anyone needs other token standards, please visit [Kaia Improvement Proposal](https://github.com/kaiachain/KIPs) and propose a new token standard.
 
@@ -10,7 +10,7 @@ Other KCTs can be defined to meet certain technical specifications. If anyone ne
 
 Fungible tokens are tokens that have properties of uniformity and divisibility. Every fungible token is interchangeable as each unit of token possesses the same value. Just like every dollar bill has the same value of one dollar. Since fungibility is essential feature to crypto currency in most cases, large proportion of blockchain tokens are fungible tokens.
 
-To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens implement the following interface. Please note that [KIP-13](https://kips.klaytn.foundation/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface) can be implemented.
+To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens implement the following interface. Please note that [KIP-13](https://kips.kaia.io/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.kaia.io/KIPs/kip-7#wallet-interface) can be implemented.
 
 ```solidity
 // IKIP7
@@ -57,9 +57,9 @@ function renouncePauser() external;
 
 Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Kaia network.
 
-For more information, refer to the official [KIP-7 documentation](https://kips.klaytn.foundation/KIPs/kip-7).
+For more information, refer to the official [KIP-7 documentation](https://kips.kaia.io/KIPs/kip-7).
 
-- An example implementation is available at [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol).
+- An example implementation is available at [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol).
 
 ## Non-fungible Token Standard \(KIP-17\) <a id="non-fungible-token-standard-kip-17"></a>
 
@@ -67,7 +67,7 @@ Non-fungible token \(NFT\) is a special type of token that represents a unique a
 
 For example, a blockchain collection game [Cryptokitties](https://www.cryptokitties.co/) implements non-fungible token to represent different kitties that have different genetic information. Every kitty is unique and non-interchangeable, resulting in different values for different kitty tokens.
 
-To implement non-fungible token, [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) can be used. KIP-17 token contracts implement the following interface. Please note that [KIP-13](https://kips.klaytn.foundation/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface) can be implemented.
+To implement non-fungible token, [KIP-17](https://kips.kaia.io/KIPs/kip-17) can be used. KIP-17 token contracts implement the following interface. Please note that [KIP-13](https://kips.kaia.io/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.kaia.io/KIPs/kip-17#wallet-interface) can be implemented.
 
 ```solidity
 // IKIP17
@@ -123,9 +123,9 @@ function renouncePauser() public;
 
 Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Kaia network.
 
-For more information, refer to the official [KIP-17 documentation](https://kips.klaytn.foundation/KIPs/kip-17).
+For more information, refer to the official [KIP-17 documentation](https://kips.kaia.io/KIPs/kip-17).
 
-- An example implementation is available at [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol).
+- An example implementation is available at [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol).
 
 ## Token Standards for Kaia Service Chain <a id="token-standards-for-kaia-service-chain"></a>
 
@@ -135,4 +135,4 @@ Service chain refers to Kaia's side chain that anchors to Kaia's main blockchain
 
 Since Kaia published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721.
 KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Kaia and thus more suitable on Kaia ecosystem. Yet ERC-20 and ERC-721 are still supported on Kaia network, they may not be compatible with various tools in Kaia ecosystem.
-For more information about the differences on token standards, please visit [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7#differences-with-erc-20) and [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17#differences-from-erc-721).
+For more information about the differences on token standards, please visit [KIP-7](https://kips.kaia.io/KIPs/kip-7#differences-with-erc-20) and [KIP-17](https://kips.kaia.io/KIPs/kip-17#differences-from-erc-721).

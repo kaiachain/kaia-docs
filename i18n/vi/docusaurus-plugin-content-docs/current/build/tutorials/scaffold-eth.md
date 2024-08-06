@@ -18,8 +18,8 @@ To get started with in this guide, you will need:
 - Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
 - Familiarity with Javascript and React basics such as hooks
 - [Metamask Wallet](https://metamask.io/download/)
-- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet)
-- RPC Endpoint: you can obtain this from one of the supported [endpoint providers](https://docs.kaia.io/docs/references/public-en/)
+- Test KAIA from [Faucet](https://faucet.kaia.io)
+- RPC Endpoint: you can obtain this from one of the supported [endpoint providers](https://docs.kaia.io/references/public-en/)
 
 ## Setting up development environment <a href="#setting-up-dev-environment" id="setting-up-dev-environment"></a>
 
@@ -108,7 +108,7 @@ kaia: {
 },
 ```
 
-For more information on using Hardhat with Kaia, please check [Hardhat guide](https://docs.kaia.io/docs/build/get-started/hardhat/) for more details.
+For more information on using Hardhat with Kaia, please check [Hardhat guide](https://docs.kaia.io/build/get-started/hardhat/) for more details.
 
 ### Deploy Contract to Kaia
 
@@ -179,7 +179,7 @@ As you can see above, to verify your contracts, you have to pass in the network 
 
 ![Verify on Klaytnscope](/img/build/tutorials/sc-verify-klaytnscope.png)
 
-For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the H[ardhat-Verify-Plugins guide](https://docs.kaia.io/docs/build/smart-contracts/verify/hardhat/).
+For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).
 
 ## Next.js Configuration <a href="#nextjs-configuration" id="nextjs-configuration"></a>
 
@@ -213,4 +213,4 @@ You should now be able to access a React-based dApp frontend at http://localhost
 
 Congratulations! You have successfully used Scaffold-ETH 2 to deploy a contract and run a dApp on Kaia. Now that you understand the workings of Scaffold-ETH 2, feel free to create and deploy your own smart contracts and modify the frontend to fit your dApp's needs!
 
-Visit [Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io/) for more information and [Kaia Forum](https://forum.klaytn.foundation/) if you have any questions.
+Visit [Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.

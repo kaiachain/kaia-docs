@@ -2,7 +2,7 @@
 
 카이아 호환 토큰(KCT)은 특정 기술 사양을 구현하는 특별한 유형의 스마트 컨트랙트입니다. 카이아 위에서 토큰을 발행하고자 하는 사람은 누구나 이 사양을 따라야 합니다.
 
-토큰 표준은 [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) 등 Klaytn에 정의되어 있습니다.
+Token standards are defined in Kaia such as [KIP-7](https://kips.kaia.io/KIPs/kip-7) and [KIP-17](https://kips.kaia.io/KIPs/kip-17).
 
 특정 기술 사양을 충족하기 위해 다른 KCT를 정의할 수 있습니다. If anyone needs other token standards, please visit [Kaia Improvement Proposal](https://github.com/kaiachain/KIPs) and propose a new token standard.
 
@@ -10,7 +10,7 @@
 
 대체 가능한 토큰은 균일성과 분할성이라는 속성을 가진 토큰입니다. 모든 대체 가능한 토큰은 각 토큰 단위가 동일한 가치를 가지므로 상호 교환이 가능합니다. 모든 달러 지폐의 가치가 1달러인 것처럼 말이죠. 대체 가능성은 대부분의 경우 암호화폐의 필수적인 특징이기 때문에 블록체인 토큰의 상당수가 대체 가능한 토큰입니다.
 
-스마트 컨트랙트로 이러한 속성을 구현하기 위해 KIP-7 토큰 표준을 사용할 수 있습니다. KIP-7 호환 토큰은 다음과 같은 인터페이스를 구현합니다. [KIP-13](https://kips.klaytn.foundation/KIPs/kip-13)을 함께 구현해야 한다는 점에 유의하시기 바랍니다. 지갑 애플리케이션의 경우 [지갑 인터페이스](https://kips.klaytn.foundation/KIPs/kip-7#wallet-interface)를 구현할 수 있습니다.
+스마트 컨트랙트로 이러한 속성을 구현하기 위해 KIP-7 토큰 표준을 사용할 수 있습니다. KIP-7 호환 토큰은 다음과 같은 인터페이스를 구현합니다. Please note that [KIP-13](https://kips.kaia.io/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.kaia.io/KIPs/kip-7#wallet-interface) can be implemented.
 
 ```solidity
 // IKIP7
@@ -57,9 +57,9 @@ function renouncePauser() external;
 
 위의 인터페이스를 기반으로 개발자는 새로운 기능과 로직을 추가하여 토큰을 커스터마이징하고 Kaia 네트워크에 배포할 수 있습니다.
 
-자세한 내용은 공식 [KIP-7 문서](https://kips.klaytn.foundation/KIPs/kip-7)를 참조하세요.
+For more information, refer to the official [KIP-7 documentation](https://kips.kaia.io/KIPs/kip-7).
 
-- 구현 예제는 [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol)에서 확인할 수 있습니다.
+- An example implementation is available at [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol).
 
 ## 대체 불가능한 토큰 표준 (KIP-17) <a id="non-fungible-token-standard-kip-17"></a>
 
@@ -67,7 +67,7 @@ function renouncePauser() external;
 
 예를 들어, 블록체인 수집 게임인 [Cryptokitties](https://www.cryptokitties.co/)는 서로 다른 유전 정보를 가진 다양한 고양이를 표현하기 위해 대체 불가능한 토큰을 구현합니다. 모든 고양이는 고유하고 서로 교환할 수 없기 때문에 고양이 토큰마다 가치가 달라집니다.
 
-대체 불가능한 토큰을 구현하기 위해 [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17)을 사용할 수 있습니다. KIP-17 토큰 컨트랙트는 다음과 같은 인터페이스를 구현합니다. [KIP-13](https://kips.klaytn.foundation/KIPs/kip-13)이 함께 구현되어야 함을 유의하시기 바랍니다. 지갑 애플리케이션의 경우, [지갑 인터페이스](https://kips.klaytn.foundation/KIPs/kip-17#wallet-interface)를 구현할 수 있습니다.
+To implement non-fungible token, [KIP-17](https://kips.kaia.io/KIPs/kip-17) can be used. KIP-17 토큰 컨트랙트는 다음과 같은 인터페이스를 구현합니다. Please note that [KIP-13](https://kips.kaia.io/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.kaia.io/KIPs/kip-17#wallet-interface) can be implemented.
 
 ```solidity
 // IKIP17
@@ -123,9 +123,9 @@ function renouncePauser() public;
 
 위의 인터페이스를 기반으로 개발자는 새로운 기능과 로직을 추가하여 토큰을 커스터마이징하고 Kaia 네트워크에 배포할 수 있습니다.
 
-자세한 내용은 공식 [KIP-17 문서](https://kips.klaytn.foundation/KIPs/kip-17)를 참조하세요.
+For more information, refer to the official [KIP-17 documentation](https://kips.kaia.io/KIPs/kip-17).
 
-- 구현 예제는 [https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/klaytn/klaytn-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol)에서 확인할 수 있습니다.
+- An example implementation is available at [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol).
 
 ## 카이아 서비스체인을 위한 토큰 표준 <a id="token-standards-for-klaytn-service-chain"></a>
 
@@ -135,4 +135,4 @@ function renouncePauser() public;
 
 Kaia는 토큰 표준으로 KIP-7과 KIP-17을 발표했기 때문에, 대체 가능한 토큰과 대체 불가능한 토큰 컨트랙트는 각각 ERC-20과 ERC-721을 따르기보다는 KIP-7과 KIP-17에 따라 구현할 것을 권장합니다.
 KIP-7과 KIP-17은 ERC-20과 ERC-721을 기반으로 하지만, 카이아에 맞게 조정되었기 때문에 카이아 생태계에 더 적합합니다. 그러나 ERC-20과 ERC-721은 여전히 Kaia 네트워크에서 지원되지만, 카이아 생태계의 다양한 도구와 호환되지 않을 수 있습니다.
-토큰 표준의 차이점에 대한 자세한 내용은 [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7#differences-with-erc-20) 및 [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17#differences-from-erc-721)을 참고하시기 바랍니다.
+For more information about the differences on token standards, please visit [KIP-7](https://kips.kaia.io/KIPs/kip-7#differences-with-erc-20) and [KIP-17](https://kips.kaia.io/KIPs/kip-17#differences-from-erc-721).

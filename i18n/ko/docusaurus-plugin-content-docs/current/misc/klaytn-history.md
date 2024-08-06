@@ -11,7 +11,7 @@
 
 ### 요약
 
-Randao hardfork was introduced with the [v1.12.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.12.0). It implements an optional hardfork implementing the Randao on-chain randomness according to [KIP-113](https://kips.klaytn.foundation/KIPs/kip-113), [KIP-114](https://kips.klaytn.foundation/KIPs/kip-114), [KIP-146](https://kips.klaytn.foundation/KIPs/kip-146).
+Randao hardfork was introduced with the [v1.12.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.12.0). It implements an optional hardfork implementing the Randao on-chain randomness according to [KIP-113](https://kips.kaia.io/KIPs/kip-113), [KIP-114](https://kips.kaia.io/KIPs/kip-114), [KIP-146](https://kips.kaia.io/KIPs/kip-146).
 
 ## Cancun
 
@@ -44,7 +44,7 @@ Ethereum's Shanghai hardfork items were introduced with the [v1.11.0 release](ht
 
 ### 요약
 
-KIP-103 하드포크는 [v1.10.2 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.10.2)와 함께 도입되었습니다. 여기에는 Treasury 리밸런싱의 기술 사양인 [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103)의 구현이 포함되어 있습니다([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
+KIP-103 하드포크는 [v1.10.2 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.10.2)와 함께 도입되었습니다. It includes an implementation of [KIP-103](https://kips.kaia.io/KIPs/kip-103) that is a technical specification of treasury rebalance([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
 
 ### Treasury Rebalance <a id="treasury-rebalance"></a>
 
@@ -64,7 +64,7 @@ KIP-103 하드포크는 [v1.10.2 릴리스](https://github.com/klaytn/klaytn/rel
 
 ### 요약
 
-Kore 하드포크는 [v1.10.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.10.0)와 함께 도입되었습니다. 온체인 거버넌스 투표 방식([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)), 새로운 GC 보상 구조([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)) 및 EVM 변경 사항을 구현한 것입니다.
+Kore 하드포크는 [v1.10.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.10.0)와 함께 도입되었습니다. It is an implementation of the on-chain governance voting method ([KIP-81](https://kips.kaia.io/KIPs/kip-81)), a new GC reward structure ([KIP-82](https://kips.kaia.io/KIPs/kip-82)), and EVM changes.
 
 ## Magma <a id="magma"></a>
 
@@ -75,7 +75,7 @@ Kore 하드포크는 [v1.10.0 릴리스](https://github.com/klaytn/klaytn/releas
 
 ### 요약
 
-Magma 하드포크는 [v1.9.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.9.0)와 함께 도입되었습니다. 여기에는 동적 가스비 가격 책정 메커니즘인 [#1493](https://github.com/klaytn/klaytn/pull/1493)이 포함되어 있으며, [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71)의 구현입니다.)
+Magma 하드포크는 [v1.9.0 릴리스](https://github.com/klaytn/klaytn/releases/tag/v1.9.0)와 함께 도입되었습니다. It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of [KIP-71](https://kips.kaia.io/KIPs/kip-71).
 
 ## EthTxType <a id="eth-tx-type"></a>
 

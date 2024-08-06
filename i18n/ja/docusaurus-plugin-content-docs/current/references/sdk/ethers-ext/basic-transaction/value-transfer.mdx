@@ -8,35 +8,32 @@
 <CH.Code>
 
 ```js txTypeValueTransferTransaction.js
-const ethers = require('ethers')
-const { Wallet, TxType, parseKlay } = require('@kaiachain/ethers-ext')
+const ethers = require("ethers");
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
 
-const recieverAddr = '0xc40b6909eb7085590e1c26cb3becc25368e249e9'
-const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
-const senderPriv =
-  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
-const provider = new ethers.providers.JsonRpcProvider(
-  'https://public-en-baobab.klaytn.net'
-)
-const wallet = new Wallet(senderPriv, provider)
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-baobab.klaytn.net");
+const wallet = new Wallet(senderPriv, provider);
 
 async function main() {
   const tx = {
     type: TxType.ValueTransfer,
     from: senderAddr,
     to: recieverAddr,
-    value: parseKlay('0.01'),
-  }
+    value: parseKlay("0.01"),
+  };
 
-  const sentTx = await wallet.sendTransaction(tx)
-  console.log('sentTx', sentTx)
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx);
 
-  const receipt = await sentTx.wait()
-  console.log('receipt', receipt)
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
 }
 
-main()
+main();
 ```
 
 ---
@@ -117,35 +114,32 @@ Set up the provider with the specified kaia **Baobab** testnet URL. A provider i
 Also, you can change the provider URL from **baobab** to **allthatnode**
 
 ```js txTypeValueTransferTransaction.js focus=8:8
-const ethers = require('ethers')
-const { Wallet, TxType, parseKlay } = require('@kaiachain/ethers-ext')
+const ethers = require("ethers");
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
 
-const recieverAddr = '0xc40b6909eb7085590e1c26cb3becc25368e249e9'
-const senderAddr = '0xa2a8854b1802d8cd5de631e690817c253d6a9153'
-const senderPriv =
-  '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
-const provider = new ethers.providers.JsonRpcProvider(
-  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
-)
-const wallet = new Wallet(senderPriv, provider)
+const provider = new ethers.providers.JsonRpcProvider('https://klaytn-mainnet-rpc.allthatnode.com:8551')
+const wallet = new Wallet(senderPriv, provider);
 
 async function main() {
   const tx = {
     type: TxType.ValueTransfer,
     from: senderAddr,
     to: recieverAddr,
-    value: parseKlay('0.01'),
-  }
+    value: parseKlay("0.01"),
+  };
 
-  const sentTx = await wallet.sendTransaction(tx)
-  console.log('sentTx', sentTx)
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx);
 
-  const receipt = await sentTx.wait()
-  console.log('receipt', receipt)
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
 }
 
-main()
+main();
 ```
 
 ---

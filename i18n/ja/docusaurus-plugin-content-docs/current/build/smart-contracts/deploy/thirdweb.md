@@ -162,7 +162,7 @@ In this section, we will mint an NFT and also transferring it to another account
 
 ## Conclusion <a id="conclusion"></a>
 
-Congratulations! if you made it to the end of this guide. If you have any questions, visit the [Klaytn Forum](https://forum.klaytn.foundation/) or reach out to the [official thirdweb support](https://support.thirdweb.com/). However, below is a list of useful resources you might need while further building with Thirdweb on Klaytn.
+Congratulations! if you made it to the end of this guide. If you have any questions, visit the [Kaia Forum](https://devforum.kaia.io/) or reach out to the [official thirdweb support](https://support.thirdweb.com/). However, below is a list of useful resources you might need while further building with Thirdweb on Klaytn.
 
 - [Thirdweb Docs](https://portal.thirdweb.com/)
 - [How to build a dApp using Thirdweb](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)

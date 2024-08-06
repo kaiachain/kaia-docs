@@ -282,7 +282,7 @@ class Count extends Component {
       .once('receipt', (receipt) => {
         console.log(`
           Received receipt! It means your transaction(calling plus function)
-          is in klaytn block(#${receipt.blockNumber})
+          is in kaia block(#${receipt.blockNumber})
         `, receipt)
         this.setState({
           settingDirection: null,
@@ -335,7 +335,7 @@ class Count extends Component {
       .once('receipt', (receipt) => {
         console.log(`
           Received receipt which means your transaction(calling minus function)
-          is in klaytn block(#${receipt.blockNumber})
+          is in kaia block(#${receipt.blockNumber})
         `, receipt)
         this.setState({
           settingDirection: null,

@@ -4,7 +4,7 @@
 
 ## 소개
 
-카이아는 원활한 개발자 경험을 제공하는 것을 우선시하며, 이것이 바로 Kaia Contracts Wizard(KCW)를 만든 원동력입니다. KCW는 스마트 컨트랙트를 손쉽게 부트스트랩하고 [Kaia 컨트랙트](https://github.com/klaytn/klaytn-contracts)에서 제공되는 안전하고 검증된 컴포넌트를 활용할 수 있는 대화형 도구입니다. 즉, 카이아 컨트랙트의 구성요소를 활용하여 스마트 컨트랙트를 개발하는 과정을 간소화합니다. Kaia Contracts Wizard는 OpenZeppelin 마법사의 기반 위에 구축되어 스마트 컨트랙트 개발의 보안을 더욱 강화한다는 점에 주목할 필요가 있습니다.
+카이아는 원활한 개발자 경험을 제공하는 것을 우선시하며, 이것이 바로 Kaia Contracts Wizard(KCW)를 만든 원동력입니다. KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Kaia Contracts](https://github.com/kaiachain/kaia-contracts). 즉, 카이아 컨트랙트의 구성요소를 활용하여 스마트 컨트랙트를 개발하는 과정을 간소화합니다. Kaia Contracts Wizard는 OpenZeppelin 마법사의 기반 위에 구축되어 스마트 컨트랙트 개발의 보안을 더욱 강화한다는 점에 주목할 필요가 있습니다.
 
 이 가이드에서는 다음과 같이 설명합니다:
 
@@ -18,9 +18,9 @@ Kaia Contracts Wizard는 카이아 컨트랙트를 사용하여 스마트 컨트
 
 현재 Kaia Contracts Wizard는 다음과 같은 토큰 표준을 지원합니다:
 
-- [KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) - 카이아의 대체 가능한 토큰 표준입니다. 대체 가능이란 모든 토큰이 분할 및 교환이 가능하며, 즉 동일한 가치를 갖는다는 것을 의미합니다. 대체 가능한 토큰의 대표적인 예로는 동일한 액면가의 지폐가 동일한 가치를 갖는 법정화폐를 들 수 있습니다.
-- [KIP-17](https://kips.klaytn.foundation/KIPs/kip-17) - 카이아의 대체 불가능한 토큰 표준입니다. 대체 불가능하다는 것은 각 토큰이 분할할 수 없으므로 고유하다는 것을 의미합니다. KIP17 토큰은 그림, 게임 아이템, 부동산 등 물리적 자산이든 가상의 수집품이든 고유한 아이템의 소유권을 나타낼 수 있습니다.
-- [KIP-37](https://kips.klaytn.foundation/KIPs/kip-37) - 단일 스마트 컨트랙트에서 대체 가능한 토큰과 대체 불가능한 토큰을 모두 나타낼 수 있기 때문에 카이아의 멀티토큰 표준으로 알려져 있습니다.
+- [KIP-7](https://kips.kaia.io/KIPs/kip-7) — This is a fungible token standard for Kaia. 대체 가능이란 모든 토큰이 분할 및 교환이 가능하며, 즉 동일한 가치를 갖는다는 것을 의미합니다. 대체 가능한 토큰의 대표적인 예로는 동일한 액면가의 지폐가 동일한 가치를 갖는 법정화폐를 들 수 있습니다.
+- [KIP-17](https://kips.kaia.io/KIPs/kip-17) — This is a non-fungible token standard for Kaia. 대체 불가능하다는 것은 각 토큰이 분할할 수 없으므로 고유하다는 것을 의미합니다. KIP17 토큰은 그림, 게임 아이템, 부동산 등 물리적 자산이든 가상의 수집품이든 고유한 아이템의 소유권을 나타낼 수 있습니다.
+- [KIP-37](https://kips.kaia.io/KIPs/kip-37) — This is known as the multi-token standard for Kaia, because it can represent both fungible and non-fungible tokens in a single smart contract.
 
 이더리움 컨트랙트 마법사는 [이더리움 동등성](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9) 지원과 함께 [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), [ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/), [ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/)도 지원합니다.
 
@@ -32,9 +32,9 @@ Kaia Contracts Wizard는 다음 섹션으로 구성되어 있습니다:
 
 - **기능 섹션**: 각 토큰 표준에서 사용할 수 있는 모든 기능으로 구성됩니다. 각 토큰에서 사용할 수 있는 다양한 확장 기능에 대한 자세한 정보는 다음 링크에서 확인할 수 있습니다:
 
-  - [KIP7](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
-  - [KIP17](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
-  - [KIP37](https://github.com/klaytn/klaytn-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
+  - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
+  - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
+  - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
 - **접근 제어 섹션**: 각 토큰 표준에 대해 사용 가능한 모든 접근 제어 메커니즘으로 구성됩니다.
 
@@ -46,7 +46,7 @@ Kaia Contracts Wizard의 여러 부분을 살펴봤다면 이제 원하는 컨�
 
 ## 카이아 네트워크에서 카이아 컨트랙트 커스터마이징 및 배포하기
 
-이 섹션에서는 Kaia Contracts Wizard에서 생성된 코드를 Foundry를 사용하여 카이아 테스트넷 Kairos에 배포합니다. 생성된 코드는 시작점으로 사용되며, KIP7 및 KIP17 토큰의 에어드랍 컨트랙트에 맞게 추가로 커스터마이징할 수 있습니다.  다른 쪽에서는 KIP37에 대해 생성된 코드가 그대로 사용됩니다.
+In this section, you will deploy the generated code from kaia contracts wizard to the Kaia Testnet Kairos using Foundry. 생성된 코드는 시작점으로 사용되며, KIP7 및 KIP17 토큰의 에어드랍 컨트랙트에 맞게 추가로 커스터마이징할 수 있습니다.  다른 쪽에서는 KIP37에 대해 생성된 코드가 그대로 사용됩니다.
 
 시작해보겠습니다!
 
@@ -58,7 +58,7 @@ Kaia Contracts Wizard의 여러 부분을 살펴봤다면 이제 원하는 컨�
 - [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) 코드를 복제합니다.
 - [MetaMask](../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고 트랜잭션에 서명하고 컨트랙트와 상호작용하는 데 사용됩니다.
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../references/public-en.md).
-- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
 ### 시작하기
 
@@ -84,8 +84,8 @@ Kaia Contracts Wizard의 여러 부분을 살펴봤다면 이제 원하는 컨�
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP7/KIP7.sol";
-import "@klaytn/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
 contract KIP7TokenAirdrop is KIP7, Ownable {
     constructor() KIP7("KIP7 Token Airdrop", "KTA") {}
     function supportsInterface(bytes4 interfaceId)
@@ -109,8 +109,8 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 ```solidity
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP7/KIP7.sol";
-import "@klaytn/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
 contract KIP7TokenAirdrop is KIP7, Ownable {
     constructor() KIP7("KIP7 Token Airdrop", "KTA") {
     }
@@ -161,10 +161,10 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
-import "@klaytn/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
-import "@klaytn/contracts/access/Ownable.sol";
-import "@klaytn/contracts/utils/Counters.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/utils/Counters.sol";
 contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
@@ -197,10 +197,10 @@ contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
-import "@klaytn/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
-import "@klaytn/contracts/access/Ownable.sol";
-import "@klaytn/contracts/utils/Counters.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/utils/Counters.sol";
 contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
@@ -259,8 +259,8 @@ KIP37은 일괄 발행을 지원하므로 컨트랙트만 사용자 지정하여
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
-import "@klaytn/contracts/KIP/token/KIP37/KIP37.sol";
-import "@klaytn/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/KIP/token/KIP37/KIP37.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
 contract KIP37MultiToken is KIP37, Ownable {
     constructor() KIP37("") {}
     function setURI(string memory newuri) public onlyOwner {

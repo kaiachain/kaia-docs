@@ -28,7 +28,7 @@ To follow this tutorial, the following are the prerequisites:
 - Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 - [Metamask](../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
-- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 - [NodeJS and NPM](https://nodejs.org/en/)
 
 ## Setting Up Your Development Environment
@@ -61,7 +61,7 @@ npm install --save-dev hardhat
 - Paste the code below to install other dependencies
 
 ```bash
-npm install dotenv @klaytn/contracts
+npm install dotenv @kaiachain/contracts
 ```
 
 > Note: This installs other dependencies needed for this project ranging from `hardhat`, `klaytn/contract`, `dotenv` et al.
@@ -138,7 +138,7 @@ Now that we have our development environment all set, let's get into writing our
 
 ## Creating SBT Smart Contract
 
-In this section, you will use the [Kaia Contracts](https://github.com/klaytn/klaytn-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts.
+In this section, you will use the [Kaia Contracts](https://github.com/kaiachain/kaia-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts.
 
 > Note: You already installed this library in **step 3** of the `Setting Development Environment` section.
 
@@ -150,9 +150,9 @@ In this section, you will use the [Kaia Contracts](https://github.com/klaytn/kla
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-import "@klaytn/contracts/KIP/token/KIP17/KIP17.sol";
-import "@klaytn/contracts/utils/Counters.sol";
-import "@klaytn/contracts/access/Ownable.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
+import "@kaiachain/contracts/utils/Counters.sol";
+import "@kaiachain/contracts/access/Ownable.sol";
 
 contract SoulBoundToken is KIP17, Ownable {
     using Counters for Counters.Counter;
@@ -417,4 +417,4 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 The output returns hexadecimal which when converted using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html) should be equal to `105701850`.
 
-For more in-depth guide on Hardhat, please refer to [Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/hardhat/soulbound-tokens)
+For more in-depth guide on Hardhat, please refer to [Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens)

@@ -1,16 +1,16 @@
-# Deploy Smart Contracts
+# Hướng dẫn triển khai
 
-There are various ways of deploying a smart contract on Kaia. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Kaia account with enough KAIA to pay the transaction fee. To create an account, please visit [Kaia Wallet](../../tools/wallets/kaia-wallet.md).
+Có nhiều cách khác nhau để triển khai hợp đồng thông minh trên Kaia. Tài liệu này cung cấp hướng dẫn từng bước để triển khai một hợp đồng mẫu bằng các công cụ khác nhau. Chúng tôi giả định rằng bạn đã có tài khoản Klaytn với đủ KAIA để thanh toán phí giao dịch. Để tạo một tài khoản, vui lòng truy cập [Ví Kaia](../../tools/wallets/kaia-wallet.md).
 
 ## Remix Online IDE <a id="remix-ide"></a>
 
-Open your internet browser and go to [Kaia Plugin for Remix](https://ide.klaytn.foundation).
+Mở trình duyệt internet của bạn và truy cập [Kaia Plugin for Remix](https://ide.klaytn.foundation).
 
-1. Add a new file.
+1. Thêm tập tin mới.
 
 ![](/img/build/smart-contracts/01_deployment_ide.png)
 
-2. Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KaiaGreeter, and it allows you to run a simple "Hello World!".
+2. Sao chép và dán mã mẫu sau đây (hoặc bất kỳ mã nào bạn muốn triển khai) vào tập tin mới. Mã bao gồm hai hợp đồng được gọi là Mortal và KaiaGreeter và mã này cho phép bạn chạy thông báo "Hello World!".
 
 ```
 pragma solidity 0.5.12;
@@ -38,42 +38,42 @@ contract KaiaGreeter is Mortal {
 }
 ```
 
-3. Select Compiler in the icon panel. Choose the desired EVM environment. For the Kaia networks, you can choose between Kairos (testnet) and Mainnet. Click `Compile` when the sample code is ready to be complied before actual deployment.
+3. Chọn Trình biên dịch trong bảng biểu tượng. Chọn môi trường EVM mong muốn. For the Kaia networks, you can choose between Kairos (testnet) and Mainnet. Nhấp vào `Compile` khi mã nguồn mẫu đã sẵn sàng để được biên dịch trước khi triển khai thực tế.
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. Now we can deploy the contract. Click on the Kaia logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KAIA to pay for the transaction of deploying the smart contracts required.
+4. Bây giờ, chúng ta có thể triển khai hợp đồng. Nhấp vào logo Kaia trong bảng biểu tượng. Nhập tài khoản bằng cách nhấp vào nút hình dấu cộng bên cạnh `Account`. Hãy đảm bảo rằng tài khoản có đủ KAIA để thanh toán cho giao dịch triển khai các hợp đồng thông minh cần thiết.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
-5. Set Gas limit and Value to send.
+5. Thiết lập Giới hạn gas và Giá trị cần gửi.
 
-- You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
-- Set `Value` to 0 unless you want to send `KAIA` to the contract at the time of deployment.
+- Nếu bạn triển khai một hợp đồng phức tạp hơn, bạn có thể cần thiết lập Giới hạn gas cao hơn. Bạn có thể để nguyên giá trị hiện tại trong ví dụ này.
+- Đặt `Value` là 0 trừ khi bạn muốn gửi `KAIA` đến hợp đồng vào thời điểm triển khai.
 
-6. Enter "Hello World!" as an argument for constructor function and click on `Deploy` button.
+6. Nhập "Hello World!" làm đối số cho hàm khởi tạo và nhấp vào nút `Deploy`.
 
 ![](/img/build/smart-contracts/03_deployment_hello.png)
 
-7. If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal.
+7. Nếu hợp đồng được triển khai thành công, bạn sẽ nhìn thấy biên lai giao dịch tương ứng và kết quả chi tiết trên bảng điều khiển.
 
-8. You can interact with the contract by clicking on the function buttons. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
+8. Bạn có thể tương tác với hợp đồng bằng cách nhấp vào các nút hàm. Các hàm được đại diện bằng các nút có màu sắc khác nhau. Các hàm `constant` hoặc `pure` trong Solidity có các nút màu xanh (ví dụ như `greet`) và không tạo giao dịch mới, do đó chúng không tốn bất kỳ gas nào. Các nút màu đỏ (ví dụ như `kill`) thể hiện các hàm `payable` thay đổi trạng thái trên blockchain, tiêu thụ gas và có thể nhận giá trị. Các nút màu cam đại diện cho các hàm `non-payable` thay đổi trạng thái của hợp đồng nhưng KHÔNG nhận giá trị.
 
 ![](/img/build/smart-contracts/06_deployment_functions.png)
 
-For more details, please refer to this [link](../ide-and-tools/ide-and-tools.md).
+Để biết thêm chi tiết, vui lòng tham khảo [liên kết](../ide-and-tools/ide-and-tools.md) này.
 
 ## VVISP <a id="vvisp"></a>
 
-vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Kaia smart contracts with a single command. Refer to the following link for more details.
+vvisp là một công cụ/bộ khung CLI dễ sử dụng để phát triển các hợp đồng thông minh, do HEACHI LABS cung cấp. Bạn có thể dễ dàng thiết lập môi trường, triển khai và thực thi các hợp đồng thông minh Kaia với một lệnh duy nhất. Tham khảo liên kết sau để biết thêm chi tiết.
 
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
 
-Another way to deploy contracts is manually compiling contracts with solc and deploying them with caver-js.
+Một cách khác để triển khai hợp đồng là biên dịch hợp đồng thủ công bằng trình biên dịch solc và triển khai chúng bằng thư viện caver-js.
 
-1. Create `KaiaGreeter.sol` and write the following code.
+1. Tạo `KaiaGreeter.sol` và viết đoạn mã sau.
 
 ```
 pragma solidity 0.5.6;
@@ -101,25 +101,25 @@ contract KaiaGreeter is Mortal {
 }
 ```
 
-2. Install solc 0.5.6.
+2. Cài đặt solc 0.5.6.
 
 ```
 $ sudo npm install -g solc@0.5.6
 ```
 
-3. Compile the contract.
+3. Biên dịch hợp đồng.
 
 ```
 $ solcjs KaiaGreeter.sol --bin
 ```
 
-4. Install caver-js.
+4. Cài đặt caver-js.
 
 ```
 $ npm install caver-js.
 ```
 
-5. Create `deploy.js` in the same directory with the following code.
+5. Tạo `deploy.js` trong cùng thư mục bằng đoạn mã sau.
 
 ```
 const Caver = require("caver-js");
@@ -151,9 +151,9 @@ caver.kaia.sendTransaction({
 })
 ```
 
-_NOTE_: This example is not recommended for production use. Be very careful when dealing with private keys.
+_LƯU Ý_: Không khuyến nghị sử dụng ví dụ này cho mục đích sản xuất. Hãy đặc biệt cẩn trọng khi sử dụng các khóa riêng tư.
 
-6. Deploy the contract using node environment.
+6. Triển khai hợp đồng sử dụng môi trường nút mạng.
 
 ```
 $ node deploy.js

@@ -1,13 +1,44 @@
-# 카이아 스마트 컨트랙트
+# Kaia Smart Contracts
 
-카이아의 스마트 컨트랙트는 비즈니스 로직, 게임, 라이브러리, 토큰 전송 또는 카이아 블록체인과 상호작용하는 모든 유형의 코드를 구현하는 프로그램입니다. 스마트 컨트랙트에 설명된 조건이 충족되면 컨트랙트는 즉시 실행됩니다. 스마트 컨트랙트 내 조건은 프로그래밍 언어로 설명되며, 컨트랙트의 상태 데이터로 저장됩니다.
+The Kaia Blockchain leverages the power of smart contracts, recognizing their importance in driving innovation and functionality within the ecosystem. Here's a closer look at the concept of smart contracts within the Kaia Blockchain:
 
-카이아는 카이아 네트워크에서 스마트 컨트랙트를 작성하고 실행하는 여러 가지 방법을 제공합니다. 첫째, Kaia는 Solidity를 지원하며 Remix나 Truffle과 같은 이더리움 개발 툴킷과 상호운용성을 유지합니다. Solidity로 작성된 스마트 컨트랙트는 기존 Solidity 컴파일러를 사용하여 컴파일하고 추가 작업 없이 카이아에서 실행할 수 있습니다. Solidity는 이더리움의 사실상 표준 컨트랙트 프로그래밍 언어이며 활발한 커뮤니티의 지원을 받고 있기 때문에, 카이아는 이더리움 dApp 개발자들이 기존 작업을 쉽게 마이그레이션할 수 있는 가장 친숙한 개발 환경을 제공하기 위해 Solidity 언어를 지원합니다.
+## What are Smart Contracts? <a id="what-are-smart-contracts"></a>
 
-앞으로 카이아는 다양한 프로그래밍 언어로 작성된 스마트 컨트랙트를 수용하여 더 많은 잠재적 개발자들에게 지원을 확대하고, 개발자들이 가장 친숙하게 느낄 수 있는 개발 경험을 제공할 계획입니다. 앞으로도 카이아는 개발자들이 흥미를 느낄 수 있는 다양한 프로그래밍 언어를 지속적으로 발굴해 나갈 것입니다.
+Smart contracts on the Kaia Blockchain are essentially self-executing digital agreements written in code. These contracts exist on the blockchain, giving them unique characteristics:
 
-## 저렴한 스마트 컨트랙트 실행 비용 <a id="affordable-smart-contract-execution-cost"></a>
+- **Immutable**: Once deployed, the code cannot be altered, guaranteeing the integrity and permanence of the agreement.
+- **Transparent**: The code and all transaction history associated with a smart contract are publicly viewable on the blockchain, ensuring transparency and accountability.
+- **Secure**: Protected by the robust cryptographic principles of the Kaia Blockchain, making them highly resistant to tampering or unauthorized modifications.
 
-블록체인이 스마트 콘트랙트 실행에 수수료를 부과하는 이유 중 하나는 잘못 작성되거나 악의적으로 작성된 콘트랙트의 실행을 방지하여 제한된 자원을 효율적으로 활용하기 위해서입니다. 즉, 블록체인 플랫폼은 개발자가 효율적인 코드를 작성하도록 유도하기 위해 (1) 스마트 콘트랙트 실행에 드는 재정적 비용을 의도적으로 높이고, (2) 예상되는 재정적 이득을 최소화하여 공격자의 공격 실행을 억제하기 위해 수수료를 부과합니다. 성공적인 전략의 경우, 정상적인 실행에 부과되는 수수료는 적어야 하지만 악의적인 실행으로 인한 수수료는 커야 합니다. 이더리움의 Opcode 기반 수수료 모델은 리소스 낭비를 막는 데 유용하지만, 일부 Opcode(예: state write)의 높은 가스 가격으로 인해 정상적인 스마트 콘트랙트 실행을 억제하여 블록체인 기술 채택을 저해할 수도 있습니다. 이 문제를 해결하기 위해 카이아는 Opcode당 단가가 낮은 Opcode 기반 고정 수수료 모델을 사용할 계획입니다. 이는 블록체인 프로토콜의 확장성을 획기적으로 높여서 가능합니다.
+## Kaia Virtual Machine (KVM): Powering Smart Contracts <a id="kaia-virtual-machine-powering-smart-contracts"></a>
 
-Opcode 비용은 플랫폼이 사용할 수 있는 리소스의 양과 직접적인 관련이 있습니다. 이더리움의 state write 비용은 스토리지와 변경된 상태를 기록하고 전파하는 데 필요한 네트워크 대역폭이 제한되어 있기 때문에 높습니다. 반대로 블록체인의 자원(예: CPU 시간, 스토리지, 네트워크 대역폭)이 풍부하다면 이더리움보다 Opcode당 단가가 훨씬 낮을 수 있으며, Opcode 간 비용 차이를 최소화할 수 있습니다. 카이아는 각 CN 노드의 수직적 확장(즉, 하이엔드 하드웨어 확보), 연산 병렬화(즉, 서비스 체인을 통한 논리적 확장), 물리적 클러스터의 수평적 확장을 통해 Opcode 단가를 낮추는 것을 목표로 합니다.
+Kaia Blockchain utilizes a specialized virtual machine called the Kaia Virtual Machine (KVM) to execute smart contracts. The KVM is a derivative of the widely-used Ethereum Virtual Machine (EVM), providing key advantages:
+
+- **Developer-Friendly**: Developers familiar with Ethereum can easily migrate existing smart contracts to Kaia or build new ones using familiar tools, languages (like Solidity), and [development environments](../../build/smart-contracts/ide-and-tools/ide-and-tools.md).
+- **Enhanced Functionality**: While maintaining full compatibility with EVM opcodes, the KVM introduces additional precompiled contracts unique to Kaia, expanding the capabilities for developers. To avoid conflicts with existing EVM precompiled contracts, Kaia's [precompiled contract addresses](precompiled-contracts.md) are assigned in descending order from `0x03ff`.
+
+When a smart contract is deployed on Kaia, it receives a unique address on the blockchain, much like a digital mailbox. Users interact with the contract by sending transactions to this address. These transactions can trigger a variety of actions predefined in the contract's code, such as:
+
+- **Token Transfers**: Automatically transfer tokens between accounts based on predefined conditions.
+- **Data Storage**: Store and retrieve data securely and transparently on the blockchain.
+- **Complex Logic Execution**: Execute more sophisticated logic and computations based on the contract's rules.
+
+## What are Smart Contracts used for on Kaia? <a id="what-are-smart-contracts-used-for-on-kaia"></a>
+
+Smart contracts are highly versatile and power a wide array of applications within the Kaia ecosystem:
+
+- **Decentralized Applications (dApps)**: Smart contracts serve as the foundation for building and running dApps on Kaia. This enables the creation of decentralized exchanges, lending platforms, prediction markets, gaming applications, and much more.
+- **Tokenization of Assets**: Smart contracts can represent and manage real-world assets like gold, real estate, intellectual property, or even digital items as unique tokens on the blockchain. This process, known as tokenization, unlocks liquidity and creates new opportunities for fractional ownership and trading.
+- **Automated Governance**: Kaia's on-chain governance system relies on smart contracts to ensure transparency and fairness. These contracts facilitate voting mechanisms, automatically implement changes based on voting outcomes, and provide a tamper-proof record of all governance decisions.
+- **System Contracts**: Kaia itself utilizes smart contracts to manage critical aspects of its protocol. These system contracts handle tasks such as validator registration, network parameter updates, and the execution of governance mechanisms, further enhancing transparency and security.
+
+## Benefits of Smart Contracts on Kaia <a id="benefits-of-smart-contracts-on-kaia"></a>
+
+The use of smart contracts on the Kaia Blockchain offers numerous benefits, including:
+
+- **Increased Efficiency**: Automating agreements and processes eliminates the need for intermediaries, significantly reducing time, costs, and potential points of friction.
+- **Enhanced Security**: Immutability, transparency, and cryptographic security work together to minimize the risks of fraud, manipulation, or security breaches.
+- **Improved Transparency**: All transactions and interactions with smart contracts are recorded on the blockchain, providing a publicly auditable trail and fostering trust and accountability.
+- **Trustless Environment**: Smart contracts remove the reliance on trust between parties. The code itself acts as the impartial enforcer of the agreement, ensuring all parties adhere to the predefined rules.
+
+In essence, smart contracts are fundamental building blocks of the Kaia Blockchain. They empower developers to create a diverse range of decentralized applications and services, fostering innovation and expanding the possibilities of what's achievable on the blockchain. The use of smart contracts within the Kaia ecosystem promotes transparency, security, and efficiency, paving the way for a more equitable and accessible decentralized future.

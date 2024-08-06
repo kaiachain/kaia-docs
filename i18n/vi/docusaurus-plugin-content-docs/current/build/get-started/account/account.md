@@ -1,20 +1,20 @@
-# Account Basics
+# Quản lý tài khoản
 
-**`WARNING`**: Remember your password. If you lose the password of your account, you will not be able to access that account. **There is no** _**forgot my password**_ **option here. Never forget it.**
+**`CẢNH BÁO`**: Hãy ghi nhớ mật khẩu của bạn. Nếu quên mật khẩu của tài khoản, bạn sẽ không thể truy cập tài khoản đó nữa. **Ở đây không có tùy chọn** _**quên mật khẩu**_\*\*. Hãy đừng bao giờ quên mật khẩu. \*\*
 
-Kaia provides two handy command-line tools, `ken` and `JavaScript console`, for developers to manage accounts. Note that exporting your private key in an unencrypted format is NOT supported.
+Klaytn cung cấp hai công cụ tạo dòng lệnh hữu ích, `ken` và `bảng điều khiển JavaScript`, giúp các nhà phát triển quản lý tài khoản. Xin lưu ý rằng chúng tôi KHÔNG hỗ trợ việc xuất mã khóa riêng tư theo định dạng không được mã hóa.
 
 ## ken <a id="ken"></a>
 
-The Kaia Endpoint Node binary `ken` provides account management via the `account` command. The command `account` lets you create new accounts, lists all existing accounts, imports a private key into a new account, migrates to the newest key format, and changes your password.
+Mã nhị phân nút điểm cuối Kaia `ken` cho phép quản lý tài khoản thông qua lệnh `tài khoản`. Lệnh `tài khoản` cho phép bạn tạo ra các tài khoản mới, liệt kê tất cả các tài khoản hiện có, nhập mã khóa riêng tư vào một tài khoản mới, chuyển sang định dạng mã khóa mới nhất và thay đổi mật khẩu của bạn.
 
-### Usage <a id="usage"></a>
+### Cách sử dụng <a id="usage"></a>
 
 ```bash
 $ ken account <command> [options...] [arguments...]
 ```
 
-**Commands**
+**Lệnh**
 
 ```bash
 $ ken account -help
@@ -27,7 +27,7 @@ COMMANDS:
 ...
 ```
 
-You can get info about subcommands by `ken account <command> --help`.
+Bạn có thể nhận thông tin về các lệnh con bằng `ken account <command> --help`.
 
 ```text
 $ ken account list --help
@@ -44,25 +44,25 @@ DATABASE OPTIONS:
   --db.no-partitioning  Disable partitioned databases for persistent storage
 ```
 
-### Data Directory <a id="data-directory"></a>
+### Thư mục dữ liệu <a id="data-directory"></a>
 
-Keystore files are stored under `<DATADIR>/keystore`. You can specify the data directory as below. It is highly recommended to execute `ken account` command with `--datadir` option. Make the data directory point to the `DATA_DIR` set in the `kend.conf` to seamlessly share the accounts with your Endpoint Node.
+Các tập tin lưu trữ khóa được lưu trữ trong `<DATADIR>/keystore`. Bạn có thể chỉ định thư mục dữ liệu như sau. Chúng tôi đề nghị bạn nên thực thi lệnh `ken account` với tùy chọn `--datadir`. Chỉ thư mục dữ liệu đến `DATA_DIR` đặt trong `kend.conf` để chia sẻ các tài khoản của bạn một cách suôn sẻ với Nút điểm cuối.
 
 ```bash
 $ ken account new --datadir <DATADIR>
 $ ken account new --datadir "~/kend_home"
 ```
 
-If you do not specify the data directory, the default location is as follows.
+Nếu bạn không chỉ định thư mục dữ liệu, vị trí mặc định sẽ như sau.
 
 - Mac: `~/Library/KEN`
 - Linux: `~/.ken`
 
-## JavaScript Console <a id="javascript-console"></a>
+## Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
-To connect to the JavaScript console, an EN must be in running status. For more information, see [Launching an EN](../../smart-contracts/deploy/ken.md). Start an EN and attach to the console as follows.
+Để kết nối với biểu giá điều khiển JavaScript, EN phải ở trạng thái đang chạy. Để biết thêm thông tin, hãy xem [Khởi chạy EN](../../smart-contracts/deploy/ken.md). Khởi chạy EN và kết nối với bảng điều khiển như dưới đây.
 
-### Usage <a id="usage"></a>
+### Cách sử dụng <a id="usage"></a>
 
 ```bash
 $ kend start
@@ -78,9 +78,9 @@ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 >
 ```
 
-**Commands**
+**Lệnh**
 
-Type `personal` or `kaia` to get the list of available functions. In this tutorial, we are going to visit the following functions.
+Gõ `personal` hoặc `kaia` để xem danh sách các hàm có sẵn. Trong bài hướng dẫn này, chúng ta sẽ cùng nghiên cứu các hàm sau.
 
 ```bash
 > personal.newAccount()
@@ -90,6 +90,6 @@ Type `personal` or `kaia` to get the list of available functions. In this tutori
 > kaia.getBalance()
 ```
 
-### Data Directory <a id="data-directory"></a>
+### Thư mục dữ liệu <a id="data-directory"></a>
 
-When you create an account, the keystore file is stored under `<DATADIR>/keystore`. The `<DATADIR>` is the `DATA_DIR` set in the `kend.conf`. If you follow the quick start guide with the given example, it must be `~/kend_home`.
+Khi bạn tạo một tài khoản, tập tin lưu trữ khóa sẽ được lưu trữ trong `<DATADIR>/keystore`. `<DATADIR>` là `DATA_DIR` được đặt trong `kend.conf`. Nếu bạn làm theo hướng dẫn bắt đầu nhanh với ví dụ đã cho, thư mục đó sẽ phải là `~/kend_home`.

@@ -17,7 +17,7 @@ In this guide, you will use the web3Modal library to integrate multiple wallets 
 - A working react project (by executing `npx create-react-app project-name`)
 - Install the necessary wallets ([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)).
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
-- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
 ## Setting up Web3Modal and Wallet Provider Options
 
@@ -573,4 +573,4 @@ This error occurs when you use webpack version 5. In this version, NodeJS polyfi
 
 ## Next Step
 
-For more in-depth guides on Web3Modal, please refer to [Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about) and [Web3Modal Github repository](https://github.com/klaytn/klaytn-web3modal). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/web3Modal-sample).
+For more in-depth guides on Web3Modal, please refer to [Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about) and [Web3Modal Github repository](https://github.com/klaytn/klaytn-web3modal). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample).

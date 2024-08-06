@@ -1,13 +1,44 @@
-# Kaia Smart Contract
+# Kaia Smart Contracts
 
-Smart contracts in Kaia are programs that implement business logics, games, libraries, token transfers, or any type of code interacting with the Kaia blockchain. When conditions described in the smart contract are met, the contract executes immediately. The terms within smart contracts are described in programming language; their contents data are stored as their state.
+The Kaia Blockchain leverages the power of smart contracts, recognizing their importance in driving innovation and functionality within the ecosystem. Here's a closer look at the concept of smart contracts within the Kaia Blockchain:
 
-Kaia provides several ways to write and execute smart contracts on the Kaia network. First, Kaia supports Solidity and maintains interoperability with Ethereum development toolkits such as Remix or Truffle. Smart contracts written in Solidity can be compiled using existing Solidity compilers and execute on Kaia without additional work. Since Solidity is the de facto standard contract programming language in Ethereum and is backed by active communities, Kaia supports the language to provide developers with the most familiar development environment onto which Ethereum DApp developers could easily migrate their existing work.
+## What are Smart Contracts? <a id="what-are-smart-contracts"></a>
 
-In the future, Kaia plans to accommodate smart contracts written in various programming languages, in order to extend support to a broader range of potential developers and provide them with development experience they feel they're most familiar with. Going forward, Kaia will continue to explore various programming languages that developers find interesting.
+Smart contracts on the Kaia Blockchain are essentially self-executing digital agreements written in code. These contracts exist on the blockchain, giving them unique characteristics:
 
-## Affordable Smart Contract Execution Cost <a id="affordable-smart-contract-execution-cost"></a>
+- **Immutable**: Once deployed, the code cannot be altered, guaranteeing the integrity and permanence of the agreement.
+- **Transparent**: The code and all transaction history associated with a smart contract are publicly viewable on the blockchain, ensuring transparency and accountability.
+- **Secure**: Protected by the robust cryptographic principles of the Kaia Blockchain, making them highly resistant to tampering or unauthorized modifications.
 
-One of the reasons that blockchains charge fees on smart contract executions is to utilize limited resources efficiently by preventing poorly or maliciously written contracts from running. That is, a blockchain platform increases the financial cost of running smart contracts intentionally \(1\) to induce developers to write efficient code, and \(2\) to deter adversaries in launching attacks by minimizing the expected financial gains. With a successful strategy, the fees charged on normal executions should be small, although the fees from malicious executions should be large. Although Ethereum’s opcode-based fee model is useful in discouraging wasting of resources, it may also dampen ordinary smart contract executions due to high gas prices on some opcodes \(e.g., state write\), hindering the adoption of blockchain technologies. To address this problem, Kaia plans to use an opcode-based fixed fee model with low unit cost per opcode. This is made possible by dramatically increasing scalability of blockchain protocol.
+## Kaia Virtual Machine (KVM): Powering Smart Contracts <a id="kaia-virtual-machine-powering-smart-contracts"></a>
 
-Opcode cost is directly related to the amount of resources that the platform can use. The Ethereum state write cost is high since the storage, and the network bandwidth required to record and propagate the changed states are limited. Conversely, if a blockchain has abundant resources \(e.g., CPU time, storage, network bandwidth\), then the unit cost per opcode can be substantially lower than that of Ethereum, and the cost difference between opcodes can be minimized. Kaia aims to lower opcode unit cost by vertically scaling each CN node \(i.e., acquiring high-end hardware\), parallelizing computation \(i.e., logical scaling via service chain\), and horizontally scaling physical clusters.
+Kaia Blockchain utilizes a specialized virtual machine called the Kaia Virtual Machine (KVM) to execute smart contracts. The KVM is a derivative of the widely-used Ethereum Virtual Machine (EVM), providing key advantages:
+
+- **Developer-Friendly**: Developers familiar with Ethereum can easily migrate existing smart contracts to Kaia or build new ones using familiar tools, languages (like Solidity), and [development environments](../../build/smart-contracts/ide-and-tools/ide-and-tools.md).
+- **Enhanced Functionality**: While maintaining full compatibility with EVM opcodes, the KVM introduces additional precompiled contracts unique to Kaia, expanding the capabilities for developers. To avoid conflicts with existing EVM precompiled contracts, Kaia's [precompiled contract addresses](precompiled-contracts.md) are assigned in descending order from `0x03ff`.
+
+When a smart contract is deployed on Kaia, it receives a unique address on the blockchain, much like a digital mailbox. Users interact with the contract by sending transactions to this address. These transactions can trigger a variety of actions predefined in the contract's code, such as:
+
+- **Token Transfers**: Automatically transfer tokens between accounts based on predefined conditions.
+- **Data Storage**: Store and retrieve data securely and transparently on the blockchain.
+- **Complex Logic Execution**: Execute more sophisticated logic and computations based on the contract's rules.
+
+## What are Smart Contracts used for on Kaia? <a id="what-are-smart-contracts-used-for-on-kaia"></a>
+
+Smart contracts are highly versatile and power a wide array of applications within the Kaia ecosystem:
+
+- **Decentralized Applications (dApps)**: Smart contracts serve as the foundation for building and running dApps on Kaia. This enables the creation of decentralized exchanges, lending platforms, prediction markets, gaming applications, and much more.
+- **Tokenization of Assets**: Smart contracts can represent and manage real-world assets like gold, real estate, intellectual property, or even digital items as unique tokens on the blockchain. This process, known as tokenization, unlocks liquidity and creates new opportunities for fractional ownership and trading.
+- **Automated Governance**: Kaia's on-chain governance system relies on smart contracts to ensure transparency and fairness. These contracts facilitate voting mechanisms, automatically implement changes based on voting outcomes, and provide a tamper-proof record of all governance decisions.
+- **System Contracts**: Kaia itself utilizes smart contracts to manage critical aspects of its protocol. These system contracts handle tasks such as validator registration, network parameter updates, and the execution of governance mechanisms, further enhancing transparency and security.
+
+## Benefits of Smart Contracts on Kaia <a id="benefits-of-smart-contracts-on-kaia"></a>
+
+The use of smart contracts on the Kaia Blockchain offers numerous benefits, including:
+
+- **Increased Efficiency**: Automating agreements and processes eliminates the need for intermediaries, significantly reducing time, costs, and potential points of friction.
+- **Enhanced Security**: Immutability, transparency, and cryptographic security work together to minimize the risks of fraud, manipulation, or security breaches.
+- **Improved Transparency**: All transactions and interactions with smart contracts are recorded on the blockchain, providing a publicly auditable trail and fostering trust and accountability.
+- **Trustless Environment**: Smart contracts remove the reliance on trust between parties. The code itself acts as the impartial enforcer of the agreement, ensuring all parties adhere to the predefined rules.
+
+In essence, smart contracts are fundamental building blocks of the Kaia Blockchain. They empower developers to create a diverse range of decentralized applications and services, fostering innovation and expanding the possibilities of what's achievable on the blockchain. The use of smart contracts within the Kaia ecosystem promotes transparency, security, and efficiency, paving the way for a more equitable and accessible decentralized future.
