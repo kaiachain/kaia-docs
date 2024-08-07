@@ -195,7 +195,7 @@ In this section, we would be testing some of our contract functionalities.
 **Step 2**: Copy the code below in the `sbtTest.js` file.
 
 ```js
-// This is an example test file. Hardhat will run every *.ts file in `test/`,
+// This is an example test file. Hardhat will run every *.js file in `test/`,
 // so feel free to add new ones.
 
 // Hardhat tests are normally written with Mocha and Chai.
@@ -260,26 +260,23 @@ describe("Token contract", function () {
       await expect(
         sbtContract.transferFrom(owner.address, addr1.address, 0)
       ).to.be.reverted;
+    });
+
+    it("Should prohibit token transfer using safeTransferFrom", async function () {
+      const { sbtContract, owner, addr1 } = await loadFixture(
+        deployTokenFixture
+      );
+
+      const safemintTx = await sbtContract.safeMint(owner.address);
+
+      // prohibit token transfer of token id (0) from owner to addr1
+      await expect(sbtContract['safeTransferFrom(address,address,uint256)'](
+        owner.address,
+        addr1.address,
+        0 
+      )).to.be.reverted;
+    });
   });
-
-  it("Should prohibit token transfer using safeTransferFrom", async function () {
-    const { sbtContract, owner, addr1 } = await loadFixture(
-      deployTokenFixture
-    );
-
-    const safemintTx = await sbtContract.safeMint(owner.address);
-
-    // prohibit token transfer of token id (0) from owner to addr1
-    await expect(sbtContract['safeTransferFrom(address,address,uint256)'](
-      owner.address,
-      addr1.address,
-      0 
-  )).to.be.reverted;
-});
-
-
-});
-
 })
 ```
 
@@ -293,7 +290,7 @@ The tests above check the following:
 **Step 3**: To run your test, run the command below:
 
 ```bash
-npx hardhat test test/sbtTest.ts 
+npx hardhat test test/sbtTest.js 
 ```
 
 ![](/img/build/get-started/sbtTest.png)
