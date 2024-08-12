@@ -2,7 +2,7 @@ name: klaytn-docs-docusaurus prod deploy workflow
 on:
   push:
     branches:
-      - main
+      - test
 
 jobs:
   deploy:
@@ -14,19 +14,19 @@ jobs:
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Get AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN_PROD }}
           role-session-name: SessionForKlaytnActions
           aws-region: ${{ secrets.AWS_REGION_PROD }}
 
       - name: Installing Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
 
       - name: Installing dependencies
         run: |
@@ -45,10 +45,10 @@ jobs:
       - name: Build static files
         run: yarn build
 
-      - name: Sync to S3 bucket and validation cloudfront
-        env:
-          S3_BUCKET_PROD: ${{ secrets.S3_BUCKET_PROD }}
-          CLOUDFRONT_ID_PROD: ${{ secrets.CLOUDFRONT_ID_PROD }}
-        run: |
-          aws s3 sync ./build/ $S3_BUCKET_PROD --delete
-          aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_PROD --paths "/*"
+#      - name: Sync to S3 bucket and validation cloudfront
+#        env:
+#          S3_BUCKET_PROD: ${{ secrets.S3_BUCKET_PROD }}
+#          CLOUDFRONT_ID_PROD: ${{ secrets.CLOUDFRONT_ID_PROD }}
+#        run: |
+#          aws s3 sync ./build/ $S3_BUCKET_PROD --delete
+#          aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_PROD --paths "/*"
