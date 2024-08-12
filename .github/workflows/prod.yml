@@ -30,7 +30,8 @@ jobs:
 
       - name: Installing dependencies
         run: |
-          yarn install && yarn upgrade @docusaurus/preset-classic @docusaurus/core --latest
+#          yarn install && yarn upgrade @docusaurus/preset-classic @docusaurus/core --latest
+          yarn install
       - name: Clone kaia-sdk
         run: |
           git clone -b dev https://github.com/kaiachain/kaia-sdk.git
