@@ -27,7 +27,7 @@ Foundry는 빠르고 모듈화된 스마트 컨트랙트 개발을 가능하게 
 - 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
 - [MetaMask](../../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/public-en.md).
-- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 - [Rust](https://www.rust-lang.org/tools/install) 및 [Foundry](https://github.com/foundry-rs/foundry#installation)를 설치합니다.
 
 ## 개발 환경 설정하기
@@ -357,4 +357,4 @@ cast call $oUSDC \
 
 ![](/img/build/get-started/oUsdcHolderAfter.png)
 
-Foundry에 대한 더 자세한 가이드는 [Foundry 문서](https://book.getfoundry.sh/)를 참조하세요. 또한 이 가이드의 전체 코드 구현은 [GitHub](https://github.com/klaytn/examples/tree/main/tools/foundry)에서 확인할 수 있습니다.
+Foundry에 대한 더 자세한 가이드는 [Foundry 문서](https://book.getfoundry.sh/)를 참조하세요. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/foundry).

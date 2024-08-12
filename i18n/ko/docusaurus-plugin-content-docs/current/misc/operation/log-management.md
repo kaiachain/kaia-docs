@@ -27,7 +27,7 @@ LOG_MAXAGE=30 # maximum number of days to retain a log file
 LOG_COMPRESS=1 # setting 1 to compress the backup logs in gz format
 ```
 
-버전이 v1.11.0 이상인 패키지를 다운로드하여 사용하는 것을 권장합니다. 릴리스 노트의 바이너리 섹션에서 다운로드할 수 있습니다(예: [v1.11.0 릴리스 노트](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)). 다음 세 개의 파일이 v1.11.0 이상인지 확인하세요: 구성 파일, 데몬, 바이너리. 그렇지 않으면 작동하지 않습니다.
+It is recommended to download and use the package which version is v1.0.0 or higher. 릴리스 노트의 바이너리 섹션에서 다운로드할 수 있습니다(예: [v1.11.0 릴리스 노트](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)). Make sure next three files are v1.0.0 or higher: configuration file, daemon, and binary. 그렇지 않으면 작동하지 않습니다.
 
 ## 정상 로그 상태
 

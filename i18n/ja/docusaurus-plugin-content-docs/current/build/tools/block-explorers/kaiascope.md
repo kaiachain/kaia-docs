@@ -152,7 +152,6 @@ Overall information about the account.
 - Address \(Hex\): The unique address of the account.
 - Balance: The total amount of KAIA that this account has.
 - Total TXs: The total number of transactions that this account sent or received.
-- HRA: It informs whether this account type is HRA or not. \(TBD\)
 
 #### Transactions <a id="transactions"></a>
 
@@ -171,7 +170,6 @@ Overall information about the contract.
 - Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the account.
 - Total TXs: The total number of transactions that this contract received.
 - Contract Created TX: The transaction that deployed this contract. Clicking on the hash takes you to the detail view of the transaction.
-- HRA: It informs whether the contract account type is HRA or not. \(TBD\)
 
 #### Transactions <a id="transactions"></a>
 
@@ -190,7 +188,6 @@ In the mainnet version, searchable keywords are as follows:
 - Block \#
 - TX Hash
 - Address \(Account, Contract\)
-- Human Readable Address \(.klaytn\) \(TBD\)
 
 ### Keyword Format <a id="keyword-format"></a>
 
@@ -211,11 +208,6 @@ The unique characteristics that distinguish each keyword are as follows:
 - 42 characters long
 - Start with a prefix `0x`
 - Hexadecimal number only \[0~9, a~f\]
-
-#### Human Readable Address \(TBD\) <a id="human-readable-address-tbd"></a>
-
-- 12~20 characters long
-- Ends in `.klaytn`
 
 ### Search Errors <a id="search-errors"></a>
 

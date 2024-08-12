@@ -11,7 +11,7 @@ This page shows all the hard forks to the Kaia blockchain.
 
 ### Summary
 
-Randao hardfork was introduced with the [v1.12.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.12.0). It implements an optional hardfork implementing the Randao on-chain randomness according to [KIP-113](https://kips.klaytn.foundation/KIPs/kip-113), [KIP-114](https://kips.klaytn.foundation/KIPs/kip-114), [KIP-146](https://kips.klaytn.foundation/KIPs/kip-146).
+Randao hardfork was introduced with the [v1.12.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.12.0). It implements an optional hardfork implementing the Randao on-chain randomness according to [KIP-113](https://kips.kaia.io/KIPs/kip-113), [KIP-114](https://kips.kaia.io/KIPs/kip-114), [KIP-146](https://kips.kaia.io/KIPs/kip-146).
 
 ## Cancun
 
@@ -44,7 +44,7 @@ Ethereum's Shanghai hardfork items were introduced with the [v1.11.0 release](ht
 
 ### Summary
 
-KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It includes an implementation of [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103) that is a technical specification of treasury rebalance([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
+KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.2). It includes an implementation of [KIP-103](https://kips.kaia.io/KIPs/kip-103) that is a technical specification of treasury rebalance([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)).
 
 ### Treasury Rebalance <a id="treasury-rebalance"></a>
 
@@ -64,7 +64,7 @@ KIP-103 hardfork was introduced with the [v1.10.2 release](https://github.com/kl
 
 ### Summary
 
-Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.0). It is an implementation of the on-chain governance voting method ([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)), a new GC reward structure ([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)), and EVM changes.
+Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.10.0). It is an implementation of the on-chain governance voting method ([KIP-81](https://kips.kaia.io/KIPs/kip-81)), a new GC reward structure ([KIP-82](https://kips.kaia.io/KIPs/kip-82)), and EVM changes.
 
 ## Magma <a id="magma"></a>
 
@@ -75,7 +75,7 @@ Kore hardfork was introduced with the [v1.10.0 release](https://github.com/klayt
 
 ### Summary
 
-Magma hardfork was introduced with the [v1.9.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.9.0). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71).
+Magma hardfork was introduced with the [v1.9.0 release](https://github.com/klaytn/klaytn/releases/tag/v1.9.0). It includes dynamic gas fee pricing mechanism, [#1493](https://github.com/klaytn/klaytn/pull/1493)) and is an implementation of [KIP-71](https://kips.kaia.io/KIPs/kip-71).
 
 ## EthTxType <a id="eth-tx-type"></a>
 

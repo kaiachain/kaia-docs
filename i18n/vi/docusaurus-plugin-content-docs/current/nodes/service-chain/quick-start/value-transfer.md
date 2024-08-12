@@ -149,7 +149,7 @@ $ node erc20-transfer-2step.js
 
 ## KIP-7 Token Transfer via ERC-20 Interface (two-step) <a id="kip-7-token-transfer-via-erc-20-interface-two-step"></a>
 
-[KIP-7](https://kips.klaytn.foundation/KIPs/kip-7) is a token standard compatible with ERC-20. We can call `requestERC20Transfer()` function to a KIP-7 token contract to transfer KIP-7 tokens between a parent chain and a child chain.
+[KIP-7](https://kips.kaia.io/KIPs/kip-7) is a token standard compatible with ERC-20. We can call `requestERC20Transfer()` function to a KIP-7 token contract to transfer KIP-7 tokens between a parent chain and a child chain.
 In the case of sending KIP-7 tokens via the ERC-20 interface, we call the `approve()` function to allow the bridge to send the tokens on behalf of the transaction sender. Then call the `requestERC20Transfer()` function.
 The below command deploys the bridge contract and a KIP-7 contract.
 

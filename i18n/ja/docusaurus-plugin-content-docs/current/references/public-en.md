@@ -23,40 +23,40 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 **HTTPS**
 
-| Service Provider                                 | Endpoints                                           | Namespaces   | Type    |
-| ------------------------------------------------ | --------------------------------------------------- | ------------ | ------- |
-| [Kaia Foundation](https://www.klaytn.foundation) | `https://public-en-cypress.klaytn.net`              | klay,eth,net | Full    |
-|                                                  | `https://archive-en.cypress.klaytn.net`             | klay,eth,net | Archive |
-| [All That Node](www.allthatnode.com)             | `https://klaytn-mainnet.g.allthatnode.com/full/evm` | klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/)           | `https://klaytn.blockpi.network/v1/rpc/public`      | klay,eth,net | Full    |
-| [OnFinality](https://onfinality.io/)             | `https://klaytn.api.onfinality.io/public`           | klay,eth,net | Full    |
-| [Pokt Network](https://pokt.network/)            | `https://klaytn-rpc.gateway.pokt.network/`          | klay,eth,net | Full    |
+| Service Provider                       | Endpoints                                           | Namespaces   | Type    |
+| -------------------------------------- | --------------------------------------------------- | ------------ | ------- |
+| [Kaia Foundation](https://www.kaia.io) | `https://public-en.node.kaia.io`                    | klay,eth,net | Full    |
+|                                        | `https://archive-en.node.kaia.io`                   | klay,eth,net | Archive |
+| [All That Node](www.allthatnode.com)   | `https://klaytn-mainnet.g.allthatnode.com/full/evm` | klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/) | `https://klaytn.blockpi.network/v1/rpc/public`      | klay,eth,net | Full    |
+| [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`           | klay,eth,net | Full    |
+| [Pokt Network](https://pokt.network/)  | `https://klaytn-rpc.gateway.pokt.network/`          | klay,eth,net | Full    |
 
 **WebSocket**
 
-| Service Provider                                 | Endpoints                                  | Namespaces   | Type    |
-| ------------------------------------------------ | ------------------------------------------ | ------------ | ------- |
-| [Kaia Foundation](https://www.klaytn.foundation) | `wss://public-en-cypress.klaytn.net/ws`    | klay,eth,net | Full    |
-|                                                  | `wss://archive-en.cypress.klaytn.net/ws`   | klay,eth,net | Archive |
-| [OnFinality](https://onfinality.io/)             | `wss://klaytn.api.onfinality.io/public-ws` | klay,eth,net | Full    |
+| Service Provider                       | Endpoints                                  | Namespaces   | Type    |
+| -------------------------------------- | ------------------------------------------ | ------------ | ------- |
+| [Kaia Foundation](https://www.kaia.io) | `wss://public-en.node.kaia.io/ws`          | klay,eth,net | Full    |
+|                                        | `wss://archive-en.node.kaia.io/ws`         | klay,eth,net | Archive |
+| [OnFinality](https://onfinality.io/)   | `wss://klaytn.api.onfinality.io/public-ws` | klay,eth,net | Full    |
 
 ### Testnet (Kairos) Public JSON-RPC Endpoints
 
 **HTTPS**
 
-| Service Provider                                 | Endpoints                                             | Namespaces   | Type    |
-| ------------------------------------------------ | ----------------------------------------------------- | ------------ | ------- |
-| [Kaia Foundation](https://www.klaytn.foundation) | `https://public-en-kairos.node.kaia.io`               | klay,eth,net | Full    |
-|                                                  | `https://archive-en-kairos.node.kaia.io/`             | klay,eth,net | Archive |
-| [All That Node](www.allthatnode.com)             | `https://klaytn-baobab.g.allthatnode.com/full/evm`    | klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/)           | `https://klaytn-baobab.blockpi.network/v1/rpc/public` | klay,eth,net | Full    |
+| Service Provider                       | Endpoints                                             | Namespaces   | Type    |
+| -------------------------------------- | ----------------------------------------------------- | ------------ | ------- |
+| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`               | klay,eth,net | Full    |
+|                                        | `https://archive-en-kairos.node.kaia.io/`             | klay,eth,net | Archive |
+| [All That Node](www.allthatnode.com)   | `https://klaytn-baobab.g.allthatnode.com/full/evm`    | klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/) | `https://klaytn-baobab.blockpi.network/v1/rpc/public` | klay,eth,net | Full    |
 
 **WebSocket**
 
-| Service Provider                                 | Endpoints                                 | Namespaces   | Type    |
-| ------------------------------------------------ | ----------------------------------------- | ------------ | ------- |
-| [Kaia Foundation](https://www.klaytn.foundation) | `wss://public-en-kairos.node.kaia.io/ws`  | klay,eth,net | Full    |
-|                                                  | `wss://archive-en-kairos.node.kaia.io/ws` | klay,eth,net | Archive |
+| Service Provider                       | Endpoints                                 | Namespaces   | Type    |
+| -------------------------------------- | ----------------------------------------- | ------------ | ------- |
+| [Kaia Foundation](https://www.kaia.io) | `wss://public-en-kairos.node.kaia.io/ws`  | klay,eth,net | Full    |
+|                                        | `wss://archive-en-kairos.node.kaia.io/ws` | klay,eth,net | Archive |
 
 ## RPC Service Providers
 

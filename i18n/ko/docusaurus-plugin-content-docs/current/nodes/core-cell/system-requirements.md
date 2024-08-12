@@ -19,7 +19,7 @@
 
 이는 CN과 PN에 권장되는 하드웨어 사양이며, 정확한 요구 사항은 아닙니다. 유사한 하드웨어 구성을 가진 모든 물리적 컴퓨터는 CN 또는 PN을 작동하기에 충분합니다.
 
-You can use and apply a live-pruning option to use live-pruning DB. For more details, please refer https://docs.klaytn.foundation/docs/learn/storage/live-pruning/. However, note that live-pruning spec is not recommended for CNs but this may change in the future.
+You can use and apply a live-pruning option to use live-pruning DB. For more details, please refer https://docs.kaia.io/learn/storage/live-pruning/. However, note that live-pruning spec is not recommended for CNs but this may change in the future.
 
 ### 클라우드 VM <a id="cloud-vm"></a>
 

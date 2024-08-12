@@ -287,11 +287,11 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
 
 ## Hardfork Changes <a id="hardfork-changes"></a>
 
-| Hardfork     | New items                                              | Changes                                                                                                                                                                                                                                             |
-| ------------ | :----------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cancun EVM   | kzg (0x0a) precompiled contract     |                                                                                                                                                                                                                                                     |
-| Kore         |                                                        | modExp (0x05) precompiled contract use new gas <br/>calculation logic. Computation cost also affected. <br/>Become more accurate.                                                |
-| Istanbul EVM | blake2f (0x09) precompiled contract | klaytn precompiled contract addresses has been moved <br/>from 0x09,0x0A,0x0B to 0x3FD,0x3FE,0x3FF.<br/>see the below [precompiled contract address change table](#precompiled-contract-address-change) for detail. |
+| Hardfork     | New items                                              | Changes                                                                                                                                                                                                                                           |
+| ------------ | :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Cancun EVM   | kzg (0x0a) precompiled contract     |                                                                                                                                                                                                                                                   |
+| Kore         |                                                        | modExp (0x05) precompiled contract use new gas <br/>calculation logic. Computation cost also affected. <br/>Become more accurate.                                              |
+| Istanbul EVM | blake2f (0x09) precompiled contract | kaia precompiled contract addresses has been moved <br/>from 0x09,0x0A,0x0B to 0x3FD,0x3FE,0x3FF.<br/>see the below [precompiled contract address change table](#precompiled-contract-address-change) for detail. |
 
 ### Precompiled contract address change <a id="precompiled-contract-address-change"></a>
 

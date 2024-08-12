@@ -157,7 +157,7 @@ Each CN maintains a copy of the network's chain data. If a node is out of sync, 
 
 To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the CN. This can dramatically reduce the time the CN will spend syncing on first start.
 
-Download the latest chaindata snapshot from the [Mainnet snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Kairos snapshot archive](https://packages.kaia.io/kairos/chaindata/). Before starting `kcnd`, extract the snapshot inside the DATA_DIR you configured in `kcnd.conf`.
+Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.klaytn.net/cypress/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). Before starting `kcnd`, extract the snapshot inside the DATA_DIR you configured in `kcnd.conf`.
 
 For example:
 
@@ -220,7 +220,7 @@ $ systemctl daemon-reload
 
 ### Export BLS public key info <a id="export-bls-public-key-info"></a>
 
-If the network has activated or will activate the Randao hardfork, each CN maintainer must submit its BLS public key info to the [KIP-113 smart contract](https://kips.klaytn.foundation/KIPs/kip-113).
+If the network has activated or will activate the Randao hardfork, each CN maintainer must submit its BLS public key info to the [KIP-113 smart contract](https://kips.kaia.io/KIPs/kip-113).
 
 The BLS public key info can be calculated from the nodekey. To extract it, first start the node. Then use the command:
 

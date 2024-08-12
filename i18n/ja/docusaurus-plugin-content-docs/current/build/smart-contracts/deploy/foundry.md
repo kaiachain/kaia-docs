@@ -27,7 +27,7 @@ To follow this tutorial, the following are the prerequisites:
 - Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 - [MetaMask](../../tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/public-en.md).
-- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 - Install [Rust](https://www.rust-lang.org/tools/install) and [Foundry](https://github.com/foundry-rs/foundry#installation).
 
 ## Setting Up Your Development Environment
@@ -357,4 +357,4 @@ cast call $oUSDC \
 
 ![](/img/build/get-started/oUsdcHolderAfter.png)
 
-For more in-depth guide on foundry, please refer to [Foundry Docs](https://book.getfoundry.sh/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/foundry).
+For more in-depth guide on foundry, please refer to [Foundry Docs](https://book.getfoundry.sh/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/foundry).

@@ -17,7 +17,7 @@ As a wallet infrastructure, it provides out-of-the-box support for all social lo
 - A working react project (by executing `npx create-react-app project-name`)
 - Install the necessary wallets ([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
-- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 - Get your Client ID from [Web3Auth Dashboard](https://dashboard.web3auth.io/).
 
 ## Installation
@@ -600,4 +600,4 @@ This error occurs when you use webpack version 5. In this version, NodeJS polyfi
 
 ## Next Step
 
-For more in-depth guides on Web3Auth, please refer to the [Web3Auth Docs](https://web3auth.io/docs/connect-blockchain/klaytn) and [Web3Auth Github repository](https://github.com/web3auth). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/web3Auth-sample).
+For more in-depth guides on Web3Auth, please refer to the [Web3Auth Docs](https://web3auth.io/docs/connect-blockchain/klaytn) and [Web3Auth Github repository](https://github.com/web3auth). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Auth-sample).

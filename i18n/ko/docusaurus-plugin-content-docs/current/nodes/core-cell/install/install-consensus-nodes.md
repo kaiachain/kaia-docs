@@ -157,7 +157,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 이 프로세스를 가속화하기 위해 CN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 빠른 동기화를 수행할 수 있습니다. 이렇게 하면 CN이 처음 시작할 때 동기화하는 데 소요되는 시간을 크게 줄일 수 있습니다.
 
-Download the latest chaindata snapshot from the [Mainnet snapshot archive](http://packages.klaytn.net/cypress/chaindata/) or [Kairos snapshot archive](https://packages.kaia.io/kairos/chaindata/). `kcnd`를 시작하기 전에 `kcnd.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
+Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.klaytn.net/cypress/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). `kcnd`를 시작하기 전에 `kcnd.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
 
 예를 들어
 
@@ -220,7 +220,7 @@ $ systemctl daemon-reload
 
 ### BLS 공개키 정보 내보내기 <a id="export-bls-public-key-info"></a>
 
-네트워크가 Randao 하드포크를 활성화했거나 활성화할 예정이라면, 각 CN 관리자는 BLS 공개키 정보를 [KIP-113 스마트 컨트랙트](https://kips.klaytn.foundation/KIPs/kip-113)에 제출해야 합니다.
+If the network has activated or will activate the Randao hardfork, each CN maintainer must submit its BLS public key info to the [KIP-113 smart contract](https://kips.kaia.io/KIPs/kip-113).
 
 BLS 공개키 정보는 노드키에서 계산할 수 있습니다. 이를 추출하려면 먼저 노드를 시작합니다. 그리고 다음 명령을 사용합니다:
 

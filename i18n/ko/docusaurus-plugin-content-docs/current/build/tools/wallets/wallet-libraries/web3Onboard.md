@@ -17,7 +17,7 @@ sidebar_label: Web3-Onboard
 - 작동하는 리액트 프로젝트(`npx create-react-app project-name` 실행)
 - 필요한 지갑 설치([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)).
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
-- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
 ## 시작하기
 
@@ -493,4 +493,4 @@ BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules b
 
 ## 다음 단계
 
-Web3-Onboard에 대한 자세한 가이드는 [블록네이티브 문서](https://docs.blocknative.com/onboard) 및 [블록네이티브 GitHub 리포지토리](https://github.com/blocknative/onboard)를 참고하시기 바랍니다. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/web3Onboard-sample).
+Web3-Onboard에 대한 자세한 가이드는 [블록네이티브 문서](https://docs.blocknative.com/onboard) 및 [블록네이티브 GitHub 리포지토리](https://github.com/blocknative/onboard)를 참고하시기 바랍니다. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Onboard-sample).

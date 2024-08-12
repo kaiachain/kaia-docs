@@ -17,7 +17,7 @@ sidebar_label: Web3Modal
 - 작동하는 리액트 프로젝트(`npx create-react-app 프로젝트 이름`을 실행하여)
 - 필요한 지갑([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [MetaMask](https://metamask.io/download/)) 설치.
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
-- Test KAIA from [Faucet](https://kairos.wallet.kaia.io/faucet): fund your account with sufficient KAIA.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
 ## Web3Modal 및 지갑 공급자 옵션 설정하기
 
@@ -573,4 +573,4 @@ BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules b
 
 ## 다음 단계
 
-Web3Modal에 대한 자세한 가이드는 [Web3Modal 문서](https://docs.walletconnect.com/2.0/web3modal/about) 및 [Web3Modal GitHub 리포지토리](https://github.com/WalletConnect/web3modal)를 참조하시기 바랍니다. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/klaytn/examples/tree/main/tools/wallet-libraries/web3Modal-sample).
+Web3Modal에 대한 자세한 가이드는 [Web3Modal 문서](https://docs.walletconnect.com/2.0/web3modal/about) 및 [Web3Modal GitHub 리포지토리](https://github.com/WalletConnect/web3modal)를 참조하시기 바랍니다. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample).

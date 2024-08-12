@@ -197,7 +197,7 @@ In the next section, we will be exploring the execution of functions in their ap
 
 ## Deploying the smart contract <a id="deploying-the-smart-contract"></a>
 
-In this section, you will make use of the [script](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy) here to deploy the OFTV1 contract on Klaytn Baobab (source chain) and Polygon Mumbai (destination chain) respectively. Ensure you have tokens from a faucet for the respective network. You can acquire faucet tokens for the Kaia Kairos [here](https://kairos.wallet.kaia.io/faucet) and  Polygon Mumbai testnet [here](https://faucet.polygon.technology/).
+In this section, you will make use of the [script](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy) here to deploy the OFTV1 contract on Klaytn Baobab (source chain) and Polygon Mumbai (destination chain) respectively. Ensure you have tokens from a faucet for the respective network. You can acquire faucet tokens for the Kaia Kairos [here](https://faucet.kaia.io) and  Polygon Mumbai testnet [here](https://faucet.polygon.technology/).
 
 To deploy the contracts on the respective chains, run the command below:
 
@@ -273,6 +273,6 @@ npx hardhat run scripts/check-balance.js --network mumbai
 
 ## Conclusion
 
-Congratulations! 🥳 You were able to successfully send tokens from Klaytn Baobab to Polygon Mumbai in a single transaction call using the LayerZero Omnichain Contract OFTV1. You can take it a step further by setting up a simple user interface to make it easy for users to move tokens between chains. Once token contracts are set up, you can use a web3 library such as [web3klaytn](https://klaytn-foundation.stoplight.io/docs/web3klaytn/0d10ufjmg8ri2-overview) or [ethers.js](https://docs.ethers.org/v5/) to connect the **sendFrom()** function to a user interface.
+Congratulations! 🥳 You were able to successfully send tokens from Klaytn Baobab to Polygon Mumbai in a single transaction call using the LayerZero Omnichain Contract OFTV1. You can take it a step further by setting up a simple user interface to make it easy for users to move tokens between chains. Once token contracts are set up, you can use a web3 library such as [kaia-sdk](https://klaytn-foundation.stoplight.io/docs/web3klaytn/0d10ufjmg8ri2-overview) or [ethers.js](https://docs.ethers.org/v5/) to connect the **sendFrom()** function to a user interface.
 
 Start building with [crosschain-oftv1-example](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main) to bootstrap your own projects such as cross-chain decentralized exchanges, cross-chain lending, etc. For more in-depth guides on LayerZero, please refer to the [LayerZero Docs](https://layerzero.gitbook.io/docs/) and [LayerZero Github Repository](https://github.com/LayerZero-Labs/solidity-examples/tree/main).
