@@ -20,8 +20,8 @@ The contract must first be deployed before you may interact with it in your mult
 
 To interact with a smart contract in your safe wallet, click **"New Transaction"**. To complete this step, you will need your already deployed contract address and ABI, as illustrated in the previous step.
 
-![](/img/build/tools/kaia-safe/ks-ic-new-tx.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-ci-init.gif)
 
 **Step 4:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
 
-![](/img/build/tools/kaia-safe/ks-review-ic.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-ci-review-send.gif)
