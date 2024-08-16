@@ -57,12 +57,12 @@ export const sidebar = {
             type: 'category',
             label: 'Fee Delegated Transaction',
             items: [
-                'references/sdk/web3py-ext/basic-transaction/value-transfer',
-                'references/sdk/web3py-ext/basic-transaction/value-transfer-memo',
-                'references/sdk/web3py-ext/basic-transaction/account-update',
-                'references/sdk/web3py-ext/basic-transaction/smart-contract-deploy',
-                'references/sdk/web3py-ext/basic-transaction/smart-contract-execution',
-                'references/sdk/web3py-ext/basic-transaction/cancel-transaction',
+                'references/sdk/web3py-ext/fee-delegated-transaction/value-transfer',
+                'references/sdk/web3py-ext/fee-delegated-transaction/value-transfer-memo',
+                'references/sdk/web3py-ext/fee-delegated-transaction/account-update',
+                'references/sdk/web3py-ext/fee-delegated-transaction/smart-contract-deploy',
+                'references/sdk/web3py-ext/fee-delegated-transaction/smart-contract-execution',
+                'references/sdk/web3py-ext/fee-delegated-transaction/cancel-transaction',
             ],
         },
         {
