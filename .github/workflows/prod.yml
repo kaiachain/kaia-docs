@@ -46,10 +46,10 @@ jobs:
       - name: Build static files
         run: yarn build
 
-      - name: Sync to S3 bucket and validation cloudfront
-        env:
-          S3_BUCKET_PROD: ${{ secrets.S3_BUCKET_PROD }}
-          CLOUDFRONT_ID_PROD: ${{ secrets.CLOUDFRONT_ID_PROD }}
-        run: |
-          aws s3 sync ./build/ $S3_BUCKET_PROD --delete
-          aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_PROD --paths "/*"
+      # - name: Sync to S3 bucket and validation cloudfront
+      #   env:
+      #     S3_BUCKET_PROD: ${{ secrets.S3_BUCKET_PROD }}
+      #     CLOUDFRONT_ID_PROD: ${{ secrets.CLOUDFRONT_ID_PROD }}
+      #   run: |
+      #     aws s3 sync ./build/ $S3_BUCKET_PROD --delete
+      #     aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_PROD --paths "/*"
