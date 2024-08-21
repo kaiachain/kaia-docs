@@ -466,6 +466,7 @@ const sidebars = {
     },
     'references/signed-message',
     'references/transaction-error-codes',
+    'references/contract-addresses',
     ...commonSidebar,
   ],
   kaiaSidebar: [
