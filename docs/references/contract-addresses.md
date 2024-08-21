@@ -23,11 +23,13 @@ Some contracts are not directly read by Kaia nodes but play crucial roles in ope
 | KIP-103 KCV                     | 0x4f04251064274252D27D4af55BC85b68B3adD992 | 0xaa8d19a5e17e9e1bA693f13aB0E079d274a7e51E |
 | KIP-103 KFF                     | 0x85D82D811743b4B8F3c48F3e48A1664d1FfC2C10 | 0x8B537f5BC7d176a94D7bF63BeFB81586EB3D1c0E |
 | KIP-103 KCF                     | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C |
-| KIP-160 KEF                     |                                            |                                            |
-| KIP-160 KIF                     |                                            |                                            |
-| KIP-163 PublicDelegationFactory |                                            |                                            |
-| Kaiabridge Bridge               |                                            |                                            |
-| Kaiabridge Operator             |                                            |                                            |
-| Kaiabridge Judge                |                                            |                                            |
-| Kaiabridge Guardian             |                                            |                                            |
+| KIP-160 KIF                     | TBU                                        | 0x8436e5BD1A6D622c278c946E2F8988a26136A16F |
+| KIP-160 KEF                     | TBU                                        | 0x819d4b7245164e6A94341F4b5C2ae587372BB669 |
+| KIP-160 Lockup                  | TBU                                        | 0x8436e5BD1A6D622c278c946E2F8988a26136A16F |
+| KIP-160 Airdrop                 | TBU                                        | 0xb90e8A1D5434a191c42bd2E12a51DA1d96Debe67 |
+| Kaiabridge Bridge               | 0x5Ff2AD57C15f7Dacb5D098d1fC82DAF482884f99 | 0x4cE2b3dC804B35aC43F96B266B50Bc9fE69A97C2 |
+| Kaiabridge Operator             | 0xB390AaEf82Af9F8392Ed90768DABF91164c59619 | 0x8afe7C44C0293fd69baF444743e224Da1886760A |
+| Kaiabridge Judge                | 0x64c91d6517b8f2fd7f4157c32DE4acfe1AeA2611 | 0x3735Ba95cca5DEd47Fa5b202a2Bbda4c63c0B1DD |
+| Kaiabridge Guardian             | 0xE49D152E5FA576caFC18D2775AF4E58C135a6851 | 0xc9e8342C1da4c89A423258d9030414331b4761Cf |
+| KIP-163 PublicDelegationFactory | 0x29C8cc53d22F79D4024ecB67DB1a09b37bCdE415 |                                            |
 
