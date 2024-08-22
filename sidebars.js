@@ -193,7 +193,7 @@ const sidebars = {
             'build/tools/wallets/kaikas',
             {
               type: 'category',
-              label: 'Klaytn Safe',
+              label: 'Kaia Safe',
               link: {
                 type: 'doc',
                 id: 'build/tools/wallets/kaia-safe/kaia-safe',
@@ -258,8 +258,8 @@ const sidebars = {
             'build/tools/block-explorers/kaiascope',
             {
               type: 'link',
-              label: 'Klaytnfinder',
-              href: 'https://www.klaytnfinder.io/',
+              label: 'KaiaScan',
+              href: 'https://kaiascan.io/',
             },
           ],
         },
