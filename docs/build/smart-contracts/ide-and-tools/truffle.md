@@ -57,7 +57,7 @@ module.exports = {
 
         return new HDWalletProvider(
           mnemonic,
-          "https://public-en-baobab.klaytn.net",
+          "https://public-en-kairos.node.kaia.io",
           0,
           mnemonic.length
         );
@@ -164,7 +164,7 @@ module.exports = {
 
         return new HDWalletProvider(
           pks,
-          "https://public-en-baobab.klaytn.net",
+          "https://public-en-kairos.node.kaia.io",
           0,
           pks.length
         );
