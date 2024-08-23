@@ -69,12 +69,12 @@ export const sidebar = {
             type: 'category',
             label: 'Fee Delegated Transaction',
             items: [
-                'references/sdk/ethers-ext/basic-transaction/value-transfer',
-                'references/sdk/ethers-ext/basic-transaction/value-transfer-memo',
-                'references/sdk/ethers-ext/basic-transaction/account-update',
-                'references/sdk/ethers-ext/basic-transaction/smart-contract-deploy',
-                'references/sdk/ethers-ext/basic-transaction/smart-contract-execution',
-                'references/sdk/ethers-ext/basic-transaction/cancel-transaction'
+                'references/sdk/ethers-ext/fee-delegated-transaction/value-transfer',
+                'references/sdk/ethers-ext/fee-delegated-transaction/value-transfer-memo',
+                'references/sdk/ethers-ext/fee-delegated-transaction/account-update',
+                'references/sdk/ethers-ext/fee-delegated-transaction/smart-contract-deploy',
+                'references/sdk/ethers-ext/fee-delegated-transaction/smart-contract-execution',
+                'references/sdk/ethers-ext/fee-delegated-transaction/cancel-transaction'
             ]
         },
         {
