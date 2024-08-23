@@ -12,13 +12,13 @@ The steps below explain how to add new owners or signers to your Safe account af
 
 **Step 2:** Click the **Add new signer** button at the bottom of the card. Clicking this button would open a new window.
 
-![](/img/build/tools/kaia-safe/ks-owners-change.png)
+![](/img/build/tools/kaia-safe/ks-add-signers.png)
 
 **Step 3:** Enter the **name** of the new owner and paste the **owner's address**. Then click the next button at the bottom-right of the page.
 
 **Step 4:** Set a new signature policy. In this case, you can either change or retain the existing signature policy. The image below shows that 2 out of the 4 owners are required to confirm and execute any transaction.
 
-![](/img/build/tools/kaia-safe/ks-owners-details.png)
+![](/img/build/tools/kaia-safe/ks-add-signer-details.png)
 
 **Step 5:** Review and submit the transaction.
 
@@ -26,7 +26,7 @@ Confirm that all changes are correct before submitting. You can therefore submit
 
 After clicking on **Submit**, your connected wallet will ask you to confirm the change. Depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
 
-![](/img/build/tools/kaia-safe/ks-review-owners.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-change-owner-setup-review.gif)
 
 ## Can I change the number of required signer confirmation? <a id="Can i change the number of required signer confirmation"></a>
 
@@ -36,19 +36,17 @@ Yes! You can change the number of signer confirmations required by following the
 
 This shows your current signature policy, and from the image below, 2 out of 4 owners are required to confirm any transaction.
 
-![](/img/build/tools/kaia-safe/ks-policy-page.png)
+![](/img/build/tools/kaia-safe/ks-conf-policy.png)
 
 **Step 2:** Click on the **change** button.
 
 This pops up a new window to select your new signature threshold.
 
-![](/img/build/tools/kaia-safe/ks-policy-change-btn.png)
+![](/img/build/tools/kaia-safe/ks-conf-policy-btn.png)
 
 **Step 3:** Click on the **Submit** button.
 
 Note that depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
-
-![](/img/build/tools/kaia-safe/ks-review-policy.gif)
 
 ## How do I add an existing safe? <a id="How do i add an existing safe"></a>
 
@@ -56,9 +54,7 @@ Using your exported Safe data, which contains your added Safe accounts, address 
 
 > Note: You must have downloaded your Safe data as shown in the image below:
 
-![](/img/build/tools/kaia-safe/ks-data-export.png)
-
-![](/img/build/tools/kaia-safe/ks-export-data.gif)
+![](/img/build/tools/kaia-safe/ks-export-btn.png)
 
 The need to add or load an existing safe into the interface varies. These may include:
 
@@ -72,15 +68,15 @@ Let's go through the process of adding your existing safe in the following steps
 
 **Step 2:** Scroll to the **Data Import** card under the **Data** section.
 
-![](/img/build/tools/kaia-safe/ks-data-import-details.png)
+![](/img/build/tools/kaia-safe/ks-data-import-i.png)
 
 Here you can either Drag and Drop a JSON file or choose your file as seen in the image above.
 
 **Step 3:** Click on **Import** button.
 
-![](/img/build/tools/kaia-safe/ks-data-import.png)
+![](/img/build/tools/kaia-safe/ks-data-import-btn.png)
 
-![](/img/build/tools/kaia-safe/ks-import-data.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-data-import.gif)
 
 After this, you should now have access to your Safe account.
 
