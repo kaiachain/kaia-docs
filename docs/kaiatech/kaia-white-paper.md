@@ -4,8 +4,6 @@
 
 Project Kaia[^1] Digital Tokens (hereinafter referred to as “KAIA” with the ticker symbol KAIA) are not intended to constitute a regulated product such as securities, fiat tokens or e-money, accepted virtual assets or specified investments each as defined under the Financial Services and Markets Regulations 2015 of the Abu Dhabi Global Market (the “FSMR”), or its equivalent or any other regulated products in any jurisdiction.
 
-The Foundation is presently not required to be licensed by the Financial Services Regulatory Authority (“FSRA”) of Abu Dhabi Global Market (“ADGM”) as KAIA does not constitute a regulated product in the ADGM. The Foundation does not provide any regulated services nor carry on any regulated activities in the ADGM or in any jurisdiction.
-
 Please note that you may not be able to recover any monies paid for KAIA in the event that the KAIA Token Economy fails to materialize or where the vision or objects of the Foundation fails.
 
 This Whitepaper is meant to provide more information on the KAIA Token Economy and functions of KAIA, and does not constitute a prospectus or offer document of any sort.
