@@ -14,17 +14,17 @@ Let’s get started with this example using Transaction Builder!
 
 **Step 1:** Open Safe Apps.
 
-![](/img/build/tools/kaia-safe/tx-builder-app.png)
+![](/img/build/tools/kaia-safe/ks-tx-builder.png)
 
 **Step 2:** Open the Transaction Builder Safe app
 
-![](/img/build/tools/kaia-safe/tx-builder-card.png)
+![](/img/build/tools/kaia-safe/ks-use-tx-builder.png)
 
 **Step 3:** Enter your **token contract address** and **ABI**.
 
 In this example, CCT contract address and ABI will be used. You can copy and paste your ABI into the **Enter ABI** field.
 
-![](/img/build/tools/kaia-safe/tx-builder-new.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-init.gif)
 
 **Step 4:** Select a method and fill the transaction information
 
@@ -32,7 +32,7 @@ From the drop-down you can select a method. In this case, we select the **transf
 
 Note: The value is an unsigned integer without any decimals. In this example, the CCT token has 18 decimals. So if you want to send 10 CCT, you have to enter 10000000000000000000.
 
-![](/img/build/tools/kaia-safe/tx-builder-tx-details.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-details.gif)
 
 **Step 5:** Click **Add transaction**
 
@@ -40,10 +40,8 @@ Note: The value is an unsigned integer without any decimals. In this example, th
 
 **Step 7:** Once you added all operations to the batch click **Create Batch**
 
-![](/img/build/tools/kaia-safe/tx-builder-batch-tx.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-batch.gif)
 
 **Step 8:** Review and submit transaction
 
 You'll be able to review the whole batch. Once ready, click **Send Batch** to submit and execute the transaction just like any other Safe transaction.
-
-![](/img/build/tools/kaia-safe/tx-builder-review-tx.gif)
