@@ -14,17 +14,17 @@ Transaction Builder를 사용하여 이 예제를 시작해 보겠습니다!
 
 **1단계**: Safe Apps을 엽니다.
 
-![](/img/build/tools/kaia-safe/tx-builder-app.png)
+![](/img/build/tools/kaia-safe/ks-tx-builder.png)
 
 **2단계**: Transaction Builder Safe 앱 열기
 
-![](/img/build/tools/kaia-safe/tx-builder-card.png)
+![](/img/build/tools/kaia-safe/ks-use-tx-builder.png)
 
 **3단계**: 토큰 컨트랙트 주소와 ABI를 입력합니다.
 
 이 예시에서는 DRIP 컨트랙트 주소와 ABI가 사용됩니다. ABI를 복사하여 "Enter ABI" 필드에 붙여넣을 수 있습니다.
 
-![](/img/build/tools/kaia-safe/tx-builder-new.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-init.gif)
 
 **4단계**: 방법을 선택하고 거래 정보를 입력합니다.
 
@@ -32,7 +32,7 @@ Transaction Builder를 사용하여 이 예제를 시작해 보겠습니다!
 
 참고: 값은 소수점이 없는 부호 없는 정수입니다. 이 예시에서 DRIP 토큰은 소수점이 18입니다. So if you want to send 10 CCT, you have to enter 10000000000000000000.
 
-![](/img/build/tools/kaia-safe/tx-builder-tx-details.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-details.gif)
 
 **5단계**: **Add transaction**를 클릭합니다.
 
@@ -40,10 +40,8 @@ Transaction Builder를 사용하여 이 예제를 시작해 보겠습니다!
 
 **7단계**: 배치에 모든 작업을 추가한 후 **Create Batch**을 클릭합니다.
 
-![](/img/build/tools/kaia-safe/tx-builder-batch-tx.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-batch.gif)
 
 **8단계**: 거래 검토 및 제출하기
 
 전체 배치를 검토할 수 있습니다. 준비가 완료되면 **Send Batch**을 클릭해 다른 세이프 거래와 마찬가지로 거래를 제출하고 실행합니다.
-
-![](/img/build/tools/kaia-safe/tx-builder-review-tx.gif)
