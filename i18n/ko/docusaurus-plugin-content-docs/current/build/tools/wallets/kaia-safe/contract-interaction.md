@@ -20,8 +20,8 @@
 
 안전지갑에서 스마트 컨트랙트와 상호작용하려면 **New Transaction**을 클릭합니다. 이 단계를 완료하려면 이전 단계에서 설명한 대로 이미 배포한 컨트랙트 주소와 ABI가 필요합니다.
 
-![](/img/build/tools/kaia-safe/ks-ic-new-tx.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-ci-init.gif)
 
 **4단계**: 트랜잭션을 검토하고 제출합니다. 서명자 지갑으로 트랜잭션에 서명해야 하며, 확인 임계값에 도달하면 트랜잭션이 실행됩니다.
 
-![](/img/build/tools/kaia-safe/ks-review-ic.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-ci-review-send.gif)
