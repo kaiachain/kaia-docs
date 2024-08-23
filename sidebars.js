@@ -193,7 +193,7 @@ const sidebars = {
             'build/tools/wallets/kaikas',
             {
               type: 'category',
-              label: 'Klaytn Safe',
+              label: 'Kaia Safe',
               link: {
                 type: 'doc',
                 id: 'build/tools/wallets/kaia-safe/kaia-safe',
