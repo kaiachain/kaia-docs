@@ -15,16 +15,7 @@ Additionally, from the FORK_BLOCK onwards, staking information for block N will 
 
 **Date: 2024-04-22**
 
-KIP-160 proposes enhancements to the Treasury Fund Rebalancing mechanism, addressing the limitations of KIP-103. The primary motivation is to allow both increases and decreases in fund balances and make the rebalance block number editable. This update involves generalizing the rebalancing process, enabling both the burning and minting of funds, and ensuring the rebalance block number can be aligned with changes in the blockchain's hard fork schedule.
-
-### Treasury Rebalance ​
-
-|                                    | Baobab | Cypress |
-| ---------------------------------- | ------ | ------- |
-| TreasuryRebalance Contract Address | TBD    | TBD     |
-| KCV Address                        | TBD    | TBD     |
-| KFF Address                        | TBD    | TBD     |
-| KCF Address                        | TBD    | TBD     |
+KIP-160 proposes enhancements to the Treasury Fund Rebalancing mechanism, addressing the limitations of KIP-103. The primary motivation is to allow both increases and decreases in fund balances and make the rebalance block number editable. This update involves generalizing the rebalancing process, enabling both the burning and minting of funds, and ensuring the rebalance block number can be aligned with changes in the blockchain's hard fork schedule. Find the rebalance detail in the [contracts addresses](../../../references/contract-addresses) page.
 
 ## KIP-149: Unified Deployment and Management of System Contracts <a id="KIP-149"></a>
 
@@ -44,16 +35,7 @@ KIP-149 introduces a standardized method for deploying and managing system contr
 
 KIP-103 was introduced with the v1.10.2 release. It introduces a Treasury Fund Rebalancing mechanism which is the proposal for the implementation of KGP-6.
 
-The KGP-6 proposal aims to establish a sustainable and verifiable KAIA token economy. It was approved by the Governance Council, with 26 out of 31 members voting in favor. The proposal includes contributions from various organizations such as 1inch, Swapscanner, Ground X, and others. The goal is to create a more robust and transparent ecosystem for the KAIA token.
-
-### Treasury Rebalance ​
-
-|                                    | Baobab                                     | Cypress                                    |
-| ---------------------------------- | ------------------------------------------ | ------------------------------------------ |
-| TreasuryRebalance Contract Address | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
-| KCV Address                        | 0xaa8d19a5e17e9e1bA693f13aB0E079d274a7e51E | 0x4f04251064274252D27D4af55BC85b68B3adD992 |
-| KFF Address                        | 0x8B537f5BC7d176a94D7bF63BeFB81586EB3D1c0E | 0x85D82D811743b4B8F3c48F3e48A1664d1FfC2C10 |
-| KCF Address                        | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 |
+The KGP-6 proposal aims to establish a sustainable and verifiable KAIA token economy. It was approved by the Governance Council, with 26 out of 31 members voting in favor. The proposal includes contributions from various organizations such as 1inch, Swapscanner, Ground X, and others. The goal is to create a more robust and transparent ecosystem for the KAIA token. Find the rebalance detail in the [contracts addresses](../../../references/contract-addresses) page.
 
 ## KIP-82: KIP-82: A new GC reward structure due to abolition of the Gini coefficient <a id="KIP-82"></a>
 

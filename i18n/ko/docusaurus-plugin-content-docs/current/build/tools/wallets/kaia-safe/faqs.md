@@ -12,13 +12,13 @@
 
 **2단계**: 페이지 오른쪽 하단의 **Add new owner** 버튼을 클릭합니다. 이 버튼을 클릭하면 새 창이 열립니다.
 
-![](/img/build/tools/kaia-safe/ks-owners-change.png)
+![](/img/build/tools/kaia-safe/ks-add-signers.png)
 
 **3단계**: 새 소유자의 **name**을 입력하고 **owner's address**를 붙여넣습니다. 그런 다음 페이지 오른쪽 하단의 next 버튼을 클릭합니다.
 
 **4단계**: 새 서명 정책을 설정합니다. 이 경우 기존 서명 정책을 변경하거나 유지할 수 있습니다. 아래 이미지에서는 트랜잭션을 확인하고 실행하려면 소유자 4명 중 2명의 서명이 필요합니다.
 
-![](/img/build/tools/kaia-safe/ks-owners-details.png)
+![](/img/build/tools/kaia-safe/ks-add-signer-details.png)
 
 **5단계**: 거래를 검토하고 제출합니다.
 
@@ -26,7 +26,7 @@
 
 'Submit'을 클릭하면 연결된 지갑에서 변경 사항을 확인하라는 메시지가 표시됩니다. 기존 서명 정책에 따라 다른 소유자는 일반 거래와 마찬가지로 변경 사항을 확인해야 합니다.
 
-![](/img/build/tools/kaia-safe/ks-review-owners.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-change-owner-setup-review.gif)
 
 ## 필수 서명자 확인 횟수를 변경할 수 있나요? <a id="Can i change the number of required signer confirmation"></a>
 
@@ -36,19 +36,17 @@
 
 그러면 현재 서명 정책이 표시되며, 아래 이미지에서 볼 수 있듯이 모든 거래를 확인하려면 소유자 4명 중 2명의 서명이 필요합니다.
 
-![](/img/build/tools/kaia-safe/ks-policy-page.png)
+![](/img/build/tools/kaia-safe/ks-conf-policy.png)
 
 **2단계**: **change** 버튼을 클릭합니다.
 
 그러면 새 서명 임계값을 선택할 수 있는 새 창이 나타납니다.
 
-![](/img/build/tools/kaia-safe/ks-policy-change-btn.png)
+![](/img/build/tools/kaia-safe/ks-conf-policy-btn.png)
 
 **3단계**: **Submit** 버튼을 클릭합니다.
 
 기존 서명 정책에 따라 일반 거래와 마찬가지로 다른 소유자가 변경 사항을 확인해야 한다는 점에 유의하세요.
-
-![](/img/build/tools/kaia-safe/ks-review-policy.gif)
 
 ## 기존 금고는 어떻게 추가하나요? <a id="How do i add an existing safe"></a>
 
@@ -56,9 +54,7 @@
 
 > 참고: 아래 이미지와 같이 세이프 데이터를 다운로드해야 합니다:
 
-![](/img/build/tools/kaia-safe/ks-data-export.png)
-
-![](/img/build/tools/kaia-safe/ks-export-data.gif)
+![](/img/build/tools/kaia-safe/ks-export-btn.png)
 
 인터페이스에 기존 안전장치를 추가하거나 로드해야 하는 경우는 다양합니다. 여기에는 다음이 포함될 수 있습니다:
 
@@ -72,15 +68,15 @@
 
 **2단계: \*\* Data** 섹션 아래의 **Data Import** 카드로 스크롤합니다.
 
-![](/img/build/tools/kaia-safe/ks-data-import-details.png)
+![](/img/build/tools/kaia-safe/ks-data-import-i.png)
 
 여기에서 JSON 파일을 끌어다 놓거나 위 이미지와 같이 파일을 선택할 수 있습니다.
 
 **3단계: \*\* Import** 버튼을 클릭합니다.
 
-![](/img/build/tools/kaia-safe/ks-data-import.png)
+![](/img/build/tools/kaia-safe/ks-data-import-btn.png)
 
-![](/img/build/tools/kaia-safe/ks-import-data.gif)
+![](/img/build/tools/kaia-safe/kaia-safe-data-import.gif)
 
 그러면 이제 금고 계정에 액세스할 수 있습니다.
 
