@@ -29,7 +29,7 @@ const contractAbi = [
 ];
 
 async function main() {
-  const provider = new Web3.providers.HttpProvider("https://public-en-baobab.klaytn.net");
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
   const web3 = new KlaytnWeb3(provider);
   const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
 
