@@ -10,4 +10,4 @@ A token swap process begins with the Finschia user sending the FNSA token to the
 
 Kaiabridge smart contracts has built-in multisig features. For instance, it takes multiple provision transactions from the Operator accounts for a request to be Confirmed. Each Operator account is held by a relayer, and the relayers are managed by Kaia Foundation and Finschia Foundation.
 
-You can find the contract source codes in [kaiachain GitHub](https://github.com/kaiachain/kaia/tree/dev/contracts/contracts/system_contracts/kaiabridge) and deployed addresses in the [contract addresses](../../references/contract-addresses) page.
+You can find the contract source codes in [kaiachain GitHub](https://github.com/kaiachain/kaia/tree/dev/contracts/contracts/system_contracts/kaiabridge) and deployed addresses in the [contract addresses](https://docs.kaia.io/references/contract-addresses/) page.
