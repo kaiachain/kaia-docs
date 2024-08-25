@@ -195,7 +195,7 @@ contract SoulBoundToken is KIP17, Ownable {
 **2단계**: 아래 코드를 `sbtTest.js` 파일에 복사합니다.
 
 ```js
-// This is an example test file. Hardhat will run every *.ts file in `test/`,
+// This is an example test file. Hardhat will run every *.js file in `test/`,
 // so feel free to add new ones.
 
 // Hardhat tests are normally written with Mocha and Chai.
@@ -260,26 +260,23 @@ describe("Token contract", function () {
       await expect(
         sbtContract.transferFrom(owner.address, addr1.address, 0)
       ).to.be.reverted;
+    });
+
+    it("Should prohibit token transfer using safeTransferFrom", async function () {
+      const { sbtContract, owner, addr1 } = await loadFixture(
+        deployTokenFixture
+      );
+
+      const safemintTx = await sbtContract.safeMint(owner.address);
+
+      // prohibit token transfer of token id (0) from owner to addr1
+      await expect(sbtContract['safeTransferFrom(address,address,uint256)'](
+        owner.address,
+        addr1.address,
+        0 
+      )).to.be.reverted;
+    });
   });
-
-  it("Should prohibit token transfer using safeTransferFrom", async function () {
-    const { sbtContract, owner, addr1 } = await loadFixture(
-      deployTokenFixture
-    );
-
-    const safemintTx = await sbtContract.safeMint(owner.address);
-
-    // prohibit token transfer of token id (0) from owner to addr1
-    await expect(sbtContract['safeTransferFrom(address,address,uint256)'](
-      owner.address,
-      addr1.address,
-      0 
-  )).to.be.reverted;
-});
-
-
-});
-
 })
 ```
 
@@ -293,7 +290,7 @@ describe("Token contract", function () {
 **3단계**: 테스트를 실행하려면 아래 명령을 실행합니다:
 
 ```bash
-npx hardhat test test/sbtTest.ts 
+npx hardhat test test/sbtTest.js 
 ```
 
 ![](/img/build/get-started/sbtTest.png)
