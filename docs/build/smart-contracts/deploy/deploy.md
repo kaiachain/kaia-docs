@@ -122,7 +122,7 @@ $ npm install caver-js.
 
 ```
 const Caver = require("caver-js");
-const caver = new Caver("https://public-en-baobab.klaytn.net")
+const caver = new Caver("https://public-en-kairos.node.kaia.io")
 
 const walletInstance = caver.kaia.accounts.privateKeyToAccount(
   '0x3de0c9...' // enter your private key to deploy contract with

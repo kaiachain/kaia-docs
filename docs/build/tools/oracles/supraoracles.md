@@ -116,7 +116,7 @@ As of the time of writing, getEthUsdtPrice() returned "185795966200", an 8-point
 const getEthUsdtPrice = async () => {
 const abi = [{ "inputs": [ { "internalType": "string", "name": "marketPair", "type": "string" } ], "name": "checkPrice", "outputs": [ { "internalType": "int256", "name": "price", "type": "int256" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "stateMutability": "view", "type": "function" } ]
 const address = '0x7f003178060af3904b8b70fEa066AEE28e85043E'
-const web3 = new Web3('https://public-en-baobab.klaytn.net')
+const web3 = new Web3('https://public-en-kairos.node.kaia.io')
 const sValueFeed = new web3.eth.Contract(abi, address)
 const price = (await sValueFeed.methods.checkPrice('eth_usdt').call()).price
 console.log(`The price is: ${price}`)
@@ -133,7 +133,7 @@ const getEthUsdtPrice = async () => {
 ////for ethers version 6.0
 const provider = new ethers.JsonRpcProvider("https://klaytn-baobab.g.allthatnode.com/full/evm")
 ////for ethers version <= 5.7.2
-//const provider = new ethers.providers.JsonRpcProvider('https://public-en-baobab.klaytn.net')
+//const provider = new ethers.providers.JsonRpcProvider('https://public-en-kairos.node.kaia.io')
 const abi = [{ "inputs": [ { "internalType": "string", "name": "marketPair", "type": "string" } ], "name": "checkPrice", "outputs": [ { "internalType": "int256", "name": "price", "type": "int256" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "stateMutability": "view", "type": "function" } ]
 const address = '0x7f003178060af3904b8b70fEa066AEE28e85043E'
 const sValueFeed = new ethers.Contract(address, abi, provider)

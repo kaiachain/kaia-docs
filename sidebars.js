@@ -258,8 +258,8 @@ const sidebars = {
             'build/tools/block-explorers/kaiascope',
             {
               type: 'link',
-              label: 'Klaytnfinder',
-              href: 'https://www.klaytnfinder.io/',
+              label: 'KaiaScan',
+              href: 'https://kaiascan.io/',
             },
           ],
         },

@@ -229,7 +229,7 @@ const config = {
       navbar: {
         title: 'Kaia Docs',
         logo: {
-          alt: 'Klaytn Logo',
+          alt: 'Kaia Logo',
           src: 'img/kaia_logo_L.svg',
           srcDark: 'img/kaia_logo_D.svg',
           width: 150,
@@ -334,16 +334,12 @@ const config = {
             items: [
               {
                 label: 'Kaia Developer Hub',
-                href: 'https://developer.klaytn.foundation/',
+                href: 'https://developer.kaia.io/',
               },
               {
                 label: 'Kaia Square',
                 href: 'https://square.kaia.io/Home',
               },
-              /*{
-                label: 'Klaytn Online Toolkit',
-                href: 'https://toolkit.klaytn.foundation/',
-              },*/
             ],
           },
           {
@@ -351,7 +347,7 @@ const config = {
             items: [
               {
                 label: 'Kaia Developer Forum',
-                href: 'https://forum.klaytn.foundation/',
+                href: 'https://devforum.kaia.io/',
               },
               {
                 label: 'Medium',
@@ -359,7 +355,7 @@ const config = {
               },
               {
                 label: 'X (formerly Twitter)',
-                href: 'https://twitter.com/klaytn_official',
+                href: 'https://x.com/klaytn_official',
               },
             ],
           },
@@ -368,7 +364,7 @@ const config = {
             items: [
               {
                 label: 'KIPs',
-                href: 'https://kips.klaytn.foundation/',
+                href: 'https://kips.kaia.io/',
               },
               {
                 label: 'GitHub',
