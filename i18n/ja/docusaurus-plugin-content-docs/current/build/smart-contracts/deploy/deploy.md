@@ -123,23 +123,23 @@ $ npm install caver-js.
 
 ```
 const Caver = require("caver-js");
-const caver = new Caver("https://public-en-baobab.klaytn.net")
+const caver = new Caver("https://public-en-kairos.node.kaia.io")
 
-const walletInstance = caver.klay.accounts.privateKeyToAccount(
+const walletInstance = caver.kaia.accounts.privateKeyToAccount(
   '0x3de0c9...' // enter your private key to deploy contract with
 );
-caver.klay.accounts.wallet.add(walletInstance);
+caver.kaia.accounts.wallet.add(walletInstance);
 
 const fs = require('fs')
-const bytecode = fs.readFileSync('./KlaytnGreeter_sol_KlaytnGreeter.bin') // compiled output
+const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // compiled output
 
 const constructorType = ['string']  // enter appropriate constructor type
-const constructorValue = ['Hello, Klaytn!']
+const constructorValue = ['Hello, Kaia!']
 
-const params = caver.klay.abi.encodeParameters(constructorType, constructorValue);
+const params = caver.kaia.abi.encodeParameters(constructorType, constructorValue);
 
-caver.klay.sendTransaction({
-  from: caver.klay.accounts.wallet[0].address,
+caver.kaia.sendTransaction({
+  from: caver.kaia.accounts.wallet[0].address,
   gas: "50000000",
   data: bytecode.toString() + params.substring(2, params.length)
 })
