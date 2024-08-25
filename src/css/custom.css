@@ -80,3 +80,15 @@ html[data-theme='dark'] .sidebar-divider {
   height: auto;
   aspect-ratio: auto 300 / 100;
 }
+
+.layout-wrapper {
+  visibility: hidden;
+}
+
+.layout-wrapper.loaded {
+  visibility: visible;
+}
+
+body {
+  overflow-y: auto;
+}
