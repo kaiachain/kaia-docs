@@ -52,12 +52,12 @@ useEffect(() => {
           chainConfig: {
             chainNamespace: "eip155",
 	        // modify if mainnet => “0x2019”
-            chainId: "0x3e9", // hex of 1001, Klaytn Baobab testnet. 
-            rpcTarget: "https://public-en-baobab.klaytn.net", // modify if mainnet
-            displayName: "Klaytn Testnet", //  modify if mainnet
+            chainId: "0x3e9", // hex of 1001, Kaia Kairos testnet. 
+            rpcTarget: "https://public-en-kairos.node.kaia.io", // modify if mainnet
+            displayName: "Kaia Testnet", //  modify if mainnet
             blockExplorer: "https://baobab.klaytnscope.com", // modify if mainnet
-            ticker: "KLAY",
-            tickerName: "KLAY",
+            ticker: "KAIA",
+            tickerName: "KAIA",
           },
         })
         setWeb3auth(web3auth);
