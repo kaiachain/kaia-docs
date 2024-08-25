@@ -53,7 +53,7 @@ Write the following code in test.js.
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const version = await caver.rpc.klay.getClientVersion()
@@ -78,7 +78,7 @@ You can import the caver-js module and connect it to a kaia Node in the Baobab t
 
 ```javascript
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 ```
 
 If you are running an EN, you can connect it to your own node by changing the host and port like below:
@@ -109,7 +109,7 @@ You can randomly generate a single keyring as shown below.
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const keyring = caver.wallet.keyring.generate()
@@ -138,7 +138,7 @@ Also, if you own a specific private key, you can use it to create a keyring as s
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	// Create a keyring from a private key
@@ -168,7 +168,7 @@ If your private key for your kaia account is decoupled from the address, you can
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	// Create a keyring with an address and a private key
@@ -204,7 +204,7 @@ If you want to use multiple private keys, you can create a [MultipleKeyring](api
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	// Create a keyring with an address and private keys
@@ -237,7 +237,7 @@ To use different private key(s) for each [role](../../../learn/accounts.md#roles
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	// Create a keyring with an address and private keys defined by each roles
@@ -284,7 +284,7 @@ You can use a keyring easily by using the in-memory wallet provided by caver-js.
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	// Using a keyring instance
@@ -343,7 +343,7 @@ If you have an address and private key(s) to use, you can easily create a keyrin
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	// Add to wallet with an address and a private key
@@ -432,7 +432,7 @@ Below is an example of how to sign a transaction if a keyring is added to the [c
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	// Add a keyring to caver.wallet
@@ -472,7 +472,7 @@ Now you can send a signed transaction to the network like below. If you want to 
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const rlpEncoding = `0x{RLP-encoded string}`
@@ -518,7 +518,7 @@ If you want to sign a transaction and send it to the network without `caver.wall
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	// Create a value transfer transaction
@@ -566,7 +566,7 @@ As described in the example above, you can get the result of sending a transacti
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const receipt = await caver.rpc.klay.getTransactionReceipt('0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a')
@@ -617,7 +617,7 @@ Kaia provides [Fee Delegation](../../../learn/transactions/transactions.md#fee-d
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -651,7 +651,7 @@ The fee payer can send the transaction to the kaia after attaching the `feePayer
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const feePayer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -683,7 +683,7 @@ The transaction is now signed by both the sender and the fee payer, and it can n
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const rlpEncoded = '0x{RLP-encoded string}'
@@ -755,7 +755,7 @@ The code below is an example code that changes the private key(s) you use for yo
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	let sender = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -910,7 +910,7 @@ You can create a contract instance as below using the result of compiling the sm
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const abi = [
@@ -971,7 +971,7 @@ If the smart contract has already been deployed and you know the contract addres
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const abi = [
@@ -1035,7 +1035,7 @@ Note that [caver.contract](api/caver.contract.md) sends transactions for deploym
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -1106,7 +1106,7 @@ To deploy a smart contract through fee-delegated transaction, define `feeDelegat
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function deployWithFeeDelegation() {
     const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -1158,7 +1158,7 @@ If you want to send a transaction with sender and feePayer signed separately whe
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function deployWithFeeDelegation() {
     const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -1212,7 +1212,7 @@ A smart contract can be executed using one of the followings, depending on the t
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const keyring = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -1277,7 +1277,7 @@ To execute a smart contract through fee-delegated transaction, define `feeDelega
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function executionWithFeeDelegation() {
     const executor = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -1325,7 +1325,7 @@ If you want to send a transaction with sender and feePayer signed separately whe
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function deployWithFeeDelegation() {
     const deployer = caver.wallet.keyring.createFromPrivateKey('0x{private key}')
@@ -1375,7 +1375,7 @@ To load a contract instance and call one of its functions:
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const abi = [
@@ -1435,7 +1435,7 @@ In the example below, user1 and user2 create a `Keyring` instances to be used. A
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const user1 = caver.wallet.keyring.createWithSingleKey('0x{address in hex}', '0x{private key1}')
@@ -1478,7 +1478,7 @@ The code below explains how to sign and append signatures with RLP-encoded strin
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	// Create user1's keyring
@@ -1534,7 +1534,7 @@ The example below shows how to combine and send the RLP encoded transactions.
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const vt = caver.transaction.valueTransfer.create({
@@ -1581,7 +1581,7 @@ Below is a code on how to detect the implemented interfaces for the KIP-7 token 
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const result = await caver.kct.kip7.detectInterface('0x{address in hex}')
@@ -1609,7 +1609,7 @@ Below is a code on how to detect the implemented interfaces for the KIP-7 token 
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const kip7 = new caver.kct.kip7('0x{address in hex}')
@@ -1642,7 +1642,7 @@ Below is a code on how to detect the implemented interfaces for the KIP-17 token
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const result = await caver.kct.kip17.detectInterface('0x{address in hex}')
@@ -1672,7 +1672,7 @@ Below is a code on how to detect the implemented interfaces for the KIP-17 token
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const kip17 = new caver.kct.kip17('0x{address in hex}')
@@ -1707,7 +1707,7 @@ Below is a code on how to detect the implemented interfaces for the KIP-37 token
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const result = await caver.kct.kip37.detectInterface('0x{address in hex}')
@@ -1735,7 +1735,7 @@ Below is a code on how to detect the implemented interfaces for the KIP-37 token
 ```javascript
 // test.js
 const Caver = require('caver-js')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function testFunction() {
 	const kip37 = new caver.kct.kip37('0x{address in hex}')
