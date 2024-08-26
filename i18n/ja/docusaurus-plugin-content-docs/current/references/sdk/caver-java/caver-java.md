@@ -1,6 +1,6 @@
 # caver-java (1.5.0 or later)
 
-![](/img/references/klaytnXcaver-java.png)
+![](/img/references/kaiaXcaver-java.png)
 
 `caver-java` is a lightweight, high modular, convenient Java and Android library to interact with clients \(nodes\) on the kaia network: This library is an interface which allows Java applications to easily communicate with [kaia](https://kaia.io) network.
 
