@@ -125,7 +125,7 @@ We will import the `caver-js` and `read` module and connect to a kaia node in th
 ```javascript
 const Caver = require('caver-js')
 const read = require('read')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 ```
 
 ## 6. Provide Keystore, Create Keyring, and Add to Caver Wallet <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
@@ -256,7 +256,7 @@ You can view the transaction details in [Kaiascan](https://kairos.kaiascan.io/) 
 ```
 const Caver = require('caver-js')
 const read = require('read')
-const caver = new Caver('https://public-en-baobab.klaytn.net/')
+const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 
 async function sendKLAY() {
     // Read keystore json file
