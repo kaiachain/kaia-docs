@@ -1,6 +1,6 @@
 # viem
 
-![](/img/references/klaytnXviem.png)
+![](/img/references/kaiaXviem.png)
 
 [Viem](https://viem.sh/) is a typescript interface for Ethereum that provides low-level primitives for interacting with Ethereum and other EVM-Compatible blockchain. With kaia supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as viem can be used on kaia without any significant modifications.
 
