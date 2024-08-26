@@ -56,7 +56,7 @@ First, you need to change the library that makes a connection to the node. Then 
 import Caver from 'caver-js'
 
 // const ROPSTEN_TESTNET_RPC_URL = 'https://ropsten.infura.io/'
-const BAOBAB_TESTNET_RPC_URL = 'https://public-en-baobab.klaytn.net/'
+const BAOBAB_TESTNET_RPC_URL = 'https://public-en-kairos.node.kaia.io/'
 
 // const rpcURL = ROPSTEN_TESTNET_RPC_URL
 const rpcURL = BAOBAB_TESTNET_RPC_URL
@@ -131,7 +131,7 @@ const HDWalletProvider = require("truffle-hdwallet-provider-kaia")
 const NETWORK_ID = '1001' // Kaia, Kairos testnet's network id
 
 // const RPC_URL = 'https://ropsten.infura.io/'
-const RPC_URL = 'https://public-en-baobab.klaytn.net'
+const RPC_URL = 'https://public-en-kairos.node.kaia.io'
 
 // Change it to your own private key that has enough KAIA to deploy contract
 const PRIVATE_KEY = '0x3de0c90ce7e440f19eff6439390c29389f611725422b79c95f9f48c856b58277'
