@@ -52,7 +52,7 @@ $ sudo mkdir /var/kcnd2/log
 
 ### Download the latest chaindata
 
-Download Chain Data to the data of the new Kaia Data DIR. (You can check the details on Chain Data in [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/))
+Download Chain Data to the data of the new Kaia Data DIR. (You can check the details on Chain Data in [https://packages.kaia.io/cypress/chaindata/](https://packages.kaia.io/cypress/chaindata/))
 
 1. Download with the following command
 
