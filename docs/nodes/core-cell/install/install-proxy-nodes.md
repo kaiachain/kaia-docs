@@ -65,7 +65,7 @@ $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 Alternatively, you can install `kpnd` from the Kaia Yum repo, run:
 
 ```bash
-$ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/prod.repo && sudo yum install kpnd
+$ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kpnd
 ```
 
 ### Installed Location <a id="installed-location"></a>
@@ -144,7 +144,7 @@ Each PN maintains a copy of the network's chain data. If a node is out of sync, 
 
 To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the PN. This can dramatically reduce the time the PN will spend syncing on first start.
 
-Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/cypress/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). Before starting `kpnd`, extract the snapshot inside the DATA_DIR you configured in `kpnd.conf`.
+Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/mainnet/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). Before starting `kpnd`, extract the snapshot inside the DATA_DIR you configured in `kpnd.conf`.
 
 For example:
 

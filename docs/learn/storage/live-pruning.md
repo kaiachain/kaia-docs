@@ -22,6 +22,6 @@ StateDB Live Pruning deletes data 48 hours (default) after the information has c
 To use StateDB Live Pruning, the following environment should be set up:
 
 1. Use a binary of kaia v1.0.2 or higher.
-2. Please download the pruned DB snapshot from this [link](https://packages.kaia.io/cypress/pruning-chaindata/) if you don't want to synchronize all blocks from the genesis block.
+2. Please download the pruned DB snapshot from this [link](https://packages.kaia.io/mainnet/pruning-chaindata/) if you don't want to synchronize all blocks from the genesis block.
 3. (Optional) Add the flag `--state.live-pruning-retention <value>` for how long recent states are retained. Default value is 172800 (48 hours)
 4. Refer to the following link to set the DB location and restart the node with `--state.live-pruning` added [chaindata-change](../../misc/operation/chaindata-change.md) section.

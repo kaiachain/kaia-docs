@@ -34,8 +34,8 @@ Synching from the genesis block is time-consuming. You may perform a fast sync b
 
 Download the latest chaindata snapshot from the following links:
 
-- [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/cypress/chaindata/)
-- [Mainnet live-pruning chaindata snapshot](https://packages.kaia.io/cypress/pruning-chaindata/)
+- [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/mainnet/chaindata/)
+- [Mainnet live-pruning chaindata snapshot](https://packages.kaia.io/mainnet/pruning-chaindata/)
 - [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/)
 - [Kairos live-pruning chaindata snapshot](https://packages.kaia.io/kairos/pruning-chaindata/)
 
