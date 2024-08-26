@@ -53,7 +53,7 @@ useEffect(() => {
             chainNamespace: "eip155",
 	        // modify if mainnet => “0x2019”
             chainId: "0x3e9", // hex of 1001, Kaia Kairos testnet. 
-            rpcTarget: "https://public-en-baobab.klaytn.net", // modify if mainnet
+            rpcTarget: "https://public-en-kairos.node.kaia.io", // modify if mainnet
             displayName: "Kaia Testnet", //  modify if mainnet
             blockExplorer: "https://baobab.klaytnscope.com", // modify if mainnet
             ticker: "KAIA",
