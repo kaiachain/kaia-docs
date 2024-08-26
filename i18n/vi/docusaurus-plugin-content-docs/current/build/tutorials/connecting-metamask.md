@@ -72,13 +72,13 @@
 
 ### Kairos Network Configuration
 
-| Network Config Item | Value                                 |
-| ------------------- | ------------------------------------- |
-| Network Name        | Kaia Kairos                           |
-| New RPC URL         | `https://public-en-baobab.klaytn.net` |
-| Block Explorer URL  | `https://baobab.klaytnscope.com `     |
-| Chain ID            | 1001                                  |
-| Currency Symbol     | KAIA                                  |
+| Network Config Item | Value                                   |
+| ------------------- | --------------------------------------- |
+| Network Name        | Kaia Kairos                             |
+| New RPC URL         | `https://public-en-kairos.node.kaia.io` |
+| Block Explorer URL  | `https://baobab.klaytnscope.com `       |
+| Chain ID            | 1001                                    |
+| Currency Symbol     | KAIA                                    |
 
 - Click \[Save] to add Kaia Kairos Network.
 
