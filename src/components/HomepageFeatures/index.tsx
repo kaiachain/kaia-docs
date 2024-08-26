@@ -26,6 +26,7 @@ type FeatureType = {
   imgSrcDark: string; // Add a property for the dark theme image
   description: JSX.Element
   to: string
+  altText: string
 }
 
 const StyledSection = styled.section`
@@ -90,6 +91,7 @@ const featureList: FeatureType[] = [
     imgSrcDark: img1Dark, // Use the dark theme image here
     description: <Translate>Want to know about Kaia?</Translate>,
     to: '/learn',
+    altText: 'Kaia Overview',
   },
   {
     title: <Translate>Getting Started</Translate>,
@@ -97,6 +99,7 @@ const featureList: FeatureType[] = [
     imgSrcDark: img2Dark,
     description: <Translate>Want to start building on Kaia?</Translate>,
     to: '/build',
+    altText: 'Getting Started with Kaia',
   },
   {
     title: <Translate>Node Operators</Translate>,
@@ -104,6 +107,7 @@ const featureList: FeatureType[] = [
     imgSrcDark: img3Dark,
     description: <Translate>Instructions on running Kaia's nodes</Translate>,
     to: '/nodes',
+    altText: 'Kaia Node Operators',
   },
   {
     title: <Translate>API references</Translate>,
@@ -111,17 +115,21 @@ const featureList: FeatureType[] = [
     imgSrcDark: img4Dark,
     description: <Translate>APIs and libraries</Translate>,
     to: '/references',
+    altText: 'Kaia API references',
   },
 ]
 
-function Feature({ imgSrcLight, imgSrcDark, title, description, to }: FeatureType) {
+function Feature({ imgSrcLight, imgSrcDark, title, description, to, altText }: FeatureType) {
   const { colorMode } = useColorMode();
   const imgSrc = colorMode === 'dark' ? imgSrcDark : imgSrcLight;
+
+  const titleText = title.props.message;
+
   return (
     <StyledFeature>
       <Link to={to} style={{ textDecoration: 'none', color: 'inherit' }}>
         <StyledImgBox>
-          <StyledImg src={imgSrc} alt={title.toString()} />
+          <StyledImg src={imgSrc} alt={titleText || altText} />
         </StyledImgBox>
         <StyledContent>
           <h3>{title}</h3>

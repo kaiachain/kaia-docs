@@ -2,3 +2,16 @@
   --feedback-primary-color: #789806;
   --feedback-button-dark-bg-color: var(--feedback-primary-color);
 }
+
+.feedback-wrapper {
+  visibility: hidden;
+}
+
+.feedback-wrapper.loaded {
+  visibility: visible;
+}
+
+/* Hide the feedback button initially */
+.feedback-wrapper:not(.loaded) pushfeedback-button {
+  display: none;
+}
