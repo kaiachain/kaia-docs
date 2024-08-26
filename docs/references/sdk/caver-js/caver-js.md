@@ -1,6 +1,6 @@
 # caver-js (1.5.0 or later)
 
-![](/img/references/klaytnXcaver-js.png)
+![](/img/references/kaiaXcaver-js.png)
 
 `caver-js` is a JavaScript API library that allows developers to interact with a kaia node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
 
