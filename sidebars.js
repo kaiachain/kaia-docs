@@ -41,7 +41,15 @@ const commonSidebar = [
   },
   //  'misc/klaytn-history',
   'references/public-en',
-  'misc/faq-chain-transition',
+  {
+    type: 'category',
+    label: 'Transition to Kaia',
+    link: { type: 'doc', id: 'misc/kaia-transition/kaia-transition' },
+    items: [
+      'misc/kaia-transition/faq-chain-transition',
+      'misc/kaia-transition/kaiabridge',
+    ],
+  },
   'misc/finschia',
   'misc/glossary',
   //'misc/faq',

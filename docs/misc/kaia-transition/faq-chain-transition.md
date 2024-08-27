@@ -1,6 +1,6 @@
-# Klaytn to Kaia Transition FAQ
+# Transition FAQ
 
-The Klaytn blockchain is undergoing a transition to the Kaia blockchain. This FAQ addresses common questions and concerns for CEXs, node providers, wallet providers, dApp builders, and retail users familiar with the Klaytn ecosystem, to ensure a smooth transition.
+This FAQ addresses common questions and concerns for CEXs, node providers, wallet providers, dApp builders, and retail users familiar with the Klaytn ecosystem, to ensure a smooth transition.
 
 - KLAY and FNSA holders
   - [What will happen to KLAY and FNSA?](#what-will-happen-to-klay-and-fnsa-)

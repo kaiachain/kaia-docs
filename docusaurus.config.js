@@ -221,7 +221,7 @@ const config = {
       },
       announcementBar: {
         id: 'docs_archive',
-        content: '<div style="font-size: 15px">📢 Kaia docs content is still being updated to reflect the transition from Klaytn and <b>may refer to outdated information until July.</b> 🙏🏻 See <b><a target="_blank" href="https://docs.kaia.io/misc/faq-chain-transition/">Klatyn to Kaia Transition FAQ</a></b> first!</div>',
+        content: '<div style="font-size: 15px">📢 Kaia docs content is still being updated to reflect the transition from Klaytn and <b>may refer to outdated information until the Mainnnet launch.</b> 🙏🏻 See <b><a target="_blank" href="https://docs.kaia.io/misc/kaia-transition/faq-chain-transition/">Transition FAQ</a></b> first!</div>',
         backgroundColor: '#789806',
         textColor: '#FFFFFF',
         isCloseable: true,
