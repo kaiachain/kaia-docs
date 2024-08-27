@@ -33,7 +33,7 @@ $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 SCN also provides various RPM distributions like RHEL, CentOS, and Fedora. For more information, please refer to [Installation](../install-service-chain.md#installation).
 
 ```console
-$ curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo
+$ curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/prod.repo
   % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed
      100 118 100 118 0 0 1113 0 --:--:-- --:--:-- --:--:-- 1102 
 
