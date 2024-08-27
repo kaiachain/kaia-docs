@@ -42,7 +42,7 @@ Download the latest chaindata snapshot from the following links:
 Then uncompress:
 
 ```sh
-tar -C data -xvf klaytn-cypress-chaindata-latest.tar.gz
+tar -C data -xvf kaia-mainnet-chaindata-latest.tar.gz
 ```
 
 ## Start the container

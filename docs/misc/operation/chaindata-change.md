@@ -58,25 +58,25 @@ Download Chain Data to the data of the new Kaia Data DIR. (You can check the det
 
 ```bash
 # (Option 1: recommended) curl 
-$ curl -o klaytn-cypress-chaindata-2021???????????.tar.gz "https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz"
+$ curl -o kaia-mainnet-chaindata-2021???????????.tar.gz "https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-2021???????????.tar.gz"
 
 # (Option 2) aws s3 command
-$ aws s3 cp s3://klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz klaytn-cypress-chaindata-20211113011111.tar.gz 
+$ aws s3 cp s3://klaytn-chaindata/mainnet/kaia-mainnet-chaindata-2021???????????.tar.gz kaia-mainnet-chaindata-20211113011111.tar.gz 
 
 # (Option 3) axel (need to install axel)
 sudo amazon-linux-extras install epel -y
 sudo yum install axel pigz
-$ axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz
+$ axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-2021???????????.tar.gz
 ```
 
 2. Decompress
 
 ```bash
 # (Option 1: recommended) tar
-$ tar -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
+$ tar -xvf kaia-mainnet-chaindata-2021???????????.tar.gz
 
 # (Option 2) pigz (need to isntall pigz)
-$ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
+$ tar -I pigz -xvf kaia-mainnet-chaindata-2021???????????.tar.gz
 ```
 
 

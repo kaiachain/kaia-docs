@@ -118,13 +118,13 @@ Download the latest chaindata snapshot from the [Mainnet state-migrated chaindat
 For example:
 
 ```bash
-$ tar -C ~/kend_home -xvf klaytn-cypress-chaindata-latest.tar.gz
+$ tar -C ~/kend_home -xvf kaia-mainnet-chaindata-latest.tar.gz
 ```
 
 Or,
 
 ```bash
-$ tar -C ~/kend_home -xvf klaytn-baobab-chaindata-latest.tar.gz
+$ tar -C ~/kend_home -xvf kaia-kairos-chaindata-latest.tar.gz
 ```
 
 After the data is extracted, you may start the EN normally.

@@ -148,14 +148,14 @@ Download the latest chaindata snapshot from the [Mainnet state-migrated chaindat
 
 For example:
 
-```text
-$ tar -C /var/kpnd/data -xvf klaytn-cypress-chaindata-latest.tar.gz
+```bash
+$ tar -C /var/kpnd/data -xvf kaia-mainnet-chaindata-latest.tar.gz
 ```
 
 Or,
 
-```text
-$ tar -C /var/kpnd/data -xvf klaytn-baobab-chaindata-latest.tar.gz
+```bash
+$ tar -C /var/kpnd/data -xvf kaia-kairos-chaindata-latest.tar.gz
 ```
 
 After the data is extracted, you may start the PN normally.
