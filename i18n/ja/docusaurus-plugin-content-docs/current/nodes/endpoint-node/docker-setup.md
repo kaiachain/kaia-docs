@@ -2,14 +2,14 @@
 
 ## Download the image
 
-Choose an image tag from https\://hub.docker.com/r/klaytn/klaytn/tags. `klaytn/klaytn:latest` is the recent release version. But you can choose a specific version. Currently, only linux/amd64 platform is supported. The container might not work correctly in Windows or Mac hosts.
+Choose an image tag from https://hub.docker.com/r/kaiachain/kaia/tags. `kaiachain/kaia:latest` is the recent release version. But you can choose a specific version. Currently, only linux/amd64 platform is supported. The container might not work correctly in Windows or Mac hosts.
 
 ```
-docker pull klaytn/klaytn:latest
+docker pull kaiachain/kaia:latest
 ```
 
 ```
-docker pull klaytn/klaytn:v1.12.0
+docker pull kaiachain/kaia:v1.0.2
 ```
 
 ## Prepare configuration file
@@ -18,7 +18,7 @@ You can start from the existing configuration file. To obtain the template `kend
 
 ```sh
 mkdir -p conf
-docker run --rm klaytn/klaytn:latest cat /klaytn-docker-pkg/conf/kend.conf > conf/kend.conf
+docker run --rm kaiachain/kaia:latest cat /klaytn-docker-pkg/conf/kend.conf > conf/kend.conf
 ```
 
 Then edit the configuration. At least the `DATA_DIR` and `LOG_DIR` has to be specified. This guide will assume `/var/kend/data`.
@@ -34,15 +34,15 @@ Synching from the genesis block is time-consuming. You may perform a fast sync b
 
 Download the latest chaindata snapshot from the following links:
 
-- [Mainnet state-migrated chaindata snapshot](http://packages.klaytn.net/cypress/chaindata/)
-- [Mainnet live-pruning chaindata snapshot](https://packages.klaytn.net/cypress/pruning-chaindata/)
+- [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/mainnet/chaindata/)
+- [Mainnet live-pruning chaindata snapshot](https://packages.kaia.io/mainnet/pruning-chaindata/)
 - [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/)
 - [Kairos live-pruning chaindata snapshot](https://packages.kaia.io/kairos/pruning-chaindata/)
 
 Then uncompress:
 
 ```sh
-tar -C data -xvf klaytn-cypress-chaindata-latest.tar.gz
+tar -C data -xvf kaia-mainnet-chaindata-latest.tar.gz
 ```
 
 ## Start the container
@@ -55,7 +55,7 @@ docker run -d --name ken \
   -p 8551:8551 \
   -v $(pwd)/conf:/klaytn-docker-pkg/conf \
   -v $(pwd)/data:/var/kend/data \
-  klaytn/klaytn:latest \
+  kaiachain/kaia:latest \
   /bin/bash -c "kend start && touch /var/kend/logs/kend.out && tail -f /var/kend/logs/kend.out"
 ```
 
