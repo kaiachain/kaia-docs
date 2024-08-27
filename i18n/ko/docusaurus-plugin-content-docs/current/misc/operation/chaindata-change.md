@@ -52,31 +52,31 @@ $ sudo mkdir /var/kcnd2/log
 
 ### 최신 체인 데이터 다운로드
 
-새로운 카이아 데이터 DIR의 데이터에 체인 데이터를 다운로드합니다. (체인 데이터에 대한 자세한 내용은 [https://packages.klaytn.net/cypress/chaindata/](https://packages.klaytn.net/cypress/chaindata/)에서 확인할 수 있습니다.)
+새로운 카이아 데이터 DIR의 데이터에 체인 데이터를 다운로드합니다. (You can check the details on Chain Data in [https://packages.kaia.io/mainnet/chaindata/](https://packages.kaia.io/mainnet/chaindata/))
 
 1. 다음 명령으로 다운로드합니다.
 
 ```bash
 # (Option 1: recommended) curl 
-$ curl -o klaytn-cypress-chaindata-2021???????????.tar.gz "https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz"
+$ curl -o kaia-mainnet-chaindata-2021???????????.tar.gz "https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-2021???????????.tar.gz"
 
 # (Option 2) aws s3 command
-$ aws s3 cp s3://klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz klaytn-cypress-chaindata-20211113011111.tar.gz 
+$ aws s3 cp s3://klaytn-chaindata/mainnet/kaia-mainnet-chaindata-2021???????????.tar.gz kaia-mainnet-chaindata-20211113011111.tar.gz 
 
 # (Option 3) axel (need to install axel)
 sudo amazon-linux-extras install epel -y
 sudo yum install axel pigz
-$ axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/cypress/klaytn-cypress-chaindata-2021???????????.tar.gz
+$ axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-2021???????????.tar.gz
 ```
 
 2. 압축 해제
 
 ```bash
 # (Option 1: recommended) tar
-$ tar -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
+$ tar -xvf kaia-mainnet-chaindata-2021???????????.tar.gz
 
 # (Option 2) pigz (need to isntall pigz)
-$ tar -I pigz -xvf klaytn-cypress-chaindata-2021???????????.tar.gz
+$ tar -I pigz -xvf kaia-mainnet-chaindata-2021???????????.tar.gz
 ```
 
 ## DATA_DIR & LOG_DIR 구성하기
