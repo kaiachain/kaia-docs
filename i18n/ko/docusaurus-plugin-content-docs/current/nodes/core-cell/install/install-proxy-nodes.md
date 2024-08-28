@@ -65,7 +65,7 @@ $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 또는 카이아 Yum 저장소에서 `kpnd`를 설치하고 실행할 수 있습니다:
 
 ```bash
-$ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kpnd
+$ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kpnd
 ```
 
 ### 설치된 위치 <a id="installed-location"></a>
@@ -144,18 +144,18 @@ DATA_DIR=/var/kpnd/data
 
 이 프로세스를 가속화하기 위해 PN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 빠른 동기화를 수행할 수 있습니다. 이렇게 하면 PN을 처음 시작할 때 동기화하는 데 걸리는 시간을 크게 줄일 수 있습니다.
 
-Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.klaytn.net/cypress/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). `kpnd`를 시작하기 전에 `kpnd.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
+Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/mainnet/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). `kpnd`를 시작하기 전에 `kpnd.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
 
 예를 들어
 
-```text
-$ tar -C /var/kpnd/data -xvf klaytn-cypress-chaindata-latest.tar.gz
+```bash
+$ tar -C /var/kpnd/data -xvf kaia-mainnet-chaindata-latest.tar.gz
 ```
 
 또는,
 
-```text
-$ tar -C /var/kpnd/data -xvf klaytn-baobab-chaindata-latest.tar.gz
+```bash
+$ tar -C /var/kpnd/data -xvf kaia-kairos-chaindata-latest.tar.gz
 ```
 
 데이터 추출이 완료되면 PN을 정상적으로 시작할 수 있습니다.

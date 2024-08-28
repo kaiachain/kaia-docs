@@ -57,16 +57,16 @@ module.exports = {
 
         return new HDWalletProvider(
           mnemonic,
-          "https://public-en-baobab.klaytn.net",
+          "https://public-en-kairos.node.kaia.io",
           0,
           mnemonic.length
         );
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
-    kasBaobab: {
+    kasKairos: {
       provider: () => {
         const option = {
           headers: [
@@ -90,7 +90,7 @@ module.exports = {
           )
         );
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
@@ -118,15 +118,15 @@ module.exports = {
           )
         );
       },
-      network_id: "8217", //Klaytn baobab testnet's network id
+      network_id: "8217", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
-    baobab: {
+    kairos: {
       provider: () => {
         return new HDWalletProvider(mnemonic, "http://your.baobab.en:8551");
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
@@ -134,7 +134,7 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider(mnemonic, "http://your.cypress.en:8551");
       },
-      network_id: "8217", //Klaytn mainnet's network id
+      network_id: "8217", //Kaia mainnet's network id
       gas: "8500000",
       gasPrice: null,
     },
@@ -164,16 +164,16 @@ module.exports = {
 
         return new HDWalletProvider(
           pks,
-          "https://public-en-baobab.klaytn.net",
+          "https://public-en-kairos.node.kaia.io",
           0,
           pks.length
         );
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
-    kasBaobab: {
+    kasKairos: {
       provider: () => {
         const option = {
           headers: [
@@ -197,7 +197,7 @@ module.exports = {
           )
         );
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
@@ -225,15 +225,15 @@ module.exports = {
           )
         );
       },
-      network_id: "8217", //Klaytn baobab testnet's network id
+      network_id: "8217", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: "25000000000",
     },
-    baobab: {
+    kairos: {
       provider: () => {
         return new HDWalletProvider(privateKey, "http://api.baobab.klaytn.net:8651");
       },
-      network_id: "1001", //Klaytn baobab testnet's network id
+      network_id: "1001", //Kaia kairos testnet's network id
       gas: "8500000",
       gasPrice: null,
     },
@@ -241,7 +241,7 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider(privateKey, "https://public-en-cypress.klaytn.net");
       },
-      network_id: "8217", //Klaytn mainnet's network id
+      network_id: "8217", //Kaia mainnet's network id
       gas: "8500000",
       gasPrice: null,
     },

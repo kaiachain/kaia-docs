@@ -56,7 +56,7 @@ CountdApp은 다음 환경에서 테스트되었습니다.
 import Caver from 'caver-js'
 
 // const ROPSTEN_TESTNET_RPC_URL = 'https://ropsten.infura.io/'
-const BAOBAB_TESTNET_RPC_URL = 'https://public-en-baobab.klaytn.net/'
+const BAOBAB_TESTNET_RPC_URL = 'https://public-en-kairos.node.kaia.io/'
 
 // const rpcURL = ROPSTEN_TESTNET_RPC_URL
 const rpcURL = BAOBAB_TESTNET_RPC_URL
@@ -125,13 +125,13 @@ CountDapp을 이더리움에서 카이아로 마이그레이션하는 방법을 
 
 ```js
 // const HDWalletProvider = require("truffle-hdwallet-provider")
-const HDWalletProvider = require("truffle-hdwallet-provider-klaytn")
+const HDWalletProvider = require("truffle-hdwallet-provider-kaia")
 
 // const NETWORK_ID = '3' // Ethereum, Ropsten testnet's network id
-const NETWORK_ID = '1001' // Klaytn, Kairos testnet's network id
+const NETWORK_ID = '1001' // Kaia, Kairos testnet's network id
 
 // const RPC_URL = 'https://ropsten.infura.io/'
-const RPC_URL = 'https://public-en-baobab.klaytn.net'
+const RPC_URL = 'https://public-en-kairos.node.kaia.io'
 
 // Change it to your own private key that has enough KAIA to deploy contract
 const PRIVATE_KEY = '0x3de0c90ce7e440f19eff6439390c29389f611725422b79c95f9f48c856b58277'
@@ -146,7 +146,7 @@ module.exports = {
       gasPrice: null,
     }, */
 
-    baobab: {
+    kairos: {
       provider: () => new HDWalletProvider(PRIVATE_KEY, RPC_URL),
       network_id: NETWORK_ID,
       gas: '8500000',

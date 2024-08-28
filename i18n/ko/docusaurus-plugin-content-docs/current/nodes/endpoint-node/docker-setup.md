@@ -2,14 +2,14 @@
 
 ## 이미지 다운로드
 
-https\://hub.docker.com/r/klaytn/klaytn/tags 에서 이미지 태그를 선택합니다. 'klaytn/klaytn:latest'가 최신 릴리스 버전입니다. 하지만 특정 버전을 선택할 수도 있습니다. 현재는 리눅스/amd64 플랫폼만 지원됩니다. 윈도우나 맥 호스트에서는 컨테이너가 제대로 작동하지 않을 수 있습니다.
+Choose an image tag from https://hub.docker.com/r/kaiachain/kaia/tags. `kaiachain/kaia:latest` is the recent release version. 하지만 특정 버전을 선택할 수도 있습니다. 현재는 리눅스/amd64 플랫폼만 지원됩니다. 윈도우나 맥 호스트에서는 컨테이너가 제대로 작동하지 않을 수 있습니다.
 
 ```
-docker pull klaytn/klaytn:latest
+docker pull kaiachain/kaia:latest
 ```
 
 ```
-docker pull klaytn/klaytn:v1.12.0
+docker pull kaiachain/kaia:v1.0.2
 ```
 
 ## 구성 파일 준비
@@ -18,7 +18,7 @@ docker pull klaytn/klaytn:v1.12.0
 
 ```sh
 mkdir -p conf
-docker 실행 --rm klaytn/klaytn:최신 cat /klaytn-docker-pkg/conf/kend.conf > conf/kend.conf
+docker run --rm kaiachain/kaia:latest cat /klaytn-docker-pkg/conf/kend.conf > conf/kend.conf
 ```
 
 그런 다음 구성을 편집합니다. 최소한 `DATA_DIR`과 `LOG_DIR`은 지정해야 합니다. 이 가이드에서는 `/var/kend/data`로 가정합니다.
@@ -34,15 +34,15 @@ echo "LOG_DIR=/var/kend/logs" >> conf/kend.conf
 
 다음 링크에서 최신 체인 데이터 스냅샷을 다운로드하세요:
 
-- [Mainnet state-migrated chaindata snapshot](http://packages.klaytn.net/cypress/chaindata/)
-- [Mainnet live-pruning chaindata snapshot](https://packages.klaytn.net/cypress/pruning-chaindata/)
+- [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/mainnet/chaindata/)
+- [Mainnet live-pruning chaindata snapshot](https://packages.kaia.io/mainnet/pruning-chaindata/)
 - [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/)
 - [Kairos live-pruning chaindata snapshot](https://packages.kaia.io/kairos/pruning-chaindata/)
 
 그런 다음 압축을 해제합니다:
 
 ```sh
-tar -C data -xvf klaytn-cypress-chaindata-latest.tar.gz
+tar -C data -xvf kaia-mainnet-chaindata-latest.tar.gz
 ```
 
 ## 컨테이너 시작
@@ -55,7 +55,7 @@ docker run -d --name ken \
   -p 8551:8551 \
   -v $(pwd)/conf:/klaytn-docker-pkg/conf \
   -v $(pwd)/data:/var/kend/data \
-  klaytn/klaytn:latest \
+  kaiachain/kaia:latest \
   /bin/bash -c "kend start && touch /var/kend/logs/kend.out && tail -f /var/kend/logs/kend.out"
 ```
 

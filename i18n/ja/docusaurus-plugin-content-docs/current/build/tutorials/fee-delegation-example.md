@@ -99,19 +99,19 @@ var net = require('net');
 var client = new net.Socket();
 
 const Caver = require('caver-js');
-const caver = new Caver('https://public-en-baobab.klaytn.net');
+const caver = new Caver('https://public-en-kairos.node.kaia.io');
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
 sendFeeDelegateTx = async() => {
     // sign transaction with private key of sender
-    const { rawTransaction: senderRawTransaction } = await caver.klay.accounts.signTransaction({
+    const { rawTransaction: senderRawTransaction } = await caver.kaia.accounts.signTransaction({
       type: 'FEE_DELEGATED_VALUE_TRANSFER',
       from: senderAddress,
       to: toAddress,
       gas: '300000',
-      value: caver.utils.toPeb('0.00001', 'KLAY'),
+      value: caver.utils.toPeb('0.00001', 'KAIA'),
     }, senderPrivateKey)
 
     // send signed raw transaction to fee payer's server
@@ -142,19 +142,19 @@ In the below example, please replace `"FEEPAYER_ADDRESS"` and `"FEEPAYER_PRIVATE
 
 ```javascript
 const Caver = require('caver-js');
-const caver = new Caver('https://public-en-baobab.klaytn.net');
+const caver = new Caver('https://public-en-kairos.node.kaia.io');
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATEKEY";
 
 // add fee payer account
-caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
+caver.kaia.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
 
 var net = require('net');
 
 
 feePayerSign = (senderRawTransaction, socket) => {
     // fee payer
-    caver.klay.sendTransaction({
+    caver.kaia.sendTransaction({
       senderRawTransaction: senderRawTransaction,
       feePayer: feePayerAddress,
     })

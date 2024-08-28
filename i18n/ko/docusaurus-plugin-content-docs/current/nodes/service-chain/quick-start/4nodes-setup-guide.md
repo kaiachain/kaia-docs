@@ -35,7 +35,7 @@ $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 SCN은 RHEL, CentOS, Fedora와 같은 다양한 RPM 배포판도 제공합니다. 자세한 내용은 이 [설치](../install-service-chain.md#installation)를 참조하세요.
 
 ```console
-$ curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo
+$ curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/prod.repo
   % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed
      100 118 100 118 0 0 1113 0 --:--:-- --:--:-- --:--:-- 1102 
 

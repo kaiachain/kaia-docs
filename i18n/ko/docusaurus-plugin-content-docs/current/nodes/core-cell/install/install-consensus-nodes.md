@@ -65,7 +65,7 @@ $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 또는 카이아 Yum 저장소에서 `kcnd`를 설치하여 실행할 수 있습니다:
 
 ```bash
-$ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kcnd
+$ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kcnd
 ```
 
 ### 설치된 위치 <a id="installed-location"></a>
@@ -157,18 +157,18 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 이 프로세스를 가속화하기 위해 CN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 빠른 동기화를 수행할 수 있습니다. 이렇게 하면 CN이 처음 시작할 때 동기화하는 데 소요되는 시간을 크게 줄일 수 있습니다.
 
-Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.klaytn.net/cypress/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). `kcnd`를 시작하기 전에 `kcnd.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
+Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/mainnet/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). `kcnd`를 시작하기 전에 `kcnd.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
 
 예를 들어
 
 ```bash
-$ tar -C ~/kcnd_home -xvf klaytn-cypress-chaindata-latest.tar.gz
+$ tar -C ~/kcnd_home -xvf kaia-mainnet-chaindata-latest.tar.gz
 ```
 
 또는,
 
 ```bash
-$ tar -C ~/kcnd_home -xvf klaytn-baobab-chaindata-latest.tar.gz
+$ tar -C ~/kcnd_home -xvf kaia-kairos-chaindata-latest.tar.gz
 ```
 
 데이터 추출이 완료되면 CN을 정상적으로 시작할 수 있습니다.

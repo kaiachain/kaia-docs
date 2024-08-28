@@ -64,8 +64,8 @@ $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 
 Alternatively, you can install `kend` from the Klaytn Yum repo, run:
 
-```text
-$ sudo curl -o /etc/yum.repos.d/klaytn.repo https://packages.klaytn.net/config/rhel/7/prod.repo && sudo yum install kend
+```bash
+$ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kend
 ```
 
 ### Installed Location <a id="installed-location"></a>
@@ -113,18 +113,18 @@ Each EN maintains a copy of the network's chain data. If a node is out of sync, 
 
 To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the EN. This can dramatically reduce the time the EN will spend syncing on first start.
 
-Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.klaytn.net/cypress/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). Before starting `kend`, extract the snapshot inside the DATA_DIR you configured in `kend.conf`.
+Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/mainnet/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). Before starting `kend`, extract the snapshot inside the DATA_DIR you configured in `kend.conf`.
 
 For example:
 
 ```bash
-$ tar -C ~/kend_home -xvf klaytn-cypress-chaindata-latest.tar.gz
+$ tar -C ~/kend_home -xvf kaia-mainnet-chaindata-latest.tar.gz
 ```
 
 Or,
 
 ```bash
-$ tar -C ~/kend_home -xvf klaytn-baobab-chaindata-latest.tar.gz
+$ tar -C ~/kend_home -xvf kaia-kairos-chaindata-latest.tar.gz
 ```
 
 After the data is extracted, you may start the EN normally.

@@ -99,7 +99,7 @@ var net = require('net');
 var client = new net.Socket();
 
 const Caver = require('caver-js');
-const caver = new Caver('https://public-en-baobab.klaytn.net');
+const caver = new Caver('https://public-en-kairos.node.kaia.io');
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
@@ -142,7 +142,7 @@ sendFeeDelegateTx();
 
 ```javascript
 const Caver = require('caver-js');
-const caver = new Caver('https://public-en-baobab.klaytn.net');
+const caver = new Caver('https://public-en-kairos.node.kaia.io');
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATEKEY";
 
