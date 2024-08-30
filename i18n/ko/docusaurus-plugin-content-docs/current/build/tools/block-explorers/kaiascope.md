@@ -67,7 +67,7 @@ Klaytnscope는 카이아 네트워크의 블록 탐색기입니다. Klaytnscope�
 - 시간: 블록이 생성된 후 경과한 시간입니다. 마우스를 가져가면 정확한 날짜와 시간을 확인할 수 있습니다.
 - 총 트랜잭션 수: 블록에 포함된 총 트랜잭션 수입니다.
 - 블록 제안자: 블록을 제안한 무작위적이지만 결정론적으로 선택된 합의 노드입니다. 주소를 클릭하면 상세 정보 페이지로 쉽게 이동할 수 있습니다.
-- 보상: 새로 발행된 KAIA \(6.4 KAIA\)와 블록에 사용된 트랜잭션 수수료의 총합입니다. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Ecosystem Fund. 블록 상세 페이지에서 블록 보상 섹션에 커서를 올리면 자세한 정보를 확인할 수 있습니다. 블록 보상 분배 시스템에 대한 자세한 내용은 \\[카이아 토큰 이코노미]에서 확인할 수 있습니다.
+- Reward: Aggregation of newly minted KAIA \(9.6 KAIA\) and transaction fees used in the block. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Ecosystem Fund. 블록 상세 페이지에서 블록 보상 섹션에 커서를 올리면 자세한 정보를 확인할 수 있습니다. 블록 보상 분배 시스템에 대한 자세한 내용은 \\[카이아 토큰 이코노미]에서 확인할 수 있습니다.
 - 크기: 블록의 크기를 바이트 단위로 측정한 값입니다. 트랜잭션이 많이 포함될수록 블록 크기가 커집니다.
 
 ### 트랜잭션 <a id="transactions"></a>
@@ -100,7 +100,7 @@ Klaytnscope는 카이아 네트워크의 블록 탐색기입니다. Klaytnscope�
 - 해시: 블록의 고유 식별자입니다. 복사 버튼을 누르면 해시를 쉽게 복사할 수 있습니다.
 - 부모 해시: 이전 블록의 고유 식별자입니다. 해시를 클릭하면 상위 해시의 상세 보기로 이동합니다.
 - 총 TX: 블록에 포함된 총 트랜잭션 수입니다.
-- 블록 보상: 새로 발행된 KAIA \(6.4 KAIA\)와 블록에서 징수된 트랜잭션 수수료를 합산한 금액입니다. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Ecosystem Fund. 블록 보상 분배 시스템에 대한 더 자세한 내용은 \\[카이아 토큰 이코노미]에서 확인할 수 있습니다.
+- Block Reward: Aggregation of the newly minted KAIA \(9.6 KAIA\) and the transaction fees collected in the block. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Ecosystem Fund. 블록 보상 분배 시스템에 대한 더 자세한 내용은 \\[카이아 토큰 이코노미]에서 확인할 수 있습니다.
 - 블록 크기: 바이트 단위로 측정된 블록의 크기입니다. 트랜잭션이 많이 포함될수록 블록 크기가 커집니다.
 
 #### 위원회 <a id="committee"></a>
