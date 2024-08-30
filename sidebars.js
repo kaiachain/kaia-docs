@@ -212,6 +212,7 @@ const sidebars = {
                 'build/tools/wallets/kaia-safe/contract-interaction',
                 'build/tools/wallets/kaia-safe/tx-builder',
                 'build/tools/wallets/kaia-safe/faqs',
+                'build/tools/wallets/kaia-safe/kaia-safe-api-kit'
               ],
             },
             'build/tools/wallets/kaia-wallet',
