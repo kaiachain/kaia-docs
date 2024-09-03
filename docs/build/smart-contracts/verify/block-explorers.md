@@ -21,7 +21,7 @@ In this guide, we'll take a look at how to use block explorers to verify deploye
 
 In this guide, we will be going over verifying both single contracts and multi-part contracts on the block explorers that exist in the Kaia ecosystem, viz.:
 
-* [Kaiascope](http://scope.klaytn.com) 
+* [Kaiascope](https://kaiascope.com/) 
 * [Kaiascan](https://www.kaiascan.io/)
 
 Without further ado, let's get started!
