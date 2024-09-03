@@ -19,6 +19,8 @@ You can perform token transfer using transaction builder by following the steps 
 
 **Step 3:** Enter the KLAY value you want to send. 
 
+> Note: In this guide, we are sending 1 KLAY, so we entered 1 in the **KLAY value** input field. You can input any amount here, depending on your Safe's KLAY balance.
+
 ![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
 
 **Step 4:** Click Add transaction. 
