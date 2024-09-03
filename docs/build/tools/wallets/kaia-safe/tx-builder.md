@@ -4,7 +4,40 @@ This is a custom app in Kaia Safe that is responsible for batching transactions.
 
 With transaction builder, you can compose transactions from token transfers to complex contract interactions and batch them into a single transaction.
 
-**Illustration**
+
+## KLAY Token Transfer <a id="token-transfer"></a>
+You can perform token transfer using transaction builder by following the steps below:
+
+**Step 1:** Navigate to Safe Apps and open Transaction Builder Safe App 
+
+![](/img/build/tools/kaia-safe/ks-tx-builder.png)
+
+**Step 2:** Enter the recipient wallet address. For this guide, kindly skip the ABI field as we are trying to execute KLAY transfer transaction.
+
+![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
+
+
+**Step 3:** Enter the KLAY value you want to send. 
+
+> Note: In this guide, we are sending 1 KLAY, so we entered 1 in the **KLAY value** input field. You can input any amount here, depending on your Safe's KLAY balance.
+
+![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
+
+**Step 4:** Click Add transaction. 
+
+**Step 5:** Repeat steps 2, 3, and 4 for every recipient address.
+
+**Step 6:** Once you added all operations to the batch click Create Batch. 
+
+![](/img/build/tools/kaia-safe/token-trf-tx-builder.gif)
+
+
+**Step 7:** Review and submit transaction
+
+You'll be able to review the whole batch. Once ready, click Send Batch to submit and execute the transaction just like any other Safe transaction.
+
+
+## Contract Interactions <a id="contract-interactions"></a>
 
 Let's say you want to airdrop tokens to a long list of addresses, say 10 CCT tokens to 5 addresses. Instead of having to create 5 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
 
