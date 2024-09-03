@@ -4,7 +4,37 @@
 
 Transaction Builder를 사용하면 토큰 전송부터 복잡한 컨트랙트 트랜잭션까지 트랜잭션을 구성하고 단일 트랜잭션으로 일괄 처리할 수 있습니다.
 
-**설명**
+## KLAY Token Transfer <a id="token-transfer"></a>
+
+You can perform token transfer using transaction builder by following the steps below:
+
+**Step 1:** Navigate to Safe Apps and open Transaction Builder Safe App
+
+![](/img/build/tools/kaia-safe/ks-tx-builder.png)
+
+**Step 2:** Enter the recipient wallet address. For this guide, kindly skip the ABI field as we are trying to execute KLAY transfer transaction.
+
+![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
+
+**Step 3:** Enter the KLAY value you want to send.
+
+> Note: In this guide, we are sending 1 KLAY, so we entered 1 in the **KLAY value** input field. You can input any amount here, depending on your Safe's KLAY balance.
+
+![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
+
+**Step 4:** Click Add transaction.
+
+**Step 5:** Repeat steps 2, 3, and 4 for every recipient address.
+
+**Step 6:** Once you added all operations to the batch click Create Batch.
+
+![](/img/build/tools/kaia-safe/token-trf-tx-builder.gif)
+
+**Step 7:** Review and submit transaction
+
+전체 배치를 검토할 수 있습니다. Once ready, click Send Batch to submit and execute the transaction just like any other Safe transaction.
+
+## Contract Interactions <a id="contract-interactions"></a>
 
 Let's say you want to airdrop tokens to a long list of addresses, say 10 CCT tokens to 5 addresses. Transaction Builder는 금고 소유자가 일일이 확인하고 실행해야 하는 10개의 트랜잭션을 생성하는 대신, 이 모든 이체를 하나의 트랜잭션에 넣습니다.
 
@@ -44,4 +74,4 @@ Transaction Builder를 사용하여 이 예제를 시작해 보겠습니다!
 
 **8단계**: 거래 검토 및 제출하기
 
-전체 배치를 검토할 수 있습니다. 준비가 완료되면 **Send Batch**을 클릭해 다른 세이프 거래와 마찬가지로 거래를 제출하고 실행합니다.
+You'll be able to review the whole batch. 준비가 완료되면 **Send Batch**을 클릭해 다른 세이프 거래와 마찬가지로 거래를 제출하고 실행합니다.
