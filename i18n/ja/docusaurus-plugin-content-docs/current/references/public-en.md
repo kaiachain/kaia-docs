@@ -28,7 +28,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 | [Kaia Foundation](https://www.kaia.io) | `https://public-en.node.kaia.io`                    | kaia,klay,eth,net | Full    |
 |                                        | `https://archive-en.node.kaia.io`                   | kaia,klay,eth,net | Archive |
 | [All That Node](www.allthatnode.com)   | `https://klaytn-mainnet.g.allthatnode.com/full/evm` | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://klaytn.blockpi.network/v1/rpc/public`      | kaia,klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`        | kaia,klay,eth,net | Full    |
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`           | kaia,klay,eth,net | Full    |
 | [Pokt Network](https://pokt.network/)  | `https://klaytn-rpc.gateway.pokt.network/`          | kaia,klay,eth,net | Full    |
 
@@ -44,12 +44,12 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 **HTTPS**
 
-| Service Provider                       | Endpoints                                             | Namespaces        | Type    |
-| -------------------------------------- | ----------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`               | kaia,klay,eth,net | Full    |
-|                                        | `https://archive-en-kairos.node.kaia.io/`             | kaia,klay,eth,net | Archive |
-| [All That Node](www.allthatnode.com)   | `https://klaytn-baobab.g.allthatnode.com/full/evm`    | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://klaytn-baobab.blockpi.network/v1/rpc/public` | kaia,klay,eth,net | Full    |
+| Service Provider                       | Endpoints                                           | Namespaces        | Type    |
+| -------------------------------------- | --------------------------------------------------- | ----------------- | ------- |
+| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`             | kaia,klay,eth,net | Full    |
+|                                        | `https://archive-en-kairos.node.kaia.io/`           | kaia,klay,eth,net | Archive |
+| [All That Node](www.allthatnode.com)   | `https://klaytn-baobab.g.allthatnode.com/full/evm`  | kaia,klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public` | kaia,klay,eth,net | Full    |
 
 **WebSocket**
 

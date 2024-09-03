@@ -14,7 +14,7 @@
 - Kaia Ecosystem Fund (KEF): 25%
 - Kaia Infrastructure Fund (KIF): 25%
 
-새로운 블록이 생성될 때마다 6.4 KAIA가 발행됩니다. This implies that approximately 200 million KAIA will be minted annually, which is equivalent to 5.2% annual inflation against the total KAIA tokens in the market (the annual inflation rate is subject to change through the Kaia Governance Process). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
+9.6 KAIA will be minted for every new block. This implies that approximately 200 million KAIA will be minted annually, which is equivalent to 5.2% annual inflation against the total KAIA tokens in the market (the annual inflation rate is subject to change through the Kaia Governance Process). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
 
 ## 카이아 거버넌스 카운슬 보상 <a id="klaytn-governance-council-reward"></a>
 
