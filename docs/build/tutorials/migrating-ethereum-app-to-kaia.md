@@ -385,7 +385,7 @@ class Count extends Component {
         {txHash && (
           <div className="Count__lastTransaction">
             <p className="Count__lastTransactionMessage">
-              You can check your last transaction in klaytnscope:
+              You can check your last transaction in kaiascope:
             </p>
             <a
               target="_blank"

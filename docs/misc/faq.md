@@ -82,7 +82,7 @@ Mainnet:
 
 Kairos testnet:
 - EN download : Choose the Kairos package from the [download page](../nodes/downloads/downloads.md).
-- Kaiascope : https://baobab.klaytnscope.com
+- Kaiascope : https://kairos.kaiascope.com
 - Kaia Wallet : https://baobab.wallet.klaytn.foundation
 - Kairos Faucet : https://faucet.kaia.io
 

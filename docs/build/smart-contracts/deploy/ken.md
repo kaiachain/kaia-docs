@@ -106,7 +106,7 @@ Welcome to the Kaia JavaScript console
  >
 ```
 
-**NOTE**: You must wait until it downloads all the blocks. Enter `kaia.blockNumber` in a console and check whether it matches the current block number [here](https://baobab.klaytnscope.com/) 
+**NOTE**: You must wait until it downloads all the blocks. Enter `kaia.blockNumber` in a console and check whether it matches the current block number [here](https://kairos.kaiascope.com/) 
 
 **NOTE**: Type `kaia` or `personal` to get the list of available functions.
 

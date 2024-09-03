@@ -147,7 +147,7 @@ To verify a single contract and multi-part contracts on Kaiascope, follow the st
 
 #### 1.1 Verifying a single contract
 
-1. Goto the search bar of [Kaiascope](https://baobab.klaytnscope.com) and paste the deployed contract address.
+1. Goto the search bar of [Kaiascope](https://kairos.kaiascope.com) and paste the deployed contract address.
 2. Navigate to the **contract tab** on that page.
 3. Click on the **Match Contract Source Code** link to submit contract code for verification.
 
