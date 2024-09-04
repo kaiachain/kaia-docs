@@ -257,7 +257,7 @@ anvil --fork-url rpc-url
 **Example**
 
 ```bash
-anvil --fork-url https://archive-en.cypress.klaytn.net
+anvil --fork-url https://archive-en.node.kaia.io
 ```
 
 **Output** 
