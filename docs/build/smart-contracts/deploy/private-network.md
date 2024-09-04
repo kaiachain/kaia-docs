@@ -14,7 +14,7 @@ In this guide, we will walk you through the process of deploying a Greeter contr
 
 To follow this tutorial, the following are the prerequisites:
 
-- Code editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
+- Code editor: a source-code editor such as [VS Code](https://code.visualstudio.com/download).
 - Docker: if you don’t have docker installed, kindly install using this [link](https://docs.docker.com/desktop/)
 - [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): Node version 18 and above. 
 
@@ -46,7 +46,7 @@ npm i hardhat @klaytn/hardhat-utils
 * Copy and paste the code below to install other dependencies
 
 ```js
-npm install @nomiclabs/hardhat-ethers hardhat-deploy
+npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
 ```
 
 :::note
@@ -60,7 +60,7 @@ The hardhat-utils plugin depends on  [hardhat-ethers](https://www.npmjs.com/pack
 (Recommended) Install hardhat shorthand. But you can still use the tasks with npx hardhat.
 
 ```js
-npm install --global hardhat-shorthand
+npm install hardhat-shorthand --save
 ```
 :::
 
@@ -91,7 +91,29 @@ For this guide, you'll be selecting "create an empty hardhat.config.js" project 
   Quit
 ```
 
-**Step 5: Setup Hardhat Configs**
+**Step 5: Create a .env file**
+
+Now create your `.env` file in the project folder. This file helps us load environment variables from an `.env` file into process.env.
+
+Copy and paste this command in your terminal to create a `.env` file
+
+```js
+touch .env
+```
+
+Configure your .env file to look like this:
+
+```
+PRIVATE_KEY="COPY & PASTE ANY OF THE PRIVATE KEY PROVIDED BY LOCAL PRIVATE NETWORK"
+```
+
+:::note
+
+When you launch the private network in the next section, you will be able to access the private key provided by the local network.
+
+:::
+
+**Step 6: Setup Hardhat Configs**
 
 Modify your `hardhat.config.js` with the following configurations:
 
@@ -99,10 +121,12 @@ Modify your `hardhat.config.js` with the following configurations:
 require("@nomiclabs/hardhat-ethers");
 require("hardhat-deploy");
 require("@klaytn/hardhat-utils");
+require('dotenv').config()
+
 const accounts = [
-  process.env.PRIVATE_KEY || "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
-  "0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d",
+  process.env.PRIVATE_KEY
 ];
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.24",
@@ -126,7 +150,6 @@ module.exports = {
     },
   },
 };
-
 ```
 
 ## Launching the Private Network <a id="launching-private-network"></a>
@@ -134,7 +157,7 @@ module.exports = {
 To launch a  private network, the hardhat utils plugin provides us a task to easily launch one viz:
 
 ```js
-hh klaytn node
+hh klaytn-node
 ```
 
 ![](/img/build/smart-contracts/pn-run-node.png)
@@ -144,10 +167,10 @@ hh klaytn node
 The private network comes with a JavaScript console. From the console command line, you can initiate part of Kaia API calls to your network. To attach to the JavaScript console, execute the following command: 
 
 ```js
-npx hardhat klaytn-node --attach
+hh klaytn-node --attach
 ```
 
-```js
+```jsx title="Result Result "
 Welcome to the Kaia JavaScript console!
  instance: Klaytn/v0.9.2/linux-amd64/go1.22.1
   datadir: /klaytn
@@ -156,7 +179,7 @@ Welcome to the Kaia JavaScript console!
 
 :::note
 
-Type kaia or personal to get the list of available functions.
+Type **kaia** or **personal** to get the list of available functions.
 
 :::
 
@@ -298,7 +321,7 @@ Step 3: Copy and paste the deployed contract address in the search field and pre
 1. To call a read-only function of the deployed contract, run the command below:
 
 ```js
-hh call KaiaGreeter getTotalGreeting
+hh call KaiaGreeter getTotalGreetings
 ```
 
 ![](/img/build/smart-contracts/pn-read-function.png)
@@ -310,7 +333,7 @@ hh call KaiaGreeter getTotalGreeting
 hh send KaiaGreeter greet
 ```
 
-```jsx title="Result"
+```jsx title="Result Result "
 sent KaiaGreeter#greet (tx: 0xc0bd25ffb594c13d5ae1f77f7eb02f2978013c69f9f6e22694b76fa26c329e85)...ok (block 2837, gas used: 47457)
 ```
 
@@ -329,26 +352,33 @@ Step 3:  Copy and paste the following code inside the file.
 ```js
 const { JsonRpcProvider, Wallet } = require("@kaiachain/ethers-ext");
 const { ethers } = require("ethers");
+require('dotenv').config()
+
 const provider = new JsonRpcProvider("http://127.0.0.1:8545/")
- 
-const privKey = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80" // copy any private key provided by the local private network
-const signer = new ethers.Wallet(privKey, provider)
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+
+const privKey = process.env.PRIVATE_KEY;
+const signer = new ethers.Wallet(privKey, provider);
+const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3" // PASTE DEPLOYED CONTRACT ADDRESS;
+
 const KaiaGreeterABI = require("../artifacts/contracts/KaiaGreeter.sol/KaiaGreeter.json").abi;
+
 async function getCode(ca) {
     const tx = await provider.getCode(ca);
     console.log(tx);
 }
+
 async function greet(ca) {
     const klaytnGreeter = new ethers.Contract(ca, KaiaGreeterABI, signer);
     const tx = await klaytnGreeter.greet();
     console.log( tx);
 }
+
 async function getTotalGreetings(ca) {
     const klaytnGreeter = new ethers.Contract(ca, KaiaGreeterABI, provider);
     const value = await klaytnGreeter.getTotalGreetings();
     console.log(value.toString());
 }
+
 // getCode(contractAddress);
 getTotalGreetings(contractAddress);
 // greet(contractAddress);
