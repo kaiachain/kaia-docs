@@ -261,7 +261,7 @@ anvil --fork-url rpc-url
 **Ví dụ**
 
 ```bash
-anvil --fork-url https://archive-en.cypress.klaytn.net
+anvil --fork-url https://archive-en.node.kaia.io
 ```
 
 **Kết quả đầu ra**
