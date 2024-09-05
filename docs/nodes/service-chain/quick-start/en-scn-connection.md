@@ -115,7 +115,7 @@ After finishing the EN-01 and SCN-L2-01 connection, you can log ServiceChain blo
 In this section, you will top up a parent operator account, enable Anchoring, and check the anchored block number.
 
 ### Step 1: Get KAIA to test anchoring <a id="step-1-get-kaia-to-test-anchoring"></a>
-Anchoring requires SCN-L2-01 to make an anchoring transaction to Kairos. So `subbridge.parentOperator` account should have enough KAIA to pay the transaction fee. Get some KAIA from [Kairos Wallet Faucet](https://baobab.wallet.klaytn.foundation/) and transfer some KAIA to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KAIA for transaction fee.
+Anchoring requires SCN-L2-01 to make an anchoring transaction to Kairos. So `subbridge.parentOperator` account should have enough KAIA to pay the transaction fee. Get some KAIA from [Kairos Faucet](https://faucet.kaia.io/) and transfer some KAIA to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KAIA for transaction fee.
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data

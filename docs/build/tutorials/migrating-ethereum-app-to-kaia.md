@@ -117,7 +117,7 @@ Let's learn step by step how to migrate `CountDApp` from Ethereum to Kaia!
 The first step is deploying Count contract on Kaia and get the contract address. Most of the cases, you can use Etherem contracts on Kaia without modification. See [Porting Etherem Contract](../../build/smart-contracts/porting-ethereum-contract.md). In this guide, we will use Truffle to deploy the contract.
 
 1. Change network properties in `truffle-config.js` to deploy the contract on Kaia.
-2. Top up your account using [KAIA faucet](https://baobab.wallet.klaytn.foundation/access?next=faucet).
+2. Top up your account using [KAIA faucet](https://faucet.kaia.io).
 3. Type `$ truffle deploy --network kairos --reset`
 4. `Count` contract will be deployed on Kairos testnet, Kaia.
 
