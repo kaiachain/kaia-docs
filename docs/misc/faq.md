@@ -39,7 +39,7 @@ To provide maximum convenience for dApp developers, Kaia has devised a way to [d
 
 
 ## Where can I start dApp development with Kaia? <a id="dapp-development"></a>
-Whether you are migrating from Ethereum, or building on Kaia from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Kaia Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk `caver` is available as [caver-js](https://github.com/kaiachain/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
+Whether you are migrating from Ethereum, or building on Kaia from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Kaia Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk `caver` is available as [caver-js](https://github.com/kaiachain/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
 
 
 ## Is Kaia Open Source? <a id="is-kaia-open-source"></a>
@@ -67,7 +67,7 @@ Since we cannot guarantee uptime and stability of the endpoints, you can always 
 
 
 ## Which wallets support Kaia? <a id="which-wallets"></a>
-Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaikas, MetaMask and more. Please refer to the list [here](http://klaytn.foundation/ecosystem).
+Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. Please refer to the list [here](http://klaytn.foundation/ecosystem).
 
 
 ## What is Mainnet, what is Kairos? <a id="what-is-mainnet-what-is-kairos"></a>
@@ -78,12 +78,10 @@ Below is information relating to each network.
 Mainnet:
 - EN download : Choose the Mainnet package from the [download page](../nodes/downloads/downloads.md).
 - Kaiascope : https://kaiascope.com/
-- Kaia Wallet : https://wallet.klaytn.com
 
 Kairos testnet:
 - EN download : Choose the Kairos package from the [download page](../nodes/downloads/downloads.md).
 - Kaiascope : https://kairos.kaiascope.com
-- Kaia Wallet : https://baobab.wallet.klaytn.foundation
 - Kairos Faucet : https://faucet.kaia.io
 
 
@@ -131,7 +129,7 @@ If you are new to Truffle, see [Testing Guide](../build/smart-contracts/testing-
 
 ## Where can I get a browser extension wallet like Metamask? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
-Kaia's web browser extension wallet [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en). Kaikas is a non-custodial wallet with which you can make KAIA transactions and create accounts. 
+Kaia's web browser extension wallet [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi). Kaia Wallet is a non-custodial wallet with which you can make KAIA transactions and create accounts. 
 
 
 

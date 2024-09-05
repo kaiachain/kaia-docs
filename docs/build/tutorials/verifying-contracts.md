@@ -14,7 +14,7 @@ In this guide, we'll take a look at how to use block explorers to verify deploye
 
 ## Prerequisites
 
-* [Remix IDE](https://ide.kaia.io/) and [Kaikas Wallet](https://kaikas.zendesk.com/hc/en-us/articles/6657796272793-How-do-I-install-PC-Kaikas-)
+* [Remix IDE](https://ide.kaia.io/) and [Kaia Wallet](https://docs.kaiawallet.io/getting_started/quick_start#install-kaia-wallet)
 * Enough test KAIA from [faucet](https://faucet.kaia.io)
 
 ## Getting Started
@@ -153,7 +153,7 @@ To verify a single contract and multi-part contracts on Kaiascope, follow the st
 
 ![](/img/build/tutorials/counter-contract-tab.png)
 
-4. On the contract verification page, make sure your account is connected to either Kaikas or Metamask. For this guide, we will be using Kaikas. 
+4. On the contract verification page, make sure your account is connected to either Kaia Wallet or Metamask. For this guide, we will be using Kaia Wallet. 
 5. Fill in the contract address in the **contract address field**. Note: This field is usually filled with the contract address automatically.
 6. Select the **compiler version** used for the `Counter.sol` example.
 7. Select the **Open Source License Type** used for the `Counter.sol` example. For `Counter.sol` example, select the option, **MIT License (MIT)**. If there was none used, select **No License (None)**.
@@ -200,7 +200,7 @@ Once verification is done, the result of the verification will be displayed in t
 
 ### 2. Kaiascan
 
-To verify a single contract and multi-part contracts on Kaiascan, navigate to the [contract submission request page](https://kairos.kaiascan.io/contracts). However, make sure your account is connected to either Kaikas or MetaMask and follow the steps below:
+To verify a single contract and multi-part contracts on Kaiascan, navigate to the [contract submission request page](https://kairos.kaiascan.io/contracts). However, make sure your account is connected to either Kaia Wallet or MetaMask and follow the steps below:
 
 ![](/img/build/tutorials/klaytnfinder-con-sub-page.png)
 

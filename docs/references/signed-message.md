@@ -22,13 +22,13 @@ window.ethereum.request({ method: "eth_sign", params: ["0xbC7d1aBe33E6EC19cA873A
 Some Kaia nodes and SDKs have been providing a way to prefix messages with `"\x19Klaytn Signed Message:\n" + len(message)` before signing them. For details, please refer to [KIP-97](https://kips.kaia.io/KIPs/kip-97). Having the Klaytn- prefix can mitigate signature replay across chains, but the prefix alone cannot fully prevent replay attacks. Applications must employ replay protection mechanisms, including random challenges or timestamps, to defend against replay attacks within an application.
 
 KIP-97 signatures are supported by:
-- Kaikas [`klay_sign`](https://docs.kaikas.io/02_api_reference) method
+- Kaia Wallet [`klay_sign`](https://docs.kaiawallet.io/api_reference/caver_methods#caverklaysign) method
 - caver-js [`keyring.signMessage`](../sdk/caver-js/api/caver-wallet/keyring) and [`utils.recover`](../sdk/caver-js/api/caver.utils) methods
 - caver-java [`AbstractKeyring.signMessage​`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/wallet/keyring/AbstractKeyring.html) and [`Utils.recover`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/utils/Utils.html) methods
 - In Kaia nodes until v1.0.0, [`eth_sign`](../json-rpc/eth/sign), [`kaia_sign`](../json-rpc/kaia/sign), [`personal_sign`](../json-rpc/personal/sign) [`personal_ecRecover`](../json-rpc/personal/ec-recover) RPCs
 - In Kaia nodes of all versions, [`kaia_recoverFromMessage`](../json-rpc/kaia/recover-from-message) RPC
 
-Kaikas example:
+Kaia Wallet example:
 
 ```js
 window.klaytn.request({ method: "eth_requestAccounts" })
@@ -87,9 +87,9 @@ While EIP-191 and KIP-97 were standards for signing a single string, EIP-712 is 
 
 EIP-712 signatures are supported by:
 - Ethereum wallets (e.g. MetaMask)
-- Kaikas
+- Kaia Wallet
 
-Kaikas example:
+Kaia Wallet example:
 
 ```js
 const data = '{"domain":{"chainId":1,"name":"Ether Mail","verifyingContract":"0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC","version":"1"},"message":{"contents":"Hello, Bob!","attachedMoneyInEth":4.2,"from":{"name":"Cow","wallets":["0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826","0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF"]},"to":[{"name":"Bob","wallets":["0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB","0xB0BdaBea57B0BDABeA57b0bdABEA57b0BDabEa57","0xB0B0b0b0b0b0B000000000000000000000000000"]}]},"primaryType":"Mail","types":{"EIP712Domain":[{"name":"name","type":"string"},{"name":"version","type":"string"},{"name":"chainId","type":"uint256"},{"name":"verifyingContract","type":"address"}],"Group":[{"name":"name","type":"string"},{"name":"members","type":"Person[]"}],"Mail":[{"name":"from","type":"Person"},{"name":"to","type":"Person[]"},{"name":"contents","type":"string"}],"Person":[{"name":"name","type":"string"},{"name":"wallets","type":"address[]"}]}}';

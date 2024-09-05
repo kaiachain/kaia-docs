@@ -35,7 +35,7 @@ You need a local plugin to connect to the Kaia network using Remix. The process 
 * You can select **Kairos**, **Mainnet**, **Injected Caver**, **Caver Provider** or **Injected Web3**.
   * **\[Kairos]**: Connects to the Kairos network
   * **\[Mainnet]**: Connects to the Mainnet
-  * **\[Injected Caver]**: Connects to injected caver(e.g., Kaikas)
+  * **\[Injected Caver]**: Connects to injected caver(e.g., Kaia Wallet)
   * **\[Caver Provider]**: Connects directly to Kaia node, which supports RPC
   * **\[Injected Web3]**: Connects to injected web3(e.g., Metamask)
 
@@ -74,13 +74,13 @@ You can import keys from **private key** or **Keystore**.
 * When you see the MetaMask pop-up, select the account by clicking it.
 * Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
-## Connecting Kaia - Remix using Kaikas <a href="#connecting-kaia-remix-using-kaikas" id="connecting-kaia-remix-using-kaikas"></a>
+## Connecting Kaia - Remix using Kaia Wallet <a href="#connecting-kaia-remix-using-kaia-wallet" id="connecting-kaia-remix-using-kaia-wallet"></a>
 
 * Select \[Injected Caver] on the Remix Environment menu.
 
 ![Injected Caver](/img/build/tutorials/env-injected-caver.png)
 
-* When you see the Kaikas pop-up, click \[Connect].
+* When you see the Kaia Wallet pop-up, click \[Connect].
 * Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
 ## Tutorial: KaiaGreeter Contract <a href="#tutorial-kaiagreeter-contract" id="tutorial-kaiagreeter-contract"></a>
