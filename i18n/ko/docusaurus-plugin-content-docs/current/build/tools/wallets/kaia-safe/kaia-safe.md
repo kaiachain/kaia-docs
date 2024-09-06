@@ -1,6 +1,6 @@
 # Kaia Safe
 
-카이아와 같은 일반적인 블록체인 플랫폼에서 대부분의 사용자는 외부 소유 계정(EOA)이라고도 하는 Kaikas나 MetaMask와 같은 단일 키 지갑 시스템에 익숙합니다. 이러한 계정은 기존의 키 쌍, 즉 공개 키와 개인 키를 사용하는데, 개인 키는 단일 장애 지점을 생성하기 때문에 이상적이지 않습니다.
+In a typical blockchain platform like Kaia, most users are familiar with single key wallet systems such as Kaia Wallet and MetaMask, which are also known as externally owned accounts (EOA). 이러한 계정은 기존의 키 쌍, 즉 공개 키와 개인 키를 사용하는데, 개인 키는 단일 장애 지점을 생성하기 때문에 이상적이지 않습니다.
 
 1억 6,250만 달러가 손실된 [윈터뮤트 해킹](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-)의 경우처럼 개인 키가 손상되면 조직이 보유한 모든 암호화폐 자금을 잃을 수 있기 때문에 EOA는 조직에서 사용하기에 적합하지 않습니다.
 
