@@ -102,5 +102,5 @@
 
 또한 전체 소유자의 51%(예: 3명 중 2명, 5명 중 3명 등)의 임계값을 선택하는 것이 좋습니다.  따라서 한 명의 소유자가 계정에 액세스할 수 없게 되더라도 사용자가 금고에 있는 모든 돈을 즉시 잠그지 않고 다른 소유자가 계속 거래를 수행할 수 있으며, 예를 들어 손실된 소유자 계정을 대체할 수 있습니다. 이것이 복구 메커니즘의 역할을 한다고 주장할 수 있습니다.
 
-**어떤 지갑과 호환되나요?**
-현재 Kaia Safe는 [Kaikas](https://docs.kaikas.io/), [MetaMask](../../../tutorials/connecting-metamask)와 호환됩니다.
+**What wallets are compatible?**
+At the moment, Kaia Safe is compatible with [Kaia Wallet](https://docs.kaiawallet.io/), [MetaMask](../../../tutorials/connecting-metamask).

@@ -361,7 +361,7 @@ Now that we have our Hardhat project set up let’s fork the Kaia Mainnet using 
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL>
 
-npx hardhat node --fork https://archive-en.cypress.klaytn.net
+npx hardhat node --fork https://archive-en.node.kaia.io
 ```
 
 You can also configure `hardhat.config.js` - Hardhat Network to always do this:
@@ -401,7 +401,7 @@ With hardhat, you can fork the mainnet at a particular block.  In that case, let
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL> --fork-block-number 105701850
 
-npx hardhat node --fork https://archive-en.cypress.klaytn.net --fork-block-number 105701850
+npx hardhat node --fork https://archive-en.node.kaia.io --fork-block-number 105701850
 ```
 
 To confirm the forked chain at the stated block, open a new terminal window and use the following command:

@@ -6,8 +6,8 @@ If you want to check the status of all blocks while operating a full node, set t
 
 ## How to set up
 
-To configure a full node to retrieve data from an upstream archive node, set `--upstream-en` in the `ADDITIONAL` environment variable of `kend.conf`, the configuration file of the operating full node. The example below shows how to set the archive node `https://archive-en.cypress.klaytn.net` as an upstream node.
+To configure a full node to retrieve data from an upstream archive node, set `--upstream-en` in the `ADDITIONAL` environment variable of `kend.conf`, the configuration file of the operating full node. The example below shows how to set the archive node `https://archive-en.node.kaia.io` as an upstream node.
 
 ```
-ADDITIONAL="--upstream-en https://archive-en.cypress.klaytn.net"
+ADDITIONAL="--upstream-en https://archive-en.node.kaia.io"
 ```

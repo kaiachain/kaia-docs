@@ -12,4 +12,4 @@ Currently, Kaia Safe is a collection of tools to create and manage multi-signatu
 
 - **Safe Infrastructure:** This is a  cluster setup to deploy the backend services (Safe-Transaction, Safe-Config, Safe-Client gateway).
 
-Please refer to this [link](https://github.com/klaytn/klaytn-safe-react) to get more information.
+Please refer to this [link](https://github.com/kaiachain/kaia-safe-infrastructure) to get more information.

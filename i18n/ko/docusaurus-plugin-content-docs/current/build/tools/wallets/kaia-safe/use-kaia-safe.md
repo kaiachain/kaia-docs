@@ -6,7 +6,7 @@
 
 **Step 1:** Navigate to [Kaia Safe App](https://safe.kaia.io/). 웹 브라우저에서 애플리케이션으로 이동하면 Kaia Safe의 기능을 살펴볼 수 있습니다.
 
-**2단계**: [지갑](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)을 연결합니다. 현재 Kaia Safe는 [MetaMask](../../../tutorials/connecting-metamask) 지갑을 지원합니다.
+**2단계**: [지갑](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)을 연결합니다. At the moment, Kaia Safe support various wallets like [Kaia Wallet](https://docs.kaiawallet.io/), [MetaMask](../../../tutorials/connecting-metamask), etc.
 
 이 가이드에서는 MetaMask를 사용하겠습니다. Make sure you have Kaia networks([Mainnet](../../../tutorials/connecting-metamask#connect-to-klaytn-cypress-network-mainnet) or [Kairos Testnet](../../../tutorials/connecting-metamask#connect-to-klaytn-baobab-network-testnet)) added to your MetaMask wallet to connect successfully.
 

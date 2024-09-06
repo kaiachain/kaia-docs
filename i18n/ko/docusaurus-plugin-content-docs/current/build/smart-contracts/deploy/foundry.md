@@ -261,7 +261,7 @@ anvil --fork-url rpc-url
 **예시**
 
 ```bash
-anvil --fork-url https://archive-en.cypress.klaytn.net
+anvil --fork-url https://archive-en.node.kaia.io
 ```
 
 **출력**

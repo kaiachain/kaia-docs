@@ -6,7 +6,7 @@ Here you will see how to create a Safe and evaluate its benefits on the Kaia Net
 
 **Step 1:** Navigate to [Kaia Safe App](https://safe.kaia.io/). By navigating to the application on your web browser, you can explore the functionality of Kaia Safe.
 
-**Step 2:** Connect your [wallet](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/). At the moment, Kaia Safe support various wallets like [Kaikas](https://docs.kaikas.io/), [MetaMask](../../../tutorials/connecting-metamask) wallet, etc.
+**Step 2:** Connect your [wallet](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/). At the moment, Kaia Safe support various wallets like [Kaia Wallet](https://docs.kaiawallet.io/), [MetaMask](../../../tutorials/connecting-metamask), etc.
 
 For the sake of this guide, we will be using MetaMask. Make sure you have Kaia networks([Mainnet](../../../tutorials/connecting-metamask#connect-to-klaytn-cypress-network-mainnet) or [Kairos Testnet](../../../tutorials/connecting-metamask#connect-to-klaytn-baobab-network-testnet)) added to your MetaMask wallet to connect successfully.
 
