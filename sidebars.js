@@ -96,8 +96,8 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Storage Layer',
-      link: { type: 'doc', id: 'learn/storage/storage' },
+      label: 'Block sync',
+      link: { type: 'doc', id: 'learn/storage/block-sync' },
       items: ['learn/storage/state-migration', 'learn/storage/live-pruning'],
     },
     'learn/multiport',
