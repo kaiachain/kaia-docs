@@ -1,4 +1,4 @@
-# Thirdweb으로 스마트 컨트랙트 배포하기
+# Deploying smart contract using Thirdweb
 
 ![](/img/banners/kaia-thirdweb.png)
 
