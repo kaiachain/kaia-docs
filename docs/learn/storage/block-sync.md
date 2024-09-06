@@ -46,7 +46,7 @@ However, you should use an archive node for data analysis purposes. Note that ev
 
 #### Upstream EN
 
-If your node mostly serves the latest data but occasionally serves historic data, then try the Upstream EN feature. Read more [here](../../misc/operation/upstream-en).
+If your node mostly serves the latest data but occasionally serves historic data, then try the Upstream EN feature. Read more [here](../upstream-en).
 
 ### Live Pruning
 

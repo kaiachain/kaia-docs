@@ -8,7 +8,7 @@ Block states, or StateDB stores on-chain accounts and contracts in a trie data s
 
 Previously the State Migration has mitigated this problem by deleting old states by selectively copying the recent states and deleting the rest. This can reduce the full node size to less than 5TB.
 
-Nonetheless, the State Migration has its own drawbacks. It suffers from from high overhead of traversing the entire state trie which could take a few hours to days. Also the state migration has to be manually triggered. To overcome these limitations, Live Pruning technique was introduced.
+Nonetheless, the State Migration has its own drawbacks. It suffers from from high overhead of traversing the entire state trie which could take a few days. Also the state migration has to be manually triggered. To overcome these limitations, Live Pruning technique was introduced.
 
 ## Concept
 
@@ -23,7 +23,7 @@ ExtHash: 32-byte Keccak256 + 7-byte Serial index
 
 This way, whenever a trie node's content change, it is safe to assume that the trie node is now obsolete. The Merkle hash can be calculated the same way by just ignoring the serial index, make it compatible with non-live-pruning nodes in terms of consensus.
 
-Read this [blog article](https://medium.com/klaytn/strong-efficient-management-of-blockchain-data-capacity-with-statedb-live-pruning-strong-6aaa09b05f91) for more technical details.
+Read this blog article for more technical details: [Efficient Management of Blockchain Data Capacity with StateDB Live Pruning](https://medium.com/klaytn/strong-efficient-management-of-blockchain-data-capacity-with-statedb-live-pruning-strong-6aaa09b05f91).
 
 ## How to
 
