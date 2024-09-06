@@ -23,12 +23,12 @@ A node that runs on gcmode=archive is called Archive node. A node that runs gcmo
 
 In a full node, block states are persisted to disk every multiple of the number specified by `--state.block-interval NNN (default: 128)`. Also the block states of the recent `--state.tries-in-memory NNN (default 128)` blocks are kept in memory to serve APIs. Therefore, block states are only available when it is a multiple of block interval or recently processed.
 
-```
-# State available
+```js
+// State available
 > eth.getBalance('0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', 150000000)
 735000000000002
 
-# State absent
+// State absent
 > eth.getBalance('0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', 150000001)
 Error: missing trie node 64380a8de7bd83a6421c9ad45ae596a0eebbc7b504d061f4a57c61742eadc804 (path )
 	at web3.js:6812:9(39)
