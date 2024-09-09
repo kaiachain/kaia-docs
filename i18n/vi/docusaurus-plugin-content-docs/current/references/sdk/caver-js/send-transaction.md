@@ -249,7 +249,7 @@ SingleKeyring {
 }
 ```
 
-You can view the transaction details in [Kaiascan](https://kairos.kaiascan.io/) or [Klaytnscope](https://scope.klaytn.com) using the `transactionHash`.
+You can view the transaction details in [Kaiascan](https://kairos.kaiascan.io/) or [Kaiascope](https://kairos.kaiascope.com/) using the `transactionHash`.
 
 ## 9. Entire Code <a id="9.-run-the-code"></a>
 
