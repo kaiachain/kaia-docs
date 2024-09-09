@@ -162,7 +162,7 @@ forge create --rpc-url https://klaytn-baobab-rpc.allthatnode.com:8551/qtKkeUE8ZE
 
 ![](/img/build/get-started/foundry-create.png)
 
-**Step 2**: Open [Klaytnscope](https://baobab.klaytnscope.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx) to check if the counter contract deployed successfully.
+**Step 2**: Open [Kaiascope](https://kairos.kaiascope.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx) to check if the counter contract deployed successfully.
 
 **Step 3**: Copy and paste the transaction hash in the search field and press Enter. You should see the recently deployed contract.
 
