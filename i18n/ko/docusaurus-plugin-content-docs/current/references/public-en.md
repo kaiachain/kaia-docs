@@ -219,11 +219,11 @@ NodeReal is a blockchain infrastructure and services provider. NodeReal helps d
 
 ## Useful Resources
 
-- Wallet: Kaikas is a browser extension wallet for the Kaia Network.
-  [Kaikas](../../build/tools/wallets/kaikas.md)
+- Wallet: Kaia Wallet is a browser extension wallet for the Kaia Network.
+  [Kaia Wallet](../../build/tools/wallets/kaia-wallet.md)
 
 - Faucet: You can obtain test KAIA for the Kairos test network.
-  [Faucet](../../build/tools/wallets/kaia-wallet.md#how-to-receive-kairos-testnet-klay)
+  [Faucet](https://faucet.kaia.io)
 
 - Explorer: Kaiascope is the block explorer for the Kaia Network.
   [Kaiascope](../../build/tools/block-explorers/kaiascope.md)
