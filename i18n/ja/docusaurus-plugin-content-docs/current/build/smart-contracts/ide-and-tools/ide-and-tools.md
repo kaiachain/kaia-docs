@@ -14,14 +14,10 @@ Klaytn Contracts Wizard is an interactive generator to bootstrap your smart cont
 
 Thirdweb is a complete web3 development framework that provides everything you need to connect your apps and games to decentralized networks.
 
-#### [Kaikas](../../tools/wallets/kaikas.md) <a href="#kaikas" id="kaikas"></a>
-
-Kaikas is a browser extension wallet for the Klaytn Network. Kaikas empowers you to store and interact with KLAY and your Klaytn-based tokens. Kaikas also enables you to sign transactions from web-based Klaytn dApps in realtime.
-
 #### [Klaytn Wallet](../../tools/wallets/klaytn-wallet.md) <a href="#klaytn-wallet" id="klaytn-wallet"></a>
 
-Klaytn Wallet is a browser-based account management tool for the Decentralized Application (dApp) developers. You can create/load your accounts, review your account balance, and transfer KLAY. You can also register your own Klaytn tokens to test basic behaviors.
+Kaia Wallet is a browser extension wallet for the Kaia Network. Kaia Wallet empowers you to store and interact with KAIA and your Kaia-based tokens. Kaia Wallet also enables you to sign transactions from web-based Kaia dApps in realtime.
 
-#### [Klaytnscope](../../tools/block-explorers/klaytnscope.md) <a href="#klaytnscope" id="klaytnscope"></a>
+#### [Kaiascope](../../tools/block-explorers/kaiascope.md) <a href="#kaiascope" id="kaiascope"></a>
 
 Klaytnscope is the block explorer for the Klaytn Network. You can browse and inspect your transactions on the browser.
