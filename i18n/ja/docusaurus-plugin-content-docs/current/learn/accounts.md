@@ -36,8 +36,6 @@ Klaytn wallet key format is provided to easily handle a private key along with t
 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ```
 
-This format is currently supported in [Klaytn Wallet](../build/tools/wallets/klaytn-wallet.md).
-
 ### Klaytn Account Types <a id="klaytn-account-types"></a>
 
 There are two types of accounts in Klaytn: <LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> \(EOAs\), and <LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> \(SCAs\).
