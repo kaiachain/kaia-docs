@@ -265,7 +265,7 @@ Similar to `signer.signMessage`, you can use the same provider mechanism to send
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 

@@ -183,7 +183,7 @@ const sidebars = {
         'build/tutorials/buy-me-a-coffee',
         'build/tutorials/connecting-metamask',
         'build/tutorials/connecting-remix',
-        'build/tutorials/kaikas-dapp-integration',
+        'build/tutorials/kaia-wallet-dapp-integration',
         'build/tutorials/migrating-ethereum-app-to-kaia',
       ],
     },
@@ -198,7 +198,6 @@ const sidebars = {
           label: 'Wallets',
           link: { type: 'doc', id: 'build/tools/wallets/wallets' },
           items: [
-            'build/tools/wallets/kaikas',
             {
               type: 'category',
               label: 'Kaia Safe',

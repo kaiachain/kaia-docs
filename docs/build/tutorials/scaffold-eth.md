@@ -147,7 +147,7 @@ etherscan: {
         chainId: 1001,
         urls: {
           apiURL: "https://api-baobab.klaytnscope.com/api",
-          browserURL: "https://baobab.klaytnscope.com",
+          browserURL: "https://kairos.kaiascope.com",
         },
       },
     ]
@@ -166,11 +166,11 @@ Actual
 yarn hardhat-verify --network kairos 0x5aC1801708a92292F55A8ea4e9D0f1C0C2EC1F73
  "0x1C42aCcd92d491DB8b083Fa953B5E3D9A9E42aD5"
 ```
-As you can see above, to verify your contracts, you have to pass in the network name, contract address and constructor arguments (if any). After a short wait, the console will display the verification result and, if successful, the URL to the verified contract on Klaytnscope will be provided.
+As you can see above, to verify your contracts, you have to pass in the network name, contract address and constructor arguments (if any). After a short wait, the console will display the verification result and, if successful, the URL to the verified contract on Kaiascope will be provided.
 
 ![Verify](/img/build/tutorials/sc-verify.png)
  
-![Verify on Klaytnscope](/img/build/tutorials/sc-verify-klaytnscope.png)
+![Verify on Kaiascope](/img/build/tutorials/sc-verify-klaytnscope.png)
 
 
 For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).

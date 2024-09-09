@@ -1,4 +1,4 @@
-# Kaikas DApp Integration
+# Kaia Wallet DApp Integration
 
 ## Table of Contents
 
@@ -7,9 +7,9 @@
 3. [Providers](#3-providers)
 
 ## Introduction
-[Kaikas](https://docs.kaikas.io) is a non-custodial wallet, similar to [Metamask](https://metamask.io), with additional support for Kaia-specific [Transactions](https://docs.kaia.io/learn/transactions) & [Accounts](https://docs.kaia.io/learn/accounts). This article will guide you through integrating [Kaikas](https://docs.kaikas.io) with a decentralized application (dApp), from High-level (abstract) to Low-level (fine-grained) implementations.
+[Kaia Wallet](https://docs.kaiawallet.io) is a non-custodial wallet, similar to [Metamask](https://metamask.io), with additional support for Kaia-specific [Transactions](https://docs.kaia.io/learn/transactions) & [Accounts](https://docs.kaia.io/learn/accounts). This article will guide you through integrating [Kaia Wallet](https://docs.kaiawallet.io) with a decentralized application (dApp), from High-level (abstract) to Low-level (fine-grained) implementations.
 
-For the sake of this guide, we will be dividing Kaikas dApp integration into three main categories:
+For the sake of this guide, we will be dividing Kaia Wallet dApp integration into three main categories:
 
 * UI Libraries
 * Utility libraries
@@ -23,11 +23,11 @@ The aforementioned libraries use `Providers` under the hood.
 
 ## 1. UI Libraries
 
-Many dApps utilize frontend frameworks for state management & delivering reactive services. The recommended way to integrate Kaikas with such dApps is to use a UI Library built on the same framework.
+Many dApps utilize frontend frameworks for state management & delivering reactive services. The recommended way to integrate Kaia Wallet with such dApps is to use a UI Library built on the same framework.
 
 UI Libraries provide components for user interactions, like `ConnectWallet` component. They also save you the hassle of managing low-level states, like Multiple Accounts & Multiple Networks. You can look at the underlying [Utility Library](#2-utility-libraries) or [Provider](#3-providers) for complex or low-level interactions.
 
-While most UI libraries have built-in support for Metamask, integrating Kaikas is also easy since its [API](https://docs.kaia.io/references/json-rpc/kaia/account-created/) is built on [Metamask's](https://docs.metamask.io/wallet/reference/json-rpc-api). Even if a library doesn't natively support Kaikas, extending it for Kaikas integration is straightforward. For example, these are 2 popular libraries for [React](https://react.dev) or [Next.js](https://nextjs.org):
+While most UI libraries have built-in support for Metamask, integrating Kaia Wallet is also easy since its [API](https://docs.kaia.io/references/json-rpc/kaia/account-created/) is built on [Metamask's](https://docs.metamask.io/wallet/reference/json-rpc-api). Even if a library doesn't natively support Kaia Wallet, extending it for Kaia Wallet integration is straightforward. For example, these are 2 popular libraries for [React](https://react.dev) or [Next.js](https://nextjs.org):
 
 * [Web3Modal](#1.1-web3modal-example)
 * [Web3-Onboard](#1.2-web3-onboard-example)
@@ -113,4 +113,4 @@ Example Code: [kaikas-ethersjs](https://github.com/kaiachain/kaia-dapp-mono/tree
 
 ## 3. Providers
 
-At the lowest level is the Provider, [`window.klaytn`](https://docs.kaikas.io/02_api_reference/01_klaytn_provider) (Kaikas itself). You might prefer [Utility Libraries](#2-utility-libraries), but knowledge of Provider APIs helps debug & understand how dependent libraries work. Referring to [Kaia's JSON-RPC API][Kaia-API] is necessary for using Kaia-specific methods like [`kaia_getAccount`](https://docs.kaia.io/references/json-rpc/kaia/get-account/), [`kaia_sendTransactionAsFeePayer`](https://docs.kaia.io/references/json-rpc/kaia/send-transaction-as-fee-payer/), & more.
+At the lowest level is the Provider, [`window.klaytn`](https://docs.kaiawallet.io/02_api_reference/01_klaytn_provider) (Kaia Wallet itself). You might prefer [Utility Libraries](#2-utility-libraries), but knowledge of Provider APIs helps debug & understand how dependent libraries work. Referring to [Kaia's JSON-RPC API][Kaia-API] is necessary for using Kaia-specific methods like [`kaia_getAccount`](https://docs.kaia.io/references/json-rpc/kaia/get-account/), [`kaia_sendTransactionAsFeePayer`](https://docs.kaia.io/references/json-rpc/kaia/send-transaction-as-fee-payer/), & more.
