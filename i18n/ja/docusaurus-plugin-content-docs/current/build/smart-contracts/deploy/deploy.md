@@ -1,10 +1,10 @@
 # Deploy Smart Contracts
 
-There are various ways of deploying a smart contract on Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, please visit [Klaytn Wallet](../../tools/wallets/klaytn-wallet.md).
+There are various ways of deploying a smart contract on Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, you can use [Kaia Online Toolkit](https://toolkit.kaia.io/account/accountKeyLegacy)."
 
 ## Remix Online IDE <a id="remix-ide"></a>
 
-Open your internet browser and go to [Klaytn Plugin for Remix](https://ide.klaytn.foundation).
+Open your internet browser and go to [Kaia Plugin for Remix](https://ide.kaia.io).
 
 1. Add a new file.
 
