@@ -10,7 +10,7 @@ With SupraOracles, your smart contract can get access to price data feeds to bui
 
 ## Prerequisites
 
-- [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
+- [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 - [Remix IDE](https://remix.ethereum.org/)
 - [Klaytn Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 - Test KAIA from [Faucet](https://faucet.kaia.io)
@@ -71,7 +71,7 @@ In the example below, we will be deploying the S-Value Price Feed Contract and a
 - Paste the code below in your newly created file
 - In Remix, click **Compile contract**.
 - Click the Klaytn tab on your left having installed the plugin
-- Select **Environment** > **Injected Caver** - **Kaikas**.
+- Select **Environment** > **Injected Provider** - **Kaia Wallet**.
 - In **Contract**, select your contract. For example, ISupraSValueFeedExample.
 - Click **Deploy**.
 
