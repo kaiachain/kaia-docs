@@ -1,10 +1,10 @@
 # 스마트 컨트랙트 배포
 
-카이아에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불할 수 있는 충분한 KAIA를 보유한 카이아 계정이 있다고 가정합니다. 계정을 생성하려면 [Kaia 지갑](../../tools/wallets/klaytn-wallet.md)을 방문하세요.
+카이아에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불할 수 있는 충분한 KAIA를 보유한 카이아 계정이 있다고 가정합니다. To create an account, you can use [Kaia Online Toolkit](https://toolkit.kaia.io/account/accountKeyLegacy)."
 
 ## Remix 온라인 IDE <a id="remix-ide"></a>
 
-인터넷 브라우저를 열고 [Remix용 카이아 플러그인](https://ide.klaytn.foundation)으로 이동합니다.
+Open your internet browser and go to [Kaia Plugin for Remix](https://ide.kaia.io).
 
 1. 새 파일을 추가합니다.
 
