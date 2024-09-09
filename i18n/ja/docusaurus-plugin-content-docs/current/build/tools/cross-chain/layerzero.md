@@ -213,7 +213,7 @@ npx hardhat run scripts/deploy/src-contract.js --network baobab
 npx hardhat run scripts/deploy/dest-contract.js --network mumbai
 ```
 
-Now you should have the OFTV1 contract deployed on both Baobab and Mumbai. You can verify your deployment by pasting each chain’s contract address in their respective explorer: [Klaytnscope](https://baobab.klaytnscope.com/account/) and [Polygonscan](https://mumbai.polygonscan.com/address/).
+Now you should have the OFTV1 contract deployed on both Baobab and Mumbai. You can verify your deployment by pasting each chain’s contract address in their respective explorer: [Kaiascope](https://kairos.kaiascope.com/account/) and [Polygonscan](https://mumbai.polygonscan.com/address/).
 
 ## Setting Trusted remote <a id="setting-trusted-remote"> </a>
 
