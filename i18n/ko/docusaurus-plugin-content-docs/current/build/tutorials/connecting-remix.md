@@ -35,7 +35,7 @@ Remix를 사용하여 Kaia 네트워크에 연결하려면 로컬 플러그인�
 - **Kairos**, **Mainnet**, **Injected Caver**, **Caver Provider** 또는 **Injected Web3**를 선택할 수 있습니다.
   - **[Kairos]**: Kairos 네트워크에 연결합니다.
   - **[Mainnet]**: 메인 네트워크에 연결합니다.
-  - **[Injected Caver]**: 인젝션된 caver(예: Kaikas)에 연결합니다.
+  - **\[Injected Caver]**: Connects to injected caver(e.g., Kaia Wallet)
   - **[Caver Provider]**: RPC를 지원하는 카이아 노드에 직접 연결합니다.
   - **[Injected Web3]**: 인젝션된 Web3(예: MetaMask)에 연결합니다.
 
@@ -75,13 +75,13 @@ Remix를 사용하여 Kaia 네트워크에 연결하려면 로컬 플러그인�
 - MetaMask 팝업이 표시되면 해당 계정을 클릭하여 선택합니다.
 - 네트워크에 성공적으로 연결되면 연결된 네트워크의 체인 ID와 계정이 표시됩니다.
 
-## Kaikas를 사용하여 카이아 - Remix 연결하기 <a href="#connecting-kaia-remix-using-kaikas" id="connecting-kaia-remix-using-kaikas"></a>
+## Connecting Kaia - Remix using Kaia Wallet <a href="#connecting-kaia-remix-using-kaia-wallet" id="connecting-kaia-remix-using-kaia-wallet"></a>
 
 - Remix 환경 메뉴에서 [Injected Caver]를 선택합니다.
 
 ![Injected Caver](/img/build/tutorials/env-injected-caver.png)
 
-- Kaikas 팝업이 표시되면 [Connect]를 클릭합니다.
+- When you see the Kaia Wallet pop-up, click \[Connect].
 - 네트워크에 성공적으로 연결되면 연결된 네트워크의 체인 ID와 계정이 표시됩니다.
 
 ## 튜토리얼: KaiaGreeter 컨트랙트 <a href="#tutorial-kaiagreeter-contract" id="tutorial-kaiagreeter-contract"></a>
