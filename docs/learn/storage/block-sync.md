@@ -48,13 +48,13 @@ However, you should use an archive node for data analysis purposes. Note that ev
 
 If your node mostly serves the latest data but occasionally serves historic data, then try the Upstream EN feature. Read more [here](../upstream-en).
 
-### Live Pruning
+### Live pruning
 
 Historic block states can be deleted to keep the disk size slim. With the live pruning feature enabled, the block states beyond a certain retention period will be automatically deleted. Read more about live pruning [here](../live-pruning).
 
 ### Batch pruning (state migration)
 
-The chaindata snapshot could be state-migrated, meaning the block states before a certain block number is not available. Read more about state migration [here](../state-migration).
+The block states can be state-migrated, meaning the block states before a certain block number is not available. Read more about state migration [here](../state-migration).
 
 ## Chaindata snapshot
 
