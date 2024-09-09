@@ -19,7 +19,7 @@
 | [DeKeys](https://www.atomrigs.io/)                 | Non-custodial | EOA      | 브라우저               | 아니요      | 예        | 지원    | 아니요    |
 | [Favorlet](https://favorlet.io/)                   | Non-custodial | EOA      | 모바일                | 아니요      | 아니요      | 지원    | 아니요    |
 | [Huobi Wallet](https://www.itoken.com/en)          | Non-custodial | EOA      | 모바일                | 아니요      | 아니요      | 지원    | 아니요    |
-| [Kaikas](https://app.kaikas.io/)                   | Non-custodial | EOA      | 모바일, 브라우저          | 아니요      | 예        | 지원    | 아니요    |
+| [Kaia Wallet](https://www.kaiawallet.io/en_US/)    | Non-custodial | EOA      | 모바일, 브라우저          | 아니요      | 예        | 지원    | 아니요    |
 | [Kaia Safe](https://safe.kaia.io/)                 | Non-custodial | 스마트 컨트랙트 | 웹앱                 | 예        | 아니요      | 지원 없음 | 아니오    |
 | [Klip Wallet](https://klipwallet.com/)             | Non-custodial | EOA      | 모바일                | 아니오      | 아니요      | 지원    | 아니요    |
 | [Krystal DeFi](https://krystal.app/)               | Non-custodial | EOA      | 모바일, 웹 앱           | 아니오      | 아니요      | 지원    | 예      |
