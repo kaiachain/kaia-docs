@@ -323,7 +323,7 @@ async function main() {
   await sbtContract.waitForDeployment();
 
 console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://baobab.klaytnscope.com/account/${sbtContract.target}`);
+console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://kairos.kaiascope.com/account/${sbtContract.target}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
@@ -342,7 +342,7 @@ npx hardhat run scripts/sbtDeploy.js --network kairos
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**Step 4**: Open [Klaytnscope](https://baobab.klaytnscope.com/) to check if the SBT token has been deployed successfully.
+**Step 4**: Open [Kaiascope](https://kairos.kaiascope.com/) to check if the SBT token has been deployed successfully.
 
 **5단계**: 검색 필드에 배포된 컨트랙트 주소를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 계약이 표시됩니다.
 
@@ -392,7 +392,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. You can confirm the block number on [klaytnscope](https://kaiascope.com/).
+출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. You can confirm the block number on [kaiascope](https://kaiascope.com/).
 
 ### 블록에서 포크하기
 
