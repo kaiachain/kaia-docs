@@ -117,7 +117,7 @@ CountDapp을 이더리움에서 카이아로 마이그레이션하는 방법을 
 첫 번째 단계는 카이아에 카운트 컨트랙트를 배포하고 컨트랙트 주소를 받는 것입니다. 대부분의 경우 카이아에서 이더리움 컨트랙트를 수정하지 않고 사용할 수 있습니다. [이더리움 컨트랙트 이식하기](../../build/smart-contracts/porting-ethereum-contract.md)를 참고하세요. 이 가이드에서는 Truffle을 사용하여 컨트랙트를 배포하겠습니다.
 
 1. `Truffle-config.js`에서 네트워크 속성을 변경하여 카이아에 컨트랙트를 배포합니다.
-2. KAIA [Faucet](https://baobab.wallet.klaytn.foundation/access?next=faucet)를 사용하여 계정을 충전합니다.
+2. Top up your account using [KAIA faucet](https://faucet.kaia.io).
 3. `$ truffle deploy --network baobab --reset`을 입력합니다.
 4. `count` 컨트랙트가 카이아 Kairos 테스트넷에 배포됩니다.
 
@@ -385,7 +385,7 @@ class Count extends Component {
         {txHash && (
           <div className="Count__lastTransaction">
             <p className="Count__lastTransactionMessage">
-              You can check your last transaction in klaytnscope:
+              You can check your last transaction in kaiascope:
             </p>
             <a
               target="_blank"
