@@ -18,11 +18,16 @@ const refactorOpenAPI = async ( path ) => {
     let fileContents = fs.readFileSync(path, 'utf8')
     let apiLine = '';
     let apiIndex;
+    let metadataEndLine=0;
+    
     const lines = fileContents.split("\n");
     lines.forEach((line, index) => {
         if (line.startsWith("api: ")) {
             apiLine = line.split("api: ")[1];
             apiIndex = index;
+        }
+        if(line.startsWith('<Heading')){
+            metadataEndLine=index+1;
         }
     });
 
@@ -34,11 +39,27 @@ const refactorOpenAPI = async ( path ) => {
     const compressedOpenAPI = await deflateOpenAPI(
         JSON.stringify(decompressedOpenAPI)
     );
+    
     lines[apiIndex] = `api: ${compressedOpenAPI}`;
-    const newFileContents = lines.join("\n");
+
+    const metadataContent=lines.splice(0,metadataEndLine).join('\n') + '\n\n'
+    let documentContent=lines.join('\n')
+
+    // remove unwanted params from request and response
+    documentContent=removeSchemaItem('id',documentContent)
+    documentContent=removeSchemaItem('method',documentContent)
+    documentContent=removeSchemaItem('jsonrpc',documentContent)
+
+    // change <details or </details to <div or </div (details tag make description collapsed, we want it to be shown)
+    documentContent=documentContent.replace(/<details/gi,'<div') 
+    documentContent=documentContent.replace(/<\/details/gi,'</div') 
+    
+    const newFileContents = metadataContent+documentContent;
     fs.writeFileSync(path, newFileContents);
 }
-
+const removeSchemaItem=(name,str='')=>{
+    return str.replace(new RegExp(`<\\s*SchemaItem\\b[^>]*\\bname\\s*=\\s*{"${name}"}[^>]*>\\s*</\\s*SchemaItem\\s*>`,'g'),'')
+}
 const flateOpenAPI = ( compressedData ) => {
     return new Promise((resolve, reject) => {
         zlib.inflate(Buffer.from(compressedData, 'base64'), (err, decompressedData) => {
