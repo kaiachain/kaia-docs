@@ -135,7 +135,7 @@ In this section, you will top up a parent operator account, enable Anchoring, an
 
 ### Step 1: Get KLAY to test anchoring <a id="step-1-get-klay-to-test-anchoring"></a>
 
-Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have enough KLAY to pay the transaction fee. Get some KLAY from [Baobab Wallet Faucet](https://baobab.wallet.klaytn.foundation/) and transfer some KLAY to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KLAY for transaction fee.
+Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have enough KLAY to pay the transaction fee. Get some KAIA from [Kairos Faucet](https://faucet.kaia.io/) and transfer some KAIA to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KLAY for transaction fee.
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
