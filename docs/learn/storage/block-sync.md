@@ -60,39 +60,9 @@ The block states can be state-migrated, meaning the block states before a certai
 
 Download a chaindata snapshot to skip the full sync process and start quickly. A chaindata snapshot is a compressed chaindata directory (e.g. `.tar.gz` file) of an already synced node. Read more about using the chaindata snapshot [here](../)
 
-## AWS AMIs
-
-If you are using Amazon AWS, then you might jump start a node from an AMI (Amazon Machine Image). Read more about launching a node from an AMI [here](../aws-ami).
-
 ## Snap sync
 
 Kaia node currently does not support snap sync. Instead, you can download a state-migrated chaindata snapshot or live-pruning chaindata snapshot to quickly start the node without the need of re-execution from genesis.
-
-## Receipts directory deletion
-
-Kaia node uses a partitioned database directory according to uses. One of them is the `receipts` directory which exclusively stores the transaction receipts. Its size is over 1.5TB in Mainnet.
-
-```
-$ cd /var/kend/data/klay/chaindata
-$ du -h -d 1 | sort -k 2
-6.1T	.
-945G    ./body
-952K    ./bridgeservice.
-352G    ./header
-20G	    ./misc
-1.4T    ./receipts
-340K    ./snapshot
-3.4T    ./statetrie_migrated_108382740
-163G    ./txlookup
-```
-
-```
-kcnd stop
-rm -r /var/kend/data/klay/chaindata
-kcnd start
-```
-
-Deleting the receipts directory is a quick storage optimization method. Deleting the receipts make the receipt related RPCs fail, but does not affect other RPCs nor block processing. Therefore if your node is not going to serve receipt related RPCs, e.g. CNs and PNs, deleting the receipts directory is a viable option.
 
 ## Read more
 
