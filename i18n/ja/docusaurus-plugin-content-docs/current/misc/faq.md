@@ -40,7 +40,7 @@ To provide maximum convenience for dApp developers, Klaytn has devised a way to 
 
 ## Where can I start dApp development with Klaytn? <a id="dapp-development"></a>
 
-Whether you are migrating from Ethereum, or building on Klaytn from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Klaytn Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk `caver` is available as [caver-js](https://github.com/kaiachain/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
+Whether you are migrating from Ethereum, or building on Klaytn from scratch, we support all the necessary tools and infrastructure. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Kaia Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk `caver` is available as [caver-js](https://github.com/kaiachain/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
 
 ## Is Klaytn Open Source? <a id="is-klaytn-open-source"></a>
 
@@ -68,7 +68,7 @@ Since we cannot guarantee uptime and stability of the endpoints, you can always 
 
 ## Which wallets support Klaytn? <a id="which-wallets"></a>
 
-Klaytn is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaikas, MetaMask and more. Please refer to the list [here](http://klaytn.foundation/ecosystem).
+Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. Please refer to the list [here](http://klaytn.foundation/ecosystem).
 
 ## What is Mainnet, what is Kairos? <a id="what-is-cypress-what-is-baobab"></a>
 
@@ -79,13 +79,11 @@ Cypress mainnet:
 
 - EN download : Choose the Baobab package from the [download page](../nodes/downloads/downloads.md).
 - Kaiascope : https://kaiascope.com/
-- Klaytn Wallet : https://wallet.klaytn.com
 
 Baobab testnet:
 
 - EN download : Choose the Cypress package from the [download page](../nodes/downloads/downloads.md).
-- Klaytnscope : https://baobab.klaytnscope.com
-- Klaytn Wallet : https://baobab.wallet.klaytn.foundation
+- Kaiascope : https://kairos.kaiascope.com
 - Kairos Faucet : https://faucet.kaia.io
 
 ## Are there any Klaytn SDKs? In what languages? <a id="klaytn-sdks"></a>
@@ -127,7 +125,7 @@ If you are new to Truffle, see [Testing Guide](../build/smart-contracts/testing-
 
 ## Where can I get a browser extension wallet like Metamask? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
-Klaytn's web browser extension wallet [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en). Kaikas is a non-custodial wallet with which you can make KLAY transactions and create accounts.
+Kaia's web browser extension wallet [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi). Kaia Wallet is a non-custodial wallet with which you can make KAIA transactions and create accounts.
 
 ## Why is my fee-payer account address not derived from the key provided? <a id="account-address-is-not-derived-from-the-key"></a>
 
