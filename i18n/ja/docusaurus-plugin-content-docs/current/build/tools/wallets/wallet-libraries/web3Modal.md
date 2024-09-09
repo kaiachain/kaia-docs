@@ -10,12 +10,12 @@ sidebar_label: Web3Modal
 
 [Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about) is a simple-to-use library that helps developers add support for multiple providers in their dApps with a simple, customizable configuration. It makes connecting wallets, performing transactions, and managing accounts easy.
 
-In this guide, you will use the web3Modal library to integrate multiple wallets such as Kaikas, Klip, Metamask, Coinbase Wallet, etc. into your dApp built on the Klaytn Network.
+In this guide, you will use the web3Modal library to integrate multiple wallets such as Kaia Wallet, Klip, Metamask, Coinbase Wallet, etc. into your dApp built on the Kaia Network.
 
 ## Prerequisite
 
 - A working react project (by executing `npx create-react-app project-name`)
-- Install the necessary wallets ([Kaikas](https://app.kaikas.io/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)).
+- Install the necessary wallets ([Kaia Wallet](https://www.kaiawallet.io/en_US/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)).
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
@@ -23,7 +23,7 @@ In this guide, you will use the web3Modal library to integrate multiple wallets 
 
 **Step 1**: Installing Web3Modal and an Ethereum library
 
-Install web3Modal and your preferred library for interacting with the blockchain. In this tutorial, we will be installing [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal) which was derived from [Web3Modal](https://github.com/WalletConnect/web3modal) and modified to add Kaikas wallet and Klip wallet. Also, this tutorial will use ethers.js to interact with the Klaytn blockchain.
+Install web3Modal and your preferred library for interacting with the blockchain. In this tutorial, we will be installing [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal) which was derived from [Web3Modal](https://github.com/WalletConnect/web3modal) and modified to add Kaia Wallet and Klip wallet. Also, this tutorial will use ethers.js to interact with the Klaytn blockchain.
 
 ```bash
 npm install @klaytn/web3modal
@@ -32,7 +32,7 @@ npm install --save ethers
 
 **Step 2**: Instantiating Web3Modal with wallet provider options
 
-Install the wallet providers of your choice. Here we install Kaikas, Klip and Coinbase wallet providers.
+Install the wallet providers of your choice. Here we install Kaia Wallet, Klip and Coinbase wallet providers.
 
 ```bash
 npm install --save @coinbase/wallet-sdk
@@ -343,7 +343,7 @@ You can perform native transactions, like sending KLAY from one user to another.
 ```js
     // add to the existing useState hook.
     const [txHash, setTxHash] = useState();
-    const sendKlay = async () => {
+    const sendKaia = async () => {
     if (!provider) return;
       const destination = “paste recipient address”;
 
@@ -370,7 +370,7 @@ You can perform native transactions, like sending KLAY from one user to another.
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 ```
