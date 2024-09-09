@@ -12,4 +12,4 @@
 
 - **Safe Infrastructure**: 백엔드 서비스(Safe-Transaction, Safe-Config, Safe-Client 게이트웨이)를 배포하기 위한 클러스터 설정입니다.
 
-자세한 내용은 이 [링크](https://github.com/klaytn/klaytn-safe-react)를 참조하시기 바랍니다.
+Please refer to this [link](https://github.com/kaiachain/kaia-safe-infrastructure) to get more information.

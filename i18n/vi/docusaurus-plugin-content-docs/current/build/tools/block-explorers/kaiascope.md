@@ -67,7 +67,7 @@ A list of recently generated blocks. To update the information, please click the
 - Time: Duration of time since the block was generated. You can check the exact date and time by hovering this.
 - Total TXs: The total number of transactions included in the block.
 - Block Proposer: Randomly but deterministically selected Consensus Node that proposed the block. By clicking the address, you can easily go to the details page.
-- Reward: Aggregation of newly minted KAIA \(6.4 KAIA\) and transaction fees used in the block. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Ecosystem Fund. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Kaia Token Economy].
+- Reward: Aggregation of newly minted KAIA \(9.6 KAIA\) and transaction fees used in the block. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Ecosystem Fund. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Kaia Token Economy].
 - Size: The size of blocks measured in Byte. The more transactions are included, the larger the block size.
 
 ### Transactions <a id="transactions"></a>
@@ -100,7 +100,7 @@ Overall information about the block.
 - Hash: The unique identifier of the block. By pressing the copy button, you can easily copy the hash.
 - Parent Hash: The unique identifier of the previous block. Clicking on the hash takes you to the detail view of the parent hash.
 - Total TXs: The total number of transactions included in the block.
-- Block Reward: Aggregation of the newly minted KAIA \(6.4 KAIA\) and the transaction fees collected in the block. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Ecosystem Fund. More details about block reward distribution system can be found in the [Kaia Token Economy].
+- Block Reward: Aggregation of the newly minted KAIA \(9.6 KAIA\) and the transaction fees collected in the block. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Ecosystem Fund. More details about block reward distribution system can be found in the [Kaia Token Economy].
 - Block Size: The size of block measured in Byte. The more transactions are included, the larger the block size.
 
 #### Committee <a id="committee"></a>

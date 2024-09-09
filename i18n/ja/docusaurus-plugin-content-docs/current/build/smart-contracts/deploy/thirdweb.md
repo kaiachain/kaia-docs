@@ -1,4 +1,4 @@
-# Deploying Smart Contract Using Thirdweb
+# Deploying smart contract using Thirdweb
 
 ![](/img/banners/kaia-thirdweb.png)
 

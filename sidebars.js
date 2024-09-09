@@ -148,7 +148,7 @@ const sidebars = {
           items: [
             'build/smart-contracts/deploy/foundry',
             'build/smart-contracts/deploy/thirdweb',
-            'build/smart-contracts/deploy/ken',
+            'build/smart-contracts/deploy/private-network',
           ],
         },
         {
@@ -211,6 +211,7 @@ const sidebars = {
                 'build/tools/wallets/kaia-safe/contract-interaction',
                 'build/tools/wallets/kaia-safe/tx-builder',
                 'build/tools/wallets/kaia-safe/faqs',
+                'build/tools/wallets/kaia-safe/kaia-safe-api-kit'
               ],
             },
             'build/tools/wallets/kaia-wallet',

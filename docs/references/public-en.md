@@ -16,6 +16,22 @@ Hence, the main benefit of using an existing Public EN is that it allows you to 
 
 Below is the list of the network domains offered by Kaia’s Public Node Providers.
 
+:::info[Outdated Endpoints Will Stop Working]
+
+Please note that the following URLs will be discontinued at the end of September 2024. We encourage you to update your configurations accordingly to ensure uninterrupted service:
+
+**Mainnet**
+
+- `https://public-en-cypresss.klaytn.net` (replaced by `https://public-en.node.kaia.io`)
+- `https://archive-en.cypress.klaytn.net` (replaced by `https://archive-en.node.kaia.io`)
+
+**Testnet**
+
+- `https://public-en-baobab.klaytn.net` (replaced by `https://public-en-kairos.node.kaia.io`)
+- `https://archive-en.baobab.klaytn.net` (replaced by `https://archive-en-kairos.node.kaia.io`)
+
+:::
+
 ### Mainnet Public JSON-RPC Endpoints
 
 Please keep in mind that these endpoints are provided to the community for testing and development purposes.

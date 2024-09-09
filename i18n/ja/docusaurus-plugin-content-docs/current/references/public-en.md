@@ -16,6 +16,22 @@ Hence, the main benefit of using an existing Public EN is that it allows you to 
 
 Below is the list of the network domains offered by Kaia’s Public Node Providers.
 
+:::info[Outdated Endpoints Will Stop Working]
+
+Please note that the following URLs will be discontinued at the end of September 2024. We encourage you to update your configurations accordingly to ensure uninterrupted service:
+
+**Mainnet**
+
+- `https://public-en-cypresss.klaytn.net` (replaced by `https://public-en.node.kaia.io`)
+- `https://archive-en.cypress.klaytn.net` (replaced by `https://archive-en.node.kaia.io`)
+
+**Testnet**
+
+- `https://public-en-baobab.klaytn.net` (replaced by `https://public-en-kairos.node.kaia.io`)
+- `https://archive-en.baobab.klaytn.net` (replaced by `https://archive-en-kairos.node.kaia.io`)
+
+:::
+
 ### Mainnet Public JSON-RPC Endpoints
 
 Please keep in mind that these endpoints are provided to the community for testing and development purposes.
@@ -28,7 +44,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 | [Kaia Foundation](https://www.kaia.io) | `https://public-en.node.kaia.io`                    | kaia,klay,eth,net | Full    |
 |                                        | `https://archive-en.node.kaia.io`                   | kaia,klay,eth,net | Archive |
 | [All That Node](www.allthatnode.com)   | `https://klaytn-mainnet.g.allthatnode.com/full/evm` | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://klaytn.blockpi.network/v1/rpc/public`      | kaia,klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`        | kaia,klay,eth,net | Full    |
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`           | kaia,klay,eth,net | Full    |
 | [Pokt Network](https://pokt.network/)  | `https://klaytn-rpc.gateway.pokt.network/`          | kaia,klay,eth,net | Full    |
 
@@ -44,12 +60,12 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 **HTTPS**
 
-| Service Provider                       | Endpoints                                             | Namespaces        | Type    |
-| -------------------------------------- | ----------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`               | kaia,klay,eth,net | Full    |
-|                                        | `https://archive-en-kairos.node.kaia.io/`             | kaia,klay,eth,net | Archive |
-| [All That Node](www.allthatnode.com)   | `https://klaytn-baobab.g.allthatnode.com/full/evm`    | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://klaytn-baobab.blockpi.network/v1/rpc/public` | kaia,klay,eth,net | Full    |
+| Service Provider                       | Endpoints                                           | Namespaces        | Type    |
+| -------------------------------------- | --------------------------------------------------- | ----------------- | ------- |
+| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`             | kaia,klay,eth,net | Full    |
+|                                        | `https://archive-en-kairos.node.kaia.io/`           | kaia,klay,eth,net | Archive |
+| [All That Node](www.allthatnode.com)   | `https://klaytn-baobab.g.allthatnode.com/full/evm`  | kaia,klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public` | kaia,klay,eth,net | Full    |
 
 **WebSocket**
 

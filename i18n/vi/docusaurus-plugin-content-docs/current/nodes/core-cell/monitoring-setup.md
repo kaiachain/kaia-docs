@@ -2,7 +2,7 @@
 
 ## Overview <a id="overview"></a>
 
-The Kaia team provides a site for monitoring the Kaia CCN at [http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000). The `telegraf` monitoring agent is installed in each CN/PN of the CC to collect metrics and send them to the monitoring server. Once installed, you may visit the monitoring site to view the metrics of the Kaia CCs.
+The Kaia team provides a site for monitoring the Kaia CCN at [http://node.kaia.io:3000](http://node.kaia.io:3000). The `telegraf` monitoring agent is installed in each CN/PN of the CC to collect metrics and send them to the monitoring server. Once installed, you may visit the monitoring site to view the metrics of the Kaia CCs.
 
 The installation process is as follows:
 
@@ -89,6 +89,6 @@ $ systemctl restart telegraf
 
 If each CN/PN has the above configuration and agent, you can check the metrics at the following URL:
 
-[http://cypress.klaytn.net:3000](http://cypress.klaytn.net:3000)
+[http://node.kaia.io:3000](http://node.kaia.io:3000)
 
 As a CC operator, you may request an account by providing your company name and email address in the Slack channel. Please note that only CC operators are allowed to request a Grafana account.

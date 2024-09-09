@@ -361,7 +361,7 @@ Hardhat은 개발자에게 메인넷(특정 블록)을 로컬 개발 네트워�
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL>
 
-npx hardhat node --fork https://archive-en.cypress.klaytn.net
+npx hardhat node --fork https://archive-en.node.kaia.io
 ```
 
 Hardhat 네트워크에서 항상 이 작업을 수행하도록 `hardhat.config.js`를 구성할 수도 있습니다:
@@ -401,7 +401,7 @@ Hardhat을 사용하면 특정 블록에서 메인넷을 포크할 수 있습니
 ```bash
 npx hardhat node --fork <YOUR ARCHIVE NODE URL> --fork-block-number 105701850
 
-npx hardhat node --fork https://archive-en.cypress.klaytn.net --fork-block-number 105701850
+npx hardhat node --fork https://archive-en.node.kaia.io --fork-block-number 105701850
 ```
 
 명시된 블록에서 분기된 체인을 확인하려면 새 터미널 창을 열고 다음 명령을 사용합니다:

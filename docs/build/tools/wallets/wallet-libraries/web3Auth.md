@@ -213,7 +213,7 @@ const switchChain = async () => {
     tickerName: "KAIA",
     ticker: "KAIA",
     decimals: 18,
-    rpcTarget: "https://public-en-cypress.klaytn.net",
+    rpcTarget: "https://public-en.node.kaia.io",
     blockExplorer: "https://kaiascope.com/",
   });
   // switch chain
