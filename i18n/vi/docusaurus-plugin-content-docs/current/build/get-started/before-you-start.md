@@ -13,7 +13,7 @@
 
 **Phát triển hợp đồng thông minh**
 
-- [Kaia Plugin for Remix](https://ide.klaytn.foundation) - Kaia Plugin for Remix, a browser-based compiler and IDE.
+- [Kaia Plugin for Remix](https://ide.kaia.io) - Kaia Plugin for Remix, a browser-based compiler and IDE.
 - [Truffle](https://github.com/trufflesuite/truffle) - An open-source tool for developing smart contracts in Solidity.
 - [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - A development environment for smart contracts and dApps.
 - [Foundry](https://book.getfoundry.sh/) - Foundry is a smart contract development toolchain.
@@ -27,5 +27,5 @@
 **Kaia Toolkits**
 
 - [Kaiascope](https://kaiascope.com/) - A block and transaction explorer.
-- [Kaia Wallet](https://wallet.klaytn.com/) - A browser-based account management tool.
+- [Kaia Wallet](https://www.kaiawallet.io/) - A browser extension wallet for the Kaia Network.
 - [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) - An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.
