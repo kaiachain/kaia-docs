@@ -44,17 +44,18 @@ Applications usually need the latest states including nonces, balances, contract
 
 However, you should use an archive node for data analysis purposes. Note that even if you only query historic consensus data - such as validators and rewards - you still need an archive node because they are derived from block states.
 
-#### Upstream EN
+#### Full and archive hybrid (Upstream EN)
 
 If your node mostly serves the latest data but occasionally serves historic data, then try the Upstream EN feature. Read more [here](../upstream-en).
 
-### Live pruning
+### State pruning: Live and Batch
 
-Historic block states can be deleted to keep the disk size slim. With the live pruning feature enabled, the block states beyond a certain retention period will be automatically deleted. Read more about live pruning [here](../live-pruning).
+Historic block states can be deleted to keep the disk size slim. There are two approaches to prune block states.
 
-### Batch pruning (state migration)
+- Live pruning: With the live pruning feature enabled, the block states beyond a certain retention period will be automatically deleted. Read more about live pruning [here](../live-pruning).
+- Batch pruning (state migration): The block states can be state-migrated, meaning the block states before a certain block number is not available. Read more about state migration [here](../state-migration).
 
-The block states can be state-migrated, meaning the block states before a certain block number is not available. Read more about state migration [here](../state-migration).
+Live pruning continuously deletes old states so the disk size is always kept at minimum. But because of the accompanying bookeeping works, live pruning slightly slows down the block sync speed. Batch pruning does not affect the performance after the migration has completed, but a migration session takes a few days and it temporarily require a large free disk space so it can make a copy the states.
 
 ## Chaindata snapshot
 
