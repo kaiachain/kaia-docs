@@ -25,9 +25,9 @@ echo "DATA_DIR=/var/kend/data" >> conf/kend.conf
 echo "LOG_DIR=/var/kend/logs" >> conf/kend.conf
 ```
 
-## (Optional) Download chaindata snapshot
+### (Optional) Download Chaindata Snapshot
 
-Synching from the genesis block is time-consuming. You may use [chaindata snapshot](../../../learn/storage/chaindata-snapshot) to skip the [full sync](../../../learn/storage/block-sync) process.. Download and decompress the chaindata snapshot. Then mount the decompressed directory to the container.
+Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../learn/storage/block-sync.md#full-sync) process. Download and decompress the chaindata snapshot. Then mount the decompressed directory to the container.
 
 ## Start the container
 

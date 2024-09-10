@@ -1,3 +1,3 @@
-# State Migration how to
+# Migrate Chaindata
 
-See [this page](../../../learn/storage/state-migration) instead.
+See [State Migration Guide](https://docs.kaia.io/misc/operation/node-pruning/#how-to-perform-batch-pruning).

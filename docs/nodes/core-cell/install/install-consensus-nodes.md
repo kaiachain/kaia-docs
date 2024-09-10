@@ -152,9 +152,9 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../../misc/operation/configuration.md) section.
 
-### (Optional) Download chaindata snapshot
+### (Optional) Download Chaindata Snapshot
 
-Synching from the genesis block is time-consuming. You may use [chaindata snapshot](../../../../learn/storage/chaindata-snapshot) to skip the [full sync](../../../../learn/storage/block-sync) process.
+Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../../learn/storage/block-sync.md#full-sync) process.
 
 ## Startup the CN <a id="startup-the-cn"></a>
 

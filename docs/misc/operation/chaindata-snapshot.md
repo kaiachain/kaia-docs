@@ -1,14 +1,16 @@
-# Chaindata snapshot
+# Use Chaindata Snapshots
 
 You can start a node from an already-synced database called a chaindata snapshot. A chaindata snapshot is a compressed Kaia data directory.
 
- This saves time to [full sync](../block-sync) the whole blockchain, allowing you to relatively quickly start a new node or recover from corrupt database.
+:::note
 
-## How to
+This saves time to [Full Sync](../../learn/storage/block-sync.md#full-sync) the whole blockchain, allowing you to relatively quickly start a new node or recover from corrupt database.
 
-### Prepare data directory
+:::
 
-Before start, prepare enough disk space to accomodate both compressed file and uncompressed directory.
+## Prepare Data Directory
+
+Before start, prepare enough disk space to accommodate both compressed file and uncompressed directory.
 
 - If you're going to start from an empty machine, simply create a datadir.
   ```sh
@@ -31,7 +33,7 @@ Before start, prepare enough disk space to accomodate both compressed file and u
     sudo mkdir /var/kend2/data
     ```
 
-### Download the file
+## Download the File
 
 Download a compressed file to the new directory. URLs can be found at the bottom of this page.
 
@@ -53,7 +55,7 @@ Download a compressed file to the new directory. URLs can be found at the bottom
   axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
   ```
 
-### Decompress the file
+## Decompress the File
 
 - Option 1. tar
   ```sh
@@ -68,7 +70,7 @@ Download a compressed file to the new directory. URLs can be found at the bottom
   tar -I pigz -xvf kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 
-### Swap the data directory
+## Swap the data directory
 
 - First, stop the node.
   - **IMPORTANT**: If you are running a consensus node (CN), make sure to remove the node from the Council.
@@ -91,7 +93,7 @@ Download a compressed file to the new directory. URLs can be found at the bottom
 
 ## Downloads
 
-For efficiency, only batch pruned (state migrated) or live pruned database are provided. Read [Block Sync](../block-sync) for their concepts. If you want a full database without neither pruning, or even archive data, perform a fresh full sync from genesis.
+For efficiency, only batch pruned (state migrated) or live pruned database are provided. Read [Storage Optimization](../../learn/storage/state-pruning.md) for their concepts. If you want a full database without neither pruning, or even archive data, perform a fresh full sync from genesis.
 
 | network | sync options | download |
 |-|-|-|

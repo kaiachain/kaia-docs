@@ -1,3 +1,3 @@
 # Change Chaindata
 
-See [this page](../../../learn/storage/chaindata-snapshot) instead.
+See [Use Chaindata Snapshots](https://docs.kaia.io/misc/operation/chaindata-snapshot/).

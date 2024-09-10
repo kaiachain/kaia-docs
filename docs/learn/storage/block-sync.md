@@ -1,27 +1,21 @@
-#  Block sync
+# Block Synchronization
 
-Block sync is a process of following up the latest blocks and states. Node operators can choose from various methods that best fits the machine spec and service requirements.
+Block synchronization is the process of updating a node with the latest blocks and states from the Kaia blockchain. Node operators can choose from various synchronization methods based on their hardware specifications and service requirements.
 
-## Full sync
+## Full Sync
 
-Full sync generates the block states by downloading every block (header and transactions) and executing it. The blocks are downloaded by p2p peers. A full sync is activated with `--syncmode full` flag or simplly omitting the flag, because full sync is the default sync method.
+Full sync is the default synchronization method in Kaia, activated by either using the `--syncmode full` flag or omitting the flag altogether. This method involves downloading and executing every block (header and transactions) from p2p peers to generate the block states.
 
-Even with a full sync, there are several options for how much block state to store. Below diagram summarizes these options, and further details are provided in the following sections.
+### State Persistence Options
+
+While Full Sync processes every block, Kaia provides flexibility in how much state data is persistently stored on disk. This allows node operators to balance data accessibility with storage capacity. The following diagram illustrates these options:
 
 ![Block sync options](/img/learn/block_sync.png)
 
-### State persistence: Archive mode vs. Full mode
+- **Archive Mode**: This mode persists every block state to disk. To enable it, use the `--gcmode archive` flag. Nodes operating in this mode are referred to as **Archive Nodes**.
+- **Full Mode**: This mode persists block states at specific intervals to optimize disk usage. To enable it, use the `--gcmode full` flag or omit the `--gcmode` flag altogether. Nodes operating in this mode are referred to as **Full Nodes**. Don't confuse this with the general "full sync" method.
 
-Even if full sync calculates every state transition, the node may not store every block states. By discarding some block states you can significantly save the disk space.
-
-#### Configuration
-
-- Archive mode: Persist every block states. Specify `--gcmode archive` flag.
-- Full mode: Persist some block states. Specify `--gcmode full` flag or simply omit the `--gcmode` flag.
-
-A node that runs on gcmode=archive is called Archive node. A node that runs gcmode=full is called Full node. Not to confuse with the full sync mode.
-
-In a full node, block states are persisted to disk every multiple of the number specified by `--state.block-interval NNN (default: 128)`. Also the block states of the recent `--state.tries-in-memory NNN (default 128)` blocks are kept in memory to serve APIs. Therefore, block states are only available when it is a multiple of block interval or recently processed.
+In a full node, block states are persisted to disk every multiple of the number specified by `--state.block-interval NNN` (default: 128). Also the block states of the recent `--state.tries-in-memory NNN` (default: 128) blocks are kept in memory to serve APIs. Therefore, block states are available only when it is a multiple of block interval or recently processed.
 
 ```js
 // State available
@@ -36,39 +30,31 @@ Error: missing trie node 64380a8de7bd83a6421c9ad45ae596a0eebbc7b504d061f4a57c617
 	at <eval>:1:15(4)
 ```
 
-#### Usage
+:::info
 
-It's not a good idea for an application to assume block interval is 128. You might be tempted to rely on the 128 interval because 128 is the default value and most nodes use the default value. But it is the node’s discretion to choose any different interval.
+Applications should not assume a fixed block interval of 128. While it's the default, nodes can be configured to use different intervals.
 
-Applications usually need the latest states including nonces, balances, contract storages. Apps and developers sometime uses the debug tracing APIs for historic blocks, in which case the block can be recreated by re-executing from the nearest stored state (i.e. up to 127 blocks under default block-interval). So full node is an economic choice for general applications.
+:::
 
-However, you should use an archive node for data analysis purposes. Note that even if you only query historic consensus data - such as validators and rewards - you still need an archive node because they are derived from block states.
+#### Choosing the Right Option
 
-#### Full and archive hybrid (Upstream EN)
+Applications typically need access to the latest state data, including nonces, balances, and contract storage. While apps and developers may occasionally utilize debug tracing APIs for historical blocks, these blocks can generally be recreated by re-executing transactions from the nearest stored state (e.g., up to 127 blocks prior under the default block interval). Therefore, running a full node is a cost-effective choice for most applications.
 
-If your node mostly serves the latest data but occasionally serves historic data, then try the Upstream EN feature. Read more [here](../upstream-en).
+However, data analysis often requires using an archive node. It's important to note that even when querying historical consensus data, such as validator information or rewards, an archive node is still required. This is because consensus data is derived from the state of the blockchain at specific block heights.
 
-### State pruning: Live and Batch
+To summarize:
 
-Historic block states can be deleted to keep the disk size slim. There are two approaches to prune block states.
+- Full Node: Suitable for most applications requiring access to the latest state data and occasional historical data access via tracing APIs.
+- Archive Node: Essential for applications requiring comprehensive historical state access, such as data analysis tools.
 
-- Live pruning: With the live pruning feature enabled, the block states beyond a certain retention period will be automatically deleted. Read more about live pruning [here](../live-pruning).
-- Batch pruning (state migration): The block states can be state-migrated, meaning the block states before a certain block number is not available. Read more about state migration [here](../state-migration).
+### Hybrid Option: Upstream EN
 
-Live pruning continuously deletes old states so the disk size is always kept at minimum. But because of the accompanying bookeeping works, live pruning slightly slows down the block sync speed. Batch pruning does not affect the performance after the migration has completed, but a migration session takes a few days and it temporarily require a large free disk space so it can make a copy the states.
+If your node mostly serves the latest data but occasionally serves historic data, then try the [Upstream EN](../../misc/operation/upstream-en.md) feature. This feature allows you to balance the storage requirements of an archive node with the performance of a full node.
 
-## Chaindata snapshot
+## Chaindata Snapshot
 
-Download a chaindata snapshot to skip the full sync process and start quickly. A chaindata snapshot is a compressed chaindata directory (e.g. `.tar.gz` file) of an already synced node. Read more about using the chaindata snapshot [here](../)
+Chaindata snapshots offer a faster alternative to Full Sync. A snapshot is a compressed archive (e.g. `.tar.gz` file) of a synced node's data directory. Downloading and extracting a snapshot allows a new node to quickly catch up to the blockchain without processing every block individually. See [Use Chaindata Snapshots](../../misc/operation/chaindata-snapshot.md) for more information.
 
-## Snap sync
+## Snap Sync
 
-Kaia node currently does not support snap sync. Instead, you can download a state-migrated chaindata snapshot or live-pruning chaindata snapshot to quickly start the node without the need of re-execution from genesis.
-
-## Read more
-
-```mdx-code-block
-import DocCardList from '@theme/DocCardList';
-
-<DocCardList />
-```
+Currently, Kaia nodes do not support the [Snap Sync](https://geth.ethereum.org/docs/fundamentals/sync-modes) method. However, using a chaindata snapshot provides a comparable advantage in terms of faster initial synchronization.
