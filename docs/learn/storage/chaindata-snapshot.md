@@ -91,7 +91,7 @@ Download a compressed file to the new directory. URLs can be found at the bottom
 
 ## Downloads
 
-For efficiency, only batch pruned (state migrated) or live pruned database are provided. Read [Block Sync](../block-sync) for their concepts. If you want a full database without neither pruning, or even archive data, consult to [AWS AMIs](../aws-ami) or perform a fresh full sync from genesis.
+For efficiency, only batch pruned (state migrated) or live pruned database are provided. Read [Block Sync](../block-sync) for their concepts. If you want a full database without neither pruning, or even archive data, perform a fresh full sync from genesis.
 
 | network | sync options | download |
 |-|-|-|
