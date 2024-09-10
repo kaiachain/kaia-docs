@@ -22,7 +22,7 @@ Please note that the following URLs will be discontinued at the end of September
 
 **Mainnet**
 
-- `https://public-en-cypresss.klaytn.net` (replaced by `https://public-en.node.kaia.io`)
+- `https://public-en-cypress.klaytn.net` (replaced by `https://public-en.node.kaia.io`)
 - `https://archive-en.cypress.klaytn.net` (replaced by `https://archive-en.node.kaia.io`)
 
 **Testnet**
