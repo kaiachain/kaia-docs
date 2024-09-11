@@ -142,7 +142,13 @@ Currently, we do not support other package managers. As another solution, we pro
 
 ## Sending KAIA at a glance
 
-This section describes a simple example of using a `keystore file` to send KAIA with a value transfer transaction. The keystore file can be created in [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). If you need KAIA for testing, you can get Baobab testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay).
+This section describes a simple example of using a `keystore file` to send KAIA with a value transfer transaction. The keystore file can be exported from  [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md). If you need KAIA for testing, you can get test KAIA from the [Kaia Faucet](https://faucet.kaia.io/).
+
+:::note 
+
+When developing, it's best practice to use an account that isn't associated with any real funds. A good way to do this is to make a new browser profile (on Chrome, Brave, Firefox, etc) and install Kaia Wallet on that browser, and never send this wallet money.
+
+:::
 
 ```java
 public void sendingKLAY() throws IOException, CipherException, TransactionException {
