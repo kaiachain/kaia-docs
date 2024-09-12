@@ -4,12 +4,9 @@
 
 Choose an image tag from https://hub.docker.com/r/kaiachain/kaia/tags. `kaiachain/kaia:latest` is the recent release version. But you can choose a specific version. Currently, only linux/amd64 platform is supported. The container might not work correctly in Windows or Mac hosts.
 
-```
-docker pull kaiachain/kaia:latest
-```
-
-```
-docker pull kaiachain/kaia:v1.0.2
+```sh
+docker pull kaiachain/kaia:latest  # Latest release
+docker pull kaiachain/kaia:v1.0.2  # Specific version
 ```
 
 ## Prepare configuration file
@@ -28,22 +25,9 @@ echo "DATA_DIR=/var/kend/data" >> conf/kend.conf
 echo "LOG_DIR=/var/kend/logs" >> conf/kend.conf
 ```
 
-## Fast Sync from chaindata snapshot (Optional)
+### (Optional) Download Chaindata Snapshot
 
-Synching from the genesis block is time-consuming. You may perform a fast sync by downloading a snapshot of the chain data before starting the EN. This can dramatically reduce the time the EN will spend syncing on the first startup.
-
-Download the latest chaindata snapshot from the following links:
-
-- [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/mainnet/chaindata/)
-- [Mainnet live-pruning chaindata snapshot](https://packages.kaia.io/mainnet/pruning-chaindata/)
-- [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/)
-- [Kairos live-pruning chaindata snapshot](https://packages.kaia.io/kairos/pruning-chaindata/)
-
-Then uncompress:
-
-```sh
-tar -C data -xvf kaia-mainnet-chaindata-latest.tar.gz
-```
+Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../learn/storage/block-sync.md#full-sync) process. Download and decompress the chaindata snapshot. Then mount the decompressed directory to the container.
 
 ## Start the container
 
