@@ -49,7 +49,7 @@ By [WalletConnect](https://walletconnect.com), [Web3Modal](https://web3modal.com
 
 :::note
 
-Example Code: [kaikas-web3modal](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-web3modal)
+Example Code: [kaikas-web3modal](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/kaikas.md)
 
 :::
 
@@ -70,7 +70,7 @@ By [Blocknative](https://www.blocknative.com), [Web3-Onboard](https://onboard.bl
 
 :::note
 
-Example Code: [kaikas-web3onboard-react](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-web3onboard-react)
+Example Code: [kaikas-web3onboard-react](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/web3Onboard.md)
 
 :::
 
@@ -95,7 +95,7 @@ Using Utility Libraries to connect an account or send native tokens (e.g., KLAY/
 
 :::note
 
-Example Code: [kaikas-web3klaytn](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-web3klaytn)
+Example Code: [kaikas-web3klaytn](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/kaikas.md)
 
 :::
 
@@ -108,7 +108,7 @@ Example Code: [kaikas-web3klaytn](https://github.com/kaiachain/kaia-dapp-mono/tr
 
 :::note
 
-Example Code: [kaikas-ethersjs](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/kaikas-ethersjs)
+Example Code: [kaikas-ethersjs](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/ethers-js.md)
 
 :::
 
