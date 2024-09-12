@@ -151,29 +151,9 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 생성한 키스토어와 비밀번호는 매우 중요하므로 관리에 주의해야 합니다. [구성 파일](../../../misc/operation/configuration.md) 섹션에서 `kcnd.conf`에 대한 자세한 내용을 참조하세요.
 
-### 빠른 동기화 (선택 사항) <a id="fast-sync-optional"></a>
+### (Optional) Download Chaindata Snapshot
 
-각 CN은 네트워크 체인 데이터의 사본을 유지합니다. 노드가 동기화되지 않은 경우 네트워크의 다른 노드로부터 이 데이터를 가져올 수 있는데, 이 과정을 동기화라고 합니다. 새 CN이 처음 시작되면 네트워크에서 전체 체인 데이터를 다운로드해야 합니다.
-
-이 프로세스를 가속화하기 위해 CN을 시작하기 전에 체인 데이터의 스냅샷을 다운로드하여 빠른 동기화를 수행할 수 있습니다. 이렇게 하면 CN이 처음 시작할 때 동기화하는 데 소요되는 시간을 크게 줄일 수 있습니다.
-
-Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/mainnet/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). `kcnd`를 시작하기 전에 `kcnd.conf`에서 설정한 DATA_DIR에 스냅샷을 추출합니다.
-
-예를 들어
-
-```bash
-$ tar -C ~/kcnd_home -xvf kaia-mainnet-chaindata-latest.tar.gz
-```
-
-또는,
-
-```bash
-$ tar -C ~/kcnd_home -xvf kaia-kairos-chaindata-latest.tar.gz
-```
-
-데이터 추출이 완료되면 CN을 정상적으로 시작할 수 있습니다.
-
-자세한 정보는 [체인데이터 변경](../../../misc/operation/chaindata-change.md)에서 확인할 수 있습니다.
+Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../../learn/storage/block-sync.md#full-sync) process.
 
 ## CN 시작하기 <a id="startup-the-cn"></a>
 

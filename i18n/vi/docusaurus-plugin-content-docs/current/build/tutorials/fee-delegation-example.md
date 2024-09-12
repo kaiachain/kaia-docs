@@ -279,7 +279,7 @@ receipt { blockHash:
 
 ### 4.4 Kaia scope <a href="#4-4-kaia-scope" id="4-4-kaia-scope"></a>
 
-You can also find the above transaction on the [Kaiascope](https://baobab.klaytnscope.com).
+You can also find the above transaction on the [Kaiascope](https://kairos.kaiascope.com).
 
 It shows that the transaction is `TxTypeFeeDelegatedValueTransfer` and `Fee payer` is `0x2645ba5be42ffee907ca8e9d88f6ee6dad8c1410` or `feepayerAddress` that you entered, while `From` is a different address which should be the `senderAddress` in above example.
 

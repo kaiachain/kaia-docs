@@ -55,7 +55,7 @@ useEffect(() => {
             chainId: "0x3e9", // hex of 1001, Kaia Kairos testnet. 
             rpcTarget: "https://public-en-kairos.node.kaia.io", // modify if mainnet
             displayName: "Kaia Testnet", //  modify if mainnet
-            blockExplorer: "https://baobab.klaytnscope.com", // modify if mainnet
+            blockExplorer: "https://kairos.kaiascope.com", // modify if mainnet
             ticker: "KAIA",
             tickerName: "KAIA",
           },
@@ -301,7 +301,7 @@ return (
     // add to the existing useState hook.
     const [txHash, setTxHash] = useState();
 
-    const sendKlay = async () => {
+    const sendKaia = async () => {
     
       if (!provider) {
         console.log("provider not initialized yet");
@@ -332,7 +332,7 @@ return (
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 

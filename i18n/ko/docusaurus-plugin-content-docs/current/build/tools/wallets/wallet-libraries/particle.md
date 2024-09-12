@@ -233,7 +233,7 @@ return (
     // add to the existing useState hook.
     const [txHash, setTxHash] = useState();
 
-    const sendKlay = async () => {
+    const sendKaia = async () => {
     
       if (!provider) {
         console.log("provider not initialized yet");
@@ -264,7 +264,7 @@ return (
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Klay Tx Hash :  {txHash ? <a href={`https://baobab.klaytnscope.com/tx/${txHash}`} target="_blank">Klaytnscope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 

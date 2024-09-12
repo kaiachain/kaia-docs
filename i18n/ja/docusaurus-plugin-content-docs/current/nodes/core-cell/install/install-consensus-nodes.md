@@ -151,29 +151,9 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../../misc/operation/configuration.md) section.
 
-### Fast Sync (Optional) <a id="fast-sync-optional"></a>
+### (Optional) Download Chaindata Snapshot
 
-Each CN maintains a copy of the network's chain data. If a node is out of sync, it can obtain this data from other nodes in the network -- a process known as syncing. When a new CN is first started, it must download the entire chain data from the network.
-
-To accelerate this process, you may perform a fast sync by downloading a snapshot of the chain data before starting the CN. This can dramatically reduce the time the CN will spend syncing on first start.
-
-Download the latest chaindata snapshot from the [Mainnet state-migrated chaindata snapshot](http://packages.kaia.io/mainnet/chaindata/) or [Kairos state-migrated chaindata snapshot](https://packages.kaia.io/kairos/chaindata/). Before starting `kcnd`, extract the snapshot inside the DATA_DIR you configured in `kcnd.conf`.
-
-For example:
-
-```bash
-$ tar -C ~/kcnd_home -xvf kaia-mainnet-chaindata-latest.tar.gz
-```
-
-Or,
-
-```bash
-$ tar -C ~/kcnd_home -xvf kaia-kairos-chaindata-latest.tar.gz
-```
-
-After the data is extracted, you may start the CN normally.
-
-You can refer to detailed information in the [Chaindata change](../../../misc/operation/chaindata-change.md)
+Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../../learn/storage/block-sync.md#full-sync) process.
 
 ## Startup the CN <a id="startup-the-cn"></a>
 

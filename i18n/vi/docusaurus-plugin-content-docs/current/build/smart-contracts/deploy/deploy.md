@@ -1,10 +1,10 @@
 # Hướng dẫn triển khai
 
-Có nhiều cách khác nhau để triển khai hợp đồng thông minh trên Kaia. Tài liệu này cung cấp hướng dẫn từng bước để triển khai một hợp đồng mẫu bằng các công cụ khác nhau. Chúng tôi giả định rằng bạn đã có tài khoản Klaytn với đủ KAIA để thanh toán phí giao dịch. Để tạo một tài khoản, vui lòng truy cập [Ví Kaia](../../tools/wallets/kaia-wallet.md).
+Có nhiều cách khác nhau để triển khai hợp đồng thông minh trên Kaia. Tài liệu này cung cấp hướng dẫn từng bước để triển khai một hợp đồng mẫu bằng các công cụ khác nhau. Chúng tôi giả định rằng bạn đã có tài khoản Klaytn với đủ KAIA để thanh toán phí giao dịch. To create an account, you can use [Kaia Online Toolkit](https://toolkit.kaia.io/account/accountKeyLegacy)."
 
 ## Remix Online IDE <a id="remix-ide"></a>
 
-Mở trình duyệt internet của bạn và truy cập [Kaia Plugin for Remix](https://ide.klaytn.foundation).
+Open your internet browser and go to [Kaia Plugin for Remix](https://ide.kaia.io).
 
 1. Thêm tập tin mới.
 

@@ -214,7 +214,7 @@ npx hardhat run scripts/deploy/src-contract.js --network kairos
 npx hardhat run scripts/deploy/dest-contract.js --network mumbai
 ```
 
-이제 Kairos와 Mumbai 모두에 OFTV1 컨트랙트가 배포되었어야 합니다. 각 체인의 컨트랙트 주소를 각각의 탐색기에 붙여넣어 배포를 확인할 수 있습니다: [Klaytnscope](https://baobab.klaytnscope.com/account/) 및 [Polygonscan](https://mumbai.polygonscan.com/address/).
+이제 Kairos와 Mumbai 모두에 OFTV1 컨트랙트가 배포되었어야 합니다. You can verify your deployment by pasting each chain’s contract address in their respective explorer: [Kaiascope](https://kairos.kaiascope.com/account/) and [Polygonscan](https://mumbai.polygonscan.com/address/).
 
 ## 신뢰할 수 있는 원격 설정하기 <a id="setting-trusted-remote"> </a>
 

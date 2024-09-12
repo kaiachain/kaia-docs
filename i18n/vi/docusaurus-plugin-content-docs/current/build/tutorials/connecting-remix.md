@@ -2,104 +2,121 @@
 
 ![](/img/banners/kaia-remix.png)
 
-## What is Remix <a href="#what-is-remix" id="what-is-remix"></a>
+## Overview <a href="#overview" id="overview"></a>
 
-Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. This document will cover connecting Remix with Kaia. If you want to know more about how to use Remix, please refer to[ **Remix docs**](https://remix-ide.readthedocs.io/en/latest/) or [**Remix IDE**](https://remix.ethereum.org/).
+Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. In this guide, you will learn how to:
 
-## Setup EVM version <a href="#setup-evm-version" id="setup-evm-version"></a>
+- Create and Upload a pre-built smart contract on Remix IDE.
+- Compile the smart contract.
+- Connect to Kaia Plugin for Remix IDE
+- Set up deployment environment
+- Import account
+- Connect Kaia to Remix using Kaia Wallet
+- Connect Kaia to Remix using MetaMask
+- Deploy the smart contract.
+- Verify the smart contract.
 
-Kaia supports contracts written in Solidity, and is compatible with the **London** version of EVM. Also, Solidity version 0.8.x and lower are supported in Kaia. Therefore, to deploy the contract on Kaia, the contract must be compiled with the **London** EVM version.
+This will cover connecting Remix with Kaia. If you want to know more about how to use Remix, please refer to [Remix docs](https://remix-ide.readthedocs.io/en/latest/) or [Remix IDE](https://remix.ethereum.org/).
 
-- Click **solidity compiler**, and then choose **London** EVM version in 'Advanced Configurations'.
+## Creating a file on Remix <a href="#creating-a-file-on-remix" id="creating-a-file-on-remix"></a>
 
-![Solidity Complier](/img/build/tutorials/remix-solidity-compiler.png)
+To start building a smart contract, click on **New File** icon in the **contracts** folder in the **File explorer** tab and name it `KaiaGreeter.sol`
 
-## Connect to a local plugin <a href="#connect-to-a-local-plugin" id="connect-to-a-local-plugin"></a>
+Next is to copy and paste the smart contract code provided below into the newly created KaiaGreeter.sol file.
 
-You need a local plugin to connect to the Kaia network using Remix. The process is described in the following:
+```sol
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.0;
+import "hardhat/console.sol";
+contract KaiaGreeter {
+    uint256 totalGreetings;
+    constructor() {
+        console.log("Yo yo, Welcome to Kaia");
+    }
+    function greet() public {
+        totalGreetings += 1;
+        console.log(msg.sender, "says hello kaia!");
+    }
+    function getTotalGreetings() public view returns (uint256) {
+        console.log("We have %d total waves!", totalGreetings);
+        return totalGreetings;
+    }
+}
+```
 
-- Click **plugin manager**, and then click **Connect to a Local Plugin**.
+![](/img/build/smart-contracts/remix-create-new-file.png)
 
-![Plugin](/img/build/tutorials/remix-environment-plugin.png)
+## Compile smart contract <a href="#compile-smart-contract" id="compile-smart-contract"></a>
 
-- Put https://klaytn-remix-plugin.ozys.net in the **URL**. Use any name what you want in the **Plugin Name** and **Display Name**.
+To compile your contract, do the following:
 
-![Local Plugin](/img/build/tutorials/remix-local-plugin.png)
+- Go to the **Solidity Compiler** tab
+- Select compiler version to 0.8.27
+- Turn on the 'Auto compile' option.
+- Cliick on the Compile KaiaGreeter.sol  button to compile `KaiaGreeter.sol` contract.
+- After successful compilation, it will show a green tick mark on the Compiler tab button
 
-- If the \[Kaia] tab appears, you are ready to interact with Kaia.
+![](/img/build/smart-contracts/remix-compile-contract.png)
 
-## Setting up the Deployment Environment <a href="#setting-up-the-deployment-environment" id="setting-up-the-deployment-environment"></a>
+## Connect to Kaia Plugin on Remix IDE <a href="#connect-to-kaia-plugin" id="connect-to-kaia-plugin"></a>
 
-- Click on the \[Kaia] tab.
-- Select the appropriate \[Environment].
-- You can select **Kairos**, **Mainnet**, **Injected Caver**, **Caver Provider** or **Injected Web3**.
-  - **\[Kairos]**: Connects to the Kairos network
-  - **\[Mainnet]**: Connects to the Mainnet
-  - **\[Injected Caver]**: Connects to injected caver(e.g., Kaikas)
-  - **\[Caver Provider]**: Connects directly to Kaia node, which supports RPC
-  - **\[Injected Web3]**: Connects to injected web3(e.g., Metamask)
+To connect to Kaia plugin on Remix IDE, you can either use this [Kaia Plugin for Remix](https://ide.kaia.io/) or follow this step:
 
-![Kaia Tab](/img/build/tutorials/remix-klaytn-tab.png)
+- Navigate to the **Plugin manager** tab
+- Insert Klaytn in the search field
+- Activate the Klaytn plugin. If Klaytn tab appears, you are ready to interact with Kaia.
+
+![](/img/build/smart-contracts/remix-plugin-addon.png)
+
+## Setting up deployment environment  <a href="#setting-up-deployment-env" id="setting-up-deployment-env"></a>
+
+- Click on the Klaytn plugin.
+- Select the appropriate [Environment].
+- You can select Kairos, Mainnet, Injected Provider - Kaia Wallet, Injected Provider - MetaMask
+  - [Kairos]: Connects to the Kairos network
+  - [Mainnet]: Connects to the Mainnet
+  - [Injected Provider - Kaia Wallet]: Connects to Kaia Wallet
+  - [Injected Provider - MetaMask ]: Connects to Metamask
+
+![](/img/build/smart-contracts/remix-deploy-env.png)
 
 ## Import account <a href="#import-account" id="import-account"></a>
 
-You can import keys from **private key** or **Keystore**.
+You can export private key or Keystore from any compatible wallet to use here.
 
-- Click **plus** button next to the **ACCOUNT**.
-
-![Import Keys](/img/build/tutorials/remix-klaytn-import-account.png)
-
+- Click plus button next to the ACCOUNT.
 - Then put private key or keystore.
-- You can also import keys for the **feePayer**. It only supports **private key**.
+- You can also import keys for the feePayer. It only supports private key.
 
-## Connecting Kaia - Remix using EN (Endpoint Node) <a href="#connecting-kaia-remix-using-en" id="connecting-kaia-remix-using-en"></a>
+![](/img/build/smart-contracts/remix-import-acc.png)
 
-- Set up an Endpoint Node in the local environment by following the instructions in [**the EN documents**](../smart-contracts/deploy/ken.md#launch-an-en).
-- Create an account by following the instructions in [**Account Management**](../get-started/account/managing-accounts.md).
+## Connecting Kaia to Remix using Kaia Wallet <a href="#connect-to-kaia-using-kaia-wallet" id="connect-to-kaia-using-kaia-wallet"></a>
 
-  > **Note:** If you use the Public EN from Kairos, instead of from your local environment, you won't be connected to your account because the personal API is disabled.
-- Select \[Caver Provider] in the Environment menu.
+- Select [Injected Provider - Kaia Wallet] on the Remix Environment menu.
 
-![Caver Provider](/img/build/tutorials/env-caver-provider.png)
+![](/img/build/smart-contracts/remix-kw-connect.png)
 
-- Enter the RPC address of the EN in the Caver Provider Endpoint. Local EN (default): [http://localhost:8551](http://localhost:8551/)
+- When you see the Kaia Wallet pop-up, click [Connect].
 - Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
-## Connecting Kaia - Remix using MetaMask <a href="#connecting-kaia-remix-using-metamask" id="connecting-kaia-remix-using-metamask"></a>
+## Connecting Kaia - Remix using MetaMask <a href="#connect-to-kaia-using-metamask" id="connect-to-kaia-using-metamask"></a>
 
-- Connect Kaia with MetaMask by referring to the [**Connecting to MetaMask**](connecting-metamask).
-- Select \[Injected Web3] on the Remix Environment menu.
+- Connect Kaia with MetaMask by referring to the [Connecting to MetaMask](./connecting-metamask.mdx).
+- Select [Injected Provider - MetaMask] on the Remix Environment menu.
 
-![Injected Web3](/img/build/tutorials/env-injected-web3.png)
+![](/img/build/smart-contracts/remix-mm-connect.png)
 
 - When you see the MetaMask pop-up, select the account by clicking it.
 - Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
 
-## Connecting Kaia - Remix using Kaikas <a href="#connecting-kaia-remix-using-kaikas" id="connecting-kaia-remix-using-kaikas"></a>
+## Deploying the smart contract <a href="#deploying-contract" id="deploying-contract"></a>
 
-- Select \[Injected Caver] on the Remix Environment menu.
+In this section, we will deploy the KaiaGreeter.sol contract using Kaia Wallet. Having compiled the contract in the Compile Section, follow the deployment process below:
 
-![Injected Caver](/img/build/tutorials/env-injected-caver.png)
+- Set your deployment ENVIRONMENT to Injected Provider -  Kaikas Wallet. Make sure to confirm all the connection prompts to Remix.
+- Select the contract you want to deploy in the CONTRACT field.
+- Click on the Deploy button. This would generate a Kaia Wallet popup that requires transaction confirmation. Simply confirm the transaction!
 
-- When you see the Kaikas pop-up, click \[Connect].
-- Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
+![](/img/build/smart-contracts/remix-deploy-contract.png)
 
-## Tutorial: KaiaGreeter Contract <a href="#tutorial-kaiagreeter-contract" id="tutorial-kaiagreeter-contract"></a>
-
-We will be using the [**KaiaGreeter**](../smart-contracts/samples/kaiagreeter.md) sample contract.
-
-- Add KaiaGreeter.sol and write the testing code.
-
-![Add KaiaGreeter](/img/build/tutorials/remix-add-klaytngreeter.png)
-
-- On the Solidity Compile tab, select \[Compile KaiaGreeter.sol] to compile the contract code.
-
-> It is better to turn on the 'Auto compile' option.
-
-- In the Deploy & Run Transactions tab, click \[Deploy] to deploy the compiled contract.
-
-![Deploy the Contract](/img/build/tutorials/remix-deploy-run-tx.png)
-
-- You can view the deployed contract. You can test or debug it.
-
-![Check the Contract](/img/build/tutorials/remix-test-or-debug.png)
+- You can view the deployed contract on [Kaiascan](https://kairos.kaiascan.io/), and also test or debug it on Remix IDE.

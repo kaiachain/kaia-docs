@@ -12,7 +12,7 @@ In this tutorial, you will utilize the VRF functionality from Orakl Network to r
 
 ## Prerequisites
 
-- [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
+- [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 - [Remix IDE](https://remix.ethereum.org/)
 - [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 - Test KAIA from [Faucet](https://faucet.kaia.io)
@@ -117,7 +117,7 @@ In the example below, the contract allows us to request for random words and rec
 - Paste the code below in your newly created file.
 - In Remix, click **Compile contract**.
 - Click the Kaia tab on your left having installed the plugin.
-- Select **Environment** > **Injected Caver** - **Kaikas**.
+- Select **Environment** > **Injected Provider** - **Kaia Wallet**.
 - In **Contract**, select your contract. For example, `VRFConsumer`.
 - Pass in the coordinator contract address `0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499` (Kairos), `0x3F247f70DC083A2907B8E76635986fd09AA80EFb` (Mainnet).
 - Click **Deploy**.

@@ -13,7 +13,7 @@
 
 **스마트 컨트랙트 개발**
 
-- [Remix용 카이아 플러그인](https://ide.klaytn.foundation) - 브라우저 기반 컴파일러 및 IDE인 Remix용 카이아 플러그인.
+- [Kaia Plugin for Remix](https://ide.kaia.io) - Kaia Plugin for Remix, a browser-based compiler and IDE.
 - [Truffle](https://github.com/trufflesuite/truffle) - Solidity에서 스마트 컨트랙트를 개발하기 위한 오픈소스 툴입니다.
 - [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - 스마트 컨트랙트 및 dApp을 위한 개발 환경.
 - [Foundry](https://book.getfoundry.sh/) - Foundry는 스마트 컨트랙트 개발 툴체인입니다.
@@ -27,5 +27,5 @@
 **카이아 툴킷**
 
 - [Kaiascope](https://kaiascope.com/) - A block and transaction explorer.
-- [Kaia Wallet](https://wallet.klaytn.com/) - 브라우저 기반 계정 관리 도구.
+- [Kaia Wallet](https://www.kaiawallet.io/) - A browser extension wallet for the Kaia Network.
 - [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) - 스마트 컨트랙트를 부트스트랩하고 카이아 컨트랙트에 대해 알아볼 수 있는 대화형 생성기입니다.

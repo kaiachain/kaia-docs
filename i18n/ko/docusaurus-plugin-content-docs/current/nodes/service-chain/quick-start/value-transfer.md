@@ -28,7 +28,7 @@ $ kscn attach --datadir ~/data
 ![](/img/nodes/sc-vt-add-klay.png)
 
 `subbridge.parentOperator`와 `subbridge.childOperator`는 트랜잭션을 전송하기에 충분한 KAIA를 가지고 있어야 합니다. `subbridge.parentOperator`는 Kairos 네트워크의 계정이고, `subbridge.childOperator`는 서비스체인 네트워크의 계정이라는 점에 유의하세요.
-[Kairos 월렛](https://baobab.wallet.klaytn.foundation/)에서 테스트 계정을 생성하고 Faucet에서 테스트 KAIA를 받습니다. 그런 다음 `parentOperator`에게 KAIA를 전송합니다. childOperator`는 `homi\\`가 생성한 테스트 계정에서 KAIA를 가져와야 합니다([EN 설정 및 SCN 연결 가이드](en-scn-connection.md) 참조).
+Create a test account at [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy) and get test KAIA from [the faucet](https://faucet.kaia.io/). 그런 다음 `parentOperator`에게 KAIA를 전송합니다. childOperator`는 `homi\\`가 생성한 테스트 계정에서 KAIA를 가져와야 합니다([EN 설정 및 SCN 연결 가이드](en-scn-connection.md) 참조).
 
 ```
 $ kscn account import ~/homi-output/keys_test/testkey1
@@ -82,7 +82,7 @@ $ cd erc20
 - `child.key`를 `homi`가 생성한 `testkey1`로 바꿉니다.
 - `child.operator`를 이전 단계에서 살펴본 `subbridge.childOperator` 주소로 설정합니다.
 - `parent` 섹션(Kairos 네트워크의 EN 노드)의 `url`을 EN 노드 IP로 바꾸고 `kend.conf`의 `RPC_PORT`에서 적절한 포트 번호로 바꿉니다.
-- `parent.key`를 이전 단계의 [Kairos 지갑](https://baobab.wallet.klaytn.foundation/)에서 생성한 테스트 계정의 프라이빗 키로 바꿉니다.
+- Replace `parent.key` with the private key of the test account created from [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy) in the previous step.
 - `parent.operator`를 이전 단계의 `subbridge.parentOperator`로 설정합니다.
 
 ```

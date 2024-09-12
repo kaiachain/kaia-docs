@@ -534,32 +534,48 @@ Please take a look at OpenZeppelin example [ERC20Mintable.sol](https://github.co
 
 ## 2. Deploying Smart Contract
 
+In this section, you'll deploy your MyERC20 smart contract using Remix Online IDE. The complete source code for MYERC20.sol was given at [Writing ERC-20 Smart Contract](https://docs.kaia.io/build/smart-contracts/samples/erc-20/#1-writing-erc-20-smart-contract).
+
+### 2.1 Prerequisites <a href="#2-1-prerequisites" id="2-1-prerequisites"></a>
+
+- [Kaia Wallet](../../tools/wallets/kaia-wallet.md): used to deploy contracts, sign transactions and interact with contracts.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+
 You can use Remix Online IDE or use Truffle to deploy `MyERC20` smart contract.
 
-### 2.1 Deploying smart contract using Remix Online IDE <a href="#2-1-deploying-smart-contract-using-kaia-ide" id="2-1-deploying-smart-contract-using-kaia-ide"></a>
+### 2.2 Deploying smart contract using Remix Online IDE <a href="#2-2-deploying-smart-contract-using-kaia-ide" id="2-2-deploying-smart-contract-using-kaia-ide"></a>
 
-- Please visit [Kaia Plugin for Remix](https://ide.klaytn.foundation) and create a `MyERC20` contract. The complete source code was given at [Writing ERC-20 Smart Contract](#1-writing-erc-20-smart-contract).
-- Prepare your account which will be used to deploy the contract.
-  - If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy).
-  - Get some test KAIA from the faucet - [https://faucet.kaia.io](https://faucet.kaia.io)
-- Let's deploy `MyERC20.sol` with the deploy parameters of `BAOBABTOKEN`, `BAO` and `8`.
+Remix IDE
 
-![ERC20-1-deploy](/img/build/smart-contracts/erc20-1-deploy.png)
+- Navigate to [Kaia Plugin for Remix](https://ide.kaia.io/)
+- Create a `MyERC20.sol` file in the contracts folder
+- In Remix, click **compile** contract.
+- Click the Kaia (prev Klaytn) tab on your left having installed the plugin
+- Select **Environment** > **Injected Provider** - **Kaia Wallet**.
+- In Contract field, select your contract. For example, MyERC20.
+- Assign the following arguments at deployment **KAIROSTOKEN**, **KAIROS** and **8**
+- Click **Deploy**.
+
+![ERC20-1-deploy](/img/build/smart-contracts/remix-layout-erc20-example.png)
 
 After deploying, you can invoke `balanceOf` with your account, which was used to deploy the contract. You will find there are `10000000000000` tokens available in your account as below. Because you set `decimal` as `8` when deploying the contract above, it minted a fixed number of `100000` tokens in the constructor, with one token having a decimal value of `10^8`. `totalSupply` method will return the total supply of tokens minted which should be also `10000000000000`.
 
-![ERC20-2-owner-token](/img/build/smart-contracts/erc20-2-owner_token.png)
+![ERC20-2-owner-token](/img/build/smart-contracts/bal-ts-erc20-example.png)
 
 `MyERC20` is now live !
 
 ## 3. Interacting with ERC-20 token from Kaia Wallet <a id="3-interacting-with-erc-20-token-from-kaia-wallet"></a>
 
-You can use [Kairos Kaia Wallet](https://baobab.wallet.klaytn.foundation) to query your balance and transfer the ERC-20 compatible `BAOBABTOKEN` you just deployed.
+You can use Kaia Wallet to check your balance and transfer the ERC-20-compatible KAIROSTOKEN you just deployed. To view your token balance in Kaia Wallet, follow the steps below:
 
-You can add ERC-20 compatible token in your wallet with the address of the deployed `MyERC20` contract as below.
+Kaia Wallet
 
-![ERC20-3-Add\_token](/img/build/smart-contracts/erc20-3-add_token.png)
+- Open up Kaia Wallet
+- Click on the Token List Icon, and then click Add Token button
 
-After adding the ERC-20 token in the wallet app, the balance of your `BAOBABTOKEN` will be shown in addition to the balance of KAIA as below. You can see there is `100000` `BAO` tokens in the account.
+![](/img/build/smart-contracts/kaia-add-token-kw.png)
 
-![ERC20-4-wallet-token](/img/build/smart-contracts/erc20-4-wallet-token.png)
+- Paste the address of myERC20.sol contract in the Token Contract Address field under Custom Token tab.
+- Follow the prompts afterwards to add your token. Your Token List modal should like like this:
+
+![](/img/build/smart-contracts/kaia-add-token-kw-ii.png)

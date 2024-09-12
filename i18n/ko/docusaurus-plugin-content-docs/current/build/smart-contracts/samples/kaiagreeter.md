@@ -31,9 +31,9 @@ contract KaiaGreeter is Mortal {
 
 ## Remix 온라인 IDE를 사용하여 KaiaGreeter 배포하기 <a href="#deploying-kaiagreeter-using-klaytn-ide" id="deploying-kaiagreeter-using-klaytn-ide"></a>
 
-- [Remix용 카이아 플러그인](https://ide.klaytn.foundation)을 방문하여 `KaiaGreeter` 컨트랙트를 생성하세요. 전체 소스 코드는 위에 나와 있습니다.
+- Please visit [Kaia Plugin for Remix](https://ide.kaia.io) and create a `KaiaGreeter` contract. 전체 소스 코드는 위에 나와 있습니다.
 - 컨트랙트 배포에 사용할 계정을 준비합니다.
-  - If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy).
+  - If you do not have an account yet, create one at [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy).
   - Get some test KAIA from the faucet - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
 - 초기 파라미터인 인사말 메시지와 함께 컨트랙트를 배포합니다.
 - 배포 후, IDE에서 `greet`를 호출할 수 있습니다.

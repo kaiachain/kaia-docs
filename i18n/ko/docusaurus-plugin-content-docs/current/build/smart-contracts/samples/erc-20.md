@@ -534,32 +534,48 @@ contract MyERC20 is IERC20 {
 
 ## 2. 스마트 컨트랙트 배포
 
+In this section, you'll deploy your MyERC20 smart contract using Remix Online IDE. The complete source code for MYERC20.sol was given at [Writing ERC-20 Smart Contract](https://docs.kaia.io/build/smart-contracts/samples/erc-20/#1-writing-erc-20-smart-contract).
+
+### 2.1 Prerequisites <a href="#2-1-prerequisites" id="2-1-prerequisites"></a>
+
+- [Kaia Wallet](../../tools/wallets/kaia-wallet.md): used to deploy contracts, sign transactions and interact with contracts.
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+
 Remix 온라인 IDE를 사용하거나 Truffle을 사용하여 `MyERC20` 스마트 컨트랙트를 배포할 수 있습니다.
 
-### 2.1 Remix Online IDE를 사용하여 스마트 컨트랙트 배포하기 <a href="#2-1-deploying-smart-contract-using-klaytn-ide" id="2-1-deploying-smart-contract-using-klaytn-ide"></a>
+### 2.2 Deploying smart contract using Remix Online IDE <a href="#2-2-deploying-smart-contract-using-kaia-ide" id="2-2-deploying-smart-contract-using-kaia-ide"></a>
 
-- [Remix용 카이아 플러그인](https://ide.klaytn.foundation)을 방문하여 `MyERC20` 컨트랙트를 생성하세요. 전체 소스코드는 [ERC-20 스마트 컨트랙트 작성하기](#1-writing-erc-20-smart-contract)에서 확인하실 수 있습니다.
-- 컨트랙트 배포에 사용할 계정을 준비합니다.
-  - If you do not have an account yet, create one at [https://baobab.wallet.klaytn.foundation/create](https://baobab.wallet.klaytn.foundation/create) or [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy).
-  - Get some test KAIA from the faucet - [https://faucet.kaia.io](https://faucet.kaia.io)
-- 배포 파라미터를 `BAOBABTOKEN`, `BAO`, `8`로 설정하여 `MyERC20.sol`을 배포해 봅시다.
+Remix IDE
 
-![ERC20-1-deploy](/img/build/smart-contracts/erc20-1-deploy.png)
+- Navigate to [Kaia Plugin for Remix](https://ide.kaia.io/)
+- Create a `MyERC20.sol` file in the contracts folder
+- In Remix, click **compile** contract.
+- Click the Kaia (prev Klaytn) tab on your left having installed the plugin
+- Select **Environment** > **Injected Provider** - **Kaia Wallet**.
+- In Contract field, select your contract. For example, MyERC20.
+- Assign the following arguments at deployment **KAIROSTOKEN**, **KAIROS** and **8**
+- Click **Deploy**.
+
+![ERC20-1-deploy](/img/build/smart-contracts/remix-layout-erc20-example.png)
 
 배포 후, 컨트랙트를 배포할 때 사용한 계정으로 `balanceOf`를 호출할 수 있습니다. 아래와 같이 계정에서 `10000000000000` 토큰을 사용할 수 있습니다. 위 컨트랙트를 배포할 때 `decimal`을 `8`로 설정했기 때문에 생성자에서 고정된 수의 `100000` 토큰을 발행했으며, 한 토큰의 소수점 값은 `10^8`입니다. `totalSupply` 메서드는 발행된 토큰의 총 공급량을 반환하며, 이 역시 `10000000000000`이어야 합니다.
 
-![ERC20-2-owner-token](/img/build/smart-contracts/erc20-2-owner_token.png)
+![ERC20-2-owner-token](/img/build/smart-contracts/bal-ts-erc20-example.png)
 
 이제 `MyERC20`이 출시되었습니다!
 
 ## 3. 카이아 지갑에서 ERC-20 토큰과 상호작용하기 <a id="3-interacting-with-erc-20-token-from-klaytn-wallet"></a>
 
-[Kairos 카이아 지갑](https://baobab.wallet.klaytn.foundation)을 통해 잔액을 조회하고 방금 배포한 ERC-20 호환 `BAOBABTOKEN`을 전송할 수 있습니다.
+You can use Kaia Wallet to check your balance and transfer the ERC-20-compatible KAIROSTOKEN you just deployed. To view your token balance in Kaia Wallet, follow the steps below:
 
-아래와 같이 배포된 `MyERC20` 컨트랙트의 주소로 지갑에 ERC-20 호환 토큰을 추가할 수 있습니다.
+Kaia Wallet
 
-![ERC20-3-Add\\_token](/img/build/smart-contracts/erc20-3-add_token.png)
+- Open up Kaia Wallet
+- Click on the Token List Icon, and then click Add Token button
 
-지갑 앱에서 ERC-20 토큰을 추가하면 아래와 같이 KAIA의 잔액과 함께 `BAOBABTOKEN`의 잔액이 표시됩니다. 계정에 `100000` `BAO` 토큰이 있는 것을 확인할 수 있습니다.
+![](/img/build/smart-contracts/kaia-add-token-kw.png)
 
-![ERC20-4-wallet-token](/img/build/smart-contracts/erc20-4-wallet-token.png)
+- Paste the address of myERC20.sol contract in the Token Contract Address field under Custom Token tab.
+- Follow the prompts afterwards to add your token. Your Token List modal should like like this:
+
+![](/img/build/smart-contracts/kaia-add-token-kw-ii.png)

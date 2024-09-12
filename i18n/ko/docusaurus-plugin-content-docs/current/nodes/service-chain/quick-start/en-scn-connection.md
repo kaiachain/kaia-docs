@@ -135,7 +135,7 @@ EN-01과 SCN-L2-01 연결을 완료한 후 앵커링을 통해 부모 체인에 
 
 ### 1단계: 앵커링을 테스트하기 위해 KAIA 받기 <a id="step-1-get-klay-to-test-anchoring"></a>
 
-앵커링을 하려면 SCN-L2-01이 Kairos에 앵커링 트랜잭션을 만들어야 합니다. 따라서 `subbridge.parentOperator` 계정에 트랜잭션 수수료를 지불할 수 있는 충분한 KAIA가 있어야 합니다. [Kairos 월렛 Faucet](https://baobab.wallet.klaytn.foundation/)에서 KAIA를 받아 `parentOperator`에게 전송합니다. 실제 서비스에서 데이터 앵커링을 하기 위해서는 `parentOperator`가 트랜잭션 수수료를 지불할 수 있는 충분한 KAIA를 가지고 있어야 합니다.
+앵커링을 하려면 SCN-L2-01이 Kairos에 앵커링 트랜잭션을 만들어야 합니다. 따라서 `subbridge.parentOperator` 계정에 트랜잭션 수수료를 지불할 수 있는 충분한 KAIA가 있어야 합니다. Get some KAIA from [Kairos Faucet](https://faucet.kaia.io/) and transfer some KAIA to the `parentOperator`. 실제 서비스에서 데이터 앵커링을 하기 위해서는 `parentOperator`가 트랜잭션 수수료를 지불할 수 있는 충분한 KAIA를 가지고 있어야 합니다.
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data

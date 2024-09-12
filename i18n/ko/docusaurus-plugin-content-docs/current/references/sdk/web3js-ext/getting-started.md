@@ -72,14 +72,14 @@ See [DESIGN](./DESIGN.md) for source code organization.
   web3.eth.getProtocolVersion()
 
   // klay_sendTransaction if kaia TxType, otherwise eth_sendTransaction
-  // Additional treatment for Kaikas compatibility
+  // Additional treatment for Kaia Wallet compatibility
   web3.eth.sendTransaction(obj)
 
   // klay_sendRawTransaction if kaia TxType, otherwise eth_sendRawTransaction
   web3.eth.sendSignedTransaction(rlp)
 
   // klay_signTransaction if kaia TxType, otherwise eth_signTransaction
-  // Additional treatment for Kaikas compatibility
+  // Additional treatment for Kaia Wallet compatibility
   web3.eth.signTransaction(obj)
   ```
 

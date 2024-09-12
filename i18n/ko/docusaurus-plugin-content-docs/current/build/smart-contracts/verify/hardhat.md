@@ -57,7 +57,7 @@ module.exports = {
         chainId: 1001,
         urls: {
           apiURL: "https://api-baobab.klaytnscope.com/api",
-          browserURL: "https://baobab.klaytnscope.com",
+          browserURL: "https://kairos.kaiascope.com",
         },
       },
     ]
@@ -75,7 +75,7 @@ npx hardhat verify –network <network> <deployed_address> <parameters>
 npx hardhat verify --network klaytn 0x131b54E65c99d34BCA738F29051fDAceEa91C969 1000000000000000
 ```
 
-In your terminal you should see the source code for your contract was successfully submitted for verification. If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Klaytnscope](https://baobab.klaytnscope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode).
+In your terminal you should see the source code for your contract was successfully submitted for verification. If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Kaiascope](https://kairos.kaiascope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode).
 
 ![](/img/build/smart-contracts/verify/terminal-hh-verify.png)
 

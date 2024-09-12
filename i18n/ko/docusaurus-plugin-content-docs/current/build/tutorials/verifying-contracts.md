@@ -14,14 +14,14 @@ Having said that, once a smart contract is validated, block explorers like Kaias
 
 ## 전제조건
 
-- [Remix IDE](https://ide.klaytn.foundation/) 및 [Kaikas Wallet](https://kaikas.zendesk.com/hc/en-us/articles/6657796272793-How-do-I-install-PC-Kaikas-)
+- [Remix IDE](https://ide.kaia.io/) and [Kaia Wallet](https://docs.kaiawallet.io/getting_started/quick_start#install-kaia-wallet)
 - Enough test KAIA from [faucet](https://faucet.kaia.io)
 
 ## 시작하기
 
 이 가이드에서는 카이아 생태계에 존재하는 블록 탐색기, 즉 다음과 같은 블록에서 단일 컨트랙트와 다중 컨트랙트를 모두 검증하는 방법을 살펴볼 것입니다:
 
-- [Klaytnscope](http://scope.klaytn.com)
+- [Kaiascope](https://kaiascope.com/)
 - [Kaiascan](https://www.kaiascan.io/)
 
 더 이상 고민할 필요 없이 시작해 봅시다!
@@ -150,13 +150,13 @@ Klaytnscope에서 단일 컨트랙트와 다중 파트 컨트랙트를 확인하
 
 #### 1.1 단일 컨트랙트 검증하기
 
-1. Goto the search bar of [Klaytnscope](https://baobab.klaytnscope.com) and paste the deployed contract address.
+1. Goto the search bar of [Kaiascope](https://kairos.kaiascope.com) and paste the deployed contract address.
 2. 해당 페이지의 **contract 탭**으로 이동합니다.
 3. **Match Contract Source Code** 링크를 클릭하여 확인을 위해 컨트랙트 코드를 제출합니다.
 
 ![](/img/build/tutorials/counter-contract-tab.png)
 
-4. 컨트랙트 확인 페이지에서 계정이 Kaikas 또는 Metamask 중 하나에 연결되어 있는지 확인합니다. 이 가이드에서는 Kaikas를 사용하겠습니다.
+4. On the contract verification page, make sure your account is connected to either Kaia Wallet or Metamask. For this guide, we will be using Kaia Wallet.
 5. **contract address 필드**에 계약 주소를 입력합니다. 참고: 이 필드는 일반적으로 계약 주소로 자동으로 채워집니다.
 6. `Counter.sol` 예제에 사용된 **compiler version**을 선택합니다.
 7. 'Counter.sol' 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
@@ -203,7 +203,7 @@ b. Solidity 파일
 
 ### 2. Kaiascan
 
-To verify a single contract and multi-part contracts on Kaiascan, navigate to the [contract submission request page](https://kairos.kaiascan.io/contracts). 단, 계정이 Kaikas 또는 Metamask에 연결되어 있는지 확인하고 아래 단계를 따르세요:
+To verify a single contract and multi-part contracts on Kaiascan, navigate to the [contract submission request page](https://kairos.kaiascan.io/contracts). However, make sure your account is connected to either Kaia Wallet or MetaMask and follow the steps below:
 
 ![](/img/build/tutorials/klaytnfinder-con-sub-page.png)
 

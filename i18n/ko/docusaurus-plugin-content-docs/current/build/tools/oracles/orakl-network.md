@@ -12,7 +12,7 @@
 
 ## 전제 조건
 
-- [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en)
+- [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 - [Remix IDE](https://remix.ethereum.org/)
 - [Remix 카이아 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 - Test KAIA from [Faucet](https://faucet.kaia.io)
@@ -117,7 +117,7 @@ function fulfillRandomWords(
 - 새로 생성한 파일에 아래 코드를 붙여넣습니다.
 - Remix에서 **Compile contract**을 클릭합니다.
 - 플러그인을 설치한 후 왼쪽의 Kaia 탭을 클릭합니다.
-- **Environment** > **Injected Caver** - **Kaikas**를 선택합니다.
+- Select **Environment** > **Injected Provider** - **Kaia Wallet**.
 - **Contract**에서 컨트랙트를 선택합니다. (예: `VRFConsumer`)
 - 코디네이터 컨트랙트 주소 `0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499`(Kairos), `0x3F247f70DC083A2907B8E76635986fd09AA80EFb`(메인넷)를 전달합니다.
 - **Deploy**를 클릭합니다..

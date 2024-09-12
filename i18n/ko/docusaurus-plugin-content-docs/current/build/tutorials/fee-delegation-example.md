@@ -279,7 +279,7 @@ receipt { blockHash:
 
 ### 4.4 카이아 스코프 <a href="#4-4-klaytn-scope" id="4-4-klaytn-scope"></a>
 
-You can also find the above transaction on the [Klaytnscope](https://baobab.klaytnscope.com).
+You can also find the above transaction on the [Kaiascope](https://kairos.kaiascope.com).
 
 트랜잭션은 `TxTypeFeeDelegatedValueTransfer`이고 `fee payer`는 `0x2645ba5be42ffee907ca8e9d88f6ee6dad8c1410` 또는 입력한 `feepayerAddress`이며, `From`은 위 예시의 `senderAddress`와 다른 주소임을 알 수 있습니다.
 

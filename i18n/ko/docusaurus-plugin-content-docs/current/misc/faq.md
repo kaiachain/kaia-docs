@@ -40,7 +40,7 @@ Kaia는 EVM과 호환되며 모든 이더리움 London EVM 기능을 지원합�
 
 ## 카이아로 dApp 개발은 어디서 시작할 수 있나요? <a id="dapp-development"></a>
 
-이더리움에서 마이그레이션하든, 처음부터 카이아를 기반으로 구축하든, 필요한 모든 도구와 인프라를 지원합니다. 카이아 플러그인을 사용하여 [Remix IDE](../build//tutorials/connecting-remix)에서 스마트 컨트랙트를 테스트하거나, [MetaMask](../build/tutorials/connecting-metamask) 지갑과 [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi)에 연결할 수 있습니다. Kaia’s sdk `caver` is available as [caver-js](https://github.com/kaiachain/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
+이더리움에서 마이그레이션하든, 처음부터 카이아를 기반으로 구축하든, 필요한 모든 도구와 인프라를 지원합니다. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Kaia Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk `caver` is available as [caver-js](https://github.com/kaiachain/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
 
 ## 카이아는 오픈소스인가요? <a id="is-klaytn-open-source"></a>
 
@@ -68,7 +68,7 @@ You can get test KAIA for development and testing purposes here:
 
 ## 어떤 지갑이 카이아를 지원하나요? <a id="which-wallets"></a>
 
-카이아는 콜드월렛인 D’cent와 Kaikas, MetaMask 등 다양한 핫월렛에서 지원됩니다. [여기](http://klaytn.foundation/ecosystem) 목록을 참조하세요.
+Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. [여기](http://klaytn.foundation/ecosystem) 목록을 참조하세요.
 
 ## What is Mainnet, what is Kairos? <a id="what-is-cypress-what-is-baobab"></a>
 
@@ -79,13 +79,11 @@ Cypress는 Kaia 메인넷, Kairos는 테스트넷입니다.
 
 - EN 다운로드 : [다운로드 페이지](../nodes/downloads/downloads.md)에서 메인넷 패키지를 선택합니다.
 - Kaiascope : https://kaiascope.com/
-- 카이아 지갑 : https://wallet.klaytn.com
 
 Kairos 테스트넷:
 
 - EN 다운로드 : [다운로드 페이지](../nodes/downloads/downloads.md)에서 Kairos 패키지를 선택합니다.
-- Klaytnscope : https://baobab.klaytnscope.com
-- 카이아 지갑 : https://baobab.wallet.klaytn.foundation
+- Kaiascope : https://kairos.kaiascope.com
 - Kairos Faucet : https://faucet.kaia.io
 
 ## 카이아 SDK가 있나요? 어떤 언어로 제공되나요? <a id="klaytn-sdks"></a>
@@ -127,7 +125,7 @@ Truffle을 처음 사용하는 경우, [테스트 가이드](../build/smart-cont
 
 ## MetaMask와 같은 브라우저 확장 지갑은 어디서 구할 수 있나요? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
-카이아의 웹브라우저 확장 지갑 [Kaikas](https://chrome.google.com/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi?hl=en). Kaikas는 KAIA트랜잭션과 계정 생성을 할 수 있는 비위탁 지갑입니다.
+Kaia's web browser extension wallet [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi). Kaia Wallet is a non-custodial wallet with which you can make KAIA transactions and create accounts.
 
 ## 제공된 키에서 수수료 납부자 계정 주소가 파생되지 않는 이유는 무엇인가요? <a id="account-address-is-not-derived-from-the-key"></a>
 

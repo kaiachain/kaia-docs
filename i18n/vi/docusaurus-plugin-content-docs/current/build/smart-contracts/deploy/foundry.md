@@ -162,7 +162,7 @@ forge create --rpc-url https://klaytn-baobab.g.allthatnode.com/full/evm --privat
 
 ![](/img/build/get-started/foundry-create.png)
 
-**Step 2**: Open [Kaiascope](https://baobab.klaytnscope.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx) to check if the counter contract deployed successfully.
+**Step 2**: Open [Kaiascope](https://kairos.kaiascope.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx) to check if the counter contract deployed successfully.
 
 **Bước 3**: Sao chép và dán hàm băm của giao dịch vào trường tìm kiếm và nhấn Enter. Bạn sẽ thấy hợp đồng vừa được triển khai.
 
