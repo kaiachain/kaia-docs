@@ -1,6 +1,6 @@
 # Kaia Wallet
 
-![](/img/banners/kaia-kaikas.png)
+![](/img/banners/kaia-kaiawallet.png)
 
 Kaia Wallet is a browser extension wallet for the Kaia Network. Available in Google Chrome, Kaia Wallet provides a secure and usable means to interact with the Kaia network via web browser. With Kaia Wallet, you are able to store and transact with your KAIA and Kaia-based tokens. You are also able to sign requests from web-based dApps (Decentralized Applications) in
 realtime.
