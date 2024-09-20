@@ -20,6 +20,10 @@ KAIA는 카이아 분산 애플리케이션 플랫폼을 운영하기 위한 필
 | Gkei | 10^9 kei  | 1,000,000,000             |
 | KAIA | 10^18 kei | 1,000,000,000,000,000,000 |
 
+[Download KLAY historical pricing](pathname:///files/Klaytn_historical_data_coinmarketcap.csv)
+
+[Download FNSA historical pricing](pathname:///files/Finschia_historical_data_coinmarketcap.csv)
+
 <!-- 
 #### APIs Related to KAIA Units <a id="apis-related-to-kaia-units"></a>
 
