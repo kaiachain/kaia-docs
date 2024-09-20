@@ -24,9 +24,9 @@ The performance of Kaia is as follows:
 
 ## Smart Contract
 
-- Kaia supports a DVM execution environment, which is designed to be fast and efficient, providing the best and swiftest development environment for dApp developers and projects.
+- Kaia supports a distributed virtual machine for executing smart contracts, which is designed to be fast and efficient, providing the best and swiftest development environment for dApp developers and projects.
 
-- The current version of Kaia Virtual Machine (DVM) is a derivative of the Ethereum Virtual Machine (EVM). It supports all Opcodes of the Ethereum Virtual Machine equally while providing additional precompiled contracts unique to the Kaia Virtual Machine.
+- The current version of Kaia Virtual Machine (KVM) is a derivative of the Ethereum Virtual Machine (EVM). It supports all Opcodes of the Ethereum Virtual Machine equally while providing additional precompiled contracts unique to the Kaia Virtual Machine.
 
 - Kaia supports Solidity and maintains interoperability with Ethereum development toolkits such as Remix, Hardhat, Truffle, and Foundry. A Smart Contract written with Solidity can be compiled using the existing Solidity compiler and can be run on Kaia without additional work.
 
