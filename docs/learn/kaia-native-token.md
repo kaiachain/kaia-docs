@@ -20,7 +20,7 @@ Kaia uses the following unit system for KAIA.
 | Gkei | 10^9 kei | 1,000,000,000 |
 | KAIA | 10^18 kei | 1,000,000,000,000,000,000 |
 
-
+[Download KLAY historical pricing](pathname:///files/Klaytn_7_6_2024-9_7_2024_historical_data_coinmarketcap.csv)
 <!-- 
 #### APIs Related to KAIA Units <a id="apis-related-to-kaia-units"></a>
 
