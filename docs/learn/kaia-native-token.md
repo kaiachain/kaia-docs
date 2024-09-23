@@ -20,54 +20,9 @@ Kaia uses the following unit system for KAIA.
 | Gkei | 10^9 kei | 1,000,000,000 |
 | KAIA | 10^18 kei | 1,000,000,000,000,000,000 |
 
-[Download KLAY historical pricing](pathname:///files/Klaytn_historical_data_coinmarketcap.csv)
+## Historical Pricing <a id="historical-pricing"></a>
 
-[Download FNSA historical pricing](pathname:///files/Finschia_historical_data_coinmarketcap.csv)
-<!-- 
-#### APIs Related to KAIA Units <a id="apis-related-to-kaia-units"></a>
+You can download historical price data for the former KLAY and FNSA tokens using the following links:
 
-`kaia.toPeb` and `kaia.fromPeb` are convenient APIs for converting between KAIA units.
-
-```text
-$ ./kaia attach data/dd/kaia.ipc
-...
-> kaia.fromPeb(25, "peb")
-"25"
-> kaia.fromPeb(25, "Gpeb")
-"0.000000025"
-> kaia.fromPeb(25, "Gkei")
-"0.000000025"
-> kaia.fromPeb(25, "KAIA")
-"0.000000000000000025"
-> kaia.toPeb(25, "peb")
-"25"
-> kaia.toPeb(25, "Gkei")
-"25000000000"
-> kaia.toPeb(25, "KLAY")
-"25000000000000000000"
-```
-
-You can get the list of all units supported by `kaia.toPeb` and `kaia.fromPeb` by sending an invalid unit string such as the one below.
-
-```text
-> kaia.toPeb(1, "something-does-not-exist")
-Error: This unit doesn't exist, please use one of the following units
-"noKLAY": "0"
-"peb": "1"
-"kpeb": "1000"
-"Mpeb": "1000000"
-"Gpeb": "1000000000"
-"Gkei": "1000000000"
-"uKLAY": "1000000000000"
-"mKLAY": "1000000000000000"
-"KLAY": "1000000000000000000"
-"kKLAY": "1000000000000000000000"
-"MKLAY": "1000000000000000000000000"
-"GKLAY": "1000000000000000000000000000"
-"TKLAY": "1000000000000000000000000000000"
-
-    at web3.js:2170:19
-    at web3.js:2255:49
-    at <anonymous>:1:1
-```
--->
+- [Download KLAY historical pricing](pathname:///files/Klaytn_historical_data_coinmarketcap.csv)
+- [Download FNSA historical pricing](pathname:///files/Finschia_historical_data_coinmarketcap.csv)
