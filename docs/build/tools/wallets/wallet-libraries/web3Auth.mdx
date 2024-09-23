@@ -25,7 +25,7 @@ For a quick start, the complete code for this tutorial is available on [GitHub](
 
 ## Installation
 
-To make use of Web3Auth in your dApp, you must install the required libraries and SDK first. Hence, you'll need to set up ethers.js, and the Web3Auth Web SDK. You can use Web3Auth together with either [ethers.js](https://docs.ethers.org/v6/) or [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) libraries to communicate with the Kaia blockchain. We'll be using ethers.js throughout this guide.
+To make use of Web3Auth in your dApp, you must install the required libraries and SDK first. Hence, you'll need to set up ethers.js, and the Web3Auth Web SDK. You can use Web3Auth together with either [ethers.js](https://docs.ethers.org/v6/), [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) or [kaia sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/) libraries to communicate with the Kaia blockchain. We'll be using ethers.js for this guide.
 
 ```bash
 npm install --save @web3auth/modal @web3auth/base @web3auth/ethereum-provider @web3auth/default-evm-adapter
@@ -94,12 +94,13 @@ interface UserInfo {
 }
 
 function App() {
-  const [provider, setProvider] = (useState < IProvider) | (null > null)
-  const [loggedIn, setLoggedIn] = useState < boolean > false
-  const [loading, setLoading] = useState < boolean > true
-  const [address, setAddress] = useState < string > ''
-  const [balance, setBalance] = useState < string > ''
-  const [userInfo, setUserInfo] = (useState < UserInfo) | (null > null)
+
+  const [provider, setProvider] = useState<IProvider | null>(null);
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [address, setAddress] = useState<string>("");
+  const [balance, setBalance] = useState<string>("");
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
 
   useEffect(() => {
     const init = async () => {
@@ -136,10 +137,20 @@ function App() {
 ```
 
 ```js etherRPC.ts
+/*
+ * etherRPC.ts
+ * 
+ * This file contains utility functions for lower-level blockchain interactions
+ * using the provider object from ethers.js. It abstracts Ethereum RPC calls
+ * for common operations like getting account info, sending transactions,
+ * and interacting with smart contracts.
+ */
+
 import type { IProvider } from "@web3auth/base";
 import { ethers } from "ethers";
 
 import { contractAddress, contractABI } from "./constants";
+import { AddressLike } from "ethers";
 
 const getChainId = async (provider: IProvider): Promise<string> => {
   try {
@@ -174,15 +185,16 @@ const getBalance = async (provider: IProvider): Promise<string> => {
   }
 };
 
-const sendTransaction = async (provider: IProvider): Promise<any> => {
+const sendKaiaTx = async (provider: IProvider, destination : AddressLike, amount : any): Promise<any> => {
   try {
     const ethersProvider = new ethers.BrowserProvider(provider);
     const signer = await ethersProvider.getSigner();
-    const destination = "0x75Bc50a5664657c869Edc0E058d192EeEfD570eb";
-    const amount = ethers.parseEther("1");
+
+    const amountToSend = ethers.parseEther(amount);
+        
     const tx = await signer.sendTransaction({
       to: destination,
-      value: amount,
+      value: amountToSend,
     });
     const receipt = await tx.wait();
     return receipt;
@@ -191,11 +203,11 @@ const sendTransaction = async (provider: IProvider): Promise<any> => {
   }
 };
 
-const signMessage = async (provider: IProvider): Promise<string> => {
+const signMessage = async (provider: IProvider, originalMessage : string): Promise<string> => {
   try {
     const ethersProvider = new ethers.BrowserProvider(provider);
     const signer = await ethersProvider.getSigner();
-    const originalMessage = "YOUR_MESSAGE";
+
     const signedMessage = await signer.signMessage(originalMessage);
     return signedMessage;
   } catch (error) {
@@ -203,13 +215,11 @@ const signMessage = async (provider: IProvider): Promise<string> => {
   }
 };
 
-const readFromContract = async (provider: IProvider): Promise<string> => {
+const getContractValue = async (provider: IProvider): Promise<string> => {
   try {
 
     const ethersProvider = new ethers.BrowserProvider(provider);
 
-     
-    // const contract = new Contract(contractAddress, contractABI, provider);
     const contract = new ethers.Contract(contractAddress, contractABI, ethersProvider)
   
     // Read message from smart contract
@@ -223,14 +233,12 @@ const readFromContract = async (provider: IProvider): Promise<string> => {
 
 } 
 
-const writeToContract = async (provider: IProvider, value : string): Promise<any> => {
+const setContractValue = async (provider: IProvider, value : string): Promise<any> => {
   try {
 
     const ethersProvider = new ethers.BrowserProvider(provider);
     const signer = await ethersProvider.getSigner();
 
-     
-    // const contract = new Contract(contractAddress, contractABI, provider);
     const contract = new ethers.Contract(contractAddress, contractABI, signer);
   
     // Read message from smart contract
@@ -244,7 +252,7 @@ const writeToContract = async (provider: IProvider, value : string): Promise<any
 
 } 
 
-export default { getChainId, getAccounts, getBalance, sendTransaction, signMessage, readFromContract, writeToContract };
+export default { getChainId, getAccounts, getBalance, sendKaiaTx, signMessage, getContractValue, setContractValue };
 
 ```
 
@@ -552,13 +560,16 @@ const [signedMessage, setSignedMessage] = useState<string>("");
 
 const signMessage = async () => {
   if (!provider) {
-    console.log('provider not initialized yet')
-    return
+      console.log("provider not initialized yet");
+      return;
   }
-  const signedMessage = await RPC.signMessage(provider)
-  setSignedMessage(signedMessage)
-  console.log('Signed Message:', signedMessage)
-}
+    
+  const originalMessage = "YOUR_MESSAGE";
+
+  const signedMessage = await RPC.signMessage(provider, originalMessage);
+  setSignedMessage(signedMessage);
+  console.log("Signed Message:", signedMessage);
+};
 
 return (
   <div className="App">
@@ -585,14 +596,18 @@ const [txHash, setTxHash] = useState<string>("");
 
 const sendKaiaTx = async () => {
   if (!provider) {
-    console.log('provider not initialized yet')
-    return
+    console.log("provider not initialized yet");
+    return;
   }
-  console.log('Sending Transaction...')
-  const receipt = await RPC.sendTransaction(provider)
-  setTxHash(receipt.hash)
-  console.log('Transaction Receipt:', receipt)
-}
+  console.log("Sending Transaction...");
+
+  const destination = "0x75Bc50a5664657c869Edc0E058d192EeEfD570eb";
+  const amount = "0.1";    
+    
+  const receipt = await RPC.sendKaiaTx(provider, destination, amount);
+  setTxHash(receipt.hash);
+  console.log("Transaction Receipt:", receipt);
+};
 
 return (
   <div className="App">
@@ -680,24 +695,24 @@ import { contractAddress, contractABI } from "./constants";
 // add to existing useState hook
 const [contractTxHash, setContractTxHash] = useState<string>("");
 
-const writeToContract = async () => {
+const setContractValue = async () => {
   if (!provider) {
-    console.log('provider not initialized yet')
-    return
+    console.log("provider not initialized yet");
+    return;
   }
-  console.log('Writing to Contract...')
+  console.log("setting contract value...");
 
-  const value = '100'
+  const value = "100";
 
-  const tx = await RPC.writeToContract(provider, value)
-  setContractTxHash(tx.hash)
+  const tx = await RPC.setContractValue(provider, value);
+  setContractTxHash(tx.hash);
 
-  console.log('Transaction Receipt:', tx)
+  console.log("Transaction Receipt:", tx);
 }
 
 return (
   <div className="App">
-    <button onClick={writeToContract}>Write to Contract</button>
+    <button onClick={setContractValue}>Write to Contract</button>
     {contractTxHash && (
       <div>
         <h2>
@@ -715,21 +730,21 @@ return (
 // add to existing useState hook
   const [contractMessage, setContractMessage] = useState<string>("");
 
-  const readFromContract = async () => {
+  const getContractValue = async () => {
     if (!provider) {
       console.log("provider not initialized yet");
       return;
     }
-    console.log("Reading from Contract...");
+    console.log("getting value from contract...");
 
-    const message = await RPC.readFromContract(provider);
+    const message = await RPC.getContractValue(provider);
     setContractMessage(message);
-    console.log("Read Message Receipt:", message);
+    console.log("contract message:", message);
   }
 
 
   return (
-    <button onClick={readFromContract}>Read From Contract</button>
+    <button onClick={getContractValue}>Read From Contract</button>
     {contractMessage && (
           <div>
             <h2 className="text-wrap text-center text-sm font-semibold">Read Message: <span className="font-normal">{contractMessage}</span></h2>
