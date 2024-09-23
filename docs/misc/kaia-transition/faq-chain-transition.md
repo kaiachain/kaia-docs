@@ -9,6 +9,7 @@ This FAQ addresses common questions and concerns for CEXs, node providers, walle
   - [Will there be any delay in receiving KAIA tokens?](#will-there-be-any-delay-in-receiving-kaia-tokens-)
   - [Is there a limit on the amount for swapping KLAY and FNSA tokens?](#is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-)
   - [I'm currently staking FNSA. Will I need to wait 7 days to unstake my FNSA to swap to KAIA?](#im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-)
+  - [Where can I find the historical price information for KLAY and FNSA? I can't seem to find it on CoinMarketCap or CoinGecko anymore.](#where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-)
 
 - DApp builders
   - [What do DApps on Klaytn need to do to migrate to Kaia?](#what-do-dapps-on-klaytn-need-to-do-to-migrate-to-kaia-)
@@ -56,6 +57,10 @@ There is no limit for swapping and bridging the two tokens.
 ### I'm currently staking FNSA. Will I need to wait 7 days to unstake my FNSA to swap to KAIA? <a id="im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-"></a>
 
 With the upcoming launch of Kaia, a governance vote will be proposed on the Finschia network to smoothly integrate token and governance mechanisms, including potentially reducing the unbonding time from 7 days to a couple of hours. If the vote passes, FNSA holders will be able to unstake and swap without having to wait a week.
+
+### Where can I find the historical price information for KLAY and FNSA? I can't seem to find it on CoinMarketCap or CoinGecko anymore. <a id="where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-"></a>
+
+Due to the merger of KLAY and FNSA and their transition to the new token KAIA, historical price information for KLAY and FNSA is no longer available on cryptocurrency tracking websites. However, we have preserved this data for transparency and reference purposes. You can download CSV files containing the historical price data for both KLAY and FNSA from [Kaia native coin - KAIA](../../learn/kaia-native-token.md#historical-pricing).
 
 ## DApp builders
 
