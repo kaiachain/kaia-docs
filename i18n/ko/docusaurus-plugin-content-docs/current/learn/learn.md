@@ -1,46 +1,46 @@
-# Kaia Overview
+# Kaia 개요
 
-Kaia is a highly optimized, BFT-based public blockchain designed to meet enterprise-grade reliability and performance standards. This overview details Kaia's architecture, features, and ecosystem.
+Kaia는 엔터프라이즈급 안정성과 성능 수준을 충족하도록 설계된 고도로 최적화된 BFT 기반 퍼블릭 블록체인입니다. 이 개요에서는 Kaia의 아키텍처, 기능 및 에코시스템에 대해 자세히 설명합니다.
 
-## Key Design Goals
+## 주요 설계 목표
 
-Kaia blockchain aims to:
+Kaia 블록체인은 다음을 목표로 설계되었습니다.
 
-- Achieve immediate finality for transactions.
-- Provide high transaction processing speed for real-world use cases.
-- Lower the cost of running blockchain applications.
-- Reduce barriers to entry for end-users.
-- Facilitate easy technology adoption for various industries.
+- 트랜잭션의 즉각적 완결성 구현.
+- 실사용이 가능한 빠른 트랜잭션 처리 속도 제공.
+- 블록체인 애플리케이션 실행 비용 절감.
+- 최종 사용자도 사용할 수 있는 낮은 진입 장벽.
+- 다양한 산업 분야에서 손쉬운 기술 도입 지원.
 
-## Core Specifications
+## 핵심 사양
 
-Kaia blockchain offers:
+Kaia 블록체인의 주요 기능과 성능입니다.
 
 - 1초의 블록 생성 및 확인 시간.
-- Processing capability of 4,000 transactions per second.
-- Low gas price, approximately 1/10 of Ethereum.
-- EVM (Ethereum Virtual Machine) compatibility, supporting Solidity contracts.
-- Governance by reputable corporations worldwide forming <LinkWithTooltip to="../misc/glossary#kaia-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia Governance Council</LinkWithTooltip>.
+- 초당 4,000건의 트랜잭션 처리 능력.
+- 이더리움의 1/10 정도에 불과한 낮은 가스 가격.
+- EVM(이더리움 가상 머신) 호환 및 Solidity 컨트랙트 실행 지원.
+- 전 세계 유명 기업들로 이루어진 <LinkWithTooltip to="../misc/glossary#kaia-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia 거버넌스 카운슬</LinkWithTooltip> 운영.
 
-## Network Architecture
+## 네트워크 아키텍처
 
-Kaia's network is structured into three logical subnetworks:
+Kaia 네트워크는 세 개의 논리적 하위 네트워크로 구성되어 있습니다.
 
-![Kaia Ecosystem and its Logical Subnetworks (CCN, ENN, SCN)](/img/learn/klaytn_network_overview.png)
+![Kaia 생태계와 논리적 하위 네트워크 (CCN, ENN, SCN)](/img/learn/klaytn_network_overview.png)
 
-1. **Core Cell Network (CCN)**: Consists of [Core Cells (CCs)](../nodes/core-cell) responsible for transaction verification, execution, and block creation.
+1. **코어 셀 네트워크(CCN)**: 트랜잭션 검증, 실행, 블록 생성을 담당하는 [코어 셀(CC)](../nodes/core-cell)로 구성됩니다.
 
-2. **Endpoint Node Network (ENN)**: Composed of [Endpoint Nodes (ENs)](../nodes/endpoint-node) that handle RPC API requests and process data for service chains.
+2. **엔드포인트 노드 네트워크(ENN)**: 서비스 체인의 RPC API 요청을 처리하고 데이터를 처리하는 [엔드포인트 노드(EN)](../nodes/endpoint-node)로 구성됩니다.
 
-3. **[Service Chain](../nodes/service-chain) Network (SCN)**: Auxiliary blockchains independently operated by dApps, connected to the main chain via ENs.
+3. **[서비스 체인](../nodes/service-chain) 네트워크(SCN)**: dApp이 독립적으로 운영하는 보조 블록체인으로, EN을 통해 메인 체인에 연결됩니다.
 
-### Node Types
+### 노드 유형
 
 ![Kaia 메인체인 물리 토폴로지 및 계층화된 구조(CNN, PNN, ENN)](/img/learn/klaytn_network_node.png)
 
-1. **Core Cell (CC)**: Composed of one Consensus Node (CN) and two Proxy Nodes (PNs).
-   - **Consensus Node (CN)**: Participates in block generation.
-   - **Proxy Node (PN)**: Provides network interface, transmits transaction requests, and propagates blocks.
+1. **코어 셀(CC)**: 하나의 컨센서스 노드(CN)와 두 개의 프록시 노드(PN)로 구성됩니다.
+   - **컨센서스 노드(CN)**: 블록 생성에 참여합니다.
+   - **프록시 노드(PN)**: 네트워크 인터페이스를 제공하고, 트랜잭션 요청을 전송하며, 블록을 전파합니다.
 
 2. **Endpoint Node (EN)**: Serves as network endpoints, handling API requests and data processing.
 
