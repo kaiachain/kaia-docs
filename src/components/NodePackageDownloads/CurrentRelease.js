@@ -1,4 +1,5 @@
 import React from 'react'
+import {isAddArm} from "@site/src/components/NodePackageDownloads/index";
 
 const CurrentRelease = (props) => {
   const releaseData = props.releaseData
@@ -59,16 +60,29 @@ const CurrentRelease = (props) => {
                       baseUrl = baseUrl.replace(
                         '{BINARY_PREFIX}',
                         binaryPrefixValue
-                      )
-
+                      );
+                      console.log({
+                          releaseData,tabConfig,tagName
+                      })
                       return (
-                        <a
-                          target="_blank"
-                          href={baseUrl}
-                          className="current-release-binary-names-section-binary-name"
-                        >
-                           {binaryFileformat}
-                        </a>
+                          <>
+                              <a
+                                  target="_blank"
+                                  href={baseUrl}
+                                  className="current-release-binary-names-section-binary-name"
+                              >
+                                  {binaryFileformat}
+                              </a>
+                              {isAddArm(releaseData.binaryPrefix,tabConfig.machineType,tagName) &&
+                                  <a
+                                      target="_blank"
+                                      href={baseUrl.replace('amd64','arm64').replace('x86_64','aarch64')}
+                                      className="current-release-binary-names-section-binary-name"
+                                  >
+                                  {binaryFileformat.replace('amd64','arm64').replace('x86_64','aarch64')}
+                              </a>
+                              }
+                          </>
                       )
                     })}
                 </div>

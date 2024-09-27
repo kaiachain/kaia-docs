@@ -7,6 +7,7 @@ import {
   AccordionIcon,
   Box,
 } from '@chakra-ui/react'
+import {isAddArm} from "@site/src/components/NodePackageDownloads/index";
 
 const ArchiveRelease = (props) => {
   const releaseData = props.releaseData
@@ -35,16 +36,7 @@ const ArchiveRelease = (props) => {
               Published
             </div>
           </div>
-          {tabConfig.machineType == 'windows'
-            ? (() => {
-                let binaryTitle = tabConfig.config[0].binaryTitle
-                return (
-                  <div className="binarytitle-container">
-                    <div className="binary-title ">{binaryTitle}</div>
-                  </div>
-                )
-              })()
-            : releaseData.map((_release, _index) => {
+          { releaseData.map((_release, _index) => {
                 // TODO-kaia-docs: replace hard-coded hardfork version lists with air-drop one
                 let hardforkVersions = {
                   "v1.7.0": "IstanbulEVM",
@@ -162,15 +154,29 @@ const ArchiveRelease = (props) => {
                                     }
                                     if (baseUrl) {
                                       return (
-                                        <div className="stable-release-table-row">
-                                          <a
-                                            href={baseUrl}
-                                            className="stable-release-table-row-item-release"
-                                            target="_blank"
-                                          >
-                                            {binaryFileformat}
-                                          </a>
-                                        </div>
+                                          <>
+                                            <div className="stable-release-table-row">
+                                              <a
+                                                  href={baseUrl}
+                                                  className="stable-release-table-row-item-release"
+                                                  target="_blank"
+                                              >
+                                                {binaryFileformat}
+                                              </a>
+                                            </div>
+                                            {isAddArm(_release.type,tabConfig.machineType,_release.tag_name) &&
+                                              <div className="stable-release-table-row">
+                                                <a
+                                                    href={baseUrl.replace('amd64','arm64').replace('x86_64','aarch64')}
+                                                    className="stable-release-table-row-item-release"
+                                                    target="_blank"
+                                                >
+                                                  {binaryFileformat.replace('amd64','arm64').replace('x86_64','aarch64')}
+                                                </a>
+                                              </div>
+                                            }
+
+                                          </>
                                       )
                                     }
                                   })
