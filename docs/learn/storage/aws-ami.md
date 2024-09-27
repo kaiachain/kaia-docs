@@ -59,7 +59,7 @@ $ sudo fio --filename=/dev/nvme1n1 --rw=read --bs=128k --iodepth=32 --ioengine=l
 
 :::note
 
-This task to warmup Amazon EBS volume would take a couple of days.
+This task to warmup Amazon EBS volume would take a long time depending on the data size. Refer to `fio` output for the ETA.
 
 :::
 
