@@ -55,6 +55,10 @@ If your node mostly serves the latest data but occasionally serves historic data
 
 Chaindata snapshots offer a faster alternative to Full Sync. A snapshot is a compressed archive (e.g. `.tar.gz` file) of a synced node's data directory. Downloading and extracting a snapshot allows a new node to quickly catch up to the blockchain without processing every block individually. See [Use Chaindata Snapshots](../../misc/operation/chaindata-snapshot.md) for more information.
 
+## AWS AMI
+
+AWS AMI provides a convienient way to launch a fully operational Kaia endpoint node. The AMIs are open to public so that anyone can use. We produce AMIs every day, so the chaindata in the latest AMI should be less than one day behind. See [AWS AMI](./aws-ami.md) for more information.
+
 ## Snap Sync
 
 Currently, Kaia nodes do not support the [Snap Sync](https://geth.ethereum.org/docs/fundamentals/sync-modes) method. However, using a chaindata snapshot provides a comparable advantage in terms of faster initial synchronization.
