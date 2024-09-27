@@ -26,30 +26,30 @@ Kaia 블록체인은 다양한 규모의 프로젝트에 강력한 인프라를 
 
 2. **이더리움 호환성**:
    - 100% 호환성을 지원하므로 EVM 기반 dApp을 수정 없이 온보딩할 수 있습니다.
-   - Development tools, EVM, and APIs are equivalent to Ethereum, allowing seamless integration and mutual benefit to both ecosystems. See [Solidity-Smart Contract Language](../build/smart-contracts/solidity-smart-contract-language.md), and [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.md).
+   - 개발 도구, EVM, API는 이더리움과 동일하므로 두 생태계의 원활한 통합과 상호 이익이 가능합니다. 솔리디티-스마트 컨트랙트 언어](../build/smart-contracts/solidity-smart-contract-language.md) 및 [이더리움 앱을 Kaia로 마이그레이션하기](../build/tutorials/migrating-ethereum-app-to-kaia.md)를 참조하세요.
 
-3. **Convenient Account Model**: Enables assigning various keys to accounts, strengthening security and improving user experience.
+3. **편리한 계정 모델**: 계정에 다양한 키를 할당하여 보안을 강화하고 사용자 경험을 개선할 수 있습니다.
 
-4. **Permissionless and Decentralized Structure**: Kaia is transitioning to a permissionless validator structure, increasing network decentralization.
+4. **퍼미션리스 탈중앙화 구조**: Kaia는 비허가형 검증인 구조로 네트워크 탈중앙화를 강화하고 있습니다.
 
-## Low Cost and Enhanced User Experience
+## 저비용과 향상된 사용자 경험
 
-1. **Affordable Transaction Fees**: End-users are not burdened with high transaction fees. Costs are stable and determined by transaction complexity. See [Affordable Smart Contract Execution Cost](computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost) and [Transaction Fees](transaction-fees/transaction-fees.md).
+1. **합리적인 거래 수수료**: 최종 사용자는 높은 거래 수수료에 대한 부담이 없습니다. 비용은 안정적이며 트랜잭션의 복잡도에 따라 정해집니다. [합리적인 스마트 컨트랙트 실행 비용](computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost) 및 [트랜잭션 수수료](transaction-fees/transaction-fees.md)를 참조하세요.
 
-2. **[Fee Delegation](./transactions/transactions.md#fee-delegation)**: Applications can cover users' transaction fees, allowing for flexible business models and lowering user acquisition barriers.
+2. **[수수료 위임](./transactions/transactions.md#fee-delegation)**: 애플리케이션에서 사용자의 거래 수수료를 부담할 수 있으므로 유연한 비즈니스 모델이 가능하고 사용자 유치 장벽을 낮출 수 있습니다.
 
-## Open-Source Infrastructure and Ecosystem Support
+## 오픈소스 인프라 및 생태계 지원
 
-1. **Primary Infrastructure**: Includes SDKs, smart contract libraries, wallets, chain explorers, distributed storage solutions, Oracle support, and bridges.
+1. **기본 인프라**: SDK, 스마트 컨트랙트 라이브러리, 월렛, 체인 탐색기, 분산 스토리지 솔루션, Oracle 지원 및 브리지 등이 있습니다.
 
-2. **Secondary Infrastructure**: Ecosystem for supporting products and services, including integration services, stablecoin integrations, DAOs, NFT marketplaces, DEX, DeFi, and traditional finance interfaces.
+2. **보조 인프라**: 서비스 통합, 스테이블코인 통합, DAO, NFT 마켓플레이스, DEX, DeFi, 기존 금융 인터페이스 등 제품 및 서비스를 지원하기 위한 에코시스템입니다.
 
-3. **Ecosystem Fund**: 50% of newly minted tokens are reinvested in the ecosystem through [Kaia Ecosystem Fund](token-economy.md#kaia-ecosystem-fund) and [Kaia Infrastructure Fund](token-economy.md#kaia-infrastructure-fund).
+3. **생태계 펀드**: 새로 발행되는 토큰의 50%는 [Kaia Ecosystem Fund](token-economy.md#kaia-ecosystem-fund)와 [Kaia Infrastructure Fund](token-economy.md#kaia-infrastructure-fund)를 통해 생태계에 재투자됩니다.
 
-## Community Co-Building and Governance
+## 커뮤니티 협업 및 거버넌스
 
-1. **Diverse Community Engagement**: Kaia expands its ecosystem through collaboration with game guilds, investment DAOs, community DAOs, and global alliances.
+1. **다양한 커뮤니티 활동**: Kaia는 게임 길드, 투자 DAO, 커뮤니티 DAO, 글로벌 제휴사와의 협업을 통해 생태계를 확장하고 있습니다.
 
-2. **Decentralized Governance**: The Kaia Governance Council (GC) includes traditional enterprises, DAOs, and builders, creating a unique governance structure with hundreds of participants.
+2. **탈중앙화된 거버넌스**: Kaia 거버넌스 위원회(GC)에는 기존 기업, DAO, 빌더가 포함되어 있으며, 수백 명의 참여자로 구성된 독특한 거버넌스 구조로 구성되어 있습니다.
 
-In summary, Kaia maintains blockchain's core characteristics of transparency, security, and decentralization while providing these enhancements. The protocol remains stable with strongly committed stakeholders, creating an ideal environment for builders to bring innovative Web3 ideas to life.
+요약하자면, Kaia는 블록체인의 핵심 특성인 투명성, 보안, 탈중앙화를 유지하면서 이런 향상된 기능을 제공합니다. 프로토콜은 강력한 이해관계자들과 함께 안정적으로 유지되고 있으며, 빌더가 혁신적인 Web3 아이디어를 실현할 수 있는 이상적인 환경을 조성합니다.
