@@ -20,9 +20,9 @@ KAIA는 카이아 분산 애플리케이션 플랫폼을 운영하기 위한 필
 | Gkei | 10^9 kei  | 1,000,000,000             |
 | KAIA | 10^18 kei | 1,000,000,000,000,000,000 |
 
-## Historical Pricing <a id="historical-pricing"></a>
+## 과거 시세 정보 <a id="historical-pricing"></a>
 
-You can download historical price data for the former KLAY and FNSA tokens using the following links:
+다음 링크를 통해 이전 KLAY 및 FNSA 토큰의 과거 가격 데이터를 다운로드할 수 있습니다.
 
-- [Download KLAY historical pricing](pathname:///files/Klaytn_historical_data_coinmarketcap.csv)
-- [Download FNSA historical pricing](pathname:///files/Finschia_historical_data_coinmarketcap.csv)
+- [KLAY 과거 시세 다운로드](pathname:///files/Klaytn_historical_data_coinmarketcap.csv)
+- [FNSA 과거 시세 다운로드](pathname:///files/Finschia_historical_data_coinmarketcap.csv)
