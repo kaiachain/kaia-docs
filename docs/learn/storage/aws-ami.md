@@ -13,7 +13,7 @@ Kaia provides different types of AMIs, whose chaindata has been synced with diff
 | state-migrated   | Full mode, state migrated (or state batch pruned) | `kaia-xxxx-clean-en-xxxx`|
 | archive          | Archive mode                                      | `kaia-xxxx-clean-archive-en-xxxx` |
 
-Kaia provide these 4 types of AMIs for both mainnet and kairos.
+Kaia provides these 4 types of AMIs for both mainnet and kairos.
 
 See [State Batch Pruning](../state-pruning/#state-batch-pruning-state-migration) for more details on state migrated chaindata.
 See [Block Syncronization](./block-sync.md) for more details on block sync modes.
