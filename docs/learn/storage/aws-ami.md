@@ -16,7 +16,7 @@ Kaia provides different types of AMIs, whose chaindata has been synced with diff
 Kaia provides these 4 types of AMIs for both mainnet and kairos.
 
 See [State Batch Pruning](../state-pruning/#state-batch-pruning-state-migration) for more details on state migrated chaindata.
-See [Block Syncronization](./block-sync.md) for more details on block sync modes.
+See [Block Synchronization](../../learn/storage/block-sync.md) for more details on block sync modes.
 
 ## AMI generation period
 
