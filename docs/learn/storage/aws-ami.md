@@ -4,7 +4,7 @@ Kaia offers an AWS AMI ([Amazon Machine Image](https://docs.aws.amazon.com/AWSEC
 
 ## Types of EN AMIs
 
-Kaia provide different types of AMIs, whose chaindata has been synced with different modes.
+Kaia provides different types of AMIs, whose chaindata has been synced with different modes.
 
 | **Type** | **Sync Mode** | **AMI Name** |
 |----------|---------------|--------------|
