@@ -1,4 +1,4 @@
-# Kaia Endpoint Node AMIs
+# Use AWS AMIs
 
 Kaia offers an AWS AMI ([Amazon Machine Image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for Kaia endpoint nodes (EN). These AMIs are pre-installed with both the EN software and the chaindata, enabling users to quickly and conveniently launch a fully operational node. With Kaia's AMI, setting up a new endpoint node on demand becomes seamless, allowing for rapid scaling and simplifying the process of joining the Kaia network.
 
