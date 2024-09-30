@@ -1,6 +1,10 @@
 # Use AWS AMIs
 
-Kaia offers an AWS AMI ([Amazon Machine Image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for Kaia endpoint nodes (EN). These AMIs are pre-installed with both the EN software and the chaindata, enabling users to quickly and conveniently launch a fully operational node. With Kaia's AMI, setting up a new endpoint node on demand becomes seamless, allowing for rapid scaling and simplifying the process of joining the Kaia network.
+Kaia offers an AWS AMI ([Amazon Machine Image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for Kaia endpoint nodes (EN). These AMIs are pre-installed with both the EN software and the chaindata, enabling users to quickly and conveniently launch a fully operational node. With Kaia's AMI, setting up a new endpoint node on demand becomes seamless, allowing for simplifying the process of joining the Kaia network.
+
+## Why use AMI
+
+AMI offers a convenient way to launch a new Kaia EN. Also, as its chaindata is already set, you don't need extra disk storage to download and extract compressed chaindata. Additionally, using AMI is the only option to operate a new EN without full sync for some sync modes, such as archive mode or full mode without state migration (we only provide snapshot download for pruned chaindata).
 
 ## Types of EN AMIs
 
@@ -83,7 +87,7 @@ If the service restarted and the EN has started successfully, you can check its 
 $ tail -f /var/kend/logs/kend.out
 ```
 
-Kaia provides a CLI client `ken console`. You can interact with the Kaia node using the `ken console` via multiple endpoints, and one option is to use IPC (inter-process communication). The IPC file `kaia.ipc` is located in the data directory on an EN, in our case `/var/kend/data`. Thus in order to use `ken console`:
+Kaia provides a CLI client `ken console`. You can interact with the Kaia node using the `ken console` via multiple endpoints, and one option is to use IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on an EN, in our case `/var/kend/data`. Thus in order to use `ken console`:
 
 ```bash
 $ sudo ken attach /var/kend/data/klay.ipc

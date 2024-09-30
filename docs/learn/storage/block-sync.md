@@ -57,7 +57,7 @@ Chaindata snapshots offer a faster alternative to Full Sync. A snapshot is a com
 
 ## AWS AMI
 
-AWS AMI provides a convienient way to launch a fully operational Kaia endpoint node. The AMIs are open to public so that anyone can use. We produce AMIs every day, so the chaindata in the latest AMI should be less than one day behind. See [AWS AMI](./aws-ami.md) for more information.
+AWS AMI provides a convenient way to launch a fully operational Kaia endpoint node. The AMIs are open to the public so that anyone can use them. We produce AMIs every day, so the chaindata in the latest AMI should be less than one day behind. See [AWS AMI](../../misc/operation/aws-ami.md) for more information.
 
 ## Snap Sync
 
