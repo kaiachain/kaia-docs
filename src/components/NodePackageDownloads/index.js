@@ -162,3 +162,9 @@ export default function NodePackageDownloads() {
     </div>
   )
 }
+
+export const isAddArm = (type, machineType, tag_name) => {
+    return type === 'kaia'
+        && ['rpm','linux'].includes(machineType)
+        && !['v1.0.0', 'v1.0.1', 'v1.0.2'].includes(tag_name)
+}
