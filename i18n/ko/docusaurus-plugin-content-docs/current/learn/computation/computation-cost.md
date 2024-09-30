@@ -12,22 +12,22 @@
 
 마지막 접근 방식은 트랜잭션의 계산 비용을 제한하는 것입니다. 실제 실행 시간을 기준으로 각 EVM 연산 코드의 계산 비용을 모델링하고 트랜잭션의 계산 비용 합계를 제한합니다. 이 접근 방식을 사용하면 다른 요소를 제거하고 정규화된 실행 시간 단위만 계산하므로 노드들도 합의에 도달할 수 있습니다.
 
-따라서 저희는 카이아에 세 번째 옵션을 선택했습니다. The computation cost limit was 100,000,000, but as CPU computing performance has increased, the limit has been raised to 150,000,000 after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Kaia provides [klay_estimateComputationCost](../../../references/json-rpc/klay/estimate-computation-cost). The usage is almost the same as [klay_estimateGas](../../../references/json-rpc/klay/estimate-gas).
+따라서 저희는 카이아에 세 번째 옵션을 선택했습니다. 계산 비용 제한은 100,000,000이었으나, CPU 컴퓨팅 성능이 향상됨에 따라 Cancun EVM 하드포크 이후 150,000,000으로 제한이 상향되었습니다. 이 제한 값은 플랫폼에 따라 결정되므로 개발자는 트랜잭션의 계산 비용을 알고 있어야 합니다. 트랜잭션 비용을 계산하기 위해 Kaia는 [klay_estimateComputationCost](../../../references/json-rpc/klay/estimate-computation-cost)를 제공합니다. 사용법은 [klay_estimateGas](../../../references/json-rpc/klay/estimate-gas)와 거의 동일합니다.
 
 :::note
 
-Computation cost related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
+계산 비용과 관련된 하드포크 변경 사항은 이 페이지 하단에서 확인할 수 있습니다. [하드포크 변경사항](#hardfork-changes)으로 이동합니다.
 
 :::
 
-## Computation Cost Limit <a id="coputation-cost-limit"></a>
+## 계산 비용 제한 <a id="coputation-cost-limit"></a>
 
-A series of opcodes or precompiled contracts are executed sequentially when executing a transaction. To limit the execution time of a transaction, we have made a deterministic execution time calculation model for opcodes and precompiled contracts based on real execution time.
+트랜잭션을 실행할 때 일련의 옵코드 또는 미리 컴파일된 컨트랙트가 순차적으로 실행됩니다. 트랜잭션의 실행 시간을 제한하기 위해 실제 실행 시간을 기반으로 옵코드와 사전 컴파일된 컨트랙트에 대한 결정론적 실행 시간 계산 모델을 만들었습니다.
 
-Based on this model, predetermined computation cost values for opcodes and precompiled contracts are added to the total computation cost. If the total value exceeds computation cost limit, transaction execution is aborted and returns [ComputationCostLimitReached(0x0a)](../../references/sdk/transaction-error-codes.md) error.
+이 모델을 기반으로 옵코드와 미리 컴파일된 컨트랙트에 대해 미리 정해진 계산 비용 값이 총 계산 비용에 추가됩니다. 총 비용이 계산 비용 한도를 초과하면 트랜잭션 실행이 중단되고 [ComputationCostLimitReached(0x0a)](../../references/sdk/transaction-error-codes.md) 오류가 반환됩니다.
 
-When setting the computation cost limit value, we set `--opcode-computation-cost-limit` flag value as a limit if it is set as a non-zero value. If it's zero, the limit is set to the default computation cost limit defined for each specific hardfork.
-Exceptionally, the limit for call/estimateGas/estimateComputationCost is always set to unlimited and is not influenced by flag or hardfork values. However, execution still can be aborted due to other limits such as gas cap.
+연산 비용 제한 값을 설정할 때 `--opcode-computation-cost-limit` 플래그 값이 0으로 설정되지 않았다면 이 값을 제한값으로 설정합니다. 이 값이 0이면 각 특정 하드포크에 정의된 기본 계산 비용 제한 값으로 설정됩니다.
+예외적으로 call/estimateGas/estimateComputationCost의 계산 비용의 제한은 없으며 플래그나 하드포크 값의 영향을 받지 않습니다. 그러나 가스 한도와 같은 다른 제한 사항으로 인해 실행이 중단될 수 있습니다.
 
 ## 연산 코드 계산 비용 <a id="computation-cost-of-opcodes"></a>
 
@@ -187,29 +187,29 @@ Exceptionally, the limit for call/estimateGas/estimateComputationCost is always 
 | TLOAD          |   220 |
 | MCOPY          |   250 |
 
-## Precompiled contracts computation cost table <a id="precompiled-contracts-computation-cost-table"></a>
+## 미리 컴파일된 컨트랙트 계산 비용 표 <a id="precompiled-contracts-computation-cost-table"></a>
 
-`Input` is a byte array input of a precompiled contract.
+`Input`은 미리 컴파일된 컨트랙트의 바이트 배열 입력입니다.
 
-| Address | Precompiled contracts | Computation Cost                                                                                                                                          |
-| :------ | :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0x01    | ecrecover             | 113,150                                                                                                                                                   |
-| 0x02    | sha256hash            | numOfWords(input) / 32 \* 100 + 1,000                                                                                                  |
-| 0x03    | ripemd160hash         | numOfWords(input) / 32 \* 10 + 100                                                                                                     |
-| 0x04    | dataCopy              | 0                                                                                                                                                         |
-| 0x05    | bigModExp             | see the code [here](https://github.com/kaiachain/kaia/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)                      |
-| 0x06    | bn256Add              | 8,000                                                                                                                                                     |
-| 0x07    | bn256ScalarMul        | 100,000                                                                                                                                                   |
-| 0x08    | bn256Pairing          | numOfPairings(input) \* 1,000,000 + 2,000,000                                                                                          |
-| 0x09    | blake2f               | bigEndian(getRounds(input[0:4])) \* 10 + 10,000 |
-| 0x0A    | kzg                   | 2,200,000                                                                                                                                                 |
-| 0x3FD   | vmLog                 | 10                                                                                                                                                        |
-| 0x3FE   | feePayer              | 10                                                                                                                                                        |
-| 0x3FF   | validateSender        | numOfSigs(input) \* 180,000 + 10,000                                                                                                   |
+| 주소    | 미리 컴파일된 컨트랙트   | 계산 비용                                                                                                                                                     |
+| :---- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x01  | ecrecover      | 113,150                                                                                                                                                   |
+| 0x02  | sha256hash     | numOfWords(input) / 32 \* 100 + 1,000                                                                                                  |
+| 0x03  | ripemd160hash  | numOfWords(input) / 32 \* 10 + 100                                                                                                     |
+| 0x04  | dataCopy       | 0                                                                                                                                                         |
+| 0x05  | bigModExp      | see the code [here](https://github.com/kaiachain/kaia/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)                      |
+| 0x06  | bn256Add       | 8,000                                                                                                                                                     |
+| 0x07  | bn256ScalarMul | 100,000                                                                                                                                                   |
+| 0x08  | bn256Pairing   | numOfPairings(input) \* 1,000,000 + 2,000,000                                                                                          |
+| 0x09  | blake2f        | bigEndian(getRounds(input[0:4])) \* 10 + 10,000 |
+| 0x0A  | kzg            | 2,200,000                                                                                                                                                 |
+| 0x3FD | vmLog          | 10                                                                                                                                                        |
+| 0x3FE | feePayer       | 10                                                                                                                                                        |
+| 0x3FF | validateSender | numOfSigs(input) \* 180,000 + 10,000                                                                                                   |
 
-## Hardfork Changes <a id="hardfork-changes"></a>
+## 하드포크 변경 사항 <a id="hardfork-changes"></a>
 
-| Hardfork     | New items                                                                                                                                                                                                                                               | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |   |   |
+| 하드포크         | 신규 항목                                                                                                                                                                                                                                                   | 변경 사항                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |   |   |
 | ------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
 | Cancun EVM   | BLOBBASEFEE (0x49)<br/>BLOBHASH (0x50)<br/>TSTORE (0x5c) opcode<br/>TLOAD (0x5d)<br/>MCOPY (0x5e)<br/>kzg (0x0a) precompiled contract | increase the computation cost limit <br/>from 100,000,000 to 150,000,000<br/><br/>reduce the computation cost of some opcodes <br/>due to cpu performance increase<br/>-Sdiv (0x05): 739 -> 360<br/>-Mod (0x06): 812 -> 320<br/>-Addmod (0x08): 1410 -> 360<br/>-Mulmod (0x09): 1760 -> 700<br/>-Exp (0x0A): 5000 -> 720<br/>-Sha3 (0x20): 2465 -> 560<br/>-Mstore8 (0x53): 5142 -> 230<br/>-Log1, Log2, Log3, Log4 (0xA1-0xA4): 1000 -> 500<br/><br/>increase the computation cost of some opcodes <br/>due to increased database size<br/>-SLOAD (0x54): 835 -> 2550<br/>-SSTORE (0x55): 1548 -> 2510 |   |   |
 | Shanghai EVM | PUSH0 (0x5f) opcode                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |   |   |
