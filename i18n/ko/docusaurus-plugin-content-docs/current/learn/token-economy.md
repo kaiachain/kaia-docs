@@ -2,29 +2,29 @@
 
 ## 개요 <a id="overview"></a>
 
-카이아의 토큰 이코노미는 생태계, 성장 이니셔티브, 전략적 투자를 강화하기 위한 지속 가능한 자금 구조를 만들기 위해 설계되었습니다. 많은 퍼블릭 블록체인 프로젝트는 노드 운영자(채굴자 또는 블록 생성자)에게만 인센티브를 제공하는 화폐 시스템을 가지고 있으며, 네트워크 유지보수라는 기술적 측면에만 초점을 맞추고 있습니다. 그러나 이러한 설계는 네트워크 토큰 이코노미의 성장에 기여하거나 장기적인 성장 전망에 투자하는 다른 유형의 참여자들에게 인센티브를 제공하는 것의 중요성을 놓치고 있습니다. 이와는 대조적으로 카이아의 토큰 이코노미는 보다 다양한 형태의 참여자들이 기여한 것에 대해 보상하도록 설계되었으며, 블록체인 노드를 유지하는 것 외에도 미래 성장 이니셔티브와 전략적 투자 프로젝트에 필요한 지속적인 자원을 조달할 수 있는 자금 조달 구조가 내장되어 있습니다.
+Kaia의 토큰 이코노미는 생태계, 성장 이니셔티브, 전략적 투자를 강화하기 위한 지속 가능한 자금 구조를 만들기 위해 설계되었습니다. 많은 퍼블릭 블록체인 프로젝트는 노드 운영자(채굴자 또는 블록 생성자)에게만 인센티브를 제공하는 화폐 시스템을 가지고 있으며, 네트워크 유지보수라는 기술적 측면에만 초점을 맞추고 있습니다. 그러나 이러한 설계는 네트워크 토큰 이코노미의 성장에 기여하거나 장기적인 성장 전망에 투자하는 다른 유형의 참여자들에게 인센티브를 제공하는 것의 중요성을 놓치고 있습니다. 이와는 대조적으로 카이아의 토큰 이코노미는 보다 다양한 형태의 참여자들이 기여한 것에 대해 보상하도록 설계되었으며, 블록체인 노드를 유지하는 것 외에도 미래 성장 이니셔티브와 전략적 투자 프로젝트에 필요한 지속적인 자원을 조달할 수 있는 자금 조달 구조가 내장되어 있습니다.
 
 ## 펀딩 구조 <a id="funding-structure"></a>
 
-카이아의 자금 구조는 카이아 네트워크의 블록 생성과 함께 지속적으로 운영됩니다. 새로운 블록이 생성될 때마다 새로 발행된 KAIA와 해당 블록에서 사용된 트랜잭션 수수료의 합계(통칭하여 "블록 보상"이라 함)가 합산되어 미리 정해진 비율에 따라 다음 세 개의 대상 계좌에 분배됩니다:
+Kaia의 자금 구조는 카이아 네트워크의 블록 생성과 함께 지속적으로 운영됩니다. 새로운 블록이 생성될 때마다 새로 발행된 KAIA와 해당 블록에서 사용된 트랜잭션 수수료의 합계(통칭하여 "블록 보상"이라 함)가 합산되어 미리 정해진 비율에 따라 다음 세 개의 대상 계좌에 분배됩니다:
 
-- Validators and Community: 50%
-  - Block proposer rewards: 20% of the 50% (10% of total)
-  - Staking rewards: 80% of the 50% (40% of total)
+- 검증자 및 커뮤니티: 50%
+  - 블록 제안자 보상: 50%의 20%(총 10%)
+  - 스테이킹 보상: 50%의 80%(총 40%)
 - Kaia Ecosystem Fund (KEF): 25%
 - Kaia Infrastructure Fund (KIF): 25%
 
-9.6 KAIA will be minted for every new block. This implies that approximately 200 million KAIA will be minted annually, which is equivalent to 5.2% annual inflation against the total KAIA tokens in the market (the annual inflation rate is subject to change through the Kaia Governance Process). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
+새로운 블록이 생성될 때마다 9.6 KAIA가 발행됩니다. 이는 연간 약 2억 개의 KAIA가 발행된다는 것을 의미하며, 이는 시장의 총 KAIA 토큰 대비 연간 5.2%의 인플레이션에 해당합니다(연간 인플레이션율은 Kaia 거버넌스 프로세스를 통해 변경될 수 있습니다). 거래 수수료는 미리 정해진 수수료 표에 따라 부과되고 정산됩니다. 거래 수수료에 대한 자세한 내용은 [거래 수수료](transaction-fees/transaction-fees.md)를 참조하세요.
 
-## 카이아 거버넌스 카운슬 보상 <a id="klaytn-governance-council-reward"></a>
+## Kaia 거버넌스 카운슬 보상 <a id="kaia-governance-council-reward"></a>
 
-카이아 거버넌스 카운슬은 코어 셀 운영자 (CCO)들의 집합체입니다. 카운슬 멤버는 코어 셀 (CC)을 유지 관리할 책임이 있으며, 따라서 카운슬은 카이아 생태계에서 기본 인프라 제공을 책임지는 필수적인 기구입니다. 카운슬 멤버가 되려면 카이아 거버넌스 프로세스에 따라 자격 심사를 거쳐야 하며, 최소 5백만 KAIA를 스테이킹해야 합니다. 카이아 거버넌스 카운슬 보상은 카운슬 멤버들이 카이아 생태계의 안정적인 기반을 지속적으로 제공할 수 있도록 인센티브를 제공하는 구조입니다.
+Kaia 거버넌스 카운슬은 코어 셀 운영자 (CCO)들의 집합체입니다. 카운슬 멤버는 코어 셀 (CC)을 유지 관리할 책임이 있으며, 따라서 카운슬은 Kaia 생태계에서 기본 인프라 제공을 책임지는 필수적인 기구입니다. 카운슬 멤버가 되려면 Kaia 거버넌스 프로세스에 따라 자격 심사를 거쳐야 하며, 최소 5백만 KAIA를 스테이킹해야 합니다. Kaia 거버넌스 카운슬 보상은 카운슬 멤버들이 Kaia 생태계의 안정적인 기반을 지속적으로 제공할 수 있도록 인센티브를 제공하는 구조입니다.
 
-### 카이아 거버넌스 카운슬 보상 메커니즘 <a id="klaytn-governance-council-reward-mechanism"></a>
+### Kaia 거버넌스 카운슬 보상 매커니즘 <a id="kaia-governance-council-reward-mechanism"></a>
 
-For each block in the Kaia blockchain, a Committee is formed by randomly selecting members from the Kaia Governance Council (GC). This Committee consists of a single member who is assigned the role of Proposer, while the remaining Committee members take on the role of Validators. Once a block is successfully created and appended to the Kaia blockchain, the block reward is distributed among the Council members and various funds according to the previously mentioned ratios.
+Kaia 블록체인의 각 블록마다 Kaia 거버넌스 카운슬(GC)에서 무작위로 구성원을 선정하여 위원회를 구성합니다. 이 위원회는 제안자(Proposer) 역할을 맡은 한 명의 위원으로 구성되며, 나머지 위원들은 검증자(Validators) 역할을 맡습니다. 블록이 성공적으로 생성되어 Kaia 블록체인에 추가되면, 블록 보상은 앞서 언급한 비율에 따라 카운슬 멤버와 다양한 기금에 분배됩니다.
 
-All Council members have an equal probability of being selected as the Proposer for a given block, and the block proposer reward is distributed evenly among them. However, the GC staking reward is allocated proportionally based on the amount of KAIA staked by each member, minus the minimum requirement of 5 million KAIA. This means that Council members who stake a larger amount of KAIA beyond the minimum threshold will receive a greater share of the staking reward compared to those who stake less. As a result, Council members are incentivized to stake more KAIA to maximize their potential rewards from the GC staking award portion of the block reward distribution.
+모든 카운슬 멤버는 특정 블록의 제안자로 선정될 확률이 동일하며, 블록 제안자 보상은 멤버들에게 균등하게 분배됩니다. 단, GC 스테이킹 보상은 각 멤버가 스테이킹한 KAIA에서 최소 요건인 5백만 KAIA를 뺀 금액에 비례하여 배분됩니다. 즉, 최소 임계값을 초과하여 더 많은 양의 KAIA를 스테이킹한 카운슬 멤버는 스테이킹 보상을 더 적게 스테이킹한 멤버에 비해 더 많은 몫을 받게 됩니다. 그 결과, 카운슬 멤버들은 블록 보상 분배 중 GC 스테이킹 보상 부분에서 얻을 수 있는 잠재적 보상을 최대화하기 위해 더 많은 KAIA를 스테이킹하도록 동기 부여를 받게 됩니다.
 
 최소 5백만 KAIA 스테이킹 요건을 충족하는 한, Kaia 거버넌스 카운슬 멤버는 자신의 KAIA를 자유롭게 스테이킹하거나 스테이킹을 해제할 수 있습니다. 스테이킹 정보는 86,400 블록마다 업데이트되며, 새로 스테이킹된 KAIA는 스테이킹이 완료된 시점으로부터 두 번의 업데이트 주기 후에 정보가 적용됩니다. 악의적인 회원의 즉각적인 탈퇴를 방지하기 위해 스테이킹된 KAIA를 철회하려면 1주일의 지연 시간이 필요합니다.
 
@@ -44,49 +44,49 @@ Liveness Failure 야기:
 
 ## Kaia Ecosystem Fund <a id="kaia-ecosystem-fund"></a>
 
-The Kaia Ecosystem Fund (KEF) was established to support Kaia's mission of enabling greater transparency and verifiability. It is funded by 25% of the total KAIA issued when creating a block.
+Kaia Ecosystem Fund(KEF)는 투명성과 검증 가능성의 제고라는 Kaia의 사명을 실현하고자 설립되었습니다. 블록 생성 시 발행되는 총 KAIA의 25%로 자금을 조달합니다.
 
-The Kaia Ecosystem Fund will be used to fund activities that improve the Kaia ecosystem, such as:
+Kaia Ecosystem Fund는 다음과 같은 Kaia 생태계를 개선하는 활동을 지원하는 자금으로 사용됩니다:
 
-1. **Service Contribution Reward (SCR)**: The KEF will provide rewards to service developers or users operating on the integrated ecosystem, as compensation for directly or indirectly contributing to the enhancement of the ecosystem's value.
-2. **Building our Developer Community**: The KEF will support various initiatives including hackathons, development education programs, collaborative research with academia, and collaboration with various DAOs to foster and grow the Kaia developer community.
-3. **Fostering Ecosystem Services and Infrastructure**: The KEF will support essential ecosystem infrastructure, alongside the development of services with clear utility and provide marketing support.
-4. **Kaia Eco Fund Indirect Investment**: The KEF will make indirect mid-to long-term investments by entrusting specialized crypto VCs. A portion of the profits generated upon subsequent investment recovery will be either burned or returned to the Kaia ecosystem.
-5. **Governance Committee Budget**: This budget is allocated for the operation of committees in specific sectors such as Gaming, DeFi, and Community. These committees aim to grow the Kaia Blockchain ecosystem in their respective sectors.
-6. **Other ecosystem and community-building activities**
+1. **서비스 기여 보상(SCR)**: 통합 생태계에서 활동하는 서비스 개발자 또는 사용자에게 생태계 가치 향상에 직간접적으로 기여한 것에 대한 보상으로 KEF가 보상을 지급합니다.
+2. **개발자 커뮤니티 구축**: 카이아 개발자 커뮤니티를 육성하고 성장시키기 위한 해커톤, 개발 교육 프로그램, 학계와의 공동 연구, 다양한 DAO와의 협업 등 다양한 이니셔티브를 지원할 예정입니다.
+3. **생태계 서비스 및 인프라 육성**: KEF는 효용성이 명확한 서비스 개발과 함께 필수적인 생태계 인프라를 지원하고 마케팅을 지원할 것입니다.
+4. **Kaia 에코 펀드 간접 투자**: KEF는 암호화폐 전문 VC에 위탁하여 중장기 간접 투자를 진행합니다. 이후 투자금 회수 시 발생하는 수익의 일부는 소각되거나 Kaia 생태계에 환원됩니다.
+5. **거버넌스 위원회 예산**: 이 예산은 게임, 탈중앙 금융, 커뮤니티와 같은 특정 분야의 위원회 운영을 위해 할당됩니다. 이 위원회는 각자의 분야에서 Kaia 블록체인 생태계를 성장시키는 것을 목표로 합니다.
+6. **기타 생태계 및 커뮤니티 구축 활동**
 
-The administration of the Kaia Ecosystem Fund follows a process in which the Governance Council (GC) reviews and approves the use of funds in public forums on [Kaia Square](https://square.klaytn.foundation/Home). The Foundation will submit a quarterly budget proposal for each category to the GC for approval. 승인된 예산 범위 내에서 구체적인 사용처에 대한 검토와 GC의 재승인이 이루어집니다. All execution details are transparently disclosed.
+Kaia 생태계 기금의 운영은 거버넌스 위원회(GC)가 [Kaia Square](https://square.klaytn.foundation/Home)의 공개 포럼에서 기금 사용을 검토하고 승인하는 절차를 따릅니다. 재단은 분기별로 각 카테고리에 대한 예산 제안서를 GC에 제출하여 승인을 받습니다. 승인된 예산 범위 내에서 구체적인 사용처에 대한 검토와 GC의 재승인이 이루어집니다. 모든 집행 내역은 투명하게 공개됩니다.
 
-New proposals for the use of KEF can be made via the GC, requiring individual approval. Plans are in place to develop a structure allowing more ecosystem participants to efficiently propose and participate in KEF use. For categories requiring specialized and rapid decision-making, separate governance committees may operate.
+KEF 사용에 대한 새로운 제안은 GC를 통해 할 수 있으며, 개별 승인이 필요합니다. 더 많은 생태계 참여자들이 효율적으로 KEF 사용을 제안하고 참여할 수 있는 구조를 개발할 계획입니다. 전문적이고 신속한 의사 결정이 필요한 카테고리의 경우 별도의 거버넌스 위원회를 운영할 수 있습니다.
 
 ## Kaia Infrastructure Fund <a id="kaia-infrastructure-fund"></a>
 
-Kaia Infrastructure Fund (KIF) is an operational fund that will focus on these main categories:
+Kaia Infrastructure Fund(KIF)는 다음과 같은 주요 카테고리에 초점을 맞춘 운영 펀드입니다:
 
-1. **Mainnet and Essential Infrastructure R&D**: This includes advancing research on the latest technologies related to mainnet and infrastructure, foundation-led service development, and infrastructure establishment.
-2. **Ecosystem Acceleration**: This includes token swap, financial support for small-scale Kaia Blockchain ecosystem partners, attracting new GC members, and providing market liquidity.
-3. **Foundation Operations**: This includes operating expenses such as development, accounting, legal affairs, IT infrastructure operations, marketing, and labor costs, as well as financial management and fundraising costs.
+1. **메인넷 및 필수 인프라 R&D**: 여기에는 메인넷 및 인프라 관련 최신 기술 연구, 재단 주도 서비스 개발, 인프라 구축 등이 포함됩니다.
+2. **생태계 활성화**: 여기에는 토큰 스왑, 소규모 Kaia 블록체인 생태계 파트너에 대한 재정 지원, 신규 GC 멤버 유치, 시장 유동성 제공 등이 포함됩니다.
+3. **재단 운영**: 여기에는 개발, 회계, 법무, IT 인프라 운영, 마케팅, 인건비 등의 운영 비용과 재무 관리 및 자금 모금 비용이 포함됩니다.
 
-KIF is funded by 25% of the total KAIA issued when creating a block. It is executed by the foundation through an internal control system after a prior announcement of the budget plan for each detailed category. All execution details are transparently disclosed.
+KIF는 블록 생성 시 발행되는 총 Kaia의 25%로 자금을 조달합니다. 재단은 세부 항목별 예산 계획을 사전에 공고한 후 내부 통제 시스템을 통해 집행합니다. 모든 집행 내역은 투명하게 공개됩니다.
 
-The foundation directly establishes a budget plan and executes the funds for KIF. To ensure transparent execution, the foundation discloses the budget plans and execution details in advance and afterward.
+재단이 직접 예산 계획을 수립하고 KIF의 기금을 집행합니다. 재단은 투명한 집행을 위해 예산 계획과 집행 내역을 사전 및 사후에 공개하고 있습니다.
 
-## Treasury Rebalancing
+## 자금 재조정
 
-To ensure the flexibility and adaptability of Kaia's token economy, a Treasury Rebalance mechanism has been implemented. This process allows for adjustments to the treasury funds in response to changing ecosystem needs and market conditions.
+Kaia 토큰 경제의 유연성과 융통성을 보장하기 위해 자금 재조정(Treasury Rebalance) 메커니즘이 구현되었습니다. 이 프로세스를 통해 변화하는 생태계 요구와 시장 상황에 따라 자금을 조정할 수 있습니다.
 
-### Treasury Rebalance Contract
+### 자금 재조정 컨트랙트
 
-The Treasury Rebalance Contract is a smart contract designed to manage the rebalancing process in a transparent and secure manner. At its core, the contract operates as a finite state machine, progressing through stages such as initialization, registration, approval, and finalization. This structured approach ensures that all stakeholders have the opportunity to review and approve changes before they are implemented.
+자금 재조정 컨트랙트는 투명하고 안전한 방식으로 재조정 프로세스를 관리하도록 설계된 스마트 컨트랙트입니다. 컨트랙트의 핵심은 유한 상태 머신으로 작동하며 초기화, 등록, 승인, 확정 등의 단계를 거쳐 진행된다는 것입니다. 이러한 구조화된 접근 방식은 모든 이해관계자가 변경 사항을 적용하기 전에 검토하고 승인할 수 있는 기회를 보장합니다.
 
-Key features of this contract include:
+이 컨트랙트의 주요 특징은 다음과 같습니다:
 
-1. **Flexible Balance Adjustment**: The contract supports both increases and decreases in total fund balance, enabling comprehensive treasury management.
-2. **Aligned Rebalance Timing**: The rebalance block number can be set to align with relevant hard fork block numbers, providing better synchronization with network upgrades.
-3. **Transparent Execution**: The entire rebalancing process is recorded on the blockchain through the TreasuryRebalance contract, maintaining the ecosystem's commitment to openness and verifiability.
-4. **Validator Consensus**: The rebalance event occurs only after reaching consensus among block validators, ensuring network-wide agreement on the changes.
-5. **Immutable Record**: After execution, a detailed memo of the rebalance event is uploaded to the contract, providing an immutable record of the changes for future reference and auditing.
+1. **유연한 잔액 조정**: 이 컨트랙트는 총 자금 잔액의 증가와 감소를 모두 지원하여 종합적인 자금 관리가 가능합니다.
+2. **재조정 타이밍 동기화**: 재조정 블록 번호를 관련 하드포크 블록 번호와 일치하도록 설정하여 네트워크 업그레이드와 더 잘 동기화할 수 있습니다.
+3. **투명한 체결**: 전체 재조정 과정은 자금 재조정 컨트랙트를 통해 블록체인에 기록되어 개방성과 검증 가능성에 대한 생태계의 약속을 준수합니다.
+4. **검증자 합의**: 재조정 이벤트는 블록 검증자 간의 합의에 도달한 후에만 발생하며, 변경 사항에 대한 네트워크 전반의 합의를 보장합니다.
+5. **변경 불가능한 기록**: 실행 후, 재조정 이벤트에 대한 자세한 메모가 컨트랙트에 업로드되어 향후 참조 및 감사를 위해 변경 사항에 대한 변경 불가능한 기록을 제공합니다.
 
-This Treasury Rebalancing mechanism allows Kaia to maintain a dynamic and responsive token economy, better serving the evolving needs of its ecosystem while upholding principles of transparency and security. By leveraging smart contract technology and a consensus-based approach, it provides a structured and verifiable way to adjust treasury funds, ensuring that the Kaia blockchain can adapt to changing circumstances while maintaining the trust of its community.
+이러한 자금 재조정 메커니즘을 통해 Kaia는 역동적이고 탄력적인 토큰 경제를 유지하고, 투명성과 보안의 원칙을 지키면서 생태계의 변화하는 요구에 더 잘 부응할 수 있습니다. By leveraging smart contract technology and a consensus-based approach, it provides a structured and verifiable way to adjust treasury funds, ensuring that the Kaia blockchain can adapt to changing circumstances while maintaining the trust of its community.
 
 For the information on the Treasury Rebalance contract addresses, please refer to [KIP-160](./governance/governance-by-kip.md#kip-160-an-update-on-treasury-fund-rebalancing-) and [KIP-103](./governance/governance-by-kip.md#kip-103-treasury-fund-rebalancing-).
