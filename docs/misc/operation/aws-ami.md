@@ -31,11 +31,11 @@ We generate the latest AMI every day around 6 pm KST. Once generated, the AMIs l
 
 When launching a new EC2 instace in the AWS console, you should select an AMI. Search for `kaia-mainnet` or `kaia-kairos` in the AMI search bar.
 
-![AMI search bar](/img/learn/ami_search.png)
+![AMI search bar](/img/misc/ami_search.png)
 
 The page will bring you to the search results. Click "Community AMIs" tab in the search result page and select the AMI you want to use in the list.
 
-![AMI search result](/img/learn/ami_select.png)
+![AMI search result](/img/misc/ami_select.png)
 
 ### Allow inbound connections
 
