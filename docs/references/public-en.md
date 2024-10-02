@@ -277,7 +277,7 @@ BlockJoy provides dedicated unmetered blockchain nodes on any bare metal infrast
 * [Website](https://blockjoy.com/)
 * [Blog](https://blockjoy.com/blog)
 
-### Quick Node
+### QuickNode
 
 Quicknode offers blockchain infrastructure powering secure, decentralized innovation. They provide all the tools and resources builders need to create incredible products — all backed by unparalleled, globally-balanced infrastructure, guaranteed reliability and security, a user-friendly interface, and end-to-end customer support.
 
