@@ -45,7 +45,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 ||`https://archive-en.node.kaia.io`|kaia,klay,eth,net|Archive|
 |[QuickNode](https://quicknode.com/)|`https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`|kaia,klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://kaia.blockpi.network/v1/rpc/public`|kaia,klay,eth,net|Full|
-|[BlockJoy](https://blockjoy.com/)|`http://freely-inspired-ram.n0des.xyz`|kaia,klay,eth,net|Full|
+|[BlockJoy](https://blockjoy.com/)|`http://freely-inspired-ram.n0des.xyz`|kaia,klay,eth,net|Archive|
 |[OnFinality](https://onfinality.io/)|`https://klaytn.api.onfinality.io/public`|kaia,klay,eth,net|Full|
 |[Pokt Network](https://pokt.network/)|`https://kaia-mainnet.rpc.grove.city/v1/803ceedf`|kaia,klay,eth,net|Full|
 |[GetBlock](https://getblock.io/)|`https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`|kaia,klay,eth,net|Full|
