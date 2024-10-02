@@ -22,7 +22,7 @@ Kaia 블록체인은 다양한 규모의 프로젝트에 강력한 인프라를 
 
 1. **고성능**:
    - 메인체인은 즉각적인 트랜잭션 완결성과 1초의 블록 생성 시간으로 최소 4,000 TPS를 처리합니다.
-   - 커스터마이징이 가능하고 배포가 쉬운 [서비스 체인](scaling-solutions.md#service-chain)을 <LinkWithTooltip tooltip=“L2(레벨 2) 블록체인은 메인 블록체인이 <br /> 더 많은 트랜잭션을 더 효율적으로 처리하도록 돕는 <br /> 추가 계층 역할을 합니다.”>L2</LinkWithTooltip> 솔루션으로 사용하여 확장성을 확보하였습니다.
+   - 커스터마이징이 가능하고 배포가 쉬운 [서비스 체인](scaling-solutions.md#service-chain)을 <LinkWithTooltip tooltip="L2(레벨 2) 블록체인은 메인 블록체인이 <br /> 더 많은 트랜잭션을 더 효율적으로 처리하도록 돕는 <br /> 추가 계층 역할을 합니다.">L2</LinkWithTooltip> 솔루션으로 사용하여 확장성을 확보하였습니다.
 
 2. **이더리움 호환성**:
    - 100% 호환성을 지원하므로 EVM 기반 dApp을 수정 없이 온보딩할 수 있습니다.
