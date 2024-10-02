@@ -35,6 +35,7 @@ const commonSidebar = [
       'misc/operation/kaia-command',
       'misc/operation/troubleshooting',
       'misc/operation/chaindata-snapshot',
+      'misc/operation/aws-ami',
       'misc/operation/node-pruning',
       'misc/operation/upstream-en',
     ],
