@@ -43,16 +43,19 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Kaia Foundation](https://www.kaia.io)|`https://public-en.node.kaia.io`|kaia,klay,eth,net|Full|
 ||`https://archive-en.node.kaia.io`|kaia,klay,eth,net|Archive|
-|[All That Node](www.allthatnode.com)|`https://klaytn-mainnet.g.allthatnode.com/full/evm`|kaia,klay,eth,net|Full|
+|[QuickNode](https://quicknode.com/)|`https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`|kaia,klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://kaia.blockpi.network/v1/rpc/public`|kaia,klay,eth,net|Full|
+|[BlockJoy](https://blockjoy.com/)|`http://freely-inspired-ram.n0des.xyz`|kaia,klay,eth,net|Full|
 |[OnFinality](https://onfinality.io/)|`https://klaytn.api.onfinality.io/public`|kaia,klay,eth,net|Full|
-|[Pokt Network](https://pokt.network/)|`https://klaytn-rpc.gateway.pokt.network/`|kaia,klay,eth,net|Full|
+|[Pokt Network](https://pokt.network/)|`https://kaia-mainnet.rpc.grove.city/v1/803ceedf`|kaia,klay,eth,net|Full|
+|[GetBlock](https://getblock.io/)|`https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`|kaia,klay,eth,net|Full|
 
 **WebSocket** 
 
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
 |[Kaia Foundation](https://www.kaia.io)|`wss://public-en.node.kaia.io/ws`|kaia,klay,eth,net|Full|
+|[QuickNode](https://quicknode.com/)|`wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`|kaia,klay,eth,net|Full|
 ||`wss://archive-en.node.kaia.io/ws`|kaia,klay,eth,net|Archive|
 |[OnFinality](https://onfinality.io/)|`wss://klaytn.api.onfinality.io/public-ws`|kaia,klay,eth,net|Full|
 
@@ -64,7 +67,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Kaia Foundation](https://www.kaia.io)|`https://public-en-kairos.node.kaia.io`|kaia,klay,eth,net|Full|
 ||`https://archive-en-kairos.node.kaia.io/`|kaia,klay,eth,net|Archive|
-|[All That Node](www.allthatnode.com)|`https://klaytn-baobab.g.allthatnode.com/full/evm`|kaia,klay,eth,net|Full|
+|[QuickNode](https://quicknode.com/)|`https://responsive-green-emerald.kaia-kairos.quiknode.pro/`|kaia,klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://kaia-kairos.blockpi.network/v1/rpc/public`|kaia,klay,eth,net|Full|
 
 **WebSocket** 
@@ -73,6 +76,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |---|---|---|---|
 |[Kaia Foundation](https://www.kaia.io)|`wss://public-en-kairos.node.kaia.io/ws`|kaia,klay,eth,net|Full|
 ||`wss://archive-en-kairos.node.kaia.io/ws`|kaia,klay,eth,net|Archive|
+|[QuickNode](https://quicknode.com/)|`wss://responsive-green-emerald.kaia-kairos.quiknode.pro/`|kaia,klay,eth,net|Full|
 
 ## RPC Service Providers
 
@@ -134,7 +138,7 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 * [Pricing](https://tatum.io/pricing)
 * [Website](https://tatum.io/)
 
-### BlockPi
+### BlockPI
 
 BlockPI Network aims to provide high-quality, robust, and efficient RPC service. To avoid the single-point failure and limitation of scalability, the network is designed to be a distributed structure with expandable RPC nodes.
 
@@ -217,6 +221,96 @@ NodeReal is a blockchain infrastructure and services provider. NodeReal helps d
 * [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
 * [Website](https://nodereal.io)
 
+### Nodit
+
+Nodit aims to provide enterprise-grade Web3 infrastructure accessible to everyone. By offering robust node infrastructure with 99.9% uptime and reliable ready-to-query blockchain data at an affordable price, we are facilitating developers’ entry into the Web3 world.
+
+#### Features
+
+- Official Faucet for Kaia Testnet [https://kaiafaucet.com](https://kaiafaucet.com)
+- 99.9%+ Uptime
+- FREE access to indexed archival data in Datasquare - Dashboards and SQL supported
+- Data pipeline integration support
+- Auto-scaling supported in the upper Developer Tier
+- 100+ Web3 Data APIs for NFTs, Tokens, Statistics, and more
+- Webhook and Stream(WebSocket) Available
+- Dedicated Nodes
+- 350,000,000 Compute Units(CU) monthly with Free Tier
+- Log Monitoring Dashboard
+
+#### References
+
+* [Website](https://nodit.io)
+* [Datasquare Website](https://datasquare.nodit.io)
+* [Docs](https://developer.nodit.io)
+* [Blog](https://blog.nodit.io)
+
+### GetBlock
+
+GetBlock provides fast, reliable API access to full RPC nodes for over 50 major blockchain networks, including Kaia. By handling node maintenance, GetBlock allows developers and enterprises to focus on building dApps and blockchain solutions without infrastructure headaches.
+
+#### Features
+
+- 40k requests daily on free trail with upto 60 RPS. It also has starter and unlimited plan for better performances and support.
+- 99.9%+ Uptime
+- FREE access to 50+ blockchain protocols with RPC nodes
+- Advanced monitoring & statistics
+- Dedicated Nodes
+
+#### References
+
+* [Website](https://getblock.io/)
+* [Docs](https://getblock.io/docs/getblock-explorer/get-started/)
+
+### BlockJoy
+
+BlockJoy provides dedicated unmetered blockchain nodes on any bare metal infrastructure. Its provides Node infrastructure for various services like Nodes, Staking, APIs, Indexers, Blockchain developers etc.
+
+#### Features
+
+- Run nodes at max performance on bare metal servers.
+- Cut operating costs by up to 80%.
+- Enjoy platform's streamlined UI and cloud-like experience built exclusively for Web3 Infrastructure.
+
+#### References
+
+* [Website](https://blockjoy.com/)
+* [Blog](https://blockjoy.com/blog)
+
+### Quick Node
+
+Quicknode offers blockchain infrastructure powering secure, decentralized innovation. They provide all the tools and resources builders need to create incredible products — all backed by unparalleled, globally-balanced infrastructure, guaranteed reliability and security, a user-friendly interface, and end-to-end customer support.
+
+#### Features
+
+- 15 request/second with 10M API credits on Free plan.
+- Providers starter, Growth and Business plan for more credits and IPFS storage. 
+-Battle-tested RPC & API infrastructure providing performance and reliability at-scale.
+- Has dozens of add-ons that make building super-powered dApps easier than ever.
+- Provides streams, the most powerful real-time data pipelines.
+- Event alerts.
+
+#### References
+
+* [Website](https://www.quicknode.com/)
+* [Docs](https://www.quicknode.com/docs/welcome)
+
+### dRPC
+
+Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others. Your trusted Web3 infrastructure partner.
+
+#### Features
+
+- No request limits on Public nodes with General support.
+- Growth and Enterprise plan are also available for High performance nodes.
+- 50+ blockchains across 100+ networks
+- AI-driven load balancer
+- Insightful analytics.
+
+#### References
+
+* [Website](https://www.quicknode.com/)
+* [Docs](https://www.quicknode.com/docs/welcome)
 
 ## Useful Resources 
 
