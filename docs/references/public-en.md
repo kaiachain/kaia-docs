@@ -55,8 +55,8 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |Service Provider|Endpoints|Namespaces|Type|
 |---|---|---|---|
 |[Kaia Foundation](https://www.kaia.io)|`wss://public-en.node.kaia.io/ws`|kaia,klay,eth,net|Full|
-|[QuickNode](https://quicknode.com/)|`wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`|kaia,klay,eth,net|Full|
 ||`wss://archive-en.node.kaia.io/ws`|kaia,klay,eth,net|Archive|
+|[QuickNode](https://quicknode.com/)|`wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`|kaia,klay,eth,net|Full|
 |[OnFinality](https://onfinality.io/)|`wss://klaytn.api.onfinality.io/public-ws`|kaia,klay,eth,net|Full|
 
 ### Testnet (Kairos) Public JSON-RPC Endpoints
@@ -285,7 +285,7 @@ Quicknode offers blockchain infrastructure powering secure, decentralized innova
 
 - 15 request/second with 10M API credits on Free plan.
 - Providers starter, Growth and Business plan for more credits and IPFS storage. 
--Battle-tested RPC & API infrastructure providing performance and reliability at-scale.
+- Battle-tested RPC & API infrastructure providing performance and reliability at-scale.
 - Has dozens of add-ons that make building super-powered dApps easier than ever.
 - Provides streams, the most powerful real-time data pipelines.
 - Event alerts.
