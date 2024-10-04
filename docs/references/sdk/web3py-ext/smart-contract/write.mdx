@@ -72,7 +72,7 @@ Load an account from private key
 
 ---
 
-Create a Web3 instance with the specified kaia **Baobab** testnet URL
+Create a Web3 instance with the specified **kairos** testnet URL
 
 ```py smart_contract_write.py focus=7:9
 
@@ -80,7 +80,7 @@ Create a Web3 instance with the specified kaia **Baobab** testnet URL
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**.
+Also, you can change the provider URL from **kairos** to **quicknode**.
 
 ```py smart_contract_write.py focus=7:9
 from web3py_ext import extend
@@ -90,7 +90,7 @@ from web3.middleware import construct_sign_and_send_raw_middleware
 
 user = Account.from_key('0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49')
 w3 = Web3(Web3.HTTPProvider(
-  'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+  'https://public-en-kairos.node.kaia.io'
   ))
 acc_list = [user]
 w3.middleware_onion.add(construct_sign_and_send_raw_middleware(acc_list))

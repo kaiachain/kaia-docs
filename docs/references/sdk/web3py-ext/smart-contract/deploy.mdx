@@ -89,7 +89,7 @@ Load an account from private key
 
 ---
 
-Create a Web3 instance with the specified kaia **Baobab** testnet URL
+Create a Web3 instance with the specified **kairos** testnet URL
 
 ```py smart_contract_deploy.py focus=7:9
 
@@ -97,7 +97,7 @@ Create a Web3 instance with the specified kaia **Baobab** testnet URL
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**.
+Also, you can change the provider URL from **kairos** to **quicknode**.
 
 ```py smart_contract_deploy.py focus=7:9
 from web3py_ext import extend
@@ -107,7 +107,7 @@ from web3.middleware import construct_sign_and_send_raw_middleware
 
 user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+    'https://public-en-kairos.node.kaia.io'
     ))
 acc_list = [user]
 w3.middleware_onion.add(construct_sign_and_send_raw_middleware(acc_list))
@@ -166,7 +166,7 @@ If you want to automatically sign and send when using **transact** function, use
 
 ---
 
-These are the **contract** that is compiled into bytecode and will be deployed to the Baobab testnet
+These are the **contract** that is compiled into bytecode and will be deployed to the Kairos testnet
 
 ```py smart_contract_deploy.py focus=18:35,37
 
