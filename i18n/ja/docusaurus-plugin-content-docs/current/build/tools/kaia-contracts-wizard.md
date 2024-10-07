@@ -304,7 +304,7 @@ Once you have all that, create a .env file and add the variables. Foundry automa
 The .env file should follow this format:
 
 ```code
-BAOBAB_RPC_URL=
+KAIROS_RPC_URL=
 // if you want to deploy to mainnet
 MAINNET_RPC_URL=
 PRIVATE_KEY=
@@ -314,7 +314,7 @@ We now need to edit the `foundry.toml` file. There should already be one in the 
 
 ```code
 [rpc_endpoints]
-kairos = "${BAOBAB_RPC_URL}"
+kairos = "${KAIROS_RPC_URL}"
 // if you want to deploy to mainnet
 mainnet = "${MAINNET_RPC_URL}"
 ```
@@ -429,19 +429,19 @@ To deploy the each contract run the command below:
 1. airdropKIP7
 
 ```bash
-forge script script/airdropKIP7.s.sol:KIP7AirdropDeployScript --rpc-url $BAOBAB_RPC_URL --broadcast --skip-simulation -vvvv
+forge script script/airdropKIP7.s.sol:KIP7AirdropDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
 ```
 
 2. airdropKIP17
 
 ```bash
-forge script script/airdropKIP17.s.sol:KIP17AirdropDeployScript --rpc-url $BAOBAB_RPC_URL --broadcast --skip-simulation -vvvv
+forge script script/airdropKIP17.s.sol:KIP17AirdropDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
 ```
 
 3. KIP37MultiToken
 
 ```bash
-forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url $BAOBAB_RPC_URL --broadcast --skip-simulation -vvvv
+forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
 ```
 
 If the command was successful for each command, your terminal should look like this:
