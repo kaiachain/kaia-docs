@@ -56,10 +56,10 @@ First, you need to change the library that makes a connection to the node. Then 
 import Caver from 'caver-js'
 
 // const ROPSTEN_TESTNET_RPC_URL = 'https://ropsten.infura.io/'
-const BAOBAB_TESTNET_RPC_URL = 'https://public-en-kairos.node.kaia.io/'
+const KAIROS_TESTNET_RPC_URL = 'https://public-en-kairos.node.kaia.io/'
 
 // const rpcURL = ROPSTEN_TESTNET_RPC_URL
-const rpcURL = BAOBAB_TESTNET_RPC_URL
+const rpcURL = KAIROS_TESTNET_RPC_URL
 
 // const web3 = new Web3(rpcURL)
 const caver = new Caver(rpcURL)
