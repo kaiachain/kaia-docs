@@ -105,7 +105,7 @@ touch .env
 - After creating our file, let's configure our .env file to look like this:
 
 ```js
- KLAYTN_BAOBAB_URL= "Your Baobab RPC link"
+ KAIROS_TESTNET_URL= "Your Kairos RPC link"
  PRIVATE_KEY= "your private key copied from MetaMask wallet"
 ```
 
@@ -123,8 +123,8 @@ require('dotenv').config()
 module.exports = {
   solidity: "0.8.17",
   networks: {
-    baobab: {
-      url: process.env.KLAYTN_BAOBAB_URL || "",
+    kairos: {
+      url: process.env.KAIROS_TESTNET_URL || "",
       gasPrice: 250000000000,
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
