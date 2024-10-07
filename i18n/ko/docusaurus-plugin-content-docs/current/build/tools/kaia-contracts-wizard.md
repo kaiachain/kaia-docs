@@ -304,9 +304,9 @@ While getting started with foundry, you must have been exposed to the preliminar
 .env 파일은 이 형식을 따라야 합니다:
 
 ```code
-BAOBAB_RPC_URL=
-// if you want to deploy to mainnet cypress
-CYPRESS_RPC_URL=
+KAIROS_RPC_URL=
+// if you want to deploy to mainnet
+MAINNET_RPC_URL=
 PRIVATE_KEY=
 ```
 
@@ -314,9 +314,9 @@ PRIVATE_KEY=
 
 ```code
 [rpc_endpoints]
-baobab = "${BAOBAB_RPC_URL}"
-// if you want to deploy to mainnet cypress
-cypress = "${CYPRESS_RPC_URL}"
+kairos = "${KAIROS_RPC_URL}"
+// if you want to deploy to mainnet
+mainnet = "${MAINNET_RPC_URL}"
 ```
 
 ### 스크립트 작성
@@ -429,19 +429,19 @@ source .env
 1. airdropKIP7
 
 ```bash
-forge script script/airdropKIP7.s.sol:KIP7AirdropDeployScript --rpc-url $BAOBAB_RPC_URL --broadcast --skip-simulation -vvvv
+forge script script/airdropKIP7.s.sol:KIP7AirdropDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
 ```
 
 2. airdropKIP17
 
 ```bash
-forge script script/airdropKIP17.s.sol:KIP17AirdropDeployScript --rpc-url $BAOBAB_RPC_URL --broadcast --skip-simulation -vvvv
+forge script script/airdropKIP17.s.sol:KIP17AirdropDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
 ```
 
 3. KIP37MultiToken
 
 ```bash
-forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url $BAOBAB_RPC_URL --broadcast --skip-simulation -vvvv
+forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
 ```
 
 각 명령에 대해 명령이 성공했다면 터미널은 다음과 같이 표시되어야 합니다:
