@@ -105,7 +105,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
 
 ---
 
-Create a Web3 instance with the specified kaia **Baobab** testnet URL
+Create a Web3 instance with the specified **kairos** testnet URL
 
 ```py cancel_example.py focus=12:14
 
@@ -113,7 +113,7 @@ Create a Web3 instance with the specified kaia **Baobab** testnet URL
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**
+Also, you can change the provider URL from **kairos** to **quicknode**
 
 ```python cancel_example.py focus=12:14
 from web3py_ext import extend
@@ -128,7 +128,7 @@ from web3py_ext.utils.klaytn_utils import to_pretty
 from cytoolz import merge
 
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+    'https://public-en-kairos.node.kaia.io'
     ))
 
 def web3_cancel_sign_recover():
