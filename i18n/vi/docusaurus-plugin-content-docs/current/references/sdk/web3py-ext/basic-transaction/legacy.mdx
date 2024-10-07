@@ -90,7 +90,7 @@ Import necessary utils from **eth_account**, **web3py_ext**
 
 ---
 
-Create a Web3 instance with the specified kaia **Baobab** testnet URL
+Create a Web3 instance with the specified **kairos** testnet URL
 
 ```py txTypeLegacyTransaction.py focus=9:11
 
@@ -98,7 +98,7 @@ Create a Web3 instance with the specified kaia **Baobab** testnet URL
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**
+Also, you can change the provider URL from **kairos** to **quicknode**
 
 ```python txTypeLegacyTransaction.py focus=9:11
 from web3py_ext import extend
@@ -110,7 +110,7 @@ from web3py_ext.transaction.transaction import (
 from web3py_ext.utils.klaytn_utils import to_pretty
 
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+    'https://public-en-kairos.node.kaia.io'
     ))
 
 def web3_legacy_value_transfer_sign_recover():
