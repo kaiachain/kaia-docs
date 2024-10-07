@@ -21,7 +21,7 @@ The most simple way to create an account is using the [Kaia Online Toolkit](http
 
 Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
 
-**You need KAIA to send a transaction.** You can get test KLAY for the Baobab testnet from [Faucet](https://faucet.kaia.io). Refer to [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+**You need KAIA to send a transaction.** You can get test KLAY for Kairos testnet from [Faucet](https://faucet.kaia.io). Refer to [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
 
 ## 2. Initialize Project <a id="2.-initialize-project"></a>
 
@@ -118,9 +118,9 @@ We will be writing our code in this file to send a transaction to transfer KAIA.
 
 ## 5. Connect to kaia Node <a id="5.-connect-to-klaytn-node"></a> 
 
-Since we are sending a transaction to the blockchain network, we need to connect to a kaia node. We will be using kaia's testnet Baobab.
+Since we are sending a transaction to the blockchain network, we need to connect to a kaia node. We will be using Kairos Testnet.
 
-We will import the `caver-js` and `read` module and connect to a kaia node in the Baobab network as shown below:
+We will import the `caver-js` and `read` module and connect to a kaia node in the Kairos network as shown below:
 
 ```javascript
 const Caver = require('caver-js')

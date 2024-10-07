@@ -27,7 +27,7 @@ See [example](./web3j-ext/src/main/java/org/web3j/example).
 ## Quickstart
 For basic web3j usage, you can learn through [Web3j tutorial](https://docs.web3j.io/4.10.0/quickstart/) .
 
-### Send Fee Delegated Transaction on Baobab Test network
+### Send Fee Delegated Transaction on Kairos Testnet
 If you want to know more about the concept of fee delegated transaction supported by kaia network, please refer to [kaiadocs](https://docs.klaytn.foundation/content/klaytn/design/transactions).
 
 Check FeeDelegatedValueTransferExample.java file in web3j-ext [examples](https://github.com/kaiachain/kaia-sdk/tree/dev/web3j-ext/web3j-ext/src/main/java/org/web3j/example).

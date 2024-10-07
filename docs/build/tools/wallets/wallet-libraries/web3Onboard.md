@@ -77,7 +77,7 @@ In this step, you will instantiate Onboard with the created modules and a list o
 import Onboard from "@web3-onboard/core";
 const ETH_MAINNET_RPC_URL = `Paste ETH RPC URL`;
 const KAIA_MAINNET_URL = `Paste KAIA MAINNET URL`
-const KAIA_BAOBAB_URL = `Paste KAIA BAOBAB URL`
+const KAIROS_TESTNET_URL = `Paste KAIROS TESTNET URL`
 
 const onboard = Onboard({
   wallets: modules, // created in previous step
@@ -100,8 +100,8 @@ const onboard = Onboard({
       id: "0x3e9", // chain ID must be in hexadecimel
       token: "KAIA",
       namespace: "evm",
-      label: "Kaia Testnet",
-      rpcUrl: KAIA_BAOBAB_URL
+      label: "Kairos Testnet",
+      rpcUrl: KAIROS_TESTNET_URL
     },
    // you can add as much supported chains as possible
   ],

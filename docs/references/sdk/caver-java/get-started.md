@@ -152,7 +152,7 @@ When developing, it's best practice to use an account that isn't associated with
 
 ```java
 public void sendingKLAY() throws IOException, CipherException, TransactionException {
-        Caver caver = new Caver(Caver.BAOBAB_URL);
+        Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
 
         //Read keystore json file.
         File file = new File("./keystore.json");
@@ -394,11 +394,11 @@ When `caver.wallet.newKeyring` is executed with a private key, a Keyring instanc
 
 ## Sending a Transaction <a id="sending-a-transaction"></a>
 
-This section will show you how to send KAIA using caver-java on the Baobab network.
+This section will show you how to send KAIA using caver-java on Kairos Testnet.
 
-### Getting KAIA via Baobab Faucet <a id="getting-klay-via-baobab-faucet"></a>
+### Getting KAIA via Kairos Faucet <a id="getting-klay-via-kairos-faucet"></a>
 
-If you need KAIA for testing, you can get Baobab testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the kaia Wallet using the private key or the keystore file and receive Baobab testnet KAIA via the faucet for testing.
+If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
 
 ### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
@@ -453,7 +453,7 @@ Now you can send a signed transaction to the network like below. If you want to 
 
 ```java
 public String sendRawTransaction() {
-  Caver caver = new Caver(Caver.BAOBAB_URL);
+  Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
   
   String rlpEncoding = "rlpEncoding";
   String txHash = null;
@@ -523,7 +523,7 @@ You can use the `TransactionReceiptProcessor` to get the receipt of the transact
 The following example shows how to get a receipt using PollingTransactionReceiptProcessor.
 
 ```java
-Caver caver = new Caver(Caver.BAOBAB_URL);
+Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
 String txHash = "0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a";
 
 //Sleep duration - 1000ms
@@ -543,7 +543,7 @@ As described in the example above, you can get the result of sending a transacti
 You can use `caver.rpc.klay.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.klay.getTransactionReceipt` RPC call.
 
 ```java
-Caver caver = new Caver(Caver.BAOBAB_URL);
+Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
 String txHash = "0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a";
 
 try {
@@ -572,7 +572,7 @@ Kaia provides various transaction types for extensibility and performance. For m
 Kaia provides Fee Delegation feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```java
-Caver caver = new Caver(Caver.BAOBAB_URL);
+Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
 SingleKeyring senderKeyring = caver.wallet.keyring.createFromPrivateKey("0x{privateKey}");
 caver.wallet.add(senderKeyring);
 
@@ -598,7 +598,7 @@ When the above code is executed, the RLP-encoded string will be printed. (The RL
 The fee payer can send the transaction to the kaia after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's keyring, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
 
 ```java
-Caver caver = new Caver(Caver.BAOBAB_URL);
+Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
 
 SingleKeyring feePayerKeyring = caver.wallet.keyring.createFromPrivateKey("0x{privateKey}");
 caver.wallet.add(feePayerKeyring);
@@ -621,7 +621,7 @@ When the above code is executed, the RLP-encoded string including the sender's s
 The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
 
 ```java
-Caver caver = new Caver(Caver.BAOBAB_URL);
+Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
 
 TransactionReceiptProcessor receiptProcessor = new PollingTransactionReceiptProcessor(caver, 1000, 15);
 
