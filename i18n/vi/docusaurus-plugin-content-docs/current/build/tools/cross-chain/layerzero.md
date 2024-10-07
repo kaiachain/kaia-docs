@@ -55,7 +55,7 @@ const PRIVATE_KEY = vars.get("PRIVATE_KEY");
 /** @type import('hardhat/config').HardhatUserConfig */
   networks: {
     kairos: {
-      url: `https://klaytn-baobab.g.allthatnode.com/full/evm`,
+      url: `https://public-en-kairos.node.kaia.io`,
       accounts: [PRIVATE_KEY]
     },
     mumbai: {
@@ -102,7 +102,7 @@ module.exports = {
   },
   networks: {
     kairos: {
-      url: `https://klaytn-baobab.g.allthatnode.com/full/evm`,
+      url: `https://public-en-kairos.node.kaia.io`,
       accounts: [PRIVATE_KEY]
     },
     mumbai: {
