@@ -69,7 +69,7 @@ Define sender's **address**, **private key** and others **role-based** private k
 
 ---
 
-Set up the provider with the specified kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js SignMsgWithRoleBased.js focus=11
 
@@ -77,7 +77,7 @@ Set up the provider with the specified kaia **Baobab** testnet URL. A provider i
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**
+Also, you can change the provider URL from **kairos** to **quicknode**
 
 ```js SignMsgWithRoleBased.js focus=11
 const { ethers } = require("ethers");
@@ -90,7 +90,7 @@ const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74
 const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
 const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 const txWallet = new Wallet(senderAddr, senderPriv, provider);
 
 async function main() {
