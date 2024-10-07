@@ -395,7 +395,7 @@ touch .env
 After creating your file, lets configure our .env file to look like this:
 
 ```bash
-BAOBAB_URL= "Your RPC URL"
+KAIROS_TESTNET_URL= "Your RPC URL"
 PRIVATE_KEY= "your private key copied from metamask wallet"
 ```
 
@@ -406,7 +406,7 @@ Paste this configurations in your hardhat.config.js file
 ```
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
-const BAOBAB_URL = process.env.BAOBAB_URL;
+const KAIROS_TESTNET_URL = process.env.KAIROS_TESTNET_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -414,7 +414,7 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     kairos: {
-      url: BAOBAB_URL,
+      url: KAIROS_TESTNET_URL,
       accounts: [PRIVATE_KEY],
     }
   }
@@ -605,9 +605,9 @@ Init function initializes web3-Onboard and makes it available for all hooks to u
 To see this in action, paste the code below the previous code in your `_app.js `file:
 
 ```js
-const ETH_MAINNET_RPC_URL = `https://ethereum-mainnet.g.allthatnode.com/full/evm`;
-const KAIA_MAINNET_URL = `https://klaytn-mainnet.g.allthatnode.com/full/evm`;
-const KAIA_BAOBAB_URL = `https://klaytn-baobab.g.allthatnode.com/full/evm`;
+const ETH_MAINNET_RPC_URL = `https://eth-mainnet.g.alchemy.com/v2/demo`;
+const KAIA_MAINNET_URL = `https://public-en.node.kaia.io`;
+const KAIROS_TESTNET_URL = `https://public-en-kairos.node.kaia.io`;
   const web3Onboard =  init({
     wallets: modules,
     chains: [
@@ -629,8 +629,8 @@ const KAIA_BAOBAB_URL = `https://klaytn-baobab.g.allthatnode.com/full/evm`;
         id: "0x3e9", // chain ID must be in hexadecimel
         token: "KAIA",
         namespace: "evm",
-        label: "Kaia Testnet",
-        rpcUrl: KAIA_BAOBAB_URL
+        label: "Kairos Testnet",
+        rpcUrl: KAIROS_TESTNET_URL
       },
      // you can add as much supported chains as possible
     ],
