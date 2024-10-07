@@ -395,7 +395,7 @@ touch .env
 After creating your file, lets configure our .env file to look like this:
 
 ```bash
-BAOBAB_URL= "Your RPC URL"
+KAIROS_TESTNET_URL= "Your RPC URL"
 PRIVATE_KEY= "your private key copied from metamask wallet"
 ```
 
@@ -406,15 +406,15 @@ Paste this configurations in your hardhat.config.js file
 ```
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
-const BAOBAB_URL = process.env.BAOBAB_URL;
+const KAIROS_TESTNET_URL = process.env.KAIROS_TESTNET_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.18",
   defaultNetwork: "hardhat",
   networks: {
-    baobab: {
-      url: BAOBAB_URL,
+    kairos: {
+      url: KAIROS_TESTNET_URL,
       accounts: [PRIVATE_KEY],
     }
   }
@@ -605,9 +605,9 @@ Init function initializes web3-Onboard and makes it available for all hooks to u
 To see this in action, paste the code below the previous code in your `_app.js `file:
 
 ```js
-const ETH_MAINNET_RPC_URL = `https://ethereum-mainnet-rpc.allthatnode.com/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KLAYTN_MAINNET_URL = `https://klaytn-mainnet-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
-const KLAYTN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d322388ZEPI2cs0OHloJ6seI4Wfy36N`;
+const ETH_MAINNET_RPC_URL = `https://eth-mainnet.g.alchemy.com/v2/demo`;
+const KAIA_MAINNET_URL = `https://public-en.node.kaia.io`;
+const KAIROS_TESTNET_URL = `https://public-en-kairos.node.kaia.io`;
   const web3Onboard =  init({
     wallets: modules,
     chains: [
@@ -620,25 +620,25 @@ const KLAYTN_BAOBAB_URL = `https://klaytn-baobab-rpc.allthatnode.com:8551/1d3223
       },
       {
         id: "0x2019", // chain ID must be in hexadecimal
-        token: "KLAY",
+        token: "KAIA",
         namespace: "evm",
-        label: "Klaytn Mainnet",
-        rpcUrl: KLAYTN_MAINNET_URL
+        label: "Kaia Mainnet",
+        rpcUrl: KAIA_MAINNET_URL
       },
       {
         id: "0x3e9", // chain ID must be in hexadecimel
-        token: "KLAY",
+        token: "KAIA",
         namespace: "evm",
-        label: "Klaytn Testnet",
-        rpcUrl: KLAYTN_BAOBAB_URL
+        label: "Kairos Testnet",
+        rpcUrl: KAIROS_TESTNET_URL
       },
      // you can add as much supported chains as possible
     ],
     appMetadata: {
-      name: "Klaytn-web3-onboard-App", // change to your dApp name
+      name: "Kaia-web3-onboard-App", // change to your dApp name
       icon: "paste your icon url"
       logo: "paste your logo url"
-      description: "Web3Onboard-Klaytn",
+      description: "Web3Onboard-Kaia",
       recommendedInjectedWallets: [
         { name: "Coinbase", url: "https://wallet.coinbase.com/" },
         { name: "MetaMask", url: "https://metamask.io" }
