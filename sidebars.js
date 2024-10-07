@@ -369,6 +369,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'RPC API Reference',
+      link: { type: 'doc', id: 'references/json-rpc/references' },
       items: [
         require('./web3rpc/web3rpc-sidebar').kaiaSidebarFormatted,
         require('./web3rpc/web3rpc-sidebar').klaySidebarFormatted,
