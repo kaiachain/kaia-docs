@@ -68,7 +68,7 @@ const providerOptions = {
     options: {
       appName: "Web3Modal Kaia dApp", // required
       infuraId: "NFURA_KEY", // required
-      rpc: "https://klaytn-mainnet.g.allthatnode.com/full/evm", // Optional if `infuraId` is provided; otherwise it's required
+      rpc: "https://public-en.node.kaia.io", // Optional if `infuraId` is provided; otherwise it's required
       chainId: 1001, // Optional. It defaults to 1 if not provided
       darkMode: false // Optional. Use dark theme, defaults to false
     }
@@ -77,7 +77,7 @@ const providerOptions = {
     package: KlipWeb3Provider, //required
     options: {
         bappName: "Web3Modal Kaia dApp", //required
-        rpcUrl: "https://klaytn-mainnet.g.allthatnode.com/full/evm" //required
+        rpcUrl: "https://public-en.node.kaia.io" //required
     }
 },
   kaikas: {
@@ -281,10 +281,10 @@ As established previously, Web3Modal does not have built-in support for Ethereum
             method: "wallet_addEthereumChain",
             params: [
               {
-                chainId: toHex(8217),
-                chainName: "Kaia TestNet",
-                rpcUrls: ["https://klaytn-mainnet.g.allthatnode.com/full/evm"],
-                blockExplorerUrls: ["https://baobob.scope.com/"],
+                chainId: toHex(1001),
+                chainName: "Kairos Testnet",
+                rpcUrls: ["https://public-en-kairos.node.kaia.io"],
+                blockExplorerUrls: ["https://kairos.kaiascan.io/"],
               },
             ],
           });

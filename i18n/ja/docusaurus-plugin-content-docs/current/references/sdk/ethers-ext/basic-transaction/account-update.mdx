@@ -85,7 +85,7 @@ Define **sender address, sender private key and new private key** to be changed
 
 ---
 
-Set up the provider with the specified kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js TxTypeAccountUpdate.js focus=10
 
@@ -93,7 +93,7 @@ Set up the provider with the specified kaia **Baobab** testnet URL. A provider i
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**
+Also, you can change the provider URL from **kairos** to **quicknode**
 
 ```js TxTypeAccountUpdate.js focus=10
 const ethers = require("ethers");
@@ -105,7 +105,7 @@ const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
 const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 const wallet = new Wallet(senderAddr, senderPriv, provider); // decoupled account
 
 async function main() {

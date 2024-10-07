@@ -131,7 +131,7 @@ getEthUsdtPrice()
 // example assumes that the ethers library has been imported and is accessible within your scope
 const getEthUsdtPrice = async () => {
 ////for ethers version 6.0
-const provider = new ethers.JsonRpcProvider("https://klaytn-baobab.g.allthatnode.com/full/evm")
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io")
 ////for ethers version <= 5.7.2
 //const provider = new ethers.providers.JsonRpcProvider('https://public-en-kairos.node.kaia.io')
 const abi = [{ "inputs": [ { "internalType": "string", "name": "marketPair", "type": "string" } ], "name": "checkPrice", "outputs": [ { "internalType": "int256", "name": "price", "type": "int256" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "stateMutability": "view", "type": "function" } ]

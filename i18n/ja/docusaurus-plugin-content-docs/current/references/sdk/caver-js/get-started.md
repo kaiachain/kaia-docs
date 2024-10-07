@@ -74,7 +74,7 @@ If you see the output of console.log like above, proceed with the steps below. T
 
 ### Connecting to a kaia Node <a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
 
-You can import the caver-js module and connect it to a kaia Node in the Baobab testnet as shown in the example below:
+You can import the caver-js module and connect it to a kaia Node in the Kairos testnet as shown in the example below:
 
 ```javascript
 const Caver = require('caver-js')
@@ -412,11 +412,11 @@ RoleBasedKeyring {
 
 ## Sending a Transaction <a href="#sending-a-transaction" id="sending-a-transaction"></a>
 
-This section will show you how to send KAIA using caver-js on the Baobab network.
+This section will show you how to send KAIA using caver-js on  Kairos Testnet.
 
-### Getting KAIA via Baobab Faucet <a href="#getting-klay-via-baobab-faucet" id="getting-klay-via-baobab-faucet"></a>
+### Getting KAIA via Kairos Faucet <a href="#getting-klay-via-kairos-faucet" id="getting-klay-via-kairos-faucet"></a>
 
-If you need KAIA for testing, you can get Baobab testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the kaia Wallet using the private key or the keystore file and receive Baobab testnet KAIA via the faucet for testing.
+If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
 
 ### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 

@@ -73,7 +73,7 @@ Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**
+Also, you can change the provider URL from **kairos** to **quickode**
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=8:10
 from web3py_ext import extend
@@ -84,7 +84,7 @@ from web3py_ext.transaction.transaction import (
 )
 
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+    'https://public-en-kairos.node.kaia.io'
 ))
 
 def web3_legacy_value_transfer_sign_recover():

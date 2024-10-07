@@ -72,7 +72,7 @@ Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**
+Also, you can change the provider URL from **kairos** to **quicknode**
 
 ```py web3_role_based_value_transfer_message_recover.py focus=7
 from eth_account import Account
@@ -81,7 +81,7 @@ from eth_account.messages import encode_defunct
 from eth_utils.curried import to_hex
 from web3py_ext import extend
 
-w3 = Web3(Web3.HTTPProvider('https://klaytn-mainnet.g.allthatnode.com/full/evm'))
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
 
 def web3_role_based_value_transfer_message_recover():
     user = Account.from_key_pair(

@@ -80,7 +80,7 @@ Define **sender, receiver address and sender private key**
 
 ---
 
-Set up the provider with the specified kaia **Baobab** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
 
 ```js txTypeValueTransferTransaction.js focus=9
 
@@ -99,7 +99,7 @@ const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
 const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
 async function main() {
-  const provider = new Web3.providers.HttpProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
   const web3 = new KlaytnWeb3(provider);
   const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
 

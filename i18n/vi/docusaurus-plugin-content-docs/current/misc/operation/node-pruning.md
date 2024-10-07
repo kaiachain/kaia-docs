@@ -3,7 +3,7 @@
 This page explains how to delete historical block states to reduce the storage requirement. Kaia offers two approaches for pruning block states:
 
 - [Live Pruning](../../learn/storage/state-pruning.md#state-live-pruning): With the live pruning feature enabled, the block states beyond a certain retention period will be automatically deleted.
-- [Batch Pruning: State Migration)](../../learn/storage/state-pruning.md#state-batch-pruning-state-migration): The block states can be state-migrated, meaning the block states before a certain block number become available.
+- [Batch Pruning: State Migration](../../learn/storage/state-pruning.md#state-batch-pruning-state-migration): The block states can be state-migrated, meaning the block states before a certain block number become available.
 
 ## Understanding Pruning Impacts
 

@@ -54,8 +54,8 @@ For example, to configure your PRIVATE_KEY do this in your `hardhat.config.js` f
 const PRIVATE_KEY = vars.get("PRIVATE_KEY");
 /** @type import('hardhat/config').HardhatUserConfig */
   networks: {
-    baobab: {
-      url: `https://klaytn-baobab-rpc.allthatnode.com:8551`,
+    kairos: {
+      url: `https://public-en-kairos.node.kaia.io`,
       accounts: [PRIVATE_KEY]
     },
     mumbai: {
@@ -101,8 +101,8 @@ module.exports = {
     ],
   },
   networks: {
-    baobab: {
-      url: `https://klaytn-baobab-rpc.allthatnode.com:8551`,
+    kairos: {
+      url: `https://public-en-kairos.node.kaia.io`,
       accounts: [PRIVATE_KEY]
     },
     mumbai: {
