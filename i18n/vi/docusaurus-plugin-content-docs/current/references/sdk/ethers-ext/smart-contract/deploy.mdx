@@ -100,7 +100,7 @@ Define sender address, sender private key
 
 ---
 
-Set up the provider with the specified kaia **Baobab** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
 
 ```js smartContractDeploy.js focus=7
 
@@ -108,7 +108,7 @@ Set up the provider with the specified kaia **Baobab** testnet URL. A provider i
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**
+Also, you can change the provider URL from **kairos** to **quicknode**
 
 ```js smartContractDeploy.js focus=7
 const ethers = require("ethers");
@@ -117,7 +117,7 @@ const { Wallet } = require("@kaiachain/ethers-ext");
 const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
 const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
 
-const provider = new ethers.providers.JsonRpcProvider("https://klaytn-mainnet-rpc.allthatnode.com:8551");
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 const wallet = new Wallet(senderPriv, provider);
 
 /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
