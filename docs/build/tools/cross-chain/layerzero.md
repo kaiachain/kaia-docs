@@ -2,277 +2,599 @@
 
 ## Introduction <a id="introduction"></a>
 
-Over the past years in the blockchain space, data and tokens transfer between independent blockchain systems stands as a major challenge. However, with the advent of cross-chain messaging protocols like LayerZero, we have seen a major progress in connecting isolated systems together in a secure and decentralized manner. Now, tokens can be transferred from one ecosystem to another seamlessly in one transaction call without having to go through conversion in different exchanges. 
+Over the past years in the blockchain space, data and tokens transfer between independent blockchain systems stands as a major challenge. However, with the advent of cross-chain messaging protocols like LayerZero, we have seen a major progress in connecting isolated systems together in a secure and decentralized manner. Now, tokens can be transferred from one ecosystem to another seamlessly in one transaction call without having to go through conversion in different exchanges.
 
-By the end of this guide, you will have transferred tokens from one blockchain to another in a single transaction call using LayerZero Omnichain OFTV1 Contract.
+By the end of this guide, you will have transferred tokens from Kairos Testnet to Base Sepolia in a single transaction call using LayerZero V2 Omnichain Fungible Token (OFT) Contract.
 
-![](/img/build/tools/crosschain-tokens-visuals.png)
+![](/img/build/tools/lz-v2-banner.png)
 
 ## Prerequisites <a id="prerequisites"></a>
 
-Before delving into the entire project, it's important to note that its finished form can be found in this repository: [crosschain-oftv1-example](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main). It uses Hardhat, so a prerequisite knowledge will be helpful for understanding how the repository works. Note that this tutorial will not include information on how to use Hardhat and will instead focus solely on the smart contracts. If you would like to follow along, the prerequisites are as follows:
+Before delving into the entire project, it's important to note that its finished form can be found in this repository: [crosschain-oft-v2-example](https://github.com/ayo-klaytn/crosschain-oft-v2-example). It uses Hardhat, so a prerequisite knowledge will be helpful for understanding how the repository works. Note that this tutorial will not include information on how to use Hardhat and will instead focus solely on the smart contracts. If you would like to follow along, the prerequisites are as follows:
 
-* A fresh Hardhat project and [knowledge of how to use Hardhat](../../get-started/hardhat.md)
-* [OpenZeppelin smart contracts installed](https://github.com/OpenZeppelin/openzeppelin-contracts) as a dependency
-* [LayerZero smart contracts installed](https://github.com/LayerZero-Labs/solidity-examples) as a dependency
-
-To install both dependencies, you can run:
-
-```bash
-npm install @openzeppelin/contracts @layerzerolabs/solidity-examples
-```
-
-## LayerZero OmniChain Contract <a id="layerzero-omnichain-contract"></a>
-
-LayerZero (L0) is an open-source protocol for building omini-chain, and interoperable applications. As it is, L0 provides two standard omnichain contracts for seamlessly transferring tokens across different chains, viz.
-
-1. **Omnichain Fungible Tokens (OFT)**
-
-    1.1. [Omnichain Fungible Tokens (OFT) v1](https://layerzero.gitbook.io/docs/evm-guides/layerzero-omnichain-contracts/oft/oft-v1#oft.sol): OFT standard exclusively supports EVM chains. Note this standard has a ProxyOFT.sol extension. Kindly use the [ProxyOFT.sol](https://layerzero.gitbook.io/docs/evm-guides/layerzero-omnichain-contracts/oft/oft-v1#proxyoft.sol) extension when you want to turn an already deployed ERC20 into an OFT. 
-
-    1.2. [Omnichain Fungible Tokens (OFT) v2](https://layerzero.gitbook.io/docs/evm-guides/layerzero-omnichain-contracts/oft/oftv2#oftv2.sol): OFT standard supports both EVM and non-EVM chains. Note this standard has a ProxyOFTV2.sol extension. Kindly use the [ProxyOFTV2.sol](https://layerzero.gitbook.io/docs/evm-guides/layerzero-omnichain-contracts/oft/oftv2#proxyoftv2.sol) extension when you want to turn an already deployed ERC20 into an OFTV2.
-
-2. **Omnichain Non Fungible Tokens**
-
-    2.1. [Omnichain Non Fungible Tokens (ONFT721)](https://layerzero.gitbook.io/docs/evm-guides/layerzero-omnichain-contracts/onft/721#onft721.sol): ONFT721 standard for cross-chain NFTs. Note this standard has a ProxyONFT721.sol extension. Kindly use the [ProxyONFT721.sol](https://layerzero.gitbook.io/docs/evm-guides/layerzero-omnichain-contracts/onft/721#proxyonft721.sol) extension when you want to turn an already deployed ERC721 into an ONFT721. 
-
-    2.2. [Omnichain Non Fungible Tokens (ONFT1155)](https://layerzero.gitbook.io/docs/evm-guides/layerzero-omnichain-contracts/onft/1155#onft1155.sol): ONFT1155 standard for cross-chain multi tokens. Note this standard has a ProxyONFT1155.sol extension. Kindly use the [ProxyONFT1155.sol](https://layerzero.gitbook.io/docs/evm-guides/layerzero-omnichain-contracts/onft/1155#proxyonft1155.sol) extension when you want to turn an already deployed ERC1155 into an ONFT1155.
-
+* [Knowledge of how to use Hardhat](../../get-started/hardhat.md)
+* Test Funds from both [Kairos Testnet Faucet](https://faucet.kaia.io/) and [Base Sepolia Faucet](https://faucets.chain.link/base-sepolia)
 
 ## Getting Started <a id="getting-started"></a>
 
-In this guide, we would be focusing on the Omnichain Fungible Tokens (OFT) v1 which allows us to send tokens seamlessly across EVM chains. For that reason, we will be deploying the OFTv1 contract on both Kaia Kairos (source chain) and Polygon Mumbai (destination chain) using Hardhat smart contract development environment. 
+In this guide, we will use LayerZero V2 Omnichain Fungible Tokens (OFT) to facilitate cross-chain token transfer across EVM chains seamlessly. LayerZero provides the [create-lz-oapp](https://github.com/LayerZero-Labs/devtools) CLI toolkit, which we will use to easily build, configure, and deploy our omnichain applications (OApps) on both Kairos Testnet (source chain) and Base Sepolia (destination chain).
 
-## Configuring Your Development Environment <a id="connfiguring-your-development-environment"></a>
+## Setting Up Your LayerZero Project <a id="setting-up-your-layerzero-project"></a>
+In this section, we will set up our OApps in the following manner: 
 
-### Step 1: Configure Variables <a id="configure-variables"></a>
+Copy and paste the command below in your project terminal to bootstrap your initial LayerZero project:
 
-A hardhat project can use configuration variables for user-specific values or for data that shouldn't be included in the code repository.
+```sh
+npx create-lz-oapp@latest
+```
 
-For example, to configure your PRIVATE_KEY do this in your `hardhat.config.js` file:
+Follow the project creation wizard to set up your OFT project. As shown below, you should have a prompt configuration.
 
-```js
-const PRIVATE_KEY = vars.get("PRIVATE_KEY");
-/** @type import('hardhat/config').HardhatUserConfig */
+```sh
+✔ Where do you want to start your project? … ./my-lz-oapp
+✔ Which example would you like to use as a starting point? › OFT
+✔ What package manager would you like to use in your project? › pnpm
+```
+
+Now that you have your OApp initialized, your project folder should look like this:
+
+```sh
+contracts / // your contracts folder
+  deploy / // hardhat-deploy scripts
+  test / // unit-tests, both hardhat and foundry enabled
+  foundry.toml; // normal foundry.toml for remappings and project configuration
+hardhat.config.ts; // standard hardhat.config.ts, with layerzero endpoint mappings
+layerzero.config.ts; // special LayerZero config file.
+```
+
+## Customizing the OFT Contract <a id="customizing-oft-contract"></a>
+
+Having successfully initialized our OApp, we should see an initial `MyOFT.sol` file in our **contracts** folder. For this guide, we will be deploying this contract on the chains we want the token to exist on. However, we need to modify the MyOFT.sol to have ERC20 `_mint` method as a protected `mintTo` function before deploying.
+
+`MyOFT.sol` should now look like this:
+
+```sol
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.22;
+
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {OFT} from "@layerzerolabs/oft-evm/contracts/OFT.sol";
+
+
+/// @notice OFT is an ERC-20 token that extends the OFTCore contract.
+contract MyOFT is OFT {
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _lzEndpoint,
+        address _delegate
+    ) OFT(_name, _symbol, _lzEndpoint, _delegate) Ownable(_delegate) {}
+
+    function mintTo(address _to, uint256 _amount) public onlyOwner {
+        _mint(_to, _amount);
+    }
+}
+
+```
+
+
+## Configuring .env file <a id="configuring-env-file"></a>
+
+In this section, we will set up deployer wallet/account for our project. Follow the steps below to configure your `.env`
+
+* Rename `.env.example` -> `.env`
+* Choose your preferred means of setting up your deployer wallet/account:
+
+	```ts
+		MNEMONIC="test test test test test test test test test test test junk"
+		or...
+		PRIVATE_KEY="0xabc...def" // use this
+	```
+* Use the faucet link in the prerequisite section to fund this address with the native tokens of the corresponding chain you wish to deploy.
+
+
+## Project Configuration <a id="project-configuration"></a>
+
+For a LayerZero project to work efficiently, you need to modify the `hardhat.config.ts` and `layerzero.config.ts` files. In this section, we will configure these files accordingly. 
+
+### Modifying Hardhat Config <a id="modifying-hardhat-config"></a>
+
+After initializing our project, we will modify our `hardhat.config.ts` file to suit the networks we will be working with:
+
+```ts
   networks: {
-    kairos: {
-      url: `https://public-en-kairos.node.kaia.io`,
-      accounts: [PRIVATE_KEY]
+        'kairos-testnet': {
+            eid: EndpointId.KLAYTN_V2_TESTNET,
+            url: process.env.RPC_URL_KAIROS || 'https://public-en-kairos.node.kaia.io',
+            accounts,
+        },
+        'base-sep-testnet': {
+            eid: EndpointId.BASESEP_V2_TESTNET,
+            url: process.env.RPC_URL_BASE_SEP || 'https://base-sepolia.blockpi.network/v1/rpc/public',
+            accounts,
+        },
     },
-    mumbai: {
-      url: `https://polygon-mumbai-pokt.nodies.app`,
-      accounts: [PRIVATE_KEY]
-    }
-  }
-};
+
 ```
 
-And then run the command below in your terminal to set the PRIVATE_KEY: 
+:::info
 
-```js
-npx hardhat vars set PRIVATE_KEY
-```
+The only notable change from a standard `hardhat.config.ts` setup is the inclusion of a [LayerZero Endpoint ID](https://docs.layerzero.network/v2/developers/evm/technical-reference/deployed-contracts).
 
-Next Enter the value of your PRIVATE_KEY
+:::
 
-![](/img/build/tools/cc-config-var.png)
+### Modifying LayerZero Config <a id="modifying-layerzero-config"></a>
 
-For more information on configuring variables, see [hardhat configuration variable](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables).
+The `layerzero.config.ts` first defines what contracts you expect to deploy on each network, using the `@layerzerolabs/lz-definitions` package as a mapping for each network:
 
-### Step 2: Setup Hardhat Configs <a id="setup-hardhat-configs"></a>
+```ts
+// layerzero.config.ts
 
-Paste these configurations in your `hardhat.config.js` file: 
+import { EndpointId } from '@layerzerolabs/lz-definitions'
+import type { OmniPointHardhat } from '@layerzerolabs/toolbox-hardhat'
 
-```js
-require("@nomicfoundation/hardhat-toolbox");
-const PRIVATE_KEY = vars.get("PRIVATE_KEY");
-/** @type import('hardhat/config').HardhatUserConfig */
-module.exports = {
-  solidity: {
-    compilers: [
-      {
-        version: "0.8.0",
-      },
-      {
-        version: "0.8.9",
-      },
-      {
-        version: "0.8.20",
-      },
-    ],
-  },
-  networks: {
-    kairos: {
-      url: `https://public-en-kairos.node.kaia.io`,
-      accounts: [PRIVATE_KEY]
-    },
-    mumbai: {
-      url: `https://polygon-mumbai-pokt.nodies.app`,
-      accounts: [PRIVATE_KEY]
-    }
-  }
-};
-```
+// Define the Kairos Testnet contract
+// eid specifies the network (LZ V2 Kairos Testnet)
+// contractName is the name of the contract.
+const kairosContract: OmniPointHardhat = {
+    eid: EndpointId.KLAYTN_V2_TESTNET,
+    contractName: 'MyOFT',
+}
 
-Now that we have our development environment all set, let's get into writing our cross-chain token smart contract.
 
-## Creating OFTV1 Smart Contract <a id="creating-oftv1-smart-contract"></a>
-
-In this section, you will use the LayerZero Solidity Example library to bootstrap your cross-chain token smart contract. let's create our cross-chain token smart contracts in the following steps:
-
-**Step 1**: Select the contracts folder in the Explorer pane and click the New File button and create a new file named `crosschain-tokens.sol`
-
-**Step 2**: Open the file and add the following code to it:
-
-```js
-// SPDX-License-Identifier: Unlicensed
-pragma solidity ^0.8.0;
-/*
-    // https://layerzero.gitbook.io/docs/technical-reference/testnet/testnet-addresses
-    Kaia Kairos   lzEndpointAddress = 0x6aB5Ae6822647046626e83ee6dB8187151E1d5ab
-    chainId: 10150  deploymentAddress =
- 
-    Mumbai lzEndpointAddress = 0xf69186dfBa60DdB133E91E9A4B5673624293d8F8
-    chainId: 10109  deploymentAddress =
-*/
-
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@layerzerolabs/solidity-examples/contracts/token/oft/v1/OFTCore.sol";
-import "@layerzerolabs/solidity-examples/contracts/token/oft/v1/interfaces/IOFT.sol";
-contract CrossChainToken is OFTCore, ERC20, IOFT {
-    constructor(address _lzEndpointAddress) ERC20("CrossChainTokens", "CCT") OFTCore(_lzEndpointAddress) Ownable(msg.sender) {
-        if (block.chainid == 1001) { // Only mint initial supply on Kairos
-            _mint(msg.sender, 1_000_000 * 10 ** decimals());
-        }
-    }
-    function supportsInterface(bytes4 interfaceId) public view virtual override(OFTCore, IERC165) returns (bool) {
-        return interfaceId == type(IOFT).interfaceId || interfaceId == type(IERC20).interfaceId || super.supportsInterface(interfaceId);
-    }
-    function token() public view virtual override returns (address) {
-        return address(this);
-    }
-    function circulatingSupply() public view virtual override returns (uint) {
-        return totalSupply();
-    }
-    function _debitFrom(address _from, uint16, bytes memory, uint _amount) internal virtual override returns(uint) {
-        address spender = _msgSender();
-        if (_from != spender) _spendAllowance(_from, spender, _amount);
-        _burn(_from, _amount);
-        return _amount;
-    }
-    function _creditTo(uint16, address _toAddress, uint _amount) internal virtual override returns(uint) {
-        _mint(_toAddress, _amount);
-        return _amount;
-    }
+// Define the Base Sepolia contract
+// eid specifies the network (LZ V2 Base Sepolia)
+// contractName is the name of the contract.
+const baseSepContract: OmniPointHardhat = {
+    eid: EndpointId.BASESEP_V2_TESTNET,
+    contractName: 'MyOFT',
 }
 ```
 
-### Code Walkthrough <a id="code-walkthrough"></a>
+After defining what contracts to use on each network, you can specify which contracts should be connected on a per pathway basis:
 
-This is your cross chain smart contract. On **line 2** you tell Hardhat to use the Solidity version 0.8.0 or greater. Other than that, **ERC20.sol**, **Layerzero’s OFTV1** contract was imported. From lines 18-22, you are creating your own smart contract that inherits ERC20, OFTCore contract. You do this by calling the constructor of ERC20 and pass the token name and symbol. Also you will  pass the layerzero endpoint address of each chain into OFTCore contract. 
+```ts
+// layerzero.config.ts
 
-As you can see in the code above, the token name and symbol have been set to **CrosschainTokens** and **CCT** respectively. You can change the token name and symbol to anything you desire.
+import type { OAppOmniGraphHardhat } from '@layerzerolabs/toolbox-hardhat'
 
-The major function that brings the cross-chain functionality to live is the **sendFrom** function which resides in the OFTCore.sol contract. However, let's do a code walkthrough of function in the order of execution for this tutorial: 
 
-1. **setTrustedRemoteAddress()**: A trusted remote is another contract it will accept messages from. Having said that, In order to send and receive messages from known contracts, you need to securely pair them to one another's chain id and address by executing the setTrustedRemoteAddress() function. For more information about setting up trusted remotes, see [Set Trusted Remotes](https://layerzero.gitbook.io/docs/evm-guides/master/set-trusted-remotes).
+const config: OAppOmniGraphHardhat = {
+    contracts: [
+        {
+            contract: kairosContract,
+        },
+        {
+            contract: baseSepContract,
+        },
+    ],
+    connections: [
+        {
+            from: kairosContract,
+            to: baseSepContract,
+        },
+        {
+            from: baseSepContract,
+            to: kairosContract,
+        },
+    ],
+}
 
-2. **approve()**: The owner of the Omnichain Fungible Tokens needs to approve the crosschain-tokens.sol contract on the source chain in order to transfer tokens on its behalf across chains by calling the approve() function. For this tutorial, we will be approving 100 CCT tokens (100000000000000000000).
+export default config
 
-3. **setMinDstGas()**: Next is to set your minimum Gas Limit for each chain. This is done by calling setMinDstGas() function with the chainId of the other chain, the packet type ("0" meaning send), and the gas limit amount (200,000). 
+```
 
-4. **setUseCustomAdapterParams()**: set this to true.
+## Deploying LayerZero Contract <a id="deploying-layerzero-contract"></a>
 
-5. **estimateFees()**: This function helps get the quantity of native gas tokens to pay to transfer tokens to another chain. To achieve this, LayerZero makes use of an Oracle and Relayer service given the destination chainId, _toAddress, _amount, _useZro, and adapter parameters. For this tutorial, we will be using 10109 as the destination chainId, input your _toAddress,  10 CCT tokens as amount, false for _useZro, and `0x00010000000000000000000000000000000000000000000000000000000000030d40` for the adapter parameters.You can check out [Relayer Adapter Parameters](https://layerzero.gitbook.io/docs/evm-guides/advanced/relayer-adapter-parameters) on how to encode adapter parameters. To understand in detail how fees are estimated, see [Estimating Message Fees](https://layerzero.gitbook.io/docs/evm-guides/code-examples/estimating-message-fees).
-
-6. **sendFrom()**: This function sends the specified token amount to the destination chain. Note that this is a payable function; you have to send the estimated fee with the transaction. This function requires the following arguments:
-    * _from: the owner of token 
-    * _destChainId: 10109
-    * _toAddress:  insert the recipient address on the dest chain
-    * _amount: amount of tokens you want to send in Wei
-    * refundAddress: address to receive gas refunds
-    * _zroPaymentAddress: specify address zero (0x0000000000000000000000000000000000000000)
-    * _adapterParams: 0x00010000000000000000000000000000000000000000000000000000000000030d40
-
-In the next section, we will be exploring the execution of functions in their appropriate order to achieve a successful cross-chain transfer of tokens.
-
-## Deploying the smart contract <a id="deploying-the-smart-contract"></a>
-
-In this section, you will make use of the [script](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/deploy) here to deploy the OFTV1 contract on Kaia Kairos (source chain) and Polygon Mumbai (destination chain) respectively. Ensure you have tokens from a faucet for the respective network. You can acquire faucet tokens for the Kaia Kairos [here](https://faucet.kaia.io) and  Polygon Mumbai testnet [here](https://faucet.polygon.technology/).
+In this section, you use the `lz:deploy` task to deploy the OFT contract on Kairos Testnet (source chain) and Base Sepolia (destination chain) respectively. 
 
 To deploy the contracts on the respective chains, run the command below:
 
-1. **deploys on kairos (source chain)**
-
 ```bash
-npx hardhat run scripts/deploy/src-contract.js --network kairos
+npx hardhat lz:deploy
 ```
 
-2. **deploys on mumbai (destination chain)**
+### Selecting Chains <a id="selecting-chains"></a>
 
-```bash
-npx hardhat run scripts/deploy/dest-contract.js --network mumbai
+You will be prompted to selected which chains to deploy to:
+
+```sh
+info:    Compiling you hardhat project
+Nothing to compile
+? Which networks would you like to deploy? ›
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◉  base-sep-testnet
+◉  kairos-testnet
 ```
 
-Now you should have the OFTV1 contract deployed on both Kairos and Mumbai. You can verify your deployment by pasting each chain’s contract address in their respective explorer: [Kaiascope](https://kairos.kaiascope.com/account/) and [Polygonscan](https://mumbai.polygonscan.com/address/).
+If you wish to deploy to all blockchain networks selected, simply hit enter to continue deployment.
 
-## Setting Trusted remote <a id="setting-trusted-remote"> </a>
+### Adding Deploy Script Tags <a id="adding-deploy-script-tags"></a>
 
-In this section, you will securely pair the deployed contracts to one another's chain id and address by executing the **setTrustedRemoteAddress()** function. For this, use this [script](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main/scripts/set-remote-address) to set each chain’s contract as trusted.
+Afterwards you'll be prompted to choose which deploy script tags to use. By default, each CLI example contains a starter deploy script, with the deploy script tag being the contract name:
 
-1. **sets on source chain**
-To set the contract as trusted on src chain, you need to pass in the destination chain ID (10109) and destination contract address of crosschain-token.sol in the **setTrustedRemoteAddress()** function.
-
-To see it in action, run the command below:
-
-```bash
-npx hardhat run scripts/set-remote-address/src.js --network kairos
+```ts
+deploy.tags = [MyOFT];
 ```
 
-2. **sets on destination chain**
-To set the contract as trusted on the destination chain, you need to pass in the source chain ID (10150) and source contract address of crosschain-token.sol in the setTrustedRemoteAddress() function.
-
-To see it in action, run the command below:
-
-```bash
-npx hardhat run scripts/set-remote-address/dest.js --network mumbai
-``` 
-
-## Running Misc command <a id="running-misc-command"> </a>
-
-In this section you will collectively execute the **approve()**, **setMinDstGas()**, **setUseCustomAdapterParams()**, and **estimateFee()** function explained in the codeWalkthrough section using this [script](https://github.com/ayo-klaytn/crosschain-oftv1-example/blob/main/scripts/misc.js). 
-
-To execute this script, run the command below:
-
-```bash
-npx hardhat run scripts/misc.js --network kairos
+```sh
+info:    Compiling you hardhat project
+Nothing to compile
+✔ Which networks would you like to deploy? › base-sep-testnet, kairos-testnet
+? Which deploy script tags would you like to use? › MyOFT
 ```
 
-## Executing the sendFrom functionality <a id="executing-sendfrom-functionality"> </a>
-To send tokens from one chain to another using the LayerZero OFTV1, you need to execute this script and pass the appropriate parameters as explained in the code Walkthrough section above. 
+### Running the Deployer <a id="running-the-deployer"></a>
 
-To see this in action, run the command below: 
+After selecting either all or a specific deploy script, the deployer will deploy the contracts on your specified chains.
 
-```bash
-npx hardhat run scripts/send-from.js --network kairos
+```sh
+Network: base-sep-testnet
+Deployer: 0x7b467A6962bE0ac80784F131049A25CDE27d62Fb
+Network: kairos-testnet
+Deployer: 0x7b467A6962bE0ac80784F131049A25CDE27d62Fb
+Deployed contract: MyOFT, network: base-sep-testnet, address: 0x02657Bc72D9AFB778bf3edd14De1997cD46eF7a1
+Deployed contract: MyOFT, network: kairos-testnet, address: 0x5907191DbEd1E7ad03F3F69f2134973fd07dD545
+info:    ✓ Your contracts are now deployed
 ```
 
-You can verify the cross-chain transaction by pasting the transaction hash in [LayerZero Scan](https://testnet.layerzeroscan.com/). 
+You should see an output in your ./deployments folder, or have one generated, containing your contracts:
 
-![](/img/build/tools/cc-scan-oftv1.png)
+```sh
+contracts / // your contracts folder
+  deploy / // hardhat-deploy scripts
+  deployments / // your hardhat-deploy deployments
+  base-sep-testnet / // network name defined in hardhat.config.ts
+  MyOFT.json; // deployed-contract json
+kairos-testnet / MyOFT.json;
+test / // unit-tests, both hardhat and foundry enabled
+  foundry.toml; // normal foundry.toml for remappings and project configuration
+hardhat.config.ts; // standard hardhat.config.ts, with layerzero endpoint mappings
+layerzero.config.ts; // special LayerZero config file
 
-Also you can check the balance of the recipient address on the destination chain by executing this [script](https://github.com/ayo-klaytn/crosschain-oftv1-example/blob/main/scripts/check-balance.js).
-
-To see it in action, run the command below:
-
-```bash
-npx hardhat run scripts/check-balance.js --network mumbai
 ```
 
-![](/img/build/tools/cc-token-balance.png)
+
+## Configuring LayerZero Contracts <a id="configuring-layerzero-contracts"></a>
+
+In this section, we will modify our LayerZero contracts to have unique configurations on a per-pathway basis (i.e., `from Kairos Testnet to Base Sepolia` has different properties than `from Base Sepolia to Kairos Testnet`) as such, modifying the `config` of the pathway in our `layerzero.config.ts`.
+
+
+For each pathway in our `config` file, we get to configure the following:
+
+```sh
+FromOApp.setPeer(dstEid, peer)
+FromOApp.setEnforcedOptions()
+EndpointV2.setSendLibrary(OApp, dstEid, newLib)
+EndpointV2.setReceiveLibrary(OApp, dstEid, newLib, gracePeriod)
+EndpointV2.setReceiveLibraryTimeout(OApp, dstEid, lib, gracePeriod)
+EndpointV2.setConfig(OApp, sendLibrary, sendConfig)
+EndpointV2.setConfig(OApp, receiveLibrary, receiveConfig)
+EndpointV2.setDelegate(delegate)
+```
+
+To add a specific pathway configuration, add a `config: {}` to your connection like this:
+
+```ts
+//layerzero.config.ts
+
+import { EndpointId } from '@layerzerolabs/lz-definitions'
+
+import { ExecutorOptionType } from '@layerzerolabs/lz-v2-utilities'
+
+import type { OAppOmniGraphHardhat, OmniPointHardhat } from '@layerzerolabs/toolbox-hardhat'
+
+const kairosContract: OmniPointHardhat = {
+    eid: EndpointId.KLAYTN_V2_TESTNET,
+    contractName: 'MyOFT',
+}
+
+const baseSepContract: OmniPointHardhat = {
+    eid: EndpointId.BASESEP_V2_TESTNET,
+    contractName: 'MyOFT',
+}
+
+const config: OAppOmniGraphHardhat = {
+    contracts: [
+        {
+            contract: kairosContract,
+        },
+        {
+            contract: baseSepContract,
+        },
+    ],
+    connections: [
+        {
+            from: kairosContract,
+            to: baseSepContract,
+            // Optional Configuration
+            config: {
+                // Required Send Library Address on Kairos Testnet
+                sendLibrary: '0x6bd925aA58325fba65Ea7d4412DDB2E5D2D9427d',
+                receiveLibraryConfig: {
+                    // Required Receive Library Address on Kairos Testnet
+                    receiveLibrary: '0xFc4eA96c3de3Ba60516976390fA4E945a0b8817B',
+                    // Optional Grace Period for Switching Receive Library Address on BSC
+                    gracePeriod: BigInt(0),
+                },
+                // Optional Send Configuration
+                // @dev Controls how the `from` chain sends messages to the `to` chain.
+                sendConfig: {
+                    executorConfig: {
+                        maxMessageSize: 10000,
+                        // The configured Executor address on Kairos Testnet
+                        executor: '0xddF3266fEAa899ACcf805F4379E5137144cb0A7D',
+                    },
+                    ulnConfig: {
+                        // The number of block confirmations to wait on Kairos Testnet before emitting the message from the source chain (Kairos).
+                        confirmations: BigInt(0),
+                        // The address of the DVNs you will pay to verify a sent message on the source chain (Kairos).
+                        // The destination tx will wait until ALL `requiredDVNs` verify the message.
+                        requiredDVNs: ["0xe4fe9782b809b7d66f0dcd10157275d2c4e4898d"],
+                        // The address of the DVNs you will pay to verify a sent message on the source chain (Kairos).
+                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify a message.
+                        optionalDVNs: [],
+                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
+                        optionalDVNThreshold: 0,
+                    },
+                },
+                // Optional Receive Configuration
+                // @dev Controls how the `from` chain receives messages from the `to` chain.
+                receiveConfig: {
+                    ulnConfig: {
+                        // The number of block confirmations to expect from the `to` chain (Base Sepolia).
+                        confirmations: BigInt(0),
+                        // The address of the DVNs your `receiveConfig` expects to receive verifications from on the `from` chain (Kairos Testnet).
+                        // The `from` chain's OApp will wait until the configured threshold of `requiredDVNs` verify the message.
+                        requiredDVNs: ["0xe4fe9782b809b7d66f0dcd10157275d2c4e4898d"],
+                        // The address of the `optionalDVNs` you expect to receive verifications from on the `from` chain (Kairos Testnet).
+                        // The destination tx will wait until the configured threshold of `optionalDVNs` verify the message.
+                        optionalDVNs: [],
+                        // The number of `optionalDVNs` that need to successfully verify the message for it to be considered Verified.
+                        optionalDVNThreshold: 0,
+                    },
+                },
+                // Optional Enforced Options Configuration
+                // @dev Controls how much gas to use on the `to` chain, which the user pays for on the source `from` chain.
+                enforcedOptions: [
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 60000,
+                        value: 0,
+                    },
+                    {
+                        msgType: 1,
+                        optionType: ExecutorOptionType.NATIVE_DROP,
+                        amount: 0,
+                        receiver: '0x1C42aCcd92d491DB8b083Fa953B5E3D9A9E42aD5', // PASTE YOUR RECEIVER ADDRESS
+                    },
+                    {
+                        msgType: 2,
+                        optionType: ExecutorOptionType.LZ_RECEIVE,
+                        gas: 60000,
+                        value: 1,
+                    },
+                    {
+                        msgType: 2,
+                        optionType: ExecutorOptionType.COMPOSE,
+                        index: 0,
+                        gas: 50000,
+                        value: 0,
+                    },
+                ],
+            },
+        },
+        {
+            from: baseSepContract,
+            to: kairosContract,
+        },
+    ],
+}
+
+export default config
+
+```
+
+Each pathway contains a `config`, containing multiple configuration structs for changing how your OApp sends and receives messages, specifically for the chain your OApp is sending from:
+
+1. **SendLibrary**: Address used for configuring sent messages : This specifies the library (e.g., SendUln302.sol) used for all outgoing messages from the chain.
+
+2. **ReceiveLibraryConfig**: Struct for receiving messages : Contains the receive library address (e.g., ReceiveUln302.sol) and an optional grace period for updates.
+
+3. **ReceiveLibraryTimeoutConfig**: Optional struct for migration : Defines when the old receive library will expire during version migration.
+
+4. **SendConfig**: Struct controlling message sending : Includes executorConfig and ulnConfig (for DVNs), managing how the OApp sends messages.
+
+5. **ReceiveConfig**: Struct controlling message reception : Focuses on ulnConfig (for DVNs), managing how the OApp receives messages.
+
+6. **EnforcedOptions**: Struct for gas management : Controls minimum destination gas for different message types in the OApp.
+
+For more information on configuring LayerZero contracts, kindly refer to this [guide](https://docs.layerzero.network/v2/developers/evm/create-lz-oapp/configuring-pathways#final-config).
+
+Now that we have configured our contract pathways, we can wire them together using this command:
+
+```sh
+npx hardhat lz:oapp:wire --oapp-config layerzero.config.ts
+```
+
+```sh
+info:    [OApp] Checking OApp configuration
+info:    [OApp] Checking OApp delegates configuration
+info:    [OApp] ✓ Checked OApp delegates
+info:    [OApp] Checking OApp peers configuration
+info:    [OApp] ✓ Checked OApp peers configuration
+info:    [OApp] Checking send libraries configuration
+info:    [OApp] ✓ Checked send libraries configuration
+info:    [OApp] Checking receive libraries configuration
+info:    [OApp] ✓ Checked receive libraries configuration
+info:    [OApp] Checking receive library timeout configuration
+info:    [OApp] ✓ Checked receive library timeout configuration
+info:    [OApp] Checking send configuration
+info:    [OApp] ✓ Checked send configuration
+info:    [OApp] Checking receive configuration
+info:    [OApp] ✓ Checked receive configuration
+info:    [OApp] Checking enforced options
+info:    [OApp] ✓ Checked enforced options
+info:    [OApp] Checking OApp callerBpsCap configuration
+info:    [OApp] ✓ Checked OApp callerBpsCap configuration
+info:    [OApp] ✓ Checked OApp configuration
+info:    There are 7 transactions required to configure the OApp
+✔ Would you like to preview the transactions before continuing? … no
+✔ Would you like to submit the required transactions? … yes
+info:    Successfully sent 7 transactions
+info:    ✓ Your OApp is now configured
+```
+
+## Calling `send` <a id="calling-send"></a>
+
+In this section, we will send tokens from Kairos Testnet to Base Sepolia using the `send` logic. To do this, we have to create an hardhat task in our `hardhat.config.ts`. 
+
+
+```ts
+import {task} from 'hardhat/config';
+import {getNetworkNameForEid, types} from '@layerzerolabs/devtools-evm-hardhat';
+import {EndpointId} from '@layerzerolabs/lz-definitions';
+import {addressToBytes32} from '@layerzerolabs/lz-v2-utilities';
+import {Options} from '@layerzerolabs/lz-v2-utilities';
+import {BigNumberish, BytesLike} from 'ethers';
+
+interface Args {
+  amount: string;
+  to: string;
+  toEid: EndpointId;
+}
+
+interface SendParam {
+  dstEid: EndpointId; // Destination endpoint ID, represented as a number.
+  to: BytesLike; // Recipient address, represented as bytes.
+  amountLD: BigNumberish; // Amount to send in local decimals.
+  minAmountLD: BigNumberish; // Minimum amount to send in local decimals.
+  extraOptions: BytesLike; // Additional options supplied by the caller to be used in the LayerZero message.
+  composeMsg: BytesLike; // The composed message for the send() operation.
+  oftCmd: BytesLike; // The OFT command to be executed, unused in default OFT implementations.
+}
+
+task('lz:oft:send', 'Sends tokens from MyOFT')
+    .addParam('to', 'Recipient address on the destination chain', undefined, types.string)
+    .addParam('toEid', 'Destination endpoint ID', undefined, types.eid)
+    .addParam('amount', 'Amount to transfer in token decimals', undefined, types.string)
+    .setAction(async (taskArgs: Args, hre) => {
+        const { ethers, deployments } = hre
+        const { to, toEid, amount } = taskArgs
+
+        console.log(`Network: ${hre.network.name}`)
+
+        const oftDeployment = await deployments.get('MyOFT')
+        const [signer] = await ethers.getSigners()
+        const oftContract = new ethers.Contract(oftDeployment.address, oftDeployment.abi, signer)
+
+        // Check token balance
+        const balance = await oftContract.balanceOf(signer.address)
+        const decimals = await oftContract.decimals()
+        const amountInWei = ethers.utils.parseUnits(amount, decimals)
+        console.log(`Token balance: ${ethers.utils.formatUnits(balance, decimals)}`)
+        console.log(`Attempting to send: ${amount}`)
+
+        if (balance.lt(amountInWei)) {
+            console.error('Insufficient token balance')
+
+            // Check if signer is the owner and can mint
+            const owner = await oftContract.owner()
+            if (owner.toLowerCase() === signer.address.toLowerCase()) {
+                console.log('You are the owner. Attempting to mint tokens...')
+                const mintTx = await oftContract.mintTo(signer.address, amountInWei)
+                await mintTx.wait()
+                console.log(`Minted ${amount} tokens to your address`)
+            } else {
+                console.error('You are not the owner and cannot mint tokens. Please acquire tokens before sending.')
+                return
+            }
+        }
+
+        // Prepare send parameters
+        const sendParam = {
+            dstEid: toEid,
+            to: addressToBytes32(to),
+            amountLD: amountInWei,
+            minAmountLD: amountInWei,
+            extraOptions: Options.newOptions().addExecutorLzReceiveOption(65000, 0).toBytes(),
+            composeMsg: '0x',
+            oftCmd: '0x',
+        }
+
+        // Get the quote for the send operation
+        const feeQuote = await oftContract.quoteSend(sendParam, false)
+        const nativeFee = feeQuote.nativeFee
+
+        console.log(`Sending ${amount} token(s) to ${to} on network ${getNetworkNameForEid(toEid)} (${toEid})`)
+        console.log(`Estimated fee: ${ethers.utils.formatEther(nativeFee)} native tokens`)
+
+        // Check if signer has enough native tokens for the fee
+        const nativeBalance = await signer.getBalance()
+        if (nativeBalance.lt(nativeFee)) {
+            console.error(`Insufficient native tokens. You need at least ${ethers.utils.formatEther(nativeFee)}`)
+            return
+        }
+
+        try {
+            const tx = await oftContract.send(sendParam, { nativeFee, lzTokenFee: 0 }, signer.address, {
+                value: nativeFee,
+            })
+            console.log(`Transaction sent. Hash: ${tx.hash}`)
+            console.log(`See transaction on LayerZero Scan: https://testnet.layerzeroscan.com/tx/${tx.hash}`)
+            await tx.wait()
+            console.log('Transaction confirmed')
+        } catch (error) {
+            // @ts-ignore
+            console.error('Transaction failed:', error.message)
+            // @ts-ignore
+            if (error.data) {
+                // @ts-ignore
+                console.error('Error data:', error.data)
+            }
+        }
+    })
+
+```
+
+This task automates the process of sending tokens cross-chain using LayerZero's Omnichain Fungible Token (OFT) standard. Firstly, it connects to the specified network and retrieves the `MyOFT` contract. The task then performs a series of crucial checks and preparations: it verifies the sender's token balance, mints additional tokens if needed (and if the sender is the contract owner), constructs the necessary transaction parameters, and estimates the required transaction fee. Once all prerequisites are met, the task executes the cross-chain transfer by calling the OFT contract's `send` function with the appropriate parameters.
+
+Run the command below to execute the task:
+
+```sh
+npx hardhat lz:oft:send --network kairos-testnet --to 0x1C42aCcd92d491DB8b083Fa953B5E3D9A9E42aD5 --to-eid 40245 --amount 10
+
+```
+
+```sh
+Network: kairos-testnet
+Token balance: 0.0
+Attempting to send: 10
+Insufficient token balance
+You are the owner. Attempting to mint tokens...
+Minted 10 tokens to your address
+Sending 10 token(s) to 0x1C42aCcd92d491DB8b083Fa953B5E3D9A9E42aD5 on network base-sep-testnet (40245)
+Estimated fee: 1.594471565548511489 native tokens
+Transaction sent. Hash: 0xb102724387fa0a0c902c60b076f4e476e12990a53c9b8e77f54ce96ac08ecef8
+See transaction on LayerZero Scan: https://testnet.layerzeroscan.com/tx/0xb102724387fa0a0c902c60b076f4e476e12990a53c9b8e77f54ce96ac08ecef8 
+Transaction confirmed
+```
+
+You can verify the cross-chain transaction by pasting the transaction hash in [LayerZero Scan](https://testnet.layerzeroscan.com/).
+
+![](/img/build/tools/lz-scan-v2.png)
+
 
 ## Conclusion
 
-Congratulations! 🥳 You were able to successfully send tokens from Kaia Kairos to Polygon Mumbai in a single transaction call using the LayerZero Omnichain Contract OFTV1. You can take it a step further by setting up a simple user interface to make it easy for users to move tokens between chains. Once token contracts are set up, you can use a web3 library such as [kaia-sdk](https://klaytn-foundation.stoplight.io/docs/web3klaytn/0d10ufjmg8ri2-overview) or [ethers.js](https://docs.ethers.org/v5/) to connect the **sendFrom()** function to a user interface.
+Congratulations! 🥳 You were able to successfully send tokens from Kairos Testnet to Base Sepolia in a single transaction call using the LayerZero Omnichain Contract OFT V2. You can take it a step further by setting up a simple user interface to make it easy for users to move tokens between chains. Once token contracts are set up, you can use a web3 library such as [kaia-sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/) or [ethers.js](https://docs.ethers.org/v5/) to connect the `send()` function to a user interface.
 
-Start building with [crosschain-oftv1-example](https://github.com/ayo-klaytn/crosschain-oftv1-example/tree/main) to bootstrap your own projects such as cross-chain decentralized exchanges, cross-chain lending, etc. For more in-depth guides on LayerZero, please refer to the [LayerZero Docs](https://layerzero.gitbook.io/docs/) and [LayerZero Github Repository](https://github.com/LayerZero-Labs/solidity-examples/tree/main).
+Start building with [crosschain-oft-v2-example](https://github.com/ayo-klaytn/crosschain-oft-v2-example) to bootstrap your own projects such as cross-chain decentralized exchanges, cross-chain lending, etc. For more in-depth guides on LayerZero, please refer to the [LayerZero Docs](https://docs.layerzero.network/v2/developers/evm/oft/quickstart) and [LayerZero Github Repository](https://github.com/LayerZero-Labs/devtools/tree/main/examples).
