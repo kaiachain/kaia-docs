@@ -1,4 +1,12 @@
-# LayerZero
+---
+id: layerzero
+title: LayerZero
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Layerzero 
 
 ## Introduction <a id="introduction"></a>
 
@@ -20,32 +28,8 @@ Before delving into the entire project, it's important to note that its finished
 In this guide, we will use LayerZero V2 Omnichain Fungible Tokens (OFT) to facilitate cross-chain token transfer across EVM chains seamlessly. LayerZero provides the [create-lz-oapp](https://github.com/LayerZero-Labs/devtools) CLI toolkit, which we will use to easily build, configure, and deploy our omnichain applications (OApps) on both Kairos Testnet (source chain) and Base Sepolia (destination chain).
 
 ## Setting Up Your LayerZero Project <a id="setting-up-your-layerzero-project"></a>
-In this section, we will set up our OApps in the following manner: 
 
-Copy and paste the command below in your project terminal to bootstrap your initial LayerZero project:
-
-```sh
-npx create-lz-oapp@latest
-```
-
-Follow the project creation wizard to set up your OFT project. As shown below, you should have a prompt configuration.
-
-```sh
-✔ Where do you want to start your project? … ./my-lz-oapp
-✔ Which example would you like to use as a starting point? › OFT
-✔ What package manager would you like to use in your project? › pnpm
-```
-
-Now that you have your OApp initialized, your project folder should look like this:
-
-```sh
-contracts / // your contracts folder
-  deploy / // hardhat-deploy scripts
-  test / // unit-tests, both hardhat and foundry enabled
-  foundry.toml; // normal foundry.toml for remappings and project configuration
-hardhat.config.ts; // standard hardhat.config.ts, with layerzero endpoint mappings
-layerzero.config.ts; // special LayerZero config file.
-```
+ Follow this [guide](https://docs.layerzero.network/v2/developers/evm/create-lz-oapp/start#setting-up-your-layerzero-project) to bootstrap your initial LayerZero project 
 
 ## Customizing the OFT Contract <a id="customizing-oft-contract"></a>
 
@@ -95,11 +79,12 @@ In this section, we will set up deployer wallet/account for our project. Follow 
 
 ## Project Configuration <a id="project-configuration"></a>
 
-For a LayerZero project to work efficiently, you need to modify the `hardhat.config.ts` and `layerzero.config.ts` files. In this section, we will configure these files accordingly. 
+Follow this [guide](https://docs.layerzero.network/v2/developers/evm/create-lz-oapp/project-config) to set up your project configuration. 
 
-### Modifying Hardhat Config <a id="modifying-hardhat-config"></a>
+Your `hardhat.config.ts` and `layerzero.config.ts` should look like this to suit the networks we will be working with:
 
-After initializing our project, we will modify our `hardhat.config.ts` file to suit the networks we will be working with:
+<Tabs>
+  <TabItem value="hardhat-config-ts" label="hardhat.config.ts">
 
 ```ts
   networks: {
@@ -117,15 +102,9 @@ After initializing our project, we will modify our `hardhat.config.ts` file to 
 
 ```
 
-:::info
+  </TabItem>
 
-The only notable change from a standard `hardhat.config.ts` setup is the inclusion of a [LayerZero Endpoint ID](https://docs.layerzero.network/v2/developers/evm/technical-reference/deployed-contracts).
-
-:::
-
-### Modifying LayerZero Config <a id="modifying-layerzero-config"></a>
-
-The `layerzero.config.ts` first defines what contracts you expect to deploy on each network, using the `@layerzerolabs/lz-definitions` package as a mapping for each network:
+  <TabItem value="layerzero-config-ts" label="layerzero.config.ts">
 
 ```ts
 // layerzero.config.ts
@@ -150,6 +129,16 @@ const baseSepContract: OmniPointHardhat = {
     contractName: 'MyOFT',
 }
 ```
+
+  </TabItem>
+</Tabs>
+
+
+:::info
+
+The only notable change from a standard `hardhat.config.ts` setup is the inclusion of a [LayerZero Endpoint ID](https://docs.layerzero.network/v2/developers/evm/technical-reference/deployed-contracts).
+
+:::
 
 After defining what contracts to use on each network, you can specify which contracts should be connected on a per pathway basis:
 
@@ -186,66 +175,20 @@ export default config
 
 ## Deploying LayerZero Contract <a id="deploying-layerzero-contract"></a>
 
-In this section, you use the `lz:deploy` task to deploy the OFT contract on Kairos Testnet (source chain) and Base Sepolia (destination chain) respectively. 
+Follow this [guide](https://docs.layerzero.network/v2/developers/evm/create-lz-oapp/deploying) to deploy your OFT contract on Kairos Testnet (source chain) and Base Sepolia (destination chain) respectively. 
 
-To deploy the contracts on the respective chains, run the command below:
-
-```bash
-npx hardhat lz:deploy
-```
-
-### Selecting Chains <a id="selecting-chains"></a>
-
-You will be prompted to selected which chains to deploy to:
-
-```sh
-info:    Compiling you hardhat project
-Nothing to compile
-? Which networks would you like to deploy? ›
-Instructions:
-    ↑/↓: Highlight option
-    ←/→/[space]: Toggle selection
-    [a,b,c]/delete: Filter choices
-    enter/return: Complete answer
-
-Filtered results for: Enter something to filter
-
-◉  base-sep-testnet
-◉  kairos-testnet
-```
-
-If you wish to deploy to all blockchain networks selected, simply hit enter to continue deployment.
-
-### Adding Deploy Script Tags <a id="adding-deploy-script-tags"></a>
-
-Afterwards you'll be prompted to choose which deploy script tags to use. By default, each CLI example contains a starter deploy script, with the deploy script tag being the contract name:
-
-```ts
-deploy.tags = [MyOFT];
-```
-
-```sh
-info:    Compiling you hardhat project
-Nothing to compile
-✔ Which networks would you like to deploy? › base-sep-testnet, kairos-testnet
-? Which deploy script tags would you like to use? › MyOFT
-```
-
-### Running the Deployer <a id="running-the-deployer"></a>
-
-After selecting either all or a specific deploy script, the deployer will deploy the contracts on your specified chains.
+After following the prompt command, you should see the following in your terminal:
 
 ```sh
 Network: base-sep-testnet
-Deployer: 0x7b467A6962bE0ac80784F131049A25CDE27d62Fb
+Deployer: 0x0000000000000000000000000000000000000000
 Network: kairos-testnet
-Deployer: 0x7b467A6962bE0ac80784F131049A25CDE27d62Fb
+Deployer: 0x0000000000000000000000000000000000000000
 Deployed contract: MyOFT, network: base-sep-testnet, address: 0x02657Bc72D9AFB778bf3edd14De1997cD46eF7a1
 Deployed contract: MyOFT, network: kairos-testnet, address: 0x5907191DbEd1E7ad03F3F69f2134973fd07dD545
 info:    ✓ Your contracts are now deployed
 ```
-
-You should see an output in your ./deployments folder, or have one generated, containing your contracts:
+A deployments folder containing your contracts:
 
 ```sh
 contracts / // your contracts folder
