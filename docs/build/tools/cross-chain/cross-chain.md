@@ -9,9 +9,7 @@ Cross-chain interoperability is a comprehensive concept encompassing various tec
 
 1. **Cross-Chain Messaging Protocols**: These enable broad interoperability, supporting diverse operations such as data exchange and cross-chain smart contract execution.
 
-2. **Cross-Chain Bridges**: A specific subset of cross-chain solutions, bridges focus primarily on asset transfer between chains. They play a crucial role in connecting different blockchain ecosystems but have a more specialized function compared to general messaging protocols.
-
-Both types of solutions contribute to the overall goal of creating a more interconnected and efficient blockchain ecosystem.
+2. **Cross-Chain Bridges**: A specific subset of cross-chain solutions, bridges focus primarily on asset transfer between chains. They play a crucial role in connecting assets across the different blockchain ecosystems but have a more specialized function compared to general messaging protocols.
 
 ## Kaia's Compatibility <a id="kaia-compatibility"></a>
 
