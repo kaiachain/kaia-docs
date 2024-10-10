@@ -257,7 +257,10 @@ const sidebars = {
           type: 'category',
           label: 'Cross-chain',
           link: { type: 'doc', id: 'build/tools/cross-chain/cross-chain' },
-          items: ['build/tools/cross-chain/layerzero'],
+          items: ['build/tools/cross-chain/layerzero',
+                  'build/tools/cross-chain/wormhole',
+                  'build/tools/cross-chain/stargate'
+          ],
         },
         {
           type: 'category',
