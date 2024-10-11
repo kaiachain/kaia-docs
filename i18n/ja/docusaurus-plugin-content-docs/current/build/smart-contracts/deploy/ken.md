@@ -96,7 +96,7 @@ Please refer to the [Troubleshooting](../../../misc/operation/troubleshooting.md
 Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. To attach to the JavaScript console, execute the following command.
 
 ```bash
-$ ken attach ~/kend_home/klay.ipc
+$ ken attach --datadir ~/kend_home
 Welcome to the Klaytn JavaScript console
 
 !instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X

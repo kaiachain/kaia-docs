@@ -65,7 +65,7 @@ EN 프로세스에 연결하는 방법은 여러 가지가 있습니다. 사용 
 다음 명령어를 실행하여 결과를 확인해 주세요. (RPC에 `mainbridge` API를 추가한 경우 아래와 같이 브리지 API를 확인할 수 있습니다. `mainbridge` API가 없는 경우, [EN 설정 - 메인 브리지 활성화](#en-configuration-enable-main-bridge)를 다시 확인해야 합니다. )
 
 ```bash
-$ ken attach ~/kend_home/kaia.ipc
+$ ken attach --datadir ~/kend_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
@@ -118,7 +118,7 @@ IPC를 통해 프로세스에 연결한 후 아래와 같이 EN의 메인 브리
 아래와 같이 SCN 프로세스에 연결합니다. RPC용 `subbridge` API가 활성화되어 있어야 하며, 출력에서 서브브리지 모듈을 확인할 수 있습니다. 만약 `subbridge` API가 없다면, [SCN 구성](../install-service-chain.md#configuration-of-the-scn)을 다시 확인해야 합니다.
 
 ```bash
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

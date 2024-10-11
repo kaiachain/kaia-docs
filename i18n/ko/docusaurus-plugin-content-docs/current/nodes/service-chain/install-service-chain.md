@@ -318,12 +318,12 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 #### kscn 콘솔 <a id="kscn-console"></a>
 
-카이아는 `kscn console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. IPC 파일 `klay.ipc`는 SCN의 `data` 디렉터리에 있습니다.
+카이아는 `kscn console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. IPC 파일 `klay.ipc`는 SCN의 `DATA_DIR` 경로에 있습니다.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
 ```text
-$ kscn attach ~/kscnd_home/klay.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X

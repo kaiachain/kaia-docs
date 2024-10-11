@@ -161,6 +161,6 @@ The chaindatafetcher also supports delivers blocks and traces on-demand, called 
 The range fetching is triggered by `chaindatafetcher_` namespace RPC. This RPC is accessible via IPC. Note yo don't need `--vm.internaltx` flag to use range fetching.
 
 ```
-$ ken attach /var/kend/data/klay.ipc
+$ ken attach --datadir /var/kend/data
 > chaindatafetcher.startRangeFetching(97300,97400,'trace')
 ```

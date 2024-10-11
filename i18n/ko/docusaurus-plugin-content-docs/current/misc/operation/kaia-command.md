@@ -21,8 +21,8 @@ LOG_DIR=/var/kcnd/logs/
 카이아 API에 연결하여 노드 및 네트워크 상태를 확인합니다.
 
 ```bash
-# execute the command below in the Kaia DATA_DIR Path
-$ sudo kcn attach kaia.ipc
+# execute the command below with the Kaia DATA_DIR Path
+$ sudo kcn attach --datadir /path/to/datadir
 > 
 ```
 
@@ -49,11 +49,11 @@ $ sudo kcn attach kaia.ipc
 ## API 결과만 가져오기
 
 ```jsx
-# execute the command below in the Kaia DATA_DIR Path
-$ sudo kcn attach --exec <statement> kaia.ipc
+# execute the command below with the Kaia DATA_DIR Path
+$ sudo kcn attach --exec <statement> --datadir <DATA_DIR>
 
 e.g.
 # Check my dode address
-$ sudo kcn attach --exec "governance.nodeAddress" kaia.ipc
+$ sudo kcn attach --exec "governance.nodeAddress" --datadir /path/to/datadir
 "0xda23978e6e354fbf25dd87aaf1d1bb4ed112753f"
 ```

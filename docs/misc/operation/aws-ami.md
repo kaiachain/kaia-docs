@@ -87,10 +87,10 @@ If the service restarted and the EN has started successfully, you can check its 
 $ tail -f /var/kend/logs/kend.out
 ```
 
-Kaia provides a CLI client `ken console`. You can interact with the Kaia node using the `ken console` via multiple endpoints, and one option is to use IPC (inter-process communication). The IPC file `klay.ipc` is located in the data directory on an EN, in our case `/var/kend/data`. Thus in order to use `ken console`:
+Kaia provides a CLI client `ken console`. You can interact with the Kaia node using the `ken console` via multiple endpoints, and one option is to use IPC (inter-process communication). The IPC file `klay.ipc` is located in the `DATA_DIR` path on an EN, in our case `/var/kend/data`. Thus in order to use `ken console`:
 
 ```bash
-$ sudo ken attach /var/kend/data/klay.ipc
+$ sudo ken attach --datadir /var/kend/data
 Welcome to the Kaia JavaScript console!
 
  instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

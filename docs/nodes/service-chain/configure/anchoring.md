@@ -13,7 +13,7 @@ You can provide a keystore file that you want to use as a parent operator, or if
 You can check the parent operator address via RPC API, `subbridge_parentOperator`.
 
 ```
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

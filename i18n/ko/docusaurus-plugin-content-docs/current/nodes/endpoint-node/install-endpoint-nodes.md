@@ -204,7 +204,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 다음 명령을 실행하고 결과를 확인하세요.
 
 ```text
-$ ken attach /var/kend/data/kaia.ipc
+$ ken attach --datadir /var/kend/data
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

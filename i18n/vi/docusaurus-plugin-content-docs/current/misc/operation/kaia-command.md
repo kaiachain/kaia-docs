@@ -21,8 +21,8 @@ LOG_DIR=/var/kcnd/logs/
 Connect to Kaia API to check node and network status.
 
 ```bash
-# execute the command below in the Kaia DATA_DIR Path
-$ sudo kcn attach kaia.ipc
+# execute the command below with the Kaia DATA_DIR Path
+$ sudo kcn attach --datadir /path/to/datadir
 > 
 ```
 
@@ -49,11 +49,11 @@ $ sudo kcn attach kaia.ipc
 ## How to get the API Result only
 
 ```jsx
-# execute the command below in the Kaia DATA_DIR Path
-$ sudo kcn attach --exec <statement> kaia.ipc
+# execute the command below with the Kaia DATA_DIR Path
+$ sudo kcn attach --exec <statement> --datadir /path/to/datadir
 
 e.g.
 # Check my dode address
-$ sudo kcn attach --exec "governance.nodeAddress" kaia.ipc
+$ sudo kcn attach --exec "governance.nodeAddress" --datadir /path/to/datadir
 "0xda23978e6e354fbf25dd87aaf1d1bb4ed112753f"
 ```

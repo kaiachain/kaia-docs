@@ -96,7 +96,7 @@ INFO[03/26,15:37:49 +09] [5] Imported new chain segment                blocks=1 
 카이아 엔드포인트 노드는 JavaScript 콘솔과 함께 제공됩니다. 콘솔 명령줄에서 EN에 카이아 API 호출의 일부를 시작할 수 있습니다. JavaScript 콘솔에 접속하려면 다음 명령을 실행하세요.
 
 ```bash
-$ ken attach ~/kend_home/klay.ipc
+$ ken attach --datadir ~/kend_home
 Welcome to the Kaia JavaScript console
 
 !instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X

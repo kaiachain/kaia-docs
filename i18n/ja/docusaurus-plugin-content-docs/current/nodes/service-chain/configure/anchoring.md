@@ -14,7 +14,7 @@ You can provide a keystore file that you want to use as a parent operator, or if
 You can check the parent operator address via RPC API, `subbridge_parentOperator`.
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X

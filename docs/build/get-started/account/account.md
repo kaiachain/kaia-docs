@@ -68,7 +68,7 @@ To connect to the JavaScript console, an EN must be in running status. For more 
 $ kend start
 Starting kend: OK
 
-$ ken attach ~/kend_home/kaia.ipc
+$ ken attach --datadir ~/kend_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
