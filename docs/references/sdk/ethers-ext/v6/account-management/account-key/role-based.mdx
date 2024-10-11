@@ -1,0 +1,244 @@
+# Role-based Account Key
+
+**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+
+<CH.Spotlight>
+<CH.Code>
+
+```js AccountUpdateWithRoleBased.js
+const { ethers } = require("ethers");
+
+const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+
+// Using senderPriv == senderRoleAccountUpdatePriv to execute this example repeatedly.
+// But you might want to register a different private key.
+const senderAddr = "0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea";
+const senderPriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const updaterWallet = new Wallet(senderAddr, senderRoleAccountUpdatePriv, provider);
+
+async function main() {
+  const pub1 = ethers.utils.computePublicKey(senderRoleTransactionPriv, true);
+  const pub2 = ethers.utils.computePublicKey(senderRoleAccountUpdatePriv, true);
+  const pub3 = ethers.utils.computePublicKey(senderRoleFeePayerPriv, true);
+  console.log({ pub1, pub2, pub3 });
+
+  const tx = {
+    type: TxType.AccountUpdate,
+    from: senderAddr,
+    gasLimit: 1000000,
+    key: {
+      type: AccountKeyType.RoleBased,
+      keys: [
+        { type: AccountKeyType.Public, key: pub1 }, // RoleTransaction
+        { type: AccountKeyType.Public, key: pub2 }, // RoleAccountUpdate
+        { type: AccountKeyType.Public, key: pub3 }, // RoleFeePayer
+      ]
+    }
+  };
+
+  const sentTx = await updaterWallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js AccountUpdateWithRoleBased.js
+{
+  pub1: '0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a',
+  pub2: '0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3',
+  pub3: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+}
+sentTx 0xcb8e1fc03088f2a00d44c31ce1c5f4913d3cf11403d60014a245ae44aa4c2a2f
+receipt {
+  to: '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA',
+  from: '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x013c68', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xb9145a53ef85bc4b375de828d9c3387cadc6bcd8f81a8d8eaf4f0331a2d7a5c0',
+  transactionHash: '0xcb8e1fc03088f2a00d44c31ce1c5f4913d3cf11403d60014a245ae44aa4c2a2f',
+  logs: [],
+  blockNumber: 152203576,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x0377d6', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+
+```js AccountUpdateWithRoleBased.js focus=1:3
+
+```
+
+---
+
+Define sender **address**, sender **private key** and new **role-based private keys** to be changed
+
+```js AccountUpdateWithRoleBased.js focus=5:11
+
+```
+
+---
+
+Set up the provider with the specified **Kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js AccountUpdateWithRoleBased.js focus=13
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js AccountUpdateWithRoleBased.js focus=13
+const { ethers } = require("ethers");
+
+const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+
+// Using senderPriv == senderRoleAccountUpdatePriv to execute this example repeatedly.
+// But you might want to register a different private key.
+const senderAddr = "0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea";
+const senderPriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const updaterWallet = new Wallet(senderAddr, senderRoleAccountUpdatePriv, provider);
+
+async function main() {
+  const pub1 = ethers.utils.computePublicKey(senderRoleTransactionPriv, true);
+  const pub2 = ethers.utils.computePublicKey(senderRoleAccountUpdatePriv, true);
+  const pub3 = ethers.utils.computePublicKey(senderRoleFeePayerPriv, true);
+  console.log({ pub1, pub2, pub3 });
+
+  const tx = {
+    type: TxType.AccountUpdate,
+    from: senderAddr,
+    gasLimit: 1000000,
+    key: {
+      type: AccountKeyType.RoleBased,
+      keys: [
+        { type: AccountKeyType.Public, key: pub1 }, // RoleTransaction
+        { type: AccountKeyType.Public, key: pub2 }, // RoleAccountUpdate
+        { type: AccountKeyType.Public, key: pub3 }, // RoleFeePayer
+      ]
+    }
+  };
+
+  const sentTx = await updaterWallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main().catch(console.error);
+```
+
+---
+
+Create a sender's wallet with the **updater role** private key and provider
+
+```js AccountUpdateWithRoleBased.js focus=14
+
+```
+
+---
+
+Compute the **public keys** from the new **role-based** private keys
+
+<CH.Code>
+```js AccountUpdateWithRoleBased.js focus=17:20
+
+````
+---
+
+```zsh output
+{
+  pub1: '0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a',
+  pub2: '0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3',
+  pub3: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+}
+````
+
+</CH.Code>
+
+---
+
+Declare a transaction in the **keys** field with the computed **role-based public keys**
+
+```js AccountUpdateWithRoleBased.js focus=22:34
+
+```
+
+---
+
+Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+
+<CH.Code>
+```js AccountUpdateWithRoleBased.js focus=36:37
+
+````
+---
+
+```zsh output
+sentTx 0xcb8e1fc03088f2a00d44c31ce1c5f4913d3cf11403d60014a245ae44aa4c2a2f
+````
+
+</CH.Code>
+
+---
+
+The **wait** function returns the tx receipt if it is completed in the blockchain.
+
+<CH.Code>
+```js AccountUpdateWithRoleBased.js focus=39:40
+
+````
+---
+```zsh output
+receipt {
+  to: '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA',
+  from: '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x013c68', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xb9145a53ef85bc4b375de828d9c3387cadc6bcd8f81a8d8eaf4f0331a2d7a5c0',
+  transactionHash: '0xcb8e1fc03088f2a00d44c31ce1c5f4913d3cf11403d60014a245ae44aa4c2a2f',
+  logs: [],
+  blockNumber: 152203576,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x0377d6', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+````
+
+</CH.Code>
+
+</CH.Spotlight>

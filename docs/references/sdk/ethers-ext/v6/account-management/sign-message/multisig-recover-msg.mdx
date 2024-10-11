@@ -1,0 +1,187 @@
+# Multisig Account Key
+
+**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+
+In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SignMsgWithMultiSigExample.js
+const { ethers } = require("ethers");
+
+const { Wallet } = require("@kaiachain/ethers-ext");
+
+const senderAddr = "0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e";
+const senderPriv = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a";
+const senderNewPriv1 = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a";
+const senderNewPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet1 = new Wallet(senderAddr, senderNewPriv1, provider);
+const wallet2 = new Wallet(senderAddr, senderNewPriv2, provider);
+const wallet3 = new Wallet(senderAddr, senderNewPriv3, provider);
+
+async function main() {
+  const msg = "hello";
+  const msghex = ethers.utils.hexlify(ethers.utils.toUtf8Bytes(msg));
+  const sig = await wallet3.signMessage(msg);
+  console.log({ senderAddr, msg, msghex, sig });
+
+  const addr1 = ethers.utils.verifyMessage(msg, sig);
+  console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === wallet3.address.toLowerCase());
+
+  const addr2 = await provider.send("klay_recoverFromMessage", [senderAddr, msghex, sig, "latest"]);
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === wallet3.address.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js SignMsgWithMultiSigExample.js
+{
+  senderAddr: '0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e',
+  msg: 'hello',
+  msghex: '0x68656c6c6f',
+  sig: '0x4bb3156dfd3349b974222b9ed754a3835802d920b63e8c07f41a75a174ce99d92a70d62e7a4b30d18599de61a882c59c0fd726883e3ce9955f8d5f60ce5b65211c'
+}
+recoveredAddr lib 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b true
+recoveredAddr rpc 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b true
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+
+```js SignMsgWithMultiSigExample.js focus=1:3
+
+```
+
+---
+
+Define sender's **address** and **private key** and all **weighted multi-sig** private keys
+
+```js SignMsgWithMultiSigExample.js focus=5:9
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js SignMsgWithMultiSigExample.js focus=11
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js SignMsgWithMultiSigExample.js focus=11
+const { ethers } = require("ethers");
+
+const { Wallet } = require("@kaiachain/ethers-ext");
+
+const senderAddr = "0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e";
+const senderPriv = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a";
+const senderNewPriv1 = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a";
+const senderNewPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet1 = new Wallet(senderAddr, senderNewPriv1, provider);
+const wallet2 = new Wallet(senderAddr, senderNewPriv2, provider);
+const wallet3 = new Wallet(senderAddr, senderNewPriv3, provider);
+
+async function main() {
+  const msg = "hello";
+  const msghex = ethers.utils.hexlify(ethers.utils.toUtf8Bytes(msg));
+  const sig = await wallet3.signMessage(msg);
+  console.log({ senderAddr, msg, msghex, sig });
+
+  const addr1 = ethers.utils.verifyMessage(msg, sig);
+  console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === wallet3.address.toLowerCase());
+
+  const addr2 = await provider.send("klay_recoverFromMessage", [senderAddr, msghex, sig, "latest"]);
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === wallet3.address.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+Create 3 wallets with the **weight multi-sig** private keys and provider
+
+```js SignMsgWithMultiSigExample.js focus=12:14
+
+```
+
+---
+
+Define a message to be signed and recovered
+
+```js SignMsgWithMultiSigExample.js focus=17
+
+```
+
+---
+
+Sign the message with sender's **wallet3**
+
+<CH.Code>
+```js SignMsgWithMultiSigExample.js focus=18:20
+
+````
+---
+
+```zsh output
+{
+  senderAddr: '0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e',
+  msg: 'hello',
+  msghex: '0x68656c6c6f',
+  sig: '0x4bb3156dfd3349b974222b9ed754a3835802d920b63e8c07f41a75a174ce99d92a70d62e7a4b30d18599de61a882c59c0fd726883e3ce9955f8d5f60ce5b65211c'
+}
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed message using `ethers.utils.verifyMessage`
+
+<CH.Code>
+```js SignMsgWithMultiSigExample.js focus=22:23
+
+````
+---
+
+```zsh output
+recoveredAddr lib 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b true
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed message using `klay_recoverFromMessage`
+
+<CH.Code>
+```js SignMsgWithMultiSigExample.js focus=25:26
+
+````
+---
+```zsh output
+recoveredAddr rpc 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b true
+````
+
+</CH.Code>
+</CH.Spotlight>

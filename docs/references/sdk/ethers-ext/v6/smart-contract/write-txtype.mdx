@@ -1,0 +1,337 @@
+<CH.Spotlight>
+<CH.Code>
+
+```js writeTxType.js
+const ethers = require("ethers");
+const { Wallet, TxType } = require("@kaiachain/ethers-ext");
+
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const counter = new ethers.Contract(contractAddr, abi, wallet);
+
+  console.log("number before", (await counter.number()).toString());
+
+  const data = (await counter.populateTransaction.increment()).data;
+  const tx = {
+    type: TxType.SmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    value: 0,
+    data: data,
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+
+  console.log("number after", (await counter.number()).toString());
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node writeTxType.js
+number before 292
+sentTx 0x2af4d70ac12b5bedd960200e1791cd06c5ea110acb196c8156837570a158452e
+receipt {
+  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
+  contractAddress: null,
+  transactionIndex: 0,
+  gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  blockHash: '0x91742c5e371cb44f335f2e7e944d0a340bd4bc0f2004197b689020431d72cf74',
+  transactionHash: '0x2af4d70ac12b5bedd960200e1791cd06c5ea110acb196c8156837570a158452e',
+  logs: [
+    {
+      transactionIndex: 0,
+      blockNumber: 148740675,
+      transactionHash: '0x2af4d70ac12b5bedd960200e1791cd06c5ea110acb196c8156837570a158452e',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000125',
+      logIndex: 0,
+      blockHash: '0x91742c5e371cb44f335f2e7e944d0a340bd4bc0f2004197b689020431d72cf74'
+    }
+  ],
+  blockNumber: 148740675,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+number after 293
+
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+
+```js writeTxType.js focus=1:2
+
+```
+
+---
+
+Define **sender address** and **private key**
+
+```js writeTxType.js focus=4:5
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js writeTxType.js focus=7
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js writeTxType.js focus=7
+const ethers = require("ethers");
+const { Wallet, TxType } = require("@kaiachain/ethers-ext");
+
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const counter = new ethers.Contract(contractAddr, abi, wallet);
+
+  console.log("number before", (await counter.number()).toString());
+
+  const data = (await counter.populateTransaction.increment()).data;
+  const tx = {
+    type: TxType.SmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    value: 0,
+    data: data,
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+
+  console.log("number after", (await counter.number()).toString());
+}
+
+main();
+```
+
+---
+
+create a wallet from sender **private key** and **web3 provider**
+
+```js writeTxType.js focus=8
+
+```
+
+---
+
+Set the **Abi** generated from solidity code
+
+```js writeTxType.js focus=33
+
+```
+
+---
+
+Define **contract address** to interact with
+
+```js writeTxType.js focus=34
+
+```
+
+---
+
+Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+
+```js writeTxType.js focus=37
+
+```
+
+---
+
+Get the **number** value before updated by using method **counter.number()**
+
+<CH.Code>
+```js writeTxType.js focus=39
+
+````
+---
+```zsh output
+❯ node writeTxType.js
+number before 291
+````
+
+</CH.Code>
+
+---
+
+Create a transaction data to update the **number** value
+
+```js writeTxType.js focus=41
+
+```
+
+---
+
+Create a transaction object with data from previous step with type **SmartContractExecution**
+
+```js writeTxType.js focus=42:48
+
+```
+
+---
+
+Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+
+<CH.Code>
+```js writeTxType.js focus=50:51
+
+````
+---
+```zsh output
+❯ node writeTxType.js
+sentTx 0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306
+````
+
+</CH.Code>
+
+---
+
+The **wait** function returns the tx receipt if it is completed in the blockchain.
+
+<CH.Code>
+```js writeTxType.js focus=53:54
+
+````
+---
+```zsh output
+❯ node writeTxType.js
+receipt {
+  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
+  contractAddress: null,
+  transactionIndex: 0,
+  gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  blockHash: '0x56d4b7567811196525ef2704060210c1a908b245ae6ac8b296c30ecb2ff76f3b',
+  transactionHash: '0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306',
+  logs: [
+    {
+      transactionIndex: 0,
+      blockNumber: 146818446,
+      transactionHash: '0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000124',
+      logIndex: 0,
+      blockHash: '0x56d4b7567811196525ef2704060210c1a908b245ae6ac8b296c30ecb2ff76f3b'
+    }
+  ],
+  blockNumber: 146818446,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+````
+
+</CH.Code>
+
+---
+
+Get the updated value **number** by using method **counter.number()**
+
+<CH.Code>
+```js writeTxType.js focus=56
+
+````
+---
+```zsh output
+❯ node writeTxType.js
+number after 292
+````
+
+</CH.Code>
+
+</CH.Spotlight>

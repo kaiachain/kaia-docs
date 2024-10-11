@@ -1,0 +1,218 @@
+# Public Account Key
+
+**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+
+<CH.Spotlight>
+<CH.Code>
+
+```js AccountUpdateWithPubKey.js
+const { ethers } = require("ethers");
+
+const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+
+// Using senderPriv == senderNewPriv to execute this example repeatedly.
+// But you should use AccountKeyPublic to register a different private key.
+const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderAddr, senderPriv, provider); // decoupled account
+
+async function main() {
+  const senderNewPub = ethers.utils.computePublicKey(senderNewPriv, true);
+  console.log("pub", senderNewPub);
+
+  const tx = {
+    type: TxType.AccountUpdate,
+    from: senderAddr,
+    key: {
+      type: AccountKeyType.Public,
+      key: senderNewPub,
+    }
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js AccountUpdateWithPubKey.js
+pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+sentTx 0x33a634875a49d8915bc6fde14f351b81d1fc470b64aef28bf95d3ea92f2dc4f7
+receipt {
+  to: '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b',
+  from: '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0xa028', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xb385b18c2e96c36e7fbbeb121cf2a48c0bb15f1a7af2f2969b133236ff7a14ea',
+  transactionHash: '0x33a634875a49d8915bc6fde14f351b81d1fc470b64aef28bf95d3ea92f2dc4f7',
+  logs: [],
+  blockNumber: 152203491,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x02e456', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+
+```js AccountUpdateWithPubKey.js focus=1:3
+
+```
+
+---
+
+Define sender **address**, sender **private key** and **new private key** to be changed
+
+```js AccountUpdateWithPubKey.js focus=5:9
+
+```
+
+---
+
+Set up the provider with the specified **Kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js AccountUpdateWithPubKey.js focus=11
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js AccountUpdateWithPubKey.js focus=11
+const { ethers } = require("ethers");
+
+const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+
+// Using senderPriv == senderNewPriv to execute this example repeatedly.
+// But you should use AccountKeyPublic to register a different private key.
+const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderAddr, senderPriv, provider); // decoupled account
+
+async function main() {
+  const senderNewPub = ethers.utils.computePublicKey(senderNewPriv, true);
+  console.log("pub", senderNewPub);
+
+  const tx = {
+    type: TxType.AccountUpdate,
+    from: senderAddr,
+    key: {
+      type: AccountKeyType.Public,
+      key: senderNewPub,
+    }
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main().catch(console.error);
+```
+
+---
+
+Create a sender's wallet with the **private key** and **provider**
+
+```js AccountUpdateWithPubKey.js focus=12
+
+```
+
+---
+
+Compute the **public key** from the new private key
+
+<CH.Code>
+```js AccountUpdateWithPubKey.js focus=15:16
+
+````
+---
+
+```zsh output
+pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+````
+
+</CH.Code>
+
+---
+
+Declare a transaction which has type **AccountKeyType.Public** and **key** field with the new computed **public key**
+
+```js AccountUpdateWithPubKey.js focus=18:25
+
+```
+
+---
+
+Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+
+<CH.Code>
+```js AccountUpdateWithPubKey.js focus=27:28
+
+````
+---
+
+```zsh output
+sentTx 0x33a634875a49d8915bc6fde14f351b81d1fc470b64aef28bf95d3ea92f2dc4f7
+````
+
+</CH.Code>
+
+---
+
+The **wait** function returns the tx receipt if it is completed in the blockchain.
+
+<CH.Code>
+```js AccountUpdateWithPubKey.js focus=30:31
+
+````
+---
+```zsh output
+receipt {
+  to: '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b',
+  from: '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0xa028', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xb385b18c2e96c36e7fbbeb121cf2a48c0bb15f1a7af2f2969b133236ff7a14ea',
+  transactionHash: '0x33a634875a49d8915bc6fde14f351b81d1fc470b64aef28bf95d3ea92f2dc4f7',
+  logs: [],
+  blockNumber: 152203491,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x02e456', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+````
+
+</CH.Code>
+
+</CH.Spotlight>
