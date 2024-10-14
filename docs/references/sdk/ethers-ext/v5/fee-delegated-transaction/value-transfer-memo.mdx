@@ -8,7 +8,7 @@
     <CH.Code>
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js
-const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v5");
 const ethers = require("ethers");
 
 const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
@@ -103,7 +103,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 Also, you can change the provider URL from **kairos** to **quicknode**
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
-const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v5");
 const ethers = require("ethers");
 
 const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";

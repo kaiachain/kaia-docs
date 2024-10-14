@@ -8,7 +8,7 @@
 ```js AccountUpdateWithPubKey.js
 const { ethers } = require("ethers");
 
-const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext/v5");
 
 // Using senderPriv == senderNewPriv to execute this example repeatedly.
 // But you should use AccountKeyPublic to register a different private key.
@@ -101,7 +101,7 @@ Also, you can change the provider URL from **kairos** to **quicknode**
 ```js AccountUpdateWithPubKey.js focus=11
 const { ethers } = require("ethers");
 
-const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext/v5");
 
 // Using senderPriv == senderNewPriv to execute this example repeatedly.
 // But you should use AccountKeyPublic to register a different private key.

@@ -8,7 +8,7 @@
 ```js AccountUpdateWithPubKey.js
 const { ethers } = require("ethers");
 
-const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext/v6");
 
 // Using senderPriv == senderNewPriv to execute this example repeatedly.
 // But you should use AccountKeyPublic to register a different private key.
@@ -16,11 +16,11 @@ const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
 const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 const wallet = new Wallet(senderAddr, senderPriv, provider); // decoupled account
 
 async function main() {
-  const senderNewPub = ethers.utils.computePublicKey(senderNewPriv, true);
+  const senderNewPub = ethers.SigningKey.computePublicKey(senderNewPriv, true);
   console.log("pub", senderNewPub);
 
   const tx = {
@@ -101,7 +101,7 @@ Also, you can change the provider URL from **kairos** to **quicknode**
 ```js AccountUpdateWithPubKey.js focus=11
 const { ethers } = require("ethers");
 
-const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext/v6");
 
 // Using senderPriv == senderNewPriv to execute this example repeatedly.
 // But you should use AccountKeyPublic to register a different private key.
@@ -109,11 +109,11 @@ const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
 const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 const wallet = new Wallet(senderAddr, senderPriv, provider); // decoupled account
 
 async function main() {
-  const senderNewPub = ethers.utils.computePublicKey(senderNewPriv, true);
+  const senderNewPub = ethers.SigningKey.computePublicKey(senderNewPriv, true);
   console.log("pub", senderNewPub);
 
   const tx = {

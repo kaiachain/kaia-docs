@@ -8,7 +8,7 @@
 ```js AccountUpdateWithRoleBased.js
 const { ethers } = require("ethers");
 
-const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext/v5");
 
 // Using senderPriv == senderRoleAccountUpdatePriv to execute this example repeatedly.
 // But you might want to register a different private key.
@@ -114,7 +114,7 @@ Also, you can change the provider URL from **kairos** to **quicknode**
 ```js AccountUpdateWithRoleBased.js focus=13
 const { ethers } = require("ethers");
 
-const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext/v5");
 
 // Using senderPriv == senderRoleAccountUpdatePriv to execute this example repeatedly.
 // But you might want to register a different private key.

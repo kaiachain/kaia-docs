@@ -7,12 +7,12 @@ You can make a **"transaction"** interacting with a Smart Contract when you **ne
 
 ```js smartContractWrite.js
 const ethers = require("ethers");
-const { Wallet } = require("@kaiachain/ethers-ext");
+const { Wallet } = require("@kaiachain/ethers-ext/v6");
 
 const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
 const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 const wallet = new Wallet(senderPriv, provider);
 
 /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
@@ -145,12 +145,12 @@ Also, you can change the provider URL from **kairos** to **quicknode**
 
 ```js smartContractWrite.js focus=7
 const ethers = require("ethers");
-const { Wallet } = require("@kaiachain/ethers-ext");
+const { Wallet } = require("@kaiachain/ethers-ext/v6");
 
 const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
 const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 const wallet = new Wallet(senderPriv, provider);
 
 /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)

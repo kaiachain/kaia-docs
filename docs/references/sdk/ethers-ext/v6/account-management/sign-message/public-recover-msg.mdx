@@ -8,21 +8,21 @@
 ```js SignMsgWithPubkeyExample.js
 const { ethers } = require("ethers");
 
-const { Wallet } = require("@kaiachain/ethers-ext");
+const { Wallet } = require("@kaiachain/ethers-ext/v6");
 
 const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
 const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 const wallet = new Wallet(senderAddr, senderPriv, provider); // decoupled account
 
 async function main() {
   const msg = "hello";
-  const msghex = ethers.utils.hexlify(ethers.utils.toUtf8Bytes(msg));
+  const msghex = ethers.hexlify(ethers.toUtf8Bytes(msg));
   const sig = await wallet.signMessage(msg);
   console.log({ senderAddr, msg, msghex, sig });
 
-  const addr1 = ethers.utils.verifyMessage(msg, sig);
+  const addr1 = ethers.verifyMessage(msg, sig);
   console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === wallet.address.toLowerCase());
 
   const addr2 = await provider.send("klay_recoverFromMessage", [senderAddr, msghex, sig, "latest"]);
@@ -79,21 +79,21 @@ Also, you can change the provider URL from **kairos** to **quicknode**
 ```js SignMsgWithPubkeyExample.js focus=8
 const { ethers } = require("ethers");
 
-const { Wallet } = require("@kaiachain/ethers-ext");
+const { Wallet } = require("@kaiachain/ethers-ext/v6");
 
 const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
 const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
 
-const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 const wallet = new Wallet(senderAddr, senderPriv, provider); // decoupled account
 
 async function main() {
   const msg = "hello";
-  const msghex = ethers.utils.hexlify(ethers.utils.toUtf8Bytes(msg));
+  const msghex = ethers.hexlify(ethers.toUtf8Bytes(msg));
   const sig = await wallet.signMessage(msg);
   console.log({ senderAddr, msg, msghex, sig });
 
-  const addr1 = ethers.utils.verifyMessage(msg, sig);
+  const addr1 = ethers.verifyMessage(msg, sig);
   console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === wallet.address.toLowerCase());
 
   const addr2 = await provider.send("klay_recoverFromMessage", [senderAddr, msghex, sig, "latest"]);
@@ -142,7 +142,7 @@ Sign the message with sender's **wallet**
 
 ---
 
-Recover the address from signed message using `ethers.utils.verifyMessage`
+Recover the address from signed message using `ethers.verifyMessage`
 
 <CH.Code>
 ```js SignMsgWithPubkeyExample.js focus=17:18

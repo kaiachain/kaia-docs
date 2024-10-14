@@ -8,7 +8,7 @@
     <CH.Code>
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js
-const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v6");
 const ethers = require("ethers");
 
 const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
@@ -18,7 +18,7 @@ const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16f
 const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
 
 async function main() {
-  const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+  const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
   const senderWallet = new Wallet(senderPriv, provider);
   const feePayerWallet = new Wallet(feePayerPriv, provider);
 
@@ -103,7 +103,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 Also, you can change the provider URL from **kairos** to **quicknode**
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
-const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v6");
 const ethers = require("ethers");
 
 const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
@@ -113,7 +113,7 @@ const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16f
 const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
 
 async function main() {
-  const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+  const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
   const senderWallet = new Wallet(senderPriv, provider);
   const feePayerWallet = new Wallet(feePayerPriv, provider);
 
