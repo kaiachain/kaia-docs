@@ -323,7 +323,7 @@ Klaytn provides a CLI client: `kscn console`. Another way of using the client is
 Please execute the following command and check out the result.
 
 ```text
-$ kscn attach --datadir ~/kscnd_home
+$ kscn attach ~/kscnd_home/klay.ipc
 Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X

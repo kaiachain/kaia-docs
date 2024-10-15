@@ -68,7 +68,7 @@ JavaScript 콘솔에 연결하려면 EN이 실행 중 상태여야 합니다. �
 $ kend start
 Starting kend: OK
 
-$ ken attach --datadir ~/kend_home
+$ ken attach ~/kend_home/kaia.ipc
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

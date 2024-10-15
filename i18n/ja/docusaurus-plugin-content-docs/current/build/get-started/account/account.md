@@ -68,7 +68,7 @@ To connect to the JavaScript console, an EN must be in running status. For more 
 $ kend start
 Starting kend: OK
 
-$ ken attach --datadir ~/kend_home
+$ ken attach ~/kend_home/klay.ipc
 Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X

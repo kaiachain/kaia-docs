@@ -34,20 +34,7 @@ HTTP RPC 인터페이스는 `--rpc` 플래그를 사용하여 명시적으로 �
 **IPC**
 
 ```javascript
-$ ken attach --datadir <DATA_DIR>
-Welcome to the Kaia JavaScript console!
-
- instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
-  datadir: /var/kend/data
-  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
-
->
-```
-
-이로써 활성화된 모든 모듈 목록이 콘솔 출력에 포함되어 있습니다:
-
-```
-  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
+$ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U klay.ipc
 ```
 
 **HTTP**

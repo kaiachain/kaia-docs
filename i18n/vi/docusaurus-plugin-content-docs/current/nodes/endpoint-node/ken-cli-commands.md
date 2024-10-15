@@ -60,7 +60,7 @@ participating.
 Kaia Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Kaia API calls to your EN. To attach to the JavaScript console, execute the following command.
 
 ```bash
-$ ken attach --datadir ~/kend_home
+$ ken attach ~/kend_home/kaia.ipc
 Welcome to the Kaia JavaScript console
 
 !instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

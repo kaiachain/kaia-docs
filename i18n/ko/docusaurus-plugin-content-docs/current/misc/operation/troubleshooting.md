@@ -83,7 +83,7 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 ## 다음 오류 로그 메시지와 함께 Kaia 노드를 시작할 수 없습니다. <a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
 
 ```
-Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
+Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/kaia.ipc: bind: invalid argument
 ```
 
 **답변**

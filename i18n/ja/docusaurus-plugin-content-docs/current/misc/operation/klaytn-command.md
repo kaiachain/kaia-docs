@@ -22,7 +22,7 @@ Connect to Klaytn API to check node and network status.
 
 ```bash
 # execute the command below in the Klaytn DATA_DIR Path
-$ sudo kcn attach --datadir /var/kcnd/data
+$ sudo kcn attach klay.ipc
 > 
 ```
 
@@ -49,11 +49,11 @@ $ sudo kcn attach --datadir /var/kcnd/data
 ## How to get the API Result only
 
 ```jsx
-# execute the command below with the Klaytn DATA_DIR Path
-$ sudo kcn attach --exec <statement> --datadir <DATA_DIR>
+# execute the command below in the Klaytn DATA_DIR Path
+$ sudo kcn attach --exec <statement> klay.ipc
 
 e.g.
 # Check my dode address
-$ sudo kcn attach --exec "governance.nodeAddress" --datadir /path/to/datadir
+$ sudo kcn attach --exec "governance.nodeAddress" klay.ipc
 "0xda23978e6e354fbf25dd87aaf1d1bb4ed112753f"
 ```

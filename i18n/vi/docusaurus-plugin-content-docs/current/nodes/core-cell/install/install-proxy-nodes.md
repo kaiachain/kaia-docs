@@ -248,12 +248,12 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 Kaia provides a CLI client: `kpn console`. However, a PN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
 
-The IPC file `klay.ipc` is located in the `DATA_DIR` path on a PN.
+The IPC file `kaia.ipc` is located in the `data` directory on a PN.
 
 Please execute the following command and check out the result.
 
 ```bash
- $ kpn attach --datadir /var/kpnd/data
+ $ kpn attach /var/kpnd/data/kaia.ipc
  Welcome to the Kaia JavaScript console!
 
  instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

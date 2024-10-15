@@ -199,12 +199,12 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 #### ken console <a id="ken-console"></a>
 
-Kaia provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `DATA_DIR` path on an EN.
+Kaia provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `kaia.ipc` is located in the `data` directory on an EN.
 
 Please execute the following command and check out the result.
 
 ```text
-$ ken attach --datadir /var/kend/data
+$ ken attach /var/kend/data/kaia.ipc
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

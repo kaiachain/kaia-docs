@@ -199,12 +199,12 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 #### ken console <a id="ken-console"></a>
 
-Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `DATA_DIR` path on an EN.
+Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an EN.
 
 Please execute the following command and check out the result.
 
 ```text
-$ ken attach --datadir /var/kend/data
+$ ken attach /var/kend/data/klay.ipc
 Welcome to the Klaytn JavaScript console!
 
 instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
