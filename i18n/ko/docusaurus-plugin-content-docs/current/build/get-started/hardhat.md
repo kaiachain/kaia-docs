@@ -105,7 +105,7 @@ touch .env
 - 파일을 생성한 후 다음과 같이 .env 파일을 구성해 보겠습니다:
 
 ```js
- KAIA_BAOBAB_URL= "Your Kairos RPC link"
+ KAIROS_TESTNET_URL= "Your Kairos RPC link"
  PRIVATE_KEY= "your private key copied from MetaMask wallet"
 ```
 
@@ -124,7 +124,7 @@ module.exports = {
   solidity: "0.8.17",
   networks: {
     kairos: {
-      url: process.env.KAIA_BAOBAB_URL || "",
+      url: process.env.KAIROS_TESTNET_URL || "",
       gasPrice: 250000000000,
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],

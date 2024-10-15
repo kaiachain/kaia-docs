@@ -61,6 +61,7 @@ You can get test KAIA for development and testing purposes here:
 [Kaia Faucet](https://faucet.kaia.io)
 [AllThatNode Faucet](https://www.allthatnode.com/faucet/klaytn.dsrv)
 [NODIT Faucet](https://kaiafaucet.com)
+[Thirdweb Faucet](https://thirdweb.com/kaia-testnet-kairos)
 
 ## 퍼블릭 RPC 엔드포인트 상태는 어떻게 확인하나요? <a id="rpc-endpoint-status"></a>
 

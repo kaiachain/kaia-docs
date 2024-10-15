@@ -153,7 +153,7 @@ $ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Cou
 **Ví dụ**
 
 ```bash
-forge create --rpc-url https://klaytn-baobab.g.allthatnode.com/full/evm --private-key hhdhdhdhprivatekeyhdhdhdhud src/Counter.sol:Counter
+forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhdhdhprivatekeyhdhdhdhud src/Counter.sol:Counter
 ```
 
 **CẢNH BÁO: Hãy thay thế đối số khóa riêng tư bằng khóa riêng tư của bạn từ MetaMask. Hãy cẩn thận và đừng để lộ khóa riêng tư của bạn.**
@@ -181,7 +181,7 @@ cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
 **Ví dụ**
 
 ```bash
-cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab.g.allthatnode.com/full/evm
+cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://public-en-kairos.node.kaia.io
 ```
 
 **Kết quả đầu ra**
@@ -213,7 +213,7 @@ cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --
 **Ví dụ**
 
 ```bash
-cast send --rpc-url=https://klaytn-baobab.g.allthatnode.com/full/evm 0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
+cast send --rpc-url=https://public-en-kairos.node.kaia.io 0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
 ```
 
 **Kết quả đầu ra**
@@ -223,7 +223,7 @@ cast send --rpc-url=https://klaytn-baobab.g.allthatnode.com/full/evm 0xe4d576c44
 **Kiểm tra chéo số**
 
 ```bash
-cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://klaytn-baobab.g.allthatnode.com/full/evm
+cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://public-en-kairos.node.kaia.io
 ```
 
 **Kết quả đầu ra**

@@ -1,7 +1,24 @@
-# 크로스 체인
+# Cross-Chain Interoperability
 
-크로스 체인 메시징 프로토콜은 원래 고립되어 있고 독립적인 체인을 서로 연결하여 서로 간에 유동성과 상태를 이동할 수 있도록 상호 운용성을 높이는 것을 목표로 합니다. 이러한 프로토콜은 서로 다른 블록체인 네트워크 간에 자산을 전송하기 위한 규칙과 프로세스를 설정합니다. 이제 여러 블록체인은 크로스체인 메시징 프로토콜 덕분에 독립적인 시스템 간에 쉽게 상호 작용하고 협업하며 데이터를 교환할 수 있게 되었습니다.
+Cross-chain interoperability protocols are designed to connect blockchain networks that were originally isolated and independent. These protocols enable different chains to interact, allowing for the movement of liquidity and state between them. By establishing rules and processes for transferring assets and data across different blockchain networks, cross-chain interoperability protocols facilitate seamless collaboration and exchange of information between otherwise separate systems.
 
-카이아 네트워크와 호환되는 크로스체인 메시징 프로토콜은 아래와 같습니다.
+## Broad Scope of Cross-Chain Solutions <a id="broad-scope-of-cross-chain-solution"></a>
 
-- [LayerZero](https://layerzero.gitbook.io/docs/)
+Cross-chain interoperability is a comprehensive concept encompassing various technologies:
+
+1. **Cross-Chain Messaging Protocols**: These enable broad interoperability, supporting diverse operations such as data exchange and cross-chain smart contract execution.
+
+2. **Cross-Chain Bridges**: A specific subset of cross-chain solutions, bridges focus primarily on asset transfer between chains. They play a crucial role in connecting assets across the different blockchain ecosystems but have a more specialized function compared to general messaging protocols.
+
+## Kaia's Compatibility <a id="kaia-compatibility"></a>
+
+Kaia network is currently compatibile with leading cross-chain solutions, enhancing its connectivity within the broader blockchain landscape. The following are currently supported on Kaia:
+
+### Cross-Chain Messaging Protocols:
+
+- [LayerZero](https://layerzero.network/)
+- [Wormhole](https://wormhole.com/)
+
+### Cross-Chain Bridges:
+
+- [Stargate](https://stargate.finance/)

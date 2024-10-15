@@ -46,7 +46,7 @@ import { klaytnBaobab } from 'viem/chains'
  
 const client = createPublicClient({ 
   chain: klaytnBaobab, 
-  transport: http("https://klaytn-baobab.g.allthatnode.com/full/evm"), 
+  transport: http("https://public-en-kairos.node.kaia.io"), 
 }) 
 
 ```
@@ -61,7 +61,7 @@ import { privateKeyToAccount } from 'viem/accounts'
  
 const walletClient = createWalletClient({
   chain: klaytnBaobab,
-  transport: http("https://klaytn-baobab.g.allthatnode.com/full/evm")
+  transport: http("https://public-en-kairos.node.kaia.io")
 })
  
 const account = privateKeyToAccount("PASTE PRIVATE KEY HERE");
@@ -85,7 +85,7 @@ import { klaytnBaobab } from 'viem/chains'
  
 const client = createPublicClient({ 
   chain: klaytnBaobab, 
-  transport: http("https://klaytn-baobab.g.allthatnode.com/full/evm"), 
+  transport: http("https://public-en-kairos.node.kaia.io"), 
 }) 
 
 
@@ -138,7 +138,7 @@ import { privateKeyToAccount } from 'viem/accounts'
 
 const walletClient = createWalletClient({
   chain: klaytnBaobab,
-  transport: http("https://klaytn-baobab.g.allthatnode.com/full/evm")
+  transport: http("https://public-en-kairos.node.kaia.io")
 })
  
 const account = privateKeyToAccount("PASTE PRIVATE KEY");
@@ -195,7 +195,7 @@ import { klaytnBaobab } from 'viem/chains'
  
 const client = createPublicClient({ 
   chain: klaytnBaobab, 
-  transport: http("https://klaytn-baobab.g.allthatnode.com/full/evm"), 
+  transport: http("https://public-en-kairos.node.kaia.io"), 
 }) 
 
 
@@ -252,7 +252,7 @@ import { privateKeyToAccount } from 'viem/accounts'
  
 const walletClient = createWalletClient({
   chain: klaytnBaobab,
-  transport: http("https://klaytn-baobab.g.allthatnode.com/full/evm")
+  transport: http("https://public-en-kairos.node.kaia.io")
 })
  
 const account = privateKeyToAccount("PASTE PRIVATE KEY");

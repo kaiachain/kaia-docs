@@ -162,7 +162,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytools**
 
 ---
 
-Create a Web3 instance with the specified kaia **Baobab** testnet URL
+Create a Web3 instance with the specified **kairos** testnet URL
 
 ```py web3_account_update_multisig.py focus=18:20
 
@@ -170,7 +170,7 @@ Create a Web3 instance with the specified kaia **Baobab** testnet URL
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**.
+Also, you can change the provider URL from **kairos** to **quicknode**.
 
 ```py web3_account_update_multisig.py focus=18:20
 from web3py_ext import extend
@@ -191,7 +191,7 @@ from cytoolz import merge
 from eth_utils.address import to_checksum_address
 
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+    'https://public-en-kairos.node.kaia.io'
     ))
 
 def web3_account_update_role_based():

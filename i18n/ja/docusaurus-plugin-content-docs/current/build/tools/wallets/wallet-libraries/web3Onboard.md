@@ -76,8 +76,8 @@ In this step, you will instantiate Onboard with the created modules and a list o
 ```js
 import Onboard from "@web3-onboard/core";
 const ETH_MAINNET_RPC_URL = `Paste ETH RPC URL`;
-const KLAYTN_MAINNET_URL = `Paste KLAYTN MAINNET URL`
-const KLAYTN_BAOBAB_URL = `Paste KLAYTN BAOBAB URL`
+const KAIA_MAINNET_URL = `Paste KAIA MAINNET URL`
+const KAIROS_TESTNET_URL = `Paste KAIROS TESTNET URL`
 
 const onboard = Onboard({
   wallets: modules, // created in previous step
@@ -91,25 +91,25 @@ const onboard = Onboard({
     },
     {
       id: "0x2019", // chain ID must be in hexadecimal
-      token: "KLAY",
+      token: "KAIA",
       namespace: "evm",
-      label: "Klaytn Mainnet",
-      rpcUrl: KLAYTN_MAINNET_URL
+      label: "Kaia Mainnet",
+      rpcUrl: KAIA_MAINNET_URL
     },
     {
       id: "0x3e9", // chain ID must be in hexadecimel
-      token: "KLAY",
+      token: "KAIA",
       namespace: "evm",
-      label: "Klaytn Testnet",
-      rpcUrl: KLAYTN_BAOBAB_URL
+      label: "Kairos Testnet",
+      rpcUrl: KAIROS_TESTNET_URL
     },
    // you can add as much supported chains as possible
   ],
   appMetadata: {
-    name: "Klaytn-web3-onboard-App", // change to your dApp name
+    name: "Kaia-web3-onboard-App", // change to your dApp name
     icon: "https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // paste your icon 
     logo: "https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // paste your logo
-    description: "Web3Onboard-Klaytn",
+    description: "Web3Onboard-Kaia",
     recommendedInjectedWallets: [
       { name: "Coinbase", url: "https://wallet.coinbase.com/" },
       { name: "MetaMask", url: "https://metamask.io" }

@@ -72,7 +72,7 @@ Import necessary utils from **web3** and **eth_account**
 
 ---
 
-Create a Web3 instance with the kaia Baobab testnet endpoint
+Create a Web3 instance with the **kairos** testnet endpoint
 
 ```py contract_interaction_with_kaia_type.py focus=9:11
 
@@ -80,7 +80,7 @@ Create a Web3 instance with the kaia Baobab testnet endpoint
 
 ---
 
-Also, you can change the provider URL from **baobab** to **allthatnode**
+Also, you can change the provider URL from **kairos** to **quicknode**
 
 ```py contract_interaction_with_kaia_type.py focus=9:11
 from web3py_ext import extend
@@ -92,7 +92,7 @@ from web3py_ext.transaction.transaction import (
 )
 
 w3 = Web3(Web3.HTTPProvider(
-    'https://klaytn-mainnet.g.allthatnode.com/full/evm'
+    'https://public-en-kairos.node.kaia.io'
     ))
 user = Account.from_key('0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49')
 
