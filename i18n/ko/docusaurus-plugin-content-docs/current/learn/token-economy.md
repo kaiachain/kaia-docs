@@ -14,7 +14,7 @@ Kaia의 자금 구조는 카이아 네트워크의 블록 생성과 함께 지�
 - Kaia Ecosystem Fund (KEF): 25%
 - Kaia Infrastructure Fund (KIF): 25%
 
-새로운 블록이 생성될 때마다 9.6 KAIA가 발행됩니다. 이는 연간 약 2억 개의 KAIA가 발행된다는 것을 의미하며, 이는 시장의 총 KAIA 토큰 대비 연간 5.2%의 인플레이션에 해당합니다(연간 인플레이션율은 Kaia 거버넌스 프로세스를 통해 변경될 수 있습니다). 거래 수수료는 미리 정해진 수수료 표에 따라 부과되고 정산됩니다. 거래 수수료에 대한 자세한 내용은 [거래 수수료](transaction-fees/transaction-fees.md)를 참조하세요.
+새로운 블록이 생성될 때마다 9.6 KAIA가 발행됩니다. This implies that approximately 300 million KAIA will be minted annually, which is equivalent to 5.2% annual inflation against the total KAIA tokens in the market (the annual inflation rate is subject to change through the Kaia Governance Process). 거래 수수료는 미리 정해진 수수료 표에 따라 부과되고 정산됩니다. 거래 수수료에 대한 자세한 내용은 [거래 수수료](transaction-fees/transaction-fees.md)를 참조하세요.
 
 ## Kaia 거버넌스 카운슬 보상 <a id="kaia-governance-council-reward"></a>
 
