@@ -6,7 +6,7 @@ Ethers.js Extension for Kaia offers:
   involving AccountKey and TxTypes.
 - Drop-in replacement to `ethers.providers.JsonRpcProvider` that provides accesses to both Ethereum RPCs and
   Kaia-specific RPCs.
-- Drop-in replacement to `ethers.Web3Provider` to work with both MetaMask (`window.ethereum`) and Kaikas (`window.klaytn`)
+- Drop-in replacement to `ethers.Web3Provider` to work with both MetaMask (`window.ethereum`) and Kaia Wallet (`window.klaytn`)
 
 ## Note for ethers v6
 
