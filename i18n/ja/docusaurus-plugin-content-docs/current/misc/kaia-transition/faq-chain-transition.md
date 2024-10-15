@@ -3,7 +3,8 @@
 This FAQ addresses common questions and concerns for CEXs, node providers, wallet providers, dApp builders, and retail users familiar with the Klaytn ecosystem, to ensure a smooth transition.
 
 - KLAY and FNSA holders
-  - [What will happen to KLAY and FNSA?](#what-will-happen-to-klay-and-fnsa-)
+  - [What happened to Klaytn and Finschia?](#what-happened-to-klaytn-and-finschia-)
+  - [What happens to KLAY and FNSA?](#what-happens-to-klay-and-fnsa-)
   - [Will I need to create a new wallet for Kaia?](#will-i-need-to-create-a-new-wallet-for-kaia-)
   - [Will Klaytn provide a swap or migration website for new KAIA tokens?](#will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-)
   - [Will there be any delay in receiving KAIA tokens?](#will-there-be-any-delay-in-receiving-kaia-tokens-)
@@ -26,6 +27,7 @@ This FAQ addresses common questions and concerns for CEXs, node providers, walle
   - [Will Kaia be on the Klaytn mainnet or a different mainnet?](#will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-)
   - [Will the current Klaytn mainnet continue to work after the rebrand?](#will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-)
   - [When will the KAIA market open?](#when-will-the-kaia-market-open-)
+  - [Where can I find Kaia’s whitepaper?](#where-can-i-find-kaias-whitepaper-)
 
 - RPC node providers
   - [What changes do I need to make to my infrastructure to support the transition from Klaytn to Kaia, and will there be any breaking changes in the RPC APIs?](#as-an-rpc-node-provider-what-changes-do-i-need-to-make-to-my-infrastructure-to-support-the-transition-from-klaytn-to-kaia-and-will-there-be-any-breaking-changes-in-the-rpc-apis-)
@@ -33,9 +35,13 @@ This FAQ addresses common questions and concerns for CEXs, node providers, walle
 
 ## KLAY and FNSA holders
 
-### What will happen to KLAY and FNSA? <a id="what-will-happen-to-klay-and-fnsa-"></a>
+### What happened to Klaytn and Finschia? <a id="what-happened-to-klaytn-and-finschia-"></a>
 
-Once the KAIA coin launches, your KLAY balance will automatically be reflected as KAIA. When the Kaia Portal goes live, FNSA holders will be able to utilize its swap service to burn their FNSA tokens on the Finschia network and claim an equivalent value of KLAY tokens in preparation for the KLAY to KAIA transition. Please read [this post](https://medium.com/lineblockchain/preparations-for-the-upcoming-kaia-chain-token-swap-d9ccd853eda4) to learn more about swapping your FNSA to KLAY.
+Klaytn and Finschia merged to form Kaia through governance decisions made by both chains. You can view the voting results [here](https://medium.com/kaiachain/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem-7af570eb069a). The utility tokens of the two chains (KLAY and FNSA) are converted to the KAIA token. You can find the exchange rates for both tokens [here](../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status).
+
+### What happens to KLAY and FNSA? <a id="what-happens-to-klay-and-fnsa-"></a>
+
+With the launch of the KAIA coin, KLAY balances were automatically reflected as KAIA. FNSA holders are able to use the swap service on the [Kaia Portal](https://portal.kaia.io/) to burn their FNSA tokens on the Finschia network and claim an equivalent value of KLAY tokens. Please read [this post](https://medium.com/lineblockchain/preparations-for-the-upcoming-kaia-chain-token-swap-d9ccd853eda4) to learn more about swapping your FNSA to KAIA.
 
 ### Will I need to create a new wallet for Kaia? <a id="will-i-need-to-create-a-new-wallet-for-kaia-"></a>
 
@@ -106,6 +112,10 @@ Yes, the mainnet's operation will remain unaffected. The transition to Kaia prim
 ### When will the KAIA market open? <a id="when-will-the-kaia-market-open-"></a>
 
 The KAIA market will open in Q3 2024, we will share the exact block number closer to the date.
+
+### Where can I find Kaia’s whitepaper? <a id="where-can-i-find-kaias-whitepaper-"></a>
+
+You can access Kaia’s whitepaper [here](../../kaiatech/kaia-white-paper.md).
 
 ## RPC node providers
 
