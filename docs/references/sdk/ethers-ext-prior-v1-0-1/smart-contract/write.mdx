@@ -1,0 +1,333 @@
+# Write
+
+You can make a **"transaction"** interacting with a Smart Contract when you **need to update some state ** in the contract.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js smartContractWrite.js
+const ethers = require("ethers");
+const { Wallet } = require("@kaiachain/ethers-ext");
+
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const counter = new ethers.Contract(contractAddr, abi, wallet);
+
+  console.log("number before", (await counter.number()).toString());
+
+  const sentTx = await counter.increment();
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+
+  console.log("number after", (await counter.number()).toString());
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node smartContractWrite.js
+number before 291
+receipt {
+  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
+  contractAddress: null,
+  transactionIndex: 0,
+  gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  blockHash: '0xbc6486ec825cf2388917f6c5c250af3f811bc838ea3f83382c1786d31b1eaaac',
+  transactionHash: '0x07c87084001218f66e260cb63c207c676eae3bb4a338b7384457f6a4fdebd5da',
+  logs: [
+    {
+      transactionIndex: 0,
+      blockNumber: 148740640,
+      transactionHash: '0x07c87084001218f66e260cb63c207c676eae3bb4a338b7384457f6a4fdebd5da',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000124',
+      logIndex: 0,
+      blockHash: '0xbc6486ec825cf2388917f6c5c250af3f811bc838ea3f83382c1786d31b1eaaac'
+    }
+  ],
+  blockNumber: 148740640,
+  confirmations: 1,
+  cumulativeGasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 2,
+  byzantium: true,
+  events: [
+    {
+      transactionIndex: 0,
+      blockNumber: 148740640,
+      transactionHash: '0x07c87084001218f66e260cb63c207c676eae3bb4a338b7384457f6a4fdebd5da',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000124',
+      logIndex: 0,
+      blockHash: '0xbc6486ec825cf2388917f6c5c250af3f811bc838ea3f83382c1786d31b1eaaac',
+      args: [Array],
+      decode: [Function (anonymous)],
+      event: 'SetNumber',
+      eventSignature: 'SetNumber(uint256)',
+      removeListener: [Function (anonymous)],
+      getBlock: [Function (anonymous)],
+      getTransaction: [Function (anonymous)],
+      getTransactionReceipt: [Function (anonymous)]
+    }
+  ]
+}
+number after 292
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+
+```js smartContractWrite.js focus=1:2
+
+```
+
+---
+
+Define **sender address** and **private key**
+
+```js smartContractWrite.js focus=4:5
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js smartContractWrite.js focus=7
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js smartContractWrite.js focus=7
+const ethers = require("ethers");
+const { Wallet } = require("@kaiachain/ethers-ext");
+
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const counter = new ethers.Contract(contractAddr, abi, wallet);
+
+  console.log("number before", (await counter.number()).toString());
+
+  const sentTx = await counter.increment();
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+
+  console.log("number after", (await counter.number()).toString());
+}
+
+main();
+```
+
+---
+
+create a wallet from sender **private key** and **web3 provider**
+
+```js smartContractWrite.js focus=8
+
+```
+
+---
+
+Set the **Abi** generated from solidity code
+
+```js smartContractWrite.js focus=33
+
+```
+
+---
+
+Define **contract address** to interact with
+
+```js smartContractWrite.js focus=34
+
+```
+
+---
+
+Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+
+```js smartContractWrite.js focus=37
+
+```
+
+---
+
+Get the **number** value before updated by using method **counter.number()**
+
+<CH.Code>
+```js smartContractWrite.js focus=39
+
+````
+---
+```zsh output
+❯ node smartContractWrite.js
+number before 293
+````
+
+</CH.Code>
+
+---
+
+Create a transaction data to update the **number** value
+
+```js smartContractWrite.js focus=41
+
+```
+
+---
+
+The **wait** function returns the tx receipt if it is completed in the blockchain.
+
+<CH.Code>
+```js smartContractWrite.js focus=42:43
+
+````
+---
+```zsh output
+❯ node smartContractWrite.js
+receipt {
+  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
+  contractAddress: null,
+  transactionIndex: 2,
+  gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  blockHash: '0xc17dbcfb8c5582dc0646a01138fda179ee05a1134e167dfd5edafe46977f008a',
+  transactionHash: '0x3bc3042d157a877af42b9a4a60a719e9523f1c901c4aefa3c6ded12f946f7317',
+  logs: [
+    {
+      transactionIndex: 2,
+      blockNumber: 146819181,
+      transactionHash: '0x3bc3042d157a877af42b9a4a60a719e9523f1c901c4aefa3c6ded12f946f7317',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000126',
+      logIndex: 0,
+      blockHash: '0xc17dbcfb8c5582dc0646a01138fda179ee05a1134e167dfd5edafe46977f008a'
+    }
+  ],
+  blockNumber: 146819181,
+  confirmations: 8,
+  cumulativeGasUsed: BigNumber { _hex: '0x026fa8', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 2,
+  byzantium: true,
+  events: [
+    {
+      transactionIndex: 2,
+      blockNumber: 146819181,
+      transactionHash: '0x3bc3042d157a877af42b9a4a60a719e9523f1c901c4aefa3c6ded12f946f7317',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000126',
+      logIndex: 0,
+      blockHash: '0xc17dbcfb8c5582dc0646a01138fda179ee05a1134e167dfd5edafe46977f008a',
+      args: [Array],
+      decode: [Function (anonymous)],
+      event: 'SetNumber',
+      eventSignature: 'SetNumber(uint256)',
+      removeListener: [Function (anonymous)],
+      getBlock: [Function (anonymous)],
+      getTransaction: [Function (anonymous)],
+      getTransactionReceipt: [Function (anonymous)]
+    }
+  ]
+}
+````
+
+</CH.Code>
+
+---
+
+Get the updated value **number** by using method **counter.number()**
+
+<CH.Code>
+```js smartContractWrite.js focus=45
+
+````
+---
+```zsh output
+❯ node smartContractWrite.js
+number after 294
+````
+
+</CH.Code>
+
+</CH.Spotlight>

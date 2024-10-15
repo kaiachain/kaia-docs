@@ -10,7 +10,7 @@ export const sidebar = {
     },
     {
       type: 'category',
-      label: 'V5',
+      label: 'v5',
       items: [
         {
           type: 'category',
@@ -95,7 +95,7 @@ export const sidebar = {
     },
     {
         type: 'category',
-        label: 'V6',
+        label: 'v6',
         items: [
           {
             type: 'category',
