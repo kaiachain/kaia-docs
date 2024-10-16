@@ -68,7 +68,7 @@ Nếu bạn không chỉ định thư mục dữ liệu, vị trí mặc định
 $ kend start
 Starting kend: OK
 
-$ ken attach ~/kend_home/kaia.ipc
+$ ken attach --datadir ~/kend_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

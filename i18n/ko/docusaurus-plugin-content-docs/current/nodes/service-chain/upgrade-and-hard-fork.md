@@ -44,7 +44,7 @@ $ kscnd start
 서비스체인의 JavaScript 콘솔에서 아래와 같이 현재 블록 번호를 확인할 수 있습니다.
 
 ```bash
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
@@ -147,7 +147,7 @@ $ kscnd start
 그런 다음 SCN의 JavaScript 콘솔에서 업데이트된 체인 구성을 확인할 수 있습니다.
 
 ```bash
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
@@ -171,7 +171,7 @@ Magma 하드포크는 동적 가스 요금인 KIP-71을 도입합니다. 여기�
 가스 가격을 정적 값으로 설정하려면 가스 가격의 상한과 하한을 같은 값으로 설정해야 합니다. 예를 들어, SCN 노드의 JavaScript 콘솔에서 `governance.vote` API를 사용하여 가스 가격을 `0`으로 설정할 수 있습니다.
 
 ```bash
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X

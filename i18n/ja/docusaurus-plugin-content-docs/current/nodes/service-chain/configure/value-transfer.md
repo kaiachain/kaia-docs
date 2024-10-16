@@ -70,10 +70,10 @@ UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 If you run SCN successfully, you can check the parent/child chain bridge operator address using RPC API like the following.
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach --datadir ~/kscnd_home
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
@@ -96,10 +96,10 @@ After topping up the operator accounts, you can check their balances like below.
 **Parent chain bridge operator**
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach --datadir ~/kscnd_home
+Welcome to the Kaia JavaScript console!
 
- instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -110,10 +110,10 @@ Welcome to the Klaytn JavaScript console!
 **Child chain bridge operator**
 
 ```
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach --datadir ~/kscnd_home
+Welcome to the Kaia JavaScript console!
 
- instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -133,10 +133,10 @@ Sub-bridge provides a bridge contract deployment API. You can deploy bridge cont
 Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Bridge Configuration](bridge-configuration.md) to get detailed guideline.
 
 ```javascript
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach --datadir ~/kscnd_home
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vvX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
