@@ -318,12 +318,12 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 #### kscn console <a id="kscn-console"></a>
 
-Kaia provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `kaia.ipc` is located in the `data` directory on an SCN.
+Kaia provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `DATA_DIR` path on an SCN.
 
 Please execute the following command and check out the result.
 
 ```text
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
