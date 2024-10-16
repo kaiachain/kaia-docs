@@ -318,15 +318,15 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 #### kscn console <a id="kscn-console"></a>
 
-Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `data` directory on an SCN.
+Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `DATA_DIR` path on an SCN.
 
 Please execute the following command and check out the result.
 
 ```text
-$ kscn attach ~/kscnd_home/klay.ipc
-Welcome to the Klaytn JavaScript console!
+$ kscn attach --datadir ~/kscnd_home
+Welcome to the Kaia JavaScript console!
 
-instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
