@@ -63,7 +63,7 @@ UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 If you run SCN successfully, you can check the parent/child chain bridge operator address using RPC API like the following.
 
 ```
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
@@ -87,7 +87,7 @@ After topping up the operator accounts, you can check their balances like below.
 
 **Parent chain bridge operator**
 ```
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
  instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
@@ -100,7 +100,7 @@ Welcome to the Kaia JavaScript console!
 
 **Child chain bridge operator**
 ```
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
  instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
@@ -123,7 +123,7 @@ Sub-bridge provides a bridge contract deployment API. You can deploy bridge cont
 Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Bridge Configuration](bridge-configuration.md) to get detailed guideline.
 
 ```javascript
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X

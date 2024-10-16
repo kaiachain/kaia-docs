@@ -37,7 +37,20 @@ example over an `rpc` interface:
 **IPC**
 
 ```javascript
-$ echo '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' | nc -U kaia.ipc
+$ ken attach --datadir <DATA_DIR>
+Welcome to the Kaia JavaScript console!
+
+ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+  datadir: /var/kend/data
+  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
+
+>
+```
+
+will list all enabled modules in the console output.
+
+```
+  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 ```
 
 **HTTP**

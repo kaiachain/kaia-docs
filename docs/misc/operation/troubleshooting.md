@@ -83,7 +83,7 @@ Please check nodekey/validator and `genesis.json` file again.
 ## Kaia node can't start with following error log message. <a id="kaia-node-can-t-start-with-following-error-log-message"></a>
 
 ```
-Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/kaia.ipc: bind: invalid argument
+Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
 ```
 
 **Answer**
