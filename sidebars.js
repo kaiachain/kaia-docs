@@ -390,6 +390,7 @@ const sidebars = {
       label: 'SDKs and Libraries',
       link: { type: 'doc', id: 'references/sdk/sdk' },
       items: [
+        require('./docs/references/sdk/ethers-ext-prior-v1-0-1/sidebar').sidebar,
         require('./docs/references/sdk/ethers-ext/sidebar').sidebar,
         require('./docs/references/sdk/web3js-ext/sidebar').sidebar,
         require('./docs/references/sdk/web3j-ext/sidebar').sidebar,

@@ -1,0 +1,246 @@
+# Smart Contract Execution
+
+**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js smartContractExecution.js
+const ethers = require("ethers");
+const { Wallet, TxType } = require("@kaiachain/ethers-ext/v6");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+const abi = ["function setNumber(uint256 newNumber)"];
+
+async function main() {
+  const contract = new ethers.Contract(contractAddr, abi, provider);
+  const data = contract.interface.encodeFunctionData("setNumber", ["0x123"]);
+
+  const tx = {
+    type: TxType.SmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    value: 0,
+    data: data,
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node smartContractExecution.js
+sentTx 0x6ee58de9d1fd46da6f595112cc6ce060ef560796f78650e8a18fb32f20ec5343
+receipt {
+  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 3,
+  gasUsed: BigNumber { _hex: '0x6f49', _isBigNumber: true },
+  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  blockHash: '0xb71bcb74a6772501913302fb30d754bdf82cf2996ba9418b509bfd48b275bb0c',
+  transactionHash: '0x6ee58de9d1fd46da6f595112cc6ce060ef560796f78650e8a18fb32f20ec5343',
+  logs: [
+    {
+      transactionIndex: 3,
+      blockNumber: 148721006,
+      transactionHash: '0x6ee58de9d1fd46da6f595112cc6ce060ef560796f78650e8a18fb32f20ec5343',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000123',
+      logIndex: 9,
+      blockHash: '0xb71bcb74a6772501913302fb30d754bdf82cf2996ba9418b509bfd48b275bb0c'
+    }
+  ],
+  blockNumber: 148721006,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x094000', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+
+```js smartContractExecution.js focus=1:2
+
+```
+
+---
+
+Define **sender address and sender private key**
+
+```js smartContractExecution.js focus=4:5
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js smartContractExecution.js focus=7
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js smartContractExecution.js focus=7
+const ethers = require("ethers");
+const { Wallet, TxType } = require("@kaiachain/ethers-ext/v6");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+const abi = ["function setNumber(uint256 newNumber)"];
+
+async function main() {
+  const contract = new ethers.Contract(contractAddr, abi, provider);
+  const data = contract.interface.encodeFunctionData("setNumber", ["0x123"]);
+
+  const tx = {
+    type: TxType.SmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    value: 0,
+    data: data,
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+Create a sender's wallet using the sender's private key and the provider
+
+```js smartContractExecution.js focus=8
+
+```
+
+---
+
+Set the **contract address** you want to execute into the to field and set **ABI**
+
+```js smartContractExecution.js focus=10:11
+
+```
+
+---
+
+Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+
+```js smartContractExecution.js focus=14
+
+```
+
+---
+
+Encode the function name and parameter with the **encodeFunctionData** function
+
+```js smartContractExecution.js focus=15
+
+```
+
+---
+
+Declare a transaction object
+
+```js smartContractExecution.js focus=17:24
+
+```
+
+---
+
+Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+
+<CH.Code>
+```js smartContractExecution.js focus=25:26
+
+````
+
+
+---
+
+```zsh output
+sentTx 0xc0443ebef5f43edab8e76663d22bc7411720ec9b63af14301305718448881ee4
+````
+
+</CH.Code>
+
+---
+
+The **wait** function returns the tx receipt if it is completed in the blockchain.
+
+<CH.Code>
+```js smartContractExecution.js focus=28:29
+
+````
+---
+
+```zsh output
+receipt {
+  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 3,
+  gasUsed: BigNumber { _hex: '0x7a39', _isBigNumber: true },
+  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  blockHash: '0xcfc960b12b9014b2b894ae6183813b2cb7fa0b1d428157af02a54425d411bf44',
+  transactionHash: '0xc0443ebef5f43edab8e76663d22bc7411720ec9b63af14301305718448881ee4',
+  logs: [
+    {
+      transactionIndex: 3,
+      blockNumber: 146752711,
+      transactionHash: '0xc0443ebef5f43edab8e76663d22bc7411720ec9b63af14301305718448881ee4',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000123',
+      logIndex: 6,
+      blockHash: '0xcfc960b12b9014b2b894ae6183813b2cb7fa0b1d428157af02a54425d411bf44'
+    }
+  ],
+  blockNumber: 146752711,
+  confirmations: 7,
+  cumulativeGasUsed: BigNumber { _hex: '0x06a8cd', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+
+````
+
+</CH.Code>
+</CH.Spotlight>

@@ -1,0 +1,194 @@
+# Value Transfer With Memo
+
+**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+
+<CH.Spotlight>
+    <CH.Code>
+
+```js TxTypeValueTransferMemo.js
+const ethers = require("ethers");
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v6");
+
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+async function main() {
+  const tx = {
+    type: TxType.ValueTransferMemo,
+    from: senderAddr,
+    to: recieverAddr,
+    value: parseKlay("0.01"),
+    data: "0x1234567890",
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node TxTypeValueTransferMemo.js
+sentTx 0x57fdd7fec672b9e66e9bef766aca109babbfbb3c71b62544f10bd9bd3dceee85
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 2,
+  gasUsed: BigNumber { _hex: '0x53fc', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xf223ef09cb8c9bc50f9ec0463a22ffb8a79c179e6ee5d1dccc0467aa23de7fe2',
+  transactionHash: '0x57fdd7fec672b9e66e9bef766aca109babbfbb3c71b62544f10bd9bd3dceee85',
+  logs: [],
+  blockNumber: 148721333,
+  confirmations: 7,
+  cumulativeGasUsed: BigNumber { _hex: '0x056a2f', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+
+```js TxTypeValueTransferMemo.js focus=1:2
+
+```
+
+---
+
+Define **sender address, sender private key and reciever address**
+
+```js TxTypeValueTransferMemo.js focus=4:6
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js TxTypeValueTransferMemo.js focus=8:8
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js TxTypeValueTransferMemo.js focus=8:8
+const ethers = require("ethers");
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v6");
+
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.JsonRpcProvider('https://public-en-kairos.node.kaia.io')
+const wallet = new Wallet(senderPriv, provider);
+
+async function main() {
+  const tx = {
+    type: TxType.ValueTransferMemo,
+    from: senderAddr,
+    to: recieverAddr,
+    value: parseKlay("0.01"),
+    data: "0x1234567890",
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+Create a sender's wallet with the **private key** and **provider**
+
+```js TxTypeValueTransferMemo.js focus=9
+
+```
+
+---
+
+Declare a transaction with the fields such as **type, from, to, value, data**.
+
+```js TxTypeValueTransferMemo.js focus=12:18
+
+```
+
+---
+
+Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+
+<CH.Code>
+
+```js TxTypeValueTransferMemo.js focus=19:21
+
+```
+
+---
+
+```zsh output
+sentTx 0x57fdd7fec672b9e66e9bef766aca109babbfbb3c71b62544f10bd9bd3dceee85
+```
+
+</CH.Code>
+
+---
+
+The **wait** function returns the tx receipt if it is completed in the blockchain.
+
+<CH.Code>
+
+```js TxTypeValueTransferMemo.js focus=22:24
+
+```
+
+---
+
+```zsh output
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 0,
+  gasUsed: BigNumber { _hex: '0x53fc', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xef816e6444ce19135dfc64803eea5beb9966804ca0869043e287129145ff41ee',
+  transactionHash: '0x2ab415b5e4c354d74cb40c8c2054f9ec139ac629f233674abd40cca5697d53b3',
+  logs: [],
+  blockNumber: 143450915,
+  confirmations: 6,
+  cumulativeGasUsed: BigNumber { _hex: '0x53fc', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+</CH.Spotlight>

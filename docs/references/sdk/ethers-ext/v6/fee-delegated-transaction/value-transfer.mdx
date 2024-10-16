@@ -1,0 +1,283 @@
+# Value Transfer
+
+TxTypeValueTransfer is used when a user wants to send KAIA.
+
+- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+
+# Fee Delegation
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxTypeFeeDelegatedValueTransfer.js
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v6");
+const ethers = require("ethers");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+async function main() {
+  const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+  const senderWallet = new Wallet(senderPriv, provider);
+  const feePayerWallet = new Wallet(feePayerPriv, provider);
+
+  let tx = {
+    type: TxType.FeeDelegatedValueTransfer,
+    to: recieverAddr,
+    value: parseKlay("0.01"),
+    from: senderAddr,
+  };
+
+  tx = await senderWallet.populateTransaction(tx);
+  console.log(tx);
+
+  const senderTxHashRLP = await senderWallet.signTransaction(tx);
+  console.log("senderTxHashRLP", senderTxHashRLP);
+
+  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
+  console.log("sentTx", sentTx);
+
+  const rc = await sentTx.wait();
+  console.log("receipt", rc);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+senderTxHashRLP 0x09f8878203ab850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a06b4fdf5a4769285549e3bdfec4ba6db98f3439e8a148df1f55b7387a7c207947a0705b7c07749ab7aadab88a6e412a66f1985d821d56104b75d5a5ee6c03924e42
+sentTx 0xbd5ca6525bc3364b68846b314e5d621333dd7df4054cbb76f67e5ea9c2aaef33
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x7918', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xfa10dadd1783e0fa65729336cd14bc8197ae0e15c3e42c3cc505b9fce85ebcac',
+  transactionHash: '0xbd5ca6525bc3364b68846b314e5d621333dd7df4054cbb76f67e5ea9c2aaef33',
+  logs: [],
+  blockNumber: 148722215,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x034b1d', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=1:2
+
+```
+
+---
+
+Define **sender address, sender private key and reciever address**
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=4:8
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=11:11
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=11:11
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v6");
+const ethers = require("ethers");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+async function main() {
+  const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+  const senderWallet = new Wallet(senderPriv, provider);
+  const feePayerWallet = new Wallet(feePayerPriv, provider);
+
+  let tx = {
+    type: TxType.FeeDelegatedValueTransfer,
+    to: recieverAddr,
+    value: parseKlay("0.01"),
+    from: senderAddr,
+  };
+
+  tx = await senderWallet.populateTransaction(tx);
+  console.log(tx);
+
+  const senderTxHashRLP = await senderWallet.signTransaction(tx);
+  console.log("senderTxHashRLP", senderTxHashRLP);
+
+  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
+  console.log("sentTx", sentTx);
+
+  const rc = await sentTx.wait();
+  console.log("receipt", rc);
+}
+
+main();
+```
+
+---
+
+Create sender and fee payer wallets from private keys.
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=12:13
+
+```
+
+---
+
+Declare transaction with the fields such as **type, from, to, value**.
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=15:20
+
+```
+
+---
+
+Populating transaction with additional information with **senderWallet.populateTransaction**
+
+  <CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=22:23
+
+````
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+{
+  type: 9,
+  to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  value: BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  nonce: 760,
+  gasLimit: 52500,
+  gasPrice: BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
+  chainId: 1001
+}
+
+
+
+receipt 123
+````
+
+</CH.Code>
+
+---
+
+Signing the transaction with the **sender's private key**
+
+<CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=25:26
+
+````
+
+
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+senderTxHashRLP 0x09f8878202f8850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a06021c9de1bd99691fbb97161b63ed11cb15a5729fd9ba5cdee1611884700b1f6a0427b48381bbeb437a63fcfe0f7ba4d641f9ab8fa8dd3e25ade4c83944b3f2c2c
+````
+
+</CH.Code>
+
+---
+
+Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+
+<CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=28:29
+
+````
+
+
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+sentTx {
+  hash: '0xd582e192640512cefd402cde32d05ba54a34b8087b77c77ee3db1d1aa43548f7',
+  type: 0,
+  accessList: null,
+  blockHash: '0xfd8873a0fca6593be1e92a385c11671545066d0771dc50a6b96576758b321a4c',
+  blockNumber: 143450182,
+  transactionIndex: 0,
+  confirmations: 4,
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  gasPrice: BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
+  gasLimit: BigNumber { _hex: '0xcd14', _isBigNumber: true },
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  value: BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
+  nonce: 760,
+  data: '0x',
+  r: '0x6021c9de1bd99691fbb97161b63ed11cb15a5729fd9ba5cdee1611884700b1f6',
+  s: '0x427b48381bbeb437a63fcfe0f7ba4d641f9ab8fa8dd3e25ade4c83944b3f2c2c',
+  v: 2038,
+  creates: null,
+  chainId: 1001,
+}
+````
+
+</CH.Code>
+
+---
+
+Wait for the transaction receipt.
+
+<CH.Code>
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=31:32
+
+```
+
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 0,
+  gasUsed: BigNumber { _hex: '0x7918', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xfd8873a0fca6593be1e92a385c11671545066d0771dc50a6b96576758b321a4c',
+  transactionHash: '0xd582e192640512cefd402cde32d05ba54a34b8087b77c77ee3db1d1aa43548f7',
+  logs: [],
+  blockNumber: 143450182,
+  confirmations: 4,
+  cumulativeGasUsed: BigNumber { _hex: '0x7918', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+</CH.Spotlight>

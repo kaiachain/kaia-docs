@@ -1,0 +1,184 @@
+# Cancel
+
+**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxCancelType.js
+const ethers = require("ethers");
+const { Wallet, TxType } = require("@kaiachain/ethers-ext/v6");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+async function main() {
+  const tx = {
+    type: TxType.Cancel,
+    from: senderAddr,
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node TxCancelType.js
+sentTx 0xf03972d188605e7311885cafeaabda6dd67b2c679a509a7a3b924933de816e6a
+receipt {
+  to: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xd3a04d1d6629bb49f1b778e779f20e83a256b5c22d840f43382a82d3f5352016',
+  transactionHash: '0xf03972d188605e7311885cafeaabda6dd67b2c679a509a7a3b924933de816e6a',
+  logs: [],
+  blockNumber: 148720874,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x03240d', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+
+```js TxCancelType.js focus=1:2
+
+```
+
+---
+
+Define **sender address and sender private key**
+
+```js TxCancelType.js focus=4:5
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js TxCancelType.js focus=7
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js TxCancelType.js focus=7
+const ethers = require("ethers");
+const { Wallet, TxType } = require("@kaiachain/ethers-ext/v6");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+async function main() {
+  const tx = {
+    type: TxType.Cancel,
+    from: senderAddr,
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+Create a sender's wallet with the private key and the provider
+
+```js TxCancelType.js focus=8
+
+```
+
+---
+
+Declare a transaction with the **from** field as **sender address** and the **type** field as **TxType.Cancel**.
+
+```js TxCancelType.js focus=11:14
+
+```
+
+---
+
+Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+
+<CH.Code>
+```js TxCancelType.js focus=16:17
+
+````
+
+
+---
+
+```zsh output
+sentTx 0x700631932d73747459fe941f7b9a4464a42dd40092d91668638b2e73a2a85f20
+````
+
+</CH.Code>
+
+---
+
+The **wait** function returns the tx receipt if it is completed in the blockchain.
+
+<CH.Code>
+
+```js TxCancelType.js focus=19:20
+
+```
+
+---
+
+```zsh output
+receipt {
+  to: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 0,
+  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x2189f4fe71717d3e3585d29599c7a0ff4668b5501d5a2602408e4ba5306b377d',
+  transactionHash: '0x700631932d73747459fe941f7b9a4464a42dd40092d91668638b2e73a2a85f20',
+  logs: [],
+  blockNumber: 146753209,
+  confirmations: 1,
+  cumulativeGasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+</CH.Spotlight>

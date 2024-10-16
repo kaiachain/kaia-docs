@@ -1,0 +1,244 @@
+# Public Account Key
+
+**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SignTxWithPubkeyExample.js
+const { ethers } = require("ethers");
+
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v6");
+
+const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const newWallet = new Wallet(senderAddr, senderNewPriv, provider); // decoupled account
+
+async function main() {
+  let tx = { // use Klaytn TxType to send transaction from Klaytn typed account
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: parseKlay("0.01"),
+  };
+
+  const populatedTx = await newWallet.populateTransaction(tx);
+  const rawTx = await newWallet.signTransaction(populatedTx);
+  console.log("rawTx", rawTx);
+
+  const sentTx = await newWallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+
+  const addr = await provider.send("klay_recoverFromTransaction", [rawTx, "latest"]);
+  console.log("recoveredAddr rpc", addr, addr.toLowerCase() === senderAddr.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js SignTxWithPubkeyExample.js
+rawTx 0x08f8868188850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094e15cd70a41dfb05e7214004d7d054801b2a2f06bf847f8458207f5a05e2299e8d947e8b39d3715ba3945535ad05da364ebc1fa168b3fea675cb27f60a05adf38401f83409216fd29aa6fb5b39f7113c0a49e2bb3e2003cb60baf2df7ac
+sentTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b',
+  contractAddress: null,
+  transactionIndex: 0,
+  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xc61b3f87368b60e95e061e991f2a51a238240a7e10dd746192e9f640395661e9',
+  transactionHash: '0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e',
+  logs: [],
+  blockNumber: 152256785,
+  confirmations: 3,
+  cumulativeGasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+recoveredAddr rpc 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b true
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+
+```js SignTxWithPubkeyExample.js focus=1:3
+
+```
+
+---
+
+Define sender's **address** and **private keys**
+
+```js SignTxWithPubkeyExample.js focus=5:7
+
+```
+
+---
+
+Define receiver's **address**
+
+```js SignTxWithPubkeyExample.js focus=8
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js SignTxWithPubkeyExample.js focus=10
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js SignTxWithPubkeyExample.js focus=10
+const { ethers } = require("ethers");
+
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v6");
+
+const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const newWallet = new Wallet(senderAddr, senderNewPriv, provider); // decoupled account
+
+async function main() {
+  let tx = { // use Klaytn TxType to send transaction from Klaytn typed account
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: parseKlay("0.01"),
+  };
+
+  const populatedTx = await newWallet.populateTransaction(tx);
+  const rawTx = await newWallet.signTransaction(populatedTx);
+  console.log("rawTx", rawTx);
+
+  const sentTx = await newWallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+
+  const addr = await provider.send("klay_recoverFromTransaction", [rawTx, "latest"]);
+  console.log("recoveredAddr rpc", addr, addr.toLowerCase() === senderAddr.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+Create a sender's wallet with the **private key** and **provider**
+
+```js SignTxWithPubkeyExample.js focus=11
+
+```
+
+---
+
+Create a value transfer transaction with `type: TxType.ValueTransfer` so that it can be recovered later with `klay_recoverFromTransaction`
+
+```js SignTxWithPubkeyExample.js focus=14:19
+
+```
+
+---
+
+Sign the transaction with sender's **wallet**, the `populateTransaction` method add more params to the transaction object such as gas, nonce...
+
+<CH.Code>
+```js SignTxWithPubkeyExample.js focus=21:23
+
+````
+---
+
+```zsh output
+rawTx 0x08f8868188850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094e15cd70a41dfb05e7214004d7d054801b2a2f06bf847f8458207f5a05e2299e8d947e8b39d3715ba3945535ad05da364ebc1fa168b3fea675cb27f60a05adf38401f83409216fd29aa6fb5b39f7113c0a49e2bb3e2003cb60baf2df7ac
+````
+
+</CH.Code>
+
+---
+
+Send the **signed transaction** to kaia network
+
+<CH.Code>
+```js SignTxWithPubkeyExample.js focus=25:26
+
+````
+---
+
+```zsh output
+sentTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
+````
+
+</CH.Code>
+
+---
+
+Wait for the transaction to be **completed** and print the **receipt**
+
+<CH.Code>
+```js SignTxWithPubkeyExample.js focus=28:29
+
+````
+---
+
+```zsh output
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b',
+  contractAddress: null,
+  transactionIndex: 0,
+  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xc61b3f87368b60e95e061e991f2a51a238240a7e10dd746192e9f640395661e9',
+  transactionHash: '0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e',
+  logs: [],
+  blockNumber: 152256785,
+  confirmations: 3,
+  cumulativeGasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed transaction using `klay_recoverFromMessage`
+
+<CH.Code>
+```js SignTxWithPubkeyExample.js focus=31:34
+
+````
+---
+```zsh output
+recoveredAddr rpc 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b true
+````
+
+</CH.Code>
+</CH.Spotlight>

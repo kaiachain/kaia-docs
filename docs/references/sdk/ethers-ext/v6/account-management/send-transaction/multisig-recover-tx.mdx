@@ -1,0 +1,294 @@
+# Multisig Account Key
+
+**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+
+In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SignTxWithMultiSigExample.js
+const { ethers } = require("ethers");
+
+const { Wallet, TxType, AccountKeyType, parseKlay } = require("@kaiachain/ethers-ext/v6");
+
+const senderAddr = "0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e";
+const senderPriv = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a";
+const senderNewPriv1 = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a";
+const senderNewPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet1 = new Wallet(senderAddr, senderNewPriv1, provider);
+const wallet2 = new Wallet(senderAddr, senderNewPriv2, provider);
+const wallet3 = new Wallet(senderAddr, senderNewPriv3, provider);
+
+async function main() {
+  let tx = { // use Klaytn TxType to send transaction from Klaytn typed account
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: parseKlay("0.01"),
+    gasLimit: 100000,
+  };
+
+  // The example senderAddr actually requires only 2 signature (threshold = 2),
+  // but we use 3 signatures to show different ways to sign a transaction.
+
+  // sign 1: First signer sign from the tx object
+  const populatedTx = await wallet1.populateTransaction(tx);
+  const rawTx1 = await wallet1.signTransaction(populatedTx);
+  console.log("rawTx1", rawTx1);
+
+  // sign 2: Middle signer sign from the rawTx
+  const rawTx2 = await wallet2.signTransaction(rawTx1);
+  console.log("rawTx2", rawTx2);
+
+  // sign 3: Last signer sign and send from the rawTx
+  const sentTx3 = await wallet3.sendTransaction(rawTx2);
+  console.log("sentTx3", sentTx3.hash);
+
+  const receipt = await sentTx3.wait();
+  console.log("receipt", receipt);
+
+  const addr = await provider.send("klay_recoverFromTransaction", [rawTx2, "latest"]);
+  console.log("recoveredAddr rpc", addr, addr.toLowerCase() === senderAddr.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js SignTxWithMultiSigExample.js
+rawTx1 0x08f88676850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc100009482c6a8d94993d49cfd0c1d30f0f8caa65782cc7ef847f8458207f6a008b987d8905dae51b856c478e6f7b49f01f5f2432a90c03d332e61d518100087a07bea2578790b7dabe9f2fe920d1f3183f48dc26d4ce752bf27964433317504e8
+rawTx2 0x08f8cd76850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc100009482c6a8d94993d49cfd0c1d30f0f8caa65782cc7ef88ef8458207f6a008b987d8905dae51b856c478e6f7b49f01f5f2432a90c03d332e61d518100087a07bea2578790b7dabe9f2fe920d1f3183f48dc26d4ce752bf27964433317504e8f8458207f6a052dcb9cfd9edf75ea60aa7eafce1a984209722c81a6c17f4f26d4b79adcc2f03a03ef04d7793009b90f7af7831f834ad2892678f0f10f8d6e02d6d76b3e4671a1d
+sentTx3 0x1b3b4b8a177ead1602c5052d8c1145a2e9ffc53ac4ce208f4730177486726c6a
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E',
+  contractAddress: null,
+  transactionIndex: 2,
+  gasUsed: BigNumber { _hex: '0xc738', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x6f5fca2355230874808c4fe1b8459c6d61cf7ba22b864aeba4c3cf61d7a49b99',
+  transactionHash: '0x1b3b4b8a177ead1602c5052d8c1145a2e9ffc53ac4ce208f4730177486726c6a',
+  logs: [],
+  blockNumber: 152258186,
+  confirmations: 6,
+  cumulativeGasUsed: BigNumber { _hex: '0x05f70f', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+recoveredAddr rpc 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e true
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+
+```js SignTxWithMultiSigExample.js focus=1:3
+
+```
+
+---
+
+Define sender's **address**, **private key** and others **weighted multi-sig** private keys
+
+```js SignTxWithMultiSigExample.js focus=5:9
+
+```
+
+---
+
+Define receiver's **address**
+
+```js SignTxWithMultiSigExample.js focus=10
+
+```
+
+---
+
+Set up the provider with the specified **Kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js SignTxWithMultiSigExample.js focus=12
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js SignTxWithMultiSigExample.js focus=12
+const { ethers } = require("ethers");
+
+const { Wallet, TxType, AccountKeyType, parseKlay } = require("@kaiachain/ethers-ext/v6");
+
+const senderAddr = "0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e";
+const senderPriv = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a";
+const senderNewPriv1 = "0xa32c30608667d43be2d652bede413f12a649dd1be93440878e7f712d51a6768a";
+const senderNewPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet1 = new Wallet(senderAddr, senderNewPriv1, provider);
+const wallet2 = new Wallet(senderAddr, senderNewPriv2, provider);
+const wallet3 = new Wallet(senderAddr, senderNewPriv3, provider);
+
+async function main() {
+  let tx = { // use Klaytn TxType to send transaction from Klaytn typed account
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: parseKlay("0.01"),
+    gasLimit: 100000,
+  };
+
+  // The example senderAddr actually requires only 2 signature (threshold = 2),
+  // but we use 3 signatures to show different ways to sign a transaction.
+
+  // sign 1: First signer sign from the tx object
+  const populatedTx = await wallet1.populateTransaction(tx);
+  const rawTx1 = await wallet1.signTransaction(populatedTx);
+  console.log("rawTx1", rawTx1);
+
+  // sign 2: Middle signer sign from the rawTx
+  const rawTx2 = await wallet2.signTransaction(rawTx1);
+  console.log("rawTx2", rawTx2);
+
+  // sign 3: Last signer sign and send from the rawTx
+  const sentTx3 = await wallet3.sendTransaction(rawTx2);
+  console.log("sentTx3", sentTx3.hash);
+
+  const receipt = await sentTx3.wait();
+  console.log("receipt", receipt);
+
+  const addr = await provider.send("klay_recoverFromTransaction", [rawTx2, "latest"]);
+  console.log("recoveredAddr rpc", addr, addr.toLowerCase() === senderAddr.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+Create 3 different wallets with the **weighted multi-sig** private keys and provider
+
+```js SignTxWithMultiSigExample.js focus=13:15
+
+```
+
+---
+
+Create a value transfer transaction with `type: TxType.ValueTransfer` so that it can be recovered later with `klay_recoverFromTransaction`
+
+```js SignTxWithMultiSigExample.js focus=18:24
+
+```
+
+---
+
+Sign the transaction with **first** wallet, the `populateTransaction` method add more params to the transaction object such as gas, nonce...
+
+<CH.Code>
+```js SignTxWithMultiSigExample.js focus=29:32
+
+````
+---
+
+```zsh output
+rawTx1 0x08f88676850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc100009482c6a8d94993d49cfd0c1d30f0f8caa65782cc7ef847f8458207f6a008b987d8905dae51b856c478e6f7b49f01f5f2432a90c03d332e61d518100087a07bea2578790b7dabe9f2fe920d1f3183f48dc26d4ce752bf27964433317504e8
+````
+
+</CH.Code>
+
+---
+
+Sign the transaction with **second** wallet
+
+<CH.Code>
+```js SignTxWithMultiSigExample.js focus=34:36
+
+````
+---
+
+```zsh output
+rawTx2 0x08f8cd76850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc100009482c6a8d94993d49cfd0c1d30f0f8caa65782cc7ef88ef8458207f6a008b987d8905dae51b856c478e6f7b49f01f5f2432a90c03d332e61d518100087a07bea2578790b7dabe9f2fe920d1f3183f48dc26d4ce752bf27964433317504e8f8458207f6a052dcb9cfd9edf75ea60aa7eafce1a984209722c81a6c17f4f26d4b79adcc2f03a03ef04d7793009b90f7af7831f834ad2892678f0f10f8d6e02d6d76b3e4671a1d
+````
+
+</CH.Code>
+
+---
+
+Sign the transaction with the **third** wallet and send the **signed transaction** to kaia network
+
+<CH.Code>
+```js SignTxWithMultiSigExample.js focus=38:40
+
+````
+---
+
+```zsh output
+sentTx3 0x1b3b4b8a177ead1602c5052d8c1145a2e9ffc53ac4ce208f4730177486726c6a
+````
+
+</CH.Code>
+
+---
+
+Wait for the transaction to be **completed** and print the **receipt**
+
+<CH.Code>
+```js SignTxWithMultiSigExample.js focus=42:43
+
+````
+---
+
+```zsh output
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E',
+  contractAddress: null,
+  transactionIndex: 2,
+  gasUsed: BigNumber { _hex: '0xc738', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x6f5fca2355230874808c4fe1b8459c6d61cf7ba22b864aeba4c3cf61d7a49b99',
+  transactionHash: '0x1b3b4b8a177ead1602c5052d8c1145a2e9ffc53ac4ce208f4730177486726c6a',
+  logs: [],
+  blockNumber: 152258186,
+  confirmations: 6,
+  cumulativeGasUsed: BigNumber { _hex: '0x05f70f', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed transaction using `klay_recoverFromMessage`
+
+<CH.Code>
+```js SignTxWithMultiSigExample.js focus=45:46
+
+````
+---
+```zsh output
+recoveredAddr rpc 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e true
+````
+
+</CH.Code>
+
+</CH.Spotlight>
