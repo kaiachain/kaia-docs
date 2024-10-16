@@ -199,12 +199,12 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 #### ken 콘솔 <a id="ken-console"></a>
 
-카이아는 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. IPC 파일 `klay.ipc`는 EN의 `data` 디렉터리에 있습니다.
+카이아는 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. The IPC file `klay.ipc` is located in the `DATA_DIR` path on an EN.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
 ```text
-$ ken attach /var/kend/data/kaia.ipc
+$ ken attach --datadir /var/kend/data
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
