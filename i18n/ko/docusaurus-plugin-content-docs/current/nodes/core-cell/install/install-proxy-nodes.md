@@ -248,15 +248,15 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 카이아는 `kpn console`이라는 CLI 클라이언트를 제공합니다. 그러나 PN은 보안상의 이유로 클라이언트에 대한 RPC 인터페이스를 비활성화할 수 있습니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다.
 
-IPC 파일 `klay.ipc`는 PN의 `data` 디렉터리에 있습니다.
+The IPC file `klay.ipc` is located in the `DATA_DIR` path on a PN.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
 ```bash
- $ kpn attach /var/kpnd/data/klay.ipc
+ $ kpn attach --datadir /var/kpnd/data
  Welcome to the Kaia JavaScript console!
 
- instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  coinbase: 0x67f68fdd9740fd7a1ac366294f05a3fd8df0ed40
  at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
   datadir: /var/kpnd/data
