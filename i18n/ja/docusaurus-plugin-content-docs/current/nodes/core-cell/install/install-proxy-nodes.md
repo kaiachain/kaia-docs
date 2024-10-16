@@ -248,15 +248,15 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 Klaytn provides a CLI client: `kpn console`. However, a PN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
 
-The IPC file `klay.ipc` is located in the `data` directory on a PN.
+The IPC file `klay.ipc` is located in the `DATA_DIR` path on a PN.
 
 Please execute the following command and check out the result.
 
 ```bash
- $ kpn attach /var/kpnd/data/klay.ipc
- Welcome to the Klaytn JavaScript console!
+ $ kpn attach --datadir /var/kpnd/data
+ Welcome to the Kaia JavaScript console!
 
- instance: Klaytn/vX.X.X/XXXX-XXXX/goX.X.X
+ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  coinbase: 0x67f68fdd9740fd7a1ac366294f05a3fd8df0ed40
  at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
   datadir: /var/kpnd/data
