@@ -70,7 +70,7 @@ UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 SCN을 정상적으로 실행했다면, 아래와 같이 RPC API를 사용하여 부모/자식 체인 브리지 오퍼레이터 주소를 확인할 수 있습니다.
 
 ```
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
@@ -96,7 +96,7 @@ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 **자식 체인 브리지 운영자**
 
 ```
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
  instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
@@ -110,7 +110,7 @@ Welcome to the Kaia JavaScript console!
 **상위 체인 브리지 오퍼레이터**
 
 ```
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
  instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
@@ -133,7 +133,7 @@ KIP-7 토큰 컨트랙트에 `requestERC20Transfer()` 함수를 호출하여 부
 이 작업을 수행하기 전에 메인 브리지와 서브 브리지를 연결해야 합니다. 자세한 가이드는 [브리지 구성](bridge-configuration.md)을 참고하시기 바랍니다.
 
 ```javascript
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
