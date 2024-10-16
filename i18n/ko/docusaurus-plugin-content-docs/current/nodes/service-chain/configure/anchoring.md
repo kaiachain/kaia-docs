@@ -14,7 +14,7 @@ SCN을 성공적으로 설치하고 실행했다면 부모 체인 운영자 계�
 부모 운영자 주소는 RPC API `subbridge_parentOperator`를 통해 확인할 수 있습니다.
 
 ```
-$ kscn attach ~/kscnd_home/kaia.ipc
+$ kscn attach --datadir ~/kscnd_home
 Welcome to the Kaia JavaScript console!
 
 instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
