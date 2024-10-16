@@ -99,7 +99,7 @@ Klaytnscope will continue to work as before and will be upgraded after three mon
 
 ### Is KAIA a rebrand from KLAY or a completely new token? <a id="is-kaia-a-rebrand-from-klay-or-a-completely-new-token-"></a>
 
-KAIA is a rebrand from KLAY, but there will be changes in supply due to the merger of Klaytn and Finschia chains. KLAY will continue to be used with the updated name and ticker symbol. It is recommended to renew the token chart if possible.
+KAIA is a rebrand from KLAY, but there will be changes in total and circulating supply due to the merger of Klaytn and Finschia chains. KLAY will continue to be used with the updated name and ticker symbol. It is recommended to renew the token chart if possible. For more information on the changes in the supply of KAIA, please refer to [KAIA Issuance and Distribution Plan](../../kaiatech/kaia-white-paper.md#kaia-issuancedistribution-plan-1).
 
 ### Will Kaia be on the Klaytn mainnet or a different mainnet? <a id="will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-"></a>
 
