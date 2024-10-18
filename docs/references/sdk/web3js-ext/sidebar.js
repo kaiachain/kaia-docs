@@ -43,6 +43,9 @@ export const sidebar = {
                     label: 'keystore',
                     items: [
                         'references/sdk/web3js-ext/account-management/keystore/keystoreV3',
+                        'references/sdk/web3js-ext/account-management/keystore/keystoreV4-single',
+                        'references/sdk/web3js-ext/account-management/keystore/keystoreV4-multi',
+
                     ],
                 },
             ],
