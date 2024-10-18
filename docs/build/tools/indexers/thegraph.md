@@ -33,7 +33,7 @@ Go to the [Subgraph Studio](https://thegraph.com/studio/) and connect your walle
 
 You will then land on your subgraph’s page. All the CLI commands you need will be visible on the right side of the page:
 
-![CLI commands](https://img.notionusercontent.com/s3/prod-files-secure%2Fa7d6afae-8784-4b15-a90e-ee8f6ee007ba%2Fe70242a2-6cca-4e5a-b1cd-533235d03ee4%2Fimage.png/size/w=2000?exp=1729259065&sig=zt1PcvL_bYKSu02o9Yzbys1OjoT43IFjAPgsAE2K8q0)
+![CLI commands](https://github.com/alinobrasil/the_graph_getting_started/raw/refs/heads/kaia/img/studio-cli-commands.webp)
 
 
 ### Install the Graph CLI⁠
@@ -51,7 +51,7 @@ graph init --studio <SUBGRAPH_SLUG>
 ```
 You’ll be prompted to provide some info on your subgraph like this:
 
-![cli sample](https://img.notionusercontent.com/s3/prod-files-secure%2Fa7d6afae-8784-4b15-a90e-ee8f6ee007ba%2F70d213c8-6ced-4bf7-a554-1e8a3079b1f5%2Fimage.png/size/w=2000?exp=1729259105&sig=20QQ_HoguPBol4ydMAZMQufEJVV1bJhdbiNPHcMkAYI)
+![cli sample](https://github.com/alinobrasil/the_graph_getting_started/raw/refs/heads/kaia/img/cli-output.webp)
 
 
 After entering the contract info, the graph-cli will attempt to fetch ABI, StartBLock & Contract name from the blockexplorer API. 
@@ -59,10 +59,10 @@ After entering the contract info, the graph-cli will attempt to fetch ABI, Start
 However, KaiaScan's API is not ready yet, so when asked to retry, just say "no". Here's how to obtain these manually:
 
 1. ABI: You need to prepare a json file containing the ABI in the same directory where you're running `graph init`. From the [contract's page on Kaiascan](https://kaiascan.io/address/0x5096db80b21ef45230c9e423c373f1fc9c0198dd), go to the `Contract` tab, click `View Code` and you'll be able to copy the ABI. Save it as a json file in the same folder where you're running  `graph init`. In this screenshot above, it was saved as `abi.json`. 
-![Finding ABI](https://img.notionusercontent.com/s3/prod-files-secure%2Fa7d6afae-8784-4b15-a90e-ee8f6ee007ba%2Fa19b1eac-ad67-43a8-8797-69c04b5aa64c%2Fimage.png/size/w=2000?exp=1729259815&sig=S5QIlImvJpLMi5TkScm9FNeGmy8pRd19kpVQQ2K050A)
+![Finding ABI](https://github.com/alinobrasil/the_graph_getting_started/raw/refs/heads/kaia/img/kaiascan-abi.webp)
 
 2. Start Block: Click into the transaction hash where the contract was created. There you'll find the block where the contract was created. 
-![contract creation](https://img.notionusercontent.com/s3/prod-files-secure%2Fa7d6afae-8784-4b15-a90e-ee8f6ee007ba%2F1b4efee8-e3ab-449f-aa28-74bc975c3d10%2Fimage.png/size/w=2000?exp=1729260164&sig=qDeA0COvNQPqx-7JiLnZiL7ngM3OLRSMyPP-vcu2_RI)
+![contract creation](https://github.com/alinobrasil/the_graph_getting_started/raw/refs/heads/kaia/img/kaiascan-contract-creation.webp)
 
 3. Contract Name: Just type in the name of the contract. If this is the only contract you're indexing in this subgraph, it's OK to just go with the default `Contract`. 
 
@@ -97,7 +97,7 @@ You can test your subgraph by making a sample query in the playground section. T
 
 Once your subgraph is ready to be put into production, you can publish it to the decentralized network. On your subgraph’s page in Subgraph Studio, click on the Publish button:
 
-![publish button](https://img.notionusercontent.com/s3/prod-files-secure%2Fa7d6afae-8784-4b15-a90e-ee8f6ee007ba%2F8af650f5-03da-4dc2-b5ca-a5542ae2ca4a%2Fimage.png/size/w=2000?exp=1729260329&sig=Tqb7w1WpU1xSzlt5OfLQedDM8F47c5kUivzb3_KnuZY)
+![publish button](https://github.com/alinobrasil/the_graph_getting_started/raw/refs/heads/kaia/img/studio-publish-subgraph.webp)
 
 > **Note:** 
 > - Kaia shows as "partially supported" for now because a final on-chain voting process to unlock rewards for indexers has not been completed yet. For now, Edge & Node's Indexer (Upgrade Indexer) will be the only indexer supporting all Kaia subgraphs. 
