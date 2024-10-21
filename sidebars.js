@@ -251,15 +251,15 @@ const sidebars = {
           type: 'category',
           label: 'Indexers',
           link: { type: 'doc', id: 'build/tools/indexers/indexers' },
-          items: ['build/tools/indexers/subquery'],
+          items: ['build/tools/indexers/thegraph', 'build/tools/indexers/subquery'],
         },
         {
           type: 'category',
           label: 'Cross-chain',
           link: { type: 'doc', id: 'build/tools/cross-chain/cross-chain' },
           items: ['build/tools/cross-chain/layerzero',
-                  'build/tools/cross-chain/wormhole',
-                  'build/tools/cross-chain/stargate'
+            'build/tools/cross-chain/wormhole',
+            'build/tools/cross-chain/stargate'
           ],
         },
         {
