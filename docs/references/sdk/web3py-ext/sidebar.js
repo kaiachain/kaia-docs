@@ -38,6 +38,14 @@ export const sidebar = {
                         'references/sdk/web3py-ext/account-management/sign-message/role-based-recover-msg',
                     ],
                 },
+                {
+                    type: 'category', 
+                    label: 'Keystore',
+                    items: [
+                        'references/sdk/web3py-ext/account-management/keystore/keystore-v3',
+                        'references/sdk/web3py-ext/account-management/keystore/keystore-v4',
+                    ],
+                },
             ],
         },
         {

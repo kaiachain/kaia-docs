@@ -51,6 +51,8 @@ export const sidebar = {
               label: 'keystore',
               items: [
                 'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV3',
+                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-single',
+                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-multi',
               ],
             },
           ],
@@ -136,6 +138,8 @@ export const sidebar = {
                 label: 'keystore',
                 items: [
                   'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV3',
+                  'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-single',
+                  'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-multi',
                 ],
               },
             ],
