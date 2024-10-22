@@ -30,20 +30,20 @@ jobs:
 
       - name: Installing dependencies
         run: |
-          yarn install
+          npm install
       - name: Clone kaia-sdk
         run: |
           git clone -b dev https://github.com/kaiachain/kaia-sdk.git
-          cd kaia-sdk/documentation && yarn install && cd -
+          cd kaia-sdk/documentation && npm install && cd -
 
       - name: Generate .mdx files
         env:
           RPC_SPEC_DIR: ../../web3rpc/yaml
         run: |
           cd kaia-sdk/documentation && bash generate-docs.sh split && cd -
-          cd web3rpc && bash -x web3rpc.sh && cd - && yarn build && exit 0
+          cd web3rpc && bash -x web3rpc.sh && cd - && npm build && exit 0
       - name: Build static files
-        run: yarn build
+        run: npm build
 
       - name: Sync to S3 bucket and validation cloudfront
         env:
