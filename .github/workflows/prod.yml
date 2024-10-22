@@ -41,9 +41,9 @@ jobs:
           RPC_SPEC_DIR: ../../web3rpc/yaml
         run: |
           cd kaia-sdk/documentation && bash generate-docs.sh split && cd -
-          cd web3rpc && bash -x web3rpc.sh && cd - && npm build && exit 0
+          cd web3rpc && bash -x web3rpc.sh && cd - && npm run build && exit 0
       - name: Build static files
-        run: npm build
+        run: npm run build
 
       - name: Sync to S3 bucket and validation cloudfront
         env:
