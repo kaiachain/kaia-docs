@@ -251,15 +251,15 @@ const sidebars = {
           type: 'category',
           label: 'Indexers',
           link: { type: 'doc', id: 'build/tools/indexers/indexers' },
-          items: ['build/tools/indexers/subquery'],
+          items: ['build/tools/indexers/thegraph', 'build/tools/indexers/subquery'],
         },
         {
           type: 'category',
           label: 'Cross-chain',
           link: { type: 'doc', id: 'build/tools/cross-chain/cross-chain' },
           items: ['build/tools/cross-chain/layerzero',
-                  'build/tools/cross-chain/wormhole',
-                  'build/tools/cross-chain/stargate'
+            'build/tools/cross-chain/wormhole',
+            'build/tools/cross-chain/stargate'
           ],
         },
         {
@@ -390,6 +390,7 @@ const sidebars = {
       label: 'SDKs and Libraries',
       link: { type: 'doc', id: 'references/sdk/sdk' },
       items: [
+        require('./docs/references/sdk/ethers-ext-prior-v1-0-1/sidebar').sidebar,
         require('./docs/references/sdk/ethers-ext/sidebar').sidebar,
         require('./docs/references/sdk/web3js-ext/sidebar').sidebar,
         require('./docs/references/sdk/web3j-ext/sidebar').sidebar,
