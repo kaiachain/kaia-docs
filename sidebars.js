@@ -53,7 +53,7 @@ const commonSidebar = [
   },
   'misc/finschia',
   'misc/glossary',
-  //'misc/faq',
+  'misc/faq',
   'misc/internationalization',
 ]
 
