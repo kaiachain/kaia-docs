@@ -14,8 +14,8 @@ The Pyth introduces an innovative low-latency [pull oracle design](https://docs
 
 Developers on Kaia have permissionless access to any of [Pyth’s price feeds](https://pyth.network/developers/price-feed-ids) for equities, ETFs, commodities, foreign exchange pairs, and cryptocurrencies.
 
-Here is a working example of a contract that fetches the latest price of ETH/USD on the <CHAIN NAME> network.
-You have to pass [Pyth's contract address](https://docs.pyth.network/price-feeds/contract-addresses/evm) for <CHAIN NAME> mainnet/testnet and the desired [price feed id](https://pyth.network/developers/price-feed-ids) to fetch the latest price.
+Here is a working example of a contract that fetches the latest price of ETH/USD on the Kaia network.
+You have to pass [Pyth's contract address](https://docs.pyth.network/price-feeds/contract-addresses/evm) for Kaia mainnet/testnet and the desired [price feed id](https://pyth.network/developers/price-feed-ids) to fetch the latest price.
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
