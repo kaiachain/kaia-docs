@@ -29,11 +29,11 @@ Here’s a step by step walk through:
 
 Go to the [Subgraph Studio](https://thegraph.com/studio/) and connect your wallet. Once your wallet is connected, you can begin by clicking “Create a Subgraph”. When choosing a name, it is recommended to use Title Case: “Subgraph Name Chain Name.”
 
-![Create a Subgraph](https://lh7-us.googleusercontent.com/docsz/AD_4nXf8OTdwMxlKQGKzIF_kYR7NPKeh9TmWnZBYxb7ft_YbdOdx_VVtbp6PslN7N1KGUzNpIDCmaXppdrllM1cw_J4L8Na03BXOWzJTK1POCve0nkRjQYgWJ60QHAdtQ4Niy83SMM8m0F0f-N-AJj4PDqDPlA5M?key=fnI6SyFgXU9SZRNX5C5vPQ)
+![Create a Subgraph](/img/build/tools/graph/01-create-subgraph.png)
 
 You will then land on your subgraph’s page. All the CLI commands you need will be visible on the right side of the page:
 
-![CLI commands](https://github.com/alinobrasil/the_graph_getting_started/raw/refs/heads/kaia/img/studio-cli-commands.webp)
+![CLI commands](/img/build/tools/graph/02-cli-commands.webp)
 
 ### Install the Graph CLI⁠
 
@@ -53,17 +53,17 @@ graph init --studio <SUBGRAPH_SLUG>
 
 You’ll be prompted to provide some info on your subgraph like this:
 
-![cli sample](https://github.com/alinobrasil/the_graph_getting_started/raw/refs/heads/kaia/img/cli-output.webp)
+![CLI sample](/img/build/tools/graph/03-cli-sample.webp)
 
 After entering the contract info, the graph-cli will attempt to fetch ABI, StartBLock & Contract name from the blockexplorer API.
 
 However, KaiaScan's API is not ready yet, so when asked to retry, just say "no". Here's how to obtain these manually:
 
 1. ABI: You need to prepare a json file containing the ABI in the same directory where you're running `graph init`. From the [contract's page on Kaiascan](https://kaiascan.io/address/0x5096db80b21ef45230c9e423c373f1fc9c0198dd), go to the `Contract` tab, click `View Code` and you'll be able to copy the ABI. Save it as a json file in the same folder where you're running  `graph init`. In this screenshot above, it was saved as `abi.json`.
-   ![Finding ABI](https://github.com/alinobrasil/the_graph_getting_started/raw/refs/heads/kaia/img/kaiascan-abi.webp)
+   ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp)
 
 2. Start Block: Click into the transaction hash where the contract was created. There you'll find the block where the contract was created.
-   ![contract creation](https://github.com/alinobrasil/the_graph_getting_started/raw/refs/heads/kaia/img/kaiascan-contract-creation.webp)
+   ![contract creation](/img/build/tools/graph/05-contract-creation.webp)
 
 3. Contract Name: Just type in the name of the contract. If this is the only contract you're indexing in this subgraph, it's OK to just go with the default `Contract`.
 
@@ -91,13 +91,13 @@ You will be asked for a version label. You can enter something like v0.0.1, but 
 
 You can test your subgraph by making a sample query in the playground section. The Details tab will show you an API endpoint. You can use that endpoint to test from your dapp.
 
-![Playground](https://lh7-us.googleusercontent.com/docsz/AD_4nXf3afwSins8_eO7BceGPN79VvwolDxmFNUnkPk0zAJCaUA-3-UAAjVvrMzwr7q9vNYWdrEUNgm2De2VfQpWauiT87RkFc-cVfoPSsQbYSgsmwhyY1-tpPdv2J1H4JAMq70nfWBhb8PszZBFjsbDAaJ5eto?key=fnI6SyFgXU9SZRNX5C5vPQ)
+![Playground](/img/build/tools/graph/06-playground.png)
 
 ### Publish Your Subgraph to The Graph’s Decentralized Network
 
 Once your subgraph is ready to be put into production, you can publish it to the decentralized network. On your subgraph’s page in Subgraph Studio, click on the Publish button:
 
-![publish button](https://github.com/alinobrasil/the_graph_getting_started/raw/refs/heads/kaia/img/studio-publish-subgraph.webp)
+![publish button](/img/build/tools/graph/07-studio-publish-subgraph.webp)
 
 > **Note:**
 >
@@ -112,7 +112,7 @@ For any subgraph on the decentralized network, you can start querying it by pass
 
 Here’s an example from the [CryptoPunks Ethereum subgraph](https://thegraph.com/explorer/subgraphs/HdVdERFUe8h61vm2fDyycHgxjsde5PbB832NHgJfZNqK) by Messari:
 
-![Query URL](https://lh7-us.googleusercontent.com/docsz/AD_4nXebivsPOUjPHAa3UVtvxoYTFXaGBao9pQOAJvFK0S7Uv0scfL6TcTVjmNCzT4DgsIloAQyrPTCqHjFPtmjyrzoKkfSeV28FjS32F9-aJJm0ILAHey2gqMr7Seu4IqPz2d__QotsWG3OKv2dEghiD74eypzs?key=fnI6SyFgXU9SZRNX5C5vPQ)
+![Query URL](/img/build/tools/graph/08-query-url.png)
 
 The query URL for this subgraph is:
 
@@ -122,7 +122,7 @@ Now, you simply need to  fill in your own API Key to start sending GraphQL quer
 
 ### Getting your own API Key
 
-![API keys](https://lh7-us.googleusercontent.com/docsz/AD_4nXdz7H8hSRf2XqrU0jN3p3KbmuptHvQJbhRHOJh67nBfwh8RVnhTsCFDGA_JQUFizyMn7psQO0Vgk6Vy7cKYH47OyTq5PqycB0xxLyF4kSPsT7hYdMv2MEzAo433sJT6VlQbUAzgPnSxKI9a5Tn3ShSzaxI?key=fnI6SyFgXU9SZRNX5C5vPQ)
+![API keys](/img/build/tools/graph/09-apikeys.png)
 
 In Subgraph Studio, you’ll see the “API Keys” menu at the top of the page. Here you can create API Keys.
 
