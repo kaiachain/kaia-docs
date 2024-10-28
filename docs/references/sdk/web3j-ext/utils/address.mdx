@@ -5,41 +5,22 @@ Utils for compressing public key.
 <CH.Spotlight>
 <CH.Code>
 
-```java AccountKeyPublicUtils.java
-package org.web3j.utils;
+```java PublicKeyUtilsExample.java
+package org.web3j.example.utils;
 
-import java.math.BigInteger;
-
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9IntegerConverter;
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.math.ec.ECPoint;
 import org.web3j.crypto.transaction.account.AccountKeyPublic;
+import org.web3j.utils.AccountKeyPublicUtils;
 
-public class AccountKeyPublicUtils {
 
-    public static final X9ECParameters CURVE_PARAMS = CustomNamedCurves.getByName("secp256k1");
-    static final ECDomainParameters CURVE = new ECDomainParameters(
-            CURVE_PARAMS.getCurve(), CURVE_PARAMS.getG(), CURVE_PARAMS.getN(), CURVE_PARAMS.getH());
+public class PublicKeyUtilsExample {
+    public static void main(String[] args) {
 
-    public static String toCompressedPublicKey(BigInteger publicKey) {
-        String hexStringPublicKey = Numeric.toHexStringNoPrefixZeroPadded(publicKey, 128);
-        String publicKeyX = hexStringPublicKey.substring(0, 64);
-        String pubKeyYPrefix = publicKey.testBit(0) ? "03" : "02";
-        return pubKeyYPrefix + publicKeyX;
-    }
+        System.out.println("From compressed public key to AccountKeyPublic");
+        System.out.println(AccountKeyPublicUtils.decompressKey("03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"));
 
-    public static AccountKeyPublic decompressKey(String compressedPublicKey) {
-        boolean yBit = Numeric.cleanHexPrefix(compressedPublicKey).substring(0, 2).equals("03");
-        BigInteger xBN = Numeric.toBigInt(compressedPublicKey.substring(2));
-        X9IntegerConverter x9 = new X9IntegerConverter();
-        byte[] compEnc = x9.integerToBytes(xBN, 1 + x9.getByteLength(CURVE.getCurve()));
-        compEnc[0] = (byte) (yBit ? 0x03 : 0x02);
-        ECPoint ecPoint = CURVE.getCurve().decodePoint(compEnc);
-        return AccountKeyPublic.create(
-                Numeric.toHexStringWithPrefixZeroPadded(ecPoint.getAffineXCoord().toBigInteger(), 64),
-                Numeric.toHexStringWithPrefixZeroPadded(ecPoint.getAffineYCoord().toBigInteger(), 64));
+        System.out.println("From x,y to compressed public key");
+        AccountKeyPublic publicKey= AccountKeyPublic.create("0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd","0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79");
+        System.out.println(AccountKeyPublicUtils.toCompressedPublicKey(publicKey.getPublicKey()));
     }
 }
 ```
@@ -47,9 +28,11 @@ public class AccountKeyPublicUtils {
 ---
 
 ```zsh output
-❯ java AccountKeyPublicUtils.java
-pubkey from { x, y } object = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
-pubkey from uncompressed format = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+❯ java PublicKeyUtilsExample.java
+From compressed public key to AccountKeyPublic
+AccountKeyPublic x : 0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd / y : 0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79
+From x,y to compressed public key
+03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
 ```
 
 </CH.Code>
@@ -58,49 +41,35 @@ pubkey from uncompressed format = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d
 
 Import necessary classes from the Web3j and kaia libraries(`web3j-ext`)
 
-```java AccountKeyPublicUtils.java focus=1:10
+```java PublicKeyUtilsExample.java focus=1:4
 
 ```
 ---
-Define param needed for `secp256k1` standard. These params are used for `decompressing keys`
-
-```java AccountKeyPublicUtils.java focus=14:16
-
-```
----
-For compressing `AccountKeyPublic`, uses `Numeric.toHexStringNoPrefixZeroPadded()` to convert the public key to a hexadecimal string.
-
-```java AccountKeyPublicUtils.java focus=19
+For convert from `compressed public key` to an `AccountPublicKey` with `{x, y}` format, use `AccountKeyPublicUtils.decompressKey`
+<CH.Code>
+```java PublicKeyUtilsExample.java focus=10:11
 
 ```
 ---
-Trim the length of the `hexStringPublicKey` to 64 characters and determine the prefix of the `compressed key` from the `first bit` of `publicKey`
+```zsh output
+❯ java PublicKeyUtilsExample.java
+From compressed public key to AccountKeyPublic
+AccountKeyPublic x : 0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd / y : 0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79
+```
 
-```java AccountKeyPublicUtils.java focus=20:21
+</CH.Code>
+---
+For compressing `AccountKeyPublic` to `compressed public key` string, uses `AccountKeyPublicUtils.toCompressedPublicKey`
+<CH.Code>
+```java PublicKeyUtilsExample.java focus=13:15
 
 ```
 ---
-Combine the prefix with the trimmed hex string
-
-```java AccountKeyPublicUtils.java focus=22
-
+```zsh output
+❯ java PublicKeyUtilsExample.java
+From x,y to compressed public key
+03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
 ```
----
 
-For decompressing public key, first extract the `x` and `y` coordinates from `compressedPublicKey`
-```java AccountKeyPublicUtils.java focus=26:27
-
-```
----
-Decompress the public key from `x` and `y`
-
-```java AccountKeyPublicUtils.java focus=28:31
-
-```
----
-Finally, create an `AccountKeyPublic` from `decompressed key`
-
-```java AccountKeyPublicUtils.java focus=32:34
-
-```
+</CH.Code>
 </CH.Spotlight>
