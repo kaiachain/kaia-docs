@@ -104,7 +104,6 @@ All That Node aims to become trusty gateway to Web3 infrastructure allowing buil
 
 #### Features
 
-- 50,000 Requests Per Day with Free Tier
 - Public Nodes & Faucets for the Ecosystem
 - Pay-As-You-Go-plan supported if you need more
 - Dedicated Nodes
