@@ -1,0 +1,74 @@
+# Units
+For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and `kei`. See [supported units](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-) .
+<CH.Spotlight>
+<CH.Code>
+
+```java UnitConvertExample.java
+package org.web3j.example.utils;
+
+import org.web3j.utils.KaiaConvert;
+
+public class UnitConvertExample {
+    public static void main(String[] args) {
+        System.out.println("Convert from kei to kaia " + KaiaConvert.fromKei("1000000000000000000", KaiaConvert.Unit.KAIA));
+        System.out.println("Convert from Gkei to kaia " + KaiaConvert.fromKei("1000000000", KaiaConvert.Unit.GKEI));
+
+        System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.KAIA));
+        System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.GKEI));
+    }
+}
+```
+
+---
+
+```zsh output
+❯ java UnitConvertExample.java
+Convert from kei to kaia 1
+Convert from Gkei to kaia 1
+Convert from kaia to kei 1000000000000000000
+```
+
+</CH.Code>
+
+---
+
+Import the `KaiaConvert` from **org.web3j.utils.KaiaConvert** packages
+
+```java UnitConvertExample.java focus=1:3
+
+```
+
+---
+
+To convert other units to kaia, use `KaiaConvert.fromKei`. The first param is the value and the second param is the unit types of `kei/Gkei/kaia`
+
+<CH.Code>
+
+```java UnitConvertExample.java focus=7:8
+
+```
+
+---
+
+```zsh output
+❯ java UnitConvertExample.java
+Convert from kei to kaia 1
+Convert from Gkei to kaia 1
+```
+
+</CH.Code>
+---
+To convert other units to kei, use `KaiaConvert.toKei`. The first param is the value and the second param is the unit types of `kei/Gkei/kaia`
+
+<CH.Code>
+```java UnitConvertExample.java focus=10:11
+
+```
+---
+```zsh output
+❯ java UnitConvertExample.java
+Convert from kaia to kei 1000000000000000000
+```
+
+</CH.Code>
+</CH.Spotlight>
