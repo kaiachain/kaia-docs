@@ -28,7 +28,7 @@ You can publish it to the decentralized SubQuery Network, the most open, perform
 
 ## Resources
 
-Here are some additional resources to help you get started with the Covalent API:
+Here are some additional resources to help you get started with SubQuery:
 
 - [SubQuery Website](https://subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
 - [Documentation](https://academy.subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
