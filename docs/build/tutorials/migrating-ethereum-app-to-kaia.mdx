@@ -1,0 +1,197 @@
+---
+id: migrating-ethereum-app-to-kaia
+title: Migrate Ethereum App to Kaia
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
+
+* [1. Introduction](#1-introduction)
+* [2. Prerequisites](#2-prerequisites)
+* [3. Kaia has Ethereum compatibility](#2-kaia-has-ethereum-compatibility)
+* [4. Migrate App](#4-migrate-app)
+
+## 1. Introduction <a href="#1-introduction" id="1-introduction"></a>
+
+This tutorial is intended to give a guide on how to migrate an Ethereum App to Kaia. No previous Kaia experience is needed. We will focus only on the code modifications required to migrate an Ethereum App to Kaia. 
+
+
+## 2. Prerequisites <a href="#2-prerequisites" id="2-prerequisites"></a>
+
+* Familiarity with developer tooling and standards that support EVM.
+* Basic knowledge building a dApp.
+
+## 3. Kaia has Ethereum compatibility <a href="#2-kaia-has-ethereum-compatibility" id="2-kaia-has-ethereum-compatibility"></a>
+
+Kaia runtime environment is compatible with Ethereum Virtual Machine and executes smart contracts written in Solidity. Kaia's RPC APIs and other client libraries maintain almost identical API specifications with Ethereum's whenever available. Therefore, it is fairly straightforward to migrate Ethereum Apps to Kaia. This helps developers easily move to a new blockchain platform.
+
+## 4. Migrate App <a href="#2-migrate-app" id="2-nigrate-app"></a>
+
+Migrate your Ethereum App to Kaia following the steps below:
+
+1. Configure your contract tooling and SDKs to target Kaia Network - Kairos Testnet:
+    * RPC Endpoint: `https://public-en-kairos.node.kaia.io` 
+    * WebSocket Endpoint (Optional): `wss://public-en-kairos.node.kaia.io/ws`
+    * Chain ID: 1001
+
+2. Create an account using the [Kaia Wallet](https://www.kaiawallet.io/) and get some test funds from the [Faucet](https://faucet.kaia.io).
+
+3. Deploy your contract(s)
+
+<Tabs>
+  <TabItem value="hardhat" label="Hardhat">
+
+```js 
+// using Hardhat, it will be enough to add the following networks to the "hardhat.config.js" configuration file
+networks: {
+	kaia: {
+	  url: "https://public-en.node.kaia.io",
+		accounts:[process.env.PRIVATE_KEY],
+  },
+	kairos_testnet: {
+		url: "https://public-en-kairos.node.kaia.io", 
+		accounts:[process.env.PRIVATE_KEY],
+	}
+}
+
+// Then run the command to deploy :
+// npx hardhat run scripts/deploy.js --network kaia
+// npx hardhat run scripts/deploy.js --network kairos_testnet
+
+```
+
+  </TabItem>
+  <TabItem value="foundry" label="Foundry">
+
+```js
+forge create --rpc-url <rpc_url> --private-key <private_key> <path_to_contract> 
+```
+
+  </TabItem>
+</Tabs>
+
+
+4. Interact with contract using [Kaia SDK](https://github.com/kaiachain/kaia-sdk). Feel free to use any other toolkit like [viem](../../references/sdk/viem/viem.md) or [web3.py](../../references/sdk/web3py-ext/getting-started.md).
+
+      **A. Read blockchain data**
+        
+        **BlockNumber**
+
+          By simply replacing the web3 library with Kaia’s RPC Endpoint, you can sync Kaia's BlockNumber in real-time instead of Ethereum's BlockNumber.
+
+          ```js
+            const { JsonRpcProvider } = require("@kaiachain/ethers-ext/v6");
+
+            // const SEPOLIA_TESTNET_RPC_URL = 'https://ethereum-sepolia-rpc.publicnode.com'
+            const KAIROS_TESTNET_RPC_URL = 'https://public-en-kairos.node.kaia.io/'
+            const provider = new JsonRpcProvider(KAIROS_TESTNET_RPC_URL);
+
+            async function getKaiaBlockNumber() {
+              // Get the current block number
+              const blockNumber = await provider.getBlockNumber();
+              console.log("Current Kaia block number:", blockNumber);
+
+            }
+
+          getKaiaBlockNumber()
+
+          ```
+
+          **Contract Data**
+
+        ```js 
+          const ethers = require("ethers");
+
+          const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+
+          /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+          // SPDX-License-Identifier: UNLICENSED
+          pragma solidity ^0.8.13;
+
+          contract Counter {
+              uint256 public number;
+              event SetNumber(uint256 number);
+
+              constructor(uint256 initNumber) {
+                  number = initNumber;
+              }
+
+              function setNumber(uint256 newNumber) public {
+                  number = newNumber;
+                  emit SetNumber(number);
+              }
+
+              function increment() public {
+                  number++;
+                  emit SetNumber(number);
+              }
+          }
+          */
+          const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+          const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+          async function main() {
+            const counter = new ethers.Contract(contractAddr, abi, provider);
+            const number = await counter.number();
+            console.log("number", number.toString());
+          }
+
+          main();
+        ```
+
+      **B. Write to the blockchain**
+
+      ```js
+      const ethers = require("ethers");
+      const { Wallet } = require("@kaiachain/ethers-ext/v6");
+
+      const senderAddr = "REPLACE WITH SENDER ADDRESS";
+      const senderPriv = process.env.PRIVATE_KEY;
+
+      const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+      const wallet = new Wallet(senderPriv, provider);
+
+      /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+      // SPDX-License-Identifier: UNLICENSED
+      pragma solidity ^0.8.13;
+
+      contract Counter {
+          uint256 public number;
+          event SetNumber(uint256 number);
+
+          constructor(uint256 initNumber) {
+              number = initNumber;
+          }
+
+          function setNumber(uint256 newNumber) public {
+              number = newNumber;
+              emit SetNumber(number);
+          }
+
+          function increment() public {
+              number++;
+              emit SetNumber(number);
+          }
+      }
+      */
+      const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+      const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+      async function main() {
+        const counter = new ethers.Contract(contractAddr, abi, wallet);
+
+        console.log("number before", (await counter.number()).toString());
+
+        const sentTx = await counter.increment();
+        const receipt = await sentTx.wait();
+        console.log("receipt", receipt);
+
+        console.log("number after", (await counter.number()).toString());
+      }
+
+      main();
+
+      ```
