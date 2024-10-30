@@ -1,6 +1,6 @@
 # Pyth Network
 
-// ![](/img/banners/kaia-pyth.png)
+![](/img/banners/kaia-pyth.png)
 
 ## Overview
 
