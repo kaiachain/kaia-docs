@@ -6,6 +6,7 @@
 
 다음 공급자들은 카이아와 통합하여 탈중앙화된 오라클 서비스를 제공하고 있습니다:
 
+- [Pyth Network](https://docs.pyth.network/home)
 - [Orakl Network](https://docs.orakl.network)
 - [Witnet](https://docs.witnet.io/)
 - [SupraOracles](https://supraoracles.com/docs/overview)
