@@ -2,6 +2,8 @@
 
 Kaia offers an AWS AMI ([Amazon Machine Image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for Kaia endpoint nodes (EN). These AMIs are pre-installed with both the EN software and the chaindata, enabling users to quickly and conveniently launch a fully operational node. With Kaia's AMI, setting up a new endpoint node on demand becomes seamless, allowing for simplifying the process of joining the Kaia network.
 
+> Note: The Kaia Foundation provided AWS AMIs for the Kairos testnet until October 29, 2024, and will cease to provide these after November 1, 2024
+
 ## Why use AMI
 
 AMI offers a convenient way to launch a new Kaia EN. Also, as its chaindata is already set, you don't need extra disk storage to download and extract compressed chaindata. Additionally, using AMI is the only option to operate a new EN without full sync for some sync modes, such as archive mode or full mode without state migration (we only provide snapshot download for pruned chaindata).
@@ -17,7 +19,9 @@ Kaia provides different types of AMIs, whose chaindata has been synced with diff
 | state-migrated   | Full mode, state migrated (or state batch pruned) | `kaia-xxxx-clean-en-xxxx`|
 | archive          | Archive mode                                      | `kaia-xxxx-clean-archive-en-xxxx` |
 
-Kaia provides these 4 types of AMIs for both mainnet and kairos.
+Kaia provides these 4 types of AMIs for mainnet.
+
+> Note: The Kaia Foundation provided AWS AMIs for the Kairos testnet until October 29, 2024, and will cease to provide these after November 1, 2024
 
 See [State Batch Pruning](../../../learn/storage/state-pruning/#state-batch-pruning-state-migration) for more details on state migrated chaindata.
 See [Block Synchronization](../../learn/storage/block-sync.md) for more details on block sync modes.
@@ -29,7 +33,7 @@ We generate the latest AMI every day around 6 pm KST. Once generated, the AMIs l
 
 ## Launch new EC2 instance with AMI in Amazon console
 
-When launching a new EC2 instace in the AWS console, you should select an AMI. Search for `kaia-mainnet` or `kaia-kairos` in the AMI search bar.
+When launching a new EC2 instace in the AWS console, you should select an AMI. Search for `kaia-mainnet` in the AMI search bar.
 
 ![AMI search bar](/img/misc/ami_search.png)
 
