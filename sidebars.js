@@ -223,6 +223,7 @@ const sidebars = {
           link: { type: 'doc', id: 'build/tools/oracles/oracles' },
           items: [
             'build/tools/oracles/orakl-network',
+            'build/tools/oracles/pyth-network',
             'build/tools/oracles/supraoracles',
             'build/tools/oracles/witnet',
           ],
