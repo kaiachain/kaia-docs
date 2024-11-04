@@ -85,6 +85,15 @@ export const sidebar = {
                 'references/sdk/web3js-ext/smart-contract/write-txtype',
                 'references/sdk/web3js-ext/smart-contract/write-with-fee-delegation',
             ],
-        }
+        },
+        {
+            type: 'category',
+            label: 'Utils',
+            items: [
+              'references/sdk/web3js-ext/utils/address',
+              'references/sdk/web3js-ext/utils/signature',
+              'references/sdk/web3js-ext/utils/unit',
+            ],
+          },
     ],
 };

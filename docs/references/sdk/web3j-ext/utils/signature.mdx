@@ -1,0 +1,108 @@
+# Signature
+Convert signature between `r, s, v` and `compressed string` format.
+<CH.Spotlight>
+<CH.Code>
+
+```java SignatureUtilsExample.java
+package org.web3j.example.utils;
+
+
+import org.web3j.crypto.KaiaSignatureData;
+import org.web3j.crypto.Sign;
+import org.web3j.utils.Numeric;
+
+public class SignatureUtilsExample {
+    public static void main(String[] args) {
+        // convert from {r, s, v} signature to string
+        byte[] r = Numeric.hexStringToByteArray("0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed");
+        byte[] s = Numeric.hexStringToByteArray("0x678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6");
+        byte[] v = Numeric.hexStringToByteArray("0x0");
+        Sign.SignatureData obj = new Sign.SignatureData(v, r, s);
+        String signature = KaiaSignatureData.getSignatureString(obj);
+
+        System.out.println("From {r, s, v} to string " + signature);
+
+        // convert from signature string to {r, s, v}
+        byte[] signatureBytes = Numeric.hexStringToByteArray("0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e600");
+
+        byte[] convertedR = new byte[32];
+        byte[] convertedS = new byte[32];
+        byte[] convertedV= new byte[1];
+
+        // r is the first 32 bytes
+        System.arraycopy(signatureBytes, 0, convertedR, 0, 32);
+        // s is the next 32 bytes
+        System.arraycopy(signatureBytes, 32, convertedS, 0, 32);
+        // v is the last byte
+        convertedV[0] = signatureBytes[64];
+
+        System.out.println("Converted R " + Numeric.toHexString(convertedR));
+        System.out.println("Converted S " + Numeric.toHexString(convertedS));
+        System.out.println("Converted V " + Numeric.toHexString(convertedV));
+    }
+}
+
+```
+
+---
+
+```zsh output
+❯ java SignatureUtilsExample.java
+0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e600
+```
+
+</CH.Code>
+
+---
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`)
+
+```java SignatureUtilsExample.java focus=1:6
+
+```
+---
+For converting `{r ,s ,v}` signature to `string`, create a `Sign.SignatureData` object from params r, s ,v. Use `Numeric.hexStringToByteArray` to convert string to byte array
+```java SignatureUtilsExample.java focus=10:14,6
+
+```
+
+---
+To compress `Sign.SignatureData` to `compressed signature string`, use `KaiaSignatureData.getSignatureString` with the **signature object** as param
+
+<CH.Code>
+```java SignatureUtilsExample.java focus=15:17
+
+```
+---
+```zsh output
+❯ java SignatureUtilsExample.java
+0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e600
+```
+
+</CH.Code>
+---
+For converting `string` signature to `{r ,s ,v}`, First convert the string signature to byte array. Use `Numeric.hexStringToByteArray` to convert string to byte array
+```java SignatureUtilsExample.java focus=19:20
+
+```
+---
+Extract **r, s, v** components from the byte array. `R` is the first 32 indices, `S` is the next 32 indices and `V` is the last indice
+```java SignatureUtilsExample.java focus=22:31
+
+```
+---
+You can use `Numeric.toHexString` to convert each components from `byte array` to `string`
+<CH.Code>
+```java SignatureUtilsExample.java focus=33:35
+
+```
+
+---
+```zsh output
+❯ java SignatureUtilsExample.java
+Converted R 0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed
+Converted S 0x678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6
+Converted V 0x00
+```
+
+</CH.Code>
+</CH.Spotlight>

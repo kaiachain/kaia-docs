@@ -1,0 +1,109 @@
+# Address
+
+Utils for compressing public key.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js addressUtils.js
+const { getCompressedPublicKey } = require('@kaiachain/ethers-ext/v5')
+
+async function main() {
+  const publicKeyObject = {
+    x: '0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd',
+    y: '0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79',
+  }
+  console.log(
+    'pubkey from { x, y } object =',
+    getCompressedPublicKey(publicKeyObject)
+  )
+
+  const uncompressedPublicKeyString =
+    '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+  console.log(
+    'pubkey from uncompressed format =',
+    getCompressedPublicKey(uncompressedPublicKeyString)
+  )
+}
+
+main()
+```
+
+---
+
+```zsh output
+❯ node addressUtils.js
+pubkey from { x, y } object = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+pubkey from uncompressed format = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+```
+
+</CH.Code>
+
+---
+
+Import the **getCompressedPublicKey** from **@kaiachain/ethers-ext** packages
+
+```js addressUtils.js focus=1
+
+```
+
+---
+
+To compress a public key from `{x, y}` format to hexadecimal, use `getCompressedPublicKey` with the **public key object** as param
+
+<CH.Code>
+```js addressUtils.js focus=4:11
+const { getCompressedPublicKey } = require('@kaiachain/ethers-ext/v5')
+
+async function main() {
+  const publicKeyObject = {
+    x: '0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd',
+    y: '0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79',
+  }
+  console.log(
+    'pubkey from { x, y } object =',
+    getCompressedPublicKey(publicKeyObject)
+  )
+}
+
+main()
+```
+
+---
+
+```zsh output
+❯ node addressUtils.js
+pubkey from { x, y } object = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+```
+
+</CH.Code>
+
+---
+
+Otherwise if you want to compress the **public key** from **uncompressed hexadecimal**, use `getCompressedPublicKey` with the **uncompress public key** as param
+
+<CH.Code>
+```js addressUtils.js focus=4:9
+const { getCompressedPublicKey } = require('@kaiachain/ethers-ext/v5')
+
+async function main() {
+  const uncompressedPublicKeyString =
+    '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+  console.log(
+    'pubkey from uncompressed format =',
+    getCompressedPublicKey(uncompressedPublicKeyString)
+  )
+}
+
+main()
+```
+
+---
+```zsh output
+❯ node addressUtils.js
+pubkey from uncompressed format = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+````
+
+</CH.Code>
+
+</CH.Spotlight>

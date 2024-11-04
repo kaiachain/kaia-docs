@@ -1,0 +1,73 @@
+# Units
+For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and `kei`. See [supported units](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-) .
+<CH.Spotlight>
+<CH.Code>
+
+```js unitUtils.js
+const {
+  formatKlay,
+  parseKlay,
+  formatKlayUnits,
+} = require('@kaiachain/web3js-ext')
+
+async function main() {
+  console.log(
+    'example basefee in ston =',
+    formatKlayUnits('0x5d21dba00', 'ston')
+  )
+  console.log('transfer amount in klay =', formatKlay('1230000000000000000'))
+  console.log(
+    'example gas price in peb =',
+    parseKlayUnits('50', 'ston').toString()
+  )
+  console.log('transfer amount in peb =', parseKlay('9.87').toString())
+}
+
+main()
+```
+
+---
+
+```zsh output
+❯ node unitUtils.js
+example basefee in ston = 25.0
+transfer amount in klay = 1.23
+example gas price in peb = 50000000000
+transfer amount in peb = 9870000000000000000
+```
+
+</CH.Code>
+
+---
+
+Import the `formatKlay`, `parseKlay`, `formatKlayUnits`, from **@kaiachain/web3js-ext** packages
+
+```js unitUtils.js focus=1
+
+```
+---
+To convert **peb** to other units, use `formatKlayUnits`. For example, using `formatKlayUnits` converting **peb** to **ston**
+
+```js unitUtils.js focus=8:11
+
+```
+---
+Using `formatKlay` converts **peb** to **klay**
+
+```js unitUtils.js focus=12
+
+```
+---
+Using `parseKlayUnits` to convert value from one unit to **peb**. The first param is the **value**, the second param is the unit to **be converted**
+
+```js unitUtils.js focus=13:16
+
+```
+---
+Using `parseKlay` to convert **klay** to **peb**
+
+```js unitUtils.js focus=17
+
+```
+
+</CH.Spotlight>

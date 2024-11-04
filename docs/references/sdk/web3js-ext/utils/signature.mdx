@@ -1,0 +1,115 @@
+# Signature
+Convert signature into tuple format from object, compact signatures.
+<CH.Spotlight>
+<CH.Code>
+
+```js signatureUtils.js
+const { getSignatureTuple } = require('@kaiachain/web3js-ext')
+
+async function main() {
+  console.log(
+    'signature from { v, r, s } object =',
+    getSignatureTuple({
+      v: 27,
+      r: '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+      s: '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508',
+    })
+  )
+  console.log(
+    'signature from compact 65 bytes =',
+    getSignatureTuple(
+      '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b9975c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c5081b'
+    )
+  )
+}
+
+main()
+```
+
+---
+
+```zsh output
+❯ node signatureUtils.js
+signature from { v, r, s } object = [
+  '0x1b',
+  '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+  '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508'
+]
+signature from compact 65 bytes = [
+  '0x1b',
+  '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+  '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508'
+]
+```
+
+</CH.Code>
+
+---
+Import the **getSignatureTuple** from **@kaiachain/web3js-ext** packages
+
+```js signatureUtils.js focus=1
+
+```
+---
+To compress a public key from `{r, s, v}` format to tuple, use `getSignatureTuple` with the **signature object** as param
+
+<CH.Code>
+```js signatureUtils.js focus=4:11
+const { getSignatureTuple } = require('@kaiachain/web3js-ext')
+
+async function main() {
+  console.log(
+    'signature from { v, r, s } object =',
+    getSignatureTuple({
+      v: 27,
+      r: '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+      s: '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508',
+    })
+  )
+}
+
+main()
+```
+
+---
+```zsh output
+❯ node signatureUtils.js
+signature from { v, r, s } object = [
+  '0x1b',
+  '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+  '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508'
+]
+````
+
+</CH.Code>
+---
+To compress a public key from compact 65 bytes format to tuple, use `getSignatureTuple` with the **compact signature** as param
+
+<CH.Code>
+```js signatureUtils.js focus=4:9
+const { getSignatureTuple } = require('@kaiachain/web3js-ext')
+
+async function main() {
+  console.log(
+    'signature from compact 65 bytes =',
+    getSignatureTuple(
+      '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b9975c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c5081b'
+    )
+  )
+}
+
+main()
+```
+
+---
+```zsh output
+❯ node signatureUtils.js
+signature from compact 65 bytes = [
+  '0x1b',
+  '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+  '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508'
+]
+````
+
+</CH.Code>
+</CH.Spotlight>
