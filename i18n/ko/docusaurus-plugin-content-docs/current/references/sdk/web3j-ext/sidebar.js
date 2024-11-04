@@ -44,6 +44,14 @@ export const sidebar = {
                         'references/sdk/web3j-ext/account-management/sign-message/public-recover-msg',
                         'references/sdk/web3j-ext/account-management/sign-message/role-based-recover-msg'
                     ]
+                },
+                {
+                    type: 'category',
+                    label: 'Keystore',
+                    items: [
+                        'references/sdk/web3j-ext/account-management/keystore/keystoreV3',
+                        'references/sdk/web3j-ext/account-management/keystore/keystoreV4'
+                    ]
                 }
             ]
         },
@@ -81,6 +89,15 @@ export const sidebar = {
                 'references/sdk/web3j-ext/smart-contract/write',
                 'references/sdk/web3j-ext/smart-contract/write-txtype',
                 'references/sdk/web3j-ext/smart-contract/write-with-fee-delegation'
+            ]
+        },
+        {
+            type: 'category',
+            label: 'Utils',
+            items: [
+                'references/sdk/web3j-ext/utils/address',
+                'references/sdk/web3j-ext/utils/signature',
+                'references/sdk/web3j-ext/utils/unit'
             ]
         }
     ]
