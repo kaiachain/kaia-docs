@@ -38,6 +38,14 @@ export const sidebar = {
                         'references/sdk/web3j-ext/account-management/sign-message/role-based-recover-msg',
                     ],
                 },
+                {
+                    type: 'category', 
+                    label: 'Keystore',
+                    items: [
+                        'references/sdk/web3j-ext/account-management/keystore/keystoreV3',
+                        'references/sdk/web3j-ext/account-management/keystore/keystoreV4',
+                    ],
+                },
             ],
         },
         {
