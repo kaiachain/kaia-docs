@@ -25,7 +25,7 @@ Foundry는 빠르고 모듈화된 스마트 컨트랙트 개발을 가능하게 
 이 튜토리얼을 따르기 위한 전제 조건은 다음과 같습니다:
 
 - 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
-- [MetaMask](../../tutorials/connecting-metamask#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호 작용하는 데 사용됩니다.
+- [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 - [Rust](https://www.rust-lang.org/tools/install) 및 [Foundry](https://github.com/foundry-rs/foundry#installation)를 설치합니다.
@@ -142,7 +142,7 @@ forge build
 
 ## 컨트랙트 배포하기
 
-Foundry를 사용하여 컨트랙트를 배포하려면, 컨트랙트를 배포할 계정의 RPC URL과 개인키를 제공해야 합니다. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask#install-metamask).
+Foundry를 사용하여 컨트랙트를 배포하려면, 컨트랙트를 배포할 계정의 RPC URL과 개인키를 제공해야 합니다. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask).
 
 **1단계**: 컨트랙트를 Kaia Kairos 네트워크에 배포하려면, 아래 명령어를 실행합니다:
 
