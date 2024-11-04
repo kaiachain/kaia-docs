@@ -48,7 +48,11 @@ export const sidebar = {
                 {
                     type: 'category',
                     label: 'keystore',
-                    items: ['references/sdk/web3js-ext/account-management/keystore/keystoreV3']
+                    items: [
+                        'references/sdk/web3js-ext/account-management/keystore/keystoreV3',
+                        'references/sdk/web3js-ext/account-management/keystore/keystoreV4-single',
+                        'references/sdk/web3js-ext/account-management/keystore/keystoreV4-multi'
+                    ]
                 }
             ]
         },
@@ -86,6 +90,15 @@ export const sidebar = {
                 'references/sdk/web3js-ext/smart-contract/write',
                 'references/sdk/web3js-ext/smart-contract/write-txtype',
                 'references/sdk/web3js-ext/smart-contract/write-with-fee-delegation'
+            ]
+        },
+        {
+            type: 'category',
+            label: 'Utils',
+            items: [
+                'references/sdk/web3js-ext/utils/address',
+                'references/sdk/web3js-ext/utils/signature',
+                'references/sdk/web3js-ext/utils/unit'
             ]
         }
     ]
