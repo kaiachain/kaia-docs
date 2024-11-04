@@ -12,9 +12,9 @@ sidebar_label: Particle Network
 
 The [Particle Connect SDK](https://developers.particle.network/api-reference/connect/desktop/web) supports EVM-compatible chains, including Kaia and its testnet. It allows for 2-click onboarding with [social and Web3 login options](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors), all within a single modal.
 
-With Particle Network, developers on Kaia can embed social logins for the Kaia Mainnet and testnet, directly integrating wallets into applications.
+With Particle Network, developers on Kaia can embed social logins for the Kaia Mainnet and testnet, allowing users to generate and use a wallet within your application using only their Google, email, X, etc.
 
-This page offers an overview and tutorial for implementing Particle Connect in a Kaia-based application, to help you start with the integration process.
+This page offers an overview and tutorial for implementing Particle Connect within a Kaia-based application, to help you start the integration process.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ yarn add @particle-network/connectkit viem@^2 ethers
 
 ## Initializing Particle Connect
 
-To begin with, we’ll set up Particle Connect, Particle's flagship authentication SDK. Create a new file called `ConnectKit.tsx` in the root directory of your project. This file will house the `ParticleConnectKit` component, a wrapper for the configured `ConnectKitProvider` instance that serves as the primary interface for your configuration.
+To begin with, we’ll set up Particle Connect, Particle's flagship authentication SDK. Create a new file called `ConnectKit.tsx` in the root directory of your project. This file will house the `ParticleConnectKit` component, a wrapper for the configured `ConnectKitProvider` instance that serves as the primary interface for the configuration of Particle Connect (we'll go over what this looks like programmatically in a moment).
 
 Next, head over to the [Particle dashboard](https://dashboard.particle.network) to create a new web application project and obtain the following essential API keys:
 
@@ -120,6 +120,8 @@ export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
 };
 ```
 
+Virtually every property of this component can be configured, from the different login types you support to the visual appearance of the modal; to explore these various options, head over to [Particle's documentation](https://developers.particle.network/api-reference/connect/desktop/web#configuration).
+
 ## Integrate Particle Connect into Your App
 
 Now that the configuration is complete, wrap your application with the `ParticleConnectKit` component to enable global access to the Particle Connect SDK. To achieve this, modify your `layout.tsx` file in the `src` directory as follows:
@@ -180,7 +182,7 @@ export const App = () => {
 
 ### Getting Account and Balance
 
-With a wallet now successfully connected through the `ConnectButton`, you can retrieve the user's associated Kaia address. Additionally, you can retrieve its current balance (in KAIA) through the `publicClient`, which leverages the Viem provider already set up by Particle Connect.
+With a wallet (or social login) now successfully connected through the `ConnectButton` component, you can retrieve the user's associated Kaia address. Additionally, you can retrieve its current balance (in KAIA) through the `publicClient`, which leverages the Viem provider already set up by Particle Connect.
 
 ```js
 "use client";
