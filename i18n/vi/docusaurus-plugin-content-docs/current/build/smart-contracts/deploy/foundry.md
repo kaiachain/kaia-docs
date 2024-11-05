@@ -25,7 +25,7 @@ Trong hướng dẫn này, bạn sẽ:
 Để làm theo hướng dẫn này, bạn cần đáp ứng các điều kiện tiên quyết sau:
 
 - Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
-- [Metamask](../../tutorials/connecting-metamask#install-metamask): được dùng để triển khai hợp đồng, ký giao dịch và tương tác với hợp đồng.
+- [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../references/public-en.md) được hỗ trợ.
 - KAIA thử nghiệm từ [Vòi](https://faucet.kaia.io): nạp tiền vào tài khoản với một lượng KAIA vừa đủ.
 - Cài đặt [Rust](https://www.rust-lang.org/tools/install) và [Foundry](https://github.com/foundry-rs/foundry#installation).
@@ -142,7 +142,7 @@ forge build
 
 ## Triển khai hợp đồng
 
-Để triển khai một hợp đồng bằng foundry, bạn phải cung cấp một URL RPC và một khóa riêng tư của tài khoản triển khai hợp đồng đó. Hãy xem danh sách [rpc-providers](../../../references/public-en.md) trên Kaia để tìm rpc-url của bạn, và tạo một tài khoản bằng [MetaMask](../../tutorials/connecting-metamask#install-metamask).
+Để triển khai một hợp đồng bằng foundry, bạn phải cung cấp một URL RPC và một khóa riêng tư của tài khoản triển khai hợp đồng đó. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask).
 
 **Bước 1**: Để triển khai hợp đồng của bạn trên mạng Baobab của Klaytn, hãy chạy lệnh dưới đây:
 

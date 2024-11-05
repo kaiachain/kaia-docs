@@ -1,7 +1,6 @@
 # FAQ
 
 - [카이아란?](#what-is-klaytn)
-- [카이아 2.0이란?](#what-is-klaytn-2.0)
 - [카이아는 어떻게 이더리움과 동등성을 지원하나요?](#how-ethereum-equivalence)
 - [카이아의 가스 정책은 무엇인가요?](#klaytn-gas-policy)
 - [카이아의 계정 구조는 어떤 점이 특별한가요?](#klaytn-account-structure)
@@ -17,22 +16,21 @@
 - [카이아를 사용하려면 EN(엔드포인트 노드)을 설치하고 실행해야 하나요?](#must-i-install-and-run-en)
 - [EN을 실행 중인데 노드 데이터 동기화가 너무 느려요.](#node-data-sync-is-too-slow)
 - [카이아에서 ERC-20과 ERC-721 컨트랙트를 사용할 수 있나요?](#can-i-use-erc-20-and-erc-721)
-- [카이아에서 스마트 컨트랙트 개발에 Truffle을 사용할 수 있나요?](#can-i-use-truffle)
 - [MetaMask와 같은 브라우저 확장 지갑은 어디서 구할 수 있나요?](#where-can-i-get-a-browser-extension-wallet)
 - [수수료 납부자 계정 주소가 제공된 키에서 파생되지 않는 이유는 무엇인가요?](#account-address-is-not-derived-from-the-key)
 - [수수료 위임의 전체 작업 샘플은 어디에서 찾을 수 있나요?](#fee-delegation-samples)
 
 ## 카이아란? <a id="what-is-klaytn"></a>
 
-카이아는 레이어1 블록체인 플랫폼으로 짧은 지연시간, 높은 TPS, 즉각적인 완결성을 자랑합니다. It is the optimal blockchain for building games and realizing the metaverse, supporting Ethereum Equivalence. It provides the comprehensive [Metaverse Package](https://metaverse-knowledge-kit.kaia.io/) to facilitate blockchain building experience. To better understand Kaia, please refer to our [Light Paper](https://klaytn.foundation/wp-content/themes/klaytn/download/lightpaper.pdf).
+Kaia is a high-performance Layer 1 blockchain designed for the mass adoption of Web3, particularly in Asia. It offers over 4,000 TPS, immediate finality, and one-second block times. Fully compatible with Ethereum, Kaia enables seamless dApp migration and provides a robust ecosystem with developer-friendly tools, low fees, and strong liquidity from an ecosystem fund. It prioritizes Web2 user accessibility through integrations with major messaging platform like Kakao and LINE. For details, see our [White Paper](https://docs.kaia.io/kaiatech/kaia-white-paper/).
 
 ## 카이아는 어떻게 이더리움과 동등성을 지원하나요? <a id="how-ethereum-equivalence"></a>
 
-Kaia는 EVM과 호환되며 모든 이더리움 London EVM 기능을 지원합니다. 이더리움의 `eth` 네임스페이스는 이더리움과 호환되도록 수정되었습니다. 이더리움 툴을 원활하게 사용할 수 있으며, 최소한의 노력으로 이더리움 dApp의 마이그레이션도 가능해졌습니다. 트랜잭션 유형과 필드도 이더리움과 동일합니다.
+Kaia is EVM-compatible and supports all Ethereum Cancun EVM features except EIP-4844 blob transactions. It provides the `eth` namespace RPC API, allowing seamless use of Ethereum SDKs and tools. Kaia-specific transaction types are represented as Type 0 legacy transactions within the eth namespace APIs, so Ethereum SDKs do not need to be aware of them.
 
 ## 카이아의 가스 정책은 무엇인가요? <a id="klaytn-gas-policy"></a>
 
-카이아는 차익거래 봇에 대응하기 위해 고정 가스비 정책에서 동적 가스비 메커니즘을 도입했습니다. 자세한 내용은 이 [기사](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689)를 참고하시기 바랍니다.
+Kaia uses a dynamic gas fee model that maintains low fees during normal network conditions but adjusts fees based on network congestion. The gas fee can change within a limited range per block, helping prevent network spam while keeping fees predictable. A portion of every transaction fee is automatically burned. The model prioritizes user experience and enterprise-friendliness while maintaining network stability.
 
 ## 카이아 계정 구조의 특별한 점은 무엇인가요? <a id="klaytn-account-structure"></a>
 
@@ -40,36 +38,36 @@ Kaia는 EVM과 호환되며 모든 이더리움 London EVM 기능을 지원합�
 
 ## 카이아로 dApp 개발은 어디서 시작할 수 있나요? <a id="dapp-development"></a>
 
-이더리움에서 마이그레이션하든, 처음부터 카이아를 기반으로 구축하든, 필요한 모든 도구와 인프라를 지원합니다. You can test your smart contracts on [Remix IDE](../build//tutorials/connecting-remix) using Kaia Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask) wallet and [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk `caver` is available as [caver-js](https://github.com/kaiachain/caver-js) You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
+이더리움에서 마이그레이션하든, 처음부터 카이아를 기반으로 구축하든, 필요한 모든 도구와 인프라를 지원합니다. You can test your smart contracts on [Remix IDE](../build/tutorials/connecting-remix.md) using Kaia Plugin or connect to [MetaMask](../build/tutorials/connecting-metamask.mdx) wallet and [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi). Kaia’s sdk is available [here](https://github.com/kaiachain/kaia-sdk). You can refer to our [tutorials](../build/tutorials/tutorials.md) to try building a dApp on Kaia.
 
 ## 카이아는 오픈소스인가요? <a id="is-klaytn-open-source"></a>
 
-카이아는 확실히 오픈소스입니다! [GitHub 조직](https://github.com/klaytn)을 살펴보고 카이아 문서에 [기여](https://github.com/klaytn/klaytn-docs/blob/master/CONTRIBUTING.md)를 시작할 수 있습니다. 오픈소스 정책에 대한 자세한 내용은 [여기](opensource)에서 확인하세요.
+카이아는 확실히 오픈소스입니다! Take a look at our [Github Organization](https://github.com/kaiachain) and you can start [contributing](https://github.com/kaiachain/kaia-docs/blob/main/CONTRIBUTING.md) to our Kaia Documentation. Read more about our open-source policies [here](opensource.md).
 
 ## 내 계정에 처음 펀딩하려면 어떻게 해야 하나요? <a id="fund-my-acconut"></a>
 
-거래소에서 KAIA를 구매할 수 있습니다. 사용 가능한 거래소 목록은 여기에서 확인할 수 있습니다:
-[CoinMarketCap](https://coinmarketcap.com/currencies/klaytn/markets/) 또는 [CoinGecko](https://www.coingecko.com/en/coins/klay#markets)
+거래소에서 KAIA를 구매할 수 있습니다. The list of available exchanges can be found here:
+[Coinmarketcap](https://coinmarketcap.com/currencies/klaytn/markets/), [Coingecko](https://www.coingecko.com/en/coins/klay#markets).
 
 ## 테스트와 개발을 위한 카이아의 퍼블릭 노드 프로바이더가 있나요? <a id="node-providers"></a>
 
-Refer to this [list](../references/public-en#public-json-rpc-endpoint-providers) for Kaia’s Public Node Providers and the network domains.
+Refer to [this list](../references/public-en.md#rpc-service-providers) for Kaia’s Public Node Providers and the network domains.
 
 ## KAIA를 테스트할 수 있는 Faucet이 있나요? <a id="are-there-faucets"></a>
 
 You can get test KAIA for development and testing purposes here:
-[Kaia Faucet](https://faucet.kaia.io)
-[AllThatNode Faucet](https://www.allthatnode.com/faucet/klaytn.dsrv)
-[NODIT Faucet](https://kaiafaucet.com)
-[Thirdweb Faucet](https://thirdweb.com/kaia-testnet-kairos)
+
+- [Kaia Faucet](https://faucet.kaia.io)
+- [NODIT Faucet](https://kaiafaucet.com)
+- [Thirdweb Faucet](https://thirdweb.com/kaia-testnet-kairos)
 
 ## 퍼블릭 RPC 엔드포인트 상태는 어떻게 확인하나요? <a id="rpc-endpoint-status"></a>
 
-엔드포인트의 가동 시간과 안정성을 보장할 수 없으므로 노드 공급자 상태는 [여기](https://www.allthatnode.com/klaytn.dsrv)에서 언제든지 확인할 수 있습니다.
+Since we cannot guarantee uptime and stability of the endpoints, you can always check for node provider status here: [ChainList](https://chainlist.org/chain/8217), [Kaia Status](https://status.kaia.io/).
 
 ## 어떤 지갑이 카이아를 지원하나요? <a id="which-wallets"></a>
 
-Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. [여기](http://klaytn.foundation/ecosystem) 목록을 참조하세요.
+Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. Please refer to the list [here](../build/tools/wallets/wallets.md).
 
 ## What is Mainnet, what is Kairos? <a id="what-is-cypress-what-is-baobab"></a>
 
@@ -89,40 +87,40 @@ Kairos 테스트넷:
 
 ## 카이아 SDK가 있나요? 어떤 언어로 제공되나요? <a id="klaytn-sdks"></a>
 
-공식 카이아 SDK는 JavaScript와 자바로 제공됩니다.
-[caver-js](../references/sdk/caver-js/caver-js.md) 및 [caver-java](../references/sdk/caver-java/caver-java.md)를 참조하세요. Community contributions are always welcome in providing [Kaia APIs](../../references/json-rpc/klay/account-created) in other languages.
+Kaia Node is Ethereum-compatible, so you can use popular Ethereum SDKs like ethers.js, web3.js, web3py, web3j, or viem. However, Kaia Node also includes extended features with Kaia-specific account and transaction types.
 
-카이아 SDK를 사용해 dApp을 빌드하는 방법에 대한 자세한 내용은 [튜토리얼](../build/tutorials/tutorials.md)을 참고하세요.
+To take advantage of these features, you can use the Kaia SDKs, which include extensions such as ethers-ext, web3js-ext, web3j-ext, and web3py-ext. These are plugin-type SDKs that extend Ethereum SDKs. If you prefer standalone SDKs, you can consider the Caver SDKs, such as caver-js and caver-java, which are designed for projects where Ethereum compatibility is not required.
 
-또한 포팅 가이드라인 [from web3.js](../references/sdk/caver-js-1.4.1/porting-from-web3.js.md) 및 [from web3j](../references/sdk/caver-java-1.4.0/porting-from-web3j.md)를 확인하시기 바랍니다. caver-js와 caver-java의 구문은 web3.js 및 web3j와 매우 유사하기 때문에 포팅은 최소한으로 매우 간단해야 합니다. 하지만, web3.js나 web3j를 사용하여 Klaytn에 요청할 수는 없습니다.
+### kaia-sdk (Plug-in SDKs)
+
+These SDKs support JavaScript, Java, and Python, so you can choose based on the language your project uses:
+
+- ethers-ext, web3js-ext for javascript
+- web3j-ext for java
+- web3py-ext for python
+
+### caver (Standalone SDKs)
+
+These SDKs support JavaScript and Java, and are ideal for projects where Ethereum compatibility is not necessary:
+
+- caver-js for javascript
+- caver-java for java
 
 ## 카이아를 사용하려면 EN(엔드포인트 노드)을 설치 및 실행해야 하나요? <a id="must-i-install-and-run-en"></a>
 
-예와 아니오.
-엔드포인트 노드는 블록의 유효성을 검사하고 RPC API를 외부에 노출합니다. 애플리케이션이 카이아 네트워크와 상호작용하려면 항상 EN이 필요합니다.
-단순히 카이아 API를 사용해보고 싶으신 분들은 [KAS(Kaia API Service)](https://www.klaytnapi.com)를 사용해보실 수 있습니다.
-KAS는 카이아 네트워크(Kairos와 메인넷 모두)의 RPC API를 노출하는 카이아 노드 API 서비스와 기타 유용한 API 서비스를 제공합니다.
-KAS는 사용자 등록 후 API 요청을 무료로 제공합니다. 요금제에 대한 자세한 내용은 [KAS 요금제 페이지](https://www.klaytnapi.com/landing/pricing)를 참고하시기 바랍니다.
+It depends on your needs. If you require full control over your node and need to validate blocks yourself, then yes, you'll need to install and run your own EN. This is the typical setup for most Kaia applications. However, for testing and development, or if you prefer not to manage your own infrastructure, the [Kaia API Service (KAS)](https://www.klaytnapi.com/en/landing/main) is a great option. KAS provides access to the Kaia Node RPC APIs for both Kairos and Mainnet, plus additional API services. KAS offers free API requests after registration. Check the KAS [pricing page](https://www.klaytnapi.com/en/landing/pricing) for pricing plan information.
 
 ## EN을 실행 중인데 노드 데이터 동기화가 너무 느립니다. <a id="node-data-sync-is-too-slow"></a>
 
 먼저, HW 사양이 [시스템 요구 사항](../nodes/endpoint-node/system-requirements.md)을 충족하는지 확인합니다.
 
-[빠른 동기화](../nodes/endpoint-node/install-endpoint-nodes.md#fast-sync-optional)를 확인합니다.
-카이아는 매일 체인 데이터를 게시합니다. 체인 데이터는 생성 이후 생성된 모든 블록을 저장하는 데이터베이스 스냅샷입니다. 빠른 동기화를 위해 최신 체인 데이터를 다운로드하세요.
+Second, consider [downloading chaindata snapshot](../nodes/endpoint-node/install-endpoint-nodes.md#optional-download-chaindata-snapshot) to skip the time-consuming Full Sync process. The chaindata snapshot is a database snapshot that stores all blocks generated since the genesis. It is updated daily.
 
 ## 카이아에서 ERC-20과 ERC-721 컨트랙트를 사용할 수 있나요? <a id="can-i-use-erc-20-and-erc-721"></a>
 
 예. Kaia는 스마트 컨트랙트 언어로서 Solidity를 지원합니다. 이더리움 스마트 컨트랙트 언어 Solidity로 작성된 [ERC-20](../build/smart-contracts/samples/erc-20.md) 및 [ERC-721](../build/smart-contracts/samples/erc-721.md)은 Klaytn에서 배포 및 실행될 수 있습니다.
 
-카이아에 특화된 토큰 표준을 추가로 정의할 수 있습니다. [카이아 개선 제안서(KIP)](http://kips.klaytn.foundation)를 참고하여 토론에 참여해 주세요.
-
-## 카이아에서 스마트 컨트랙트 개발에 Truffle을 사용할 수 있나요? <a id="can-i-use-truffle"></a>
-
-예. Truffle은 카이아에서 스마트 컨트랙트를 개발할 때 [Truffle-가상지갑-제공자-카이아](https://www.npmjs.com/package/truffle-hdwallet-provider-klaytn)로 사용할 수 있습니다.
-[Truffle](../build/smart-contracts/ide-and-tools/truffle.md)을 참조하고 설정 가이드라인을 따르세요.
-
-Truffle을 처음 사용하는 경우, [테스트 가이드](../build/smart-contracts/testing-guide.md) 및 [배포 가이드](../build/smart-contracts/deploy/deploy.md)를 참조하여 Truffle을 사용하여 수행할 수 있는 작업에 대한 대략적인 아이디어를 얻을 수 있습니다.
+카이아에 특화된 토큰 표준을 추가로 정의할 수 있습니다. Follow the [KIP (Kaia Improvement Proposal)](https://kips.kaia.io/) and join the discussion.
 
 ## MetaMask와 같은 브라우저 확장 지갑은 어디서 구할 수 있나요? <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
@@ -141,14 +139,10 @@ Kaia's web browser extension wallet [Kaia Wallet](https://chromewebstore.google.
 
 ## 수수료 대납의 전체 작업 샘플은 어디에서 찾을 수 있나요? <a id="fee-delegation-samples"></a>
 
-[수수료 위임 예시](../build/tutorials/fee-delegation-example.md)를 확인하여 전체 작동하는 밸류 전송 코드를 얻으세요.
+You can find complete working examples of fee delegation using several different Kaia SDKs:
 
-수수료 위임이 있는 컨트랙트를 배포하려면 [JavaScript 코드 스니펫](https://gist.github.com/w3kim/64a3cf5da58250474f046d4dd7f85cc8)을 참조하세요. 수수료 위임이 있는 컨트랙트 배포에는 Truffle을 사용할 수 없다는 점에 유의하세요.
-
-[여러 서명자가 있는 트랜잭션 보내기](../references/sdk/caver-js-1.4.1/get-started-1.4.1.md#sending-a-transaction-with-multiple-signer)에 서명을 수집하는 두 가지 방법에 대한 좋은 설명이 나와 있습니다.
-관련 caver-js API는 다음과 같습니다. API 설명에서 코드 예시를 살펴보세요.
-
-- [caver.kaia.accounts.signTransaction](../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#signtransaction)
-- [caver.kaia.accounts.feePayerSignTransaction](../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#feepayersigntransaction)
-- [caver.kaia.accounts.combinesignatures](../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#combinesignatures)
-- [caver.kaia.sendSignedTransaction](../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/transaction.md#sendsignedtransaction)
+- ethers-ext: [fee delegated value transfer example](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/)
+- web3js-ext: [fee delegated value transfer example](https://docs.kaia.io/references/sdk/web3js-ext/fee-delegated-transaction/value-transfer/)
+- web3j-ext: [fee delegated value transfer example](https://docs.kaia.io/references/sdk/web3j-ext/fee-delegated-transaction/value-transfer/)
+- web3py-ext: [fee delegated value transfer example](https://docs.kaia.io/references/sdk/web3py-ext/fee-delegated-transaction/value-transfer/)
+- Caver-js: [fee-delegation-example](https://docs.kaia.io/build/tutorials/fee-delegation-example/)

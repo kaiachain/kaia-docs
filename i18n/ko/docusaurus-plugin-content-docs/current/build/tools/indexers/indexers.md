@@ -4,4 +4,5 @@
 
 카이아와 통합하여 블록체인 인덱싱 서비스를 제공하는 공급자는 다음과 같습니다:
 
+- [The Graph](https://thegraph.com/)
 - [SubQuery Network](https://academy.subquery.network/)

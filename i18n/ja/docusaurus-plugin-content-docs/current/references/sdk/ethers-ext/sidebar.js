@@ -52,7 +52,11 @@ export const sidebar = {
             {
               type: 'category',
               label: 'keystore',
-              items: ['references/sdk/ethers-ext/v5/account-management/keystore/keystoreV3']
+              items: [
+                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV3',
+                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-single',
+                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-multi'
+              ]
             }
           ]
         },
@@ -90,6 +94,15 @@ export const sidebar = {
             'references/sdk/ethers-ext/v5/smart-contract/write',
             'references/sdk/ethers-ext/v5/smart-contract/write-txtype',
             'references/sdk/ethers-ext/v5/smart-contract/write-with-fee-delegation'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Utils',
+          items: [
+            'references/sdk/ethers-ext/v5/utils/address',
+            'references/sdk/ethers-ext/v5/utils/signature',
+            'references/sdk/ethers-ext/v5/utils/unit'
           ]
         }
       ]
@@ -135,7 +148,11 @@ export const sidebar = {
             {
               type: 'category',
               label: 'keystore',
-              items: ['references/sdk/ethers-ext/v6/account-management/keystore/keystoreV3']
+              items: [
+                'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV3',
+                'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-single',
+                'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-multi'
+              ]
             }
           ]
         },
@@ -173,6 +190,15 @@ export const sidebar = {
             'references/sdk/ethers-ext/v6/smart-contract/write',
             'references/sdk/ethers-ext/v6/smart-contract/write-txtype',
             'references/sdk/ethers-ext/v6/smart-contract/write-with-fee-delegation'
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Utils',
+          items: [
+            'references/sdk/ethers-ext/v6/utils/address',
+            'references/sdk/ethers-ext/v6/utils/signature',
+            'references/sdk/ethers-ext/v6/utils/unit'
           ]
         }
       ]

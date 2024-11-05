@@ -28,7 +28,7 @@ dApp 개발자를 위한 가장 개방적이고, 성능이 뛰어나며, 안정�
 
 ## 리소스
 
-다음은 Covalent API를 시작하는 데 도움이 되는 몇 가지 추가 리소스입니다:
+Here are some additional resources to help you get started with SubQuery:
 
 - [SubQuery 웹사이트](https://subquery.network/?utm_source=klaytn\\&utm_medium=partner-docs)
 - [문서](https://academy.subquery.network/?utm_source=klaytn\\&utm_medium=partner-docs)
