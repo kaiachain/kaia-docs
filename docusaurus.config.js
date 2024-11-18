@@ -219,13 +219,13 @@ const config = {
         apiKey: '3ae6c772dbecf845225e7ef3f4ac18be',
         indexName: 'klaytn',
       },
-      announcementBar: {
+/**      announcementBar: {
         id: 'docs_archive',
         content: '<div style="font-size: 15px">📢 The Finschia and Klaytn blockchains have transitioned to the Kaia blockchain (<a target="_blank" href="https://docs.kaia.io/misc/kaia-transition/faq-chain-transition/">Transition FAQ</a>). For node operators, see <b><a target="_blank" href="https://docs.kaia.io/references/public-en/#public-json-rpc-endpoints-1">Old Endpoints Termination Notice</a></b> first! 🙏🏻</div>',
         backgroundColor: '#789806',
         textColor: '#FFFFFF',
         isCloseable: true,
-      },
+      },*/
       navbar: {
         title: 'Kaia Docs',
         logo: {
@@ -258,12 +258,6 @@ const config = {
             position: 'left',
             sidebarid: 'refSidebar',
             label: 'References',
-          },
-          {
-            to: "kaiatech",
-            position: 'left',
-            sidebarid: 'kaiaSidebar',
-            label: 'Kaia Tech',
           },
           {
             type: 'docsVersionDropdown',
@@ -369,6 +363,10 @@ const config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/kaiachain',
+              },
+              {
+                label: 'White Paper',
+                href: 'https://docs.kaia.io/kaiatech/kaia-white-paper/',
               },
             ],
           },
