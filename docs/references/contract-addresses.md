@@ -8,7 +8,7 @@ Some Kaia features rely on the special smart contracts called *system contracts*
 | ---                         | ---                                        | ---                                        |
 | AddressBook                 | 0x0000000000000000000000000000000000000400 | 0x0000000000000000000000000000000000000400 |
 | CypressCredit               | 0x0000000000000000000000000000000000000000 | n/a                                        |
-| KIP-81 GovParam             | TBU                                        | 0x84214cec245d752a9f2faf355b59ddf7f58a6edb |
+| KIP-81 GovParam             | 0x362976Cc2Ef6751DE6bf6008e3E90e1e02deCa51 | 0x84214cec245d752a9f2faf355b59ddf7f58a6edb |
 | KIP-103 TreasuryRebalance   | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
 | KIP-160 TreasuryRebalanceV2 | 0xa4df15717Da40077C0aD528296AdBBd046579Ee9 | 0x3D478E73c9dBebB72332712D7265961B1868d193 |
 | KIP-149 Registry            | 0x0000000000000000000000000000000000000401 | 0x0000000000000000000000000000000000000401 |
