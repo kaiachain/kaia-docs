@@ -1,6 +1,12 @@
 # Use AWS AMIs
 
-Kaia offers an AWS AMI ([Amazon Machine Image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for Kaia endpoint nodes (EN). These AMIs are pre-installed with both the EN software and the chaindata, enabling users to quickly and conveniently launch a fully operational node. With Kaia's AMI, setting up a new endpoint node on demand becomes seamless, allowing for simplifying the process of joining the Kaia network.
+:::info[Service Discontinued]
+
+The AWS AMI service for Kaia endpoint nodes is no longer available. Please refer to [Block Synchronization](../../learn/storage/block-sync.md) for alternative setup methods, such as using chaindata snapshots or performing full synchronization.
+
+:::
+
+Kaia offered an AWS AMI ([Amazon Machine Image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for Kaia endpoint nodes (EN). These AMIs were pre-installed with both the EN software and the chaindata, enabling users to quickly and conveniently launch a fully operational node. With Kaia's AMI, setting up a new endpoint node on demand becomes seamless, allowing for simplifying the process of joining the Kaia network.
 
 ## Why use AMI
 
