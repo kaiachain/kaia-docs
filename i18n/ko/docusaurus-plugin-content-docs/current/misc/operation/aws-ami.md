@@ -1,5 +1,11 @@
 # Use AWS AMIs
 
+:::info[Service 더 이상 업데이트되지 않음]
+
+Kaia 엔드포인트 노드용 AWS AMI 서비스는 더 이상 업데이트되지 않습니다(마지막 업데이트: 2024년 11월). 기존 AMI(2024년 11월 날짜)는 계속 사용할 수 있지만, 현재 블록체인 상태를 따라잡기 위해 추가적인 동기화 시간이 필요할 수 있습니다. 체인데이터 스냅샷을 사용하거나 전체 동기화를 수행하는 등의 다른 설정 방법은 [블록 동기화](../../learn/storage/block-sync.md)를 참조하세요.
+
+:::
+
 Kaia offers an AWS AMI ([Amazon Machine Image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for Kaia endpoint nodes (EN). These AMIs are pre-installed with both the EN software and the chaindata, enabling users to quickly and conveniently launch a fully operational node. With Kaia's AMI, setting up a new endpoint node on demand becomes seamless, allowing for simplifying the process of joining the Kaia network.
 
 ## Why use AMI
@@ -17,9 +23,7 @@ Kaia provides different types of AMIs, whose chaindata has been synced with diff
 | state-migrated | Full mode, state migrated (or state batch pruned) | `kaia-xxxx-clean-en-xxxx`         |
 | archive        | Archive mode                                                         | `kaia-xxxx-clean-archive-en-xxxx` |
 
-Kaia provides these 4 types of AMIs for mainnet.
-
-> Note: The Kaia Foundation provided AWS AMIs for the Kairos testnet until October 29, 2024, and will cease to provide these after November 1, 2024
+Kaia provides these 4 types of AMIs for mainnet. '전체' 유형을 제외한 카이로스용 AMI도 있습니다.
 
 See [State Batch Pruning](../../../learn/storage/state-pruning/#state-batch-pruning-state-migration) for more details on state migrated chaindata.
 See [Block Synchronization](../../learn/storage/block-sync.md) for more details on block sync modes.
