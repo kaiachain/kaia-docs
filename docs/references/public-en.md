@@ -16,9 +16,9 @@ Hence, the main benefit of using an existing Public EN is that it allows you to 
 
 Below is the list of the network domains offered by Kaia’s Public Node Providers.
 
-:::info[Outdated Endpoints Will Stop Working]
+:::info[Outdated Endpoints Stopped Working]
 
-Please note that the following URLs will be discontinued at the end of September 2024. We encourage you to update your configurations accordingly to ensure uninterrupted service:
+Please note that the following URLs was discontinued at the end of September 2024. We encourage you to update your configurations accordingly to ensure uninterrupted service:
 
 **Mainnet**
 
