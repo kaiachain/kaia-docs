@@ -15,10 +15,6 @@
     "message": "Storage Layer",
     "description": "The label for category Storage Layer in sidebar learnSidebar"
   },
-  "sidebar.learnSidebar.category.Klaytn 2.0": {
-    "message": "Klaytn 2.0",
-    "description": "The label for category Klaytn 2.0 in sidebar learnSidebar"
-  },
   "sidebar.learnSidebar.category.Operation Guide": {
     "message": "Operation Guide",
     "description": "The label for category Operation Guide in sidebar learnSidebar"
@@ -218,10 +214,6 @@
   "sidebar.refSidebar.category.caver.kct": {
     "message": "caver.kct",
     "description": "The label for category caver.kct in sidebar refSidebar"
-  },
-  "sidebar.kaiaSidebar.doc.DLT Framework": {
-    "message": "DLT Framework",
-    "description": "The label for the doc item DLT Framework in sidebar kaiaSidebar, linking to the doc kaiatech/kaia-dlt-framework"
   },
   "sidebar.learnSidebar.category.Data Management": {
     "message": "Data Management",
