@@ -5,38 +5,17 @@
   "{tagline}": {
     "message": "Kaia 문서에 오신 것을 환영합니다."
   },
-  "Klaytn Overview": {
-    "message": "클레이튼 개요"
-  },
-  "Want to know about Klaytn?": {
-    "message": "클레이튼에 대해 알아보시겠습니까?"
-  },
   "Getting Started": {
     "message": "시작하기"
   },
-  "Want to start building on Klaytn?": {
-    "message": "클레이튼으로 뭔가를 만들어 보고 싶은가요?"
-  },
   "Node Operators": {
     "message": "노드 운영하기"
-  },
-  "Instructions on running Klaytn's nodes": {
-    "message": "클레이튼 노드를 운영해보고 싶은가요?"
   },
   "API references": {
     "message": "API 레퍼런스"
   },
   "APIs and libraries": {
     "message": "API와 라이브러리"
-  },
-  "Klaytn Developer Hub": {
-    "message": "클레이튼 개발자 허브"
-  },
-  "Klaytn's Developer portal": {
-    "message": "클레이튼 개발자 포털 사이트"
-  },
-  "Klaytn Developer Forum": {
-    "message": "클레이튼 개발자 포럼"
   },
   "Got a question? Visit our forum!": {
     "message": "질문이 생겼나요? 포럼을 방문하세요!"
@@ -499,5 +478,33 @@
   "theme.docs.DocCard.categoryDescription.plurals": {
     "message": "{count} 항목",
     "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}",
+    "description": "The title of the page for a blog author"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "작성자",
+    "description": "The title of the authors page"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "모든 작성자 보기",
+    "description": "The label of the link targeting the blog authors page"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "미등록 페이지",
+    "description": "The unlisted content banner title"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "이 페이지는 목록에 없습니다. 검색 엔진은 이 페이지를 색인화하지 않으며 직접 링크가 있는 사용자만 액세스할 수 있습니다.",
+    "description": "The unlisted content banner message"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "초안 페이지",
+    "description": "The draft content banner title"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "이 페이지는 초안입니다. 개발 환경에서만 볼 수 있으며 프로덕션 빌드에서는 제외됩니다.",
+    "description": "The draft content banner message"
   }
 }
