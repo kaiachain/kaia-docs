@@ -5,38 +5,17 @@
   "{tagline}": {
     "message": "{tagline}"
   },
-  "Klaytn Overview": {
-    "message": "Klaytn Overview"
-  },
-  "Want to know about Klaytn?": {
-    "message": "Want to know about Klaytn?"
-  },
   "Getting Started": {
     "message": "Getting Started"
   },
-  "Want to start building on Klaytn?": {
-    "message": "Want to start building on Klaytn?"
-  },
   "Node Operators": {
     "message": "Node Operators"
-  },
-  "Instructions on running Klaytn's nodes": {
-    "message": "Instructions on running Klaytn's nodes"
   },
   "API references": {
     "message": "API references"
   },
   "APIs and libraries": {
     "message": "APIs and libraries"
-  },
-  "Klaytn Developer Hub": {
-    "message": "Klaytn Developer Hub"
-  },
-  "Klaytn's Developer portal": {
-    "message": "Klaytn's Developer portal"
-  },
-  "Klaytn Developer Forum": {
-    "message": "Klaytn Developer Forum"
   },
   "Got a question? Visit our forum!": {
     "message": "Got a question? Visit our forum!"
@@ -499,5 +478,33 @@
   "theme.docs.DocCard.categoryDescription.plurals": {
     "message": "{count} items",
     "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}",
+    "description": "The title of the page for a blog author"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Authors",
+    "description": "The title of the authors page"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "View all authors",
+    "description": "The label of the link targeting the blog authors page"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "Unlisted page",
+    "description": "The unlisted content banner title"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
+    "description": "The unlisted content banner message"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Draft page",
+    "description": "The draft content banner title"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "This page is a draft. It will only be visible in dev and be excluded from the production build.",
+    "description": "The draft content banner message"
   }
 }
