@@ -506,5 +506,9 @@
   "theme.contentVisibility.draftBanner.message": {
     "message": "이 페이지는 초안입니다. 개발 환경에서만 볼 수 있으며 프로덕션 빌드에서는 제외됩니다.",
     "description": "The draft content banner message"
+  },
+  "disclaimer.message": {
+    "message": "This page uses machine translation from English, which may contain errors or unclear language. For the most accurate information, please see the original English version. Some content may be in the original English due to frequent updates. Help us improve this page's translation by joining our effort on Crowdin.",
+    "description": "Machine translation disclaimer for non-English documentation pages"
   }
 }
