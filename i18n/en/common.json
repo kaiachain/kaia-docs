@@ -1,0 +1,6 @@
+{
+  "disclaimer.message": {
+    "message": "This page uses machine translation from English, which may contain errors or unclear language. For the most accurate information, please see the original English version. Some content may be in the original English due to frequent updates. Help us improve this page's translation by joining our effort on Crowdin.",
+    "description": "Machine translation disclaimer for non-English documentation pages"
+  }
+}

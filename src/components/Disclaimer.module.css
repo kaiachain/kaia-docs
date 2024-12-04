@@ -1,0 +1,29 @@
+.disclaimer {
+  --ifm-code-background: var(--ifm-alert-background-color-highlight);
+  --ifm-link-color: var(--ifm-alert-foreground-color);
+  --ifm-link-hover-color: var(--ifm-alert-foreground-color);
+  --ifm-link-decoration: underline;
+  --ifm-tabs-color: var(--ifm-alert-foreground-color);
+  --ifm-tabs-color-active: var(--ifm-alert-foreground-color);
+  --ifm-tabs-color-active-border: var(--ifm-alert-border-color);
+  background-color: var(--ifm-alert-background-color);
+  border: var(--ifm-alert-border-width) solid var(--ifm-alert-border-color);
+  border-left-width: var(--ifm-alert-border-left-width);
+  border-radius: var(--ifm-alert-border-radius);
+  box-shadow: var(--ifm-alert-shadow);
+  color: var(--ifm-alert-foreground-color);
+  padding: var(--ifm-alert-padding-vertical) var(--ifm-alert-padding-horizontal);
+  margin-bottom: 16px;
+
+  --ifm-alert-background-color: #e3f6e9;
+  --ifm-alert-background-color-highlight: #0a2312;
+  --ifm-alert-foreground-color: #010503;
+  --ifm-alert-border-color: #22763e;
+}
+
+[data-theme='dark'] .disclaimer {
+  --ifm-alert-background-color: #334102;
+  --ifm-alert-background-color-highlight: #445603;
+  --ifm-alert-foreground-color: #f8fee2;
+  --ifm-alert-border-color: #9ac307;
+}

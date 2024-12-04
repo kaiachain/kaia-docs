@@ -276,6 +276,16 @@ const config = {
           {
             type: 'localeDropdown',
             position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                value: '<hr style="margin: 0.3rem 0;">',
+              },
+              {
+                href: 'https://github.com/kaiachain/kaia-docs/blob/main/CONTRIBUTING.md#content-translation',
+                label: 'Help Us Translate',
+              },
+            ],
           },
           {
             href: 'https://github.com/kaiachain',
