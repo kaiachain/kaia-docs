@@ -11,14 +11,6 @@
     "message": "계산",
     "description": "The label for category Computation in sidebar learnSidebar"
   },
-  "sidebar.learnSidebar.category.Storage Layer": {
-    "message": "스토리지 레이어",
-    "description": "The label for category Storage Layer in sidebar learnSidebar"
-  },
-  "sidebar.learnSidebar.category.Operation Guide": {
-    "message": "운영 가이드",
-    "description": "The label for category Operation Guide in sidebar learnSidebar"
-  },
   "sidebar.buildSidebar.category.Get Started": {
     "message": "시작하기",
     "description": "The label for category Get Started in sidebar buildSidebar"
@@ -42,18 +34,6 @@
   "sidebar.buildSidebar.category.Tutorials": {
     "message": "튜토리얼",
     "description": "The label for category Tutorials in sidebar buildSidebar"
-  },
-  "sidebar.buildSidebar.category.Build Count DApp": {
-    "message": "Count dApp 빌드하기",
-    "description": "The label for category Build Count DApp in sidebar buildSidebar"
-  },
-  "sidebar.buildSidebar.category.Frontend Code Overview": {
-    "message": "프론트엔드 코드 개요",
-    "description": "The label for category Frontend Code Overview in sidebar buildSidebar"
-  },
-  "sidebar.buildSidebar.category.Build Klaystagram": {
-    "message": "Klaystagram 빌드하기",
-    "description": "The label for category Build Klaystagram in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Tools": {
     "message": "도구",
@@ -83,14 +63,6 @@
     "message": "블록 탐색기",
     "description": "The label for category Block Explorers in sidebar buildSidebar"
   },
-  "sidebar.buildSidebar.category.Operation Guide": {
-    "message": "운영 가이드",
-    "description": "The label for category Operation Guide in sidebar buildSidebar"
-  },
-  "sidebar.buildSidebar.doc.Verify Contracts": {
-    "message": "컨트랙트 검증하기",
-    "description": "The label for the doc item Verify Contracts in sidebar buildSidebar, linking to the doc build/tutorials/verifying-contracts"
-  },
   "sidebar.nodeSidebar.category.Endpoint Node": {
     "message": "엔드포인트 노드",
     "description": "The label for category Endpoint Node in sidebar nodeSidebar"
@@ -119,45 +91,13 @@
     "message": "노드 패키지 다운로드",
     "description": "The label for category Node Package Downloads in sidebar nodeSidebar"
   },
-  "sidebar.nodeSidebar.category.Operation Guide": {
-    "message": "운영 가이드",
-    "description": "The label for category Operation Guide in sidebar nodeSidebar"
-  },
   "sidebar.refSidebar.category.RPC API Reference": {
     "message": "RPC API 레퍼런스",
     "description": "The label for category RPC API Reference in sidebar refSidebar"
   },
-  "sidebar.refSidebar.category.eth": {
-    "message": "eth",
-    "description": "The label for category eth in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.klay": {
-    "message": "klay",
-    "description": "The label for category klay in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.debug": {
-    "message": "debug",
-    "description": "The label for category debug in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.Service Chain API Reference": {
-    "message": "서비스 체인 API 레퍼런스",
-    "description": "The label for category Service Chain API Reference in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.RPC Service Providers": {
-    "message": "RPC 서비스 제공업체",
-    "description": "The label for category RPC Service Providers in sidebar refSidebar"
-  },
   "sidebar.refSidebar.category.SDKs and Libraries": {
     "message": "SDK 및 라이브러리",
     "description": "The label for category SDKs and Libraries in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver": {
-    "message": "caver",
-    "description": "The label for category caver in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver-js (1.5.0 or later)": {
-    "message": "caver-js(1.5.0 이상)",
-    "description": "The label for category caver-js (1.5.0 or later) in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.API References": {
     "message": "API 레퍼런스",
@@ -174,30 +114,6 @@
   "sidebar.refSidebar.category.caver.rpc": {
     "message": "caver.rpc",
     "description": "The label for category caver.rpc in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver-js (1.4.1 or earlier)": {
-    "message": "caver-js(1.4.1 이하)",
-    "description": "The label for category caver-js (1.4.1 or earlier) in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver.klay": {
-    "message": "caver.klay",
-    "description": "The label for category caver.klay in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.Transaction": {
-    "message": "트랜잭션",
-    "description": "The label for category Transaction in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver-java (1.5.0 or later)": {
-    "message": "caver-java(1.5.0 이상)",
-    "description": "The label for category caver-java (1.5.0 or later) in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver-java (1.4.0 or earlier)": {
-    "message": "caver-java(1.4.0 이하)",
-    "description": "The label for category caver-java (1.4.0 or earlier) in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.Operation Guide": {
-    "message": "운영 가이드",
-    "description": "The label for category Operation Guide in sidebar refSidebar"
   },
   "sidebar.refSidebar.link.API References": {
     "message": "API 레퍼런스",
