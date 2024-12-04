@@ -11,14 +11,6 @@
     "message": "Computation",
     "description": "The label for category Computation in sidebar learnSidebar"
   },
-  "sidebar.learnSidebar.category.Storage Layer": {
-    "message": "Storage Layer",
-    "description": "The label for category Storage Layer in sidebar learnSidebar"
-  },
-  "sidebar.learnSidebar.category.Operation Guide": {
-    "message": "Operation Guide",
-    "description": "The label for category Operation Guide in sidebar learnSidebar"
-  },
   "sidebar.buildSidebar.category.Get Started": {
     "message": "Get Started",
     "description": "The label for category Get Started in sidebar buildSidebar"
@@ -42,18 +34,6 @@
   "sidebar.buildSidebar.category.Tutorials": {
     "message": "Tutorials",
     "description": "The label for category Tutorials in sidebar buildSidebar"
-  },
-  "sidebar.buildSidebar.category.Build Count DApp": {
-    "message": "Build Count DApp",
-    "description": "The label for category Build Count DApp in sidebar buildSidebar"
-  },
-  "sidebar.buildSidebar.category.Frontend Code Overview": {
-    "message": "Frontend Code Overview",
-    "description": "The label for category Frontend Code Overview in sidebar buildSidebar"
-  },
-  "sidebar.buildSidebar.category.Build Klaystagram": {
-    "message": "Build Klaystagram",
-    "description": "The label for category Build Klaystagram in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Tools": {
     "message": "Tools",
@@ -83,14 +63,6 @@
     "message": "Block Explorers",
     "description": "The label for category Block Explorers in sidebar buildSidebar"
   },
-  "sidebar.buildSidebar.category.Operation Guide": {
-    "message": "Operation Guide",
-    "description": "The label for category Operation Guide in sidebar buildSidebar"
-  },
-  "sidebar.buildSidebar.doc.Verify Contracts": {
-    "message": "Verify Contracts",
-    "description": "The label for the doc item Verify Contracts in sidebar buildSidebar, linking to the doc build/tutorials/verifying-contracts"
-  },
   "sidebar.nodeSidebar.category.Endpoint Node": {
     "message": "Endpoint Node",
     "description": "The label for category Endpoint Node in sidebar nodeSidebar"
@@ -119,45 +91,13 @@
     "message": "Node Package Downloads",
     "description": "The label for category Node Package Downloads in sidebar nodeSidebar"
   },
-  "sidebar.nodeSidebar.category.Operation Guide": {
-    "message": "Operation Guide",
-    "description": "The label for category Operation Guide in sidebar nodeSidebar"
-  },
   "sidebar.refSidebar.category.RPC API Reference": {
     "message": "RPC API Reference",
     "description": "The label for category RPC API Reference in sidebar refSidebar"
   },
-  "sidebar.refSidebar.category.eth": {
-    "message": "eth",
-    "description": "The label for category eth in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.klay": {
-    "message": "klay",
-    "description": "The label for category klay in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.debug": {
-    "message": "debug",
-    "description": "The label for category debug in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.Service Chain API Reference": {
-    "message": "Service Chain API Reference",
-    "description": "The label for category Service Chain API Reference in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.RPC Service Providers": {
-    "message": "RPC Service Providers",
-    "description": "The label for category RPC Service Providers in sidebar refSidebar"
-  },
   "sidebar.refSidebar.category.SDKs and Libraries": {
     "message": "SDKs and Libraries",
     "description": "The label for category SDKs and Libraries in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver": {
-    "message": "caver",
-    "description": "The label for category caver in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver-js (1.5.0 or later)": {
-    "message": "caver-js (1.5.0 or later)",
-    "description": "The label for category caver-js (1.5.0 or later) in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.API References": {
     "message": "API References",
@@ -174,30 +114,6 @@
   "sidebar.refSidebar.category.caver.rpc": {
     "message": "caver.rpc",
     "description": "The label for category caver.rpc in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver-js (1.4.1 or earlier)": {
-    "message": "caver-js (1.4.1 or earlier)",
-    "description": "The label for category caver-js (1.4.1 or earlier) in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver.klay": {
-    "message": "caver.klay",
-    "description": "The label for category caver.klay in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.Transaction": {
-    "message": "Transaction",
-    "description": "The label for category Transaction in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver-java (1.5.0 or later)": {
-    "message": "caver-java (1.5.0 or later)",
-    "description": "The label for category caver-java (1.5.0 or later) in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.caver-java (1.4.0 or earlier)": {
-    "message": "caver-java (1.4.0 or earlier)",
-    "description": "The label for category caver-java (1.4.0 or earlier) in sidebar refSidebar"
-  },
-  "sidebar.refSidebar.category.Operation Guide": {
-    "message": "Operation Guide",
-    "description": "The label for category Operation Guide in sidebar refSidebar"
   },
   "sidebar.refSidebar.link.API References": {
     "message": "API References",
