@@ -8,9 +8,9 @@ sidebar_label: Particle Network
 
 ## Introduction
 
-[Particle Network](https://particle.network) provides Wallet Abstraction services to simplify user onboarding.
+[Particle Network](https://particle.network)'s Wallet Abstraction services enable universal, Web2-adjacent onboarding and interactions.
 
-The [Particle Connect SDK](https://developers.particle.network/api-reference/connect/desktop/web) supports EVM-compatible chains, including Kaia and its testnet. It allows for 2-click onboarding with [social and Web3 login options](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors), all within a single modal.
+The [Particle Connect SDK](https://developers.particle.network/api-reference/connect/desktop/web) supports EVM-compatible chains, including Kaia and its testnet. While traditional Web3 wallets are offered as connection mechanisms through Particle Connect, social logins through social accounts such as your email address, Google account, phone number, etc. are also available. If a user decides to log in with a Web2 account, you'll have the ability to call `getUserInfo` from `@particle-network/auth-core`, which will return an object containing key details such as their name, email, wallet addresses, etc.
 
 With Particle Network, developers on Kaia can embed social logins for the Kaia Mainnet and testnet, allowing users to generate and use a wallet within your application using only their Google, email, X, etc.
 
@@ -20,7 +20,7 @@ This page offers an overview and tutorial for implementing Particle Connect with
 
 - A [Next.js project](https://nextjs.org/docs/getting-started/installation) set up with TypeScript and Tailwind CSS
   - You can create this by running: `npx create-next-app@latest`
-- A **Project ID**, **Client Key**, and **App ID** from the [Particle Dashboard](https://dashboard.particle.network).
+- A project ID, client key, and app ID from the [Particle dashboard](https://dashboard.particle.network).
 
 ## Installation
 
@@ -36,7 +36,7 @@ yarn add @particle-network/connectkit viem@^2 ethers
 
 To begin with, we’ll set up Particle Connect, Particle's flagship authentication SDK. Create a new file called `ConnectKit.tsx` in the root directory of your project. This file will house the `ParticleConnectKit` component, a wrapper for the configured `ConnectKitProvider` instance that serves as the primary interface for the configuration of Particle Connect (we'll go over what this looks like programmatically in a moment).
 
-Next, head over to the [Particle dashboard](https://dashboard.particle.network) to create a new web application project and obtain the following essential API keys:
+To leverage Particle Network on alternative platforms, such as Android, iOS, React Native, Flutter, & Unity, kindly refer to Particle’s [documentation](https://developers.particle.network/reference/introduction-to-api-sdk-reference).
 
 - **`projectId`** – a unique identifier for your project.
 - **`clientKey`** – a key specific to your client.
@@ -53,71 +53,47 @@ NEXT_PUBLIC_APP_ID='APP_ID'
 Now, add the following code to your `ConnectKit.tsx` file:
 
 ```js
-"use client";
+import { ModalProvider } from '@particle-network/connectkit';
+import { Klaytn, KlaytnTestnet } from '@particle-network/chains';
+import { evmWallets } from '@particle-network/connectors';
 
-import React from "react";
-import { ConnectKitProvider, createConfig } from "@particle-network/connectkit";
-import { authWalletConnectors } from "@particle-network/connectkit/auth";
-import { defineChain } from "@particle-network/connectkit/chains";
-import { wallet, EntryPosition } from "@particle-network/connectkit/wallet";
-
-const kaiaMainnet = defineChain({
-  id: 8217,
-  name: "Kaia",
-  nativeCurrency: {
-    decimals: 18,
-    name: "KAIA",
-    symbol: "KAIA",
-  },
-  rpcUrls: {
-    default: {
-      http: ["https://public-en.node.kaia.io"],
-    },
-  },
-  blockExplorers: {
-    default: { name: "Explorer", url: "https://kaiascope.com/" },
-  },
-  testnet: false,
-});
-
-const kaiaTestnet = defineChain({
-  id: 1001,
-  name: "Kaia Testnet",
-  nativeCurrency: {
-    decimals: 18,
-    name: "KAIA",
-    symbol: "KAIA",
-  },
-  rpcUrls: {
-    default: {
-      http: ["https://public-en-kairos.node.kaia.io"],
-    },
-  },
-  blockExplorers: {
-    default: { name: "Explorer", url: "https://kairos.kaiascope.com/" },
-  },
-  testnet: true,
-});
-
-const config = createConfig({
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID!,
-  clientKey: process.env.NEXT_PUBLIC_CLIENT_KEY!,
-  appId: process.env.NEXT_PUBLIC_APP_ID!,
-
-  walletConnectors: [authWalletConnectors({})],
-
-  plugins: [
-    wallet({
-      entryPosition: EntryPosition.BR, // Positions the modal button at the bottom right on login
-      visible: true, // Determines if the wallet modal is displayed
-    }),
-  ],
-  chains: [kaiaMainnet, kaiaTestnet],
-});
-
-export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
-  return <ConnectKitProvider config={config}>{children}</ConnectKitProvider>;
-};
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(
+    <React.StrictMode>
+        <ModalProvider
+            options={{
+                projectId: 'replace with your projectId',
+                clientKey: 'replace with your clientKey',
+                appId: 'replace with your appId',
+                chains: [
+                    KlaytnTestnet, Klaytn
+                ],
+                wallet: {    // optional: Wallet modal configuration
+                    visible: true, // Display wallet modal
+                    supportChains:[
+                        KlaytnTestnet, Klaytn
+                    ],
+                    customStyle: {}, // optional: Custom wallet style
+                },
+                promptSettingConfig: { // optional: particle security account config
+                    // Prompt to set payment password upon social login. 0: None, 1: Once(default), 2: Always
+                    promptPaymentPasswordSettingWhenSign: 1,
+                    // Prompt to set master password upon social login. 0: None(default), 1: Once, 2: Always
+                    promptMasterPasswordSettingWhenLogin: 1
+                },
+                connectors: evmWallets({ 
+                    projectId: 'replace with your walletconnect projectId',
+                    showQrModal: false
+                 }),
+            }}
+            theme={'light'}
+            language={'en'}   // optional：Local language setting, default en
+            walletSort={['Particle Auth', 'Wallet']} // optional：Order of wallet categories
+        >
+            <App />
+        </ModalProvider>
+    </React.StrictMode>
+);
 ```
 
 Virtually every property of this component can be configured, from the different login types you support to the visual appearance of the modal; to explore these various options, head over to [Particle's documentation](https://developers.particle.network/api-reference/connect/desktop/web#configuration).
@@ -127,136 +103,99 @@ Virtually every property of this component can be configured, from the different
 Now that the configuration is complete, wrap your application with the `ParticleConnectKit` component to enable global access to the Particle Connect SDK. To achieve this, modify your `layout.tsx` file in the `src` directory as follows:
 
 ```typescript
-import { ParticleConnectkit } from '@/connectkit';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: 'Particle Connectkit App',
-  description: 'Generated by create next app',
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ParticleConnectkit>{children}</ParticleConnectkit>
-      </body>
-    </html>
-  );
-}
+npm install --save @particle-network/connectkit
+npm install --save @particle-network/chains
+npm install --save @particle-network/connectors
+npm install --save ethers	
 ```
 
 ### Connecting Wallet
 
-With your `layout.tsx` file setup, you can move on to connecting your users through a central **Connect Wallet** button. You can import `ConnectButton` from `@particle-network/connectkit` to do this. The `ConnectButton` turns into an embedded widget once the user logs in.
+With your `index.js` file setup, you can move onto connecting your users through a central "Connect Wallet" button. To do this, you can import `ConnectButton` from `@particle-network/connectkit` alongside its corresponding css. Upon using `ConnectButton` within your `App` component, a standard "Connect Wallet" button will appear to facilitate connection.
 
 ```js
-import { ConnectButton, useAccount } from '@particle-network/connectkit';
+import '@particle-network/connectkit/dist/index.css';
+import { ConnectButton } from '@particle-network/connectkit';
 
 export const App = () => {
-    const { address, isConnected, chainId } = useAccount();
-
-    // Standard ConnectButton utilization
-    return (
-        <div>
-            <ConnectButton />
-            {isConnected && (
-                <>
-                    <h2>Address: {address}</h2>
-                    <h2>Chain ID: {chainId}</h2>
-                </>
-            )}
-        </div>
-    );
+	return <ConnectButton />;
 };
 ```
 
 ### Getting Account and Balance
 
-With a wallet (or social login) now successfully connected through the `ConnectButton` component, you can retrieve the user's associated Kaia address. Additionally, you can retrieve its current balance (in KAIA) through the `publicClient`, which leverages the Viem provider already set up by Particle Connect.
+With a wallet now successfully connected through `ConnectButton`, you can retrieve the users associated Klaytn address. Additionally, you can retrieve its current balance (in KLAY) through ethers.js, passing in the corresponding EIP-1193 provider object retrieved from `useParticleProvider` within `@particle-network/connectkit`.
 
 ```js
-"use client";
+    // add to the existing useState hook.
+    const [txHash, setTxHash] = useState();
 
-import { useState, useEffect } from "react";
-import {
-  ConnectButton,
-  useAccount,
-  usePublicClient,
-} from "@particle-network/connectkit";
-import { formatEther } from "viem";
-
-export default function Home() {
-  // Account-related states
-  const { isConnected, address, chain } = useAccount();
-  const publicClient = usePublicClient();
-
-  // State variable for balance
-  const [balance, setBalance] = useState<string>("");
-
-  // Fetch and display user balance when connected
-  useEffect(() => {
-    const fetchBalance = async () => {
-      if (address) {
-        try {
-          const balanceResponse = await publicClient.getBalance({ address });
-          const balanceInEther = formatEther(balanceResponse);
-          setBalance(balanceInEther);
-        } catch (error) {
-          console.error("Error fetching balance:", error);
-        }
+    const sendKaia = async () => {
+    
+      if (!provider) {
+        console.log("provider not initialized yet");
+        return;
       }
-    };
+      const destination = "paste recipient address";
 
-    if (isConnected) {
-      fetchBalance();
-    }
-  }, [isConnected, address, publicClient]);
+      // this guide uses ethers version 6.3.0.
+      const ethersProvider = new ethers.BrowserProvider(provider);
+      // for ethers version below 6.3.0.
+      // const provider = new ethers.providers.Web3Provider(provider);
 
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-black text-white">
-      <ConnectButton label="Connect Wallet" />
-      {isConnected && (
-        <div className="w-full max-w-md mt-6">
-          <h2 className="text-xl font-bold text-white mb-4">Account Details</h2>
-          <p className="text-lg text-white">
-            Address: {address || "Loading..."}
-          </p>
-          <p className="text-lg text-white">
-            Balance: {balance || "Loading..."} {chain?.nativeCurrency.symbol}
-          </p>
-        </div>
-      )}
-    </div>
-  );
+      const signer = await ethersProvider.getSigner();
+        
+      // Submit transaction to the blockchain and wait for it to be mined
+      const tx = await signer.sendTransaction({
+          to: destination,
+          value: ethers.parseEther("0.1"),
+          maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
+          maxFeePerGas: "6000000000000", // Max fee per gas
+        })
+    
+      
+      const receipt = await tx.wait();
+      setTxHash(receipt.hash)
 }
+
+return (
+    <div className="App">
+        <button onClick={sendKlay}>Send Klay</button>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+    </div>
+);
+
 ```
 
 ### Disconnecting Wallet
 
-Once a user has logged in, you can programmatically force a logout through `disconnect` derived from `useDisconnect`. This will disconnect the current active session from your dApp, returning the user to their initial state.
+Once a user has logged in, you can programmatically force a logout through `disconnect` derived from `useParticleConnect`. This will disconnect the current active session from your dApp, returning the user to their initial state.
 
 ```js
-import { useDisconnect } from "@particle-network/connectkit";
+import { useParticleConnect } from '@particle-network/connectkit';
 
-const { disconnect } = useDisconnect();
+const { disconnect } = useParticleConnect();
 
-// Inside your component's JSX
-<button
-  className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-  onClick={disconnect}
->
-  Disconnect
-</button>
+function App() {
+    
+const disconnectUser = async () => {
+  await disconnect();
+  refreshState();
+}
 
+// refresh state
+const refreshState = () => {
+  setAddress();
+  setBalance();
+// make sure to add every other useState modifier function declared here.
+}
+  
+return (
+    <div className="App">
+        <button onClick={disconnectUser}>Disconnect</button>
+    </div>
+  );
+}
 ```
 
 ### Getting User Info
@@ -264,33 +203,21 @@ const { disconnect } = useDisconnect();
 When a user connects via social accounts, you can use the `useParticleAuth()` hook to access `userinfo`, which includes details about their connection method, account creation date, name, emails, and other [relevant information from Particle Auth](https://developers.particle.network/api-reference/connect/desktop/web#fetch-user-information-with-particle-auth).
 
 ```js
-import { useAccount, useParticleAuth, useWallets } from '@particle-network/connectkit';
-import { useState, useEffect } from 'react';
+import  { getUserInfo }  from  '@particle-network/auth-core';
 
-export const App = () => {
-    const { getUserInfo } = useParticleAuth();
-    const { isConnected } = useAccount();
-
-    // Retrieve the primary wallet from the Particle Wallets
-    const [primaryWallet] = useWallets();
-
-    // Store userInfo in a useState to use it in your app
-    const [userInfo, setUserInfo] = useState<any>(null);
-
-    useEffect(() => {
-        const fetchUserInfo = async () => {
-            // Use walletConnectorType as a condition to avoid account not initialized errors
-            if (primaryWallet?.connector?.walletConnectorType === 'particleAuth') {
-                const userInfo = await getUserInfo();
-                setUserInfo(userInfo);
-            }
-        };
-
-        fetchUserInfo();
-    }, [isConnected, getUserInfo]);
-
-    return <h2 className="text-style">Name: {userInfo.name || 'N/A'}</h2>;
+const [userData, setUserData] = useState({});
+	
+const getUserInfo = async () => {
+    const user = getUserInfo();
+    setUserData(user);
 };
+
+return (
+    <div className="App">
+        <button onClick={getUserInfo}>Get User Info</button>  
+        <p> User Email: { userData ? ` ${userData.google_email}` :  "Nil"} </p>
+    </div>
+  );
 ```
 
 ### Sending Native Transaction
@@ -298,30 +225,39 @@ export const App = () => {
 Particle Connect allows you to leverage an already existing EIP-1193 provider, in this example we create a provider instance with `ethers` to send a transfer transaction.
 
 ```js
-import { useWallets } from "@particle-network/connectkit";
-import { ethers, type Eip1193Provider } from "ethers";
+import { useParticleProvider } from '@particle-network/connectkit';
 
-const [primaryWallet] = useWallets();
+const provider = useParticleProvider();
 
-const executeTransaction = async () => {
-    // Get the provider from the primary wallet's connector
-    const EOAprovider = await primaryWallet.connector.getProvider();
+const [address, setAddress] = useState("");
+const [balance, setBalance] = useState("");
 
-    // Initialize a custom provider using ethers.js with the obtained EIP-1193 provider
-    const customProvider = new ethers.BrowserProvider(EOAprovider as Eip1193Provider, "any");
+const getWalletAndBalance = async() => {
+	// this guide uses ethers version 6.3.0.
+    const ethersProvider = new ethers.BrowserProvider(provider);
+    // for ethers version below 6.3.0.
+    // const provider = new ethers.providers.Web3Provider(web3authProvider);
 
-    // Get the signer (an abstraction of the account that can sign transactions)
-    const signer = await customProvider.getSigner();
+    const signer = await ethersProvider.getSigner();
 
-    // Send a transaction with specified recipient address, amount (0.01 ETH), and empty data
-    await signer.sendTransaction({
-      to: recipientAddress,             
-      value: parseEther("0.01"),        
-      data: "0x",                       
-    });
-};
+    // Get user's Ethereum public address
+    const address = signer.address;
 
+    // Get user's balance in ether
+    const balance = ethers.formatEther(
+      await ethersProvider.getBalance(address) // balance is in wei
+    );
 
+    setAddress(address);
+    setBalance(balance);
+
+return (
+    <div className="App">
+        <button onClick={getWalletAndBalance}>Get Wallet Account and Balance</button>  
+        <div>Wallet Address: ${address} Balance: ${balance}</div>
+    </div>
+  );
+}
 ```
 
 ## Next Steps
