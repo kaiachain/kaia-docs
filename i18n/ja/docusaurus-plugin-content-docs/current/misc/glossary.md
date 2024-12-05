@@ -10,9 +10,9 @@ A cryptographically secure reference to data stored outside of a blockchain. Anc
 
 The process of storing an anchor on a blockchain. This can be done by creating a transaction that contains the hash of the external data, or by creating a smart contract that references the external data (for example, [Anchoring in service chain](../nodes/service-chain/configure/anchoring.md)).
 
-### Kairos
+### BFT-based public blockchain
 
-The public testnet of the Klaytn platform. It is used by developers to test and verify their applications before deploying them to the Cypress mainnet.
+BFT stands for Byzantine Fault Tolerance, a property of distributed systems that ensures consensus can be reached even if some nodes fail or act maliciously. In the context of a public blockchain, a BFT-based system relies on algorithms designed to handle up to ⅓ of nodes behaving incorrectly or dishonestly without compromising the network’s integrity.
 
 ### block explorer
 
@@ -67,6 +67,10 @@ A peer-to-peer distributed file system that enables users to store and share fil
 ### Kaia Ecosystem Fund (KEF)
 
 A fund established by the Klaytn Foundation to support initiatives that contribute to the growth and development of the Klaytn blockchain ecosystem. The KEF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KEF is to advance innovation and community growth around Kaia through funded initiatives.
+
+### Kairos
+
+The public testnet of the Klaytn platform. It is used by developers to test and verify their applications before deploying them to the Cypress mainnet.
 
 ### Klaytn endpoint node (KEN)
 
