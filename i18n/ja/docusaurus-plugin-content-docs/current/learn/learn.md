@@ -1,6 +1,6 @@
 # Kaia Overview
 
-Kaia is a highly optimized, <LinkWithTooltip to="../misc/glossary#bft-based-public-blockchain" tooltip="A blockchain that ensures consensus even if up to ⅓ of nodes act maliciously, using Byzantine Fault Tolerance (BFT) algorithms to maintain network integrity."> BFT-based public blockchain </LinkWithTooltip> designed to meet enterprise-grade reliability and performance standards. This overview details Kaia's architecture, features, and ecosystem.
+Kaia is a highly optimized, <LinkWithTooltip to="../misc/glossary#bft-based-public-blockchain" tooltip="A blockchain that ensures consensus even if up to ⅓ of nodes act maliciously"> BFT-based public blockchain </LinkWithTooltip> designed to meet enterprise-grade reliability and performance standards. This overview details Kaia's architecture, features, and ecosystem.
 
 ## Key Design Goals
 
@@ -85,7 +85,7 @@ Kaia implements several security measures:
 
 Kaia is designed for seamless interaction with other blockchain networks:
 
-- EVM-compatible, allowing easy deployment of Ethereum smart contracts.
+- <LinkWithTooltip tooltip="A blockchain that can run smart contracts and <br/> interact with the Ethereum Virtual Machine(EVM)">EVM-compatible</LinkWithTooltip>, allowing easy deployment of Ethereum smart contracts.
 - Designed to interoperate with other EVM-SDK based chains.
 - Supports cross-platform transactions and smart contract execution.
 
