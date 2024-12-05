@@ -77,9 +77,9 @@ npx hardhat verify --network kairos 0x131b54E65c99d34BCA738F29051fDAceEa91C969 1
 
 In your terminal you should see the source code for your contract was successfully submitted for verification. If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Kaiascope](https://kairos.kaiascope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode). 
 
-![](/img/build/smart-contracts/verify/terminal-hh-verify.png) 
+![](/img/build/smart-contracts/verify/terminal-hh-verify-ss.png) 
 
-![](/img/build/smart-contracts/verify/scope-hh-verify.png) 
+![](/img/build/smart-contracts/verify/scope-hh-verify-ss.png) 
 
 ## Useful links
 
