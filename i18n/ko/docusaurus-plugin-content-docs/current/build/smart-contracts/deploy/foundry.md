@@ -24,7 +24,7 @@ Foundry는 빠르고 모듈화된 스마트 컨트랙트 개발을 가능하게 
 
 이 튜토리얼을 따르기 위한 전제 조건은 다음과 같습니다:
 
-- 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
+- 코드 편집기: [VS Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
 - [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.

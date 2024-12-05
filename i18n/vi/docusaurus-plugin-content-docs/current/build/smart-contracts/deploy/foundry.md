@@ -24,7 +24,7 @@ Trong hướng dẫn này, bạn sẽ:
 
 Để làm theo hướng dẫn này, bạn cần đáp ứng các điều kiện tiên quyết sau:
 
-- Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
+- Trình biên tập mã: một trình biên tập mã nguồn như [VS Code](https://code.visualstudio.com/download).
 - [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../references/public-en.md) được hỗ trợ.
 - KAIA thử nghiệm từ [Vòi](https://faucet.kaia.io): nạp tiền vào tài khoản với một lượng KAIA vừa đủ.

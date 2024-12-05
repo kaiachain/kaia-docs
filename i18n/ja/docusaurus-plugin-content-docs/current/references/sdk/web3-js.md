@@ -10,7 +10,7 @@ In this guide, you'll learn how to use the web3.js library to read data from the
 
 ## Prerequisites
 
-- Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
+- Code-Editor: a source-code editor such as [VS Code](https://code.visualstudio.com/download).
 - [Metamask](../../build/tutorials/connecting-metamask#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../service-providers/public-en.md).
 - Test KLAY from [Faucet](https://baobab.wallet.klaytn.foundation/faucet): fund your account with sufficient KLAY.
