@@ -204,7 +204,7 @@ To verify a single contract and multi-part contracts on Kaiascan, navigate to th
 
 :::note
 
-Verification on contracts on Kaiascan is currently in beta.
+Verification of contracts on Kaiascan is currently in beta.
 
 :::
 
