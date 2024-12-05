@@ -127,7 +127,7 @@ Remix IDE:
 
     ![](/img/build/tutorials/airdropToken-flattened.png)
 
-    * Once code is flattened, you will see a new contract named `airdropTokens_flattened.sol`. 
+    * Once the code is flattened, you will see a new contract named `airdropTokens_flattened.sol`. 
 
     ![](/img/build/tutorials/airdropToken-flattened-file.png)
 
@@ -149,7 +149,7 @@ To verify a single contract and multi-part contracts on Kaiascope, follow the st
 
 1. Goto the search bar of [Kaiascope](https://kairos.kaiascope.com) and paste the deployed contract address.
 2. Navigate to the **contract tab** on that page.
-3. Click on the **Match Contract Source Code** link to submit contract code for verification.
+3. Click on the **Match Contract Source Code** link to submit the contract code for verification.
 
 ![](/img/build/tutorials/counter-contract-tab.png)
 
@@ -157,7 +157,7 @@ To verify a single contract and multi-part contracts on Kaiascope, follow the st
 5. Fill in the contract address in the **contract address field**. Note: This field is usually filled with the contract address automatically.
 6. Select the **compiler version** used for the `Counter.sol` example.
 7. Select the **Open Source License Type** used for the `Counter.sol` example. For `Counter.sol` example, select the option, **MIT License (MIT)**. If there was none used, select **No License (None)**.
-8. In the **Source Code field**, select **Source Text** and paste the source code for `Counter.sol` in the text-field.
+8. In the **Source Code field**, select **Source Text** and paste the source code for `Counter.sol` in the text field.
 9. Select **True** for **Optimization** if it was enabled during compilation, and fill in the number of runs under **Optimization Runs** to be **200**.
 10. Select the **EVM version** for the contract. For `Counter.sol` example, select the option **Istanbul**.
 11. Click on the CAPTCHA at the bottom and the **Sign and Submit** button to confirm and begin verification.
@@ -178,7 +178,7 @@ To verify a single contract and multi-part contracts on Kaiascope, follow the st
 
 Verifying a multi-part contract on Kaiascope is as straightforward as verifying a single contract, except that it requires some additional steps. In this section, we will be verifying the `airdropToken.sol` contract with the following additional steps: 
 
-* You can either Select **Source Text** under **Source Code** (step 3 of the Counter.sol example) or **Solidity File(s)** under the **Source Code** field.  In the case of **Source Text**, copy the code in the `airdropToken_flattened.sol` and paste in the text field. If **Solidity File(s)**, you can download the `airdropToken_flattened.sol` file on Remix IDE and upload to the field.
+* You can either Select **Source Text** under **Source Code** (step 3 of the Counter.sol example) or **Solidity File(s)** under the **Source Code** field.  In the case of **Source Text**, copy the code in the `airdropToken_flattened.sol` and paste it in the text field. If **Solidity File(s)**, you can download the `airdropToken_flattened.sol` file on Remix IDE and upload it to the field.
 
 a. Source Text
 
@@ -188,7 +188,7 @@ b. Solidity File(s)
 
 ![](/img/build/tutorials/airdrop-veri-field-II.png)
 
-After this, every other step remains the same as verifying a single contract. Having filled the verification parameter, click on the **Sign and Submit** button to confirm and begin verification. 
+After this, every other step remains the same as verifying a single contract. Having filled in the verification parameter, click on the **Sign and Submit** button to confirm and begin verification. 
 
 Once verification is done, the result of the verification will be displayed in the browser, and a success result page with the contract address. Click on the contract address to view the **Contract Source Code**, **Contract ABI**, and **Bytecode**.
 
@@ -200,7 +200,13 @@ Once verification is done, the result of the verification will be displayed in t
 
 ### 2. Kaiascan
 
-To verify a single contract and multi-part contracts on Kaiascan, navigate to the [contract submission request page](https://kairos.kaiascan.io/contract). **Note**, verification on contracts on Kaiascan is currently on beta:
+To verify a single contract and multi-part contracts on Kaiascan, navigate to the [contract submission request page](https://kairos.kaiascan.io/contract). 
+
+:::note
+
+Verification on contracts on Kaiascan is currently in beta.
+
+:::
 
 ![](/img/build/tutorials/kaiascan-con-sub-page.png)
 
@@ -209,7 +215,7 @@ To verify a single contract and multi-part contracts on Kaiascan, navigate to th
 1. Fill in the **contract address** for the deployed contract (Counter.sol)
 2. Select the **compiler version** used for the `Counter.sol` example
 3. Select the **Open Source License Type** used for the `Counter.sol` example. For `Counter.sol` example, select the option, **MIT License (MIT)**. If there was none used, select **No License (None)**
-4. Make sure to download `Counter.sol` from Remix IDE and upload in the **Source Code (Solidity File)** field
+4. Make sure to download `Counter.sol` from Remix IDE and upload it in the **Source Code (Solidity File)** field
 5. Select the **EVM version** for the contract. For `Counter.sol` example, select the option **Istanbul**.
 6. Select **True** for **Optimization** if it was enabled during compilation, and fill in the number of runs under **Optimization Runs** to be **200**.
 7. (optional) To get the ABI-encoded constructor arguments for this field, navigate to [abi.hashex.org](http://abi.hashex.org) to get the encoded data following the image below:
@@ -226,11 +232,11 @@ To verify a single contract and multi-part contracts on Kaiascan, navigate to th
 
 ### 2.2 Verifying multiple-part contract
 
-Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. However, it is important to note we will be coping and pasting `airdropToken_flattened.sol` file in the **Enter the Solidity Contract Code below** field because Kaiascan does not currently support file upload for verification.
+Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. However, it is important to note we will be copying and pasting the `airdropToken_flattened.sol` file in the **Enter the Solidity Contract Code below** field because Kaiascan does not currently support file upload for verification.
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png) 
 
-After filling the verification parameters, click on the **Verify and Publish** button to begin verification. Once verification is done, the verifcation page will refresh. Now you can paste the contract address in the explorer search bar to view the **Contract Source Code**, **Contract ABI**, and **Creation Code**.
+After filling in the verification parameters, click on the **Verify and Publish** button to begin verification. Once verification is done, the verification page will refresh. Now you can paste the contract address in the explorer search bar to view the **Contract Source Code**, **Contract ABI**, and **Creation Code**.
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
