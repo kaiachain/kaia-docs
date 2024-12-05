@@ -12,7 +12,7 @@ The process of storing an anchor on a blockchain. This can be done by creating a
 
 ### BFT-based public blockchain
 
-BFT stands for Byzantine Fault Tolerance, a property of distributed systems that ensures consensus can be reached even if some nodes fail or act maliciously. In the context of a public blockchain, a BFT-based system relies on algorithms designed to handle up to ⅓ of nodes behaving incorrectly or dishonestly without compromising the network’s integrity.
+This is a blockchain that utilizes Byzantine Fault Tolerance (BFT), ensuring consensus can be reached even if some nodes fail or act maliciously. The system relies on algorithms designed to handle up to ⅓ of nodes behaving incorrectly or dishonestly, without compromising the integrity of the network.
 
 ### block explorer
 
