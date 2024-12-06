@@ -8,9 +8,6 @@ A cryptographically secure reference to data stored outside of a blockchain. Anc
 ### anchoring
 The process of storing an anchor on a blockchain. This can be done by creating a transaction that contains the hash of the external data, or by creating a smart contract that references the external data (for example, [Anchoring in service chain](../nodes/service-chain/configure/anchoring.md)).
 
-### Kairos
-The public testnet of the Kaia platform. It is used by developers to test and verify their applications before deploying them to the Mainnet.
-
 ### block explorer
 A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status. 
 
@@ -94,6 +91,9 @@ A virtual state machine that executes Kaia smart contracts. It is a quasi-Turing
 ### Kaia network identifier (KNI)
 
 A unique resource identifier scheme to identify a Kaia node. It consists of nodeID, hostname, port, and discport.
+
+### Kairos
+The public testnet of the Kaia platform. It is used by developers to test and verify their applications before deploying them to the Mainnet.
 
 ### proposer
 
