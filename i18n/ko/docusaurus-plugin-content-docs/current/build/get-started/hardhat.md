@@ -86,7 +86,7 @@ Hardhat 프로젝트를 초기화한 후에는 현재 디렉터리에 다음이 
 
 **contracts/** - 이 폴더에는 스마트 컨트랙트 코드가 포함되어 있습니다.
 
-**scripts/** - 이 폴더에는 블록체인 네트워크에 컨트랙트를 배포하는 코드가 포함되어 있습니다.
+**ignition/modules/** – this folder contains code that deploys your contracts on the blockchain network.
 
 **test/** - 이 폴더에는 스마트 컨트랙트를 테스트하는 모든 단위 테스트가 포함되어 있습니다.
 
@@ -337,7 +337,7 @@ main().catch((error) => {
 **3단계**: 터미널에서 다음 명령을 실행하여 Hardhat에 SBT 토큰을 Kaia 테스트 네트워크(Kairos)에 배포하도록 지시합니다.
 
 ```bash
-npx hardhat run scripts/sbtDeploy.js --network kairos
+npx hardhat run ignition/modules/sbtDeploy.js --network kairos
 ```
 
 ![](/img/build/get-started/sbtDeploy.png)
