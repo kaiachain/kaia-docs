@@ -39,6 +39,7 @@ Kaia's network is structured into three logical subnetworks:
 ![Kaia Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](/img/learn/klaytn_network_node.png)
 
 1. **Core Cell (CC)**: Composed of one Consensus Node (CN) and two Proxy Nodes (PNs).
+
    - **Consensus Node (CN)**: Participates in block generation.
    - **Proxy Node (PN)**: Provides network interface, transmits transaction requests, and propagates blocks.
 
@@ -84,7 +85,7 @@ Kaia implements several security measures:
 
 Kaia is designed for seamless interaction with other blockchain networks:
 
-- EVM-compatible, allowing easy deployment of Ethereum smart contracts.
+- <LinkWithTooltip tooltip="A blockchain that can run smart contracts and <br/> interact with the Ethereum Virtual Machine(EVM)">EVM-compatible</LinkWithTooltip>, allowing easy deployment of Ethereum smart contracts.
 - Designed to interoperate with other EVM-SDK based chains.
 - Supports cross-platform transactions and smart contract execution.
 
