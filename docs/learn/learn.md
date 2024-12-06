@@ -1,6 +1,6 @@
 # Kaia Overview
 
-Kaia is a highly optimized, BFT-based public blockchain designed to meet enterprise-grade reliability and performance standards. This overview details Kaia's architecture, features, and ecosystem.
+Kaia is a highly optimized, <LinkWithTooltip to="../misc/glossary#bft-based-public-blockchain" tooltip="A blockchain that ensures consensus even if up to 1/3 of nodes act maliciously,<br /> using Byzantine Fault Tolerance (BFT) algorithms to maintain network integrity."> BFT-based public blockchain </LinkWithTooltip> designed to meet enterprise-grade reliability and performance standards. This overview details Kaia's architecture, features, and ecosystem.
 
 ## Key Design Goals
 
