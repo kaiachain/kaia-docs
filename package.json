@@ -18,6 +18,7 @@
     "18": "0.0.0",
     "@chakra-ui/react": "^2.8.2",
     "@code-hike/mdx": "0.9.0",
+    "@cookbookdev/docsbot": "^4.21.23",
     "@crowdin/cli": "^3.16.0",
     "@docusaurus/core": "^3.4.0",
     "@docusaurus/preset-classic": "^3.4.0",
