@@ -59,7 +59,7 @@ If you want to get a closer look at the status of the Kaia network, you can chec
 
 ### Blocks <a id="blocks"></a>
 
-![](/img/build/tools/scope_04_block_list.png)
+![](/img/build/tools/blocksM.png)
 
 A list of recently generated blocks. To update the information, please click the refresh.
 
@@ -213,7 +213,7 @@ The unique characteristics that distinguish each keyword are as follows:
 
 ![](/img/build/tools/scope_07_noresult.png)
 
-If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
+If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no data will appear.
 
 #### Wrong Format \(TX Hash / Address\) <a id="wrong-format-tx-hash-address"></a>
 
