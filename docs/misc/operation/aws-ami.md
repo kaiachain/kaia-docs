@@ -28,10 +28,6 @@ Kaia provides these 4 types of AMIs for mainnet. There are also AMIs for Kairos 
 See [State Batch Pruning](../../../learn/storage/state-pruning/#state-batch-pruning-state-migration) for more details on state migrated chaindata.
 See [Block Synchronization](../../learn/storage/block-sync.md) for more details on block sync modes.
 
-## AMI generation period
-
-We generate the latest AMI every day around 6 pm KST. Once generated, the AMIs last for 3 days. The AMI has the date of creation appended in the name, such as `kaia-mainnet-clean-en-20240926`.
-
 
 ## Launch new EC2 instance with AMI in Amazon console
 
@@ -72,6 +68,23 @@ $ sudo fio --filename=/dev/nvme1n1 --rw=read --bs=128k --iodepth=32 --ioengine=l
 This task to warmup Amazon EBS volume would take a long time depending on the data size. Refer to `fio` output for the ETA.
 
 :::
+
+### Check `kend.conf` configuration
+
+Before starting the node, check `NETWORK` and `NETWORK_ID` fields in the configuration file `kend.conf`. The `kend.conf` file is located in `/etc/kend/conf/kend.conf`.
+
+For Mainnet, the `NETWORK` field should be `mainnet`. For Kairos, the `NETWORK` field should be `kairos`.
+```
+# for Mainnet
+NETWORK=mainnet
+
+# for Kairos
+NETWORK=kairos
+```
+
+Note that `NETWORK_ID` is only used for private network. Thus make sure not to set `NETWORK_ID` for Mainnet or Kairos.
+
+For more details on `kend.conf`, see [Configuration](configuration.md).
 
 ### Start `kend` service
 
