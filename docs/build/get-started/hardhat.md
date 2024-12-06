@@ -85,7 +85,7 @@ After initializing a hardhat project, your current directory should include:
 
 **contracts/** – this folder contains smart contract code.
 
-**scripts/** – this folder contains code that deploys your contracts on the blockchain network.
+**ignition/modules/** – this folder contains code that deploys your contracts on the blockchain network.
 
 **test/** – this folder contains all unit tests that test your smart contract.
 
@@ -336,7 +336,7 @@ main().catch((error) => {
 **Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Kaia Test Network (Kairos) 
 
 ```bash
-npx hardhat run scripts/sbtDeploy.js --network kairos
+npx hardhat run ignition/modules/sbtDeploy.js --network kairos
 ```
 
 ![](/img/build/get-started/sbtDeploy.png)
