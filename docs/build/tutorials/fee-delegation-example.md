@@ -141,46 +141,47 @@ Now let's write the fee payer's server, `feepayer_server.js`, which signs receiv
 In the below example, please replace `"FEEPAYER_ADDRESS"` and `"FEEPAYER_PRIVATEKEY"` with actual values.
 
 ```javascript
-const Caver = require('caver-js');
-const caver = new Caver('https://public-en-kairos.node.kaia.io');
+import Caver from "caver-js";
+const caver = new Caver("https://public-en-kairos.node.kaia.io");
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATEKEY";
 
 // add fee payer account
-caver.kaia.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
+caver.kaia?.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
 
-var net = require('net');
+import { createServer } from "net";
 
-
-feePayerSign = (senderRawTransaction, socket) => {
-    // fee payer
-    caver.kaia.sendTransaction({
+const feePayerSign = (senderRawTransaction, socket) => {
+  // fee payer
+  caver.kaia
+    .sendTransaction({
       senderRawTransaction: senderRawTransaction,
       feePayer: feePayerAddress,
     })
-    .on('transactionHash', function(hash){
-        console.log('transactionHash', hash);
+    .on("transactionHash", function (hash) {
+      console.log("transactionHash", hash);
     })
-    .on('receipt', function(receipt){
-        console.log('receipt', receipt);
-        socket.write('Tx hash is '+ receipt.transactionHash);
-        socket.write('Sender Tx hash is '+ receipt.senderTxHash);
+    .on("receipt", function (receipt) {
+      console.log("receipt", receipt);
+      socket.write("Tx hash is " + receipt.transactionHash);
+      socket.write("Sender Tx hash is " + receipt.senderTxHash);
     })
-    .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
-}
+    .on("error", console.error); // If an out-of-gas error, the second parameter is the receipt.
+};
 
-var server = net.createServer(function(socket) {
-       console.log('Client is connected ...');
-    socket.write('This is fee delegating service');
-    socket.write('Fee payer is ' + feePayerAddress);
-        socket.on('data', function(data) {
-            console.log('Received data from client:', data.toString());
-            feePayerSign(data.toString(), socket);
-        });
+var server = createServer(function (socket) {
+  console.log("Client is connected ...");
+  socket.write("This is fee delegating service");
+  socket.write("Fee payer is " + feePayerAddress);
+  socket.on("data", function (data) {
+    console.log("Received data from client:", data.toString());
+    feePayerSign(data.toString(), socket);
+  });
 });
 
-server.listen(1337, '127.0.0.1');
-console.log('Fee delegate service started ...');
+server.listen(1337, "127.0.0.1");
+console.log("Fee delegate service started ...");
+
 ```
 
 The server listens on port `1337`.
