@@ -2,87 +2,87 @@
 
 ![](/img/banners/kaia-kcw.png)
 
-## Introduction
+## 导言
 
-Kaia prioritizes providing a seamless developer experience, which is the driving force behind the creation of the Kaia Contracts Wizard (KCW). KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Kaia Contracts](https://github.com/kaiachain/kaia-contracts). In essence, it simplifies the process of developing smart contracts by leveraging the components of Kaia contracts. It's worth noting that the Kaia contracts wizard is built on the foundation of the OpenZeppelin Wizard, further bolstering the security of smart contract development.
+Kaia 优先考虑提供无缝的开发人员体验，这也是创建 Kaia 合同向导（KCW）的驱动力。 KCW 是一种交互式工具，可让您毫不费力地启动智能合约，并利用 [Kaia Contracts](https://github.com/kaiachain/kaia-contracts) 中经过测试的安全组件。 从本质上讲，它通过利用 Kaia 合约的组件简化了智能合约的开发过程。 值得注意的是，Kaia 合约向导建立在 OpenZeppelin 向导的基础之上，进一步加强了智能合约开发的安全性。
 
-In this guide you will:
+在本指南中，您将
 
-- Understand the basic functionality of Kaia Contracts Wizard.
-- Generate and customize smart contract code using Kaia Contracts Wizard.
-- Deploy Kaia contracts to the Kaia Network (Kairos) using Foundry Scripting System.
+- 了解 Kaia 合同向导的基本功能。
+- 使用 Kaia Contracts Wizard 生成和定制智能合约代码。
+- 使用 Foundry 脚本系统将 Kaia 合同部署到 Kaia 网络 (Kairos)。
 
-## Exploring Kaia Contracts Wizard
+## 探索 Kaia 合同向导
 
-Kaia Contracts Wizard posits itself as the fastest and easiest way to write your smart contract using Kaia Contracts. In this section, we will dive into the various components and segments of the Kaia Contract Wizard.
+Kaia Contracts Wizard 将自己定位为使用 Kaia Contracts 编写智能合约的最快、最简单的方法。 在本节中，我们将深入了解 Kaia 合同向导的各个组件和部分。
 
-As it is, the Kaia contracts wizard supports the following token standards:
+目前，Kaia 合约向导支持以下令牌标准：
 
-- [KIP-7](https://kips.kaia.io/KIPs/kip-7) — This is a fungible token standard for Kaia. Fungible means that all tokens are divisible and interchangeable, that is, have the same value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
-- [KIP-17](https://kips.kaia.io/KIPs/kip-17) — This is a non-fungible token standard for Kaia. Non-fungible means that each token is indivisible, and therefore, unique. A KIP17 token can represent ownership of a unique item, whether physical property or virtual collectibles — like a picture, item in a game, real estate, and so on.
-- [KIP-37](https://kips.kaia.io/KIPs/kip-37) — This is known as the multi-token standard for Kaia, because it can represent both fungible and non-fungible tokens in a single smart contract.
+- [KIP-7](https://kips.kaia.io/KIPs/kip-7) - 这是 Kaia 的可替代令牌标准。 可互换是指所有代币都可分割和互换，即具有相同的价值。 可替代代币的一个典型例子就是法定货币，每张等面值的钞票都具有相同的价值。
+- [KIP-17](https://kips.kaia.io/KIPs/kip-17) - 这是 Kaia 的不可篡改令牌标准。 不可窜改是指每个标记都是不可分割的，因此也是独一无二的。 KIP17 代币可以代表一个独特物品的所有权，无论是实物财产还是虚拟收藏品，如图片、游戏中的物品、不动产等。
+- [KIP-37](https://kips.kaia.io/KIPs/kip-37) - 这被称为 Kaia 的多令牌标准，因为它可以在单个智能合约中同时表示可替换令牌和不可替换令牌。
 
-In line with our [Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9) support, Kaia contracts wizard also supports [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), [ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/), [ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/).
+与我们的 [Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9) 支持一致，Kaia 合约向导也支持 [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)、[ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/)、[ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/)。
 
-Kaia Contracts Wizard is comprised of the following sections:
+Kaia 合同向导由以下部分组成：
 
-- **Token standard section**: This tab comprises all the different token standards supported by the Kaia contracts wizard.
+- **令牌标准部分**：该选项卡包含 Kaia 合约向导支持的所有不同令牌标准。
 
-- **Settings section**: This section provides the preliminary settings for each token standard, such as token name, symbol, pre-mint (token supply when the contract is deployed), and URI (for non-fungible tokens).
+- **设置部分**：该部分提供每个代币标准的初步设置，如代币名称、符号、预铸币（合约部署时的代币供应）和 URI（针对不可兑换代币）。
 
-- **Features section**: comprises all features available for each token standard. You can find more information about the different extensions available for each tokens in the following links:
+- \*\* 功能部分\*\*：包括每个令牌标准的所有功能。 您可以在以下链接中找到更多关于每种令牌可用的不同扩展名的信息：
 
   - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
   - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
   - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
-- **Access Control section**: comprises all the available access control mechanisms for each token standard.
+- **访问控制部分**：包括每个令牌标准的所有可用访问控制机制。
 
-- **Interactive code display section**: this displays the smart contract code generated with the configuration as set by the user.
+- **交互式代码显示部分**：显示根据用户设置的配置生成的智能合约代码。
 
 ![](/img/build/tools/kcw-image.png)
 
-Having explored the different parts of the Kaia contracts wizard, you can now select the kind of contract that you want (current support for **KIP7**, **KIP17**, **KIP37**, **ERC20**, **ERC721**, **ERC1155**, **Governor**, and custom contracts), set your parameters and desired features (token name, symbol, pre-mint amount, access control, etc.), and Contracts Wizard will generate all of the code necessary. The generated code is thus ready to be compiled and deployed, or it can serve as a starting point and customized further with application specific logic.
+在了解了 Kaia 合约向导的各个部分后，您现在可以选择想要的合约类型（目前支持 **KIP7**、**KIP17**、**KIP37**、**ERC20**、**ERC721**、**ERC1155**、**Governor** 和自定义合约），设置参数和所需功能（令牌名称、符号、预铸币量、访问控制等），然后合约向导将生成所有必要的代码。 因此，生成的代码可以随时进行编译和部署，也可以作为起点，通过特定的应用逻辑进行进一步定制。
 
-## Customizing and Deploying Kaia Contracts on Kaia Network
+## 在 Kaia 网络上定制和部署 Kaia 合约
 
-In this section, you will deploy the generated code from kaia contracts wizard to the Kaia Testnet Kairos using Foundry. The generated code will serve as a starting point and customized further to fit an airdrop contract for KIP7 and KIP17 tokens.  While on the other end the generated code for KIP37 will be used as it is.
+在本节中，您将使用 Foundry 将 kaia 合约向导生成的代码部署到 Kaia Testnet Kairos。 生成的代码将作为起点，并进一步定制，以适应 KIP7 和 KIP17 代币的空投合约。  而在另一端，生成的 KIP37 代码将按原样使用。
 
-Let’s get started!
+让我们开始吧！
 
-### Prerequisites
+### 先决条件
 
-To follow along in this tutorial, the prerequisites are highlighted below:
+要跟上本教程，先决条件如下：
 
-- Make sure to have [foundry](https://book.getfoundry.sh/getting-started/installation) installed.
-- Clone the [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) code.
-- [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../references/public-en.md).
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+- 确保安装了 [foundry](https://book.getfoundry.sh/getting-started/installation)。
+- 克隆 [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) 代码。
+- [MetaMask]（.../tutorials/connecting-metamask.mdx#install-metamask）：用于部署合约、签署事务和与合约交互。
+- RPC 端点：您可以从支持的[端点提供程序]（.../.../references/public-en.md）中获取。
+- 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
-### Getting Started
+### 开始
 
-This guide walks you through a simple implementation of an airdrop contract for KIP7 and KIP17 token standard. In the airdrop contract, the creator of the project mints each respective tokens directly to a certain selection of wallets. In the next sections, we will be looking at how to customize and deploy each token airdrop contract respectively.
+本指南将指导您简单实现 KIP7 和 KIP17 令牌标准的空投合约。 在空投合约中，项目的创建者会直接向特定的钱包铸造各自的代币。 在接下来的章节中，我们将分别介绍如何定制和部署每种令牌空投合约。
 
-### Customizing Token contracts
+### 定制令牌合约
 
-**Customizing KIP7 contract to KIP7 Airdrop contract.**
+\*\*将 KIP7 合同定制为 KIP7 空投合同。
 
-You need to customize your KIP7 contract before modifying it to an airdrop contract. To do that, follow the steps below:
+在将 KIP7 合同修改为空投合同之前，您需要对其进行定制。 为此，请按照以下步骤操作：
 
-1. Navigate to [wizard.klaytn.foundation](https://wizard.klaytn.foundation/).
-2. On the **Contracts** tab select **KIP7**
-3. Next is to fill the name (KIP7 Token Airdrop) and symbol (KTA) in the **SETTINGS** tab. The pre-mint field is left empty
-4. Subsequently on the **FEATURES** tab, tick the **Mintable** feature box, it then automatically selects the Ownable feature in **ACCESS CONTROL** tab.
+1. 导航至 [wizard.klaytn.foundation](https://wizard.klaytn.foundation/)。
+2. 在**合同**选项卡上选择**KIP7**
+3. 下一步是在**设置**选项卡中填写名称（KIP7 代币空投）和符号（KTA）。 铸币前区域为空
+4. 随后，在**功能**选项卡上，勾选**可薄荷**功能框，它就会自动选择**访问控制**选项卡上的可拥有功能。
 
-This is how Kaia contracts wizard would look like after making these configurations:
+进行这些配置后，Kaia 合同向导就会变成这样：
 
 ![](/img/build/tools/kip7-kcw.png)
 
-Here is the generated code:
+以下是生成的代码：
 
 ```solidity
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier：MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
 import "@kaiachain/contracts/access/Ownable.sol";
@@ -104,10 +104,10 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 }
 ```
 
-The next thing is to modify the code above to suit our airdrop implementation which looks like this:
+接下来要做的就是修改上面的代码，以适应我们的空投执行，看起来就像这样：
 
 ```solidity
-//SPDX-License-Identifier: MIT
+//SPDX-License-Identifier：MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
 import "@kaiachain/contracts/access/Ownable.sol";
@@ -130,39 +130,39 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
         virtual
         override
         returns (bool)
-    {
-        return
+    { return
+
             super.supportsInterface(interfaceId);
     }
 }
 ```
 
-From the code modified above, you can see that we added a new function called `airdropTokens()`. This function mints tokens to certain selected addresses and can only be called by the creator of the contract - `onlyOwner`.
+从上面修改的代码中可以看到，我们添加了一个名为 `airdropTokens()` 的新函数。 该函数向某些选定的地址铸造代币，且只能由合约的创建者--"onlyOwner"--调用。
 
-Subsequently, we modified the _public_ **mint()** _onlyOwner_ function to **_mintSingleTokens()** private.
+随后，我们将_公共_ **mint()** _onlyOwner_函数修改为\*\*_mintSingleTokens()\*\*私有。
 
-Now that we have our KIP7 airdrop contract code ready, the next step is to create a new file named airdropKIP7.sol in the src folder of your project directory and paste the modified code in the file.
+现在我们已经准备好 KIP7 空投合同代码，下一步是在项目目录的 src 文件夹中新建一个名为 airdropKIP7.sol 的文件，并将修改后的代码粘贴到该文件中。
 
-**Customizing KIP17 contract to KIP17 Airdrop contract.**
+\*\*将 KIP17 合同定制为 KIP17 空投合同。
 
-You need to customize your KIP17 contract before modifying it to an airdrop contract. To do that, follow the steps below:
+在将 KIP17 合同修改为空投合同之前，您需要对其进行定制。 为此，请按照以下步骤操作：
 
-1. Navigate to [wizard.klaytn.foundation](https://wizard.klaytn.foundation/).
-2. On the **Contracts** tab select **KIP17**
-3. Next is to fill the name (KIP7 NFT Airdrop) and symbol (KNA) in the **SETTINGS** tab.  The Base URI field is to be left empty.
-4. Subsequently on the **FEATURES** tab, tick the **Mintable**, **Auto-increment Ids**, and **Enumerable** feature box. You will notice that the Ownable feature in **ACCESS CONTROL** tab has been automatically selected.
+1. 导航至 [wizard.klaytn.foundation](https://wizard.klaytn.foundation/)。
+2. 在**合同**选项卡上选择**KIP17**
+3. 下一步是在**设置**选项卡中填写名称（KIP7 NFT Airdrop）和符号（KNA）。  基础 URI 字段应为空。
+4. 随后，在**特性**选项卡上，勾选**可编辑**、**自动递增索引**和**可数**特性框。 您会发现**访问控制**选项卡中的 "可拥有 "功能已被自动选中。
 
-This is how Kaia contracts wizard would look like after making these configurations:
+进行这些配置后，Kaia 合同向导就会变成这样：
 
 ![](/img/build/tools/kip17-kcw.png)
 
-Here is the generated code:
+以下是生成的代码：
 
 ```solidity
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier：MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
-import "@kaiachain/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
+import "@kaiachain/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol"；
 import "@kaiachain/contracts/access/Ownable.sol";
 import "@kaiachain/contracts/utils/Counters.sol";
 contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
@@ -173,8 +173,8 @@ contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
-    }
-    // The following functions are overrides required by Solidity.
+    } }
+    //
     function _beforeTokenTransfer(address from, address to, uint256 tokenId)
         internal
         override(KIP17, KIP17Enumerable)
@@ -192,10 +192,10 @@ contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
 }
 ```
 
-The next thing is to modify the code above to suit our airdrop implementation which looks like this:
+接下来要做的就是修改上面的代码，以适应我们的空投执行，看起来就像这样：
 
 ```solidity
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier：MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
 import "@kaiachain/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
@@ -205,7 +205,7 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
     constructor() KIP17("KIP17 NFT Airdrop", "KNA") {}
-    // Airdrop NFTs
+    // 空投 NFT
     function airdropNfts(address[] calldata wAddresses) public onlyOwner {
         require(wAddresses.length != 0, "Must no be equal to zero");
         for (uint256 i = 0; i < wAddresses.length; i++) {
@@ -217,7 +217,7 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
     }
-    // The following functions are overrides required by Solidity.
+    //
     function _beforeTokenTransfer(address from, address to, uint256 tokenId)
         internal
         override(KIP17, KIP17Enumerable)
@@ -235,42 +235,42 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
 }
 ```
 
-From the code modified above, you can see that we added a new function called **airdropNfts()**. This function mints tokens to certain selected addresses and can only be called by the creator of the contract - onlyOwner.
+从上面修改的代码中可以看到，我们添加了一个名为 **airdropNfts()** 的新函数。 该函数向某些选定的地址铸造代币，并且只能由合约的创建者（onlyOwner）调用。
 
-Subsequently, we modified the **safeMint()** _public onlyOwner_ function to **_mintSingleTokens()** **private**.
+随后，我们将 **safeMint()** _public onlyOwner_ 函数修改为 **_mintSingleTokens()** **private**。
 
-Now that we have our KIP17 airdrop contract code ready, the next step is to create a new file named airdropKIP17.sol in the src folder of your project directory and paste the modified code in the file.
+现在我们已经准备好 KIP17 空投合同代码，下一步是在项目目录的 src 文件夹中新建一个名为 airdropKIP17.sol 的文件，并将修改后的代码粘贴到该文件中。
 
-**Customizing KIP37 contract.**
+**定制 KIP37 合同。**
 
-Because KIP37 supports batch minting, we will only customize the contract and use it as it is. To customize our KIP37Contract, follow the steps below:
+由于 KIP37 支持批量铸币，我们将只对合同进行定制并按原样使用。 要定制我们的 KIP37Contract，请按以下步骤操作：
 
-1. Navigate to [wizard.klaytn.foundation.](https://wizard.klaytn.foundation/)
-2. On the **Contracts** tab select **KIP37**
-3. Next is to fill the name (KIP7 NFT Airdrop) and symbol (KNA) in the **SETTINGS** tab.  The Base URI field is to be left empty.
-4. Subsequently on the **FEATURES** tab, tick the **Mintable**, **Auto-increment Ids**, and **Enumerable** feature box. You will notice that the Ownable feature in **ACCESS CONTROL** tab has been automatically selected.
+1. 导航至 [wizard.klaytn.foundation.](https://wizard.klaytn.foundation/)
+2. 在**合同**选项卡上选择**KIP37**
+3. 下一步是在**设置**选项卡中填写名称（KIP7 NFT Airdrop）和符号（KNA）。  基础 URI 字段应为空。
+4. 随后，在**特性**选项卡上，勾选**可编辑**、**自动递增索引**和**可数**特性框。 您会发现**访问控制**选项卡中的 "可拥有 "功能已被自动选中。
 
-This is how Kaia contracts wizard would look like after making these configurations:
+进行这些配置后，Kaia 合同向导就会变成这样：
 
 ![](/img/build/tools/kip37-kcw.png)
 
-Here is the generated code:
+以下是生成的代码：
 
 ```solidity
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier：MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP37/KIP37.sol";
 import "@kaiachain/contracts/access/Ownable.sol";
 contract KIP37MultiToken is KIP37, Ownable {
     constructor() KIP37("") {}
     function setURI(string memory newuri) public onlyOwner {
-        _setURI(newuri);
+        _setURI(newuri)；
     }
     function mint(address account, uint256 id, uint256 amount, bytes memory data)
         public
         onlyOwner
     {
-        _mint(account, id, amount, data);
+        _mint(account, id, amount, data)；
     }
     function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
         public
@@ -281,51 +281,51 @@ contract KIP37MultiToken is KIP37, Ownable {
 }
 ```
 
-Now that we have our KIP37 contract code ready, the next step is to create a new file named KIP37MultiToken.sol in the src folder of your project directory and paste the generated code in it.
+现在我们已经准备好 KIP37 合约代码，下一步是在项目目录的 src 文件夹中新建一个名为 KIP37MultiToken.sol 的文件，并将生成的代码粘贴到其中。
 
-Having generated the contract code for all our Kaia contracts, the next step is to deploy to the Kaia Testnet Kairos using Foundry solidity scripts.
+为所有 Kaia 合同生成合同代码后，下一步就是使用 Foundry solidity 脚本部署到 Kaia 测试网 Kairos。
 
-## Deploying generated smart contracts code using Foundry Scripts
+## 使用 Foundry 脚本部署生成的智能合约代码
 
-In this section we will go through deploying our generated smart contract code using Foundry; specifically the foundry script to deploy on-chain.
+在本节中，我们将使用 Foundry 部署生成的智能合约代码，特别是在链上部署的 Foundry 脚本。
 
-### Getting Started
+### 开始
 
-While getting started with foundry, you must have been exposed to the preliminary way of delaying contracts using [forge create](https://book.getfoundry.sh/reference/forge/forge-create.html). Recently, the Foundry team came up with a more user friendly way of declaratively deploying contracts using Solidity called [Solidity Scripting](https://book.getfoundry.sh/tutorials/solidity-scripting#solidity-scripting) i.e writing deployment scripts in solidity instead of JavaScript.
+在开始使用铸造时，您一定初步接触过使用 [forge create](https://book.getfoundry.sh/reference/forge/forge-create.html)来延迟合同的方法。 最近，Foundry 团队提出了一种使用 Solidity 声明式部署合约的更友好方法，称为 [Solidity Scripting](https://book.getfoundry.sh/tutorials/solidity-scripting#solidity-scripting)，即用 solidity 而不是 JavaScript 编写部署脚本。
 
-In this section, we will deploy our contract using solidity scripting in Foundry.
+在本节中，我们将在 Foundry 中使用 solidity 脚本部署我们的合约。
 
-### Environment Configuration
+### 环境配置
 
-We’re going to deploy our generated smart contract to the Kaia Kairos Testnet, but to do this we’ll need to configure Foundry a bit, by setting things like a Kairos RPC URL, the private key of an account that’s funded with test KAIA.
+我们将把生成的智能合约部署到 Kaia Kairos 测试网络，但为此我们需要对 Foundry 进行一些配置，比如设置 Kairos RPC URL、使用 KAIA 测试资金的账户私钥等。
 
-Once you have all that, create a .env file and add the variables. Foundry automatically loads in a .env file present in your project directory.
+完成所有步骤后，创建一个 .env 文件并添加变量。 Foundry 会自动加载项目目录中的 .env 文件。
 
-The .env file should follow this format:
+.env 文件应遵循以下格式：
 
 ```code
 KAIROS_RPC_URL=
-// if you want to deploy to mainnet
+// 如果要部署到主网
 MAINNET_RPC_URL=
 PRIVATE_KEY=
 ```
 
-We now need to edit the `foundry.toml` file. There should already be one in the root of the project. Paste the following lines to the end of the file
+现在我们需要编辑 `foundry.toml` 文件。 项目根目录中应该已经有一个。 将以下几行粘贴到文件末尾
 
 ```code
 [rpc_endpoints]
 kairos = "${KAIROS_RPC_URL}"
-// if you want to deploy to mainnet
+// 如果要部署到主网
 mainnet = "${MAINNET_RPC_URL}"
 ```
 
-### Writing the Script
+### 编写剧本
 
-Next, we have to create a folder and name it script  if it doesn’t already exist. We then need to create a script file for our contracts namely:
+接下来，我们必须创建一个文件夹，并将其命名为脚本（如果还不存在的话）。 然后，我们需要为合同创建一个脚本文件，即：
 airdropKIP7.s.sol
 airdropKIP17.s.sol
 KIP37MultiToken.s.sol
-This is where we will write the deployment script itself.  The contents of each file should look like this:
+这就是我们要编写的部署脚本。  每个文件的内容应如下所示：
 
 1. airdropKIP7.s.sol
 
@@ -400,31 +400,31 @@ contract KIP37MultiTokenDeployScript is Script {
 }
 ```
 
-Let’s go through what each line of code does.
+让我们来看看每行代码的作用。
 
-First we declared the SPDX-license and pragma version for each script file. Note that because each script file is a solidity program, we still need to declare the SPDX-license and pragma version, making it work like a smart contract, but is never deployed.
+首先，我们为每个脚本文件声明了 SPDX 许可证和 pragma 版本。 请注意，由于每个脚本文件都是一个 solidity 程序，我们仍需声明 SPDX 许可证和 pragma 版本，使其像智能合约一样工作，但永远不会部署。
 
-Next we imported [Forge Std/Script.sol](https://github.com/foundry-rs/forge-std/blob/master/src/Script.sol) which provides some scripting utilities to use for deploying our contracts. Subsequently, we imported the contract to be deployed. In this case **airdropKIP7**, **airdropKIP17**, **KIP37MultiToken** for each script.
+接下来，我们导入 [Forge Std/Script.sol](https://github.com/foundry-rs/forge-std/blob/master/src/Script.sol)，它提供了一些用于部署合同的脚本工具。 随后，我们导入要部署的合同。 在这种情况下，每个脚本都需要 **airdropKIP7**、**airdropKIP17**、**KIP37MultiToken**。
 
-We then created a contract called **KIP7AirdropDeployScript**, **KIP17AirdropDeployScript**, **KIP37MultiTokenDeployScript** for each script file which inherits Script from Forge Std library.
+然后，我们为每个脚本文件创建了名为 **KIP7AirdropDeployScript**、**KIP17AirdropDeployScript**、**KIP37MultiTokenDeployScript** 的合约，这些脚本文件继承了 Forge Std 库中的脚本。
 
-Next we declared the **run()** function. The function run() is the entry point for scripts to be executed. We
-then declared a **deployerPrivateKey** variable that loads in the private key from our .env file.
+接下来，我们声明了 **run()** 函数。 函数 run() 是执行脚本的入口点。 然后，我们在
+中声明了一个 **deployerPrivateKey** 变量，用于从 .env 文件中加载私钥。
 
-Subsequently, we called the **vm.startBroadcast(deployerPrivateKey)** special cheat code that records calls and contract creations made by our main script contract, having passed the deployerPrivateKey for signing the transactions.
+随后，我们调用了**vm.startBroadcast(deployerPrivateKey)** 特殊作弊代码，该代码记录了主脚本合约的调用和合约创建，并传递了用于签署事务的 deployerPrivateKey。
 
-We then created the respective contract. This contract creation will be recorded by forge because we previously called the vm.startBroadcast() cheat code.
+然后，我们创建了相应的合同。 由于我们之前调用了 vm.startBroadcast() 作弊代码，因此 forge 将记录此合约创建过程。
 
-Now that we have gotten an overview of what each line entails, you can move on to deploy the contracts.  Click this [link](https://book.getfoundry.sh/tutorials/solidity-scripting#writing-the-script), to learn more about writing scripts and other details.
+现在，我们已经对每一行的内容有了大致的了解，您可以继续部署合同了。  点击此 [链接](https://book.getfoundry.sh/tutorials/solidity-scripting#writing-the-script)，了解更多关于编写脚本和其他细节的信息。
 
-At the root of the project run
+在项目根部运行
 
 ```bash
 // To load the variables in the .env file
 source .env
 ```
 
-To deploy the each contract run the command below:
+要部署每份合同，请运行以下命令：
 
 1. airdropKIP7
 
@@ -441,21 +441,21 @@ forge script script/airdropKIP17.s.sol:KIP17AirdropDeployScript --rpc-url $KAIRO
 3. KIP37MultiToken
 
 ```bash
-forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
+forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url $KAIROS_RPC_URL --broadcast -skip-simulation -vvvv
 ```
 
-If the command was successful for each command, your terminal should look like this:
+如果每条命令都执行成功，终端应该如下所示：
 
 ![](/img/build/tools/deploy-kcw-contracts.png)
 
-Refer to this [guide](https://book.getfoundry.sh/reference/forge/forge-script), to learn more about the script command.
+请参阅本 [指南](https://book.getfoundry.sh/reference/forge/forge-script)，了解有关脚本命令的更多信息。
 
-## Conclusion
+## 结论
 
-In this tutorial, you learned about the Kaia contracts wizard, its functionality and how to customize contracts using KCW. This guide also demonstrated how to generate smart contract code and also how the generated smart contract code can serve as a starting point and customized further with application specific logic.
+在本教程中，您将了解 Kaia 合同向导、其功能以及如何使用 KCW 自定义合同。 本指南还演示了如何生成智能合约代码，以及如何将生成的智能合约代码作为起点，并通过特定应用逻辑进一步定制。
 
-Further, we deployed the generated contracts to Kaia Kairos Testnet using Foundry solidity scripting. You can make use of Remix IDE or any smart contract development environment to deploy smart contract derived or customized using from Kaia Contracts Wizard. You can find corresponding tutorials in the following links:
+此外，我们还使用 Foundry solidity 脚本将生成的合同部署到 Kaia Kairos Testnet。 您可以使用 Remix IDE 或任何智能合约开发环境来部署从 Kaia Contracts Wizard 派生或定制的智能合约。 您可以在以下链接中找到相应的教程：
 
-- [Connecting to Remix](../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
-- [Deploying smart contract using Hardhat](../get-started/hardhat.md)
-- [Deploying smart contract using Truffle](../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
+- [连接到 Remix](.../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
+- [使用 Hardhat 部署智能合约](.../get-started/hardhat.md)
+- [使用 Truffle 部署智能合约](.../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
