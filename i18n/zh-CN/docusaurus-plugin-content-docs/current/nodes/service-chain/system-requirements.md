@@ -1,7 +1,7 @@
-# System Requirements
+# 系统要求
 
-The system requirements depend on the performance your need.
-For the commercial use, you can refer to the recommended specifications of the Endpoint Node and the Core Cell.
+系统要求取决于您所需的性能。
+对于商业用途，您可以参考终端节点和核心单元的推荐规格。
 
-- [Endpoint Node System Requirements](../endpoint-node/system-requirements.md)
-- [Core Cell System Requirements](../core-cell/system-requirements.md)
+- [端点节点系统要求](.../endpoint-node/system-requirements.md)
+- [核心单元系统要求](.../core-cell/system-requirements.md)
