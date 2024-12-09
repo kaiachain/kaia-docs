@@ -1,59 +1,59 @@
-# Core Governance Changes by KIPs
+# 按 KIPs 划分的核心治理变化
 
-Kaia has undergone several hard forks to improve its governance system. These changes reflect the evolving needs of the network and its stakeholders.
+Kaia 经历了几次艰难的分叉，以改进其治理系统。 这些变化反映了网络及其利益攸关方不断变化的需求。
 
-## KIP-163: CnStakingV3 With Public Delegation <a id="KIP-163"></a>
+## KIP-163：带有公共授权的 CnStakingV3<a id="KIP-163"></a>
 
-**Date: 2024-04-30**
+**日期：2024-04-30**
 
-KIP-163 introduces a new CnStakingV3 that supports public delegation, allowing general users to delegate and re-delegate their KAIA tokens more easily. The staking information interval is also changed from 86,400 blocks to 1 block to enhance efficiency and accuracy in validator set and reward distribution.
-The motivation behind this update is to address the limitations of CnStakingV2, where only a few validators offered public delegation services, limiting users' options. By enabling public delegation natively in CnStakingV3, users can delegate their KAIA to any validator offering this service, thus broadening the delegation options and improving network participation.
-CnStakingV3 will be compatible with existing core contracts like AddressBook and StakingTracker. Public delegation will be facilitated through a new contract named PublicDelegation, based on an interest-bearing token model (ERC-4626), where users receive non-transferable shares representing their assets. This approach aims to make the delegation process more transparent and accessible for all users.
-Additionally, from the FORK_BLOCK onwards, staking information for block N will be derived from block N-1, ensuring more timely and accurate updates in the staking process. This change is designed to support the dynamic nature of staking and delegation in the Kaia network, making it more robust and user-friendly
+KIP-163 引入了支持公开委托的新 CnStakingV3，使普通用户可以更轻松地委托和再委托他们的 KAIA 令牌。 定标信息间隔也从 86 400 个区块变为 1 个区块，以提高验证器设置和奖励分配的效率和准确性。
+在 CnStakingV2 中，只有少数验证者提供公共委托服务，限制了用户的选择。 通过在 CnStakingV3 中原生启用公共委托功能，用户可以将其 KAIA 委托给任何提供该服务的验证器，从而扩大委托选择范围并提高网络参与度。
+CnStakingV3 将兼容现有的核心合约，如 AddressBook 和 StakingTracker。 公共委托将通过名为 PublicDelegation 的新合约来实现，该合约基于计息代币模型（ERC-4626），用户可获得代表其资产的不可转让股份。 这种方法旨在使授权过程更加透明，便于所有用户使用。
+此外，从 FORK_BLOCK 开始，区块 N 的定标信息将来自区块 N-1，从而确保定标过程中的更新更加及时和准确。 这一变化旨在支持 Kaia 网络中的定标和委托的动态性质，使其更加强大和用户友好
 
-## KIP-160: An Update On Treasury Fund Rebalancing <a id="KIP-160"></a>
+## KIP-160：国库基金再平衡的最新情况<a id="KIP-160"></a>
 
-**Date: 2024-04-22**
+**日期：2024-04-22**
 
-KIP-160 proposes enhancements to the Treasury Fund Rebalancing mechanism, addressing the limitations of KIP-103. The primary motivation is to allow both increases and decreases in fund balances and make the rebalance block number editable. This update involves generalizing the rebalancing process, enabling both the burning and minting of funds, and ensuring the rebalance block number can be aligned with changes in the blockchain's hard fork schedule. Find the rebalance detail in the [contracts addresses](../../../references/contract-addresses) page.
+KIP-160 建议加强国库基金再平衡机制，解决 KIP-103 的局限性。 主要动机是允许基金余额的增加和减少，并使再平衡块编号可编辑。 这次更新涉及重新平衡流程的通用化，使烧钱和铸币都成为可能，并确保重新平衡区块的数量能与区块链硬分叉时间表的变化保持一致。 在[合同地址](.../.../.../references/contract-addresses) 页面查找再平衡详情。
 
-## KIP-149: Unified Deployment and Management of System Contracts <a id="KIP-149"></a>
+## KIP-149：系统合同的统一部署和管理<a id="KIP-149"></a>
 
-**Date: 2023-09-20**
+**日期：2023-09-20**
 
-KIP-149 introduces a standardized method for deploying and managing system contracts on the Kaia blockchain. System contracts directly impact or are read by the Kaia core protocol. This proposal includes a centralized Registry Contract to manage these contracts efficiently. Currently, the deployment methods for system contracts lack standardization, leading to inefficiencies. KIP-149 addresses this by introducing key features such as:
+KIP-149 引入了在 Kaia 区块链上部署和管理系统合约的标准化方法。 系统合约直接影响 Kaia 核心协议，或由 Kaia 核心协议读取。 该提案包括一个中央登记处合同，以有效管理这些合同。 目前，系统合同的部署方法缺乏标准化，导致效率低下。 KIP-149 通过引入以下关键功能来解决这一问题：
 
-- Registry Contract: Manages all system contracts, ensuring centralized tracking and governance control through a governance contract.
-- Proxy Pattern: Utilizes the UUPS proxy pattern to separate data storage from logic, allowing updates without affecting stored data and ensuring upgradability.
-  System Contract Lifecycle: Defines stages (Registered, Active, Deprecated) for managing contracts efficiently.
-- Governance and Upgrades: Establishes a community-driven proposal and voting process for new contracts or upgrades, ensuring decentralized control and smooth implementation.
-  KIP-149 aims to enhance Kaia’s governance and operational efficiency by providing a secure, scalable approach to managing system contracts, facilitating smoother upgrades, and promoting decentralized control.
+- 注册合同：管理所有系统合同，确保通过治理合同进行集中跟踪和治理控制。
+- 代理模式：利用 UUPS 代理模式将数据存储与逻辑分离，允许在不影响存储数据的情况下进行更新，并确保可升级性。
+  系统合同生命周期：定义有效管理合同的阶段（注册、激活、废弃）。
+- 治理和升级：为新合同或升级建立社区驱动的提案和投票程序，确保分散控制和顺利实施。
+  KIP-149 旨在通过提供安全、可扩展的系统合同管理方法，促进更顺畅的升级，并推动分散控制，从而提高 Kaia 的治理和运营效率。
 
-## KIP-103: Treasury Fund Rebalancing <a id="KIP-103"></a>
+## KIP-103：国库基金再平衡<a id="KIP-103"></a>
 
-**Date: 2023-04-06**
+**日期：2023-04-06**
 
-KIP-103 was introduced with the v1.10.2 release. It introduces a Treasury Fund Rebalancing mechanism which is the proposal for the implementation of KGP-6.
+KIP-103 是在 v1.10.2 版本中引入的。 它引入了库务基金再平衡机制，这是实施 KGP-6 的建议。
 
-The KGP-6 proposal aims to establish a sustainable and verifiable KAIA token economy. It was approved by the Governance Council, with 26 out of 31 members voting in favor. The proposal includes contributions from various organizations such as 1inch, Swapscanner, Ground X, and others. The goal is to create a more robust and transparent ecosystem for the KAIA token. Find the rebalance detail in the [contracts addresses](../../../references/contract-addresses) page.
+KGP-6 建议旨在建立一个可持续和可核查的 KAIA 代币经济。 管理委员会批准了该决议，31 名成员中有 26 人投了赞成票。 该提案包括来自 1inch、Swapscanner、Ground X 等多个组织的贡献。 我们的目标是为 KAIA 代币创建一个更强大、更透明的生态系统。 在[合同地址](.../.../.../references/contract-addresses) 页面查找再平衡详情。
 
-## KIP-82: KIP-82: A new GC reward structure due to abolition of the Gini coefficient <a id="KIP-82"></a>
+## KIP-82：KIP-82：因取消基尼系数而产生的新的 GC 奖励结构<a id="KIP-82"></a>
 
-**Date: 2022-09-21**
+**日期：2022-09-21**
 
-KIP-82, introduced with v1.10.0 and activated at the Kore hardfork, addresses the limitations of Kaia’s previous reward system by removing the Gini coefficient used in block proposer selection and rewards. This change supports the expanding Governance Council, which now includes DAOs alongside traditional enterprises, necessitating a more balanced and inclusive reward system.
-Key changes include a new reward distribution structure, where 20% of GC rewards go to block proposers and 80% to stakers. This ensures fair compensation for both groups, enhancing network stability and participation. Voting power and rewards are now directly tied to the amount of KAIA tokens staked, encouraging broader network participation and reducing reliance on a few high-stake nodes. Block proposers are selected based on equal opportunity, independent of staking amounts, democratizing the process and enhancing decentralization.
-To compensate for the opportunity cost of staking, inflationary rewards have been introduced, allowing public users to participate in the staking program managed by the GC and earn rewards, thus promoting network growth and stability.
-A new governance parameter (reward.kip82ratio) sets the initial reward distribution ratio at 20/80 between proposer and staking rewards, which can be adjusted through governance processes.
-KIP-82 represents a significant step towards a more equitable and stable governance system in Kaia, ensuring fair compensation for network contributions and fostering a more decentralized and resilient network.
+KIP-82 在版本 v1.10.0 中引入，并在 Kore 硬分叉时激活，通过移除区块提议者选择和奖励中使用的基尼系数，解决了 Kaia 先前奖励系统的局限性。 这一变化为不断扩大的治理委员会提供了支持，该委员会目前包括 DAO 和传统企业，因此有必要建立一个更加平衡和包容的奖励制度。
+主要变化包括采用了新的奖励分配结构，即 20% 的 GC 奖励分配给区块提议者，80% 分配给支持者。 这确保了两个群体的公平补偿，提高了网络的稳定性和参与度。 投票权和奖励现在直接与 KAIA 代币的赌注金额挂钩，从而鼓励更广泛的网络参与，减少对少数高赌注节点的依赖。 区块提议者是在机会均等的基础上选出的，与赌注金额无关，从而实现了过程民主化并加强了权力下放。
+为补偿押注的机会成本，引入了通胀奖励，允许公共用户参与由 GC 管理的押注计划并获得奖励，从而促进网络的增长和稳定。
+一个新的管理参数（reward.kip82ratio）将初始奖励分配比例设定为提议者奖励和赌注奖励各占 20/80，该比例可通过管理程序进行调整。
+KIP-82 标志着在 Kaia 建立一个更加公平和稳定的治理系统方面迈出了重要一步，确保了对网络贡献的公平补偿，并促进了一个更加分散和更具弹性的网络。
 
-## KIP-81: Implementing the on-chain governance voting method <a id="KIP-81"></a>
+## KIP-81：实施链上治理投票方法<a id="KIP-81"></a>
 
-**Date: 2022-09-19**
+**日期：2022-09-19**
 
-KIP-81 was introduced with v1.10.0 and activated at the Kore hardfork. It introduced a stake-based voting mechanism through its governance portal. This approach shifts from the current system, where each Governance Council (GC) member casts one vote, to a model where voting power is determined by the amount of staked KAIA, with a cap to prevent any single entity from gaining excessive influence.
-A GC member will receive one vote per a certain amount of staked KAIA (initially set at 5 million KAIA), with a cap of one less than the total number of GC members. For instance, if there are 35 GC members, the maximum voting power is 34 votes, preventing monopolies.
-With this system, governance topics are discussed in the Governance Forum and voted on through Klaytn Square, ensuring responsibility and transparency in decision-making.
-This change aims to make the voting process more transparent and reflect the interests of those most invested in Kaia. By linking voting power to the staking amount, the system incentivizes greater participation and alignment of interests, ensuring that those who contribute more to the ecosystem have a proportionate influence on its decisions.
+KIP-81 在 v1.10.0 中引入，并在 Kore hardfork 中激活。 它通过其治理门户网站引入了基于股权的投票机制。 这种方法改变了目前每个治理委员会（GC）成员投一票的制度，改为投票权由所投入的 KAIA 数量决定的模式，并设定了上限，以防止任何单一实体获得过大的影响力。
+全球理事会成员每投入一定数额的可兑换货币IA（最初设定为 500 万可兑换货币IA）可获得一票投票权，投票权上限为全球理事会成员总数少于一票。 例如，如果有 35 名理事会成员，则最大投票权为 34 票，以防止垄断。
+通过这一系统，治理议题在治理论坛上进行讨论，并通过 Klaytn 广场进行表决，从而确保决策的责任感和透明度。
+这一变化旨在使投票过程更加透明，并反映那些对 Kaia 投资最多的人的利益。 通过将投票权与赌注金额挂钩，该系统激励更多的人参与进来，并使各方利益保持一致，确保对生态系统贡献更多的人对生态系统的决策产生相应的影响。
 
-This governance structure ensures a fair and balanced decision-making process, aligning voting power with contributions to the ecosystem while preventing any single entity from having undue influence.
+这种治理结构确保了决策过程的公平和平衡，使投票权与对生态系统的贡献相一致，同时防止任何单一实体施加不当影响。
