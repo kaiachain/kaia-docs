@@ -1,6 +1,6 @@
-# Data Management
+# 数据管理
 
-This section explains how Kaia nodes synchronize with the blockchain and manage the growing storage requirements associated with blockchain data.
+本节介绍 Kaia 节点如何与区块链同步，以及如何管理与区块链数据相关的不断增长的存储需求。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
