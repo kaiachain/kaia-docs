@@ -1,3 +1,3 @@
-# State Migration
+# 国家移民
 
-See [Storage Optimization](../state-pruning/#state-batch-pruning-state-migration).
+请参阅 [Storage Optimization]（.../state-pruning/#state-batch-pruning-state-migration）。
