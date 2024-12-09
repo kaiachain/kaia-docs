@@ -1,6 +1,6 @@
-# Wallet Libraries
+# 钱包图书馆
 
-Let's see how to integrate well-known wallet libraries into dApp.
+让我们看看如何将知名钱包库整合到 dApp 中。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
