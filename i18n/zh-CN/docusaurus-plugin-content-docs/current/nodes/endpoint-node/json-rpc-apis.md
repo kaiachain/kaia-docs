@@ -1,65 +1,65 @@
-# JSON-RPC APIs
+# JSON-RPC 应用程序接口
 
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created).
+端点节点提供 JSON-RPC 应用程序接口。 启用/禁用 API 的方法如下。 有关详细的 API 规范，请参阅 [JSON-RPC APIs](../../../references/json-rpc/klay/account-created) 。
 
-**NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone
-access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs
-you enable. By default, Kaia enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
+**注意**：通过 HTTP (`rpc`) 或 WebSocket (`ws`) 接口提供 API 会让每个
+访问可以访问此接口的 API（DApp、浏览器标签等）。 请注意启用哪些应用程序接口
+。 默认情况下，Kaia 通过 IPC（"ipc"）接口启用所有 API，但对于 "rpc "和 "ws"，必须显式启用所需模块。
 
-## Enabling APIs  <a id="enabling-apis"></a>
+## 启用应用程序接口 <a id="enabling-apis"></a>
 
-### From Commandline <a id="from-commandline"></a>
+### 从命令行<a id="from-commandline"></a>
 
-To offer the APIs over the Kaia RPC endpoints, please specify them with the `--${interface}api`
-command-line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
+要通过 Kaia RPC 端点提供 API，请使用 `--${interface}api`
+命令行参数指定它们，其中 `${interface}` 可以是 HTTP 端点的 `rpc` 或 WebSocket 端点的 `ws`。
 
-`ipc` offers all APIs over the unix socket (Unix) or named pipe (Windows) endpoint without any flag.
+ipc\` 通过 unix 套接字（Unix）或命名管道（Windows）端点提供所有 API，无需任何标记。
 
-You can launch a Kaia node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
+您可以启动一个 Kaia 节点，其中包含您要添加的特定 API，就像下面的示例一样。 但请记住，一旦启动节点，就无法更改 API。
 
-Example) launching a Kaia node with `kaia` and `net` modules enabled:
+示例）启动 Kaia 节点并启用`kaia`和`net`模块：
 
 ```shell
 $ ken --rpcapi klay,net --rpc --{other options}
 ```
 
-The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
+必须使用 `--rpc` 标记显式启用 HTTP RPC 接口。
 
-### Using Configuration <a id="using-configuration"></a>
+### 使用配置<a id="using-configuration"></a>
 
-Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](../../misc/operation/configuration.md).
+请更新 [Configuration File](../../misc/operation/configuration.md) 中的 `RPC_ENABLE`、`RPC_API`、`WS_ENABLE` 和 `WS_API` 属性。
 
-## Querying Enabled APIs <a id="querying-enabled-apis"></a>
+## 查询已启用的应用程序接口<a id="querying-enabled-apis"></a>
 
-To determine which APIs an interface provides, the `modules` JSON-RPC method can be invoked. For
-example over an `rpc` interface:
+要确定一个接口提供哪些 API，可以调用 `modules` JSON-RPC 方法。 以
+为例，通过`rpc`接口：
 
 **IPC**
 
 ```javascript
-$ ken attach --datadir <DATA_DIR>
-Welcome to the Kaia JavaScript console!
+$ ken attach --datadir<DATA_DIR>
+欢迎访问 Kaia JavaScript 控制台！
 
- instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
-  datadir: /var/kend/data
+ instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+  datadir：/var/kend/data
   modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 
 >
 ```
 
-will list all enabled modules in the console output.
+将在控制台输出中列出所有启用的模块。
 
 ```
-  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
+  模块： admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 ```
 
 **HTTP**
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' https://public-en-kairos.node.kaia.io
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "rpc_modules", "params":[], "id":1}' https://public-en-kairos.node.kaia.io
 ```
 
-will give all enabled modules including the version number:
+将显示所有已启用的模块，包括版本号：
 
 ```
 {
@@ -79,21 +79,21 @@ will give all enabled modules including the version number:
 }
 ```
 
-## Disabling unsafe debug APIs <a id="disabling-unsafe-debug-apis"></a>
+## 禁用不安全的调试 API<a id="disabling-unsafe-debug-apis"></a>
 
-Some debug namespace APIs are unsafe/unappropriate to be opened to public.
-We recommend you to provide the debug namespace APIs to authorized users only.
-However, if you want to maintain a public EN and provide debug namespace APIs to the public,
-we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs
-that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs.
+某些调试命名空间 API 不安全/不适合向公众开放。
+我们建议您只向授权用户提供调试命名空间 API。
+但是，如果您想维护公共 EN 并向公众提供调试命名空间 API，
+，我们强烈建议您设置`rpc.unsafe-debug.disable`标志，这将禁用不安全/不适合向公众开放的 API
+，并只启用调试命名空间 API 的子集。
 
-The enabled APIs are as follows:
+启用的应用程序接口如下：
 
-- [VM Tracing](../../../references/json-rpc/debug/trace-bad-block) APIs, however with limited functionality (only [pre-defined tracers](../../../references/json-rpc/debug/trace-bad-block) are allowed. See params/tracingOptions)
+- [虚拟机跟踪]（.../.../.../references/json-rpc/debug/trace-bad-block）API，但功能有限（只允许使用[预定义跟踪器]（.../.../../references/json-rpc/debug/trace-bad-block）。 参见参数/跟踪选项）。
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 
-To set the `rpc.unsafe-debug.disable` flag, append the following line in the `kend.conf` file.
+要设置 "rpc.unsafe-debug.disable "标志，请在 "kend.conf "文件中添加以下一行。
 
 ```
 ADDITIONAL="$ADDITIONAL --rpc.unsafe-debug.disable"
