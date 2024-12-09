@@ -1,87 +1,87 @@
 ---
-sidebar_label: Using Hardhat
+sidebar_label: 使用硬头盔
 ---
 
-# How to Verify Smart Contracts Using Hardhat
+# 如何使用 Hardhat 验证智能合约
 
-This guide allows you to automatically verify your smart contracts' source code on Kaiascope straight from your CLI using the Hardhat Verify Plugin.
+本指南允许您使用 Hardhat Verify Plugin 直接从 CLI 在 Kaiascope 上自动验证智能合约的源代码。
 
-To verify your contract on klaytn, you need to add the following configuration to your `hardhat.config.js`:
+要在 klaytn 上验证您的合同，您需要在`hardhat.config.js`中添加以下配置：
 
-## Mainnet
+## 主网
 
 ```
 module.exports = {
-  networks: {
+  networks：{
     kaia: {
-      chainId: 8217,
-      url: "RPC_URL",
+      chainId：8217,
+      url："RPC_URL",
     },
   },
-  etherscan: {
-    apiKey: {
+  etherscan：{
+    apiKey：{
       kaia: "unnecessary",
     },
-    customChains: [
+    customChains：[
       {
-        network: "kaia",
-        chainId: 8217,
-        urls: {
-          apiURL: "https://api-cypress.klaytnscope.com/api",
-          browserURL: "https://kaiascope.com/",
+        network："kaia",
+        chainId：8217,
+        urls：{
+          apiURL："https://api-cypress.klaytnscope.com/api",
+          browserURL："https://kaiascope.com/",
         },
       },
-    ]
+    ]。
   }
 }
 
 ```
 
-## Kairos
+## 启示录
 
 ```
 module.exports = {
-  networks: {
+  networks：{
     kairos: {
-      chainId: 1001,
-      url: "RPC_URL",
+      chainId：1001,
+      url："RPC_URL",
     },
   },
-  etherscan: {
-    apiKey: {
+  etherscan：{
+    apiKey：{
       klaytn: "unnecessary",
     },
-    customChains: [
+    customChains：[
       {
-        network: "kairos",
-        chainId: 1001,
-        urls: {
-          apiURL: "https://api-baobab.klaytnscope.com/api",
-          browserURL: "https://kairos.kaiascope.com",
+        network："kairos",
+        chainId：1001,
+        urls：{
+          apiURL："https://api-baobab.klaytnscope.com/api",
+          browserURL："https://kairos.kaiascope.com",
         },
       },
-    ]
+    ]。
   }
 }
 ```
 
-To verify the contract, you will run the verify command and pass in the address of the deployed contract, network and parameters if any.
+要验证合同，您需要运行验证命令，并输入已部署合同的地址、网络和参数（如有）。
 
 ```bash
-npx hardhat verify –network <network> <deployed_address> <parameters>
+npx hardhat verify -network<network> <deployed_address> <parameters>
 
 // example
 
 npx hardhat verify --network kairos 0x131b54E65c99d34BCA738F29051fDAceEa91C969 1000000000000000
 ```
 
-In your terminal you should see the source code for your contract was successfully submitted for verification. If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Kaiascope](https://kairos.kaiascope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode).
+在您的终端中，您应该可以看到您的合同源代码已成功提交验证。 如果验证成功，您将看到 "成功验证合同"，并在 [Kaiascope](https://kairos.kaiascope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode)上看到合同代码链接。
 
 ![](/img/build/smart-contracts/verify/terminal-hh-verify-ss.png)
 
 ![](/img/build/smart-contracts/verify/scope-hh-verify-ss.png)
 
-## Useful links
+## 实用链接
 
-- [Configuration for Hardhat Verify Plugin](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
-- [Verifying contracts using Hardhat on Kaiascope](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
+- [Hardhat验证插件配置](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
+- [在 Kaiascope 上使用 Hardhat 验证合同](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
