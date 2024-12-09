@@ -1,69 +1,69 @@
-# Network Configuration
+# 网络配置
 
-A Core Cell can be made up of:
+核心小组可由以下人员组成
 
-- multiple subnets (recommended)
-- a single subnet
+- 多个子网（推荐）
+- 单一子网
 
-## A Core Cell with Multiple Subnets <a id="a-core-cell-with-multiple-subnets"></a>
+## 具有多个子网的核心单元<a id="a-core-cell-with-multiple-subnets"></a>
 
-It is recommended to have a two-layer subnet which is used in general web services such as DB + AppServer and Proxy Web Servers. This design of the subnet has more advantages on the security.
+建议在 DB + AppServer 和代理网络服务器等一般网络服务中使用双层子网。 这种子网设计在安全性方面更具优势。
 
-Since monitoring servers are also required for managing all servers as another layer, the following section describes how to setup a Core Cell with a three-layer subnet.
+由于还需要监控服务器作为另一层来管理所有服务器，因此下一节将介绍如何设置具有三层子网的 Core Cell。
 
-The three-layer subnet consists of the following:
+三层子网由以下部分组成：
 
-- CN Subnet
-- PN Subnet
-- Management (Mgmt) Subnet
+- CN 子网
+- PN 子网
+- 管理 (Mgmt) 子网
 
-### CN Subnet <a id="cn-subnet"></a>
+### CN 子网<a id="cn-subnet"></a>
 
-A CN Subnet consists of CN servers in Core Cells. The working CN in a Core Cell is only one, but spare one should be prepared for high availability. IP/Port of all CNs within the Core Cell Network (CCN) must be opened to each other because they try to connect to the others from the outside of the Core Cell. (This connection information can be received from Kairos operators.) The internal communication with other subnets in the Core Cell requires to open default port (32323: default Kaia P2P port number) in order to connect to PNs of the PN Subnet. Furthermore, it is necessary to open other ports such as the CN monitoring port (61001) for the monitoring server and the SSH port (22) for the management purpose. If the multichannel feature is used, another port (32324: default multichannel port) should be opened as well.
+CN 子网由核心小区内的 CN 服务器组成。 核心单元中的工作 CN 只有一个，但应准备备用 CN 以实现高可用性。 核心小区网络 (CCN) 内所有 CN 的 IP/Port 必须相互开放，因为它们试图从核心小区外部连接到其他 CN。 (该连接信息可从 Kairos 操作员处获得）。 与核心单元中其他子网的内部通信需要打开默认端口（32323：Kaia P2P 默认端口号），以便与 PN 子网中的 PN 连接。 此外，还需要打开其他端口，如用于监控服务器的 CN 监控端口 (61001) 和用于管理的 SSH 端口 (22)。 如果使用多通道功能，则还应打开另一个端口（32324：默认多通道端口）。
 
-![CN Subnet](/img/nodes/cn_subnet.png)
+CN子网](/img/nodes/cn_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                                | Egress |
-| :------------ | :----------------------------------- | :--------------------------------------------------------------------- | :----- |
-| CN Subnet     | PN Subnet                            | P2P: 32323 (32324 for multichannel) | All    |
-| CN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001             | All    |
-| CN Subnet     | Public (Internet) | each CN's IP and P2P port                                              | All    |
+| 起源子网  | 目标子网    | Ingress                                   | Egress |
+| :---- | :------ | :---------------------------------------- | :----- |
+| CN 子网 | PN 子网   | P2P：32323（多通道为 32324）                     | 全部     |
+| CN 子网 | 管理子网    | SSH: 22, Monitoring：61001 | 全部     |
+| CN 子网 | 公众（互联网） | 每个 CN 的 IP 和 P2P 端口                       | 全部     |
 
-### PN Subnet <a id="pn-subnet"></a>
+### PN 子网<a id="pn-subnet"></a>
 
-A PN Subnet consists of the PN servers to provide services in order to connect to the external ENs.
+PN 子网由提供服务的 PN 服务器组成，以便与外部网络连接。
 
-A PN subnet is connected to the following nodes:
+PN 子网与以下节点相连：
 
-- CNs in Core Cells
-- Some PNs of other Core Cells
-- Core Cell Management Servers (Mgmt, Monitoring)
-- EN nodes
+- 核心细胞中的 CN
+- 其他核心小组的一些 PN
+- 核心单元管理服务器（管理、监控）
+- EN 节点
 
-![PN Subnet](/img/nodes/pn_subnet.png)
+![PN子网](/img/nodes/pn_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                                | Egress |
-| :------------ | :----------------------------------- | :--------------------------------------------------------------------- | :----- |
-| PN Subnet     | CN Subnet                            | P2P: 32323 (32324 for multichannel) | All    |
-| PN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001             | All    |
-| PN Subnet     | Public (Internet) | P2P: 32323                                             | All    |
+| 起源子网  | 目标子网    | Ingress                                   | Egress |
+| :---- | :------ | :---------------------------------------- | :----- |
+| PN 子网 | CN 子网   | P2P：32323（多通道为 32324）                     | 全部     |
+| PN 子网 | 管理子网    | SSH: 22, Monitoring：61001 | 全部     |
+| PN 子网 | 公众（互联网） | P2P: 32323                | 全部     |
 
-### Mgmt Subnet <a id="mgmt-subnet"></a>
+### 管理子网<a id="mgmt-subnet"></a>
 
-A Mgmt Subnet is a gateway subnet for the operator to enter into the Core Cell nodes through ssh. A VPN server may be necessary to make the connection together with a monitoring server and a management server installed with a tool to manage the Core Cell nodes.
+管理子网是操作员通过 ssh 进入核心单元节点的网关子网。 可能需要 VPN 服务器与监控服务器和安装了管理 Core Cell 节点工具的管理服务器一起进行连接。
 
-![Management Subnet](/img/nodes/admin_subnet.png)
+管理子网](/img/nodes/admin_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                                                               | Egress |
-| :------------ | :----------------------------------- | :---------------------------------------------------------------------------------------------------- | :----- |
-| Mgmt Subnet   | CN Subnet                            | All                                                                                                   | All    |
-| Mgmt Subnet   | PN Subnet                            | All                                                                                                   | All    |
-| Mgmt Subnet   | Public (Internet) | VPN (tcp): 443, VPN (udp): 1194 | All    |
+| 起源子网 | 目标子网    | Ingress                                                                                               | Egress |
+| :--- | :------ | :---------------------------------------------------------------------------------------------------- | :----- |
+| 管理子网 | CN 子网   | 全部                                                                                                    | 全部     |
+| 管理子网 | PN 子网   | 全部                                                                                                    | 全部     |
+| 管理子网 | 公众（互联网） | VPN (tcp): 443, VPN (udp): 1194 | 全部     |
 
-## A Core Cell with a Single Subnet <a id="a-core-cell-with-a-single-subnet"></a>
+## 具有单一子网的核心单元<a id="a-core-cell-with-a-single-subnet"></a>
 
-A single subnet of a Core Cell is built for the development/test purpose or under the difficult circumstances to create multiple subnets.
+核心单元的单个子网用于开发/测试目的，或在困难情况下创建多个子网。
 
-All nodes are setup under a single CC subnet. Firewall setup is also necessary for the CN to connect to other CNs within the CNN using P2P port (32323, 32324 for multichannel option). The P2P port of the PN is opened to connect with ENs in Endpoint Node Network (ENN) and PNs in the Core Cell Network (CNN). Additionally, an optional VPN and monitoring servers are required to be managed remotely.
+所有节点都设置在一个 CC 子网下。 还必须设置防火墙，CN 才能使用 P2P 端口（多通道选项为 32323、32324）连接 CNN 内的其他 CN。 PN 的 P2P 端口打开后，可与端点节点网络 (ENN) 中的 EN 和核心小区网络 (CNN) 中的 PN 连接。 此外，还需要可选的 VPN 和监控服务器，以便进行远程管理。
 
-![CC with a Single Subnet](/img/nodes/cc_single_subnet.png)
+具有单一子网的 CC](/img/nodes/cc_single_subnet.png)
