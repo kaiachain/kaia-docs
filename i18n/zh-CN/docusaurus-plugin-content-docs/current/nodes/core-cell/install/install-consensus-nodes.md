@@ -1,16 +1,16 @@
-# Install Consensus Nodes
+# 安装共识节点
 
-## Download
+## 下载
 
-You can download the latest version of the `kcn`  on [Download](../../downloads/downloads.md) page.
+您可以在 [Download](../../downloads/downloads.md) 页面下载最新版本的 `kcn`。
 
-## Installation
+## 安装
 
-### Linux Archive Distribution <a id="linux-archive-distribution"></a>
+### Linux 档案分发版<a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+存档文件由可执行二进制文件和配置文件组成，结构如下。
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**注意**：请勿更改文件结构或文件名。 如果更改，节点可能无法正常运行。
 
 ```text
 - bin
@@ -20,97 +20,97 @@ The archive file consists of the executable binary and the configuration file st
   |- kcnd.conf
 ```
 
-| File Name                      | File Description                 |
-| :----------------------------- | :------------------------------- |
-| bin/kcn                        | CN executable file               |
-| bin/kcnd                       | CN start/termination script file |
-| conf/kcnd.conf | CN configuration file            |
+| 文件名称                           | 文件说明         |
+| :----------------------------- | :----------- |
+| bin/kcn                        | CN 可执行文件     |
+| bin/kcnd                       | CN 启动/终止脚本文件 |
+| conf/kcnd.conf | CN 配置文件      |
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+安装是将下载的软件包解压缩，然后安装到您想要安装的位置。
 
 ```bash
 $ tar zxf kcn-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+或者
 
 ```bash
 $ tar zxf kcn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `kcn-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `kcn` and `kcnd` globally. As an example,
+**注意**：建议在环境变量 "$PATH"中添加解压缩目录 "kcn-linux-amd64/bin "路径，以便全局运行 "kcn "和 "kcnd"。 举个例子
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+其他部分假定路径已添加到变量中。
 
-### RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+### RPM 发行版（RHEL/CentOS/Fedora\）<a id="rpm-rhel-centos-fedora"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+您可以使用以下 `yum` 命令安装下载的 RPM 文件。
 
 ```bash
 $ yum install kcnd-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+或者
 
 ```bash
 $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Kaia Yum Repo <a id="install-from-kaia-yum-repo"></a>
+### 从 Kaia Yum Repo 安装<a id="install-from-kaia-yum-repo"></a>
 
-Alternatively, you can install `kcnd` from the Kaia Yum repo, run:
+或者，您也可以从 Kaia Yum 软件仓库安装 `kcnd`，然后运行
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kcnd
 ```
 
-### Installed Location <a id="installed-location"></a>
+### 安装位置<a id="installed-location"></a>
 
-The installed files are located as follows.
+安装文件的位置如下
 
-| File Name                 | Location                                 |
+| 文件名称                      | 地点                                       |
 | :------------------------ | :--------------------------------------- |
 | kcn                       | /usr/bin/kcn                             |
 | kcnd.conf | /etc/kcnd/conf/kcnd.conf |
 
-## Configuration <a id="configuration"></a>
+## 配置<a id="configuration"></a>
 
-The CN configuration is to create a data directory and set up several values in the configuration file `kcnd.conf`.
+CN 配置是在配置文件 `kcnd.conf` 中创建一个数据目录并设置几个值。
 
-1. Create the CN data directory.
-2. Install node key
-3. Configure the CN with `kcnd.conf`.
+1. 创建 CN 数据目录。
+2. 安装节点密钥
+3. 使用 `kcnd.conf` 配置 CN。
 
-### CN Data Directory Creation <a id="cn-data-directory-creation"></a>
+### 创建 CN 数据目录<a id="cn-data-directory-creation"></a>
 
-Considering the fact that the size of Kaia blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
+考虑到 Kaia 区块链数据的大小一直在增加，建议使用足够大的存储空间。 您可能需要在所需路径上创建该目录。
 
 ```bash
 $ mkdir -p /var/kcnd/data
 ```
 
-### Install Node Key <a id="install-node-key"></a>
+### 安装节点密钥<a id="install-node-key"></a>
 
-In order to operate a CN, a `nodekey` is required. The KCN binary will create a new one for you if you do not have it. If you have one, you need to put your `nodekey` into the CN data directory. The way to create a `nodekey` is described in the '[Before You Install](./before-you-install.md)' section. The following command line copies the `nodekey` into the CN data directory.
+要运行一个 CN，需要一个 "节点密钥"。 如果您没有 KCN 二进制文件，KCN 将为您创建一个新文件。 如果有，则需要将 `nodekey` 放入 CN 数据目录。 安装前](./before-you-install.md) "部分介绍了创建 "节点密钥 "的方法。 以下命令行会将 `nodekey` 复制到 CN 数据目录。
 
 ```bash
 $ cp nodekey /var/kcnd/data
 ```
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### 更新配置文件<a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+配置文件位置：
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
+- 对于存档发行版，配置目录位置默认为 `$INSTALL_PATH/kcn-linux-amd64/conf/`。
+- 对于软件包发行版，配置目录默认为 `/etc/kcnd/conf/`。
 
-#### Add Data Directory  <a id="add-data-directory"></a>
+#### 添加数据目录 <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kcnd.conf`.
+您应更新配置文件 `kcnd.conf` 中的数据目录环境变量 `$DATA_DIR`。
 
 ```text
 ...
@@ -118,17 +118,17 @@ DATA_DIR=/var/kcnd/data
 ...
 ```
 
-#### Setup Rewardbase <a id="setup-rewardbase"></a>
+#### 设置 Rewardbase<a id="setup-rewardbase"></a>
 
-As a reward of participating in the consensus of the Kaia network, CN operator will receive KAIA. For this reason, it is required to set an address on the configuration file `kcnd.conf`.
+作为参与 Kaia 网络共识的回报，CN 运营商将获得 KAIA。 因此，需要在配置文件 `kcnd.conf` 中设置地址。
 
-The ways to create a new account are various, but the `kcn` also provides the functionality. You can check the help message with the following command.
+创建新账户的方法多种多样，但 "kcn "也提供了相关功能。 您可以使用以下命令查看帮助信息。
 
 ```bash
 $ kcn account new --help
 ```
 
-One of the example of doing this procedure is as follows. First of all, you need to create a new account which the reward KAIA will be sent to.
+该程序的一个示例如下。 首先，您需要创建一个新账户，奖励 KAIA 将发送到该账户。
 
 ```bash
 $ kcn account new --datadir ~/kcnd_home
@@ -141,7 +141,7 @@ Repeat passphrase:
 Address: {d13f7da0032b1204f77029dc1ecbf4dae2f04241}
 ```
 
-As a result of this, it will create the associated keystore on the path that you define. Next, you need to put the created address in the file `kcnd.conf` file as follows.
+因此，它会在你定义的路径上创建相关的密钥存储。 接下来，您需要将创建的地址放入文件 `kcnd.conf` 中，如下所示。
 
 ```text
 ...
@@ -149,78 +149,78 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../../misc/operation/configuration.md) section.
+请记住，您创建的密钥存储和密码非常重要，因此必须小心管理。 有关 `kcnd.conf` 的更多详情，请参阅[配置文件](../../../misc/operation/configuration.md) 部分。
 
-### (Optional) Download Chaindata Snapshot
+### (可选）下载 Chaindata 快照
 
-Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../../learn/storage/block-sync.md#full-sync) process.
+从创世区块进行同步操作非常耗时。 您可以使用 [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../../learn/storage/block-sync.md#full-sync) 过程。
 
-## Startup the CN <a id="startup-the-cn"></a>
+## 启动 CN<a id="startup-the-cn"></a>
 
-### CN Start/Stop  <a id="cn-start-stop"></a>
+### CN 启动/停止 <a id="cn-start-stop"></a>
 
-You can start/stop the Kaia service with the following `systemctl` command.
+您可以使用以下 "systemctl "命令启动/停止 Kaia 服务。
 
-**Note**: This requires root privileges.
+**注意**：这需要 root 权限。
 
-**start**
+**开始**
 
 ```bash
 $ systemctl start kcnd.service
 
 ```
 
-**stop**
+**停止**
 
 ```bash
 $ systemctl stop kcnd.service
 
 ```
 
-**status**
+**状态**
 
 ```bash
 $ systemctl status kcnd.service
 
 ```
 
-### Troubleshooting <a id="troubleshooting"></a>
+### 故障排除<a id="troubleshooting"></a>
 
-If you meet the following error,
+如果您遇到以下错误
 
 ```bash
 Failed to start kcnd.service: Unit not found.
 ```
 
-reload the systemd manager configuration with the following command.
+使用以下命令重新加载 systemd 管理器配置。
 
 ```bash
 $ systemctl daemon-reload
 ```
 
-### Export BLS public key info <a id="export-bls-public-key-info"></a>
+### 导出 BLS 公钥信息<a id="export-bls-public-key-info"></a>
 
-If the network has activated or will activate the Randao hardfork, each CN maintainer must submit its BLS public key info to the [KIP-113 smart contract](https://kips.kaia.io/KIPs/kip-113).
+如果网络已经或将要激活 Randao 硬分叉，则每个 CN 维护者必须向 [KIP-113 智能合约](https://kips.kaia.io/KIPs/kip-113) 提交其 BLS 公钥信息。
 
-The BLS public key info can be calculated from the nodekey. To extract it, first start the node. Then use the command:
+BLS 公钥信息可通过节点密钥计算得出。 要提取它，首先要启动节点。 然后使用命令
 
 ```
 $ kcn account bls-info --datadir /var/kcnd/data
 ```
 
-As a result, `bls-publicinfo-NODEID.json` file will be created.
+因此，将创建 `bls-publicinfo-NODEID.json` 文件。
 
-## Testing the Core Cell <a id="testing-the-core-cell"></a>
+## 测试核心单元<a id="testing-the-core-cell"></a>
 
-It is time to check that Core Cell is successfully installed and it is working as expected after installation.
+现在要检查的是 Core Cell 是否已成功安装，以及安装后是否按预期运行。
 
-### Process Status <a id="process-status"></a>
+### 进程状态<a id="process-status"></a>
 
-It is possible to check the status of CN's process using the status commands `systemctl` and `kcnd`.
+可以使用状态命令 `systemctl` 和 `kcnd` 检查 CN 进程的状态。
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM and the status of CN can be checked as follows.
+systemctl "与 RPM 一起安装，可通过以下方式检查 CN 的状态。
 
 ```bash
 $ systemctl status kcnd.service
@@ -238,22 +238,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kcnd[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the above example.
+您可以查看当前状态，例如上例中的 "Active: active (running)"。
 
 #### kcnd <a id="kcnd-kpnd"></a>
 
-`kcnd` is installed along with the package and the status of CN can be checked as follows.
+kcnd "与软件包一起安装，CN 的状态可通过以下方式检查。
 
 ```bash
 $ kcnd status
 kcnd is running
 ```
 
-### Logs <a id="logs"></a>
+### 日志<a id="logs"></a>
 
-The log is stored in `kcnd.out` file located in the path defined in the `LOG_DIR` field of the `kcnd.conf` file. When the node works properly, you can see that each block is created per second as follows.
+日志存储在 `kcnd.out` 文件中，该文件位于 `kcnd.conf` 文件中 `LOG_DIR` 字段定义的路径下。 当节点正常运行时，可以看到每秒创建的每个区块如下所示。
 
-Example:
+例如
 
 ```bash
 $ tail kcnd.out
@@ -269,48 +269,48 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-### kcn console <a id="kcn-console-kpn-console"></a>
+### 控制台<a id="kcn-console-kpn-console"></a>
 
-Kaia provides a CLI client: `kcn console`. However, a CN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
+Kaia 提供一个 CLI 客户端："kcn console"。 不过，出于安全考虑，CN 可能会禁用客户端的 RPC 接口。 使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。
 
-The IPC file `klay.ipc` is located in the `DATA_DIR` path on a CN.
+IPC 文件 `klay.ipc` 位于 CN 上的 `DATA_DIR` 路径中。
 
-Please execute the following command and check out the result.
+请执行以下命令并查看结果。
 
 ```bash
 $ ken attach --datadir /var/kend/data
-Welcome to the Kaia JavaScript console!
+欢迎访问 Kaia JavaScript 控制台！
 
-instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
- datadir: /var/kend/data
+instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+ datadir：/var/kend/data
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
- >
+>
 ```
 
-You can check the usable commands on [API Document](../../../../references/json-rpc/klay/account-created)
+您可以在 [API 文档]（.../.../.../.../references/json-rpc/klay/account-created）中查看可用命令。
 
-The useful APIs to check the status of a CN:
+用于检查 CN 状态的实用 API：
 
-- `kaia.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Kaia nodes currently)
+- kaia.blockNumber\`（获取最新的区块编号）
+- net.peerCount"（获取当前连接的 Kaia 节点数量）
 
-#### kaia.blockNumber  <a id="kaia-blocknumber"></a>
+#### kaia.blockNumber <a id="kaia-blocknumber"></a>
 
-You can get the latest block number to see if blocks are created (for CNs) or propagated (for CNs and PNs) properly based on your node type.
+您可以根据节点类型获取最新的区块编号，查看区块是否已正确创建（对于 CN）或传播（对于 CN 和 PN）。
 
 ```javascript
 > kaia.blockNumber
 11573819
 ```
 
-#### net.peerCount  <a id="net-peercount"></a>
+#### net.peerCount <a id="net-peercount"></a>
 
 ```javascript
 > net.peerCount
 14
 ```
 
-The above command line returns a different value based on the node type.
+上述命令行会根据节点类型返回不同的值。
 
-- CN: the number of connected CNs + the number of connected PNs.
-- PN: the number of connected CNs + the number of connected PNs + the number of connected ENs.
+- CN：连接的 CN 个数 + 连接的 PN 个数。
+- PN：连接的 CN 数 + 连接的 PN 数 + 连接的 EN 数。
