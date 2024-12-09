@@ -1,26 +1,26 @@
-# Core Cell
+# 核心单元
 
-## Intended Audience  <a id="intended-audience"></a>
+## 预期受众 <a id="intended-audience"></a>
 
-- Core Cell Operators
-- If your interest is in making and running Blockchain Applications on Kaia, you don't need to maintain a Core Cell. You need to run an [Endpoint Node](../endpoint-node/endpoint-node.md) instead to make your application interact with Kaia network.
+- 核心单元操作员
+- 如果您的兴趣是在 Kaia 上制作和运行区块链应用程序，则无需维护核心单元。 您需要运行 [Endpoint Node]（.../endpoint-node/endpoint-node.md）来使您的应用程序与 Kaia 网络交互。
 
-## Core Cell Overview <a id="core-cell-overview"></a>
+## 核心单元概述<a id="core-cell-overview"></a>
 
-Core Cell (CC) is an entity that is participating in the consensus process, and is in charge of executing transactions and generating blocks.
-A Kaia Core Cell (CC) consists of the following components.
+核心单元（CC）是参与共识过程的实体，负责执行交易和生成区块。
+Kaia 核心单元（CC）由以下部分组成。
 
-- Consensus Node (CN): Consensus Nodes are participating in the block generation process.
-- Proxy Node (PN): Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
+- 共识节点（CN）：共识节点参与区块生成过程。
+- 代理节点 (PN)：代理节点提供网络接口。 PN 向共识节点发送交易请求，并将区块向下传播到端点节点。
 
-It is recommended that a Core Cell consists of one CN with two or more PNs.
-A CN connects to other CNs within the Core Cell Network to perform consensus.
-CNs only accept connections from their PNs in the same Core Cell to receive transaction requests and propagate blocks to the network.
-PNs accepts connections from any ENs within the Endpoint Node Network.
+建议核心单元由一个 CN 和两个或多个 PN 组成。
+一个 CN 连接到核心小区网络内的其他 CN，以达成共识。
+CN 只接受来自同一核心单元内 PN 的连接，以接收交易请求并向网络传播区块。
+PN 接受来自端点节点网络内任何 EN 的连接。
 
-![Core Cell Overview](/img/nodes/cn_set.png)
+核心单元概述](/img/nodes/cn_set.png)
 
-| Name | Description                                                                                                                                                                                                                                                                                                         | Network Security                                                                                                                                                                                                                                                                                                               | Quantity                                                                               |
-| :--- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
-| CN   | A node that creates a new block with other CNs in the Core Cell Network                                                                                                                                                                                                                                             | A network is composed of permissioned CNs. (Requires IP access control).                                                                                                                                                                                                    | 1 unit                                                                                 |
-| PN   | - A node that submits transactions received from the Kaia Endpoint Node Network to the CN. <br/>- It propagates the created blocks to Kaia Endpoint Node Network. <br/>- It can scale out horizontally depending on the number of ENs in the Endpoint Node Network. | - It is connected to the CN in the Core Cell, and its IP and Ports are required to be public to accept connections from other Kaia nodes on the Internet. <br/>- It can connect to other PNs in other Core Cell via PN bootnode. <br/>- It can connect to ENs via EN bootnode. | At least 1 PN required. 2 or more PNs are recommended. |
+| 名称 | 说明                                                                                                | 网络安全                                                                                                                     | 数量                           |
+| :- | :------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
+| CN | 与核心小区网络中其他 CN 一起创建新区块的节点                                                                          | 网络由获得许可的 CN 组成。 (需要 IP 访问控制）。                                                                         | 1 个单位                        |
+| PN | - 向 CN 提交从 Kaia 终端节点网络接收到的交易的节点。 <br/>- 它将创建的区块传播到 Kaia 终端节点网络。 <br/>- 它可以根据终端节点网络中 EN 的数量进行横向扩展。 | - 它与核心小区的 CN 相连，其 IP 和端口必须是公开的，以接受来自互联网上其他 Kaia 节点的连接。 <br/>- 它可以通过 PN 引导节点连接到其他核心单元中的其他 PN。 <br/>- 它可以通过 EN 引导节点连接到 EN。 | 至少需要 1 个 PN。 建议使用 2 个或更多 PN。 |
