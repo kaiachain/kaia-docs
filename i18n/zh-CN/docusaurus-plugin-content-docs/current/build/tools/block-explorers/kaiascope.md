@@ -1,230 +1,230 @@
 # Kaiascope
 
-Kaiascope is the block explorer for the Kaia Network. Kaiascope gives you an insight about the Kaia network by monitoring the network health and providing various statistics of Kaia network. You can also explore the block and transaction data and the list of smart contracts on the Kaia network.
+Kaiascope 是 Kaia 网络的区块资源管理器。 Kaiascope 通过监控网络健康状况和提供 Kaia 网络的各种统计数据，让您深入了解 Kaia 网络。 您还可以查看 Kaia 网络上的区块和交易数据以及智能合约列表。
 
-- For the Kairos network, visit [https://kairos.kaiascope.com](https://kairos.kaiascope.com)
-- For the Mainnet, visit [https://kaiascope.com/](https://kaiascope.com/)
+- 有关 Kairos 网络，请访问 [https://kairos.kaiascope.com](https://kairos.kaiascope.com)
+- 有关主网，请访问 [https://kaiascope.com/](https://kaiascope.com/)
 
 ![](/img/build/tools/scope_01_main.png)
 
-## Major Features <a id="major-features"></a>
+## 主要特点<a id="major-features"></a>
 
-Please note that some of the features are under development.
+请注意，部分功能正在开发中。
 
-- Overview of the network
-- Block search
-- Transaction search
-- Account search
-- Event logs search
-- Block proposer information
+- 网络概览
+- 区块搜索
+- 交易搜索
+- 账户搜索
+- 事件日志搜索
+- 整块提案人信息
 
-In the subsequent sections, we will visit the major functions and screenshots of Kaiascope. Functions are grouped by four categories - dashboard, list view, detail view, and search.
+在随后的章节中，我们将参观 Kaiascope 的主要功能和屏幕截图。 功能分为四类：仪表盘、列表视图、详细视图和搜索。
 
-## Dashboard <a id="dashboard"></a>
+## 仪表板<a id="dashboard"></a>
 
-Network information is presented in the dashboard. The information includes average block generation time, average number of transactions in a block, number of consensus nodes, and the latest trends in transactions.
+网络信息显示在仪表板中。 这些信息包括平均区块生成时间、区块中的平均交易数量、共识节点数量以及交易的最新趋势。
 
 ![](/img/build/tools/scope_02_main_indicator.png)
 
-- Block Height: The latest block height. It shows that how many blocks have been generated since the genesis.
-- Network Performance: It shows Kaia's network performance with four indicators.
-  - Consensus Nodes: Above picture shows that 15 nodes are participated in the consensus process.
-  - Avg Block Time \(1 hour\): It shows the average block generation time over the last hour.
-  - Avg Block Time \(24 hours\): It shows the average block generation time over the last 24 hours.
-  - Avg TX Per Block \(24 hours\): The average number of transactions included in one block over the last 24 hours.
-- Transaction History \(14 days\): The graphs show the number of daily transactions over the last 14 days. You can see the trend in the transaction volume over the last two weeks.
+- 区块高度：最新的区块高度。 它显示了自创世以来已经生成了多少区块。
+- 网络性能：它通过四项指标显示 Kaia 的网络性能。
+  - 共识节点：上图显示有 15 个节点参与了共识过程。
+  - 平均块生成时间（1 小时）：显示过去一小时内生成数据块的平均时间。
+  - 平均块生成时间（24 小时）：它显示了过去 24 小时内生成数据块的平均时间。
+  - Avg TX Per Block （24 小时）：过去 24 小时内包含在一个数据块中的平均交易次数。
+- 交易历史（14 天）：图表显示过去 14 天内的每日交易次数。 您可以看到过去两周交易量的变化趋势。
 
-### Recent Blocks & Transactions <a id="recent-blocks-transactions"></a>
+### 最近的区块和交易<a id="recent-blocks-transactions"></a>
 
-These lists show recently created blocks and transactions respectively. You can get the latest information by clicking the refresh button on the upper-right corner in the pane. In the bottom of the list, clicking the ‘view all’ button will take you to the [list view](#list-view).
+这些列表分别显示最近创建的区块和事务。 点击窗格右上角的刷新按钮，即可获得最新信息。 在列表底部，单击 "查看全部 "按钮将进入[列表视图]（#list-view）。
 
 ![](/img/build/tools/scope_03_main_list.png)
 
-### Network Status & Network Selector <a id="network-status-network-selector"></a>
+### 网络状态和网络选择器<a id="network-status-network-selector"></a>
 
 ![](/img/build/tools/network_status.gif)
 
-On the upper-right corner of the site, there are network status indicator and the network selector drop down.
+网站右上角有网络状态指示灯和网络选择器下拉菜单。
 
-- Network Status Indicator
-  - Network is healthy: Kaiascope is healthy and fully operational. The network status is normal.
-  - Data latency: Kaiascope is undergoing system maintenance. Data is in a delayed state.
-  - Data accuracy: Kaiascope is synchronizing data, please wait.
-- Network Selector Drop Down
-  - You can choose Kaia mainnet and Kairos testnet from the menu.
+- 网络状态指示灯
+  - 网络正常：Kaiascope 正常运行。 网络状态正常。
+  - 数据延迟：Kaiascope 正在进行系统维护。 数据处于延迟状态。
+  - 数据准确性：Kaiascope 正在同步数据，请稍候。
+- 网络选择器下拉菜单
+  - 您可以从菜单中选择 Kaia 主网和 Kairos 测试网。
 
-## List View <a id="list-view"></a>
+## 列表查看<a id="list-view"></a>
 
-If you want to get a closer look at the status of the Kaia network, you can check the list of recently generated blocks and transactions. To access the list page, click the button on the navigation bar which located on the left of the screen.
+如果您想进一步了解 Kaia 网络的状态，可以查看最近生成的区块和交易列表。 要访问列表页面，请单击屏幕左侧导航栏上的按钮。
 
-### Blocks <a id="blocks"></a>
+### 块<a id="blocks"></a>
 
 ![](/img/build/tools/scope_04_block_list.png)
 
-A list of recently generated blocks. To update the information, please click the refresh.
+最近生成的区块列表。 要更新信息，请点击刷新。
 
-- Block: The unique number of the block. Starting from zero \(the genesis block\), it is given sequentially each time a block is generated.
-- Time: Duration of time since the block was generated. You can check the exact date and time by hovering this.
-- Total TXs: The total number of transactions included in the block.
-- Block Proposer: Randomly but deterministically selected Consensus Node that proposed the block. By clicking the address, you can easily go to the details page.
-- Reward: Aggregation of newly minted KAIA \(9.6 KAIA\) and transaction fees used in the block. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Ecosystem Fund. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Kaia Token Economy].
-- Size: The size of blocks measured in Byte. The more transactions are included, the larger the block size.
+- 区块：区块的唯一编号。 从零开始（创世区块），每次生成一个区块时都会依次给出。
+- 时间：区块生成后的持续时间。 您可以通过鼠标悬停来查看确切的日期和时间。
+- TX 总数：区块中包含的交易总数。
+- 区块提议者：随机但确定地选择提出区块的共识节点。 点击地址，即可轻松进入详情页面。
+- 奖励：新铸币的 KAIA （9.6 KAIA/）和区块中使用的交易费的总和。 列表仅显示 Kaia 治理委员会奖励、贡献证明和 Kaia 生态系统基金的总和。 将鼠标悬停在区块详情页面上的区块奖励部分，即可查看详细信息。 有关区块奖励分配系统的更多详情，请参阅\[Kaia 代币经济]。
+- 大小：数据块的大小，以字节为单位。 包含的交易越多，区块大小就越大。
 
-### Transactions <a id="transactions"></a>
+### 交易<a id="transactions"></a>
 
 ![](/img/build/tools/scope_05_tx_list.png)
 
-A list of recently executed transactions. To update the information, please click the refresh.
+最近执行的事务列表。 要更新信息，请点击刷新。
 
-- TX Hash: The unique identifier of the transaction. For more information, click the hash to go to the detail page. If the transaction fails, a red exclamation mark appears next to it.
-- Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the details page of the block.
-- Time: Duration of time since the transaction was executed. You can check the exact date and time by hovering this.
-- From -&gt; To: The addresses of sender and receiver. By clicking the address, you can easily go to the details page. If the file icon displays next to an address, it means that the address is a contract.
-- TX Type: Type of the transaction. You can apply a filter to get the transactions of a specific type. For more information, please visit [Transactions].
-- Amount: The amount of value transferred through the transaction.
-- TX Fee: The actual cost used to process transaction.
+- TX 哈希值：交易的唯一标识符。 如需了解更多信息，请点击散列进入详细页面。 如果交易失败，旁边会出现一个红色感叹号。
+- Block \#: 包含此交易的区块编号。 点击号码后，您将进入该区块的详细信息页面。
+- 时间：交易执行后的持续时间。 您可以通过鼠标悬停来查看确切的日期和时间。
+- 发件人 -&gt; 收件人：发件人和收件人的地址。 点击地址，即可轻松进入详情页面。 如果文件图标显示在地址旁边，则表示该地址是一份合同。
+- TX 类型：交易类型。 您可以使用过滤器来获取特定类型的交易。 更多信息，请访问 \[交易]。
+- 金额：通过交易转移的价值量。
+- TX 费用：处理交易的实际费用。
 
-## Detail View <a id="detail-view"></a>
+## 详细查看<a id="detail-view"></a>
 
-Detailed information about single Block, Transaction, Account, and Contract can be found on this page. To go to the details view, you can search for the entity from the search bar or click the item from the list view.
+有关单个区块、交易、账户和合约的详细信息，请参见本页。 要转到详细信息视图，可以从搜索栏中搜索实体，或从列表视图中单击项目。
 
-### Block <a id="block"></a>
+### 街区<a id="block"></a>
 
 ![](/img/build/tools/scope_08_block_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 概述<a id="overview"></a>
 
-Overall information about the block.
+区块的总体信息。
 
-- Time: Elapsed time since the block generation. Exact datetime is also displayed next to it.
-- Hash: The unique identifier of the block. By pressing the copy button, you can easily copy the hash.
-- Parent Hash: The unique identifier of the previous block. Clicking on the hash takes you to the detail view of the parent hash.
-- Total TXs: The total number of transactions included in the block.
-- Block Reward: Aggregation of the newly minted KAIA \(9.6 KAIA\) and the transaction fees collected in the block. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Ecosystem Fund. More details about block reward distribution system can be found in the [Kaia Token Economy].
-- Block Size: The size of block measured in Byte. The more transactions are included, the larger the block size.
+- 时间： 生成区块后的时间。 旁边还会显示确切的日期时间。
+- 哈希值：区块的唯一标识符。 按下复制按钮，就可以轻松复制哈希值。
+- 父哈希值：前一个区块的唯一标识符。 点击散列可进入父散列的详细视图。
+- TX 总数：区块中包含的交易总数。
+- 区块奖励：新铸币的 KAIA （9.6 KAIA/）和区块中收取的交易费的总和。 将鼠标悬停，您将看到有关 Kaia 治理委员会奖励、贡献证明和 Kaia 生态系统基金的详细信息。 有关区块奖励分配系统的更多详情，请参阅\[Kaia 代币经济]。
+- 数据块大小：数据块的大小（以字节为单位）。 包含的交易越多，区块大小就越大。
 
-#### Committee <a id="committee"></a>
+#### 委员会<a id="committee"></a>
 
-List of consensus nodes that proposed and validated the block.
+提出并验证区块的共识节点列表。
 
-- Block Proposer: Randomly but deterministically selected consensus node that proposed the block. By clicking the address, you can easily go to the detail view of the node.
-- Validators: Consensus nodes that validated the block. By clicking the address, you can easily go to the detail view of the node.
+- 区块提议者：随机但确定地选择提出区块的共识节点。 点击地址，就可以轻松进入节点的详细视图。
+- 验证者：验证区块的共识节点。 点击地址，就可以轻松进入节点的详细视图。
 
-#### Transactions <a id="transactions"></a>
+#### 交易<a id="transactions"></a>
 
-List of transactions included in the block.
+区块中包含的交易列表。
 
-### Transaction <a id="transaction"></a>
+### 交易<a id="transaction"></a>
 
 ![](/img/build/tools/scope_09_tx_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 概述<a id="overview"></a>
 
-Overall information about the transaction.
+交易的总体信息。
 
-- Status indicator: On the upper-right corner. The indicator whether the transaction succeeded or not.
-- TX Type: Type of the transaction. For more information, please see [Transactions].
-- Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the detail view of the block.
-- From -&gt; To: The addresses of sender and receiver. By clicking the address, you can go to the detail view of the account. If a file icon displays next to the address, it means that address is contract.
-- Fee Payer: Displayed when TX type is either Fee Delegated or Fee Delegated with Ratio. When you click the address of fee payer you can go to the detailed view of the account.
-- Time: Elapsed time since the transaction was executed.
-- Nonce: Number of the transaction sent from the sender's address. Starting from zero, it increases sequentially each time a transaction is sent.
-- Amount: The amount of value transferred in this transaction.
-- Gas Price: Cost per gas measured in KAIA. In Kaia network, Gas Price is fixed.
-- Gas Used: Exact gas that was used to execute the transaction.
-- Gas Limit: Maximum gas that the sender was willing to pay for this transaction.
-- TX Fee: The actual cost used to process transaction. Calculated by multiplying Gas Price by Gas Used.
-- TX Fee by Sender: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the sender.
-- TX Fee by Fee Payer: Displayed when TX type is Fee Delegated with Ratio. The portion of TX fee paid by the fee payer.
+- 状态指示器：在右上角。 交易是否成功的指标。
+- TX 类型：交易类型。 更多信息，请参阅 \[交易]。
+- Block \#：包含此交易的区块编号。 点击数字可进入区块的详细视图。
+- 发件人 -&gt; 收件人：发件人和收件人的地址。 点击地址，即可进入账户的详细视图。 如果地址旁边显示文件图标，则表示该地址已签约。
+- 费用支付人：当 TX 类型为 "收费委托 "或 "按比例收费委托 "时显示。 点击缴费人地址后，即可进入账户的详细视图。
+- Time（时间）：交易执行后的时间。
+- Nonce：发件人地址发送的交易编号。 从零开始，每次发送交易时，它都会依次增加。
+- 金额：本次交易中转移的价值金额。
+- 天然气价格：单位为 KAIA 的天然气成本。 在 Kaia 网络中，天然气价格是固定的。
+- 使用的气体：执行交易时使用的确切气体。
+- 汽油限额：发件人愿意为此次交易支付的最大汽油量。
+- TX 费用：处理交易的实际费用。 计算方法：天然气价格乘以天然气用量。
+- 发件人 TX 费用：当 TX 类型为带比率的收费委托时显示。 发件人支付的 TX 费用部分。
+- TX 费用（按费用支付方）：TX 类型为按比例收费委托时显示。 TX 费用中由付费者支付的部分。
 
-#### Input Data <a id="input-data"></a>
+#### 输入数据<a id="input-data"></a>
 
-Extra data provided by the sender or contract.
+发件人或合同提供的额外数据。
 
-### Account <a id="account"></a>
+### 账户<a id="account"></a>
 
 ![](/img/build/tools/scope_10_account_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 概述<a id="overview"></a>
 
-Overall information about the account.
+账户的总体信息。
 
-- Address \(Hex\): The unique address of the account.
-- Balance: The total amount of KAIA that this account has.
-- Total TXs: The total number of transactions that this account sent or received.
+- 地址（Hex\ ）：账户的唯一地址。
+- 余额：该账户拥有的 KAIA 总额。
+- TX 总数：该账户发送或接收的交易总数。
 
-#### Transactions <a id="transactions"></a>
+#### 交易<a id="transactions"></a>
 
-The list of transactions related to this account. The color of the arrow indicates if the account is a sender or receiver.
+与该账户相关的交易列表。 箭头的颜色表示账户是发送方还是接收方。
 
-### Contract <a id="contract"></a>
+### 合同<a id="contract"></a>
 
 ![](/img/build/tools/scope_11_contract_detail.png)
 
-#### Overview <a id="overview"></a>
+#### 概述<a id="overview"></a>
 
-Overall information about the contract.
+合同的总体信息。
 
-- Account \(Hex\): The unique address of the contract.
-- Balance: The total amount of KAIA that this contract has.
-- Contract Creator: The account that deployed this contract. By clicking the address, you can go to the detail view of the account.
-- Total TXs: The total number of transactions that this contract received.
-- Contract Created TX: The transaction that deployed this contract. Clicking on the hash takes you to the detail view of the transaction.
+- Account\(Hex\)：合同的唯一地址。
+- 余额：该合同的 KAIA 总金额。
+- 合同创建者：部署此合同的账户。 点击地址，即可进入账户的详细视图。
+- TX 总数：该合同收到的交易总数。
+- 合同创建 TX：部署此合同的交易。 点击哈希值可进入交易的详细视图。
 
-#### Transactions <a id="transactions"></a>
+#### 交易<a id="transactions"></a>
 
-The list of transactions related to this contract.
+与本合同有关的交易清单。
 
-## Search <a id="search"></a>
+## 搜索<a id="search"></a>
 
-Through Kaiascope, you can search for the information about account, contract, transactions and blocks. The search bar is placed on every page, making it easy to access. Entering a valid keyword will take you to the detail view of the entity.
+通过 Kaiascope，您可以搜索有关账户、合约、交易和区块的信息。 搜索栏位于每个页面上，方便用户访问。 输入一个有效的关键字，就可以进入实体的详细视图。
 
 ![](/img/build/tools/scope_06_search.png)
 
-### Search Keyword <a id="search-keyword"></a>
+### 搜索关键词<a id="search-keyword"></a>
 
-In the mainnet version, searchable keywords are as follows:
+在主网版本中，可搜索的关键字如下：
 
-- Block \#
-- TX Hash
-- Address \(Account, Contract\)
+- 区块
+- 德克萨斯州哈希
+- Address （账户，合同）
 
-### Keyword Format <a id="keyword-format"></a>
+### 关键词格式<a id="keyword-format"></a>
 
-The unique characteristics that distinguish each keyword are as follows:
+每个关键词的独特特征如下：
 
-#### Block <a id="block"></a>
+#### 街区<a id="block"></a>
 
-- Decimal numbers only \[0~9\]
+- 仅限十进制数 \[0~9\]
 
-#### TX Hash <a id="tx-hash"></a>
+#### 德克萨斯州哈希<a id="tx-hash"></a>
 
-- 66 characters long
-- Starts with a prefix `0x`
-- Hexadecimal number only \[0~9, a~f\]
+- 66 个字符长
+- 以前缀 `0x` 开头
+- 仅限十六进制数 （[0~9, a~f\]
 
-#### Address <a id="address"></a>
+#### 地址<a id="address"></a>
 
-- 42 characters long
-- Start with a prefix `0x`
-- Hexadecimal number only \[0~9, a~f\]
+- 42 个字符长
+- 以前缀 `0x` 开始
+- 仅限十六进制数 （[0~9, a~f\]
 
-### Search Errors <a id="search-errors"></a>
+### 搜索错误<a id="search-errors"></a>
 
 ![](/img/build/tools/scope_07_noresult.png)
 
-If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
+如果搜索的关键字不符合指定格式或信息尚未生成，则不会出现结果页面。
 
-#### Wrong Format \(TX Hash / Address\) <a id="wrong-format-tx-hash-address"></a>
+#### 错误格式 （TX Hash / Address\)<a id="wrong-format-tx-hash-address"></a>
 
-- Wrong number of characters
-- Doesn't start with a prefix `0x`
-- Contains special characters or non-hexadecimal characters \[g~z\]
+- 字符数错误
+- 不以前缀 `0x` 开头
+- 包含特殊字符或非十六进制字符
 
-#### Doesn't Exist <a id="doesn-t-exist"></a>
+#### 不存在<a id="doesn-t-exist"></a>
 
-- Blocks not yet generated \(if the block number entered was higher than recently generated block number\)
-- Non-existent TX Hash
+- 尚未生成的区块（如果输入的区块编号高于最近生成的区块编号）
+- 不存在 TX 哈希值
 
 [Transactions]: ../../../learn/transactions/transactions.md
 [Kaia Token Economy]: ../../../learn/token-economy.md
