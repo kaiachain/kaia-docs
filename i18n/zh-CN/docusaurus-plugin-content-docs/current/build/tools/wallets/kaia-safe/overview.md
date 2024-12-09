@@ -1,15 +1,15 @@
-# Kaia Safe Design
+# Kaia Safe 设计公司
 
-Currently, Kaia Safe is a collection of tools to create and manage multi-signature wallets, viz:
+目前，Kaia Safe 是一套用于创建和管理多重签名钱包的工具，即
 
-- **Safe React:** This is a react web app to create and interact with a multi-sig wallet.
+- **Safe React：** 这是一个用于创建多签名钱包并与之交互的反应式网络应用程序。
 
-- **Safe Transaction Service:** This keeps track of transactions sent via safe contracts and listens to events from recent blocks in Mainnet and Kairos. Transactions can also be sent to the service to allow off-chain collecting of signatures or to inform the owners about a transaction that is pending to be sent to the blockchain.
+- **安全交易服务：** 跟踪通过安全合约发送的交易，并监听主网和 Kairos 中最近区块的事件。 交易也可以发送到该服务，以便在链外收集签名，或通知所有者即将发送到区块链的交易。
 
-- **Safe Config Service:** This provides configuration information of the Kaia Safe clients environment, e.g configs of all chain details and APIs.
+- **安全配置服务：** 提供 Kaia Safe 客户端环境的配置信息，例如所有链细节和应用程序接口的配置。
 
-- **Safe Client Gateway:** This is a gateway between the Kaia Safe client and the backend services (transaction service and Kaia Nodes)
+- **安全客户端网关：** 这是 Kaia Safe 客户端与后端服务（交易服务和 Kaia 节点）之间的网关。
 
-- **Safe Infrastructure:** This is a  cluster setup to deploy the backend services (Safe-Transaction, Safe-Config, Safe-Client gateway).
+- **安全基础设施：** 这是一个集群设置，用于部署后端服务（安全交易、安全配置、安全客户端网关）。
 
-Please refer to this [link](https://github.com/kaiachain/kaia-safe-infrastructure) to get more information.
+请参阅此 [链接](https://github.com/kaiachain/kaia-safe-infrastructure) 获取更多信息。
