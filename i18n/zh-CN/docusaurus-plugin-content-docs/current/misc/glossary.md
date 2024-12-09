@@ -10,9 +10,9 @@
 
 在区块链上存储锚的过程。 为此，可以创建一个包含外部数据哈希值的事务，或者创建一个引用外部数据的智能合约（例如，[服务链中的锚定](../nodes/service-chain/configure/anchoring.md)）。
 
-### Kairos
+### BFT-based public blockchain
 
-Kaia 平台的公共测试网络。 开发人员在将应用程序部署到主网之前，可使用它来测试和验证应用程序。
+This is a blockchain that utilizes Byzantine Fault Tolerance (BFT), ensuring consensus can be reached even if some nodes fail or act maliciously. The system relies on algorithms designed to handle up to ⅓ of nodes behaving incorrectly or dishonestly, without compromising the integrity of the network.
 
 ### 区块浏览器
 
@@ -97,6 +97,10 @@ KIP 的一些典型例子有 [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7)�
 ### Kaia 网络标识符（KNI）
 
 用于识别 Kaia 节点的唯一资源标识符方案。 它包括节点 ID、主机名、端口和磁盘端口。
+
+### Kairos
+
+Kaia 平台的公共测试网络。 开发人员在将应用程序部署到主网之前，可使用它来测试和验证应用程序。
 
 ### 提案人
 
