@@ -1,12 +1,12 @@
-# Quick Start
+# 快速入门
 
-This tutorial provides a step-by-step guide for setting up a ServiceChain network and connecting it to the Kaia Kairos network.
-You will also learn how to enable periodic anchoring and cross-chain value transfer.
-In order to operate the actual blockchain services with the ServiceChain, we will explain High Availability, building a ServiceChain hierarchically, and value transfer between sibling ServiceChains.
+本教程将逐步指导如何设置 ServiceChain 网络并将其连接到 Kaia Kairos 网络。
+您还将学习如何实现定期锚定和跨链价值转移。
+为了利用 ServiceChain 运行实际的区块链服务，我们将讲解高可用性、分层构建 ServiceChain 以及同级 ServiceChain 之间的价值转移。
 
-- [Setting up a 4-node ServiceChain](./4nodes-setup-guide.md)
-- [Connecting to Kairos](./en-scn-connection.md)
-- [Cross-chain Value Transfer](./value-transfer.md)
-- [HA for ServiceChain](./ha-for-sc.md)
-- [Nested ServiceChain](./nested-sc.md)
-- [Value Transfer between Sibling ServiceChains](./value-transfer-between-sibling.md)
+- [设置 4 节点服务链](./4nodes-setup-guide.md)
+- [连接到 Kairos](./en-scn-connection.md)
+- [跨链价值转移](./value-transfer.md)
+- [服务链的 HA](./ha-for-sc.md)
+- [嵌套服务链](./nested-sc.md)
+- [兄弟姐妹之间的价值转移服务链](./value-transfer-between-sibling.md)
