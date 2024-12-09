@@ -1,10 +1,10 @@
 # ERC-20
 
-## Introduction <a id="introduction"></a>
+## 导言<a id="introduction"></a>
 
-This tutorial helps you to create an example ERC-20 compatible token that conforms to the [Kaia Token Standards](../token-standard.md), especially [Fungible Token Standard \(ERC-20\)](../token-standard.md#fungible-token-standard-kip-7).
+本教程帮助你创建一个符合[Kaia 代币标准](.../token-standard.md)，尤其是[Fungible Token Standard （ERC-20）](.../token-standard.md#fungible-token-standard-kip-7)的ERC-20 兼容代币示例。
 
-[ERC-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20) defines two events and 9 methods \(including 3 optional methods\) as below. ERC-20-compatible tokens are token contracts that implements the following interface.
+[ERC-20令牌标准](https://eips.ethereum.org/EIPS/eip-20) 定义了以下 2 个事件和 9 个方法（包括 3 个可选方法）。 与 ERC-20 兼容的代币是实现以下接口的代币合约。
 
 ```text
 function name() public view returns (string) //optional
@@ -21,22 +21,22 @@ event Transfer(address indexed _from, address indexed _to, uint256 _value)
 event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 ```
 
-Based on above interface, developers may customize tokens by adding new features and logics, and deploy on Kaia network. For more information, refer to official [ERC-20 documentation](https://eips.ethereum.org/EIPS/eip-20).
+在上述界面的基础上，开发人员可以通过添加新功能和逻辑来定制令牌，并将其部署到 Kaia 网络上。 更多信息，请参阅官方 [ERC-20 文档](https://eips.ethereum.org/EIPS/eip-20)。
 
-In this tutorial, you are going to implement `MyERC20.sol`, an ERC-20 compatible token. This token will issue a predefined amount of tokens and sends all of the tokens to the contract owner on its deploy.
+在本教程中，您将实现与 ERC-20 兼容的令牌 `MyERC20.sol`。 该代币将发行预定数量的代币，并在部署时将所有代币发送给合约所有者。
 
-`MyERC20.sol` is based on OpenZeppelin's ERC20 implementation. A major part of the code in this tutorial is forked from [OpenZeppelin 2.3 ](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0) and following Solidity files are used to implement `MyERC20.sol`.
+MyERC20.sol "基于 OpenZeppelin 的 ERC20 实现。 本教程的大部分代码来自 [OpenZeppelin 2.3 ](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0)，以下 Solidity 文件用于实现 `MyERC20.sol`。
 
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol)
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol)
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Detailed.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Detailed.sol)
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/math/SafeMath.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/math/SafeMath.sol)
 
-## 1. Writing ERC-20 Smart Contract <a id="1-writing-erc-20-smart-contract"></a>
+## 1. 编写 ERC-20 智能合约<a id="1-writing-erc-20-smart-contract"></a>
 
-### 1.1 Overall structure of MyERC20 <a id="1-1-overall-structure-of-myerc20"></a>
+### 1.1 MyERC20 的总体结构<a id="1-1-overall-structure-of-myerc20"></a>
 
-The complete source code of `MyERC20.sol` is given below. In this implementation, `constructor` invokes `_mint` to mint a predefined amount of token on contract deploy.
+MyERC20.sol "的完整源代码如下。 在此实现中，"构造器 "调用 "铸币"，在部署合约时铸入预定数量的代币。
 
 ```text
 pragma solidity ^0.5.0;
@@ -426,20 +426,20 @@ contract MyERC20 is IERC20 {
 }
 ```
 
-`MyERC20.sol` consists of one interface `IERC20`, one library `SafeMath` and one contract `MyERC20` which implements `IERC20` interface.
+MyERC20.sol "由一个接口 "IERC20"、一个库 "SafeMath "和一个实现 "IERC20 "接口的合约 "MyERC20 "组成。
 
-- `IERC20` interface defines mandatory interface described at [ERC-20 specification](https://eips.ethereum.org/EIPS/eip-20).
-- `SafeMath` library defines wrappers over Solidity's arithmetic operations with added overflow checks for safe calculation of `uint256` type of Solidity.
-- `MyERC20` implements `IERC20` interfaces and also defines three optional methods described at [ERC-20 specification](https://eips.ethereum.org/EIPS/eip-20).
-  - In addition to ERC20, `constructor` is defined and this constructor is used to define a new ERC20 token name and symbol, and to mint a predefined amount of token. `constructor` is called once on its first deploy.
+- IERC20 "接口定义了[ERC-20 规范](https://eips.ethereum.org/EIPS/eip-20) 中描述的强制接口。
+- SafeMath "库定义了 Solidity 算术运算的包装器，并增加了溢出检查功能，可安全计算 Solidity 的 "uint256 "类型。
+- MyERC20 "实现了 "IERC20 "接口，还定义了三个可选方法，详见[ERC-20 规范](https://eips.ethereum.org/EIPS/eip-20)。
+  - 除 ERC20 外，还定义了 "构造器"，该构造器用于定义新的 ERC20 令牌名称和符号，并铸造预定数量的令牌。 `constructor` 在首次部署时被调用一次。
 
-### 1.2 Take a look at important methods <a id="1-2-take-a-look-at-important-methods"></a>
+### 1.2 看看重要的方法<a id="1-2-take-a-look-at-important-methods"></a>
 
-Let's take a look at some important methods in detail.
+让我们来详细了解一些重要的方法。
 
-#### \(1\) `function balanceOf(address account) external view returns (uint256);` <a id="1-function-balanceof-address-account-external-view-returns-uint256"></a>
+#### \(1\) `function balanceOf(address account) external view returns (uint256);`<a id="1-function-balanceof-address-account-external-view-returns-uint256"></a>
 
-`balanceOf` is a mandatory method of ERC-20. `balanceOf` returns the balance of the given address.
+balanceOf "是 ERC-20 的强制方法。 `balanceOf` 返回给定地址的余额。
 
 ```text
     function balanceOf(address account) public view returns (uint256) {
@@ -447,19 +447,19 @@ Let's take a look at some important methods in detail.
     }
 ```
 
-`balanceOf` just returns of value of key `account` stored in `_balances` which is `mapping (address => uint256)` type as below.
+`balanceOf` 只返回存储在 `_balances`中的 key`account` 的值，它是 `mapping (address => uint256)`类型，如下所示。
 
 ```text
     mapping (address => uint256) private _balances;
 ```
 
-If there is no key `account` available in `_balances`, then it just returns `0`.
+如果 `_balances`中没有可用的 key `account` ，则只会返回 `0`。
 
-#### \(2\) `function transfer(address recipient, uint256 amount) external returns (bool);` <a id="2-function-transfer-address-recipient-uint256-amount-external-returns-bool"></a>
+#### \(2\) `function transfer(address recipient, uint256 amount) external returns (bool);`<a id="2-function-transfer-address-recipient-uint256-amount-external-returns-bool"></a>
 
-`transfer` is a mandatory method of ERC-20. `transfer` transfers `amount` of tokens to `recipient`, and MUST fire the `Transfer` event. The function SHOULD throw if the message caller’s account balance does not have enough tokens to spend.
+转让 "是 ERC-20 的强制性方法。 transfer "会将 "数量 "代币转移给 "接收方"，并且必须触发 "Transfer "事件。 如果消息调用者的账户余额没有足够的代币可供使用，函数应抛出。
 
-`transfer` just invokes internal method `_transfer` which implements actual transfer and event as below.
+transfer "只是调用内部方法"_transfer"，它实现的实际传输和事件如下。
 
 ```text
     function transfer(address recipient, uint256 amount) public returns (bool) {
@@ -468,9 +468,9 @@ If there is no key `account` available in `_balances`, then it just returns `0`.
     }
 ```
 
-`_transfer` implements actual behavior of `transfer` method of ERC-20.
+`_transfer` 实现 ERC-20 的 `transfer` 方法的实际行为。
 
-In addition, it prevents sending token from or to zero address using `require` as below.
+此外，它还能防止使用下面的 `require` 从零地址或向零地址发送令牌。
 
 ```text
     function _transfer(address sender, address recipient, uint256 amount) internal {
@@ -483,11 +483,11 @@ In addition, it prevents sending token from or to zero address using `require` a
     }
 ```
 
-#### \(3\) `function approve(address spender, uint256 amount) external returns (bool);` <a id="3-function-approve-address-spender-uint256-amount-external-returns-bool"></a>
+#### \(3\) `function approve(address spender, uint256 amount) external returns (bool);`<a id="3-function-approve-address-spender-uint256-amount-external-returns-bool"></a>
 
-`approve` is a mandatory method of ERC-20. `approve` allows `spender` to withdraw from your account multiple times, up to the `amount`. If this function is called multiple times, it simply resets the allowance to `amount`.
+批准 "是 ERC-20 的强制性方法。 批准 "允许 "支出人 "多次从您的账户中提款，但以 "金额 "为限。 如果多次调用此函数，则会将津贴重置为 `amount`。
 
-`approve` just invokes internal method `_approve` which implements actual behavior of `approve`. `msg.sender` is passed as the account `owner`.
+approve "只是调用内部方法"_approve"，它实现了 "approve "的实际行为。 msg.sender "作为账户 "owner "传递。
 
 ```text
     function approve(address spender, uint256 value) public returns (bool) {
@@ -504,15 +504,15 @@ In addition, it prevents sending token from or to zero address using `require` a
     }
 ```
 
-`_approve` updates `_allowances` which is a 2-dimensional dictionary maintaining allowed `value` for `spender` from specific `address`.
+批准 "更新 "允许值"，"允许值 "是一个二维字典，保存了特定 "地址 "的 "支出人 "的允许 "值"。
 
 ```text
     mapping (address => mapping (address => uint256)) private _allowances;
 ```
 
-#### \(4\) `function _mint(address account, uint256 amount) internal` <a id="4-function-_mint-address-account-uint256-amount-internal"></a>
+#### \(4\) `function _mint(address account, uint256 amount) internal`.<a id="4-function-_mint-address-account-uint256-amount-internal"></a>
 
-`_mint` is not part of ERC-20. However we need a way to create new ERC-20 tokens and introduced `_mint` to create new tokens in this implementation as below.
+`_mint` 不是 ERC-20 的一部分。 但是，我们需要一种方法来创建新的 ERC-20 令牌，因此在此实现中引入了 `_mint` 来创建新令牌，如下所示。
 
 ```text
     function _mint(address account, uint256 amount) internal {
@@ -524,58 +524,58 @@ In addition, it prevents sending token from or to zero address using `require` a
     }
 ```
 
-`_mint` is an internal method and can be invoked inside of this contract.
+`_mint` 是一个内部方法，可在本合同内部调用。
 
-In `MyERC20.sol`, `_mint` is invoked only once from `constructor` when deploying the smart contract to mint a predefined amount of token.
+在`MyERC20.sol`中，当部署智能合约以铸造预定数量的代币时，`_mint`只从`constructor`调用一次。
 
-If you want to issue additional tokens after deploying the smart contract, you have to introduce a new public method such as `mint`. The method should be implemented with CAUTION because only authorized users should be able to mint tokens.
+如果想在部署智能合约后发行额外的代币，就必须引入一个新的公共方法，如 `mint`。 实施该方法时应小心谨慎，因为只有授权用户才能铸造令牌。
 
-Please take a look at OpenZeppelin example [ERC20Mintable.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Mintable.sol) for more detail.
+更多详情，请参阅 OpenZeppelin 示例 [ERC20Mintable.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Mintable.sol)。
 
-## 2. Deploying Smart Contract
+## 2. 部署智能合约
 
-In this section, you'll deploy your MyERC20 smart contract using Remix Online IDE. The complete source code for MYERC20.sol was given at [Writing ERC-20 Smart Contract](https://docs.kaia.io/build/smart-contracts/samples/erc-20/#1-writing-erc-20-smart-contract).
+在本节中，您将使用 Remix Online IDE 部署 MyERC20 智能合约。 MYERC20.sol 的完整源代码见 [编写 ERC-20 智能合约](https://docs.kaia.io/build/smart-contracts/samples/erc-20/#1-writing-erc-20-smart-contract)。
 
-### 2.1 Prerequisites <a href="#2-1-prerequisites" id="2-1-prerequisites"></a>
+### 2.1 先决条件<a href="#2-1-prerequisites" id="2-1-prerequisites"></a>
 
-- [Kaia Wallet](../../tools/wallets/kaia-wallet.md): used to deploy contracts, sign transactions and interact with contracts.
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+- [Kaia Wallet](.../.../tools/wallets/kaia-wallet.md)：用于部署合约、签署交易和与合约交互。
+- 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
-You can use Remix Online IDE or use Truffle to deploy `MyERC20` smart contract.
+你可以使用 Remix Online IDE 或 Truffle 来部署 `MyERC20` 智能合约。
 
-### 2.2 Deploying smart contract using Remix Online IDE <a href="#2-2-deploying-smart-contract-using-kaia-ide" id="2-2-deploying-smart-contract-using-kaia-ide"></a>
+### 2.2 使用 Remix 在线集成开发环境部署智能合约<a href="#2-2-deploying-smart-contract-using-kaia-ide" id="2-2-deploying-smart-contract-using-kaia-ide"></a>
 
 Remix IDE
 
-- Navigate to [Kaia Plugin for Remix](https://ide.kaia.io/)
-- Create a `MyERC20.sol` file in the contracts folder
-- In Remix, click **compile** contract.
-- Click the Kaia (prev Klaytn) tab on your left having installed the plugin
-- Select **Environment** > **Injected Provider** - **Kaia Wallet**.
-- In Contract field, select your contract. For example, MyERC20.
-- Assign the following arguments at deployment **KAIROSTOKEN**, **KAIROS** and **8**
-- Click **Deploy**.
+- 导航至 [Kaia Remix 插件](https://ide.kaia.io/)
+- 在合同文件夹中创建一个 `MyERC20.sol` 文件
+- 在 Remix 中，点击**编译**合同。
+- 安装插件后，点击左侧的 Kaia（前 Klaytn）选项卡
+- 选择 **环境** > **注入式提供商** - **Kaia Wallet**。
+- 在合同字段中，选择您的合同。 例如，MyERC20。
+- 在部署 **KAIROSTOKEN**、**KAIROS** 和 **8** 时分配以下参数
+- 点击 **部署**。
 
 ![ERC20-1-deploy](/img/build/smart-contracts/remix-layout-erc20-example.png)
 
-After deploying, you can invoke `balanceOf` with your account, which was used to deploy the contract. You will find there are `10000000000000` tokens available in your account as below. Because you set `decimal` as `8` when deploying the contract above, it minted a fixed number of `100000` tokens in the constructor, with one token having a decimal value of `10^8`. `totalSupply` method will return the total supply of tokens minted which should be also `10000000000000`.
+部署完成后，可以使用用于部署合同的账户调用 `balanceOf` 。 您会发现您的账户中有 `10000000000000` 代币，如下所示。 由于您在部署上述合约时将 `decimal` 设置为 `8`，因此它在构造器中铸造了固定数量的 `100000` 代币，其中一个代币的十进制值为 `10^8`。 totalSupply "方法将返回已铸造代币的总供应量，也应为 "10000000000000"。
 
 ![ERC20-2-owner-token](/img/build/smart-contracts/bal-ts-erc20-example.png)
 
-`MyERC20` is now live !
+MyERC20 "现已上线！
 
-## 3. Interacting with ERC-20 token from Kaia Wallet <a id="3-interacting-with-erc-20-token-from-kaia-wallet"></a>
+## 3. 与 Kaia 钱包中的 ERC-20 令牌互动<a id="3-interacting-with-erc-20-token-from-kaia-wallet"></a>
 
-You can use Kaia Wallet to check your balance and transfer the ERC-20-compatible KAIROSTOKEN you just deployed. To view your token balance in Kaia Wallet, follow the steps below:
+您可以使用 Kaia 钱包查看余额，并转移您刚刚部署的与 ERC-20 兼容的 KAIROSTOKEN。 要在 Kaia 钱包中查看令牌余额，请按以下步骤操作：
 
-Kaia Wallet
+Kaia 钱包
 
-- Open up Kaia Wallet
-- Click on the Token List Icon, and then click Add Token button
+- 打开 Kaia 钱包
+- 点击令牌列表图标，然后点击添加令牌按钮
 
 ![](/img/build/smart-contracts/kaia-add-token-kw.png)
 
-- Paste the address of myERC20.sol contract in the Token Contract Address field under Custom Token tab.
-- Follow the prompts afterwards to add your token. Your Token List modal should like like this:
+- 在 "自定义令牌 "选项卡下的 "令牌合约地址 "字段中粘贴 myERC20.sol 合约的地址。
+- 然后按照提示添加令牌。 您的令牌列表模式应该是这样的：
 
 ![](/img/build/smart-contracts/kaia-add-token-kw-ii.png)
