@@ -2,38 +2,38 @@
 sidebar_label: Web3-Onboard
 ---
 
-# Integrate Web3-Onboard into a dApp
+# 将 Web3-Onboard 集成到 dApp 中
 
 ![](/img/banners/kaia-web3Onboard.png)
 
-## Introduction
+## 导言
 
-Leveraging a tool like [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction), projects and developers may quickly integrate multiple wallets into their decentralized applications (dApps). With the help of Web3-Onboard, user onboarding has been simplified. Web3-Onboard does have different features, ranging from support for several wallets to the ability for users to connect their accounts to different chains or networks and receive real-time transaction notifications, et cetera.
+利用 [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction) 这样的工具，项目和开发人员可以快速将多个钱包集成到他们的去中心化应用程序（dApps）中。 在 Web3-Onboard 的帮助下，用户入职变得更加简单。 Web3-Onboard 确实有不同的功能，从支持多种钱包到用户可以将账户连接到不同的链或网络并接收实时交易通知等等。
 
-In this guide, you will use Web3-Onboard library to integrate multiple wallets (such as Coinbase Wallet, Metamask, WalletConnect, etc.) into your dApp built on the Kaia Network.
+在本指南中，您将使用 Web3-Onboard 库集成多个钱包（如 Coinbase Wallet、Metamask、WalletConnect 等）。 到您在 Kaia 网络上构建的 dApp 中。
 
-## Prerequisite
+## 先决条件
 
-- A working react project (by executing `npx create-react-app project-name`)
-- Install the necessary wallets ([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+- 一个正在运行的 react 项目（执行 `npx create-react-app project-name` 命令）
+- 安装必要的钱包（[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/)）。
+- RPC 端点：您可以从支持的[端点提供者]（.../.../.../.../references/public-en.md）中获取。
+- 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
-## Getting Started
+## 开始
 
-Web3-Onboard as a chain-agnostic wallet library, supports all EVM-compatible networks and also provides the flexibility of adding new networks to the library. In this guide, we'll use Web3-Onboard to add the Kaia Mainnet and Kaia Testnet Kairos to our dApp. With that said, let’s get started integrating multi-wallet compatibility using Web3-Onboard into your dApp built on Kaia Network.
+Web3-Onboard 作为与链无关的钱包库，支持所有与 EVM 兼容的网络，还能灵活地向库中添加新的网络。 在本指南中，我们将使用 Web3-Onboard 将 Kaia Mainnet 和 Kaia Testnet Kairos 添加到我们的 dApp 中。 说完这些，让我们开始使用 Web3-Onboard 将多钱包兼容性集成到您在 Kaia Network 上构建的 dApp 中。
 
-## Setting up Onboard and Wallet Modules
+## 设置板载模块和钱包模块
 
-**Step 1**: Install @web3-onboard/core
+**第 1 步**：安装 @web3-onboard/core
 
 ```bash
 npm i @web3-onboard/core 
 ```
 
-**Step 2**: Import and Instantiate Wallet Modules
+**第 2 步**：导入和实例化钱包模块
 
-In this step, you can add as many wallets to be supported in your dApp using the wallet modules. But for this guide, you will add Coinbase Wallet, WalletConnect, Injected Wallets to your web3-Onboard implementation. Refer to this [docs](https://onboard.blocknative.com/docs/overview/introduction#wallet-modules) for a list of wallet modules that can be added to your dApp using Web3-Onboard.
+在这一步中，您可以使用钱包模块在您的 dApp 中添加尽可能多的钱包。 但在本指南中，您将在 web3-Onboard 实现中添加 Coinbase 钱包、WalletConnect、注入式钱包。 有关可使用 Web3-Onboard 添加到 dApp 的钱包模块列表，请参阅此 [docs](https://onboard.blocknative.com/docs/overview/introduction#wallet-modules) 。
 
 ```bash
 npm install @web3-onboard/coinbase // Coinbase Wallet
@@ -41,7 +41,7 @@ npm install @web3-onboard/walletconnect // WalletConnect
 npm install @web3-onboard/injected-wallets  // Used to connect to Metamask
 ```
 
-In your `App.js` file, instantiate the wallet modules to integrate with your dApp. Note that each module has its own unique options parameters to pass in, such as a fallback JSON RPC URL or default chain ID.
+在您的 `App.js` 文件中，实例化钱包模块，以便与您的 dApp 集成。 请注意，每个模块都有自己独特的选项参数，如备用 JSON RPC URL 或默认链 ID。
 
 ```js
 import coinbaseWalletModule from "@web3-onboard/coinbase";
@@ -55,23 +55,23 @@ const injected = injectedModule();
 const modules = [coinbaseWalletSdk, walletConnect, injected];
 ```
 
-**Step 3**: Install and import ethers
+**第 3 步**：安装和导入乙醚
 
-The Web3-Onboard provider can be used with libraries like [ethers.js](https://docs.ethers.org/v6/) and [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). In this guide, we will use ethers.js to make Kaia blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
+Web3-Onboard 提供程序可与 [ethers.js](https://docs.ethers.org/v6/) 和 [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 等库一起使用。 在本指南中，我们将使用 ethers.js 进行 Kaia 区块链调用，如获取用户账户、获取余额、签署交易、发送交易、读取和写入智能合约。
 
 ```bash
 npm install --save ethers
 ```
 
-In your `App.js` file, import the ethers package like this:
+在您的 `App.js` 文件中，像这样导入 ethers 软件包：
 
 ```js
 import { ethers } from "ethers";
 ```
 
-**Step 4**: Import and Setup Web3ReactProvider
+**第 4 步**：导入和设置 Web3ReactProvider
 
-In this step, you will instantiate Onboard with the created modules and a list of chains to be compatible with the library. Open up your `App.js` file and paste the code below:
+在此步骤中，您将使用创建的模块和与库兼容的链列表实例化 Onboard。 打开您的 `App.js` 文件并粘贴下面的代码：
 
 ```js
 import Onboard from "@web3-onboard/core";
@@ -81,50 +81,50 @@ const KAIROS_TESTNET_URL = `Paste KAIROS TESTNET URL`
 
 const onboard = Onboard({
   wallets: modules, // created in previous step
-  chains: [
+  chains：[
     {
-      id: "0x1", // chain ID must be in hexadecimal
+      id: "0x1", // chain ID 必须是十六进制
       token: "ETH",
-      namespace: "evm",
-      label: "Ethereum Mainnet",
-      rpcUrl: ETH_MAINNET_RPC_URL
+      namespace："evm",
+      label："Ethereum Mainnet",
+      rpcUrl：ETH_MAINNET_RPC_URL
     },
     {
-      id: "0x2019", // chain ID must be in hexadecimal
+      id: "0x2019", // chain ID 必须是十六进制
       token: "KAIA",
-      namespace: "evm",
-      label: "Kaia Mainnet",
-      rpcUrl: KAIA_MAINNET_URL
+      namespace："evm",
+      label："Kaia Mainnet",
+      rpcUrl：KAIA_MAINNET_URL
     },
     {
-      id: "0x3e9", // chain ID must be in hexadecimel
+      id: "0x3e9", // chain ID 必须是十六进制
       token: "KAIA",
-      namespace: "evm",
-      label: "Kairos Testnet",
-      rpcUrl: KAIROS_TESTNET_URL
+      namespace："evm",
+      label："Kairos Testnet",
+      rpcUrl：KAIROS_TESTNET_URL
     },
-   // you can add as much supported chains as possible
+   // 您可以添加尽可能多的支持链
   ],
-  appMetadata: {
-    name: "Kaia-web3-onboard-App", // change to your dApp name
-    icon: "https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // paste your icon 
-    logo: "https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // paste your logo
-    description: "Web3Onboard-Kaia",
-    recommendedInjectedWallets: [
-      { name: "Coinbase", url: "https://wallet.coinbase.com/" },
-      { name: "MetaMask", url: "https://metamask.io" }
+  appMetadata：{
+    name: "Kaia-web3-onboard-App", // Change to your dApp name
+    icon："https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // 粘贴您的图标 
+    logo："https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // 粘贴您的徽标
+    description："Web3Onboard-Kaia",
+    recommendedInjectedWallets：[
+      { name: "Coinbase", url："https://wallet.coinbase.com/"},
+      { name: "MetaMask", url："https://metamask.io" }
     ]
   }
 });
 ```
 
-## Setting up Utils function
+## 设置实用工具功能
 
-In this guide, we will be making use of the utils functions such as `truncateAddress()` and `toHex()`. The `truncateAddress()` function takes in a valid address and returns a more readable format of the address passed in. While the `toHex()` function converts numbers to hexadecimal.  The following steps below show how to set up and use the utils function in your project.
+在本指南中，我们将使用 `truncateAddress()` 和 `toHex()` 等实用工具函数。 truncateAddress() "函数接收有效地址，并返回所传递地址的更易读格式。 而 `toHex()` 函数则将数字转换为十六进制。  以下步骤展示了如何在项目中设置和使用 utils 函数。
 
-**Step 1**: Create a `utils.js` file in the `src` root folder.
+**步骤 1**：在 `src` 根文件夹中创建一个 `utils.js` 文件。
 
-Paste the following code in the newly created utils.js file.
+在新创建的 utils.js 文件中粘贴以下代码。
 
 ```js
 export const truncateAddress = (address) => {
@@ -142,15 +142,15 @@ export const truncateAddress = (address) => {
   };
 ```
 
-**Step 2**: Import the functions in your `App.js` file.
+**第 2**步在您的 `App.js` 文件中导入函数。
 
 ```js
 import { truncateAddress, toHex } from "./utils";
 ```
 
-## Connecting Wallet
+## 连接钱包
 
-Inside your App function in your `App.js` file, call the `connectWallet()` method on the onboard instance to initiate the onboard popup modal.
+在 `App.js` 文件的 App 函数中，调用板载实例上的 `connectWallet()` 方法来启动板载弹出式模块。
 
 ```js
 function App() {
@@ -170,13 +170,13 @@ function App() {
 }
 ```
 
-Once you click your Connect Wallet button, you should see a modal that allows you to seamlessly connect to Coinbase Wallet and other instantiated wallets from your dApp.
+点击 "连接钱包 "按钮后，您将看到一个模态，允许您无缝连接 Coinbase 钱包和 dApp 中的其他实例化钱包。
 
 ![](/img/build/tools/web3-Onboard.png)
 
-## Disconnecting Wallet
+## 断开钱包连接
 
-Disconnecting a connected wallet can be achieved by calling the `disconnectWallet()` method on the onboard instance along with the label of the user's primary wallet. Also, one good practice is to refresh the state to clear any previously stored connection data.
+断开连接的钱包可以通过调用板载实例上的 `disconnectWallet()` 方法和用户主钱包的标签来实现。 此外，一个好的做法是刷新状态，清除之前存储的连接数据。
 
 ```js
 function App() {
@@ -211,17 +211,17 @@ function App() {
 }
 ```
 
-## Accessing connection, account, network information
+## 访问连接、账户和网络信息
 
-After successfully connecting your wallet, you can use the [onboard.state.get()](https://onboard.blocknative.com/docs/modules/core#get-current-state) method to fetch the state of your connection stored through the onboard instance. You can also fetch the state during the initial connection. Now you can modify the  connectWallet() method to return a list of wallet states that you can store in your state and use throughout the application.
+成功连接钱包后，您可以使用 [onboard.state.get()](https://onboard.blocknative.com/docs/modules/core#get-current-state) 方法获取通过 onboard 实例存储的连接状态。 您也可以在初始连接时获取状态。 现在，你可以修改 connectWallet() 方法，返回一个钱包状态列表，将其存储在你的状态中，并在整个应用程序中使用。
 
-**Step 1**:  import React's useState
+**第 1 步**：导入 React 的 useState
 
 ```js
 import { useState } from 'react';
 ```
 
-**Step 2**: Modify code within your App function
+**第 2 步**：修改应用程序功能中的代码
 
 ```js
 function App() {
@@ -259,9 +259,9 @@ function App() {
 }
 ```
 
-## Switching Networks
+## 交换网络
 
-In order to prompt the user to switch networks in your dApps, Web3-Onboard provides a `setChain` method on an initialized instance of Onboard. Note that the target network must have been initialized with the onboard instance at the start of your application.
+为了提示用户在 dApp 中切换网络，Web3-Onboard 在 Onboard 的初始化实例上提供了一个 `setChain` 方法。 请注意，在应用程序启动时，目标网络必须已通过板载实例初始化。
 
 ```js
 const switchNetwork = async () => {
@@ -275,9 +275,9 @@ return (
 )
 ```
 
-## Sending Native Transaction
+## 发送本地事务
 
-After successfully connecting to a wallet, you can store the provider object returned from the wallet connection in a state variable as done in connectWallet() function. You can therefore use this provider and signer object to send transactions to the blockchain.
+成功连接到钱包后，可以将钱包连接返回的提供程序对象存储到状态变量中，就像在 connectWallet() 函数中所做的那样。 因此，您可以使用该提供者和签名者对象向区块链发送交易。
 
 ```js
  // add to the existing useState hook.
@@ -290,19 +290,19 @@ After successfully connecting to a wallet, you can store the provider object ret
       return;
     }
 	
-    // this guide uses ethers version 6.3.0.
+    //
     const ethersProvider = new ethers.BrowserProvider(provider);
-    // for ethers version below 6.3.0.
+    // 对于低于 6.3.0 的ether版本。
     // const provider = new ethers.providers.Web3Provider(provider);
 
     const signer = await ethersProvider.getSigner();
 
-    // Submit transaction to the blockchain and wait for it to be mined
+    // 向区块链提交交易并等待挖矿
     const tx = await signer.sendTransaction({
-          to: "0x75Bc50a5664657c869Edc0E058d192EeEfD570eb",
+          to："0x75Bc50a5664657c869Edc0E058d192EeEfD570eb",
           value: ethers.parseEther("0.1"),
-          maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
-          maxFeePerGas: "6000000000000", // Max fee per gas
+          maxPriorityFeePerGas: "5000000000", // 每个气体的最大优先级费用
+          maxFeePerGas: "6000000000000", // 每个气体的最大费用
         })
     
         
@@ -314,15 +314,15 @@ After successfully connecting to a wallet, you can store the provider object ret
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash : {txHash ?<a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a>: ' '} </div> </div> <div className="App">
     </div>
 );
 
 ```
 
-## Interacting with Smart Contracts
+## 与智能合约互动
 
-With the Web3-Onboard provider and signer object, you can make contract interactions such as writing to and reading from a smart contract deployed on the blockchain.
+有了 Web3-Onboard 提供者和签名者对象，您就可以进行合约交互，例如写入和读取部署在区块链上的智能合约。
 
 ```js
 // add to existing useState hook
@@ -481,7 +481,7 @@ With the Web3-Onboard provider and signer object, you can make contract interact
   )
 ```
 
-## Troubleshooting
+## 故障排除
 
 **Polyfill node core module error**
 
@@ -489,8 +489,8 @@ With the Web3-Onboard provider and signer object, you can make contract interact
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
 
-This error occurs when you use webpack version 5. In this version, NodeJS polyfills is no longer supported by default. To solve this issue, refer to this [guide](https://web3auth.io/docs/troubleshooting/webpack-issues).
+使用 webpack 版本 5 时会出现此错误。 在此版本中，默认情况下不再支持 NodeJS polyfills。 要解决这个问题，请参阅本 [指南](https://web3auth.io/docs/troubleshooting/webpack-issues)。
 
-## Next Step
+## 下一步
 
-For more in-depth guides on Web3-Onboard, please refer to [Blocknative Docs](https://docs.blocknative.com/onboard) and [Blocknative Github repository](https://github.com/blocknative/onboard). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Onboard-sample).
+有关 Web3-Onboard 的更多深入指南，请参阅 [Blocknative 文档](https://docs.blocknative.com/onboard) 和 [Blocknative Github 存储库](https://github.com/blocknative/onboard)。 此外，您还可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Onboard-sample) 上找到本指南的完整实现代码。
