@@ -1,41 +1,41 @@
-# Import Ethereum Contracts
+# 导入以太坊合约
 
-In most cases, you can use Ethereum contracts on Kaia without any modification.
-However, be aware of the following two issues.
+在大多数情况下，您可以在 Kaia 上使用以太坊合约，无需做任何修改。
+不过，要注意以下两个问题。
 
-## Solidity Support <a id="solidity-support"></a>
+## 稳固支持<a id="solidity-support"></a>
 
-- Kairos network is currently compatible with **London** Ethereum Virtual Machine (EVM).
-- Mainnet is currently compatible with **London** Ethereum Virtual Machine (EVM).
+- Kairos 网络目前与**伦敦**以太坊虚拟机 (EVM) 兼容。
+- Mainnet 目前与**伦敦**以太坊虚拟机 (EVM) 兼容。
 
 :::note
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Kaia's own items.
-It has been enabled from block number `#75,373,312` in case of Kairos network and `#86,816,005` for the Mainnet.
+v1.7.0 协议升级 - 不兼容的更改，包括**伊斯坦布尔**硬分叉项目和 Kaia 自己的项目。
+如果是 Kairos 网络，则从区块编号 "#75,373,312 "开始启用，如果是主网络，则从区块编号 "#86,816,005 "开始启用。
 
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#80,295,291` in case of Kairos network and `#86,816,005` for the Mainnet.
+v1.7.3 协议升级 - 包括伦敦\*\*\*硬分叉产生的基本费用在内的不兼容变更。
+如果是 Kairos 网络，则从区块编号 "#80,295,291 "开始启用，如果是主网络，则从区块编号 "#86,816,005 "开始启用。
 
-v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#86,513,895` in case of Kairos network and `#86,816,005` for the Mainnet.
+v1.8.0 协议升级 - 包括伦敦\*\*\*硬分叉产生的基本费用在内的不兼容变更。
+如果是 Kairos 网络，则从区块编号 "#86,513,895 "开始启用，如果是主网，则从区块编号 "#86,816,005 "开始启用。
 
 :::
 
-Backward compatibility is not guaranteed with other EVM versions on Kaia.
-Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
+不保证向后兼容 Kaia 上的其他 EVM 版本。
+因此，强烈建议根据协议升级状态使用正确的目标选项编译 Solidity 代码。
 
 - Kairos: --evm-version london
 - Mainnet: --evm-version london
-- Others(private/service chain): determined according to the protocol upgrade status
+- 其他（私有/服务链）：根据协议升级状态确定
 
-Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
+请参阅 [如何设置 Solc 的 EVM 版本](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)。
 
-An example command is shown below:
+命令示例如下：
 
 ```
 $ solc --evm-version london contract.sol
 ```
 
-## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>
+## 解耦密钥对<a id="decoupled-key-pairs"></a>
 
-Kaia [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../../learn/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](../../learn/computation/precompiled-contracts.md).
+Kaia [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). 如果用户[更新账户](.../.../learn/transactions/basic.md#txtypeaccountupdate)，特定账户的私钥会被替换为另一个账户的私钥。 大多数情况下，这不会影响您的业务逻辑。 但是，如果您的业务逻辑包括 ecrecover，则应考虑使用 validateSender。 更多详情，请参阅 [此处]（.../.../learn/computation/precompiled-contracts.md）。
