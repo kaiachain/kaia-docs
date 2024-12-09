@@ -1,28 +1,28 @@
-# Kaia native coin - KAIA
+# 卡伊亚（KAIA）土著硬币 - KAIA
 
 ## KAIA <a id="klay"></a>
 
-KAIA is the main internal transferable cryptocurrency of Kaia and is used to pay transaction fees when creating or executing smart contracts or when transferring KAIA.
+KAIA 是 Kaia 的主要内部可转移加密货币，用于在创建或执行智能合约或转移 KAIA 时支付交易费用。
 
-KAIA is a necessary element--a fuel--for operating the Kaia distributed application platform. It is a form of payment made by the clients of the platform to the consensus nodes \(CNs\) executing the requested operations. To put it another way, KAIA is an incentive; it ensures that developers write high-quality applications \(wasteful code costs more\) and that the network remains healthy \(CNs are compensated for the resources they contribute\).
+KAIA 是运行 Kaia 分布式应用平台的必要元素--燃料。 它是平台客户向执行请求操作的共识节点支付的一种形式。 换句话说，KAIA 是一种激励机制；它确保开发人员编写高质量的应用程序（浪费的代码成本更高），并确保网络保持健康（CN 为其贡献的资源获得补偿）。
 
-## Units of KAIA <a id="units-of-klay"></a>
+## KAIA 的单位<a id="units-of-klay"></a>
 
-Kaia uses the following unit system for KAIA.
+Kaia 的 KAIA 使用以下单位系统。
 
-- `kei` is the smallest currency unit.
-- A `Gkei` is 10^9 kei.
-- A `KAIA` is 10^18 kei.
+- `kei` 是最小的货币单位。
+- 一个 `Gkei` 是 10^9 kei。
+- 一个 `KAIA` 是 10^18 kei。
 
-| Unit | kei value | kei                       |
+| 单位   | 键值        | kei                       |
 | :--- | :-------- | :------------------------ |
 | kei  | 1 kei     | 1                         |
 | Gkei | 10^9 kei  | 1,000,000,000             |
 | KAIA | 10^18 kei | 1,000,000,000,000,000,000 |
 
-## Historical Pricing <a id="historical-pricing"></a>
+## 历史定价<a id="historical-pricing"></a>
 
-You can download historical price data for the former KLAY and FNSA tokens using the following links:
+您可以通过以下链接下载前 KLAY 和 FNSA 代币的历史价格数据：
 
-- [Download KLAY historical pricing](pathname:///files/Klaytn_historical_data_coinmarketcap.csv)
-- [Download FNSA historical pricing](pathname:///files/Finschia_historical_data_coinmarketcap.csv)
+- [下载 KLAY 历史定价](pathname:///files/Klaytn_historical_data_coinmarketcap.csv)
+- [下载 FNSA 历史定价](pathname:///files/Finschia_historical_data_coinmarketcap.csv)
