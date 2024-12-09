@@ -1,143 +1,143 @@
-# Transition FAQ
+# 过渡时期常见问题
 
-This FAQ addresses common questions and concerns for CEXs, node providers, wallet providers, dApp builders, and retail users familiar with the Klaytn ecosystem, to ensure a smooth transition.
+本常见问题解决了熟悉 Klaytn 生态系统的 CEX、节点提供商、钱包提供商、dApp 构建者和零售用户的常见问题和顾虑，以确保平稳过渡。
 
-- KLAY and FNSA holders
-  - [What happened to Klaytn and Finschia?](#what-happened-to-klaytn-and-finschia-)
-  - [What happens to KLAY and FNSA?](#what-happens-to-klay-and-fnsa-)
-  - [Will I need to create a new wallet for Kaia?](#will-i-need-to-create-a-new-wallet-for-kaia-)
-  - [Will Klaytn provide a swap or migration website for new KAIA tokens?](#will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-)
-  - [Will there be any delay in receiving KAIA tokens?](#will-there-be-any-delay-in-receiving-kaia-tokens-)
-  - [Is there a limit on the amount for swapping KLAY and FNSA tokens?](#is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-)
-  - [I'm currently staking FNSA. Will I need to wait 7 days to unstake my FNSA to swap to KAIA?](#im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-)
-  - [Where can I find the historical price information for KLAY and FNSA? I can't seem to find it on CoinMarketCap or CoinGecko anymore.](#where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-)
+- KLAY 和 FNSA 持有者
+  - [克莱顿和芬丝琪亚怎么了？](#克莱顿和芬丝琪亚怎么了-)
+  - [KLAY 和 FNSA 会怎么样？
+  - [我需要为 Kaia 创建一个新钱包吗？](#我需要为 Kaia 创建一个新钱包吗？)
+  - [Klaytn会为新的KAIA代币提供交换或迁移网站吗？](#will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-)
+  - [接收 KAIA 令牌是否会有延迟？](#will-there-be-any-delay-in-receiving-kaia-tokens-)
+  - [交换 KLAY 和 FNSA 代币的金额有限制吗？](#is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-)
+  - [我现在给 FNSA 下注。 我是否需要等待 7 天才能解除我的 FNSA，以交换到 KAIA？](#im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-)
+  - [在哪里可以找到 KLAY 和 FNSA 的历史价格信息？ 我似乎无法在 CoinMarketCap 或 CoinGecko 上找到它了。](#where-can-i-find-the-historical-price-information-for-klay and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-)
 
-- DApp builders
-  - [What do DApps on Klaytn need to do to migrate to Kaia?](#what-do-dapps-on-klaytn-need-to-do-to-migrate-to-kaia-)
-  - [What do DApps on Finschia need to do to migrate to Kaia?](#what-do-dapps-on-finschia-need-to-do-to-migrate-to-kaia-)
-  - [Will Kaia Foundation continue to provide code audit grants as Klaytn Foundation did?](#will-kaia-foundation-continue-to-provide-code-audit-grants-as-klaytn-foundation-did-)
+- 应用程序开发人员
+  - [Klaytn 上的 DApp 要迁移到 Kaia 需要做什么？](#Klaytn 上的 DApp 要迁移到 Kaia 需要做什么-)
+  - [Finschia 上的 DApp 需要做什么才能迁移到 Kaia？](#what-do-dapps-on-finschia-need-to-do-to-migrate-to-kaia-)
+  - [Kaia 基金会是否会像 Klaytn 基金会那样继续提供代码审计补助金](#will-kaia-foundation-continue-to-provide-code-audit-grants-as-klaytn-foundation-did-)
 
-- Wallet providers
-  - [Is it necessary to update the brand name from Klaytn to Kaia in the wallet?](#is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-)
-  - [What happens if we don't upgrade to the Kaia brand after the mainnet upgrade?](#what-happens-if-we-dont-upgrade-to-the-kaia-brand-after-the-mainnet-upgrade-)
-  - [What will happen to Klaytnscope, the default explorer?](#what-will-happen-to-klaytnscope-the-default-explorer-)
+- 钱包提供商
+  - [是否有必要将钱包中的品牌名称从 "Klaytn "更新为 "Kaia"？]（#是否有必要将钱包中的品牌名称从 "Klaytn "更新为 "Kaia"？）
+  - [如果主网升级后我们不升级到 Kaia 品牌会怎样？](#what-happens-if-we-dont-upgrade to-the-kaia-brand-after-the-mainnet-upgrade-)
+  - [默认资源管理器 Klaytnscope 将何去何从？](#what-will-happen toklaytnscope-the-default-explorer-)
 
-- Centralized exchanges
-  - [Is KAIA a rebrand from KLAY or a completely new token?](#is-kaia-a-rebrand-from-klay-or-a-completely-new-token-)
-  - [Will Kaia be on the Klaytn mainnet or a different mainnet?](#will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-)
-  - [Will the current Klaytn mainnet continue to work after the rebrand?](#will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-)
-  - [When will the KAIA market open?](#when-will-the-kaia-market-open-)
-  - [Where can I find Kaia’s whitepaper?](#where-can-i-find-kaias-whitepaper-)
+- 集中式交易所
+  - [KAIA 是 KLAY 的品牌重塑还是全新的代币？
+  - [卡娅会在 Klaytn 主网还是其他主网？](#will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-)
+  - [当前的 Klaytn 主网在品牌重塑后还能继续运行吗？](#will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-)
+  - [KAIA 市场何时开放？](#when-will-the-KAIA-market-open-)
+  - [在哪里可以找到 Kaia 的白皮书？
 
-- RPC node providers
-  - [What changes do I need to make to my infrastructure to support the transition from Klaytn to Kaia, and will there be any breaking changes in the RPC APIs?](#as-an-rpc-node-provider-what-changes-do-i-need-to-make-to-my-infrastructure-to-support-the-transition-from-klaytn-to-kaia-and-will-there-be-any-breaking-changes-in-the-rpc-apis-)
-  - [Is Kaia a new chain with a different chain ID, or an upgrade based on the Klaytn chain?](#is-kaia-a-new-chain-with-a-different-chain-id-or-an-upgrade-based-on-the-klaytn-chain-)
+- RPC 节点提供者
+  - [为了支持从 Klaytn 到 Kaia 的过渡，我需要对我的基础架构做哪些改动，RPC API 中是否会有任何突破性的改动？
+  - [Kaia是不同链ID的新链，还是基于Klaytn链的升级版？
 
-## KLAY and FNSA holders
+## KLAY 和 FNSA 持有者
 
-### What happened to Klaytn and Finschia? <a id="what-happened-to-klaytn-and-finschia-"></a>
+### 克莱顿和芬丝希娅怎么了？ <a id="what-happened-to-klaytn-and-finschia-"></a>
 
-Klaytn and Finschia merged to form Kaia through governance decisions made by both chains. You can view the voting results [here](https://medium.com/kaiachain/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem-7af570eb069a). The utility tokens of the two chains (KLAY and FNSA) are converted to the KAIA token. You can find the exchange rates for both tokens [here](../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status).
+Klaytn 和 Finschia 通过两家连锁店的管理决策合并为 Kaia。 您可以查看投票结果 [此处](https://medium.com/kaiachain/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem-7af570eb069a)。 两个链（KLAY 和 FNSA）的实用代币转换为 KAIA 代币。 您可以在 [此处] 找到这两种代币的汇率（.../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status）。
 
-### What happens to KLAY and FNSA? <a id="what-happens-to-klay-and-fnsa-"></a>
+### KLAY 和 FNSA 会怎么样？ <a id="what-happens-to-klay-and-fnsa-"></a>
 
-With the launch of the KAIA coin, KLAY balances were automatically reflected as KAIA. FNSA holders are able to use the swap service on the [Kaia Portal](https://portal.kaia.io/) to burn their FNSA tokens on the Finschia network and claim an equivalent value of KLAY tokens. Please read [this post](https://medium.com/lineblockchain/preparations-for-the-upcoming-kaia-chain-token-swap-d9ccd853eda4) to learn more about swapping your FNSA to KAIA.
+随着 KAIA 硬币的推出，KLAY 余额自动反映为 KAIA 余额。 FNSA 持有者可以使用 [Kaia 门户网站](https://portal.kaia.io/) 上的交换服务，在 Finschia 网络上烧毁其 FNSA 代币，并获得等值的 KLAY 代币。 请阅读 [本帖](https://medium.com/lineblockchain/preparations-for-the-upcoming-kaia-chain-token-swap-d9ccd853eda4) 了解更多有关将 FNSA 换成 KAIA 的信息。
 
-### Will I need to create a new wallet for Kaia? <a id="will-i-need-to-create-a-new-wallet-for-kaia-"></a>
+### 我需要为 Kaia 创建一个新钱包吗？ <a id="will-i-need-to-create-a-new-wallet-for-kaia-"></a>
 
-Your Klaytn wallet will be usable on Kaia, but you will need to update the RPC and block explorer URLS if you are using a 3rd-party multi chain wallet such as Metamask. These will be provided at a later date. Finschia wallet holders will need to create a Kaia wallet, and a website will be provided for FNSA holders to burn their tokens and claim an equivalent value of KAIA.
+您的 Klaytn 钱包可以在 Kaia 上使用，但如果您使用的是 Metamask 等第三方多链钱包，则需要更新 RPC 和区块资源管理器 URLS。 这些信息将在日后提供。 Finschia 钱包持有者将需要创建一个 Kaia 钱包，并将提供一个网站供 FNSA 持有者烧毁他们的代币并申领等值的 KAIA。
 
-### Will Klaytn provide a swap or migration website for new KAIA tokens? <a id="will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-"></a>
+### Klaytn 会为新的 KAIA 代币提供交换或迁移网站吗？ <a id="will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-"></a>
 
-No action is required from users. KLAY tokens will be automatically renamed to KAIA tokens.
+用户无需采取任何行动。 KLAY 代币将自动更名为 KAIA 代币。
 
-### Will there be any delay in receiving KAIA tokens? <a id="will-there-be-any-delay-in-receiving-kaia-tokens-"></a>
+### 收到 KAIA 代币会有延迟吗？ <a id="will-there-be-any-delay-in-receiving-kaia-tokens-"></a>
 
-The token swap will be delayed by at least 30 minutes Timelock for safety. Relayers and RPC nodes may incur insignificant additional delays
+为安全起见，令牌交换将至少延迟 30 分钟。 中继器和 RPC 节点可能会产生微不足道的额外延迟
 
-### Is there a limit on the amount for swapping KLAY and FNSA tokens? <a id="is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-"></a>
+### 交换 KLAY 和 FNSA 代币的金额有限制吗？ <a id="is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-"></a>
 
-There is no limit for swapping and bridging the two tokens.
+两种代币的交换和桥接没有限制。
 
-### I'm currently staking FNSA. Will I need to wait 7 days to unstake my FNSA to swap to KAIA? <a id="im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-"></a>
+### 我目前正在盯着 FNSA。 我是否需要等待 7 天才能解除我的 FNSA，换到 KAIA？ <a id="im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-"></a>
 
-With the upcoming launch of Kaia, a governance vote will be proposed on the Finschia network to smoothly integrate token and governance mechanisms, including potentially reducing the unbonding time from 7 days to a couple of hours. If the vote passes, FNSA holders will be able to unstake and swap without having to wait a week.
+随着 Kaia 的即将推出，将在 Finschia 网络上提出治理投票，以顺利整合代币和治理机制，包括可能将解绑时间从 7 天缩短到几个小时。 如果投票通过，FNSA 持有者将可以解押和交换，而无需等待一周时间。
 
-### Where can I find the historical price information for KLAY and FNSA? I can't seem to find it on CoinMarketCap or CoinGecko anymore. <a id="where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-"></a>
+### 在哪里可以找到 KLAY 和 FNSA 的历史价格信息？ 我似乎在 CoinMarketCap 或 CoinGecko 上都找不到它了。 <a id="where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-"></a>
 
-Due to the merger of KLAY and FNSA and their transition to the new token KAIA, historical price information for KLAY and FNSA is no longer available on cryptocurrency tracking websites. However, we have preserved this data for transparency and reference purposes. You can download CSV files containing the historical price data for both KLAY and FNSA from [Kaia native coin - KAIA](../../learn/kaia-native-token.md#historical-pricing).
+由于 KLAY 和 FNSA 的合并以及向新代币 KAIA 的过渡，加密货币跟踪网站上已不再提供 KLAY 和 FNSA 的历史价格信息。 不过，我们还是保留了这些数据，以提高透明度和供参考。 您可以从 [Kaia native coin - KAIA](../../learn/kaia-native-token.md#historical-pricing) 下载包含 KLAY 和 FNSA 历史价格数据的 CSV 文件。
 
-## DApp builders
+## 应用程序开发人员
 
-### What do DApps on Klaytn need to do to migrate to Kaia? <a id="what-do-dapps-on-klaytn-need-to-do-to-migrate-to-kaia-"></a>
+### 要迁移到 Kaia，Klaytn 上的 DApp 需要做些什么？ <a id="what-do-dapps-on-klaytn-need-to-do-to-migrate-to-kaia-"></a>
 
-Klaytn apps will work seamlessly with the Kaia chain, requiring only rebranding. The team will provide branding guidelines. For existing Finschia apps, tech updates and marketing support will be provided through their business channels.
+Klaytn 应用程序将与 Kaia 连锁店无缝连接，只需重新命名即可。 团队将提供品牌指导。 对于现有的 Finschia 应用程序，将通过其业务渠道提供技术更新和营销支持。
 
-### What do DApps on Finschia need to do to migrate to Kaia? <a id="what-do-dapps-on-finschia-need-to-do-to-migrate-to-kaia-"></a>
+### 要迁移到 Kaia，Finschia 上的 DApp 需要做些什么？ <a id="what-do-dapps-on-finschia-need-to-do-to-migrate-to-kaia-"></a>
 
-For DApps in the Finschia ecosystem to migrate to Kaia, a process similar to migrating from a Cosmwasm chain to an EVM chain is required. Additional migration support will be shared once available, but if you need immediate assistance please contact Finschia Foundation.
+Finschia 生态系统中的 DApp 要迁移到 Kaia，需要一个类似于从 Cosmwasm 链迁移到 EVM 链的过程。 如果您需要立即帮助，请联系芬舍基金会。
 
-### Will Kaia Foundation continue to provide code audit grants as Klaytn Foundation did? <a id="will-kaia-foundation-continue-to-provide-code-audit-grants-as-klaytn-foundation-did-"></a>
+### Kaia 基金会是否会像 Klaytn 基金会那样继续提供代码审计补助金？ <a id="will-kaia-foundation-continue-to-provide-code-audit-grants-as-klaytn-foundation-did-"></a>
 
-Yes, audit grants will remain the same along with other grant and funding programs available for Klaytn.
+是的，审计补助金将与 Klaytn 的其他补助金和资助计划保持不变。
 
-## Wallet providers
+## 钱包提供商
 
-### Is it necessary to update the brand name from Klaytn to Kaia in the wallet? <a id="is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-"></a>
+### 是否有必要将钱包中的品牌名称从 Klaytn 更新为 Kaia？ <a id="is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-"></a>
 
-Yes, eco-partners will be informed when the update is required.
+是，需要更新时会通知生态合作伙伴。
 
-### What happens if we don't upgrade to the Kaia brand after the mainnet upgrade? <a id="what-happens-if-we-dont-upgrade-to-the-kaia-brand-after-the-mainnet-upgrade-"></a>
+### 如果主网升级后我们没有升级到 Kaia 品牌，会发生什么情况？ <a id="what-happens-if-we-dont-upgrade-to-the-kaia-brand-after-the-mainnet-upgrade-"></a>
 
-There will be no functional issues after the mainnet upgrade. Rebranding can be done later.
+主网升级后不会出现任何功能问题。 品牌重塑可以稍后进行。
 
-### What will happen to Klaytnscope, the default explorer? <a id="what-will-happen-to-klaytnscope-the-default-explorer-"></a>
+### 默认资源管理器 Klaytnscope 会发生什么变化？ <a id="what-will-happen-to-klaytnscope-the-default-explorer-"></a>
 
-Klaytnscope will continue to work as before and will be upgraded after three months.
+Klaytnscope 将一如既往地工作，并在三个月后升级。
 
-## Centralized exchanges
+## 集中式交易所
 
-### Is KAIA a rebrand from KLAY or a completely new token? <a id="is-kaia-a-rebrand-from-klay-or-a-completely-new-token-"></a>
+### KAIA 是 KLAY 的品牌重塑，还是一个全新的品牌？ <a id="is-kaia-a-rebrand-from-klay-or-a-completely-new-token-"></a>
 
-KAIA is a rebrand of KLAY. KLAY will continue to be used with the updated name and ticker symbol. It is recommended to renew the token chart if possible.
+KAIA 是 KLAY 的改名。 KLAY 将继续使用更新后的名称和股票代码。 建议尽可能更新令牌图。
 
-Due to the merger of the Klaytn and Finschia chains, the total and circulating supply have changed. The circulating supply increased from approximately 3.804 billion to 5.805 billion KAIA, while the total supply decreased from approximately 6.005 billion to 5.805 billion KAIA. These figures may not reflect the current circulating and total supply due to ongoing inflation. KAIA’s inflation rate has been adjusted from 6.4 KAIA per block to 9.6 KAIA per block. For more details on these changes, please refer to the [KAIA Issuance and Distribution Plan](../../kaiatech/kaia-white-paper.md#kaia-issuancedistribution-plan-1).
+由于 Klaytn 和 Finschia 连锁店的合并，供应总量和流通量都发生了变化。 流通供应量从约 38.04 亿韩元增加到 58.05 亿韩元，而总供应量则从约 60.05 亿韩元减少到 58.05 亿韩元。 由于持续的通货膨胀，这些数字可能无法反映当前的流通量和总供应量。 KAIA 的通货膨胀率已从每块 6.4 KAIA 调整为每块 9.6 KAIA。 有关这些变更的更多详情，请参阅[KAIA 发行和分配计划](.../../kaiatech/kaia-white-paper.md#kaia-issuancedistribution-plan-1)。
 
-### Will Kaia be on the Klaytn mainnet or a different mainnet? <a id="will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-"></a>
+### Kaia 会在 Klaytn 主网还是其他主网？ <a id="will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-"></a>
 
-Kaia will continue to be on the Klaytn mainnet.
+Kaia 将继续留在 Klaytn 主网上。
 
-### Will the current Klaytn mainnet continue to work after the rebrand? <a id="will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-"></a>
+### 改版后，当前的 Klaytn 主网还能继续运行吗？ <a id="will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-"></a>
 
-Yes, the mainnet's operation will remain unaffected. The transition to Kaia primarily involves a name change and technical upgrades occurring behind the scenes.
+是的，主网的运行不会受到影响。 向 Kaia 的过渡主要涉及名称更改和幕后的技术升级。
 
-### When will the KAIA market open? <a id="when-will-the-kaia-market-open-"></a>
+### KAIA 市场何时开放？ <a id="when-will-the-kaia-market-open-"></a>
 
-The KAIA market will open in Q3 2024, we will share the exact block number closer to the date.
+KAIA 市场将于 2024 年第三季度开放，我们将在临近该日期时公布确切的区块编号。
 
-### Where can I find Kaia’s whitepaper? <a id="where-can-i-find-kaias-whitepaper-"></a>
+### 在哪里可以找到 Kaia 的白皮书？ <a id="where-can-i-find-kaias-whitepaper-"></a>
 
-You can access Kaia’s whitepaper [here](../../kaiatech/kaia-white-paper.md).
+您可以访问 Kaia 的白皮书 [此处]（.../../kaiatech/kaia-white-paper.md）。
 
-## RPC node providers
+## RPC 节点提供者
 
-### What changes do I need to make to my infrastructure to support the transition from Klaytn to Kaia, and will there be any breaking changes in the RPC APIs? <a id="as-an-rpc-node-provider-what-changes-do-i-need-to-make-to-my-infrastructure-to-support-the-transition-from-klaytn-to-kaia-and-will-there-be-any-breaking-changes-in-the-rpc-apis-"></a>
+### 为了支持从 Klaytn 到 Kaia 的过渡，我需要对基础架构进行哪些更改？ <a id="as-an-rpc-node-provider-what-changes-do-i-need-to-make-to-my-infrastructure-to-support-the-transition-from-klaytn-to-kaia-and-will-there-be-any-breaking-changes-in-the-rpc-apis-"></a>
 
-Most RPC APIs will remain the same on the Kaia chain, with the exception of namespace changes from klay_ to kaia_. However, klay_ will still be available for backward compatibility.
+除了命名空间从 klay_ 变为 kaia_ 之外，Kaia 链上的大多数 RPC API 将保持不变。 不过，为了向后兼容，klay_ 仍将可用。
 
-To support the transition from Klaytn to Kaia, RPC node providers will need to upgrade their binary to the Kaia version once it is released. No immediate action is required before the upgrade.
+为了支持从 Klaytn 到 Kaia 的过渡，RPC 节点提供商需要在 Kaia 版本发布后将其二进制文件升级到 Kaia 版本。 升级前无需立即采取行动。
 
-### Is Kaia a new chain with a different chain ID, or an upgrade based on the Klaytn chain? <a id="is-kaia-a-new-chain-with-a-different-chain-id-or-an-upgrade-based-on-the-klaytn-chain-"></a>
+### Kaia 是具有不同链条 ID 的新链条，还是基于 Klaytn 链条的升级版？ <a id="is-kaia-a-new-chain-with-a-different-chain-id-or-an-upgrade-based-on-the-klaytn-chain-"></a>
 
-Kaia is a hard fork of the Klaytn chain, and the chain ID remains unchanged. The previous testnet "Baobab" has been renamed to "Kairos," while the mainnet "Cypress" is now referred to as "Mainnet" or "Kaia Mainnet." The original URLs related to Klaytn such as docs, website, public endpoints, and package download links will remain for three months to ensure a smooth transition.
+Kaia 是 Klaytn 链的硬分叉，链 ID 保持不变。 之前的测试网络 "Baobab "已更名为 "Kairos"，而主网络 "Cypress "现在被称为 "Mainnet "或 "Kaia Mainnet"。 与 Klaytn 相关的原始 URL（如文档、网站、公共端点和软件包下载链接）将保留三个月，以确保平稳过渡。
 
-## Resources
+## 资源
 
-Here are the main information sources for the chain merge:
+以下是链式合并的主要信息来源：
 
-- [Governance proposal](https://govforum.klaytn.foundation/t/kgp-25-klaytn-finschia-mainnet-merge/719)
-- [Our vision behind the merge](https://medium.com/klaytn/finschia-klaytn-chain-merge-proposal-our-vision-for-asias-1-blockchain-ecosystem-7de1588e28c0)
-- [Crafting the core of Kaia DeFi](https://medium.com/klaytn/crafting-the-core-of-project-dragons-defi-ecosystem-0fa561e02f56)
-- [Responding to institutional demand](https://medium.com/klaytn/project-dragon-responding-to-institutional-demand-bd36e2e1e2a6)
-- [Supplementary data and insights](https://medium.com/klaytn/project-dragon-supplementary-data-and-insights-d36abd25ca0f)
-- [The Kaia brand story](https://medium.com/klaytn/say-hello-to-kaia-4182ccafe456)
+- [治理建议](https://govforum.klaytn.foundation/t/kgp-25-klaytn-finschia-mainnet-merge/719)
+- [合并背后的愿景](https://medium.com/klaytn/finschia-klaytn-chain-merge-proposal-our-vision-for-asias-1-blockchain-ecosystem-7de1588e28c0)
+- [制作 Kaia DeFi 的核心](https://medium.com/klaytn/crafting-the-core-of-project-dragons-defi-ecosystem-0fa561e02f56)
+- [回应机构需求](https://medium.com/klaytn/project-dragon-responding-to-institutional-demand-bd36e2e1e2a6)
+- [补充数据和见解](https://medium.com/klaytn/project-dragon-supplementary-data-and-insights-d36abd25ca0f)
+- [Kaia品牌故事](https://medium.com/klaytn/say-hello-to-kaia-4182ccafe456)
