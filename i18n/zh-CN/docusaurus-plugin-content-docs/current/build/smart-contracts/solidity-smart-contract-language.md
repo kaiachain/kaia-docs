@@ -1,47 +1,47 @@
-# Solidity - Smart Contract Language
+# Solidity - 智能合约语言
 
-This chapter describes only the high-level concepts, development processes, and examples written in Solidity because Solidity is already well documented on its official websites. For language specifications or implementations, please refer to the [References](#references) below. The content of this chapter is based on various websites listed in the [References](#references).
+本章只介绍高级概念、开发过程和用 Solidity 编写的示例，因为 Solidity 在其官方网站上已有详尽的文档说明。 有关语言规范或实现，请参阅下面的 [参考文献](#参考文献)。 本章内容基于 [参考文献]（#参考文献）中列出的多个网站。
 
-## Solidity and Kaia <a id="solidity-and-kaia"></a>
+## 坚固和卡娅<a id="solidity-and-kaia"></a>
 
-[Solidity](https://github.com/ethereum/solidity) is a high-level, statically typed, contract-oriented language for implementing smart contracts on the Ethereum platform. Although Solidity was originally designed for Ethereum, it is general enough to write smart contracts; therefore, it can also be used for other blockchain platforms, such as Kaia.
+[Solidity](https://github.com/ethereum/solidity)是一种高级、静态类型化、面向合约的语言，用于在以太坊平台上实现智能合约。 虽然 Solidity 最初是为以太坊设计的，但它在编写智能合约方面具有足够的通用性；因此，它也可用于其他区块链平台，如 Kaia。
 
-Kaia is officially compatible with **London** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Kaia. Thus, it is highly recommended to compile Solidity code with the Istanbul target option. Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
+Kaia 正式兼容**伦敦**以太坊虚拟机（EVM）版本。 不保证向后兼容 Kaia 上的其他 EVM 版本。 因此，强烈建议使用 Istanbul 目标选项编译 Solidity 代码。 请参阅 [如何设置 Solc 的 EVM 版本](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)。
 
 :::note
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Kaia's own items.
-It has been enabled from block number `#75,373,312` in case of Kairos network and `#86,816,005` for the Mainnet.
+v1.7.0 协议升级 - 不兼容的更改，包括**伊斯坦布尔**硬分叉项目和 Kaia 自己的项目。
+如果是 Kairos 网络，则从区块编号 "#75,373,312 "开始启用，如果是主网络，则从区块编号 "#86,816,005 "开始启用。
 
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#80,295,291` in case of Kairos network and `#86,816,005` for the Mainnet.
+v1.7.3 协议升级 - 包括伦敦\*\*\*硬分叉产生的基本费用在内的不兼容变更。
+如果是 Kairos 网络，则从区块编号 "#80,295,291 "开始启用，如果是主网络，则从区块编号 "#86,816,005 "开始启用。
 
-v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
-It has been enabled from block number `#86,513,895` in case of Kairos network and `#86,816,005` for the Mainnet.
+v1.8.0 协议升级 - 包括伦敦\*\*\*硬分叉产生的基本费用在内的不兼容变更。
+如果是 Kairos 网络，则从区块编号 "#86,513,895 "开始启用，如果是主网，则从区块编号 "#86,816,005 "开始启用。
 
 :::
 
-Development tools such as [Remix](https://remix.ethereum.org/) \(a browser-based IDE\) and [Truffle](https://github.com/trufflesuite/truffle) \(a development framework\) can be utilized when developing smart contracts for Kaia. The Kaia team will attempt to maintain compatibility between Ethereum's development tools and Kaia's but may elect to provide the Kaia smart contract developers with enhanced or updated versions of those tools when necessary.
+在为Kaia开发智能合约时，可以使用[Remix](https://remix.ethereum.org/) （一种基于浏览器的 IDE）和[Truffle](https://github.com/trufflesuite/truffle) （一种开发框架）等开发工具。 Kaia 团队将努力保持以太坊开发工具与 Kaia 开发工具之间的兼容性，但在必要时可能会选择向 Kaia 智能合约开发人员提供这些工具的增强版或更新版。
 
-It is convenient to utilize Remix or Truffle to develop smart contracts, but the Solidity compiler can be used locally, by building or installing it by following the instructions described in the web page below:
+使用 Remix 或 Truffle 开发智能合约非常方便，但 Solidity 编译器也可在本地使用，只需按照下面网页中的说明构建或安装即可：
 
-- [Installing the Solidity Compiler](https://docs.soliditylang.org/en/latest/installing-solidity.html)
+- [安装 Solidity 编译器](https://docs.soliditylang.org/en/latest/installing-solidity.html)
 
-Note that there are two command-line Solidity compilers:
+请注意，有两种命令行 Solidity 编译器：
 
-- _solc_: the full-featured compiler
-  - Covered in the Solidity documentation
-- _solcjs_: Javascript binding for _solc_
-  - Maintained as a separate project [solc-js](https://github.com/ethereum/solc-js)
-  - _solcjs_'s command-line options are not compatible with those of _solc_.
+- _solc_：全功能编译器
+  - 包含在 Solidity 文档中
+- _solcjs_：用于 _solc_ 的 Javascript 绑定
+  - 作为独立项目 [solc-js] 维护(https://github.com/ethereum/solc-js)
+  - _solcjs_ 的命令行选项与 _solc_ 的命令行选项不兼容。
 
-Other materials that are useful for getting started with Solidity include the following:
+其他有助于入门 Solidity 的资料包括以下内容：
 
-- [Top Solidity tutorials](https://medium.com/coinmonks/top-solidity-tutorials-4e7adcacced8)
+- [顶级稳固性教程](https://medium.com/coinmonks/top-solidity-tutorials-4e7adcacced8)
 
-## How to Write a Smart Contract <a id="how-to-write-a-smart-contract"></a>
+## 如何编写智能合约<a id="how-to-write-a-smart-contract"></a>
 
-This section presents an example of Solidity source code to provide readers with an idea of how smart contracts look and how to write a contract. Note that the code included here is provided solely for explanatory purposes; it is not intended for production purposes. In the code, `(require)` means that the line is required for any Solidity source file while `(optional)` indicates that the line is not always needed. The symbol `Ln:` is not part of the Solidity code and is included here only to show the line numbers. Please do not include these symbols in source code intended for real use.
+本节以 Solidity 源代码为例，让读者了解智能合约的外观以及如何编写合约。 请注意，此处包含的代码仅供解释之用，并不用于生产目的。 在代码中，"(require) "表示任何 Solidity 源文件都需要该行，而"(optional) "则表示不一定需要该行。 符号 `Ln:` 并非 Solidity 代码的一部分，在此加入只是为了显示行号。 请不要在实际使用的源代码中使用这些符号。
 
 ```text
 L01: pragma solidity 0.5.12;   // (required) version pragma
@@ -66,72 +66,72 @@ L19:    }
 L20: }
 ```
 
-The above code should be self-explanatory; thus people familiar with any other programming language can skip the following explanation in this section and jump to the next section. However, for those who do not gain a clear understanding of what the code does or those for whom Solidity is a first programming language, we include a short description of the source code below:
+上述代码不言自明，因此熟悉其他编程语言的人可以跳过本节的解释，直接跳到下一节。 不过，对于那些不清楚代码作用的人，或者对于 Solidity 是第一种编程语言的人，我们会在下面附上源代码的简短说明：
 
-- The portions of the code starting with a double forward slash \(`//`\) are comments rather than code; they are used to annotate and explain the code.  The compiler ignores comments.
-- The `pragma` statement in `L01` indicates the minimum compiler version.
-- The `import` statement in `L03` imports all global symbols from "`filename`". The `filename` should be an actual file name.
-- `L05` - `L20` define a smart contract called `UserStorage`.  The keyword `contract` is located before the contract name and declares that the code represents a smart contract.  Contracts in Solidity are similar to classes in object-oriented languages.  Each contract can contain declarations for state variables, functions, function modifiers, events, struct types and enum types.  Furthermore, contracts can inherit from other contracts.  The example code contains one contract definition, but a single Solidity file may contain more than one contract definition.
-- In `L07`, `userData` is a state variable for the mapping type.  State variables are permanently stored in contract storage.  The state variable `userData` maintains a mapping between `address` and a `uint` value.  The `address` type holds a 20-byte address \(Kaia uses a 20-byte address similar to Ethereum\).
-- `L09` defines a public function `set` that saves the value `x` in `userData` for the message's sender.  The variable `msg.sender` is a special variable defined in Solidity that represents the address of the message \(_i.e._, current call\) sender.  The keyword `public` means that the function is part of the contract interface and can be called externally or internally.
-- The functions `get` in `L13` and `getUserData` in `L17` are declared with `view`, which means that the functions promise not to modify any state variable.  Their declarations include `returns (uint)`, which implies that they return a `uint` value.
+- 代码中以双斜线开头的部分是注释，而不是代码；它们用于注释和解释代码。  编译器会忽略注释。
+- L01 "中的 "pragma "语句表示编译器的最小版本。
+- L03`中的`import` 语句从"`filename\`"导入所有全局符号。 文件名 "应为实际文件名。
+- `L05` - `L20` 定义了一个名为 `UserStorage` 的智能合约。  关键字 `contract` 位于合约名称之前，声明代码代表一个智能合约。  Solidity 中的契约类似于面向对象语言中的类。  每个合约可包含状态变量、函数、函数修改器、事件、结构类型和枚举类型的声明。  此外，合同还可以继承其他合同。  示例代码包含一个合同定义，但一个 Solidity 文件可能包含多个合同定义。
+- 在`L07`中，`userData`是映射类型的状态变量。  状态变量永久保存在合约存储器中。  状态变量 `userData` 维护着 `address` 和 `uint` 值之间的映射。  地址 "类型保存一个 20 字节的地址（Kaia 使用的 20 字节地址与以太坊类似）。
+- `L09` 定义了一个公共函数 `set`，用于在 `userData` 中保存信息发送者的 `x` 值。  变量 "msg.sender "是 Solidity 中定义的一个特殊变量，表示消息（即当前呼叫）发送者的地址。  关键字 "public "表示该函数是合约接口的一部分，可在外部或内部调用。
+- L13`中的函数`get` 和 L17` 中的函数 `getUserData` 是用 `view` 声明的，这意味着函数承诺不修改任何状态变量。  它们的声明包括 `returns (uint)`，这意味着它们返回一个 `uint` 值。
 
-For more information concerning the syntax and semantics of the Solidity language, please refer to the [Solidity documentation](https://docs.soliditylang.org/).
+有关 Solidity 语言语法和语义的更多信息，请参阅 [Solidity 文档](https://docs.soliditylang.org/)。
 
-## How to Compile, Deploy, and Execute <a id="how-to-compile-deploy-and-execute"></a>
+## 如何编译、部署和执行<a id="how-to-compile-deploy-and-execute"></a>
 
-One way to compile Solidity code is to use the command-line compiler _solc_. This compiler can produce various outputs, ranging from simple binaries and assembly to an abstract syntax tree \(parse tree\). Assuming that the code above is saved in `UserStorage.sol` \(`L03` is excluded in the source file shown above\), some examples of compiling the file `UserStorage.sol` are as follows.
+编译 Solidity 代码的一种方法是使用命令行编译器 _solc_。 这种编译器可以产生各种输出，从简单的二进制文件和汇编到抽象语法树（parse tree\ ）。 假设上面的代码保存在 `UserStorage.sol`（上面显示的源文件中不包括 `L03`），编译文件 `UserStorage.sol`的一些示例如下。
 
 ```bash
 $ solc --bin UserStorage.sol
 ```
 
-- This command will print the compilation output as a binary, _i.e._, bytecode.
+- 该命令将以二进制_即_字节码_的形式打印编译输出。
 
 ```bash
 solc -o output --bin --ast --asm UserStorage.sol
 ```
 
-- The compiler generates a binary \(by `--bin`\), an abstract syntax tree \(by `--ast`\), and assembly code \(by `--asm`\) as separate files in the `output` directory.
+- 编译器会生成二进制文件、抽象语法树和汇编代码，并将它们作为单独的文件存放在 "输出 "目录下。
 
 ```bash
 solc --optimize --bin UserStorage.sol
 ```
 
-- For better performance, the optimizer can be activated during compilation using the `--optimize` flag.
+- 为提高性能，可在编译过程中使用 `--optimize` 标记激活优化器。
 
-Some resources for compiling, deploying, and executing smart contracts are listed below.
+下面列出了一些用于编译、部署和执行智能合约的资源。
 
-- [Using the Solidity command-line compiler](https://docs.soliditylang.org/en/latest/using-the-compiler.html)
-- [Compiling contracts using Remix](https://remix-ide.readthedocs.io/en/stable/compile.html)
+- [使用Solidity命令行编译器](https://docs.soliditylang.org/en/latest/using-the-compiler.html)
+- [使用 Remix 编译合同](https://remix-ide.readthedocs.io/en/stable/compile.html)
 - [Running transactions with Remix](https://remix-ide.readthedocs.io/en/stable/run.html)
-- [Remix Learneth Tutorials](https://remix-ide.readthedocs.io/en/latest/remix_tutorials_learneth.html)
-- [Compiling contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
-- [Deploying contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
+- [Remix Learneth 教程](https://remix-ide.readthedocs.io/en/latest/remix_tutorials_learneth.html)
+- [用 Truffle 编译合同](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
+- [使用 Truffle 部署合同](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
 
-NOTE: This section will be updated in the future.
+注：本部分内容今后将进行更新。
 
-## Debugging Smart Contracts <a id="debugging-smart-contracts"></a>
+## 调试智能合约<a id="debugging-smart-contracts"></a>
 
-It is more difficult to debug Solidity code than to debug code written in other programming languages due to the lack of mature debugging tools. Below, we list some resources for Solidity debugging.
+由于缺乏成熟的调试工具，调试 Solidity 代码比调试用其他编程语言编写的代码更加困难。 下面，我们列出了一些用于 Solidity 调试的资源。
 
-- [Debugging a transaction with Remix](https://remix-ide.readthedocs.io/en/latest/debugger.html)
-- [Tutorial on debugging transactions with Remix](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-- [Debugging contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
+- [使用 Remix 调试交易](https://remix-ide.readthedocs.io/en/latest/debugger.html)
+- [使用 Remix 调试事务的教程](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
+- [使用 Truffle 调试合同](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
 
-NOTE: This section will be updated in the future.
+注：本部分内容今后将进行更新。
 
-## Smart Contract Best Practices <a id="smart-contract-best-practices"></a>
+## 智能合约最佳实践<a id="smart-contract-best-practices"></a>
 
-To eliminate security concerns and code quality issues from your smart contract, it is important to study and follow best practices in Solidity programming. Here, we show a reference for Solidity best practices.
+要消除智能合约中的安全问题和代码质量问题，必须学习并遵循 Solidity 编程的最佳实践。 在此，我们展示了 Solidity 最佳实践的参考资料。
 
-- [Smart Contract Security Best Practices](https://github.com/ConsenSys/smart-contract-best-practices)
+- [智能合约安全最佳实践](https://github.com/ConsenSys/smart-contract-best-practices)
 
-NOTE: This section will be updated in the future.
+注：本部分内容今后将进行更新。
 
-## References <a id="references"></a>
+## 参考资料<a id="references"></a>
 
-- [Solidity GitHub page](https://github.com/ethereum/solidity)
-- [Solidity documentation](https://solidity.readthedocs.io/en/latest/index.html)
-- [Remix documentation](https://remix-ide.readthedocs.io/en/latest/)
-- [Truffle documentation](https://trufflesuite.com/docs/truffle/)
+- [Solidity GitHub 页面](https://github.com/ethereum/solidity)
+- [Solidity文档](https://solidity.readthedocs.io/en/latest/index.html)
+- [混音文档](https://remix-ide.readthedocs.io/en/latest/)
+- [松露文档](https://trufflesuite.com/docs/truffle/)
