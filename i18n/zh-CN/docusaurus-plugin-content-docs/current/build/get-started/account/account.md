@@ -46,7 +46,7 @@ DATABASE OPTIONS:
 
 ### 数据目录<a id="data-directory"></a>
 
-密钥存储文件存储在<DATADIR>/keystore`下。 您可以按如下方式指定数据目录。 强烈建议在执行 "ken account "命令时使用"--datadir "选项。 让数据目录指向在`kend.conf`中设置的`DATA_DIR\`，以便与端点节点无缝共享账户。
+密钥存储文件存储在`<DATADIR>/keystore`下。 您可以按如下方式指定数据目录。 强烈建议在执行 "ken account "命令时使用"--datadir "选项。 让数据目录指向在`kend.conf`中设置的`DATA_DIR`，以便与端点节点无缝共享账户。
 
 ```bash
 $ ken account new --datadir <DATADIR>
