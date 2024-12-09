@@ -4,7 +4,7 @@ title: Kaia Safe API 工具包
 ---
 
 import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem'；
+import TabItem from '@theme/TabItem';
 
 # Kaia Safe API 套件
 
