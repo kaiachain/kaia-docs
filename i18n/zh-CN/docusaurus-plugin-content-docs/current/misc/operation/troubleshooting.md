@@ -1,23 +1,23 @@
-# Troubleshooting
+# 故障排除
 
-## Where can I find a log file for the running Kaia node using the Kaia binary package? <a id="where-can-i-find-a-log-file-for-the-running-kaia-node-using-the-kaia-binary"></a>
+## 在哪里可以找到使用 Kaia 二进制软件包运行的 Kaia 节点的日志文件？ <a id="where-can-i-find-a-log-file-for-the-running-kaia-node-using-the-kaia-binary"></a>
 
-**Answer**
+**答案**
 
-You can find a log file in data directory. For example, default location of a log for `kcnd` is `/var/log/kcnd/kcnd.out` when you install `kcnd` RPM package.
+您可以在数据目录下找到日志文件。 例如，安装 `kcnd` RPM 软件包时，`kcnd` 的默认日志位置是 `/var/log/kcnd/kcnd.out`。
 
-## Kaia node can not connect to network with `Protocol istanbul/64 failed` and `Genesis block mismatch` error message as below. <a id="kaia-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
+## Kaia 节点无法与网络连接，出现 "Protocol istanbul/64 failed "和 "Genesis block mismatch "错误信息，如下所示。 <a id="kaia-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
 
 ```
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
 ```
 
-**Answer**
+**答案**
 
-This error can happen when `genesis.json` is differ.
-Please stop Kaia node and remove data directory. Then run `ken init` again using correct `genesis.json` as below.
+当 `genesis.json` 不同时，可能会出现此错误。
+请停止 Kaia 节点并删除数据目录。 然后使用正确的 `genesis.json` 再次运行 `ken init` 如下。
 
-For example, when data directory is `/var/kend/data`.
+例如，数据目录为 `/var/kend/data`。
 
 ```
 sudo kend stop
@@ -26,7 +26,7 @@ sudo ken init --datadir /var/kend/data genesis.json
 sudo kend start
 ```
 
-## Can't deploy smart contract using truffle with following error message. <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
+## 无法使用 truffle 部署智能合约，错误信息如下 <a id="can-t-deploy-smart-contract-using-truffle-with-following-error-message"></a>
 
 ```
 Error: Returned error: The method net_version does not exist/is not available
@@ -43,31 +43,31 @@ Error: Returned error: The method net_version does not exist/is not available
     at process._tickCallback (internal/process/next_tick.js:63:19)
 ```
 
-**Answer**
+**答案**
 
-Enable `net` and other API for RPC console by editing `kend.conf` file as below.
+通过编辑下面的 `kend.conf` 文件，为 RPC 控制台启用 `net` 和其他 API。
 
 ```
 RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: admin,debug,klay,miner,net,personal,rpc,txpool,web3
 ```
 
-After updating `kend.conf`, restart Kaia node.
+更新 `kend.conf` 后，重新启动 Kaia 节点。
 
-## Can't start Kaia node with `Unit not found` error as below after installing binary package. <a id="can-t-start-kaia-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
+## 安装二进制软件包后，无法启动 Kaia 节点，出现如下 "未找到单元 "错误。 <a id="can-t-start-kaia-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
 Failed to start kcnd.service: Unit not found.
 ```
 
-**Answer**
+**答案**
 
-Please reload daemon as below.
+请按以下步骤重新加载守护进程。
 
 ```
 sudo systemctl daemon-reload
 ```
 
-## CN can't connect to network with `Add dial candidate from static nodes` log message. <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
+## 通过 "从静态节点添加候选拨号 "日志信息，CN 无法连接网络。 <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
 
 ```
 INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
@@ -75,37 +75,37 @@ INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
 ```
 
-**Answer**
+**答案**
 
-This can happen when `genesis.json` and nodekey/validator information differ.
-Please check nodekey/validator and `genesis.json` file again.
+当 `genesis.json` 和 nodekey/validator 信息不同时，可能会出现这种情况。
+请再次检查 nodekey/validator 和 `genesis.json` 文件。
 
-## Kaia node can't start with following error log message. <a id="kaia-node-can-t-start-with-following-error-log-message"></a>
+## Kaia 节点无法启动，出现以下错误日志信息。 <a id="kaia-node-can-t-start-with-following-error-log-message"></a>
 
 ```
-Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
+致命：启动协议栈出错：listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: 无效参数
 ```
 
-**Answer**
+**答案**
 
-If you see the above protocol stack error message in the log file, it means Kaia failed to start because the full path name of current working directory is too long. Please launch a Kaia node with a shorter full data directory. The maximum allowed length of path name depends on operating system.
+如果在日志文件中看到上述协议栈错误信息，则表示 Kaia 启动失败，原因是当前工作目录的全路径名太长。 请使用较短的完整数据目录启动 Kaia 节点。 路径名的最大允许长度取决于操作系统。
 
-## EN can't connect to CC with following log message. <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
+## EN 无法连接 CC，日志信息如下。 <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
 
 ```
 ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad conn=staticdial err="InvalidPeerHierarchy - (PeerIsOnParentChain:false) == (OnChildChain:false)"
 ```
 
-**Answer**
+**答案**
 
-It could happen when genesis of mainchain and service chain differ. Please check genesis of both chain are same.
+当主链和服务链的起源不同时，就可能出现这种情况。 请检查两条链的起源是否相同。
 
-## Head state missing error <a id="head-state-missing-error"></a>
+## 头部状态丢失错误<a id="head-state-missing-error"></a>
 
 ```
 "ERROR[06/21,14:35:16 +09] [5] Head state missing, repairing chain       number=2955620 hash=66bba2…e15f8d
 Fatal: Error starting protocol stack: rewound to block number 0, but repair failed"
 ```
 
-**Answer**
-Due to a compatibility issue, we strongly recommend to upgrade EN's binary to v0.9.6 if you have been running an EN with older versions (`<=` v0.8.2). If it is your first time upgrading the EN to v0.9.x and want to migrate the data from the older version, you must specify the option `ADDITIONAL="--db.num-statetrie-partitions 1"` in the configuration file when you install the newer version.
+\*\* 答案\*\*
+由于兼容性问题，我们强烈建议运行旧版本（`<=` v0.8.2）的用户将 EN 的二进制文件升级到 v0.9.6。 如果您是第一次将 EN 升级到 v0.9.x，并希望从旧版本迁移数据，则必须在安装新版本时在配置文件中指定选项 \`ADDITIONAL="--db.num-statetrie-partitions 1"。
