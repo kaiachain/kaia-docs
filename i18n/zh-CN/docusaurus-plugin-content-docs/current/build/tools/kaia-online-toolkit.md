@@ -1,19 +1,19 @@
 # Kaia Online Toolkit
 
-## What is the Kaia Online Toolkit? <a id="what-is-the-kaia-online-toolkit"></a>
+## 什么是 Kaia 在线工具包？ <a id="what-is-the-kaia-online-toolkit"></a>
 
-- `Kaia Online Toolkit` provides code examples to help you to utilize the `Kaia SDK(caver-js)` easily. Also it provides a [demo page](https://toolkit.klaytn.foundation) for developers to use simple online tools.
-- `Kaia SDK(caver-js)` is a JavaScript API library that allows developers to interact with a Kaia node using an HTTP or Websocket connection.
-- You can just try out Kaia's features without having to code.
+- Kaia在线工具包 "提供代码示例，帮助您轻松使用 "Kaia SDK(caver-js)"。 此外，它还提供了一个 [演示页面](https://toolkit.klaytn.foundation)，供开发人员使用简单的在线工具。
+- Kaia SDK(caver-js)\` 是一个 JavaScript API 库，允许开发人员使用 HTTP 或 Websocket 连接与 Kaia 节点进行交互。
+- 您可以直接试用 Kaia 的功能，而无需编写代码。
 
-> To help more people use the `Kaia Online Toolkit`, We have prepared the ["Using Kaia Online Toolkit"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) series.
+> 为了帮助更多的人使用 "Kaia 在线工具包"，我们编写了["使用 Kaia 在线工具包"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) 系列。
 
-## Links <a id="links"></a>
+## 链接<a id="links"></a>
 
-Here are the links for `Kaia Online Toolkit`. Feel free to use it :)
+以下是 "Kaia 在线工具包 "的链接。 欢迎使用 :)
 
 - [Github Repository](https://github.com/kaiachain/kaia-online-toolkit)
-- [Toolkit Page](https://toolkit.kaia.io)
+- [工具包页面](https://toolkit.kaia.io)
 - [Kaia SDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
 
-![Kaia Online Toolkit](/img/build/tools/klaytn-online-toolkit.png)
+Kaia 在线工具包](/img/build/tools/klaytn-online-toolkit.png)
