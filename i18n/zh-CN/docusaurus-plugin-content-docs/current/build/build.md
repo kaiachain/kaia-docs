@@ -1,3 +1,3 @@
-# Welcome
+# 欢迎光临
 
-Welcome to the "Build" section of Kaia. This section is for developers interested in using the Kaia system for decentralized applications. Here, you can find several tutorials for deploying different types of smart contracts, links for all the available tools and resources.
+欢迎来到 Kaia 的 "构建 "版块。 本节针对有意将 Kaia 系统用于去中心化应用的开发者。 在这里，您可以找到部署不同类型智能合约的多个教程，以及所有可用工具和资源的链接。
