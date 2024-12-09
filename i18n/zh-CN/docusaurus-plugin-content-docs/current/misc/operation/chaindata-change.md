@@ -1,3 +1,3 @@
-# Change Chaindata
+# 更改 Chaindata
 
-See [Use Chaindata Snapshots](/misc/operation/chaindata-snapshot/).
+请参阅 [使用 Chaindata 快照](/misc/operation/chaindata-snapshot/)。
