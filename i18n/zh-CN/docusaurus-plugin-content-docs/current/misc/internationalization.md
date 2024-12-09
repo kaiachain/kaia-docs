@@ -1,36 +1,36 @@
-# Internationalization
+# 国际化
 
-KaiaDocs is available in the following languages:
+KaiaDocs 有以下语言版本：
 
 - [English](https://docs.kaia.io/)
 - [한국어](https://docs.kaia.io/ko/)
 - [Tiếng Việt](https://docs.kaia.io/vi/)
 
-## Get involved! <a href="#get-involved" id="get-involved"></a>
+## 参与其中 <a href="#get-involved" id="get-involved"></a>
 
-If you are fluent and confident in a language and are willing to contribute to translate or to improve the quality of the localized documents, see [the list of languages currently being translated](https://crowdin.com/project/kaia-docs).
+如果您能熟练掌握某种语言，并愿意为翻译或提高本地化文件的质量做出贡献，请参阅[目前正在翻译的语言列表](https://crowdin.com/project/kaia-docs)。
 
-### How to contribute KaiaDocs localization via Crowdin [![](https://badges.crowdin.net/kaia-docs/localized.svg)](https://crowdin.com/project/kaia-docs) <a href="#how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd" id="how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd"></a>
+### 如何通过 Crowdin 投稿 KaiaDocs 本地化[![](https://badges.crowdin.net/kaia-docs/localized.svg)](https://crowdin.com/project/kaia-docs)<a href="#how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd" id="how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd"></a>
 
-Crowdin is a web service for collaborative translation. To contribute to localization, please follow these steps:
+Crowdin 是一项用于协作翻译的网络服务。 要为本地化做出贡献，请遵循以下步骤：
 
-1. Go to [Kaia-Docs project at Crowdin](https://crowdin.com/project/kaia-docs).
-2. Create an account there.
-3. Select the language you want to contribute. Can not find your language? Send a request to the project owner to initiate a new language translation.
-4. Join the translator team. Wait until one of the managers approves your request.
-5. Choose the file you want to contribute.
-6. You can submit your translation for a string, vote for a translation, or leave a comment. When you submit a translation, please make sure your word choice conforms to the Kaia Terminologies.
+1. 请访问 [Crowdin 的 Kaia-Docs 项目](https://crowdin.com/project/kaia-docs)。
+2. 在那里创建一个账户。
+3. 选择您要贡献的语言。 找不到您的语言？ 向项目所有人发送启动新语言翻译的请求。
+4. 加入翻译团队。 等待管理人员批准您的申请。
+5. 选择您要贡献的文件。
+6. 您可以为一个字符串提交您的翻译，为一个翻译投票，或发表评论。 当您提交翻译时，请确保您的用词符合 Kaia 术语表。
 
 ![](/img/misc/crowdin-editor.png)
 
-For detailed usage guidelines for the online-editor, please refer to the official [Crowdin document](https://support.crowdin.com/online-editor/).
+有关在线编辑器的详细使用指南，请参阅官方[Crowdin 文档](https://support.crowdin.com/online-editor/)。
 
-Translation suggestions will be reviewed and approved by the maintainers in a couple of days, then, will be made available to the web site. The list of localized web sites are listed above.
+翻译建议将在几天内由维护者审核通过，然后在网站上公布。 本地化网站列表如上。
 
-### Discussion <a href="#discussion" id="discussion"></a>
+### 讨论<a href="#discussion" id="discussion"></a>
 
-Join the [discussion board](https://crowdin.com/project/kaia-docs/discussions) and meet the fellow contributors.
+加入 [讨论区](https://crowdin.com/project/kaia-docs/discussions)，结识其他贡献者。
 
-### Code of conduct <a href="#code-of-conduct" id="code-of-conduct"></a>
+### 行为准则<a href="#code-of-conduct" id="code-of-conduct"></a>
 
-Please be respectful to fellow community members. Project managers may delete any offensive posts or comments without notice and reserve the right to revoke the membership.
+请尊重社区成员。 项目经理可删除任何攻击性帖子或评论，恕不另行通知，并保留撤销会员资格的权利。
