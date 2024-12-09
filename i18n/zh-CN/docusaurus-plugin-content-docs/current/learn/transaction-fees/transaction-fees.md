@@ -1,68 +1,68 @@
-# Transaction Fees
+# 交易费用
 
-The transaction fee of one transaction is calculated as follows:
+一次交易的交易费计算如下：
 
 ```text
-gas fee := (gas used) x (effective gas price)
+燃气费 := (使用的燃气) x (有效燃气价格)
 ```
 
-As an easy-to-understand analogy in this regard, suppose you're filling up gas at a gas station. The gas price is determined by the refinery every day, and today's price is $2. If you fill 15L up, then you would pay $30 = 15L x $2/1L for it, and the $30 will be paid out of your bank account. Also, the transaction will be recorded in the account book.
+打个简单易懂的比方，假设你正在加油站加油。 天然气价格每天由炼油厂决定，今天的价格是 2 美元。 如果装满 15 升，则需支付 30 美元 = 15 升 x 2 美元/1 升，30 美元将从您的银行账户中支付。 此外，这笔交易还将记录在账簿中。
 
-Transaction fee works just the same as above. Suppose a transaction spent 21000 gas and the effective gas price of the transaction was 25 Gkei. Then the gas fee is 525000 Gkei. This amount would be deducted from the sender (`from` account) balance.
+交易费与上述相同。 假设一笔交易花费了 21000 天然气，交易的实际天然气价格为 25 格基。 那么汽油费就是 525000 格基。 这笔金额将从汇款人（"来自 "账户）的余额中扣除。
 
-## Gas used <a id="gas-used"></a>
+## 使用的气体<a id="gas-used"></a>
 
-Every action that changes the state of the blockchain requires gas. While processing the transactions in a block, such as sending KAIA, using ERC-20 tokens, or executing a contract, the sender has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required. The gas has no unit, and we just say like "21000 gas".
+改变区块链状态的每个操作都需要气体。 在处理区块中的交易（如发送 KAIA、使用 ERC-20 代币或执行合约）时，发送方必须支付计算和存储使用费。 支付金额由所需的 "气体 "数量决定。 煤气没有单位，我们只能说 "21000 煤气"。
 
-Gas of a transaction comprises of two components:
+交易气体由两部分组成：
 
-- `IntrinsicGas` is the gas statically charged based on the transaction body itself, such as the size of the input. For more details, please refer to [Intrinsic Gas](intrinsic-gas.md).
-- `ExecutionGas` is the gas dynamically calculated during the execution. For more details, please refer to [Execution Gas](execution-gas.md).
+- 本征气体 "是根据事务主体本身（如输入的大小）静态收取的气体。 更多详情，请参阅 [本征气体](intrinsic-gas.md)。
+- 执行气体 "是在执行过程中动态计算得出的气体。 更多详情，请参阅 [Execution Gas]（Execution-gas.md）。
 
-The gas used amount is only determined after the transaction is executed. As such, you can find the gas used amount of a transaction from its receipt.
+用气量只有在交易执行后才能确定。 因此，您可以从交易收据中找到已用燃气量。
 
-### Finding the appropriate gasLimit
+### 找到合适的气体限值
 
-Every transaction must specify a gasLimit which is the maximum gas the transaction can spend. The sender can also utilize the `eth_estimateGas` and `kaia_estimateGas` RPCs to find the appropriate gasLimit for a transaction. Alternatively, the sender can manually specify a big enough number. Specifying a high gasLimit does not automatically charge high gas fee, so using a fixed number is a viable option. However, the sender having only a few tokens cannot specify too high gasLimit because the sender has to own at least `gasLimit * effectiveGasPrice` in its balance regardless of the actual gasUsed.
+每笔交易都必须指定一个 gasLimit（气体限值），即交易可花费的最大气体量。 发送方还可以使用 `eth_estimateGas` 和 `kaia_estimateGas` RPC 为交易找到合适的 gasLimit。 或者，发件人也可以手动指定一个足够大的数字。 指定高 gasLimit 不会自动收取高 gas 费，因此使用固定数字是一个可行的选择。 但是，只有少量代币的发件人不能指定过高的 gasLimit，因为无论实际 gasUsed 为多少，发件人的余额中都必须至少拥有 `gasLimit * effectiveGasPrice` 。
 
-## Effective gas price <a id="effective-gas-price"></a>
+## 有效天然气价格<a id="effective-gas-price"></a>
 
-Effective gas price of a transaction is calculated from many variables:
+交易的有效气价由许多变量计算得出：
 
-- Hardfork level
-- Gas price fields in the transaction submitted by the sender
-  - `maxFeePerGas` (often referred to as feeCap) field exists in the type 2 transactions.
-  - `maxPriorityFeePerGas` (often referred to as tipCap) field exists in the type 2 transactions.
-  - `gasPrice` field exists in every other transaction types.
-- `baseFeePerGas` (often referred to as baseFee) of the block the transaction is executed in
+- 硬叉水平
+- 发件人提交的交易中的天然气价格字段
+  - 第 2 类交易中存在 "maxFeePerGas"（通常称为 feeCap）字段。
+  - 第 2 类交易中存在 "maxPriorityFeePerGas"（通常称为 tipCap）字段。
+  - 气体价格 "字段存在于所有其他交易类型中。
+- 交易执行区块的 "baseFeePerGas"（通常称为 "baseFee"）。
 
-### Before Magma hardfork (fixed unit price)
+### 岩浆硬叉前（固定单价）
 
-Before Magma hardfork, the transaction fee of all transactions is the fixed value called `unitPrice`. This unitPrice can be adjusted via governance. All transactions must submit the gas price field that equals to the current unitPrice. The unit price mechanism avoids UX frustration due to gas price estimation in the gas fee auction market and allows service providers to easily predict gas fee budget.
+在 Magma 硬分叉之前，所有交易的交易费都是固定值，称为 "unitPrice"。 该单价可通过管理进行调整。 所有交易必须提交等于当前单价的气体价格字段。 单价机制避免了用户在燃气费拍卖市场中因燃气价格估算而产生的用户体验挫败感，并使服务提供商能够轻松预测燃气费预算。
 
-The `unitPrice` at a given block can be found through the `kaia_getParams` API.
+可以通过 `kaia_getParams` API 找到指定区块的 `unitPrice` 值。
 
-### After Magma hardfork (KIP-71 dynamic base fee)
+### 岩浆硬叉后（KIP-71 动态基费）
 
-Since Magma hardfork, the network decides a gas price value `baseFeePerGas` (or simply baseFee) every block depending on the network congestion. The baseFee increases if the transaction traffic is higher than a threshold, and decreases otherwise. The transaction traffic is measured in the block gas used. As transaction executions in a block gets heavier, the network perceives higher congestion, likely to increase the baseFee.
+自 Magma 硬分叉以来，网络会根据网络拥堵情况决定每个区块的天然气价格值 "baseFeePerGas"（或简称 baseFee）。 如果交易流量高于阈值，基本费就会增加，反之则会减少。 交易流量以使用的区块气体来衡量。 随着区块中交易执行量的增加，网络会感到更拥堵，从而有可能提高基本费用。
 
-Unlike [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md), Magma gas policy has no tip (tip is introduced since Kaia hardfork). Instead, the FCFS (first-come first-serve) policy is implemented to protect the network from spamming.
+与 [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)不同的是，岩浆气体政策没有提示（提示是从 Kaia 硬叉开始引入的）。 取而代之的是 FCFS（先到先服务）政策，以保护网络免受垃圾邮件的侵害。
 
-#### baseFee calculation
+#### 基本收费计算
 
-The baseFee calculation depends on following parameters:
+基本费用的计算取决于以下参数：
 
-- Block congestion data
-  - PREVIOUS_BASE_FEE: Base fee of the previous block
-  - PREVIOUS_BLOCK_GAS_USED: Gas used to process all transactions of the previous block
-- Tuning parameters which can be changed later via governance
-  - GAS_TARGET: The gas amount that determines the increase or decrease of the base fee
-  - MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate.
-  - BASE_FEE_DENOMINATOR: The value to set the maximum base fee change per block
-  - UPPER_BOUND_BASE_FEE: The maximum value for the base fee
-  - LOWER_BOUND_BASE_FEE: The minimum value for the base fee
+- 区块拥塞数据
+  - 上一个基费：上一个区段的基本收费
+  - previous_block_gas_used：用于处理上一个区块所有交易的气体
+- 可在以后通过治理更改的调谐参数
+  - GAS_TARGET（目标气量）：决定基本费用增减的气体量
+  - max_block_gas_used_for_base_fee：用于执行基费最大变化率的隐式块气体限制。
+  - BASE_FEE_DENOMINATOR: 设置每个区块最大基本费用变动的值
+  - 基本费用上限：基本费用的最大值
+  - 基本费用下限值：基本费用的最小值
 
-Below is an oversimplified version of the baseFee calculation. In its essense, the base fee change is proportional to the difference between GAS_TARGET and PREVIOUS_BLOCK_GAS_USED, and other parameters controls the change speed or bounds the baseFee. Refer to [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md) for the exact formula.
+以下是基础费用计算的简化版本。 从本质上讲，基本费用的变化与 GAS_TARGET 和 PREVIOUS_BLOCK_GAS_USED 之间的差额成正比，其他参数控制着基本费用的变化速度或界限。 准确公式请参阅 [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md)。
 
 ```
               min(PREVIOUS_BLOCK_GAS_USED, MAX_BLOCK_GAS_USED_FOR_BASE_FEE) - GAS_TARGET
@@ -74,43 +74,43 @@ nextBaseFeeBeforeBound = PREVIOUS_BASE_FEE * (1 + changeRate)
 nextBaseFee = max(min(nextBaseFeeBeforeBound, UPPER_BOUND_BASE_FEE), LOWER_BOUND_BASE_FEE)
 ```
 
-The tuning parameters at a given block can be found through the `kaia_getParams` API. The `baseFeePerGas` of each block can be found through the `kaia_getBlock*` and `eth_getBlock*` APIs.
+可通过 `kaia_getParams` API 查找特定区块的调谐参数。 每个区块的 "baseFeePerGas "可通过 "kaia_getBlock\*"和 "eth_getBlock\*"API 找到。
 
-#### Gas fee burn
+#### 燃气费燃烧
 
-Since Magma hardfork, half of the block gas fee is burnt. See [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md) for details.
+由于岩浆硬叉，区块气体费用的一半会被烧掉。 详见 [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md)。
 
-Since Kore hardfork, most of the block gas fee is burnt. See [KIP-82](https://kips.kaia.io/KIPs/kip-82) for details.
+由于 Kore 硬叉，大部分块状气体费用都被烧掉了。 详见 [KIP-82](https://kips.kaia.io/KIPs/kip-82)。
 
-### After Kaia hardfork (KIP-162 priority fee)
+### Kaia 硬叉子之后（KIP-162 优先权费用）
 
-Since Kaia hardfork, the transactions can specify nonzero priority fee (or simply tip) to increase the block inclusion possibility. The Kaia gas policy is similar to [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) in that transactions pay the baseFee plus the effective tip.
+自 Kaia 硬分叉以来，交易可以指定非零的优先级费用（或简单的小费），以增加区块包含的可能性。 Kaia 天然气政策与 [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)类似，交易支付基本费用和有效小费。
 
-The effective gas price of a transaction is defined as `min(baseFee + tipCap, feeCap)`. For type-2 transactions, the transaction fields `maxPriorityFeePerGas` and `maxFeePerGas` naturally becomes the tipCap and feeCap. However, other transaction types only have one `gasPrice` field. For those types, tipCap and feeCap are both equals to `gasPrice`. Consequently their effective gas price becomes `min(baseFee + tipCap, feeCap) = min(baseFee + gasPrice, gasPrice) = gasPrice`, which is identical to gas price auction mechanism.
+交易的有效气价定义为 "min(baseFee + tipCap, feeCap)"。 对于类型 2 交易，交易字段 `maxPriorityFeePerGas` 和 `maxFeePerGas` 自然就变成了 tipCap 和 feeCap。 但是，其他交易类型只有一个 "gasPrice "字段。 对于这些类型，tipCap 和 feeCap 都等于 "gasPrice"。 因此，其有效天然气价格变为 `min(baseFee + tipCap, feeCap) = min(baseFee + gasPrice, gasPrice) = gasPrice`，这与天然气价格拍卖机制相同。
 
-See [KIP-162](https://github.com/kaiachain/kips/blob/main/KIPs/kip-162.md) for details.
+详见 [KIP-162](https://github.com/kaiachain/kips/blob/main/KIPs/kip-162.md)。
 
-### Finding the appropriate gas price after Kaia
+### 在卡伊娅之后找到合适的天然气价格
 
-If your application or wallet utilizes type-2 transactions (EIP-1559 type), ensure you set a reasonable priority fee. You can also call the `eth_maxPriorityFeePerGas` RPC to retrieve the recommended priority fee (tx.maxPriorityFeePerGas). When the network is uncongested, a zero priority fee transaction should have no disadvantage in transaction processing. When the network is congested it is safer to specify a nonzero priority fee to compete with other transactions.
+如果您的应用程序或钱包使用 2 类交易（EIP-1559 类型），请确保您设置了合理的优先权费用。 您还可以调用 `eth_maxPriorityFeePerGas` RPC 来检索建议的优先级费用 (tx.maxPriorityFeePerGas)。 在网络不拥堵的情况下，零优先权费交易在交易处理中应不会处于劣势。 当网络拥堵时，指定一个非零的优先级费用来与其他交易竞争会更安全。
 
-The Kaia node's `eth_maxPriorityFeePerGas` RPC shall:
+Kaia 节点的 "eth_maxPriorityFeePerGas "RPC 应：
 
-- Return 0 if the network is uncongested. The network is considered uncongested when the next baseFeePerGas equals the UPPER_BOUND_BASE_FEE.
-- Otherwise return P percentile effective priority fees among the transactions in the last N blocks. Kaia nodes with default settings uses P=60 and N=20 but the configuration can differ by nodes.
+- 如果网络没有拥塞，则返回 0。 当下一个基准每气收费等于 UPPER_BOUND_BASE_FEE 时，网络被视为不拥堵。
+- 否则返回最近 N 个区块中交易的 P 百分位有效优先级费用。 Kaia 节点的默认设置为 P=60 和 N=20，但各节点的配置可能不同。
 
-A type-2 transaction's `maxFeePerGas` should be higher than the network's next baseFee to ensure the transaction gets processed even if the baseFee rises. A common formula is `lastBaseFee*2 + maxPriorityFeePerGas`. It takes at least 15 seconds for baseFee to double when BASE_FEE_DENOMINATOR is 20. Another option is to use `eth_gasPrice` RPC.
+类型 2 交易的 "maxFeePerGas "应高于网络的下一个基本费用，以确保即使基本费用上涨，交易也能得到处理。 常用的公式是 "最后基本费用\*2 + 最大优先级每气费用"。 当 BASE_FEE_DENOMINATOR 为 20 时，baseFee 至少需要 15 秒才能翻倍。 另一种方法是使用 `eth_gasPrice` RPC。
 
-For transactions of other tx types, more care should be taken when choosing an appropriate `gasPrice`. Because for these tx types, the gasPrice is spent as-is regardless of the baseFee. On the other hand, gasPrice must be at least network's baseFee. Therefore, applications and users would want to avoid setting gasPrice too high, while at the same time matching the network's baseFee. One strategy would be setting the `gasPrice` a slightly higher than the next baseFee so it can accommodate a few baseFee rises. You can call `eth_gasPrice` RPC to retrieve the recommended gas price.
+对于其他 tx 类型的交易，在选择合适的 "gasPrice "时应更加谨慎。 因为对于这些 tx 类型，无论基础费用是多少，gasPrice 都是按原价使用的。 另一方面，gasPrice 必须至少等于网络的基本费用。 因此，应用程序和用户应避免将 gasPrice 设置得过高，同时与网络的基本费用相匹配。 一种策略是将 "天然气价格 "设置得比下一个基本费用略高，这样就可以容纳几次基本费用的上涨。 您可以调用 `eth_gasPrice` RPC 来检索推荐的天然气价格。
 
-The Kaia node's `eth_gasPrice` RPC shall:
+Kaia 节点的 "eth_gasPrice "RPC 应：
 
-- Return (next baseFee) \* M + (eth_maxPriorityFeePerGas). Multiplier M is heuristically chosen as 1.10 under uncongested network and 1.15 under congested network. When BASE_FEE_DENOMINATOR is 20, the M=1.10 can withstand at least one baseFee increase (1.05) and M=1.15 can withstand at least two consecutive baseFee increase (1.05\*1.05). Considering that the baseFee usually does not rise at top speed of 5%, the multiplier should actually be enough for a few baseFee increases.
+- 返回 (下一个基本费用) \* M + (eth_maxPriorityFeePerGas). 在网络不拥堵的情况下，乘数 M 的启发式选择为 1.10，在网络拥堵的情况下为 1.15。 当 BASE_FEE_DENOMINATOR 为 20 时，M=1.10 可以承受至少一次基本费上调（1.05），M=1.15 可以承受至少两次连续的基本费上调（1.05\*1.05）。 考虑到基本费通常不会以最高 5%的速度增长，乘数实际上应该足够基本费增长几次。
 
-### Gas price summary
+### 天然气价格摘要
 
-| Hardfork     | `gasPrice` requirement                                                                           | `maxFeePerGas` requirement                                                                       | `maxPriorityFeePerGas` requirement                                                                                                | calculated `effectiveGasPrice`                                                                                            |
-| ------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Before Magma | must be unitPrice                                                                                | must be unitPrice<br/>(only after EthTxType fork)                             | must be unitPrice<br/>(only after EthTxType fork)                                                              | unitPrice                                                                                                                 |
-| After Magma  | at least baseFee<br/>(recommended: 2\*baseFee)                | at least baseFee<br/>(recommended: 2\*baseFee)                | ignored                                                                                                                           | baseFee                                                                                                                   |
-| After Kaia   | at least baseFee<br/>(recommended: baseFee\*M + suggestedTip) | at least baseFee<br/>(recommended: baseFee\*2 + suggestedTip) | up to users, wallets, and SDKs<br/>(recommended: suggestedTip = 0 or P percentile in N blocks) | tx type 2: min(baseFee + feeCap, tipCap),<br/>other tx types: gasPrice |
+| 硬叉   | 燃气价格 "要求                        | 最大每气收费 "要求                             | 最大优先级每气收费 "要求                                           | 计算出的 "有效气价                                                                      |
+| ---- | ------------------------------- | -------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| 岩浆之前 | 必须是单位价格                         | 必须是 unitPrice<br/> （仅在 EthTxType 分叉后）。 | 必须是 unitPrice<br/> （仅在 EthTxType 分叉后）。                  | 单位价格                                                                            |
+| 岩浆之后 | 至少基费<br/> （建议：2\*基费）            | 至少基费<br/> （建议：2\*基费）                   | 被忽视                                                     | 基本费用                                                                            |
+| 凯娅之后 | 至少基本费用<br/> （建议：基本费用\*M + 建议小费） | 至少基本费用<br/> （建议：基本费用\*2 + 建议小费）        | 可达用户、钱包和 SDK<br/> （建议：supposedTip = 0 或 N 个区块中的 P 百分位数） | tx 类型 2：min(baseFee + feeCap, tipCap)，<br/>其他 tx 类型：gasPrice |
