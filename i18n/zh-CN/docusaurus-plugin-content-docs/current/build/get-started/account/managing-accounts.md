@@ -32,7 +32,7 @@ Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/usernam
 
 ### ken <a id="ken"></a>
 
-你可以使用"--unlock "{address},{address}"选项在命令行上解锁账户并启动 EN，该选项以逗号分隔的账户（十六进制或索引）列表作为参数，因此你可以在一个会话中以编程方式解锁账户。 如果您想通过 RPC 从 dApps 使用您的账户，这将非常有用。 `--unlock` 将解锁列表中的第一个账户。 这在以编程方式创建账户时非常有用，不需要知道实际账户就能解锁。
+你可以使用`--unlock "{address},{address}"`选项在命令行上解锁账户并启动 EN，该选项以逗号分隔的账户（十六进制或索引）列表作为参数，因此你可以在一个会话中以编程方式解锁账户。 如果您想通过 RPC 从 dApps 使用您的账户，这将非常有用。 `--unlock` 将解锁列表中的第一个账户。 这在以编程方式创建账户时非常有用，不需要知道实际账户就能解锁。
 
 创建一个账户，并在账户未锁定的情况下启动一个节点：
 
@@ -113,7 +113,7 @@ kaia.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KAIA
 
 由于该函数会在重启 `ken` 后消失，因此存储常用函数以便以后调用会很有帮助。
 
-首先，将 "checkAllBalances() "函数定义保存到计算机上的一个文件中。 例如，`/Users/username/klayload.js`。 然后从交互式控制台加载文件：
+首先，将 `checkAllBalances()`函数定义保存到计算机上的一个文件中。 例如，`/Users/username/klayload.js`。 然后从交互式控制台加载文件：
 
 ```javascript
 > loadScript("/Users/username/klayload.js")
