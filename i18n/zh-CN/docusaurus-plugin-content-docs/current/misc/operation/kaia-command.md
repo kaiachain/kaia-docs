@@ -1,10 +1,10 @@
-# Frequently Used Commands
+# 常用命令
 
-## How to find the Kaia Directory (Normally “Kaia DIR”)
+## 如何找到 Kaia 目录（通常为 "Kaia DIR）
 
 ---
 
-You can check Kaia directory at `kcn` or `kpn` config. Config file is located under `/etc/kcnd/conf` or `/etc/kpnd/conf`.
+您可以在 `kcn` 或 `kpn` 配置中查看 Kaia 目录。 配置文件位于 `/etc/kcnd/conf` 或 `/etc/kpnd/conf` 下。
 
 ```bash
 cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)
@@ -14,19 +14,19 @@ DATA_DIR=/var/kcnd/data/
 LOG_DIR=/var/kcnd/logs/
 ```
 
-## How to connect to Kaia Console
+## 如何连接到 Kaia 控制台
 
 ---
 
-Connect to Kaia API to check node and network status.
+连接到 Kaia API，检查节点和网络状态。
 
 ```bash
-# execute the command below with the Kaia DATA_DIR Path
-$ sudo kcn attach --datadir <DATA_DIR>
+# 使用 Kaia DATA_DIR 路径执行下面的命令
+$ sudo kcn attach --datadir<DATA_DIR>
 > 
 ```
 
-## Useful APIs
+## 实用的应用程序接口
 
 ```bash
 # Check current block Number
@@ -46,14 +46,14 @@ $ sudo kcn attach --datadir <DATA_DIR>
   > admin.removePeer("kni")
 ```
 
-## How to get the API Result only
+## 如何仅获取 API 结果
 
 ```jsx
-# execute the command below with the Kaia DATA_DIR Path
-$ sudo kcn attach --exec <statement> --datadir <DATA_DIR>
+# 使用 Kaia DATA_DIR 路径执行下面的命令
+$ sudo kcn attach --exec<statement> --datadir<DATA_DIR>
 
-e.g.
-# Check my dode address
+例如
+# 检查我的节点地址
 $ sudo kcn attach --exec "governance.nodeAddress" --datadir /path/to/datadir
 "0xda23978e6e354fbf25dd87aaf1d1bb4ed112753f"
 ```
