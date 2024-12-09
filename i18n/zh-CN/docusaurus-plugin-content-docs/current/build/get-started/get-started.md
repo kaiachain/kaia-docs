@@ -1,6 +1,6 @@
-# Get Started
+# 开始
 
-Try and get familiar with Kaia. This chapter is the starting point of your journey to Kaia dApps.
+试着熟悉 Kaia。 本章是您使用 Kaia dApps 的起点。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
