@@ -1,34 +1,34 @@
-# Wallets
+# 钱包
 
-Wallets on Kaia allows for access to accounts controlled by private keys, thus facilitating private key management, signing crypto transactions and also provides an interface to access(i.e send and receive) digital assets. This section provides a list of Kaia supported wallets. Lets get started!
+Kaia 上的钱包允许访问由私钥控制的账户，从而方便私钥管理、签署加密交易，还提供了访问（即发送和接收）数字资产的接口。 本节提供受 Kaia 支持的钱包列表。 让我们开始吧！
 
-> **Note**: The wallets provided below are third party wallets that have integrated with Kaia and as such it’s much advised for users to do their due diligence before using them.
+> **注意**：以下提供的钱包是与 Kaia 集成的第三方钱包，因此建议用户在使用前进行尽职调查。
 
-| Wallet                                             | Custody       | Account Type   | Platforms                | Multi-sig | Browser Extension | NFT     | Bridge Support |
-| -------------------------------------------------- | ------------- | -------------- | ------------------------ | --------- | ----------------- | ------- | -------------- |
-| [1inch](https://1inch.io/wallet/)                  | Non-custodial | EOA            | Mobile                   | No        | Yes               | Support | No             |
-| [ABC Wallet](https://myabcwallet.io/en/)           | Non-custodial | EOA            | Mobile, Browser          | No        | No                | Support | Yes            |
-| [Alpha Wallet](https://alphawallet.com/)           | Non-custodial | EOA            | Broswer, Mobile, API-SDK | No        | No                | Support | Yes            |
-| [Bit2Me](https://bit2me.com/suite/wallet-klaytn)   | Non-custodial | EOA            | Mobile, Web App          | No        | No                | No      | No             |
-| [BitKeep](https://bitkeep.com/)                    | Non-custodial | EOA            | Browser, Mobile, Desktop | No        | Yes               | Support | Yes            |
-| [Biport](https://biport.io/#/)                     | Non-custodial | EOA            | Mobile                   | No        | No                | Support | No             |
-| [Burrito Wallet](https://www.burritowallet.com/en) | Non-custodial | EOA            | Browser, Mobile          | No        | Yes               | Support | Yes            |
-| [Coin98](https://coin98.com/)                      | Non-custodial | EOA            | Browser, Mobile, Web App | No        | Yes               | Support | Yes            |
-| [D'cent](https://dcentwallet.com/)                 | Hybrid        | EOA            | Mobile                   | No        | No                | Support | Yes            |
-| [DeFi Wallet](https://crypto.com/defi-wallet)      | Non-custodial | EOA            | Mobile, Desktop          | No        | No                | Support | Yes            |
-| [DeKeys](https://www.atomrigs.io/)                 | Non-custodial | EOA            | Browser                  | No        | Yes               | Support | No             |
-| [Favorlet](https://favorlet.io/)                   | Non-custodial | EOA            | Mobile                   | No        | No                | Support | No             |
-| [Huobi Wallet](https://www.itoken.com/en)          | Non-custodial | EOA            | Mobile                   | No        | No                | Support | No             |
-| [Kaia Wallet](https://www.kaiawallet.io/en_US/)    | Non-custodial | EOA            | Mobile, Browser          | No        | Yes               | Support | No             |
-| [Kaia Safe](https://safe.kaia.io/)                 | Non-custodial | Smart Contract | Web App                  | Yes       | No                | Support | No             |
-| [Klip Wallet](https://klipwallet.com/)             | Non-custodial | EOA            | Mobile                   | No        | No                | Support | No             |
-| [Krystal DeFi](https://krystal.app/)               | Non-custodial | EOA            | Mobile, Web App          | No        | No                | Support | Yes            |
-| [Math Wallet](https://mathwallet.org/en-us/)       | Custodial     | EOA            | Mobile, Web App, Browser | No        | Yes               | Support | Yes            |
-| [MetaMask](https://metamask.io/)                   | Non-custodial | EOA            | Mobile, Browser          | No        | Yes               | Support | No             |
-| [Midas Protocol](https://midasprotocol.io/)        | Non-custodial | EOA            | Mobile                   | No        | No                | Support | Yes            |
-| [NOW Wallet](https://walletnow.app/)               | Non-custodial | EOA            | Mobile, Desktop          | No        | No                | Support | No             |
-| [OKX Wallet](https://www.okx.com/web3)             | Non-custodial | EOA            | Mobile, Browser          | No        | Yes               | Support | Yes            |
-| [Rabby Wallet](https://rabby.io/)                  | Non-custodial | EOA            | Browser, Desktop         | No        | Yes               | Support | No             |
-| [Token Pocket](https://www.tokenpocket.pro/en)     | Non-custodial | EOA            | Mobile, Browser, API-SDK | No        | Yes               | Support | Yes            |
-| [TrustKeys](https://trustkeys.network/)            | Non-custodial | EOA            | Mobile                   | No        | No                | Support | No             |
-| [Welldone Wallet](https://welldonestudio.io/)      | Non-custodial | EOA            | Browser                  | No        | Yes               | No      | Yes            |
+| 钱包                                               | 监护   | 账户类型 | 平台                 | 多重签名 | 浏览器扩展 | NFT | 桥梁支持 |
+| ------------------------------------------------ | ---- | ---- | ------------------ | ---- | ----- | --- | ---- |
+| [1inch](https://1inch.io/wallet/)                | 非监护  | EOA  | 移动电话               | 没有   | 是     | 支持  | 没有   |
+| [ABC钱包](https://myabcwallet.io/en/)              | 非监护  | EOA  | 移动, 浏览器            | 没有   | 没有    | 支持  | 是    |
+| [阿尔法钱包](https://alphawallet.com/)                | 非监护  | EOA  | Broswer、移动、API-SDK | 没有   | 没有    | 支持  | 是    |
+| [Bit2Me](https://bit2me.com/suite/wallet-klaytn) | 非监护  | EOA  | 移动、网络应用            | 没有   | 没有    | 没有  | 没有   |
+| [BitKeep](https://bitkeep.com/)                  | 非监护  | EOA  | 浏览器、手机、桌面          | 没有   | 是     | 支持  | 是    |
+| [Biport](https://biport.io/#/)                   | 非监护  | EOA  | 移动电话               | 没有   | 没有    | 支持  | 没有   |
+| [卷饼钱包](https://www.burritowallet.com/en)         | 非监护  | EOA  | 浏览器、手机             | 没有   | 是     | 支持  | 是    |
+| [Coin98](https://coin98.com/)                    | 非监护  | EOA  | 浏览器、手机、网络应用程序      | 没有   | 是     | 支持  | 是    |
+| [D'cent](https://dcentwallet.com/)               | 混合动力 | EOA  | 移动电话               | 没有   | 没有    | 支持  | 是    |
+| [DeFi 钱包](https://crypto.com/defi-wallet)        | 非监护  | EOA  | 移动、桌面              | 没有   | 没有    | 支持  | 是    |
+| [DeKeys](https://www.atomrigs.io/)               | 非监护  | EOA  | 浏览器                | 没有   | 是     | 支持  | 没有   |
+| [Favorlet](https://favorlet.io/)                 | 非监护  | EOA  | 移动电话               | 没有   | 没有    | 支持  | 没有   |
+| [Huobi钱包](https://www.itoken.com/en)             | 非监护  | EOA  | 移动电话               | 没有   | 没有    | 支持  | 没有   |
+| [Kaia 钱包](https://www.kaiawallet.io/en_US/)      | 非监护  | EOA  | 移动, 浏览器            | 没有   | 是     | 支持  | 没有   |
+| [Kaia Safe](https://safe.kaia.io/)               | 非监护  | 智能合约 | 网络应用程序             | 是    | 没有    | 支持  | 没有   |
+| [Klip钱包](https://klipwallet.com/)                | 非监护  | EOA  | 移动电话               | 没有   | 没有    | 支持  | 没有   |
+| [Krystal DeFi](https://krystal.app/)             | 非监护  | EOA  | 移动、网络应用            | 没有   | 没有    | 支持  | 是    |
+| [数学钱包](https://mathwallet.org/en-us/)            | 保管员  | EOA  | 手机、网络应用程序、浏览器      | 没有   | 是     | 支持  | 是    |
+| [元掩码](https://metamask.io/)                      | 非监护  | EOA  | 移动, 浏览器            | 没有   | 是     | 支持  | 没有   |
+| [迈达斯协议](https://midasprotocol.io/)               | 非监护  | EOA  | 移动电话               | 没有   | 没有    | 支持  | 是    |
+| [NOW 钱包](https://walletnow.app/)                 | 非监护  | EOA  | 移动、桌面              | 没有   | 没有    | 支持  | 没有   |
+| [OKX钱包](https://www.okx.com/web3)                | 非监护  | EOA  | 移动, 浏览器            | 没有   | 是     | 支持  | 是    |
+| [拉比钱包](https://rabby.io/)                        | 非监护  | EOA  | 浏览器、桌面             | 没有   | 是     | 支持  | 没有   |
+| [令牌口袋](https://www.tokenpocket.pro/en)           | 非监护  | EOA  | 移动、浏览器、API-SDK     | 没有   | 是     | 支持  | 是    |
+| [TrustKeys](https://trustkeys.network/)          | 非监护  | EOA  | 移动电话               | 没有   | 没有    | 支持  | 没有   |
+| [Welldone钱包](https://welldonestudio.io/)         | 非监护  | EOA  | 浏览器                | 没有   | 是     | 没有  | 是    |
