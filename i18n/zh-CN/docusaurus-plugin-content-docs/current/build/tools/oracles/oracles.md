@@ -1,10 +1,10 @@
-# Oracles
+# 神谕
 
-Blockchain oracles serve as a link between the blockchain and other external data sources. In actuality, the blockchain is a closed system; as such, it is unable to pull data into or out of any external systems (off-chain data) and only has access to data that is already present within the original blockchain context. This creates a blockchain-oracle issue where the blockchain is unable to obtain data from actual occurrences. Smart contracts must, however, connect to a wide range of external data sources in order to fulfill a number of useful functions. As an illustration, a [hybrid smart contract](https://chain.link/education-hub/hybrid-smart-contracts) that uses oracles to give asset prices for finance, weather data for insurance, randomness for gaming, IoT sensors for supply chain management, etc.
+区块链中枢是连接区块链和其他外部数据源的纽带。 实际上，区块链是一个封闭系统；因此，它无法从任何外部系统（链外数据）中获取数据，只能访问原始区块链上下文中已经存在的数据。 这就产生了一个区块链-账本问题，即区块链无法从实际发生的事件中获取数据。 然而，智能合约必须连接到广泛的外部数据源，才能实现许多有用的功能。 举例来说，一个[混合智能合约](https://chain.link/education-hub/hybrid-smart-contracts)可以利用神谕给出金融领域的资产价格、保险领域的天气数据、游戏领域的随机性、供应链管理领域的物联网传感器等。
 
-The need for blockchains to access and connect to external data sources, legacy systems, and advanced computation brought about oracles. The benefits of oracles in the blockchain industry cannot be underestimated, and it is therefore crucial to do your research before choosing your oracles when creating hybrid smart contracts. Avoiding centralized oracles is therefore encouraged since leveraging decentralized oracles is important for developing your decentralized apps. On one hand, centralized oracles are controlled by a single entity and, as such, have a single point of failure, making smart contracts vulnerable to attacks. On the other hand, decentralized oracles are designed to fly above the limitations of centralized oracles by eliminating the single point of failure. A decentralized oracle comprises multiple participants in a peer-to-peer network that form consensus on off-chain data before sending it to a smart contract.
+区块链需要访问和连接外部数据源、遗留系统和高级计算，这带来了谕令。 不能低估区块链行业中谕令器的好处，因此在创建混合智能合约时，在选择谕令器之前进行研究至关重要。 因此，我们鼓励避免使用中心化算子，因为利用去中心化算子对开发去中心化应用程序非常重要。 一方面，中心化的示权器由单一实体控制，因此存在单点故障，使智能合约容易受到攻击。 另一方面，分散式计算器的设计消除了单点故障，从而超越了集中式计算器的局限性。 去中心化甲骨文由点对点网络中的多个参与者组成，在将链外数据发送给智能合约之前，这些参与者会就链外数据达成共识。
 
-The following providers have integrated with Kaia to deliver decentralized oracle services:
+以下提供商已与 Kaia 集成，以提供分散式 Oracle 服务：
 
 - [Pyth Network](https://docs.pyth.network/home)
 - [Orakl Network](https://docs.orakl.network)
