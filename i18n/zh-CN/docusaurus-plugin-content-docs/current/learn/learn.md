@@ -1,6 +1,6 @@
 # 卡娅概述
 
-Kaia 是高度优化的、基于 BFT 的公共区块链，旨在满足企业级可靠性和性能标准。 本概述详细介绍了 Kaia 的架构、功能和生态系统。
+Kaia is a highly optimized, <LinkWithTooltip to="../misc/glossary#bft-based-public-blockchain" tooltip="A blockchain that ensures consensus even if up to 1/3 of nodes act maliciously,<br /> using Byzantine Fault Tolerance (BFT) algorithms to maintain network integrity."> BFT-based public blockchain </LinkWithTooltip> designed to meet enterprise-grade reliability and performance standards. 本概述详细介绍了 Kaia 的架构、功能和生态系统。
 
 ## 主要设计目标
 
@@ -39,6 +39,7 @@ Kaia生态系统及其逻辑子网络（CCN、ENN、SCN）](/img/learn/klaytn_ne
 Kaia 主链物理拓扑和分层架构（CNN、PNN 和 ENN）](/img/learn/klaytn_network_node.png)
 
 1. **核心单元（CC）**：由一个共识节点 (CN) 和两个代理节点 (PN) 组成。
+
    - **共识节点（CN）**：参与区块生成。
    - **代理节点（PN）**：提供网络接口、传输交易请求和传播区块。
 
@@ -84,7 +85,7 @@ Kaia 实施了多项安全措施：
 
 Kaia 设计用于与其他区块链网络无缝互动：
 
-- 与 EVM 兼容，可轻松部署以太坊智能合约。
+- <LinkWithTooltip tooltip="A blockchain that can run smart contracts and <br/> interact with the Ethereum Virtual Machine(EVM)">EVM-compatible</LinkWithTooltip>, allowing easy deployment of Ethereum smart contracts.
 - 设计用于与其他基于 EVM-SDK 的链进行互操作。
 - 支持跨平台交易和智能合约执行。
 
