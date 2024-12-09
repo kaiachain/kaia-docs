@@ -1,16 +1,16 @@
-# Deploy Smart Contracts
+# 部署智能合约
 
-There are various ways of deploying a smart contract on Kaia. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Kaia account with enough KAIA to pay the transaction fee. To create an account, you can use [Kaia Online Toolkit](https://toolkit.kaia.io/account/accountKeyLegacy)."
+在 Kaia 上部署智能合约有多种方法。 本文档提供了使用各种工具部署合同样本的分步指南。 我们假定您的 Kaia 账户有足够的 KAIA 支付交易费。 要创建账户，您可以使用 [Kaia 在线工具包](https://toolkit.kaia.io/account/accountKeyLegacy)"。
 
-## Remix Online IDE <a id="remix-ide"></a>
+## Remix 在线集成开发环境<a id="remix-ide"></a>
 
-Open your internet browser and go to [Kaia Plugin for Remix](https://ide.kaia.io).
+打开互联网浏览器，进入 [Kaia Plugin for Remix](https://ide.kaia.io)。
 
-1. Add a new file.
+1. 添加新文件。
 
 ![](/img/build/smart-contracts/01_deployment_ide.png)
 
-2. Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KaiaGreeter, and it allows you to run a simple "Hello World!".
+2. 复制并粘贴以下示例代码（或任何您想部署的代码）到新文件中。 代码由两个名为 Mortal 和 KaiaGreeter 的合约组成，可以运行一个简单的 "Hello World!"。
 
 ```
 pragma solidity 0.5.12;
@@ -38,42 +38,42 @@ contract KaiaGreeter is Mortal {
 }
 ```
 
-3. Select Compiler in the icon panel. Choose the desired EVM environment. For the Kaia networks, you can choose between Kairos (testnet) and Mainnet. Click `Compile` when the sample code is ready to be complied before actual deployment.
+3. 在图标面板中选择 "编译器"。 选择所需的 EVM 环境。 对于 Kaia 网络，您可以选择 Kairos（测试网络）和 Mainnet。 当示例代码准备好在实际部署前编译时，单击 "编译"。
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. Now we can deploy the contract. Click on the Kaia logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KAIA to pay for the transaction of deploying the smart contracts required.
+4. 现在我们可以部署合同了。 点击图标面板中的 Kaia 徽标。 单击 "账户 "旁边的加号按钮，导入一个账户。 确保账户有足够的 KAIA 来支付部署所需的智能合约的交易费用。
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
-5. Set Gas limit and Value to send.
+5. 设置气体限值和发送值。
 
-- You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
-- Set `Value` to 0 unless you want to send `KAIA` to the contract at the time of deployment.
+- 如果部署的是更复杂的合同，可能需要设置更高的气体限值。 在本例中，可以保持原样。
+- 将 `Value` 设为 0，除非您想在部署时向合同发送 `KAIA`。
 
-6. Enter "Hello World!" as an argument for constructor function and click on `Deploy` button.
+6. 输入 "Hello World!"作为构造函数的参数，然后点击 "部署 "按钮。
 
 ![](/img/build/smart-contracts/03_deployment_hello.png)
 
-7. If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal.
+7. 如果合同部署成功，您将在终端看到相应的交易收据和详细结果。
 
-8. You can interact with the contract by clicking on the function buttons. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
+8. 您可以通过点击功能按钮与合同互动。 这些功能用不同的颜色表示。 Solidity中的 "constant "或 "pure "函数有蓝色的底色（示例中的 "greet"），不会创建新的事务，因此不耗费任何气体。 红色按钮（示例中的 "kill"）代表 "可支付 "功能，可改变区块链上的状态、消耗气体并可接受价值。 橙色按钮用于更改合同状态但不接受值的 "非支付 "功能。
 
 ![](/img/build/smart-contracts/06_deployment_functions.png)
 
-For more details, please refer to this [link](../ide-and-tools/ide-and-tools.md).
+有关详细信息，请参阅此 [链接]（.../ide-and-tools/ide-and-tools.md）。
 
 ## VVISP <a id="vvisp"></a>
 
-vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Kaia smart contracts with a single command. Refer to the following link for more details.
+vvisp 是一种易于使用的 CLI 工具/框架，用于开发智能合约，由 HEACHI LABS 提供。 只需一个命令，您就可以轻松设置环境、部署和执行 Kaia 智能合约。 详情请参考以下链接。
 
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
 
-Another way to deploy contracts is manually compiling contracts with solc and deploying them with caver-js.
+另一种部署合同的方法是使用 solc 手动编译合同，然后使用 caver-js 进行部署。
 
-1. Create `KaiaGreeter.sol` and write the following code.
+1. 创建 `KaiaGreeter.sol` 并编写以下代码。
 
 ```
 pragma solidity 0.5.6;
@@ -101,46 +101,46 @@ contract KaiaGreeter is Mortal {
 }
 ```
 
-2. Install solc 0.5.6.
+2. 安装 solc 0.5.6。
 
 ```
 $ sudo npm install -g solc@0.5.6
 ```
 
-3. Compile the contract.
+3. 编制合同。
 
 ```
 $ solcjs KaiaGreeter.sol --bin
 ```
 
-4. Install caver-js.
+4. 安装 caver-js。
 
 ```
 $ npm install caver-js.
 ```
 
-5. Create `deploy.js` in the same directory with the following code.
+5. 使用以下代码在同一目录下创建 `deploy.js`。
 
 ```
 const Caver = require("caver-js");
 const caver = new Caver("https://public-en-kairos.node.kaia.io")
 
 const walletInstance = caver.kaia.accounts.privateKeyToAccount(
-  '0x3de0c9...' // enter your private key to deploy contract with
+  '0x3de0c9...' //输入您的私钥以部署与
 );
 caver.kaia.accounts.wallet.add(walletInstance);
 
 const fs = require('fs')
-const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // compiled output
+const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // 编译输出
 
-const constructorType = ['string']  // enter appropriate constructor type
-const constructorValue = ['Hello, Kaia!']
+constructorType = ['string'] // 输入适当的构造函数类型
+constructorValue = ['Hello, Kaia！']
 
 const params = caver.kaia.abi.encodeParameters(constructorType, constructorValue);
 
 caver.kaia.sendTransaction({
   from: caver.kaia.accounts.wallet[0].address,
-  gas: "50000000",
+  gas："50000000",
   data: bytecode.toString() + params.substring(2, params.length)
 })
 .once("receipt", receipt => {
@@ -151,9 +151,9 @@ caver.kaia.sendTransaction({
 })
 ```
 
-_NOTE_: This example is not recommended for production use. Be very careful when dealing with private keys.
+_注_：此示例不建议用于生产。 处理私人密钥时要非常小心。
 
-6. Deploy the contract using node environment.
+6. 使用节点环境部署合同。
 
 ```
 $ node deploy.js
