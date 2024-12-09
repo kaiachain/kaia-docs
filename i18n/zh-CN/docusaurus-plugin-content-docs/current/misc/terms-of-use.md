@@ -1,35 +1,35 @@
-# Terms of Use
+# 使用条款
 
-## 1. Your Use of Open Source Software <a id="1-your-use-of-open-source-software"></a>
+## 1. 您对开源软件的使用<a id="1-your-use-of-open-source-software"></a>
 
-We may make \(but are not obligated to make\) the source code of Kaia Blockchain Network Platform \("Platform"\), the software on the Platform, etc. for download as open source software. If you use this open source software, you agree to be bound by and comply with any license that applies to this open source software. You will not indicate that you are associated with us in connection with your use, modifications or distributions of this open source software.
+我们可以将Kaia区块链网络平台（以下简称 "平台"）的源代码、平台上的软件等作为开源软件提供下载（但没有义务提供）。 如果您使用本开源软件，即表示您同意接受并遵守适用于本开源软件的任何许可证的约束。 在使用、修改或分发本开源软件时，不得表明与我们有关联。
 
-## 2. Services Provided on the Platform <a id="2-services-provided-on-the-platform"></a>
+## 2. 平台提供的服务<a id="2-services-provided-on-the-platform"></a>
 
-The Platform is a combination of peer-to-peer subnetworks of nodes transmitting transactions and blocks to execute value transfers and run smart contracts. The Core Cell Network \("CCN"\), which is one of the subnetworks that constitute the Platform, verifies and executes transactions that occur on the Platform. The CCN is operated by Kaia Governance Council, which is a collective group of Core Cell Operators, and Kaia is not directly involved in any services that are provided in or individual transactions that occur on the Platform.
+该平台是一个由节点组成的点对点子网络，通过传输交易和区块来执行价值转移和运行智能合约。 核心蜂窝网络（CCN）是构成平台的子网络之一，负责验证和执行平台上发生的交易。 CCN 由 Kaia 治理委员会运营，该委员会是核心小区运营商的一个集体团体，Kaia 不直接参与平台上提供的任何服务或发生的任何个人交易。
 
-## 3. Your Installation of dApp on the Platform <a id="3-your-installation-of-dapp-on-the-platform"></a>
+## 3. 在平台上安装 dApp<a id="3-your-installation-of-dapp-on-the-platform"></a>
 
-Your use of open source software is free of charge. However, you may be required to pay a certain number of KAIA as a transaction fee in order to execute a transaction on the Platform, including the installation of the dApp on the Platform.
+您可以免费使用开源软件。 但是，您可能需要支付一定数量的 KAIA 作为交易费，才能在平台上执行交易，包括在平台上安装 dApp。
 
-Once transaction is executed successfully and respective block generation is verified successfully by the Platform’s mechanism, the block is irreversibly stored in the blockchain. As such, your installation of the dApp and any other transactions on the Platform, as well as the submission of transaction fee is final and irrevocable.
+一旦交易成功执行，且平台机制成功验证了相应区块的生成，该区块就会不可逆转地存储在区块链中。 因此，您在平台上安装 dApp 和进行任何其他交易以及提交交易费均为最终且不可撤销的决定。
 
-## 4. User Content <a id="4-user-content"></a>
+## 4. 用户内容<a id="4-user-content"></a>
 
-If you or the users of your dApp post, upload, input, provide or submit any content on the Platform \(collectively, your "User Content"\), you must ensure that the User Content provided by you or the users of your dApp at that or at any other time is true, accurate, up to date and complete and that any User Content you or the users of your dApp post, upload, input, provide or submit via the Platform do not breach or infringe legal rights of any third party. To the extent that is technically possible, you agree to prevent, remove or block access of any User Content that you or the users of your dApp post, upload, input, provide or submit via the Platform that violate or may violate legal rights \(such as rights of privacy and publicity\) of others or any applicable laws or regulations. We do not own, control or endorse any User Content that is transmitted, stored or processed via the Platform or sent to us and we are not responsible or liable for any User Content. We make no assurance that any of Your Content will be secured or that such content will remain confidential.
+如果您或您的dApp用户在平台上张贴、上传、输入、提供或提交任何内容（统称您的 "用户内容"），您必须确保您或您的dApp用户在该时间或任何其他时间提供的用户内容是真实、准确、最新和完整的，并且您或您的dApp用户通过平台张贴、上传、输入、提供或提交的任何用户内容没有违反或侵犯任何第三方的合法权利。 在技术可能的范围内，您同意防止、删除或阻止访问您或您的dApp用户通过平台张贴、上传、输入、提供或提交的违反或可能违反他人合法权利（如隐私权和公开权）或任何适用法律或法规的任何用户内容。 我们不拥有、控制或认可通过平台传输、存储或处理的或发送给我们的任何用户内容，我们不对任何用户内容负责或承担责任。 我们不保证您的任何内容的安全性，也不保证此类内容的保密性。
 
-You are solely responsible and liable for all of your User Content and for your use of any interactive features, links or information or content on the Platform, and you represent and warrant that \(i\) you own all intellectual property rights \(or have obtained all necessary permissions\) to provide your User Content and to grant the licenses in these Terms of Use; \(ii\) your User Content will not violate any agreements or confidentiality obligations; and \(iii\) your User Content will not violate, infringe or misappropriate any intellectual property right or other proprietary right, including the right of publicity or privacy, of any person or entity.
+您对您的所有用户内容以及您对平台上任何互动功能、链接或信息或内容的使用负全部责任，并且您声明并保证您拥有所有知识产权（或已获得所有必要许可）以提供您的用户内容并授予本使用条款中的许可；\(ii\) 您的用户内容不会违反任何协议或保密义务；并且 (iii\) 您的用户内容不会违反、侵犯或盗用任何人或实体的任何知识产权或其他专有权利，包括公开权或隐私权。
 
-You shall not include in User Content, or upload, transmit to or create or include in the Services environment any production data or any sensitive, proprietary, confidential or other data with particular data protection requirements such as personal data or personally identifiable information relating to an identified or identifiable natural person.
+您不得在用户内容中，或在服务环境中上传、传输、创建或包含任何生产数据或任何敏感、专有、机密或其他有特殊数据保护要求的数据，例如与已识别或可识别的自然人有关的个人数据或个人身份信息。
 
-You are prohibited from using the Platform to post or transmit any threatening, libellous, defamatory, obscene, scandalous, inflammatory, pornographic or profane material, any material that is contrary to applicable local, federal, or international laws and regulations, or any material that could constitute or encourage unlawful conduct. You must ensure that your User Content do not include such materials. We may from time to time monitor or review material transmitted or posted using the Network, and we reserve the right to delete any material we deem inappropriate.
+禁止使用平台张贴或传播任何威胁性、诽谤性、中伤性、淫秽性、丑闻性、煽动性、色情或亵渎性材料，任何违反适用的地方、联邦或国际法律法规的材料，或任何可能构成或鼓励非法行为的材料。 您必须确保您的用户内容不包含此类材料。 我们可能会不时监控或审查使用网络传输或张贴的材料，并保留删除我们认为不适当的任何材料的权利。
 
-We are under no obligation to do so and assume no responsibility or liability arising from any material transmitted or posted using the Platform.
+我们没有义务这样做，也不承担因使用平台传输或发布的任何材料而产生的任何责任或义务。
 
-You understand that any information you or users of your dApp upload to the Platform will be distributed among the blockchain nodes and may not removable due to technical limitations of the blockchain technology.
+您理解，您或您的 dApp 用户上传到平台的任何信息将在区块链节点之间分发，由于区块链技术的技术限制，可能无法删除。
 
-You are entirely responsible for any and all activities that occur under your account or your dApp \(if any\). You agree to notify us immediately of any unauthorized use of your User Content, your dApp or account or any other breach of security. We will not be liable for any loss or damages that you may incur as a result of someone else using your User Content, your dApp or account, either with or without your knowledge. However, you could be held liable for losses incurred by us or another party due to someone else using your User Content, your dApp or account. You may not use anyone else’s User Content, your dApp or account at any time without the permission of such person or entity.
+您应对您的账户或您的 dApp（如有）下发生的任何及所有活动负全部责任。 您同意在您的用户内容、您的 dApp 或账户遭到任何未经授权的使用或任何其他违反安全规定的行为时，立即通知我们。 对于因他人在您知情或不知情的情况下使用您的用户内容、您的 dApp 或账户而造成的任何损失或损害，我们概不负责。 但是，对于因他人使用您的用户内容、您的 dApp 或账户而给我们或其他方造成的损失，您可能需要承担责任。 未经他人或实体许可，您不得在任何时候使用他人的用户内容、您的 dApp 或账户。
 
-By posting, uploading, inputting, providing or submitting your User Content to the Platform, you grant to participants of the Platform and any necessary sub-licensees a non-exclusive, worldwide, perpetual, right and permission to use, reproduce, copy, edit, modify, translate, reformat, create derivative works from, distribute, transmit, publicly perform and publicly display your User Content and sub-license such rights to others.
+在平台张贴、上传、输入、提供或提交您的用户内容，即表示您授予平台参与者及任何必要的分许可人非排他性、全球性、永久性的权利和许可，以使用、复制、拷贝、编辑、修改、翻译、重新格式化、创作衍生作品、分发、传播、公开表演和公开展示您的用户内容，并将此类权利分许可给他人。
 
-If we have reason to believe that there is likely to be a breach of security, breach or misuse of the Platform or if you breach any of your obligations under these terms, we may suspend your use of the Platform at any time and for any reason.
+如果我们有理由相信可能存在违反安全、违反或滥用平台的行为，或者如果您违反了这些条款规定的任何义务，我们可以在任何时候以任何理由暂停您对平台的使用。
