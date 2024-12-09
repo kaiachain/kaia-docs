@@ -1,54 +1,54 @@
-# Configure High Availability
+# 配置高可用性
 
-Configuring the CN for high availability is critical for effectively operating a Core Cell. The recommended high availability scheme depends on whether the Core Cell is deployed on physical or cloud infrastructure.
+配置 CN 以实现高可用性是有效运行核心单元的关键。 推荐的高可用性方案取决于核心单元是部署在物理基础设施还是云基础设施上。
 
-## Active-Standby \(recommended for bare-metal\) <a id="active-standby-recommended-for-bare-metal"></a>
+## 主动-备用（建议用于裸机）<a id="active-standby-recommended-for-bare-metal"></a>
 
-In this configuration, two CN nodes are installed in active-standby configuration. During normal operation the active node participates in block generation, while the standby only synchronizes chaindata from the network. This configuration ensures that the standby CN node has a fresh copy of the chaindata in the event of a failure in the active node.
+在此配置中，两个 CN 节点采用主动-备用配置。 正常运行时，活动节点参与区块生成，而备用节点仅同步来自网络的链数据。 这种配置可确保在活动节点发生故障时，备用 CN 节点拥有链数据的新副本。
 
-### Setup <a id="setup"></a>
+### 设置<a id="setup"></a>
 
-1. Create a backup of the active CN's `nodekey`.
-2. Install a standby CN. The configuration is the same as the active CN except:
-   - The standby should use a different `nodekey`
-   - Add the addresses of the PNs to `$DATA_DIR/static-nodes.json`
+1. 创建活动 CN 的`nodekey`备份。
+2. 安装备用 CN。 除此以外，配置与活动 CN 相同：
+   - 备用机应使用不同的 \`nodekey
+   - 将 PN 地址添加到 `$DATA_DIR/static-nodes.json` 中
 
-### Failover <a id="failover"></a>
+### 故障切换<a id="failover"></a>
 
-1. Stop the standby CN: `sudo systemctl stop kcnd`
-2. Replace the `nodekey` of the standby with the `nodekey` of the failed active CN.
-3. Reassign the IP address of the active CN to the standby CN.
-4. Start the standby CN and verify that it is in sync with the network: `sudo systemctl start kcnd`
+1. 停止备用 CN：\`sudo systemctl stop kcnd
+2. 用发生故障的活动 CN 的 "节点密钥 "替换备用 CN 的 "节点密钥"。
+3. 将活动 CN 的 IP 地址重新分配给备用 CN。
+4. 启动备用 CN 并验证其是否与网络同步：sudo systemctl start kcnd
 
-## Machine Image & Snapshot \(recommended for cloud\) <a id="machine-image-snapshot-recommended-for-cloud"></a>
+## 机器图像和快照（推荐用于云计算）<a id="machine-image-snapshot-recommended-for-cloud"></a>
 
-Cloud infrastructure allows operators to replace failed nodes much more quickly, so it is not necessary to operate a second standby CN. Instead, it is sufficient to ensure that a new CN can be quickly provisioned and provided with a updated copy of the chaindata.
+云基础设施允许运营商更快地替换故障节点，因此没有必要运行第二个备用 CN。 相反，只需确保新的 CN 可以快速配置，并提供链数据的最新副本即可。
 
-The exact terminology and procedure may vary across different cloud environments. The procedure below is based on AWS \(specifically EC2 and EBS\), but can be adapted for other cloud platforms.
+不同云环境的具体术语和程序可能有所不同。 以下程序基于 AWS（特别是 EC2 和 EBS），但也可适用于其他云平台。
 
-### Setup <a id="setup"></a>
+### 设置<a id="setup"></a>
 
-1. Create a backup of the active CN's `nodekey`.
-2. Each time the CN configuration or software is updated, create a machine image \(e.g. AMI\). Do not include the volume containing `DATA_DIR` in this image -- this will be obtained separately.
+1. 创建活动 CN 的`nodekey`备份。
+2. 每次更新 CN 配置或软件时，创建一个机器映像（例如 AMI/）。 请勿将包含 `DATA_DIR` 的卷包含在此映像中 -- 这将单独获取。
 
-### Failover <a id="failover"></a>
+### 故障切换<a id="failover"></a>
 
-Use any of the CC's PN nodes to obtain a chaindata snapshot:
+使用 CC 的任何 PN 节点获取链数据快照：
 
-1. Connect to any PN node and stop kpnd: `sudo systemctl stop kpnd`. It is important to stop kpnd first, to ensure data consistency.
-2. Using the AWS console, create a snapshot of the volume containing the PN's `DATA_DIR`.
-3. Start kpnd: `sudo systemctl start kpnd`
+1. 连接到任何 PN 节点并停止 kpnd：sudo systemctl stop kpnd\`。 必须先停止 kpnd，以确保数据的一致性。
+2. 使用 AWS 控制台，创建包含 PN`DATA_DIR` 的卷的快照。
+3. 启动 kpnd启动 kpnd
 
-Create a new CN using the base CN image and the chaindata image:
+使用基本 CN 映像和 chaindata 映像创建新的 CN：
 
-1. Create an instance using the CN image \(created in "Setup" above\).
-2. Attach a volume created from the snapshot of the PN's `$DATA_DIR`.
-3. Remove all files from the volume except `$DATA_DIR/klay/chaindata`. Confirm that the `DATA_DIR` set in `kcnd.conf` matches the directory containing the chaindata. It may be necessary to rename the directory if the name is different.
-4. Copy the `nodekey` of the failed CN to `$DATA_DIR/klay/nodekey`.
-5. Reassign the IP address of the failed CN to the replacement.
-6. Start kcnd: `sudo systemctl start kcnd`
-7. Verify the CN is in sync with the network.
+1. 使用 CN 映像（在上面的 "设置 "中创建）创建一个实例。
+2. 附加根据 PN 的快照创建的卷$DATA_DIR\`。
+3. 删除卷中除 `$DATA_DIR/klay/chaindata` 以外的所有文件。 确认 `kcnd.conf` 中设置的 `DATA_DIR` 与包含链数据的目录一致。 如果目录名称不同，可能需要重新命名。
+4. 将故障 CN 的 `nodekey` 复制到 `$DATA_DIR/klay/nodekey`。
+5. 将故障 CN 的 IP 地址重新分配给替换 CN。
+6. 启动 kcnd启动 kcnd
+7. 验证 CN 是否与网络同步。
 
-## Additional Considerations <a id="additional-considerations"></a>
+## 其他考虑因素<a id="additional-considerations"></a>
 
-Reassigning the public IP of the failed CN to the replacement CN will allow the replacement to connect immediately to other CNs. If the IP changes, the new CN will not be able to connect to the network until all other CCOs have updated their firewall configurations.
+将故障 CN 的公共 IP 重新分配给替换 CN，可使替换 CN 立即连接到其他 CN。 如果 IP 变更，在所有其他 CCO 更新其防火墙配置之前，新的 CN 将无法连接到网络。
