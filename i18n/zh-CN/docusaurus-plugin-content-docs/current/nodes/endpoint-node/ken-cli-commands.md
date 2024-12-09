@@ -1,13 +1,13 @@
-# ken CLI Commands
+# ken CLI 命令
 
 ```bash
 USAGE:
    ken [options] command [command options] [arguments...]
 ```
 
-## Commands
+## 命令
 
-`ken`has the following commands.
+ken "有以下命令。
 
 ```bash
 COMMANDS:
@@ -22,7 +22,7 @@ COMMANDS:
    help, h     Shows a list of commands or help for one command
 ```
 
-To get a detailed usage guideline for each command, give -h option.
+要获得每条命令的详细使用指南，请使用 -h 选项。
 
 ```bash
 $ ken account -h
@@ -55,31 +55,31 @@ participating.
  ...
 ```
 
-## JavaScript Console
+## JavaScript 控制台
 
-Kaia Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Kaia API calls to your EN. To attach to the JavaScript console, execute the following command.
+Kaia Endpoint Node 附带 JavaScript 控制台。 通过控制台命令行，您可以向您的 EN 发起部分 Kaia API 调用。 要附加到 JavaScript 控制台，请执行以下命令。
 
 ```bash
 $ ken attach --datadir ~/kend_home
-Welcome to the Kaia JavaScript console
+欢迎访问 Kaia JavaScript 控制台
 
-!instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+!instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 
- >
+>
 ```
 
-attach command connects to the running node, while console command launches a node and connects to it.
+attach 命令连接运行中的节点，而 console 命令则启动节点并连接它。
 
 ```bash
    attach      Start an interactive JavaScript environment (connect to node)
    console     Start an interactive JavaScript environment
 ```
 
-### Module APIs
+### 模块应用程序接口
 
-If you type the module name on the console prompt, you will see the available properties and functions of the module. For the details of functions, please see [Kaia API](../../../references/json-rpc/klay/account-created).
+如果在控制台提示符下键入模块名称，就会看到模块的可用属性和功能。 有关功能的详细信息，请参阅 [Kaia API]（.../.../.../references/json-rpc/klay/account-created）。
 
 ```javascript
 > personal
