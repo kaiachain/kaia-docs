@@ -1,8 +1,8 @@
 # Indexers
 
-Blockchain indexers are tools used in the context of blockchain technology to improve the efficiency and speed of searching, querying, and accessing data stored on a blockchain. They create and maintain organized databases of the blockchain's data, allowing users to quickly retrieve information without needing to process the entire blockchain from scratch.
+区块链索引器是区块链技术中使用的工具，用于提高搜索、查询和访问存储在区块链上的数据的效率和速度。 它们创建并维护区块链数据的有序数据库，使用户能够快速检索信息，而无需从头开始处理整个区块链。
 
-The following providers have integrated with Kaia to deliver blockchain indexing services:
+以下供应商已与 Kaia 集成，提供区块链索引服务：
 
-- [The Graph](https://thegraph.com/)
+- [图表](https://thegraph.com/)
 - [SubQuery Network](https://academy.subquery.network/)
