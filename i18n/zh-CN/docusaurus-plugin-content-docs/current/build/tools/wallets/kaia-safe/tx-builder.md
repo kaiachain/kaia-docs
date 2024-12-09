@@ -1,77 +1,77 @@
-# Use Transaction Builder
+# 使用事务生成器
 
-This is a custom app in Kaia Safe that is responsible for batching transactions. This means that we you can bundle several transactions together, instead of having to confirm one transaction after the other. You just have to confirm and execute once.
+这是 Kaia Safe 中的一个自定义应用程序，负责批处理交易。 这意味着您可以将几笔交易捆绑在一起，而不必一笔接一笔地确认。 您只需确认并执行一次。
 
-With transaction builder, you can compose transactions from token transfers to complex contract interactions and batch them into a single transaction.
+有了事务生成器，您就可以将从代币转账到复杂的合约交互等各种事务组合在一起，并将它们批量合并到单个事务中。
 
-## KLAY Token Transfer <a id="token-transfer"></a>
+## KLAY 代币转让<a id="token-transfer"></a>
 
-You can perform token transfer using transaction builder by following the steps below:
+您可以按照以下步骤，使用事务生成器执行令牌转移：
 
-**Step 1:** Navigate to Safe Apps and open Transaction Builder Safe App
+**步骤 1：** 导航至安全应用程序并打开交易生成器安全应用程序
 
 ![](/img/build/tools/kaia-safe/ks-tx-builder.png)
 
-**Step 2:** Enter the recipient wallet address. For this guide, kindly skip the ABI field as we are trying to execute KLAY transfer transaction.
+**第 2 步：** 输入收件人钱包地址。 在本指南中，请跳过 ABI 字段，因为我们正在尝试执行 KLAY 传输事务。
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
 
-**Step 3:** Enter the KLAY value you want to send.
+**步骤 3：** 输入要发送的 KLAY 值。
 
-> Note: In this guide, we are sending 1 KLAY, so we entered 1 in the **KLAY value** input field. You can input any amount here, depending on your Safe's KLAY balance.
+> 注意：在本指南中，我们发送的是 1 KLAY，因此在 **KLAY 值**输入框中输入了 1。 您可以根据 Safe 的 KLAY 余额在此输入任意金额。
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
 
-**Step 4:** Click Add transaction.
+**步骤 4：** 点击添加交易。
 
-**Step 5:** Repeat steps 2, 3, and 4 for every recipient address.
+**步骤 5：** 对每个收件人地址重复步骤 2、3 和 4。
 
-**Step 6:** Once you added all operations to the batch click Create Batch.
+**步骤 6：** 将所有操作添加到批次后，单击 "创建批次"。
 
 ![](/img/build/tools/kaia-safe/token-trf-tx-builder.gif)
 
-**Step 7:** Review and submit transaction
+**第 7 步：** 审查并提交交易
 
-You'll be able to review the whole batch. Once ready, click Send Batch to submit and execute the transaction just like any other Safe transaction.
+您可以查看整个批次。 准备就绪后，单击 "发送批次"，即可像其他安全交易一样提交和执行交易。
 
-## Contract Interactions <a id="contract-interactions"></a>
+## 合同互动<a id="contract-interactions"></a>
 
-Let's say you want to airdrop tokens to a long list of addresses, say 10 CCT tokens to 5 addresses. Instead of having to create 5 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
+比方说，您想向一长串地址空投令牌，比如向 5 个地址空投 10 个 CCT 令牌。 交易生成器可将所有这些转账合并到一个交易中，而无需创建 5 个交易，保险箱的所有者必须一个接一个地确认和执行这些交易。
 
-In this guide, we have minted CCT tokens to the Safe address for illustrative purpose.
+在本指南中，我们将 CCT 代币铸造到安全地址，以作说明。
 
-Let’s get started with this example using Transaction Builder!
+让我们使用事务生成器开始这个示例！
 
-**Step 1:** Open Safe Apps.
+**步骤 1：** 打开安全应用程序。
 
 ![](/img/build/tools/kaia-safe/ks-tx-builder.png)
 
-**Step 2:** Open the Transaction Builder Safe app
+**步骤 2：** 打开交易生成器安全应用程序
 
 ![](/img/build/tools/kaia-safe/ks-use-tx-builder.png)
 
-**Step 3:** Enter your **token contract address** and **ABI**.
+**第 3 步：** 输入您的**令牌合同地址**和**ABI**。
 
-In this example, CCT contract address and ABI will be used. You can copy and paste your ABI into the **Enter ABI** field.
+在本例中，将使用 CCT 合同地址和 ABI。 您可以将 ABI 复制并粘贴到 **输入 ABI** 字段中。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-init.gif)
 
-**Step 4:** Select a method and fill the transaction information
+**第 4 步：** 选择一种方法并填写交易信息
 
-From the drop-down you can select a method. In this case, we select the **transfer** method. For this step to be completed, you have to fill out the transaction information, such as **to(address)** and **amount(uint256)**.
+您可以从下拉菜单中选择一种方法。 在这种情况下，我们选择**转移**方法。 要完成这一步，您必须填写交易信息，如 **收件人（地址）** 和 **金额（uint256）**。
 
-Note: The value is an unsigned integer without any decimals. In this example, the CCT token has 18 decimals. So if you want to send 10 CCT, you have to enter 10000000000000000000.
+注：数值为无符号整数，不含小数。 在这个例子中，CCT 标记有 18 个小数。 因此，如果要发送 10 个 CCT，就必须输入 10000000000000000000。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-details.gif)
 
-**Step 5:** Click **Add transaction**
+**第 5 步：** 点击**添加交易**
 
-**Step 6:** Repeat steps **4**, **5**, and **6** for every recipient address.
+**步骤 6：** 对每个收件人地址重复步骤 **4**、**5** 和 **6**。
 
-**Step 7:** Once you added all operations to the batch click **Create Batch**
+**第 7 步：** 将所有操作添加到批次后，单击**创建批次**。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-batch.gif)
 
-**Step 8:** Review and submit transaction
+**第 8 步：** 审查并提交交易
 
-You'll be able to review the whole batch. Once ready, click **Send Batch** to submit and execute the transaction just like any other Safe transaction.
+您可以查看整个批次。 准备就绪后，点击**发送批次**，即可像其他安全交易一样提交和执行交易。
