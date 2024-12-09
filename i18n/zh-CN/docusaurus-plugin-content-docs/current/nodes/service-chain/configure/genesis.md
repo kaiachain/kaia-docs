@@ -1,116 +1,116 @@
-# Genesis File
+# 创世纪文件
 
-This page describes the details of `genesis.json` file.
+本页描述了 `genesis.json` 文件的详细信息。
 
-## Genesis JSON File Structure <a id="genesis-json-file-structure"></a>
+## 创世纪 JSON 文件结构<a id="genesis-json-file-structure"></a>
 
-The `genesis.json` file structure is described in the following table.
+下表描述了 `genesis.json` 文件结构。
 
-| Field Name | Description                                                                                                                                                  |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| config     | The blokchain configuration. See the section [Config](#config).                                                              |
-| nonce      | (deprecated) This field is derived from the Ethereum, but not used in Kaia.                                               |
-| timestamp  | The unix time when a block is created.                                                                                                       |
-| extraData  | The data combined field for signer vanity and RLP-encoded istanbul extra data that contains validator list, proposer seal, and commit seals. |
-| gasLimit   | The maximum gas amount that used in a block.                                                                                                 |
-| difficulty | (deprecated) This field is derived from the Ethereum, but not used in Kaia.                                               |
-| mixhash    | (deprecated) This field is derived from the Ethereum, but not used in Kaia.                                               |
-| coinbase   | An address to which miner receives the reward. This field is only used for Clique consensus engine.                          |
-| alloc      | The predefined accounts.                                                                                                                     |
-| number     | The block number field.                                                                                                                      |
-| gasUsed    | The amount of the gas which used for a block.                                                                                                |
-| parentHash | The hash value of the previous block.                                                                                                        |
+| 字段名称       | 说明                                                     |
+| ---------- | ------------------------------------------------------ |
+| config     | blokchain 配置。 请参阅 [配置](#config) 部分。                    |
+| nonce      | (已废弃）该字段源于以太坊，但不用于 Kaia。            |
+| timestamp  | 块创建时的 unix 时间。                                         |
+| extraData  | 数据组合字段，用于签名者虚荣和 RLP 编码的伊斯坦布尔额外数据，其中包含验证者列表、提议者封印和提交封印。 |
+| gasLimit   | 区块中使用的最大气体量。                                           |
+| difficulty | (已废弃）该字段源于以太坊，但不用于 Kaia。            |
+| mixhash    | (已废弃）该字段源于以太坊，但不用于 Kaia。            |
+| coinbase   | 矿工领取奖励的地址。 该字段仅用于 Clique 共识引擎。                         |
+| alloc      | 预定义账户。                                                 |
+| number     | 区块编号字段。                                                |
+| gasUsed    | 一个区块使用的气体量。                                            |
+| parentHash | 前一个区块的哈希值。                                             |
 
 ### Config <a id="config"></a>
 
-The `config` field stores the information related to the chain.
+配置 "字段存储与链相关的信息。
 
-| Field Name              | Description                                                                                        |
-| ----------------------- | -------------------------------------------------------------------------------------------------- |
-| chainId                 | It identifies the current chain and is used for prevention from the replay attack. |
-| istanbulCompatibleBlock | A block number to which istanbul change is applied.                                |
-| istanbul, clique        | The type of consensus engine.                                                      |
-| unitPrice               | Unit price.                                                                        |
-| deriveShaImpl           | Defines a method to generate transaction hash and receipt hash.                    |
-| governance              | Governance information of the network. See the section [Governance](#governance)   |
+| 字段名称                    | 说明                                                                         |
+| ----------------------- | -------------------------------------------------------------------------- |
+| chainId                 | 它能识别当前链，用于防止重放攻击。                                                          |
+| istanbulCompatibleBlock | 适用伊斯坦布尔变更的区块编号。                                                            |
+| istanbul, clique        | 共识引擎的类型。                                                                   |
+| unitPrice               | 单位价格。                                                                      |
+| deriveShaImpl           | 定义生成交易哈希值和收据哈希值的方法。                                                        |
+| governance              | 网络管理信息。 参见 [治理]（#治理）部分 |
 
 ### extraData <a id="extradata"></a>
 
-The field `extraData` is a concatenation of the proposer vanity and the RLP-encoded istanbul extra data:
+字段 `extraData` 是提议者虚名和 RLP 编码的伊斯坦布尔额外数据的连接：
 
-- The proposer vanity is 32-byte data which contains arbitrary proposer vanity data.
-- The rest of the data is RLP-encoded istanbul extra data containing:
-  - Validators: the list of validators in ascending order.
-  - Seal: the proposer signature of the header. For `genesis.json`, it is a byte array initialized with 65 `0x0`.
-  - CommittedSeal: the list of commitment signature seals as consensus proof. For `genesis.json`, it is an empty array.
+- 建议者虚名是 32 字节数据，包含任意建议者虚名数据。
+- 其余数据为 RLP 编码的伊斯坦布尔额外数据，包含
+  - 验证器：按升序排列的验证器列表。
+  - 印章：提案人在页眉上的签名。 对于 `genesis.json`，它是一个以 65 `0x0`初始化的字节数组。
+  - CommittedSeal：作为共识证明的承诺签名印章列表。 对于 `genesis.json`，它是一个空数组。
 
-**Example**
+**举例**
 
-| Field         | Type                                                                                                             | Value                                                                                                                                       |
+| 现场            | 类型                                                                                                               | 价值                                                                                                                                          |
 | ------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vanity        | 32-byte hex string                                                                                               | 0x0000000000000000000000000000000000000000000000000000000000000000                                                                          |
+| 虚荣            | 32 字节十六进制字符串                                                                                                     | 0x0000000000000000000000000000000000000000000000000000000000000000                                                                          |
 | Validators    | []address                                                    | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
-| Seal          | byte array of 65 elements                                                                                        | [0x0,...,0x0]                           |
+| Seal          | 由 65 个元素组成的字节数组                                                                                                  | [0x0,...,0x0]                           |
 | CommittedSeal | [][]byte | []                                                                                      |
 
-`extraData` with the above data is created by
+创建包含上述数据的 `extraData` 的方法是
 
 ```
 concat('0x',Vanity,RLPEncode({Validators,Seal,CommittedSeal}))
 ```
 
-where `concat` is a string concatenation function, and `RLPEncode` is a function to convert a given structure to an RLP-encoded string.
+其中，`concat` 是字符串连接函数，`RLPEncode` 是将给定结构转换为 RLP 编码字符串的函数。
 
 With this function, the output `extraData` for this example is 0x0000000000000000000000000000000000000000000000000000000000000000f86fea9448009b4e20ec72aadf306577cbe2eaf54b0ebb1694089fcc42fd83baeee4831319375413b8bae3acebb8410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0.
 
-## Consensus Engine <a id="consensus-engine"></a>
+## 共识引擎<a id="consensus-engine"></a>
 
-The available consensus engines for Kaia network are Clique and Istanbul. Each engine is explained as follows.
+Kaia 网络可用的共识引擎有 Clique 和 Istanbul。 每个引擎的说明如下。
 
 ### Clique <a id="clique"></a>
 
-The `clique` field stores the configuration for Proof-Of-Authority (POA) based sealing.
+clique "字段存储基于授权证明（POA）的密封配置。
 
-| Fields | Description                                                                                                                 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------- |
-| period | The minimum time interval between the consecutive blocks (unit: second). |
-| epoch  | The number of blocks to reset votes and marked as a checkpoint.                                             |
+| 字段     | 说明                    |
+| ------ | --------------------- |
+| period | 连续数据块之间的最小时间间隔（单位：秒）。 |
+| epoch  | 重置投票并标记为检查点的区块数。      |
 
 ### Istanbul <a id="istanbul"></a>
 
-The `istanbul` field stores the configuration for Istanbul based sealing.
+istanbul "字段存储基于伊斯坦布尔的密封配置。
 
-| Fields | Description                                                                                                                                                                                              |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| epoch  | The number of blocks to reset votes to be a checkpoint.                                                                                                                                  |
-| policy | The block proposer selection policy. [0: Round Robin, 1: Sticky, 2: Weighted Random] |
-| sub    | Committee size.                                                                                                                                                                          |
+| 字段     | 说明                                                         |
+| ------ | ---------------------------------------------------------- |
+| epoch  | 重置选票的区块数即为检查点。                                             |
+| policy | 区块建议者遴选政策。 [0：循环赛，1：粘性赛，2：加权随机赛］ |
+| sub    | 委员会人数                                                      |
 
 ## Governance <a id="governance"></a>
 
-The `governance` field stores governance information for a network.
+治理 "字段存储网络的治理信息。
 
-| Fields         | Description                                                                                                                     |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| governanceMode | One of three governance modes. [`none`, `single`, `ballot`] |
-| governingNode  | Designated governing node's address. It only works if the governance mode is `single`.          |
-| reward         | It stores the reward configuration. See the section [Reward](#reward).                          |
+| 字段             | 说明                                                                                                                           |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| governanceMode | 三种治理模式之一。 [`none`, `single`, `ballot`]                                   |
+| governingNode  | 指定管理节点的地址。 只有当治理模式为 "单一 "时，它才会起作用。                                                                                           |
+| reward         | It stores the reward configuration. 请参阅 [奖励]（#reward）部分。 |
 
 ### Reward <a id="reward"></a>
 
-The `reward` field stores the information about the network's token economy.
+奖励 "字段存储有关网络代币经济的信息。
 
-| Fields                 | Description                                                                                                                    |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| mintingAmount          | Amount of kei minted when a block is generated. Double quotation marks are needed for a value. |
-| ratio                  | Distribution rate for a `CN/KIR/PoC` separated by `/`. The sum of all values has to be 100.    |
-| useGiniCoeff           | Use GINI coefficient or not.                                                                                   |
-| deferredTxFee          | A way to distribute TX fee for a block.                                                                        |
-| stakingUpdateInterval  | Time interval in block height to update staking information.                                                   |
-| proposerUpdateInterval | Time interval in block height to update proposer information.                                                  |
-| minimumStake           | Minimum amount of kei to join Core Cell Operators.                                                             |
+| 字段                     | 说明                                        |
+| ---------------------- | ----------------------------------------- |
+| mintingAmount          | 生成区块时铸造的金币数量。 数值需要双引号。                    |
+| ratio                  | 用"/"分隔的 "CN/KIR/PoC "的分配率。 所有值的总和必须是 100。 |
+| useGiniCoeff           | 是否使用 GINI 系数                              |
+| deferredTxFee          | 分配区块 TX 费用的方法。                            |
+| stakingUpdateInterval  | 更新定标信息的时间间隔（块高度）。                         |
+| proposerUpdateInterval | 更新提案人信息的时间间隔（块高度）。                        |
+| minimumStake           | 加入核心单元操作员的最低金额。                           |
 
-## Example <a id="example"></a>
+## 示例<a id="example"></a>
 
 ```
 {
