@@ -1,8 +1,8 @@
 # KaiaGreeter
 
-`KaiaGreeter` is a simple contract that returns a greeting message. Greeting message is set when the contract is deployed.
+KaiaGreeter "是一个返回问候信息的简单合约。 问候信息在部署合同时设置。
 
-## Writing KaiaGreeter <a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
+## 写作 KaiaGreeter<a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
 
 ```
 pragma solidity 0.5.6;
@@ -29,18 +29,18 @@ contract KaiaGreeter is Mortal {
 }
 ```
 
-## Deploying KaiaGreeter using Remix Online IDE <a href="#deploying-kaiagreeter-using-kaia-ide" id="deploying-kaiagreeter-using-kaia-ide"></a>
+## 使用 Remix 在线集成开发环境部署 KaiaGreeter<a href="#deploying-kaiagreeter-using-kaia-ide" id="deploying-kaiagreeter-using-kaia-ide"></a>
 
-- Please visit [Kaia Plugin for Remix](https://ide.kaia.io) and create a `KaiaGreeter` contract. The complete source code was given in the above.
-- Prepare your account which will be used to deploy the contract.
-  - If you do not have an account yet, create one at [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy).
-  - Get some test KAIA from the faucet - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
-- Deploy the contract with initial parameter, a greeting message.
-- After deploying, you can invoke `greet` from the IDE.
+- 请访问 [Kaia Plugin for Remix](https://ide.kaia.io) 并创建 "KaiaGreeter "合同。 上文提供了完整的源代码。
+- 准备用于部署合同的账户。
+  - 如果您还没有账户，请在 [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy) 上创建一个账户。
+  - 从水龙头获取一些测试 KAIA - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
+- 部署带有初始参数（问候语）的合同。
+- 部署完成后，可以在集成开发环境中调用 `greet`。
 
-## References <a href="#references" id="references"></a>
+## 参考资料<a href="#references" id="references"></a>
 
-For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents.
+有关合同部署详情和 Remix Online IDE 使用指南，请参阅以下文件。
 
-- [Remix Online IDE](../../smart-contracts/ide-and-tools/ide-and-tools.md#kaia-ide)
-- [Deploy Guide](../deploy/deploy.md)
+- [Remix 在线集成开发环境](.../.../smart-contracts/ide-and-tools/ide-and-tools.md#kaia-ide)
+- [部署指南](.../deploy/deploy.md)
