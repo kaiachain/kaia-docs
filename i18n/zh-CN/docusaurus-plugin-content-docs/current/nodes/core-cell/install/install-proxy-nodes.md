@@ -1,16 +1,16 @@
-# Install Proxy Nodes
+# 安装代理节点
 
-## Download
+## 下载
 
-You can download the latest version of the `kpn`  on [Download](../../downloads/downloads.md) page.
+您可以在 [Download](../../downloads/downloads.md) 页面下载最新版本的 `kpn`。
 
-## Installation <a id="installation"></a>
+## 安装<a id="installation"></a>
 
-### Linux Archive Distribution <a id="linux-archive-distribution"></a>
+### Linux 档案分发版<a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+存档文件由可执行二进制文件和配置文件组成，结构如下。
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**注意**：请勿更改文件结构或文件名。 如果更改，节点可能无法正常运行。
 
 ```text
 - bin
@@ -20,91 +20,91 @@ The archive file consists of the executable binary and the configuration file st
   |- kpnd.conf
 ```
 
-| File Name                      | File Description                 |
-| :----------------------------- | :------------------------------- |
-| bin/kpn                        | PN executable file               |
-| bin/kpnd                       | PN start/termination script file |
-| conf/kpnd.conf | PN configuration file            |
+| 文件名称                           | 文件说明         |
+| :----------------------------- | :----------- |
+| bin/kpn                        | PN 可执行文件     |
+| bin/kpnd                       | PN 启动/终止脚本文件 |
+| conf/kpnd.conf | PN 配置文件      |
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+安装是将下载的软件包解压缩，然后安装到您想要安装的位置。
 
 ```bash
 $ tar zxf kpn-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+或者
 
 ```bash
 $ tar zxf kpn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `kpn-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `kpn` and `kpnd` globally. As an example,
+**注意**：建议在环境变量 `$PATH` 中添加解压缩目录 `kpn-linux-amd64/bin` 路径，以便全局运行 `kpn` 和 `kpnd`。 举个例子
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kpn-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+其他部分假定路径已添加到变量中。
 
-### RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+### RPM 发行版（RHEL/CentOS/Fedora\）<a id="rpm-rhel-centos-fedora"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+您可以使用以下 `yum` 命令安装下载的 RPM 文件。
 
 ```bash
 $ yum install kpnd-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+或者
 
 ```bash
 $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Kaia Yum Repo <a id="install-from-kaia-yum-repo"></a>
+### 从 Kaia Yum Repo 安装<a id="install-from-kaia-yum-repo"></a>
 
-Alternatively, you can install `kpnd` from the Kaia Yum repo, run:
+或者，也可以从 Kaia Yum 软件仓库安装 `kpnd`，运行
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kpnd
 ```
 
-### Installed Location <a id="installed-location"></a>
+### 安装位置<a id="installed-location"></a>
 
-The installed files are located as follows.
+安装文件的位置如下
 
-| File Name                 | Location                                 |
+| 文件名称                      | 地点                                       |
 | :------------------------ | :--------------------------------------- |
 | kpn                       | /usr/bin/kpn                             |
 | kpnd.conf | /etc/kpnd/conf/kpnd.conf |
 
-## Configuration <a id="configuration"></a>
+## 配置<a id="configuration"></a>
 
-The PN configuration is to create a data directory and set up several values in the configuration file `kpnd.conf`.
+PN 配置是在配置文件 `kpnd.conf` 中创建一个数据目录并设置几个值。
 
-1. Create a PN Data Directory
-2. Install node key
-3. Install `static-node.json`
-4. Configure the PN with `kpnd.conf`.
+1. 创建 PN 数据目录
+2. 安装节点密钥
+3. 安装 \`static-node.json
+4. 使用 `kpnd.conf` 配置 PN。
 
-### PN Data Directory Creation <a id="pn-data-directory-creation"></a>
+### 创建 PN 数据目录<a id="pn-data-directory-creation"></a>
 
-Considering the fact that the size of Kaia blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
+考虑到 Kaia 区块链数据的大小一直在增加，建议使用足够大的存储空间。 您可能需要在所需路径上创建该目录。
 
 ```bash
 $ mkdir -p /var/kpnd/data
 ```
 
-### Install Node Key <a id="install-node-key"></a>
+### 安装节点密钥<a id="install-node-key"></a>
 
-In order to operate a PN, a `nodekey` is required. The KPN binary will create a new one for you if you do not have it. If you have one, you need to put your `nodekey` into the PN data directory. The way to create a `nodekey` is in the "[Before You Install](./before-you-install.md)" section. The following command line copies the `nodekey` into the PN data directory.
+要操作 PN，需要一个 "节点密钥"。 如果您没有 KPN 二进制文件，KPN 将为您创建一个新文件。 如果您有，则需要将您的 `nodekey` 放入 PN 数据目录。 创建 "节点密钥 "的方法在"[安装前](./before-you-install.md) "部分。 以下命令行会将 `nodekey` 复制到 PN 数据目录。
 
 ```bash
 $ cp nodekey /var/kpnd/data
 ```
 
-### Install `static-nodes.json` <a id="install-static-nodes-json"></a>
+### 安装 \`static-nodes.json<a id="install-static-nodes-json"></a>
 
-The `static-nodes.json` should be created from the PN operator. It contains the addresses that your PN is connected to. It is recommended to add the addresses including your CN and a PN from another Core Cell. Please contact to the Kaia official email for more details \(`bootstrap@klaytn.com` for Mainnet or `baobab@klaytn.com` for Kairos\).
+应通过 PN 操作符创建 `static-nodes.json` 文件。 它包含 PN 所连接的地址。 建议添加地址，包括您的 CN 和另一个核心单元的 PN。 如需了解更多详情，请联系 Kaia 官方邮箱（"bootstrap@klaytn.com "为主网邮箱或 "baobab@klaytn.com "为 Kairos\ 邮箱）。
 
 **static-nodes.json**
 
@@ -115,22 +115,22 @@ The `static-nodes.json` should be created from the PN operator. It contains the 
 ]
 ```
 
-The node URI of the PN is in the "[Before You Install](./before-you-install.md)" section. \(Note: This IP address is different from CN public IP.\) The following command line copies the `static-nodes.json` file into the PN data directory.
+PN 的节点 URI 位于"[安装前](./before-you-install.md) "部分。 \注意：此 IP 地址不同于 CN 公共 IP。 以下命令行会将 `static-nodes.json` 文件复制到 PN 数据目录。
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
 ```
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### 更新配置文件<a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+配置文件位置：
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
+- 对于存档发行版，配置目录位置默认为 `$INSTALL_PATH/kpn-linux-amd64/conf/`。
+- 对于软件包发行版，配置目录默认为 `/etc/kpnd/conf/`。
 
-#### Add Data Directory  <a id="add-data-directory"></a>
+#### 添加数据目录 <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kpnd.conf`.
+您应更新配置文件 `kpnd.conf` 中的数据目录环境变量 `$DATA_DIR`。
 
 ```text
 ...
@@ -138,64 +138,64 @@ DATA_DIR=/var/kpnd/data
 ...
 ```
 
-### (Optional) Download Chaindata Snapshot
+### (可选）下载 Chaindata 快照
 
-Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../../learn/storage/block-sync.md#full-sync) process.
+从创世区块进行同步操作非常耗时。 您可以使用 [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../../learn/storage/block-sync.md#full-sync) 过程。
 
-## Startup the PN <a id="startup-the-pn"></a>
+## 启动 PN<a id="startup-the-pn"></a>
 
-### PN Start/Stop  <a id="pn-start-stop"></a>
+### PN 启动/停止 <a id="pn-start-stop"></a>
 
-You can start/stop the Kaia service with the following `systemctl` command.
+您可以使用以下 "systemctl "命令启动/停止 Kaia 服务。
 
-**Note**: This requires root privileges.
+**注意**：这需要 root 权限。
 
-**start**
+**开始**
 
 ```bash
 $ systemctl start kpnd.service
 
 ```
 
-**stop**
+**停止**
 
 ```bash
 $ systemctl stop kpnd.service
 
 ```
 
-**status**
+**状态**
 
 ```bash
 $ systemctl status kpnd.service
 
 ```
 
-### Troubleshooting <a id="troubleshooting"></a>
+### 故障排除<a id="troubleshooting"></a>
 
-If you meet the following error,
+如果您遇到以下错误
 
 ```bash
 Failed to start kpnd.service: Unit not found.
 ```
 
-reload the systemd manager configuration with the following command.
+使用以下命令重新加载 systemd 管理器配置。
 
 ```bash
 $ systemctl daemon-reload
 ```
 
-## Testing the Core Cell <a id="testing-the-core-cell"></a>
+## 测试核心单元<a id="testing-the-core-cell"></a>
 
-It is time to check that Core Cell is successfully installed and it is working as expected after installation.
+现在要检查的是 Core Cell 是否已成功安装，以及安装后是否按预期运行。
 
-### Process Status <a id="process-status"></a>
+### 进程状态<a id="process-status"></a>
 
-It is possible to check the status of PN's process using the status commands `systemctl` and `kpnd`.
+可以使用状态命令 `systemctl` 和 `kpnd` 检查 PN 进程的状态。
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM and the status of PN can be checked as follows.
+`systemctl` 与 RPM 一起安装，可通过以下方式检查 PN 的状态。
 
 ```bash
 $ systemctl status kpnd.service
@@ -203,32 +203,32 @@ $ systemctl status kpnd.service
    Loaded: loaded (/etc/rc.d/init.d/kpnd; bad; vendor preset: disabled)
    Active: active (running) since Wed 2019-01-09 11:42:39 UTC; 1 months 4 days ago
      Docs: man:systemd-sysv-generator(8)
-  Process: 29636 ExecStart=/etc/rc.d/init.d/kpnd start (code=exited, status=0/SUCCESS)
+  Process：29636 ExecStart=/etc/rc.d/init.d/kpnd start (code=exited, status=0/SUCCESS)
  Main PID: 29641 (kpn)
-   CGroup: /system.slice/kpnd.service
+   CGroup：/system.slice/kpnd.service
            └─29641 /usr/local/bin/kpn --networkid 1000 --datadir /kpnd_home --port 32323 --srvtype fasthttp --metrics --prometheus --verbosity 3 --txpool.global...
 
-Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Starting (null)...
-Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kpnd[29636]: Starting kpnd: [  OK  ]
-Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
+Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]：启动（空）...
+Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kpnd[29636]：Starting kpnd：[ OK ]
+Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]：Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the above example.
+您可以查看当前状态，例如上例中的 "Active: active (running)"。
 
 #### kpnd <a id="kcnd-kpnd"></a>
 
-`kpnd` is installed along with the package and the status of PN can be checked as follows.
+kpnd "与软件包一起安装，可通过以下方式检查 PN 的状态。
 
 ```bash
 $ kpnd status
 kpnd is running
 ```
 
-### Logs <a id="logs"></a>
+### 日志<a id="logs"></a>
 
-The log is stored in `kpnd.out` file located in the path defined in the `LOG_DIR` field of the `kpnd.conf` file. When the node works properly, you can see that each block is created per second as follows.
+日志存储在 `kpnd.out` 文件中，该文件位于 `kpnd.conf` 文件中 `LOG_DIR` 字段定义的路径下。 当节点正常运行时，可以看到每秒创建的每个区块如下所示。
 
-Example:
+例如
 
 ```bash
 $ tail kpnd.out
@@ -244,50 +244,50 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-### kpn console <a id="kcn-console-kpn-console"></a>
+### kpn 控制台<a id="kcn-console-kpn-console"></a>
 
-Kaia provides a CLI client: `kpn console`. However, a PN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
+Kaia 提供一个 CLI 客户端：`kpn console`。 不过，出于安全考虑，PN 可能会禁用客户端的 RPC 接口。 使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。
 
-The IPC file `klay.ipc` is located in the `DATA_DIR` path on a PN.
+IPC 文件 `klay.ipc` 位于 PN 上的 `DATA_DIR` 路径中。
 
-Please execute the following command and check out the result.
+请执行以下命令并查看结果。
 
 ```bash
  $ kpn attach --datadir /var/kpnd/data
- Welcome to the Kaia JavaScript console!
+ 欢迎访问 Kaia JavaScript 控制台！
 
- instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
- coinbase: 0x67f68fdd9740fd7a1ac366294f05a3fd8df0ed40
+ instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+ coinbase：0x67f68fdd9740fd7a1ac366294f05a3fd8df0ed40
  at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
-  datadir: /var/kpnd/data
+  datadir：/var/kpnd/data
   modules: admin:1.0 debug:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
-  >
+>
 ```
 
-You can check the usable commands on [API Document](../../../references/json-rpc/klay/account-created)
+您可以在 [API 文档]（.../.../.../references/json-rpc/klay/account-created）中查看可用命令。
 
-The useful APIs to check the status of a PN:
+用于检查 PN 状态的实用 API：
 
-- `kaia.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Kaia nodes currently)
+- kaia.blockNumber\`（获取最新的区块编号）
+- net.peerCount"（获取当前连接的 Kaia 节点数量）
 
-#### kaia.blockNumber  <a id="kaia-blocknumber"></a>
+#### kaia.blockNumber <a id="kaia-blocknumber"></a>
 
-You can get the latest block number to see if blocks are created (for CNs) or propagated (for CNs and PNs) properly based on your node type.
+您可以根据节点类型获取最新的区块编号，查看区块是否已正确创建（对于 CN）或传播（对于 CN 和 PN）。
 
 ```javascript
 > kaia.blockNumber
 11573819
 ```
 
-#### net.peerCount  <a id="net-peercount"></a>
+#### net.peerCount <a id="net-peercount"></a>
 
 ```javascript
 > net.peerCount
 14
 ```
 
-The above command line returns a different value based on the node type.
+上述命令行会根据节点类型返回不同的值。
 
-- CN: the number of connected CNs + the number of connected PNs.
-- PN: the number of connected CNs + the number of connected PNs + the number of connected ENs.
+- CN：连接的 CN 个数 + 连接的 PN 个数。
+- PN：连接的 CN 数 + 连接的 PN 数 + 连接的 EN 数。
