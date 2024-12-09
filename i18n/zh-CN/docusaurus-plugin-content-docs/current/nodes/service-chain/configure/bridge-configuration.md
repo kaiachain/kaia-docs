@@ -1,26 +1,26 @@
-# Connect to main chain
+# 连接到主链
 
-In this page, we will describe the steps of connecting a Service Chain to the Main Chain.
+在本页中，我们将介绍将服务链连接到主链的步骤。
 
-## EN Configuration - Enable Main-bridge <a id="en-configuration-enable-main-bridge"></a>
+## EN 配置 - 启用主桥<a id="en-configuration-enable-main-bridge"></a>
 
-You should enable main-bridge by configuring `kend.conf`.
+应通过配置 `kend.conf` 启用主桥。
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### 更新配置文件<a id="update-the-configuration-file"></a>
 
-The `kend.conf` contains the following main-bridge properties.
+kend.conf "包含以下主桥属性。
 
-| Name                                                           | Description                                                                                                                               |
-| :------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
-| MAIN_BRIDGE                               | Enable bridge service as main bridge for service chain. 1 to enable.                                      |
-| MAIN_BRIDGE_PORT     | Bridge listen port. Default: 50505                                                                        |
-| MAIN_BRIDGE_INDEXING | Enable indexing of service chain transaction hash for fast access to the service chain data. 1 to enable. |
+| 名称                                                             | 说明                               |
+| :------------------------------------------------------------- | :------------------------------- |
+| MAIN_BRIDGE                               | 启用网桥服务作为服务链的主网桥。 1 表示启用。         |
+| MAIN_BRIDGE_PORT     | 网桥监听端口。 默认值：50505                |
+| MAIN_BRIDGE_INDEXING | 启用服务链事务哈希索引，以便快速访问服务链数据。 1 表示启用。 |
 
-To enable main-bridge on EN, you should do like below.
+要在 EN 上启用主桥，应按以下步骤操作。
 
-- define `MAIN_BRIDGE`
-- enable RPC/WS.
-- add `mainbridge` API for RPC like the below example.
+- 定义 \`MAIN_BRIDGE
+- 启用 RPC/WS。
+- 为 RPC 添加 `mainbridge` API，如下面的示例。
 
 ```text
 # Configuration file for the kend
@@ -52,32 +52,32 @@ MAIN_BRIDGE_INDEXING=1
 ...
 ```
 
-## Connect SCN to the Main Chain <a id="connect-scn-to-the-main-chain"></a>
+## 将 SCN 连接到主链<a id="connect-scn-to-the-main-chain"></a>
 
-You need to run an EN of the main chain as a main-bridge. And also you should determine which SCN (Service Chain Consensus Node) as a sub-bridge will connect with the EN.
+您需要运行主链的 EN 作为主桥。 您还应确定哪个 SCN（服务链共识节点）作为子桥将与 EN 连接。
 
-### Check EN (Main-Bridge) information <a id="check-en-(main-bridge)-information"></a>
+### 检查 EN（主桥）信息<a id="check-en-(main-bridge)-information"></a>
 
-#### Open EN Console <a id="open-en-console"></a>
+#### 打开 EN 控制台<a id="open-en-console"></a>
 
-There are different ways to attach to the EN process. You can check the usable commands on [ken CLI commands](../../../nodes/endpoint-node/ken-cli-commands.md). This page explains the way to attach to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `DATA_DIR` path on the node.
+有不同的方法可以附加到 EN 进程中。 您可以在 [ken CLI commands] （.../../../nodes/endpoint-node/ken-cli-commands.md）中查看可用命令。 本页介绍通过 IPC（进程间通信）连接进程的方法。 IPC 文件 `klay.ipc` 位于节点上的 `DATA_DIR` 路径中。
 
-Please execute the following command and check out the result. (If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. )
+请执行以下命令并查看结果。 (如果为 RPC 添加了 `mainbridge` API，则可以像下面这样检查桥接 API。 如果没有 "主桥 "API，则应再次检查 [EN 配置 - 启用主桥](#en-configuration-enable-main-bridge)。 )
 
 ```bash
 $ ken attach --datadir ~/kend_home
-Welcome to the Kaia JavaScript console!
+欢迎访问 Kaia JavaScript 控制台！
 
-instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  datadir: ~/kend_home
  modules: admin:1.0 mainbridge:1.0 debug:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
- >
+>
 ```
 
-#### Get the EN's KNI <a id="get-the-ens-kni"></a>
+#### 获取 EN's KNI<a id="get-the-ens-kni"></a>
 
-After attaching to the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../references/json-rpc/subbridge/add-peer).
+通过 IPC 连接到进程后，可以检查 EN 的主桥 KNI，如下所示。 您可以参考 [Service Chain API]（.../.../.../references/json-rpc/subbridge/add-peer）。
 
 ```javascript
 > mainbridge.nodeInfo
@@ -109,35 +109,35 @@ After attaching to the process via IPC, you can check the EN's main-bridge KNI l
 }
 ```
 
-You should take note of the main-bridge `kni`.
+您应该注意主桥 "kni"。
 
-### Connect to the Main Chain <a id="connect-to-the-main-chain"></a>
+### 连接到主链<a id="connect-to-the-main-chain"></a>
 
-#### Open SCN Console <a id="open-scn-console"></a>
+#### 打开 SCN 控制台<a id="open-scn-console"></a>
 
-Attach to the SCN process like below. You should have enabled `subbridge` API for RPC, you can find the subbridge module in the output. If there is no `subbridge` API, you should check [Configuration of the SCN](../install-service-chain.md#configuration-of-the-scn) again.
+像下面这样附加到 SCN 流程。 您应该已启用 RPC 的 "subbridge "API，您可以在输出中找到 subbridge 模块。 如果没有 "subbridge "API，则应再次检查[SCN 的配置]（.../install-service-chain.md#configuration-of-the-scn）。
 
 ```bash
 $ kscn attach --datadir ~/kscnd_home
-Welcome to the Kaia JavaScript console!
+欢迎来到 Kaia JavaScript 控制台！
 
-instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
- >
+>
 ```
 
-#### Connect SCN with EN <a id="connect-scn-with-en"></a>
+#### 将 SCN 与 EN 连接<a id="connect-scn-with-en"></a>
 
-You can add the EN peer on SCN via IPC like below. The kni is EN's KNI which you noted previously.
+您可以通过 IPC 在 SCN 上添加 EN 对等设备，如下所示。 kni 是 EN 的 KNI，你之前已经注意到了。
 
 ```javascript
  > subbridge.addPeer("kni://08b99d2297e0a27ddeb33f3a81b59ea1c065b9adbaff9fefab0d16f65b1a8db22939a104c24447e9aca521c158922ca912476b544baf48995a382d88886e0a37@[::]:50505?discport=0")
  true
 ```
 
-And then you can check the connected peers like below.
+然后就可以像下面这样查看已连接的同行。
 
 ```javascript
  > subbridge.peers
