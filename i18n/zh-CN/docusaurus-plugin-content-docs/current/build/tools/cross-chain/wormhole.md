@@ -1,13 +1,13 @@
-# Wormhole
+# 虫洞
 
-## Introduction <a id="introduction"></a>
+## 导言<a id="introduction"></a>
 
-[Wormhole](https://wormhole.com/docs/) is an interoperability platform powering multi chain apps and bridges. It currently has support for 30+ chains including Kaia. By integrating wormhole, a Kaia application can make any token natively multichain, pull any on-chain data on-demand and build custom multi chain protocols.
+[Wormhole](https://wormhole.com/docs/)是一个支持多链应用程序和桥梁的互操作性平台。 它目前支持包括 Kaia 在内的 30 多条链。 通过集成虫洞，Kaia 应用程序可以使任何代币成为原生多链，按需提取任何链上数据，并构建自定义多链协议。
 
-## Usage <a id="usage"></a>
+## 使用方法<a id="usage"></a>
 
-Wormhole supports both  [Kaia Mainnet](https://wormhole.com/docs/build/start-building/supported-networks/evm/#__tabbed_34_1) and [Kairos Testnet](https://wormhole.com/docs/build/start-building/supported-networks/evm/#__tabbed_35_1). To get started using Wormhole on Kaia, refer to the following guides:
+Wormhole 同时支持 [Kaia Mainnet](https://wormhole.com/docs/build/start-building/supported-networks/evm/#__tabbed_34_1) 和 [Kairos Testnet](https://wormhole.com/docs/build/start-building/supported-networks/evm/#__tabbed_35_1) 。 要开始在 Kaia 上使用 Wormhole，请参阅以下指南：
 
-- [Create Cross-Chain Messaging Contract](https://wormhole.com/docs/tutorials/messaging/cross-chain-contracts/)
-- [Create Cross-Chain Token Transfers](https://wormhole.com/docs/tutorials/messaging/cross-chain-token-contracts/)
-- [Github Examples](https://github.com/wormhole-foundation/wormhole-examples)
+- [创建跨链信息传递合约](https://wormhole.com/docs/tutorials/messaging/cross-chain-contracts/)
+- [创建跨链令牌传输](https://wormhole.com/docs/tutorials/messaging/cross-chain-token-contracts/)
+- [Github 示例](https://github.com/wormhole-foundation/wormhole-examples)
