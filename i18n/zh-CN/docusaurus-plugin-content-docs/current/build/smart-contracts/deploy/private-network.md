@@ -1,49 +1,49 @@
-# Deploying smart contract using Private Network
+# 使用专用网络部署智能合约
 
 <!-- ![](/img/banners/kaia-ken.png) -->
 
-## Introduction <a id="introduction"></a>
+## 导言<a id="introduction"></a>
 
-In this guide, we will walk you through the process of deploying a Greeter contract on a private Kaia network using [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils). By following this guide, you'll learn how to:
+在本指南中，我们将指导您使用 [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) 在专用 Kaia 网络上部署 Greeter 合同。 通过本指南，您将学会如何
 
-- Set up a Hardhat project.
-- Launch a private network simulating the Kairos Testnet.
-- Utilize Hardhat utils to deploy smart contracts on this private network.
+- 设立 "硬头巾 "项目。
+- 启动一个模拟启明星测试网的专用网络。
+- 利用 Hardhat 工具在该私有网络上部署智能合约。
 
-## Prerequisite <a id="prerequisites"></a>
+## 先决条件<a id="prerequisites"></a>
 
-To follow this tutorial, the following are the prerequisites:
+学习本教程的前提条件如下：
 
-- Code editor: a source-code editor such as [VS Code](https://code.visualstudio.com/download).
-- Docker: if you don’t have docker installed, kindly install using this [link](https://docs.docker.com/desktop/)
-- [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): Node version 18 and above.
+- 代码编辑器：源代码编辑器，如 [VS Code](https://code.visualstudio.com/download)。
+- Docker：如果您没有安装 docker，请使用此 [链接](https://docs.docker.com/desktop/) 进行安装。
+- [Node.js 和 npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)：Node 18 及以上版本。
 
-## Setting Up your Development Environment <a id="setting-up-dev-environment"></a>
+## 设置开发环境<a id="setting-up-dev-environment"></a>
 
-In this section, we will install hardhat, Kaia hardhat utils and other necessary dependencies needed for bootstrapping our project.
+在本节中，我们将安装 hardhat、Kaia hardhat utils 和引导项目所需的其他必要依赖项。
 
-**Step 1: Create a project directory**
+**第 1 步：创建项目目录**
 
 ```js
 mkdir $HOME/kaia-greeter
 cd kaia-greeter 
 ```
 
-**Step 2: Initialize an npm project**
+**第 2 步：初始化 npm 项目**
 
 ```js
 npm init -y
 ```
 
-**Step 3: Install hardhat, hardhat-utils and other dependencies**
+**第 3 步：安装 hardhat、hardhat-utils 和其他依赖项**
 
-- Copy and paste the code below in your terminal to install hardhat and hardhat-utils
+- 在终端中复制并粘贴以下代码，安装 hardhat 和 hardhat-utils
 
 ```js
 npm i hardhat @klaytn/hardhat-utils
 ```
 
-- Copy and paste the code below to install other dependencies
+- 复制并粘贴以下代码以安装其他依赖项
 
 ```js
 npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
@@ -51,13 +51,13 @@ npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
 
 :::note
 
-The hardhat-utils plugin depends on  [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) and [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) plugin.  Make sure to require or import them in your `hardhat.config.js` or `hardhat.config.ts`.
+hardhat-utils 插件依赖于 [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) 和 [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) 插件。  确保在`hardhat.config.js`或`hardhat.config.ts`中要求或导入它们。
 
 :::
 
 :::info
 
-(Recommended) Install hardhat shorthand. But you can still use the tasks with npx hardhat.
+(建议）安装硬帽速记装置。 但您仍然可以使用 npx 硬头盔执行任务。
 
 ```js
 npm install hardhat-shorthand --save
@@ -65,58 +65,58 @@ npm install hardhat-shorthand --save
 
 :::
 
-**Step 4: Initialize a hardhat project**
+**第 4 步：初始化硬头盔项目**
 
-Run the command below to initiate an hardhat project:
-
-```js
-npx hardhat init 
-```
-
-For this guide, you'll be selecting "create an empty hardhat.config.js" project as seen below:
+运行以下命令启动硬头盔项目：
 
 ```js
-888    888                      888 888               888
-888    888                      888 888               888
-8888888888  8888b.  888d888 .d88888 88888b.   8888b.  888888
-888    888     "88b 888P"  d88" 888 888 "88b     "88b 888
-888    888 .d888888 888    888  888 888  888 .d888888 888
-888    888 888  888 888    Y88b 888 888  888 888  888 Y88b.
-888    888 "Y888888 888     "Y88888 888  888 "Y888888  "Y888
-👷 Welcome to Hardhat v2.22.9 👷‍
-? What do you want to do? … 
-  Create a JavaScript project
-  Create a TypeScript project
-  Create a TypeScript project (with Viem)
-❯ Create an empty hardhat.config.js
-  Quit
+npx 硬头盔启动 
 ```
 
-**Step 5: Create a .env file**
+在本指南中，你将选择 "创建一个空的 hardhat.config.js "项目，如下图所示：
 
-Now create your `.env` file in the project folder. This file helps us load environment variables from an `.env` file into process.env.
+```js
+888 888 888 888
+888 888 888 888
+888 888 888 888 888b.  888d888 .d88888 88888b.   8888b.  888888
+888888 "88b 888P" d88" 888888 "88b "88b 888
+888888 .d88888 888888 .d88888 888888
+888888 888888 Y88b.
+888 888 "Y888888 888 "Y88888 888 "Y888888 "Y888
+👷 欢迎访问 Hardhat v2.22.9 👷‍
+?您要做什么？ … 
+  创建一个 JavaScript 项目
+  创建一个 TypeScript 项目
+  创建一个 TypeScript 项目（使用 Viem）
+👷 创建一个空的 hardhat.config.js
+  退出
+```
 
-Copy and paste this command in your terminal to create a `.env` file
+**第 5 步：创建 .env 文件**
+
+现在在项目文件夹中创建 `.env` 文件。 该文件可帮助我们将环境变量从 `.env` 文件加载到 process.env 文件中。
+
+在终端中复制并粘贴此命令，创建一个 `.env` 文件
 
 ```js
 touch .env
 ```
 
-Configure your .env file to look like this:
+配置您的 .env 文件如下：
 
 ```
-PRIVATE_KEY="COPY & PASTE ANY OF THE PRIVATE KEY PROVIDED BY LOCAL PRIVATE NETWORK"
+private_key="复制并粘贴本地专用网络提供的任意私人密钥"
 ```
 
 :::note
 
-When you launch the private network in the next section, you will be able to access the private key provided by the local network.
+在下一节启动专用网络时，就可以访问本地网络提供的私钥。
 
 :::
 
-**Step 6: Setup Hardhat Configs**
+**第 6 步：设置硬头盔配置**
 
-Modify your `hardhat.config.js` with the following configurations:
+用以下配置修改 `hardhat.config.js`：
 
 ```js
 require("@nomiclabs/hardhat-ethers");
@@ -131,7 +131,7 @@ const accounts = [
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.24",
-  networks: {
+  networks：{
     localhost: {
       url: process.env.RPC_URL || "http://localhost:8545",
       accounts: accounts,
@@ -143,19 +143,19 @@ module.exports = {
     kaia: {
       url: process.env.RPC_URL || "https://public-en.node.kaia.io",
       accounts: accounts,
-    }
+    }.
   },
-  namedAccounts: {
-    deployer: {
-      default: 0, // here this will by default take the first account as deployer
+  namedAccounts：{
+    deployer：{
+      default: 0, // 这里默认将第一个账户作为部署者
     },
   },
-};
+}；
 ```
 
-## Launching the Private Network <a id="launching-private-network"></a>
+## 启动专用网络<a id="launching-private-network"></a>
 
-To launch a  private network, the hardhat utils plugin provides us a task to easily launch one viz:
+为了启动专用网络，hardhat utils 插件为我们提供了一项任务，即轻松启动专用网络：
 
 ```js
 hh klaytn-node
@@ -163,32 +163,32 @@ hh klaytn-node
 
 ![](/img/build/smart-contracts/pn-run-node.png)
 
-## Attaching Console <a id="attaching-console"></a>
+## 连接控制台<a id="attaching-console"></a>
 
-The private network comes with a JavaScript console. From the console command line, you can initiate part of Kaia API calls to your network. To attach to the JavaScript console, execute the following command:
+专用网络自带 JavaScript 控制台。 通过控制台命令行，您可以向网络发起部分 Kaia API 调用。 要附加到 JavaScript 控制台，请执行以下命令：
 
 ```js
 hh klaytn-node --attach
 ```
 
 ```jsx title="Result Result "
-Welcome to the Kaia JavaScript console!
- instance: Klaytn/v0.9.2/linux-amd64/go1.22.1
-  datadir: /klaytn
+欢迎访问 Kaia JavaScript 控制台！
+ instance：Klaytn/v0.9.2/linux-amd64/go1.22.1
+  datadir：/klaytn
   modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 kaia:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 ```
 
 :::note
 
-Type **kaia** or **personal** to get the list of available functions.
+输入 **kaia** 或 **personal** 可获得可用功能列表。
 
 :::
 
-## Checking the Balance in your account <a id="checking-balance-in-account"></a>
+## 查看账户余额<a id="checking-balance-in-account"></a>
 
-When we launched the private network, it provided us with a list of accounts, private key and  pre-funded values for each account.
+当我们启动私人网络时，它为我们提供了账户列表、私人密钥和每个账户的预资助值。
 
-To see the balance of the account, execute the following command.
+要查看账户余额，请执行以下命令。
 
 ```js
 kaia.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
@@ -196,9 +196,9 @@ kaia.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
 
 ![](/img/build/smart-contracts/pn-check-balance.png)
 
-## Configuring hardhat network environment <a id="configuring-hardhat-network-environment"></a>
+## 配置硬帽网络环境<a id="configuring-hardhat-network-environment"></a>
 
-Now that we are running a stand alone local network, which external clients (wallets, dApp) can connect to, we need to configure hardhat to use this network by running this command:
+现在我们正在运行一个独立的本地网络，外部客户端（钱包、dApp）可以连接到该网络，我们需要通过运行此命令配置 hardhat 以使用该网络：
 
 ```js
 export HARDHAT_NETWORK=localhost
@@ -206,21 +206,21 @@ hh accounts
 ```
 
 ```js
-hh --network localhost accounts
+hh --network localhost 账户
 ```
 
 ![](/img/build/smart-contracts/pn-lh-accounts.png)
 
-## Creating KaiaGreeter Smart Contract <a id="creating-kaiagreeter-smart-contract"></a>
+## 创建 KaiaGreeter 智能合约<a id="creating-kaiagreeter-smart-contract"></a>
 
-In this section, you will create a KaiaGreeter smart contract.
+在本节中，您将创建一个 KaiaGreeter 智能合约。
 
-**Step 1:** Create a new folder named  **contracts** folder in the Explorer pane, click the New File button and create a new file named `KaiaGreeter.sol`
+**步骤 1：** 在资源管理器窗格中新建一个名为 "**合同**"的文件夹，单击 "新建文件 "按钮并新建一个名为 "KaiaGreeter.sol "的文件。
 
-**Step 2:** Open the file and paste the following code:
+**第 2 步：** 打开文件并粘贴以下代码：
 
 ```js
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier：UNLICENSED
 pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 contract KaiaGreeter {
@@ -239,13 +239,13 @@ contract KaiaGreeter {
 }
 ```
 
-## Deploying KaiaGreeter <a id="deploying-kaiagreeter"></a>
+## 部署 KaiaGreeter<a id="deploying-kaiagreeter"></a>
 
-In this section we will use the hardhat-deploy plugin to deploy our contracts.
+在本节中，我们将使用 hardhat-deploy 插件来部署我们的合同。
 
-**Step 1:** In the Explorer pane, Create a new folder called **deploy** and click the New File button to create a new file named `deploy.js`.
+**步骤 1：** 在资源管理器窗格中，新建一个名为**deploy**的文件夹，然后单击 "新建文件 "按钮，创建一个名为 "deploy.js "的新文件。
 
-**Step 2:** Copy and paste the following code inside the file.
+**第 2 步：** 将以下代码复制并粘贴到文件中。
 
 ```js
 module.exports = async ({getNamedAccounts, deployments}) => {
@@ -257,96 +257,96 @@ module.exports = async ({getNamedAccounts, deployments}) => {
     log: true,
   });
 };
-module.exports.tags = ['KaiaGreeter'];
+module.exports.tags = ['KaiaGreeter']；
 ```
 
-**Step 3:** In the terminal, run the following command which tells Hardhat to deploy your KaiaGreeter contract on the private network.
+**步骤 3：** 在终端运行以下命令，告诉 Hardhat 在专用网络上部署你的 KaiaGreeter 合同。
 
 ```js
-hh deploy 
+hh 部署 
 ```
 
 ![](/img/build/smart-contracts/pn-deployed-tx.png)
 
-## Verifying transaction using Block Explorer <a id="verifying-transaction-using-block-explorer"></a>
+## 使用区块资源管理器验证交易<a id="verifying-transaction-using-block-explorer"></a>
 
-**Step 1:** To verify our transactions using a local blockscout explorer, run the command below in a new terminal:
+**步骤 1：** 要使用本地 blockscout 浏览器验证我们的交易，请在新终端中运行以下命令：
 
 ```js
 hh explorer --network localhost
 ```
 
 ```js
-[+] Using env: {
-  DOCKER_RPC_HTTP_URL: 'http://host.docker.internal:8545/',
+[+] 使用 env： {
+  DOCKER_RPC_HTTP_URL：'http://host.docker.internal:8545/',
   DOCKER_LISTEN: '0.0.0.0:4000',
   DOCKER_DISABLE_TRACER: 'false',
   DOCKER_DEBUG: '0'
 }
-[+] Open in the browser: http://localhost:4000
- Network blockscout_default  Creating
- Network blockscout_default  Created
- Container blockscout-db-1  Creating
- Container blockscout-frontend-1  Creating
- Container blockscout-smart-contract-verifier-1  Creating
- Container blockscout-redis_db-1  Creating
- Container blockscout-smart-contract-verifier-1  Created
- Container blockscout-db-1  Created
- Container blockscout-frontend-1  Created
- Container blockscout-redis_db-1  Created
- Container blockscout-backend-1  Creating
- Container blockscout-backend-1  Created
- Container blockscout-frontend-1  Starting
- Container blockscout-redis_db-1  Starting
- Container blockscout-smart-contract-verifier-1  Starting
- Container blockscout-db-1  Starting
- Container blockscout-db-1  Started
- Container blockscout-redis_db-1  Started
- Container blockscout-smart-contract-verifier-1  Started
- Container blockscout-backend-1  Starting
- Container blockscout-frontend-1  Started
- Container blockscout-backend-1  Started
+[+] 在浏览器中打开：http://localhost：4000
+ 网络 blockscout_default 创建
+ 网络 blockscout_default 创建
+ 容器 blockscout-db-1 创建
+ 容器 blockscout-frontend-1 创建
+ 容器 blockscout-smart-contract-verifier-1 创建
+ 容器 blockscout-创建
+ Container blockscout-smart-contract-verifier-1 创建
+ Container blockscout-db-1 创建
+ Container blockscout-frontend-1 创建
+ Container blockscout-redis_db-1 创建
+ Container blockscout-backend-1 创建
+ Container blockscout-backend-1 创建
+ Container blockscout-frontend-1 Starting
+ Container blockscout-redis_db-1 Starting
+ Container blockscout-smart-contract-verifier-1 Starting
+ Container blockscout-db-1 Starting
+ Container blockscout-db-1 Started
+ Container blockscout-redis_db-1 Started
+ Container blockscout-smart-contract-verifier-1 Started
+ Container blockscout-backend-1 Started
+ Container blockscout-frontend-1 Started
+ Container blockscout-backend-1 Started
 ```
 
-**Step 2:** To access this block explorer, open up [http://localhost:4000](http://localhost:4000) in your browser.
+**第 2 步：** 要访问这个区块资源管理器，请在浏览器中打开 [http://localhost:4000](http://localhost:4000)。
 
-Step 3: Copy and paste the deployed contract address in the search field and press Enter. You should see the recently deployed contract.
+第 3 步：在搜索栏中复制并粘贴已部署的合同地址，然后按 Enter 键。 您应该能看到最近部署的合同。
 
 ![](/img/build/smart-contracts/pn-verify-tx-block-explorer.png)
 
-## Interacting with deployed contract <a id="interacting-with-deployed-contract"></a>
+## 与已部署的合同互动<a id="interacting-with-deployed-contract"></a>
 
-### using hardhat utils contract task
+### 使用硬头盔工具合同任务
 
-1. To call a read-only function of the deployed contract, run the command below:
+1. 要调用已部署合约的只读函数，请运行下面的命令：
 
 ```js
-hh call KaiaGreeter getTotalGreetings
+hh 调用 KaiaGreeter getTotalGreetings
 ```
 
 ![](/img/build/smart-contracts/pn-read-function.png)
 
-2. To send a function invoking transaction to the deployed contract, run the command below:
+2. 要向已部署的合约发送函数调用事务，请运行下面的命令：
 
 ```js
-hh send KaiaGreeter greet
+hh 发送 KaiaGreeter 问候
 ```
 
 ```jsx title="Result Result "
-sent KaiaGreeter#greet (tx: 0xc0bd25ffb594c13d5ae1f77f7eb02f2978013c69f9f6e22694b76fa26c329e85)...ok (block 2837, gas used: 47457)
+发送 KaiaGreeter#greet（tx：0xc0bd25ffb594c13d5ae1f77f7eb02f2978013c69f9f6e22694b76fa26c329e85）...ok（数据块 2837，已用气体：47457）
 ```
 
-### using Kaia SDK
+### 使用 Kaia SDK
 
-**Step 1:** To interact with the deployed contract using [Kaia SDK](https://github.com/kaiachain/kaia-sdk), you need to install Kaia SDK by running this command:
+**步骤 1：** 要使用 [Kaia SDK](https://github.com/kaiachain/kaia-sdk) 与已部署的合约进行交互，需要运行此命令安装 Kaia SDK：
 
 ```js
 npm install --save @kaiachain/ethers-ext
 ```
 
-**Step 2:** In the Explorer pane, Create a new folder called "utils" and click the New File button to create a new file named `kaia-sdk.js` in the utils folder.
+**步骤 2：** 在资源管理器窗格中，新建一个名为 "utils "的文件夹，然后单击 "新建文件 "按钮，在 utils 文件夹中新建一个名为 `kaia-sdk.js` 的文件。
 
-Step 3:  Copy and paste the following code inside the file.
+第 3 步：将以下代码复制并粘贴到文件中。
 
 ```js
 const { JsonRpcProvider, Wallet } = require("@kaiachain/ethers-ext");
@@ -380,10 +380,10 @@ async function getTotalGreetings(ca) {
 
 // getCode(contractAddress);
 getTotalGreetings(contractAddress);
-// greet(contractAddress);
+// greet(contractAddress)；
 ```
 
-**Step 4:** To execute any of the functions declared in this file, make sure to uncomment them as we did for the getTotalGreetings() function, then run the following command in your terminal.
+**步骤 4：** 要执行本文件中声明的任何函数，请确保像执行 getTotalGreetings() 函数那样取消注释，然后在终端运行以下命令。
 
 ```js
 node utils/kaia-sdk.js 
@@ -391,4 +391,4 @@ node utils/kaia-sdk.js
 
 ![](/img/build/smart-contracts/pn-run-kaia-sdk.png)
 
-For a more in-depth guide on hardhat-utils, please refer to [hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example)
+有关 hardhat-utils 的更深入指南，请参阅 [hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils)。 此外，您还可以在 [GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example) 上找到本指南的完整代码实现。
