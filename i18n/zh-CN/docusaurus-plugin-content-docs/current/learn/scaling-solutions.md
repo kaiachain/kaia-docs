@@ -1,47 +1,47 @@
-# Scaling Solutions
+# 扩展解决方案
 
-## Service Chain <a id="service-chain"></a>
+## 服务链<a id="service-chain"></a>
 
-Service chains in Kaia are auxiliary blockchains independent from the Kaia main chain,
-tailored for individual dApp requiring special node configurations, customized security levels,
-or exceptionally high throughput that makes deploying the dApp on the main chain inconvenient or economically infeasible.
+Kaia 中的服务链是独立于 Kaia 主链的辅助区块链，
+，为需要特殊节点配置、定制安全级别、
+或超高吞吐量的单个 dApp 量身定制，这使得在主链上部署 dApp 变得不方便或经济上不可行。
 
-While there are fully-decentralized scaling solutions, due to their difficult interfaces such as challenge or exit and non-immediate finality,
-we take a different approach in Kaia’s Service Chain by sacrificing the full decentralization for better usability,
-instant finality, high performance, and high availability.
+虽然有完全去中心化的扩展解决方案，但由于其难以接近的界面（如挑战或退出）和非即时终结性，
+，我们在 Kaia 的服务链中采取了不同的方法，牺牲了完全去中心化以获得更好的可用性、
+即时终结性、高性能和高可用性。
 
-Kaia service chains may be used for various service-specific goals,
-and can connect to the main chain for multiple reasons including data anchoring (periodic storing of block hashes
-from the service chain onto the main chain to compensate for the decreased security of the service chain due to the smaller number of nodes) or
-value transfer (interchain transfer of KAIA, Kaia’s native unit of value, and the tokens
-issued by dApps).
+Kaia 服务链可用于实现各种特定服务目标，
+，并可因多种原因连接到主链，包括数据锚定（定期将区块哈希值
+从服务链存储到主链，以弥补因节点数量较少而降低的服务链安全性）或
+价值转移（KAIA（Kaia 的原生价值单位）和 dApp 发行的代币
+的链间转移）。
 
-## Network <a id="network"></a>
+## 网络<a id="network"></a>
 
-Service chains connected to Kaia main chain are collectively called Service Chain Network.
-Note that the method of connection between service chains and the main chain may change in Kaia’s future iterations.
+与 Kaia 主链相连的服务链统称为服务链网络。
+请注意，在 Kaia 未来的迭代中，服务链和主链之间的连接方法可能会发生变化。
 
-![Figure 1. Kaia Main Chain and Service Chain](/img/learn/mainchain_servicechain.png)
+![图 1. Kaia 主链和服务链](/img/learn/mainchain_servicechain.png)
 
-Figure 1 shows the network topology of service chains being used to meet various business needs, connected
-with Kaia main chain to expand the Kaia network.
+图 1 显示了用于满足各种业务需求的服务链的网络拓扑结构，这些服务链与 Kaia 主链连接
+，以扩展 Kaia 网络。
 
-![Figure 2. Main Chain and Service Chain Connection using Main/Sub-Bridge Model](/img/learn/sc_connection.png)
+![图 2. 使用主桥/副桥模型连接主链和服务链](/img/learn/sc_connection.png)
 
-Figure 2 shows an example of SCN (Service Chain Consensus Node) connected directly with Kaia main chain’s EN (Endpoint Node)
-using a main/sub-bridge model in using the service chain’s features.
+图 2 显示了 SCN（服务链共识节点）与 Kaia 主链的 EN（端点节点）直接连接的示例
+，该示例在使用服务链功能时采用了主/分桥模式。
 
-## Features <a id="features"></a>
+## 特点<a id="features"></a>
 
-Service Chain expands and augments Kaia by providing a data integrity mechanism and supporting token transfers between different chains.
+服务链通过提供数据完整性机制和支持不同链之间的令牌传输，对 Kaia 进行了扩展和增强。
 
-### Data Anchoring <a id="data-anchoring"></a>
+### 数据锚定<a id="data-anchoring"></a>
 
-For data integrity, Service Chain can automatically anchor every service chain block hash as a special transaction to the main chain.
-This data anchoring can ensure to the service users that the data in the service chain cannot be altered once it is created.
+为了保证数据的完整性，服务链可以自动将每个服务链块的哈希值作为特殊事务锚定到主链上。
+这种数据锚定可以向服务用户确保，服务链中的数据一旦创建就不能更改。
 
-### Value Transfer <a id="value-transfer"></a>
+### 价值转移<a id="value-transfer"></a>
 
-To help the service providers (SPs) to easily migrate service users and values across chains,
-transferring tokens, such as KAIA (Kaia's native unit of value) and Kaia tokens issued by dApps, between different chains can be enabled.
-Users can easily request to transfer tokens to other chains by sending a transaction to a special contract, called bridge contract.
+为了帮助服务提供商（SP）在不同链之间轻松迁移服务用户和价值，可以启用
+在不同链之间传输代币，如 KAIA（Kaia 的原生价值单位）和 dApp 发行的 Kaia 代币。
+用户可以通过向一个特殊合约（称为桥合约）发送交易，轻松申请将代币转移到其他链上。
