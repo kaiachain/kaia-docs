@@ -1,13 +1,13 @@
-# About Kaia Nodes
+# 关于 Kaia Nodes
 
-The Kaia network is comprised of three types of nodes:
+Kaia 网络由三类节点组成：
 
-- Consensus Node (CN): CNs are responsible for validating transactions and producing new blocks.
-- Proxy Node (PN): PNs relay transactions between CNs and ENs.
-- Endpoint Node (EN): ENs provide public access to the Kaia network.
+- 共识节点（CN）：CN 负责验证交易和生成新区块。
+- 代理节点（PN）：PN 在 CN 和 EN 之间中继交易。
+- 端点节点（EN）：EN 提供对 Kaia 网络的公共访问。
 
-To participate in consensus and governance, you are required to run a CN. CNs must meet certain hardware and software requirements, and they must stake KAIA tokens.
+要参与共识和治理，就必须运行 CN。 CN 必须满足特定的硬件和软件要求，并且必须持有 KAIA 令牌。
 
-You can also run a PN or EN to support the Kaia network. PNs and ENs do not require staking, but they do require some technical expertise and resources.
+您还可以运行 PN 或 EN 来支持 Kaia 网络。 PN 和 EN 不需要定点，但需要一定的技术专长和资源。
 
-This section provides all the necessary information to set up and operate an Endpoint Node, and contribute to the Kaia network or configure and run a Consensus Node to participation in Kaia's network governance.
+本节提供了建立和运行端点节点、为 Kaia 网络做贡献或配置和运行共识节点以参与 Kaia 网络管理的所有必要信息。
