@@ -1,52 +1,52 @@
-# Connect to Kairos
+# 连接到凯洛斯
 
-This section covers how to connect your 4-node ServiceChain network to the Kairos network.
-You will set up a Kairos EN and connect the EN with one of your SCNs. Then you will enable the anchoring feature to put ServiceChain block information onto the Kairos network.
+本节介绍如何将 4 节点 ServiceChain 网络连接到 Kairos 网络。
+您将设置一个 Kairos EN，并将该 EN 与您的一个 SCN 连接起来。 然后启用锚定功能，将 ServiceChain 区块信息放到 Kairos 网络上。
 
 ![](/img/nodes/sc-en-scn-arch.png)
 
-## Prerequisites <a id="prerequisites"></a>
+## 先决条件<a id="prerequisites"></a>
 
-- 1 Linux or MacOS server for EN
-- Minimum hardware requirements for testing
-  - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
-  - Please refer to the [System Requirements](../system-requirements.md) for more explanation.
-- Download the Kairos EN executable. For the full list of downloadable binaries, see [Download](../../downloads/downloads.md).
-- Assumptions and Limitations
-  - A ServiceChain network is installed and running. Please refer to [Setting up a 4-node Service Chain](4nodes-setup-guide.md) to setup a network.
+- 1 台用于 EN 的 Linux 或 MacOS 服务器
+- 测试的最低硬件要求
+  - 中央处理器4 核（英特尔至强或同级），内存：16GB，硬盘：50GB
+  - 请参阅 [系统要求](.../system-requirements.md) 了解更多信息。
+- 下载 Kairos EN 可执行文件。 有关可下载二进制文件的完整列表，请参阅 [下载](../../downloads/downloads.md)。
+- 假设和限制
+  - 已安装并运行 ServiceChain 网络。 请参阅 [设置 4 节点服务链](4nodes-setup-guide.md) 设置网络。
   - A Kairos EN.
-  - One EN can only connect to one SCN since only one-to-one connection is supported.
-  - Every SCN does not have to connect to the EN.
+  - 一个 EN 只能连接一个 SCN，因为只支持一对一连接。
+  - 每个 SCN 都不必连接 EN。
 
-## Step 0: Install Kairos EN <a id="install-kairos-en"></a>
+## 步骤 0：安装 Kairos EN<a id="install-kairos-en"></a>
 
-The installation is the uncompression of the downloaded package. Extract the archive on the EN server.
+安装就是解压缩下载的软件包。 提取 EN 服务器上的存档。
 
 ```bash
 EN-01$ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
 ```
 
-## Step 1: Preparing genesis.json <a id="step-1-preparing-genesis-json"></a>
+## 步骤 1：准备 genesis.json<a id="step-1-preparing-genesis-json"></a>
 
-From the EN server, download the `genesis.json` for `Kairos` network.
+从 EN 服务器下载 `Kairos` 网络的 `genesis.json`。
 
 ```
 EN-01$ curl -X GET https://packages.kaia.io/kairos/genesis.json -o ~/genesis.json
 ```
 
-## Step 2: EN Node Initialization <a id="step-2-en-node-initialization"></a>
+## 步骤 2：EN 节点初始化<a id="step-2-en-node-initialization"></a>
 
-Now, we will initialize the EN node using the genesis file. Execute the following command.
-It will create the data folder storing the chain data and logs on your home directory.
-You can change the data folder using the `--datadir` directive.
+现在，我们将使用创世文件初始化 EN 节点。 执行以下命令
+它会在你的主目录下创建数据文件夹，存储链数据和日志。
+您可以使用 `--datadir` 指令更改数据文件夹。
 
 ```
 EN-01$ ken init --datadir ~/data ~/genesis.json
 ```
 
-## Step 3: Configure the EN Node <a id="step-3-configure-the-en-node"></a>
+## 步骤 3：配置 EN 节点<a id="step-3-configure-the-en-node"></a>
 
-Go to the ken installation folder and rename `mv kend_baobab.conf kend.conf`, then edit `conf/kend.conf` as follows.
+转到 ken 安装文件夹并重命名 `mv kend_baobab.conf kend.conf`，然后按如下方式编辑 `conf/kend.conf`。
 
 ```
 ...
@@ -58,14 +58,14 @@ DATA_DIR=~/data
 ...
 ```
 
-## Step 4: Start the EN Node <a id="step-4-start-the-en-node"></a>
+## 步骤 4：启动 EN 节点<a id="step-4-start-the-en-node"></a>
 
 ```
 EN-01$ kend start
 Starting kscnd: OK
 ```
 
-You can check block sync status by watching `kaia.blockNumber`. If this number is not 0, the node is working fine. Downloading all blocks on the Kairos network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/install-endpoint-nodes.md#fast-sync-optional) to synchronize blocks.
+您可以通过查看 `kaia.blockNumber` 来检查块同步状态。 如果该数字不为 0，则说明节点工作正常。 根据网络条件和硬件性能，在 Kairos 网络上下载所有区块可能需要很长时间，因此我们建议使用 [Fast Sync]（.../.../endpoint-node/install-endpoint-nodes.md#fast-sync-optional）来同步区块。
 
 ```
 EN-01$ ken attach --datadir ~/data
@@ -73,11 +73,11 @@ EN-01$ ken attach --datadir ~/data
 21073
 ```
 
-If you want to stop a node, you can use the command `kend stop`
+如果要停止一个节点，可以使用命令 `kend stop` 来完成。
 
-## Step 5: Check KNI of EN Node <a id="step-5-check-kni-of-en-node"></a>
+## 步骤 5：检查 EN 节点的 KNI<a id="step-5-check-kni-of-en-node"></a>
 
-Take note of EN-01's KNI which is the information used to connect from an SCN-L2-01 node. This value will be used in the next step when generating `main-bridges.json`.
+请注意 EN-01 的 KNI，这是用于从 SCN-L2-01 节点连接的信息。 该值将在下一步生成 `main-bridges.json` 时使用。
 
 ```
 EN-01$ ken attach --datadir ~/data
@@ -87,19 +87,19 @@ EN-01$ ken attach --datadir ~/data
 
 ![](/img/nodes/sc-en-scn-nodeInfo.png)
 
-## Step 6: Create main-bridges.json <a id="step-6-create-main-bridges-json"></a>
+## 步骤 6：创建 main-bridges.json<a id="step-6-create-main-bridges-json"></a>
 
-Log on to an SCN-L2-01 (note: not the EN-01 node) and create `main-bridges.json` on `~/data`. Replace `[::]` located after `@` letter with EN-01 node's IP address.
+登录 SCN-L2-01（注意：不是 EN-01 节点）并在 `~/data` 上创建 `main-bridges.json` 。 用 EN-01 节点的 IP 地址替换位于`@`字母后的`[::]`。
 
 ```
 SCN-L2-01$ echo '["kni://0f7aa6499553...25bae@192.168.1.1:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-## Step 7: Configure SCN then Restart kscn <a id="step-7-configure-scn-then-restart-kscn"></a>
+## 第 7 步： 配置 SCN 然后重启 kscn<a id="step-7-configure-scn-then-restart-kscn"></a>
 
-From the SCN-L2-01 node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`.
-If `SC_SUB_BRIDGE` is set to 1, data anchoring starts automatically when the SCN-L2-01 node starts. In this example, `SC_PARENT_CHAIN_ID` is set to 1001 because the `chainID` of the parent chain, Kairos, is 1001.
-`SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring tx to the main chain. By setting the value to 10, you configure the node to perform anchoring every 10 blocks. The default value is 1.
+从 SCN-L2-01 节点的 shell 编辑 `kscn-XXXXX-amd64/conf/kscnd.conf`。
+如果将 `SC_SUB_BRIDGE` 设置为 1，则 SCN-L2-01 节点启动时，数据锚定将自动开始。 在本例中，"SC_PARENT_CHAIN_ID "被设置为 1001，因为父链 Kairos 的 "chainID "是 1001。
+SC_ANCHORING_PERIOD "参数决定向主链发送锚定 tx 的周期。 将该值设置为 10，就可以将节点配置为每 10 个区块执行一次锚定。 默认值为 1。
 
 ```
 ...
@@ -111,7 +111,7 @@ SC_ANCHORING_PERIOD=10
 ...
 ```
 
-Restart kscn by executing the following command:
+执行以下命令重启 kscn：
 
 ```
 SCN-L2-01$ kscnd stop
@@ -120,7 +120,7 @@ SCN-L2-01$ kscnd start
 Starting kscnd: OK
 ```
 
-Check if the SCN-L2-01 is connected to the EN-01 by checking `subbridge.peers.length`
+通过检查 `subbridge.peers.length` 检查 SCN-L2-01 是否连接到 EN-01
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -128,14 +128,14 @@ SCN-L2-01$ kscn attach --datadir ~/data
 1
 ```
 
-## Anchoring  <a id="anchoring"></a>
+## 锚定 <a id="anchoring"></a>
 
-After finishing the EN-01 and SCN-L2-01 connection, you can log ServiceChain block information on the parent chain via Anchoring.
-In this section, you will top up a parent operator account, enable Anchoring, and check the anchored block number.
+完成 EN-01 和 SCN-L2-01 连接后，您可以通过锚定功能在父链上记录 ServiceChain 块信息。
+在本节中，您将充值父操作员账户、启用锚定功能并检查锚定的区块编号。
 
-### Step 1: Get KAIA to test anchoring <a id="step-1-get-kaia-to-test-anchoring"></a>
+### 步骤 1：让 KAIA 测试锚定情况<a id="step-1-get-kaia-to-test-anchoring"></a>
 
-Anchoring requires SCN-L2-01 to make an anchoring transaction to Kairos. So `subbridge.parentOperator` account should have enough KAIA to pay the transaction fee. Get some KAIA from [Kairos Faucet](https://faucet.kaia.io/) and transfer some KAIA to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KAIA for transaction fee.
+锚定需要 SCN-L2-01 向 Kairos 进行锚定交易。 因此，"subbridge.parentOperator "账户应该有足够的 KAIA 来支付交易费。 从 [Kairos Faucet](https://faucet.kaia.io/) 获取一些 KAIA，并将一些 KAIA 转移到`parentOperator`。 对于实际服务中的数据锚定，"父操作员 "需要有足够的 KAIA 来支付交易费。
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -145,9 +145,9 @@ SCN-L2-01$ kscn attach --datadir ~/data
 
 ![](/img/nodes/sc-en-scn-faucet.png)
 
-### Step 2: Start Anchoring <a id="step-2-start-anchoring"></a>
+### 步骤 2：开始锚定<a id="step-2-start-anchoring"></a>
 
-To start anchoring, execute the following command:
+要开始锚定，请执行以下命令：
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -155,7 +155,7 @@ SCN-L2-01$ kscn attach --datadir ~/data
 true
 ```
 
-After anchoring starts, you can check the latest block anchored to Kairos by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Kairos. By default, SCN-L2-01 tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing `SC_ANCHORING_PERIOD`. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
+锚定开始后，可以使用 `subbridge.latestAnchoredBlockNumber` 查看最新锚定到 Kairos 的区块。 请注意，这只有在 EN 跟进了最新的 "启明星 "后才会起作用。 默认情况下，SCN-L2-01 会从开启锚定功能的区块开始，在每个区块上尝试锚定。 可以通过更改 `SC_ANCHORING_PERIOD` 来设置锚定周期。 如果该值设置为 10，节点会在区块数为 10 的倍数时尝试锚定。
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
