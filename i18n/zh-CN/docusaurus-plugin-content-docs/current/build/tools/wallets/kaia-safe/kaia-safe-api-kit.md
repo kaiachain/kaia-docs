@@ -44,7 +44,7 @@ npm init -y
 
 <Tabs>
   <TabItem value="npm" label="npm">
-
+    ```
     npm install @safe-global/api-kit @safe-global/protocol-3 @safe-global/safe-core-sdk-types  
     ```
   </TabItem>
@@ -67,7 +67,7 @@ import SafeApiKit from '@safe-global/api-kit'
 import Safe from '@safe-global/protocol-kit'
 import { 
   OperationType
-} from '@safe-global/safe-core-sdk-types'.
+} from '@safe-global/safe-core-sdk-types'
 ```
 
 ### 步骤 5：配置设置
@@ -79,11 +79,11 @@ import {
 ```js
 // https://chainlist.org/?search=kaia&testnets=true
 const RPC_URL = 'https://public-en-kairos.node.kaia.io'
-const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>"; // 2 Owner Safe Address Ex: 0x123....SAFE SHOULD 
+const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>";  // 2 Owner Safe Address Ex: 0x123.... SAFE SHOULD 
 const OWNER_1_ADDRESS = "<REPLACE WITH OWNER 1 PUBLIC KEY HERE>"; // ONLY OWNER 1 and SAFE ADDRESS Need to have some test KAIA balance
-const OWNER_1_PRIVATE_KEY = "<REPLACE WITH OWNER 1 PRIVATE KEY HERE>"；
-const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 2 不需要有任何测试 KAIA
-const TO_ADDRESS = OWNER_1_ADDRESS; // 样本交易的收件人地址，他收到 1 Wei
+const OWNER_1_PRIVATE_KEY = "<REPLACE WITH OWNER 1 PRIVATE KEY HERE>";
+const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 2 need not have any test KAIA
+const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction who receives 1 wei
 ```
 
 ## 使用应用程序接口套件<a id="use-api-kit"></a>
@@ -96,7 +96,7 @@ const TO_ADDRESS = OWNER_1_ADDRESS; // 样本交易的收件人地址，他收�
 
 ```js
 const apiKit = new SafeApiKit.default({
-  chainId：1001n,
+  chainId: 1001n,
   txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
 })
 
@@ -122,23 +122,23 @@ API Kit 的核心功能之一是让有效签名者与其他签名者共享交易
 
 ```js
 const safeTransactionData = {
-  to：TO_ADDRESS,
+  to: TO_ADDRESS,
   value: '1', // 1 wei
-  data：'0x',
-  operation：OperationType.Call
+  data: '0x',
+  operation: OperationType.Call
 }
 const safeTransaction = await protocolKitOwner1.createTransaction({
   transactions: [safeTransactionData]
 })
 const safeTxHash = await protocolKitOwner1.getTransactionHash(safeTransaction)
 const signature = await protocolKitOwner1.signHash(safeTxHash)
-// 2.向服务提议事务
+// 2. Propose transaction to the service
 try {
   await apiKit.proposeTransaction({
-    safeAddress：SAFE_ADDRESS,
+    safeAddress: SAFE_ADDRESS,
     safeTransactionData: safeTransaction.data,
     safeTxHash,
-    senderAddress：OWNER_1_ADDRESS,
+    senderAddress: OWNER_1_ADDRESS,
     senderSignature: signature.data
   })
 } catch(err) {
@@ -201,13 +201,13 @@ import {
 } from '@safe-global/safe-core-sdk-types'
 // https://chainlist.org/?search=kaia&testnets=true
 const RPC_URL = 'https://public-en-kairos.node.kaia.io'
-const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>"; // 2 Owner Safe Address Ex: 0x123....SAFE SHOULD 
+const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>";  // 2 Owner Safe Address Ex: 0x123.... SAFE SHOULD 
 const OWNER_1_ADDRESS = "<REPLACE WITH OWNER 1 PUBLIC KEY HERE>"; // ONLY OWNER 1 and SAFE ADDRESS Need to have some test KAIA balance
 const OWNER_1_PRIVATE_KEY = "<REPLACE WITH OWNER 1 PRIVATE KEY HERE>";
-const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"；// OWNER 2 不需要有任何测试 KAIA
-const TO_ADDRESS = OWNER_1_ADDRESS; // 接收 1 Wei 的示例交易的接收地址
+const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 2 need not have any test KAIA
+const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction who receives 1 wei
 const apiKit = new SafeApiKit.default({
-  chainId：1001n,
+  chainId: 1001n,
   txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
 })
 const protocolKitOwner1 = await Safe.default.init({
@@ -215,25 +215,25 @@ const protocolKitOwner1 = await Safe.default.init({
   signer: OWNER_1_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
 })
-// 1. 创建交易
+// 1. Create transaction
 const safeTransactionData = {
-  to：TO_ADDRESS,
+  to: TO_ADDRESS,
   value: '1', // 1 wei
-  data：'0x',
-  operation：OperationType.Call
+  data: '0x',
+  operation: OperationType.Call
 }
 const safeTransaction = await protocolKitOwner1.createTransaction({
   transactions: [safeTransactionData]
 })
 const safeTxHash = await protocolKitOwner1.getTransactionHash(safeTransaction)
 const signature = await protocolKitOwner1.signHash(safeTxHash)
-// 2.向服务提议事务
+// 2. Propose transaction to the service
 try {
   await apiKit.proposeTransaction({
-    safeAddress：SAFE_ADDRESS,
+    safeAddress: SAFE_ADDRESS,
     safeTransactionData: safeTransaction.data,
     safeTxHash,
-    senderAddress：OWNER_1_ADDRESS,
+    senderAddress: OWNER_1_ADDRESS,
     senderSignature: signature.data
   })
 } catch(err) {
@@ -246,7 +246,7 @@ const transaction = await apiKit.getTransaction(safeTxHash)
 // const transactions = await service.getMultisigTransactions()
 // const transactions = await service.getModuleTransactions()
 // const transactions = await service.getAllTransactions()
-// 3.来自所有者 2 的确认
+// 3. Confirmation from Owner 2
 const protocolKitOwner2 = await Safe.default.init({
   provider: RPC_URL,
   signer: OWNER_2_PRIVATE_KEY,
@@ -259,8 +259,8 @@ const signatureResponse = await apiKit.confirmTransaction(
   signature2.data
 )
 console.log(signatureResponse)
-// 4.执行交易
-const safeTxn = await apiKit.getTransaction(safeTxHash, signature2.data )getTransaction(safeTxHash);
+// 4. Execute transaction
+const safeTxn = await apiKit.getTransaction(safeTxHash);
 const executeTxReponse = await protocolKitOwner1.executeTransaction(safeTxn)
 const receipt = await executeTxReponse.transactionResponse?.wait();
 console.log('Transaction executed:');
