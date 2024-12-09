@@ -1,8 +1,8 @@
-# Block Explorers
+# 积木探险家
 
-This blockchain tool enables users and enthusiasts to search for real-time and historical information about the blockchain. Block explorers on Kaia contain information about Kaia, and as such, users can search for blocks, transactions, balances, addresses, and contracts on Kaia.
+该区块链工具使用户和爱好者能够搜索有关区块链的实时和历史信息。 Kaia 上的区块探索器包含有关 Kaia 的信息，因此用户可以搜索 Kaia 上的区块、交易、余额、地址和合约。
 
-The list of explorers supported by Kaia is provided below:
+由 Kaia 支持的探险家名单如下：
 
 - [Kaiascope](https://kaiascope.com/)
 - [Kaiascan](https://www.kaiascan.io/)
