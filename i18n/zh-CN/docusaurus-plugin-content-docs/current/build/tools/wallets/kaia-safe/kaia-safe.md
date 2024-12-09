@@ -1,37 +1,37 @@
 # Kaia Safe
 
-In a typical blockchain platform like Kaia, most users are familiar with single key wallet systems such as Kaia Wallet and MetaMask, which are also known as externally owned accounts (EOA). These accounts make use of traditional key pairs, i.e., public keys and private keys, which isn’t ideal as the private key creates a single point of failure.
+在 Kaia 这样的典型区块链平台中，大多数用户都熟悉单键钱包系统，如 Kaia Wallet 和 MetaMask，它们也被称为外部拥有账户（EOA）。 这些账户使用传统的密钥对，即公共密钥和私人密钥，这并不理想，因为私人密钥会造成单点故障。
 
-This makes EOAs unsuitable for organisational use, as a compromised private key could lead to the organisation losing all of its crypto funds—such was the case in the [Wintermute hack](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) where $162.5 million was lost.
+这就使得 EOA 不适合组织使用，因为私钥泄露可能导致组织损失全部加密货币资金--例如在 [Wintermute 黑客攻击](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) 事件中，1.625 亿美元的资金损失。
 
-This is where multisig wallets like Kaia Safe come in. Unlike single key wallets, a multi-sig wallet needs multiple parties' private keys to sign and execute a transaction, removing the single point of failure and providing greater security for organisational use cases.
+这就是 Kaia Safe 等多 ID 钱包的用武之地。 与单密钥钱包不同，多签名钱包需要多方的私钥来签署和执行交易，从而消除了单点故障，为组织用例提供了更高的安全性。
 
-## What are MultiSig Wallets? <a id="What are Multisig Wallets"></a>
+## 什么是多重签名钱包？ <a id="What are Multisig Wallets"></a>
 
-As the name implies, a multi-signature wallet is a digital wallet that requires two, three, or more private keys from different sources to confirm and execute a crypto transaction.
+顾名思义，多重签名钱包是一种需要两个、三个或更多不同来源的私钥来确认和执行加密交易的数字钱包。
 
-For example, you can imagine a multi-signature wallet as a safe that has three locks. The three keys required to open the safe are with three different individuals, thus requiring their joint consent to open.
+例如，你可以把多重签名钱包想象成一个有三把锁的保险箱。 打开保险箱所需的三把钥匙分别属于三个不同的人，因此需要他们共同同意才能打开。
 
-Here are the main benefits of multisig wallets:
+以下是多重签名钱包的主要优点：
 
-- **Store assets/funds securely:** Companies and protocols can store their funds safely without worrying about a private key leak or one bad actor moving funds without authorization.
+- **安全存储资产/资金：** 公司和协议可以安全地存储资金，而不必担心私钥泄露或某个坏人未经授权转移资金。
 
-- **Enable decentralised decision making:** Companies and business executives can make on-chain decisions on which transactions to execute.
+- \*\* 实现分散决策：\*\* 公司和企业高管可在链上决定执行哪些交易。
 
-- **Two-factor authentication:** With the help of multisig wallets, businesses and individuals can make sure that only those with access to the necessary keys can execute transactions.
+- **双因素身份验证：** 在多重签名钱包的帮助下，企业和个人可以确保只有获得必要密钥的人才能执行交易。
 
-Next, we will dive into Kaia Safe, a multisig wallet for Klatyn, and how to use it to manage your funds and transactions.
+接下来，我们将深入了解 Klatyn 的多 ID 钱包 Kaia Safe，以及如何使用它来管理您的资金和交易。
 
-## What is Kaia Safe? <a id="What is Kaia Safe"></a>
+## Kaia Safe 是什么？ <a id="What is Kaia Safe"></a>
 
-Kaia Safe is a multisig wallet for the Kaia ecosystem. It is a fork of the well-known multisig wallet [Gnosis Safe](https://gnosis-safe.io/).
+Kaia Safe 是 Kaia 生态系统的多 ID 钱包。 它是著名的多重签名钱包 [Gnosis Safe](https://gnosis-safe.io/) 的一个分叉。
 
-## Benefits <a id="Benefits of Kaia Safe"></a>
+## 益处<a id="Benefits of Kaia Safe"></a>
 
-- **Store and transfer KAIA and KCTs (KIP7, KIP17)**: Users can deposit and transfer cryptocurrencies (KAIA) and tokens (fungible or non-fungible).
+- **存储和转移 KAIA 和 KCT（KIP7、KIP17）**：用户可以存入和转移加密货币（KAIA）和代币（可互换或不可互换）。
 
-- **Flexibility and security:** The confirmation threshold gives users more flexibility and control over which transactions should be executed, and removes the single point of failure.
+- **灵活性和安全性：** 确认阈值可让用户更灵活地控制应执行哪些交易，并消除单点故障。
 
-- **Safe apps:** Kaia Safe's functionality is expanded by the addition of custom apps that enable batch transactions and interaction with other dApps. One example of this safe app is the **Transaction Builder** which combines and executes multiple transactions as a batch transaction.
+- **安全应用程序：** Kaia Safe 的功能通过添加自定义应用程序得到扩展，这些应用程序可进行批量交易并与其他 dApps 进行交互。 这种安全应用程序的一个例子是**交易生成器**，它可以将多个交易合并为一个批量交易执行。
 
-- **Account recovery:** In the event of lost keys, Kaia Safe accounts can be recovered as long as the confirmation threshold can still be met by the remaining keys.
+- **账户恢复：** 在丢失密钥的情况下，只要剩余密钥仍能满足确认阈值，Kaia Safe 账户就可以恢复。
