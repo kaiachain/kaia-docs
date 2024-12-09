@@ -1,16 +1,16 @@
-# Create Accounts
+# 创建账户
 
-## Creating a New Account <a id="creating-a-new-account"></a>
+## 创建新账户<a id="creating-a-new-account"></a>
 
-This will create a new account and print the address on the screen. A keystore file is created under the data directory.
+这将创建一个新账户，并在屏幕上打印地址。 在数据目录下创建密钥存储文件。
 
-**Kaia Keystore File**
+**凯亚密钥存储文件**
 
-When you create an account, a keystore file is created. The keystore file is an encrypted version of your unique Kaia private key that you will use to sign your transactions. The keystore file name has the following format:
+创建账户时，会创建一个密钥存储文件。 密钥存储文件是您唯一的 Kaia 私钥的加密版本，您将用它来签署您的交易。 密钥存储文件名的格式如下：
 
 - `UTC--<created_at UTC ISO8601>-<address hex>`
 
-It is safe to transfer the entire directory or the individual keystore file therein between Kaia nodes. Note that in case you are adding keys to your node from a different node, the order of accounts may change. So make sure you do not rely on the index in your scripts or code snippets.
+在 Kaia 节点之间传输整个目录或其中的单个密钥存储文件是安全的。 请注意，如果您从其他节点向您的节点添加密钥，账户的顺序可能会改变。 因此，请确保不要在脚本或代码片段中依赖索引。
 
 ### ken <a id="ken"></a>
 
@@ -20,7 +20,7 @@ $ ken account new --password <passwordfile> --datadir <DATADIR>
 $ ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
-**`WARNING`**: Note that using a password file is meant for testing only; it is a bad idea to save your password in a file or expose it in any other way. If you use the password flag with a password file, best to make sure the file is not readable or even listable for anyone but you. You achieve this with:
+**`WARNING`**：请注意，使用密码文件仅供测试之用；将密码保存在文件中或以任何其他方式暴露密码都不是好主意。 如果在密码文件中使用密码标志，最好确保该文件除了你之外，任何人都无法读取，甚至无法列出。 您可以通过以下方式实现这一目标
 
 ```bash
 $ touch /path/to/password
@@ -30,23 +30,23 @@ I type my pass here
 ^D
 ```
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScript 控制台<a id="javascript-console"></a>
 
-On the console, you can call the following function to create an account:
+在控制台中，您可以调用以下函数来创建账户：
 
 ```javascript
 > personal.newAccount("passphrase")
 ```
 
-The account is saved in an encrypted format. You **must** remember this passphrase to unlock your account in the future.
+账户以加密格式保存。 您必须\*\*\*记住这个密码，以便将来解锁您的账户。
 
-## Importing an Account <a id="importing-an-account"></a>
+## 导入账户<a id="importing-an-account"></a>
 
-You can import an account using a keyfile. The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex. In simpler terms, it is a private key in plain text without the leading `0x`.
+您可以使用密钥文件导入账户。 密钥文件假定包含未加密的私人密钥，以十六进制编码的 EC 原始字节形式表示。 简单地说，它是一个不带前缀 "0x "的纯文本私人密钥。
 
-This imports an unencrypted private key from the given keyfile, creates a new account, generates a keystore file under the data directory, and prints the address in the console. You must remember the passphrase to unlock your account in the future.
+从给定的密钥文件中导入未加密的私钥，创建新账户，在数据目录下生成密钥存储文件，并在控制台中打印地址。 您必须记住密码，以便将来解锁账户。
 
-**NOTE**: If you can directly copy your keystore files to another Kaia instance, this import/export mechanism is not needed.
+**注意**：如果可以直接将密钥存储文件复制到另一个 Kaia 实例，则不需要此导入/导出机制。
 
 ### ken <a id="ken-1"></a>
 
@@ -55,7 +55,7 @@ $ ken account import --datadir <datadir> <keyfile>
 $ ken account import --password <passwordfile> --datadir <datadir> <keyfile>
 ```
 
-### JavaScript Console <a id="javascript-console-1"></a>
+### JavaScript 控制台<a id="javascript-console-1"></a>
 
 ```bash
 > personal.importRawKey('{private key}', 'mypassword')
