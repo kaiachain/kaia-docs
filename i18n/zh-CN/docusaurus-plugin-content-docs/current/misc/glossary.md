@@ -1,153 +1,153 @@
-# Glossary
+# 术语表
 
-This glossary provides explanation on technical terms specific to the Kaia Blockchain. It stands as your goto for understanding numerous terms you will encounter while exploring Kaia documentation, guides and tutorials.
+本术语表提供 Kaia 区块链专用技术术语的解释。 您在浏览 Kaia 文档、指南和教程时会遇到许多术语，它可以帮助您理解这些术语。
 
-### anchor
+### 锚
 
-A cryptographically secure reference to data stored outside of a blockchain. Anchors can be used to link data from different systems together, or to provide tamper-proof evidence of the existence of data at a specific point in time.
+对存储在区块链之外的数据的加密安全引用。 锚点可用于将不同系统的数据连接在一起，或为特定时间点数据的存在提供防篡改证据。
 
-### anchoring
+### 锚定
 
-The process of storing an anchor on a blockchain. This can be done by creating a transaction that contains the hash of the external data, or by creating a smart contract that references the external data (for example, [Anchoring in service chain](../nodes/service-chain/configure/anchoring.md)).
+在区块链上存储锚的过程。 为此，可以创建一个包含外部数据哈希值的事务，或者创建一个引用外部数据的智能合约（例如，[服务链中的锚定](../nodes/service-chain/configure/anchoring.md)）。
 
 ### Kairos
 
-The public testnet of the Kaia platform. It is used by developers to test and verify their applications before deploying them to the Mainnet.
+Kaia 平台的公共测试网络。 开发人员在将应用程序部署到主网之前，可使用它来测试和验证应用程序。
 
-### block explorer
+### 区块浏览器
 
-A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status.
+一种基于网络的工具，允许用户查看和搜索区块链上的数据。 区块浏览器通常会显示区块高度、区块哈希值、交易哈希值、交易发送方和接收方、交易金额和交易状态等信息。
 
-The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Kaiascan](https://www.kaiascan.io/).
+Kaia 中可用的块探索器有 [Kaiascope](../build/tools/block-explorers/kaiascope.md) 和 [Kaiascan](https://www.kaiascan.io/)。
 
-### core cell (CC)
+### 核心细胞
 
-An entity in the Kaia blockchain architecture that is responsible for executing transactions and generating blocks. A core cell typically consists of a consensus node and multiple proxy nodes.
+Kaia 区块链架构中负责执行交易和生成区块的实体。 核心单元通常由一个共识节点和多个代理节点组成。
 
-See also [consensus node (CN)](#consensus-node-cn), [proxy node (PN)](#proxy-node-pn).
+另请参阅 [共识节点 (CN)](#consensus-node-cn)、[代理节点 (PN)](#proxy-node-pn)。
 
-### core cell node network (CCN)
+### 核心小区节点网络（CCN）
 
-A group of core cell nodes that are interconnected
+一组相互连接的核心单元节点
 
-### consensus node (CN)
+### 共识节点
 
-A node that is responsible for generating and propagating blocks, and for reaching consensus on the state of the Kaia blockchain. Consensus nodes validate submitted transactions and execute valid transactions.
+一个节点，负责生成和传播区块，并就 Kaia 区块链的状态达成共识。 共识节点验证提交的交易并执行有效交易。
 
-### endpoint node (EN)
+### 终端节点 (EN)
 
-A node that serves as an entry point for service chains and DApps to interact with the Kaia blockchain through its exposed RPC APIs. Endpoint nodes synchronize the entire blockchain ledger and allow reading blockchain data or submitting transactions directly to the network without going through a proxy node.
+一个节点，作为服务链和 DApp 的入口点，通过其公开的 RPC API 与 Kaia 区块链进行交互。 端点节点同步整个区块链账本，可以直接读取区块链数据或向网络提交交易，而无需通过代理节点。
 
-### endpoint node network (ENN)
+### 终端节点网络（ENN）
 
-A group of endpoint nodes that are interconnected
+一组相互连接的端点节点
 
-### externally owned account (EOA)
+### 外部拥有账户（EOA）
 
-An account on a blockchain that is controlled by a private key. The private key is held by the user and is used to sign transactions. EOAs are the most common type of account on blockchains and are used by individuals and businesses to interact with the blockchain.
+区块链上由私钥控制的账户。 私钥由用户持有，用于签署交易。 EOA 是区块链上最常见的账户类型，个人和企业使用它与区块链进行交互。
 
-See also [smart contract account (SCA)](#smart-contract-account-sca).
+另请参阅 [智能合约账户（SCA）]（#smart-contract-account-sca）。
 
-### fee delegation
+### 费用委托
 
-A mechanism in some blockchain networks that enables a user to nominate another account to pay transaction fees on their behalf. This allows the user to submit transactions and have them processed without needing to pay fees directly from their own account balance.
+某些区块链网络中的一种机制，使用户可以指定另一个账户代其支付交易费用。 这样，用户就可以提交交易并进行处理，而无需直接从自己的账户余额中支付费用。
 
-### governance council (GC)
+### 治理委员会（GC）
 
-A group or organization formed to establish and maintain oversight and decision-making authority over a blockchain network. A blockchain governance council typically defines tasks such as establishing operational procedures, resolving disputes, approving protocol upgrades, and representing the interests of all stakeholders in the network.
+为建立和维护对区块链网络的监督和决策权而成立的团体或组织。 区块链治理委员会通常负责制定运行程序、解决争议、批准协议升级以及代表网络中所有利益相关者的利益等任务。
 
-### inter-process communication (IPC)
+### 进程间通信
 
-A set of techniques for the exchange of data among two or more processes in one or more computers. It is a fundamental part of operating systems and distributed systems, and is used by many different types of software, including web servers, databases, and graphical user interfaces.
+在一台或多台计算机的两个或多个进程之间交换数据的一套技术。 它是操作系统和分布式系统的基本组成部分，被许多不同类型的软件使用，包括网络服务器、数据库和图形用户界面。
 
-### interplanetary file system (IPFS)
+### 行星际文件系统
 
-A peer-to-peer distributed file system that enables users to store and share files in a decentralized manner. IPFS uses a content-addressing scheme to uniquely identify each file, and it stores files in a distributed network of nodes.
+点对点分布式文件系统，使用户能够以分散的方式存储和共享文件。 IPFS 使用内容寻址方案来唯一标识每个文件，并将文件存储在由节点组成的分布式网络中。
 
-### Kaia Ecosystem Fund (KEF)
+### 凯亚生态系统基金（KEF）
 
-A fund established by the Kaia Foundation to support initiatives that contribute to the growth and development of the Kaia blockchain ecosystem. The KEF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KEF is to advance innovation and community growth around Kaia through funded initiatives.
+Kaia 基金会设立的基金，旨在支持有助于 Kaia 区块链生态系统成长和发展的倡议。 KEF 为致力于扩大 Kaia 使用和采用范围的项目、组织和个人提供资助和财政支持。 KEF 的目标是通过资助活动，推动围绕 Kaia 的创新和社区发展。
 
-### Kaia endpoint node (KEN)
+### Kaia 终端节点 (KEN)
 
-See [endpoint node (EN)](#endpoint-node-en).
+请参阅 [端点节点 (EN)]（#endpoint-node-en）。
 
-### Kaia Infrastructure Fund (KIF)
+### 凯亚基础设施基金 (KIF)
 
-A reserve fund established by the Kaia Foundation to support its operating expenses and long-term initiatives. The KIF aids in funding the Foundation's work to further develop and enhance the Kaia blockchain protocol and ecosystem through research, business development activities, education programs and more.
+由 Kaia 基金会设立的储备基金，用于支持其运营开支和长期计划。 KIF 通过研究、商业开发活动、教育计划等，为基金会进一步开发和增强 Kaia 区块链协议和生态系统的工作提供资金支持。
 
-### Kaia Governance Council (KGC)
+### 卡伊阿治理委员会（KGC）
 
-A council of organizations that are responsible for governing the Kaia blockchain. The GC members are selected by the Kaia Foundation and are required to operate a consensus node on the Kaia network. The GC is responsible for making decisions about the development and operation of the Kaia blockchain, including upgrades, partnerships, and ecosystem development initiatives.
+负责管理 Kaia 区块链的组织理事会。 全球理事会成员由 Kaia 基金会选出，必须在 Kaia 网络上运营一个共识节点。 GC 负责就 Kaia 区块链的开发和运营做出决策，包括升级、合作和生态系统开发计划。
 
-### Kaia Improvement Proposal (KIP)
+### 凯亚改进提案（KIP）
 
-A design document providing information to Kaia stakeholders regarding new features or processes for the Kaia blockchain network. KIPs are intended to provide a consistent and controlled mechanism for proposing, reviewing and adopting protocol upgrades and innovations. They allow advocates to collaborate with the Kaia community to refine any potential protocol upgrades before being considered for inclusion in the software.
+为 Kaia 利益相关者提供有关 Kaia 区块链网络新功能或流程信息的设计文件。 KIP 的目的是为提出、审查和通过协议升级和创新提供一个一致和受控的机制。 他们允许倡导者与 Kaia 社区合作，完善任何可能的协议升级，然后再考虑将其纳入软件。
 
-Some of typical examples of KIP are [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](http://kips.klaytn.foundation/KIPs/kip-17), and [KIP-37](http://kips.klaytn.foundation/KIPs/kip-37).
+KIP 的一些典型例子有 [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7)、[KIP-17](http://kips.klaytn.foundation/KIPs/kip-17) 和 [KIP-37](http://kips.klaytn.foundation/KIPs/kip-37)。
 
-### Kaia State
+### 卡亚州
 
-This is the world state of accounts in Kaia containing the balances, storage variables of the account and the hash of the code or bytecode depending on if the account is an EOA or SCA.
+这是 Kaia 中账户的世界状态，包含余额、账户的存储变量以及代码或字节码的哈希值（取决于账户是 EOA 还是 SCA）。
 
-### Kaia virtual machine (KVM)
+### Kaia 虚拟机（KVM）
 
-A virtual state machine that executes Kaia smart contracts. It is a quasi-Turing-complete stack-based virtual machine that is derived from the Ethereum Virtual Machine (EVM). The KVM is responsible for processing and executing smart contracts on the Kaia blockchain.
+执行 Kaia 智能合约的虚拟状态机。 它是一种基于堆栈的准图灵完备虚拟机，源于以太坊虚拟机（EVM）。 KVM 负责处理和执行 Kaia 区块链上的智能合约。
 
-### Kaia network identifier (KNI)
+### Kaia 网络标识符（KNI）
 
-A unique resource identifier scheme to identify a Kaia node. It consists of nodeID, hostname, port, and discport.
+用于识别 Kaia 节点的唯一资源标识符方案。 它包括节点 ID、主机名、端口和磁盘端口。
 
-### proposer
+### 提案人
 
-A role assigned to a consensus node (CN) in each round of block creation. The proposer is randomly but deterministically selected to create the next block. The probability of a CN being enlisted as the proposer is determined by the amount of Kaia tokens, or KAIA, that the CN stakes.
+在每一轮区块创建中分配给共识节点 (CN) 的角色。 随机但确定地选择提议者创建下一个区块。 CN 被提名为提议者的概率取决于 CN 押注的 Kaia 代币（或 KAIA）数量。
 
-### proxy node (PN)
+### 代理节点
 
-A node that is responsible for relaying transactions from endpoint nodes (ENs) to consensus nodes (CNs). It aids in enhancing the performance of the network by reducing the direct communication load between ENs and CNs.
+负责将交易从终端节点 (EN) 中转到共识节点 (CN) 的节点。 它通过减少 EN 和 CN 之间的直接通信负荷来提高网络性能。
 
-### recursive-length prefix (RLP)
+### 递归长度前缀 (RLP)
 
-An address prefix format where the length of the prefix is included as part of the address information in computer networking, It allows for more efficient routing by eliminating the need to store prefix lengths separately for each route. Kaia uses recursive-length prefix to represent blockchain addresses.
+这是一种地址前缀格式，在计算机网络中，前缀长度是地址信息的一部分，无需为每条路由分别存储前缀长度，从而提高了路由效率。 Kaia 使用递归长度前缀来表示区块链地址。
 
-### remote procedure call (RPC)
+### 远程过程调用
 
-A communication protocol that allows a program on one computer to execute code or request services from a program located on another, often remote, computer within a network.
+一种通信协议，允许一台计算机上的程序执行代码或请求网络中另一台（通常是远程）计算机上的程序提供服务。
 
-### soul-bound token (SBT)
+### 缚魂令牌
 
-A non-transferable token that represents a person's identity and achievements in the Web3 ecosystem. It is a type of non-fungible token (NFT) that is permanently tied to a specific individual or crypto wallet.
+一种不可转让的令牌，代表个人在 Web3 生态系统中的身份和成就。 它是一种永久与特定个人或加密钱包绑定的不可兑换代币（NFT）。
 
-### smart contract account (SCA)
+### 智能合约账户
 
-An account on a blockchain that is controlled by a smart contract. A smart contract is a self-executing contract with the terms of the agreement between buyer and seller directly written into lines of code. SCAs are used to automate transactions and agreements on the blockchain.
+区块链上由智能合约控制的账户。 智能合约是一种自动执行的合约，买卖双方的协议条款直接写入代码行中。 SCA 用于自动执行区块链上的交易和协议。
 
-See also [externally owned account (EOA)](#externally-owned-account-eoa).
+另请参阅 [外部拥有账户 (EOA)]（#externally-owned-account-eoa）。
 
-### service chain
+### 服务链
 
-A sidechain or auxiliary blockchain that is connected to the Kaia mainnet. Service chains are designed to meet the specific needs of different applications or industries, such as immediate finality, cross-chain token transfer, and data anchoring to the main chain.
+连接到 Kaia 主网的侧链或辅助区块链。 服务链的设计旨在满足不同应用或行业的特定需求，例如即时终结、跨链令牌传输以及与主链的数据锚定。
 
-### service chain consensus node (SCN)
+### 服务链共识节点（SCN）
 
-A node that is responsible for participating in the consensus process in a Kaia service chain.
+在 Kaia 服务链中负责参与共识过程的节点。
 
-See also [consensus node (CN)](#consensus-node-cn), [service chain](#service-chain).
+另请参阅 [共识节点 (CN)]（#consensus-node-cn）、[服务链]（#service-chain）。
 
-### service chain endpoint node (SEN)
+### 服务链终点节点 (SEN)
 
-A node in a Kaia service chain that provides a public interface for interacting with the service chain.
+Kaia 服务链中的节点，提供与服务链交互的公共接口。
 
-See also [endpoint node (EN)](#endpoint-node-en), [service chain](#service-chain).
+另请参阅 [端点节点 (EN)](#endpoint-node-en)、[服务链](#service-chain)。
 
-### state migration
+### 国家移民
 
-This process involves removing unnecessary or outdated data from the blockchain to reduce the amount of required storage space and improve efficiency.
+这一过程包括从区块链中删除不必要或过时的数据，以减少所需的存储空间并提高效率。
 
-### transaction pool
+### 交易池
 
-A critical component for managing pending and queued transactions awaiting inclusion in the next blocks within the network.
+是管理等待纳入网络下一个区块的待处理和排队交易的关键组件。
 
-### validator
+### 验证器
 
-A node that verifies the accuracy of data contained in new blocks and ensures that blocks are processed efficiently across the network. In Kaia's permissionless validation structure, anyone can act as a block validator if they meet certain qualifications while maintaining the existing Governance Council structure and roles.
+验证新区块所含数据准确性的节点，确保区块在整个网络中得到高效处理。 在 Kaia 的无权限验证结构中，任何人只要符合一定的条件，都可以充当区块验证者，同时保持现有的治理委员会结构和角色。
