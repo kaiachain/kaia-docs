@@ -213,7 +213,7 @@ The unique characteristics that distinguish each keyword are as follows:
 
 ![](/img/build/tools/scope_07_noresult.png)
 
-If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
+If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no data will appear.
 
 #### Wrong Format \(TX Hash / Address\) <a id="wrong-format-tx-hash-address"></a>
 
@@ -229,3 +229,6 @@ If you search for a keyword that doesn't fit in the specified format or informat
 
 [Transactions]: ../../../learn/transactions/transactions.md
 [Kaia Token Economy]: ../../../learn/token-economy.md
+
+
+//scope_04_block_list
