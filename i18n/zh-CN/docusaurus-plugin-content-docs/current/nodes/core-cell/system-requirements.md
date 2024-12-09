@@ -1,67 +1,67 @@
-# System Requirements
+# 系统要求
 
-## H/W Specification <a id="h-w-specification"></a>
+## 硬件/软件规格<a id="h-w-specification"></a>
 
-The network performance is measured based on the worst hardware specification within the network. According to the blockchain network structure, it is only possible to be scaled up vertically \(increasing hardware capacity\). Hence, it is recommended that all the nodes within the network should have the best hardwares having the similar specifications with each other at least.
+网络性能是根据网络内最差的硬件规格来衡量的。 根据区块链网络结构，它只能纵向扩展（增加硬件容量）。 因此，建议网络内的所有节点至少都应拥有规格相似的最佳硬件。
 
-If you're curious about the rationale of this hardware spec, the medium article [Determining optimal hardware specs for Kaia node operators](https://klaytn.foundation/node-operator-optimal-specs/) would help you understand.
+如果你想了解这一硬件规格的原理，medium 上的文章[为 Kaia 节点操作员确定最佳硬件规格](https://klaytn.foundation/node-operator-optimal-specs/) 会帮助你理解。
 
-The following sections show the recommended specifications for both CNs and PNs.
+以下各节列出了 CN 和 PN 的建议规格。
 
-### Bare-metal Server <a id="bare-metal-server"></a>
+### 裸机服务器<a id="bare-metal-server"></a>
 
-| Category | Specification                                                                                                                                                                                                                                   |
-| :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Server   | Intel® Server System [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html)                                                                                            |
-| CPU      | Intel® Xeon 8358 2.60 GHz \(32-core/64-thread\)                                                                                                                                                            |
-| Memory   | 128GB \(32GB \* 4\)                                                                                                                                                                                                        |
-| Storage  | 4TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. Please consult the Kaia Team for more information.) |
+| 类别  | 规格                                                                                                                                         |
+| :-- | :----------------------------------------------------------------------------------------------------------------------------------------- |
+| 服务器 | 英特尔® 服务器系统 [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html) |
+| CPU | Intel® Xeon 8358 2.60 GHz （32 核/64 线程）                                                                                     |
+| 内存  | 128gb （32gb \* 4\)                                                                                                                        |
+| 存储  | 4TB（或更大容量）固态硬盘（首选存储容量和配置可能因链数据大小而异。 更多信息请咨询 Kaia 团队）。                                                                                      |
 
-Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
+请注意，这只是 CN 和 PN 的推荐硬件规格，并非确切要求。 任何具有类似硬件配置的物理机器都足以运行 CN 或 PN。
 
-You can use and apply a live-pruning option to use live-pruning DB. For more details, please refer https://docs.kaia.io/learn/storage/live-pruning/. However, note that live-pruning spec is not recommended for CNs but this may change in the future.
+您可以使用和应用实时修剪选项来使用实时修剪 DB。 更多详情，请参阅 https://docs.kaia.io/learn/storage/live-pruning/。 但要注意的是，目前不建议对 CN 进行活体修剪，但这一做法将来可能会改变。
 
-### Cloud VM <a id="cloud-vm"></a>
+### 云虚拟机<a id="cloud-vm"></a>
 
-#### Recommended Specification for AWS<a id="recommended-specification-for-aws"></a>
+#### AWS 建议规格<a id="recommended-specification-for-aws"></a>
 
-|                   Node Type                  |            Model            | vCPU | Memory \(GiB\) | Storage size \(GiB\) | Storage speed \(IOPS\) | Price \(Seoul region, USD/h\) |
-| :------------------------------------------: | :-------------------------: | :--: | :---------------------------------: | :---------------------------------------: | :-----------------------------------------: | :------------------------------------------------: |
-|                      CN                      | m6i.8xlarge |  32  |                 128                 |     4,000 (Minimum)    |                    9,000                    |                1.888               |
-|                      PN                      | m6i.4xlarge |  16  |                  64                 |     4,000 (Minimum)    |                    9,000                    |                0.944               |
-| PN (with Live Pruning DB) | m6i.2xlarge |   8  |                  32                 |     3,500 (Minimum)    |                    9,000                    |                0.472               |
+|                   Node Type                  |            Model            | vCPU | 内存（GiB） |                存储大小                | 存储速度（IOPS） |     价格（首尔地区，美元/小时）    |
+| :------------------------------------------: | :-------------------------: | :--: | :-----: | :--------------------------------: | :--------: | :-------------------: |
+|                      CN                      | m6i.8xlarge |  32  |   128   | 4,000 (Minimum) |    9,000   | 1.888 |
+|                      PN                      | m6i.4xlarge |  16  |    64   | 4,000 (Minimum) |    9,000   | 0.944 |
+| PN (with Live Pruning DB) | m6i.2xlarge |   8  |    32   | 3,500 (Minimum) |    9,000   | 0.472 |
 
-This storage specification is derived from AWS EBS SSD (gp3) specification.
+此存储规范源自 AWS EBS SSD (gp3) 规范。
 
-The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
+以上信息来自 [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) 和 [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/)，可能会被 AWS 更改。
 
-#### Recommended Specification for Azure<a id="recommended-specification-for-azure"></a>
+#### 建议的 "Azure "规范<a id="recommended-specification-for-azure"></a>
 
-|                   Node Type                  |  Model  | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(Korea Central, USD/h\) |
-| :------------------------------------------: | :-----: | :--: | :---------------------------------: | :---------------------------------------: | :-----------------------------------------: | :-------------------------------------------------: |
-|                      CN                      | D32s v5 |  32  |                 128                 |       P50 (4096)       |                     7500                    |                1.888                |
-|                      PN                      | D16s v5 |  16  |                  64                 |       P50 (4096)       |                     7500                    |                0.944                |
-| PN (with Live Pruning DB) |  D8s v5 |   8  |                  32                 |       P50 (4096)       |                     7500                    |                0.472                |
+|                   Node Type                  |  Model  | vCPU | 内存（GiB） |          存储类型 （GiB\）          | 存储速度（IOPS） |     价格（韩国中部，美元/小时）    |
+| :------------------------------------------: | :-----: | :--: | :-----: | :---------------------------: | :--------: | :-------------------: |
+|                      CN                      | D32s v5 |  32  |   128   | P50 (4096) |    7500    | 1.888 |
+|                      PN                      | D16s v5 |  16  |    64   | P50 (4096) |    7500    | 0.944 |
+| PN (with Live Pruning DB) |  D8s v5 |   8  |    32   | P50 (4096) |    7500    | 0.472 |
 
-This storage specification is derived from Azure Premium Disk specification.
+此存储规范源自 Azure Premium Disk 规范。
 
-The information above is from [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) and [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing) and may be changed by Microsoft.
+以上信息来自 [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) 和 [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing)，微软可能会对其进行修改。
 
-#### Recommended Specification for GCP<a id="recommended-specification-for-gcp"></a>
+#### 建议的 GCP 规范<a id="recommended-specification-for-gcp"></a>
 
-|                   Node Type                  |      Model     | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(asia-northeast3, USD/h\) |
-| :------------------------------------------: | :------------: | :--: | :---------------------------------: | :---------------------------------------: | :-----------------------------------------: | :---------------------------------------------------: |
-|                      CN                      | n2-standard-32 |  32  |                 128                 |     4,000 (Minimum)    |                     7500                    |                2.032486               |
-|                      PN                      | n2-standard-16 |  16  |                  64                 |     4,000 (Minimum)    |                     7500                    |                1.016243               |
-| PN (with Live Pruning DB) |  n2-standard-8 |   8  |                  32                 |     3,500 (Minimum)    |                     7500                    |                0.508121               |
+|     节点类型     |     模型    | vCPU | 内存（GiB） | 存储类型 （GiB\） | 存储速度（IOPS） |     价格（亚洲-东北3，美元/小时）     |
+| :----------: | :-------: | :--: | :-----: | :---------: | :--------: | :----------------------: |
+|      CN      | n2- 标准-32 |  32  |   128   |  4,000（最少）  |    7500    | 2.032486 |
+|      PN      | n2- 标准-16 |  16  |    64   |  4,000（最少）  |    7500    | 1.016243 |
+| PN（带实时修剪 DB） |  n2- 标准-8 |   8  |    32   |  3,500（最低）  |    7500    | 0.508121 |
 
-The information above is from [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) and [https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia) and may be changed by Google.
+以上信息来自 [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) 和 [https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia)，谷歌可能会对其进行修改。
 
-## Storage Requirements <a id="storage-requirements"></a>
+## 存储要求<a id="storage-requirements"></a>
 
-Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is about 2.5 GB/day \(=300x100x86400\).
+假设平均 TPS 为 100，平均事务大小为 300 字节，区块延迟为 1 秒，则预计每天的存储需求约为 2.5 GB/天（=300x100x86400）。
 
-## Operating System <a id="operating-system"></a>
+## 操作系统<a id="operating-system"></a>
 
-Recommended environment is compatible with RHEL (7.8 or later).
-Kaia binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well. macOS binaries are also provided for development purpose.
+建议环境与 RHEL（7.8 或更高版本）兼容。
+Kaia 二进制文件已在亚马逊 Linux 2 上进行了全面测试，但也可在其他基于 Linux 的环境中运行。 还提供了用于开发的 macOS 二进制文件。
