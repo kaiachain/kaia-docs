@@ -59,7 +59,7 @@ If you want to get a closer look at the status of the Kaia network, you can chec
 
 ### Blocks <a id="blocks"></a>
 
-![](/img/build/tools/blocksM.png)
+![](/img/build/tools/scope_04_block_list.png)
 
 A list of recently generated blocks. To update the information, please click the refresh.
 
@@ -229,3 +229,6 @@ If you search for a keyword that doesn't fit in the specified format or informat
 
 [Transactions]: ../../../learn/transactions/transactions.md
 [Kaia Token Economy]: ../../../learn/token-economy.md
+
+
+//scope_04_block_list
