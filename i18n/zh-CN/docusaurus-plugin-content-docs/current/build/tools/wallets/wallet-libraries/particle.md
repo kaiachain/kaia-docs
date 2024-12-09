@@ -2,80 +2,80 @@
 sidebar_label: Particle Network
 ---
 
-# Integrate Particle Network into a dApp
+# 将粒子网络整合到应用程序中
 
 ![](/img/banners/kaia-particle.png)
 
-## Introduction
+## 导言
 
-[Particle Network](https://particle.network) provides Wallet Abstraction services to simplify user onboarding.
+[粒子网络](https://particle.network) 提供钱包抽象服务，以简化用户入门。
 
-The [Particle Connect SDK](https://developers.particle.network/api-reference/connect/desktop/web) supports EVM-compatible chains, including Kaia and its testnet. It allows for 2-click onboarding with [social and Web3 login options](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors), all within a single modal.
+粒子连接 SDK](https://developers.particle.network/api-reference/connect/desktop/web) 支持与 EVM 兼容的链，包括 Kaia 及其测试网。 它允许使用[社交和 Web3 登录选项](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)进行 2 键登录，所有操作都在一个模态中完成。
 
-With Particle Network, developers on Kaia can embed social logins for the Kaia Mainnet and testnet, allowing users to generate and use a wallet within your application using only their Google, email, X, etc.
+通过 Particle Network，Kaia 开发人员可以为 Kaia 主网和测试网嵌入社交登录，让用户只需使用他们的谷歌、电子邮件、X 等信息就能在您的应用程序中生成和使用钱包。
 
-This page offers an overview and tutorial for implementing Particle Connect within a Kaia-based application, to help you start the integration process.
+本页提供在基于 Kaia 的应用程序中实施 Particle Connect 的概述和教程，以帮助您开始集成过程。
 
-## Prerequisites
+## 先决条件
 
-- A [Next.js project](https://nextjs.org/docs/getting-started/installation) set up with TypeScript and Tailwind CSS
-  - You can create this by running: `npx create-next-app@latest`
-- A **Project ID**, **Client Key**, and **App ID** from the [Particle Dashboard](https://dashboard.particle.network).
+- 使用 TypeScript 和 Tailwind CSS 设置的 [Next.js 项目](https://nextjs.org/docs/getting-started/installation)
+  - 您可以运行： `npx create-next-app@latest` 来创建它。
+- 来自 [Particle Dashboard]（https://dashboard.particle.network）的\*\*项目 ID\*\*、**客户密钥**和**应用程序 ID**。
 
-## Installation
+## 安装
 
-To leverage Particle Network, specifically Particle Connect, within your dApp, you'll need to first install the required libraries. The Particle Connect SDK streamlines wallet creation, user login, and blockchain interactions with one interface. It supports both social and Web3 logins for easy access.
+要在您的 dApp 中利用 Particle Network，特别是 Particle Connect，您首先需要安装所需的库。 Particle Connect SDK 通过一个界面简化了钱包创建、用户登录和区块链交互过程。 它支持社交登录和 Web3 登录，便于访问。
 
-To install the SDK, along with Viem (backend for Connect) and ethers (demonstrating EIP-1193 providers), run:
+要安装 SDK 以及 Viem（连接后台）和 ethers（演示 EIP-1193 提供商），请运行
 
 ```shell
 yarn add @particle-network/connectkit viem@^2 ethers
 ```
 
-## Initializing Particle Connect
+## 初始化粒子连接
 
-To begin with, we’ll set up Particle Connect, Particle's flagship authentication SDK. Create a new file called `ConnectKit.tsx` in the root directory of your project. This file will house the `ParticleConnectKit` component, a wrapper for the configured `ConnectKitProvider` instance that serves as the primary interface for the configuration of Particle Connect (we'll go over what this looks like programmatically in a moment).
+首先，我们将设置 Particle Connect，这是 Particle 的旗舰认证 SDK。 在项目根目录下创建名为 `ConnectKit.tsx` 的新文件。 该文件将容纳 "ParticleConnectKit "组件，它是已配置的 "ConnectKitProvider "实例的包装器，是配置 Particle Connect 的主要接口（我们稍后将以编程方式介绍）。
 
-Next, head over to the [Particle dashboard](https://dashboard.particle.network) to create a new web application project and obtain the following essential API keys:
+接下来，前往 [Particle dashboard](https://dashboard.particle.network)，创建一个新的网络应用程序项目，并获取以下必要的 API 密钥：
 
-- **`projectId`** – a unique identifier for your project.
-- **`clientKey`** – a key specific to your client.
-- **`appId`** – the ID for your application.
+- **`projectId`** - 项目的唯一标识符。
+- **`clientKey`** - 客户端特有的密钥。
+- **`appId`** - 应用程序的 ID。
 
-Store these API keys in a `.env` file as follows:
+将这些 API 密钥存储在`.env`文件中，如下所示：
 
 ```plaintext
-NEXT_PUBLIC_PROJECT_ID='PROJECT_ID'
-NEXT_PUBLIC_CLIENT_KEY='CLIENT_KEY'
-NEXT_PUBLIC_APP_ID='APP_ID'
+next_public_project_id='project_id'
+next_public_client_key='client_key'
+next_public_app_id='app_id'
 ```
 
-Now, add the following code to your `ConnectKit.tsx` file:
+现在，将以下代码添加到您的 `ConnectKit.tsx` 文件中：
 
 ```js
 "use client";
 
 import React from "react";
 import { ConnectKitProvider, createConfig } from "@particle-network/connectkit";
-import { authWalletConnectors } from "@particle-network/connectkit/auth";
+import { authWalletConnectors } from "@particle-network/connectkit/auth"；
 import { defineChain } from "@particle-network/connectkit/chains";
 import { wallet, EntryPosition } from "@particle-network/connectkit/wallet";
 
 const kaiaMainnet = defineChain({
-  id: 8217,
+  id：8217,
   name: "Kaia",
-  nativeCurrency: {
+  nativeCurrency：{
     decimals: 18,
     name: "KAIA",
-    symbol: "KAIA",
+    symbol："KAIA",
   },
-  rpcUrls: {
+  rpcUrls：{
     default: {
       http: ["https://public-en.node.kaia.io"],
     },
   },
-  blockExplorers: {
-    default: { name: "Explorer", url: "https://kaiascope.com/" },
+  blockExplorers：{
+    default: { name: "Explorer", url："https://kaiascope.com/"},
   },
   testnet: false,
 });
@@ -83,18 +83,18 @@ const kaiaMainnet = defineChain({
 const kaiaTestnet = defineChain({
   id: 1001,
   name: "Kaia Testnet",
-  nativeCurrency: {
+  nativeCurrency：{
     decimals: 18,
     name: "KAIA",
-    symbol: "KAIA",
+    symbol："KAIA",
   },
-  rpcUrls: {
+  rpcUrls：{
     default: {
       http: ["https://public-en-kairos.node.kaia.io"],
     },
   },
-  blockExplorers: {
-    default: { name: "Explorer", url: "https://kairos.kaiascope.com/" },
+  blockExplorers：{
+    default: { name: "Explorer", url："https://kairos.kaiascope.com/"},
   },
   testnet: true,
 });
@@ -104,27 +104,27 @@ const config = createConfig({
   clientKey: process.env.NEXT_PUBLIC_CLIENT_KEY!,
   appId: process.env.NEXT_PUBLIC_APP_ID!,
 
-  walletConnectors: [authWalletConnectors({})],
+  walletConnectors：[authWalletConnectors({})],
 
-  plugins: [
+  plugins：[
     wallet({
-      entryPosition: EntryPosition.BR, // Positions the modal button at the bottom right on login
-      visible: true, // Determines if the wallet modal is displayed
+      entryPosition：EntryPosition.BR, // 定位登录时右下角的模式按钮
+      visible: true, // 决定是否显示钱包模式
     }),
   ],
-  chains: [kaiaMainnet, kaiaTestnet],
+  chains：[kaiaMainnet, kaiaTestnet],
 });
 
 export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
   return <ConnectKitProvider config={config}>{children}</ConnectKitProvider>;
-};
+}；
 ```
 
-Virtually every property of this component can be configured, from the different login types you support to the visual appearance of the modal; to explore these various options, head over to [Particle's documentation](https://developers.particle.network/api-reference/connect/desktop/web#configuration).
+该组件的几乎所有属性都可以配置，从支持的不同登录类型到模态的视觉外观；要探索这些不同的选项，请访问 [Particle 文档](https://developers.particle.network/api-reference/connect/desktop/web#configuration)。
 
-## Integrate Particle Connect into Your App
+## 将 Particle Connect 集成到您的应用程序中
 
-Now that the configuration is complete, wrap your application with the `ParticleConnectKit` component to enable global access to the Particle Connect SDK. To achieve this, modify your `layout.tsx` file in the `src` directory as follows:
+配置完成后，用 "ParticleConnectKit "组件封装您的应用程序，以启用对 Particle Connect SDK 的全局访问。 要做到这一点，请对 `src` 目录中的 `layout.tsx` 文件作如下修改：
 
 ```typescript
 import { ParticleConnectkit } from '@/connectkit';
@@ -134,7 +134,7 @@ import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
+export const metadata：Metadata = {
   title: 'Particle Connectkit App',
   description: 'Generated by create next app',
 };
@@ -154,9 +154,9 @@ export default function RootLayout({
 }
 ```
 
-### Connecting Wallet
+### 连接钱包
 
-With your `layout.tsx` file setup, you can move on to connecting your users through a central **Connect Wallet** button. You can import `ConnectButton` from `@particle-network/connectkit` to do this. The `ConnectButton` turns into an embedded widget once the user logs in.
+设置好 "layout.tsx "文件后，就可以通过中央**连接钱包**按钮连接用户了。 您可以从 `@particle-network/connectkit` 中导入 `ConnectButton` 来实现这一功能。 一旦用户登录，"连接按钮 "就会变成一个嵌入式部件。
 
 ```js
 import { ConnectButton, useAccount } from '@particle-network/connectkit';
@@ -170,18 +170,18 @@ export const App = () => {
             <ConnectButton />
             {isConnected && (
                 <>
-                    <h2>Address: {address}</h2>
-                    <h2>Chain ID: {chainId}</h2>
+                    <h2>Address： </h2> <h2> {address}</h2>
+                    <h2>链 ID： </h2> <h2> {chainId}</h2>
                 </>
             )}
         </div>
     );
-};
+}；
 ```
 
-### Getting Account and Balance
+### 获取账户和余额
 
-With a wallet (or social login) now successfully connected through the `ConnectButton` component, you can retrieve the user's associated Kaia address. Additionally, you can retrieve its current balance (in KAIA) through the `publicClient`, which leverages the Viem provider already set up by Particle Connect.
+通过 `ConnectButton` 组件成功连接钱包（或社交登录）后，就可以检索用户的相关 Kaia 地址。 此外，您还可以通过 "publicClient"（利用 Particle Connect 已设置的 Viem 提供商）检索其当前余额（以 KAIA 为单位）。
 
 ```js
 "use client";
@@ -197,12 +197,12 @@ import { formatEther } from "viem";
 export default function Home() {
   // Account-related states
   const { isConnected, address, chain } = useAccount();
-  const publicClient = usePublicClient();
+  const publicClient = usePublicClient()；
 
-  // State variable for balance
+  // 余额状态变量
   const [balance, setBalance] = useState<string>("");
 
-  // Fetch and display user balance when connected
+  // 连接时获取并显示用户余额
   useEffect(() => {
     const fetchBalance = async () => {
       if (address) {
@@ -228,21 +228,21 @@ export default function Home() {
         <div className="w-full max-w-md mt-6">
           <h2 className="text-xl font-bold text-white mb-4">Account Details</h2>
           <p className="text-lg text-white">
-            Address: {address || "Loading..."}
-          </p>
+            Address：{address || "Loading..."} </p> </div> </div>
+          <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-black text-white"> <div className="w-full max-w-md mt-6">
           <p className="text-lg text-white">
-            Balance: {balance || "Loading..."} {chain?.nativeCurrency.symbol}
+            余额：{balance || "Loading..."}{chain?.nativeCurrency.symbol}
           </p>
-        </div>
+        <p className="text-lg text-white"> </p> </div>
       )}
     </div>
   );
 }
 ```
 
-### Disconnecting Wallet
+### 断开钱包连接
 
-Once a user has logged in, you can programmatically force a logout through `disconnect` derived from `useDisconnect`. This will disconnect the current active session from your dApp, returning the user to their initial state.
+用户登录后，可以通过源自 `useDisconnect` 的 `disconnect` 以编程方式强制注销。 这将断开当前活动会话与 dApp 的连接，使用户返回初始状态。
 
 ```js
 import { useDisconnect } from "@particle-network/connectkit";
@@ -259,9 +259,9 @@ const { disconnect } = useDisconnect();
 
 ```
 
-### Getting User Info
+### 获取用户信息
 
-When a user connects via social accounts, you can use the `useParticleAuth()` hook to access `userinfo`, which includes details about their connection method, account creation date, name, emails, and other [relevant information from Particle Auth](https://developers.particle.network/api-reference/connect/desktop/web#fetch-user-information-with-particle-auth).
+当用户通过社交账户连接时，可以使用 `useParticleAuth()` 钩子访问 `userinfo`，其中包括用户的连接方式、账户创建日期、姓名、电子邮件和其他[来自 Particle Auth 的相关信息](https://developers.particle.network/api-reference/connect/desktop/web#fetch-user-information-with-particle-auth)。
 
 ```js
 import { useAccount, useParticleAuth, useWallets } from '@particle-network/connectkit';
@@ -272,30 +272,30 @@ export const App = () => {
     const { isConnected } = useAccount();
 
     // Retrieve the primary wallet from the Particle Wallets
-    const [primaryWallet] = useWallets();
+    const [primaryWallet] = useWallets()；
 
-    // Store userInfo in a useState to use it in your app
+    // 将 userInfo 存储在 useState 中，以便在应用程序中使用
     const [userInfo, setUserInfo] = useState<any>(null);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
-            // Use walletConnectorType as a condition to avoid account not initialized errors
+            // 使用 walletConnectorType 作为条件，以避免账户未初始化错误
             if (primaryWallet?.connector?.walletConnectorType === 'particleAuth') {
                 const userInfo = await getUserInfo();
                 setUserInfo(userInfo);
-            }
+            } }; fetchUserInfo = async () => { // 使用 walletConnectorType 作为条件，避免账户未初始化错误。
         };
 
         fetchUserInfo();
     }, [isConnected, getUserInfo]);
 
-    return <h2 className="text-style">Name: {userInfo.name || 'N/A'}</h2>;
-};
+    return<h2 className="text-style">Name：{userInfo.name || 'N/A'}</h2>;
+}；
 ```
 
-### Sending Native Transaction
+### 发送本地事务
 
-Particle Connect allows you to leverage an already existing EIP-1193 provider, in this example we create a provider instance with `ethers` to send a transfer transaction.
+Particle Connect 允许您利用现有的 EIP-1193 提供商，在本例中，我们创建了一个带有 `ethers` 的提供商实例来发送转账交易。
 
 ```js
 import { useWallets } from "@particle-network/connectkit";
@@ -307,25 +307,25 @@ const executeTransaction = async () => {
     // Get the provider from the primary wallet's connector
     const EOAprovider = await primaryWallet.connector.getProvider();
 
-    // Initialize a custom provider using ethers.js with the obtained EIP-1193 provider
-    const customProvider = new ethers.BrowserProvider(EOAprovider as Eip1193Provider, "any");
+    // 使用 ethers.js 与获取的 EIP-1193 提供程序一起初始化自定义提供程序
+    const customProvider = new ethers.BrowserProvider(EIP-1193 提供程序)BrowserProvider(EOAprovider as Eip1193Provider, "any");
 
     // Get the signer (an abstraction of the account that can sign transactions)
     const signer = await customProvider.getSigner();
 
-    // Send a transaction with specified recipient address, amount (0.01 ETH), and empty data
+    // 使用指定的收件人地址、金额（0.01 ETH）和空数据发送交易
     await signer.sendTransaction({
       to: recipientAddress,             
       value: parseEther("0.01"),        
-      data: "0x",                       
+      data："0x",                       
     });
 };
 
 
 ```
 
-## Next Steps
+## 下一步工作
 
-You can find a complete list of hooks available on the [Particle Connect docs](https://developers.particle.network/api-reference/connect/desktop/web#key-react-hooks-for-particle-connect).
+您可以在 [Particle Connect 文档](https://developers.particle.network/api-reference/connect/desktop/web#key-react-hooks-for-particle-connect) 中找到可用钩子的完整列表。
 
-For additional guides regarding Particle Network (Particle Connect, Particle Auth, and other SDKs), please refer to the [Particle Network docs](https://developers.particle.network) and the [Particle Network GitHub account](https://github.com/Particle-Network). Additionally, you may want to visit the [Particle Network blog](https://blog.particle.network) for additional information on Particle Network's services, upcoming releases, and tech stack.
+有关 Particle Network（Particle Connect、Particle Auth 和其他 SDK）的其他指南，请参阅 [Particle Network 文档](https://developers.particle.network) 和 [Particle Network GitHub 账户](https://github.com/Particle-Network)。 此外，您还可以访问 [Particle Network 博客](https://blog.particle.network) 了解有关 Particle Network 服务、即将发布的版本和技术栈的更多信息。
