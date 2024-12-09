@@ -92,4 +92,4 @@ instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 
 ### 数据目录<a id="data-directory"></a>
 
-创建账户时，密钥存储文件存储在<DATADIR>/keystore`下。 <DATADIR>"是在 "kend.conf "中设置的 "DATA_DIR"。 如果按照快速入门指南中的示例，则必须是`~/kend_home\`。
+创建账户时，密钥存储文件存储在`<DATADIR>/keystore` 下。 `<DATADIR>`是在 "kend.conf "中设置的 "DATA_DIR"。 如果按照快速入门指南中的示例，则必须是 `~/kend_home`。
