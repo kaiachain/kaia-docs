@@ -1,6 +1,6 @@
-# Node Quick Reference
+# 节点快速参考
 
-This guide serves as a handy quick reference for Node operators to efficiently configure, monitor, and troubleshoot their Kaia nodes. It covers common tasks like configuring nodes, understanding and analyzing logs, managing chaindata, and using essential commands. The guide aims to help Node operators smoothly run and maintain their blockchain nodes by equipping them with key information and best practices.
+本指南是节点操作员有效配置、监控 Kaia 节点并排除其故障的便捷快速参考。 它涵盖了配置节点、了解和分析日志、管理链数据以及使用基本命令等常见任务。 该指南旨在通过向节点运营商提供关键信息和最佳实践，帮助他们顺利运行和维护区块链节点。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
