@@ -1,119 +1,119 @@
-# Deploy your first smart contract using Hardhat
+# 使用 Hardhat 部署第一个智能合约
 
 ![](/img/banners/kaia-hardhat.png)
 
-## Introduction
+## 导言
 
-This section will guide you through deploying a Soulbound Token to the Kaia Kairos Network using [Hardhat](https://hardhat.org/).
+本节将指导你使用 [Hardhat](https://hardhat.org/) 向凯亚-凯罗斯网络部署灵魂令牌。
 
-Hardhat is a smart-contract development environment that will help you:
+Hardhat 是一个智能合约开发环境，它将为您提供帮助：
 
-- Develop and compile smart contracts.
-- Debug, test, and deploy smart contracts and dApps.
+- 开发和编译智能合约。
+- 调试、测试和部署智能合约和 dApp。
 
-Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
+灵魂绑定令牌（SBT）是不可转让的 NFT。 也就是说，一旦获得，就不得出售或转让给其他用户。 要了解有关 SBT、其工作原理和使用案例的更多信息，可以查看 Vitalik Buterin 发表的这篇 [参考文章](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)。
 
-By the end of this guide you will be able to:
+完成本指南后，您将能够
 
-- Set up a Hardhat project on Kaia.
-- Create a simple soul-bound token.
-- Compile your smart contract using Hardhat.
-- Test, deploy, and interact with your smart contract using Hardhat.
-- Explore Hardhat forking feature.
+- 在 Kaia 上建立一个 "Hardhat "项目。
+- 创建一个简单的灵魂绑定令牌。
+- 使用 Hardhat 编译智能合约。
+- 使用 Hardhat 测试、部署智能合约并与之交互。
+- 探索 Hardhat 分叉功能。
 
-## Pre-requisites
+## 先决条件
 
-To follow this tutorial, the following are the prerequisites:
+学习本教程的前提条件如下：
 
-- Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
-- [Metamask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
-- [NodeJS and NPM](https://nodejs.org/en/)
+- 代码编辑器：源代码编辑器，如 [VS-Code](https://code.visualstudio.com/download)。
+- [Metamask]（.../tutorials/connecting-metamask.mdx#install-metamask）：用于部署合约、签署事务和与合约交互。
+- RPC 端点：可从支持的[端点提供程序]（.../.../references/public-en.md）中获取。
+- 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
+- [NodeJS和NPM](https://nodejs.org/en/)
 
-## Setting Up Your Development Environment
+## 设置开发环境
 
-To make use of hardhat, we need to set up our development environment and get hardhat installed. Let's do this in the following steps:
+要使用 hardhat，我们需要建立开发环境并安装 hardhat。 让我们按以下步骤来做：
 
-**Step 1**: Create a project directory
+**第 1**步创建项目目录
 
 ```bash
 mkdir soulbound-tokens
 cd soulbound-tokens
 ```
 
-**Step 2**: Initialize an npm project
+**步骤 2**：初始化 npm 项目
 
-Paste this command in your terminal to create a package.json file
+在终端中粘贴此命令以创建 package.json 文件
 
 ```bash
 npm init -y
 ```
 
-**Step 3**: Install hardhat and other dependencies:
+**第 3 步**：安装 hardhat 和其他依赖项：
 
-- Paste the code below in your terminal to install hardhat
+- 在终端中粘贴下面的代码安装 hardhat
 
 ```bash
 npm install --save-dev hardhat
 ```
 
-- Paste the code below to install other dependencies
+- 粘贴下面的代码以安装其他依赖项
 
 ```bash
 npm install dotenv @kaiachain/contracts
 ```
 
-> Note: This installs other dependencies needed for this project ranging from `hardhat`, `klaytn/contract`, `dotenv` et al.
+> 注意：这将安装本项目所需的其他依赖项，包括 `hardhat`、`klaytn/contract`、`dotenv` 等。
 
-**Step 4**: Initialise a hardhat project:
+**第 4 步**：初始化硬头盔项目：
 
-Run the command below to initiate an hardhat project
+运行以下命令启动硬头盔项目
 
 ```bash
 npx hardhat
 ```
 
-For this guide, you'll be selecting a typescript project as seen below:
+在本指南中，您将选择一个排版脚本项目，如下所示：
 
 ![](/img/build/get-started/hardhat-init.png)
 
 ![](/img/build/get-started/hardhat-init-ii.png)
 
-> Note: While initializing the project, you will get a prompt to install `hardhat-toolbox` plugin. The plugin bundles all the commonly used packages and Hardhat plugins recommended to start developing with Hardhat.
+> 注意：初始化项目时，系统会提示安装 `hardhat-toolbox` 插件。 该插件捆绑了所有常用软件包和 Hardhat 插件，建议在开始使用 Hardhat 进行开发时使用。
 
-After initializing a hardhat project, your current directory should include:
+初始化硬帽项目后，当前目录应包括
 
-**contracts/** – this folder contains smart contract code.
+**contracts/** - 此文件夹包含智能合约代码。
 
-**ignition/modules/** – this folder contains code that deploys your contracts on the blockchain network.
+**ignition/modules/** - 该文件夹包含在区块链网络上部署合约的代码。
 
-**test/** – this folder contains all unit tests that test your smart contract.
+**test/** - 该文件夹包含测试智能合约的所有单元测试。
 
-**hardhat.config.js** – this file contains configurations important for the work of Hardhat and the deployment of the soul-bound token.
+**hardhat.config.js** - 该文件包含对 Hardhat 工作和部署灵魂绑定令牌非常重要的配置。
 
-**Step 5**: Create a .env file
+**第 5** 步创建 .env 文件
 
-Now create your .env file in the project folder. This file helps us load environment variables from an .env file into process.env.
+现在，在项目文件夹中创建 .env 文件。 该文件可帮助我们将 .env 文件中的环境变量加载到 process.env 文件中。
 
-- Paste this command in your terminal to create a .env file
+- 在终端中粘贴此命令以创建 .env 文件
 
 ```bash
 touch .env
 ```
 
-- After creating our file, let's configure our .env file to look like this:
+- 创建文件后，让我们将 .env 文件配置为如下所示：
 
 ```js
- KAIROS_TESTNET_URL= "Your Kairos RPC link"
- PRIVATE_KEY= "your private key copied from MetaMask wallet"
+ KAIROS_TESTNET_URL= "您的 Kairos RPC 链接"
+ PRIVATE_KEY= "从 MetaMask 钱包复制的您的私人密钥"
 ```
 
-> Note: You can also choose to use the [configuration variable](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) functionality provided by hardhat to configure variables that shouldn't be included in the code repository.
+> 注：你也可以选择使用 hardhat 提供的[配置变量](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) 功能来配置不应包含在代码库中的变量。
 
-**Step 6**: Setup Hardhat Configs
+**第 6 步**：设置硬头盔配置
 
-Modify your `hardhat.config.js` with the following configurations:
+用以下配置修改 `hardhat.config.js`：
 
 ```js
 require("@nomicfoundation/hardhat-toolbox");
@@ -122,32 +122,32 @@ require('dotenv').config()
 
 module.exports = {
   solidity: "0.8.17",
-  networks: {
+  networks：{
     kairos: {
       url: process.env.KAIROS_TESTNET_URL || "",
       gasPrice: 250000000000,
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY !== undefined ?[process.env.PRIVATE_KEY] : [],
     }
   }
 };
 
 ```
 
-Now that we have our development environment all set, let's get into writing our soul-bound token  smart contract.
+现在，我们的开发环境已经准备就绪，让我们开始编写我们的灵魂绑定令牌智能合约吧。
 
-## Creating SBT Smart Contract
+## 创建 SBT 智能合约
 
-In this section, you will use the [Kaia Contracts](https://github.com/kaiachain/kaia-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts.
+在本节中，您将使用 [Kaia Contracts](https://github.com/kaiachain/kaia-contracts)：这是一个建立在社区验证代码坚实基础上的安全智能合约开发库。 它是开放式齐柏林合同的分叉。
 
-> Note: You already installed this library in **step 3** of the `Setting Development Environment` section.
+> 注意：您已在 "设置开发环境 "一节的第 3\*\* 步安装了该库。
 
-**Step 1**: Select the contracts folder in the Explorer pane, click the New File button and create a new file named `SBT.sol`
+**步骤 1**：在资源管理器窗格中选择合同文件夹，单击 "新建文件 "按钮并创建名为 "SBT.sol "的新文件
 
-**Step 2**: Open the file and paste the following code:
+**第 2**步打开文件并粘贴以下代码：
 
 ```js
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier：MIT
 pragma solidity ^0.8.7;
 
 import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
@@ -169,7 +169,7 @@ contract SoulBoundToken is KIP17, Ownable {
 
 
     function _beforeTokenTransfer(address from, address to, uint256) pure override internal {
-        require(from == address(0) || to == address(0), "This a Soulbound token. It cannot be transferred.");
+        require(from == address(0) || to == address(0), "This a Soulbound token.它不能被转移。");
     }
 
     function _burn(uint256 tokenId) internal override(KIP17) {
@@ -178,134 +178,134 @@ contract SoulBoundToken is KIP17, Ownable {
 }
 ```
 
-**Code Walkthrough**
+**代码演练**
 
-This is your smart contract. **line 1** shows that Hardhat uses the Solidity version 0.8.7 or greater. Other than that, it imports KIP17.sol and other supporting contracts. From **lines 6-12**, a smart contract that inherits KIP17 is been created. Also, the token name and symbol was passed in the constructor.
+这就是你的智能合约。 **第 1** 行显示 Hardhat 使用的是 0.8.7 或更高版本的 Solidity。 除此之外，它还导入了 KIP17.sol 和其他辅助合同。 从第6-12\*\*行开始，创建了一个继承KIP17的智能合约。 此外，构造函数中还传递了标记名称和符号。
 
-As you can see in the code above, the token name and symbol have been set to **SoulBoundToken** and **SBT** respectively. You can change the token name and symbol to anything you desire.
+如上代码所示，令牌名称和符号已分别设置为 **SoulBoundToken** 和 **SBT**。 您可以随意更改令牌名称和符号。
 
-One major thing in this contract is that it prohibits token transfer, which makes the issued tokens soulbond.
+该合约的一个主要特点是禁止代币转让，这使得发行的代币成为灵魂债券。
 
-## Testing SBT Smart Contract
+## 测试 SBT 智能合约
 
-In this section, we would be testing some of our contract functionalities.
+在本节中，我们将测试一些合同功能。
 
-**Step 1**: In the Explorer pane, select the test folder and click the New File button to create a new file named `sbtTest.js`
+**步骤 1**：在资源管理器窗格中，选择测试文件夹并单击 "新建文件 "按钮，创建一个名为 "sbtTest.js "的新文件。
 
-**Step 2**: Copy the code below in the `sbtTest.js` file.
+**步骤 2**：在 `sbtTest.js` 文件中复制以下代码。
 
 ```js
-// This is an example test file. Hardhat will run every *.js file in `test/`,
-// so feel free to add new ones.
+// 这是一个测试文件示例。Hardhat 将运行 `test/` 中的每一个 *.js 文件，
+// 所以请随意添加新文件。
 
-// Hardhat tests are normally written with Mocha and Chai.
+// Hardhat 测试通常使用 Mocha 和 Chai 编写。
 
-// We import Chai to use its asserting functions here.
+//
 const { expect } = require("chai");
 
-// We use `loadFixture` to share common setups (or fixtures) between tests.
-// Using this simplifies your tests and makes them run faster, by taking
-// advantage of Hardhat Network's snapshot functionality.
+// 我们使用 `loadFixture` 在测试之间共享通用设置（或固定装置）。
+
+//
 const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers");
 
-// `describe` is a Mocha function that allows you to organize your tests.
-// Having your tests organized makes debugging them easier. All Mocha
-// functions are available in the global scope.
+// `describe` 是一个 Mocha 函数，允许你组织测试。
+// 整理测试使调试变得更容易。所有的 Mocha
+// 函数都在全局范围内可用。
 //
-// `describe` receives the name of a section of your test suite, and a
-// callback. The callback must define the tests of that section. This callback
-// can't be an async function.
+// `describe` 接收测试套件的部分名称和
+// 回调。回调必须定义该部分的测试。该回调
+// 不能是一个异步函数。
 describe("Token contract", function () {
-  // We define a fixture to reuse the same setup in every test. We use
-  // loadFixture to run this setup once, snapshot that state, and reset Hardhat
-  // Network to that snapshot in every test.
-  async function deployTokenFixture() {
-    // Get the ContractFactory and Signers here.
-    const [owner, addr1, addr2] = await ethers.getSigners();
+  // 我们定义一个固定装置，以便在每个测试中重复使用相同的设置。
 
-    // To deploy our contract, we just have to call ethers.deployContract() and call the 
-    // waitForDeployment() method, which happens onces its transaction has been
-    // mined.
 
-    const sbtContract = await ethers.deployContract("SoulBoundToken");
+  async function deployTokenFixture() { // Get the ContractFactory and Signers here. const [owner, addr1, addr2] = await ethers.getSigners(); // 为了部署我们的合约，我们只需调用 ethers.deployTokenFixture() 并调用 ethers.deployContract(). const sbtContract = await ethers.deployContract("SoulBoundToken"); await sbtContract.waitForDeployment(); // Fixtures 可以返回任何你认为对测试有用的内容 return { sbtContract, owner, addr1, addr2 }; }    // describe("Deployment", function () { // `it` 是另一个 Mocha 函数。你可以用它来定义每个 // 测试。它接收测试名称和回调函数。      // it("Should mint SBT to owner", async function () { const = await loadFixture(deployTokenFixture); const safemint = await sbtContract.safeMint(owner.address); expect(await sbtContract.ownerOf(0)).to.equal(owner.address); }); }); describe("Transactions", function () { it("Should prohibit token transfer using transferFrom", async function () { const = await loadFixture( deployTokenFixture ); const safemintTx = await sbtContract.safeMint(owner.address); // prohibit token transfer of token id (0) from owner to addr1 await expect( sbtContract.transferFrom(owner.address, addr1.address, 0) ).to.be.reverted; }); it("Should prohibit token transfer using safeTransferFrom", async function () { const = await loadFixture( deployTokenFixture ); const safemintTx = await sbtContract.safeMint(owner.address); // prohibit token transfer of token id (0) from owner to addr1 await expect(sbtContract['safeTransferFrom(address,address,uint256)']( owner.address, addr1.address, 0 )).to.be.reverted; }); }); })
 
-    await sbtContract.waitForDeployment();
 
-    // Fixtures can return anything you consider useful for your tests
-    return { sbtContract, owner, addr1, addr2 };
-  }
 
-  // You can nest describe calls to create subsections.
-  describe("Deployment", function () {
-    // `it` is another Mocha function. This is the one you use to define each
-    // of your tests. It receives the test name, and a callback function.
-    //
-    // If the callback function is async, Mocha will `await` it.
-    it("Should mint SBT to owner", async function () {
-      const { sbtContract, owner } = await loadFixture(deployTokenFixture);
-      const safemint = await sbtContract.safeMint(owner.address);
-      expect(await sbtContract.ownerOf(0)).to.equal(owner.address);
-    });
-  });
+ 
 
-  describe("Transactions", function () {
-    it("Should prohibit token transfer using transferFrom", async function () {
-      const { sbtContract, owner, addr1 } = await loadFixture(
-        deployTokenFixture
-      );
 
-      const safemintTx = await sbtContract.safeMint(owner.address);
 
-      // prohibit token transfer of token id (0) from owner to addr1
-      await expect(
-        sbtContract.transferFrom(owner.address, addr1.address, 0)
-      ).to.be.reverted;
-    });
 
-    it("Should prohibit token transfer using safeTransferFrom", async function () {
-      const { sbtContract, owner, addr1 } = await loadFixture(
-        deployTokenFixture
-      );
 
-      const safemintTx = await sbtContract.safeMint(owner.address);
 
-      // prohibit token transfer of token id (0) from owner to addr1
-      await expect(sbtContract['safeTransferFrom(address,address,uint256)'](
-        owner.address,
-        addr1.address,
-        0 
-      )).to.be.reverted;
-    });
-  });
-})
+
+
+
+
+
+
+
+
+
+
+
+
+ { sbtContract, owner }
+
+
+
+
+
+
+
+ { sbtContract, owner, addr1 }
+
+
+
+
+
+
+
+
+
+
+
+
+ { sbtContract, owner, addr1 }
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
 ```
 
-In the code you just copied, line 7 & 12 shows you imported expect from [Chai](https://www.chaijs.com/api/bdd/) and [loadFixture](https://hardhat.org/tutorial/testing-contracts#reusing-common-test-setups-with-fixtures) from hardhat-network-helpers.
+在你刚刚复制的代码中，第 7 行和第 12 行显示你从 hardhat-network-helpers 的 [Chai](https://www.chaijs.com/api/bdd/) 和 [loadFixture](https://hardhat.org/tutorial/testing-contracts#reusing-common-test-setups-with-fixtures) 中导入了 expect。
 
-The tests above check the following:
+上述测试可检查以下内容：
 
-- Is the owner of a particular token id the same as who it was minted to?
-- Did it prohibit transfer of tokens between accounts?
+- 特定代币 ID 的所有者是否与该代币的铸造者相同？
+- 是否禁止在账户之间转移代币？
 
-**Step 3**: To run your test, run the command below:
+**第 3 步**：要运行测试，请运行以下命令：
 
 ```bash
-npx hardhat test test/sbtTest.js 
+npx 硬帽测试 test/sbtTest.js 
 ```
 
 ![](/img/build/get-started/sbtTest.png)
 
-For more in-depth guide on testing, please check [Hardhat testing](https://hardhat.org/hardhat-runner/docs/guides/test-contracts).
+如需更深入的测试指南，请查看 [Hardhat 测试](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)。
 
-## Deploying the smart contract
+## 部署智能合约
 
-Scripts are JavaScript/Typescript files that help you deploy contracts to the blockchain network. In this section, you will create a script for the smart contract.
+脚本是 JavaScript/Typescript 文件，可帮助您将合约部署到区块链网络。 在本节中，您将为智能合约创建一个脚本。
 
-**Step 1**: In the Explorer pane, select the "scripts" folder and click the New File button to create a new file named `sbtDeploy.js`.
+**步骤 1**：在资源管理器窗格中，选择 "scripts "文件夹，然后单击 "新建文件 "按钮，创建一个名为 "sbtDeploy.js "的新文件。
 
-**Step 2**: Copy and paste the following code inside the file.
+**第 2**步将以下代码复制并粘贴到文件中。
 
-> Note: input your MetaMask wallet address in the `deployerAddr` variable.
+> 注意：在 `deployerAddr` 变量中输入您的 MetaMask 钱包地址。
 
 ```js
 const { ethers } = require("hardhat");
@@ -322,19 +322,19 @@ async function main() {
   const sbtContract = await ethers.deployContract("SoulBoundToken");
   await sbtContract.waitForDeployment();
 
-console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://kairos.kaiascope.com/account/${sbtContract.target}`);
+console.log(`Congratulations！您刚刚成功部署了灵魂绑定令牌。`);
+console.log(`SBT 合约地址是 ${sbtContract.target}。您可以在 https://kairos.kaiascope.com/account/${sbtContract.target}` 上验证）;
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
+
+//
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
-});
+})；
 ```
 
-**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Kaia Test Network (Kairos)
+\*\*第 3 步在终端运行以下命令，让 Hardhat 在 Kaia 测试网络 (Kairos) 上部署 SBT 令牌
 
 ```bash
 npx hardhat run ignition/modules/sbtDeploy.js --network kairos
@@ -342,29 +342,29 @@ npx hardhat run ignition/modules/sbtDeploy.js --network kairos
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**Step 4**: Open [Kaiascope](https://kairos.kaiascope.com/) to check if the SBT token has been deployed successfully.
+**第 4 步**：打开 [Kaiascope](https://kairos.kaiascope.com/)，检查 SBT 令牌是否已成功部署。
 
-**Step 5**: Copy and paste the deployed contract address in the search field and press Enter. You should see the recently deployed contract.
+**第 5 步**：在搜索栏中复制并粘贴部署的合同地址，然后按 Enter 键。 您应该能看到最近部署的合同。
 
 ![](/img/build/get-started/sbtKS.png)
 
-## Hardhat Forking
+## 硬帽叉
 
-Hardhat provides developers the functionality of simulating the mainnet (at any given block) to a local development network. One of the major benefit of this feature is that it enables developers to interact with deployed contract and also write test for complex cases.
+Hardhat 为开发人员提供了在本地开发网络中模拟主网（任何给定区块）的功能。 这一功能的主要好处之一是，它能让开发人员与已部署的合同进行交互，还能为复杂的案例编写测试。
 
-For this feature to work effectively, you need to connect to an archive node. You can read more about this feature [here](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)
+要使该功能有效运行，您需要连接到存档节点。 您可在 [此处](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks) 阅读有关此功能的更多信息。
 
-### Forking Mainnet
+### 分叉主网
 
-Now that we have our Hardhat project set up let’s fork the Kaia Mainnet using Hardhat.  Open your terminal and run this command
+现在，我们已经建立了 Hardhat 项目，让我们使用 Hardhat fork Kaia 主网。  打开终端，运行以下命令
 
 ```bash
-npx hardhat node --fork <YOUR ARCHIVE NODE URL>
+npx hardhat node --fork<YOUR ARCHIVE NODE URL>
 
 npx hardhat node --fork https://archive-en.node.kaia.io
 ```
 
-You can also configure `hardhat.config.js` - Hardhat Network to always do this:
+您也可以配置 `hardhat.config.js` - Hardhat Network 始终这样做：
 
 ```
 networks: {
@@ -376,35 +376,35 @@ networks: {
 }
 ```
 
-**Output**
+**输出**
 
 ![](/img/build/get-started/hardhat-fork.png)
 
-After successfully running this command, your terminal looks like the above image.  You'll have 20 development accounts that are pre-funded with 10,000 test tokens.
+成功运行该命令后，您的终端看起来就像上图一样。  您将拥有 20 个开发账户，这些账户预存了 10,000 个测试代币。
 
-The forked chain's RPC server is listening at `http://127.0.0.1:8545/`.  You can verify the forked network by querying the latest block number. Let's try to make a cURL to the RPC to get the block number.  Open a new terminal window and use the following command:
+分叉链的 RPC 服务器正在`http://127.0.0.1:8545/`监听。  您可以通过查询最新的区块编号来验证分叉网络。 让我们尝试使用 cURL 访问 RPC，以获取区块编号。  打开一个新的终端窗口，使用以下命令：
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-**Output**
+**输出**
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-The output is an hexadecimal as seen above. To get the block number from the hex, convert the hex to a decimal using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. You can confirm the block number on [kaiascope](https://kaiascope.com/).
+输出结果为十六进制，如上图所示。 要从十六进制中获取块编号，请使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 将十六进制转换为十进制。 您应该从分叉网络时获得最新的区块编号。 您可以通过 [kaiascope](https://kaiascope.com/)确认区块编号。
 
-### Forking at a Block
+### 在街区分叉
 
-With hardhat, you can fork the mainnet at a particular block.  In that case, let’s fork the chain at block number `105701850`.
+使用硬头盔，您可以在特定区块分叉主网。  在这种情况下，让我们在区块编号 "105701850 "处分叉链。
 
 ```bash
-npx hardhat node --fork <YOUR ARCHIVE NODE URL> --fork-block-number 105701850
+npx hardhat node --fork<YOUR ARCHIVE NODE URL> --fork-block-number 105701850
 
 npx hardhat node --fork https://archive-en.node.kaia.io --fork-block-number 105701850
 ```
 
-To confirm the forked chain at the stated block, open a new terminal window and use the following command:
+要在指定区块确认分叉链，请打开一个新的终端窗口并使用以下命令：
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
@@ -412,6 +412,6 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bnII.png)
 
-The output returns hexadecimal which when converted using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html) should be equal to `105701850`.
+输出返回十六进制，使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 转换后应等于 `105701850`。
 
-For more in-depth guide on Hardhat, please refer to [Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens)
+有关 Hardhat 的更深入指南，请参阅 [Hardhat 文档](https://hardhat.org/hardhat-runner/docs/getting-started)。 此外，您还可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens) 上找到本指南的完整代码实现。
