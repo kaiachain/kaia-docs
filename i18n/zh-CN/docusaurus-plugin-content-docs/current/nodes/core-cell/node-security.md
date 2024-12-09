@@ -1,29 +1,29 @@
-# Node Security
+# 节点安全
 
-Node security is a critical aspect of a secure blockchain network. Depending on the type of node, the operator needs to pay attention to security.
+节点安全是安全区块链网络的一个重要方面。 根据节点的类型，操作员需要注意安全性。
 
-- Consensus Node (CN): CNs are responsible for proposing and validating new blocks. A compromised CN can create malicious blocks or disrupt the blockchain. Certainly, the misbehaviour of a few nodes is blocked by the BFT consensus. However, they can still cause bad blocks or round changes that degrade the stability of the network. Therefore, core cell operators should maintain their nodes responsibly.
-- Proxy Node (PN): PNs communicate with nodes on the Internet on behalf of CNs. While a PN does not sign blocks by itself, a security breach of a PN can damage the network. Its p2p key can be used to connect to the CN's restrictive network. A compromised PN can also neutralise the transaction filtering such as the spam filter.
-- Endpoint Node (EN): ENs provide public access to the network for the applications. While an EN has no authority to manipulate the blocks, a security breach of an EN can pose trust issues. A compromised EN can serve false information including block data and account states. It can drop or censor incoming transactions if the app is directly connected to the EN.
+- 共识节点（CN）：CN 负责提出和验证新区块。 被入侵的 CN 可以创建恶意区块或破坏区块链。 当然，少数节点的不当行为会被 BFT 共识所阻止。 不过，它们仍可能导致坏块或轮换，从而降低网络的稳定性。 因此，核心小区运营商应负责任地维护其节点。
+- 代理节点（PN）：PN 代表 CN 与互联网上的节点通信。 虽然 PN 本身不会签署区块，但 PN 的安全漏洞会破坏网络。 其 P2P 密钥可用于连接 CN 的限制性网络。 被入侵的 PN 还能使垃圾邮件过滤器等交易过滤失效。
+- 端点节点（EN）：EN 为应用程序提供对网络的公共访问。 虽然 EN 无权操纵区块，但 EN 的安全漏洞会带来信任问题。 被入侵的 EN 可以提供虚假信息，包括区块数据和账户状态。 如果应用程序直接连接到 EN，它就会放弃或审查传入的交易。
 
-## Operation security
+## 安全行动
 
-Follow the security best practices whenever possible. To list a few:
+尽可能遵循最佳安全实践。 仅举几例：
 
-- Keep the operating systems and installed software up-to-date.
-- Enhance SSH security by disabling remote root login, switching off password-based login, and opting for public-key authentication.
-- Always operate nodes on dedicated machines. To reduce the risk of malware via supply chain attacks, refrain from installing other software, especially the ones that connect to the Internet. The machine or virtual machine must be used for node operation purposes only.
-- Install firewalls. Keep the open ports minimal and whitelist the maintenance and operator IP addresses. Be careful when opening the SSH, RPC, or debug ports. For CNs and PNs, the p2p port should be restricted to an explicit list of peer CN and PN IPs. Even if the p2p stack has a vulnerability the attack opportunity is effectively blocked or restricted to the known nodes.
-- Prioritize cloud security. When the node is operating on cloud virtual machines, properly manage the cloud accounts (e.g. AWS IAM roles) according to the cloud provider's best practices. The cloud accounts may not have access to SSH, but they can copy the disk contents or open a serial console.
+- 及时更新操作系统和安装的软件。
+- 通过禁用远程 root 登录、关闭基于密码的登录和选择公钥身份验证来增强 SSH 的安全性。
+- 始终在专用机器上运行节点。 为了降低通过供应链攻击恶意软件的风险，请不要安装其他软件，尤其是连接互联网的软件。 机器或虚拟机只能用于节点操作。
+- 安装防火墙。 尽量减少开放端口，并将维护和操作员 IP 地址列入白名单。 打开 SSH、RPC 或调试端口时要小心。 对于 CN 和 PN，p2p 端口应仅限于明确的对等 CN 和 PN IP 列表。 即使 p2p 协议栈存在漏洞，攻击机会也会被有效阻止或限制在已知节点范围内。
+- 优先考虑云安全。 当节点在云虚拟机上运行时，应根据云提供商的最佳实践妥善管理云账户（如 AWS IAM 角色）。 云账户可能无法访问 SSH，但可以复制磁盘内容或打开串行控制台。
 
-## Key security
+## 钥匙安全
 
-There are two major cryptographic keys managed by a node.
+节点主要管理两种加密密钥。
 
-- Node key or p2p key: A 32-byte secp256k1 ECDSA private key. It's used in the p2p rlpx communication as well as signing the blocks.
-- BLS node key: A 32-byte BLS12-381 private key. It's used to sign the RANDAO field in the blocks.
+- 节点密钥或 p2p 密钥：32 字节的 secp256k1 ECDSA 私钥。 它用于 p2p rlpx 通信和区块签名。
+- BLS 节点密钥：32 字节 BLS12-381 私有密钥。 它用于签署区块中的 RANDAO 字段。
 
-Because the signing must happen automatically unattended, those keys have to be stored on the disk or entered via the command line. At this point, node security is critical in protecting the keys from theft.
+由于签名必须在无人值守的情况下自动进行，这些密钥必须存储在磁盘上或通过命令行输入。 此时，节点安全对于保护密钥不被盗至关重要。
 
-In the future, the nodes could support storing the keys in an external provider such as key management systems (KMS) or hardware security modules (HSM). Note that node security is still important even with these key management mechanisms. Although the keys cannot be copied, a compromised node can still initiate the signing of malicious payloads.
-On top of key theft, key loss is also a risk to manage. It is recommended to backup the node keys in an encrypted keystore file, and preserve in an offline storage.
+今后，节点可支持将密钥存储在外部提供商（如密钥管理系统（KMS）或硬件安全模块（HSM））中。 需要注意的是，即使有了这些密钥管理机制，节点安全仍然很重要。 虽然密钥无法复制，但被入侵的节点仍可启动恶意有效载荷的签名。
+除了钥匙失窃，钥匙丢失也是需要管理的风险之一。 建议将节点密钥备份到加密的密钥存储文件中，并保存在离线存储器中。
