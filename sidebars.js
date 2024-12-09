@@ -184,6 +184,14 @@ const sidebars = {
           items: [
             {
               type: 'category',
+              label: 'Hardware Wallets',
+              items: [
+                'build/tools/wallets/hardware-wallets/dcent',
+                'build/tools/wallets/hardware-wallets/safepal-s1',
+              ],
+            },
+            {
+              type: 'category',
               label: 'Kaia Safe',
               link: {
                 type: 'doc',
@@ -199,7 +207,6 @@ const sidebars = {
               ],
             },
             'build/tools/wallets/kaia-wallet',
-            'build/tools/wallets/safepal-s1',
             {
               type: 'category',
               label: 'Wallet Libraries',
