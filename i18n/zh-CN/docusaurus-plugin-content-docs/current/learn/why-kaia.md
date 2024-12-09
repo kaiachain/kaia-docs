@@ -22,7 +22,7 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 1. **高性能**：
    - 主链处理至少 4,000 TPS，交易即时完成，区块生成时间仅为一秒。
-   - 通过可定制且易于部署的[服务链]（scaling-solutions.md#service-chain）作为<LinkWithTooltip tooltip="L2 (level 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip>解决方案，实现可扩展性。
+   - Scalability through customizable and easily deployable [Service Chains](scaling-solutions.md#service-chain) as <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solutions.
 
 2. **以太坊兼容性**：
    - 100% 的兼容性确保基于 EVM 的 dApp 无需修改即可上载。
