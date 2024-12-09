@@ -30,7 +30,7 @@ Kaia 中的账户是一种数据结构，包含个人余额或智能合约的相
 
 ### Kaia 钱包钥匙格式<a id="kaia-wallet-key-format"></a>
 
-Kaia 钱包密钥格式可轻松处理私钥和相应地址。 它使用户更容易通过地址来维护自己的私人密钥。 格式为 "0x{private key}0x{type}0x{address in hex}`（十六进制），其中 "{type}`必须为 "00"。 其他值为保留值。 示例如下：
+Kaia 钱包密钥格式可轻松处理私钥和相应地址。 它使用户更容易通过地址来维护自己的私人密钥。 格式为 `0x{private key}0x{type}0x{address in hex}`（十六进制），其中 `{type}`必须为 "00"。 其他值为保留值。 示例如下：
 
 ```text
 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
