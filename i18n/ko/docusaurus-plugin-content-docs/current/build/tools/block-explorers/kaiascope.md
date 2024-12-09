@@ -213,7 +213,7 @@ Klaytnscope를 통해 계정, 컨트랙트, 트랜잭션, 블록에 대한 정�
 
 ![](/img/build/tools/scope_07_noresult.png)
 
-지정된 형식에 맞지 않거나 정보가 아직 생성되지 않은 키워드를 검색하면 결과 페이지가 표시되지 않습니다.
+If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no data will appear.
 
 #### 잘못된 형식 \(TX 해시/주소\) <a id="wrong-format-tx-hash-address"></a>
 
@@ -228,3 +228,5 @@ Klaytnscope를 통해 계정, 컨트랙트, 트랜잭션, 블록에 대한 정�
 
 [Transactions]: ../../../learn/transactions/transactions.md
 [Kaia Token Economy]: ../../../learn/token-economy.md
+
+//scope_04_block_list
