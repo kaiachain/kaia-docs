@@ -1,16 +1,16 @@
-# Install Endpoint Nodes
+# 安装端点节点
 
-## Download <a id="download"></a>
+## 下载<a id="download"></a>
 
-You can download the latest version of the EN on [Download](../downloads/downloads.md) page.
+您可以在 [Download](../downloads/downloads.md) 页面下载最新版本的 EN。
 
-## Installation
+## 安装
 
-### Linux Archive Distribution <a id="linux-archive-distribution"></a>
+### Linux 档案分发版<a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+存档文件由可执行二进制文件和配置文件组成，结构如下。
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**注意**：请勿更改文件结构或文件名。 如果更改，节点可能无法正常运行。
 
 ```text
 - bin
@@ -20,133 +20,133 @@ The archive file consists of the executable binary and the configuration file st
   |- kend.conf
 ```
 
-| File Name                      | File Description                 |
-| :----------------------------- | :------------------------------- |
-| bin/ken                        | EN executable file               |
-| bin/kend                       | EN start/termination script file |
-| conf/kend.conf | EN configuration file            |
+| 文件名称                           | 文件说明         |
+| :----------------------------- | :----------- |
+| bin/ken                        | EN 可执行文件     |
+| bin/kend                       | EN 启动/终止脚本文件 |
+| conf/kend.conf | EN 配置文件      |
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+安装是将下载的软件包解压缩，然后安装到您想要安装的位置。
 
 ```text
 $ tar zxf ken-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+或者
 
 ```text
 $ tar zxf ken-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `ken-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `ken` and `kend` globally. As an example,
+**注意**：建议在环境变量 `$PATH` 中添加解压缩目录 `ken-linux-amd64/bin` 路径，以便全局运行 `ken` 和 `kend`。 举个例子
 
 ```text
 $ export PATH=$PATH:~/downloaded/path/ken-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+其他部分假定路径已添加到变量中。
 
-### RPM Distribution \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
+### RPM 发行版（RHEL/CentOS/Fedora\）<a id="rpm-rhel-centos-fedora"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+您可以使用以下 `yum` 命令安装下载的 RPM 文件。
 
 ```text
 $ yum install kend-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+或者
 
 ```text
 $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Kaia Yum Repo <a id="install-from-kaia-yum-repo"></a>
+### 从 Kaia Yum Repo 安装<a id="install-from-kaia-yum-repo"></a>
 
-Alternatively, you can install `kend` from the Kaia Yum repo, run:
+或者，也可以从 Kaia Yum 软件仓库安装 `kend`，然后运行
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kend
 ```
 
-### Installed Location <a id="installed-location"></a>
+### 安装位置<a id="installed-location"></a>
 
-The installed files are located as follows.
+安装文件的位置如下
 
-| File Name                 | Location                                 |
+| 文件名称                      | 地点                                       |
 | :------------------------ | :--------------------------------------- |
 | ken                       | /usr/bin/ken                             |
 | kend.conf | /etc/kend/conf/kend.conf |
 
-## Configuration <a id="configuration"></a>
+## 配置<a id="configuration"></a>
 
-The EN configuration is to create a data directory and to set up the environment variables on the configuration file `kend.conf`.
+EN 配置是创建一个数据目录，并在配置文件 `kend.conf` 中设置环境变量。
 
-1. Create the EN data directory.
-2. Configure the EN with `kend.conf`.
+1. 创建 EN 数据目录。
+2. 使用 `kend.conf` 配置 EN。
 
-### EN Data Directory Creation <a id="en-data-directory-creation"></a>
+### EN 数据目录创建<a id="en-data-directory-creation"></a>
 
-Considering the fact that the size of Kaia blockchain data keeps increasing, it is recommended to use a big enough storage. You need to create the directory on your desired path.
+考虑到 Kaia 区块链数据的大小不断增加，建议使用足够大的存储空间。 您需要在所需路径上创建目录。
 
 ```text
 $ sudo mkdir -p /var/kend/data
 ```
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### 更新配置文件<a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+配置文件位置：
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kend/conf/`.
+- 对于存档发行版，配置目录位置默认为 `$INSTALL_PATH/ken-linux-amd64/conf/`。
+- 对于软件包发行版，配置目录默认为 `/etc/kend/conf/`。
 
-#### Add Data Directory  <a id="add-data-directory"></a>
+#### 添加数据目录 <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kend.conf`.
+您应更新配置文件 `kend.conf` 中的数据目录环境变量 `$DATA_DIR`。
 
 ```text
 DATA_DIR=/var/kend/data
 ```
 
-### (Optional) Download Chaindata Snapshot
+### (可选）下载 Chaindata 快照
 
-Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../learn/storage/block-sync.md#full-sync) process.
+从创世区块进行同步操作非常耗时。 您可以使用 [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../learn/storage/block-sync.md#full-sync) 过程。
 
-## Startup the EN <a id="startup-the-en"></a>
+## 启动 EN<a id="startup-the-en"></a>
 
-You can start or stop the Endpoint Node using the following commands.
+您可以使用以下命令启动或停止端点节点。
 
-**start**
+**开始**
 
 ```bash
 $ kend start
 Starting kend: OK
 ```
 
-**stop**
+**停止**
 
 ```bash
 $ kend stop
 Shutting down kend: Killed
 ```
 
-**status**
+**状态**
 
 ```bash
 $ kend status
 kend is running
 ```
 
-## Testing the Installation <a id="testing-the-installation"></a>
+## 测试安装<a id="testing-the-installation"></a>
 
-It is time to check that Endpoint Node is successfully installed and it is working as expected after installation.
+现在是检查端点节点是否安装成功以及安装后是否按预期运行的时候了。
 
-### Process Status <a id="process-status"></a>
+### 进程状态<a id="process-status"></a>
 
-It is possible to check the status of EN's process using the status commands `systemctl` and `kend`.
+可以使用状态命令 `systemctl` 和 `kend` 检查 EN 进程的状态。
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM, and the status of EN can be checked as follows.
+systemctl "与 RPM 一起安装，可通过以下方式检查 EN 的状态。
 
 ```bash
 $ systemctl status kend.service
@@ -164,22 +164,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kend[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the example above.
+您可以查看当前状态，如上面例子中的 "Active: active (running)"。
 
 #### kend <a id="kend"></a>
 
-`kend` is installed along with the package, and the status of EN can be checked as follows.
+kend "与软件包一起安装，EN 的状态可通过以下方式检查。
 
 ```bash
 $ kend status
-kend is running
+kend 正在运行
 ```
 
-### Logs <a id="logs"></a>
+### 日志<a id="logs"></a>
 
-The log is stored in `kend.out` file located in the path defined in the `LOG_DIR` field of the `kend.conf` file. When the node works properly, you can see that each block is imported per second as follows.
+日志存储在位于`kend.conf`文件中`LOG_DIR`字段所定义路径下的`kend.out`文件中。 当节点正常工作时，可以看到每个区块每秒的导入情况如下。
 
-Example:
+例如
 
 ```bash
 $ tail kend.out
@@ -195,34 +195,34 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work      
 ```
 
-### Queries <a id="queries"></a>
+### 查询<a id="queries"></a>
 
-#### ken console <a id="ken-console"></a>
+#### 控制台<a id="ken-console"></a>
 
-Kaia provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `DATA_DIR` path on an EN.
+Kaia 提供一个 CLI 客户端："ken console"。 使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。 IPC 文件 `klay.ipc` 位于 EN 的 `DATA_DIR` 路径下。
 
-Please execute the following command and check out the result.
+请执行以下命令并查看结果。
 
 ```text
 $ ken attach --datadir /var/kend/data
-Welcome to the Kaia JavaScript console!
+欢迎访问 Kaia JavaScript 控制台！
 
-instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
- datadir: /var/kend/data
+instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+ datadir：/var/kend/data
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
- >
+>
 ```
 
-You can check the usable commands on [API Document](../../../references/json-rpc/klay/account-created)
+您可以在 [API 文档]（.../.../.../references/json-rpc/klay/account-created）中查看可用命令。
 
-The useful APIs to check the status of EN:
+用于检查 EN 状态的实用 API：
 
-- `kaia.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Kaia nodes currently)
+- kaia.blockNumber\`（获取最新的区块编号）
+- net.peerCount"（获取当前连接的 Kaia 节点数量）
 
-#### kaia.blockNumber <a id="kaia-blocknumber"></a>
+#### kaia.blockNumber<a id="kaia-blocknumber"></a>
 
-You can get the latest block number to see if blocks are propagated properly.
+您可以获取最新的区块编号，查看区块是否正常传播。
 
 ```text
 > kaia.blockNumber
@@ -236,4 +236,4 @@ You can get the latest block number to see if blocks are propagated properly.
 14
 ```
 
-The above command line returns the number of nodes that the EN connects to.
+上述命令行返回 EN 所连接的节点数。
