@@ -2,37 +2,37 @@
 sidebar_label: Web3Modal
 ---
 
-# Integrate Web3Modal into a dApp
+# 将 Web3Modal 整合到 dApp 中
 
 ![](/img/banners/kaia-web3Modal\(wc\).png)
 
-## Introduction
+## 导言
 
-[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about) is a simple-to-use library that helps developers add support for multiple providers in their dApps with a simple, customizable configuration. It makes connecting wallets, performing transactions, and managing accounts easy.
+[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about)是一个简单易用的库，可帮助开发人员通过简单、可定制的配置在其 dApp 中添加对多个提供商的支持。 它让连接钱包、执行交易和管理账户变得简单。
 
-In this guide, you will use the web3Modal library to integrate multiple wallets such as Kaia Wallet, Klip, Metamask, Coinbase Wallet, etc. into your dApp built on the Kaia Network.
+在本指南中，您将使用 web3Modal 库将 Kaia Wallet、Klip、Metamask、Coinbase Wallet 等多个钱包集成到您在 Kaia 网络上构建的 dApp 中。
 
-## Prerequisite
+## 先决条件
 
-- A working react project (by executing `npx create-react-app project-name`)
-- Install the necessary wallets ([Kaia Wallet](https://www.kaiawallet.io/en_US/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)).
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+- 一个正在运行的 react 项目（执行 `npx create-react-app project-name` 命令）
+- 安装必要的钱包（[Kaia Wallet](https://www.kaiawallet.io/en_US/)、[Coinbase Wallet](https://www.coinbase.com/wallet/downloads) 和 [Metamask](https://metamask.io/download/)）。
+- RPC 端点：您可以从支持的[端点提供者]（.../.../.../.../references/public-en.md）中获取。
+- 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
-## Setting up Web3Modal and Wallet Provider Options
+## 设置 Web3Modal 和钱包提供程序选项
 
-**Step 1**: Installing Web3Modal and an Ethereum library
+**步骤 1**：安装 Web3Modal 和以太坊库
 
-Install web3Modal and your preferred library for interacting with the blockchain. In this tutorial, we will be installing [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal) which was derived from [Web3Modal](https://github.com/WalletConnect/web3modal) and modified to add Kaia Wallet and Klip wallet. Also, this tutorial will use ethers.js to interact with the Kaia blockchain.
+安装 web3Modal 和您喜欢的与区块链交互的库。 在本教程中，我们将安装 [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal)，它源自 [Web3Modal](https://github.com/WalletConnect/web3modal)，并经过修改添加了 Kaia 钱包和 Klip 钱包。 此外，本教程还将使用 ethers.js 与 Kaia 区块链进行交互。
 
 ```bash
 npm install @klaytn/web3modal
 npm install --save ethers
 ```
 
-**Step 2**: Instantiating Web3Modal with wallet provider options
+**第 2 步**：使用钱包提供商选项实例化 Web3Modal
 
-Install the wallet providers of your choice. Here we install Kaia Wallet, Klip and Coinbase wallet providers.
+安装您选择的钱包提供商。 这里我们安装 Kaia Wallet、Klip 和 Coinbase 钱包提供商。
 
 ```bash
 npm install --save @coinbase/wallet-sdk
@@ -40,7 +40,7 @@ npm install --save @klaytn/kaikas-web3-provider
 npm install --save @klaytn/klip-web3-provider
 ```
 
-In your `App.js` file, import CoinbaseWalletSDK, KaikasWeb3Provider, and KlipWeb3Provider, and instantiate the various provider options to integrate with your dapp.
+在您的 `App.js` 文件中，导入 CoinbaseWalletSDK、KaikasWeb3Provider 和 KlipWeb3Provider，并实例化各种提供程序选项，以便与您的 dapp 集成。
 
 ```js
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
@@ -48,47 +48,47 @@ import { KaikasWeb3Provider } from "@klaytn/kaikas-web3-provider";
 import { KlipWeb3Provider } from "@klaytn/klip-web3-provider";
 
 export const providerOptions = {
- coinbasewallet: {
-   package: CoinbaseWalletSDK, 
-   options: {
-     appName: "Web 3 Modal Demo",
+ coinbasewallet：{
+   package：CoinbaseWalletSDK, 
+   options：{
+     appName："Web 3 Modal Demo",
      infuraId: process.env.INFURA_KEY 
-   }
+   }.
  },
- walletconnect: {
-   package: WalletConnect, 
-   options: {
+ walletconnect：{
+   package：WalletConnect, 
+   options： {
      infuraId: process.env.INFURA_KEY 
    }
  }
 };
 const providerOptions = {
-  coinbasewallet: {
-    package: CoinbaseWalletSDK, // required
-    options: {
-      appName: "Web3Modal Kaia dApp", // required
-      infuraId: "NFURA_KEY", // required
-      rpc: "https://public-en.node.kaia.io", // Optional if `infuraId` is provided; otherwise it's required
-      chainId: 1001, // Optional. It defaults to 1 if not provided
-      darkMode: false // Optional. Use dark theme, defaults to false
+  coinbasewallet：{
+    package：CoinbaseWalletSDK, // required
+    options：{
+      appName："Web3Modal Kaia dApp", // required
+      infuraId："NFURA_KEY", // required
+      rpc："https://public-en.node.kaia.io", // 如果提供了 `infuraId` 则可选；否则必须提供
+      chainId：1001, // 可选。如果未提供，则默认为 1
+      darkMode: false // 可选。使用暗色主题，默认为 false
     }
   },
-  klip: {
-    package: KlipWeb3Provider, //required
-    options: {
-        bappName: "Web3Modal Kaia dApp", //required
-        rpcUrl: "https://public-en.node.kaia.io" //required
+  klip：{
+    package：KlipWeb3Provider, //required
+    options：{
+        bappName："Web3Modal Kaia dApp", //required
+        rpcUrl："https://public-en.node.kaia.io" //required
     }
 },
   kaikas: {
-    package: KaikasWeb3Provider // required
-  }
+    package：KaikasWeb3Provider // required
+  }.
 };
 ```
 
-**Step 3**: Instantiate web3modal
+**第 3 步**：实例化 web3modal
 
-Then, instantiate Web3Modal by passing in the provider options.
+然后，通过传递提供程序选项来实例化 Web3Modal。
 
 ```js
 import Web3Modal from "@klaytn/web3modal";
@@ -98,9 +98,9 @@ const  web3Modal = new Web3Modal( {
   } )
 ```
 
-## Establishing Wallet Connection
+## 建立钱包连接
 
-To establish a connection to the user’s wallet, call the `connect()` method on the Web3Modal instance. We recommend you to wrap this operation around an async function and store the retrieved provider in your state to reuse throughout the app.
+要建立与用户钱包的连接，请调用 Web3Modal 实例上的 `connect()` 方法。 我们建议您将此操作封装在一个异步函数中，并将检索到的提供程序存储在您的状态中，以便在整个应用程序中重复使用。
 
 ```js
 import { ethers } from 'ethers';
@@ -134,13 +134,13 @@ function App() {
 
 ![](/img/build/tools/web3Modal.png)
 
-## Setting up Utils function
+## 设置实用工具功能
 
-In this guide, we will be making use of the utils functions such as `truncateAddress()` and `toHex()`. The `truncateAddress()` function takes in a valid address and returns a more readable format of the address passed in. While the `toHex()` function converts numbers to hexadecimal.  The following steps below show how to set up and use the utils function in your project.
+在本指南中，我们将使用 `truncateAddress()` 和 `toHex()` 等实用工具函数。 truncateAddress() "函数接收有效地址，并返回所传递地址的更易读格式。 而 `toHex()` 函数则将数字转换为十六进制。  以下步骤展示了如何在项目中设置和使用 utils 函数。
 
-**Step 1**: Create a `utils.js` file in the `src` root folder.
+**步骤 1**：在 `src` 根文件夹中创建一个 `utils.js` 文件。
 
-Paste the following code in the newly created utils.js file.
+在新创建的 utils.js 文件中粘贴以下代码。
 
 ```js
 export const truncateAddress = (address) => {
@@ -158,15 +158,15 @@ export const truncateAddress = (address) => {
   };
 ```
 
-**Step 2**: Import the functions in your `App.js` file.
+**第 2**步在您的 `App.js` 文件中导入函数。
 
 ```js
 import { truncateAddress, toHex } from "./utils";
 ```
 
-## Accessing connection, account, network information
+## 访问连接、账户和网络信息
 
-As it is, Web3Modal does not provide built-in support for Ethereum interactions, such as retrieving connected accounts and network data. Note that to read the user’s address or connected network ID, you must directly request the information from your Ethereum library. In this guide, we’ll be getting that information using ethers.js. One way is to fetch and store this data is when connecting your user to your dapp.
+目前，Web3Modal 没有为以太坊交互提供内置支持，例如检索连接的账户和网络数据。 请注意，要读取用户地址或连接的网络 ID，必须直接从以太坊库请求信息。 在本指南中，我们将使用 ethers.js 获取这些信息。 获取和存储这些数据的一种方法是将用户连接到您的 dapp。
 
 ```js
 const [provider, setProvider] = useState();
@@ -202,9 +202,9 @@ return (
 );
 ```
 
-## Disconnecting Wallet
+## 断开钱包连接
 
-Disconnecting from the wallet is achieved by using the `clearCachedProvider()` method on the web3Modal instance. Also, one good practice is to refresh the state to clear any previously stored connection data.
+使用 web3Modal 实例上的 "clearCachedProvider() "方法可以断开与钱包的连接。 此外，一个好的做法是刷新状态，清除之前存储的连接数据。
 
 ```js
 function App() {
@@ -229,7 +229,7 @@ const refreshState = () => {
 }
 ```
 
-It's important to keep in mind that the dApp state changes as users interact with it, and it's best practice to subscribe to the events that are released in response. Create useEffect hooks with subscriptions to these events so they can respond appropriately to changes.
+重要的是要记住，用户与 dApp 交互时，dApp 的状态会发生变化，因此最好的做法是订阅响应发布的事件。 创建带有这些事件订阅的 useEffect 钩子，以便对变化做出适当的响应。
 
 ```js
   useEffect(() => {
@@ -261,30 +261,30 @@ It's important to keep in mind that the dApp state changes as users interact wit
   }, [provider]);
 ```
 
-## Switch Networks or Add Custom Networks
+## 切换网络或添加自定义网络
 
-As established previously, Web3Modal does not have built-in support for Ethereum interactions. In order to add or switch networks, you must directly make a request (via EIP-3085 or EIP-3326) to your Ethereum library. Here is an example of requesting to switch networks and adding the network as a fallback if it is not already present on the user’s wallet:
+如前所述，Web3Modal 没有内置的以太坊交互支持。 要添加或切换网络，您必须直接向以太坊库提出申请（通过 EIP-3085 或 EIP-3326）。 下面是一个请求切换网络的示例，如果用户钱包中还没有该网络，则将其添加为备用网络：
 
 ```js
   const switchNetwork = async () => {
     if (!provider) return;
     try {
       await provider.request({
-        method: "wallet_switchEthereumChain",
-        params: [{ chainId: toHex(8217) }],
+        method："wallet_switchEthereumChain",
+        params：[{ chainId: toHex(8217) }],
       });
     } catch (switchError) {
-      // This error code indicates that the chain has not been added to MetaMask.
+      // 此错误代码表示链尚未添加到 MetaMask。
       if (switchError.code === 4902) {
         try {
           await provider.request({
-            method: "wallet_addEthereumChain",
-            params: [
+            method："wallet_addEthereumChain",
+            params：[
               {
                 chainId: toHex(1001),
-                chainName: "Kairos Testnet",
-                rpcUrls: ["https://public-en-kairos.node.kaia.io"],
-                blockExplorerUrls: ["https://kairos.kaiascan.io/"],
+                chainName："Kairos Testnet",
+                rpcUrls：["https://public-en-kairos.node.kaia.io"],
+                blockExplorerUrls：["https://kairos.kaiascan.io/"],
               },
             ],
           });
@@ -302,9 +302,9 @@ return (
 ) 
 ```
 
-## Signing Messages
+## 签署信息
 
-Having initialised the provider and signer object, users can sign an arbitrary string.
+初始化提供者和签名者对象后，用户就可以签署任意字符串。
 
 ```js
  // add to the existing useState hook.
@@ -336,30 +336,30 @@ const signMessage = async(e) => {
   );
 ```
 
-## Sending Native Transaction
+## 发送本地事务
 
-You can perform native transactions, like sending KAIA from one user to another.
+您可以执行本地事务，如将 KAIA 从一个用户发送到另一个用户。
 
 ```js
-    // add to the existing useState hook.
+    //
     const [txHash, setTxHash] = useState();
     const sendKaia = async () => {
     if (!provider) return;
-      const destination = “paste recipient address”;
+      const destination = "paste recipient address";
 
-    // this guide uses ethers version 6.3.0.
+    // 本指南使用etherthers 6.3.0版本。
     const ethersProvider = new ethers.BrowserProvider(provider);
-    // for ethers version below 6.3.0.
+    // 对于低于6.3.0的etherthers版本。
     // const provider = new ethers.providers.Web3Provider(provider);
 
     const signer = await ethersProvider.getSigner();
       
-    // Submit transaction to the blockchain and wait for it to be mined
+    // 向区块链提交交易并等待挖矿
     const tx = await signer.sendTransaction({
         to: destination,
         value: ethers.parseEther("0.1"),
-        maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
-        maxFeePerGas: "6000000000000", // Max fee per gas
+        maxPriorityFeePerGas: "5000000000", // 每个气体的最大优先级费用
+        maxFeePerGas: "6000000000000", // 每个气体的最大费用
     })
   
       
@@ -370,16 +370,16 @@ You can perform native transactions, like sending KAIA from one user to another.
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash : {txHash ?<a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a>: ' '} </div> </div> <div className="App">
     </div>
 );
 ```
 
-## Working with a smart contract
+## 使用智能合约
 
-With the Web3Modal provider and signer object, you can make contract interactions such as writing to and reading from a smart contract deployed to the blockchain.
+有了 Web3Modal 提供者和签名者对象，您就可以进行合约交互，例如向部署到区块链上的智能合约写入或读取。
 
-### 1. Writing to a Contract
+### 1. 撰写合同
 
 ```js
 // add to existing useState hook
@@ -464,7 +464,7 @@ return (
 )
 ```
 
-### 2. Reading from a contract
+### 2. 阅读合同
 
 ```js
 // add to existing useState hook
@@ -541,7 +541,7 @@ return (
   )
 ```
 
-## TroubleShooting
+## 故障排除
 
 **Node fs error, add browser \{fs: false\} to package.json**
 
@@ -549,13 +549,13 @@ return (
 Node fs error, add browser {fs: false} to package.json
 ```
 
-This occurs when you install Klip-web3-provider.  To fix this issue,  follow these steps:
+安装 Klip-web3-provider 时会出现这种情况。  要解决这个问题，请按照以下步骤操作：
 
-**Step 1**: Open up and navigate to your node_modules folder. Look for the @Kaia/klip-web3-provider folder and navigate to it's package.json file as shown below:
+\*\*第 1 步打开并导航至 node_modules 文件夹。 查找 @Kaia/klip-web3-provider 文件夹，并导航到其 package.json 文件，如下所示：
 
 > **@klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json**
 
-**Step 2**: Paste the code below in @klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json file.
+**第 2 步**：将下面的代码粘贴到 @klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json 文件中。
 
 ```js
 "browser": {
@@ -569,8 +569,8 @@ This occurs when you install Klip-web3-provider.  To fix this issue,  follow the
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
 
-This error occurs when you use webpack version 5. In this version, NodeJS polyfills is no longer supported by default. To solve this issue, refer to this [guide](https://web3auth.io/docs/troubleshooting/webpack-issues).
+使用 webpack 版本 5 时会出现此错误。 在此版本中，默认情况下不再支持 NodeJS polyfills。 要解决这个问题，请参阅本 [指南](https://web3auth.io/docs/troubleshooting/webpack-issues)。
 
-## Next Step
+## 下一步
 
-For more in-depth guides on Web3Modal, please refer to [Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about) and [Web3Modal Github repository](https://github.com/klaytn/klaytn-web3modal). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample).
+有关 Web3Modal 的更多深入指南，请参阅 [Web3Modal 文档](https://docs.walletconnect.com/2.0/web3modal/about) 和 [Web3Modal Github 代码库](https://github.com/klaytn/klaytn-web3modal)。 此外，您还可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample) 上找到本指南的完整实现代码。
