@@ -1,22 +1,22 @@
-# Monitor Core Cell
+# 监控核心单元
 
-## Overview <a id="overview"></a>
+## 概述<a id="overview"></a>
 
-The Kaia team provides a site for monitoring the Kaia CCN at [http://node.kaia.io:3000](http://node.kaia.io:3000). The `telegraf` monitoring agent is installed in each CN/PN of the CC to collect metrics and send them to the monitoring server. Once installed, you may visit the monitoring site to view the metrics of the Kaia CCs.
+Kaia 团队在 [http://node.kaia.io:3000](http://node.kaia.io:3000)提供了一个监测 Kaia CCN 的网站。 CC 的每个 CN/PN 都安装了 "telegraf "监控代理，以收集指标并将其发送到监控服务器。 安装完成后，您可以访问监控站点，查看 Kaia CC 的指标。
 
-The installation process is as follows:
+安装过程如下：
 
-1. Install `telegraf` in the CN/PNs
-2. Configure `telegraf`
-3. Start `telegraf`
+1. 在 CN/PN 中安装\`telegraf
+2. 配置 \`telegraf
+3. 启动 `telegraf`
 
-## Telegraf Installation <a id="telegraf-installation"></a>
+## Telegraf 安装<a id="telegraf-installation"></a>
 
-Telegraf Installation Guide \(Amazon Linux 2 users, see below\): [https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
+Telegraf Installation Guide （亚马逊 Linux 2 用户，见下文）：[https://docs.influxdata.com/telegraf/latest/introduction/installation/](https://docs.influxdata.com/telegraf/latest/introduction/installation/)
 
-**Note for Amazon Linux 2**
+**亚马逊 Linux 2**注意事项
 
-To install Telegraph on Amazon Linux 2, you may use InfluxData's RHEL 7 yum repo as follows:
+要在 Amazon Linux 2 上安装 Telegraph，可以使用 InfluxData 的 RHEL 7 yum repo，具体方法如下：
 
 ```text
 cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
@@ -29,9 +29,9 @@ gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
 EOF
 ```
 
-## Telegraf Setup <a id="telegraf-setup"></a>
+## Telegraf 设置<a id="telegraf-setup"></a>
 
-### Enable monitoring in kcnd/kpnd <a id="enable-monitoring-in-kcnd-kpnd"></a>
+### 启用 kcnd/kpnd 中的监控功能<a id="enable-monitoring-in-kcnd-kpnd"></a>
 
 /etc/kcnd/conf/kcnd.conf
 
@@ -42,18 +42,18 @@ PROMETHEUS=1
 ...
 ```
 
-**Check**
+**检查**
 
-You may confirm that the above two options are enabled by checking that port 61001 is open.
+您可以通过检查端口 61001 是否打开来确认上述两个选项是否启用。
 
 ```text
 $ netstat -ntap | grep 61001
 tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 ```
 
-**Configure Telegraf service**
+**配置 Telegraf 服务**
 
-Copy the following file to the `telegraf` configuration directory \(`/etc/telegraf/telegraf.d/`\), and edit `nodetype`, `instance`, and `hostname` appropriately for each node:
+将以下文件复制到 `telegraf` 配置目录（`/etc/telegraf/telegraf.d/`/），并为每个节点适当编辑 `nodetype`、`instance` 和`hostname`：
 
 ```text
 [global_tags]
@@ -75,11 +75,11 @@ Copy the following file to the `telegraf` configuration directory \(`/etc/telegr
   urls = [ "http://localhost:61001/metrics" ]
 ```
 
-Change the following in `/etc/telegraf/telegraf.conf`:
+在 `/etc/telegraf/telegraf.conf`中更改以下内容：
 
-- Comment out the `[[outputs.influxdb]]` section
+- 注释掉 `[[outputs.influxdb]]`部分
 
-**Start Telegraf**
+**启动电报**
 
 ```text
 $ systemctl restart telegraf
@@ -87,8 +87,8 @@ $ systemctl restart telegraf
 
 ## Grafana <a id="grafana"></a>
 
-If each CN/PN has the above configuration and agent, you can check the metrics at the following URL:
+如果每个 CN/PN 都有上述配置和代理，则可通过以下 URL 查看指标：
 
 [http://node.kaia.io:3000](http://node.kaia.io:3000)
 
-As a CC operator, you may request an account by providing your company name and email address in the Slack channel. Please note that only CC operators are allowed to request a Grafana account.
+作为 CC 操作员，您可以在 Slack 频道中提供公司名称和电子邮件地址，申请一个账户。 请注意，只有 CC 操作员才能申请 Grafana 帐户。
