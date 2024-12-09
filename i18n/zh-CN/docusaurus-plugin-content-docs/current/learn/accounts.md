@@ -1,154 +1,154 @@
-# Accounts
+# 账户
 
-## Kaia Accounts <a id="kaia-accounts"></a>
+## 凯亚账户<a id="kaia-accounts"></a>
 
-### Overview of Account, State, and Address <a id="overview-of-account-state-and-address"></a>
+### 账户、州和地址概览<a id="overview-of-account-state-and-address"></a>
 
-An account in Kaia is a data structure containing information about a person's balance or a smart contract. Kaia's state is the collection of all its accounts' states - that is, the past and current state of all data stored across Kaia's accounts. When a transaction is executed on a Kaia node, the state of Kaia consequently changes across all its nodes. The state should be the same across all nodes in the Kaia network if they have processed the same blocks in the same order. State information of each account is associated with a 20-byte address, which is used to identify each account.
+Kaia 中的账户是一种数据结构，包含个人余额或智能合约的相关信息。 Kaia 的状态是其所有账户状态的集合，即存储在 Kaia 账户中的所有数据的过去和当前状态。 在 Kaia 节点上执行事务时，Kaia 的状态会随之在所有节点上发生变化。 如果 Kaia 网络中的所有节点都以相同的顺序处理了相同的区块，那么它们的状态应该是相同的。 每个账户的状态信息都与一个 20 字节的地址相关联，该地址用于识别每个账户。
 
-### Decoupling Key Pairs From Addresses <a id="decoupling-key-pairs-from-addresses"></a>
+### 解耦密钥对与地址<a id="decoupling-key-pairs-from-addresses"></a>
 
-An account in a typical blockchain platform is associated with a cryptographically processed address of a certain length that usually looks like this: "0x0fe2e20716753082222b52e753854f40afddffd2". This address is strongly coupled with a key pair. If a key pair is chosen, the address is derived from the public key. This has many disadvantages in terms of user experience. Some of them are the following:
+在典型的区块链平台中，一个账户与一个经过加密处理的地址相关联，该地址具有一定长度，通常看起来像这样："0x0fe2e20716753082222b52e753854f40afddffd2". 该地址与一对密钥紧密相连。 如果选择了一对密钥，地址就会从公开密钥中导出。 这在用户体验方面有很多弊端。 其中包括
 
-- It is impossible for users to have addresses they want.
-- It is impossible for users to use multiple key pairs to increase security of their accounts.
-- It is impossible for users to change the account's key pair when the private key is accidentally exposed or when users want to update the private key periodically to increase the account's security.
+- 用户不可能拥有自己想要的地址。
+- 用户不可能使用多个配对密钥来提高账户的安全性。
+- 当私钥意外暴露或用户希望定期更新私钥以提高账户安全性时，用户不可能更改账户的配对密钥。
 
-Those are big hurdles that users cannot think of an address as an identifier in the blockchain platform. To clear this hurdle, Kaia provides a feature that users can choose their addresses and key pairs. With this feature, users can choose addresses that they want and they can use multiple key pairs to increase security. The number of key pairs can be one or more, and the key pairs can have different roles. For details of multiple key pairs or role-based keys, please refer to [Multiple Key Pairs & Role-Based Keys](#multiple-key-pairs-and-role-based-keys).
+这些都是很大的障碍，用户无法将地址视为区块链平台中的标识符。 为了消除这一障碍，Kaia 提供了一项功能，用户可以选择自己的地址和密钥对。 有了这项功能，用户可以选择自己想要的地址，还可以使用多个密钥对来提高安全性。 密钥对的数量可以是一个或多个，密钥对也可以有不同的作用。 有关多密钥对或基于角色的密钥的详细信息，请参阅 [多密钥对和基于角色的密钥](#multiple-key-pairs-and-role-based-keys)。
 
-It is worth noting that Kaia also supports the old scheme that a key pair and an address are strongly coupled.
+值得注意的是，Kaia 还支持密钥对和地址强耦合的旧方案。
 
-### Multiple Key Pairs and Role-Based Keys <a id="multiple-key-pairs-and-role-based-keys"></a>
+### 多密钥对和基于角色的密钥<a id="multiple-key-pairs-and-role-based-keys"></a>
 
-As described before, when the private key is stolen, exposed, or somehow compromised, there is nothing to do to restore the account’s security: the best option is to generate another key pair to create a new account, and migrate the balance from the old compromised account to the new one. Lack of support for advanced key schemes such as multi-sig or usage-specific key is yet another source of major inconvenience. To address those problems more efficiently, Kaia accounts provide the following capabilities:
+如前所述，当私人密钥被盗、暴露或以某种方式泄露时，无法恢复账户的安全性：最好的办法是生成另一个密钥对，创建一个新账户，并将余额从原来泄露的账户转移到新账户。 缺乏对多重签名或特定用途密钥等高级密钥方案的支持，也是造成严重不便的另一个原因。 为了更有效地解决这些问题，Kaia 账户提供了以下功能：
 
-- Kaia account allows the key pair associated with the account to be changed.
-- Kaia account supports multiple key pairs, along with the ability to assign each key with different purpose.
-- Kaia account maintains compatibility with accounts having a single key that is strongly coupled with the address.
+- Kaia 账户允许更改与账户相关的配对密钥。
+- Kaia 账户支持多个密钥对，并能为每个密钥分配不同的用途。
+- Kaia 账户与拥有与地址紧密相连的单一密钥的账户保持兼容。
 
-By utilizing Kaia account’s role-based multi-key support, end-users can better handle real-life security risk situations such as private key mismanagement. For example, when a user realizes that his or her private key has been exposed, the user can simply replace the compromised private key by removing the exposed key pair from his or her account and creating a new key pair to replace them. This could be achieved by using a dedicated key used for updating account information, created in advance and stored separately from the compromised private key.
+通过利用 Kaia 帐户基于角色的多密钥支持，终端用户可以更好地处理现实生活中的安全风险情况，如私钥管理不善。 例如，当用户意识到自己的私人密钥被泄露时，只需从自己的账户中删除被泄露的密钥对，并创建一个新的密钥对来替换它们，就可以替换被泄露的私人密钥。 要做到这一点，可以使用一个用于更新账户信息的专用密钥，该密钥是事先创建的，与泄露的私人密钥分开存储。
 
-### Kaia Wallet Key Format <a id="kaia-wallet-key-format"></a>
+### Kaia 钱包钥匙格式<a id="kaia-wallet-key-format"></a>
 
-Kaia wallet key format is provided to easily handle a private key along with the corresponding address. It makes easier for a user to maintain his/her private key with an address. The format is `0x{private key}0x{type}0x{address in hex}` in hexadecimal notation, where `{type}` must be `00`. Other values are reserved. An example is shown below:
+Kaia 钱包密钥格式可轻松处理私钥和相应地址。 它使用户更容易通过地址来维护自己的私人密钥。 格式为 "0x{private key}0x{type}0x{address in hex}`（十六进制），其中 "{type}`必须为 "00"。 其他值为保留值。 示例如下：
 
 ```text
 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ```
 
-### Kaia Account Types <a id="kaia-account-types"></a>
+### Kaia 账户类型<a id="kaia-account-types"></a>
 
-There are two types of accounts in Kaia: <LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> \(EOAs\), and <LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> \(SCAs\).
+Kaia 有两种账户：<LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">外部拥有账户</LinkWithTooltip>（EOAs）和<LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">智能合约账户</LinkWithTooltip>（SCA）。
 
-#### Externally Owned Accounts \(EOAs\) <a id="externally-owned-accounts-eoas"></a>
+#### 外部拥有账户（EOAs）<a id="externally-owned-accounts-eoas"></a>
 
-Externally owned accounts have information such as nonce and balance. This type of accounts does not have code or storage. EOAs are controlled by private keys and do not have code associated with them. An EOA can be created using key pairs and subsequently controlled by anyone with the key pairs. The account key is described in the section [Account Key](#account-key).
+外部拥有的账户有 nonce 和余额等信息。 这类账户没有代码或存储空间。 EOA 由私人密钥控制，没有与之相关的代码。 可使用成对密钥创建 EOA，然后由拥有成对密钥的任何人进行控制。 账户密钥在 [账户密钥](#account-key) 一节中有说明。
 
-**Attributes**
+**属性**
 
-| Attribute     | Type                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                    |
-| :------------ | :---------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | uint8 \(Go\)                     | The type of externally owned accounts. It must be **0x1** for EOAs.                                                                                                                                                                                                                                                                                            |
-| nonce         | uint64 \(Go\)                    | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                                        |
-| balance       | \*big.Int \(Go\) | The amount of KAIA the account has.                                                                                                                                                                                                                                                                                                                                            |
-| humanReadable | bool \(Go\)                      | A boolean value indicating that the account is associated with a human-readable address. Since HRA (human-readable address) is not supported yet, this value is false for all accounts.                                                                                                                                                     |
-| key           | [AccountKey](#account-key)                            | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
+| 属性            | 类型                                                    | 说明                                                                                                                                                                                                                                                              |
+| :------------ | :---------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 类型            | uint8 \(Go\)                     | 外部拥有账户的类型。 EOA 必须为 **0x1**。                                                                                                                                                                                                                                     |
+| nonce         | uint64 \(Go\)                    | 用于确定交易顺序的序列号。 下一个要处理的事务具有与此值相同的 nonce。                                                                                                                                                                                                                          |
+| balance       | \*big.Int \(Go\) | 账户中 KAIA 的金额。                                                                                                                                                                                                                                                   |
+| humanReadable | bool \(Go\)                      | 布尔值，表示账户与人类可读地址相关联。 由于目前还不支持 HRA（人类可读地址），因此该值对所有账户都是假的。                                                                                                                                                                                                         |
+| key           | [AccountKey](#account-key)                            | 与该账户相关的密钥。 该字段可以是 [AccountKeyLegacy](#accountkeylegacy)、[AccountKeyPublic](#accountkeypublic)、[AccountKeyFail](#accountkeyfail)、[AccountKeyWeightedMultisig](#accountkeyweightedmultisig)、[AccountKeyRoleBased](#accountkeyrolebased) 中的任意一个。 交易中的签名就是用这个密钥验证的。 |
 
-#### Smart Contract Accounts \(SCAs\) <a id="smart-contract-accounts-scas"></a>
+#### 智能合约账户（SCAs）<a id="smart-contract-accounts-scas"></a>
 
-In contrast to EOAs, SCAs have code associated with them and are controlled by their code. SCAs are created by smart contract deployment transactions; once deployed, an SCA cannot initiate new transactions by itself and must be triggered by another account, either by an EOA or another SCA.
+与 EOA 不同，SCA 有与之相关的代码，并受其代码控制。 SCA 由智能合约部署交易创建；一旦部署完成，SCA 自身无法启动新的交易，必须由 EOA 或其他 SCA 触发另一个账户。
 
-**Attributes**
+**属性**
 
-| Attribute     | Type                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                    |
-| :------------ | :------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | uint8 \(Go\)                                                            | The type of smart contract accounts. It must be **0x2** for SCAs.                                                                                                                                                                                                                                                                                              |
-| nonce         | uint64 \(Go\)                                                           | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                                        |
-| balance       | \*big.Int \(Go\)                                        | The amount of KAIA the account has.                                                                                                                                                                                                                                                                                                                                            |
-| humanReadable | bool \(Go\)                                                             | A boolean value indicating that the account is associated with a human-readable address. Since HRA (human-readable address) is not supported yet, this value is false for all accounts.                                                                                                                                                     |
-| key           | [AccountKey](#account-key)                                                                   | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
-| codeHash      | \[\]byte \(Go\)   | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created.                                                                                                                                                                                                                         |
-| storageRoot   | \[32\]byte \(Go\) | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account.                                                                                                                                                                                                                                                   |
-| codeFormat    | uint8 \(Go\)                                                            | Supporting interpreter version. Up to 16 can be set. Currently, it supports EVM\(0x00\) only.                                                                                                                                                                                                                             |
-| vmVersion     | uint8 \(Go\)                                                            | The protocol upgrade (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,london,...)). Up to 16 can be used. It is automatically created with the contract. |
+| 属性            | 类型                                                                                           | 说明                                                                                                                                                                                                                                                              |
+| :------------ | :------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 类型            | uint8 \(Go\)                                                            | 智能合约账户类型。 SCA 必须为 **0x2**。                                                                                                                                                                                                                                      |
+| nonce         | uint64 \(Go\)                                                           | 用于确定交易顺序的序列号。 下一个要处理的事务的 nonce 与此值相同。                                                                                                                                                                                                                           |
+| balance       | \*big.Int \(Go\)                                        | 账户中 KAIA 的金额。                                                                                                                                                                                                                                                   |
+| humanReadable | bool \(Go\)                                                             | 布尔值，表示账户与人类可读地址相关联。 由于目前还不支持 HRA（人类可读地址），因此该值对所有账户都是假的。                                                                                                                                                                                                         |
+| key           | [AccountKey](#account-key)                                                                   | 与该账户相关的密钥。 该字段可以是 [AccountKeyLegacy](#accountkeylegacy)、[AccountKeyPublic](#accountkeypublic)、[AccountKeyFail](#accountkeyfail)、[AccountKeyWeightedMultisig](#accountkeyweightedmultisig)、[AccountKeyRoleBased](#accountkeyrolebased) 中的任意一个。 交易中的签名就是用这个密钥验证的。 |
+| codeHash      | \[\]byte \(Go\)   | 账户智能合约代码的哈希值。 这个值是不可变的，这意味着它只有在智能合约创建时才会被设置。                                                                                                                                                                                                                    |
+| storageRoot   | \[32\]byte \(Go\) | 包含账户中所有存储变量值的 Merkle Patricia Trie 根的 256 位散列。                                                                                                                                                                                                                  |
+| codeFormat    | uint8 \(Go\)                                                            | 支持解释器版本。 最多可设置 16 个。 目前，它只支持 EVM\(0x00\) 。                                                                                                                                                                                                 |
+| vmVersion     | uint8 \(Go\)                                                            | 合约部署时的协议升级（硬分叉）信息（例如 0x0（康斯坦丁堡）、0x1（伊斯坦布尔、伦敦......））。 最多可使用 16 个。 它与合同一起自动创建。                                                                                   |
 
 :::note
 
-NOTE: From kaia v1.7.0 onwards, vmVersion attribute will be added to the Smart Contract Account.
+注意：从 kaia v1.7.0 开始，智能合约账户将添加 vmVersion 属性。
 
 :::
 
-### Kaia Account Type ID <a id="kaia-account-type-id"></a>
+### Kaia 帐户类型 ID<a id="kaia-account-type-id"></a>
 
-Below are the Account Type ID assigned to each Account Type.
+以下是分配给每个账户类型的账户类型 ID。
 
-| Account Type                                      | Account Type ID |
-| ------------------------------------------------- | --------------- |
-| Externally Owned Account (EOA) | 0x1             |
-| Smart Contract Account (SCA)   | 0x2             |
+| 账户类型        | 账户类型 ID |
+| ----------- | ------- |
+| 外部拥有账户（EOA） | 0x1     |
+| 智能合约账户（SCA） | 0x2     |
 
-## Account Key <a id="account-key"></a>
+## 账户密钥<a id="account-key"></a>
 
-An account key represents the key structure associated with an account.
+账户密钥表示与账户相关的密钥结构。
 
 ### AccountKeyNil <a id="accountkeynil"></a>
 
-AccountKeyNil represents an empty key. If an account tries to have an AccountKeyNil object, the transaction will be failed. AccountKeyNil is used only for TxTypeAccountUpdate transactions with role-based keys. For example, if an account tries to update RoleAccountUpdate key only, the key field of the TxTypeAccountUpdate transaction would be:
+AccountKeyNil 表示空键。 如果账户试图拥有一个 AccountKeyNil 对象，交易将失败。 AccountKeyNil 仅用于具有基于角色密钥的 TxTypeAccountUpdate 交易。 例如，如果一个账户只尝试更新 RoleAccountUpdate 密钥，那么 TxTypeAccountUpdate 事务的密钥字段将是
 
 `[AccountKeyNil, NewKey, AccountKeyNil]`
 
-Then, only the RoleAccountUpdate key is updated. Other roles are not updated. Refer to the [AccountKeyRoleBased](#accountkeyrolebased) for more detail.
+然后，只更新 RoleAccountUpdate 密钥。 其他角色不会更新。 详情请参考 [基于帐户密钥的角色](#accountkeyrolebased)。
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-No attributes for AccountKeyNil.
+没有 AccountKeyNil 的属性。
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLP 编码<a id="rlp-encoding"></a>
 
 `0x80`
 
 ### AccountKeyLegacy <a id="accountkeylegacy"></a>
 
-AccountKeyLegacy is used for the account having an address derived from the corresponding key pair. If an account has AccountKeyLegacy, the transaction validation process is done like below \(as typical Blockchain platforms did\):
+AccountKeyLegacy 用于地址来源于相应密钥对的账户。 如果账户拥有 AccountKeyLegacy，则交易验证过程如下（典型的区块链平台都是这样做的）：
 
-- Get the public key from `ecrecover(txhash, txsig)`.
-- Get the address of the public key.
-- The address is the sender.
+- 从 `ecrecover(txhash, txsig)` 获取公钥。
+- 获取公钥地址。
+- 地址是发件人。
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-| Attribute | Type                              | Description                                                                          |
-| :-------- | :-------------------------------- | :----------------------------------------------------------------------------------- |
-| Type      | uint8 \(Go\) | The type of AccountKeyLegacy. This must be **0x01**. |
+| 属性 | 类型                                | 说明                                  |
+| :- | :-------------------------------- | :---------------------------------- |
+| 类型 | uint8 \(Go\) | AccountKeyLegacy 的类型。 必须是 **0x01**。 |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLP 编码<a id="rlp-encoding"></a>
 
 `0x01c0`
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
-AccountKeyPublic is used for accounts having one public key.\
-If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+AccountKeyPublic 用于有一个公钥的账户。\
+如果账户有一个 AccountKeyPublic 对象，交易验证过程如下：
 
-- Get the public key derived from `ecrecover(txhash, txsig)`.
-- Check that the derived public key is the same as the corresponding
+- 从 `ecrecover(txhash, txsig)` 获取公钥。
+- 检查派生公钥是否与相应的
 
   account's public key.
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-| Attribute | Type                                                                                         | Description                                                                          |
-| :-------- | :------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| Type      | uint8 \(Go\)                                                            | The type of AccountKeyPublic. This must be **0x02**. |
-| Key       | \[33\]byte \(Go\) | Key should be a compressed public key on S256 curve.                 |
+| 属性  | 类型                                                                                           | 说明                                  |
+| :-- | :------------------------------------------------------------------------------------------- | :---------------------------------- |
+| 类型  | uint8 \(Go\)                                                            | AccountKeyPublic 的类型。 必须是 **0x02**。 |
+| Key | \[33\]byte \(Go\) | 密钥应是 S256 曲线上的压缩公钥。                 |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLP 编码<a id="rlp-encoding"></a>
 
 `0x02 + encode(CompressedPubKey)`
 
-**NOTE**: CompressedPubKey is a public key in a compressed format defined in [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). In short, 0x02`{PubkeyX}` if PubkeyY is an even number or 0x03`{PubkeyX}` otherwise.
+**注意**：CompressedPubKey 是[SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf) 中定义的压缩格式的公钥。 简言之，如果 PubkeyY 是偶数，则为 0x02`{PubkeyX}`，否则为 0x03`{PubkeyX}`。
 
-#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+#### RLP 编码 （示例）<a id="rlp-encoding-example"></a>
 
 ```javascript
 prvkey 0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b
@@ -160,49 +160,49 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
 ### AccountKeyFail <a id="accountkeyfail"></a>
 
-If an account has the key AccountKeyFail, the transaction validation process always fails. It can be used for smart contract accounts so that a transaction sent from the smart contract account always fails.
+如果账户的密钥是 AccountKeyFail，则交易验证过程总是失败。 它可用于智能合约账户，使智能合约账户发送的交易总是失败。
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-| Attribute | Type                              | Description                                                                       |
-| :-------- | :-------------------------------- | :-------------------------------------------------------------------------------- |
-| Type      | uint8 \(Go\) | The type of AcccountKeyFail. It must be **0x03**. |
+| 属性 | 类型                                | 说明                                 |
+| :- | :-------------------------------- | :--------------------------------- |
+| 类型 | uint8 \(Go\) | AcccountKeyFail 的类型。 必须是 **0x03**。 |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLP 编码<a id="rlp-encoding"></a>
 
 `0x03c0`
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
-AccountKeyWeightedMultiSig is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
-In order for a transaction to be valid for an account associated with AccountKeyWeightedMultiSig, the following conditions should be satisfied:
+AccountKeyWeightedMultiSig 是一种账户密钥类型，包含一个阈值和加权公钥（WeightedPublicKeys），后者包含一个由公钥及其权重组成的列表。
+要使交易对与 AccountKeyWeightedMultiSig 关联的账户有效，必须满足以下条件：
 
-- The weighted sum of the signed public keys should be larger than the threshold.
-- The invalid signature should not be included in the transaction.
-- The number of signed public keys should be less than the number of weightedPublicKeys.
+- 已签名公钥的加权和应大于阈值。
+- 交易中不应包含无效签名。
+- 已签名公钥的数量应少于加权公钥的数量。
 
 :::note
 
-The following multiSig validation logic has been added with the [IstanbulEVM](docs/misc/klaytn-history.md#istanbul-evm) hardfork.
+在 [IstanbulEVM](docs/misc/klaytn-history.md#istanbul-evm) 硬分叉中添加了以下 multiSig 验证逻辑。
 
-- The invalid signature should not be included in the transaction.
-- The number of signed public keys should be less than the number of weightedPublicKeys.
+- 交易中不应包含无效签名。
+- 已签名公钥的数量应少于加权公钥的数量。
 
 :::
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-| Attribute          | Type                                                                                                                                                               | Description                                                                                                                                                    |
-| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Type               | uint8 \(Go\)                                                                                                                                  | The type of AccountKeyWeightedMultiSig. This must be **0x04**.                                                                 |
-| Threshold          | uint \(Go\)                                                                                                                                   | Validation threshold. To be a valid transaction, the weight sum of signatures should be larger than or equal to the threshold. |
-| WeightedPublicKeys | \[\]\{uint, \[33\]byte\} \(Go\) | A list of weighted public keys. A weighted public key contains a compressed public key and its weight.                         |
+| 属性                 | 类型                                                                                                                                                                 | 说明                                            |
+| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+| 类型                 | uint8 \(Go\)                                                                                                                                  | AccountKeyWeightedMultiSig 的类型。 必须是 **0x04**。 |
+| Threshold          | uint \(Go\)                                                                                                                                   | 验证阈值。 要成为有效交易，签名的权重总和应大于或等于阈值。                |
+| WeightedPublicKeys | \[\]\{uint, \[33\]byte\} \(Go\) | 加权公钥列表。 加权公开密钥包含一个压缩公开密钥及其权重。                 |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLP 编码<a id="rlp-encoding"></a>
 
 `0x04 + encode([threshold, [[weight, CompressedPubKey1], [weight2, CompressedPubKey2]]])`
 
-#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+#### RLP 编码 （示例）<a id="rlp-encoding-example"></a>
 
 ```javascript
 Threshold 3
@@ -224,38 +224,38 @@ RLP: 0x04f89303f890e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e615
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
-AccountKeyRoleBased represents a role-based key. The roles are specified at [Roles](#roles).
+AccountKeyRoleBased 表示基于角色的密钥。 角色在 [角色](#roles)中指定。
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-| Attribute | Type                                                                                                 | Description                                                                                                                                                            |
-| :-------- | :--------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Type      | uint8 \(Go\)                                                                    | The type of AccountKeyRoleBased. It must be **0x05**.                                                                                  |
-| Keys      | \[\]`{AccountKey}` \(Go\) | A list of keys. A key can be any of AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig. |
+| 属性   | 类型                                           | 说明                                                                                                              |
+| :--- | :------------------------------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| 类型   | uint8 \(Go\)            | AccountKeyRoleBased 的类型。 必须是 **0x05**。                                                                          |
+| Keys | \{AccountKey}\` \(Go\) | 钥匙列表。 密钥可以是 AccountKeyNil、AccountKeyLegacy、AccountKeyPublic、AccountKeyFail 和 AccountKeyWeightedMultiSig 中的任意一种。 |
 
-#### Roles <a id="roles"></a>
+#### 角色<a id="roles"></a>
 
-Roles of AccountKeyRoleBased are defined as below:
+基于 AccountKeyRoleBased 的角色定义如下：
 
-| Role              | Description                                                                                                                                                                                                                                                                        |
-| :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RoleTransaction   | Index 0. Default key. Transactions other than TxTypeAccountUpdate should be signed by the key of this role.                                                                                                                        |
-| RoleAccountUpdate | Index 1. TxTypeAccountUpdate transaction should be signed by this key. If this key is not present in the account, TxTypeAccountUpdate transaction is validated using RoleTransaction key.                                          |
-| RoleFeePayer      | Index 2. If this account wants to send tx fee instead of the sender, the transaction should be signed by this key.  If this key is not present in the account, a fee-delegated transaction is validated using RoleTransaction key. |
+| 角色                | 说明                                                                                                             |
+| :---------------- | :------------------------------------------------------------------------------------------------------------- |
+| RoleTransaction   | 索引 0。 默认键。 TxTypeAccountUpdate 以外的交易应由该角色的密钥签名。                                                                |
+| RoleAccountUpdate | 索引 1. TxTypeAccountUpdate 交易应由该密钥签名。 如果账户中没有该键，则使用 RoleTransaction 键验证 TxTypeAccountUpdate 交易。 |
+| RoleFeePayer      | 索引 2. 如果该账户要代替发件人发送 tx 费用，则交易应由该密钥签名。  如果账户中没有该密钥，则使用 RoleTransaction 密钥验证收费授权交易。              |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLP 编码<a id="rlp-encoding"></a>
 
 `0x05 + encode([key1, key2, key3])`
 
-Note that key1, key2, and key3 can be any of above keys \(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig\).
+请注意，key1、key2 和 key3 可以是上述任何键（AccountKeyNil、AccountKeyLegacy、AccountKeyPublic、AccountKeyFail 和 AccountKeyWeightedMultiSig\ ）。
 
-#### Omissible and Expandable Roles <a id="omissible-and-expandable-roles"></a>
+#### 可忽略和可扩展的角色<a id="omissible-and-expandable-roles"></a>
 
-The roles can be omitted from the last index, and the omitted roles are mapped to the first role. However, a role in the middle cannot be omitted, which means RoleTransaction and RoleFeePayer cannot be set without RoleAccountUpdate. For example, if a role-based key is set to `0x05 + encode([key1, key2])`, RoleFeePayer works as if the key is set like `0x05 + encode([key1, key2, key1])`.
+最后一个索引中的角色可以省略，省略的角色会映射到第一个角色。 但是，中间的角色不能省略，也就是说，如果没有角色账户更新，就不能设置角色交易和角色付费人。 例如，如果基于角色的密钥设置为 "0x05 + encode([key1,key2])"，那么 RoleFeePayer 就会像设置为 "0x05 + encode([key1,key2,key1]) "一样工作。
 
-This feature allows for more roles to be added in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
+这一功能允许将来增加更多的角色。 如果提供了新角色，则已用旧角色创建的账户的新角色会映射到第一个角色。
 
-#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+#### RLP 编码 （示例）<a id="rlp-encoding-example"></a>
 
 ```javascript
 RoleTransaction Key
@@ -276,14 +276,14 @@ PubkeyY 0x94c27901465af0a703859ab47f8ae17e54aaba453b7cde5a6a9e4a32d45d72b2
 RLP: 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512db84e04f84b02f848e301a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512de301a10336f6355f5b532c3c1606f18fa2be7a16ae200c5159c8031dd25bfa389a4c9c06a302a102c8785266510368d9372badd4c7f4a94b692e82ba74e0b5e26b34558b0f081447
 ```
 
-## Account Key Type ID <a id="account-key-type-id"></a>
+## 账户密钥类型 ID<a id="account-key-type-id"></a>
 
-Below are the Account Key Type ID assigned to each Account Key Type.
+以下是分配给每个账户密钥类型的账户密钥类型 ID。
 
-| Account Key Type           | Account Key Type ID |
-| -------------------------- | ------------------- |
-| AccountKeyLegacy           | 0x01                |
-| AccountKeyPublic           | 0x02                |
-| AccountKeyFail             | 0x03                |
-| AccountKeyWeightedMultiSig | 0x04                |
-| AccountKeyRoleBased        | 0x05                |
+| 账户密钥类型                     | 账户密钥类型 ID |
+| -------------------------- | --------- |
+| AccountKeyLegacy           | 0x01      |
+| AccountKeyPublic           | 0x02      |
+| AccountKeyFail             | 0x03      |
+| AccountKeyWeightedMultiSig | 0x04      |
+| AccountKeyRoleBased        | 0x05      |
