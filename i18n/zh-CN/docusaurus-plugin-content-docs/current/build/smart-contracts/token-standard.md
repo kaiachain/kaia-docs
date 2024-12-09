@@ -1,16 +1,16 @@
-# Kaia Compatible Tokens (KCTs)
+# Kaia 兼容代币（KCT）
 
-Kaia Compatible Token (KCT) is a special type of smart contract that implements certain technical specifications. Everyone who wants to issue tokens on top of Kaia must follow the specification.
+Kaia Compatible Token（KCT）是一种特殊类型的智能合约，它实现了某些技术规范。 每个想在 Kaia 上发行代币的人都必须遵守规范。
 
-Token standards are defined in Kaia such as [KIP-7](https://kips.kaia.io/KIPs/kip-7) and [KIP-17](https://kips.kaia.io/KIPs/kip-17).
+Kaia 中定义了令牌标准，如 [KIP-7](https://kips.kaia.io/KIPs/kip-7) 和 [KIP-17](https://kips.kaia.io/KIPs/kip-17)。
 
-Other KCTs can be defined to meet certain technical specifications. If anyone needs other token standards, please visit [Kaia Improvement Proposal](https://github.com/kaiachain/KIPs) and propose a new token standard.
+还可以定义其他 KCT，以满足某些技术规格。 如果有人需要其他令牌标准，请访问 [Kaia Improvement Proposal](https://github.com/kaiachain/KIPs)，提出新的令牌标准。
 
-## Fungible Token Standard \(KIP-7\) <a id="fungible-token-standard-kip-7"></a>
+## 可折叠令牌标准（KIP-7）<a id="fungible-token-standard-kip-7"></a>
 
-Fungible tokens are tokens that have properties of uniformity and divisibility. Every fungible token is interchangeable as each unit of token possesses the same value. Just like every dollar bill has the same value of one dollar. Since fungibility is essential feature to crypto currency in most cases, large proportion of blockchain tokens are fungible tokens.
+可变代币是具有均匀性和可分割性的代币。 每个可替代代币都可以互换，因为每个单位的代币都具有相同的价值。 就像每张一元纸币都有一元的价值一样。 在大多数情况下，可替代性是加密货币的基本特征，因此大部分区块链代币都是可替代代币。
 
-To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens implement the following interface. Please note that [KIP-13](https://kips.kaia.io/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.kaia.io/KIPs/kip-7#wallet-interface) can be implemented.
+要通过智能合约实现这些属性，可以使用 KIP-7 令牌标准。 与 KIP-7 兼容的令牌实现了以下接口。 请注意，[KIP-13](https://kips.kaia.io/KIPs/kip-13) 必须同时执行。 对于钱包应用，可执行 [钱包接口](https://kips.kaia.io/KIPs/kip-7#wallet-interface)。
 
 ```solidity
 // IKIP7
@@ -55,19 +55,19 @@ function addPauser(address _account) external;
 function renouncePauser() external;
 ```
 
-Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Kaia network.
+在上述界面的基础上，开发者可以通过添加新功能和逻辑来定制令牌，并将其部署到 Kaia 网络上。
 
-For more information, refer to the official [KIP-7 documentation](https://kips.kaia.io/KIPs/kip-7).
+更多信息，请参阅官方 [KIP-7 文档](https://kips.kaia.io/KIPs/kip-7)。
 
-- An example implementation is available at [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol).
+- 实施示例见 [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol)。
 
-## Non-fungible Token Standard \(KIP-17\) <a id="non-fungible-token-standard-kip-17"></a>
+## Non-fungible Token Standard\(KIP-17\)<a id="non-fungible-token-standard-kip-17"></a>
 
-Non-fungible token \(NFT\) is a special type of token that represents a unique asset. As the name non-fungible implies, every single token is unique and non-divisible. This uniqueness of non-fungible token opens up new horizons of asset digitization. For example, it can be used to represent digital art, game items, or any kind of unique assets and allow people to trade them.
+Non-fungible token\(NFT\) 是一种特殊类型的代币，代表一种独特的资产。 正如 "不可篡改 "这个名字所暗示的，每一个代币都是独一无二、不可分割的。 不可篡改令牌的这种独特性为资产数字化开辟了新天地。 例如，它可以用来表示数字艺术、游戏物品或任何类型的独特资产，并允许人们进行交易。
 
-For example, a blockchain collection game [Cryptokitties](https://www.cryptokitties.co/) implements non-fungible token to represent different kitties that have different genetic information. Every kitty is unique and non-interchangeable, resulting in different values for different kitty tokens.
+例如，区块链收集游戏[Cryptokitties](https://www.cryptokitties.co/)实现了不可篡改的代币，以代表具有不同遗传信息的不同小猫。 每只小猫都是独一无二的，不可互换，因此不同的小猫代币有不同的价值。
 
-To implement non-fungible token, [KIP-17](https://kips.kaia.io/KIPs/kip-17) can be used. KIP-17 token contracts implement the following interface. Please note that [KIP-13](https://kips.kaia.io/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.kaia.io/KIPs/kip-17#wallet-interface) can be implemented.
+要实现不可篡改令牌，可以使用 [KIP-17](https://kips.kaia.io/KIPs/kip-17)。 KIP-17 令牌合约执行以下接口。 请注意，[KIP-13](https://kips.kaia.io/KIPs/kip-13) 必须同时执行。 对于钱包应用，可执行 [钱包接口](https://kips.kaia.io/KIPs/kip-17#wallet-interface)。
 
 ```solidity
 // IKIP17
@@ -121,18 +121,18 @@ function addPauser(address _account) public;
 function renouncePauser() public;
 ```
 
-Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Kaia network.
+在上述界面的基础上，开发者可以通过添加新功能和逻辑来定制令牌，并将其部署到 Kaia 网络上。
 
-For more information, refer to the official [KIP-17 documentation](https://kips.kaia.io/KIPs/kip-17).
+更多信息，请参阅官方 [KIP-17 文档](https://kips.kaia.io/KIPs/kip-17)。
 
-- An example implementation is available at [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol).
+- 实施示例见 [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol)。
 
-## Token Standards for Kaia Service Chain <a id="token-standards-for-kaia-service-chain"></a>
+## Kaia 服务链的令牌标准<a id="token-standards-for-kaia-service-chain"></a>
 
-Service chain refers to Kaia's side chain that anchors to Kaia's main blockchain network. When implementing a service chain, special type of contracts are used to support value transfer between the main chain and the service chain. These contracts are currently under development, and when they are ready, the token specifications for Kaia service chain will be provided on KaiaDocs.
+服务链指的是锚定 Kaia 主区块链网络的 Kaia 侧链。 在实施服务链时，要使用特殊类型的合同来支持主链和服务链之间的价值转移。 这些合约目前正在开发中，一旦准备就绪，Kaia 服务链的令牌规格将在 KaiaDocs 上提供。
 
-## Notes on ERC-20 and ERC-721 <a id="notes-on-erc-20-and-erc-721"></a>
+## 关于 ERC-20 和 ERC-721 的说明<a id="notes-on-erc-20-and-erc-721"></a>
 
-Since Kaia published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721.
-KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Kaia and thus more suitable on Kaia ecosystem. Yet ERC-20 and ERC-721 are still supported on Kaia network, they may not be compatible with various tools in Kaia ecosystem.
-For more information about the differences on token standards, please visit [KIP-7](https://kips.kaia.io/KIPs/kip-7#differences-with-erc-20) and [KIP-17](https://kips.kaia.io/KIPs/kip-17#differences-from-erc-721).
+由于 Kaia 发布了 KIP-7 和 KIP-17 作为其代币标准，因此建议分别根据 KIP-7 和 KIP-17 执行可替换和不可替换代币合约，而不是遵循 ERC-20 和 ERC-721。
+KIP-7 和 KIP-17 基于 ERC-20 和 ERC-721，但它们是为 Kaia 量身定制的，因此更适合 Kaia 生态系统。 尽管 Kaia 网络仍然支持 ERC-20 和 ERC-721，但它们可能与 Kaia 生态系统中的各种工具不兼容。
+有关令牌标准差异的更多信息，请访问 [KIP-7](https://kips.kaia.io/KIPs/kip-7#differences-with-erc-20) 和 [KIP-17](https://kips.kaia.io/KIPs/kip-17#differences-from-erc-721)。
