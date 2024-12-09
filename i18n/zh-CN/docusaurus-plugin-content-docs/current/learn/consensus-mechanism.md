@@ -1,52 +1,52 @@
-# Consensus Mechanism
+# 协商一致机制
 
-A consensus mechanism (algorithm) is a way of reaching a consensus between trustless entities. In blockchain technology, it is used to reach a consensus about if a block is valid or not. The performance of blockchain networks relies on the performance of the adopted consensus mechanisms, and it has a significant impact on the perceived usability of the Blockchain Applications.
+共识机制（算法）是无信任实体之间达成共识的一种方式。 在区块链技术中，它用于就区块是否有效达成共识。 区块链网络的性能取决于所采用的共识机制的性能，它对区块链应用的可用性有重大影响。
 
-Kaia Mainnet exhibits the following performance.
+Kaia Mainnet 具有以下性能。
 
-- Handles 4,000 transactions per second.
-- Immediate transaction finality.
-- One-second block generation time.
-- Over 50 consensus nodes can participate in the consensus process.
+- 每秒可处理 4,000 笔交易。
+- 即时交易终结。
+- 区块生成时间为一秒。
+- 50 多个共识节点可参与共识进程。
 
-In the document, we will go over how Kaia implemented the high-performing consensus process.
+在本文件中，我们将介绍 Kaia 如何实施高效共识流程。
 
-## Background <a id="background"></a>
+## 背景介绍<a id="background"></a>
 
-[Bitcoin](https://en.wikipedia.org/wiki/Bitcoin) is using [PoW](https://en.wikipedia.org/wiki/Proof_of_work) (Proof-of-Work), whereas Ethereum has recently shifted to [PoS](https://en.wikipedia.org/wiki/Proof_of_stake) (Proof-of-Stake), which decides on the block generating nodes by the stake of the node. Usually, these algorithms involve no communication between nodes in determining the validities of blocks.
+[比特币](https://en.wikipedia.org/wiki/Bitcoin) 使用的是[PoW](https://en.wikipedia.org/wiki/Proof_of_work)（Proof-of-Work），而以太坊最近转向了[PoS](https://en.wikipedia.org/wiki/Proof_of_stake)（Proof-of-Stake），即通过节点的赌注来决定区块生成节点。 通常，这些算法在确定块的有效性时不涉及节点之间的通信。
 
-So in these systems, a fork can happen which means two or more different blocks can be made on the same height. Usually, the "Longest chain wins" rule is applied to solve the fork condition. It means that those forks will be merged into a single canonical chain eventually, but it also means a list of blocks can be reverted in some period of time when it belongs to the shorter chain. So in these algorithms, there is no guarantee of the finality of blocks and transactions. The finality can only be achieved probabilistically after a period of time, which is still can't be 100% guaranteed.
+因此，在这些系统中，可能会出现分叉，这意味着在同一高度上可以做出两个或多个不同的区块。 通常采用 "最长链获胜 "规则来解决分叉条件。 这意味着这些分叉最终会合并成一条典型链，但也意味着区块列表在属于较短链的一段时间内可以被还原。 因此，在这些算法中，无法保证区块和交易的最终性。 终极性只能在一段时间后以概率的方式实现，而这仍然无法得到百分之百的保证。
 
-This lack of finality is a very difficult issue in customer-facing services that use blockchain platforms. Because it has to wait until forks are resolved and enough blocks are stacked after the transfer to believe the transaction is not reversible. This has a negative effect both on users and service providers.
+在使用区块链平台的面向客户的服务中，这种缺乏终局性是一个非常棘手的问题。 因为它必须等到分叉解决，并且在转移后堆叠了足够多的区块，才能相信交易是不可逆转的。 这对用户和服务提供商都产生了负面影响。
 
-A simple example of this issue can be demonstrated in financial services. Say a user transferred money to someone, and the service can't verify that the transfer is valid until 30 to 60 minutes have passed. Because it has to wait until the forks have been merged into a single chain and several blocks are stacked after the transfer to be sure that the transaction is not reversible.
+金融服务就是一个简单的例子。 假设用户向某人转账，而服务在 30 到 60 分钟后才能验证转账是否有效。 因为它必须等到分叉合并成一条链，并在转移后堆叠几个区块，以确保交易不可逆转。
 
-### PBFT (Practical Byzantine Fault Tolerance)  <a id="pbft-practical-byzantine-fault-tolerance"></a>
+### PBFT（实用拜占庭容错技术） <a id="pbft-practical-byzantine-fault-tolerance"></a>
 
-To prevent the above issues, we need other algorithms that guarantee the finality. BFT algorithm is one of those, first [published](https://dl.acm.org/citation.cfm?doid=357172.357176) in 1982 by Lamport, Shostak, Pease. In 1999, Miguel Castro and Barbara Liskov introduced "Practical Byzantine Fault Tolerance" ([PBFT](http://www.pmg.csail.mit.edu/papers/bft-tocs.pdf)) which provides high-performance state machine replication.
+为了避免上述问题，我们需要其他能保证最终性的算法。 BFT 算法就是其中之一，由 Lamport、Shostak 和 Pease 于 1982 年首次[发表](https://dl.acm.org/citation.cfm?doid=357172.357176)。 1999 年，米格尔-卡斯特罗和芭芭拉-利斯科夫提出了 "实用拜占庭容错"（[PBFT](http://www.pmg.csail.mit.edu/papers/bft-tocs.pdf)），它提供高性能状态机复制。
 
-In the PoW algorithm stated above, though each node receives and validates blocks, there are no message exchanges between nodes to reach a consensus. But in PBFT, each node communicates with other participating nodes to reach a consensus and the finality of the block can be guaranteed as soon as nodes were able to reach a consensus.
+在上述 PoW 算法中，虽然每个节点都会接收并验证区块，但节点之间并没有信息交换来达成共识。 但在 PBFT 中，每个节点都会与其他参与节点通信以达成共识，只要节点能够达成共识，就能保证区块的最终性。
 
-The communication between nodes basically progresses as shown below. But there are some variants which reflect each system's characteristics.
+节点之间的通信基本如下图所示。 但也有一些变体，反映了每个系统的特点。
 
-![PBFT message flow](/img/learn/pbft.png)
+PBFT信息流](/img/learn/pbft.png)
 
-As shown above, a participating node in PBFT basically communicates with all nodes in the network in several phases. This characteristic limits the number of nodes because the communication volume increases exponentially as the number of nodes increases.
+如上所述，参与 PBFT 的节点基本上分几个阶段与网络中的所有节点进行通信。 这一特性限制了节点的数量，因为通信量会随着节点数量的增加而呈指数增长。
 
-## Consensus Mechanism in Kaia <a id="consensus-mechanism-in-kaia"></a>
+## Kaia 的共识机制<a id="consensus-mechanism-in-kaia"></a>
 
-Kaia is aiming to be an Enterprise-ready and Service-centric platform. Therefore we need to solve the finality problem written above and the network should be able to allow many nodes to participate in the network. To make this possible, Kaia is using an optimized version of Istanbul BFT, which implements PBFT with modifications to deal with blockchain network's characteristics.
+Kaia 的目标是成为一个企业就绪、以服务为中心的平台。 因此，我们需要解决上面所写的终结性问题，而且网络应该能够允许许多节点参与其中。 为了实现这一点，Kaia 使用了伊斯坦布尔 BFT 的优化版本，该版本实现了 PBFT，并针对区块链网络的特点进行了修改。
 
-In Kaia, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CNs are managed by CCOs (Core Cell Operators) and are in charge of block generation. These blocks are verified by all nodes in the network. Please refer to [here](./learn.md#kaia-network-topology) to know more about this network topology.
+在 Kaia 中，有三种节点：CN（共识节点）、PN（代理节点）和 EN（端点节点）。 CN 由 CCO（核心小区运营商）管理，负责区块生成。 这些区块由网络中的所有节点验证。 请参阅 [此处]（./learn.md#kaia-network-topology），了解有关该网络拓扑的更多信息。
 
-![Network topology](/img/learn/klaytn_network_node.png)
+网络拓扑结构](/img/learn/klaytn_network_node.png)
 
-Kaia achieves fast finality by adopting and improving Istanbul BFT. Because validation and consensus are done for each block there is no fork and the block's finality is guaranteed instantly as soon as the consensus is made.
+通过采用和改进伊斯坦布尔 BFT，Kaia 实现了快速终结。 由于验证和共识是针对每个区块进行的，因此不会出现分叉，一旦达成共识，就能立即保证区块的最终性。
 
-And also the issue of increasing communication volume in the BFT algorithm is solved by utilizing randomly selected `Committee`. CNs collectively form a `Council` and on each block generation, part of them are selected as a member of `Committee` using a VRF (Verifiable Random Function).
+此外，BFT 算法中通信量增加的问题也通过利用随机选择的 "委员会 "得到了解决。 CN 共同组成一个 "委员会"，在每个区块生成时，使用 VRF（可验证随机函数）选出其中一部分作为 "委员会 "成员。
 
-![Concept of council and committee](/img/learn/council-committee.png)
+理事会和委员会的概念](/img/learn/council-committee.png)
 
-Because consensus messages are exchanged only between the committee members, the communication volume can be limited under the designed level even though the total number of CNs increases.
+由于共识信息只在委员会成员之间交换，因此即使 CN 总数增加，通信量也能限制在设计水平之下。
 
-Currently, Kaia Mainnet can provide a high throughput of 4,000 transactions per second with one-second block generation interval. More than 50 consensus nodes can participate in the CNN (Consensus Node Network) at the moment and the number will continuously increase as Kaia continues to aggressively optimize the algorithm.
+目前，Kaia Mainnet 可以提供每秒 4000 笔交易的高吞吐量，区块生成间隔为一秒。 目前有 50 多个共识节点可以参与 CNN（共识节点网络），随着 Kaia 继续积极优化算法，这一数字还将不断增加。
