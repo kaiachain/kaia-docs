@@ -1,34 +1,34 @@
 ---
-sidebar_label: Using Block Explorers
+sidebar_label: 使用积木探索器
 ---
 
-# How to verify Smart Contracts Using Block Explorers
+# 如何使用区块探索器验证智能合约
 
-## Introduction
+## 导言
 
-Usually, the deployer of a smart contract is the only party with access to the code that was actually deployed, and the public cannot read the source code of a contract until the deployer has verified it. However, this is where contract verification comes in as an important step in the smart-contract development cycle, as it helps improve the transparency (for users), convenience (for developers), and security of deployed contracts.
+通常情况下，智能合约的部署者是唯一能接触到实际部署代码的一方，在部署者验证之前，公众无法读取合约的源代码。 然而，这正是合约验证作为智能合约开发周期中一个重要步骤的作用所在，因为它有助于提高已部署合约的透明度（对用户而言）、便利性（对开发者而言）和安全性。
 
-Having said that, once a smart contract is validated, block explorers like Kaiascope and Kaiascan also make it possible for the public to interact with the contract's public methods using the block explorer's user interface. This is in addition to the public having direct access to the verified contract source code.
+尽管如此，一旦智能合约得到验证，Kaiascope 和 Kaiascan 等区块探索器还可以让公众使用区块探索器的用户界面与合约的公共方法进行交互。 除此之外，公众还可以直接访问经过验证的合同源代码。
 
-In this guide, we'll take a look at how to use block explorers to verify deployed smart contracts on the Kaia Network.
+在本指南中，我们将了解如何使用区块探索器验证 Kaia 网络上部署的智能合约。
 
-## Prerequisites
+## 先决条件
 
-- [Remix IDE](https://ide.kaia.io/) and [Kaia Wallet](https://docs.kaiawallet.io/getting_started/quick_start#install-kaia-wallet)
-- Enough test KAIA from [faucet](https://faucet.kaia.io)
+- [Remix IDE](https://ide.kaia.io/)和[Kaia 钱包](https://docs.kaiawallet.io/getting_started/quick_start#install-kaia-wallet)
+- 从 [水龙头](https://faucet.kaia.io) 测试 KAIA 是否足够
 
-## Getting Started
+## 开始
 
-In this guide, we will be going over verifying both single contracts and multi-part contracts on the block explorers that exist in the Kaia ecosystem, viz.:
+在本指南中，我们将介绍在 Kaia 生态系统中存在的区块探索器上验证单个合约和多部分合约的方法，这些探索器是：
 
 - [Kaiascope](https://kaiascope.com/)
 - [Kaiascan](https://www.kaiascan.io/)
 
-Without further ado, let's get started!
+废话不多说，让我们开始吧！
 
-## Deploying a single Contract
+## 部署单一合同
 
-To verify a smart contract, you need to deploy the contract first on the target network. Hence, for the sake of this guide, we will be deploying the contract to Kaia Kairos Testnet. Also, in this tutorial, we will be deploying a simple counter contract named `Counter.sol` on Remix IDE. The code is shown below:
+要验证智能合约，首先需要在目标网络上部署合约。 因此，在本指南中，我们将把合同部署到 Kaia Kairos Testnet。 此外，在本教程中，我们将在 Remix IDE 上部署一个名为 "Counter.sol "的简单计数器合约。 代码如下所示：
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -52,42 +52,42 @@ contract Counter {
 
 :::note
 
-You can check this page for a tutorial on deploying smart contracts using [libraries](../../../references/sdk/sdk.md) on Kaia Kairos Testnet. You may also use a developer tool such as [Hardhat](../../get-started/hardhat.md), [Foundry](../deploy/foundry.md), [Remix](../deploy/deploy.md#remix-ide)  or another tool if preferred, to deploy the smart contract to Kaia Kairos Testnet.
+您可以在此页面查看 Kaia Kairos Testnet 上使用 [libaries](../../../references/sdk/sdk.md)部署智能合约的教程。 您也可以使用 [Hardhat](../../get-started/hardhat.md), [Foundry](../deploy/foundry.md), [Remix](../deploy/deploy.md#remix-ide) 等开发工具或其他工具，将智能合约部署到 Kaia Kairos Testnet。
 
 :::
 
-## Parameters for single contract verification
+## 单一合同核查参数
 
-Verifying a contract on the block explorers requires some parameters, and these must be considered while deploying the smart contract. The following are some details related to the contract's compiler and deployment in order to verify a contract successfully:
+在区块探索器上验证合约需要一些参数，在部署智能合约时必须考虑这些参数。 以下是与合同编译器和部署有关的一些细节，以便成功验证合同：
 
 Remix IDE :
 
-- On Remix IDE, navigate to the **Solidity compiler tab**.
+- 在 Remix IDE 上，导航至**Solidity 编译器选项卡**。
 
-  - Observe the **compiler version** used to compile and deploy the contract.
-  - Observe the **Open Source License Type** used in the contract. This means the SPDX license identifier used at the beginning of the Solidity source file. In the `Counter.sol` file we used `// SPDX-License-Identifier: MIT`
-  - Observe the **EVM version** used for deploying contracts.
-  - (Optional) If **optimization** is enabled during compilation, take note of the value of the optimization runs parameter
+  - 观察用于编译和部署合同的 \*\* 编译器版本\*\*。
+  - 注意合同中使用的**开源许可类型**。 这意味着在 Solidity 源文件开头使用的 SPDX 许可证标识符。 在 `Counter.sol` 文件中，我们使用了 `// SPDX-License-Identifier：MIT`
+  - 注意用于部署合同的 **EVM 版本**。
+  - (可选）如果在编译过程中启用了**优化**，请注意优化运行参数的值
 
   ![](/img/build/tutorials/counter-veri-parameters.png)
 
-- On Remix IDE, navigate to **Kaia tab**.
+- 在 Remix IDE 上，导航至 **Kaia 选项卡**。
 
-  - (Optional) If the contract constructor method accepts arguments, take note of the [ABI-encoded form](https://docs.soliditylang.org/en/develop/abi-spec.html) of the constructor arguments
-  - Take note of the contract address of the smart contract on the **Deployed Contracts** tab after successful deployment.
+  - (可选） 如果合约构造函数方法接受参数，请注意构造函数参数的[ABI-编码形式](https://docs.soliditylang.org/en/develop/abi-spec.html)
+  - 成功部署后，在**已部署合约**选项卡上记下智能合约的合约地址。
 
   ![](/img/build/tutorials/counter-veri-parametersII.png)
 
-## Deploying a multi-part contract
+## 部署多部分合同
 
-It is important to note that deploying a multi-part contract involves the same steps as deploying a single contract. For the sake of this guide, we will be deploying a simple KIP7 airdrop contract named `airdropToken.sol`. The code is shown below:
+值得注意的是，部署多部分合同的步骤与部署单部分合同的步骤相同。 在本指南中，我们将部署一个名为 `airdropToken.sol` 的简单 KIP7 空投合约。 代码如下所示：
 
 ```solidity
-//SPDX-License-Identifier: MIT
+//SPDX-License-Identifier：MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
 import "@kaiachain/contracts/access/Ownable.sol";
-// the creator of the project mints certian amount of fungible tokens directly to a certain selection of wallets.
+// 项目创建者直接向选定的钱包铸造一定数量的可替代代币。
 contract TokenAirdrop is KIP7, Ownable {
     constructor() KIP7("Token Aidrop Demo", "TAD") {
     }
@@ -107,93 +107,93 @@ contract TokenAirdrop is KIP7, Ownable {
         virtual
         override
         returns (bool)
-    {
-        return
+    { return
+
             super.supportsInterface(interfaceId);
     }
 }
 ```
 
-## Parameters for multi-part contract verification
+## 多部分合同核查参数
 
-The parameters for verifying a multi-part contract are the same as those for a single contract. However, because they are made up of multiple dependent contracts, we need to pre-process all dependencies of the contract into a single solidity file. This preprocessing is usually referred to as smart contract flattening.
+验证多部分合同的参数与验证单部分合同的参数相同。 但是，由于它们是由多个从属合同组成的，我们需要将合同的所有从属关系预处理成一个单一的 solidity 文件。 这种预处理通常被称为智能合约扁平化。
 
-For this reason, we will have to flatten the contract so it can be verified using the new flattened Solidity file on the block explorer.
+因此，我们必须将合约扁平化，以便在区块资源管理器上使用新的扁平化 Solidity 文件进行验证。
 
 Remix IDE:
 
-- On Remix IDE, navigate to the **File explorer tab**.
+- 在 Remix IDE 上，导航至**文件资源管理器选项卡**。
 
-  - Select the newly created contract under the **contracts** folder
-  - Click or tap with two fingers to see all commands available on the contract.
-  - Select **flatten**
+  - 在**合同**文件夹下选择新创建的合同
+  - 点击或用双指轻点，即可查看合同上的所有可用命令。
+  - 选择 \*\* 压平\*\*
 
   ![](/img/build/tutorials/airdropToken-flattened.png)
 
-  - Once the code is flattened, you will see a new contract named `airdropTokens_flattened.sol`.
+  - 一旦代码被扁平化，你将看到一个名为 `airdropTokens_flattened.sol` 的新合约。
 
   ![](/img/build/tutorials/airdropToken-flattened-file.png)
 
 :::note
 
-There are different tools for flattening a multi-part smart contract into a single Solidity file, such as [Hardhat Flattener](https://hardhat.org/hardhat-runner/docs/advanced/flattening). Kindly refer to the respective smart contract flattening tool's documentation for more detailed instructions on its usage.
+有不同的工具可以将多部分智能合约扁平化为一个单一的 Solidity 文件，如 [Hardhat Flattener](https://hardhat.org/hardhat-runner/docs/advanced/flattening)。 请参阅相关智能合约扁平化工具的文档，了解更详细的使用说明。
 
 :::
 
-## Verifying the Contract
+## 核实合同
 
-Having obtained all of our verification parameters, we will go over the steps for verifying a single smart contract (Counter.sol) and a multi-part smart contract (airdropTokens.sol) on the block explorer in this section.
+在获得所有验证参数后，我们将在本节中详细介绍在区块资源管理器上验证单一智能合约（Counter.sol）和多部分智能合约（airdropTokens.sol）的步骤。
 
 ### 1. Kaiascope
 
-To verify a single contract and multi-part contracts on Kaiascope, follow the steps below:
+要在 Kaiascope 上验证单份合同和多份合同，请按以下步骤操作：
 
-#### 1.1 Verifying a single contract
+#### 1.1 验证单一合同
 
-1. Goto the search bar of [Kaiascope](https://kairos.kaiascope.com) and paste the deployed contract address.
-2. Navigate to the **contract tab** on that page.
-3. Click on the **Match Contract Source Code** link to submit the contract code for verification.
+1. 进入 [Kaiascope](https://kairos.kaiascope.com)的搜索栏，粘贴已部署的合同地址。
+2. 导航至该页面上的**合同选项卡**。
+3. 单击**匹配合同源代码**链接，提交合同代码以供验证。
 
 ![](/img/build/tutorials/counter-contract-tab.png)
 
-4. On the contract verification page, make sure your account is connected to either Kaia Wallet or Metamask. For this guide, we will be using Kaia Wallet.
-5. Fill in the contract address in the **contract address field**. Note: This field is usually filled with the contract address automatically.
-6. Select the **compiler version** used for the `Counter.sol` example.
-7. Select the **Open Source License Type** used for the `Counter.sol` example. For `Counter.sol` example, select the option, **MIT License (MIT)**. If there was none used, select **No License (None)**.
-8. In the **Source Code field**, select **Source Text** and paste the source code for `Counter.sol` in the text field.
-9. Select **True** for **Optimization** if it was enabled during compilation, and fill in the number of runs under **Optimization Runs** to be **200**.
-10. Select the **EVM version** for the contract. For `Counter.sol` example, select the option **Istanbul**.
-11. Click on the CAPTCHA at the bottom and the **Sign and Submit** button to confirm and begin verification.
+4. 在合同验证页面，确保您的账户已连接到 Kaia 钱包或 Metamask。 在本指南中，我们将使用 Kaia 钱包。
+5. 在**合同地址栏**中填写合同地址。 注：该字段通常会自动填写合同地址。
+6. 选择 "Counter.sol "示例使用的**编译器版本**。
+7. 选择用于 "Counter.sol "示例的**开源许可类型**。 在 "Counter.sol "示例中，选择 "**MIT License (MIT)**" 选项。 如果没有使用许可证，请选择 **无许可证（无）**。
+8. 在**源代码字段**中，选择**源文本**，然后在文本字段中粘贴 "Counter.sol "的源代码。
+9. 如果在编译过程中启用了**优化**，则为**优化**选择**真**，并在**优化运行**下填写运行次数为**200**。
+10. 为合同选择 **EVM 版本**。 以 "Counter.sol "为例，选择 "**伊斯坦布尔**"选项。
+11. 点击底部的验证码和**签名并提交**按钮，确认并开始验证。
 
 ![](/img/build/tutorials/counter-verification-page.png)
 
-12. After signing the verification request, you will get a verification status notification
+12. 签署验证请求后，您将收到验证状态通知
 
 ![](/img/build/tutorials/counter-success-popup.png)
 
-13. Once verification is done, the result of the verification will be displayed in the browser, and a success result page with the contract address. Click on the contract address to view the **Contract Source Code**, **Contract ABI**, and **Bytecode**.
+13. 验证完成后，浏览器将显示验证结果，并显示包含合同地址的成功结果页面。 点击合同地址，查看**合同源代码**、**合同 ABI**和**字节码**。
 
 ![](/img/build/tutorials/counter-success-popup-I.png)
 
 ![](/img/build/tutorials/counter-full-verification.png)
 
-#### 1.2 Verifying multi-part contract
+#### 1.2 验证多部分合同
 
-Verifying a multi-part contract on Kaiascope is as straightforward as verifying a single contract, except that it requires some additional steps. In this section, we will be verifying the `airdropToken.sol` contract with the following additional steps:
+在 Kaiascope 上验证多部分合同与验证单部分合同一样简单，只是需要一些额外的步骤。 在本节中，我们将通过以下额外步骤验证 `airdropToken.sol` 合约：
 
-- You can either Select **Source Text** under **Source Code** (step 3 of the Counter.sol example) or **Solidity File(s)** under the **Source Code** field.  In the case of **Source Text**, copy the code in the `airdropToken_flattened.sol` and paste it in the text field. If **Solidity File(s)**, you can download the `airdropToken_flattened.sol` file on Remix IDE and upload it to the field.
+- 您可以在**源代码**下选择**源文本**（Counter.sol 示例的第 3 步），或在**源代码**字段下选择**合并文件**。  在**源文本**的情况下，复制 "airdropToken_flattened.sol "中的代码并将其粘贴到文本字段中。 如果**固化文件**，可在 Remix IDE 上下载`airdropToken_flattened.sol`文件并上传到字段。
 
-a. Source Text
+a. 来源文本
 
 ![](/img/build/tutorials/airdrop-veri-field-I.png)
 
-b. Solidity File(s)
+b. 固体文件
 
 ![](/img/build/tutorials/airdrop-veri-field-II.png)
 
-After this, every other step remains the same as verifying a single contract. Having filled in the verification parameter, click on the **Sign and Submit** button to confirm and begin verification.
+在此之后，其他所有步骤都与验证单个合同相同。 填写验证参数后，点击**签署并提交**按钮进行确认并开始验证。
 
-Once verification is done, the result of the verification will be displayed in the browser, and a success result page with the contract address. Click on the contract address to view the **Contract Source Code**, **Contract ABI**, and **Bytecode**.
+验证完成后，浏览器将显示验证结果，并显示包含合同地址的成功结果页面。 点击合同地址，查看**合同源代码**、**合同 ABI**和**字节码**。
 
 ![](/img/build/tutorials/airdrop-success-popup.png)
 
@@ -203,46 +203,46 @@ Once verification is done, the result of the verification will be displayed in t
 
 ### 2. Kaiascan
 
-To verify a single contract and multi-part contracts on Kaiascan, navigate to the [contract submission request page](https://kairos.kaiascan.io/contract).
+要在 Kaiascan 上验证单个合同和多部分合同，请浏览[合同提交申请页面](https://kairos.kaiascan.io/contract)。
 
 :::note
 
-Verification of contracts on Kaiascan is currently in beta.
+目前，Kaiascan 上的合同验证还处于测试阶段。
 
 :::
 
 ![](/img/build/tutorials/kaiascan-con-sub-page.png)
 
-#### 2.1 Verifying single contract
+#### 2.1 核查单一合同
 
-1. Fill in the **contract address** for the deployed contract (Counter.sol)
-2. Select the **compiler version** used for the `Counter.sol` example
-3. Select the **Open Source License Type** used for the `Counter.sol` example. For `Counter.sol` example, select the option, **MIT License (MIT)**. If there was none used, select **No License (None)**
-4. Make sure to download `Counter.sol` from Remix IDE and upload it in the **Source Code (Solidity File)** field
-5. Select the **EVM version** for the contract. For `Counter.sol` example, select the option **Istanbul**.
-6. Select **True** for **Optimization** if it was enabled during compilation, and fill in the number of runs under **Optimization Runs** to be **200**.
-7. (optional) To get the ABI-encoded constructor arguments for this field, navigate to [abi.hashex.org](http://abi.hashex.org) to get the encoded data following the image below:
+1. 填写已部署合同的**合同地址** (Counter.sol)
+2. 选择 "Counter.sol "示例使用的**编译器版本**
+3. 选择用于 "Counter.sol "示例的**开源许可类型**。 在 "Counter.sol "示例中，选择 "**MIT License (MIT)**" 选项。 如果没有使用，请选择 **无许可证（无）**
+4. 确保从 Remix IDE 下载 "Counter.sol"，并将其上载到\*\*源代码（Solidity 文件）\*\*字段中。
+5. 为合同选择 **EVM 版本**。 以 "Counter.sol "为例，选择 "**伊斯坦布尔**"选项。
+6. 如果在编译过程中启用了**优化**，则为**优化**选择**真**，并在**优化运行**下填写运行次数为**200**。
+7. (可选）要获取该字段的 ABI 编码构造函数参数，请访问 [abi.hashex.org](http://abi.hashex.org)，获取下图所示的编码数据：
 
 ![](/img/build/tutorials/abi-hashex.png)
 
-8. Click on the **Verify and Publish** button to begin verification.
+8. 点击**验证和发布**按钮开始验证。
 
 ![](/img/build/tutorials/counter-k-verification-page.png)
 
-9. Once verification is done, you will get a **Submission Successful** message. Now you can paste the contract address in the explorer search bar  to view the **Contract Source Code**, **Contract ABI**, **Creation Code** and **ABI-encoded Value**.
+9. 验证完成后，您将收到**提交成功**信息。 现在，您可以在资源管理器搜索栏中粘贴合同地址，查看**合同源代码**、**合同 ABI**、**创建代码**和**ABI 编码值**。
 
 > ![](/img/build/tutorials/counter-k-full-verification.png)
 
-### 2.2 Verifying multiple-part contract
+### 2.2 验证多部分合同
 
-Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. However, it is important to note we will be copying and pasting the `airdropToken_flattened.sol` file in the **Enter the Solidity Contract Code below** field because Kaiascan does not currently support file upload for verification.
+在 Kaiascan 验证多部分合同的步骤与验证单个合同相同。 不过，需要注意的是，由于 Kaiascan 目前不支持上传文件进行验证，我们将在**下面输入 Solidity 合同代码**字段中复制并粘贴 "airdropToken_flattened.sol "文件。
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
-After filling in the verification parameters, click on the **Verify and Publish** button to begin verification. Once verification is done, the verification page will refresh. Now you can paste the contract address in the explorer search bar to view the **Contract Source Code**, **Contract ABI**, and **Creation Code**.
+填写验证参数后，点击**验证和发布**按钮开始验证。 验证完成后，验证页面将刷新。 现在，您可以在资源管理器搜索栏中粘贴合同地址，查看**合同源代码**、**合同 ABI**和**创建代码**。
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
-## Conclusion
+## 结论
 
-Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascope and Kaiascan solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
+恭喜您遵循本指南！ 在本教程中，您将学习如何使用 Kaiascope 和 Kaiascan 来验证合同（单部分和多部分），以提高部署合同的透明度（对用户）、便利性（对开发人员）和安全性。 如需了解更多信息，请访问 [Kaia 文档](https://docs.kaia.io/)；如有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。
