@@ -1,216 +1,216 @@
-# Build a dApp using Scaffold-ETH 2
+# 使用 Scaffold-ETH 2 构建 dApp
 
 ![](/img/banners/kaia-scaffold.png)
 
-## Introduction <a href="#introduction" id="introduction"></a>
+## 导言<a href="#introduction" id="introduction"></a>
 
-Scaffold-ETH 2 is an open-source toolkit for building decentralized applications (dApps) on Ethereum and other EVM-compatible blockchains, like Kaia. Developers can easily deploy a Solidity smart contract and launch a dApp with a React frontend thanks to Scaffold-ETH 2.
+Scaffold-ETH 2 是一个开源工具包，用于在以太坊和其他与 EVM 兼容的区块链（如 Kaia）上构建去中心化应用程序（dApps）。 借助 Scaffold-ETH 2，开发人员可以轻松部署 Solidity 智能合约，并使用 React 前端启动 dApp。
 
-The Scaffold-ETH 2 toolkit was built using Next.js, RainbowKit, Hardhat, Foundry, Wagmi, and TypeScript. Developers can easily create, test, and deploy smart contracts using Hardhat or Foundry, as well as build a React frontend using Next.js.
+Scaffold-ETH 2 工具包使用 Next.js、RainbowKit、Hardhat、Foundry、Wagmi 和 TypeScript 构建。 开发人员可以使用 Hardhat 或 Foundry 轻松创建、测试和部署智能合约，还可以使用 Next.js 构建 React 前端。
 
-In this tutorial, you will learn how to deploy, run a contract and build a dApp on Kaia using Scaffold-ETH 2.
+在本教程中，您将学习如何使用 Scaffold-ETH 2 在 Kaia 上部署、运行合约和构建 dApp。
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 先决条件<a href="#prerequisites" id="prerequisites"></a>
 
-To get started with in this guide, you will need:
+要开始学习本指南，您需要
 
-- [Node (>= v18.17)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- Familiarity with Javascript and React basics such as hooks
-- [Metamask Wallet](https://metamask.io/download/)
-- Test KAIA from [Faucet](https://faucet.kaia.io)
-- RPC Endpoint: you can obtain this from one of the supported [endpoint providers](https://docs.kaia.io/references/public-en/)
+- [节点 (>= v18.17)](https://nodejs.org/en/download/)
+- 纱线（[v1](https://classic.yarnpkg.com/en/docs/install/) 或 [v2+](https://yarnpkg.com/getting-started/install)
+- 熟悉 Javascript 和 React 基础知识，例如钩子
+- [Metamask钱包](https://metamask.io/download/)
+- 测试来自 [龙头] 的 KAIA(https://faucet.kaia.io)
+- RPC 端点：您可以从其中一个受支持的 [端点提供程序](https://docs.kaia.io/references/public-en/) 获取该端点。
 
-## Setting up development environment <a href="#setting-up-dev-environment" id="setting-up-dev-environment"></a>
+## 设置开发环境<a href="#setting-up-dev-environment" id="setting-up-dev-environment"></a>
 
-To install Scaffold-ETH 2, you have two options, either to install by cloning [Scaffold-ETH 2 repository](https://github.com/scaffold-eth/scaffold-eth-2) or by using `npx create-eth@latest`.
+要安装 Scaffold-ETH 2，您有两个选择，要么克隆 [Scaffold-ETH 2 资源库](https://github.com/scaffold-eth/scaffold-eth-2)，要么使用 `npx create-eth@latest` 安装。
 
-For the sake of this guide, we will use the npx method to bootstrap our Scaffold-ETH 2 project.
+在本指南中，我们将使用 npx 方法来引导 Scaffold-ETH 2 项目。
 
-Bootstrap a Scaffold-ETH 2 project by running the command below:
+运行以下命令引导 Scaffold-ETH 2 项目：
 
 ```bash
 npx create-eth@latest
 ```
 
-You will be presented with a series of prompts:
+您将看到一系列提示：
 
-**Project Name**: Input your project name: Enter a name for your project, e.g., kaia-scaffold-example.
+**项目名称**：输入项目名称： 输入项目名称，如 kaia-scaffold-example。
 
-**Solidity Framework**; What solidity framework do you want to use?: Choose your preferred solidity framework (Hardhat, Foundry). For this guide, we will use the Hardhat framework.
+\*\* 实体框架\*\*；您想使用哪种实体框架？选择您喜欢的实体框架（Hardhat、Foundry）。 在本指南中，我们将使用 Hardhat 框架。
 
-**Install packages?**: Press Enter for yes (default option) or type n and press Enter for no
-Once the setup is complete, navigate to the project directory.
+**Install packages?**：按回车键表示是（默认选项）或输入 n 并按回车键表示否
+设置完成后，导航至项目目录。
 
 ```bash
 cd project-name
-// e.g  cd kaia-scaffold-example
+// 例如 cd kaia-scaffold-example
 ```
 
-![Scaffold-ETH setup](/img/build/tutorials/sc-bootstrap.png)
+Scaffold-ETH 设置](/img/build/tutorials/sc-bootstrap.png)
 
-## Highlight of the development process with Scaffold-ETH 2 <a href="#highlight-of-dev-environment" id="highlight-of-dev-environment"></a>
+## Scaffold-ETH 2 开发过程的亮点<a href="#highlight-of-dev-environment" id="highlight-of-dev-environment"></a>
 
-The process for developing a project with Scaffold-ETH 2 can be outlined as follows:
+使用 Scaffold-ETH 2 开发项目的流程可概述如下：
 
-1. Update the network configurations in Hardhat for Kaia
-2. Add your smart contracts to the **packages/hardhat/contracts**
-3. Edit your deployment scripts in the **packages/hardhat/deploy**
-4. Deploy your smart contracts to Kaia
-5. Verify your smart contracts with hardhat verify plugin
-6. Configure your frontend to target Kaia in the **packages/nextjs/scaffold.config.ts** file
-7. Edit your frontend as needed in the **packages/nextjs/pages** directory
+1. 为 Kaia 更新 Hardhat 中的网络配置
+2. 将智能合约添加到 **packages/hardhat/contracts** 中
+3. 编辑 **packages/hardhat/deploy** 中的部署脚本
+4. 将智能合约部署到 Kaia
+5. 使用硬帽验证插件验证智能合约
+6. 在 **packages/nextjs/scaffold.config.ts** 文件中配置前端以 Kaia 为目标
+7. 在 **packages/nextjs/pages**目录下根据需要编辑你的前台
 
-For the sake of this guide, we’ll use the default sample contract and frontend available after Scaffold-ETH 2 installation. All that is required is to modify these components for Kaia. In that case, we’ll split the configurations into **Hardhat** and **Next.js** configurations.
+在本指南中，我们将使用 Scaffold-ETH 2 安装后可用的默认示例合同和前端。 只需为 Kaia 修改这些组件即可。 在这种情况下，我们将把配置分为 **Hardhat** 和 **Next.js** 配置。
 
-## Hardhat Configuration
+## 硬头盔配置
 
-In this section, you'll modify the network configurations in the Hardhat configuration file to target Kaia under the **packages/hardhat** folder.
+在本节中，你将修改 Hardhat 配置文件中的网络配置，以**packages/hardhat**文件夹下的 Kaia 为目标。
 
-### Configure Hardhat for Kaia
+### 为 Kaia 配置 Hardhat
 
-To configure hardhat for Kaia, you need to create a .env file and also modify hardhat.config.ts to support Kaia.
+要为 Kaia 配置 hardhat，需要创建 .env 文件并修改 hardhat.config.ts 以支持 Kaia。
 
-**Step 1: Create .env**
+**第 1 步：创建 .env**
 
-To create .env file, copy and paste the code below in your terminal
+要创建 .env 文件，请在终端中复制并粘贴以下代码
 
 ```bash
 touch packages/hardhat/.env
 ```
 
-You can refer to the **.env.example** file for the variables that are already used in the hardhat.config.js file. For Kaia, you'll only need to create one variable: **DEPLOYED_PRIVATE_KEY**.
+关于 hardhat.config.js 文件中已使用的变量，可参考 **.env.example** 文件。 对于 Kaia，您只需创建一个变量：**deployed_private_key**.
 
-**Step 2: Edit your .env file to include this variable:**
+**第 2 步：编辑 .env 文件以包含此变量：**
 
 ```bash
-DEPLOYER_PRIVATE_KEY=INSERT_PRIVATE_KEY
+deployer_private_key=insert_private_key
 ```
 
-The private key stated in your **.env** file corresponds to the account that will deploy and interact with the smart contracts in your Hardhat project.
+在\*\*.env\*\*文件中说明的私钥与将在 Hardhat 项目中部署智能合约并与之交互的账户相对应。
 
-**Step 3: Modify hardhat.config.ts**
+**第 3 步：修改 hardhat.config.ts**
 
-The next thing we want to do is to configure **hardhat.config.ts** to support Kaia.
+接下来我们要做的是配置 **hardhat.config.ts** 以支持 Kaia。
 
-Set the constant **defaultNetwork** to the network you are deploying the smart contract to.
+将常量**defaultNetwork**设置为部署智能合约的网络。
 
 ```js
 defaultNetwork = "kaia"
 ```
 
-Add the network configurations for Kaia under the networks configuration object
+在网络配置对象下为 Kaia 添加网络配置
 
 ```js
 kaia: {
-  url: "INSERT_RPC_URL",
-  accounts: [deployerPrivateKey],
-},
+  url："INSERT_RPC_URL",
+  accounts：[deployerPrivateKey],
+}、
 ```
 
-For more information on using Hardhat with Kaia, please check [Hardhat guide](https://docs.kaia.io/build/get-started/hardhat/) for more details.
+有关在 Kaia 中使用 Hardhat 的更多信息，请查看 [Hardhat 指南](https://docs.kaia.io/build/get-started/hardhat/) 了解更多详情。
 
-### Deploy Contract to Kaia
+### 向 Kaia 部署合同
 
-After configuring Hardhat to support the Kaia network, the next step is to compile and deploy the sample contract.
+配置 Hardhat 以支持 Kaia 网络后，下一步就是编译和部署合同样本。
 
-First, you can compile your contract by running:
+首先，您可以通过运行
 
 ```bash
-yarn compile
+纱线编译
 ```
 
-![Compile](/img/build/tutorials/sc-compile.png)
+编译](/img/build/tutorials/sc-compile.png)
 
-Then, you can run the following command from the root directory of your project:
+然后，可以在项目根目录下运行以下命令：
 
 ```
 yarn deploy
 ```
 
-![Deploy](/img/build/tutorials/sc-deploy.png)
+[部署](/img/build/tutorials/sc-deploy.png)
 
-Note:
+请注意：
 
-> If you did not set the defaultNetwork config in the hardhat.config.ts file, you can append --network INSERT_NETWORK to the command. For example, the following command would deploy a contract to Kaia.
+> 如果没有在 hardhat.config.ts 文件中设置默认网络配置，可以在命令中添加 --network INSERT_NETWORK。 例如，以下命令将向 Kaia 部署一份合同。
 
 > yarn deploy --network kaia
 
-### Verify Your Deployed Contract <a href="#verify-deployed-contract" id="verify-deployed-contract"></a>
+### 验证您已部署的合同<a href="#verify-deployed-contract" id="verify-deployed-contract"></a>
 
-To verify our already deployed contract, we'll use the hardhat verify plugin. All that is required is to add the following configuration to your **hardhat.config.ts** under the etherscan configuration object for Kairos Testnet.
+要验证已部署的合同，我们将使用硬帽验证插件。 只需在 Kairos Testnet 的 etherscan 配置对象下的 **hardhat.config.ts** 中添加以下配置即可。
 
 ```js
-etherscan: {
-    apiKey: {
+etherscan：{
+    apiKey：{
       kairos: "unnecessary",
     },
-    customChains: [
+    customChains：[
       {
-        network: "kairos",
-        chainId: 1001,
-        urls: {
-          apiURL: "https://api-baobab.klaytnscope.com/api",
-          browserURL: "https://kairos.kaiascope.com",
+        network："kairos",
+        chainId：1001,
+        urls：{
+          apiURL："https://api-baobab.klaytnscope.com/api",
+          browserURL："https://kairos.kaiascope.com",
         },
       },
-    ]
+    ]。
   }
 ```
 
-Next is to copy and paste the following command in your terminal to verify the smart contract:
+接下来，在终端中复制并粘贴以下命令来验证智能合约：
 
-Example
+示例
 
 ```js
-yarn hardhat-verify --network network_name contract_address "Constructor arg 1"
+yarn hardhat-verify --network network_name contract_address "构造函数参数 1"
 ```
 
-Actual
+实际
 
 ```js
 yarn hardhat-verify --network kairos 0x5aC1801708a92292F55A8ea4e9D0f1C0C2EC1F73
  "0x1C42aCcd92d491DB8b083Fa953B5E3D9A9E42aD5"
 ```
 
-As you can see above, to verify your contracts, you have to pass in the network name, contract address and constructor arguments (if any). After a short wait, the console will display the verification result and, if successful, the URL to the verified contract on Kaiascope will be provided.
+如上所示，要验证合同，必须输入网络名称、合同地址和构造函数参数（如有）。 稍等片刻，控制台就会显示验证结果，如果验证成功，还会提供指向 Kaiascope 上已验证合同的 URL。
 
-![Verify](/img/build/tutorials/sc-verify.png)
+![验证](/img/build/tutorials/sc-verify.png)
 
-![Verify on Kaiascope](/img/build/tutorials/sc-verify-klaytnscope.png)
+在 Kaiascope 上验证](/img/build/tutorials/sc-verify-klaytnscope.png)
 
-For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).
+有关使用 Hardhat Verify 插件在 Kaia 上验证智能合约的更多信息，请参阅 H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/) 。
 
-## Next.js Configuration <a href="#nextjs-configuration" id="nextjs-configuration"></a>
+## Next.js 配置<a href="#nextjs-configuration" id="nextjs-configuration"></a>
 
-In this section, you'll modify the Next.js configuration to target Kairos Testnet (where the smart contract was deployed to) under the **packages/nextjs** folder. In this folder, we intend to modify the **targetNetwork** array in the scaffoldConfig object in **scaffold.config.ts** file.
+在本节中，你将修改 Next.js 配置，使其针对**packages/nextjs**文件夹下的 Kairos Testnet（智能合约部署到了这里）。 在本文件夹中，我们打算修改 **scaffold.config.ts** 文件中 scaffoldConfig 对象的 **targetNetwork** 数组。
 
-### Modify the targetNetwork array <a href="#modify-targetnetwork-array" id="modify-targetnetwork-array"></a>
+### 修改 targetNetwork 数组<a href="#modify-targetnetwork-array" id="modify-targetnetwork-array"></a>
 
 ```js
-targetNetworks: [chains.klaytnBaobab],
+targetNetworks：[链.klaytnBaobab]、
 ```
 
-That's all required to configure Next.js! Next, is to launch the dApp in your localhost.
+这就是配置 Next.js 的全部要求！ 接下来，在本地主机上启动 dApp。
 
-### Launch the dApp in your Localhost <a href="#launch-dapp-in-localhost" id="launch-dapp-in-localhost"></a>
+### 在本地主机启动应用程序<a href="#launch-dapp-in-localhost" id="launch-dapp-in-localhost"></a>
 
-After making all the necessary configurations, you can now launch the example dApp on your localhost.
+完成所有必要配置后，您就可以在本地主机上启动示例应用程序了。
 
-To do so, run:
+为此，请运行
 
 ```bash
-yarn start
+起纱
 ```
 
-![Run dApp](/img/build/tutorials/sc-run-dapp.png)
+运行应用程序](/img/build/tutorials/sc-run-dapp.png)
 
-You should now be able to access a React-based dApp frontend at http://localhost:3000/. Feel free to  interact with the dApp by connecting your wallet or checking out the contract debugger page.
+现在，您应该可以在 http://localhost:3000/ 上访问基于 React 的 dApp 前端。 您可以通过连接钱包或查看合约调试器页面与 dApp 进行互动。
 
-![Scaffold dApp](/img/build/tutorials/sc-dapp.png)
+脚手架应用程序](/img/build/tutorials/sc-dapp.png)
 
-## Conclusion
+## 结论
 
-Congratulations! You have successfully used Scaffold-ETH 2 to deploy a contract and run a dApp on Kaia. Now that you understand the workings of Scaffold-ETH 2, feel free to create and deploy your own smart contracts and modify the frontend to fit your dApp's needs!
+祝贺你 您已成功使用 Scaffold-ETH 2 在 Kaia 上部署了一个合约并运行了一个 dApp。 现在您已经了解 Scaffold-ETH 2 的工作原理，可以随意创建和部署自己的智能合约，并修改前端以满足您的 dApp 需求！
 
-Visit [Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
+如需了解更多信息，请访问 [Scaffold-ETH 2 文档](https://docs.scaffoldeth.io/) ；如有任何疑问，请访问 [Kaia 论坛](https://devforum.kaia.io/)。
