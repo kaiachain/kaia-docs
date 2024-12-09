@@ -1,74 +1,74 @@
-# Prune Node Data
+# 修剪节点数据
 
-This page explains how to delete historical block states to reduce the storage requirement. Kaia offers two approaches for pruning block states:
+本页介绍如何删除历史块状态以减少存储需求。 Kaia 提供了两种修剪块状态的方法：
 
-- [Live Pruning](../../learn/storage/state-pruning.md#state-live-pruning): With the live pruning feature enabled, the block states beyond a certain retention period will be automatically deleted.
-- [Batch Pruning: State Migration](../../learn/storage/state-pruning.md#state-batch-pruning-state-migration): The block states can be state-migrated, meaning the block states before a certain block number become available.
+- [实时修剪](.../.../learn/storage/state-pruning.md#state-live-pruning)：启用实时修剪功能后，超过一定保留期限的块状态将被自动删除。
+- [批量剪枝：状态迁移](.../.../learn/storage/state-pruning.md#state-batch-pruning-state-migration)：区块状态可以进行状态迁移，也就是说，在某个区块编号之前的区块状态都是可用的。
 
-## Understanding Pruning Impacts
+## 了解修剪的影响
 
-"Live pruning" continuously deletes old states, keeping disk size at a minimum. However, due to accompanying bookkeeping tasks, live pruning slightly slows down block sync speed. "Batch pruning", on the other hand, does not affect performance after migration is complete, but a migration session takes a few days and temporarily requires large free disk space to copy the states.
+"实时剪枝 "可持续删除旧状态，将磁盘大小保持在最小范围内。 不过，由于伴随着记账任务，实时修剪会稍微降低区块同步速度。 另一方面，"批量剪枝 "在迁移完成后不会影响性能，但迁移会话需要几天时间，并暂时需要大量可用磁盘空间来复制状态。
 
-## How to Perform Live Pruning
+## 如何进行现场修剪
 
-To enable live pruning from the genesis block, use the `--state.live-pruning` flag when starting your node. If you're starting from a database where live pruning is already enabled, the flag is optional but recommended for clarity.
+要从创世区块启用实时剪枝，请在启动节点时使用 `--state.live-pruning` 标记。 如果从已启用实时剪枝的数据库开始，则可选择是否使用该标记，但为了清晰起见，建议使用该标记。
 
 :::note
 
-You can control the retention period for live pruning using the `--state.live-pruning-retention NNN` flag (default: 172800 seconds, that is 48 hours). This flag determines how long historical block states are kept before being pruned.
+您可以使用"--state.live-pruning-retention NNN "标记来控制实时剪枝的保留时间（默认值：172800 秒，即 48 小时）。 该标志决定了历史数据块状态在被剪枝前的保留时间。
 
 :::
 
 :::info
 
-Databases with and without live pruning are incompatible. To run a node with live pruning, you must either start from the genesis block with the `--state.live-pruning` flag or start from a [chaindata snapshot](./chaindata-snapshot.md) that already has live pruning enabled.
+有实时修剪和没有实时修剪的数据库是不兼容的。 要运行带实时剪枝功能的节点，必须从带有 `--state.live-pruning`标记的创世块开始，或者从已启用实时剪枝功能的 [chaindata snapshot]（./chaindata-snapshot.md）开始。
 
-You cannot convert a non-live-pruning database to a live-pruning database, and vice versa. Here are some example log messages you might see:
+不能将非实时剪枝数据库转换为实时剪枝数据库，反之亦然。 以下是您可能会看到的一些日志信息示例：
 
 ```sh
-# First time enabling live pruning with an empty database
-INFO[08/27,14:09:01 +09] [41] Writing live pruning flag to database
+# 首次启用实时修剪，数据库为空
+INFO[08/27,14:09:01 +09] [41] 将实时修剪标志写入数据库
 
-# Live pruning enabled
-INFO[08/27,14:09:01 +09] [41] Live pruning is enabled     retention=172800
+# 启用实时修剪
+INFO[08/27,14:09:01 +09] [41] 启用实时修剪 retention=172800
 
-# Live pruning disabled
-INFO[08/27,14:09:46 +09] [41] Live pruning is disabled because flag not stored in database
+# 禁用实时修剪
+INFO[08/27,14：09:46 +09] [41] 实时剪枝已禁用，因为数据库中未存储标志
 
-# Cannot turn on live pruning after the chain has advanced (head block num > 0)
-Fatal: Error starting protocol stack: cannot enable live pruning after chain has advanced
+# 在链前进后无法开启实时剪枝（头部区块数>0）
+Fatal: Error starting protocol stack: cannot enable live pruning after the chain has advanced.
 ```
 
 :::
 
-## How to Perform Batch Pruning
+## 如何进行批量修剪
 
-### Prerequisites
+### 先决条件
 
-- Recommended to run on a machine with m6i.8xlarge (32 cores and 128GB memory) or higher specs.
-- The machine should have enough spare disk space (500GB or more).
-- The entire process takes approximately 7 days to complete:
-  - Stage 1: Copy (migrate) the state to a new directory. The message "State migration is completed" appears.
-  - Stage 2: Block sync continues on the new directory. The old directory will be deleted after this step.
+- 建议在配备 m6i.8xlarge（32 核和 128GB 内存）或更高配置的机器上运行。
+- 机器应有足够的备用磁盘空间（500GB 或以上）。
+- 整个过程大约需要 7 天：
+  - 第 1 阶段：将状态复制（迁移）到新目录。 出现消息 "状态迁移已完成"。
+  - 第 2 阶段：在新目录中继续进行区块同步。 完成此步骤后，旧目录将被删除。
 
-### Steps
+### 步骤
 
-1. Attach to the node via console:
+1. 通过控制台连接节点：
 
 ```sh
 ken attach --datadir /var/kend/data
 ```
 
-2. Use the `admin` namespace RPCs to control state migration:
+2. 使用 `admin` 命名空间 RPC 控制状态迁移：
 
 ```js
-// Start
+// 启动
 > admin.startStateMigration()
 null
 
-// Check progress
+// 检查进度
 > admin.stateMigrationStatus
 
-// Abort
+// 中止
 > admin.stopStateMigration()
 ```
