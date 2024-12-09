@@ -1,27 +1,27 @@
-# Interact with Contracts
+# 与合同互动
 
-In this section, you will be interacting with and sending a transaction to a simple contract deployed on Kairos using our newly created multisig wallet.
+在本节中，您将使用我们新创建的多重签名钱包与部署在 Kairos 上的简单合约进行交互并向其发送一笔交易。
 
-**Pre-requisites**
+**先决条件**
 
 - [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../../tutorials/connecting-metamask.mdx#send-klay)
-- [Remix](https://remix.ethereum.org/) & [Kaia Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Obtain test KAIA from the [Faucet](https://faucet.kaia.io)
+- [混音](https://remix.ethereum.org/) 和[Kaia 混音插件](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- 从 [水龙头](https://faucet.kaia.io) 获取测试 KAIA
 
-**Step 1:** Navigate to [Remix](https://remix.ethereum.org/)
+**步骤 1：** 导航至 [混音](https://remix.ethereum.org/)
 
-**Step 2:** Compile and deploy the sample **storage contract**.
+**第 2 步：** 编译并部署**存储合同**示例。
 
-The contract must first be deployed before you may interact with it in your multisig wallet. This sample contract contains a simple uint "number" variable that can be updated by calling the **store** method and retrieved by calling the **retrieve** method.
+必须先部署合约，然后才能在多重签名钱包中与之交互。 该示例合约包含一个简单的 uint "数字 "变量，可通过调用**store**方法进行更新，也可通过调用**retrieve**方法进行检索。
 
 ![](/img/build/tools/kaia-safe/ks-ic-deploy.gif)
 
-**Step 3:** Initiate a new transaction.
+**第 3 步：** 启动新交易。
 
-To interact with a smart contract in your safe wallet, click **"New Transaction"**. To complete this step, you will need your already deployed contract address and ABI, as illustrated in the previous step.
+要与安全钱包中的智能合约互动，请点击\*\*"新建交易 "\*\*。 要完成这一步骤，您需要已部署的合同地址和 ABI，如上一步所示。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-ci-init.gif)
 
-**Step 4:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
+**第 4 步：** 审查并提交交易。 您需要用签名者钱包签署交易，一旦达到确认阈值，交易就会执行。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-ci-review-send.gif)
