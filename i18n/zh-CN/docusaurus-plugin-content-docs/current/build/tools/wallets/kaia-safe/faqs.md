@@ -1,106 +1,106 @@
 # Frequently Asked Questions
 
-## Can I add new owners after creating a safe? <a id="Can i add new owners after creating a safe"></a>
+## 创建保险箱后可以添加新的所有者吗？ <a id="Can i add new owners after creating a safe"></a>
 
-Yes! After creating your safe account, Kaia Safe gives you access to manage safe owners, i.e., add, remove, and replace owners, or rename existing owners.
+是的！ 创建保险箱账户后，Kaia Safe 会为您提供管理保险箱所有者的权限，即添加、删除、替换所有者或重命名现有所有者。
 
-Note: To execute this change, you need to be connected with one of the current owners.
+注意：要执行此更改，您需要与当前所有者之一建立联系。
 
-The steps below explain how to add new owners or signers to your Safe account after its creation.
+下面的步骤说明了如何在创建 Safe 账户后为其添加新的所有者或签名人。
 
-**Step 1:** Go to **Settings** in the sidebar menu, you ll see the **Manage Safe Account signers** card under the **Setup** section.
+**步骤 1：** 进入侧边栏菜单的**设置**，你会看到**设置**部分下的**管理安全账户签署人**卡。
 
-**Step 2:** Click the **Add new signer** button at the bottom of the card. Clicking this button would open a new window.
+**步骤 2：** 点击卡片底部的**添加新签名人**按钮。 点击该按钮将打开一个新窗口。
 
 ![](/img/build/tools/kaia-safe/ks-add-signers.png)
 
-**Step 3:** Enter the **name** of the new owner and paste the **owner's address**. Then click the next button at the bottom-right of the page.
+**第 3 步：** 输入新所有人的**姓名**，并粘贴**所有人的地址**。 然后点击页面右下角的 "下一步 "按钮。
 
-**Step 4:** Set a new signature policy. In this case, you can either change or retain the existing signature policy. The image below shows that 2 out of the 4 owners are required to confirm and execute any transaction.
+**步骤 4：** 设置新的签名策略。 在这种情况下，您可以更改或保留现有的签名策略。 下图显示，在 4 位所有者中，有 2 位需要确认和执行任何交易。
 
 ![](/img/build/tools/kaia-safe/ks-add-signer-details.png)
 
-**Step 5:** Review and submit the transaction.
+**第 5 步：** 审查并提交交易。
 
-Confirm that all changes are correct before submitting. You can therefore submit the change by clicking on the **submit** button.
+确认所有更改无误后再提交。 因此，您可以点击**提交**按钮来提交更改。
 
-After clicking on **Submit**, your connected wallet will ask you to confirm the change. Depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
+点击**提交**后，连接的钱包会要求您确认更改。 根据现有的签名政策，其他所有者必须像正常交易一样确认更改。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-change-owner-setup-review.gif)
 
-## Can I change the number of required signer confirmation? <a id="Can i change the number of required signer confirmation"></a>
+## 我可以更改所需的签名确认人数吗？ <a id="Can i change the number of required signer confirmation"></a>
 
-Yes! You can change the number of signer confirmations required by following the steps to be shown below. This is important because you might want to change the owners or signers required to confirm transactions associated with your safe account.
+是的！ 您可以按照以下步骤更改所需的签名确认次数。 这一点很重要，因为您可能想更改确认与安全账户相关的交易所需的所有者或签名人。
 
-**Step 1:** Go to **Settings** in the sidebar menu, you ll see the **Required Confirmation** card under the **Setup** section.
+**步骤 1：** 进入侧边栏菜单的**设置**，你会看到**设置**部分下的**所需确认**卡。
 
-This shows your current signature policy, and from the image below, 2 out of 4 owners are required to confirm any transaction.
+这显示了您当前的签名政策，从下图中可以看出，任何交易都需要 4 位所有者中的 2 位进行确认。
 
 ![](/img/build/tools/kaia-safe/ks-conf-policy.png)
 
-**Step 2:** Click on the **change** button.
+**步骤 2：** 单击 \*\* 更改 \*\* 按钮。
 
-This pops up a new window to select your new signature threshold.
+这时会弹出一个新窗口，选择新的签名阈值。
 
 ![](/img/build/tools/kaia-safe/ks-conf-policy-btn.png)
 
-**Step 3:** Click on the **Submit** button.
+**步骤 3：** 点击**提交**按钮。
 
-Note that depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
+请注意，根据您现有的签名政策，其他所有者必须像正常交易一样确认更改。
 
-## How do I add an existing safe? <a id="How do i add an existing safe"></a>
+## 如何添加现有保险箱？ <a id="How do i add an existing safe"></a>
 
-Using your exported Safe data, which contains your added Safe accounts, address book, and settings, you can easily add your Safe account.
+导出的 Safe 数据包含已添加的 Safe 账户、通讯录和设置，使用这些数据，您可以轻松添加 Safe 账户。
 
-> Note: You must have downloaded your Safe data as shown in the image below:
+> 注意：您必须已下载 Safe 数据，如下图所示：
 
 ![](/img/build/tools/kaia-safe/ks-export-btn.png)
 
-The need to add or load an existing safe into the interface varies. These may include:
+在界面中添加或加载现有保险箱的需求各不相同。 这些可能包括
 
-- You want to access your Safe from a different browser.
-- You want to interact with Safe where another party made you an owner.
-- You want to add any existing safe in read-only mode.
+- 您想从其他浏览器访问 Safe。
+- 您希望与 Safe 进行互动，而另一方让您成为 Safe 的所有者。
+- 您希望以只读模式添加任何现有的保险箱。
 
-Let's go through the process of adding your existing safe in the following steps. Note: Please ensure that your signer's wallet is connected.
+让我们通过以下步骤来了解添加现有保险箱的过程。 注意：请确保签名者的钱包已连接。
 
-**Step 1:** Navigate to **Settings** tab.
+**步骤 1：** 导航至**设置**选项卡。
 
-**Step 2:** Scroll to the **Data Import** card under the **Data** section.
+**步骤 2：** 滚动到**数据**部分下的**数据导入**卡。
 
 ![](/img/build/tools/kaia-safe/ks-data-import-i.png)
 
-Here you can either Drag and Drop a JSON file or choose your file as seen in the image above.
+在这里，你可以拖放 JSON 文件，也可以选择你的文件，如上图所示。
 
-**Step 3:** Click on **Import** button.
+**第 3 步：** 单击**导入**按钮。
 
 ![](/img/build/tools/kaia-safe/ks-data-import-btn.png)
 
 ![](/img/build/tools/kaia-safe/kaia-safe-data-import.gif)
 
-After this, you should now have access to your Safe account.
+之后，您就可以访问 Safe 账户了。
 
-## Common safe Set-up
+## 普通安全设置
 
-This tends to provide some pointers regarding decisions to take when setting up a Safe. These may include:
+这往往会为建立保险箱时的决策提供一些指导。 这些可能包括
 
-- How many owners?
+- 有多少业主？
 
-- What threshold?
+- 什么门槛？
 
-- What wallets are compatible?
+- 兼容哪些钱包？
 
-There is no one best response to these three questions, therefore there is no one optimum Safe configuration. Really, it all depends on the particular use case. Nevertheless, we make an effort to offer some suggestions for things to take into account:
+这三个问题没有一个最佳答案，因此也就没有一个最佳的 Safe 配置。 实际上，这完全取决于具体的使用情况。 尽管如此，我们还是努力提出一些建议，供大家参考：
 
-**How many owners?**
+\*\*有多少业主？
 
-Typically, having many owner accounts is a smart option. It is good practice for several people to have access to the safe account when groups are managing funds. It is advised for individuals who manage money to have multiple accounts so they can use more than one authentication factor.
+通常情况下，拥有多个所有者账户是一个明智的选择。 在团体管理资金时，良好的做法是几个人都能使用安全账户。 建议管理资金的个人拥有多个账户，以便使用多个身份验证因素。
 
-**What threshold?**
+\*\*什么门槛？
 
-A Safe's threshold is the minimum number of owner accounts that must approve a transaction before it can be successfully executed. It is advisable to use a threshold greater than 1, ensuring that at least one additional account is always needed to validate and carry out Safe transactions, rather than allowing a single account to carry out transactions. As a result, money cannot be moved even if an attacker gains access to one account.
+安全阈值是指在交易成功执行前必须获得批准的最小所有者账户数量。 建议使用大于 1 的阈值，以确保始终需要至少一个额外账户来验证和执行 Safe 交易，而不是允许单个账户执行交易。 因此，即使攻击者进入了一个账户，资金也无法转移。
 
-Additionally, it is recommended to choose a threshold of 51% of the total owners, e.g., 2 out of 3, 3 out of 5, etc.  Because of this, even if one owner loses access to their account, users are not immediately locked out of all of their money in the Safe; instead, the other owners can still perform transactions and, for example, replace that lost owner account. One can contend that this serves as a recovery mechanism.
+此外，建议选择占所有者 51%的阈值，例如 3 人中的 2 人、5 人中的 3 人等。  正因为如此，即使一位所有者失去了对其账户的访问权限，用户也不会立即被锁定其在保险箱中的所有资金；相反，其他所有者仍可进行交易，例如，替换该丢失的所有者账户。 可以说，这是一种恢复机制。
 
-**What wallets are compatible?**
-At the moment, Kaia Safe is compatible with [Kaia Wallet](https://docs.kaiawallet.io/), [MetaMask](../../../tutorials/connecting-metamask.mdx).
+**兼容哪些钱包？**
+目前，Kaia Safe兼容[Kaia Wallet](https://docs.kaiawallet.io/)、[MetaMask](.../.../.../tutorials/connecting-metamask.mdx)。
