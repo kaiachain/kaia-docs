@@ -1,54 +1,54 @@
-# Transfer Value
+# 转让价值
 
-As explained in the Kaia design section, Service Chain supports value (KAIA, ERC-20, and ERC-721) transfer between parent chain & child chain.
-This page shows how to enable the value-transfer feature in SCN.
+如 Kaia 设计部分所述，服务链支持父链和子链之间的价值（KAIA、ERC-20 和 ERC-721）转移。
+本页说明如何在 SCN 中启用数值传递功能。
 
-After setting up the EN and SCN, the following procedure is required to enable value-transfer between chains.
+设置 EN 和 SCN 后，需要执行以下步骤才能在链之间进行价值转移。
 
-1. Check the addresses of the bridge operator accounts and add KAIA to the bridge operator accounts.
-2. Deploy the bridge contract to the parent/child chains.
-3. Deploy a token (ERC-20 or 721) contract to the parent/child chains. (If you just need KAIA-transfer, you can skip step 3 & 4.)
-4. Register the token contracts with the bridge contracts on the parent/child chains.
-5. Subscribe to the bridge contracts on the parent/child chains.
+1. 检查网桥操作员账户的地址，并将 KAIA 添加到网桥操作员账户。
+2. 将桥接合约部署到父链/子链上。
+3. 向父/子链部署代币（ERC-20 或 721）合约。 (如果您只需要 KAIA 转机，则可跳过步骤 3 和 4）。
+4. 在父链/子链上将代币合约与桥接合约进行注册。
+5. 订阅父链/子链上的桥接合约。
 
-Before we follow the steps, let's take a look at the high-level system architecture to understand the behind of the mechanism.
+在按步骤操作之前，让我们先来看看高层系统架构，以了解该机制的背后。
 
-## System Architecture <a id="system-architecture"></a>
+## 系统架构<a id="system-architecture"></a>
 
-Figure 1 shows the system architecture of the Service Chain with bridge/token contracts and bridge nodes.
+图 1 显示了带有桥梁/令牌合约和桥梁节点的服务链系统架构。
 
-Below contracts communicate with each other via main/sub-bridge to process user's value transfer requests.
+下面的合约通过主桥/子桥相互通信，处理用户的价值转移请求。
 
-- Bridge contract
-- ERC-20 contract (if needed)
-- ERC-721 contract (if needed)
+- 桥牌合约
+- ERC-20 合同（如需要）
+- ERC-721合同（如需要）
 
-![Figure 1. Service chain architecture](/img/nodes/sc_arch.png)
+![图 1. 服务链架构](/img/nodes/sc_arch.png)
 
-## Bridge Operator Account <a id="bridge-operator-account"></a>
+## 桥梁操作员账户<a id="bridge-operator-account"></a>
 
-For ServiceChain, there are two operator accounts: parent chain bridge operator account, service chain bridge operator account. Each operator account is used to sign transactions.
-If the transaction moves the value to the parent chain, the parent chain bridge operator account signs the transaction. To the child chain, the child chain bridge operator account is used.
-If a user submits a "request value transfer" transaction, the Sub-bridge creates a "handle value transfer" transaction signed by the bridge operator account.
-Therefore, the parent chain bridge operator needs enough KAIA in their balance to pay the transaction fee to the parent chain.
-If the service chain's gas price is set to non-zero, the service chain bridge operator should have KAIA in their balance as well.
+对于 ServiceChain，有两个操作员账户：父链桥操作员账户和服务链桥操作员账户。 每个操作员账户都用于签署交易。
+如果交易将值转移到父链，则父链桥接操作员账户会签署该交易。 对子链而言，使用的是子链桥操作员账户。
+如果用户提交了 "请求价值转移 "交易，子桥就会创建一个由桥操作员账户签署的 "处理价值转移 "交易。
+因此，母链桥接运营商的余额中需要有足够的 KAIA 来向母链支付交易费。
+如果服务链的天然气价格设置为非零，则服务链桥运营商的余额中也应包含 KAIA。
 
-### Keystore and Password file <a id="keystore-and-password-file"></a>
+### 密钥存储和密码文件<a id="keystore-and-password-file"></a>
 
-When SCN is booted, the keystore files and password files for the parent/child operators are automatically generated if their keys don't exist.
-If you want to use a specific account as an operator, you can provide the key. Place the below files in the designated path before booting the SCN.
-The password file should have a password string of the keystore file.
-The password file name should be the account address of the corresponding keystore file.
+启动 SCN 时，如果父/子操作符的密钥不存在，则会自动生成其密钥存储文件和密码文件。
+如果要使用特定账户作为操作员，可以提供密钥。 启动 SCN 前，将以下文件放到指定路径。
+密码文件应包含密钥存储文件的密码字符串。
+密码文件名应为相应密钥存储文件的账户地址。
 
-**files**
+**文件**
 
 - keystore file : `UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b`
-- password file : `0x2eD72a9D7fe5da7672fD21567e07302431649B0B`
+- 密码文件 : `0x2eD72a9D7fe5da7672fD21567e07302431649B0B`
 
-**file path**
+**文件路径**
 
-- Parent chain bridge operator : $datadir/parent_bridge_account
-- Child chain bridge operator : $datadir/child_bridge_account
+- 父链桥操作员 : $datadir/parent_bridge_account
+- 子链桥操作员 : $datadir/child_bridge_account
 
 ```javascript
 > pwd
@@ -65,15 +65,15 @@ UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b
 {"address":"2ed72a9d7fe5da7672fd21567e07302431649b0b","crypto":{"cipher":"aes-128-ctr","ciphertext":"6486509e8158bf4984608cbc5562cf2c9a27cd988a98e543731b39251144e633","cipherparams":{"iv":"96d7e5b6a936278c0797faae6cb3d903"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"8928ba41b8228af19390ec881c51452fa3ea973ad2c253ca0f5bc9197a8b24c4"},"mac":"9c8ec63694c20a473e0ea33840e7d16e9f1a20afc52b3244b703a3ac0a66cfa3"},"id":"9ae10527-7fd3-4aae-a4eb-316af211494e","version":3}
 ```
 
-### Check Bridge Operator Addresses <a id="check-bridge-operator-addresses"></a>
+### 检查桥接运营商地址<a id="check-bridge-operator-addresses"></a>
 
-If you run SCN successfully, you can check the parent/child chain bridge operator address using RPC API like the following.
+如果成功运行 SCN，则可以使用 RPC API 检查父/子链桥操作符地址，如下所示。
 
 ```
 $ kscn attach --datadir ~/kscnd_home
-Welcome to the Kaia JavaScript console!
+欢迎来到 Kaia JavaScript 控制台！
 
-instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
+instance：Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
@@ -84,22 +84,22 @@ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-You can refer to the [subbridge API](../../../references/json-rpc/subbridge/parent-operator) for more details.
+详细信息请参阅 [subbridge API]（.../.../.../references/json-rpc/subbridge/parent-operator）。
 
-### Send KAIA to Bridge Operators <a id="send-kaia-to-bridge-operators"></a>
+### 向桥梁运营商发送 KAIA<a id="send-kaia-to-bridge-operators"></a>
 
-Like anchoring, the parent chain bridge operator needs KAIA to make a value-transfer transaction.
-If the service chain's gas price is set to non-zero, the service chain bridge operator should have KAIA in their balance as well.
+与锚定一样，母链桥运营商需要 KAIA 进行价值转移交易。
+如果服务链的天然气价格设置为非零，则服务链桥运营商的余额中也应包含 KAIA。
 
-After topping up the operator accounts, you can check their balances like below.
+给运营商账户充值后，您可以像下面这样查看账户余额。
 
-**Parent chain bridge operator**
+**家长链桥操作员**
 
 ```
 $ kscn attach --datadir ~/kscnd_home
-Welcome to the Kaia JavaScript console!
+欢迎来到 Kaia JavaScript 控制台！
 
- instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
+ instance：Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -107,13 +107,13 @@ Welcome to the Kaia JavaScript console!
 1e+50
 ```
 
-**Child chain bridge operator**
+**儿童链桥操作员**
 
 ```
 $ kscn attach --datadir ~/kscnd_home
-Welcome to the Kaia JavaScript console!
+欢迎来到 Kaia JavaScript 控制台！
 
- instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
+ instance：Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
@@ -121,45 +121,45 @@ Welcome to the Kaia JavaScript console!
 1e+50
 ```
 
-## Bridge Contract <a id="bridge-contract"></a>
+## 桥牌合约<a id="bridge-contract"></a>
 
-For the cross-chain value transfer, a bridge contract should be deployed to the parent/child chains.
-Users can request a KAIA transfer to the bridge contract to send their KAIA to the other chain.
-Additionally, if token contracts are registered in the bridge contracts, bridge contracts can handle the token transfer between parent and child chains.
+为实现跨链价值转移，应在父链/子链上部署桥梁合同。
+用户可以向桥接合约申请 KAIA 转移，将其 KAIA 发送到另一条链上。
+此外，如果在桥接合约中注册了代币合约，桥接合约可以处理父链和子链之间的代币转移。
 
-### Deployment <a id="deployment"></a>
+### 部署<a id="deployment"></a>
 
-Sub-bridge provides a bridge contract deployment API. You can deploy bridge contracts to both chains using a single RPC call as below.
-Before doing this, you should have connected main-bridge and sub-bridge. Please refer to [Bridge Configuration](bridge-configuration.md) to get detailed guideline.
+子桥提供桥接合同部署应用程序接口。 您可以使用单个 RPC 调用将桥接合约部署到两个链上，如下所示。
+在此之前，您应该已经连接了主桥和副桥。 请参阅 [网桥配置](bridge-configuration.md) 获取详细指南。
 
 ```javascript
 $ kscn attach --datadir ~/kscnd_home
-Welcome to the Kaia JavaScript console!
+欢迎来到 Kaia JavaScript 控制台！
 
-instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
+instance：Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
 
 > subbridge.deployBridge()
-["0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5"]
+["0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5"].
 
 > subbridge.listBridge
 [{
-    localAddress: "0x27caeba831d98b5fbb1d81ce0ed20801702f443a",
-    remoteAddress: "0x22c41ae528627b790233d2e59ea520be12350eb5",
+    localAddress："0x27caeba831d98b5fbb1d81ce0ed20801702f443a",
+    remoteAddress："0x22c41ae528627b790233d2e59ea520be12350eb5",
     subscribed: false
 }]
 ```
 
-You can refer to the [subbridge API](../../..references/json-rpc/subbridge/deploy-bridge) for more details.
+更多详情可参考 [subbridge API]（.../.../...reference/json-rpc/subbridge/deploy-bridge）。
 
-`subbridge_listBridge` shows the bridge contract addresses and their subscription status.
-Sub-bridge saves the list of bridge contract addresses in a file. On reboot, sub-bridge reloads the bridge contract list from the file.
+`subbridge_listBridge` 显示网桥合同地址及其订阅状态。
+子桥将桥接器合同地址列表保存在文件中。 重启时，子桥会从文件中重新加载桥接器合同列表。
 
-### Subscribing <a id="subscribing"></a>
+### 订阅<a id="subscribing"></a>
 
-After deploying the bridge contract, you should make the sub-bridge subscribe to the deployed bridge contracts to enable value transfer. This can be done using another RPC API call, `subbridge_subscribeBridge`.
+部署桥接器合同后，应让子桥接器订阅已部署的桥接器合同，以实现价值转移。 这可以通过另一个 RPC API 调用 "subbridge_subscribeBridge "来实现。
 
 ```javascript
 > subbridge.subscribeBridge("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5")
@@ -173,47 +173,47 @@ null
 }]
 ```
 
-### Checking Status <a id="checking-status"></a>
+### 检查状态<a id="checking-status"></a>
 
-Once subscribed, SCN processes users' "request value transfer" transactions automatically.
-This section explains how to check the bridge contract status.
+订阅后，SCN 将自动处理用户的 "请求价值转移 "交易。
+本节介绍如何检查桥接合同状态。
 
-In a bridge contact, there are two nonces, `requestNonce` and `handleNonce`.
-Unlike in-chain transactions, the sub-bridge can handle a higher nonce request before the lower ones.
+在桥接联系人中，有两个 nonces，即 "requestNonce "和 "handleNonce"。
+与链内交易不同，子桥可以先处理较高的 nonce 请求，然后再处理较低的请求。
 
-- requestNonce : the number of user's "cross-chain value transfer" requests made to this bridge contract.
-- handleNonce : the highest nonce that the sub-bridge handled.
-- lowerHandleNonce : the lowest nonce that the sub-bridge should handle.
+- requestNonce：用户向该桥接合约提出的 "跨链价值转移 "请求的次数。
+- handleNonce：子桥处理过的最高 nonce。
+- lowerHandleNonce：子桥应处理的最低 nonce。
 
-Therefore, if nonces are updated as follows, we can say the cross-chain value-transfers are processed correctly.
+因此，如果非ces 按如下方式更新，我们就可以说跨链值传输得到了正确处理。
 
-- "handleNonce" and "lowerHandleNonce" of the parent chain bridge contract keep approaching to the "requestNonce" of the child chain bridge contract.
-- "handleNonce" and "lowerHandleNonce" keep approaching to the "requestNonce" of the parent chain bridge contract.
+- 父链桥合约的 "handleNonce "和 "lowerHandleNonce "不断接近子链桥合约的 "requestNonce"。
+- "handleNonce "和 "lowerHandleNonce "不断接近父链桥合约的 "requestNonce"。
 
-If "handleNonce" equals to the "requestNonce" of the counterpart bridge contract, and the "lowerHandleNonce" is greater than "handleNonce" by 1, then users' requests were all processed.
+如果 "handleNonce "等于对应桥接合约的 "requestNonce"，且 "lowerHandleNonce "比 "handleNonce "大 1，则用户的请求已全部处理完毕。
 
-### Log <a id="log"></a>
+### 日志<a id="log"></a>
 
-Below is a typical log output from a SCN during normal operation.
-Every 1 second, the status of bridge contracts are printed.
+以下是 SCN 正常运行时的典型日志输出。
+每 1 秒钟打印一次桥牌合约状态。
 
 ```
 INFO[10/16,19:37:40 +09] [45] VT : Parent -> Child Chain                request=8699 handle=4826 lowerHandle=4826 pending=3873
 INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=7894 handle=4207 lowerHandle=4207 pending=3687
 ```
 
-This log shows the request, handle, lowerHandle, and pending nonces.
-Each value means like below
+该日志显示了请求、句柄、lowerHandle 和待处理 nonces。
+每个值的含义如下
 
-- request : the sum of value-transfer request nonce(s) of all subscribed bridge contract(s).
-- handle : the sum of upper handle nonce(s) of all subscribed bridge contract(s).
-- lowerHandle : the sum of lower handle nonce(s) of all subscribed bridge contract(s).
-- pending : the difference between `request` and `lowerHandle`.
+- request：所有已认购桥接合约的价值转移请求 nonce 的总和。
+- handle：所有已签订的桥接合同的上层句柄非密码总和。
+- lowerHandle：所有已订阅桥接合约的下层句柄非采样字符串的总和。
+- pending："request "和 "lowerHandle "的区别。
 
 ### RPC API <a id="rpc-api"></a>
 
-You can check the status of a bridge contract like below.
-You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-bridge-information) for more details.
+您可以像下面这样查看桥牌合约的状态。
+详细信息请参阅 [subbridge API]（.../.../.../references/json-rpc/subbridge/get-bridge-information）。
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -229,90 +229,90 @@ You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-
 }
 ```
 
-## Token Contract (ERC-20/721) <a id="token-contract-erc-20-721"></a>
+## 代币合约（ERC-20/721）<a id="token-contract-erc-20-721"></a>
 
-Service Chain supports ERC-20/721 value transfer as well.
-To support them, service chain compatible ERC-20/721 token contracts should be deployed on both parent and child chains.
-For the ERC-20/721 token contract code,
-you can refer to the [Token standard](../../../build/smart-contracts/token-standard.md).
+服务链还支持 ERC-20/721 价值转移。
+为支持它们，应在父链和子链上部署与服务链兼容的 ERC-20/721 令牌合约。
+关于 ERC-20/721 令牌合约代码，
+，您可以参考 [Token standard](../../../build/smart-contracts/token-standard.md).
 
-### Deployment  <a id="deployment"></a>
+### 部署 <a id="deployment"></a>
 
-SCN does not support an API to deploy ERC-20/721 tokens yet. You need to deploy the tokens via caver-js.
-When you deploy an ERC-20/721 contract, you should use the correct bridge operator account. Use the parent operator account for the main chain deploy, and the child operator for the service chain deploy.
-If a token contract was deployed with a wrong account, value transferring will not work and you need to deploy the token contract again with the correct account.
+SCN 尚不支持部署 ERC-20/721 代币的 API。 您需要通过 caver-js 部署令牌。
+部署 ERC-20/721 合约时，应使用正确的桥接运营商帐户。 使用父操作员账户部署主链，使用子操作员账户部署服务链。
+如果使用错误的账户部署了代币合约，价值转移将不起作用，您需要使用正确的账户重新部署代币合约。
 
-### Register  <a id="register"></a>
+### 注册 <a id="register"></a>
 
-After deploying token contracts, you should register the token contracts with the bridge contracts on the parent/child chains like below.
+部署令牌合约后，您应该在父链/子链上将令牌合约与桥接合约注册在一起，如下所示。
 
 ```javascript
 > subbridge.registerToken("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5", "0x376b72abe1b29cace831bd3f5acdfa967814c9cd", "0x53160735f7cc6ff75e48619f368bb94daff66a1b")
 null
 ```
 
-This command registers the child chain token ("0x376b72abe1b29cace831bd3f5acdfa967814c9cd") with the child chain bridge contract ("0x27caeba831d98b5fbb1d81ce0ed20801702f443a"). And the parent chain token ("0x53160735f7cc6ff75e48619f368bb94daff66a1b") with the parent chain bridge contract ("0x22c41ae528627b790233d2e59ea520be12350eb5").
+该命令将子链令牌（"0x376b72abe1b29cace831bd3f5acdfa967814c9cd"）与子链桥合约（"0x27caeba831d98b5fbb1d81ce0ed20801702f443a"）进行注册。 以及父链令牌（"0x53160735f7cc6ff75e48619f368bb94daff66a1b"）和父链桥接合约（"0x22c41ae528627b790233d2e59ea520be12350eb5"）。
 
-You can refer to the [Service Chain API](../../../references/json-rpc/subbridge/register-token) for more details.
+详细信息请参阅 [Service Chain API]（.../.../.../references/json-rpc/subbridge/register-token）。
 
-## Request Value Transfer <a id="request-value-transfer"></a>
+## 申请价值转移<a id="request-value-transfer"></a>
 
-This section explains the contract methods that will be invoked by a user to request a value transfer.
-Request transaction does not allow zero value (KAIA/ERC-20).
+本节将解释用户在请求价值转移时将调用的合约方法。
+请求交易不允许零值（KAIA/ERC-20）。
 
-### KAIA transfer <a id="kaia-transfer"></a>
+### KAIA 转机<a id="kaia-transfer"></a>
 
-Users can make a "request value transfer" transaction to the **bridge contract** using the below methods.
+用户可使用以下方法向**桥合约**进行 "要求价值转移 "交易。
 
 #### fallback <a id="fallback"></a>
 
-If a user calls the fallback function of the bridge, this requests a KAIA transfer to the same account address as the requesting user in the counterpart chain.
+如果用户调用网桥的回退功能，则会请求向对应链中与请求用户相同的账户地址进行 KAIA 转账。
 
 ```solidity
 function () external payable;
 ```
 
-#### requestKAIATransfer <a id="requestklaytransfer"></a>
+#### 请求 KAIATransfer<a id="requestklaytransfer"></a>
 
-If a user calls this function with `_to`, this requests a KAIA transfer to `_to` address in the counterpart chain.
+如果用户使用 `_to`调用该函数，则会请求向对应链中的 `_to`地址进行 KAIA 传输。
 
 ```solidity
 function requestKAIATransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
 ```
 
-### ERC-20 transfer <a id="erc-20-transfer"></a>
+### ERC-20 转让<a id="erc-20-transfer"></a>
 
-#### 2-Step request via Bridge contract <a id="2-step-request-via-bridge-contract"></a>
+#### 通过桥梁合同提出 2 步申请<a id="2-step-request-via-bridge-contract"></a>
 
-Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
+用户在[批准](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve)桥接合约的令牌后，可使用以下方法向桥接合约进行 "请求价值转移 "交易。
 
 ```solidity
 function requestERC20Transfer(address _tokenAddress, address _to, uint256 _value,uint256 _feeLimit,bytes memory _extraData) external
 ```
 
-#### 1-Step request via ERC-20 contract <a id="1-step-request-via-erc-20-contract"></a>
+#### 通过 ERC-20 合同提出 1 步申请<a id="1-step-request-via-erc-20-contract"></a>
 
-Users can make a "request value transfer" transaction directly to the **ERC-20 contract** using the below method without approving.
-The ERC-20 contract should implement the function, then.
+用户可以使用以下方法直接向**ERC-20 合同**进行 "要求价值转移 "交易，而无需审批。
+那么，ERC-20 合同就应该实现这一功能。
 
 ```solidity
 function requestValueTransfer(uint256 _amount, address _to, uint256 _feeLimit, bytes calldata _extraData) external
 ```
 
-### ERC-721 transfer <a id="erc-721-transfer"></a>
+### ERC-721 转移<a id="erc-721-transfer"></a>
 
-#### 2-Step request via Bridge contract <a id="2-step-request-via-bridge-contract"></a>
+#### 通过桥梁合同提出 2 步申请<a id="2-step-request-via-bridge-contract"></a>
 
-Users can make a "request value transfer" transaction to the Bridge contract using the below method after [approving](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve) the token to the Bridge contract.
+用户在[批准](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#approve)桥接合约的令牌后，可使用以下方法向桥接合约进行 "请求价值转移 "交易。
 
 ```solidity
 function requestERC721Transfer(address _tokenAddress, address _to, uint256 _tokenId, bytes memory _extraData) external
 ```
 
-#### 1-Step request via ERC-721 contract <a id="1-step-request-via-erc-721-contract"></a>
+#### 通过 ERC-721 合同提出 1 步申请<a id="1-step-request-via-erc-721-contract"></a>
 
-Users can make a "request value transfer" transaction directly to the **ERC-721 contract** using the below method without approving.
-The ERC-721 contract should implement the function, then.
+用户可以使用以下方法直接向**ERC-721 合同**进行 "申请价值转移 "交易，而无需审批。
+那么，ERC-721 合同就应该实现该功能。
 
 ```solidity
 function requestValueTransfer(uint256 _uid, address _to) external
@@ -320,35 +320,35 @@ function requestValueTransfer(uint256 _uid, address _to) external
 
 ### onERC721Received() <a id="unsupported-onERC721Received"></a>
 
-The ERC-721 standard has the [onERC721Received](https://eips.ethereum.org/EIPS/eip-721) callback function.
-The `onERC721Received()` works with `safeTransferFrom()` function, but the current bridge contract implementation uses `transferFrom()`, which means the `onERC721Recieved()` is not expected to be called.
+ERC-721 标准有 [onERC721Received](https://eips.ethereum.org/EIPS/eip-721) 回调函数。
+onERC721Received() "与 "safeTransferFrom() "函数一起工作，但当前的网桥合约实现使用 "transferFrom()"，这意味着 "onERC721Recieved() "预计不会被调用。
 
-Alternatively, a further action like `onERC721Recieved()` should be implemented in another way such as event listening (e.g., `event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)`).
+另外，"onERC721Recieved() "之类的进一步操作应以另一种方式实现，如事件监听（例如，"event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)\` ）。
 
-## Value Transfer Recovery
+## 价值转移回收
 
-Value transfer request may be fail for a number of reasons. Say you requested KAIA transfer from subbridge to mainbridge or from mainbridge to subbridge.
-In that case, the bridge contract on the receiver side must have enough KAIA than the requested amount of KAIA. If not, the transfer would fail without error notification in the return value.
-A feature of value transfer recovery finds unhandled events and insert them into event pool again in a given interval, which means the failed transaction can be succeed again when the counterpart bridge can successfully handle that event.
-In case of the above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KAIA.
-In order to set the value transfer recovery as default, you need to set two properties:
+价值转移请求可能因多种原因而失败。 假设您要求从副桥到主桥或从主桥到副桥的 KAIA 转机。
+在这种情况下，接收方的桥接合约必须比请求的 KAIA 数量多。 否则，传输将失败，返回值中不会有错误提示。
+价值转移恢复功能会发现未处理的事件，并在给定的时间间隔内将其重新插入事件池，这意味着当对应的桥接器能成功处理该事件时，失败的事务就能再次成功。
+在上述例子中，当对应的桥接器有足够的 KAIA 时，失败的交易最终将通过价值转移恢复来处理。
+要将值传输恢复设置为默认值，需要设置两个属性：
 
 ```
 SC_VTRECOVERY=1
 SC_VTRECOVERY_INTERVAL=5
 ```
 
-The value transfer recovery runs automatically by set `SC_VTRECOVERY=1`. `SC_VTRECOVERY_INTERVAL` means an interval how often the value transfer recovery is executed.
+通过设置 `SC_VTRECOVERY=1` 可以自动运行数值传送恢复。 SC_VTRECOVERY_INTERVAL "表示执行值传递恢复的间隔时间。
 
-## Collecting Fee for KAIA/ERC-20 transfer <a id="collecting-fee-for-kaia-erc-20-transfer"></a>
+## 收取 KAIA/ERC-20 转移费用<a id="collecting-fee-for-kaia-erc-20-transfer"></a>
 
-In ServiceChain, there is a fee collecting feature for KAIA/ERC-20 transfers.
+在 ServiceChain 中，KAIA/ERC-20 转账具有收费功能。
 
-**To be updated soon.**
+\*\*即将更新。
 
-## Customizing your Bridge Contract  <a id="customizing-your-bridge-contract"></a>
+## 定制您的桥牌合约 <a id="customizing-your-bridge-contract"></a>
 
-In ServiceChain, you can use your own customized Bridge contract that inherits from the original Bridge contract for your own unique service.
-This section explains how to customize the Bridge contract and presents the example code.
+在 ServiceChain 中，您可以使用自己定制的桥接器合同，该合同继承自原始桥接器合同，用于自己的独特服务。
+本节将解释如何定制 Bridge 合同，并介绍示例代码。
 
-**It will be updated soon.**
+\*\*即将更新。
