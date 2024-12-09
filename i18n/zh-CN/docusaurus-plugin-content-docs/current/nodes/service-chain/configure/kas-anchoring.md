@@ -1,60 +1,60 @@
-# Use Data Anchoring with KAS
+# 与 KAS 一起使用数据锚定
 
-As explained in the design section, you can anchor your service chain data to Kaia main chain.
-This page introduces how to enable data anchoring via [KAS (Kaia API Service)](https://www.klaytnapi.com).
+如设计部分所述，您可以将服务链数据锚定到 Kaia 主链上。
+本页介绍如何通过 [KAS (Kaia API Service)](https://www.klaytnapi.com) 启用数据锚定。
 
-Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Mainnet or Kairos as a proof of existence and immutability of the service chain.
-This ensures the security and credibility of the service chain.
+一旦开启，服务链中的节点就可以定期将其链数据（区块数据）锚定到 Mainnet 或 Kairos，以证明服务链的存在和不变性。
+这确保了服务链的安全性和可信度。
 
-## Preparation for Using KAS <a id="preparation-with-kas"></a>
+## 使用 KAS 的准备工作<a id="preparation-with-kas"></a>
 
-This section introduces the pre-requisites to use KAS for data anchoring.
+本节将介绍使用 KAS 进行数据锚定的前提条件。
 
-### Sign Up KAS (Kaia API Service) <a id="sign-up-kas"></a>
+### 注册 KAS（Kaia API 服务）<a id="sign-up-kas"></a>
 
-First, you need to sign up KAS on the [KAS console website](https://www.klaytnapi.com) to get a KAS account.
-Please visit the website above and sign up in KAS.
+首先，您需要在 [KAS 控制台网站](https://www.klaytnapi.com) 上注册 KAS，获得 KAS 账户。
+请访问上述网站并在 KAS 中注册。
 
-[![main page](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
+[![主页](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
 
-[![sign up](/img/nodes/kas-signup-en.png)](https://www.klaytnapi.com)
+[![注册](/img/nodes/kas-signup-en.png)](https://www.klaytnapi.com)
 
-### Create Credential <a id="check-credential"></a>
+### 创建证书<a id="check-credential"></a>
 
-After login, you can create your credential like below.
-The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs.
+登录后，您可以创建如下凭证。
+访问密钥 ID "和 "秘密访问密钥 "或 "授权 "将用于调用 KAS API。
 
-![credential](/img/nodes/kas-credential-en.png)
+![凭证](/img/nodes/kas-credential-en.png)
 
-## Anchor API <a id="anchor-api"></a>
+## 锚点应用程序接口<a id="anchor-api"></a>
 
-KAS provides Anchor API, which is designed for data anchoring and surely it is the one that you are going to use for anchoring task.
+KAS 提供了专为数据锚定而设计的锚定应用程序接口（Anchor API），您肯定会使用它来完成锚定任务。
 
-![anchor api](/img/nodes/kas-anchor-api-en.png)
+锚应用程序](/img/nodes/kas-anchor-api-en.png)
 
-## Create Operator Address <a id="create-kas-credential"></a>
+## 创建操作员地址<a id="create-kas-credential"></a>
 
-To anchor service chain data via KAS, there should be a Kaia address, enrolled in KAS, that actually send anchoring transaction to Kaia. So, before you set up your service node, you need to create an Kaia account called "operator" via KAS. Please, use KAS console to create this account.
+要通过 KAS 锚定服务链数据，必须有一个已注册 KAS 的 Kaia 地址向 Kaia 实际发送锚定事务。 因此，在建立服务节点之前，您需要通过 KAS 创建一个名为 "操作员 "的 Kaia 账户。 请使用 KAS 控制台创建此账户。
 
-It is important to be noticed that you must **first select the chain** in Kaia to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Mainnet/Kairos).
+需要注意的是，您必须首先在 KAS 控制台页面右上角**选择要将数据锚定到 Kaia 中的链**。 您应为每个链（Mainnet/Kairos）创建一个操作员。
 
-![select chain](/img/nodes/kas-select-chain-en.png)
+[选择链](/img/nodes/kas-select-chain-en.png)
 
-Create an operator as below.
+创建如下操作符
 
-![create operator](/img/nodes/kas-create-operator-en.png)
+[创建操作符](/img/nodes/kas-create-operator-en.png)
 
-Then, you can check your operator list like below.
-Please note that the address of an operator is required for setting your service chain node.
+然后，您可以像下面这样查看操作员列表。
+请注意，设置服务链节点需要运营商的地址。
 
-![create operator](/img/nodes/kas-operator-list-en.png)
+![创建操作符](/img/nodes/kas-operator-list-en.png)
 
-## Configure Service Chain Node <a id="configure-service-chain-node"></a>
+## 配置服务链节点<a id="configure-service-chain-node"></a>
 
-After obtaining API credentials, Anchor API information (API endpoint and parameters), and an operator account in KAS, then It is time to set up your service chain node.
-You need to edit the configuration file (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) of your service chain node like below.
+获得 API 证书、Anchor API 信息（API 端点和参数）以及 KAS 中的操作员账户后，就可以设置服务链节点了。
+您需要编辑服务链节点的配置文件（`kscnd.conf`, `kspnd.conf`, `ksend.conf`），如下所示。
 
-You should set `SC_SUB_BRIDGE=1` and all `SC_KAS_` prefix items.
+应设置 `SC_SUB_BRIDGE=1` 和所有 `SC_KAS_` 前缀项。
 
 ```bash
 ...
@@ -73,10 +73,10 @@ SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Mainne
 ...
 ```
 
-## Run Service Chain Node <a id="run-service-chain-node"></a>
+## 运行服务链节点<a id="run-service-chain-node"></a>
 
-Now you are good to go. You can run your service chain node.
-You will see the log message related with KAS Anchor API like below.
+现在你可以走了。 您可以运行服务链节点。
+您将看到与 KAS 锚点 API 相关的日志信息，如下所示。
 
 ```bash
 ...
@@ -93,8 +93,8 @@ INFO[09/10,18:09:32 +09] [53] Anchored a block via KAS                  blkNum=8
 ...
 ```
 
-## List of Transaction <a id="list-of-transaction"></a>
+## 交易清单<a id="list-of-transaction"></a>
 
-In KAS console website, you can see the list of anchoring transactions that the operator of your service chain has sent at "KAS Console - Service - Anchor - Operators" menu like below.
+在 KAS 控制台网站上，您可以在 "KAS 控制台 - 服务 - 锚点 - 操作员 "菜单中查看服务链操作员发送的锚点交易列表，如下所示。
 
-![anchoring transaction list](/img/nodes/kas-tx-list-en.png)
+锚定交易列表](/img/nodes/kas-tx-list-en.png)
