@@ -1,128 +1,128 @@
-# Kaia Overview
+# 卡娅概述
 
-Kaia is a highly optimized, BFT-based public blockchain designed to meet enterprise-grade reliability and performance standards. This overview details Kaia's architecture, features, and ecosystem.
+Kaia 是高度优化的、基于 BFT 的公共区块链，旨在满足企业级可靠性和性能标准。 本概述详细介绍了 Kaia 的架构、功能和生态系统。
 
-## Key Design Goals
+## 主要设计目标
 
-Kaia blockchain aims to:
+Kaia 区块链旨在
 
-- Achieve immediate finality for transactions.
-- Provide high transaction processing speed for real-world use cases.
-- Lower the cost of running blockchain applications.
-- Reduce barriers to entry for end-users.
-- Facilitate easy technology adoption for various industries.
+- 实现交易的即时终结。
+- 为实际应用案例提供高交易处理速度。
+- 降低区块链应用的运行成本。
+- 降低终端用户的准入门槛。
+- 为各行各业轻松采用技术提供便利。
 
-## Core Specifications
+## 核心规格
 
-Kaia blockchain offers:
+Kaia 区块链提供
 
-- 1-second block generation and confirmation time.
-- Processing capability of 4,000 transactions per second.
-- Low gas price, approximately 1/10 of Ethereum.
-- EVM (Ethereum Virtual Machine) compatibility, supporting Solidity contracts.
-- Governance by reputable corporations worldwide forming <LinkWithTooltip to="../misc/glossary#kaia-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia Governance Council</LinkWithTooltip>.
+- 区块生成和确认时间为 1 秒。
+- 处理能力达每秒 4000 笔交易。
+- 天然气价格低廉，约为以太坊的 1/10。
+- 兼容 EVM（以太坊虚拟机），支持 Solidity 合约。
+- 全球知名企业组成<LinkWithTooltip to="../misc/glossary#kaia-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia 治理委员会</LinkWithTooltip>进行治理。
 
-## Network Architecture
+## 网络架构
 
-Kaia's network is structured into three logical subnetworks:
+Kaia 的网络结构分为三个逻辑子网络：
 
-![Kaia Ecosystem and its Logical Subnetworks (CCN, ENN, SCN)](/img/learn/klaytn_network_overview.png)
+Kaia生态系统及其逻辑子网络（CCN、ENN、SCN）](/img/learn/klaytn_network_overview.png)
 
-1. **Core Cell Network (CCN)**: Consists of [Core Cells (CCs)](../nodes/core-cell) responsible for transaction verification, execution, and block creation.
+1. **核心单元网络（CCN）**：由[核心单元（CC）]（.../节点/核心单元）组成，负责交易验证、执行和区块创建。
 
-2. **Endpoint Node Network (ENN)**: Composed of [Endpoint Nodes (ENs)](../nodes/endpoint-node) that handle RPC API requests and process data for service chains.
+2. \*\* 端点节点网络 (ENN)\*\*：由[端点节点 (ENs)]（.../nodes/endpoint-node）组成，用于处理 RPC API 请求和服务链数据。
 
-3. **[Service Chain](../nodes/service-chain) Network (SCN)**: Auxiliary blockchains independently operated by dApps, connected to the main chain via ENs.
+3. **[服务链]（.../节点/服务链）网络（SCN）**：由 dApps 独立运行的辅助区块链，通过 EN 与主链连接。
 
-### Node Types
+### 节点类型
 
-![Kaia Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](/img/learn/klaytn_network_node.png)
+Kaia 主链物理拓扑和分层架构（CNN、PNN 和 ENN）](/img/learn/klaytn_network_node.png)
 
-1. **Core Cell (CC)**: Composed of one Consensus Node (CN) and two Proxy Nodes (PNs).
-   - **Consensus Node (CN)**: Participates in block generation.
-   - **Proxy Node (PN)**: Provides network interface, transmits transaction requests, and propagates blocks.
+1. **核心单元（CC）**：由一个共识节点 (CN) 和两个代理节点 (PN) 组成。
+   - **共识节点（CN）**：参与区块生成。
+   - **代理节点（PN）**：提供网络接口、传输交易请求和传播区块。
 
-2. **Endpoint Node (EN)**: Serves as network endpoints, handling API requests and data processing.
+2. \*\* 端点节点 (EN)\*\*：充当网络端点，处理 API 请求和数据处理。
 
-3. **Bootnode**: Special nodes operated by Kaia to help new nodes join the network.
+3. **启动节点**：由 Kaia 运营的特殊节点，用于帮助新节点加入网络。
 
-## Consensus Algorithm
+## 共识算法
 
-Kaia uses an optimized version of Istanbul BFT, implementing Practical Byzantine Fault Tolerance (PBFT) with blockchain-specific modifications. The consensus process involves:
+Kaia 使用伊斯坦布尔 BFT 的优化版本，通过区块链特定的修改实现了实用拜占庭容错（PBFT）。 达成共识的过程包括
 
-1. Election of a committee (<LinkWithTooltip to="../misc/glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">proposer</LinkWithTooltip> and <LinkWithTooltip to="../misc/glossary#validator" tooltip="A node verifying data, ensuring efficient block processing.">validator</LinkWithTooltip>) using Verifiable Random Function (VRF).
-2. Block generation by the elected proposer.
-3. Block verification and signing by the committee.
+1. 使用可验证随机函数 (VRF) 选举委员会<LinkWithTooltip to="../misc/glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">（提案人</LinkWithTooltip>和<LinkWithTooltip to="../misc/glossary#validator" tooltip="A node verifying data, ensuring efficient block processing.">验证人</LinkWithTooltip>）。
+2. 由当选的提案人生成块。
+3. 委员会核实并签署区块。
 
-This [consensus mechanism](consensus-mechanism.md) enables Kaia to achieve high performance, processing 4,000 transactions per second with instant transaction finality.
+这种[共识机制]（consensus-mechanism.md）使 Kaia 能够实现高性能，每秒可处理 4,000 笔交易，且交易即时完成。
 
-## Block Generation and Propagation
+## 区块生成和传播
 
-- Blocks are generated in rounds, targeting a 1-second interval.
-- Proposer and committee selection is random but deterministic.
-- Blocks require signatures from more than two-thirds of committee members.
-- Separate propagation channels for blocks and transactions (multichannel approach) manage network congestion.
+- 区块以 1 秒间隔为目标，一轮一轮地生成。
+- 提案人和委员会的遴选是随机的，但也是确定的。
+- 区块链需要三分之二以上的委员会成员签名。
+- 区块和事务的传播通道相互独立（多通道方法），可有效控制网络拥塞。
 
-## Kaia Virtual Machine (KVM)
+## Kaia 虚拟机（KVM）
 
-The Kaia Virtual Machine (KVM) provides a robust environment for smart contract execution:
+Kaia 虚拟机（KVM）为智能合约的执行提供了一个强大的环境：
 
-- Based on the Ethereum Virtual Machine (EVM).
-- Supports all EVM opcodes and additional Kaia-specific precompiled contracts.
-- Compatible with Solidity and Ethereum development tools (e.g. Remix, Hardhat, Foundry).
-- Allows developers to port Ethereum smart contracts to Kaia with minimal modifications.
+- 基于以太坊虚拟机（EVM）。
+- 支持所有 EVM 操作码和额外的 Kaia 专用预编译合同。
+- 与 Solidity 和以太坊开发工具（如 Remix、Hardhat、Foundry）兼容。
+- 允许开发人员将以太坊智能合约移植到 Kaia 上，只需做极少的修改。
 
-## Security Measures
+## 安全措施
 
-Kaia implements several security measures:
+Kaia 实施了多项安全措施：
 
-- VRF for random selection of block proposers, adding unpredictability to the process.
-- Separation of validator keys and reward keys to protect validators from potential key theft.
-- Transparent block verification process, with all committee members verifying signatures on proposed blocks.
+- VRF 用于随机选择区块提议者，增加了过程的不可预测性。
+- 将验证器密钥和奖励密钥分开，以防止验证器密钥被盗。
+- 透明的区块验证过程，所有委员会成员都要验证提议区块上的签名。
 
-## Interoperability
+## 互操作性
 
-Kaia is designed for seamless interaction with other blockchain networks:
+Kaia 设计用于与其他区块链网络无缝互动：
 
-- EVM-compatible, allowing easy deployment of Ethereum smart contracts.
-- Designed to interoperate with other EVM-SDK based chains.
-- Supports cross-platform transactions and smart contract execution.
+- 与 EVM 兼容，可轻松部署以太坊智能合约。
+- 设计用于与其他基于 EVM-SDK 的链进行互操作。
+- 支持跨平台交易和智能合约执行。
 
-## Token Economy
+## 代币经济
 
-Kaia's native token, [KAIA](kaia-native-token.md), plays a central role in the blockchain's economy:
+Kaia 的原生代币 [KAIA]（kaia-native-token.md）在区块链经济中发挥着核心作用：
 
-- KAIA tokens are issued automatically with each new block.
-- Initial annual inflation rate: 5.2%.
-- Block rewards are distributed as follows:
-  - CCO and Community: 50% (20% Block Creator rewards, 80% Staking rewards)
-  - KEF (Kaia Ecosystem Fund): 25%
-  - KIF (Kaia Infrastructure Fund): 25%
+- 每个新区块都会自动发行 KAIA 代币。
+- 初始年通货膨胀率：5.2%.
+- 区块奖励分配如下
+  - CCO 和社区：50%（20% 区块创建者奖励，80% 押注奖励）
+  - KEF（凯亚生态系统基金）：25%
+  - KIF（凯亚基础设施基金）：25%
 
-This distribution model incentivizes network participation while supporting the growth and development of the Kaia ecosystem.
+这种分销模式既能激励网络参与，又能支持 Kaia 生态系统的成长和发展。
 
-## Governance
+## 管理
 
-Kaia implements an on-chain governance system designed to be fair and inclusive:
+Kaia 实施了一套旨在实现公平和包容性的链上管理制度：
 
-- Voting rights are proportional to the amount of KAIA tokens staked.
-- A cap on voting rights prevents suppression of minority opinions.
-- Delegation of voting power is allowed.
-- All governance proposals are recorded on-chain, ensuring transparency.
+- 投票权与投入的 KAIA 代币数量成正比。
+- 投票权上限可防止压制少数人的意见。
+- 允许下放表决权。
+- 所有治理建议都在链上记录，确保透明度。
 
-## Auditability and Transparency
+## 可审计性和透明度
 
-Kaia prioritizes transparency and auditability:
+Kaia 将透明度和可审计性放在首位：
 
-- All transactions provide an immutable and verifiable history of state changes.
-- Two primary tools for blockchain exploration:
-  - [Kaiascope](https://kaiascope.com/): A comprehensive blockchain explorer.
-  - [Kaiascan](http://kaiascan.io/): A user-friendly interface for quick blockchain data lookups.
-- The "Square" voting platform discloses all expenses and quarterly known transactions.
+- 所有事务都提供了不可更改和可验证的状态变化历史。
+- 区块链探索的两个主要工具：
+  - [Kaiascope](https://kaiascope.com/)：全面的区块链浏览器。
+  - [Kaiascan](http://kaiascan.io/)：快速查找区块链数据的用户友好界面。
+- Square "投票平台披露所有费用和季度已知交易。
 
-## Network Monitoring
+## 网络监控
 
-To ensure optimal performance and reliability, Kaia implements:
+为确保最佳性能和可靠性，Kaia 实施了以下措施：
 
-- A multi-channel approach to manage network congestion.
-- Dedicated network monitoring for all validators.
+- 管理网络拥塞的多通道方法。
+- 对所有验证器进行专门的网络监控。
