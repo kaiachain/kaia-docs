@@ -1,12 +1,12 @@
-# Manage Accounts
+# 管理账户
 
-## List Your Accounts <a id="list-your-accounts"></a>
+## 列出您的账户<a id="list-your-accounts"></a>
 
-This will return the list of all accounts created under the data directory.
+这将返回在数据目录下创建的所有账户列表。
 
 ### ken <a id="ken"></a>
 
-From the command line, call the CLI with:
+从命令行调用 CLI：
 
 ```bash
 $ ken account list --datadir <DATADIR>
@@ -15,33 +15,33 @@ Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/usernam
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
 
-**NOTE**: This order of returned account list can change if you copy keystore files from other nodes or remove the files. Therefore, make sure you either do not rely on the index or make sure if you copy or remove keystore files you check and update your account indexes in your scripts.
+**注意**：如果从其他节点复制密钥存储文件或删除文件，返回的账户列表顺序可能会发生变化。 因此，请确保不依赖索引，或者确保在复制或删除密钥存储文件时，检查并更新脚本中的账户索引。
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScript 控制台<a id="javascript-console"></a>
 
-When using the console:
+使用控制台时：
 
 ```javascript
 > kaia.accounts
 ["bfc22a57999459b0c2ce6337deb9287e7a970e02", "47bd2e9565cbe1789454718d6cf1778d7ea557aa"]
 ```
 
-## Unlock Accounts <a id="unlock-accounts"></a>
+## 解锁账户<a id="unlock-accounts"></a>
 
-If you want to use an account non-interactively, you need to unlock it.
+如果想非交互式地使用账户，则需要解锁。
 
 ### ken <a id="ken"></a>
 
-You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts \(in hex or index\) as an argument so you can unlock the accounts programmatically for one session. This is useful if you want to use your account from dApps via RPC. `--unlock` will unlock the first account in the list. This is useful when you created your account programmatically, you do not need to know the actual account to unlock it.
+你可以使用"--unlock "{address},{address}"选项在命令行上解锁账户并启动 EN，该选项以逗号分隔的账户（十六进制或索引）列表作为参数，因此你可以在一个会话中以编程方式解锁账户。 如果您想通过 RPC 从 dApps 使用您的账户，这将非常有用。 `--unlock` 将解锁列表中的第一个账户。 这在以编程方式创建账户时非常有用，不需要知道实际账户就能解锁。
 
-Create an account and start a node with the account unlocked:
+创建一个账户，并在账户未锁定的情况下启动一个节点：
 
 ```bash
 $ ken account new --password <(echo this is not secret) --datadir <DATADIR>
 $ ken --password <(echo "this is not secret") --unlock primary --datadir <DATADIR> --rpccorsdomain localhost --verbosity 6 2>> log.log
 ```
 
-If you want to start a node with a specific account unlocked, you can use an address or an index which refers to the address position in the account list \(and corresponds to the order of creation\).
+如果要启动一个已解锁特定账户的节点，可以使用一个地址或索引，该地址或索引指的是账户列表中的地址位置（并与创建顺序相对应）。
 
 ```bash
 $ ken --unlock "0" --datadir <DATADIR>
@@ -49,40 +49,40 @@ $ ken --unlock "2" --datadir <DATADIR>
 $ ken --unlock "bfc22a57999459b0c2ce6337deb9287e7a970e02" --datadir <DATADIR>
 ```
 
-The command line allows you to unlock multiple accounts. In this case, the argument to unlock is a comma-separated list of account addresses or indexes.
+通过命令行可以解锁多个账户。 在这种情况下，解锁参数是一个以逗号分隔的账户地址或索引列表。
 
 ```bash
 $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32" --datadir <DATADIR>
 ```
 
-If this construction is used non-interactively, your password file will need to contain the respective passwords for the accounts in question, one per line.
+如果非交互式地使用这种结构，密码文件需要包含相关账户的密码，每行一个。
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScript 控制台<a id="javascript-console"></a>
 
-On the console you can also unlock accounts \(one at a time\) for a duration \(in seconds\).
+在控制台上，你还可以解锁账户（一次一个），解锁时间（以秒为单位）。
 
 ```javascript
 > personal.unlockAccount(address, "password", 300)
 ```
 
-Note that we do NOT recommend using the password argument here, since the console history is logged, so you may compromise your account. You have been warned.
+请注意，我们不建议在此处使用密码参数，因为控制台历史记录会被记录下来，这样可能会危及您的账户安全。 我已经警告过你了。
 
-## Check Account Balance <a id="check-account-balance"></a>
+## 查询账户余额<a id="check-account-balance"></a>
 
 ### ken <a id="ken"></a>
 
-n/a
+不适用
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScript 控制台<a id="javascript-console"></a>
 
-To check your account balance:
+查看账户余额：
 
 ```javascript
 > kaia.fromPeb(kaia.getBalance("{account}"), "KAIA")
 6.5
 ```
 
-Print all balances with a JavaScript function:
+使用 JavaScript 函数打印所有余额：
 
 ```javascript
 function checkAllBalances() {
@@ -101,7 +101,7 @@ function checkAllBalances() {
 };
 ```
 
-That can then be executed with:
+然后就可以用
 
 ```javascript
 > checkAllBalances();
@@ -111,13 +111,13 @@ kaia.accounts[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32  balance: 1 KAIA
 kaia.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KAIA
 ```
 
-Since this function will disappear after restarting `ken`, it can be helpful to store commonly used functions to be called later.
+由于该函数会在重启 `ken` 后消失，因此存储常用函数以便以后调用会很有帮助。
 
-First, save the `checkAllBalances()` function definition to a file on your computer. For example, `/Users/username/klayload.js`. Then load the file from the interactive console:
+首先，将 "checkAllBalances() "函数定义保存到计算机上的一个文件中。 例如，`/Users/username/klayload.js`。 然后从交互式控制台加载文件：
 
 ```javascript
 > loadScript("/Users/username/klayload.js")
 true
 ```
 
-The file will modify your JavaScript environment as if you have typed the commands manually. Feel free to experiment!
+该文件将修改 JavaScript 环境，就像手动输入命令一样。 请随意尝试！
