@@ -1,50 +1,50 @@
-# Storage Optimization
+# 存储优化
 
-As the Kaia blockchain grows, so does the storage required to store the chain data. Kaia implements two main techniques to manage this growing storage requirement:
+随着 Kaia 区块链的增长，存储区块链数据所需的存储空间也在增长。 Kaia 采用两种主要技术来管理这种不断增长的存储需求：
 
-## State Batch Pruning (State Migration)
+## 状态批量修剪（状态迁移）
 
-State Migration is a batch pruning feature that can be applied to existing node without interrupting the running node.
+状态迁移是一种批量剪枝功能，可在不中断运行节点的情况下应用于现有节点。
 
-### Motivation
+### 动机
 
-Block states, or StateDB stores on-chain accounts and contracts in a trie data structure. The trie data structure is designed to store both obsolete and recent states so they can be verified using the Merkle hash. As transactions perform state changes, the state trie grows indefinitely. As of writing (Aug 2024), the Kaia Mainnet archive node size is over 20TB and even full node is over 10TB.
+区块状态或 StateDB 将链上账户和合约存储在一个 trie 数据结构中。 trie 数据结构可存储过时和最新状态，以便使用梅克尔散列进行验证。 随着事务执行状态更改，状态三元组会无限增长。 截至发稿时（2024 年 8 月），Kaia 主网存档节点大小超过 20TB，甚至完整节点也超过 10TB。
 
-### Concept
+### 概念
 
-State Migration deletes old block states that are not required for processing new blocks. It copies the state trie from "old" to "new". Not all trie nodes are copied. The ones are reachable from state roots of selective blocks are copied. After the copying, old directory is deleted so you are only left with the states of the selected blocks.
+状态迁移会删除处理新区块时不需要的旧区块状态。 它将状态 trie 从 "旧 "复制到 "新"。 并非所有三元组节点都会被复制。 从选择性区块的状态根可到达的区块被复制。 复制完成后，旧目录将被删除，因此只剩下所选区块的状态。
 
-Read these blog articles for more technical details:
-[State Migration: Saving Node Storage](https://medium.com/klaytn/klaytn-v1-5-0-state-migration-saving-node-storage-1358d87e4a7a),
-[Kaia State Migration: An Efficient Way to Reduce Blockchain Data](https://medium.com/klaytn/klaytn-state-migration-an-efficient-way-to-reduce-blockchain-data-6615a3b36523)
+阅读这些博客文章，了解更多技术细节：
+[状态迁移：节省节点存储](https://medium.com/klaytn/klaytn-v1-5-0-state-migration-saving-node-storage-1358d87e4a7a),
+[Kaia 状态迁移：减少区块链数据的有效方法](https://medium.com/klaytn/klaytn-state-migration-an-efficient-way-to-reduce-blockchain-data-6615a3b36523)
 
-For how to perform Batch Pruning, see the [State Migration Guide](../../misc/operation/node-pruning.md#how-to-perform-batch-pruning).
+有关如何执行批量修剪，请参阅《状态迁移指南》（.../.../misc/operation/node-pruning.md#how-to-perform-batch-pruning）。
 
-## State Live Pruning
+## 国家现场修剪
 
-State Live Pruning is a new solution to the growing state database size problem. Unlike Batch Pruning (State Migration), Live Pruning automatically deletes old states little by little as the node process blocks.
+状态实时剪枝是解决状态数据库规模不断扩大问题的一种新方案。 与批量剪枝（状态迁移）不同，实时剪枝会在节点进程阻塞时自动一点一点地删除旧状态。
 
-### Motivation
+### 动机
 
-Block states, or StateDB stores on-chain accounts and contracts in a trie data structure. The trie data structure is designed to store both obsolete and recent states so they can be verified using the Merkle hash. As transactions perform state changes, the state trie grows indefinitely. As of writing (Aug 2024), the Kaia Mainnet archive node size is over 20TB and even full node is over 10TB.
+区块状态或 StateDB 将链上账户和合约存储在一个 trie 数据结构中。 trie 数据结构可存储过时和最新状态，以便使用梅克尔散列进行验证。 随着事务执行状态更改，状态三元组会无限增长。 截至发稿时（2024 年 8 月），Kaia 主网存档节点大小超过 20TB，甚至完整节点也超过 10TB。
 
-Previously the State Migration has mitigated this problem by deleting old states by selectively copying the recent states and deleting the rest. This can reduce the full node size to less than 5TB.
+在此之前，"状态迁移 "通过有选择性地复制最近的状态并删除其余状态来删除旧状态，从而缓解了这一问题。 这样可以将整个节点的大小减小到 5TB 以下。
 
-Nonetheless, the State Migration has its own drawbacks. It suffers from from high overhead of traversing the entire state trie which could take a few days. Also the state migration has to be manually triggered. To overcome these limitations, Live Pruning technique was introduced.
+然而，国家移民也有其自身的缺点。 它的缺点是需要花几天时间遍历整个州的 Trie，开销很大。 此外，状态迁移必须手动触发。 为了克服这些限制，引入了实时修剪技术。
 
-### Concept
+### 概念
 
-Trie pruning is hard because it is uncertain if a trie node is outdated or not. In the original state trie structure, a trie node can be part of multiple tries each constitutes a different block. Even if a trie node (e.g. account balance) is updated to another value, the trie node cannot be deleted because it could be still needed by other parent nodes. This issue is referred to as the hash duplication problem.
+三元组修剪很难，因为三元组节点是否过时并不确定。 在原始状态三元组结构中，一个三元组节点可以是多个尝试的一部分，每个尝试构成一个不同的区块。 即使三元组节点（如账户余额）更新为另一个值，也不能删除该三元组节点，因为其他父节点可能仍然需要它。 这个问题被称为哈希重复问题。
 
-The Live Pruning intentionally duplicates the trie nodes with the same content. Under Live Pruning, a trie node is not referenced by its hash, instead it is referenced by its ExtHash. An ExtHash is the 32-byte hash of the content plus a 7-byte serial index. The serial index is monotonically increasing, so that every trie node is unique.
+实时剪枝会有意重复具有相同内容的三元组节点。 在 "实时剪枝 "模式下，一个三元组节点不会被哈希值引用，而是被 ExtHash 引用。 ExtHash 是内容的 32 字节哈希值加上 7 字节序列索引。 序列索引是单调递增的，因此每个三角形节点都是唯一的。
 
 ```
-Hash:    32-byte Keccak256
-ExtHash: 32-byte Keccak256 + 7-byte Serial index
+哈希：32 字节 Keccak256
+ExtHash：32 字节 Keccak256 + 7 字节序列索引
 ```
 
-This way, whenever a trie node's content change, it is safe to assume that the trie node is now obsolete. The Merkle hash can be calculated the same way by just ignoring the serial index, make it compatible with non-live-pruning nodes in terms of consensus.
+这样，只要三元组节点的内容发生变化，就可以认为该三元组节点已经过时。 Merkle 哈希值的计算方法与此相同，只是忽略了序列索引，使其在共识方面与非实时剪枝节点兼容。
 
-Read this blog article for more technical details: [Efficient Management of Blockchain Data Capacity with StateDB Live Pruning](https://medium.com/klaytn/strong-efficient-management-of-blockchain-data-capacity-with-statedb-live-pruning-strong-6aaa09b05f91).
+阅读这篇博客文章，了解更多技术细节：[利用 StateDB 实时剪枝高效管理区块链数据容量](https://medium.com/klaytn/strong-efficient-management-of-blockchain-data-capacity-with-statedb-live-pruning-strong-6aaa09b05f91)。
 
-For how to enable Live Pruning, see the [Live Pruning Guide](../../misc/operation/node-pruning.md#how-to-perform-live-pruning).
+有关如何启用实时修剪，请参阅 [Live Pruning Guide](../../misc/operation/node-pruning.md#how-to-perform-live-pruning).
