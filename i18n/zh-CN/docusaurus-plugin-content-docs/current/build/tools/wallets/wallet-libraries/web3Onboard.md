@@ -16,7 +16,7 @@ sidebar_label: Web3-Onboard
 
 - 一个正在运行的 react 项目（执行 `npx create-react-app project-name` 命令）
 - 安装必要的钱包（[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/))。
-- RPC 端点：您可以从支持的[端点提供者](.../.../.../.../references/public-en.md)中获取。
+- RPC 端点：您可以从支持的[端点提供者](../../../../references/public-en.md)中获取。
 - 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
 ## 开始
@@ -81,38 +81,38 @@ const KAIROS_TESTNET_URL = `Paste KAIROS TESTNET URL`
 
 const onboard = Onboard({
   wallets: modules, // created in previous step
-  chains：[
+  chains: [
     {
-      id: "0x1", // chain ID 必须是十六进制
+      id: "0x1", // chain ID must be in hexadecimal
       token: "ETH",
-      namespace："evm",
-      label："Ethereum Mainnet",
-      rpcUrl：ETH_MAINNET_RPC_URL
+      namespace: "evm",
+      label: "Ethereum Mainnet",
+      rpcUrl: ETH_MAINNET_RPC_URL
     },
     {
-      id: "0x2019", // chain ID 必须是十六进制
+      id: "0x2019", // chain ID must be in hexadecimal
       token: "KAIA",
-      namespace："evm",
-      label："Kaia Mainnet",
-      rpcUrl：KAIA_MAINNET_URL
+      namespace: "evm",
+      label: "Kaia Mainnet",
+      rpcUrl: KAIA_MAINNET_URL
     },
     {
-      id: "0x3e9", // chain ID 必须是十六进制
+      id: "0x3e9", // chain ID must be in hexadecimel
       token: "KAIA",
-      namespace："evm",
-      label："Kairos Testnet",
-      rpcUrl：KAIROS_TESTNET_URL
+      namespace: "evm",
+      label: "Kairos Testnet",
+      rpcUrl: KAIROS_TESTNET_URL
     },
-   // 您可以添加尽可能多的支持链
+   // you can add as much supported chains as possible
   ],
-  appMetadata：{
-    name: "Kaia-web3-onboard-App", // Change to your dApp name
-    icon："https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // 粘贴您的图标 
-    logo："https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // 粘贴您的徽标
-    description："Web3Onboard-Kaia",
-    recommendedInjectedWallets：[
-      { name: "Coinbase", url："https://wallet.coinbase.com/"},
-      { name: "MetaMask", url："https://metamask.io" }
+  appMetadata: {
+    name: "Kaia-web3-onboard-App", // change to your dApp name
+    icon: "https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // paste your icon 
+    logo: "https://pbs.twimg.com/profile_images/1620693002149851137/GbBC5ZjI_400x400.jpg", // paste your logo
+    description: "Web3Onboard-Kaia",
+    recommendedInjectedWallets: [
+      { name: "Coinbase", url: "https://wallet.coinbase.com/" },
+      { name: "MetaMask", url: "https://metamask.io" }
     ]
   }
 });
@@ -290,19 +290,19 @@ return (
       return;
     }
 	
-    //
+    // this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
-    // 对于低于 6.3.0 的ether版本。
+    // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(provider);
 
     const signer = await ethersProvider.getSigner();
 
-    // 向区块链提交交易并等待挖矿
+    // Submit transaction to the blockchain and wait for it to be mined
     const tx = await signer.sendTransaction({
-          to："0x75Bc50a5664657c869Edc0E058d192EeEfD570eb",
+          to: "0x75Bc50a5664657c869Edc0E058d192EeEfD570eb",
           value: ethers.parseEther("0.1"),
-          maxPriorityFeePerGas: "5000000000", // 每个气体的最大优先级费用
-          maxFeePerGas: "6000000000000", // 每个气体的最大费用
+          maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
+          maxFeePerGas: "6000000000000", // Max fee per gas
         })
     
         
@@ -314,7 +314,7 @@ return (
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Kaia Tx Hash : {txHash ?<a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a>: ' '} </div> </div> <div className="App">
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 
