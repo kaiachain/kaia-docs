@@ -1,0 +1,312 @@
+# Smart Contract Execution
+
+**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+
+<CH.Spotlight>
+<CH.Code>
+
+```java SmartContractExecutionExample.java
+package org.web3j.example.transactions;
+
+import java.io.IOException;
+import java.math.BigInteger;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.transaction.type.TxType;
+import org.web3j.crypto.transaction.type.TxTypeSmartContractExecution;
+import org.web3j.crypto.transaction.type.TxType.Type;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+
+/**
+ *
+ */
+public class SmartContractExecutionExample implements keySample {
+        /**
+         *
+         */
+
+        public static void run() throws Exception {
+
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credentials = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+
+                BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+                BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+                String from = credentials.getAddress();
+                BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+                                .getTransactionCount();
+                String data = "0xcfae3217";
+                EthChainId EthchainId = web3j.ethChainId().send();
+                long chainId = EthchainId.getChainId().longValue();
+                String to = "0xc58294ecde8fdb288fd845e7a43a56564b597bdb";
+                byte[] payload = Numeric.hexStringToByteArray(data);
+
+                BigInteger value = BigInteger.ZERO;
+
+                TxType.Type type = Type.SMART_CONTRACT_EXECUTION;
+
+                KlayRawTransaction raw = KlayRawTransaction.createTransaction(
+                                type,
+                                nonce,
+                                GAS_PRICE,
+                                GAS_LIMIT,
+                                to,
+                                value,
+                                from,
+                                payload);
+
+                byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
+                String hexValue = Numeric.toHexString(signedMessage);
+                EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+                System.out.println("TxHash : \n " + transactionResponse.getResult());
+                String txHash = transactionResponse.getResult();
+                int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
+                int DEFAULT_BLOCK_TIME = 1 * 1000;
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+                TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
+                                DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+                org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
+                                .waitForTransactionReceipt(txHash);
+                System.out.println("Receipt from eth_getTransactionReceipt : \n" + ethReceipt);
+                TransactionReceipt receipt = web3j.klayGetTransactionReceipt(txHash).send().getResult();
+                System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
+                web3j.shutdown();
+
+                TxTypeSmartContractExecution rawTransaction = TxTypeSmartContractExecution
+                                .decodeFromRawTransaction(signedMessage);
+                System.out.println("TxType : " + rawTransaction.getKlayType());
+
+        }
+
+}
+```
+
+---
+
+```zsh output
+❯ java SmartContractExecutionExample.java
+TxHash :
+ 0xb04136d9704df78a49e54e9f9ae61df4d39dc5c249aba84bc1a4e4cdc64b00eb
+receipt :
+class TransactionReceipt {
+    blockHash: 0x8aee92edc199854646f999e094047da3a127d15473716c8dd40f42985a93be52
+    blockNumber: 0x8dea9cd
+    codeFormat: null
+    contractAddress: null
+    feePayer: null
+    feePayerSignatures: []
+    feeRatio: null
+    from: 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    gas: 0x66919e
+    effectiveGasPrice: 0x5d21dba00
+    gasPrice: 0xba43b7400
+    gasUsed: 0x5fe3
+    humanReadable: null
+    key: null
+    input: 0xcfae3217
+    logs: []
+    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce: 0x3c2
+    senderTxHash: 0xb04136d9704df78a49e54e9f9ae61df4d39dc5c249aba84bc1a4e4cdc64b00eb
+    signature: []
+    status: 0x1
+    txError: null
+    to: 0xc58294ecde8fdb288fd845e7a43a56564b597bdb
+    transactionHash: 0xb04136d9704df78a49e54e9f9ae61df4d39dc5c249aba84bc1a4e4cdc64b00eb
+    transactionIndex: 0x1
+    type: TxTypeSmartContractExecution
+    typeInt: 48
+    value: 0x0
+}
+TxType : SMART_CONTRACT_EXECUTION
+```
+
+</CH.Code>
+
+---
+
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+
+```java SmartContractExecutionExample.java focus=1:20
+
+```
+
+---
+
+Connect to the kaia blockchain using Web3j and specify the URL
+
+```java SmartContractExecutionExample.java focus=32
+
+```
+
+---
+
+Create KlayCredentials using the private key
+
+```java SmartContractExecutionExample.java focus=33
+
+```
+
+---
+
+Define gas price and gas limit for the transaction
+
+```java SmartContractExecutionExample.java focus=35:36
+
+```
+
+---
+
+Get the sender's **address** and **nonce**
+
+```java SmartContractExecutionExample.java focus=37:39
+
+```
+
+---
+
+Define the **contract data** that will be sent to blockchain
+
+```java SmartContractExecutionExample.java focus=40
+
+```
+
+---
+
+Get the chain ID from the **Kaia** network
+
+```java SmartContractExecutionExample.java focus=41:42
+
+```
+
+---
+
+Initialize variables for transaction parameters
+
+```java SmartContractExecutionExample.java focus=43:48
+
+```
+
+---
+
+Create a raw transaction
+
+```java SmartContractExecutionExample.java focus=50:58
+
+```
+
+---
+
+Sign the raw transaction
+
+```java SmartContractExecutionExample.java focus=60
+
+```
+
+---
+
+Send the transaction to kaia network.
+
+<CH.Code>
+```java SmartContractExecutionExample.java focus=61:64
+
+````
+
+
+---
+
+```zsh output
+❯ java SmartContractExecutionExample.java
+TxHash :
+ 0xb04136d9704df78a49e54e9f9ae61df4d39dc5c249aba84bc1a4e4cdc64b00eb
+````
+
+</CH.Code>
+
+---
+
+Get the **transaction receipt** and using the transaction hash
+
+<CH.Code>
+```java SmartContractExecutionExample.java focus=65:74
+
+````
+
+
+---
+
+```zsh output
+❯ java SmartContractExecutionExample.java
+receipt :
+class TransactionReceipt {
+    blockHash: 0x8aee92edc199854646f999e094047da3a127d15473716c8dd40f42985a93be52
+    blockNumber: 0x8dea9cd
+    codeFormat: null
+    contractAddress: null
+    feePayer: null
+    feePayerSignatures: []
+    feeRatio: null
+    from: 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    gas: 0x66919e
+    effectiveGasPrice: 0x5d21dba00
+    gasPrice: 0xba43b7400
+    gasUsed: 0x5fe3
+    humanReadable: null
+    key: null
+    input: 0xcfae3217
+    logs: []
+    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce: 0x3c2
+    senderTxHash: 0xb04136d9704df78a49e54e9f9ae61df4d39dc5c249aba84bc1a4e4cdc64b00eb
+    signature: []
+    status: 0x1
+    txError: null
+    to: 0xc58294ecde8fdb288fd845e7a43a56564b597bdb
+    transactionHash: 0xb04136d9704df78a49e54e9f9ae61df4d39dc5c249aba84bc1a4e4cdc64b00eb
+    transactionIndex: 0x1
+    type: TxTypeSmartContractExecution
+    typeInt: 48
+    value: 0x0
+}
+````
+
+</CH.Code>
+
+---
+
+Shutdown the Web3j instance
+
+```java SmartContractExecutionExample.java focus=75
+
+```
+
+---
+
+Decode the raw transaction to get the transaction type
+
+<CH.Code>
+```java SmartContractExecutionExample.java focus=77:79
+
+````
+
+
+---
+
+```zsh output
+❯ java SmartContractExecutionExample.java
+TxType : SMART_CONTRACT_EXECUTION
+````
+
+</CH.Code>
+
+</CH.Spotlight>
