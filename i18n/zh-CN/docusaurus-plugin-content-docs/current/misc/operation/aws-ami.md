@@ -32,11 +32,11 @@ Kaia 为主网络提供这 4 种 AMI。 除了 "完整 "类型，Kairos 也有 A
 
 在 AWS 控制台中启动新 EC2 实例时，应选择 AMI。 在 AMI 搜索栏中搜索 "kaia-mainnet"。
 
-AMI 搜索栏](/img/misc/ami_search.png)
+![AMI search bar](/img/misc/ami_search.png)
 
 该页面将带您进入搜索结果。 单击搜索结果页面中的 "社区 AMI "选项卡，然后从列表中选择要使用的 AMI。
 
-AMI 搜索结果](/img/misc/ami_select.png)
+![AMI search result](/img/misc/ami_select.png)
 
 ### 允许入站连接
 
