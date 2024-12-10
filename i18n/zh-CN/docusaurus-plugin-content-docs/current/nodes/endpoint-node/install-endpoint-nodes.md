@@ -213,7 +213,7 @@ instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 >
 ```
 
-您可以在 [API 文档]（.../.../.../references/json-rpc/klay/account-created）中查看可用命令。
+您可以在 [API 文档](.../.../.../references/json-rpc/klay/account-created)中查看可用命令。
 
 用于检查 EN 状态的实用 API：
 
