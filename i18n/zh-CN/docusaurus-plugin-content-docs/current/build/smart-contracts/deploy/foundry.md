@@ -24,7 +24,7 @@ Foundry 由四个主要 CLI 工具组成，可实现快速、模块化的智能�
 
 学习本教程的前提条件如下：
 
-- Code editor: a source-code editor such [VS Code](https://code.visualstudio.com/download).
+- 代码编辑器：源代码编辑器，如 [VS Code](https://code.visualstudio.com/download)。
 - [MetaMask](.../.../tutorials/connecting-metamask.mdx#install-metamask)：用于部署合约、签署事务和与合约交互。
 - RPC 端点：您可以从支持的[端点提供者]（.../.../.../references/public-en.md）中获取。
 - 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
