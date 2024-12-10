@@ -1,0 +1,125 @@
+# Read
+
+You can call functions in Smart Contract via "Call" RPC API. What you can call here is limited to **view functions** that is not changing any states in the Contract.
+
+<CH.Spotlight>
+<CH.Code>
+
+```java ReadContractExample.java
+package org.web3j.example.contracts;
+
+import java.math.BigInteger;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.tx.gas.StaticGasProvider;
+
+public class ReadContractExample {
+    /**
+     * @throws Exception
+     *
+     */
+    public static void run() throws Exception {
+
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials credentials = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+        String contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+        BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+        StaticGasProvider gasProvider = new StaticGasProvider(GAS_PRICE, GAS_LIMIT);
+        Counter counter = Counter.load(contractAddr, web3j, credentials.convertToCredentials(), gasProvider);
+        System.out.println("Contract Call(number) Result : " + counter.number().send());
+
+    }
+
+}
+
+```
+
+---
+
+```zsh output
+❯ java ReadContractExample.java
+Contract Call(number) Result : 297
+```
+
+</CH.Code>
+
+---
+
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+
+```java ReadContractExample.java focus=1:10
+
+```
+
+---
+
+Connect to the **Kaia** blockchain using **Web3j** and specify the URL
+
+```java ReadContractExample.java focus=19
+
+```
+
+---
+
+Create **KlayCredentials** using the private key
+
+```java ReadContractExample.java focus=20
+
+```
+
+---
+
+Specify the address of the **contract**
+
+```java ReadContractExample.java focus=21
+
+```
+
+---
+
+Define gas price and gas limit for the transaction
+
+```java ReadContractExample.java focus=22:23
+
+```
+
+---
+
+Create a gas provider with static **gas price** and **gas limit**
+
+```java ReadContractExample.java focus=24
+
+```
+
+---
+
+Load the contract using **contact address**, **Web3j instance**, **credentials**, and **gas provider**. You can read and write the contract through this instance
+
+```java ReadContractExample.java focus=25
+
+```
+
+---
+
+Call the `counter.number().send()` function of the contract to retrieve the stored value
+
+<CH.Code>
+```java ReadContractExample.java focus=26
+
+````
+
+
+---
+
+```zsh output
+❯ java ReadContractExample.java
+Contract Call(number) Result : 297
+````
+
+</CH.Code>
+</CH.Spotlight>
