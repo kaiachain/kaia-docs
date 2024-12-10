@@ -3,7 +3,7 @@
 ## 预期受众 <a id="intended-audience"></a>
 
 - 核心单元操作员
-- 如果您的兴趣是在 Kaia 上制作和运行区块链应用程序，则无需维护核心单元。 您需要运行 [Endpoint Node](.../endpoint-node/endpoint-node.md)来使您的应用程序与 Kaia 网络交互。
+- 如果您的兴趣是在 Kaia 上制作和运行区块链应用程序，则无需维护核心单元。 您需要运行 [Endpoint Node](../endpoint-node/endpoint-node.md)来使您的应用程序与 Kaia 网络交互。
 
 ## 核心单元概述<a id="core-cell-overview"></a>
 
