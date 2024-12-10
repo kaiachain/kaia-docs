@@ -61,7 +61,7 @@ contract KaiaGreeter is Mortal {
 
 ![](/img/build/smart-contracts/06_deployment_functions.png)
 
-有关详细信息，请参阅此 [链接]（.../ide-and-tools/ide-and-tools.md）。
+有关详细信息，请参阅此 [链接](.../ide-and-tools/ide-and-tools.md)。
 
 ## VVISP <a id="vvisp"></a>
 
