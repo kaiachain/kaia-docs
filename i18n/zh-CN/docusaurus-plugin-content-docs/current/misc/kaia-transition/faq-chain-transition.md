@@ -4,13 +4,13 @@
 
 - KLAY 和 FNSA 持有者
   - [克莱顿和芬丝琪亚怎么了？](#what-happened-to-klaytn-and-finschia-)
-  - [KLAY 和 FNSA 会怎么样？
+  - [KLAY 和 FNSA 会怎么样？](#what-happens-to-klay-and-fnsa-)
   - [我需要为 Kaia 创建一个新钱包吗？](#will-i-need-to-create-a-new-wallet-for-kaia-)
   - [Klaytn会为新的KAIA代币提供交换或迁移网站吗？](#will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-)
   - [接收 KAIA 令牌是否会有延迟？](#will-there-be-any-delay-in-receiving-kaia-tokens-)
   - [交换 KLAY 和 FNSA 代币的金额有限制吗？](#is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-)
   - [我现在给 FNSA 下注。 我是否需要等待 7 天才能解除我的 FNSA，以交换到 KAIA？](#im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-)
-  - [在哪里可以找到 KLAY 和 FNSA 的历史价格信息？ 我似乎无法在 CoinMarketCap 或 CoinGecko 上找到它了。](#where-can-i-find-the-historical-price-information-for-klay and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-)
+  - [在哪里可以找到 KLAY 和 FNSA 的历史价格信息？ 我似乎无法在 CoinMarketCap 或 CoinGecko 上找到它了。](#where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-)
 
 - 应用程序开发人员
   - [Klaytn 上的 DApp 要迁移到 Kaia 需要做什么？](#what-do-dapps-on-klaytn-need-to-do-to-migrate-to-kaia-)
@@ -19,19 +19,19 @@
 
 - 钱包提供商
   - [是否有必要将钱包中的品牌名称从 "Klaytn "更新为 "Kaia"？](#is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-)
-  - [如果主网升级后我们不升级到 Kaia 品牌会怎样？](#what-happens-if-we-dont-upgrade to-the-kaia-brand-after-the-mainnet-upgrade-)
-  - [默认资源管理器 Klaytnscope 将何去何从？](#what-will-happen toklaytnscope-the-default-explorer-)
+  - [如果主网升级后我们不升级到 Kaia 品牌会怎样？](#what-happens-if-we-dont-upgrade-to-the-kaia-brand-after-the-mainnet-upgrade-)
+  - [默认资源管理器 Klaytnscope 将何去何从？](#what-will-happen-to-klaytnscope-the-default-explorer-)
 
 - 集中式交易所
-  - [KAIA 是 KLAY 的品牌重塑还是全新的代币？
+  - [KAIA 是 KLAY 的品牌重塑还是全新的代币？](#is-kaia-a-rebrand-from-klay-or-a-completely-new-token-)
   - [卡娅会在 Klaytn 主网还是其他主网？](#will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-)
   - [当前的 Klaytn 主网在品牌重塑后还能继续运行吗？](#will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-)
   - [KAIA 市场何时开放？](#when-will-the-KAIA-market-open-)
-  - [在哪里可以找到 Kaia 的白皮书？
+  - [在哪里可以找到 Kaia 的白皮书？](#where-can-i-find-kaias-whitepaper-)
 
 - RPC 节点提供者
-  - [为了支持从 Klaytn 到 Kaia 的过渡，我需要对我的基础架构做哪些改动，RPC API 中是否会有任何突破性的改动？
-  - [Kaia是不同链ID的新链，还是基于Klaytn链的升级版？
+  - [为了支持从 Klaytn 到 Kaia 的过渡，我需要对我的基础架构做哪些改动，RPC API 中是否会有任何突破性的改动？](#as-an-rpc-node-provider-what-changes-do-i-need-to-make-to-my-infrastructure-to-support-the-transition-from-klaytn-to-kaia-and-will-there-be-any-breaking-changes-in-the-rpc-apis-)
+  - [Kaia是不同链ID的新链，还是基于Klaytn链的升级版？](#is-kaia-a-new-chain-with-a-different-chain-id-or-an-upgrade-based-on-the-klaytn-chain-)
 
 ## KLAY 和 FNSA 持有者
 
