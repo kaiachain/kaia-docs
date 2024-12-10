@@ -264,7 +264,7 @@ IPC 文件 `klay.ipc` 位于 PN 上的 `DATA_DIR` 路径中。
 >
 ```
 
-您可以在 [API 文档]（.../.../.../references/json-rpc/klay/account-created）中查看可用命令。
+您可以在 [API 文档](.../.../.../references/json-rpc/klay/account-created)中查看可用命令。
 
 用于检查 PN 状态的实用 API：
 
