@@ -10,7 +10,7 @@
 - 4 台 Linux 或 MacOS 服务器
 - 最低硬件要求
   - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
-  - 更多解释请参阅 [系统要求](.../system-requirements.md)。
+  - 更多解释请参阅 [系统要求](../system-requirements.md)。
 
 ## 步骤 0：在所有节点上安装 SCN<a id="install-scn"></a>
 
@@ -32,7 +32,7 @@ x kscn-XXXXX-amd64/bin/kscn
 $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 ```
 
-SCN 还提供各种 RPM 发行版，如 RHEL、CentOS 和 Fedora。 有关详细信息，请参阅 [安装](.../install-service-chain.md#installation)。
+SCN 还提供各种 RPM 发行版，如 RHEL、CentOS 和 Fedora。 有关详细信息，请参阅 [安装](../install-service-chain.md#installation)。
 
 ```console
 $ curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/prod.repo
