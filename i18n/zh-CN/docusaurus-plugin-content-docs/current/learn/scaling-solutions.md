@@ -21,12 +21,12 @@ Kaia 服务链可用于实现各种特定服务目标，
 与 Kaia 主链相连的服务链统称为服务链网络。
 请注意，在 Kaia 未来的迭代中，服务链和主链之间的连接方法可能会发生变化。
 
-![图 1. Kaia 主链和服务链](/img/learn/mainchain_servicechain.png)
+![图 1. Kaia Main Chain and Service Chain](/img/learn/mainchain_servicechain.png)
 
 图 1 显示了用于满足各种业务需求的服务链的网络拓扑结构，这些服务链与 Kaia 主链连接
 ，以扩展 Kaia 网络。
 
-![图 2. 使用主桥/副桥模型连接主链和服务链](/img/learn/sc_connection.png)
+![图 2. Main Chain and Service Chain Connection using Main/Sub-Bridge Model](/img/learn/sc_connection.png)
 
 图 2 显示了 SCN（服务链共识节点）与 Kaia 主链的 EN（端点节点）直接连接的示例
 ，该示例在使用服务链功能时采用了主/分桥模式。
