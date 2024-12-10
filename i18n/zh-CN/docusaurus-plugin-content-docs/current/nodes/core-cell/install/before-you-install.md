@@ -2,7 +2,7 @@
 
 ## 下载<a id="download"></a>
 
-您可以在[下载页面]（.../../downloads/downloads.md）中获取 CN 和 PN 的软件包。
+您可以在[下载页面](.../../downloads/downloads.md)中获取 CN 和 PN 的软件包。
 
 ## 安装前<a id="before-you-install"></a>
 
@@ -14,7 +14,7 @@
 
 ### 下载 `kgen` 软件包<a id="download-kgen-package"></a>
 
-首先，您可以在[下载]（.../.../downloads/downloads.md）页面下载最新版本的 "kgen "软件包，这取决于您的操作系统。
+首先，您可以在[下载](.../.../downloads/downloads.md)页面下载最新版本的 "kgen "软件包，这取决于您的操作系统。
 
 您可以在 `bin` 目录下找到 `kgen` 二进制文件。
 
