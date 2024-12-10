@@ -56,8 +56,8 @@ Kaia 合同向导由以下部分组成：
 
 - 确保安装了 [foundry](https://book.getfoundry.sh/getting-started/installation)。
 - 克隆 [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) 代码。
-- [MetaMask](.../tutorials/connecting-metamask.mdx#install-metamask)：用于部署合约、签署事务和与合约交互。
-- RPC 端点：您可以从支持的[端点提供程序](.../.../references/public-en.md)中获取。
+- [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask)：用于部署合约、签署事务和与合约交互。
+- RPC 端点：您可以从支持的[端点提供程序](../../references/public-en.md)中获取。
 - 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
 ### 开始
@@ -82,7 +82,7 @@ Kaia 合同向导由以下部分组成：
 以下是生成的代码：
 
 ```solidity
-// SPDX-License-Identifier：MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
 import "@kaiachain/contracts/access/Ownable.sol";
@@ -107,7 +107,7 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 接下来要做的就是修改上面的代码，以适应我们的空投执行，看起来就像这样：
 
 ```solidity
-//SPDX-License-Identifier：MIT
+//SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
 import "@kaiachain/contracts/access/Ownable.sol";
@@ -130,8 +130,8 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
         virtual
         override
         returns (bool)
-    { return
-
+    {
+        return
             super.supportsInterface(interfaceId);
     }
 }
@@ -159,10 +159,10 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 以下是生成的代码：
 
 ```solidity
-// SPDX-License-Identifier：MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
-import "@kaiachain/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol"；
+import "@kaiachain/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
 import "@kaiachain/contracts/access/Ownable.sol";
 import "@kaiachain/contracts/utils/Counters.sol";
 contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
@@ -173,8 +173,8 @@ contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
-    } }
-    //
+    }
+    // The following functions are overrides required by Solidity.
     function _beforeTokenTransfer(address from, address to, uint256 tokenId)
         internal
         override(KIP17, KIP17Enumerable)
@@ -195,7 +195,7 @@ contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
 接下来要做的就是修改上面的代码，以适应我们的空投执行，看起来就像这样：
 
 ```solidity
-// SPDX-License-Identifier：MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
 import "@kaiachain/contracts/KIP/token/KIP17/extensions/KIP17Enumerable.sol";
@@ -205,7 +205,7 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
     constructor() KIP17("KIP17 NFT Airdrop", "KNA") {}
-    // 空投 NFT
+    // Airdrop NFTs
     function airdropNfts(address[] calldata wAddresses) public onlyOwner {
         require(wAddresses.length != 0, "Must no be equal to zero");
         for (uint256 i = 0; i < wAddresses.length; i++) {
@@ -217,7 +217,7 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
     }
-    //
+    // The following functions are overrides required by Solidity.
     function _beforeTokenTransfer(address from, address to, uint256 tokenId)
         internal
         override(KIP17, KIP17Enumerable)
@@ -257,20 +257,20 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
 以下是生成的代码：
 
 ```solidity
-// SPDX-License-Identifier：MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP37/KIP37.sol";
 import "@kaiachain/contracts/access/Ownable.sol";
 contract KIP37MultiToken is KIP37, Ownable {
     constructor() KIP37("") {}
     function setURI(string memory newuri) public onlyOwner {
-        _setURI(newuri)；
+        _setURI(newuri);
     }
     function mint(address account, uint256 id, uint256 amount, bytes memory data)
         public
         onlyOwner
     {
-        _mint(account, id, amount, data)；
+        _mint(account, id, amount, data);
     }
     function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
         public
@@ -456,6 +456,6 @@ forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url 
 
 此外，我们还使用 Foundry solidity 脚本将生成的合同部署到 Kaia Kairos Testnet。 您可以使用 Remix IDE 或任何智能合约开发环境来部署从 Kaia Contracts Wizard 派生或定制的智能合约。 您可以在以下链接中找到相应的教程：
 
-- [连接到 Remix](.../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
-- [使用 Hardhat 部署智能合约](.../get-started/hardhat.md)
-- [使用 Truffle 部署智能合约](.../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
+- [连接到 Remix](../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
+- [使用 Hardhat 部署智能合约](../get-started/hardhat.md)
+- [使用 Truffle 部署智能合约](../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
