@@ -15,7 +15,7 @@ Scaffold-ETH 2 工具包使用 Next.js、RainbowKit、Hardhat、Foundry、Wagmi 
 要开始学习本指南，您需要
 
 - [节点 (>= v18.17)](https://nodejs.org/en/download/)
-- 纱线（[v1](https://classic.yarnpkg.com/en/docs/install/) 或 [v2+](https://yarnpkg.com/getting-started/install)
+- 纱线（[v1](https://classic.yarnpkg.com/en/docs/install/) 或 [v2+](https://yarnpkg.com/getting-started/install))
 - 熟悉 Javascript 和 React 基础知识，例如钩子
 - [Metamask钱包](https://metamask.io/download/)
 - 测试来自 [龙头] 的 KAIA(https://faucet.kaia.io)
