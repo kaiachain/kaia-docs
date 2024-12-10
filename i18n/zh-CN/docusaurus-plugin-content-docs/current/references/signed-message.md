@@ -26,7 +26,7 @@ window.ethereum.request({ method："eth_sign", params：["0xbC7d1aBe33E6EC19cA87
 - Kaia 钱包 [`klay_sign`](https://docs.kaiawallet.io/api_reference/caver_methods#caverklaysign) 方法
 - caver-js [`keyring.signMessage`](../sdk/caver-js/api/caver-wallet/keyring) 和 [`utils.recover`](../sdk/caver-js/api/caver.utils) 方法
 - caver-java [`AbstractKeyring.signMessage`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/wallet/keyring/AbstractKeyring.html) 和 [`Utils.recover`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/utils/Utils.html) 方法
-- 在 Kaia 节点 v1.0.0 之前，[`eth_sign`](../jsson-rpc/eth/sign)、[`kaia_sign`](../jsson-rpc/kaia/sign)、[`personal_sign`](../jsson-rpc/personal/sign) [`personal_ecRecover`](../json-rpc/personal/ec-recover) RPCs
+- 在 Kaia 节点 v1.0.0 之前，[`eth_sign`](../json-rpc/eth/sign)、[`kaia_sign`](../json-rpc/kaia/sign)、[`personal_sign`](../json-rpc/personal/sign) [`personal_ecRecover`](../json-rpc/personal/ec-recover) RPCs
 - 在所有版本的 Kaia 节点中，[`kaia_recoverFromMessage`](../json-rpc/kaia/recover-from-message) RPC
 
 以 Kaia 钱包为例：
@@ -55,7 +55,7 @@ kaia.recoverFromMessage('0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a', '0x6162636
 - 以太坊钱包（如 MetaMask）
 - 以太坊 SDK（etherthers.js、web3.js、web3j、web3py、viem 等）
 - [kaia-sdk](https://github.com/kaiachain/kaia-sdk)套件（etheres-ext、web3js-ext、web3j-ext、web3py-ext），因为它们继承了各自以太坊 SDK 的消息签名功能（[参见文档](../sdk)）。
-- 在自 v1.0.1 起的 Kaia 节点中，[`eth_sign`](../jsson-rpc/eth/sign)、[`kaia_sign`](../jsson-rpc/kaia/sign)、[`personal_sign`](../jsson-rpc/personal/sign) [`personal_ec-Recover`](../jsson-rpc/personal/ec-recover)RPCs。
+- 在自 v1.0.1 起的 Kaia 节点中，[`eth_sign`](../json-rpc/eth/sign)、[`kaia_sign`](../json-rpc/kaia/sign)、[`personal_sign`](../json-rpc/personal/sign) [`personal_ec-Recover`](../json-rpc/personal/ec-recover)RPCs。
 - 在所有版本的 Kaia 节点中，[`kaia_recoverFromMessage`](../json-rpc/kaia/recover-from-message) RPC
 
 ethers.js 示例：
@@ -95,8 +95,8 @@ EIP-191 和 KIP-97 是签署单个字符串的标准，而 EIP-712 则是签署 
 以 Kaia 钱包为例：
 
 ```js
-const data = '{"domain":{"chainId":1, "name": "Ether Mail", "verifyingContract": "0xCcCCccccccccccccccccccccccccc", "version": "1"}, "message":{"contents": "Hello, Bob!", "attachedMoneyInEth":4.2,"from":{"name":"Cow","wallets":["0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826","0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF"]},"to":[{"name":"Bob","wallets":["0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB","0xB0BdaBea57B0BDABeA57b0bdABEA57b0BDabEa57","0xB0B0b0b0b0b0B000000000000000000000000000"]}]},"primaryType":"Mail","types":{"EIP712Domain":[{"name":"name","type":"string"},{"name":"version","type":"string"},{"name":"chainId","type":"uint256"},{"name":"verifyingContract","type":"address"}],"Group":[{"name":"name","type":"string"},{"name":"members","type":"Person[]"}],"Mail":[{"name":"from","type":"Person"},{"name":"to","type":"Person[]"},{"name":"contents","type":"string"}],"Person":[{"name":"name","type":"string"},{"name":"wallets","type":"address[]"}]}}';
-window.klaytn.request({ method："eth_signTypedData_v4", params：["0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a", data] })
+const data = '{"domain":{"chainId":1,"name":"Ether Mail","verifyingContract":"0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC","version":"1"},"message":{"contents":"Hello, Bob!","attachedMoneyInEth":4.2,"from":{"name":"Cow","wallets":["0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826","0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF"]},"to":[{"name":"Bob","wallets":["0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB","0xB0BdaBea57B0BDABeA57b0bdABEA57b0BDabEa57","0xB0B0b0b0b0b0B000000000000000000000000000"]}]},"primaryType":"Mail","types":{"EIP712Domain":[{"name":"name","type":"string"},{"name":"version","type":"string"},{"name":"chainId","type":"uint256"},{"name":"verifyingContract","type":"address"}],"Group":[{"name":"name","type":"string"},{"name":"members","type":"Person[]"}],"Mail":[{"name":"from","type":"Person"},{"name":"to","type":"Person[]"},{"name":"contents","type":"string"}],"Person":[{"name":"name","type":"string"},{"name":"wallets","type":"address[]"}]}}';
+window.klaytn.request({ method: "eth_signTypedData_v4", params: ["0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a", data] })
 ```
 
 请参阅 [此处](https://docs.metamask.io/wallet/how-to/sign-data/)，了解示例的构建过程。
