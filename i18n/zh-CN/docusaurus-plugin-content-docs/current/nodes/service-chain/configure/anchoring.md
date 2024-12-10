@@ -26,7 +26,7 @@ instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 
 ```
 
-_该父操作员账户地址来自$dataDIR/parent_bridge_account\` 目录中的密钥存储文件。_
+_`该父操作员账户地址来自$dataDIR/parent_bridge_account` 目录中的密钥存储文件。_
 
 ### 将 KAIA 加入家长运营商帐户<a id="add-kaia-to-parent-operator-account"></a>
 
