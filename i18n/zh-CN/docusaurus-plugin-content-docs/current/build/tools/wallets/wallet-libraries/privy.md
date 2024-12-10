@@ -27,7 +27,7 @@ sidebar_label: Privy
 
 ## 安装
 
-要在 dApp 中使用 Privy，必须先安装所需的库和 SDK。 因此，您需要设置 ethers.js，以及 [Privy React Auth SDK]（https://www.npmjs.com/package/@privy-io/react-auth）。 您可以将 Privy 与 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、[viem](https://viem.sh/) 库一起使用，与 Kaia 区块链进行通信。 在本指南中，我们将使用 ethers.js 库。
+要在 dApp 中使用 Privy，必须先安装所需的库和 SDK。 因此，您需要设置 ethers.js，以及 [Privy React Auth SDK](https://www.npmjs.com/package/@privy-io/react-auth)。 您可以将 Privy 与 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、[viem](https://viem.sh/) 库一起使用，与 Kaia 区块链进行通信。 在本指南中，我们将使用 ethers.js 库。
 
 打开项目文件夹，运行下面的命令安装所需的库和 SDK：
 
