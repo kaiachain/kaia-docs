@@ -2,9 +2,9 @@
 
 ## 目录
 
-1. [用户界面库]（#1-ui-libraries）
-2. [实用图书馆]（#2-实用图书馆）
-3. [提供商]（#3-提供商）
+1. [用户界面库](#1-ui-libraries)
+2. [实用图书馆](#2-utility-libraries)
+3. [提供商](#3-providers)
 
 ## 导言
 
@@ -26,7 +26,7 @@
 
 许多 dApp 利用前端框架进行状态管理和提供反应式服务。 将 Kaia 钱包与此类应用程序集成的推荐方法是使用基于相同框架构建的用户界面库。
 
-用户界面库为用户交互提供组件，如 "ConnectWallet "组件。 它们还能为您省去管理多账户和多网络等低级状态的麻烦。 您可以查看底层的 [Utility Library]（#2-utility-libraries）或 [Provider] （#3-providers），了解复杂或低级的交互。
+用户界面库为用户交互提供组件，如 "ConnectWallet "组件。 它们还能为您省去管理多账户和多网络等低级状态的麻烦。 您可以查看底层的 [Utility Library](#2-utility-libraries)或 [Provider] (#3-providers)，了解复杂或低级的交互。
 
 虽然大多数用户界面库都内置了对 Metamask 的支持，但由于 Kaia Wallet 的[API](https://docs.kaia.io/references/json-rpc/kaia/account-created/)是基于[Metamask's](https://docs.metamask.io/wallet/reference/json-rpc-api)构建的，因此集成起来也很容易。 即使一个库没有原生支持 Kaia 钱包，扩展它以集成 Kaia 钱包也很简单。 例如，这是 [React](https://react.dev) 或 [Next.js](https://nextjs.org) 的 2 个流行库：
 
@@ -88,7 +88,7 @@ kaia-sdk](#21-kaia-sdk) 和 [ethers.js](#22-ethersjs-example) 等库的抽象程
 
 ### 2.1. kaia-sdk
 
-[kaia-sdk](https://github.com/kaiachain/kaia-sdk)是其他实用程序库（如 [ethers.js](https://docs.ethers.io/v6) 和 [web3.js](https://web3js.org)）的插入式扩展集。 它允许您使用自己喜欢的库，同时为[Kaia 特定方法]提供第一方支持(https://docs.kaia.io/references/json-rpc/kaia/account-created/)：
+[kaia-sdk](https://github.com/kaiachain/kaia-sdk)是其他实用程序库（如 [ethers.js](https://docs.ethers.io/v6) 和 [web3.js](https://web3js.org))的插入式扩展集。 它允许您使用自己喜欢的库，同时为[Kaia 特定方法]提供第一方支持(https://docs.kaia.io/references/json-rpc/kaia/account-created/)：
 
 - 交易、账户和账户密钥类型
 - 收费代表团
@@ -114,4 +114,4 @@ kaia-sdk](#21-kaia-sdk) 和 [ethers.js](#22-ethersjs-example) 等库的抽象程
 
 ## 3. 提供商
 
-最底层是提供程序 [`window.klaytn`](https://docs.kaiawallet.io/02_api_reference/01_klaytn_provider)（Kaia 钱包本身）。 您可能更喜欢[实用库]（#2-utility-libraries），但了解提供程序接口有助于调试和理解依赖库如何工作。 要使用 Kaia 特有的方法，如 [`kaia_getAccount`](https://docs.kaia.io/references/json-rpc/kaia/get-account/)、[`kaia_sendTransactionAsFeePayer`](https://docs.kaia.io/references/json-rpc/kaia/send-transaction-as-fee-payer/) 等，必须参考 [Kaia 的 JSON-RPC API][Kaia-API]。
+最底层是提供程序 [`window.klaytn`](https://docs.kaiawallet.io/02_api_reference/01_klaytn_provider)（Kaia 钱包本身）。 您可能更喜欢[实用库](#2-utility-libraries)，但了解提供程序接口有助于调试和理解依赖库如何工作。 要使用 Kaia 特有的方法，如 [`kaia_getAccount`](https://docs.kaia.io/references/json-rpc/kaia/get-account/)、[`kaia_sendTransactionAsFeePayer`](https://docs.kaia.io/references/json-rpc/kaia/send-transaction-as-fee-payer/) 等，必须参考 [Kaia 的 JSON-RPC API][Kaia-API]。
