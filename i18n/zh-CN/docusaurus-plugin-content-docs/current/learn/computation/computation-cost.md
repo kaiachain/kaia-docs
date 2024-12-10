@@ -16,7 +16,7 @@
 
 :::note
 
-与硬叉相关的计算成本变更可在本页底部找到。 转到 [Hardfork Changes]（#hardfork-changes）。
+与硬叉相关的计算成本变更可在本页底部找到。 转到 [Hardfork Changes](#hardfork-changes)。
 
 :::
 
