@@ -1,0 +1,368 @@
+# Write (Fee Delegation)
+
+You can make a **"transaction"** that including **payment request** to feepayer when you want to execute the Smart Contract.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js smartContractWriteFeeDelegated.js
+const { Web3, TxType } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const contractAbi = JSON.parse('[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]');
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
+
+  console.log("number before", (await contract.methods.number().call()).toString());
+
+  const data = contract.methods.increment().encodeABI();
+  const tx = {
+    type: TxType.FeeDelegatedSmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    data: data,
+  };
+
+  // Sign transaction by sender
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
+
+  // Sign and send transaction by fee payer
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
+
+  console.log("number after", (await contract.methods.number().call()).toString());
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node smartContractWriteFeeDelegated.js
+number before 296
+senderTxHashRLP 0x31f8844c850ba43b7400830111939495be48607498109030592c08adc9577c7c2dd505809424e8efd18d65bcb6b3ba15a4698c0b0d69d13ff784d09de08af847f8458207f6a03a9ade9fb5c2e4e513c56341ab64ad0a70613d826479f2117b53d3b57cee5021a07612c8538ee5b895f44b50858164dd67da473e264c29d331437273e581652eea
+signedTx 0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f
+receipt {
+  blockHash: '0x6b2201b6bcc999395e247fc8b85062b1a9313cc0db53a50a746203c9995af8b9',
+  blockNumber: 148743711n,
+  cumulativeGasUsed: 38014n,
+  effectiveGasPrice: 25000000000n,
+  from: '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7',
+  gasUsed: 38014n,
+  logs: [
+    {
+      address: '0x95be48607498109030592c08adc9577c7c2dd505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000129',
+      blockNumber: 148743711n,
+      transactionHash: '0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f',
+      transactionIndex: 0n,
+      blockHash: '0x6b2201b6bcc999395e247fc8b85062b1a9313cc0db53a50a746203c9995af8b9',
+      logIndex: 0n,
+      removed: false
+    }
+  ],
+  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  status: 1n,
+  to: '0x95be48607498109030592c08adc9577c7c2dd505',
+  transactionHash: '0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f',
+  transactionIndex: 0n,
+  type: 0n
+}
+number after 297
+
+```
+
+</CH.Code>
+
+---
+
+Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js smartContractWriteFeeDelegated.js focus=1
+
+```
+
+---
+
+Define **sender**, **fee payer** addresses and private keys
+
+```js smartContractWriteFeeDelegated.js focus=3:6
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+
+```js smartContractWriteFeeDelegated.js focus=8:9
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js smartContractWriteFeeDelegated.js focus=8:9
+const { Web3, TxType } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const contractAbi = JSON.parse('[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]');
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
+
+  console.log("number before", (await contract.methods.number().call()).toString());
+
+  const data = contract.methods.increment().encodeABI();
+  const tx = {
+    type: TxType.FeeDelegatedSmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    data: data,
+  };
+
+  // Sign transaction by sender
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
+
+  // Sign and send transaction by fee payer
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
+
+  console.log("number after", (await contract.methods.number().call()).toString());
+}
+
+main();
+```
+
+---
+
+Create a **sender** and **fee payer** account from defined private key using `web3.eth.accounts.privateKeyToAccount`
+
+```js smartContractWriteFeeDelegated.js focus=10:11
+
+```
+
+---
+
+Define contract **Abi** and **contract address**
+
+```js smartContractWriteFeeDelegated.js focus=37:38
+
+```
+
+---
+
+Create a contract instance using `Web3.eth.Contract` with defined **contractAbi** and **address**. You can read and write the contract through this instance
+
+```js smartContractWriteFeeDelegated.js focus=41
+
+```
+
+---
+
+Get the value of **number** before update
+
+<CH.Code>
+```js smartContractWriteFeeDelegated.js focus=43
+
+````
+
+
+---
+
+```zsh output
+❯ node smartContractWriteFeeDelegated.js
+number before 296
+````
+
+</CH.Code>
+
+---
+
+Encoded the contract method data with `contract.methods.increment().encodeABI()`
+
+```js smartContractWriteFeeDelegated.js focus=45
+
+```
+
+---
+
+Create a transaction to update the value **number** with `type: FeeDelegatedSmartContractExecution`
+
+```js smartContractWriteFeeDelegated.js focus=46:51
+
+```
+
+---
+
+Sign the transaction with **sender** account using `signTransaction`
+
+<CH.Code>
+```js smartContractWriteFeeDelegated.js focus=53:55
+
+````
+---
+
+```zsh output
+❯ node smartContractWriteFeeDelegated.js
+senderTxHashRLP 0x31f8844c850ba43b7400830111939495be48607498109030592c08adc9577c7c2dd505809424e8efd18d65bcb6b3ba15a4698c0b0d69d13ff784d09de08af847f8458207f6a03a9ade9fb5c2e4e513c56341ab64ad0a70613d826479f2117b53d3b57cee5021a07612c8538ee5b895f44b50858164dd67da473e264c29d331437273e581652eea
+````
+
+</CH.Code>
+
+---
+
+Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
+
+<CH.Code>
+```js smartContractWriteFeeDelegated.js focus=57:59
+
+````
+---
+
+```zsh output
+❯ node smartContractWriteFeeDelegated.js
+signedTx 0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f
+````
+
+</CH.Code>
+
+---
+
+Send the transaction to blockchain. It will return the transaction receipt
+
+<CH.Code>
+```js smartContractWriteFeeDelegated.js focus=61:62
+
+````
+---
+
+```zsh output
+❯ node smartContractWriteFeeDelegated.js
+receipt {
+  blockHash: '0x6b2201b6bcc999395e247fc8b85062b1a9313cc0db53a50a746203c9995af8b9',
+  blockNumber: 148743711n,
+  cumulativeGasUsed: 38014n,
+  effectiveGasPrice: 25000000000n,
+  from: '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7',
+  gasUsed: 38014n,
+  logs: [
+    {
+      address: '0x95be48607498109030592c08adc9577c7c2dd505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000129',
+      blockNumber: 148743711n,
+      transactionHash: '0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f',
+      transactionIndex: 0n,
+      blockHash: '0x6b2201b6bcc999395e247fc8b85062b1a9313cc0db53a50a746203c9995af8b9',
+      logIndex: 0n,
+      removed: false
+    }
+  ],
+  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  status: 1n,
+  to: '0x95be48607498109030592c08adc9577c7c2dd505',
+  transactionHash: '0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f',
+  transactionIndex: 0n,
+  type: 0n
+}
+````
+
+</CH.Code>
+
+---
+
+Get the updated value of **number**
+
+<CH.Code>
+```js smartContractWriteFeeDelegated.js focus=64
+
+````
+---
+
+```zsh output
+❯ node smartContractWriteFeeDelegated.js
+number after 297
+````
+
+</CH.Code>
+</CH.Spotlight>
