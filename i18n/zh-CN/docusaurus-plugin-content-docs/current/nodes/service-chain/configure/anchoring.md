@@ -43,7 +43,7 @@ _该父操作员账户地址来自$dataDIR/parent_bridge_account\` 目录中的�
 ```
 
 然后，您可以通过 RPC API `subbridge.anchoring` 启用锚定功能，如下所示。
-有关详情，请参阅 [subbridge APIs]（.../.../.../references/json-rpc/subbridge/anchoring）。
+有关详情，请参阅 [subbridge APIs](.../.../.../references/json-rpc/subbridge/anchoring)。
 
 ```
 > subbridge.anchoring(true)
@@ -58,7 +58,7 @@ true
 ### 分桥<a id="sub-bridge"></a>
 
 在子桥中，您可以查看最新的锚定区块编号，如下所示。
-有关详情，请参阅 [subbridge APIs]（.../.../.../references/json-rpc/subbridge/latest-anchored-block-number）。
+有关详情，请参阅 [subbridge APIs](.../.../.../references/json-rpc/subbridge/latest-anchored-block-number)。
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
