@@ -23,7 +23,7 @@ Kaia Mainnet 具有以下性能。
 
 ### PBFT（实用拜占庭容错技术） <a id="pbft-practical-byzantine-fault-tolerance"></a>
 
-为了避免上述问题，我们需要其他能保证最终性的算法。 BFT 算法就是其中之一，由 Lamport、Shostak 和 Pease 于 1982 年首次[发表](https://dl.acm.org/citation.cfm?doid=357172.357176)。 1999 年，米格尔-卡斯特罗和芭芭拉-利斯科夫提出了 "实用拜占庭容错"（[PBFT](http://www.pmg.csail.mit.edu/papers/bft-tocs.pdf)），它提供高性能状态机复制。
+为了避免上述问题，我们需要其他能保证最终性的算法。 BFT 算法就是其中之一，由 Lamport、Shostak 和 Pease 于 1982 年首次[发表](https://dl.acm.org/citation.cfm?doid=357172.357176)。 1999 年，米格尔-卡斯特罗和芭芭拉-利斯科夫提出了 "实用拜占庭容错"（[PBFT](http://www.pmg.csail.mit.edu/papers/bft-tocs.pdf))，它提供高性能状态机复制。
 
 在上述 PoW 算法中，虽然每个节点都会接收并验证区块，但节点之间并没有信息交换来达成共识。 但在 PBFT 中，每个节点都会与其他参与节点通信以达成共识，只要节点能够达成共识，就能保证区块的最终性。
 
@@ -37,7 +37,7 @@ Kaia Mainnet 具有以下性能。
 
 Kaia 的目标是成为一个企业就绪、以服务为中心的平台。 因此，我们需要解决上面所写的终结性问题，而且网络应该能够允许许多节点参与其中。 为了实现这一点，Kaia 使用了伊斯坦布尔 BFT 的优化版本，该版本实现了 PBFT，并针对区块链网络的特点进行了修改。
 
-在 Kaia 中，有三种节点：CN（共识节点）、PN（代理节点）和 EN（端点节点）。 CN 由 CCO（核心小区运营商）管理，负责区块生成。 这些区块由网络中的所有节点验证。 请参阅 [此处]（./learn.md#kaia-network-topology），了解有关该网络拓扑的更多信息。
+在 Kaia 中，有三种节点：CN（共识节点）、PN（代理节点）和 EN（端点节点）。 CN 由 CCO（核心小区运营商）管理，负责区块生成。 这些区块由网络中的所有节点验证。 请参阅 [此处](./learn.md#kaia-network-topology），了解有关该网络拓扑的更多信息。
 
 ![Network topology](/img/learn/klaytn_network_node.png)
 
