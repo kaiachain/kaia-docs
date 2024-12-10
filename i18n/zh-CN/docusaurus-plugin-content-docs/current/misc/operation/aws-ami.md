@@ -2,7 +2,7 @@
 
 :::info[Service 不再更新］
 
-Kaia 端点节点的 AWS AMI 服务不再更新（最后更新日期：2024 年 11 月）。 虽然现有的 AMI（日期为 2024 年 11 月）仍可使用，但请注意，它们可能需要额外的同步时间才能赶上当前的区块链状态。 有关其他设置方法，如使用链数据快照或执行完全同步，请参阅 [块同步](.../.../learn/storage/block-sync.md)。
+Kaia 端点节点的 AWS AMI 服务不再更新（最后更新日期：2024 年 11 月）。 虽然现有的 AMI（日期为 2024 年 11 月）仍可使用，但请注意，它们可能需要额外的同步时间才能赶上当前的区块链状态。 有关其他设置方法，如使用链数据快照或执行完全同步，请参阅 [块同步](../../learn/storage/block-sync.md)。
 
 :::
 
@@ -25,8 +25,8 @@ Kaia 提供不同类型的 AMI，其链数据已通过不同模式同步。
 
 Kaia 为主网络提供这 4 种 AMI。 除了 "完整 "类型，Kairos 也有 AMI。
 
-有关状态迁移链数据的更多详情，请参阅 [状态批量剪枝](.../.../.../learn/storage/state-pruning/#state-batch-pruning-state-migration)。
-有关块同步模式的更多详情，请参阅 [块同步](.../.../learn/storage/block-sync.md)。
+有关状态迁移链数据的更多详情，请参阅 [状态批量剪枝](../../../learn/storage/state-pruning/#state-batch-pruning-state-migration)。
+有关块同步模式的更多详情，请参阅 [块同步](../../learn/storage/block-sync.md)。
 
 ## 在亚马逊控制台使用 AMI 启动新的 EC2 实例
 
