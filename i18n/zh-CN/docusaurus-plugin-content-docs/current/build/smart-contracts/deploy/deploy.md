@@ -61,7 +61,7 @@ contract KaiaGreeter is Mortal {
 
 ![](/img/build/smart-contracts/06_deployment_functions.png)
 
-有关详细信息，请参阅此 [链接](.../ide-and-tools/ide-and-tools.md)。
+有关详细信息，请参阅此 [链接](../ide-and-tools/ide-and-tools.md)。
 
 ## VVISP <a id="vvisp"></a>
 
@@ -126,21 +126,21 @@ const Caver = require("caver-js");
 const caver = new Caver("https://public-en-kairos.node.kaia.io")
 
 const walletInstance = caver.kaia.accounts.privateKeyToAccount(
-  '0x3de0c9...' //输入您的私钥以部署与
+  '0x3de0c9...' // enter your private key to deploy contract with
 );
 caver.kaia.accounts.wallet.add(walletInstance);
 
 const fs = require('fs')
-const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // 编译输出
+const bytecode = fs.readFileSync('./KaiaGreeter_sol_KaiaGreeter.bin') // compiled output
 
-constructorType = ['string'] // 输入适当的构造函数类型
-constructorValue = ['Hello, Kaia！']
+const constructorType = ['string']  // enter appropriate constructor type
+const constructorValue = ['Hello, Kaia!']
 
 const params = caver.kaia.abi.encodeParameters(constructorType, constructorValue);
 
 caver.kaia.sendTransaction({
   from: caver.kaia.accounts.wallet[0].address,
-  gas："50000000",
+  gas: "50000000",
   data: bytecode.toString() + params.substring(2, params.length)
 })
 .once("receipt", receipt => {
