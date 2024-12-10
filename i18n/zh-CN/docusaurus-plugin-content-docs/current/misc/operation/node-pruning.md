@@ -21,7 +21,7 @@
 
 :::info
 
-有实时修剪和没有实时修剪的数据库是不兼容的。 要运行带实时剪枝功能的节点，必须从带有 `--state.live-pruning`标记的创世块开始，或者从已启用实时剪枝功能的 [chaindata snapshot]（./chaindata-snapshot.md）开始。
+有实时修剪和没有实时修剪的数据库是不兼容的。 要运行带实时剪枝功能的节点，必须从带有 `--state.live-pruning`标记的创世块开始，或者从已启用实时剪枝功能的 [chaindata snapshot](./chaindata-snapshot.md)开始。
 
 不能将非实时剪枝数据库转换为实时剪枝数据库，反之亦然。 以下是您可能会看到的一些日志信息示例：
 
