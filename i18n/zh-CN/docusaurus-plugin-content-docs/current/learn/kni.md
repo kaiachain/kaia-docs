@@ -38,5 +38,5 @@ kni://a979...163c@10.0.0.1:32323?discport=30301                 # either single-
 kni://a979...163c@10.0.0.1:32323?subport=32324&discport=30301   # multi-channel peer
 ```
 
-如果您想知道如何生成节点的 KNI，请参阅 [节点密钥和节点 URI 创建](.../nodes/core-cell/install/before-you-install.md#node-key-node-uri-creation)。
-KNI 方案用于节点发现协议、[设置 `static-nodes.json` 文件](.../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodes-json)、[addPeer API](.../references/json-rpc/admin/add-peer)、[bootnodes 选项](.../misc/operation/configuration.md#properties)等。
+如果您想知道如何生成节点的 KNI，请参阅 [节点密钥和节点 URI 创建](../nodes/core-cell/install/before-you-install.md#node-key-node-uri-creation)。
+KNI 方案用于节点发现协议、[设置 `static-nodes.json` 文件](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodes-json)、[addPeer API](../references/json-rpc/admin/add-peer)、[bootnodes 选项](../misc/operation/configuration.md#properties)等。
