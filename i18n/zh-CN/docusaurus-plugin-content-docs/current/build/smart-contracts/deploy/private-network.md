@@ -131,7 +131,7 @@ const accounts = [
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.24",
-  networks：{
+  networks: {
     localhost: {
       url: process.env.RPC_URL || "http://localhost:8545",
       accounts: accounts,
@@ -143,14 +143,14 @@ module.exports = {
     kaia: {
       url: process.env.RPC_URL || "https://public-en.node.kaia.io",
       accounts: accounts,
-    }.
+    }
   },
-  namedAccounts：{
-    deployer：{
-      default: 0, // 这里默认将第一个账户作为部署者
+  namedAccounts: {
+    deployer: {
+      default: 0, // here this will by default take the first account as deployer
     },
   },
-}；
+};
 ```
 
 ## 启动专用网络<a id="launching-private-network"></a>
@@ -220,7 +220,7 @@ hh --network localhost 账户
 **第 2 步：** 打开文件并粘贴以下代码：
 
 ```js
-// SPDX-License-Identifier：UNLICENSED
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 contract KaiaGreeter {
@@ -257,7 +257,7 @@ module.exports = async ({getNamedAccounts, deployments}) => {
     log: true,
   });
 };
-module.exports.tags = ['KaiaGreeter']；
+module.exports.tags = ['KaiaGreeter'];
 ```
 
 **步骤 3：** 在终端运行以下命令，告诉 Hardhat 在专用网络上部署你的 KaiaGreeter 合同。
@@ -380,7 +380,7 @@ async function getTotalGreetings(ca) {
 
 // getCode(contractAddress);
 getTotalGreetings(contractAddress);
-// greet(contractAddress)；
+// greet(contractAddress);
 ```
 
 **步骤 4：** 要执行本文件中声明的任何函数，请确保像执行 getTotalGreetings() 函数那样取消注释，然后在终端运行以下命令。
