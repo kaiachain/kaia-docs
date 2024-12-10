@@ -56,8 +56,8 @@ Kaia 合同向导由以下部分组成：
 
 - 确保安装了 [foundry](https://book.getfoundry.sh/getting-started/installation)。
 - 克隆 [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) 代码。
-- [MetaMask]（.../tutorials/connecting-metamask.mdx#install-metamask）：用于部署合约、签署事务和与合约交互。
-- RPC 端点：您可以从支持的[端点提供程序]（.../.../references/public-en.md）中获取。
+- [MetaMask](.../tutorials/connecting-metamask.mdx#install-metamask)：用于部署合约、签署事务和与合约交互。
+- RPC 端点：您可以从支持的[端点提供程序](.../.../references/public-en.md)中获取。
 - 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
 ### 开始
