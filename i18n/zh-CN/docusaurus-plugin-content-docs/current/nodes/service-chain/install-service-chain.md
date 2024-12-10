@@ -17,14 +17,14 @@ ServiceChain 是企业级区块链，可满足企业对价值转移、安全性�
 
 ![](/img/nodes/sc-overview.png)
 
-请阅读 [Kaia 扩展解决方案](.../.../learn/scaling-solutions.md) 了解有关 ServiceChain 的更多详情。 以下视频将帮助您了解 Kaia ServiceChain。
+请阅读 [Kaia 扩展解决方案](../../learn/scaling-solutions.md) 了解有关 ServiceChain 的更多详情。 以下视频将帮助您了解 Kaia ServiceChain。
 
 - [通过 Kaia 服务链实现横向扩展 | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
 - [Kaia 服务链的高可用性架构 | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
 
 ## 下载<a id="download"></a>
 
-您可以在[下载页面](.../downloads/downloads.md)中获取 SCN、SPN 和 SEN 的软件包。
+您可以在[下载页面](../downloads/downloads.md)中获取 SCN、SPN 和 SEN 的软件包。
 
 ## 安装<a id="installation-guide"></a>
 
@@ -333,7 +333,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 >
 ```
 
-您可以在 [API 文档](.../.../.../references/json-rpc/klay/account-created)中查看可用命令。
+您可以在 [API 文档](../../../references/json-rpc/klay/account-created)中查看可用命令。
 
 用于检查 SCN 状态的实用 API：
 
