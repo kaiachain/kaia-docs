@@ -1,24 +1,24 @@
 # 常见问题
 
-- [什么是 Kaia？]（#什么是 Kaia）
-- [Kaia 如何支持以太坊等价性？
-- [什么是 Kaia 的天然气政策？
+- [什么是 Kaia？](#what-is-kaia)
+- [Kaia 如何支持以太坊等价性？](#how-ethereum-equivalence)
+- [什么是 Kaia 的天然气政策？](#kaia-gas-policy)
 - [Kaia 的账户结构有什么特别之处？](#kaia-account-structure)
-- [在哪里可以开始使用 Kaia 开发 dApp？
-- [Kaia 是开源的吗？
-- [如何为我的账户充值？
-- [任何用于测试和开发的 Kaia 公共节点提供程序？
-- [是否有水龙头可以测试 KAIA？
-- [如何检查公共 RPC 端点状态？
-- [哪些钱包支持 Kaia？
-- [什么是 Mainnet，什么是 Kairos？]（#什么是 Mainnet，什么是 Kairos）
-- [有 Kaia SDK 吗？ 用什么语言？]（#kaia-sdks）
-- [我必须安装并运行 EN（端点节点）才能使用 Kaia 吗？
+- [在哪里可以开始使用 Kaia 开发 dApp？](#dapp-development)
+- [Kaia 是开源的吗？](#is-kaia-open-source)
+- [如何为我的账户充值？](#fund-my-acconut)
+- [任何用于测试和开发的 Kaia 公共节点提供程序？](#node-providers)
+- [是否有水龙头可以测试 KAIA？](#are-there-faucets)
+- [如何检查公共 RPC 端点状态？](#rpc-endpoint-status)
+- [哪些钱包支持 Kaia？](#which-wallets)
+- [什么是 Mainnet，什么是 Kairos？](#what-is-mainnet-what-is-kairos)
+- [有 Kaia SDK 吗？ 用什么语言？](#kaia-sdks)
+- [我必须安装并运行 EN（端点节点）才能使用 Kaia 吗？](#must-i-install-and-run-en)
 - [我正在运行 EN，节点数据同步太慢。](#node-data-sync-is-too-slow)
-- [我可以在 Kaia 上使用 ERC-20 和 ERC-721 合约吗？
-- [哪里可以获得类似 Metamask 的浏览器扩展钱包？
-- [为什么我的缴费账户地址不是从所提供的密钥中导出的？
-- [在哪里可以找到完整的收费授权工作样本？
+- [我可以在 Kaia 上使用 ERC-20 和 ERC-721 合约吗？](#can-i-use-erc-20-and-erc-721)
+- [哪里可以获得类似 Metamask 的浏览器扩展钱包？](#where-can-i-get-a-browser-extension-wallet)
+- [为什么我的缴费账户地址不是从所提供的密钥中导出的？](#account-address-is-not-derived-from-the-key)
+- [在哪里可以找到完整的收费授权工作样本？](#fee-delegation-samples)
 
 ## Kaia 是什么？ <a id="what-is-kaia"></a>
 
@@ -34,7 +34,7 @@ Kaia 采用动态天然气收费模式，在正常网络条件下保持低收费
 
 ## Kaia 的账户结构有什么特别之处？ <a id="kaia-account-structure"></a>
 
-为了给 dApp 开发者提供最大的便利，Kaia 设计了一种[将私钥与地址分离]的方法(https://klaytn-tech.medium.com/klaytn-usability-improvement-series-1-separating-keys-and-addresses-dd5e367a0744)。 因此，你可以轻松实现 [multisig](https://medium.com/klaytn/klaytn-usability-improvement-series-2-introducing-multisig-on-the-platform-level-85141893db01)，为一个账户创建多个私钥，每个私钥的权重都不同。 每个密钥还可分配 [不同角色](https://medium.com/klaytn/klaytn-usability-improvement-series-4-supporting-role-based-keys-on-the-platform-level-e2c912672b7b)。
+为了给 dApp 开发者提供最大的便利，Kaia 设计了一种[将私钥与地址分离](https://klaytn-tech.medium.com/klaytn-usability-improvement-series-1-separating-keys-and-addresses-dd5e367a0744)的方法。 因此，你可以轻松实现 [multisig](https://medium.com/klaytn/klaytn-usability-improvement-series-2-introducing-multisig-on-the-platform-level-85141893db01)，为一个账户创建多个私钥，每个私钥的权重都不同。 每个密钥还可分配 [不同角色](https://medium.com/klaytn/klaytn-usability-improvement-series-4-supporting-role-based-keys-on-the-platform-level-e2c912672b7b)。
 
 ## 从哪里开始使用 Kaia 开发 dApp？ <a id="dapp-development"></a>
 
@@ -42,7 +42,7 @@ Kaia 采用动态天然气收费模式，在正常网络条件下保持低收费
 
 ## Kaia 是开源的吗？ <a id="is-kaia-open-source"></a>
 
-Kaia 当然是开源的！ 看看我们的 [Github 组织](https://github.com/kaiachain)，您就可以开始为我们的 Kaia 文档 [作出贡献](https://github.com/kaiachain/kaia-docs/blob/main/CONTRIBUTING.md)。 点击此处]（opensource.md），了解更多关于我们的开源政策。
+Kaia 当然是开源的！ 看看我们的 [Github 组织](https://github.com/kaiachain)，您就可以开始为我们的 Kaia 文档 [作出贡献](https://github.com/kaiachain/kaia-docs/blob/main/CONTRIBUTING.md)。 阅读更多关于我们的开源政策[此处](opensource.md)
 
 ## 如何为账户充值？ <a id="fund-my-acconut"></a>
 
@@ -67,7 +67,7 @@ Kaia 当然是开源的！ 看看我们的 [Github 组织](https://github.com/ka
 
 ## 哪些钱包支持 Kaia？ <a id="which-wallets"></a>
 
-Kaia 由冷钱包 D'cent 以及大量热钱包（如 Kaia Wallet、MetaMask 等）支持。 请参阅 [此处] 列表（.../build/tools/wallets/wallets.md）。
+Kaia 由冷钱包 D'cent 以及大量热钱包（如 Kaia Wallet、MetaMask 等）支持。 请参阅 [此处](.../build/tools/wallets/wallets.md)列表。
 
 ## 什么是 Mainnet，什么是 Kairos？ <a id="what-is-mainnet-what-is-kairos"></a>
 
@@ -81,7 +81,7 @@ Kaia 由冷钱包 D'cent 以及大量热钱包（如 Kaia Wallet、MetaMask 等�
 
 启明星测试网
 
-- EN 下载 ：从[下载页面]（.../nodes/downloads/downloads.md）选择 Kairos 软件包。
+- EN 下载 ：从[下载页面](.../nodes/downloads/downloads.md)选择 Kairos 软件包。
 - Kaiascope : https://kairos.kaiascope.com
 - 凯洛斯龙头 : https://faucet.kaia.io
 
@@ -112,9 +112,9 @@ Kaia Node 与以太坊兼容，因此您可以使用流行的以太坊 SDK，如
 
 ## 我正在运行 EN，节点数据同步太慢。 <a id="node-data-sync-is-too-slow"></a>
 
-首先，检查您的硬件规格是否符合 [系统要求]（.../nodes/endpoint-node/system-requirements.md）。
+首先，检查您的硬件规格是否符合 [系统要求](.../nodes/endpoint-node/system-requirements.md)。
 
-其次，考虑 [下载 chaindata 快照]（.../nodes/endpoint-node/install-endpoint-nodes.md#optional-download-chaindata-snapshot），跳过耗时的完全同步过程。 链数据快照是一种数据库快照，存储自创世以来生成的所有区块。 每日更新。
+其次，考虑 [下载 chaindata 快照](.../nodes/endpoint-node/install-endpoint-nodes.md#optional-download-chaindata-snapshot)，跳过耗时的完全同步过程。 链数据快照是一种数据库快照，存储自创世以来生成的所有区块。 每日更新。
 
 ## 我可以在 Kaia 上使用 ERC-20 和 ERC-721 合约吗？ <a id="can-i-use-erc-20-and-erc-721"></a>
 
@@ -128,14 +128,14 @@ Kaia 的网络浏览器扩展钱包 [Kaia Wallet](https://chromewebstore.google.
 
 ## 为什么我的缴费账户地址无法从所提供的密钥中导出？ <a id="account-address-is-not-derived-from-the-key"></a>
 
-在 Kaia 中，[账户地址可以与密钥对解耦]（.../learn/accounts.md#decoupling-key-pairs-from-addresses）。
+在 Kaia 中，[账户地址可以与密钥对解耦](.../learn/accounts.md#decoupling-key-pairs-from-addresses)。
 
 常见的使用情况如下。
 
 - 账户所有者出于安全考虑希望更改密钥。
 - 账户有一个加权多密钥或基于角色的密钥，允许使用多个密钥对来控制账户。
 
-付费账户通常有一个[基于角色的密钥]（.../learn/accounts.md#accountkeyrolebased）。 在大多数情况下，账户地址不是从 RoleFeePayer 密钥导出的。
+付费账户通常有一个[基于角色的密钥](.../learn/accounts.md#accountkeyrolebased)。 在大多数情况下，账户地址不是从 RoleFeePayer 密钥导出的。
 
 ## 在哪里可以找到完整的收费授权工作样本？ <a id="fee-delegation-samples"></a>
 
