@@ -89,7 +89,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": 
 
 启用的应用程序接口如下：
 
-- [虚拟机跟踪]（.../.../.../references/json-rpc/debug/trace-bad-block）API，但功能有限（只允许使用[预定义跟踪器]（.../.../../references/json-rpc/debug/trace-bad-block）。 参见参数/跟踪选项）。
+- [虚拟机跟踪](.../.../.../references/json-rpc/debug/trace-bad-block)API，但功能有限（只允许使用[预定义跟踪器](.../.../../references/json-rpc/debug/trace-bad-block)。 参见参数/跟踪选项）。
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 
