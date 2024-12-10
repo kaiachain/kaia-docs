@@ -46,7 +46,7 @@ Kaia 区块链架构中负责执行交易和生成区块的实体。 核心单�
 
 区块链上由私钥控制的账户。 私钥由用户持有，用于签署交易。 EOA 是区块链上最常见的账户类型，个人和企业使用它与区块链进行交互。
 
-另请参阅 [智能合约账户（SCA）]（#smart-contract-account-sca）。
+另请参阅 [智能合约账户（SCA)](#smart-contract-account-sca)。
 
 ### 费用委托
 
@@ -70,7 +70,7 @@ Kaia 基金会设立的基金，旨在支持有助于 Kaia 区块链生态系统
 
 ### Kaia 终端节点 (KEN)
 
-请参阅 [端点节点 (EN)]（#endpoint-node-en）。
+请参阅 [端点节点 (EN)](#endpoint-node-en)。
 
 ### 凯亚基础设施基金 (KIF)
 
@@ -126,7 +126,7 @@ Kaia 平台的公共测试网络。 开发人员在将应用程序部署到主�
 
 区块链上由智能合约控制的账户。 智能合约是一种自动执行的合约，买卖双方的协议条款直接写入代码行中。 SCA 用于自动执行区块链上的交易和协议。
 
-另请参阅 [外部拥有账户 (EOA)]（#externally-owned-account-eoa）。
+另请参阅 [外部拥有账户 (EOA)](#externally-owned-account-eoa)。
 
 ### 服务链
 
@@ -136,7 +136,7 @@ Kaia 平台的公共测试网络。 开发人员在将应用程序部署到主�
 
 在 Kaia 服务链中负责参与共识过程的节点。
 
-另请参阅 [共识节点 (CN)]（#consensus-node-cn）、[服务链]（#service-chain）。
+另请参阅 [共识节点 (CN)](#consensus-node-cn)、[服务链](#service-chain)。
 
 ### 服务链终点节点 (SEN)
 
