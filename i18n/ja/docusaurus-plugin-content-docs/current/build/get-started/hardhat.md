@@ -25,7 +25,7 @@ By the end of this guide you will be able to:
 
 To follow this tutorial, the following are the prerequisites:
 
-- Code editor: a source-code editor such [VS Code](https://code.visualstudio.com/download).
+- Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 - [Metamask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
@@ -86,7 +86,7 @@ After initializing a hardhat project, your current directory should include:
 
 **contracts/** – this folder contains smart contract code.
 
-**ignition/modules/** – this folder contains code that deploys your contracts on the blockchain network.
+**scripts/** – this folder contains code that deploys your contracts on the blockchain network.
 
 **test/** – this folder contains all unit tests that test your smart contract.
 
@@ -337,7 +337,7 @@ main().catch((error) => {
 **Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Klaytn Test Network (Baobab)
 
 ```bash
-npx hardhat run ignition/modules/sbtDeploy.js --network kairos
+npx hardhat run scripts/sbtDeploy.js --network baobab
 ```
 
 ![](/img/build/get-started/sbtDeploy.png)
