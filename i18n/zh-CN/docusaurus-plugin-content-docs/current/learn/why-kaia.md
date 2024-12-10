@@ -44,7 +44,7 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 2. **二级基础设施**：支持产品和服务的生态系统，包括集成服务、稳定币集成、DAO、NFT 市场、DEX、DeFi 和传统金融接口。
 
-3. **生态系统基金**：新发行代币的 50% 将通过[Kaia 生态系统基金]（token-economy.md#kaia-ecosystem-fund）和[Kaia 基础设施基金]（token-economy.md#kaia-infrastructure-fund）重新投资于生态系统。
+3. **生态系统基金**：新发行代币的 50% 将通过[Kaia 生态系统基金]（token-economy.md#kaia-ecosystem-fund)和[Kaia 基础设施基金]（token-economy.md#kaia-infrastructure-fund)重新投资于生态系统。
 
 ## 社区共建与治理
 
