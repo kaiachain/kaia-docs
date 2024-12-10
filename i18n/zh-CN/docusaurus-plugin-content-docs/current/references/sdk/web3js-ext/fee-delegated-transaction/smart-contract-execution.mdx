@@ -1,0 +1,288 @@
+# Smart Contract Execution
+
+**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js FeeDelegatedSmartContractExecution.js
+const { Web3, TxType } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
+const contractAddr = "0xD7fA6634bDDe0B2A9d491388e2fdeD0fa25D2067";
+const contractAbi = JSON.parse('[{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]');
+
+async function main() {
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
+  const data = contract.methods.setNumber(0x123).encodeABI();
+
+  const tx = {
+    type: TxType.FeeDelegatedSmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    data: data,
+  };
+
+  // Sign transaction by sender
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
+
+  // Sign and send transaction by fee payer
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node FeeDelegatedSmartContractExecution.js
+senderTxHashRLP 0x31f8a68203b8850ba43b74008301087994d7fa6634bdde0b2a9d491388e2fded0fa25d20678094a2a8854b1802d8cd5de631e690817c253d6a9153a43fb5c1cb0000000000000000000000000000000000000000000000000000000000000123f847f8458207f5a07d40391ae45f7d515becb1aff3b99e7d8b05299b268daa623fb045d981d89c44a0117c23ab37da35ce5206525852ce27f7edc9401e0ee8069a9a396daa64d0c85d
+signedTx 0xfa69f712a8d748e294caa1b95df51f8974a0bcf620af6c1b8a7614999a20b447
+receipt {
+  blockHash: '0x4f852e6a2d320287f20cf34c24546f51f53ebdbbc4a4cacee93525e678abf275',
+  blockNumber: 148744853n,
+  cumulativeGasUsed: 36990n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 36990n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xd7fa6634bdde0b2a9d491388e2fded0fa25d2067',
+  transactionHash: '0xfa69f712a8d748e294caa1b95df51f8974a0bcf620af6c1b8a7614999a20b447',
+  transactionIndex: 0n,
+  type: 0n
+}
+
+```
+
+</CH.Code>
+
+---
+
+Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js FeeDelegatedSmartContractExecution.js focus=1
+
+```
+
+---
+
+Define **sender**, **fee payer** addresses and private keys
+
+```js FeeDelegatedSmartContractExecution.js focus=3:6
+
+```
+
+---
+
+Define contract address and abi
+
+```js FeeDelegatedSmartContractExecution.js focus=8:23
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+
+```js FeeDelegatedSmartContractExecution.js focus=8:9
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js FeeDelegatedSmartContractExecution.js focus=8
+const { Web3, TxType } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
+const contractAddr = "0xD7fA6634bDDe0B2A9d491388e2fdeD0fa25D2067";
+const contractAbi = JSON.parse('[{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]');
+
+async function main() {
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
+  const data = contract.methods.setNumber(0x123).encodeABI();
+
+  const tx = {
+    type: TxType.FeeDelegatedSmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    data: data,
+  };
+
+  // Sign transaction by sender
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
+
+  // Sign and send transaction by fee payer
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+Create a **sender's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+
+```js FeeDelegatedSmartContractExecution.js focus=10
+
+```
+
+---
+
+Create a **fee payer's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+
+```js FeeDelegatedSmartContractExecution.js focus=11
+
+```
+
+---
+
+Define **contractAddr** and **contractAbi**, you can get the contract address and Abi from compiled solidity code or blockchain explorer
+
+```js FeeDelegatedSmartContractExecution.js focus=13:14
+
+```
+
+---
+
+Create a contract instance using `Web3.eth.Contract` with defined **contractAbi** and **address**. You can read and write the contract through this instance
+
+```js FeeDelegatedSmartContractExecution.js focus=17
+
+```
+
+---
+
+Encode the function data for the `setNumber` function, `encodeABI` convert the data into bytecode
+
+```js FeeDelegatedSmartContractExecution.js focus=18
+
+```
+
+---
+
+Create the transaction object to interact with the contract
+
+```js FeeDelegatedSmartContractExecution.js focus=20:25
+
+```
+
+---
+
+Set `type: TxType.FeeDelegatedSmartContractExecution` for transaction to change contract state with a fee payer
+
+```js FeeDelegatedSmartContractExecution.js focus=21
+
+```
+
+---
+
+Set `data: data` for earlier encoded function data
+
+```js FeeDelegatedSmartContractExecution.js focus=24
+
+```
+
+---
+
+Sign the transaction with **sender** account using `signTransaction`
+
+<CH.Code>
+```js FeeDelegatedSmartContractExecution.js focus=27:29
+
+````
+
+
+---
+
+```zsh output
+❯ node FeeDelegatedSmartContractExecution.js
+senderTxHashRLP 0x31f8a68203b8850ba43b74008301087994d7fa6634bdde0b2a9d491388e2fded0fa25d20678094a2a8854b1802d8cd5de631e690817c253d6a9153a43fb5c1cb0000000000000000000000000000000000000000000000000000000000000123f847f8458207f5a07d40391ae45f7d515becb1aff3b99e7d8b05299b268daa623fb045d981d89c44a0117c23ab37da35ce5206525852ce27f7edc9401e0ee8069a9a396daa64d0c85d
+````
+
+</CH.Code>
+
+---
+
+Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
+
+<CH.Code>
+```js FeeDelegatedSmartContractExecution.js focus=31:33
+
+````
+
+
+---
+
+```zsh output
+❯ node FeeDelegatedSmartContractExecution.js
+signedTx 0xfa69f712a8d748e294caa1b95df51f8974a0bcf620af6c1b8a7614999a20b447
+````
+
+</CH.Code>
+
+---
+
+Send the transaction to blockchain. It will return the transaction receipt
+
+<CH.Code>
+```js FeeDelegatedSmartContractExecution.js focus=35:36
+
+````
+
+
+---
+
+```zsh output
+❯ node FeeDelegatedSmartContractExecution.js
+receipt {
+  blockHash: '0x4f852e6a2d320287f20cf34c24546f51f53ebdbbc4a4cacee93525e678abf275',
+  blockNumber: 148744853n,
+  cumulativeGasUsed: 36990n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 36990n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xd7fa6634bdde0b2a9d491388e2fded0fa25d2067',
+  transactionHash: '0xfa69f712a8d748e294caa1b95df51f8974a0bcf620af6c1b8a7614999a20b447',
+  transactionIndex: 0n,
+  type: 0n
+}
+````
+
+</CH.Code>
+</CH.Spotlight>
