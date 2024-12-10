@@ -65,7 +65,7 @@ EN-01$ kend start
 Starting kscnd: OK
 ```
 
-您可以通过查看 `kaia.blockNumber` 来检查块同步状态。 如果该数字不为 0，则说明节点工作正常。 根据网络条件和硬件性能，在 Kairos 网络上下载所有区块可能需要很长时间，因此我们建议使用 [Fast Sync]（.../.../endpoint-node/install-endpoint-nodes.md#fast-sync-optional）来同步区块。
+您可以通过查看 `kaia.blockNumber` 来检查块同步状态。 如果该数字不为 0，则说明节点工作正常。 根据网络条件和硬件性能，在 Kairos 网络上下载所有区块可能需要很长时间，因此我们建议使用 [Fast Sync](.../.../endpoint-node/install-endpoint-nodes.md#fast-sync-optional)来同步区块。
 
 ```
 EN-01$ ken attach --datadir ~/data
