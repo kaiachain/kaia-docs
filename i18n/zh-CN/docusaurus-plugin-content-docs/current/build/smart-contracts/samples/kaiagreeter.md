@@ -42,5 +42,5 @@ contract KaiaGreeter is Mortal {
 
 有关合同部署详情和 Remix Online IDE 使用指南，请参阅以下文件。
 
-- [Remix 在线集成开发环境](.../.../smart-contracts/ide-and-tools/ide-and-tools.md#kaia-ide)
-- [部署指南](.../deploy/deploy.md)
+- [Remix 在线集成开发环境](../../smart-contracts/ide-and-tools/ide-and-tools.md#kaia-ide)
+- [部署指南](../deploy/deploy.md)
