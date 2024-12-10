@@ -4,7 +4,7 @@
 
 :::note
 
-执行气体相关硬分叉更改可在本页底部找到。 转到 [Hardfork Changes]（#hardfork-changes）。
+执行气体相关硬分叉更改可在本页底部找到。 转到 [Hardfork Changes](#hardfork-changes)。
 
 :::
 
