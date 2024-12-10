@@ -15,22 +15,22 @@
 首先，您需要在 [KAS 控制台网站](https://www.klaytnapi.com) 上注册 KAS，获得 KAS 账户。
 请访问上述网站并在 KAS 中注册。
 
-[![主页](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
+[![main page](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
 
-[![注册](/img/nodes/kas-signup-en.png)](https://www.klaytnapi.com)
+[![sign up](/img/nodes/kas-signup-en.png)](https://www.klaytnapi.com)
 
 ### 创建证书<a id="check-credential"></a>
 
 登录后，您可以创建如下凭证。
 访问密钥 ID "和 "秘密访问密钥 "或 "授权 "将用于调用 KAS API。
 
-![凭证](/img/nodes/kas-credential-en.png)
+![credential](/img/nodes/kas-credential-en.png)
 
 ## 锚点应用程序接口<a id="anchor-api"></a>
 
 KAS 提供了专为数据锚定而设计的锚定应用程序接口（Anchor API），您肯定会使用它来完成锚定任务。
 
-锚应用程序](/img/nodes/kas-anchor-api-en.png)
+![anchor api](/img/nodes/kas-anchor-api-en.png)
 
 ## 创建操作员地址<a id="create-kas-credential"></a>
 
@@ -38,16 +38,16 @@ KAS 提供了专为数据锚定而设计的锚定应用程序接口（Anchor API
 
 需要注意的是，您必须首先在 KAS 控制台页面右上角**选择要将数据锚定到 Kaia 中的链**。 您应为每个链（Mainnet/Kairos）创建一个操作员。
 
-[选择链](/img/nodes/kas-select-chain-en.png)
+![select chain](/img/nodes/kas-select-chain-en.png)
 
 创建如下操作符
 
-[创建操作符](/img/nodes/kas-create-operator-en.png)
+![create operator](/img/nodes/kas-create-operator-en.png)
 
 然后，您可以像下面这样查看操作员列表。
 请注意，设置服务链节点需要运营商的地址。
 
-![创建操作符](/img/nodes/kas-operator-list-en.png)
+![create operator](/img/nodes/kas-operator-list-en.png)
 
 ## 配置服务链节点<a id="configure-service-chain-node"></a>
 
@@ -97,4 +97,4 @@ INFO[09/10,18:09:32 +09] [53] Anchored a block via KAS                  blkNum=8
 
 在 KAS 控制台网站上，您可以在 "KAS 控制台 - 服务 - 锚点 - 操作员 "菜单中查看服务链操作员发送的锚点交易列表，如下所示。
 
-锚定交易列表](/img/nodes/kas-tx-list-en.png)
+![anchoring transaction list](/img/nodes/kas-tx-list-en.png)
