@@ -37,7 +37,7 @@
 
 ### 克莱顿和芬丝希娅怎么了？ <a id="what-happened-to-klaytn-and-finschia-"></a>
 
-Klaytn 和 Finschia 通过两家连锁店的管理决策合并为 Kaia。 您可以查看投票结果 [此处](https://medium.com/kaiachain/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem-7af570eb069a)。 两个链（KLAY 和 FNSA）的实用代币转换为 KAIA 代币。 您可以在 [此处] 找到这两种代币的汇率(.../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status)。
+Klaytn 和 Finschia 通过两家连锁店的管理决策合并为 Kaia。 您可以查看投票结果 [此处](https://medium.com/kaiachain/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem-7af570eb069a)。 两个链（KLAY 和 FNSA）的实用代币转换为 KAIA 代币。 您可以在 [此处] 找到这两种代币的汇率(../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status)。
 
 ### KLAY 和 FNSA 会怎么样？ <a id="what-happens-to-klay-and-fnsa-"></a>
 
@@ -101,7 +101,7 @@ Klaytnscope 将一如既往地工作，并在三个月后升级。
 
 KAIA 是 KLAY 的改名。 KLAY 将继续使用更新后的名称和股票代码。 建议尽可能更新令牌图。
 
-由于 Klaytn 和 Finschia 连锁店的合并，供应总量和流通量都发生了变化。 流通供应量从约 38.04 亿韩元增加到 58.05 亿韩元，而总供应量则从约 60.05 亿韩元减少到 58.05 亿韩元。 由于持续的通货膨胀，这些数字可能无法反映当前的流通量和总供应量。 KAIA 的通货膨胀率已从每块 6.4 KAIA 调整为每块 9.6 KAIA。 有关这些变更的更多详情，请参阅[KAIA 发行和分配计划](.../../kaiatech/kaia-white-paper.md#kaia-issuancedistribution-plan-1)。
+由于 Klaytn 和 Finschia 连锁店的合并，供应总量和流通量都发生了变化。 流通供应量从约 38.04 亿韩元增加到 58.05 亿韩元，而总供应量则从约 60.05 亿韩元减少到 58.05 亿韩元。 由于持续的通货膨胀，这些数字可能无法反映当前的流通量和总供应量。 KAIA 的通货膨胀率已从每块 6.4 KAIA 调整为每块 9.6 KAIA。 有关这些变更的更多详情，请参阅[KAIA 发行和分配计划](../../kaiatech/kaia-white-paper.md#kaia-issuancedistribution-plan-1)。
 
 ### Kaia 会在 Klaytn 主网还是其他主网？ <a id="will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-"></a>
 
@@ -117,7 +117,7 @@ KAIA 市场将于 2024 年第三季度开放，我们将在临近该日期时公
 
 ### 在哪里可以找到 Kaia 的白皮书？ <a id="where-can-i-find-kaias-whitepaper-"></a>
 
-您可以访问 Kaia 的白皮书 [此处](.../../kaiatech/kaia-white-paper.md)。
+您可以访问 Kaia 的白皮书 [此处](../../kaiatech/kaia-white-paper.md)。
 
 ## RPC 节点提供者
 
