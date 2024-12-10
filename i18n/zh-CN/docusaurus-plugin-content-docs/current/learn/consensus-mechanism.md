@@ -29,7 +29,7 @@ Kaia Mainnet 具有以下性能。
 
 节点之间的通信基本如下图所示。 但也有一些变体，反映了每个系统的特点。
 
-PBFT信息流](/img/learn/pbft.png)
+![PBFT message flow](/img/learn/pbft.png)
 
 如上所述，参与 PBFT 的节点基本上分几个阶段与网络中的所有节点进行通信。 这一特性限制了节点的数量，因为通信量会随着节点数量的增加而呈指数增长。
 
@@ -39,13 +39,13 @@ Kaia 的目标是成为一个企业就绪、以服务为中心的平台。 因�
 
 在 Kaia 中，有三种节点：CN（共识节点）、PN（代理节点）和 EN（端点节点）。 CN 由 CCO（核心小区运营商）管理，负责区块生成。 这些区块由网络中的所有节点验证。 请参阅 [此处]（./learn.md#kaia-network-topology），了解有关该网络拓扑的更多信息。
 
-网络拓扑结构](/img/learn/klaytn_network_node.png)
+![Network topology](/img/learn/klaytn_network_node.png)
 
 通过采用和改进伊斯坦布尔 BFT，Kaia 实现了快速终结。 由于验证和共识是针对每个区块进行的，因此不会出现分叉，一旦达成共识，就能立即保证区块的最终性。
 
 此外，BFT 算法中通信量增加的问题也通过利用随机选择的 "委员会 "得到了解决。 CN 共同组成一个 "委员会"，在每个区块生成时，使用 VRF（可验证随机函数）选出其中一部分作为 "委员会 "成员。
 
-理事会和委员会的概念](/img/learn/council-committee.png)
+![Concept of council and committee](/img/learn/council-committee.png)
 
 由于共识信息只在委员会成员之间交换，因此即使 CN 总数增加，通信量也能限制在设计水平之下。
 
