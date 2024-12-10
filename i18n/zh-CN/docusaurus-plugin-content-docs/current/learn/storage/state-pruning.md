@@ -18,7 +18,7 @@
 [状态迁移：节省节点存储](https://medium.com/klaytn/klaytn-v1-5-0-state-migration-saving-node-storage-1358d87e4a7a),
 [Kaia 状态迁移：减少区块链数据的有效方法](https://medium.com/klaytn/klaytn-state-migration-an-efficient-way-to-reduce-blockchain-data-6615a3b36523)
 
-有关如何执行批量修剪，请参阅《状态迁移指南》（.../.../misc/operation/node-pruning.md#how-to-perform-batch-pruning）。
+有关如何执行批量修剪，请参阅《状态迁移指南》(.../.../misc/operation/node-pruning.md#how-to-perform-batch-pruning)。
 
 ## 国家现场修剪
 
