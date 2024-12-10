@@ -11,7 +11,7 @@ Truffle 提供了一个自动测试框架。 该框架可让您以两种不同�
 
 ### 1. 入门<a href="#1-getting-started" id="1-getting-started"></a>
 
-我们将按照[使用 Truffle 的部署指南]（./deploy/deploy.md#truffle）创建合约并进行部署。 不过，在部署之前，我们将在合约中添加一个设置函数 `setGreet` 以进行测试。 源代码如下。
+我们将按照[使用 Truffle 的部署指南](./deploy/deploy.md#truffle)创建合约并进行部署。 不过，在部署之前，我们将在合约中添加一个设置函数 `setGreet` 以进行测试。 源代码如下。
 
 **注：** 我们对测试合同做了一些修改。
 
