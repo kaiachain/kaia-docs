@@ -2,7 +2,7 @@
 
 ## 导言<a id="introduction"></a>
 
-本教程帮助你创建一个符合[Kaia 代币标准](.../token-standard.md)，尤其是[Fungible Token Standard （ERC-20）](.../token-standard.md#fungible-token-standard-kip-7)的ERC-20 兼容代币示例。
+本教程帮助你创建一个符合[Kaia 代币标准](../token-standard.md)，尤其是[Fungible Token Standard （ERC-20）](../token-standard.md#fungible-token-standard-kip-7)的ERC-20 兼容代币示例。
 
 [ERC-20令牌标准](https://eips.ethereum.org/EIPS/eip-20) 定义了以下 2 个事件和 9 个方法（包括 3 个可选方法）。 与 ERC-20 兼容的代币是实现以下接口的代币合约。
 
@@ -538,7 +538,7 @@ approve "只是调用内部方法"_approve"，它实现了 "approve "的实际�
 
 ### 2.1 先决条件<a href="#2-1-prerequisites" id="2-1-prerequisites"></a>
 
-- [Kaia Wallet](.../.../tools/wallets/kaia-wallet.md)：用于部署合约、签署交易和与合约交互。
+- [Kaia Wallet](../../tools/wallets/kaia-wallet.md)：用于部署合约、签署交易和与合约交互。
 - 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
 你可以使用 Remix Online IDE 或 Truffle 来部署 `MyERC20` 智能合约。
