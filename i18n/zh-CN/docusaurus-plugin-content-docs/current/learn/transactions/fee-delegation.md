@@ -886,7 +886,7 @@ SenderTxHash cc6c2673398903b3d906a3023b41636fc08bd1bddd5aa1602116091638f48447
 
 ## TxTypeFeeDelegatedChainDataAnchoring <a id="txtypefeedelegatedchaindataanchoring"></a>
 
-TxTypeFeeDelegatedChainDataAnchoring 是将服务链数据锚定到 Kaia 主链的收费委托事务。 服务链会定期向 Kaia 主链发送此类交易，以确保数据的安全性和可信度。 有关数据锚定的详细信息，请参阅 [锚定](.../.../nodes/service-chain/configure/anchoring.md)。 由于这也是一项收费委托交易，其交易费由收费者支付。 请注意，不允许通过 RPC 发送此事务。 目前，出于安全考虑，这种交易是通过私人 P2P 渠道执行的。 这笔交易不会改变 Kaia 区块链的状态，只是发送者的非ce 增加了一个。
+TxTypeFeeDelegatedChainDataAnchoring 是将服务链数据锚定到 Kaia 主链的收费委托事务。 服务链会定期向 Kaia 主链发送此类交易，以确保数据的安全性和可信度。 有关数据锚定的详细信息，请参阅 [锚定](../../nodes/service-chain/configure/anchoring.md)。 由于这也是一项收费委托交易，其交易费由收费者支付。 请注意，不允许通过 RPC 发送此事务。 目前，出于安全考虑，这种交易是通过私人 P2P 渠道执行的。 这笔交易不会改变 Kaia 区块链的状态，只是发送者的非ce 增加了一个。
 
 ### 属性<a id="attributes"></a>
 
