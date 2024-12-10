@@ -1,6 +1,6 @@
 # 收费代表团
 
-## TxTypeFeeDelegatedValueTransfer（TxTypeFee委托值转移<a id="txtypefeedelegatedvaluetransfer"></a>
+## TxTypeFeeDelegatedValueTransfer <a id="txtypefeedelegatedvaluetransfer"></a>
 
 TxTypeFeeDelegatedValueTransfer 用于用户发送 KAIA。 由于 Kaia 提供了多种交易类型，使每种交易类型只服务于一个目的，因此 TxTypeFeeDelegatedValueTransfer 只限于将 KAIA 发送到外部拥有的账户。 因此，TxTypeFeeDelegatedValueTransfer 只有在 `to` 是外部拥有的账户时才会被接受。 要将 KAIA 转入智能合约账户，请使用 [TxTypeFeeDelegatedSmartContractExecution](#txtypefeedelegatedsmartcontractexecution)。 该交易类型将进行以下更改。
 
@@ -601,7 +601,7 @@ SenderTxHash 3cd3380f4206943422d5d5b218dd66d03d60d19a109f9929ea12b52a230257cb
 }
 ```
 
-## TxTypeFee 授权账户更新<a id="txtypefeedelegatedaccountupdate"></a>
+## TxTypeFeeDelegatedAccountUpdate <a id="txtypefeedelegatedaccountupdate"></a>
 
 TxTypeFeeDelegatedAccountUpdate 更新给定账户的密钥。 交易费由缴费人支付。 该交易类型将进行以下更改。
 
