@@ -88,7 +88,7 @@ kaia-sdk](#21-kaia-sdk) 和 [ethers.js](#22-ethersjs-example) 等库的抽象程
 
 ### 2.1. kaia-sdk
 
-[kaia-sdk](https://github.com/kaiachain/kaia-sdk)是其他实用程序库（如 [ethers.js](https://docs.ethers.io/v6) 和 [web3.js](https://web3js.org))的插入式扩展集。 它允许您使用自己喜欢的库，同时为[Kaia 特定方法]提供第一方支持(https://docs.kaia.io/references/json-rpc/kaia/account-created/)：
+[kaia-sdk](https://github.com/kaiachain/kaia-sdk)是其他实用程序库（如 [ethers.js](https://docs.ethers.io/v6) 和 [web3.js](https://web3js.org))的插入式扩展集。 它允许您使用自己喜欢的库，同时为[Kaia 特定方法](https://docs.kaia.io/references/json-rpc/kaia/account-created/)提供第一方支持：
 
 - 交易、账户和账户密钥类型
 - 收费代表团
