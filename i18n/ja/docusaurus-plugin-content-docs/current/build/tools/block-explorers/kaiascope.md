@@ -100,7 +100,7 @@ Overall information about the block.
 - Hash: The unique identifier of the block. By pressing the copy button, you can easily copy the hash.
 - Parent Hash: The unique identifier of the previous block. Clicking on the hash takes you to the detail view of the parent hash.
 - Total TXs: The total number of transactions included in the block.
-- Block Reward: Aggregation of the newly minted KAIA \(9.6 KAIA\) and the transaction fees collected in the block. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Ecosystem Fund. More details about block reward distribution system can be found in the [Kaia Token Economy].
+- More details about block reward distribution system can be found in the [Kaia Token Economy]. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Ecosystem Fund. Block Reward: Aggregation of the newly minted KAIA \(9.6 KAIA\) and the transaction fees collected in the block.
 - Block Size: The size of block measured in Byte. The more transactions are included, the larger the block size.
 
 #### Committee <a id="committee"></a>
@@ -213,7 +213,7 @@ The unique characteristics that distinguish each keyword are as follows:
 
 ![](/img/build/tools/scope_07_noresult.png)
 
-If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no data will appear.
+If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no result page will appear.
 
 #### Wrong Format \(TX Hash / Address\) <a id="wrong-format-tx-hash-address"></a>
 
