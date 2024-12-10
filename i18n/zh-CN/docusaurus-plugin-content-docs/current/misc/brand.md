@@ -13,10 +13,10 @@ Kaia 徽标和象征符号代表了我们项目的身份。  遵守这些准则�
 - **主要配色方案：** 我们建议使用深色版本，而不是浅色版本。
 - **默认颜色组合：** 黑底霓虹石灰。
 - **颜色使用优先级：**
-  1. ![](/img/misc/kaia_brandmark_neonlime_on_black.png) 黑底霓虹石灰色
-  2. ![](/img/misc/kaia_brandmark_black_on_neonlime.png) 黑色霓虹石灰色背景
-  3. ![](/img/misc/kaia_brandmark_white_on_black.png) 黑底白字
-  4. ![](/img/misc/kaia_brandmark_black_on_white.png) 白底黑字
+  1. ![](/img/misc/kaia_brandmark_neonlime_on_black.png) Neon lime on black background
+  2. ![](/img/misc/kaia_brandmark_black_on_neonlime.png) Black on neon lime background
+  3. ![](/img/misc/kaia_brandmark_white_on_black.png) White on black background
+  4. ![](/img/misc/kaia_brandmark_black_on_white.png) Black on white background
 
 ## 徽标使用最佳做法
 
