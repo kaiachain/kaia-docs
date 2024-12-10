@@ -15,8 +15,8 @@ sidebar_label: Web3-Onboard
 ## 先决条件
 
 - 一个正在运行的 react 项目（执行 `npx create-react-app project-name` 命令）
-- 安装必要的钱包（[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/)）。
-- RPC 端点：您可以从支持的[端点提供者]（.../.../.../.../references/public-en.md）中获取。
+- 安装必要的钱包（[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/))。
+- RPC 端点：您可以从支持的[端点提供者](.../.../.../.../references/public-en.md)中获取。
 - 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
 ## 开始
