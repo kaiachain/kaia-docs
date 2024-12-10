@@ -113,9 +113,9 @@ contract ISupraSValueFeedExample {
 ### 使用 Web3.js 实现 S-Value Feeds
 
 ```javascript
-// 示例假定已导入 web3 库并可在您的作用域内访问
+// example assumes that the web3 library has been imported and is accessible within your scope
 const getEthUsdtPrice = async () => {
-const abi = [{ "inputs"：[ { "internalType": "string", "name": "marketPair", "type": "string" } ], "name"："checkPrice", "输出"：[ { "internalType"："int256", "name"："价格"，"类型"："int256}, { "internalType"："uint256", "name"："timestamp", "type"：类型"： "uint256"}], "stateMutability"："视图"，"类型"："function" }]
+const abi = [{ "inputs": [ { "internalType": "string", "name": "marketPair", "type": "string" } ], "name": "checkPrice", "outputs": [ { "internalType": "int256", "name": "price", "type": "int256" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "stateMutability": "view", "type": "function" } ]
 const address = '0x7f003178060af3904b8b70fEa066AEE28e85043E'
 const web3 = new Web3('https://public-en-kairos.node.kaia.io')
 const sValueFeed = new web3.eth.Contract(abi, address)
@@ -128,13 +128,13 @@ getEthUsdtPrice()
 ### 使用 ethers.js 的 S-Value Feeds
 
 ```javascript
-// 示例假定已导入 ethers 库并可在您的作用域内访问
+// example assumes that the ethers library has been imported and is accessible within your scope
 const getEthUsdtPrice = async () => {
-//// for ethers version 6.0
-const provider = new ethers.JsonRpcProvider(" ")JsonRpcProvider("https://public-en-kairos.node.kaia.io")
-//// for ethers version <= 5.7.2
+////for ethers version 6.0
+const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io")
+////for ethers version <= 5.7.2
 //const provider = new ethers.providers.JsonRpcProvider('https://public-en-kairos.node.kaia.io')
-const abi = [{ "inputs"：[ { "internalType": "string", "name": "marketPair", "type": "string" } ], "name"："checkPrice", "输出"：[ { "internalType"："int256", "name"："价格"，"类型"："int256}, { "internalType"："uint256", "name"："timestamp", "type"：类型"： "uint256"}], "stateMutability"："视图"，"类型"："function" }]
+const abi = [{ "inputs": [ { "internalType": "string", "name": "marketPair", "type": "string" } ], "name": "checkPrice", "outputs": [ { "internalType": "int256", "name": "price", "type": "int256" }, { "internalType": "uint256", "name": "timestamp", "type": "uint256" } ], "stateMutability": "view", "type": "function" } ]
 const address = '0x7f003178060af3904b8b70fEa066AEE28e85043E'
 const sValueFeed = new ethers.Contract(address, abi, provider)
 const price = (await sValueFeed.checkPrice('eth_usdt')).price
