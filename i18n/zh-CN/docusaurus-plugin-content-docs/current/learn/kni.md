@@ -6,7 +6,7 @@
 kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 ```
 
-KNI方案](/img/learn/kni_scheme.png)
+![KNI scheme](/img/learn/kni_scheme.png)
 
 **nodeID** 是与节点私钥相对应的 512 位公钥。 它用于验证 p2p 网络中与对等网络的通信。
 
