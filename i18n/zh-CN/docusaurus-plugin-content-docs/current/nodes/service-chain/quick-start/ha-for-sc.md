@@ -6,12 +6,12 @@
 
 ## 先决条件<a id="prerequisites"></a>
 
-- EN 的主桥和 SCN 的副桥相连。 如果不是，请参考 [Kairos connection]（en-scn-connection.md)建立连接。
+- EN 的主桥和 SCN 的副桥相连。 如果不是，请参考 [Kairos connection](en-scn-connection.md)建立连接。
 - 本节将介绍如何在 Kairos 和 ServiceChain 之间添加额外的桥接器。 同样，您也可以通过添加另一个网桥来设置 HA。
 
 ## 步骤 1：在 EN-SCN 之间添加另一个网桥<a id="step-1-adding-another-bridge-between-en-scn"></a>
 
-在[连接到 Kairos]（en-scn-connection.md)中，我们假设 EN 和 SCN 分别以 EN-01 和 SCN-L2-01 的桥接方式连接。 在本节中，我们将在 EN-02 和 SCN-L2-02 之间添加另一座桥梁。
+在[连接到 Kairos](en-scn-connection.md)中，我们假设 EN 和 SCN 分别以 EN-01 和 SCN-L2-01 的桥接方式连接。 在本节中，我们将在 EN-02 和 SCN-L2-02 之间添加另一座桥梁。
 由于程序相同，我们将作简要说明。
 
 ![](/img/nodes/sc-ha-add-bridge.png)
