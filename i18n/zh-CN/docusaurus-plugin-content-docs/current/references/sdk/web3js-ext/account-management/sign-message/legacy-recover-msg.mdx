@@ -1,0 +1,181 @@
+# Legacy Account Key
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SignMsgWithLegacyExample.js
+const { Web3 } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+async function main() {
+  const msg = "hello";
+  const msghex = Web3.utils.utf8ToHex(msg);
+  const signResult = senderAccount.sign(msg);
+  console.log({ senderAddr, msg, msghex, sig: signResult.signature });
+
+  const { v, r, s } = signResult;
+  const addr1 = web3.eth.accounts.recover(msg, v, r, s);
+  console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === senderAddr);
+
+  const sig = signResult.signature;
+  const addr2 = await web3.klay.recoverFromMessage(senderAddr, msghex, sig, "latest");
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === senderAddr);
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js SignMsgWithLegacyExample.js
+{
+  senderAddr: '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7',
+  msg: 'hello',
+  msghex: '0x68656c6c6f',
+  sig: '0xcf6792ecd73ccc5efc1612f461bffa699e824a4ed64ec1073709c9d6b8c6daf608060326371544811e2015398f7e48ad839e1f3c551e8cb7c3c82f10d226bd671b'
+}
+recoveredAddr lib 0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7 true
+recoveredAddr rpc 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7 true
+```
+
+</CH.Code>
+
+---
+
+Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js SignMsgWithLegacyExample.js focus=1
+
+```
+
+---
+
+Define sender's **address** and **private key**
+
+```js SignMsgWithLegacyExample.js focus=3:4
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+
+```js SignMsgWithLegacyExample.js focus=6
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js SignMsgWithLegacyExample.js focus=6
+const { Web3 } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+async function main() {
+  const msg = "hello";
+  const msghex = Web3.utils.utf8ToHex(msg);
+  const signResult = senderAccount.sign(msg);
+  console.log({ senderAddr, msg, msghex, sig: signResult.signature });
+
+  const { v, r, s } = signResult;
+  const addr1 = web3.eth.accounts.recover(msg, v, r, s);
+  console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === senderAddr);
+
+  const sig = signResult.signature;
+  const addr2 = await web3.klay.recoverFromMessage(senderAddr, msghex, sig, "latest");
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === senderAddr);
+}
+
+main().catch(console.error);
+```
+
+---
+
+Define a **web3 instance** using the provider
+
+```js SignMsgWithLegacyExample.js focus=7
+
+```
+
+---
+
+Create a sender's wallet with the **private key** and **provider**
+
+```js SignMsgWithLegacyExample.js focus=8
+
+```
+
+---
+
+Define a message to be signed and recovered
+
+```js SignMsgWithLegacyExample.js focus=11
+
+```
+
+---
+
+Sign the message with sender's **wallet**
+
+<CH.Code>
+```js SignMsgWithLegacyExample.js focus=12:14
+
+````
+---
+
+```zsh output
+{
+  senderAddr: '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7',
+  msg: 'hello',
+  msghex: '0x68656c6c6f',
+  sig: '0xcf6792ecd73ccc5efc1612f461bffa699e824a4ed64ec1073709c9d6b8c6daf608060326371544811e2015398f7e48ad839e1f3c551e8cb7c3c82f10d226bd671b'
+}
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed message using `web3.eth.accounts.recover`
+
+<CH.Code>
+```js SignMsgWithLegacyExample.js focus=16:18
+
+````
+
+---
+```zsh output
+recoveredAddr lib 0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7 true
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed message using `web3.klay.recoverFromMessage`
+
+<CH.Code>
+```js SignMsgWithLegacyExample.js focus=20:22
+
+````
+---
+```zsh output
+recoveredAddr rpc 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7 true
+````
+
+</CH.Code>
+</CH.Spotlight>
