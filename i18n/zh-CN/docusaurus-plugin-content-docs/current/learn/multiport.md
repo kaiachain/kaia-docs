@@ -10,7 +10,7 @@ Kaia 节点可以使用**多通道**运行。
 
 ## 建筑学<a id="architecture"></a>
 
-多通道服务器](/img/learn/multichannel.png)
+![Multi-Channel Server](/img/learn/multichannel.png)
 
 上图显示了两个多通道节点之间的连接。
 主端口（A）和副端口（B）这两个端口传输不同的信息。
@@ -20,7 +20,7 @@ Kaia 节点可以使用**多通道**运行。
   - 共识信息包括请求（Request）、准备（Prepare）、准备（Prepare）、承诺（Commit）和回合变更（RoundChange）。 信息的含义可参见 [PBFT]（./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance）。
 - **子端口**（B）用于传输交易信息。
 
-单通道服务器](/img/learn/singlechannel.png)
+![Single Channel Server](/img/learn/singlechannel.png)
 
 图中显示的是两个单通道节点之间或一个单通道节点与一个多通道节点之间的连接。
 在这种情况下，所有与区块、交易和共识协议相关的消息都通过同一个端口传输。
