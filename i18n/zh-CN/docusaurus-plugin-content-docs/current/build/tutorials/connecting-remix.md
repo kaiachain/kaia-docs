@@ -25,7 +25,7 @@ Remix 是一个基于浏览器的集成开发环境，用于开发 Solidity 合�
 下一步是将下面提供的智能合约代码复制并粘贴到新创建的 KaiaGreeter.sol 文件中。
 
 ```sol
-// SPDX-License-Identifier：UNLICENSED
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 contract KaiaGreeter {
