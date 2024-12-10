@@ -1,0 +1,312 @@
+# Multisig Account Key
+
+**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+
+In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js AccountUpdateWithMultiSigExample.js
+const { Web3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x2bf611d14d330fd3688d10f2201321eacc8aa2ce";
+const senderPriv1 = "0x31fadf868e68fd2e3f7a1c528023c9a86a45db850e9d6b82c1a82d4c75b469d1";
+const senderPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount1 = web3.eth.accounts.privateKeyToAccount(senderPriv1);
+const senderAccount2 = web3.eth.accounts.privateKeyToAccount(senderPriv2);
+const senderAccount3 = web3.eth.accounts.privateKeyToAccount(senderPriv3);
+
+async function main() {
+  const pub1 = getPublicKeyFromPrivate(senderPriv1);
+  const pub2 = getPublicKeyFromPrivate(senderPriv2);
+  const pub3 = getPublicKeyFromPrivate(senderPriv3);
+  console.log({ pub1, pub2, pub3 });
+
+  let tx = {
+    type: TxType.AccountUpdate,
+    from: senderAddr,
+    gasLimit: 1_000_000,
+    key: {
+      type: AccountKeyType.WeightedMultiSig,
+      threshold: 2,
+      keys: [
+        [1, pub1],
+        [1, pub2],
+        [1, pub3],
+      ]
+    }
+  };
+
+  // The example senderAddr actually requires only 2 signature,
+  // but we use 3 signatures to show different ways to sign a transaction.
+
+  // sign 1: First signer sign from the tx object
+  const signResult1 = await senderAccount1.signTransaction(tx);
+  console.log("rawTx1", signResult1.rawTransaction);
+
+  // sign 2: Rest of the signers sign from the rawTx
+  const signResult2 = await senderAccount2.signTransaction(signResult1.rawTransaction);
+  console.log("rawTx2", signResult2.rawTransaction);
+
+  // sign 3: Last signer sign from the rawTx then send it
+  const signResult3 = await senderAccount3.signTransaction(signResult2.rawTransaction);
+  console.log("signedTx3", signResult3.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult3.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js AccountUpdateWithMultiSigExample.js
+{
+  pub1: '0x021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82',
+  pub2: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd',
+  pub3: '0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a'
+}
+rawTx1 0x20f8dd74850ba43b7400830f42409482c6a8d94993d49cfd0c1d30f0f8caa65782cc7eb87204f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2af847f8458207f6a055fef1ed11853c582a281365fb4f381d2b895758a0436002b6fac3b292594e32a01681d4879eac18d27d20b2dd377cbba4ce723be992ec0fd5e6686645c75c1a3c
+rawTx2 0x20f9012474850ba43b7400830f42409482c6a8d94993d49cfd0c1d30f0f8caa65782cc7eb87204f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2af88ef8458207f6a055fef1ed11853c582a281365fb4f381d2b895758a0436002b6fac3b292594e32a01681d4879eac18d27d20b2dd377cbba4ce723be992ec0fd5e6686645c75c1a3cf8458207f6a0b445954342f2a9d2b0973f8b36de46e633968c946a9dbbaa3add4f09c91bc0f7a00a72b483157a961d10ed57b6089ee8399018fe5a0f91881375f1b4a0b4fdcf54
+sentTx3 0x722b434220cd61c80cf827672bc79006183629399a4f1ad0c98552a47cbb7e07
+receipt {
+  to: '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E',
+  from: '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x01b198', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x7e43df2efc735e7c47c163c6ac5ad50c10de542f48cfc5088dfec251b66298c2',
+  transactionHash: '0x722b434220cd61c80cf827672bc79006183629399a4f1ad0c98552a47cbb7e07',
+  logs: [],
+  blockNumber: 152203392,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x03ed06', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js AccountUpdateWithMultiSigExample.js focus=1
+
+```
+
+---
+
+Define sender **address**, sender **private key** and new **muti-sig private keys** to be changed
+
+```js AccountUpdateWithMultiSigExample.js focus=3:6
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+
+```js AccountUpdateWithMultiSigExample.js focus=8
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js AccountUpdateWithMultiSigExample.js focus=8
+const { Web3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x2bf611d14d330fd3688d10f2201321eacc8aa2ce";
+const senderPriv1 = "0x31fadf868e68fd2e3f7a1c528023c9a86a45db850e9d6b82c1a82d4c75b469d1";
+const senderPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount1 = web3.eth.accounts.privateKeyToAccount(senderPriv1);
+const senderAccount2 = web3.eth.accounts.privateKeyToAccount(senderPriv2);
+const senderAccount3 = web3.eth.accounts.privateKeyToAccount(senderPriv3);
+
+async function main() {
+  const pub1 = getPublicKeyFromPrivate(senderPriv1);
+  const pub2 = getPublicKeyFromPrivate(senderPriv2);
+  const pub3 = getPublicKeyFromPrivate(senderPriv3);
+  console.log({ pub1, pub2, pub3 });
+
+  let tx = {
+    type: TxType.AccountUpdate,
+    from: senderAddr,
+    gasLimit: 1_000_000,
+    key: {
+      type: AccountKeyType.WeightedMultiSig,
+      threshold: 2,
+      keys: [
+        [1, pub1],
+        [1, pub2],
+        [1, pub3],
+      ]
+    }
+  };
+
+  // The example senderAddr actually requires only 2 signature,
+  // but we use 3 signatures to show different ways to sign a transaction.
+
+  // sign 1: First signer sign from the tx object
+  const signResult1 = await senderAccount1.signTransaction(tx);
+  console.log("rawTx1", signResult1.rawTransaction);
+
+  // sign 2: Rest of the signers sign from the rawTx
+  const signResult2 = await senderAccount2.signTransaction(signResult1.rawTransaction);
+  console.log("rawTx2", signResult2.rawTransaction);
+
+  // sign 3: Last signer sign from the rawTx then send it
+  const signResult3 = await senderAccount3.signTransaction(signResult2.rawTransaction);
+  console.log("signedTx3", signResult3.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult3.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main().catch(console.error);
+```
+
+---
+
+Define a **web3 instance** using the provider
+
+```js AccountUpdateWithMultiSigExample.js focus=9
+
+```
+
+---
+
+Create three sender's wallets with the **private keys** and **provider**
+
+```js AccountUpdateWithMultiSigExample.js focus=10:12
+
+```
+
+---
+
+Compute the **public keys** from the new private keys
+
+<CH.Code>
+```js AccountUpdateWithMultiSigExample.js focus=15:18
+
+````
+---
+
+```zsh output
+{
+  pub1: '0x021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82',
+  pub2: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd',
+  pub3: '0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a'
+}
+````
+
+</CH.Code>
+
+---
+
+Declare a transaction which has the **keys** field with the computed **public keys** and theirs **weight**, specify the **type** as **WeightedMultiSig**
+
+```js AccountUpdateWithMultiSigExample.js focus=20:33
+
+```
+
+---
+
+Sign the transaction with the first wallet
+
+<CH.Code>
+```js AccountUpdateWithMultiSigExample.js focus=38:40
+
+````
+---
+
+```zsh output
+rawTx1 0x20f8dd74850ba43b7400830f42409482c6a8d94993d49cfd0c1d30f0f8caa65782cc7eb87204f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2af847f8458207f6a055fef1ed11853c582a281365fb4f381d2b895758a0436002b6fac3b292594e32a01681d4879eac18d27d20b2dd377cbba4ce723be992ec0fd5e6686645c75c1a3c
+````
+
+</CH.Code>
+
+---
+
+Sign the transaction with the second wallet
+
+<CH.Code>
+```js AccountUpdateWithMultiSigExample.js focus=42:44
+
+````
+---
+
+```zsh output
+rawTx2 0x20f9012474850ba43b7400830f42409482c6a8d94993d49cfd0c1d30f0f8caa65782cc7eb87204f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2af88ef8458207f6a055fef1ed11853c582a281365fb4f381d2b895758a0436002b6fac3b292594e32a01681d4879eac18d27d20b2dd377cbba4ce723be992ec0fd5e6686645c75c1a3cf8458207f6a0b445954342f2a9d2b0973f8b36de46e633968c946a9dbbaa3add4f09c91bc0f7a00a72b483157a961d10ed57b6089ee8399018fe5a0f91881375f1b4a0b4fdcf54
+````
+
+</CH.Code>
+
+---
+
+Sign the transaction with the third wallet
+
+<CH.Code>
+```js AccountUpdateWithMultiSigExample.js focus=46:48
+
+````
+---
+
+```zsh output
+signedTx3 0x722b434220cd61c80cf827672bc79006183629399a4f1ad0c98552a47cbb7e07
+````
+
+</CH.Code>
+
+---
+
+Send the transaction to kaia network and returns the tx receipt if it is completed in the blockchain.
+
+<CH.Code>
+```js AccountUpdateWithMultiSigExample.js focus=50:51
+
+````
+---
+```zsh output
+receipt {
+  to: '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E',
+  from: '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x01b198', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x7e43df2efc735e7c47c163c6ac5ad50c10de542f48cfc5088dfec251b66298c2',
+  transactionHash: '0x722b434220cd61c80cf827672bc79006183629399a4f1ad0c98552a47cbb7e07',
+  logs: [],
+  blockNumber: 152203392,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x03ed06', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+````
+
+</CH.Code>
+
+</CH.Spotlight>

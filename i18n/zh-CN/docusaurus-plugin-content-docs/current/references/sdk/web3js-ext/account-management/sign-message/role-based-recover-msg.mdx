@@ -1,0 +1,189 @@
+# Role-based Account Key
+
+**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SignMsgWithRoleBased.js
+const { Web3 } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x334b4d3c775c45c59de54e9f0408cba25a1aece7";
+const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const txAccount = web3.eth.accounts.privateKeyToAccount(senderRoleTransactionPriv);
+
+async function main() {
+  const msg = "hello";
+  const msghex = Web3.utils.utf8ToHex(msg);
+  const signResult = txAccount.sign(msg);
+  console.log({ senderAddr, msg, msghex, sig: signResult.signature });
+
+  const { v, r, s } = signResult;
+  const addr1 = web3.eth.accounts.recover(msg, v, r, s);
+  console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === txAccount.address.toLowerCase());
+
+  const sig = signResult.signature;
+  const addr2 = await web3.klay.recoverFromMessage(senderAddr, msghex, sig, "latest");
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === txAccount.address.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js SignMsgWithRoleBased.js
+{
+  senderAddr: '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea',
+  msg: 'hello',
+  msghex: '0x68656c6c6f',
+  sig: '0x736460622fcfab0fa7de0ca1cde05178f01b124294a640b5f5820c7271262c6c271f1ad15f0d7b974d68eaac60d5daa1e7dd65301bbfb814beecbca1238b64121c'
+}
+recoveredAddr lib 0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA true
+recoveredAddr rpc 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea true
+```
+
+</CH.Code>
+
+---
+
+Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js SignMsgWithRoleBased.js focus=1
+
+```
+
+---
+
+Define sender's **address**, **private key** and others **role-based** private keys
+
+```js SignMsgWithRoleBased.js focus=3:6
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+
+```js SignMsgWithRoleBased.js focus=8
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js SignMsgWithRoleBased.js focus=8
+const { Web3 } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x334b4d3c775c45c59de54e9f0408cba25a1aece7";
+const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const txAccount = web3.eth.accounts.privateKeyToAccount(senderRoleTransactionPriv);
+
+async function main() {
+  const msg = "hello";
+  const msghex = Web3.utils.utf8ToHex(msg);
+  const signResult = txAccount.sign(msg);
+  console.log({ senderAddr, msg, msghex, sig: signResult.signature });
+
+  const { v, r, s } = signResult;
+  const addr1 = web3.eth.accounts.recover(msg, v, r, s);
+  console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === txAccount.address.toLowerCase());
+
+  const sig = signResult.signature;
+  const addr2 = await web3.klay.recoverFromMessage(senderAddr, msghex, sig, "latest");
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === txAccount.address.toLowerCase());
+}
+
+main().catch(console.error)
+```
+
+---
+
+Define a **web3 instance** using the provider
+
+```js SignMsgWithRoleBased.js focus=9
+
+```
+
+---
+
+Create a sender's wallet with the **transaction role** private key and **provider**
+
+```js SignMsgWithRoleBased.js focus=10
+
+```
+
+---
+
+Define a message to be signed and recovered
+
+```js SignMsgWithRoleBased.js focus=13
+
+```
+
+---
+
+Sign the message with sender's **wallet**
+
+<CH.Code>
+```js SignMsgWithRoleBased.js focus=14:16
+
+````
+---
+
+```zsh output
+❯ js SignMsgWithRoleBased.js
+{
+  senderAddr: '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea',
+  msg: 'hello',
+  msghex: '0x68656c6c6f',
+  sig: '0x736460622fcfab0fa7de0ca1cde05178f01b124294a640b5f5820c7271262c6c271f1ad15f0d7b974d68eaac60d5daa1e7dd65301bbfb814beecbca1238b64121c'
+}
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed message using `web3.eth.accounts.recover`
+
+<CH.Code>
+```js SignMsgWithRoleBased.js focus=18:20
+
+````
+---
+```zsh output
+❯ js SignMsgWithRoleBasedExample.js
+recoveredAddr lib 0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA true
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed message using `web3.klay.recoverFromMessage`
+
+<CH.Code>
+```js SignMsgWithRoleBased.js focus=22:24
+
+````
+---
+```zsh output
+❯ js SignMsgWithRoleBasedExample.js
+recoveredAddr rpc 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea true
+````
+
+</CH.Code>
+</CH.Spotlight>

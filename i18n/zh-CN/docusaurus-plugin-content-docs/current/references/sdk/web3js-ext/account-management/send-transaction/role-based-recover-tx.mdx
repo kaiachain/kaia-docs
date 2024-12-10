@@ -1,0 +1,235 @@
+# Role-based Account Key
+
+**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SignTxWithRoleBasedExample.js
+const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x334b4d3c775c45c59de54e9f0408cba25a1aece7";
+const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const receiverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const txAccount = web3.eth.accounts.privateKeyToAccount(senderRoleTransactionPriv);
+
+async function main() {
+  let tx = {
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: receiverAddr,
+    value: toPeb("0.01", "KLAY"),
+    gasLimit: 100000,
+  };
+
+  const signResult = await txAccount.signTransaction(tx);
+  console.log("signedTx", signResult.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+
+  const sig = signResult.signature;
+  const addr2 = await web3.klay.recoverFromTransaction(senderAddr, sig, "latest");
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === senderAddr);
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js SignTxWithRoleBasedExample.js
+rawTx 0x08f88641850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc10000945bd2fb3c21564c023a4a735935a2b7a238c4cceaf847f8458207f6a04886eb1e6d8d5ee59fe4d125b40080409c3341fdc0a7e04b612e7d802edbeaeba0415c08f73a3789f6c27177bb5326579ffbe96f8e0db7090b08ce2fe059d949a9
+sentTx 0x3f7ee99c699ad2143bf0fac72dac1ff689c992e382e4705f7366aceaecc09477
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA',
+  contractAddress: null,
+  transactionIndex: 2,
+  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x74c7b258b81b75866cfa0b60a08be9aa23cdbd113eb314b2258b65f00475790e',
+  transactionHash: '0x3f7ee99c699ad2143bf0fac72dac1ff689c992e382e4705f7366aceaecc09477',
+  logs: [],
+  blockNumber: 152257043,
+  confirmations: 1,
+  cumulativeGasUsed: BigNumber { _hex: '0x062366', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+recoveredAddr rpc 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea true
+```
+
+</CH.Code>
+
+---
+
+Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js SignTxWithRoleBasedExample.js focus=1
+
+```
+
+---
+
+Define sender's **address** and role-based **private keys**
+
+```js SignTxWithRoleBasedExample.js focus=3:6
+
+```
+
+---
+
+Define receiver's **address**
+
+```js SignTxWithRoleBasedExample.js focus=7
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+
+```js SignTxWithRoleBasedExample.js focus=9
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js SignTxWithRoleBasedExample.js focus=9
+const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x334b4d3c775c45c59de54e9f0408cba25a1aece7";
+const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const receiverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const txAccount = web3.eth.accounts.privateKeyToAccount(senderRoleTransactionPriv);
+
+async function main() {
+  let tx = {
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: receiverAddr,
+    value: toPeb("0.01", "KLAY"),
+    gasLimit: 100000,
+  };
+
+  const signResult = await txAccount.signTransaction(tx);
+  console.log("signedTx", signResult.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+
+  const sig = signResult.signature;
+  const addr2 = await web3.klay.recoverFromTransaction(senderAddr, sig, "latest");
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === senderAddr);
+}
+
+main().catch(console.error);
+```
+
+---
+
+Define a **web3 instance** using the provider
+
+```js SignTxWithRoleBasedExample.js focus=10
+
+```
+
+---
+
+Create a sender's **wallet** with the **transaction role** private key and provider
+
+```js SignTxWithRoleBasedExample.js focus=11
+
+```
+
+---
+
+Create a **value transfer** transaction with `type: TxType.ValueTransfer`
+
+```js SignTxWithRoleBasedExample.js focus=14:20
+
+```
+
+---
+
+Sign the transaction with the wallet that has role **sending transaction**
+
+<CH.Code>
+
+```js SignTxWithRoleBasedExample.js focus=22:23
+
+```
+
+---
+
+```zsh output
+signedTx sentTx 0x3f7ee99c699ad2143bf0fac72dac1ff689c992e382e4705f7366aceaecc09477
+
+```
+
+</CH.Code>
+
+---
+
+Send the **signed transaction** to kaia network
+
+<CH.Code>
+```js SignTxWithRoleBasedExample.js focus=25:26
+
+````
+---
+
+```zsh output
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA',
+  contractAddress: null,
+  transactionIndex: 2,
+  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x74c7b258b81b75866cfa0b60a08be9aa23cdbd113eb314b2258b65f00475790e',
+  transactionHash: '0x3f7ee99c699ad2143bf0fac72dac1ff689c992e382e4705f7366aceaecc09477',
+  logs: [],
+  blockNumber: 152257043,
+  confirmations: 1,
+  cumulativeGasUsed: BigNumber { _hex: '0x062366', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed transaction using `web3.klay.recoverFromTransaction`
+
+<CH.Code>
+```js SignTxWithRoleBasedExample.js focus=28:30
+
+````
+---
+```zsh output
+recoveredAddr rpc 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea true
+````
+
+</CH.Code>
+</CH.Spotlight>

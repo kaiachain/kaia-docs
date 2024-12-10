@@ -1,0 +1,116 @@
+# Read
+
+You can call functions in Smart Contract via "Call" RPC API. What you can call here is limited to **view functions** that is not changing any states in the Contract.
+
+<CH.Spotlight>
+<CH.Code>
+
+```py smart_contract_interaction.py
+from web3py_ext import extend
+from web3 import Web3
+
+w3 = Web3(Web3.HTTPProvider(
+  'https://public-en-kairos.node.kaia.io'
+  ))
+
+def contract_interaction():
+    c = w3.eth.contract(
+      address="0x95Be48607498109030592C08aDC9577c7C2dD505",
+      abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    )
+    # call view function
+    print('\nnumber : ', c.functions.number().call())
+
+contract_interaction()
+
+```
+
+---
+
+```zsh output
+❯ py smart_contract_interaction.py
+number :  294
+```
+
+</CH.Code>
+
+---
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
+```py smart_contract_interaction.py focus=1:2
+
+```
+
+---
+
+Create a Web3 instance with the specified **kairos** testnet URL
+
+```py smart_contract_interaction.py focus=4:6
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**.
+
+```py smart_contract_interaction.py focus=4:6
+from web3py_ext import extend
+from web3 import Web3
+
+w3 = Web3(Web3.HTTPProvider(
+  'https://public-en-kairos.node.kaia.io'
+  ))
+
+def contract_interaction():
+    c = w3.eth.contract(
+      address="0x95Be48607498109030592C08aDC9577c7C2dD505",
+      abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    )
+    # call view function
+    print('\nnumber : ', c.functions.number().call())
+
+contract_interaction()
+```
+
+---
+
+Create a contract instance with **contract address** and **abi**
+
+```py smart_contract_interaction.py focus=9:12
+
+```
+
+---
+
+Set the contract address that you deployed in the deploy tutorial (**Counter contract**). You can see the address in your deploy tx receipt
+
+```py smart_contract_interaction.py focus=10
+
+```
+
+---
+
+Set the contract abi. You can get the ABI after compiled in remix or solc compiler
+
+```py smart_contract_interaction.py focus=11
+
+```
+
+---
+
+Call the view function. It is just a RPC call to the blockchain node, not transaction
+
+<CH.Code>
+```py smart_contract_interaction.py focus=13:14
+
+````
+---
+```zsh output
+❯ py smart_contract_interaction.py
+number :  294
+````
+
+</CH.Code>
+
+</CH.Spotlight>

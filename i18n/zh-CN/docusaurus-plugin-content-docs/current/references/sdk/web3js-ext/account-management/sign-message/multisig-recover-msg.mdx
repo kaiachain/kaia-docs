@@ -1,0 +1,191 @@
+# Multisig Account Key
+
+**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+
+In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SignMsgWithMultiSigExample.js
+const { Web3, TxType, AccountKeyType, toPeb, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x2bf611d14d330fd3688d10f2201321eacc8aa2ce";
+const senderPriv1 = "0x31fadf868e68fd2e3f7a1c528023c9a86a45db850e9d6b82c1a82d4c75b469d1";
+const senderPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+
+async function main() {
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv1);
+  const msg = "hello";
+  const msghex = Web3.utils.utf8ToHex(msg);
+  const signResult = senderAccount.sign(msg);
+  console.log({ senderAddr, msg, msghex, sig: signResult.signature });
+
+  const { v, r, s } = signResult;
+  const addr1 = web3.eth.accounts.recover(msg, v, r, s);
+  console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === senderAccount.address.toLowerCase());
+
+  const sig = signResult.signature;
+  const addr2 = await web3.klay.recoverFromMessage(senderAddr, msghex, sig, "latest");
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === senderAccount.address.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js SignMsgWithMultiSigExample.js
+{
+  senderAddr: '0x2bf611d14d330fd3688d10f2201321eacc8aa2ce',
+  msg: 'hello',
+  msghex: '0x68656c6c6f',
+  sig: '0x514ad395399cb30533cd02f9681b44ed1452f5bb44289e5e2aa042fbc6ba6e2c393d7107e3f8341a240b30f481cc1fce0c66056ba8035c45fd66fcae086b409b1b'
+}
+recoveredAddr lib 0x2bf611d14d330fD3688D10F2201321eACc8AA2Ce true
+recoveredAddr rpc 0x2bf611d14d330fd3688d10f2201321eacc8aa2ce true
+```
+
+</CH.Code>
+
+---
+
+Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js SignMsgWithMultiSigExample.js focus=1
+
+```
+
+---
+
+Define sender's **address** and **private key** and all **weighted multi-sig** private keys
+
+```js SignMsgWithMultiSigExample.js focus=3:6
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+
+```js SignMsgWithMultiSigExample.js focus=8
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js SignMsgWithMultiSigExample.js focus=8
+const { Web3, TxType, AccountKeyType, toPeb, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0x2bf611d14d330fd3688d10f2201321eacc8aa2ce";
+const senderPriv1 = "0x31fadf868e68fd2e3f7a1c528023c9a86a45db850e9d6b82c1a82d4c75b469d1";
+const senderPriv2 = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderPriv3 = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+
+async function main() {
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv1);
+  const msg = "hello";
+  const msghex = Web3.utils.utf8ToHex(msg);
+  const signResult = senderAccount.sign(msg);
+  console.log({ senderAddr, msg, msghex, sig: signResult.signature });
+
+  const { v, r, s } = signResult;
+  const addr1 = web3.eth.accounts.recover(msg, v, r, s);
+  console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === senderAccount.address.toLowerCase());
+
+  const sig = signResult.signature;
+  const addr2 = await web3.klay.recoverFromMessage(senderAddr, msghex, sig, "latest");
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === senderAccount.address.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+Define a **web3 instance** using the provider
+
+```js SignMsgWithMultiSigExample.js focus=9
+
+```
+
+---
+
+Create a wallet with the first **weight multi-sig** private key and provider
+
+```js SignMsgWithMultiSigExample.js focus=12
+
+```
+
+---
+
+Define a message to be signed and recovered
+
+```js SignMsgWithMultiSigExample.js focus=13
+
+```
+
+---
+
+Sign the message with sender's **wallet**
+
+<CH.Code>
+```js SignMsgWithMultiSigExample.js focus=14:16
+
+````
+---
+
+```zsh output
+{
+  senderAddr: '0x2bf611d14d330fd3688d10f2201321eacc8aa2ce',
+  msg: 'hello',
+  msghex: '0x68656c6c6f',
+  sig: '0x4bb3156dfd3349b974222b9ed754a3835802d920b63e8c07f41a75a174ce99d92a70d62e7a4b30d18599de61a882c59c0fd726883e3ce9955f8d5f60ce5b65211c'
+}
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed message using `web3.eth.accounts.recover`
+
+<CH.Code>
+```js SignMsgWithMultiSigExample.js focus=18:20
+
+````
+---
+
+```zsh output
+recoveredAddr lib 0x2bf611d14d330fd3688d10f2201321eacc8aa2ce true
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed message using `web3.klay.recoverFromMessage`
+
+<CH.Code>
+```js SignMsgWithMultiSigExample.js focus=22:24
+
+````
+---
+```zsh output
+recoveredAddr rpc 0x2bf611d14d330fd3688d10f2201321eacc8aa2ce true
+````
+
+</CH.Code>
+</CH.Spotlight>

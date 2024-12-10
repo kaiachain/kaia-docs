@@ -4,7 +4,7 @@ sidebar_label: Web3Modal
 
 # Integrate Web3Modal into a dApp
 
-![](/img/banners/kaia-web3Modal\(wc\).png)
+![](/img/banners/kaia-web3Modal\\(wc\\).png)
 
 ## Introduction
 
