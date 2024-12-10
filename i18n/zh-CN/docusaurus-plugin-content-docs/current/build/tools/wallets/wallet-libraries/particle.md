@@ -2,7 +2,7 @@
 sidebar_label: Particle Network
 ---
 
-# 将粒子网络整合到应用程序中
+# 将粒子网络整合到 dApp 中
 
 ![](/img/banners/kaia-particle.png)
 
@@ -10,7 +10,7 @@ sidebar_label: Particle Network
 
 [粒子网络](https://particle.network) 提供钱包抽象服务，以简化用户入门。
 
-粒子连接 SDK](https://developers.particle.network/api-reference/connect/desktop/web) 支持与 EVM 兼容的链，包括 Kaia 及其测试网。 它允许使用[社交和 Web3 登录选项](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)进行 2 键登录，所有操作都在一个模态中完成。
+[粒子连接 SDK](https://developers.particle.network/api-reference/connect/desktop/web) 支持与 EVM 兼容的链，包括 Kaia 及其测试网。 它允许使用[社交和 Web3 登录选项](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)进行 2 键登录，所有操作都在一个模态中完成。
 
 通过 Particle Network，Kaia 开发人员可以为 Kaia 主网和测试网嵌入社交登录，让用户只需使用他们的谷歌、电子邮件、X 等信息就能在您的应用程序中生成和使用钱包。
 
