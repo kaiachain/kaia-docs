@@ -23,7 +23,7 @@
 - ERC-20 合同（如需要）
 - ERC-721合同（如需要）
 
-![图 1. 服务链架构](/img/nodes/sc_arch.png)
+![图 1. Service chain architecture](/img/nodes/sc_arch.png)
 
 ## 桥梁操作员账户<a id="bridge-operator-account"></a>
 
