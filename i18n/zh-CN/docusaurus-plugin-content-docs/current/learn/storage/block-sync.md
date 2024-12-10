@@ -53,7 +53,7 @@ Error: missing trie node 64380a8de7bd83a6421c9ad45ae596a0eebbc7b504d061f4a57c617
 
 ## Chaindata 快照
 
-Chaindata 快照为完全同步提供了更快的替代方案。 快照是同步节点数据目录的压缩归档文件（如`.tar.gz`文件）。 下载和提取快照可以让新节点快速跟上区块链，而无需单独处理每个区块。 更多信息，请参阅 [使用 Chaindata 快照]（.../.../misc/operation/chaindata-snapshot.md）。
+Chaindata 快照为完全同步提供了更快的替代方案。 快照是同步节点数据目录的压缩归档文件（如`.tar.gz`文件）。 下载和提取快照可以让新节点快速跟上区块链，而无需单独处理每个区块。 更多信息，请参阅 [使用 Chaindata 快照](.../.../misc/operation/chaindata-snapshot.md)。
 
 ## 快照同步
 
