@@ -1,0 +1,395 @@
+# Account Update
+
+<CH.Spotlight>
+<CH.Code>
+
+```java AccountUpdateExample.java
+package org.web3j.example.transactions;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import java.math.BigInteger;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.transaction.account.AccountKeyPublic;
+import org.web3j.crypto.transaction.type.TxType;
+import org.web3j.crypto.transaction.type.TxTypeAccountUpdate;
+import org.web3j.crypto.transaction.type.TxType.Type;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
+
+/**
+ *
+ */
+public class AccountUpdateExample implements keySample {
+    /**
+     *
+     */
+
+    public static void run(KlayCredentials credentials) throws Exception {
+
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials new_credentials = KlayCredentials.create(PUBLIC_KEY_privkey, PUBLIC_KEY_address);
+
+        BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+        BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+        String from = credentials.getAddress();
+        EthChainId EthchainId = web3j.ethChainId().send();
+        long chainId = EthchainId.getChainId().longValue();
+        BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+                .getTransactionCount();
+
+        BigInteger newPubkey = new_credentials.getEcKeyPair().getPublicKey();
+
+        AccountKeyPublic accountkey = AccountKeyPublic.create(newPubkey);
+
+        TxType.Type type = Type.ACCOUNT_UPDATE;
+
+        KlayRawTransaction raw = KlayRawTransaction.createTransaction(
+                type,
+                nonce,
+                GAS_PRICE,
+                GAS_LIMIT,
+                from,
+                accountkey);
+
+        byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
+        String hexValue = Numeric.toHexString(signedMessage);
+        EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+        System.out.println("TxHash : \n " + transactionResponse.getResult());
+        String txHash = transactionResponse.getResult();
+
+        int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
+        int DEFAULT_BLOCK_TIME = 1 * 1000;
+        long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+        TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
+                DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+        org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
+                .waitForTransactionReceipt(txHash);
+        System.out.println("Receipt from eth_getTransactionReceipt : \n" + ethReceipt);
+        TransactionReceipt receipt = web3j.klayGetTransactionReceipt(txHash).send().getResult();
+        System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
+        web3j.shutdown();
+
+        TxTypeAccountUpdate rawTransaction = TxTypeAccountUpdate.decodeFromRawTransaction(signedMessage);
+
+        System.out.println("TxType : " + rawTransaction.getKlayType());
+
+    }
+
+}
+
+
+```
+
+---
+
+```zsh output
+❯ java AccountUpdateExample.java
+TxHash :
+ 0x3518b0ba53160e39741d151fef3813230ea8793e12499bc21a08bd8b75adab1c
+receipt :
+class TransactionReceipt {
+    blockHash: 0xbc9def91ea0b147a9a587ec767a9442085699cfc19508fa1fe1de917d6558154
+    blockNumber: 0x8dea85e
+    codeFormat: null
+    contractAddress: null
+    feePayer: null
+    feePayerSignatures: []
+    feeRatio: null
+    from: 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    gas: 0x66919e
+    effectiveGasPrice: 0x5d21dba00
+    gasPrice: 0xba43b7400
+    gasUsed: 0xa028
+    humanReadable: null
+    key: 0x02a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    input: null
+    logs: []
+    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce: 0x3bc
+    senderTxHash: 0x3518b0ba53160e39741d151fef3813230ea8793e12499bc21a08bd8b75adab1c
+    signature: []
+    status: 0x1
+    txError: null
+    to: null
+    transactionHash: 0x3518b0ba53160e39741d151fef3813230ea8793e12499bc21a08bd8b75adab1c
+    transactionIndex: 0x0
+    type: TxTypeAccountUpdate
+    typeInt: 32
+    value: null
+}
+TxType : ACCOUNT_UPDATE
+```
+
+</CH.Code>
+
+---
+
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`)
+
+```java AccountUpdateExample.java focus=1:21
+
+```
+
+---
+
+Create a Web3j instance with the specified BAOBAB_URL
+
+```java AccountUpdateExample.java focus=33
+
+```
+
+---
+
+Also, you can change the default provider. For example, using the alchemy provider.
+
+```java AccountUpdateExample.java focus=33
+package org.web3j.example.transactions;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import java.math.BigInteger;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.transaction.account.AccountKeyPublic;
+import org.web3j.crypto.transaction.type.TxType;
+import org.web3j.crypto.transaction.type.TxTypeAccountUpdate;
+import org.web3j.crypto.transaction.type.TxType.Type;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
+
+/**
+ *
+ */
+public class AccountUpdateExample implements keySample {
+    /**
+     *
+     */
+
+    public static void run(KlayCredentials credentials) throws Exception {
+
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials new_credentials = KlayCredentials.create(PUBLIC_KEY_privkey, PUBLIC_KEY_address);
+
+        BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+        BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+        String from = credentials.getAddress();
+        EthChainId EthchainId = web3j.ethChainId().send();
+        long chainId = EthchainId.getChainId().longValue();
+        BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+                .getTransactionCount();
+
+        BigInteger newPubkey = new_credentials.getEcKeyPair().getPublicKey();
+
+        AccountKeyPublic accountkey = AccountKeyPublic.create(newPubkey);
+
+        TxType.Type type = Type.ACCOUNT_UPDATE;
+
+        KlayRawTransaction raw = KlayRawTransaction.createTransaction(
+                type,
+                nonce,
+                GAS_PRICE,
+                GAS_LIMIT,
+                from,
+                accountkey);
+
+        byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
+        String hexValue = Numeric.toHexString(signedMessage);
+        EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+        System.out.println("TxHash : \n " + transactionResponse.getResult());
+        String txHash = transactionResponse.getResult();
+
+        int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
+        int DEFAULT_BLOCK_TIME = 1 * 1000;
+        long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+        TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
+                DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+        org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
+                .waitForTransactionReceipt(txHash);
+        System.out.println("Receipt from eth_getTransactionReceipt : \n" + ethReceipt);
+        TransactionReceipt receipt = web3j.klayGetTransactionReceipt(txHash).send().getResult();
+        System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
+        web3j.shutdown();
+
+        TxTypeAccountUpdate rawTransaction = TxTypeAccountUpdate.decodeFromRawTransaction(signedMessage);
+
+        System.out.println("TxType : " + rawTransaction.getKlayType());
+
+    }
+
+}
+
+```
+
+---
+
+Creating new credentials using PUBLIC_KEY_privkey and PUBLIC_KEY_address
+
+```java AccountUpdateExample.java focus=34
+
+```
+
+---
+
+Gas **price** and **gas limit** settings
+
+```java AccountUpdateExample.java focus=36:37
+
+```
+
+---
+
+Get **chain ID** from the network
+
+```java AccountUpdateExample.java focus=39:40
+
+```
+
+---
+
+Get the **nonce** for the sender's address
+
+```java AccountUpdateExample.java focus=41:42
+
+```
+
+---
+
+Generate a **new account key** for account update
+
+```java AccountUpdateExample.java focus=44:46
+
+```
+
+---
+
+Create a **raw transaction** for account update
+
+```java AccountUpdateExample.java focus=50:56
+
+```
+
+---
+
+Sign the transaction
+
+```java AccountUpdateExample.java focus=58
+
+```
+
+---
+
+Send the **signed transaction** to kaia network
+
+<CH.Code>
+
+```java AccountUpdateExample.java focus=59:62
+
+```
+
+---
+
+```zsh output
+❯ java AccountUpdateExample.java
+TxHash :
+ 0x3518b0ba53160e39741d151fef3813230ea8793e12499bc21a08bd8b75adab1c
+
+```
+
+</CH.Code>
+
+---
+
+Get the **transaction receipt** and using the transaction hash
+
+<CH.Code>
+```java AccountUpdateExample.java focus=64:73
+
+````
+
+
+---
+
+```zsh output
+❯ java AccountUpdateExample.java
+receipt :
+class TransactionReceipt {
+    blockHash: 0xbc9def91ea0b147a9a587ec767a9442085699cfc19508fa1fe1de917d6558154
+    blockNumber: 0x8dea85e
+    codeFormat: null
+    contractAddress: null
+    feePayer: null
+    feePayerSignatures: []
+    feeRatio: null
+    from: 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    gas: 0x66919e
+    effectiveGasPrice: 0x5d21dba00
+    gasPrice: 0xba43b7400
+    gasUsed: 0xa028
+    humanReadable: null
+    key: 0x02a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    input: null
+    logs: []
+    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce: 0x3bc
+    senderTxHash: 0x3518b0ba53160e39741d151fef3813230ea8793e12499bc21a08bd8b75adab1c
+    signature: []
+    status: 0x1
+    txError: null
+    to: null
+    transactionHash: 0x3518b0ba53160e39741d151fef3813230ea8793e12499bc21a08bd8b75adab1c
+    transactionIndex: 0x0
+    type: TxTypeAccountUpdate
+    typeInt: 32
+    value: null
+}
+````
+
+</CH.Code>
+
+---
+
+Shutting down the Web3j instance
+
+```java AccountUpdateExample.java focus=74
+
+```
+
+---
+
+Decoding the raw transaction to get the transaction type
+
+<CH.Code>
+```java AccountUpdateExample.java focus=76:78
+
+````
+
+
+---
+
+```zsh output
+❯ java AccountUpdateExample.java
+TxType : ACCOUNT_UPDATE
+
+````
+
+</CH.Code>
+
+</CH.Spotlight>
