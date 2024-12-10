@@ -2,13 +2,13 @@
 
 ## 目录<a href="#table-of-contents" id="table-of-contents"></a>
 
-- [1. 项目设置]（#1-项目设置）
-- [2. 创建 "请我喝咖啡 "智能合约]（#2-创建 "请我喝咖啡 "智能合约）
-- [3. 使用脚本测试合同功能]（#3-使用脚本测试合同功能）
+- [1. 项目设置](#1-project-setup)
+- [2. 创建 "请我喝咖啡 "智能合约](#2-creating-a-buy-me-a-coffee-smart-contract)
+- [3. 使用脚本测试合同功能](#3-testing-the-contracts-functionalities-using-scripts)
 - [4. 将 BMC 智能合约部署到 Kaia Testnet ](#4-deploying-bmc-smart-contract)
-- [5. 使用 React 和 Web3Onboard 构建 BMC 前端]（#5--使用 React 和 Web3Onboard 构建 BMC 前端）
+- [5. 使用 React 和 Web3Onboard 构建 BMC 前端](#5-building-the-bmc-frontend-with-react-and-web3onboard)
 - [6. 使用 Fleek 在 IPFS 上部署前端代码](#6-deploying-frontend-code-on-ipfs-using-fleek)
-- [7. 结论]（#7-结论）
+- [7. 结论](#7-conclusion)
 
 ## 导言<a href="#1-introduction" id="1-introduction"></a>
 
@@ -38,7 +38,7 @@ Buy Me a Coffee (BMC) 是一个创作者从粉丝或观众那里获得资金支�
 - 熟悉 Javascript 和 React 基础知识，如钩子等
 - 安装必要的钱包，如 [Coinbase Wallet](https://www.coinbase.com/wallet/downloads) 和 [Metamask Wallet](https://metamask.io/download/)
 - 从 [水龙头](https://faucet.kaia.io) 测试 KAIA。
-- RPC 端点：您可以从支持的[端点提供程序]（.../.../references/public-en.md）中获取。
+- RPC 端点：您可以从支持的[端点提供程序](.../.../references/public-en.md)中获取。
 - 在 [Fleek](https://app.fleek.co/) 上创建账户。
 
 ## 1. 项目设置<a id="1-project-setup"></a>
