@@ -83,11 +83,11 @@ Remix IDE :
 值得注意的是，部署多部分合同的步骤与部署单部分合同的步骤相同。 在本指南中，我们将部署一个名为 `airdropToken.sol` 的简单 KIP7 空投合约。 代码如下所示：
 
 ```solidity
-//SPDX-License-Identifier：MIT
+//SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
 import "@kaiachain/contracts/access/Ownable.sol";
-// 项目创建者直接向选定的钱包铸造一定数量的可替代代币。
+// the creator of the project mints certian amount of fungible tokens directly to a certain selection of wallets.
 contract TokenAirdrop is KIP7, Ownable {
     constructor() KIP7("Token Aidrop Demo", "TAD") {
     }
@@ -107,8 +107,8 @@ contract TokenAirdrop is KIP7, Ownable {
         virtual
         override
         returns (bool)
-    { return
-
+    {
+        return
             super.supportsInterface(interfaceId);
     }
 }
