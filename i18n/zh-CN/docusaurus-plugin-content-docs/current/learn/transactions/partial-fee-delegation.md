@@ -906,7 +906,7 @@ SenderTxHash c0818be4cffbacfe29be1134e0267e10fd1afb6571f4ccc95dcc67a788bab5e7
 
 TxTypeFeeDelegatedChainDataAnchoringWithRatio 是将服务链数据锚定到 Kaia 主链的费用委托交易，带有比率。
 服务链会定期向 Kaia 主链发送此类交易，以确保数据的安全性和可信度。
-有关数据锚定的详细信息，请参阅 [锚定](.../.../nodes/service-chain/configure/anchoring.md)。
+有关数据锚定的详细信息，请参阅 [锚定](../../nodes/service-chain/configure/anchoring.md)。
 由于这也是一种按给定比例收费的委托交易，收费方只承担按给定比例计算的交易费的给定部分，其余部分由发送方支付。
 请注意，不允许通过 RPC 发送此事务。
 目前，出于安全考虑，这种交易是通过私人 P2P 渠道执行的。
