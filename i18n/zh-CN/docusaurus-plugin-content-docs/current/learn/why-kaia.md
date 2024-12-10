@@ -4,7 +4,7 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 ## 广泛的用户基础
 
-1. \*\* Web2 用户可访问性\*\*：Kaia与Kakao（5000万韩国用户）和LINE（日本、台湾、印度尼西亚和泰国的2亿用户）合作，通过与信使集成的钱包为现有Web2用户提供便捷访问。
+1. **Web2 用户可访问性**：Kaia与Kakao（5000万韩国用户）和LINE（日本、台湾、印度尼西亚和泰国的2亿用户）合作，通过与信使集成的钱包为现有Web2用户提供便捷访问。
 
 2. **Web3用户可访问性**：Kaia 提供 120 多万个活跃的钱包地址和连接用户与项目的接口，便于快速吸引 Web3 用户。
 
@@ -22,7 +22,7 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 1. **高性能**：
    - 主链处理至少 4,000 TPS，交易即时完成，区块生成时间仅为一秒。
-   - Scalability through customizable and easily deployable [Service Chains](scaling-solutions.md#service-chain) as <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solutions.
+   - 通过可定制且易于部署的 [服务链](scaling-solutions.md#service-chain) 作为<LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip>解决方案实现可扩展性。
 
 2. **以太坊兼容性**：
    - 100% 的兼容性确保基于 EVM 的 dApp 无需修改即可上载。
@@ -34,7 +34,7 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 ## 成本低，用户体验更好
 
-1. \*\* 负担得起的交易费用\*\*：最终用户无需承担高昂的交易费用。 成本稳定，由交易复杂程度决定。 请参阅 [可负担的智能合约执行成本](computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost) 和 [交易费用](transaction-fees/transaction-fees.md)。
+1. **负担得起的交易费用**：最终用户无需承担高昂的交易费用。 成本稳定，由交易复杂程度决定。 请参阅 [可负担的智能合约执行成本](computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost) 和 [交易费用](transaction-fees/transaction-fees.md)。
 
 2. **[费用委托](./transactions/transactions.md#fee-delegation)**：应用程序可以支付用户的交易费用，从而实现灵活的商业模式并降低用户获取门槛。
 
