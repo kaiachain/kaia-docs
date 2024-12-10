@@ -6,7 +6,7 @@
 - [2. 如何进行收费授权](#2-how-fee-delegation-works)
   - 2.1 发送方签署交易
   - 2.2 付款人签署交易
-- [3. 收费委托的简单服务器和客户端](#3-simple-server and-client-for-fee-delegation)
+- [3. 收费委托的简单服务器和客户端](#3-simple-server-and-client-for-fee-delegation)
   - 3.1 发件人客户端
   - 3.2 缴费者服务器
 - [4. 运行示例](#4-run-example)
