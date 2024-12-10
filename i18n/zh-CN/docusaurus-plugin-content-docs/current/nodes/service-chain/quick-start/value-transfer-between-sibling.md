@@ -11,10 +11,10 @@ ServiceChain 提供的主要功能，即数据锚定和价值转移，可以单�
 
 ## 先决条件<a id="prerequisites"></a>
 
-- 我们假设您安装了两个服务链，每个服务链都与 kairos EN 相连。 请参阅[连接到 Kairos]（en-scn-connection.md)。
-- 我们还假定，您已经通过[跨链价值转移]（value-transfer.md)经历了价值转移。
+- 我们假设您安装了两个服务链，每个服务链都与 kairos EN 相连。 请参阅[连接到 Kairos](en-scn-connection.md)。
+- 我们还假定，您已经通过[跨链价值转移](value-transfer.md)经历了价值转移。
 
-如上图所示，重复[连接到 Kairos]（en-scn-connection.md)以额外安装 ServiceChain（chianID 1004）。
+如上图所示，重复[连接到 Kairos](en-scn-connection.md)以额外安装 ServiceChain（chianID 1004）。
 
 一个节点只能有一个主桥和一个子桥。 在本例中，为方便说明，我们将在 SCN-L2-03 和 SCN-L2-07 节点上连接一座桥，这两个节点还没有主桥和子桥。
 
@@ -69,4 +69,4 @@ SCN-L2-07$ kscn attach --datadir ~/data
 1
 ```
 
-在价值转移的情况下，如果链 ID 1002 对应的信息被用作主桥信息，而链 ID 1004 对应的信息被设置为子桥，则可在同级之间进行价值转移，如[跨链价值转移]（value-transfer.md)中所述。
+在价值转移的情况下，如果链 ID 1002 对应的信息被用作主桥信息，而链 ID 1004 对应的信息被设置为子桥，则可在同级之间进行价值转移，如[跨链价值转移](value-transfer.md)中所述。
