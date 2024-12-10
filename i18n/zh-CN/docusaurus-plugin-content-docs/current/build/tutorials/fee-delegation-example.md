@@ -283,4 +283,4 @@ receipt { blockHash:
 
 它显示交易为 "TxTypeFeeDelegatedValueTransfer"，"Fee payer "为 "0x2645ba5be42ffee907ca8e9d88f6ee6dad8c1410 "或您输入的 "feepayerAddress"，而 "From "是另一个地址，应为上例中的 "senderAddress"。
 
-收费委托 Tx](/img/build/tutorials/fee-delegation-example.png)
+![Fee delegated Tx](/img/build/tutorials/fee-delegation-example.png)
