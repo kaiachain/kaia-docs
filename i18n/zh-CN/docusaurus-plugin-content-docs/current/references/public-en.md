@@ -98,7 +98,7 @@ KAS 提供各种应用程序接口，以支持更简单、更快速的区块链�
 - [订阅](https://www.klaytnapi.com/en/landing/pricings)
 - [Website](https://www.klaytnapi.com/en/landing/main)
 
-### 所有节点
+### All That Node
 
 All That Node 的目标是成为 Web3 基础设施的可靠网关，让构建者不再为区块链网络问题所困扰。 All That Node 保证以最低的延迟性能快速、稳健地连接 RPC 节点。
 
@@ -122,7 +122,7 @@ All That Node 的目标是成为 Web3 基础设施的可靠网关，让构建者
 - [订阅](https://www.allthatnode.com/pricing.dsrv)
 - [Website](https://www.allthatnode.com/main.dsrv)
 
-### 塔图姆
+### Tatum
 
 Tatum 是构建、测试和运行区块链应用程序的最快方式。 我们为开发人员提供最灵活的平台，让他们快速将区块链创意变为现实。
 
@@ -157,7 +157,7 @@ BlockPI 为 Kaia 社区提供免费的公共端点，并为付费用户提供高
 - [订阅](https://dashboard.blockpi.io/wallet/overview)
 - [Website](https://blockpi.io/)
 
-### 袖珍网络
+### Pocket Network
 
 Pocket Network 是 Web3 节点基础设施的 TCP/IP - 一种多链中继协议，可激励 RPC 节点为 DApp 及其用户提供势不可挡的 Web3 访问。
 
@@ -203,7 +203,7 @@ Ankr 的分布式节点网络产生了强大的协同效应，使开发人员能
 - [订阅](https://www.ankr.com/rpc/pricing/)
 - [Website](https://www.ankr.com/rpc/)
 
-### 节点真实值
+### NodeReal
 
 NodeReal 是一家区块链基础设施和服务提供商。 NodeReal 以最可靠的解决方案帮助开发人员和投资者探索区块链。
 
@@ -220,7 +220,7 @@ NodeReal 是一家区块链基础设施和服务提供商。 NodeReal 以最可�
 - [订阅](https://nodereal.io/api-marketplace/klaytn-rpc)
 - [Website](https://nodereal.io)
 
-### 诺迪特
+### Nodit
 
 Nodit 旨在提供企业级 Web3 基础设施，供所有人使用。 通过以合理的价格提供正常运行时间达 99.9% 的强大节点基础设施和可靠的可随时查询的区块链数据，我们为开发人员进入 Web3 世界提供了便利。
 
@@ -244,7 +244,7 @@ Nodit 旨在提供企业级 Web3 基础设施，供所有人使用。 通过以�
 - [文件](https://developer.nodit.io)
 - [博客](https://blog.nodit.io)
 
-### 获取块
+### GetBlock
 
 GetBlock 为包括 Kaia 在内的 50 多个主要区块链网络的完整 RPC 节点提供快速、可靠的 API 访问。 通过处理节点维护，GetBlock 使开发人员和企业能够专注于构建 dApp 和区块链解决方案，而无需为基础设施头疼。
 
@@ -276,7 +276,7 @@ BlockJoy 可在任何裸金属基础设施上提供专用的非计量区块链�
 - [Website](https://blockjoy.com/)
 - [博客](https://blockjoy.com/blog)
 
-### 快速节点
+### QuickNode
 
 Quicknode 提供区块链基础设施，为安全的去中心化创新提供动力。 他们提供构建者创建令人难以置信的产品所需的所有工具和资源，所有这些都有无与伦比的全球平衡基础设施、有保障的可靠性和安全性、用户友好的界面以及端到端的客户支持作为后盾。
 
