@@ -2,14 +2,14 @@
 
 ## 目录<a href="#table-of-contents" id="table-of-contents"></a>
 
-- [1. 导言]（#1-导言）
-- [2. 如何进行收费授权]（#2-如何进行收费授权）
+- [1. 导言](#1-introduction)
+- [2. 如何进行收费授权](#2-how-fee-delegation-works)
   - 2.1 发送方签署交易
   - 2.2 付款人签署交易
-- [3. 收费委托的简单服务器和客户端]（#3-simple-server and-client-for-fee-delegation）
+- [3. 收费委托的简单服务器和客户端](#3-simple-server and-client-for-fee-delegation)
   - 3.1 发件人客户端
   - 3.2 缴费者服务器
-- [4. 运行示例]（#4-运行示例）
+- [4. 运行示例](#4-run-example)
   - 4.1 运行 `feepayer_server.js`
   - 4.2 运行 `sender_client.js`
   - 4.3 检查 `feepayer_server.js`
@@ -52,7 +52,7 @@ const { rawTransaction: senderRawTransaction } = await caver.kaia.accounts.signT
 
 当 "付费方 "收到 "发送方原始交易 "时，"付费方 "会用自己的私钥再次对 "发送方原始交易 "进行签名，然后将交易发送给 Kaia。 下面的代码片段说明了这一过程。 `kaia.sendTransaction` 方法在发送交易前用给定账户的私钥对交易进行签名。 运行代码前，请将 `"FEEPAYER_ADDRESS"` 和 `"PRIVATE_KEY"` 替换为实际值。
 
-请注意，当 "付费方 "代表 "发送方 "向 Kaia 提交交易时，"发送方原始交易 "类型必须是 "FEE_DELEATED "类型的交易。 在下面的示例中，调用了 [sendTransaction(FEE_DELEGATED_VALUE_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer) 方法。由于发送方生成的原始 `senderRawTransaction` 是 [TxTypeFeeDelegatedValueTransfer]（././learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer），因此调用了该方法。）
+请注意，当 "付费方 "代表 "发送方 "向 Kaia 提交交易时，"发送方原始交易 "类型必须是 "FEE_DELEATED "类型的交易。 在下面的示例中，调用了 [sendTransaction(FEE_DELEGATED_VALUE_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer) 方法。由于发送方生成的原始 `senderRawTransaction` 是 [TxTypeFeeDelegatedValueTransfer](././learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer），因此调用了该方法。）
 
 ```
 const feePayerAddress = "FEEPAYER_ADDRESS";
@@ -217,7 +217,7 @@ Received data from server: Tx hash is 0xd99086aa8188255d4ee885d9f1933b6cc062085c
 Received data from server: Sender Tx hash is 0xe1f630547f287177a0e92198b1c67212b24fc1ad5a1f0b1f94fd6f980281fdba
 ```
 
-它将用 "发送方 "私钥签署交易，并将签署后的交易发送到费用委托服务（即费用支付方的服务器）。 然后，它将收到缴费委托服务的响应，包括 "缴费人 "地址、"发送哈希值 "和 "发送人发送哈希值"。 Tx哈希值 "是提交给Kaia网络的交易的哈希值，而 "Sender Tx哈希值 "是交易的哈希值，不包含缴费人的地址和签名。 更多详情，请参阅 [SenderTxHash]（.../.../learn/transactions/transactions.md#sendertxhash）。
+它将用 "发送方 "私钥签署交易，并将签署后的交易发送到费用委托服务（即费用支付方的服务器）。 然后，它将收到缴费委托服务的响应，包括 "缴费人 "地址、"发送哈希值 "和 "发送人发送哈希值"。 Tx哈希值 "是提交给Kaia网络的交易的哈希值，而 "Sender Tx哈希值 "是交易的哈希值，不包含缴费人的地址和签名。 更多详情，请参阅 [SenderTxHash](.../.../learn/transactions/transactions.md#sendertxhash)。
 
 ### 4.3 检查 `feepayer_server.js`<a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
