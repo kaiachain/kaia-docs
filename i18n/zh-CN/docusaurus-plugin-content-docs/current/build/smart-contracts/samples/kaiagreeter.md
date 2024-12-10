@@ -1,6 +1,6 @@
 # KaiaGreeter
 
-KaiaGreeter "是一个返回问候信息的简单合约。 问候信息在部署合同时设置。
+`KaiaGreeter`是一个返回问候信息的简单合约。 问候信息在部署合同时设置。
 
 ## 写作 KaiaGreeter<a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
 
