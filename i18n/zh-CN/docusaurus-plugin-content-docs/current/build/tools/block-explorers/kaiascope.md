@@ -36,7 +36,7 @@ Kaiascope 是 Kaia 网络的区块资源管理器。 Kaiascope 通过监控网�
 
 ### 最近的区块和交易<a id="recent-blocks-transactions"></a>
 
-这些列表分别显示最近创建的区块和事务。 点击窗格右上角的刷新按钮，即可获得最新信息。 在列表底部，单击 "查看全部 "按钮将进入[列表视图]（#list-view）。
+这些列表分别显示最近创建的区块和事务。 点击窗格右上角的刷新按钮，即可获得最新信息。 在列表底部，单击 "查看全部 "按钮将进入[列表视图](#list-view)。
 
 ![](/img/build/tools/scope_03_main_list.png)
 
