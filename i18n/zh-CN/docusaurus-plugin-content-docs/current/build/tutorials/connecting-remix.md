@@ -101,7 +101,7 @@ contract KaiaGreeter {
 
 ## 连接 Kaia - 使用 MetaMask 混音<a href="#connect-to-kaia-using-metamask" id="connect-to-kaia-using-metamask"></a>
 
-- 参照[连接到 MetaMask]（./connecting-metamask.mdx）连接 Kaia 和 MetaMask。
+- 参照[连接到 MetaMask](./connecting-metamask.mdx）连接 Kaia 和 MetaMask。
 - 在 Remix 环境菜单上选择 [注入式提供程序 - 元掩码]。
 
 ![](/img/build/smart-contracts/remix-mm-connect.png)
