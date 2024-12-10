@@ -1,0 +1,99 @@
+# Legacy Account Key
+
+<CH.Spotlight>
+<CH.Code>
+
+```py web3_legacy_value_transfer_message_recover.py
+from eth_account import Account
+from eth_account.messages import encode_defunct
+from eth_utils.curried import to_hex
+from web3py_ext import extend
+
+def web3_legacy_value_transfer_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    message_text = "I♥KLAYTN"
+    msghash = encode_defunct(text=message_text)
+    signature = Account.sign_message(msghash, user.key)
+
+    recovered = Account.recover_message(msghash, signature=signature.signature)
+    print("\nsender", user.address, "\nrecovered", recovered)
+
+web3_legacy_value_transfer_sign_recover()
+```
+
+---
+
+```zsh output
+❯ python web3_legacy_value_transfer_message_recover.py
+sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+```
+
+</CH.Code>
+
+---
+
+Import necessary utils from **eth_utils** and **eth_account**
+
+```py web3_legacy_value_transfer_message_recover.py focus=1:3
+
+```
+
+---
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
+```py web3_legacy_value_transfer_message_recover.py focus=4
+
+```
+
+---
+
+Define a wallet from private key using **Account.from_key**
+
+```py web3_legacy_value_transfer_message_recover.py focus=7
+
+```
+
+---
+
+Define any message to sign
+
+```py web3_legacy_value_transfer_message_recover.py focus=8
+
+```
+
+---
+
+Format the message using **encode_defunct** to make it compatible with EIP-191 standard.
+
+```py web3_legacy_value_transfer_message_recover.py focus=9
+
+```
+
+---
+
+Sign the transaction with the created account
+
+```py web3_legacy_value_transfer_message_recover.py focus=10
+
+```
+
+---
+
+Recover sender address with **Account.recover_message** from signed message
+
+<CH.Code>
+```py web3_legacy_value_transfer_message_recover.py focus=12:13
+
+````
+---
+
+```zsh output
+❯ python web3_legacy_value_transfer_message_recover.py
+sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+````
+
+</CH.Code>
+</CH.Spotlight>
