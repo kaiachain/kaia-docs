@@ -251,7 +251,7 @@ function feePayer() internal returns (address addr) {
 
 ## 地址 0x3ff: validateSender\(\)<a id="address-0x-3fe-validatesender"></a>
 
-地址 0x3FF 验证发件人与报文的签名。 由于 Kaia [将密钥对与地址解耦](.../accounts.md#decoupling-key-pairs-from-addresses)，因此需要验证签名是否由相应的发送方正确签名。 为此，这份预编译合同会收到三个参数：
+地址 0x3FF 验证发件人与报文的签名。 由于 Kaia [将密钥对与地址解耦](../accounts.md#decoupling-key-pairs-from-addresses)，因此需要验证签名是否由相应的发送方正确签名。 为此，这份预编译合同会收到三个参数：
 
 - 用于获取公钥的发件人地址
 - 用于生成签名的信息哈希值
