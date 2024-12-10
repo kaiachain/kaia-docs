@@ -3,7 +3,7 @@
     "message": "{title}"
   },
   "{tagline}": {
-    "message": "{tagline}"
+    "message": "欢迎来到 Kaia 文档"
   },
   "Getting Started": {
     "message": "开始"
