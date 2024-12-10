@@ -13,18 +13,18 @@ To verify your contract on klaytn, you need to add the following configuration t
 ```
 module.exports = {
   networks: {
-    kaia: {
+    klaytn: {
       chainId: 8217,
       url: "RPC_URL",
     },
   },
   etherscan: {
     apiKey: {
-      kaia: "unnecessary",
+      klaytn: "unnecessary",
     },
     customChains: [
       {
-        network: "kaia",
+        network: "klaytn",
         chainId: 8217,
         urls: {
           apiURL: "https://api-cypress.klaytnscope.com/api",
@@ -42,7 +42,7 @@ module.exports = {
 ```
 module.exports = {
   networks: {
-    kairos: {
+    klaytn: {
       chainId: 1001,
       url: "RPC_URL",
     },
@@ -53,7 +53,7 @@ module.exports = {
     },
     customChains: [
       {
-        network: "kairos",
+        network: "klaytn",
         chainId: 1001,
         urls: {
           apiURL: "https://api-baobab.klaytnscope.com/api",
@@ -72,7 +72,7 @@ npx hardhat verify –network <network> <deployed_address> <parameters>
 
 // example
 
-npx hardhat verify --network kairos 0x131b54E65c99d34BCA738F29051fDAceEa91C969 1000000000000000
+npx hardhat verify --network klaytn 0x131b54E65c99d34BCA738F29051fDAceEa91C969 1000000000000000
 ```
 
 In your terminal you should see the source code for your contract was successfully submitted for verification. If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Kaiascope](https://kairos.kaiascope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode).
