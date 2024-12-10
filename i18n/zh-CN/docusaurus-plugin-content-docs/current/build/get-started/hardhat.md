@@ -25,7 +25,7 @@ Hardhat 是一个智能合约开发环境，它将为您提供帮助：
 
 学习本教程的前提条件如下：
 
-- Code editor: a source-code editor such [VS Code](https://code.visualstudio.com/download).
+- 代码编辑器：源代码编辑器，如 [VS Code](https://code.visualstudio.com/download)。
 - [Metamask]（.../tutorials/connecting-metamask.mdx#install-metamask）：用于部署合约、签署事务和与合约交互。
 - RPC 端点：可从支持的[端点提供程序]（.../.../references/public-en.md）中获取。
 - 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
