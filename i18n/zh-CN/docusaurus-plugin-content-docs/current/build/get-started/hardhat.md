@@ -26,8 +26,8 @@ Hardhat 是一个智能合约开发环境，它将为您提供帮助：
 学习本教程的前提条件如下：
 
 - 代码编辑器：源代码编辑器，如 [VS Code](https://code.visualstudio.com/download)。
-- [Metamask](.../tutorials/connecting-metamask.mdx#install-metamask)：用于部署合约、签署事务和与合约交互。
-- RPC 端点：可从支持的[端点提供程序](.../.../references/public-en.md)中获取。
+- [Metamask](../tutorials/connecting-metamask.mdx#install-metamask)：用于部署合约、签署事务和与合约交互。
+- RPC 端点：可从支持的[端点提供程序](../../references/public-en.md)中获取。
 - 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 - [NodeJS和NPM](https://nodejs.org/en/)
 
@@ -147,7 +147,7 @@ module.exports = {
 **第 2**步打开文件并粘贴以下代码：
 
 ```js
-// SPDX-License-Identifier：MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 import "@kaiachain/contracts/KIP/token/KIP17/KIP17.sol";
@@ -169,7 +169,7 @@ contract SoulBoundToken is KIP17, Ownable {
 
 
     function _beforeTokenTransfer(address from, address to, uint256) pure override internal {
-        require(from == address(0) || to == address(0), "This a Soulbound token.它不能被转移。");
+        require(from == address(0) || to == address(0), "This a Soulbound token. It cannot be transferred.");
     }
 
     function _burn(uint256 tokenId) internal override(KIP17) {
@@ -195,89 +195,89 @@ contract SoulBoundToken is KIP17, Ownable {
 **步骤 2**：在 `sbtTest.js` 文件中复制以下代码。
 
 ```js
-// 这是一个测试文件示例。Hardhat 将运行 `test/` 中的每一个 *.js 文件，
-// 所以请随意添加新文件。
+// This is an example test file. Hardhat will run every *.js file in `test/`,
+// so feel free to add new ones.
 
-// Hardhat 测试通常使用 Mocha 和 Chai 编写。
+// Hardhat tests are normally written with Mocha and Chai.
 
-//
+// We import Chai to use its asserting functions here.
 const { expect } = require("chai");
 
-// 我们使用 `loadFixture` 在测试之间共享通用设置（或固定装置）。
-
-//
+// We use `loadFixture` to share common setups (or fixtures) between tests.
+// Using this simplifies your tests and makes them run faster, by taking
+// advantage of Hardhat Network's snapshot functionality.
 const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers");
 
-// `describe` 是一个 Mocha 函数，允许你组织测试。
-// 整理测试使调试变得更容易。所有的 Mocha
-// 函数都在全局范围内可用。
+// `describe` is a Mocha function that allows you to organize your tests.
+// Having your tests organized makes debugging them easier. All Mocha
+// functions are available in the global scope.
 //
-// `describe` 接收测试套件的部分名称和
-// 回调。回调必须定义该部分的测试。该回调
-// 不能是一个异步函数。
+// `describe` receives the name of a section of your test suite, and a
+// callback. The callback must define the tests of that section. This callback
+// can't be an async function.
 describe("Token contract", function () {
-  // 我们定义一个固定装置，以便在每个测试中重复使用相同的设置。
+  // We define a fixture to reuse the same setup in every test. We use
+  // loadFixture to run this setup once, snapshot that state, and reset Hardhat
+  // Network to that snapshot in every test.
+  async function deployTokenFixture() {
+    // Get the ContractFactory and Signers here.
+    const [owner, addr1, addr2] = await ethers.getSigners();
 
+    // To deploy our contract, we just have to call ethers.deployContract() and call the 
+    // waitForDeployment() method, which happens onces its transaction has been
+    // mined.
 
-  async function deployTokenFixture() { // Get the ContractFactory and Signers here. const [owner, addr1, addr2] = await ethers.getSigners(); // 为了部署我们的合约，我们只需调用 ethers.deployTokenFixture() 并调用 ethers.deployContract(). const sbtContract = await ethers.deployContract("SoulBoundToken"); await sbtContract.waitForDeployment(); // Fixtures 可以返回任何你认为对测试有用的内容 return { sbtContract, owner, addr1, addr2 }; }    // describe("Deployment", function () { // `it` 是另一个 Mocha 函数。你可以用它来定义每个 // 测试。它接收测试名称和回调函数。      // it("Should mint SBT to owner", async function () { const = await loadFixture(deployTokenFixture); const safemint = await sbtContract.safeMint(owner.address); expect(await sbtContract.ownerOf(0)).to.equal(owner.address); }); }); describe("Transactions", function () { it("Should prohibit token transfer using transferFrom", async function () { const = await loadFixture( deployTokenFixture ); const safemintTx = await sbtContract.safeMint(owner.address); // prohibit token transfer of token id (0) from owner to addr1 await expect( sbtContract.transferFrom(owner.address, addr1.address, 0) ).to.be.reverted; }); it("Should prohibit token transfer using safeTransferFrom", async function () { const = await loadFixture( deployTokenFixture ); const safemintTx = await sbtContract.safeMint(owner.address); // prohibit token transfer of token id (0) from owner to addr1 await expect(sbtContract['safeTransferFrom(address,address,uint256)']( owner.address, addr1.address, 0 )).to.be.reverted; }); }); })
+    const sbtContract = await ethers.deployContract("SoulBoundToken");
 
+    await sbtContract.waitForDeployment();
 
+    // Fixtures can return anything you consider useful for your tests
+    return { sbtContract, owner, addr1, addr2 };
+  }
 
- 
+  // You can nest describe calls to create subsections.
+  describe("Deployment", function () {
+    // `it` is another Mocha function. This is the one you use to define each
+    // of your tests. It receives the test name, and a callback function.
+    //
+    // If the callback function is async, Mocha will `await` it.
+    it("Should mint SBT to owner", async function () {
+      const { sbtContract, owner } = await loadFixture(deployTokenFixture);
+      const safemint = await sbtContract.safeMint(owner.address);
+      expect(await sbtContract.ownerOf(0)).to.equal(owner.address);
+    });
+  });
 
+  describe("Transactions", function () {
+    it("Should prohibit token transfer using transferFrom", async function () {
+      const { sbtContract, owner, addr1 } = await loadFixture(
+        deployTokenFixture
+      );
 
+      const safemintTx = await sbtContract.safeMint(owner.address);
 
+      // prohibit token transfer of token id (0) from owner to addr1
+      await expect(
+        sbtContract.transferFrom(owner.address, addr1.address, 0)
+      ).to.be.reverted;
+    });
 
+    it("Should prohibit token transfer using safeTransferFrom", async function () {
+      const { sbtContract, owner, addr1 } = await loadFixture(
+        deployTokenFixture
+      );
 
+      const safemintTx = await sbtContract.safeMint(owner.address);
 
-
-
-
-
-
-
-
-
-
-
-
-
- { sbtContract, owner }
-
-
-
-
-
-
-
- { sbtContract, owner, addr1 }
-
-
-
-
-
-
-
-
-
-
-
-
- { sbtContract, owner, addr1 }
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
+      // prohibit token transfer of token id (0) from owner to addr1
+      await expect(sbtContract['safeTransferFrom(address,address,uint256)'](
+        owner.address,
+        addr1.address,
+        0 
+      )).to.be.reverted;
+    });
+  });
+})
 ```
 
 在你刚刚复制的代码中，第 7 行和第 12 行显示你从 hardhat-network-helpers 的 [Chai](https://www.chaijs.com/api/bdd/) 和 [loadFixture](https://hardhat.org/tutorial/testing-contracts#reusing-common-test-setups-with-fixtures) 中导入了 expect。
@@ -322,16 +322,16 @@ async function main() {
   const sbtContract = await ethers.deployContract("SoulBoundToken");
   await sbtContract.waitForDeployment();
 
-console.log(`Congratulations！您刚刚成功部署了灵魂绑定令牌。`);
-console.log(`SBT 合约地址是 ${sbtContract.target}。您可以在 https://kairos.kaiascope.com/account/${sbtContract.target}` 上验证）;
+console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
+console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://kairos.kaiascope.com/account/${sbtContract.target}`);
 }
 
-
-//
+// We recommend this pattern to be able to use async/await everywhere
+// and properly handle errors.
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
-})；
+});
 ```
 
 \*\*第 3 步在终端运行以下命令，让 Hardhat 在 Kaia 测试网络 (Kairos) 上部署 SBT 令牌
