@@ -26,7 +26,7 @@
   - fastCallTracer "是 "callTracer "的 Golang 实现。 但自 v1.0.1 版起，两者的功能完全相同，因此无需再使用 fastCallTracer。
   - `prestateTracer` 返回构建自定义本地创世状态所需的信息，该事务可以在创世状态上运行。 用于从实时区块链数据中创建测试用例。
   - `revertTracer` 返回还原原因（如果有）。 可以用 `callTracer` 代替，它会返回 `.reverted.reason` 和 `.revertReason` 字段。
-  - 请参阅[API 参考](.../.../.../references/json-rpc/debug/trace-transaction)，了解所支持跟踪器的完整列表。
+  - 请参阅[API 参考](../../../references/json-rpc/debug/trace-transaction)，了解所支持跟踪器的完整列表。
 - structLogger 是在未指定任何跟踪器时激活的跟踪器。 每个操作码的执行情况都会详细显示出来，这对于应用程序调试来说非常繁琐，而且通常过于冗长。
 - 除非节点使用 `--rpc.unsafe-debug.disable`选项禁止使用，否则也支持自定义 JS 跟踪器。 您可以提交一段 JavaScript 代码，该代码会在事务执行的同时被调用。 Below is an example custom tracer that prints the gasUsed after each opcode `"{gasUsed:[], step: function(log) { this.gasUsed.push(log.getGas()); }, result: function() { return this.gasUsed; }, fault: function() {}}"`. 您可以在 [此处](https://docs.chainstack.com/reference/custom-js-tracing-ethereum) 和 [此处](https://geth.ethereum.org/docs/developers/evm-tracing/custom-tracer) 找到有关自定义 JS 跟踪器的更多信息。
 
