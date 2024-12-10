@@ -35,14 +35,14 @@
 
 使用 CC 的任何 PN 节点获取链数据快照：
 
-1. 连接到任何 PN 节点并停止 kpnd：sudo systemctl stop kpnd\`。 必须先停止 kpnd，以确保数据的一致性。
+1. 连接到任何 PN 节点并停止 kpnd：`sudo systemctl stop kpnd`。 必须先停止 kpnd，以确保数据的一致性。
 2. 使用 AWS 控制台，创建包含 PN`DATA_DIR` 的卷的快照。
 3. 启动 kpnd启动 kpnd
 
 使用基本 CN 映像和 chaindata 映像创建新的 CN：
 
 1. 使用 CN 映像（在上面的 "设置 "中创建）创建一个实例。
-2. 附加根据 PN 的快照创建的卷$DATA_DIR\`。
+2. 附加根据 PN 的快照创建的卷`$DATA_DIR`。
 3. 删除卷中除 `$DATA_DIR/klay/chaindata` 以外的所有文件。 确认 `kcnd.conf` 中设置的 `DATA_DIR` 与包含链数据的目录一致。 如果目录名称不同，可能需要重新命名。
 4. 将故障 CN 的 `nodekey` 复制到 `$DATA_DIR/klay/nodekey`。
 5. 将故障 CN 的 IP 地址重新分配给替换 CN。
