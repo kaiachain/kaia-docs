@@ -4,7 +4,7 @@
 
 :::note
 
-与内在气体相关的硬叉变化可在本页底部找到。 转到 [Hardfork Changes]（#hardfork-changes）。
+与内在气体相关的硬叉变化可在本页底部找到。 转到 [Hardfork Changes](#hardfork-changes)。
 
 :::
 
