@@ -10,9 +10,9 @@
 
 在区块链上存储锚的过程。 为此，可以创建一个包含外部数据哈希值的事务，或者创建一个引用外部数据的智能合约（例如，[服务链中的锚定](../nodes/service-chain/configure/anchoring.md)）。
 
-### BFT-based public blockchain
+### 基于 BFT 的公共区块链
 
-This is a blockchain that utilizes Byzantine Fault Tolerance (BFT), ensuring consensus can be reached even if some nodes fail or act maliciously. The system relies on algorithms designed to handle up to ⅓ of nodes behaving incorrectly or dishonestly, without compromising the integrity of the network.
+这是一种采用拜占庭容错（BFT）技术的区块链，可确保即使某些节点出现故障或恶意行为，也能达成共识。 该系统采用的算法可处理多达 ⅓ 的节点错误或不诚实行为，而不会损害网络的完整性。
 
 ### 区块浏览器
 
