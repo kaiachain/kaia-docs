@@ -16,4 +16,4 @@ Kaia 服务链提供以下功能。
 
 ![](/img/nodes/sc_connection.png)
 
-请阅读 [Kaia 扩展解决方案](.../.../learn/scaling-solutions.md) 了解有关服务链的更多详情。
+请阅读 [Kaia 扩展解决方案](../../learn/scaling-solutions.md) 了解有关服务链的更多详情。
