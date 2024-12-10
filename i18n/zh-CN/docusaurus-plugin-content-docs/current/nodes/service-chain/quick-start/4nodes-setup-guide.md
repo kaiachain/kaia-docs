@@ -32,7 +32,7 @@ x kscn-XXXXX-amd64/bin/kscn
 $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 ```
 
-SCN 还提供各种 RPM 发行版，如 RHEL、CentOS 和 Fedora。 有关详细信息，请参阅 [安装]（.../install-service-chain.md#installation）。
+SCN 还提供各种 RPM 发行版，如 RHEL、CentOS 和 Fedora。 有关详细信息，请参阅 [安装](.../install-service-chain.md#installation)。
 
 ```console
 $ curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/prod.repo
