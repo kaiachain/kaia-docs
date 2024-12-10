@@ -1,8 +1,8 @@
 ---
-sidebar_label: 图表
+sidebar_label: The Graph
 ---
 
-# 图表
+# The Graph
 
 在构建 dapp 时，获取智能合约的历史数据可能会令人沮丧。 [The Graph](https://thegraph.com/) 通过被称为子图的应用程序接口，提供了一种查询智能合约数据的简便方法。 图形的基础设施依赖于索引器的去中心化网络，使您的 dapp 真正实现去中心化。
 
@@ -201,5 +201,5 @@ axios(graphQLRequest)
 
 ### 其他资源：
 
-- 要探索优化和定制子图以提高性能的所有方法，请阅读 [在此创建子图] 的更多信息(https://thegraph.com/docs/en/developing/creating-a-subgraph/)。
+- 要探索优化和定制子图以提高性能的所有方法，请阅读 [在此创建子图](https://thegraph.com/docs/en/developing/creating-a-subgraph/) 的更多信息。
 - 有关从子图中查询数据的更多信息，请阅读 [此处](https://thegraph.com/docs/en/querying/querying-the-graph/)。
