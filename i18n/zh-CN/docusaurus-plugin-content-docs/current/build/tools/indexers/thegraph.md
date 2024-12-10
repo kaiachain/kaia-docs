@@ -173,30 +173,30 @@ const graphqlQuery = `{
   trades(orderBy: priceETH, orderDirection: desc) {
     priceETH
     tokenId
-  } }; const queryUrl = ' [api-key]/HdVdERFUe8h61vm2fDyycHgxjss
+  }
 }`;
-const queryUrl = 'https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/HdVdERFUe8h61vm2fDycHgxjsde5PbB832NHgJfZNqK'
+const queryUrl = 'https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/HdVdERFUe8h61vm2fDyycHgxjsde5PbB832NHgJfZNqK'
 
 const graphQLRequest = {
   method: 'post',
   url: queryUrl,
-  data： {
+  data: {
     query: graphqlQuery,
   },
 };
 
-// 发送 GraphQL 查询
+// Send the GraphQL query
 axios(graphQLRequest)
   .then((response) => {
-    // 在此处理响应
+    // Handle the response here
     const data = response.data.data
     console.log(data)
 
   })
   .catch((error) => {
-    // 处理任何错误
+    // Handle any errors
     console.error(error);
-})；
+  });
 ```
 
 ### 其他资源：
