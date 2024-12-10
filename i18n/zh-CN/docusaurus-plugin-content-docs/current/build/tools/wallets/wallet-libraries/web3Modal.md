@@ -16,7 +16,7 @@ sidebar_label: Web3Modal
 
 - 一个正在运行的 react 项目（执行 `npx create-react-app project-name` 命令）
 - 安装必要的钱包（[Kaia Wallet](https://www.kaiawallet.io/en_US/)、[Coinbase Wallet](https://www.coinbase.com/wallet/downloads) 和 [Metamask](https://metamask.io/download/))。
-- RPC 端点：您可以从支持的[端点提供者](.../.../.../.../references/public-en.md)中获取。
+- RPC 端点：您可以从支持的[端点提供者](../../../../references/public-en.md)中获取。
 - 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
 ## 设置 Web3Modal 和钱包提供程序选项
@@ -48,41 +48,41 @@ import { KaikasWeb3Provider } from "@klaytn/kaikas-web3-provider";
 import { KlipWeb3Provider } from "@klaytn/klip-web3-provider";
 
 export const providerOptions = {
- coinbasewallet：{
-   package：CoinbaseWalletSDK, 
-   options：{
-     appName："Web 3 Modal Demo",
+ coinbasewallet: {
+   package: CoinbaseWalletSDK, 
+   options: {
+     appName: "Web 3 Modal Demo",
      infuraId: process.env.INFURA_KEY 
-   }.
+   }
  },
- walletconnect：{
-   package：WalletConnect, 
-   options： {
+ walletconnect: {
+   package: WalletConnect, 
+   options: {
      infuraId: process.env.INFURA_KEY 
    }
  }
 };
 const providerOptions = {
-  coinbasewallet：{
-    package：CoinbaseWalletSDK, // required
-    options：{
-      appName："Web3Modal Kaia dApp", // required
-      infuraId："NFURA_KEY", // required
-      rpc："https://public-en.node.kaia.io", // 如果提供了 `infuraId` 则可选；否则必须提供
-      chainId：1001, // 可选。如果未提供，则默认为 1
-      darkMode: false // 可选。使用暗色主题，默认为 false
+  coinbasewallet: {
+    package: CoinbaseWalletSDK, // required
+    options: {
+      appName: "Web3Modal Kaia dApp", // required
+      infuraId: "NFURA_KEY", // required
+      rpc: "https://public-en.node.kaia.io", // Optional if `infuraId` is provided; otherwise it's required
+      chainId: 1001, // Optional. It defaults to 1 if not provided
+      darkMode: false // Optional. Use dark theme, defaults to false
     }
   },
-  klip：{
-    package：KlipWeb3Provider, //required
-    options：{
-        bappName："Web3Modal Kaia dApp", //required
-        rpcUrl："https://public-en.node.kaia.io" //required
+  klip: {
+    package: KlipWeb3Provider, //required
+    options: {
+        bappName: "Web3Modal Kaia dApp", //required
+        rpcUrl: "https://public-en.node.kaia.io" //required
     }
 },
   kaikas: {
-    package：KaikasWeb3Provider // required
-  }.
+    package: KaikasWeb3Provider // required
+  }
 };
 ```
 
@@ -270,21 +270,21 @@ const refreshState = () => {
     if (!provider) return;
     try {
       await provider.request({
-        method："wallet_switchEthereumChain",
-        params：[{ chainId: toHex(8217) }],
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: toHex(8217) }],
       });
     } catch (switchError) {
-      // 此错误代码表示链尚未添加到 MetaMask。
+      // This error code indicates that the chain has not been added to MetaMask.
       if (switchError.code === 4902) {
         try {
           await provider.request({
-            method："wallet_addEthereumChain",
-            params：[
+            method: "wallet_addEthereumChain",
+            params: [
               {
                 chainId: toHex(1001),
-                chainName："Kairos Testnet",
-                rpcUrls：["https://public-en-kairos.node.kaia.io"],
-                blockExplorerUrls：["https://kairos.kaiascan.io/"],
+                chainName: "Kairos Testnet",
+                rpcUrls: ["https://public-en-kairos.node.kaia.io"],
+                blockExplorerUrls: ["https://kairos.kaiascan.io/"],
               },
             ],
           });
@@ -341,25 +341,25 @@ const signMessage = async(e) => {
 您可以执行本地事务，如将 KAIA 从一个用户发送到另一个用户。
 
 ```js
-    //
+    // add to the existing useState hook.
     const [txHash, setTxHash] = useState();
     const sendKaia = async () => {
     if (!provider) return;
-      const destination = "paste recipient address";
+      const destination = “paste recipient address”;
 
-    // 本指南使用etherthers 6.3.0版本。
+    // this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
-    // 对于低于6.3.0的etherthers版本。
+    // for ethers version below 6.3.0.
     // const provider = new ethers.providers.Web3Provider(provider);
 
     const signer = await ethersProvider.getSigner();
       
-    // 向区块链提交交易并等待挖矿
+    // Submit transaction to the blockchain and wait for it to be mined
     const tx = await signer.sendTransaction({
         to: destination,
         value: ethers.parseEther("0.1"),
-        maxPriorityFeePerGas: "5000000000", // 每个气体的最大优先级费用
-        maxFeePerGas: "6000000000000", // 每个气体的最大费用
+        maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
+        maxFeePerGas: "6000000000000", // Max fee per gas
     })
   
       
@@ -370,7 +370,7 @@ const signMessage = async(e) => {
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Kaia Tx Hash : {txHash ?<a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a>: ' '} </div> </div> <div className="App">
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
     </div>
 );
 ```
