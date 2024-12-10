@@ -16,4 +16,4 @@
 - [工具包页面](https://toolkit.kaia.io)
 - [Kaia SDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
 
-Kaia 在线工具包](/img/build/tools/klaytn-online-toolkit.png)
+![Kaia Online Toolkit](/img/build/tools/klaytn-online-toolkit.png)
