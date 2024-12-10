@@ -20,7 +20,7 @@ sidebar_label: Particle Network
 
 - 使用 TypeScript 和 Tailwind CSS 设置的 [Next.js 项目](https://nextjs.org/docs/getting-started/installation)
   - 您可以运行： `npx create-next-app@latest` 来创建它。
-- 来自 [Particle Dashboard]（https://dashboard.particle.network）的\*\*项目 ID\*\*、**客户密钥**和**应用程序 ID**。
+- 来自 [Particle Dashboard](https://dashboard.particle.network)的**项目 ID**、**客户密钥**和**应用程序 ID**。
 
 ## 安装
 
