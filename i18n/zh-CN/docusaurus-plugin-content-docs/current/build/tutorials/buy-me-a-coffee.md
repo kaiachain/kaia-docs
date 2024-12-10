@@ -38,7 +38,7 @@ Buy Me a Coffee (BMC) 是一个创作者从粉丝或观众那里获得资金支�
 - 熟悉 Javascript 和 React 基础知识，如钩子等
 - 安装必要的钱包，如 [Coinbase Wallet](https://www.coinbase.com/wallet/downloads) 和 [Metamask Wallet](https://metamask.io/download/)
 - 从 [水龙头](https://faucet.kaia.io) 测试 KAIA。
-- RPC 端点：您可以从支持的[端点提供程序](.../.../references/public-en.md)中获取。
+- RPC 端点：您可以从支持的[端点提供程序](../../references/public-en.md)中获取。
 - 在 [Fleek](https://app.fleek.co/) 上创建账户。
 
 ## 1. 项目设置<a id="1-project-setup"></a>
@@ -411,11 +411,11 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.18",
-  defaultNetwork："hardhat",
-  networks：{
+  defaultNetwork: "hardhat",
+  networks: {
     kairos: {
-      url：KAIROS_TESTNET_URL,
-      accounts：[private_key],
+      url: KAIROS_TESTNET_URL,
+      accounts: [PRIVATE_KEY],
     }
   }
 };
@@ -608,40 +608,40 @@ Init 函数初始化 web3-Onboard，使其可供所有钩子使用。
 const ETH_MAINNET_RPC_URL = `https://eth-mainnet.g.alchemy.com/v2/demo`;
 const KAIA_MAINNET_URL = `https://public-en.node.kaia.io`;
 const KAIROS_TESTNET_URL = `https://public-en-kairos.node.kaia.io`;
-  const web3Onboard = init({
+  const web3Onboard =  init({
     wallets: modules,
-    chains：[
+    chains: [
       {
         id: "0x1", // chain ID must be in hexadecimal
         token: "ETH",
-        namespace："evm",
-        label："Ethereum Mainnet",
-        rpcUrl：ETH_MAINNET_RPC_URL
+        namespace: "evm",
+        label: "Ethereum Mainnet",
+        rpcUrl: ETH_MAINNET_RPC_URL
       },
       {
-        id: "0x2019", // chain ID 必须是十六进制
+        id: "0x2019", // chain ID must be in hexadecimal
         token: "KAIA",
-        namespace："evm",
-        label："Kaia Mainnet",
-        rpcUrl：KAIA_MAINNET_URL
+        namespace: "evm",
+        label: "Kaia Mainnet",
+        rpcUrl: KAIA_MAINNET_URL
       },
       {
-        id: "0x3e9", // chain ID 必须是十六进制
+        id: "0x3e9", // chain ID must be in hexadecimel
         token: "KAIA",
-        namespace："evm",
-        label："Kairos Testnet",
-        rpcUrl：KAIROS_TESTNET_URL
+        namespace: "evm",
+        label: "Kairos Testnet",
+        rpcUrl: KAIROS_TESTNET_URL
       },
-     // 您可以添加尽可能多的支持链
+     // you can add as much supported chains as possible
     ],
-    appMetadata：{
-      name: "Kaia-web3-onboard-App", // Change to your dApp name
-      icon："paste your icon url"
-      logo："paste your logo url"
-      description："Web3Onboard-Kaia",
-      recommendedInjectedWallets：[
-        { name: "Coinbase", url："https://wallet.coinbase.com/"},
-        { name: "MetaMask", url："https://metamask.io" }
+    appMetadata: {
+      name: "Kaia-web3-onboard-App", // change to your dApp name
+      icon: "paste your icon url"
+      logo: "paste your logo url"
+      description: "Web3Onboard-Kaia",
+      recommendedInjectedWallets: [
+        { name: "Coinbase", url: "https://wallet.coinbase.com/" },
+        { name: "MetaMask", url: "https://metamask.io" }
       ]
     }
   })
