@@ -1,0 +1,358 @@
+# Value Transfer
+
+TxTypeValueTransfer is used when a user wants to send KAIA.
+
+- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+
+<CH.Spotlight>
+<CH.Code>
+
+```py txTypeFeeDelegatedValueTransferTransaction.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import to_pretty
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_fee_delegated_value_transfer_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    fee_delegator = Account.from_key('0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4')
+
+    fee_delegated_value_transfer_tx = empty_tx(TxType.FEE_DELEGATED_VALUE_TRANSFER)
+    fee_delegated_value_transfer_tx = merge(fee_delegated_value_transfer_tx, {
+        'from' : user.address,
+        'to' : user.address, # to self
+        'value' : Web3.to_peb(0.1, 'klay'),
+    })
+    fee_delegated_value_transfer_tx = fill_transaction(fee_delegated_value_transfer_tx, w3)
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(fee_delegated_value_transfer_tx, user.key)
+    print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address", recovered_tx)
+
+    feepayer_signed_tx = Account.sign_transaction_as_feepayer(signed_tx.rawTransaction, fee_delegator.address, fee_delegator.key)
+    print("\nraw transaction of signed tx:", feepayer_signed_tx.rawTransaction.hex())
+
+    feepayer_recovered_tx = Account.recover_transaction_as_feepayer(feepayer_signed_tx.rawTransaction)
+    print("recovered feepayer address:", feepayer_recovered_tx)
+
+    decoded_tx = Account.decode_transaction(feepayer_signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(feepayer_signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_fee_delegated_value_transfer_sign_recover()
+
+```
+
+---
+
+```zsh output
+❯ python txTypeFeeDelegatedValueTransferTransaction.py
+raw transaction of signed tx: 0x09f8888203a1850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a07006976a09e86e21411150cd88e1fec86665e6f41fed2ff66a69ba9071703e60a0147322d15ebaa18232e7347fab53fb776580e8b03901b6f597be727cb927c2a7
+
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+
+raw transaction of signed tx: 0x09f8e68203a1850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a07006976a09e86e21411150cd88e1fec86665e6f41fed2ff66a69ba9071703e60a0147322d15ebaa18232e7347fab53fb776580e8b03901b6f597be727cb927c2a794cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f5a06de7be192af966e8790828854abe89e1d24a435e68c0e7ea6c715c5766d53535a06e0db3c509ac8cc7a7bb8e0fda203e9c27d24720b0dd977ac5ef2a88e2733d74
+recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+
+decoded transaction: {
+  "type": 9,
+  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "value": 100000000000000000,
+  "nonce": 929,
+  "gasPrice": 50000000000,
+  "gas": 63000,
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "feePayer": "0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
+  "signatures": [
+    {
+      "v": 2038,
+      "r": 50670685146210644758155850867516770752523795105304292948335149879423302385248,
+      "s": 9249684688095617192077356690924587996686692201721973364886864134587743191719
+    }
+  ],
+  "feePayerSignatures": [
+    {
+      "v": 2037,
+      "r": 49711554177870114274420139373315961015019733371259804520392461387625282221365,
+      "s": 49778623080725784202508291278316385863345609698048394072298591254748381527412
+    }
+  ],
+  "chainId": 1001
+}
+tx hash:  0x5234733f874f5c8a77d6628be9958166f039f82a278888c4a6acaab17c2509ab receipt:  AttributeDict({'blockHash': HexBytes('0x2704d8b059545722008a338a1678d1dced73e8a96fb456e7b4cde051b9b9bbc0'), 'blockNumber': 148222496, 'contractAddress': None, 'cumulativeGasUsed': 31000, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 31000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x5234733f874f5c8a77d6628be9958166f039f82a278888c4a6acaab17c2509ab'), 'transactionIndex': 0, 'type': 0})
+```
+
+</CH.Code>
+
+---
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=1:2
+
+```
+
+---
+
+Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=3:10
+
+```
+
+---
+
+Create a Web3 instance with the specified **kairos** testnet URL
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=12
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=12
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import to_pretty
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_fee_delegated_value_transfer_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    fee_delegator = Account.from_key('0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4')
+
+    fee_delegated_value_transfer_tx = empty_tx(TxType.FEE_DELEGATED_VALUE_TRANSFER)
+    fee_delegated_value_transfer_tx = merge(fee_delegated_value_transfer_tx, {
+        'from' : user.address,
+        'to' : user.address, # to self
+        'value' : Web3.to_peb(0.1, 'klay'),
+    })
+    fee_delegated_value_transfer_tx = fill_transaction(fee_delegated_value_transfer_tx, w3)
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(fee_delegated_value_transfer_tx, user.key)
+    print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address", recovered_tx)
+
+    feepayer_signed_tx = Account.sign_transaction_as_feepayer(signed_tx.rawTransaction, fee_delegator.address, fee_delegator.key)
+    print("\nraw transaction of signed tx:", feepayer_signed_tx.rawTransaction.hex())
+
+    feepayer_recovered_tx = Account.recover_transaction_as_feepayer(feepayer_signed_tx.rawTransaction)
+    print("recovered feepayer address:", feepayer_recovered_tx)
+
+    decoded_tx = Account.decode_transaction(feepayer_signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(feepayer_signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_fee_delegated_value_transfer_sign_recover()
+```
+
+---
+
+Load an account from private key
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=15
+
+```
+
+---
+
+Load an account from private key
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=16
+
+```
+
+---
+
+Create an empty transaction of type **TxType.FEE_DELEGATED_VALUE_TRANSFER**. You can use **empty_tx** util to get a tx with default fields filled.
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=18
+
+```
+
+---
+
+Merge the **additional fields** like **from**, **to** and **value** into the empty tx by using the **merge** util.
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=10,19:23
+
+```
+
+---
+
+You can use the **Web3.to_peb** util to convert decimal
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=22
+
+```
+
+---
+
+Use **fill_transaction** to add more params to transaction object like gas limit...
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=6,24
+
+```
+
+---
+
+Sign the value transfer tx by user's private key
+
+<CH.Code>
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=26:28
+
+````
+
+
+---
+
+```zsh output
+❯ py txTypeFeeDelegatedValueTransferTransaction.py
+raw transaction of signed tx: 0x09f88882030e850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0701261726a21b97f33d245940102ec1db848fa6f1015ce6dbf82f36fcdf70eb9a0514a9bd7a5f5f572fca20cf1bf884025e25508a59442d1f7cc433b0dae564dac
+````
+
+</CH.Code>
+
+---
+
+Recover the **signer's address** from the signature in signed tx
+
+<CH.Code>
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=29:30
+
+```
+
+---
+
+```zsh output
+❯ py txTypeFeeDelegatedValueTransferTransaction.py
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+```
+
+</CH.Code>
+
+---
+
+Sign the value transfer tx by fee payer's private key
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=32:33
+
+```
+
+---
+
+Recover the **fee payer's address** from the signature in signed tx
+
+<CH.Code>
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=35:36
+
+````
+
+
+---
+
+```zsh output
+❯ py txTypeFeeDelegatedValueTransferTransaction.py
+recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+````
+
+</CH.Code>
+
+---
+
+You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+
+<CH.Code>
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=38:39
+
+````
+
+---
+
+```zsh output
+❯ py txTypeFeeDelegatedValueTransferTransaction.py
+decoded transaction: {
+  "type": 9,
+  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "value": 100000000000000000,
+  "nonce": 782,
+  "gasPrice": 50000000000,
+  "gas": 63000,
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "feePayer": "0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 50691514842498381567070849504402583109757791219306486547462038310718807674553,
+      "s": 36769163002588173574455873574135523456290590785610097285006856943874380025260
+    }
+  ],
+  "feePayerSignatures": [
+    {
+      "v": 2038,
+      "r": 60728158557991503180505493368021413772751916772408250238953062516885177405564,
+      "s": 49023092189116230171474387517244060616520232186821314097928587751775084593334
+    }
+  ],
+  "chainId": 1001
+}
+
+````
+
+</CH.Code>
+
+---
+
+Send the tx to the blockchain. It will return the tx hash, which will be used to wait the receipt
+
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=41
+
+```
+
+---
+
+The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+
+<CH.Code>
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=42:43
+
+````
+
+
+---
+
+```zsh output
+❯ py txTypeFeeDelegatedValueTransferTransaction.py
+tx hash:  0xad3e6e50ae5caceb6840e001a1aa65bb62e80532102aa7317500505e82283db7 receipt:  {'blockHash': HexBytes('0x71592bc1fa8a3a5b7d13e1f4f291eaf331dd70379e2f2e38914544d7112ad668'), 'blockNumber': 143821087, 'contractAddress': None, 'cumulativeGasUsed': 31000, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 31000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0xad3e6e50ae5caceb6840e001a1aa65bb62e80532102aa7317500505e82283db7'), 'transactionIndex': 0, 'type': 0}
+````
+
+</CH.Code>
+</CH.Spotlight>
