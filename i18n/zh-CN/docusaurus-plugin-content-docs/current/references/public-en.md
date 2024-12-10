@@ -50,7 +50,7 @@
 | [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | 全部 |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | 全部 |
 
-\*\* WebSocket\*\*
+**WebSocket**
 
 | 服务提供商                                | 终点                                                                                                                         | 命名空间              | 类型 |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | ----------------- | -- |
@@ -70,7 +70,7 @@
 | [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | 全部 |
 | [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | 全部 |
 
-\*\* WebSocket\*\*
+**WebSocket**
 
 | 服务提供商                               | 终点                                                                                                                           | 命名空间              | 类型 |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------- | -- |
