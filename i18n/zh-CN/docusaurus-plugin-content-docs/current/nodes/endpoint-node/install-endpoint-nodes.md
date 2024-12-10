@@ -46,7 +46,7 @@ $ export PATH=$PATH:~/downloaded/path/ken-linux-amd64/bin
 
 其他部分假定路径已添加到变量中。
 
-### RPM 发行版（RHEL/CentOS/Fedora\）<a id="rpm-rhel-centos-fedora"></a>
+### RPM 发行版 \(RHEL/CentOS/Fedora\) <a id="rpm-rhel-centos-fedora"></a>
 
 您可以使用以下 `yum` 命令安装下载的 RPM 文件。
 
