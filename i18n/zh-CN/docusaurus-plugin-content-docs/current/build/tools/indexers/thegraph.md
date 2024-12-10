@@ -29,11 +29,11 @@ Kaia Mainnet 和 Testnet 均由 The Graph 提供支持。
 
 访问 [Subgraph Studio] (https://thegraph.com/studio/) 并连接您的钱包。 连接钱包后，您可以点击 "创建子图"。 选择名称时，建议使用标题大小写："子图名称链名称"。
 
-创建子图](/img/build/tools/graph/01-create-subgraph.png)
+![Create a Subgraph](/img/build/tools/graph/01-create-subgraph.png)
 
 然后，您将进入您的子图页面。 您需要的所有 CLI 命令都将显示在页面右侧：
 
-[CLI命令](/img/build/tools/graph/02-cli-commands.webp)
+![CLI commands](/img/build/tools/graph/02-cli-commands.webp)
 
 ### 安装图形 CLI
 
@@ -53,17 +53,17 @@ graph init --studio<SUBGRAPH_SLUG>
 
 系统会提示您提供子图的一些信息，如下所示：
 
-[CLI示例](/img/build/tools/graph/03-cli-sample.webp)
+![CLI sample](/img/build/tools/graph/03-cli-sample.webp)
 
 输入合约信息后，graph-cli 会尝试从 blockexplorer API 获取 ABI、StartBLock 和合约名称。
 
 不过，KaiaScan 的 API 还没有准备好，所以当被要求重试时，只需说 "不"。 以下是手动获取这些信息的方法：
 
 1. ABI：您需要在运行 `graph init` 的同一目录下准备一个包含 ABI 的 json 文件。 从[Kaiascan 上的合同页面](https://kaiascan.io/address/0x5096db80b21ef45230c9e423c373f1fc9c0198dd)，进入 "合同 "选项卡，点击 "查看代码"，就能复制 ABI。 将其保存为 json 文件，放在运行 `graph init` 的同一文件夹中。 在上面的截图中，它被保存为 `abi.json`。
-   [查找 ABI](/img/build/tools/graph/04-kaiascan-abi.webp)
+   ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp)
 
 2. 启动区块：点击创建合约的交易哈希值。 在那里你会找到创建合同的区块。
-   [创建合同](/img/build/tools/graph/05-contract-creation.webp)
+   ![contract creation](/img/build/tools/graph/05-contract-creation.webp)
 
 3. 合同名称：输入合同名称即可。 如果这是您在该子图中索引的唯一一份合同，那么使用默认的 `Contract` 即可。
 
@@ -91,13 +91,13 @@ $ graph deploy --studio<SUBGRAPH_SLUG>
 
 您可以在操场部分进行示例查询，测试您的子图。 详细信息 "选项卡将显示 API 端点。 您可以使用该端点从您的 dapp 进行测试。
 
-游乐场](/img/build/tools/graph/06-playground.png)
+![Playground](/img/build/tools/graph/06-playground.png)
 
 ### 将子图发布到图谱的去中心化网络中
 
 一旦您的子图可以投入生产，您就可以将其发布到去中心化网络中。 在 Subgraph Studio 的子图页面上，点击 "发布 "按钮：
 
-发布按钮](/img/build/tools/graph/07-studio-publish-subgraph.webp)
+![publish button](/img/build/tools/graph/07-studio-publish-subgraph.webp)
 
 > **注：**
 >
@@ -112,7 +112,7 @@ $ graph deploy --studio<SUBGRAPH_SLUG>
 
 下面是 Messari 在 [CryptoPunks Ethereum 子图](https://thegraph.com/explorer/subgraphs/HdVdERFUe8h61vm2fDyycHgxjsde5PbB832NHgJfZNqK) 中的一个例子：
 
-![查询 URL](/img/build/tools/graph/08-query-url.png)
+![Query URL](/img/build/tools/graph/08-query-url.png)
 
 该子图的查询 URL 为
 
@@ -122,7 +122,7 @@ $ graph deploy --studio<SUBGRAPH_SLUG>
 
 ### 获取自己的应用程序接口密钥
 
-![应用程序接口密钥](/img/build/tools/graph/09-apikeys.png)
+![API keys](/img/build/tools/graph/09-apikeys.png)
 
 在 Subgraph Studio 中，您会看到页面顶部的 "API 密钥 "菜单。 您可以在此创建 API 密钥。
 
