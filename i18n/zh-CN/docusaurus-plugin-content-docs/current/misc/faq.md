@@ -51,7 +51,7 @@ Kaia 当然是开源的！ 看看我们的 [Github 组织](https://github.com/ka
 
 ## 有用于测试和开发的 Kaia 公共节点提供商吗？ <a id="node-providers"></a>
 
-有关 Kaia 的公共节点提供程序和网络域，请参阅 [此列表](.../references/public-en.md#rpc-service-providers)。
+有关 Kaia 的公共节点提供程序和网络域，请参阅 [此列表](../references/public-en.md#rpc-service-providers)。
 
 ## 有水龙头可以测试 KAIA 吗？ <a id="are-there-faucets"></a>
 
@@ -67,7 +67,7 @@ Kaia 当然是开源的！ 看看我们的 [Github 组织](https://github.com/ka
 
 ## 哪些钱包支持 Kaia？ <a id="which-wallets"></a>
 
-Kaia 由冷钱包 D'cent 以及大量热钱包（如 Kaia Wallet、MetaMask 等）支持。 请参阅 [此处](.../build/tools/wallets/wallets.md)列表。
+Kaia 由冷钱包 D'cent 以及大量热钱包（如 Kaia Wallet、MetaMask 等）支持。 请参阅 [此处](../build/tools/wallets/wallets.md)列表。
 
 ## 什么是 Mainnet，什么是 Kairos？ <a id="what-is-mainnet-what-is-kairos"></a>
 
@@ -81,7 +81,7 @@ Kaia 由冷钱包 D'cent 以及大量热钱包（如 Kaia Wallet、MetaMask 等�
 
 启明星测试网
 
-- EN 下载 ：从[下载页面](.../nodes/downloads/downloads.md)选择 Kairos 软件包。
+- EN 下载 ：从[下载页面](../nodes/downloads/downloads.md)选择 Kairos 软件包。
 - Kaiascope : https://kairos.kaiascope.com
 - 凯洛斯龙头 : https://faucet.kaia.io
 
@@ -112,9 +112,9 @@ Kaia Node 与以太坊兼容，因此您可以使用流行的以太坊 SDK，如
 
 ## 我正在运行 EN，节点数据同步太慢。 <a id="node-data-sync-is-too-slow"></a>
 
-首先，检查您的硬件规格是否符合 [系统要求](.../nodes/endpoint-node/system-requirements.md)。
+首先，检查您的硬件规格是否符合 [系统要求](../nodes/endpoint-node/system-requirements.md)。
 
-其次，考虑 [下载 chaindata 快照](.../nodes/endpoint-node/install-endpoint-nodes.md#optional-download-chaindata-snapshot)，跳过耗时的完全同步过程。 链数据快照是一种数据库快照，存储自创世以来生成的所有区块。 每日更新。
+其次，考虑 [下载 chaindata 快照](../nodes/endpoint-node/install-endpoint-nodes.md#optional-download-chaindata-snapshot)，跳过耗时的完全同步过程。 链数据快照是一种数据库快照，存储自创世以来生成的所有区块。 每日更新。
 
 ## 我可以在 Kaia 上使用 ERC-20 和 ERC-721 合约吗？ <a id="can-i-use-erc-20-and-erc-721"></a>
 
@@ -128,14 +128,14 @@ Kaia 的网络浏览器扩展钱包 [Kaia Wallet](https://chromewebstore.google.
 
 ## 为什么我的缴费账户地址无法从所提供的密钥中导出？ <a id="account-address-is-not-derived-from-the-key"></a>
 
-在 Kaia 中，[账户地址可以与密钥对解耦](.../learn/accounts.md#decoupling-key-pairs-from-addresses)。
+在 Kaia 中，[账户地址可以与密钥对解耦](../learn/accounts.md#decoupling-key-pairs-from-addresses)。
 
 常见的使用情况如下。
 
 - 账户所有者出于安全考虑希望更改密钥。
 - 账户有一个加权多密钥或基于角色的密钥，允许使用多个密钥对来控制账户。
 
-付费账户通常有一个[基于角色的密钥](.../learn/accounts.md#accountkeyrolebased)。 在大多数情况下，账户地址不是从 RoleFeePayer 密钥导出的。
+付费账户通常有一个[基于角色的密钥](../learn/accounts.md#accountkeyrolebased)。 在大多数情况下，账户地址不是从 RoleFeePayer 密钥导出的。
 
 ## 在哪里可以找到完整的收费授权工作样本？ <a id="fee-delegation-samples"></a>
 
