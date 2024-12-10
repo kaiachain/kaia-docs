@@ -18,7 +18,7 @@ Kaia 上的开发人员可以无权限地访问股票、ETF、商品、外汇货
 您必须通过[Pyth 的合约地址](https://docs.pyth.network/price-feeds/contract-addresses/evm) 获取 Kaia 主网/主网的信息，并通过所需的[price feed id](https://pyth.network/developers/price-feed-ids)获取最新价格。
 
 ```solidity
-// SPDX-License-Identifier：UNLICENSED
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
 import "@pythnetwork/pyth-sdk-solidity/IPyth.sol";
