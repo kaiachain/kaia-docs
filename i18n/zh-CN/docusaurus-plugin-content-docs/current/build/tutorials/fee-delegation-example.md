@@ -52,7 +52,7 @@ const { rawTransaction: senderRawTransaction } = await caver.kaia.accounts.signT
 
 当 "付费方 "收到 "发送方原始交易 "时，"付费方 "会用自己的私钥再次对 "发送方原始交易 "进行签名，然后将交易发送给 Kaia。 下面的代码片段说明了这一过程。 `kaia.sendTransaction` 方法在发送交易前用给定账户的私钥对交易进行签名。 运行代码前，请将 `"FEEPAYER_ADDRESS"` 和 `"PRIVATE_KEY"` 替换为实际值。
 
-请注意，当 "付费方 "代表 "发送方 "向 Kaia 提交交易时，"发送方原始交易 "类型必须是 "FEE_DELEATED "类型的交易。 在下面的示例中，调用了 [sendTransaction(FEE_DELEGATED_VALUE_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer) 方法。由于发送方生成的原始 `senderRawTransaction` 是 [TxTypeFeeDelegatedValueTransfer](././learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer），因此调用了该方法。）
+请注意，当 "付费方 "代表 "发送方 "向 Kaia 提交交易时，"发送方原始交易 "类型必须是 "FEE_DELEATED "类型的交易。 在下面的示例中，调用了 [sendTransaction(FEE_DELEGATED_VALUE_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer) 方法。由于发送方生成的原始 `senderRawTransaction` 是 [TxTypeFeeDelegatedValueTransfer](../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer），因此调用了该方法。）
 
 ```
 const feePayerAddress = "FEEPAYER_ADDRESS";
@@ -105,7 +105,7 @@ const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
 sendFeeDelegateTx = async() => {
-    // 使用发送方的私钥签署交易
+    // sign transaction with private key of sender
     const { rawTransaction: senderRawTransaction } = await caver.kaia.accounts.signTransaction({
       type: 'FEE_DELEGATED_VALUE_TRANSFER',
       from: senderAddress,
@@ -129,7 +129,7 @@ sendFeeDelegateTx = async() => {
     });
 }
 
-sendFeeDelegateTx()；
+sendFeeDelegateTx();
 ```
 
 上述代码使用 "senderPrivateKey "对委托收费转账交易进行签名，并将签名后的 "senderRawTransaction "发送到收费人的服务器，该服务器运行在 "127.0.0.1 "上的 "1337 "端口，即 localhost。
@@ -166,7 +166,7 @@ feePayerSign = (senderRawTransaction, socket) => {
         socket.write('Tx hash is '+ receipt.transactionHash);
         socket.write('Sender Tx hash is '+ receipt.senderTxHash);
     })
-    .on('error', console.error); // 如果出错，第二个参数就是收据。
+    .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 }
 
 var server = net.createServer(function(socket) {
@@ -180,7 +180,7 @@ var server = net.createServer(function(socket) {
 });
 
 server.listen(1337, '127.0.0.1');
-console.log('Fee delegate service started ...')；
+console.log('Fee delegate service started ...');
 ```
 
 服务器监听端口为 `1337`。
@@ -217,7 +217,7 @@ Received data from server: Tx hash is 0xd99086aa8188255d4ee885d9f1933b6cc062085c
 Received data from server: Sender Tx hash is 0xe1f630547f287177a0e92198b1c67212b24fc1ad5a1f0b1f94fd6f980281fdba
 ```
 
-它将用 "发送方 "私钥签署交易，并将签署后的交易发送到费用委托服务（即费用支付方的服务器）。 然后，它将收到缴费委托服务的响应，包括 "缴费人 "地址、"发送哈希值 "和 "发送人发送哈希值"。 Tx哈希值 "是提交给Kaia网络的交易的哈希值，而 "Sender Tx哈希值 "是交易的哈希值，不包含缴费人的地址和签名。 更多详情，请参阅 [SenderTxHash](.../.../learn/transactions/transactions.md#sendertxhash)。
+它将用 "发送方 "私钥签署交易，并将签署后的交易发送到费用委托服务（即费用支付方的服务器）。 然后，它将收到缴费委托服务的响应，包括 "缴费人 "地址、"发送哈希值 "和 "发送人发送哈希值"。 Tx哈希值 "是提交给Kaia网络的交易的哈希值，而 "Sender Tx哈希值 "是交易的哈希值，不包含缴费人的地址和签名。 更多详情，请参阅 [SenderTxHash](../../learn/transactions/transactions.md#sendertxhash)。
 
 ### 4.3 检查 `feepayer_server.js`<a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
