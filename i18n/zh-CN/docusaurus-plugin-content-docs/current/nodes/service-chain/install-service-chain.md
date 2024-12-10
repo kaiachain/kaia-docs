@@ -24,7 +24,7 @@ ServiceChain 是企业级区块链，可满足企业对价值转移、安全性�
 
 ## 下载<a id="download"></a>
 
-您可以在[下载页面]（.../downloads/downloads.md）中获取 SCN、SPN 和 SEN 的软件包。
+您可以在[下载页面](.../downloads/downloads.md)中获取 SCN、SPN 和 SEN 的软件包。
 
 ## 安装<a id="installation-guide"></a>
 
@@ -333,7 +333,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 >
 ```
 
-您可以在 [API 文档]（.../.../.../references/json-rpc/klay/account-created）中查看可用命令。
+您可以在 [API 文档](.../.../.../references/json-rpc/klay/account-created)中查看可用命令。
 
 用于检查 SCN 状态的实用 API：
 
