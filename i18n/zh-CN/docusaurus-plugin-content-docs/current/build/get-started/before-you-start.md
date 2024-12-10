@@ -7,8 +7,8 @@
 
 **终端节点**
 
-- 您的[端点节点](.../.../nodes/endpoint-node/endpoint-node.md)需要连接到 Kaia 网络并发出 API 调用或发送事务。
-- `ken` 是 Kaia 端点节点二进制文件。 `ken` 公开了两个接口：[命令行接口](.../.../nodes/endpoint-node/ken-cli-commands.md)和[JSON-RPC APIs](.../../references/json-rpc/klay/account-created)。 `ken` 可在 Linux 和 MacOS 上运行。
+- 您的[端点节点](../../nodes/endpoint-node/endpoint-node.md)需要连接到 Kaia 网络并发出 API 调用或发送事务。
+- `ken` 是 Kaia 端点节点二进制文件。 `ken` 公开了两个接口：[命令行接口](../../nodes/endpoint-node/ken-cli-commands.md)和[JSON-RPC APIs](../../references/json-rpc/klay/account-created)。 `ken` 可在 Linux 和 MacOS 上运行。
 - `ken` CLI 附带多种实用程序和节点管理功能。
 
 **智能合同开发**
@@ -22,7 +22,7 @@
 **Kaia SDK**
 
 - [caver-js](../../references/sdk/caver-js/caver-js.md) ：实现 Kaia JSON-RPC API 的 JavaScript 库。
-- [caver-java](.../.../references/sdk/caver-java/caver-java.md)：实现 Kaia JSON-RPC API 的 Java 库。
+- [caver-java](../../references/sdk/caver-java/caver-java.md)：实现 Kaia JSON-RPC API 的 Java 库。
 
 **凯亚工具包**
 
