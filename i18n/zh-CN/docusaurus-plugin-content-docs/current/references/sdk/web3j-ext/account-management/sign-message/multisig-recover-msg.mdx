@@ -1,0 +1,246 @@
+# Multisig Account Key
+
+**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+
+In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+
+<CH.Spotlight>
+<CH.Code>
+
+```java SignMsgWithMultiSigExample.java
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlaySignatureData;
+import org.web3j.crypto.Sign.SignatureData;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
+
+/**
+ *
+ */
+public class SignMsgWithMultiSigExample implements keySample {
+        /**
+         *
+         */
+
+        public static void run() throws Exception {
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credentials1 = KlayCredentials.create(keySample.MULTI_KEY_privkey1,
+                                keySample.MULTI_KEY_address);
+                KlayCredentials credentials2 = KlayCredentials.create(keySample.MULTI_KEY_privkey2,
+                                keySample.MULTI_KEY_address);
+                KlayCredentials credentials3 = KlayCredentials.create(keySample.MULTI_KEY_privkey3,
+                                keySample.MULTI_KEY_address);
+                String from = credentials1.getAddress();
+                String message = "0xdeadbeef";
+                String blockNumber = "latest";
+
+                SignatureData signature1 = KlaySignatureData.signPrefixedMessage(message, credentials1);
+                String result1 = KlaySignatureData.getSignatureString(signature1);
+
+                SignatureData signature2 = KlaySignatureData.signPrefixedMessage(message, credentials2);
+                String result2 = KlaySignatureData.getSignatureString(signature2);
+
+                SignatureData signature3 = KlaySignatureData.signPrefixedMessage(message, credentials3);
+                String result3 = KlaySignatureData.getSignatureString(signature3);
+
+                KlayRecoverFromMessageResponse response1 = web3j
+                                .klayRecoverFromMessage(from, message, result1, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response2 = web3j
+                                .klayRecoverFromMessage(from, message, result2, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response3 = web3j
+                                .klayRecoverFromMessage(from, message, result3, blockNumber)
+                                .send();
+                System.out.println("Original address : " + from);
+                System.out.println("Result address for key 1 : " + response1.getResult());
+                System.out.println("Result address for key 2 : " + response2.getResult());
+                System.out.println("Result address for key 3 : " + response3.getResult());
+
+                web3j.shutdown();
+
+        }
+
+}
+```
+
+---
+
+```zsh output
+❯ java SignMsgWithMultiSigExample.java
+Original address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+Result address for key 1 : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+Result address for key 2 : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+Result address for key 3 : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+```
+
+</CH.Code>
+
+---
+
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+
+```java SignMsgWithMultiSigExample.java focus=1:12
+
+```
+
+---
+
+Create a Web3j instance with the specified BAOBAB_URL
+
+```java SignMsgWithMultiSigExample.java focus=23
+
+```
+
+---
+
+Also, you can change the default provider. For example, using the alchemy provider.
+
+```java SignMsgWithMultiSigExample.java focus=23
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlaySignatureData;
+import org.web3j.crypto.Sign.SignatureData;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
+
+/**
+ *
+ */
+public class SignMsgWithMultiSigExample implements keySample {
+        /**
+         *
+         */
+
+        public static void run() throws Exception {
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credentials1 = KlayCredentials.create(keySample.MULTI_KEY_privkey1,
+                                keySample.MULTI_KEY_address);
+                KlayCredentials credentials2 = KlayCredentials.create(keySample.MULTI_KEY_privkey2,
+                                keySample.MULTI_KEY_address);
+                KlayCredentials credentials3 = KlayCredentials.create(keySample.MULTI_KEY_privkey3,
+                                keySample.MULTI_KEY_address);
+                String from = credentials1.getAddress();
+                String message = "0xdeadbeef";
+                String blockNumber = "latest";
+
+                SignatureData signature1 = KlaySignatureData.signPrefixedMessage(message, credentials1);
+                String result1 = KlaySignatureData.getSignatureString(signature1);
+
+                SignatureData signature2 = KlaySignatureData.signPrefixedMessage(message, credentials2);
+                String result2 = KlaySignatureData.getSignatureString(signature2);
+
+                SignatureData signature3 = KlaySignatureData.signPrefixedMessage(message, credentials3);
+                String result3 = KlaySignatureData.getSignatureString(signature3);
+
+                KlayRecoverFromMessageResponse response1 = web3j
+                                .klayRecoverFromMessage(from, message, result1, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response2 = web3j
+                                .klayRecoverFromMessage(from, message, result2, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response3 = web3j
+                                .klayRecoverFromMessage(from, message, result3, blockNumber)
+                                .send();
+                System.out.println("Original address : " + from);
+                System.out.println("Result address for key 1 : " + response1.getResult());
+                System.out.println("Result address for key 2 : " + response2.getResult());
+                System.out.println("Result address for key 3 : " + response3.getResult());
+
+                web3j.shutdown();
+
+        }
+
+}
+```
+
+---
+
+Load 3 **multi-sig credentials** from private keys
+
+```java SignMsgWithMultiSigExample.java focus=24:29
+
+```
+
+---
+
+Get the **address** of **credentials1**. This address will be used to verify the recovered address
+
+```java SignMsgWithMultiSigExample.java focus=30
+
+```
+
+---
+
+Define any message to sign
+
+```java SignMsgWithMultiSigExample.java focus=31
+
+```
+
+---
+
+Set the **block number** to be the latest block in the kaia network
+
+```java SignMsgWithMultiSigExample.java focus=32
+
+```
+
+---
+
+Sign the **message** with all 3 multi-sig credentials in order and get the signature outputs as string
+
+```java SignMsgWithMultiSigExample.java focus=34:41
+
+```
+
+---
+
+Recover the **addresses** from 3 message responses and compare them to the original **from** address
+
+<CH.Code>
+```java SignMsgWithMultiSigExample.java focus=43:57
+
+````
+
+
+---
+
+```zsh output
+❯ java SignMsgWithMultiSigExample.java
+Original address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+Result address for key 1 : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+Result address for key 2 : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+Result address for key 3 : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+````
+
+</CH.Code>
+
+---
+
+Shut down the Web3j instance
+
+```java SignMsgWithMultiSigExample.java focus=37
+
+```
+
+</CH.Spotlight>

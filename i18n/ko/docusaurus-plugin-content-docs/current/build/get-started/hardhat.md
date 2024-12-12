@@ -25,7 +25,7 @@ Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니�
 
 이 튜토리얼을 따르기 위한 전제 조건은 다음과 같습니다:
 
-- 코드 편집기: [VS-Code](https://code.visualstudio.com/download)와 같은 소스 코드 편집기.
+- Code editor: a source-code editor such [VS Code](https://code.visualstudio.com/download).
 - [Metamask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
@@ -86,7 +86,7 @@ Hardhat 프로젝트를 초기화한 후에는 현재 디렉터리에 다음이 
 
 **contracts/** - 이 폴더에는 스마트 컨트랙트 코드가 포함되어 있습니다.
 
-**scripts/** - 이 폴더에는 블록체인 네트워크에 컨트랙트를 배포하는 코드가 포함되어 있습니다.
+**ignition/modules/** – this folder contains code that deploys your contracts on the blockchain network.
 
 **test/** - 이 폴더에는 스마트 컨트랙트를 테스트하는 모든 단위 테스트가 포함되어 있습니다.
 
@@ -337,7 +337,7 @@ main().catch((error) => {
 **3단계**: 터미널에서 다음 명령을 실행하여 Hardhat에 SBT 토큰을 Kaia 테스트 네트워크(Kairos)에 배포하도록 지시합니다.
 
 ```bash
-npx hardhat run scripts/sbtDeploy.js --network kairos
+npx hardhat run ignition/modules/sbtDeploy.js --network kairos
 ```
 
 ![](/img/build/get-started/sbtDeploy.png)

@@ -1,0 +1,270 @@
+# Public Account Key
+
+**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+
+<CH.Spotlight>
+<CH.Code>
+
+```py web3_account_update_pubkey.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.klaytn_account.utils import compressed_key
+from web3py_ext.klaytn_account.account_key import KeyType
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import (
+    to_pretty,
+    bytes_to_hex_str
+)
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+
+def web3_account_update_pubkey():
+    user1 = Account.from_key('0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac')
+    user2 = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+
+    account_update_tx = empty_tx(TxType.ACCOUNT_UPDATE)
+    account_update_tx = merge(account_update_tx, {
+        'from' : user1.address,
+        'key' : {
+            'type': KeyType.PUBLIC,
+            'key' : compressed_key(user2)
+        }
+    })
+    account_update_tx = fill_transaction(account_update_tx, w3)
+    print(to_pretty(account_update_tx))
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(account_update_tx, user2.key)
+    print('\nrawTransaction:', bytes_to_hex_str(signed_tx.rawTransaction))
+
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_account_update_pubkey()
+```
+
+---
+
+```zsh output
+❯ py web3_account_update_pubkey.py
+# {
+#   "from": "0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b",
+#   "gas": 159000,
+#   "gasPrice": 50000000000,
+#   "nonce": 123,
+#   "chainId": 1001,
+#   "type": 32,
+#   "key": {
+#     "type": 2,
+#     "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+#   }
+# }
+
+# rawTransaction: 20f88d7b850ba43b740083026d1894e15cd70a41dfb05e7214004d7d054801b2a2f06ba302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f6a0f75f66b00c25910bfa28b70bd9b84be7d992af41803b8127b70db8d277b0d916a055594b060f8efba08cdc9e103e47000f6f83f191ea25a2a49661cc01fc449f2c
+# tx hash:  0x300f72798b62b8ff59287d21f186735ec95edaaf90c78ee153a7ab7ad31311fd receipt:  AttributeDict({'blockHash': HexBytes('0xf76ff73748e352ae26e28dbd9485fc30f101999de67800acaa65e1b5b743e1ce'), 'blockNumber': 150554008, 'contractAddress': None, 'cumulativeGasUsed': 234641, 'effectiveGasPrice': 25000000000, 'from': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'gasUsed': 41000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'transactionHash': HexBytes('0x300f72798b62b8ff59287d21f186735ec95edaaf90c78ee153a7ab7ad31311fd'), 'transactionIndex': 1, 'type': 0})
+```
+
+</CH.Code>
+
+---
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
+```py web3_account_update_pubkey.py focus=1:2
+
+```
+
+---
+
+Import necessary utils from **web3** and **web3py_ext**
+
+```py web3_account_update_pubkey.py focus=3:16
+
+```
+
+---
+
+Create a Web3 instance with the specified **kairos** testnet URL
+
+```py web3_account_update_pubkey.py focus=18
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**.
+
+```py web3_account_update_pubkey.py focus=18:20
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.klaytn_account.utils import compressed_key
+from web3py_ext.klaytn_account.account_key import KeyType
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import (
+    to_pretty,
+    bytes_to_hex_str
+)
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider(
+     'https://public-en-kairos.node.kaia.io'
+    ))
+
+def web3_account_update_pubkey():
+    user1 = Account.from_key('0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac')
+    user2 = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+
+    account_update_tx = empty_tx(TxType.ACCOUNT_UPDATE)
+    account_update_tx = merge(account_update_tx, {
+        'from' : user1.address,
+        'key' : {
+            'type': KeyType.PUBLIC,
+            'key' : compressed_key(user2)
+        }
+    })
+    account_update_tx = fill_transaction(account_update_tx, w3)
+    print(to_pretty(account_update_tx))
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(account_update_tx, user2.key)
+    print('\nrawTransaction:', bytes_to_hex_str(signed_tx.rawTransaction))
+
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_account_update_pubkey()
+```
+
+---
+
+Load two accounts from private key
+
+```py web3_account_update_pubkey.py focus=22:23
+
+```
+
+---
+
+Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **empty_tx** util to get a tx with default fields filled.
+
+```py web3_account_update_pubkey.py focus=6:7,10,25
+
+```
+
+---
+
+Merge **additional fields** like **sender** and **keys** into the empty tx by using the **merge** util.
+
+```py web3_account_update_pubkey.py focus=15,26:32
+
+```
+
+---
+
+In this case, the account key to update is the **public** key.
+
+```py web3_account_update_pubkey.py focus=29
+
+```
+
+---
+
+You can use the **compressed_key** util to set the key. It will extract the compressed public key from the key
+
+```py web3_account_update_pubkey.py focus=30
+
+```
+
+---
+
+Use **fill_transaction** to add more params to transaction object like gas limit...
+
+```py web3_account_update_pubkey.py focus=6,8,10,33
+
+```
+
+---
+
+You can use the **to_pretty** util to print the formatted tx.
+
+<CH.Code>
+```py web3_account_update_pubkey.py focus=11,12,14,34
+
+````
+
+---
+```zsh output
+{
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "gas": 159000,
+  "gasPrice": 50000000000,
+  "nonce": 40,
+  "chainId": 1001,
+  "type": 32,
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  }
+}
+````
+
+</CH.Code>
+
+---
+
+Sign the account update tx type. You must sign it with the loaded account
+
+<CH.Code>
+```py web3_account_update_pubkey.py focus=22,36:38
+
+````
+---
+```zsh output
+rawTransaction: 20f8da28850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0985bec3e261c26aae4753692e485df1f2610d15a49c6d1a211aa722ebe07f83aa030de040be157e4ba1ee085adfa104ad52e6c5be2133e08eba32c23e8fdcef2f3
+````
+
+</CH.Code>
+
+---
+
+**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+
+<CH.Code>
+```py web3_account_update_pubkey.py focus=40:42
+
+````
+---
+```zsh output
+tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a receipt:  AttributeDict({'blockHash': HexBytes('0xcd0b362591ab28e4c5c423561ea525ad7f19e1fbc177aeef640aece7d53fc83d'), 'blockNumber': 147156811, 'contractAddress': None, 'cumulativeGasUsed': 271841, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 81000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash': HexBytes('0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a'), 'transactionIndex': 1, 'type': 0})
+````
+
+</CH.Code>
+</CH.Spotlight>

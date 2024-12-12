@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "卡伊娅标志",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Learn": {
+    "message": "学习",
+    "description": "Navbar item with label Learn"
+  },
+  "item.label.Build": {
+    "message": "建设",
+    "description": "Navbar item with label Build"
+  },
+  "item.label.Nodes": {
+    "message": "节点",
+    "description": "Navbar item with label Nodes"
+  },
+  "item.label.References": {
+    "message": "参考资料",
+    "description": "Navbar item with label References"
+  }
+}

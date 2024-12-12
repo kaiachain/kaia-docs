@@ -1,0 +1,297 @@
+# Value Transfer
+
+TxTypeValueTransfer is used when a user wants to send KAIA.
+
+- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+
+<CH.Spotlight>
+<CH.Code>
+
+```java txTypeValueTransferTransaction.java
+package org.web3j.example.transactions;
+
+import java.io.IOException;
+import java.math.BigInteger;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.transaction.type.TxType;
+import org.web3j.crypto.transaction.type.TxTypeValueTransfer;
+import org.web3j.crypto.transaction.type.TxType.Type;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+
+/**
+ *
+ */
+public class ValueTransferExample implements keySample {
+    /**
+     *
+     */
+
+    public static void run() throws Exception {
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials credentials = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+
+        BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+        BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+        String from = credentials.getAddress();
+        EthChainId EthchainId = web3j.ethChainId().send();
+        long chainId = EthchainId.getChainId().longValue();
+        String to = "0x000000000000000000000000000000000000dead";
+        BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+                .getTransactionCount();
+        BigInteger value = BigInteger.valueOf(100);
+
+        TxType.Type type = Type.VALUE_TRANSFER;
+
+        KlayRawTransaction raw = KlayRawTransaction.createTransaction(
+                type,
+                nonce,
+                GAS_PRICE,
+                GAS_LIMIT,
+                to,
+                value,
+                from);
+
+        byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
+        String hexValue = Numeric.toHexString(signedMessage);
+        EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+        System.out.println("TxHash : \n " + transactionResponse.getResult());
+        String txHash = transactionResponse.getResult();
+
+        int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
+        int DEFAULT_BLOCK_TIME = 1 * 1000;
+        long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+        TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
+                DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+        org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
+                .waitForTransactionReceipt(txHash);
+        System.out.println("Receipt from eth_getTransactionReceipt : \n" + ethReceipt);
+        TransactionReceipt receipt = web3j.klayGetTransactionReceipt(txHash).send().getResult();
+        System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
+        web3j.shutdown();
+
+        TxTypeValueTransfer rawTransaction = TxTypeValueTransfer.decodeFromRawTransaction(signedMessage);
+        System.out.println("TxType : " + rawTransaction.getKlayType());
+    }
+
+}
+```
+
+---
+
+```zsh output
+❯ node txTypeLegacyTransaction.java
+TxHash :
+ 0x0b9af696b2fdd08d26466c76a5fd8c80dfd30ca35d15f3cdf3e986275a111930
+receipt :
+class TransactionReceipt {
+    blockHash: 0xdc63be2bda24c16da08d69879d3223afaed92a03e3e4e8bf92bdd725d7f160fb
+    blockNumber: 0x8dea925
+    codeFormat: null
+    contractAddress: null
+    feePayer: null
+    feePayerSignatures: []
+    feeRatio: null
+    from: 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    gas: 0x66919e
+    effectiveGasPrice: 0x5d21dba00
+    gasPrice: 0xba43b7400
+    gasUsed: 0x5208
+    humanReadable: null
+    key: null
+    input: null
+    logs: []
+    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce: 0x3bf
+    senderTxHash: 0x0b9af696b2fdd08d26466c76a5fd8c80dfd30ca35d15f3cdf3e986275a111930
+    signature: []
+    status: 0x1
+    txError: null
+    to: 0x000000000000000000000000000000000000dead
+    transactionHash: 0x0b9af696b2fdd08d26466c76a5fd8c80dfd30ca35d15f3cdf3e986275a111930
+    transactionIndex: 0x2
+    type: TxTypeValueTransfer
+    typeInt: 8
+    value: 0x64
+}
+TxType : VALUE_TRANSFER
+```
+
+</CH.Code>
+
+---
+
+Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+
+```java txTypeValueTransferTransaction.java focus=1:20
+
+```
+
+---
+
+Connect to the kaia blockchain using Web3j and specify the URL
+
+```java txTypeValueTransferTransaction.java focus=31
+
+```
+
+---
+
+Create KlayCredentials using the private key
+
+```java txTypeValueTransferTransaction.java focus=32
+
+```
+
+---
+
+Define gas price and gas limit for the transaction
+
+```java txTypeValueTransferTransaction.java focus=34:35
+
+```
+
+---
+
+Get the sender's address from `credentials.getAddress()`
+
+```java txTypeValueTransferTransaction.java focus=36
+
+```
+
+---
+
+Get the chain ID from the **Kaia** network
+
+```java txTypeValueTransferTransaction.java focus=37:38
+
+```
+
+---
+
+Initialize variables for transaction parameters
+
+```java txTypeValueTransferTransaction.java focus=39:44
+
+```
+
+---
+
+Create a raw transaction object using above parameters
+
+```java txTypeValueTransferTransaction.java focus=46:53
+
+```
+
+---
+
+Sign the raw transaction
+
+```java txTypeValueTransferTransaction.java focus=55
+
+```
+
+---
+
+Send the transaction to kaia network.
+
+<CH.Code>
+
+```java txTypeValueTransferTransaction.java focus=56:59
+
+```
+
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+0x78a87f014fd4f7a2fb606c3b133c1d3e8bf9b100e3b28f10b71ac440ec3f4da4
+```
+
+</CH.Code>
+
+---
+
+Get the **transaction receipt** and using the transaction hash
+
+<CH.Code>
+
+```java txTypeValueTransferTransaction.java focus=61:70
+
+```
+
+---
+
+```zsh output
+❯ java txTypeValueTransferTransaction.java
+class TransactionReceipt {
+    blockHash: 0x3532a49b7ee37f4ddec71210d8d5e79075092c33f7ed44cc3d1d9ba50cc50b94
+    blockNumber: 0x891424d
+    codeFormat: null
+    contractAddress: null
+    feePayer: null
+    feePayerSignatures: []
+    feeRatio: null
+    from: 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    gas: 0x66919e
+    effectiveGasPrice: 0x5d21dba00
+    gasPrice: 0xba43b7400
+    gasUsed: 0x5208
+    humanReadable: null
+    key: null
+    input: null
+    logs: []
+    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce: 0x309
+    senderTxHash: 0x78a87f014fd4f7a2fb606c3b133c1d3e8bf9b100e3b28f10b71ac440ec3f4da4
+    signature: []
+    status: 0x1
+    txError: null
+    to: 0x000000000000000000000000000000000000dead
+    transactionHash: 0x78a87f014fd4f7a2fb606c3b133c1d3e8bf9b100e3b28f10b71ac440ec3f4da4
+    transactionIndex: 0x2
+    type: TxTypeValueTransfer
+    typeInt: 8
+    value: 0x64
+}
+```
+
+</CH.Code>
+
+---
+
+Shut down the Web3j connection
+
+```java txTypeValueTransferTransaction.java focus=71
+
+```
+
+---
+
+Decode the raw transaction to get the transaction type
+
+<CH.Code>
+```java txTypeValueTransferTransaction.java focus=73:74
+
+````
+
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+TxType : VALUE_TRANSFER
+````
+
+</CH.Code>
+
+</CH.Spotlight>

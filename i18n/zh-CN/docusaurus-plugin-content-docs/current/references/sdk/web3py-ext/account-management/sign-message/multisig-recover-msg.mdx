@@ -1,0 +1,177 @@
+# Multisig Account Key
+
+**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+
+In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
+_ The weighted sum of the signed public keys should be larger than the threshold.
+_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+
+<CH.Spotlight>
+<CH.Code>
+
+```py web3_multisig_value_transfer_message_recover.py
+from eth_account import Account
+from web3 import Web3
+from eth_account.messages import encode_defunct
+from eth_utils.curried import to_hex
+from web3py_ext import extend
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_multisig_value_transfer_message_recover():
+    user = Account.from_key_pair(
+        # multisig account address
+        '0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e',
+        # a member key of multisig account
+        '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
+    )
+    message = to_hex(text="I♥KLAYTN")
+    msghash = encode_defunct(hexstr=message)
+    signature = Account.sign_message(msghash, user.key)
+
+    print(signature.signature.hex())
+    print(len(signature.signature.hex()))
+    recovered = w3.klay.recover_from_message(user.address, message, signature.signature.hex(), "latest")
+    print("\nsender", user.address, "\nrecovered", recovered) # recovered is an original address of the member key
+
+web3_multisig_value_transfer_sign_recover()
+```
+
+---
+
+```zsh output
+❯ python web3_multisig_value_transfer_message_recover.py
+0xb7057812498a0a6f740fb218ce5ef945dce3b8437e5662fc707dad72e096b7036f98e96d48dd10de502a1d0ce0ae91e048357721dc7502a9aa2018561c06a97d1b
+132
+
+sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
+recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+```
+
+</CH.Code>
+
+---
+
+Import necessary utils from **eth_utils**, **web3** and **eth_account**
+
+```py web3_multisig_value_transfer_message_recover.py focus=1:4
+
+```
+
+---
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
+```py web3_multisig_value_transfer_message_recover.py focus=5
+
+```
+
+---
+
+Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
+
+```py web3_multisig_value_transfer_message_recover.py focus=7
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```py web3_multisig_value_transfer_message_recover.py focus=7
+from eth_account import Account
+from web3 import Web3
+from eth_account.messages import encode_defunct
+from eth_utils.curried import to_hex
+from web3py_ext import extend
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_multisig_value_transfer_message_recover():
+    user = Account.from_key_pair(
+        # multisig account address
+        '0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e',
+        # a member key of multisig account
+        '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
+    )
+    message = to_hex(text="I♥KLAYTN")
+    msghash = encode_defunct(hexstr=message)
+    signature = Account.sign_message(msghash, user.key)
+
+    print(signature.signature.hex())
+    print(len(signature.signature.hex()))
+    recovered = w3.klay.recover_from_message(user.address, message, signature.signature.hex(), "latest")
+    print("\nsender", user.address, "\nrecovered", recovered) # recovered is an original address of the member key
+
+web3_multisig_value_transfer_sign_recover()
+```
+
+---
+
+Define a wallet from private key using **Account.from_key_pair** which is a member key of your multisig account
+
+```py web3_multisig_value_transfer_message_recover.py focus=10:15
+
+```
+
+---
+
+Define any message to sign
+
+```py web3_multisig_value_transfer_message_recover.py focus=16
+
+```
+
+---
+
+Format the message using **encode_defunct** to make it compatible with EIP-191 standard.
+
+```py web3_multisig_value_transfer_message_recover.py focus=17
+
+```
+
+---
+
+Sign the transaction with the created account
+
+```py web3_multisig_value_transfer_message_recover.py focus=18
+
+```
+
+---
+
+Print out the signature and its length
+
+<CH.Code>
+```py web3_multisig_value_transfer_message_recover.py focus=20:21
+
+````
+
+---
+
+```zsh output
+❯ python web3_multisig_value_transfer_message_recover.py
+0xb7057812498a0a6f740fb218ce5ef945dce3b8437e5662fc707dad72e096b7036f98e96d48dd10de502a1d0ce0ae91e048357721dc7502a9aa2018561c06a97d1b
+132
+````
+
+</CH.Code>
+
+---
+
+Recover sender address with **Account.recover_message** from signed message
+
+<CH.Code>
+```py web3_multisig_value_transfer_message_recover.py focus=22:23
+
+````
+---
+
+```zsh output
+❯ python web3_multisig_value_transfer_message_recover.py
+sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
+recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+````
+
+</CH.Code>
+</CH.Spotlight>

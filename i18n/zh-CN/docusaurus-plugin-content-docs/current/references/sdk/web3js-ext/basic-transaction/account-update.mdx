@@ -1,0 +1,233 @@
+# Account Update
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxTypeAccountUpdate.js
+const { KlaytnWeb3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+// Using senderPriv == senderNewPriv to execute this example repeatedly.
+// But you might want to register a different private key.
+const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const publicKey = getPublicKeyFromPrivate(senderNewPriv);
+  console.log({ publicKey });
+
+  const tx = {
+    type: TxType.AccountUpdate,
+    from: senderAddr,
+    key: {
+      type: AccountKeyType.Public,
+      key: publicKey,
+    }
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ js TxTypeAccountUpdate.js
+{
+  publicKey: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+}
+signedTx 0xb54dc3c351e9a1f9ce0a120344598482226a5646838d290e46d9704db521cb94
+receipt {
+  blockHash: '0x8b729b293388e53e397fe00acbd84f449763743180df5dd51725962b540e0bda',
+  blockNumber: 148742746n,
+  cumulativeGasUsed: 41000n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+  gasUsed: 41000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+  transactionHash: '0xb54dc3c351e9a1f9ce0a120344598482226a5646838d290e46d9704db521cb94',
+  transactionIndex: 0n,
+  type: 0n
+}
+
+```
+
+</CH.Code>
+
+---
+
+Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js TxTypeAccountUpdate.js focus=1:2
+
+```
+
+---
+
+Define **sender address, sender private key and new private key** to be changed
+
+```js TxTypeAccountUpdate.js focus=6:8
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+
+```js TxTypeAccountUpdate.js focus=11
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js TxTypeAccountUpdate.js focus=11
+const { KlaytnWeb3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+// Using senderPriv == senderNewPriv to execute this example repeatedly.
+// But you might want to register a different private key.
+const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const publicKey = getPublicKeyFromPrivate(senderNewPriv);
+  console.log({ publicKey });
+
+  const tx = {
+    type: TxType.AccountUpdate,
+    from: senderAddr,
+    key: {
+      type: AccountKeyType.Public,
+      key: publicKey,
+    }
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+Create a **KlaytnWeb3** instance using the provider
+
+```js TxTypeAccountUpdate.js focus=12
+
+```
+
+---
+
+Create a sender's wallet with the **private key** and **provider**
+
+```js TxTypeAccountUpdate.js focus=13
+
+```
+
+---
+
+Compute the **public key** from the new private key
+
+<CH.Code>
+
+```js TxTypeAccountUpdate.js focus=15:16
+
+```
+
+---
+
+```zsh output
+❯ node TxTypeAccountUpdate.js
+{
+  publicKey: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+}
+```
+
+</CH.Code>
+
+---
+
+Declare a transaction in the **key** field with the computed **public key**.
+
+```js TxTypeAccountUpdate.js focus=18:25
+
+```
+
+---
+
+Signing the transaction with the **sender**'s private key
+
+<CH.Code>
+```js TxTypeAccountUpdate.js focus=27:28
+
+````
+
+
+---
+
+```zsh output
+❯ node TxTypeAccountUpdate.js
+signedTx 0xb54dc3c351e9a1f9ce0a120344598482226a5646838d290e46d9704db521cb94
+````
+
+</CH.Code>
+
+---
+
+Send the signed tx to the blockchain. It will return the **receipt** of the transaction
+
+<CH.Code>
+```js TxTypeAccountUpdate.js focus=30:31
+
+````
+
+---
+
+```zsh output
+❯ node TxTypeAccountUpdate.js
+receipt {
+  blockHash: '0x8b729b293388e53e397fe00acbd84f449763743180df5dd51725962b540e0bda',
+  blockNumber: 148742746n,
+  cumulativeGasUsed: 41000n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+  gasUsed: 41000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+  transactionHash: '0xb54dc3c351e9a1f9ce0a120344598482226a5646838d290e46d9704db521cb94',
+  transactionIndex: 0n,
+  type: 0n
+}
+
+````
+
+</CH.Code>
+
+</CH.Spotlight>
