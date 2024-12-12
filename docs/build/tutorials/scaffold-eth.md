@@ -127,7 +127,7 @@ Then, you can run the following command from the root directory of your project:
 ```
 yarn deploy
 ```
-![Deploy](/img/build/tutorials/sc-deploy.png)
+![Deploy](/img/build/s6.png)
 
 Note: 
 
