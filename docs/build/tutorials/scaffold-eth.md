@@ -193,7 +193,7 @@ That's all required to configure Next.js! Next, is to launch the dApp in your lo
 ### Launch the dApp in your Localhost <a href="#launch-dapp-in-localhost" id="launch-dapp-in-localhost"></a>
 
 After making all the necessary configurations, you can now launch the example dApp on your localhost.
-
+//
 To do so, run:
 
 ```bash
