@@ -141,6 +141,7 @@ const sidebars = {
           items: [
             'build/smart-contracts/verify/block-explorers',
             'build/smart-contracts/verify/hardhat',
+            'build/smart-contracts/verify/sourcify',
           ],
         },
         {
