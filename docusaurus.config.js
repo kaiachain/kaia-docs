@@ -277,15 +277,15 @@ const config = {
               },
               {
                 to: "build/get-started/getting-kaia",
-                label: 'Get Testent KAIA',
-              },
-              {
-                to: "build/smart-contracts/verify/block-explorers",
-                label: 'Verify Smart Contracts',
+                label: 'Get Testnet KAIA',
               },
               {
                 to: "build/tutorials/fee-delegation-example",
                 label: 'Build Fee Delegation Example',
+              },
+              {
+                to: "build/smart-contracts/verify/block-explorers",
+                label: 'Verify Smart Contracts',
               },
               {
                 to: "build/tutorials/connecting-metamask",
