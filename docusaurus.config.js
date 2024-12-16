@@ -260,6 +260,12 @@ const config = {
             label: 'References',
           },
           {
+            to: "minidapps",
+            position: 'left',
+            sidebarid: 'miniDappSidebar',
+            label: 'Mini dApps',
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownActiveClassDisabled: true,
@@ -359,7 +365,7 @@ const config = {
               },
               {
                 label: 'X (formerly Twitter)',
-                href: 'https://x.com/klaytn_official',
+                href: 'https://x.com/KaiaChain',
               },
             ],
           },

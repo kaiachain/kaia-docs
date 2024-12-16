@@ -475,6 +475,18 @@ const sidebars = {
     'references/contract-addresses',
     ...commonSidebar,
   ],
+  miniDappSidebar: [
+    {
+      type: 'category',
+      label: 'Build Mini dApps on LINE with Unity',
+      link: { type: 'doc', id: 'minidapps/minidapps' },
+      items: [
+        'minidapps/build-unity-app',
+        'minidapps/convert-unity-liff',
+      ],
+    },
+    ...commonSidebar,
+  ],
 }
 
 module.exports = sidebars
