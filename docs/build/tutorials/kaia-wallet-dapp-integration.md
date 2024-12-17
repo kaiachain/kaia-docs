@@ -29,22 +29,22 @@ UI Libraries provide components for user interactions, like `ConnectWallet` comp
 
 While most UI libraries have built-in support for Metamask, integrating Kaia Wallet is also easy since its [API](https://docs.kaia.io/references/json-rpc/kaia/account-created/) is built on [Metamask's](https://docs.metamask.io/wallet/reference/json-rpc-api). Even if a library doesn't natively support Kaia Wallet, extending it for Kaia Wallet integration is straightforward. For example, these are 2 popular libraries for [React](https://react.dev) or [Next.js](https://nextjs.org):
 
-* [Web3Modal](#1.1-web3modal-example)
+* [Appkit](#1.1-appkit-example)
 * [Web3-Onboard](#1.2-web3-onboard-example)
 
-### 1.1. Web3Modal example
+### 1.1. Appkit example
 
-![Web3Modal Hero Banner](https://web3modal.com/images/hero-banner.png)
+![Appkit Hero Banner](https://web3modal.com/images/hero-banner.png)
 
-By [WalletConnect](https://walletconnect.com), [Web3Modal](https://web3modal.com) offers the following **Features:**
+By [Reown](https://reown.com/), [Appkit](https://docs.reown.com/appkit/overview) offers the following **Features:**
 
 * Buttons + Modals for Connect Wallet, Account information, & Network information
-* Support for [Email Wallets](https://walletconnect.com/blog/web3modal-web3-email-login-wallets), [Coinbase](https://www.coinbase.com) accounts, & [EIP-4361](https://docs.login.xyz/general-information/siwe-overview/eip-4361)
+* Support for [Email Wallets](https://docs.reown.com/appkit/authentication/socials), [Coinbase](https://www.coinbase.com) accounts, & [EIP-4361](https://docs.reown.com/appkit/authentication/one-click-auth)
 
 **Considerations:**
 
-* Using [@web3modal/wagmi](https://www.npmjs.com/package/@web3modal/wagmi), you have to commit to their frontend stack of [Wagmi](https://wagmi.sh) & [Tanstack Query](https://tanstack.com/query)
-* Requires a `projectId` [signup w/ WalletConnect](https://cloud.walletconnect.com/sign-in)
+* Using [@reown/appkit](https://www.npmjs.com/package/@reown/appkit), you have an option to commit to either the frontend stack of [Wagmi](https://wagmi.sh) & [Tanstack Query](https://tanstack.com/query) or simply [Ethers](https://docs.ethers.org/v6/)
+* Requires a `projectId` [signup w/ Reown](https://cloud.walletconnect.com/sign-in)
 
 :::note
 
