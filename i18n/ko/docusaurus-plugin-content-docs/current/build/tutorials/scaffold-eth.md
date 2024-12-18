@@ -44,10 +44,10 @@ Once the setup is complete, navigate to the project directory.
 
 ```bash
 cd project-name
-// e.g  cd kaia-scaffold-example
+// e.g  cd kaia_scaffold
 ```
 
-![Scaffold-ETH setup](/img/build/tutorials/sc-bootstrap.png)
+![Scaffold-ETH setup](/img/build/s1.png)
 
 ## Highlight of the development process with Scaffold-ETH 2 <a href="#highlight-of-dev-environment" id="highlight-of-dev-environment"></a>
 
@@ -96,16 +96,18 @@ The next thing we want to do is to configure **hardhat.config.ts** to support Ka
 Set the constant **defaultNetwork** to the network you are deploying the smart contract to.
 
 ```js
-defaultNetwork = "kaia"
+    kairos: {
+      chainId: 1001,
+      url: "https://responsive-green-emerald.kaia-kairos.quiknode.pro/",
+      accounts: [deployerPrivateKey],
+    },
 ```
 
 Add the network configurations for Kaia under the networks configuration object
 
 ```js
-kaia: {
-  url: "INSERT_RPC_URL",
-  accounts: [deployerPrivateKey],
-},
+network: "kairos",
+
 ```
 
 For more information on using Hardhat with Kaia, please check [Hardhat guide](https://docs.kaia.io/build/get-started/hardhat/) for more details.
@@ -120,7 +122,7 @@ First, you can compile your contract by running:
 yarn compile
 ```
 
-![Compile](/img/build/tutorials/sc-compile.png)
+![Compile](/img/build/s2.png)
 
 Then, you can run the following command from the root directory of your project:
 
@@ -128,7 +130,7 @@ Then, you can run the following command from the root directory of your project:
 yarn deploy
 ```
 
-![Deploy](/img/build/tutorials/sc-deploy.png)
+![Deploy](/img/build/s6.png)
 
 Note:
 
@@ -141,7 +143,7 @@ Note:
 To verify our already deployed contract, we'll use the hardhat verify plugin. All that is required is to add the following configuration to your **hardhat.config.ts** under the etherscan configuration object for Kairos Testnet.
 
 ```js
-etherscan: {
+  etherscan: {
     apiKey: {
       kairos: "unnecessary",
     },
@@ -154,8 +156,8 @@ etherscan: {
           browserURL: "https://kairos.kaiascope.com",
         },
       },
-    ]
-  }
+    ],
+  },
 ```
 
 Next is to copy and paste the following command in your terminal to verify the smart contract:
@@ -169,15 +171,15 @@ yarn hardhat-verify --network network_name contract_address "Constructor arg 1"
 Actual
 
 ```js
-yarn hardhat-verify --network kairos 0x5aC1801708a92292F55A8ea4e9D0f1C0C2EC1F73
- "0x1C42aCcd92d491DB8b083Fa953B5E3D9A9E42aD5"
+yarn hardhat-verify --network kairos 0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da
+ "0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da"
 ```
 
 As you can see above, to verify your contracts, you have to pass in the network name, contract address and constructor arguments (if any). After a short wait, the console will display the verification result and, if successful, the URL to the verified contract on Kaiascope will be provided.
 
-![Verify](/img/build/tutorials/sc-verify.png)
+![Verify](/img/build/verify.png)
 
-![Verify on Kaiascope](/img/build/tutorials/sc-verify-klaytnscope.png)
+![Verify on Kaiascope](/img/build/s3.png)
 
 For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).
 
@@ -203,11 +205,11 @@ To do so, run:
 yarn start
 ```
 
-![Run dApp](/img/build/tutorials/sc-run-dapp.png)
+![Run dApp](/img/build/s4.png)
 
-You should now be able to access a React-based dApp frontend at http://localhost:3000/. Feel free to  interact with the dApp by connecting your wallet or checking out the contract debugger page.
+You should now be able to access a React-based dApp frontend at http://localhost:3001/. Feel free to  interact with the dApp by connecting your wallet or checking out the contract debugger page.
 
-![Scaffold dApp](/img/build/tutorials/sc-dapp.png)
+![Scaffold dApp](/img/build/s5.png)
 
 ## Conclusion
 
