@@ -43,7 +43,7 @@ Once the setup is complete, navigate to the project directory.
 
 ```bash
 cd project-name
-// e.g  cd kaia-scaffold-example
+// e.g  cd kaia_scaffold
 ```
 
 ![Scaffold-ETH setup](/img/build/s1.png)
@@ -97,7 +97,7 @@ Set the constant **defaultNetwork** to the network you are deploying the smart c
 ```js
     kairos: {
       chainId: 1001,
-      url: "https://archive-en-kairos.node.kaia.io",
+      url: "https://responsive-green-emerald.kaia-kairos.quiknode.pro/",
       accounts: [deployerPrivateKey],
     },
 ```
