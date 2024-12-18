@@ -236,28 +236,116 @@ const config = {
         },
         items: [
           {
+            type: 'dropdown',
             to: "learn",
             position: 'left',
             sidebarid: 'learnSidebar',
             label: 'Learn',
+            items: [
+              {
+                to: "learn/why-kaia",
+                label: 'Why Kaia',
+              },
+              {
+                to: "learn/accounts",
+                label: 'Accounts',
+              },
+              {
+                to: "learn/consensus-mechanism",
+                label: 'Consensus Mechanism',
+              },
+              {
+                to: "learn/kaia-native-token",
+                label: 'Kaia Native Token',
+              },
+              {
+                to: "learn/token-economy",
+                label: 'Token Economy',
+              },
+            ],
           },
           {
+            type: 'dropdown',
             to: "build",
             position: 'left',
             sidebarid: 'buildSidebar',
             label: 'Build',
+            items: [
+              {
+                to: "build/get-started/hardhat",
+                label: 'Deploy Your First Smart Contract',
+              },
+              {
+                to: "build/get-started/getting-kaia",
+                label: 'Get Testnet KAIA',
+              },
+              {
+                to: "build/tutorials/fee-delegation-example",
+                label: 'Build Fee Delegation Example',
+              },
+              {
+                to: "build/smart-contracts/verify/block-explorers",
+                label: 'Verify Smart Contracts',
+              },
+              {
+                to: "build/tutorials/connecting-metamask",
+                label: 'Connect MetaMask to Kaia',
+              },
+            ],
           },
           {
+            type: 'dropdown',
             to: "nodes",
             position: 'left',
             sidebarid: 'nodeSidebar',
             label: 'Nodes',
+            items: [
+              {
+                to: "nodes/endpoint-node/install-endpoint-nodes",
+                label: 'Install Endpoint Nodes',
+              },
+              {
+                to: "nodes/downloads",
+                label: 'Download Node Packages',
+              },
+              {
+                to: "misc/operation",
+                label: 'Node Quick Reference',
+              },
+              {
+                to: "misc/operation/chaindata-snapshot",
+                label: 'Use Chaindata Snapshots',
+              },
+            ],
           },
           {
+            type: 'dropdown',
             to: "references",
             position: 'left',
             sidebarid: 'refSidebar',
             label: 'References',
+            items: [
+              {
+                to: "references/public-en",
+                label: 'Public RPC Endpoints',
+              },
+              {
+                to: "references/json-rpc/references",
+                label: 'RPC API References',
+              },
+              {
+                to: "references/sdk/web3js-ext/getting-started",
+                label: 'Web3.js Extension',
+              },
+              {
+                to: "references/sdk/ethers-ext/getting-started",
+                label: 'Ethers.js Extension',
+              },
+              {
+                to: "references/contract-addresses",
+                label: 'Contract Addresses',
+              },
+            ],
           },
           {
             to: "minidapps",
