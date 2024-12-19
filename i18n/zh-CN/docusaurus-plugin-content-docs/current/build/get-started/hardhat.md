@@ -111,7 +111,7 @@ touch .env
 
 > 注：你也可以选择使用 hardhat 提供的[配置变量](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) 功能来配置不应包含在代码库中的变量。
 
-**第 6 步**：设置硬头盔配置
+**第 6 步**：设置Hardhat配置
 
 用以下配置修改 `hardhat.config.js`：
 
