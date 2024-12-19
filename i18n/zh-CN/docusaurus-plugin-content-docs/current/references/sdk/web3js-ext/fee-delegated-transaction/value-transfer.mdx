@@ -1,0 +1,248 @@
+# Value Transfer
+
+TxTypeValueTransfer is used when a user wants to send KAIA.
+
+- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxTypeFeeDelegatedValueTransfer.js
+const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
+async function main() {
+  const tx = {
+    type: TxType.FeeDelegatedValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: toPeb("0.01"),
+  };
+
+  // Sign transaction by sender
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
+
+  // Sign and send transaction by fee payer
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+senderTxHashRLP 0x09f8878203b6850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0119485c48b7587a7ba6358f759c0a31e7de94fea77ba28089e20135156af7d94a07c497057653e76b9646bf5cc2024aa6d58cba23d4b2fec932e61e288cb2513f9
+signedTx 0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae
+receipt {
+  blockHash: '0x442774c57650ef18338bea13ad069428acf8a6c8da5e7eb104dd1d961972400a',
+  blockNumber: 148744776n,
+  cumulativeGasUsed: 177286n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 31000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  transactionHash: '0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae',
+  transactionIndex: 1n,
+  type: 0n
+}
+
+```
+
+</CH.Code>
+
+---
+
+Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=1
+
+```
+
+---
+
+Define **sender**, **fee payer** addresses and private keys
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=3:6
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=8:9
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=8
+const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
+async function main() {
+  const tx = {
+    type: TxType.FeeDelegatedValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: toPeb("0.01"),
+  };
+
+  // Sign transaction by sender
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
+
+  // Sign and send transaction by fee payer
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+Create a **sender's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=10
+
+```
+
+---
+
+Create a **fee payer's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=11
+
+```
+
+---
+
+Define the transaction object.
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=14:20
+
+```
+
+---
+
+Set `type: TxType.FeeDelegatedValueTransfer` for transaction to send a value transfer with a fee payer
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=15
+
+```
+
+---
+
+Set `value: toPeb("0.01")` to define the value to be transfered, use `toPeb` to convert Klay to Peb
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=18
+
+```
+
+---
+
+Set others params like **from**, **to**
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=16:17
+
+```
+
+---
+
+Sign the transaction with **sender** account using `signTransaction`
+
+<CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=21:23
+
+````
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+senderTxHashRLP 0x11f88d8203b7850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f5a0fbd13725c0e913f564469d43e6e928514caca92ca5d5fcc18c493445d2bd3f00a065980c9c0ea0bcfa4324c23b21d45acaa8a64d1d47d45a6730774756be794e86
+````
+
+</CH.Code>
+
+---
+
+Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
+
+<CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=25:27
+
+````
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+signedTx 0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae
+````
+
+</CH.Code>
+
+---
+
+Send the transaction to blockchain. It will return the transaction receipt
+
+<CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=29:30
+
+````
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+receipt {
+  blockHash: '0x442774c57650ef18338bea13ad069428acf8a6c8da5e7eb104dd1d961972400a',
+  blockNumber: 148744776n,
+  cumulativeGasUsed: 177286n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 31000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  transactionHash: '0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae',
+  transactionIndex: 1n,
+  type: 0n
+}
+````
+
+</CH.Code>
+</CH.Spotlight>

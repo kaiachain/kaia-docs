@@ -1,0 +1,197 @@
+# Value Transfer Memo
+
+**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxTypeValueTransferMemo.js
+const { KlaytnWeb3, TxType, toPeb } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const tx = {
+    type: TxType.ValueTransferMemo,
+    from: senderAddr,
+    to: recieverAddr,
+    value: toPeb("0.01"),
+    gasLimit: 50000,
+    data: "0x1234567890",
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node TxTypeValueTransferMemo.js
+signedTx 0x237f8d5598bb5235ba87b0e9fc8ded203c6dd270cc71f1add0ae47c63d13da5d
+receipt {
+  blockHash: '0x90b6753c8fa1ee401775c57974318bb6c0746834170f4d0a132b8a9d10fb37f5',
+  blockNumber: 148742510n,
+  cumulativeGasUsed: 21500n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 21500n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  transactionHash: '0x237f8d5598bb5235ba87b0e9fc8ded203c6dd270cc71f1add0ae47c63d13da5d',
+  transactionIndex: 0n,
+  type: 0n
+}
+
+```
+
+</CH.Code>
+
+---
+
+Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js TxTypeValueTransferMemo.js focus=1:2
+
+```
+
+---
+
+Define **sender, receiver address and sender private key**
+
+```js TxTypeValueTransferMemo.js focus=4:6
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+
+```js TxTypeValueTransferMemo.js focus=9
+
+```
+
+---
+
+Also, you can change the default provider. For example, using the alchemy provider.
+
+```js TxTypeValueTransferMemo.js focus=9
+const { KlaytnWeb3, TxType, toPeb } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const tx = {
+    type: TxType.ValueTransferMemo,
+    from: senderAddr,
+    to: recieverAddr,
+    value: toPeb("0.01"),
+    gasLimit: 50000,
+    data: "0x1234567890",
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+Create a **KlaytnWeb3** instance using the provider
+
+```js TxTypeValueTransferMemo.js focus=10
+
+```
+
+---
+
+Define the transaction object.
+
+```js TxTypeValueTransferMemo.js focus=13:20
+
+```
+
+---
+
+Sign the transaction with the sender's account.
+
+<CH.Code>
+```js TxTypeValueTransferMemo.js focus=22
+
+````
+
+
+---
+
+```zsh output
+❯ node TxTypeValueTransferMemo.js
+
+rawTx 0x10f88d8202fd852e69f6baec82c35094c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f6a0f6bd0d0d26aab4b3a41e7f0229e807a0f1a288d27bdbb700824fbea1ef4f39d3a0235a52f266024657da87e8b1f8ebf7acfe10f7a7a3cf3f7b2c2e34b16b7c1bad
+````
+
+</CH.Code>
+
+---
+
+Send the signed transaction to the kaia network.
+
+<CH.Code>
+```node TxTypeValueTransferMemo.js focus=25:26
+
+````
+
+
+---
+
+```zsh output
+❯ node TxTypeValueTransferMemo.js
+
+receipt {
+  blockHash: '0x9cd046da67fe4b422533443687b0223fd0e9c0ddb575ad3b9f5e018022017e41',
+  blockNumber: 143464955n,
+  cumulativeGasUsed: 364363n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 31000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  transactionHash: '0x5a445950d65a5c82d7ea22eaa4089d46a54bd814c4c801dffeeea727bfb149d9',
+  transactionIndex: 2n,
+  type: 0n
+}
+````
+
+</CH.Code>
+
+---
+
+</CH.Spotlight>

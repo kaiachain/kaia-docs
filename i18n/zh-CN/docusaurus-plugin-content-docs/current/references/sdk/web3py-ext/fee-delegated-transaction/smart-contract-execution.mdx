@@ -1,0 +1,378 @@
+# Smart Contract Execution
+
+**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+
+<CH.Spotlight>
+<CH.Code>
+
+```py delegated_smart_contract_execution_sign_recover.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import to_pretty
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_fee_delegated_smart_contract_execution_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    fee_delegator = Account.from_key('0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4')
+
+    smart_contract_execution_tx = empty_tx(TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION)
+    smart_contract_execution_tx = merge(smart_contract_execution_tx, {
+        'from' : user.address,
+        'to' : '0x108bF12b50c9ef65525F0495C721aEc55015e111', # already deployed contract for test before
+        'data' : '0x3d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000',
+    })
+    smart_contract_execution_tx = fill_transaction(smart_contract_execution_tx, w3)
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(smart_contract_execution_tx, user.key)
+    print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address", recovered_tx)
+
+    feepayer_signed_tx = Account.sign_transaction_as_feepayer(signed_tx.rawTransaction, fee_delegator.address, fee_delegator.key)
+    print("\nraw transaction of feePayer signed tx:", feepayer_signed_tx.rawTransaction.hex())
+
+    feepayer_recovered_tx = Account.recover_transaction_as_feepayer(feepayer_signed_tx.rawTransaction)
+    print("recovered feepayer address:", feepayer_recovered_tx)
+
+    decoded_tx = Account.decode_transaction(feepayer_signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(feepayer_signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_fee_delegated_smart_contract_execution_sign_recover()
+```
+
+---
+
+```zsh output
+❯ py delegated_smart_contract_execution_sign_recover.py
+raw transaction of signed tx: 0x31f8e78203a3850ba43b74008301b05d94108bf12b50c9ef65525f0495c721aec55015e1118094a2a8854b1802d8cd5de631e690817c253d6a9153b8643d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000f847f8458207f5a00a3db2a6793df0b256e2a81bce7ae3780783fcf58cc8326a14371c3413f3075da05031fd033453cf9a7be888b1db3812193d00221e299b483aa4e80a850664618a
+
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+
+raw transaction of feePayer signed tx: 0x31f901458203a3850ba43b74008301b05d94108bf12b50c9ef65525f0495c721aec55015e1118094a2a8854b1802d8cd5de631e690817c253d6a9153b8643d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000f847f8458207f5a00a3db2a6793df0b256e2a81bce7ae3780783fcf58cc8326a14371c3413f3075da05031fd033453cf9a7be888b1db3812193d00221e299b483aa4e80a850664618a94cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f5a08275e838e70da6b1c590f6a8ee5a545ddf93963c5d62bc423835930b91295aa0a06bcd34e8a2a9114c15311e2d7b3004c041410cecb3452349a6e82e09b736b41c
+recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+
+decoded transaction: {
+  "type": 49,
+  "value": 0,
+  "gasPrice": 50000000000,
+  "nonce": 931,
+  "gas": 110685,
+  "to": "0x108bF12b50c9ef65525F0495C721aEc55015e111",
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "data": "0x3d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000",
+  "feePayer": "0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 4632139155753288816177914350449378738873058722929189649296670464490515662685,
+      "s": 36273349621051746908322095917532842606006460166655513683041721600219371823498
+    }
+  ],
+  "feePayerSignatures": [
+    {
+      "v": 2037,
+      "r": 59008994161645925359182568890805662549212009998969311671295364669364719147680,
+      "s": 48760043609336873845154832650749116609475268552379125539006421213296675173404
+    }
+  ],
+  "chainId": 1001
+}
+tx hash:  0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd receipt:  AttributeDict({'blockHash': HexBytes('0x83d5276dc3fec557740a2d25c8f076aba11c022e7021b71bd95a76318c4ff5c9'), 'blockNumber': 148225895, 'contractAddress': None, 'cumulativeGasUsed': 44742, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 44742, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x108bF12b50c9ef65525F0495C721aEc55015e111', 'transactionHash': HexBytes('0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd'), 'transactionIndex': 0, 'type': 0})
+```
+
+</CH.Code>
+
+---
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
+```py delegated_smart_contract_execution_sign_recover.py focus=1:2
+
+```
+
+---
+
+Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
+
+```py delegated_smart_contract_execution_sign_recover.py focus=3:10
+
+```
+
+---
+
+Create a Web3 instance with the specified **kairos** testnet URL
+
+```py delegated_smart_contract_execution_sign_recover.py focus=12
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```py delegated_smart_contract_execution_sign_recover.py focus=12
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import to_pretty
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_fee_delegated_smart_contract_execution_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    fee_delegator = Account.from_key('0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4')
+
+    smart_contract_execution_tx = empty_tx(TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION)
+    smart_contract_execution_tx = merge(smart_contract_execution_tx, {
+        'from' : user.address,
+        'to' : '0x108bF12b50c9ef65525F0495C721aEc55015e111', # already deployed contract for test before
+        'data' : '0x3d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000',
+    })
+    smart_contract_execution_tx = fill_transaction(smart_contract_execution_tx, w3)
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(smart_contract_execution_tx, user.key)
+    print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address", recovered_tx)
+
+    feepayer_signed_tx = Account.sign_transaction_as_feepayer(signed_tx.rawTransaction, fee_delegator.address, fee_delegator.key)
+    print("\nraw transaction of feePayer signed tx:", feepayer_signed_tx.rawTransaction.hex())
+
+    feepayer_recovered_tx = Account.recover_transaction_as_feepayer(feepayer_signed_tx.rawTransaction)
+    print("recovered feepayer address:", feepayer_recovered_tx)
+
+    decoded_tx = Account.decode_transaction(feepayer_signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(feepayer_signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_fee_delegated_smart_contract_execution_sign_recover()
+```
+
+---
+
+Load an **account** from private key
+
+```py delegated_smart_contract_execution_sign_recover.py focus=15
+
+```
+
+---
+
+Load a **fee payer account** from private key
+
+```py delegated_smart_contract_execution_sign_recover.py focus=16
+
+```
+
+---
+
+Create an **empty transaction** of type **TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**. You can use **empty_tx** util to get a tx with default fields filled.
+
+```py delegated_smart_contract_execution_sign_recover.py focus=18
+
+```
+
+---
+
+Merge the **additional fields** like **from**, **to** and **data** into the empty tx by using the **merge** util.
+
+```py delegated_smart_contract_execution_sign_recover.py focus=19:23
+
+```
+
+---
+
+Set the **contract address** you want to execute into the **to** field
+
+```py delegated_smart_contract_execution_sign_recover.py focus=21
+
+```
+
+---
+
+In this tutorial, the **data to call a function** of the contract is **encoded** into **bytes** stream. Please refer to the **write tutorial** in the **Smart Contract section** to make the encoded data
+
+```py delegated_smart_contract_execution_sign_recover.py focus=22
+
+```
+
+---
+
+Use **fill_transaction** to add more params to transaction object like gas limit...
+
+```py delegated_smart_contract_execution_sign_recover.py focus=24
+
+```
+
+---
+
+Sign the value transfer tx by user's private key
+
+<CH.Code>
+```py delegated_smart_contract_execution_sign_recover.py focus=26:28
+
+````
+---
+
+```zsh output
+❯ py delegated_smart_contract_execution_sign_recover.py
+raw transaction of signed tx: 0x31f8e78203a3850ba43b74008301b05d94108bf12b50c9ef65525f0495c721aec55015e1118094a2a8854b1802d8cd5de631e690817c253d6a9153b8643d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000f847f8458207f5a00a3db2a6793df0b256e2a81bce7ae3780783fcf58cc8326a14371c3413f3075da05031fd033453cf9a7be888b1db3812193d00221e299b483aa4e80a850664618a
+````
+
+</CH.Code>
+
+---
+
+Recover the **signer's address** from the signature in signed tx
+
+<CH.Code>
+```py delegated_smart_contract_execution_sign_recover.py focus=30:31
+
+````
+
+
+---
+
+```zsh output
+❯ py delegated_smart_contract_execution_sign_recover.py
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+````
+
+</CH.Code>
+
+---
+
+Sign the value transfer tx by fee payer's private key
+
+<CH.Code>
+```py delegated_smart_contract_execution_sign_recover.py focus=33:34
+
+````
+
+
+---
+
+```zsh output
+❯ py delegated_smart_contract_execution_sign_recover.py
+raw transaction of feePayer signed tx: 0x31f901458203a3850ba43b74008301b05d94108bf12b50c9ef65525f0495c721aec55015e1118094a2a8854b1802d8cd5de631e690817c253d6a9153b8643d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000f847f8458207f5a00a3db2a6793df0b256e2a81bce7ae3780783fcf58cc8326a14371c3413f3075da05031fd033453cf9a7be888b1db3812193d00221e299b483aa4e80a850664618a94cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f5a08275e838e70da6b1c590f6a8ee5a545ddf93963c5d62bc423835930b91295aa0a06bcd34e8a2a9114c15311e2d7b3004c041410cecb3452349a6e82e09b736b41c
+
+````
+
+</CH.Code>
+
+---
+
+Recover the **fee payer's address** from the signature in signed tx
+
+<CH.Code>
+```py delegated_smart_contract_execution_sign_recover.py focus=36:37
+
+````
+
+
+---
+
+```zsh output
+❯ py delegated_smart_contract_execution_sign_recover.py
+recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+
+````
+
+</CH.Code>
+
+---
+
+You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+
+<CH.Code>
+```py delegated_smart_contract_execution_sign_recover.py focus=39:40
+
+````
+---
+
+```zsh output
+❯ py delegated_smart_contract_execution_sign_recover.py
+decoded transaction: {
+  "type": 49,
+  "value": 0,
+  "gasPrice": 50000000000,
+  "nonce": 931,
+  "gas": 110685,
+  "to": "0x108bF12b50c9ef65525F0495C721aEc55015e111",
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "data": "0x3d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000",
+  "feePayer": "0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 4632139155753288816177914350449378738873058722929189649296670464490515662685,
+      "s": 36273349621051746908322095917532842606006460166655513683041721600219371823498
+    }
+  ],
+  "feePayerSignatures": [
+    {
+      "v": 2037,
+      "r": 59008994161645925359182568890805662549212009998969311671295364669364719147680,
+      "s": 48760043609336873845154832650749116609475268552379125539006421213296675173404
+    }
+  ],
+  "chainId": 1001
+}
+````
+
+</CH.Code>
+
+---
+
+Send the **tx** to the blockchain. It will return the tx hash, which will be used to wait the receipt
+
+```py delegated_smart_contract_execution_sign_recover.py focus=42
+
+```
+
+---
+
+The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+
+<CH.Code>
+
+```py delegated_smart_contract_execution_sign_recover.py focus=43:44
+
+```
+
+---
+
+```zsh output
+❯ py delegated_smart_contract_execution_sign_recover.py
+tx hash:  0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd receipt:  AttributeDict({'blockHash': HexBytes('0x83d5276dc3fec557740a2d25c8f076aba11c022e7021b71bd95a76318c4ff5c9'), 'blockNumber': 148225895, 'contractAddress': None, 'cumulativeGasUsed': 44742, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 44742, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x108bF12b50c9ef65525F0495C721aEc55015e111', 'transactionHash': HexBytes('0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd'), 'transactionIndex': 0, 'type': 0})
+
+```
+
+</CH.Code>
+
+</CH.Spotlight>

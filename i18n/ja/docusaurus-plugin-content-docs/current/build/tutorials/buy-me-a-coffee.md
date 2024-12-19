@@ -212,7 +212,7 @@ contract BuyMeACoffee {
 
     // buy coffee function
     function buyCoffee(string memory name, string memory message) public payable {
-	  // Must accept more than 0 KLAY for a coffee.
+	  // Must accept more than 0 KAIA for a coffee.
         require(msg.value > 0, "Tip must be greater than zero");
         coffeeId++;
 	
@@ -228,7 +228,7 @@ contract BuyMeACoffee {
 
     // withdraw coffee tips to the contract owner
     function withdrawCoffeTips() public {
-        require(_owner == msg.sender, "Not owner");
+        require(owner == msg.sender, "Not owner");
         require(owner.send(address(this).balance) );
     }
 

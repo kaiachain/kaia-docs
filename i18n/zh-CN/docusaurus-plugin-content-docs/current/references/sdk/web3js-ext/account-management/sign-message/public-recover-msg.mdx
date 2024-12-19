@@ -1,0 +1,187 @@
+# Public Account Key
+
+**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SignMsgWithPubkeyExample.js
+const { Web3 } = require("@kaiachain/web3js-ext");
+
+// Using senderPriv == senderNewPriv to execute this example repeatedly.
+// But you might want to register a different private key.
+const senderAddr = "0xfb60ded0ae96fe04eed6450aead860aa9d57128e";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+async function main() {
+  const msg = "hello";
+  const msghex = Web3.utils.utf8ToHex(msg);
+  const signResult = senderAccount.sign(msg);
+  console.log({ senderAddr, msg, msghex, sig: signResult.signature });
+
+  const { v, r, s } = signResult;
+  const addr1 = web3.eth.accounts.recover(msg, v, r, s);
+  console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === senderAccount.address.toLowerCase());
+
+  const sig = signResult.signature;
+  const addr2 = await web3.klay.recoverFromMessage(senderAddr, msghex, sig, "latest");
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === senderAccount.address.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js SignMsgWithPubkeyExample.js
+{
+  senderAddr: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+  msg: 'hello',
+  msghex: '0x68656c6c6f',
+  sig: '0xed55b92b3db953c4b4d928c99f93275d2590fe2ec95f2d8c069068d86d43ce0c0d1206f297351c6a0dfaba9c24d1a2ac293ac8f8a73d16c2b0c39ce90bc36ab71b'
+}
+recoveredAddr lib 0xA2a8854b1802D8Cd5De631E690817c253d6a9153 true
+recoveredAddr rpc 0xa2a8854b1802d8cd5de631e690817c253d6a9153 true
+```
+
+</CH.Code>
+
+---
+
+Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+
+```js SignMsgWithPubkeyExample.js focus=1
+
+```
+
+---
+
+Define sender's **address** and **private key**
+
+```js SignMsgWithPubkeyExample.js focus=5:6
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+
+```js SignMsgWithPubkeyExample.js focus=8
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js SignMsgWithPubkeyExample.js focus=8
+const { Web3 } = require("@kaiachain/web3js-ext");
+
+// Using senderPriv == senderNewPriv to execute this example repeatedly.
+// But you might want to register a different private key.
+const senderAddr = "0xfb60ded0ae96fe04eed6450aead860aa9d57128e";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+async function main() {
+  const msg = "hello";
+  const msghex = Web3.utils.utf8ToHex(msg);
+  const signResult = senderAccount.sign(msg);
+  console.log({ senderAddr, msg, msghex, sig: signResult.signature });
+
+  const { v, r, s } = signResult;
+  const addr1 = web3.eth.accounts.recover(msg, v, r, s);
+  console.log("recoveredAddr lib", addr1, addr1.toLowerCase() === senderAccount.address.toLowerCase());
+
+  const sig = signResult.signature;
+  const addr2 = await web3.klay.recoverFromMessage(senderAddr, msghex, sig, "latest");
+  console.log("recoveredAddr rpc", addr2, addr2.toLowerCase() === senderAccount.address.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+Define a **web3 instance** using the provider
+
+```js SignMsgWithPubkeyExample.js focus=9
+
+```
+
+---
+
+Create a sender's wallet with the **private key** and **provider**
+
+```js SignMsgWithPubkeyExample.js focus=10
+
+```
+
+---
+
+Define a message to be signed and recovered
+
+```js SignMsgWithPubkeyExample.js focus=13
+
+```
+
+---
+
+Sign the message with sender's **wallet**
+
+<CH.Code>
+```js SignMsgWithPubkeyExample.js focus=14:16
+
+````
+---
+
+```zsh output
+{
+  senderAddr: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+  msg: 'hello',
+  msghex: '0x68656c6c6f',
+  sig: '0xed55b92b3db953c4b4d928c99f93275d2590fe2ec95f2d8c069068d86d43ce0c0d1206f297351c6a0dfaba9c24d1a2ac293ac8f8a73d16c2b0c39ce90bc36ab71b'
+}
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed message using `web3.eth.accounts.recover`
+
+<CH.Code>
+```js SignMsgWithPubkeyExample.js focus=18:20
+
+````
+---
+
+```zsh output
+recoveredAddr lib 0xA2a8854b1802D8Cd5De631E690817c253d6a9153 true
+````
+
+</CH.Code>
+
+---
+
+Recover the address from signed message using `web3.klay.recoverFromMessage`
+
+<CH.Code>
+```js SignMsgWithPubkeyExample.js focus=22:24
+
+````
+---
+```zsh output
+recoveredAddr rpc 0xa2a8854b1802d8cd5de631e690817c253d6a9153 true
+````
+
+</CH.Code>
+</CH.Spotlight>
