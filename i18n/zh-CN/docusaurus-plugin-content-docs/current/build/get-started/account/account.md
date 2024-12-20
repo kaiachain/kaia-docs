@@ -66,10 +66,10 @@ $ ken account new --datadir "~/kend_home"
 
 ```bash
 $ kend start
-启动 kend：OK
+Starting kend：OK
 
 $ ken attach --datadir ~/kend_home
-欢迎访问 Kaia JavaScript 控制台！
+Welcome to the Kaia JavaScript console！
 
 instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
  datadir: ~/kend_home
