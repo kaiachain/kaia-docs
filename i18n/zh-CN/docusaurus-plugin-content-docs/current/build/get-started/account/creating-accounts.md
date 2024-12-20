@@ -38,7 +38,7 @@ I type my pass here
 > personal.newAccount("passphrase")
 ```
 
-账户以加密格式保存。 您必须\*\*\*记住这个密码，以便将来解锁您的账户。
+账户以加密格式保存。 您**必须**记住这个密码，以便将来解锁您的账户。
 
 ## 导入账户<a id="importing-an-account"></a>
 
