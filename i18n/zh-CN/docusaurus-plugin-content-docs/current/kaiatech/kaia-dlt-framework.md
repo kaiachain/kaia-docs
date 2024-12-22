@@ -1,6 +1,6 @@
 # Kaia Chain DLT Framework
 
-Our Distributed Ledger Technology (DLT) framework is designed to provide an efficient and reliable digital ledger system. The framework consists of the following key features:
+我们的分布式账本技术 (DLT) 框架旨在提供高效可靠的数字账本系统。 The framework consists of the following key features:
 
 ## Layer Structure
 
