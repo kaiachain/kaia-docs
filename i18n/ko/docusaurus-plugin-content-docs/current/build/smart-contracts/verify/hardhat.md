@@ -49,7 +49,7 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      klaytn: "unnecessary",
+      kairos: "unnecessary",
     },
     customChains: [
       {
