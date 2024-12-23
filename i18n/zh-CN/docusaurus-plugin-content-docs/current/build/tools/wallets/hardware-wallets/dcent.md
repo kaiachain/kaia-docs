@@ -10,4 +10,4 @@ Get a D'CENT device in their [offical website](https://store.dcentwallet.com/pag
 
 - [Setup](https://userguide.dcentwallet.com/biometric-wallet/setting-up)
 - [How to send and receive Kaia](https://userguide.dcentwallet.com/coin-send-receive/coins/klaytn-klay#how-to-create-an-klay-account)
-- [Connect with Kaia Wallet](https://userguide.dcentwallet.com/external-service/kaikas)
+- [与 Kaia 钱包连接](https://userguide.dcentwallet.com/external-service/kaikas)
