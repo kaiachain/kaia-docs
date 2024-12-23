@@ -1,5 +1,5 @@
 ---
-sidebar_label: Using Sourcify
+sidebar_label: 使用 Sourcify
 ---
 
 # How to Verify Smart Contracts Using Sourcify
