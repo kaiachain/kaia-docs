@@ -62,7 +62,7 @@ The consensus process consists of the following three stages:
 
 - Step 1 – Election: A committee consisting of one proposer and several nodes is selected. This is a similar task to the leader election in a generally distributed system. The proposer and the committee are randomly selected through VRF since knowing them in advance can make them vulnerable to targeted DoS (denial of service).
 
-- Step 2 - Block Generation: Elected proposers create a block and make a proposal to the committee. The block proposal made through the P2P network is sent to the committee.
+- Step 2 - Block Generation: Elected proposers create a block and make a proposal to the committee. 通过 P2P 网络提出的区块建议将发送给委员会。
 
 - Step 3 - Block Verification: The committee verifies and signs the block proposed by the proposer. A block is complete when more than a quorum of signatures is collected.
 
