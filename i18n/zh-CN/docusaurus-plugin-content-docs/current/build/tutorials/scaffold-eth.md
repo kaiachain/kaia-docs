@@ -47,7 +47,7 @@ cd project-name
 // e.g  cd kaia_scaffold
 ```
 
-![Scaffold-ETH setup](/img/build/s1.png)
+![Scaffold-ETH setup](/img/build/tutorials/scaffold-1.png)
 
 ## Scaffold-ETH 2 开发过程的亮点<a href="#highlight-of-dev-environment" id="highlight-of-dev-environment"></a>
 
@@ -122,7 +122,7 @@ network: "kairos",
 纱线编译
 ```
 
-![Compile](/img/build/s2.png)
+![Compile](/img/build/tutorials/scaffold-2.png)
 
 然后，可以在项目根目录下运行以下命令：
 
@@ -130,7 +130,7 @@ network: "kairos",
 yarn deploy
 ```
 
-![Deploy](/img/build/s6.png)
+![Deploy](/img/build/tutorials/scaffold-6.png)
 
 请注意：
 
@@ -177,9 +177,9 @@ yarn hardhat-verify --network kairos 0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da
 
 如上所示，要验证合同，必须输入网络名称、合同地址和构造函数参数（如有）。 稍等片刻，控制台就会显示验证结果，如果验证成功，还会提供指向 Kaiascope 上已验证合同的 URL。
 
-![Verify](/img/build/verify.png)
+![Verify](/img/build/tutorials/scaffold-verify.png)
 
-![Verify on Kaiascope](/img/build/s3.png)
+![Verify on Kaiascope](/img/build/tutorials/scaffold-3.png)
 
 有关使用 Hardhat Verify 插件在 Kaia 上验证智能合约的更多信息，请参阅 H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/) 。
 
@@ -205,11 +205,11 @@ targetNetworks：[链.klaytnBaobab]、
 起纱
 ```
 
-![Run dApp](/img/build/s4.png)
+![Run dApp](/img/build/tutorials/scaffold-4.png)
 
 You should now be able to access a React-based dApp frontend at http://localhost:3001/. 您可以通过连接钱包或查看合约调试器页面与 dApp 进行互动。
 
-![Scaffold dApp](/img/build/s5.png)
+![Scaffold dApp](/img/build/tutorials/scaffold-5.png)
 
 ## 结论
 
