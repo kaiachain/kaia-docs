@@ -30,22 +30,22 @@
 
 虽然大多数用户界面库都内置了对 Metamask 的支持，但由于 Kaia Wallet 的[API](https://docs.kaia.io/references/json-rpc/kaia/account-created/)是基于[Metamask's](https://docs.metamask.io/wallet/reference/json-rpc-api)构建的，因此集成起来也很容易。 即使一个库没有原生支持 Kaia 钱包，扩展它以集成 Kaia 钱包也很简单。 例如，这是 [React](https://react.dev) 或 [Next.js](https://nextjs.org) 的 2 个流行库：
 
-- [Web3Modal](#1.1-web3modal-example)
+- [Appkit](#1.1-appkit-example)
 - [Web3-Onboard](#1.2-web3-onboard-example)
 
-### 1.1. Web3Modal 示例
+### 1.1. Appkit example
 
-![Web3Modal英雄旗帜](https://web3modal.com/images/hero-banner.png)
+![Appkit Hero Banner](https://docs.reown.com/assets/images/appkit-18fbf6d4ddb8756740540b7adad92494.png)
 
-通过[WalletConnect](https://walletconnect.com)，[Web3Modal](https://web3modal.com)提供以下**功能：**
+By [Reown](https://reown.com/), [Appkit](https://docs.reown.com/appkit/overview) offers the following **Features:**
 
 - 连接钱包、账户信息和网络信息的按钮 + 模式
-- 支持 [电子邮件钱包](https://walletconnect.com/blog/web3modal-web3-email-login-wallets)、[Coinbase](https://www.coinbase.com) 账户和 [EIP-4361](https://docs.login.xyz/general-information/siwe-overview/eip-4361)
+- Support for [Email Wallets](https://docs.reown.com/appkit/authentication/socials), [Coinbase](https://www.coinbase.com) accounts, & [EIP-4361](https://docs.reown.com/appkit/authentication/one-click-auth)
 
 **考虑因素：**
 
-- 使用 [@web3modal/wagmi](https://www.npmjs.com/package/@web3modal/wagmi)，您必须提交其前端堆栈 [Wagmi](https://wagmi.sh) 和 [Tanstack Query](https://tanstack.com/query)
-- 需要 `projectId` [通过 WalletConnect 注册](https://cloud.walletconnect.com/sign-in)
+- Using [@reown/appkit](https://www.npmjs.com/package/@reown/appkit), you have an option to commit to either the frontend stack of [Wagmi](https://wagmi.sh) & [Tanstack Query](https://tanstack.com/query) or simply [Ethers](https://docs.ethers.org/v6/)
+- Requires a `projectId` [signup w/ Reown](https://cloud.walletconnect.com/sign-in)
 
 :::note
 
