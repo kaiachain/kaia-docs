@@ -41,26 +41,26 @@ module.exports = {
 
 ```
 module.exports = {
-  networks：{
+  networks: {
     kairos: {
-      chainId：1001,
-      url："RPC_URL",
+      chainId: 1001,
+      url: "RPC_URL",
     },
   },
-  etherscan：{
-    apiKey：{
-      klaytn: "unnecessary",
+  etherscan: {
+    apiKey: {
+      kairos: "unnecessary",
     },
-    customChains：[
+    customChains: [
       {
-        network："kairos",
-        chainId：1001,
-        urls：{
-          apiURL："https://api-baobab.klaytnscope.com/api",
-          browserURL："https://kairos.kaiascope.com",
+        network: "kairos",
+        chainId: 1001,
+        urls: {
+          apiURL: "https://api-baobab.klaytnscope.com/api",
+          browserURL: "https://kairos.kaiascope.com",
         },
       },
-    ]。
+    ]
   }
 }
 ```
