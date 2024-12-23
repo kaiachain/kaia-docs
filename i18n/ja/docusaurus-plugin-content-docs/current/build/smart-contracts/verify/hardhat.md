@@ -42,18 +42,18 @@ module.exports = {
 ```
 module.exports = {
   networks: {
-    klaytn: {
+    kairos: {
       chainId: 1001,
       url: "RPC_URL",
     },
   },
   etherscan: {
     apiKey: {
-      klaytn: "unnecessary",
+      kairos: "unnecessary",
     },
     customChains: [
       {
-        network: "klaytn",
+        network: "kairos",
         chainId: 1001,
         urls: {
           apiURL: "https://api-baobab.klaytnscope.com/api",
