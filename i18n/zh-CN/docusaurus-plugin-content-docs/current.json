@@ -258,5 +258,21 @@
   "sidebar.refSidebar.doc.Getting-Started": {
     "message": "入门",
     "description": "The label for the doc item Getting-Started in sidebar refSidebar, linking to the doc references/sdk/web3py-ext/getting-started"
+  },
+  "sidebar.buildSidebar.category.Hardware Wallets": {
+    "message": "Hardware Wallets",
+    "description": "The label for category Hardware Wallets in sidebar buildSidebar"
+  },
+  "sidebar.miniDappSidebar.category.Build Mini dApps on LINE with Unity": {
+    "message": "Build Mini dApps on LINE with Unity",
+    "description": "The label for category Build Mini dApps on LINE with Unity in sidebar miniDappSidebar"
+  },
+  "sidebar.miniDappSidebar.category.Node Quick Reference": {
+    "message": "Node Quick Reference",
+    "description": "The label for category Node Quick Reference in sidebar miniDappSidebar"
+  },
+  "sidebar.miniDappSidebar.category.Transition to Kaia": {
+    "message": "Transition to Kaia",
+    "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
   }
 }
