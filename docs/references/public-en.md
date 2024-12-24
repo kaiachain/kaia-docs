@@ -308,8 +308,8 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 #### References
 
-* [Website](https://www.quicknode.com/)
-* [Docs](https://www.quicknode.com/docs/welcome)
+* [Website](https://drpc.org/)
+* [Docs](https://drpc.org/docs)
 
 ## Useful Resources 
 
