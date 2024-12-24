@@ -11,7 +11,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    runs-on: ubuntu-latest
+    runs-on: large-runner
 
     steps:
       - name: Checkout source code
