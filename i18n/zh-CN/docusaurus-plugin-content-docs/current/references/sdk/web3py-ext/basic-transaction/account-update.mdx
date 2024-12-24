@@ -1,0 +1,436 @@
+# Account Update
+
+# Basic
+
+<CH.Spotlight>
+<CH.Code>
+
+```py web3_account_update_multisig.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.klaytn_account.utils import compressed_key
+from web3py_ext.klaytn_account.account_key import KeyType
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import (
+    to_pretty,
+    bytes_to_hex_str
+)
+from cytoolz import merge
+from eth_utils.address import to_checksum_address
+
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+
+def web3_account_update_role_based():
+    transaction_key = Account.from_key('0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac')
+    update_key = Account.from_key('0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda')
+    fee_payer_key = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+
+    account_update_tx = empty_tx(TxType.ACCOUNT_UPDATE)
+    account_update_tx = merge(account_update_tx, {
+        'from' : to_checksum_address("0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea"),
+        'key' : {
+            "type": KeyType.ROLE_BASED,
+            "keys": {
+                "roleTransactionKey": {
+                    "type":KeyType.PUBLIC,
+                    "key": compressed_key(transaction_key)
+                },
+                "roleAccountUpdateKey": {
+                    "type": KeyType.PUBLIC,
+                    "key": compressed_key(update_key)
+                },
+                "roleFeePayerKey": {
+                    "type": KeyType.PUBLIC,
+                    "key": compressed_key(fee_payer_key)
+                }
+            }
+        }
+    })
+    account_update_tx = fill_transaction(account_update_tx, w3)
+    print(to_pretty(account_update_tx))
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(account_update_tx, update_key.key)
+    print('\nrawTransaction:', bytes_to_hex_str(signed_tx.rawTransaction))
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address: ", recovered_tx)
+
+    decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_account_update_role_based()
+```
+
+---
+
+```zsh output
+❯ python 8-account_update_role_based.py
+{
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "gas": 159000,
+  "gasPrice": 50000000000,
+  "nonce": 40,
+  "chainId": 1001,
+  "type": 32,
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  }
+}
+
+rawTransaction: 20f8da28850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0985bec3e261c26aae4753692e485df1f2610d15a49c6d1a211aa722ebe07f83aa030de040be157e4ba1ee085adfa104ad52e6c5be2133e08eba32c23e8fdcef2f3
+
+recovered sender address:  0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA
+
+decoded transaction: {
+  "type": 32,
+  "nonce": 40,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 68913966555219307694792023212600507140724440249606323106025362523748232067130,
+      "s": 22103284707653811363718459097471289368017860785927799915329973403830188962547
+    }
+  ],
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  },
+  "chainId": 1001
+}
+tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a receipt:  AttributeDict({'blockHash': HexBytes('0xcd0b362591ab28e4c5c423561ea525ad7f19e1fbc177aeef640aece7d53fc83d'), 'blockNumber': 147156811, 'contractAddress': None, 'cumulativeGasUsed': 271841, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 81000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash': HexBytes('0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a'), 'transactionIndex': 1, 'type': 0})
+```
+
+</CH.Code>
+
+---
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
+```py web3_account_update_multisig.py focus=1:2
+
+```
+
+---
+
+Import necessary utils from **eth_account**, **web3py_ext** and **cytools**
+
+```py web3_account_update_multisig.py focus=3:16
+
+```
+
+---
+
+Create a Web3 instance with the specified **kairos** testnet URL
+
+```py web3_account_update_multisig.py focus=18:20
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**.
+
+```py web3_account_update_multisig.py focus=18:20
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.klaytn_account.utils import compressed_key
+from web3py_ext.klaytn_account.account_key import KeyType
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import (
+    to_pretty,
+    bytes_to_hex_str
+)
+from cytoolz import merge
+from eth_utils.address import to_checksum_address
+
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+
+def web3_account_update_role_based():
+    transaction_key = Account.from_key('0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac')
+    update_key = Account.from_key('0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda')
+    fee_payer_key = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+
+    account_update_tx = empty_tx(TxType.ACCOUNT_UPDATE)
+    account_update_tx = merge(account_update_tx, {
+        'from' : to_checksum_address("0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea"),
+        'key' : {
+            "type": KeyType.ROLE_BASED,
+            "keys": {
+                "roleTransactionKey": {
+                    "type":KeyType.PUBLIC,
+                    "key": compressed_key(transaction_key)
+                },
+                "roleAccountUpdateKey": {
+                    "type": KeyType.PUBLIC,
+                    "key": compressed_key(update_key)
+                },
+                "roleFeePayerKey": {
+                    "type": KeyType.PUBLIC,
+                    "key": compressed_key(fee_payer_key)
+                }
+            }
+        }
+    })
+    account_update_tx = fill_transaction(account_update_tx, w3)
+    print(to_pretty(account_update_tx))
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(account_update_tx, update_key.key)
+    print('\nrawTransaction:', bytes_to_hex_str(signed_tx.rawTransaction))
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address: ", recovered_tx)
+
+    decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_account_update_role_based()
+```
+
+---
+
+Load **transaction** key from a private key to use it as **transaction role key**. You can use it to sign a transaction
+
+```py web3_account_update_multisig.py focus=23
+
+```
+
+---
+
+Load **update** key from a private key to use it as **update role key**. You can use it to sign the account update transaction for this account. It means only a person who have this key can update this account.
+
+```py web3_account_update_multisig.py focus=24
+
+```
+
+---
+
+Load **fee payer** key from a private key to use it as **fee payer role key**. You can use it to sign a transaction as a fee payer.
+
+```py web3_account_update_multisig.py focus=25
+
+```
+
+---
+
+Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **empty_tx** util to get a tx with default fields filled.
+
+```py web3_account_update_multisig.py focus=6:7,10,27
+
+```
+
+---
+
+Merge **additional fields** like **sender** and **keys** into the empty tx by using the **merge** util.
+
+```py web3_account_update_multisig.py focus=15,28:47
+
+```
+
+---
+
+In this case, the account key to update is the **role-based** key and each role has **pubkey** type. Each role can have pubkey or multisig.
+
+```py web3_account_update_multisig.py focus=31,33:34,37:38,41:42
+
+```
+
+---
+
+You can use the **compressed_key** util to set each role key. It will extract the compressed public key from the key
+
+```py web3_account_update_multisig.py focus=35,39,43
+
+```
+
+---
+
+Use **fill_transaction** to add more params to transaction object like gas limit...
+
+```py web3_account_update_multisig.py focus=6,8,10,48
+
+```
+
+---
+
+You can use the **to_pretty** util to print the formatted tx.
+
+<CH.Code>
+```py web3_account_update_multisig.py focus=11,12,14,49
+
+````
+
+---
+```zsh output
+{
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "gas": 159000,
+  "gasPrice": 50000000000,
+  "nonce": 40,
+  "chainId": 1001,
+  "type": 32,
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  }
+}
+````
+
+</CH.Code>
+
+---
+
+Sign the account update tx type. You should sign it with **update role key** as the account "0x5bd2...ccea" is already role-based account to update this account
+
+<CH.Code>
+```py web3_account_update_multisig.py focus=52:53
+
+````
+---
+```zsh output
+rawTransaction: 20f8da28850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0985bec3e261c26aae4753692e485df1f2610d15a49c6d1a211aa722ebe07f83aa030de040be157e4ba1ee085adfa104ad52e6c5be2133e08eba32c23e8fdcef2f3
+````
+
+</CH.Code>
+
+---
+
+**Recovering** the sender's address from the signed transaction
+
+<CH.Code>
+```py web3_account_update_multisig.py focus=55:56
+
+````
+---
+```zsh output
+recovered sender address:  0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA
+````
+
+</CH.Code>
+
+---
+
+If you want to see the RLP-encoded signed tx, use the **decode_transaction** util
+
+<CH.Code>
+```py web3_account_update_multisig.py focus=58:59
+```
+---
+```zsh output
+decoded transaction: {
+  "type": 32,
+  "nonce": 40,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 68913966555219307694792023212600507140724440249606323106025362523748232067130,
+      "s": 22103284707653811363718459097471289368017860785927799915329973403830188962547
+    }
+  ],
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  },
+  "chainId": 1001
+}
+```
+</CH.Code>
+
+---
+
+**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+
+<CH.Code>
+```py web3_account_update_multisig.py focus=61:63
+
+````
+---
+```zsh output
+tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a receipt:  AttributeDict({'blockHash': HexBytes('0xcd0b362591ab28e4c5c423561ea525ad7f19e1fbc177aeef640aece7d53fc83d'), 'blockNumber': 147156811, 'contractAddress': None, 'cumulativeGasUsed': 271841, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 81000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash': HexBytes('0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a'), 'transactionIndex': 1, 'type': 0})
+````
+
+</CH.Code>
+
+</CH.Spotlight>

@@ -1,0 +1,157 @@
+# Read
+
+You can call functions in Smart Contract via "Call" RPC API. What you can call here is limited to **view functions** that is not changing any states in the Contract.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SmartContractView.js
+const ethers = require("ethers");
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const counter = new ethers.Contract(contractAddr, abi, provider);
+  const number = await counter.number();
+  console.log("number", number.toString());
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ js SmartContractView.js
+number 291
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+
+```js SmartContractView.js focus=1
+
+```
+
+---
+
+Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+
+```js SmartContractView.js focus=3
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**
+
+```js SmartContractView.js focus=3
+const ethers = require("ethers");
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const counter = new ethers.Contract(contractAddr, abi, provider);
+  const number = await counter.number();
+  console.log("number", number.toString());
+}
+
+main();
+```
+
+---
+
+Set the **Abi** generated from solidity code
+
+```js SmartContractView.js focus=28
+
+```
+
+---
+
+Define **contract address** to interact with
+
+```js SmartContractView.js focus=29
+
+```
+
+---
+
+Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+
+```js SmartContractView.js focus=32
+
+```
+
+---
+
+Get the value of **number** from contract by using method **counter.number()**
+
+<CH.Code>
+```js SmartContractView.js focus=33:34
+
+````
+---
+```zsh output
+❯ node SmartContractView.js
+number 291
+````
+
+</CH.Code>
+
+</CH.Spotlight>

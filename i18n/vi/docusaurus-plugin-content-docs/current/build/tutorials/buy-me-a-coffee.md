@@ -228,7 +228,7 @@ contract BuyMeACoffee {
 
     // withdraw coffee tips to the contract owner
     function withdrawCoffeTips() public {
-        require(_owner == msg.sender, "Not owner");
+        require(owner == msg.sender, "Not owner");
         require(owner.send(address(this).balance) );
     }
 
