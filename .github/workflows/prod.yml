@@ -34,6 +34,7 @@ jobs:
       - name: Clone kaia-sdk
         run: |
           git clone -b dev https://github.com/kaiachain/kaia-sdk.git
+          export NODE_OPTIONS=--max_old_space_size=5120
           cd kaia-sdk/documentation && npm install && cd -
 
       - name: Generate .mdx files
