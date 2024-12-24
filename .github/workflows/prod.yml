@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - Sotatek-TuLe2-patch-1
 
 jobs:
   deploy:
