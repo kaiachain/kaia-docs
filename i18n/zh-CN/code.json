@@ -510,5 +510,123 @@
   "disclaimer.message": {
     "message": "本页面使用机器翻译自英语，可能包含错误或不清楚的语言。如需最准确的信息，请参阅英文原文。由于更新频繁，部分内容可能与英文原文有出入。请加入我们在 Crowdin 上的努力，帮助我们改进本页面的翻译。",
     "description": "Machine translation disclaimer for non-English documentation pages"
+  },
+  "JSON-RPC API Reference": {
+    "message": "JSON-RPC API Reference"
+  },
+  "Discover and Engage with Kaia's JSON-RPC APIs": {
+    "message": "Discover and Engage with Kaia's JSON-RPC APIs"
+  },
+  "Unlock Kaia's full potential with our interactive API documentation. Test API calls directly in the docs, explore detailed request and response examples, and generate code snippets in curl, Python, Node.js, and Java. Whether developing new applications or integrating with existing systems, our comprehensive API reference provides the tools for efficient development on the Kaia platform.": {
+    "message": "Unlock Kaia's full potential with our interactive API documentation. Test API calls directly in the docs, explore detailed request and response examples, and generate code snippets in curl, Python, Node.js, and Java. Whether developing new applications or integrating with existing systems, our comprehensive API reference provides the tools for efficient development on the Kaia platform."
+  },
+  "Get started with Kaia's JSON RPC APIs": {
+    "message": "Get started with Kaia's JSON RPC APIs"
+  },
+  "homepage.favorites.gettingStarted.title": {
+    "message": "Getting Started",
+    "description": "Title for Getting Started guide"
+  },
+  "homepage.favorites.gettingStarted.description": {
+    "message": "Deploy your first smart contract using Hardhat.",
+    "description": "Description for Getting Started guide"
+  },
+  "homepage.favorites.metamask.title": {
+    "message": "MetaMask Guide",
+    "description": "Title for MetaMask guide"
+  },
+  "homepage.favorites.metamask.description": {
+    "message": "Connect MetaMask to Kaia.",
+    "description": "Description for MetaMask guide"
+  },
+  "homepage.favorites.snapshot.title": {
+    "message": "Node Snapshot Guide",
+    "description": "Title for Node Snapshot guide"
+  },
+  "homepage.favorites.snapshot.description": {
+    "message": "Use Chaindata Snapshots.",
+    "description": "Description for Node Snapshot guide"
+  },
+  "homepage.favorites.rpc.title": {
+    "message": "Public JSON RPC Endpoints",
+    "description": "Title for Public JSON RPC Endpoints"
+  },
+  "homepage.favorites.rpc.description": {
+    "message": "Build and test your products without running your own node.",
+    "description": "Description for Public JSON RPC Endpoints"
+  },
+  "homepage.favorites.wallets.title": {
+    "message": "Wallets",
+    "description": "Title for Wallets section"
+  },
+  "homepage.favorites.wallets.description": {
+    "message": "Integrate and secure digital assets seamlessly.",
+    "description": "Description for Wallets section"
+  },
+  "homepage.favorites.indexers.title": {
+    "message": "Indexers",
+    "description": "Title for Indexers section"
+  },
+  "homepage.favorites.indexers.description": {
+    "message": "Query and index blockchain data for efficient dApp performance.",
+    "description": "Description for Indexers section"
+  },
+  "homepage.favorites.guides.title": {
+    "message": "Popular Guides",
+    "description": "Title for the Popular Guides section"
+  },
+  "homepage.favorites.guides.viewMore": {
+    "message": "View More Guides",
+    "description": "Link text to view more guides"
+  },
+  "homepage.favorites.resources.title": {
+    "message": "Popular Resources",
+    "description": "Title for the Popular Resources section"
+  },
+  "homepage.favorites.resources.viewMore": {
+    "message": "View More Resources",
+    "description": "Link text to view more resources"
+  },
+  "DApp Developers": {
+    "message": "DApp Developers"
+  },
+  "API References": {
+    "message": "API References"
+  },
+  "homepage.sdk.ethersjs.name": {
+    "message": "Ethers.js Extension",
+    "description": "Name of the Ethers.js Extension SDK"
+  },
+  "homepage.sdk.web3js.name": {
+    "message": "Web3.js Extension",
+    "description": "Name of the Web3.js Extension SDK"
+  },
+  "homepage.sdk.web3j.name": {
+    "message": "Web3j Extension",
+    "description": "Name of the Web3j Extension SDK"
+  },
+  "homepage.sdk.web3py.name": {
+    "message": "Web3.py Extension",
+    "description": "Name of the Web3.py Extension SDK"
+  },
+  "homepage.sdk.section.title": {
+    "message": "SDK Documentation",
+    "description": "Title of the SDK documentation section"
+  },
+  "homepage.sdk.section.heading": {
+    "message": "Build freely with tools tailored for your language.",
+    "description": "Main heading of the SDK section"
+  },
+  "homepage.sdk.section.description": {
+    "message": "Seamlessly integrate with Kaia Network using our enhanced SDKs for JavaScript, Java, Python and more. Built on trusted foundations like Ethers, Web3.js, Web3j, and Web3.py, our libraries give you the power to submit transactions, read smart contracts, and develop complex applications with extended functionality - all in your preferred programming language.",
+    "description": "Description of Kaia Network's SDK offerings"
+  },
+  "homepage.sdk.section.viewMore": {
+    "message": "View More SDKs",
+    "description": "Link text to view additional SDKs"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "This author has not written any posts yet.",
+    "description": "The text for authors with 0 blog post"
   }
 }
