@@ -407,7 +407,7 @@ The forthcoming content will cover two main topics. The first is the genesis of 
 
 ### Birth of Kaia Blockchain
 
-To achieve the aforementioned technical goal, Kaia Blockchain is launched with various technical features.  The initial performance of Kaia Blockchain is as follows:
+To achieve the aforementioned technical goal, Kaia Blockchain is launched with various technical features. 具体来说，共识和网络拓扑结构有助于实现性能目标，而智能合约和链上治理则有助于实现透明度和可持续性。 The initial performance of Kaia Blockchain is as follows:
 
 - Process 4,000 transactions/sec (TPS)
 
