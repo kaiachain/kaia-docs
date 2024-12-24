@@ -1,4 +1,4 @@
-# D'cent Biometric Wallet
+# D'cent 生物识别钱包
 
 ## Introduction <a id="introduction"></a>
 
