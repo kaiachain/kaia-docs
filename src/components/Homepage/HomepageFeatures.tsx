@@ -16,7 +16,6 @@ import img4Dark from '../../images/thum_04_D.png';
 
 import View from '../View'
 import style from '@site/src/consts/style'
-import FormBgImg from '../FormBgImg'
 
 import Translate, { translate } from '@docusaurus/Translate'
 
@@ -94,11 +93,11 @@ const featureList: FeatureType[] = [
     altText: 'Kaia Overview',
   },
   {
-    title: <Translate>Getting Started</Translate>,
+    title: <Translate>DApp Developers</Translate>,
     imgSrcLight: img2Light,
     imgSrcDark: img2Dark,
     description: <Translate>Want to start building on Kaia?</Translate>,
-    to: '/build',
+    to: '/build/get-started',
     altText: 'Getting Started with Kaia',
   },
   {
@@ -110,7 +109,7 @@ const featureList: FeatureType[] = [
     altText: 'Kaia Node Operators',
   },
   {
-    title: <Translate>API references</Translate>,
+    title: <Translate>API References</Translate>,
     imgSrcLight: img4Light,
     imgSrcDark: img4Dark,
     description: <Translate>APIs and libraries</Translate>,
