@@ -308,8 +308,8 @@ Quicknode 提供区块链基础设施，为安全的去中心化创新提供动�
 
 #### 参考资料
 
-- [Website](https://www.quicknode.com/)
-- [文件](https://www.quicknode.com/docs/welcome)
+- [Website](https://drpc.org/)
+- [Docs](https://drpc.org/docs)
 
 ## 实用资源
 
