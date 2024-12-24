@@ -20,7 +20,7 @@ const commonSidebar = [
     ],
   },
   //  'misc/klaytn-history',
-  'references/public-en',
+  //'references/public-en',
   {
     type: 'category',
     label: 'Transition to Kaia',
