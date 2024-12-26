@@ -72,14 +72,14 @@
 
 首次创建 TextMeshPro 元素时（用户界面 - 文本 - TextMeshPro），Unity 会自动提示您导入 TMP Essentials。 如果不小心跳过此提示，可以通过窗口 > TextMeshPro > 导入 TMP Essentials 手动导入。
 
-为什么需要TextMeshPro 需要核心资源（着色器、默认字体和材质）才能在游戏中正确显示文本。 Without these essentials, your text components won't render correctly and you'll see shader/material errors in your project. This is a one-time setup that's necessary for text to work properly.
+为什么需要TextMeshPro 需要核心资源（着色器、默认字体和材质）才能在游戏中正确显示文本。 如果没有这些基本要素，您的文本组件将无法正确渲染，您将在项目中看到着色器/材质错误。 这是文本正常工作所必需的一次性设置。
 :::
 
-![](/img/minidapps/unity-minidapp/statusText-textInput.png)
+![](/img/minidapps/unity-minidapp/create-unity-mini-dApp.png)
 
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to AddressText. Make sure to fill the "Text Input" field in the Inspector pane e.g. "Not Connected".
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to NetworkText. Make sure to fill the "Text Input" field in the Inspector pane "No Network".
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to TokenBalanceText. Make sure to fill the "Text Input" field in the Inspector pane e.g. "0.0000 UTT".
+- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。 确保填写检查器窗格中的 "文本输入 "字段，例如 "检查 web3"。
+- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。 确保填写检查器窗格中的 "文本输入 "字段，例如 "检查 web3"。
+- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。 确保填写检查器窗格中的 "文本输入 "字段，例如 "检查 web3"。
 
 ```code
 ├── StatusText (TextMeshPro)
@@ -92,12 +92,12 @@
     └── Default: "0.0000 UTT"
 ```
 
-#### ButtonPanel Components
+#### 状态面板组件
 
-Your main interaction buttons:
+您的主要交互按钮：
 
-- Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename it to ConnectButton. Make sure to fill the "Text Input" field in the Inspector pane with "Connect Wallet".
-- Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename to RefreshButton. Make sure to fill the "Text Input" field in the Inspector pane with "Refresh Balance".
+- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。 确保填写检查器窗格中的 "文本输入 "字段，例如 "检查 web3"。
+- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。 确保填写检查器窗格中的 "文本输入 "字段，例如 "检查 web3"。
 
 ```code
 ButtonPanel
@@ -107,13 +107,13 @@ ButtonPanel
     └── Text: "Refresh Balance"
 ```
 
-#### MintPanel Components
+#### MintPanel 组件
 
-The token minting interface:
+代币铸造界面：
 
-- Right click on MintPanel, click on UI → Legacy →  Input Field and then rename it to MintAddressInput. Make sure to fill the placeholder "Text Input" field in the Inspector pane with "Enter Address...".
-- Right click on MintPanel, click on UI → Legacy →  Input Field and then rename it to MintAmountInput. Make sure to fill the placeholder "Text Input" field in the Inspector pane with "Enter Amount…".
-- Right click on MintPanel, click on UI →  Button - TextMeshPro  and then rename it to MintButton. Make sure to fill the "Text Input" field in the Inspector pane with "Mint Tokens…".
+- 右键单击 MintPanel，单击用户界面 → 传统 → 输入字段，然后将其重命名为 MintAddressInput。 确保在 Inspector pane 的占位符 "文本输入 "字段中填入 "输入地址..."。
+- 右键单击 MintPanel，单击用户界面 → 传统 → 输入字段，然后将其重命名为 MintAmountInput。 确保在 Inspector pane 的占位符 "Text Input" 字段中填入 "输入金额…"。
+- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。 确保填写 Inspector pane 中的 "文本输入 "字段，例如 "检查 web3"。
 
 ```code
 MintPanel
@@ -125,7 +125,7 @@ MintPanel
     └── Text: "Mint Tokens"
 ```
 
-After creating all components, your hierarchy should look like this:
+创建所有组件后，您的层次结构应如下所示：
 
 ```code
 Canvas
@@ -135,31 +135,31 @@ Canvas
     └── MintPanel
 ```
 
-![](/img/minidapps/unity-minidapp/unity-ui-canvas.png)
+![](/img/minidapps/unity-minidapp/create-unity-mini-dApp.png)
 
 :::note
-For your component to be well arranged as seen in the image above, you have to manually arrange them with the icon on the right-hand side when you click on each component.
+要使组件排列整齐如上图所示，必须在点击每个组件时使用右侧的图标手动排列。
 :::
 
-## Setting Up Web3 Integration
+## 设置 Web3 集成
 
-In this section, we will build up pieces to integrate web3 into our Unity project.
+在本节中，我们将把 web3 集成到 Unity 项目中。
 
-### Creating and deploying KIP7 smart contract
+### 创建和部署 KIP7 智能合约
 
-First, we'll use Kaia Contract Wizard to generate our smart contract.
+首先，我们使用 Kaia Contract Wizard 生成智能合约。
 
-#### Step 1: Using Kaia Contract Wizard
+#### 步骤 1：使用 Kaia 合同向导
 
-1. Navigate to Kaia Contract Wizard.
-2. Select KIP7 (Kaia's token standard, similar to ERC20).
-3. Configure your token:
-   - Name: UnityTestToken (or something else!)
-   - Symbol: UTT (your token's ticker)
-   - Premint: 100 (initial token supply)
-   - Features: Check ✅ Mintable
+1. 导航至 Kaia 合约向导。
+2. 选择 KIP7（Kaia 的代币标准，类似于 ERC20）。
+3. 配置您的代币：
+   - 名称：UnityTestToken （或其他名称）
+   - 符号：UTT（您的代币代码）
+   - 预铸币100（初始代币供应）
+   - 功能：检查 ✅ 可铸造
 
-For this guide, we will tweak the mint function not to have onlyOwner modifier. To do this, we have to remove the ownable.sol import, and Ownable inheritance. The tweaked code should now look like this:
+在本指南中，我们将调整 mint 函数，使其不包含 onlyOwner 修饰符。 为此，我们必须删除 ownable.sol 导入和 Ownable 继承。 调整后的代码现在应该是这样的：
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -186,35 +186,35 @@ contract UnityTestToken is KIP7 {
 ```
 
 :::info
-We removed the onlyOwner modifier to allow anyone to call the mint function other than the original deployer or owner of the contract.
+我们删除了 onlyOwner 修饰符，以允许除原始部署者或合约所有者之外的任何人调用铸币厂函数。
 :::
 
-#### Step 2: Deploying via Remix IDE
+#### 步骤 2：通过 Remix IDE 进行部署
 
-1. Copy and Paste the code above in a newly created file `UTT.sol` on Remix IDE.
-2. In Remix IDE:
-   - Click the **Compile contract** button.
-   - Activate the **Kaia plugin** in the plugin manager.
-   - Under Environment in the Kaia Plugin tab, choose **Injected Provider** - **Kaia Wallet**.
-   - Find your contract (UnityTestToken) in the **Contract** dropdown.
-   - Click **Deploy** to launch your token!
-3. When your Kaia Wallet pops up:
-   - Review the deployment details.
-   - Click Confirm to deploy to Kaia Kairos Testnet.
+1. 将上述代码复制并粘贴到 Remix IDE 上新建的文件 `UTT.sol` 中。
+2. 在 Remix IDE 中：
+   - 单击**Compile contract**按钮。
+   - 在插件管理器中激活 **Kaia 插件**。
+   - 在 "Kaia 插件 "选项卡的 "环境 "下，选择**注入的提供程序** - **Kaia钱包**。
+   - 在**合同**下拉菜单中找到您的合同（UnityTestToken）。
+   - 点击 **部署**，发布代币！
+3. 当您的 Kaia 钱包弹出时：
+   - 查看部署详情。
+   - 单击确认以部署到 Kaia Kairos Testnet。
 
 :::important
-Copy and save the deployed contract address. You'll need it later in the tutorial.
+复制并保存已部署的合同地址。 本教程稍后会用到它。
 :::
 
-## Building the Unity-Web3 Bridge
+## 构建 Unity-Web3 桥接器
 
-Now we'll create the vital connection between Unity and Web3 functionality. This is where we bring blockchain capabilities into your Unity application!
+现在，我们将创建 Unity 和 Web3 功能之间的重要连接。 这就是我们将区块链功能引入 Unity 应用程序的地方！
 
-### Part 1: Creating the Plugin Bridge (kaiaPlugin.jslib)
+### 第 1 部分：创建插件桥（kaiaPlugin.jslib）
 
-First, we'll build our JavaScript bridge that lets Unity talk to Web3:
+首先，我们将构建 JavaScript 桥接器，让 Unity 与 Web3 进行对话：
 
-1. Create your plugin directory:
+1. 创建插件目录：
 
 ```
 Assets/
@@ -223,22 +223,22 @@ Assets/
         └── KaiaPlugin.jslib    // We'll create this file
 ```
 
-2. Why a .jslib? Think of it as a translator between Unity's C# and the browser's JavaScript - essential for Web3 interactions!
+2. 为什么要使用 .jslib？ 将其视为 Unity 的 C# 和浏览器的 JavaScript 之间的翻译器--这对 Web3 交互至关重要！
 
-3. The plugin will handle five core functions:
-   - InitializeWeb3() - Sets up your Web3 environment
-   - ConnectWallet() - Handles Kaia Wallet connections
-   - GetTokenBalance() - Checks token balances
-   - MintTokens() - Manages token minting
-   - EnableWebGLCopyPaste() - Adds clipboard support
+3. 该插件将处理五个核心功能：
+   - InitializeWeb3() - 设置 Web3 环境
+   - ConnectWallet() - 处理 Kaia 钱包连接
+   - GetTokenBalance() - 检查令牌余额
+   - MintTokens() - 管理代币铸造
+   - EnableWebGLCopyPaste() - 添加剪贴板支持
 
-Open this file in VS Code and paste the `KaiaPlugin.jslib` source code in [Appendix A](../minidapps/convert-unity-liff.md#appendix-a):
+在 VS Code 中打开此文件并粘贴 [Appendix A](../minidapps/convert-unity-liff.md#appendix-a) 中的`KaiaPlugin.jslib`源代码：
 
-### Part 2: Creating the C# Manager (Web3Manager.cs)
+### 第 2 部分：创建 C# 管理器 (Web3Manager.cs)
 
-Next, we'll create our C# script to manage all Web3 operations:
+接下来，我们将创建 C# 脚本来管理所有 Web3 操作：
 
-1. Create your scripts directory:
+1. 创建脚本目录：
 
 ```js
 Assets/
@@ -249,85 +249,85 @@ Assets/
 
 :::info
 
-**What does Web3Manager do?**
+\*\*Web3Manager 做什么？
 
-- Acts as the main conductor for all Web3 operations.
-- Manages communication with our JavaScript plugin.
-- Updates UI elements based on blockchain events.
-- Handles all wallet and token operations.
+- 充当所有 Web3 操作的主要导体。
+- 管理与 JavaScript 插件的通信。
+- 根据区块链事件更新用户界面元素。
+- 处理所有钱包和代币操作。
   :::
 
-2. Open this file in VS Code and paste the `Web3Manager.cs` source code in [Appendix B](../minidapps/convert-unity-liff.md#appendix-b)
+2. 在 VS Code 中打开此文件，并粘贴 [Appendix B](../minidapps/convert-unity-liff.md#appendix-b) 中的 `Web3Manager.cs` 源代码。
 
-### Part 3: Setting Up the Web3Manager GameObject
+### 第 3 部分：设置 Web3Manager 游戏对象
 
-Finally, let's bring it all together in Unity:
+最后，让我们将所有内容整合到 Unity 中：
 
-1. Create the Manager Object:
-   - Right-click in the Hierarchy window (root level).
-   - Select "Create Empty Object".
-   - Name it "Web3Manager".
-2. Attach Your Script:
-   - Select the Web3Manager GameObject.
-   - In Inspector, click Add Component.
-   - Search for and select "Web3Manager".
-3. Connect UI Elements:
-   - With Web3Manager selected, look in the Inspector.
-   - Drag and drop your UI elements from the Hierarchy to the corresponding fields:
+1. 创建管理器对象：
+   - 在 "层次结构 "窗口（根层）中单击右键。
+   - 选择 ""Create Empty Object"。
+   - 将其命名为 "Web3Manager"。
+2. 附加脚本：
+   - 选择 Web3Manager GameObject。
+   - 在 "检查器 "中，单击 "添加组件"。
+   - 搜索并选择 "Web3Manager"。
+3. 连接用户界面元素：
+   - 选择 Web3Manager 后，查看检查器。
+   - 将用户界面元素从层次结构拖放到相应字段：
      - StatusText
      - AddressText
-     - NetworkText
+     - AddressText
      - TokenBalanceText
      - Connect/Refresh/Mint buttons
      - Input fields
 
 ![](/img/minidapps/unity-minidapp/connect-ui-manager.png)
 
-## Connecting C# Script with game objects
+## 连接 C# 脚本与游戏对象
 
-In this section, we will connect the following buttons with their respective functions from the Web3Manager script:
+在本节中，我们将把以下按钮与 Web3Manager 脚本中的相应功能连接起来：
 
-### A. ConnectWallet
+### A. 连接钱包
 
-- Click on ConnectButton from the Hierarchy window.
-- Add an OnClick() function by clicking on the ➕ button.
-- Drag the Web3Manager game object script into the OnClick() function.
-- Click on No Function → Web3Manager → ConnectToWallet().
+- 从 "层次结构 "窗口单击 "连接按钮"。
+- 点击 ➕ 按钮，添加 OnClick() 函数。
+- 将 Web3Manager 游戏对象脚本拖入 OnClick() 函数。
+- 点击无功能 → Web3Manager → ConnectToWallet()。
 
 ![](/img/minidapps/unity-minidapp/ui-connect-wallet.png)
 
-### B. RefreshBalance
+### B. 刷新平衡
 
-- Click on RefreshBalanceButton from the Hierarchy window.
-- Add an OnClick() function by clicking on the ➕ button.
-- Drag the Web3Manager game object into None object field.
-- Click on No Function → Web3Manager → RefreshBalance().
+- 单击 "层次结构 "窗口中的 "刷新平衡按钮"。
+- 点击 ➕ 按钮，添加 OnClick() 函数。
+- 将 Web3Manager 游戏对象拖入 None 对象字段。
+- 点击无功能 → Web3Manager → RefreshBalance()。
 
-### C. MintButton
+### C. 铸造按钮
 
-- Click on MintButton from the Hierarchy window.
-- Add an OnClick() function by clicking on the ➕ button.
-- Drag the Web3Manager game object into None object field.
-- Click on No Function → Web3Manager → MintTokens().
+- 从层次结构窗口点击 MintButton。
+- 点击 ➕ 按钮，添加 OnClick() 函数。
+- 将 Web3Manager 游戏对象拖入 None 对象字段。
+- 点击无功能 → Web3Manager → MintTokens()。
 
-## Setting Up WebGL Build Settings
+## 设置 WebGL 构建设置
 
-In this section, we will configure our dApp for the web! This will configure Unity for Web3 compatibility and create a custom template for Kaia integration.
+在本节中，我们将为网络配置 dApp！ 这将配置 Unity 以兼容 Web3，并为 Kaia 集成创建自定义模板。
 
-### Step 1: Switch to WebGL Platform
+### 步骤 1：切换到 WebGL 平台
 
-1. Navigate to File → Build Settings.
-2. Select WebGL and click "Switch Platform".
+1. 导航至文件 → 生成设置。
+2. 选择 WebGL 并单击 "切换平台"。
 
 :::note
-This might take a few minutes if it's your first time switching.
+如果是第一次切换，可能需要几分钟。
 :::
 
 ![](/img/minidapps/unity-minidapp/ui-webgl-switch.png)
 
-### Step 2: Creating a Custom WebGL Template
+### 步骤 2：创建自定义 WebGL 模板
 
-We need a custom template to integrate Web3 capabilities. Here's our folder structure:
+我们需要一个自定义模板来集成 Web3 功能。 这是我们的文件夹结构：
 
 ```code
 Assets/
@@ -339,18 +339,18 @@ Assets/
 ```
 
 :::info
-**Why Custom Template?**
+\*\*为什么要自定义模板？
 
-The default Unity template doesn't include Web3 support. Our custom template will:
+默认的 Unity 模板不支持 Web3。 我们的自定义模板将
 
-- Load necessary Web3 libraries.
-- Enable Kaia Wallet integration.
-- Handle blockchain interactions properly.
+- 加载必要的 Web3 库。
+- 启用 Kaia 钱包集成。
+- 正确处理区块链交互。
   :::
 
-### Step 3: Setting Up index.html
+### 第 3 步：设置 index.html
 
-Copy and paste the code below in your `index.html` file:
+将下面的代码复制并粘贴到您的 `index.html` 文件中：
 
 ```
 <!DOCTYPE html>
@@ -391,29 +391,29 @@ Copy and paste the code below in your `index.html` file:
 
 ```
 
-### Step 4: Setting Up Web3.min.js
+### 步骤 4：设置 Web3.min.js
 
-1. Visit: https://cdn.jsdelivr.net/npm/web3@4.15.0/dist/web3.min.js
-2. Save the content to your `scripts/web3.min.js`.  Using a local Web3.js file improves load times and reliability.
+1. 访问：https://cdn.jsdelivr.net/npm/web3@4.15.0/dist/web3.min.js
+2. 将内容保存到您的 `scripts/web3.min.js`。  使用本地 Web3.js 文件可提高加载时间和可靠性。
 
-### Step 5: Configure Unity to Use Custom Template
+### 第 5 步：配置 Unity 以使用自定义模板
 
-- Open Build Settings.
-- Navigate to Player Settings.
-- Under "Resolution and Presentation":
-  - Find "WebGL Template".
-  - Select "KaiaTemplate".
+- 打开 "构建设置"。
+- 导航至播放器设置。
+- 在 "分辨率和列报 "下：
+  - 查找 "WebGL 模板"。
+  - 选择 "KaiaTemplate"。
 
-![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)
+![](/img/minidapps/unity-minidapp/create-unity-mini-dApp.png)
 
-### Step 6: Building Your dApp
+### 第 6 步：构建您的 dApp
 
-Now Let's bring it all together:
+现在，让我们将所有内容整合在一起：
 
-1. Open Build Settings (File → Build Settings).
-2. Click "Build And Run".
-3. Create a new folder named "minidapp".
-4. Important Build Files:
+1. 打开构建设置（文件 → 构建设置）。
+2. 单击 "构建并运行"。
+3. 创建名为 "minidapp "的新文件夹。
+4. 重要的构建文件：
 
 ```bash
 minidapp/
@@ -423,23 +423,23 @@ minidapp/
 └── minidapp.wasm
 ```
 
-### Step 7: Post-Build Configuration
+### 第 7 步：构建后配置
 
-After building your project,
+创建项目后
 
-1. Open your build folder.
-2. Note all generated file names.
-3. Update your index.html to match these names.
-4. Save changes and rebuild.
-5. You should now see a tab opened in your browser.
+1. 打开构建文件夹。
+2. 注意所有生成的文件名。
+3. 更新您的 index.html 以匹配这些名称。
+4. 保存更改并重建。
+5. 现在你应该看到浏览器中打开了一个标签页。
 
-![](/img/minidapps/unity-minidapp/ui-build-app.png)
+![](/img/minidapps/unity-minidapp/create-unity-mini-dApp.png)
 
-## Testing and running application
+## 测试和运行应用程序
 
-Now that we have our project running, let’s test and interact with it.
+现在，我们的项目已经运行，让我们对其进行测试和交互。
 
-- Click on the Connect Wallet button to connect to Kaia Wallet.
-- Once connected, fill in details (address and amount) to mint tokens to the connected address or any stipulated address.
+- 点击连接钱包按钮，连接到 Kaia 钱包。
+- 连接后，填写详细信息（地址和金额），即可向连接地址或任何指定地址发送代币。
 
-![](/img/minidapps/unity-minidapp/minidapp.gif)
+![](/img/minidapps/unity-minidapp/create-unity-mini-dApp.png)
