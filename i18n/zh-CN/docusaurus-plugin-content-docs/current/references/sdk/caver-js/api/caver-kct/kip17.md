@@ -1,56 +1,56 @@
 # caver.kct.kip17
 
-`caver.kct.kip17` helps you easily handle a smart contract that implements [KIP-17](https://kips.kaia.io/KIPs/kip-17) as a JavaScript object on the kaia blockchain.
+caver.kct.kip17 "可帮助您在 kaia 区块链上轻松处理以 JavaScript 对象形式实现 [KIP-17](https://kips.kaia.io/KIPs/kip-17) 的智能合约。
 
-The `caver.kct.kip17` inherits [caver.contract](../caver.contract.md) to implement the KIP-17 token contract. The `caver.kct.kip17` holds the same properties of `caver.contract` whereas there are additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.kct.kip17`.
+caver.kct.kip17 "继承了[caver.contract](../caver.contract.md)，以实现 KIP-17 令牌合约。 caver.kct.kip17 "拥有与 "caver.contract "相同的属性，但还有其他方法来实现额外的功能。 本节仅介绍 "caver.kct.kip17 "新增的绑定方法。
 
-The code that implements KIP-17 for caver-js is available on the [Kaia Contracts Github Repo](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17). KIP-17 for caver-js supports Ownable interface. Using this, you can designate a contract owner when deploying a contract
+为 caver-js 实现 KIP-17 的代码可在 [Kaia Contracts Github Repo](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17) 上获取。 用于 caver-js 的 KIP-17 支持 Ownable 接口。 使用此功能，您可以在部署合约时指定合约所有者
 
-For more information about KIP-17, see [Kaia Improvement Proposals](https://kips.kaia.io/KIPs/kip-17).
+有关 KIP-17 的更多信息，请参阅 [Kaia 改进提案](https://kips.kaia.io/KIPs/kip-17)。
 
-## caver.kct.kip17.deploy <a id="caver-klay-kip17-deploy"></a>
+## caver.kct.kip17.deploy<a id="caver-klay-kip17-deploy"></a>
 
 ```javascript
 caver.kct.kip17.deploy(tokenInfo, deployer)
 ```
 
-Deploys the KIP-17 token contract to the kaia blockchain. A contract deployed using caver.kct.kip17.deploy is a non-fungible token that follows the KIP-17 standard.
+将 KIP-17 代币合约部署到 kaia 区块链上。 使用 caver.kct.kip17.deploy 部署的合约是一种遵循 KIP-17 标准的不可篡改令牌。
 
-After successful deployment, the promise will be resolved with a new KIP17 instance.
+成功部署后，将使用新的 KIP17 实例解决承诺问题。
 
-**Parameters**
+**参数**
 
-| Name      | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| tokenInfo | object             | The information needed to deploy KIP-17 token contract on the kaia blockchain. See the below table for the details.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| deployer  | string \\| object | The address in the keyring instance to deploy the KIP-17 token contract. This address must have enough KAIA to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your fields to use when sending transactions, you can pass the object type as a parameter. If you want to use Fee Delegation when deploying KIP-17 contracts, you can define the fields related to fee delegation in the object. For the use of these fields, refer to the parameter description of [approve](#kip17-approve). |
+| 名称        | 类型                 | 描述                                                                                                                                                                                                                                         |
+| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| tokenInfo | object             | 在 kaia 区块链上部署 KIP-17 代币合约所需的信息。 详见下表。                                                                                                                                                                                                      |
+| deployer  | string \\| object | 密钥环实例中部署 KIP-17 令牌合约的地址。 该地址必须有足够的 KAIA 才能部署。 详情请参见 [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) 。 如果要定义发送事务时使用的字段，可以将对象类型作为参数传递。 如果要在部署 KIP-17 合同时使用费用委托，可以在对象中定义与费用委托相关的字段。 有关这些字段的使用，请参阅 [approve](#kip17-approve) 的参数说明。 |
 
-The tokenInfo object must contain the following:
+tokenInfo 对象必须包含以下内容：
 
-| Name   | Type   | Description                              |
-| ------ | ------ | ---------------------------------------- |
-| name   | string | The name of the token.   |
-| symbol | string | The symbol of the token. |
+| 名称     | 类型     | 描述   |
+| ------ | ------ | ---- |
+| name   | string | 代笔名称 |
+| symbol | string | 代笔符号 |
 
-**Return Value**
+**回报价值**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP17 instance. Additionally, the following events can occur:
+PromiEvent\`：一个承诺组合事件发射器，用一个新的 KIP17 实例来解决。 此外，还可能发生以下事件：
 
-| Name            | Type   | Description                                                                                                                                                                                                                                              |
-| --------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                           |
-| receipt         | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                                                 |
+| 名称              | 类型     | 描述                                                                                                        |
+| --------------- | ------ | --------------------------------------------------------------------------------------------------------- |
+| transactionHash | string | 在事务发送且事务哈希值可用后立即触发。                                                                                       |
+| receipt         | object | 当交易收据可用时触发。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。 |
+| error           | Error  | 发送过程中发生错误时触发。                                                                                             |
 
-**Token Enrollment**
+**代币注册**
 
-1. To enroll a token on a block explorer, the contract creator must fill out a submission request form. Make note of the specified information required on the form.
+1. 要在区块资源管理器上注册代币，合约创建者必须填写一份提交申请表。 记下表格上所需的具体信息。
 
-2. Smart Contract Environment
+2. 智能合约环境
 
-   - Compiler Type: Solidity
+   - 编译器类型固态
 
-   - Compiler version: v0.8.4+commit.c7e474f2
+   - 编译器版本：v0.8.4+commit.c7e474f2
 
    - Open Source License Type: MIT
 
