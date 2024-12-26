@@ -1,20 +1,20 @@
-# caver-java (1.5.0 or later)
+# caver-java （1.5.0 或更高版本）
 
 ![](/img/references/kaiaXcaver-java.png)
 
-`caver-java` is a lightweight, high modular, convenient Java and Android library to interact with clients \(nodes\) on the kaia network: This library is an interface which allows Java applications to easily communicate with [kaia](https://kaia.io) network.
+caver-java "是一个轻量级、高模块化、方便的Java和Android库，用于与kaia网络上的客户端（节点）进行交互：该库是一个允许 Java 应用程序与 [kaia](https://kaia.io) 网络轻松通信的接口。
 
-## Features <a id="features"></a>
+## 特点<a id="features"></a>
 
-- Complete implementation of Kaia’s JSON-RPC client API over HTTP and IPC
-- Support of kaia transaction, account, and account key types
-- Auto-generation of Java smart contract wrapper to deploy and execute a smart contract from native Java code
-- Creation of a new wallet and managing kaia wallets
-- Command line tools
-- Android compatible
+- 通过 HTTP 和 IPC 完整实现 Kaia 的 JSON-RPC 客户端 API
+- 支持 kaia 交易、账户和账户密钥类型
+- 自动生成 Java 智能合约封装器，以便从本地 Java 代码部署和执行智能合约
+- 创建新钱包并管理 kaia 钱包
+- 命令行工具
+- 与安卓系统兼容
 
-## Links <a id="links"></a>
+## 链接<a id="links"></a>
 
-- caver-java [GitHub repository](https://github.com/kaiachain/caver-java)
+- caver-java [GitHub 仓库](https://github.com/kaiachain/caver-java)
 - caver-java [Javadoc](https://javadoc.io/doc/com.klaytn.caver/core)
 - caver-java on [Maven central](https://search.maven.org/artifact/com.klaytn.caver/core)
