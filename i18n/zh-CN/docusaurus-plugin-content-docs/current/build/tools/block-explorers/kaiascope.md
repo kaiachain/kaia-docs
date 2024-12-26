@@ -213,7 +213,7 @@ Kaiascope 是 Kaia 网络的区块资源管理器。 Kaiascope 通过监控网�
 
 ![](/img/build/tools/scope_07_noresult.png)
 
-If you search for a keyword that doesn't fit in the specified format or information hasn't yet been generated, no data will appear.
+如果搜索的关键字不符合指定格式或信息尚未生成，则不会出现任何数据。
 
 #### 错误格式 （TX Hash / Address\)<a id="wrong-format-tx-hash-address"></a>
 
