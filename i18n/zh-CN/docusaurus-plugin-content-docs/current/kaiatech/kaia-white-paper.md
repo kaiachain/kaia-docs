@@ -1,697 +1,697 @@
-# Kaia Blockchain White Paper v1.2
+# Kaia 区块链白皮书 v1.2
 
-## Important Notice
+## 注意事项
 
-Project Kaia[^1] Digital Tokens (hereinafter referred to as “KAIA” with the ticker symbol KAIA) are not intended to constitute a regulated product such as securities, fiat tokens or e-money, accepted virtual assets or specified investments each as defined under the Financial Services and Markets Regulations 2015 of the Abu Dhabi Global Market (the “FSMR”), or its equivalent or any other regulated products in any jurisdiction.
+Kaia[^1]项目数字代币（以下简称 "KAIA"，股票代码KAIA）无意构成阿布扎比全球市场（"FSMR"）2015年金融服务和市场法规（Financial Services and Markets Regulations 2015）或其同等法规或任何司法管辖区的任何其他受监管产品所定义的证券、法定代币或电子货币、可接受的虚拟资产或特定投资等受监管产品。
 
-Please note that you may not be able to recover any monies paid for KAIA in the event that the KAIA Token Economy fails to materialize or where the vision or objects of the Foundation fails.
+请注意，如果 KAIA 代币经济未能实现或基金会的愿景或目标失败，您可能无法收回为 KAIA 支付的任何款项。
 
-This Whitepaper is meant to provide more information on the KAIA Token Economy and functions of KAIA, and does not constitute a prospectus or offer document of any sort.
+本白皮书旨在提供有关 KAIA 代币经济和 KAIA 功能的更多信息，并不构成任何形式的招股说明书或要约文件。
 
-This Whitepaper does not constitute or form part of any opinion or any advice to sell, or any recommendation or solicitation of any offer to purchase KAIA nor shall it or any part of it or the fact of its presentation form the basis of, or be relied upon in connection with, any contract or investment decision.
+本白皮书不构成任何意见或任何销售建议，或任何购买 KAIA 的建议或要约邀请，也不构成任何意见或任何销售建议，或任何购买 KAIA 的建议或要约邀请的一部分，本白皮书或其任何部分或其介绍的事实也不应构成任何合同或投资决策的基础或依据。
 
-No person is bound to enter into any contract or binding legal commitment in relation to the sale and purchase of KAIA and no digital tokens or other form of payment is to be accepted on the basis of this Whitepaper.
+任何人都没有义务就 KAIA 的销售和购买签订任何合同或做出具有约束力的法律承诺，也不接受基于本白皮书的任何数字代币或其他形式的付款。
 
-Any agreement between the Foundation and you as a recipient or purchaser, and in relation to any airdrop, sale or purchase of KAIA is to be governed by a separate document setting out the terms and conditions (the “T&Cs”) of such agreement. In the event of any inconsistencies between the T&Cs and this Whitepaper, the T&Cs shall prevail. Your eligibility to receive, purchase or sell KAIA on any digital token trading platform or exchange is subject to your compliance with their respective terms and conditions.
+基金会与作为接收方或购买方的您之间的任何协议，以及与任何空投、销售或购买 KAIA 有关的任何协议，均受一份单独文件的管辖，该文件列出了此类协议的条款和条件（"T&Cs"）。 如果条款与细则与本白皮书有任何不一致之处，应以条款与细则为准。 您在任何数字代币交易平台或交易所接收、购买或出售 KAIA 的资格取决于您是否遵守其各自的条款和条件。
 
-No regulatory authority has approved any of the information set out in this Whitepaper. No such action has been or will be taken under the laws, regulatory requirements or rules of any jurisdiction. The publication, distribution or dissemination of this Whitepaper does not imply that the applicable laws, regulatory requirements or rules have
-been complied with.
+没有任何监管机构批准本白皮书中的任何信息。 任何司法管辖区的法律、监管要求或规则都没有采取或不会采取任何此类行动。 出版、分发或传播本白皮书并不意味着
+已遵守适用法律、监管要求或规则。
 
-This Whitepaper, any part thereof and any copy thereof must not be taken or transmitted to any country where distribution or dissemination of this Whitepaper is prohibited or restricted.
+不得将本白皮书及其任何部分和任何副本带到或传送到禁止或限制分发或传播本白皮书的任何国家。
 
-No part of this Whitepaper is to be reproduced, distributed or disseminated without including this section and the section titled “IMPORTANT NOTES” at the back of this Whitepaper.
+本白皮书的任何部分均不得在未包含本部分和白皮书背面 "重要说明 "部分的情况下进行复制、分发或传播。
 
-**PLEASE READ THE SECTION TITLED “IMPORTANT NOTES” AT THE BACK OF THIS WHITEPAPER VERY CAREFULLY.**
+\*\*请仔细阅读本白皮书后面的 "重要说明 "部分。
 
-**IF YOU ARE IN ANY DOUBT AS TO THE ACTION YOU SHOULD TAKE, YOU SHOULD CONSULT YOUR LEGAL, FINANCIAL, TAX OR OTHER PROFESSIONAL ADVISOR(S).**
+\*\*如果您对自己应采取的行动有任何疑问，应咨询您的法律、财务、税务或其他专业顾问。
 
-[^1]: Kaia is a temporary name for the integrated blockchain project of Klaytn and Finschia, and may be changed in the future.
+[^1]: Kaia 是 Klaytn 和 Finschia 整合区块链项目的临时名称，将来可能会更改。
 
-## Introduction
+## 介绍
 
-### Our Origin
+### 我们的起源
 
-The Finschia blockchain, based on the LINE Blockchain initiated by the global messaging company LINE in 2018, and the Klaytn blockchain, established in 2019 on the foundation of Kakao, South Korea's leading software company, have merged their blockchain and ecosystems under the shared goal of achieving mass adoption of blockchain technology to
-create the Kaia Blockchain.
+Finschia区块链以全球信息公司LINE于2018年发起的LINE区块链为基础，Klaytn区块链以韩国领先的软件公司Kakao为基础于2019年成立，在实现区块链技术大规模应用的共同目标下，两家公司合并了各自的区块链和生态系统，
+，创建了Kaia区块链。
 
-Kaia Blockchain is a Layer 1 blockchain based on EVM (Ethereum Virtual Machine) and has been designed with scalability, convenience, and reliability as top priorities. Kaia Blockchain focuses on transformative changes that will empower not only technology and business but also individuals in the Web 3.0 era. Kaia Foundation[^2] and ecosystem participants aim for easier accessibility of blockchain technology and let more people participate in the Web 3.0 revolution. Kaia Blockchain will settle as a trusted stratum that connects people from different backgrounds all over the world.
+Kaia 区块链是基于 EVM（以太坊虚拟机）的第 1 层区块链，其设计以可扩展性、便利性和可靠性为首要任务。 Kaia Blockchain 专注于转型变革，在 Web 3.0 时代，这些变革不仅将增强技术和企业的能力，还将增强个人的能力。 Kaia 基金会[^2] 和生态系统参与者的目标是让区块链技术更容易获取，让更多人参与到 Web 3.0 革命中来。 Kaia 区块链将作为一个可信的层，将世界各地不同背景的人联系在一起。
 
-To build the infrastructure for the collaborative Web 3.0 playground, Kaia Blockchain will combine powerful integrated community and infrastructure technologies to discover new opportunities and accelerate innovation.
+为了建立 Web 3.0 协作游乐场的基础设施，Kaia Blockchain 将结合强大的集成社区和基础设施技术，以发现新机遇并加速创新。
 
-[^2]: It refers to the temporary foundation name of Project Kaia
+[^2]: 它指的是 Kaia 项目的临时基金会名称
 
-### Mission
+### 使命
 
-Our goal is to build a fairer and more open future by ensuring people greater economic opportunities and the right to participate through blockchain.
+我们的目标是通过区块链确保人们有更多的经济机会和参与权，从而建设一个更公平、更开放的未来。
 
-### Vision
+### 愿景
 
-The core vision of Kaia Blockchain is to integrate a broad user base, vast on-chain assets, and technology to help builders promptly implement and expand their ideas with successful results. As a platform, Kaia Blockchain provides the tools and environment required by the builders, providing them with the opportunity to introduce creative solutions to a wider public. They plan to create new value by leveraging on-chain assets and pursuing innovation that goes beyond technological limitations. The continued growth and success of the builder community is one of the core goals of Kaia Blockchain. For builders to turn their aspirations into reality, we will be helping builders turn their visions into reality, from the ideation stage through to implementation, market entry, and growth.
+Kaia Blockchain 的核心愿景是整合广泛的用户群、庞大的链上资产和技术，帮助建设者及时实施和扩展他们的想法，并取得成功。 作为一个平台，Kaia 区块链为建设者提供了所需的工具和环境，使他们有机会向更广泛的公众介绍创造性的解决方案。 他们计划通过利用链上资产和追求超越技术限制的创新来创造新价值。 建设者社区的持续发展和成功是 Kaia 区块链的核心目标之一。 为了让建设者将愿望变为现实，我们将帮助建设者将愿景变为现实，从构思阶段一直到实施、进入市场和发展。
 
-## Value Proposition
+## 价值主张
 
-Kaia Blockchain aims to create Asia's \#1 blockchain through the integration of the two mainnets and lead the adoption of Web3, which was the common goal of the two blockchains. This vision can be achieved by helping builders create ideas, grow, and successfully build projects through a wide user base, abundant on-chain assets, and
-technology leadership as below. Kaia Blockchain provides a robust infrastructure for Web3 projects of all sizes, creating an ideal environment for builders looking to bring innovative ideas to life.
+Kaia Blockchain 的目标是通过整合两条主网创建亚洲第 1 的区块链，并引领 Web3 的广泛应用，这也是两条区块链的共同目标。 通过广泛的用户基础、丰富的链上资产和
+技术领先优势，帮助建筑商创造创意、发展壮大并成功建设项目，从而实现这一愿景。 Kaia 区块链为各种规模的 Web3 项目提供了强大的基础设施，为希望将创新理念付诸实践的建设者创造了理想的环境。
 
-### Wide User Base
+### 广泛的用户群
 
-1. **Web2 User Accessibility**: One of the biggest problems facing Web3 projects is attracting Web2 users. Kaia Blockchain provides easy access to existing Web2 users through a messenger-integrated wallet through collaboration with Kakao with 50 million Korean users and LINE with 200 million users in Japan, Taiwan, Indonesia, and Thailand.
+1. **Web2 用户的可访问性**：Web3 项目面临的最大问题之一是吸引 Web2 用户。 通过与拥有 5000 万韩国用户的 Kakao 以及在日本、台湾、印度尼西亚和泰国拥有 2 亿用户的 LINE 合作，Kaia Blockchain 通过与聊天软件集成的钱包为 Web2 的现有用户提供便捷访问。
 
-2. **Web3 User Accessibility**: In addition to Web2 users, it helps attract Web3 users quickly and easily to the project by providing more than 1.2 million wallet active addresses and an interface connecting the users and the project.
+2. \*\* Web3 用户可访问性\*\*：除 Web2 用户外，它还通过提供 120 多万个钱包活动地址以及连接用户和项目的界面，帮助吸引 Web3 用户快速、轻松地访问项目。
 
-3. **Community Building Support**: It helps users gather and build projects through joint marketing with Kaia Foundation and provides an environment with easy access and usage for users from various chains.
+3. **社区建设支持**：通过与 Kaia 基金会的联合营销，帮助用户收集和建立项目，并为来自不同链条的用户提供一个易于访问和使用的环境。
 
-### Abundant Liquidity Support
+### 丰富的流动性支持
 
-1. **Real World Asset (RWA) Linkage**: Real world assets such as gold, ships, and real estate already exist on Kaia Blockchain. Beyond this, real world assets such as various fiat-backed stablecoins and bonds will be on-chained, allowing developers to utilize a wider range of assets.
+1. **真实世界资产（RWA）链接**：Kaia 区块链上已经存在黄金、船舶和房地产等现实世界资产。 除此以外，各种法币支持的稳定币和债券等现实世界中的资产也将被上链，使开发者可以利用更广泛的资产。
 
-2. **Large-Scale Ecosystem Fund (Kaia Ecosystem Fund):** A large-scale ecosystem fund can be created based on KAIA and support various sectors requiring liquidity such as Defi and Gamefi.
+2. **大型生态系统基金（KAIA 生态系统基金）：** 可在 KAIA 的基础上创建大型生态系统基金，支持各种需要流动资金的行业，如 Defi 和 Gamefi。
 
-3. **Chain Native Yield**: Built-in MEV (Maximal Extractable Value) extraction allows KAIA Stakers to automatically earn MEV profits on the chain. This results in an increase in the chain liquidity and simultaneously provides a method for burning tokens.
+3. **链原生收益**：内置的 MEV（最大可提取价值）提取功能允许 KAIA Stakers 在链上自动赚取 MEV 利润。 这就增加了链的流动性，同时也提供了一种燃烧代币的方法。
 
-### Top-Level Core Technology and Development Convenience
+### 一流的核心技术和开发便利性
 
-1. **Top-Level Transaction Finality**: Provides higher TPS and decentralization while maintaining the 1-second transaction finality.
+1. **顶级交易终结性**：提供更高的 TPS 和分散性，同时保持 1 秒钟的交易终结性。
 
-2. **Ethereum Compatibility:** EVM-based dApps can be onboarded without any modifications with the provision of 100% Ethereum compatibility.
+2. **以太坊兼容性：** 基于 EVM 的 dApp 可在不做任何修改的情况下接入，并提供 100% 的以太坊兼容性。
 
-3. **Convenient Account Model:** The account model of Kaia Blockchain enables the assigning of various keys to accounts, which strengthens account security and improves user experience.
+3. **便捷的账户模式：** Kaia 区块链的账户模式可为账户分配各种密钥，从而加强账户安全性，改善用户体验。
 
-4. **Permissionless and Decentralized Structure**: Kaia Blockchain is converting into a permissionless validator structure while also increasing the network’s decentralization.
+4. **无权限和去中心化结构**：Kaia 区块链正在转变为无权限验证器结构，同时也提高了网络的去中心化程度。
 
-## Token Economy
+## 代币经济
 
-### Introduction
+### 简介
 
-Public blockchain platforms are maintained through a token model, which greatly influences the growth direction of the platform. Since blockchains generally do not have a central governing body, it is crucial to motivate the individuals who maintain and develop the blockchain to ensure its continued existence. However, it is unrealistic to expect participants to engage in blockchain security solely for altruistic motivations without seeking any financial gain. Therefore, an incentive system is necessary to motivate blockchain ecosystem participants to maintain and develop the network.
+公共区块链平台通过代币模式进行维护，这在很大程度上影响了平台的发展方向。 由于区块链一般没有中央管理机构，因此必须激励维护和开发区块链的个人，以确保其持续存在。 然而，期望参与者仅出于利他主义动机而参与区块链安全而不谋求任何经济利益是不现实的。 因此，激励区块链生态系统参与者维护和发展网络的激励制度是必要的。
 
-In blockchains, governance structures drive change. Blockchain platforms must change to keep pace with external developments as available technologies continue to expand and market needs change. Unlike general products developed and maintained by a single company or a central governing body, a public blockchain is not suitable for a single entity to make and implement unilateral decisions. For example, even if the main developers decide on a software update, the miners may not apply it. Therefore, a governance process is needed to collect the opinions of all participants in the ecosystem and make decisions based on the collected opinions in order for the blockchain network to implement timely changes. A stable governance structure must exist for the blockchain to adjust appropriately in response to external changes.
+在区块链中，治理结构推动变革。 随着可用技术的不断扩展和市场需求的变化，区块链平台必须随外部发展而变化。 与由单个公司或中央管理机构开发和维护的一般产品不同，公共区块链不适合由单个实体做出和执行单方面决定。 例如，即使主开发人员决定更新软件，矿工也可能不会应用。 因此，需要一个治理流程来收集生态系统中所有参与者的意见，并根据收集到的意见做出决策，以便区块链网络及时实施变革。 必须有一个稳定的治理结构，区块链才能根据外部变化进行适当调整。
 
-This chapter explains the token model and governance system of Kaia Blockchain. Kaia Blockchain aims to help builders quickly implement, scale, and achieve successful results based on its large user base, vast on-chain assets, and technology. This document will go over the design principles used to create the current features of Kaia Blockchain and how these features may change. The information provided in this document will be verified through relevant data, and part of this content may be subject to change after sufficient verification and review.
+本章介绍 Kaia 区块链的代币模型和治理系统。 Kaia 区块链旨在帮助构建者快速实施、扩大规模，并基于其庞大的用户群、大量的链上资产和技术取得成功。 本文档将介绍用于创建 Kaia 区块链当前功能的设计原则，以及这些功能可能发生的变化。 本文件中提供的信息将通过相关数据进行验证，部分内容在经过充分验证和审查后可能会有所变更。
 
-### Design Principles
+### 设计理念
 
-Designing the token economy and governance structure of a blockchain platform is complex. First, token economy and governance structures are tested under controlled conditions that do not fully reflect reality. Therefore, it cannot be prepared for all variables. It is also worth noting that the blockchain industry is still in its infancy stage and we have yet to see a successful system that operates over the long term. Kaia Blockchain considered these environmental factors and defined internal principles that are not influenced by external influences rather than maintaining a single specific model. The detailed token economy and governance structure may flexibly evolve in line with the market conditions and regulations. However, the design principles will remain unchanged as a core value shared by all ecosystem participants.
+设计区块链平台的代币经济和治理结构非常复杂。 首先，代币经济和治理结构是在受控条件下测试的，并不能完全反映现实。 因此，无法为所有变量做好准备。 此外，值得注意的是，区块链行业仍处于起步阶段，我们还没有看到一个能够长期运行的成功系统。 Kaia 区块链考虑了这些环境因素，并确定了不受外部影响的内部原则，而不是维持单一的特定模式。 详细的代币经济和治理结构可根据市场条件和法规灵活演变。 但是，设计原则作为生态系统所有参与者共享的核心价值将保持不变。
 
-The core design principles of the token design of Kaia Blockchain are:
+Kaia 区块链代币设计的核心设计原则是
 
-- **Rewarding Ecosystem Contributors:** For a blockchain platform to be sustainable and provide great value to users, simply maintaining the network is not enough; the growth of the platform ecosystem is also very important. Therefore, Kaia Blockchain will identify the entities contributing to this growth and provide rewards and support commensurate with the contribution of each participant. This will result in not only contributors to block creation and verification but also service providers who have contributed to the growth of the platform ecosystem receiving reasonable compensation in proportion to their contribution, acting as an attractive incentive for potential external contributors.
+- **奖励生态系统贡献者：** 区块链平台要想可持续发展并为用户提供巨大价值，仅仅维护网络是不够的，平台生态系统的发展也非常重要。 因此，Kaia 区块链将确定为这一增长做出贡献的实体，并根据每个参与者的贡献提供相应的奖励和支持。 这样一来，不仅区块创建和验证的贡献者，而且为平台生态系统的发展做出贡献的服务提供商都能获得与其贡献成正比的合理补偿，从而对潜在的外部贡献者起到激励作用。
 
-- **Elastic Token Economy:** The token economy has numerous active participants with different interests and is greatly affected by various internal and external changes. Therefore, the token economy will be flexible to external variables based on consistent core principles rather than maintaining a single model. Based on these core principles, the token economy of Kaia Blockchain can respond quickly and flexibly to external changes. At the same time, it can support the ecosystem participants to operate stably and align the direction to promote overall growth.
+- \*\* 弹性代币经济：\*\* 代币经济有众多利益不同的活跃参与者，受各种内部和外部变化的影响很大。 因此，代币经济将以一致的核心原则为基础，灵活应对外部变量，而不是保持单一模式。 基于这些核心原则，Kaia 区块链的代币经济可以快速、灵活地应对外部变化。 同时，它还能支持生态系统参与者稳定运行，调整方向，促进整体增长。
 
-- **Sustainable Growth:** Blockchain platforms must maintain continuous growth. In other words, it must retain the existing and new participants within the ecosystem based on a reasonable incentive model and a system that can flexibly respond to the needs and impacts of rapidly changing markets within and outside the ecosystem. In return, Kaia Blockchain will be able to achieve balanced and stable growth based solely on the contributions of ecosystem participants without any artificial value expansion.
+- **可持续增长：** 区块链平台必须保持持续增长。 换句话说，它必须以合理的激励模式为基础，保留生态系统内现有的和新的参与者，并建立一个能够灵活应对生态系统内外快速变化的市场需求和影响的系统。 作为回报，Kaia 区块链将能够完全依靠生态系统参与者的贡献实现平衡稳定的增长，而不会出现任何人为的价值扩张。
 
-- **Simplicity:** Kaia Blockchain will be explainable simply and clearly. This will allow for quick optimizations and fixes in the future. Its simplicity will allow everyone involved to easily understand the functionality.
+- **简单性：** Kaia 区块链的解释简单明了。 这将有助于今后快速优化和修复。 它的简洁性可以让每个人都能轻松理解其功能。
 
-- **Experiment and Optimize with Data:** How high should inflation be? What types of rewards should be given for what actions? These questions are difficult to answer without testing and verification. Kaia Blockchain will transparently analyze data obtained and managed on the blockchain, optimize the platform by testing various hypotheses, and transparently share the results through technical reports.
+- \*\* 利用数据进行试验和优化：\*\* 通货膨胀率应该有多高？ 对哪些行为应该给予哪些类型的奖励？ 在没有测试和验证的情况下，很难回答这些问题。 Kaia Blockchain 将透明地分析在区块链上获取和管理的数据，通过测试各种假设优化平台，并通过技术报告透明地分享结果。
 
-### Kaia Blockchain Tokenomics
+### Kaia 区块链代币经济学
 
 #### KAIA
 
-KAIA is the platform-native cryptocurrency of the Kaia Blockchain, used to enhance the security of the Kaia Blockchain through staking or to pay transaction fees. Transaction fees are incurred when deploying or executing smart contracts, or when transferring tokens.
+KAIA 是 Kaia 区块链的平台原生加密货币，用于加强 Kaia 区块链的安全性或支付交易费用。 在部署或执行智能合约或转让代币时会产生交易费。
 
-KAIA is an essential element and fuel for operating the Kaia Blockchain platform. The users’ KAIA is paid to the validators to execute tasks requested by clients of the platform. In other words, KAIA is an incentive that will ensure developers write high-quality application codes (wasteful codes cost more) and the network remains healthy (validators are compensated for the contributed resources).
+KAIA 是运行 Kaia 区块链平台的基本要素和燃料。 用户的 KAIA 支付给验证器，以执行平台客户要求的任务。 换句话说，KAIA 是一种激励机制，可确保开发人员编写高质量的应用程序代码（浪费代码的成本更高），并确保网络保持健康（验证者可获得所贡献资源的补偿）。
 
-#### Kaia Blockchain’s Incentive Mechanism
+#### Kaia 区块链的激励机制
 
-The incentive mechanism of Kaia Blockchain seeks to achieve the following goals:
+Kaia 区块链的激励机制旨在实现以下目标：
 
-- Ability to maintain sufficient economic security and network over the long term.
+- 有能力长期保持充分的经济安全和网络。
 
-- Support for entities promoting economic activity
+- 支持促进经济活动的实体
 
-In general, incentives in public blockchains are used to maintain the network and ensure economic security. Maintaining a blockchain requires someone to continuously store block data and process new transactions. Due to this, blockchains such as Bitcoin or Ethereum provide block rewards to miners processing block creation. Incentives are also closely related to economic security. Simply put, economic security is proportional to the cost required to carry out an attack on a blockchain. This cost typically becomes higher as the potential profit of the block creator increases during the block creation process.
+一般来说，公共区块链中的激励机制用于维护网络和确保经济安全。 维护区块链需要有人不断存储区块数据并处理新的交易。 因此，比特币或以太坊等区块链向处理区块创建的矿工提供区块奖励。 激励措施也与经济安全密切相关。 简而言之，经济安全性与对区块链进行攻击所需的成本成正比。 在区块创建过程中，随着区块创建者潜在利润的增加，这一成本通常会越来越高。
 
-Incentives are necessary to ensure a high level of economic security and a well-maintained network. And for the system to operate stably, the value of cryptocurrency must be maintained or rise. If the value of cryptocurrency falls suddenly, the economic security and network stability may decline proportionally.
+为确保高水平的经济安全和维护良好的网络，有必要采取激励措施。 而要使系统稳定运行，加密货币的价值必须保持或上升。 如果加密货币的价值突然下降，经济安全和网络稳定性也会相应下降。
 
-The stability or increase in value of KAIA largely depends on its utility. This utility comes from a large number of people using and burning KAIA, which occurs when high-quality service providers actively provide services on Kaia Blockchain.
+KAIA 价值的稳定或增长在很大程度上取决于其实用性。 这种效用来自于大量的人使用和燃烧 KAIA，当高质量的服务提供商在 Kaia 区块链上积极提供服务时，就会产生这种效用。
 
-#### Economically Sourced Incentives
+#### 经济激励措施
 
-Kaia Blockchain provides incentives through the issuance of new KAIA and transaction fees. Additionally, to maintain the value of KAIA as a means of economic support, sustainable methods for distributing and burning KAIA exist.
+Kaia 区块链通过发行新的 KAIA 和交易费提供激励。 此外，为了保持 KAIA 作为一种经济支持手段的价值，还存在可持续的 KAIA 分发和燃烧方法。
 
-##### Minting
+##### 铸造
 
-On the Kaia Blockchain mainnet, a certain amount of KAIA is issued whenever a new block is created. Each time a new block is created, a certain amount of KAIA will be newly issued, and the target initial annual inflation rate (amount of KAIA newly issued per year / total KAIA token in the market) of Kaia Blockchain will be set at 5.2%[^3]. The number of newly issued KAIA per block at this point is not permanently set; it can be changed through governance voting. By default, the inflation rate of KAIA reflects the economic growth rate of Kaia Blockchain. Although the goal is a lower value, the exact value will be determined through the governance. In the mid to long term, the inflation rate and new issuance quantity per block can be automatically calculated and applied based on the inflation algorithm inherent in the chain.
+在 Kaia 区块链主网上，每创建一个新区块，就会发行一定数量的 KAIA。 每创建一个新区块，就会新发行一定数量的 KAIA，Kaia 区块链的目标初始年通货膨胀率（每年新发行的 KAIA 数量/市场上的 KAIA 代币总量）将设定为 5.2%[^3]。 此时，每个区块新发行的 KAIA 数量不是永久性的，可以通过治理投票进行更改。 默认情况下，KAIA 的通货膨胀率反映了 Kaia 区块链的经济增长率。 虽然目标值较低，但具体数值将通过治理来确定。 从中长期来看，每个区块的通胀率和新发行量可根据链中固有的通胀算法自动计算和应用。
 
-[^3]: Specific figures are subject to change upon further review and governance approval.
+[^3]: 具体数字经进一步审查和管理部门批准后可能会有变动。
 
-##### Transaction Fee
+##### 交易手续费
 
-Kaia Blockchain has determined its transaction fee policy to maximize service orientation, user-centricity, and enterprise-friendliness while maintaining network stability. The transaction fee policy takes into account the following points pursued by Kaia Blockchain.
+Kaia 区块链确定了其交易费用政策，以最大限度地实现服务导向、以用户为中心和企业友好性，同时保持网络的稳定性。 交易费用政策考虑了 Kaia 区块链追求的以下几点。
 
-- Improved User Experience
-  - We aim to minimize complicated or unnecessary procedures when users pay transaction fees. This will allow users not familiar with blockchain technology to easily use Kaia Blockchain. For example, tasks such as manually entering gas prices should be minimized. The volatility of the transaction fee should also be minimized so that users can use Kaia Blockchain comfortably.
+- 改善用户体验
+  - 我们的目标是在用户支付交易费时，尽量减少复杂或不必要的程序。 这将使不熟悉区块链技术的用户也能轻松使用 Kaia 区块链。 例如，应尽量减少手动输入Gas价格等工作。 交易费用的波动性也应降到最低，以便用户能够舒适地使用 Kaia 区块链。
 
-- Improved Operational Processes for Service Providers
-  - Service providers can pay for the transaction fees on behalf of users through the unique account model in Kaia Blockchain. Therefore, business convenience for dApp service providers is also a major consideration in fee policy.
-  - The basic elements to reduce the burden on service providers are low transaction fees and low volatility fee policies. The low fee is to assist in the expansion of services using the fee delegation feature in the Kaia account model, while the low volatility is to help predict business costs due to the payment fee.
+- 改进服务提供商的运营流程
+  - 服务提供商可以通过 Kaia 区块链中的独特账户模式代表用户支付交易费用。 因此，dApp 服务提供商的业务便利性也是收费政策的主要考虑因素。
+  - 减轻服务提供商负担的基本要素是低交易费和低波动费政策。 低费用是为了帮助利用 Kaia 账户模式中的费用委托功能扩大服务范围，而低波动性则是为了帮助预测因支付费用而产生的业务成本。
 
-- Protection against Network Attacks
-  - Blockchain data storage and computation incur costs. Without transaction fees, attackers may DDoS or spam attack the blockchain by sending meaningless transactions. To prevent meaningless transactions, a reasonable fee will be imposed on transactions.
+- 防范网络攻击
+  - 区块链数据存储和计算需要成本。 没有交易费，攻击者就可能通过发送毫无意义的交易对区块链进行 DDoS 或垃圾邮件攻击。 为防止无意义的交易，将对交易收取合理的费用。
 
-Kaia Blockchain applies a dynamic gas fee model to the network to achieve the above goals. In the dynamic gas fee model of Kaia Blockchain, a low fee is applied in general cases where there are not many transactions on the network. However, in special situations such as a rapid increase in transactions on the network or a DDoS or spam attack, the gas fee increases. This results in a reduction of meaningless transactions. The dynamic gas fee model could change the gas fee per block unit dynamically depending on the transaction congestion within the network, but the range of change is predictable to some extent. Transactions entered into a block have transaction fees calculated with an identical block gas fee (baseFee), and only transactions with a gas fee greater than or equal to the block gas fee can be entered into the block. Block gas fees automatically increase or decrease depending on the gas usage of the previous block with the current maximum fluctuation set to 5%. A portion of the transaction fee used in each block is set to be automatically burned. Various parameters of the dynamic gas fee model can be changed via the governance function.
+为实现上述目标，Kaia 区块链在网络中应用了动态Gas费模式。 在 Kaia 区块链的动态Gas费模式中，一般情况下，如果网络上的交易不多，就会收取较低的费用。 但是，在特殊情况下，如网络交易量急剧增加或发生 DDoS 或垃圾邮件攻击时，Gas费会增加。 这就减少了无意义的交易。 动态Gas费模式可根据网络内交易拥堵情况动态改变每个区块单位的瓦斯费，但变化范围在一定程度上是可预测的。 输入区块的交易，其交易费以相同的区块 Gas 费用（baseFee）计算，只有 Gas 费用大于或等于区块 Gas 费用的交易，才能输入区块。 区块Gas费会根据前一个区块的Gas使用量自动增减，目前的最大波动率设定为 5%。 每个区块中使用的部分交易费被设置为自动烧毁。 可通过治理功能更改动态Gas费模型的各种参数。
 
-The transaction fees for Kaia Blockchain are currently determined by applying a dynamic gas fee model. However, a new gas fee model or transaction fee policy may be required according to the environmental changes. If necessary, changes to the gas fee model or transaction fee policy of Kaia Blockchain will be made through the governance process.
+Kaia 区块链的交易费用目前采用动态Gas费用模式确定。 不过，可能需要根据环境变化制定新的Gas费收费模式或交易费政策。 如有必要，Kaia 区块链的Gas费收费模式或交易费用政策将通过治理程序进行更改。
 
-##### Block Reward Distribution
+##### 区块奖励分配
 
-The block reward for each block is determined by the sum of the KAIA issued at the time of block creation and the transaction fee. This is distributed as follows. However, the specific ratio and category of the block reward distribution may be changed by governance.
+每个区块的区块奖励由创建区块时发行的 KAIA 和交易费的总和决定。 分配情况如下 不过，整笔奖励分配的具体比例和类别可根据治理情况进行调整。
 
-- Validators and Community: 50%
-  - Of the 50%, 20% is block proposer rewards
-  - Of the 50%, 80% is staking rewards
-- KEF (Kaia Ecosystem Fund): 25%
-- KIF (Kaia Infrastructure Fund): 25%
+- 验证者和社区：50
+  - 在这 50%中，20%是区块提议者奖励
+  - 在这 50%中，80%是质押奖励
+- KEF（Kaia生态系统基金）：25%
+- KIF（Kaia基础设施基金）：25%
 
-##### Burning
+##### 销毁
 
-The method for maintaining or enhancing the KAIA value is an essential element of any incentive structure based on KAIA. In Kaia Blockchain’s ecosystem growth stage, the additional issuance of the KAIA motivates the ecosystem members to participate. However, a method to control the circulation volume is necessary for it to operate as a long-term sustainable incentive. Kaia Blockchain 3-Layer Burn Model prevents excessive inflation. The 3-Layer Burn Model is an extensive concept that includes not only the inherent burning function of Kaia Blockchain but also the burning concept that can occur through relationships with ecosystem projects. This extensive burn model will effectively regulate circulation volume and provide stable value incentives to the network participants when the Kaia Blockchain ecosystem reaches maturity. The description of each Layer is as follows.
+保持或提高 KAIA 价值的方法是任何基于 KAIA 的激励结构的基本要素。 在 Kaia 区块链的生态系统成长阶段，KAIA 的增发激发了生态系统成员的参与热情。 然而，要使其成为一种长期可持续的激励措施，就必须有一种控制流通量的方法。 Kaia Blockchain 3 层销毁模型可防止过度膨胀。 三层销毁模型是一个广泛的概念，不仅包括 Kaia 区块链固有的燃烧功能，还包括通过与生态系统项目的关系而产生的销毁概念。 这种大范围销毁模式将有效调节流通量，并在 Kaia 区块链生态系统成熟时为网络参与者提供稳定的价值激励。 各层的说明如下。
 
-1. Transaction-Based Burning
+1. 基于交易的销毁
 
-This is the default burning method provided by Kaia Blockchain. Users generate transactions to use the blockchain and a portion of the transaction fee is automatically burned. Since transaction-based burning can be interpreted as reduced profits of the node operators, the burning extent is adjusted through agreement and consensus among key network participants through on-chain governance.
+这是 Kaia 区块链提供的默认销毁方法。 用户生成使用区块链的交易，部分交易费用会被自动销毁。 由于基于交易的销毁可以被理解为节点运营商利润的减少，因此销毁程度是通过链上治理的主要网络参与者之间的协议和共识来调整的。
 
-2. MEV(Maximal Extractable Value) Burning
+2. MEV（最大萃取值） 销毁
 
-A validator may receive additional profits (e.g. maximal extractable value) by taking advantage of the fact that they can determine the transaction order during the block proposal process. This structure can escalate into issues of censorship or unfairness. As a result, Kaia Blockchain seeks to share the authority of the validator among all users through the implementation of technologies such as on-chain auctions. Part of the profit generated in this process will be burned due to it being generated through a special structural qualification called a validator.
+验证者可以在区块提议过程中确定交易顺序，从而获得额外收益（如最大可提取价值）。 这种结构可能会升级为审查或不公平问题。 因此，Kaia 区块链试图通过实施链上拍卖等技术，让所有用户共享验证者的权力。 在这一过程中产生的部分利润将被销毁，因为它是通过一种叫做验证器的特殊结构资质产生的。
 
-3. Business-Based Burning
+3. 基于业务的销毁
 
-Business-based burning is not an inherent function of Kaia Blockchain. Rather it is implemented through the ecosystem services and business relationships. Ecosystem services can receive support from protocols such as Kaia Ecosystem Fund to initially accelerate growth. Additionally, the value of KAIA or the activation of Kaia Blockchain affects the activation of services considering services utilize blockchain functions. Kaia Blockchain encourages the ecosystem services to install the concept of burning KAIA within the service to ensure that the service and blockchain maintain the value of KAIA under the same goal.
+基于业务的销毁并非 Kaia 区块链的固有功能。 相反，它是通过生态系统服务和业务关系来实现的。 生态系统服务可获得 Kaia 生态系统基金等协议的支持，以在初期加速发展。 此外，考虑到服务利用区块链功能，KAIA 的价值或 Kaia 区块链的激活会影响服务的激活。 Kaia 区块链鼓励生态系统服务在服务中安装销毁 KAIA 的概念，以确保服务和区块链在同一目标下保持 KAIA 的价值。
 
-### Validator Incentives
+### 验证机奖励措施
 
-Validators are operators in Kaia Blockchain who are responsible for block creation and verification based on the consensus algorithm. Validators are required to stake at least 5 million KAIA on the nodes they operate. In addition, validators participate in the on-chain vote of Kaia Blockchain and have the qualifications of GC (Governance Council), which makes key decisions in the ecosystem. In the future, the concepts of validator participating in block creation and GC participating in decision-making will be separated, so that anyone meeting certain conditions could participate in block creation and verification even if they are not a GC. Research and development of building this permissionless network is in progress.
+验证者是 Kaia 区块链中的操作员，负责根据共识算法创建和验证区块。 验证者必须在其运营的节点上至少质押 500 万 KAIA。 此外，验证者还参与 Kaia 区块链的链上投票，并拥有治理委员会（GC）的资格，该委员会负责生态系统的关键决策。 未来，验证者参与区块创建和 GC 参与决策这两个概念将被分开，这样，任何符合特定条件的人，即使不是 GC，也可以参与区块创建和验证。 建立这种无许可网络的研究和开发工作正在进行中。
 
-Two types of incentives are provided to encourage validators to operate nodes: block proposer rewards and staking rewards.
+为鼓励验证者运行节点，提供了两类奖励：区块提议者奖励和赌注奖励。
 
-- Block proposer rewards are for the act of participating in block creation and verification. At the time of block creation, an identical amount of KAIA will be distributed to all validators activated on the network. 10% (20% of the 50% Validator and Community Rewards) of the total annual inflation issued will be allocated as block proposer rewards. However, the size of the reward in a specific block may vary depending on the number of validators active at a specific time.
+- 区块提议者奖励是对参与区块创建和验证行为的奖励。 在创建区块时，将向网络上激活的所有验证器分配相同数量的 KAIA。 每年发放的通胀总额的 10%（50% 验证人和社区奖励的 20%）将作为整批提案人奖励。 不过，特定区块中奖励的大小可能会因特定时间内激活的验证器数量而有所不同。
 
-- Staking rewards are for staking KAIAs and contributing to the network stability and economic stability of Kaia Blockchain. The size of the reward is determined in proportion to the amount staked by a specific validator to the total amount of KAIA staked by all validators. However, the 5 million KAIA staked by each validator as an obligation is not reflected in determining the staking reward size. 40% of the total inflation will be allocated as staking rewards. The size of the rewards in a specific block may vary depending on the number of the total KAIA staked by the validators active at a specific time.
+- 质押奖励用于质押 KAIA 并为 Kaia 区块链的网络稳定性和经济稳定性做出贡献。 奖励的大小根据特定验证者的投注额与所有验证者的 KAIA 总质押的比例确定。 但是，每个验证者质押的 500 万 KAIA 作为一项义务，并不反映在确定押注奖励规模上。 通货膨胀总额的 40% 将作为定金奖励。 特定区块的奖励金额可能会有所不同，这取决于在特定时间内活跃的验证者所投注的 KAIA 总数量。
 
-#### Kaia Blockchain Validator Reward Mechanism
+#### Kaia 区块链验证器奖励机制
 
-Every block will have a committee made up of randomly selected validators. Each committee will have one member to act as a proposer, and all other committee members will act as verifiers. When a block is successfully created and added to Kaia Blockchain, the proposer of that block will be rewarded with 10% (20% of the 50% Validator and Community Rewards) of the total annual inflation issued and additional transaction fees. With regard to transaction fees, if the total amount of transaction fees incurred in one block is less than the block reward, the fees will be burned. If the transaction fee exceeds the block reward, half of the exceeded amount will be burned and the remaining half will be rewarded to the block proposer. Staking rewards equivalent to 40% (80% of the 50% Validator and Community Rewards) of the total annual inflation issued are shared among the validators in proportion to their staking amount. As long as the Kaia Blockchain validators meet the minimum 5 million KAIA staking requirement, they are free to stake or unstake their KAIA. Staking information changed within the staking update cycle will have a final update in the last block of each cycle. Another cycle is required for the updated information to be reflected in the block incentive. For example, staking information added at block 80,000 will be last updated at block 86,400 and reflected in incentives starting at block 172,800. A one-week delay is required to withdraw the staked KAIA to prevent any immediate withdrawals by malicious members.
+每个街区都将有一个由随机抽取的验证员组成的委员会。 每个委员会将有一名成员担任提案人，所有其他委员会成员担任核查人。 当成功创建一个区块并将其添加到 Kaia 区块链时，该区块的提议者将获得年度发行通货膨胀总额的 10%（50% 验证者和社区奖励的 20%）以及额外交易费的奖励。 关于交易费用，如果一个区块的交易费用总额低于区块奖励，则将烧掉这些费用。 如果交易费超过区块奖励，超出部分的一半将被销毁，剩下的一半将奖励给区块提议者。 相当于年度通胀发行总额 40% 的质押奖励（50% 验证人和社区奖励的 80%）将由验证人按其质押比例分享。 只要 Kaia 区块链验证者满足最低 500 万 KAIA 注资要求，他们就可以自由注资或取消质押。 在质押更新周期内更改的定标信息将在每个周期的最后一个区块进行最终更新。 更新后的信息需要另一个周期才能反映在区块激励中。 例如，在区块 80,000 添加的定标信息将在区块 86,400 进行最后更新，并从区块 172,800 开始反映在奖励中。 提取已质押的 KAIA 需要延迟一周，以防止恶意会员立即提款。
 
-### Kaia Blockchain Fund
+### Kaia 区块链基金
 
-#### Background
+#### 背景
 
-The financial resources of the Kaia Blockchain ecosystem are reorganized and operated into the Kaia Ecosystem Fund (KEF) and Kaia Infrastructure Fund (KIF). Both KEF and KIF will be used to establish stable integrated governance and an active ecosystem and will be transparently executed according to the agreed-upon ratio. The usage plan of the ecosystem resources will be shared with the community in advance. Especially for KEF, individual expenditures will be executed with GC approval. This will allow all ecosystem participants to be proactively aware of the impact of the ecosystem resource execution.
+Kaia 区块链生态系统的财务资源被重组为 Kaia 生态系统基金（KEF）和 Kaia 基础设施基金（KIF），并投入运营。 KED 和 KIF 都将用于建立稳定的综合治理和活跃的生态系统，并将按照商定的比例透明地执行。 生态系统资源的使用计划将提前与社区共享。 特别是 KEF，单项支出将在 GC 批准后执行。 这将使生态系统的所有参与者都能主动意识到生态系统资源执行的影响。
 
-#### Kaia Ecosystem Fund
+#### Kaia 生态基金
 
-##### Definition
+##### 定义
 
-Kaia Ecosystem Fund (KEF) is a financial resource used to ensure the sustainability of Kaia Blockchain mainnet by strengthening the basic ecosystem infrastructure, supporting developers, and returning profits through indirect investments back to the ecosystem. For this purpose, 25% of the total KAIA issued when creating a block will be distributed to KEF. KEF can only execute funds for agreed purposes with prior approval from the governance with all execution details being transparently disclosed.
+Kaia 生态基金（KEF）是用于确保 Kaia 区块链主网可持续发展的财政资源，通过加强基本的生态系统基础设施、支持开发人员以及通过间接投资将利润返还给生态系统。 为此，创建区块时所发放的 KAIA 总额的 25% 将分配给 KEF。 只有事先获得管理部门的批准，并以透明的方式披露所有执行细节，KEF 才能为商定的目的执行资金。
 
-##### Usage
+##### 用途
 
-The uses of KEF are categorized as follows:
+KEF 的用途分类如下：
 
-1. Service Contribution Reward (SCR): This reward is given to service developers or users operating on the integrated ecosystem, as compensation for directly or indirectly contributing to the enhancement of the ecosystem's value.
+1. 服务贡献奖励 (SCR)：该奖励发放给在综合生态系统上运营的服务开发商或用户，作为对其直接或间接提升生态系统价值的补偿。
 
-2. Developer Community Development: This includes support for various hackathons, operation of development education programs, collaborative research with academia, and collaborations with various DAOs.
+2. 开发者社区发展：这包括对各种黑客马拉松的支持、开发教育计划的运作、与学术界的合作研究以及与各种 DAO 的合作。
 
-3. Ecosystem Services and Infrastructure Development: This involves the development of services with clear utilities, support for marketing, and securing essential infrastructure for the ecosystem.
+3. 生态系统服务和基础设施发展：这包括开发具有明确用途的服务、支持营销以及确保生态系统的基本基础设施。
 
-4. KEF Indirect Investment: This involves medium to long-term investments carried out indirectly through delegation to professional crypto Venture Capitals. A portion of the profits generated from the recovery of investment amounts is either burned or returned to the Kaia Blockchain ecosystem.
+4. KEF 间接投资：这涉及通过委托专业加密风险投资公司间接进行的中长期投资。 收回投资金额所产生的部分利润将被销毁或返还给 Kaia 区块链生态系统。
 
-5. Governance Committee Budget: This budget is allocated for the operation of committees in specific sectors such as Gaming, DeFi, and Community. The committees aim to grow the Kaia Blockchain ecosystem in their respective sectors through expertise in investing, marketing, grants, and providing liquidity.
+5. 治理委员会预算：该预算用于游戏、DeFi 和社区等特定部门委员会的运作。 这些委员会旨在通过投资、营销、赠款和提供流动性方面的专业知识，在各自领域发展 Kaia 区块链生态系统。
 
-6. Other ecosystem and community-building activities
+6. 其他生态系统和社区建设活动
 
-##### Execution Method
+##### 执行方法
 
-KEF operates under a system where the Governance Council (GC) reviews and approves the use of its funds. The budget executed through the foundation is managed through the following process:
+KEF 的运作系统由治理委员会（GC）审查和批准其资金的使用。 通过基金会执行的预算通过以下程序进行管理：
 
-1. Each quarter, necessary budgets by category of expenditure are reported to and approved by the GC.
+1. 每季度向 GC 报告并由 GC 批准按支出类别分列的必要预算。
 
-2. Within the approved budget limits, specific expenditures are also approved individually by the GC.
+2. 在批准的预算限额内，具体开支也由 GC 单独批准。
 
-3. Details of the expenditures are transparently disclosed after their use.
+3. 支出的详细情况在使用后以透明的方式公布。
 
-Even if not through the foundation, new proposals for the use of KEF can be made via the GC, and these specific proposals will also require individual approval by the GC. Plans are in place to develop and enhance a structure that allows more ecosystem participants to efficiently propose and participate in the use of KEF. Additionally, for some categories requiring more specialized and rapid decision-making, separate governance committees may operate.
+即使不通过基金会，也可以通过 GC 提出使用 KEF 的新建议，这些具体建议也需要得到 GC 的单独批准。 已制定计划来发展和加强一种结构，使更多的生态系统参与者能够有效地提议和参与使用 KEF。 此外，对于某些需要更加专业化和快速决策的类别，可以设立单独的治理委员会。
 
-#### Kaia Infrastructure Fund
+#### Kaia 基础设施基金
 
-##### Definition
+##### 定义
 
-Kaia Infrastructure Fund (KIF) is a financial resource used for purposes such as R&D, ecosystem acceleration, and foundation operation. For this purpose, 25% of the total KAIA issued when creating a block will be distributed to KIF.
+Kaia 基础设施基金 (KIF) 是一种财政资源，用于研发、生态系统加速和基金会运营等目的。 为此，创建区块时所发放的 KAIA 总额的 25% 将分配给 KIF。
 
-KIF is executed by the foundation through an internal control system after a prior announcement of the budget plan for each detailed category with all execution details being transparently disclosed.
+KIF 由基金会通过内部控制系统执行，事先公布每个详细类别的预算计划，并透明地 披露所有执行细节。
 
-##### Usage
+##### 用途
 
-The uses of KIF are categorized as follows:
+KIF 的用途分类如下：
 
-1. Mainnet and Essential Infrastructure R&D: Advance research on the latest technologies related to mainnet and infrastructure, foundation-led service development, infrastructure establishment, etc.
+1. 主网和重要基础设施研发：推进与主网和基础设施相关的最新技术研究、基金会主导的服务开发、基础设施建设等。
 
-2. Ecosystem Acceleration: Token swap, financial support for small-scale Kaia Blockchain ecosystem partners, attraction of new GC, provision of market liquidity, etc.
+2. 生态系统加速：代币交换、为小型 Kaia 区块链生态系统合作伙伴提供资金支持、吸引新的 GC、提供市场流动性等。
 
-3. Operation of Kaia Foundation: Operating costs (various service costs such as development, accounting, legal affairs, as well as IT infrastructure operation costs, marketing costs, labor costs, etc.), financial management, fundraising, etc.
+3. Kaia 基金会的运作：运营成本（开发、会计、法律事务等各种服务成本，以及 IT 基础设施运营成本、营销成本、人工成本等）、财务管理、筹款等。
 
-##### Execution Method
+##### 执行方法
 
-The foundation directly establishes a budget plan and executes the funds accordingly for KIF. To ensure transparent execution, the foundation discloses the budget plans and execution details in advance and afterward.
+基金会直接为 KIF 制定预算计划并执行相应的资金。 为确保透明执行，基金会事先和事后都会公布预算计划和执行细节。
 
-1. Establishment of the budget and fund execution plan by the foundation
+1. 基金会制定预算和资金执行计划
 
-2. Disclosure of the budget plans by detailed category
+2. 按详细类别披露预算计划
 
-3. Disclosure of the execution details after executing the funds through an internal control system by the foundation
+3. 基金会通过内部控制系统执行资金后披露执行细节
 
-### KAIA Issuance/Distribution Plan
+### KAIA 发行/分配计划
 
-As the Klaytn and Finschia ecosystems merge, KLAY and FNSA, which were the base coins of each ecosystem, will also be consolidated into KAIA. Consequently, the issuance and circulation plan for KAIA will inherit the plans from KLAY and FNSA. This section will examine the historical issuance and circulation data of KLAY and FNSA and, based on this, will outline the plan for the issuance and circulation of KAIA.
+随着 Klaytn 和 Finschia 生态系统的合并，作为两个生态系统基础币的 KLAY 和 FNSA 也将合并为 KAIA。 因此，KAIA 的发行和流通计划将继承 KLAY 和 FNSA 的计划。 本节将研究 KLAY 和 FNSA 的历史发行和流通数据，并在此基础上概述 KAIA 的发行和流通计划。
 
-#### KLAY Issuance/Distribution Status
+#### KLAY 发行/分配状况
 
-##### KLAY Issuance and Burning Volume
+##### KLAY 的发行量和燃烧量
 
-On June 24, 2019, a total of 10 billion KLAY were issued on the genesis block at the launch of the mainnet of the Klaytn Blockchain. After the launch of the mainnet, a 3% annual inflation rate was applied based on the genesis issuance volume, newly issuing 9.6 KLAY in each block starting from block 1. Based on the decision of [[KGP-3]](https://govforum.klaytn.foundation/t/kgp-3-reduction-of-klaytn-block-reward/117) in October 2022, 6.4 KLAY have been issued for each block starting from November 13, 2022 (#106444801). As for the KLAY burn volume, a portion of the genesis reserve was burned based on [[KGP-6]](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157) of April 16, 2023, and a portion of circulating supply was burned based on the transaction fee burning and buyback burning. As a result, the estimated total supply is 5,971M KLAY at the time of integration, as of June 27, 2024.
+2019 年 6 月 24 日，在 Klaytn 区块链主网启动仪式上，创世区块共发行了 100 亿 KLAY。 主网启动后，根据创世发行量采用了 3% 的年通胀率，从区块 1 开始，每个区块新发行 9.6 KLAY。 根据 2022 年 10 月[[KGP-3]](https://govforum.klaytn.foundation/t/kgp-3-reduction-of-klaytn-block-reward/117)的决定，自 2022 年 11 月 13 日（#106444801）起，为每个区块发放 6.4 KLAY。 至于 KLAY 销毁的数量，一部分创世储备是根据 2023 年 4 月 16 日的[[KGP-6]](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157) 销毁的，一部分循环供应是根据交易费销毁和回购销毁的。 因此，截至 2024 年 6 月 27 日，整合时的总供应量估计为 59.71 亿枚 KLAY。
 
-##### KLAY Private Sale
+##### KLAY 私募销售
 
-KLAY did not conduct an ICO after issuance and only conducted private sales for institutional investors.
+KLAY 在发行后没有进行 ICO，只对机构投资者进行了私募销售。
 
-The private sales were divided into ER (Early Round) and PR (Private Round) from 2018 to 2019. The quantity sold through the private sales was 1,624,251,988 KLAY. The funds were used as operating funds for the mainnet development and operation, and ecosystem expansion. Approximately 1.62 billion KLAY sold through private sales were all unlocked in March 2021 after a step-by-step vesting period, and are already included in the circulating supply.
+从 2018 年到 2019 年，私募销售分为 ER（Early Round）和 PR（Private Round）。 私人销售的数量为 1,624,251,988 KLAY。 这些资金被用作主网开发和运行以及生态系统扩展的运营资金。 通过私人销售售出的约 16.2 KLAY 在分步归属期后于 2021 年 3 月全部解锁，并已计入流通供应量。
 
-##### KLAY Circulating Supply
+##### KLAY 流通供应
 
-The circulating supply of a cryptocurrency is the total currently tradable supply of the total issued volume of a specific existing cryptocurrency. In other words, it is the amount that is actually traded and distributed in the market. As of June 27, 2024, the expected integration date, the estimated total supply of Klaytn Blockchain will be 5,971M KLAY, excluding the not yet distributed Klaytn Community Fund (KCF)[^4] of 153M KLAY, Klaytn Foundation Fund (KFF)[^5] of 29M KLAY, and KLAY Value Creation Fund (KVCF)[^6] of 2,000M KLAY. These numbers are current estimates and may vary slightly due to block generation status, inflation, and governance proposal approvals. Considering that KVCF requires separate approval from the GC, the circulating supply increases when the execution of KCF or KFF is decided and executed. On the other hand, the circulating supply decreases when it is burned due to transaction fees or buybacks. Accordingly, as of June 27, 2024, the total issued supply is 5,971M KLAY while the circulating supply is 3,789M KLAY. There are no plans to use the KVCF until the time of the merger. The KLAY circulating supply will be inherited by the initial circulating supply of KAIA after the chain and token merger.
+加密货币的流通供应量是指特定现有加密货币发行总量的当前可交易供应总量。 换句话说，就是在市场上实际交易和分配的数量。 截至 2024 年 6 月 27 日（预计整合日期），Klaytn 区块链的总供应量预计为 59.71 亿 KLAY，其中不包括尚未分配的 1.53 亿 KLAY 的 Klaytn 社区基金（KCF）[^4]、2 900 万 KLAY 的 Klaytn 基金会基金（KFF）[^5]和 20 亿 KLAY 的 KLAY 价值创造基金（KVCF）[^6]。 这些数字是目前的估算，可能会因整块生成状况、通货膨胀和治理提案的批准情况而略有不同。 考虑到 KVCF 需要得到 GC 的单独批准，在决定和执行 KCF 或 KFF 时，流通供应量会增加。 另一方面，当流通供应量因交易费用或回购而被烧毁时，流通供应量就会减少。 因此，截至 2024 年 6 月 27 日，已发行的总供应量为 59.71 亿 KLAY，而流通供应量为 37.89 亿 KLAY。 在合并之前，没有使用 KVCF 的计划。 在链和代币合并后，KLAY 的流通供应量将由 KAIA 的初始流通供应量继承。
 
-[^4]: A fund created to revitalize the Klaytn ecosystem and onboard developers, and expenditures are determined after governance approval.
+[^4]: 为振兴 Klaytn 生态系统和吸纳开发人员而设立的基金，支出由管理部门批准后决定。
 
-[^5]: A fund created to operate the existing Klaytn Foundation, and expenditures are also determined after governance approval.
+[^5]: 为运作现有的 Klaytn 基金会而设立的基金，其支出也是经管理部门批准后确定的。
 
-[^6]: A reserve created in preparation for the dramatic growth of the Klaytn blockchain.
+[^6]: 为迎接 Klaytn 区块链的飞速发展而建立的储备金。
 
-### FNSA Issuance/Distribution Status
+### FNSA 发放/分配状况
 
-#### FNSA Issuance and Burning Volume
+#### FNSA 发放量和销毁量
 
-FNSA of Finschia has been automatically issued in each block at an inflation rate of 15% per year on the current total supply according to the Issuance mechanism of the protocol. Initial total supply was 6,734,458 FNSA. The FNSA issued is distributed to the Network Contribution Reward, Service Contribution Reward, and Reserve at a corresponding ratio of 5:3:2 according to the distribution mechanism. No volume of FNSA was burned. As of June 24 2024, the expected integration date, the estimated total number of FNSA issued through inflation is 7.967M FNSA.
+根据议定书的发放机制，Finschia 的 FNSA 在每个区块自动发放，每年的通货膨胀率为当前总供应量的 15%。 最初的供应总量为 6,734,458 FNSA。 根据分配机制，发放的 FNSA 按 5:3:2 的相应比例分配给网络贡献奖励、服务贡献奖励和储备金。 FNSA 没有被销毁。 截至 2024 年 6 月 24 日（预计整合日期），通过通货膨胀发行的 FNSA 总量估计为 796.7 万 FNSA。
 
-##### FNSA Private Sale
+##### FNSA 私募销售
 
-FNSA did not conduct private sales.
+FNSA 没有进行私募销售。
 
-##### FNSA Circulating Supply
+##### FNSA 流通供应
 
-The total supply and circulating supply of FNSA are equal. In other words, there is no separate uncirculated volume. Additionally, FNSA will set the inflation to 0% and stop new issuance after prior notice before the integration to ensure smooth integration with KLAY. As of June 24 2024, the expected integration date, the estimated total number of FNSA issued through inflation is 7.967M FNSA. The final confirmed total supply of FNSA will be included in the initial distribution of KAIA and inherited according to the agreed-upon exchange ratio.
+FNSA 的总供应量和流通供应量相等。 换句话说，没有单独的非流通量。 此外，为确保与 KLAY 的顺利整合，FNSA 将在整合前将通货膨胀率设为 0%，并在事先通知后停止新的发行。 截至 2024 年 6 月 24 日（预计整合日期），通过通货膨胀发行的 FNSA 总量估计为 796.7 万 FNSA。 最终确认的 FNSA 供应总量将纳入 KAIA 的初始分配，并按照商定的交换比例继承。
 
-#### KAIA Issuance/Distribution Plan
+#### KAIA 发行/分配计划
 
-The KAIA token is created by combining the existing KLAY tokens and FNSA tokens at the time of integration. There may be slight changes in the circulating supply of KLAY and FNSA tokens before the integration through the inflation and burning of block rewards. The circulating supply of the existing KLAY and FNSA at the time of integration will be included in the KAIA circulating supply according to the corresponding exchange rate. Details will be guided through a separate post-announcement by the foundation. The exchange rate for each token to KAIA is as follows:
+KAIA 令牌是在整合时将现有的 KLAY 代笔和 FNSA 代笔合并而成的。 在整合之前，KLAY 和 FNSA 代币的流通供应量可能会因区块奖励的膨胀和燃烧而略有变化。 合并时现有的 KLAY 和 FNSA 循环供应量将根据相应的汇率纳入 KAIA 循环供应量。 详细情况将由基金会另行发布公告。 每种代币与 KAIA 的兑换率如下：
 
-- KLAY: KAIA = 1:1
+- KLAY : KAIA = 1:1
 
-- FNSA: KAIA = 148.079656:1
+- FNSA : KAIA = 148.079656:1
 
-The estimated circulating supply at the time of integration and KAIA circulating supply can be explained separately as follows:
+合并时的估计流通供应量和 KAIA 的流通供应量可分别解释如下：
 
-##### Estimated Supply of KLAY and FNSA
+##### KLAY 和 FNSA 的估计供应量
 
-- Estimated Circulating Supply[^7]
+- 估计流通供应量\[^7］
   - KLAY: 3,789M KLAY
   - FNSA: 7.967M FNSA
-- Estimated Uncirculated Volume
-  - Klaytn Value Creation Fund (KVCF): 2,000M KLAY
-  - Klaytn Community Fund (KCF): 153M KLAY
-  - Klaytn Foundation Fund (KFF): 29M KLAY
+- 估计未流通数量
+  - Klaytn 价值创造基金 (KVCF)：20 亿 KLAY
+  - Klaytn 社区基金 (KCF)：1.53 亿 KLAY
+  - Klaytn 基金会基金（KFF）：2900 万 KLAY
 
-[^7]: The circulating supply of the Klaytn and Finschia chain may change due to block rewards, etc. until the chain merger.
+[^7]: 由于区块奖励等原因，Klaytn 和 Finschia 链的流通供应量可能会发生变化，直至链的合并。
 
-##### Estimated KAIA Issuance Volume
+##### 预估 KAIA 的发行量
 
-- (+) Conversion of circulating supply (4,968M KAIA)
-  - Converted KLAY circulating supply: 3,789M \* 1 = 3,789M KAIA
-  - Converted FNSA circulating supply: 7.967M \* 148.079656 FNSA = 1,179M KAIA
-- (-) Burning of uncirculated volume
-  - KVCF + KCF + KFF = 2,182M KAIA = Burn 1,382M KAIA out of 2,182M KAIA
-- (+) Conversion[^8] of uncirculated volume remaining after burning into circulating supply
-  - LINE NEXT Delegation: 330M KAIA
-  - Kaia Ecosystem Fund: 270M KAIA
-  - Kaia Infrastructure Fund: 200M KAIA
+- (+) 循环供应转换（49.68 亿 KAIA）
+  - 转换后的 KLAY 循环供应量：3,789m \* 1 = 3,789m KAIA
+  - 转换后的 FNSA 循环供应：7.967m \* 148.079656 FNSA = 1,179m KAIA
+- (-) 销毁非流通量
+  - KVCF + KCF + KFF = 21.82 亿 KAIA = 21.82 亿 KAIA 中销毁 13.82 亿 KAIA
+- (+) 将销毁后剩余的非循环体积转换为循环供应量\[^8］
+  - LINE NEXT 代表：330M KAIA
+  - Kaia 生态系统基金：2.7 亿 KAIA
+  - Kaia 基础设施基金：2 亿 KAIA
 
-Since the entire uncirculated amount gets burned at the time of KAIA conversion, the total supply and the circulating supply match. The estimated circulating supply at this time of integration is about 5,768M KAIA.
+由于在 KAIA 转换时所有未流通的数量都被销毁，因此总供应量和流通供应量是一致的。 据估计，整合后的流通供应量约为 57.68 亿 KAIA。
 
-However, the mentioned numbers are based on the issuance and circulating supply estimation as of May 14, 2024, GST, and the final figures may change depending on the inflation of Klaytn and Finschia.
+不过，上述数字是根据截至 2024 年 5 月 14 日的发行量和流通量估算的，最终数字可能会因 Klaytn 和 Finschia 的通货膨胀而发生变化。
 
-The circulating supply after the token merge may increase according to the measures mentioned in [Kaia Blockchain Fund](#kaia-blockchain-fund) or decrease due to burning. However, as specified in the relevant section, any additional supply must be announced in advance or approved by governance.
+代币合并后的流通供应量可能会根据 [Kaia 区块链基金](#kaia-blockchain-fund)中提到的措施增加，也可能因燃烧而减少。 但是，正如相关章节所规定的，任何额外的供应都必须事先公布或经管理部门批准。
 
-[^8]: Future circulation will only change due to inflation and new burning models. Incorporation of the circulation amount of the fund does not necessarily mean liquidation, and it will be executed transparently only within the scope of governance approval.
+[^8]: 未来的流通量只会因通货膨胀和新的销毁模式而发生变化。 基金流通额的合并并不一定意味着清算，而且只能在管理批准的范围内透明地执行。
 
-#### Treasury Rebalance Plan
+#### 国库再平衡计划
 
-With the launch of the Kaia Blockchain, the new tokenomics mentioned in the Tokenomics section will be applied. This involves a massive scale of tokens, including the conversion of existing FNSA and KLAY circulations to KAIA, new fund allocations, and burned tokens. A treasury rebalance event will occur only once at the launch, which is a critical process that must be systematic, transparent, and auditable. To ensure this, all procedures will be meticulously recorded in smart contracts. Moreover, given the large volume of tokens involved, it is vital to apply various technologies to prevent errors (such as fat finger errors) and minimize security risks. The application of the new tokenomics is structured to proceed safely only after several conditions are met. Ultimately, the new tokenomic state is achieved through the consensus of validators, relying on the highest level of security available on the blockchain.
+随着 Kaia 区块链的推出，代币经济学章节中提到的新代币经济学将得到应用。 这涉及到大规模的代币，包括将现有的 FNSA 和 KLAY 流通量转换为 KAIA、新的基金分配和销毁代币。 国库再平衡事件只会在启动时发生一次，这是一个关键的过程，必须系统、透明和可审计。 为确保这一点，所有程序都将在智能合约中进行详细记录。 此外，由于涉及大量代笔，因此必须应用各种技术来防止错误（如胖手指错误）并最大限度地降低安全风险。 只有在满足几个条件后，才能安全地应用新的代币模型。 最终，新的代币模型状态是通过验证者的共识实现的，依靠的是区块链上最高级别的安全性。
 
-The overall process is as follows. A contract named TreasuryRebalance is deployed, followed by the uploading of a rebalance configuration into this contract. All stakeholders whose balance will be altered must approve of the configuration. Once all stakeholders have approved, block validators check the validity of the contract at the hardfork block at which the rebalance event takes place. Provided all conditions are met, block validators execute the rebalance event and reach a consensus. After the event was successful, an execution receipt which block providers output will be uploaded to the contract so that anyone can view the rebalance result.
+整个过程如下。 部署名为 TreasuryRebalance 的合约，然后向该合约上传再平衡配置。 余额将被改变的所有利益相关者都必须同意这一配置。 一旦所有利益相关者都批准了，区块验证器就会在发生再平衡事件的硬分叉区块检查合约的有效性。 只要满足所有条件，区块验证器就会执行再平衡事件并达成共识。 事件成功后，将向合约上传一份执行收据，其中包含区块提供者的输出，以便任何人都能查看再平衡结果。
 
-TreasuryRebalance contract is implemented as a finite state machine and has the following states:
+TreasuryRebalance 合约是以有限状态机的形式实现的，其状态如下
 
-- Initialized: right after the deployment. In this state, a list of addresses whose balance will be zeroed, namely “Zeroed”, and addresses whose balance will be allocated, namely “Allocated”, can be registered.
+- 初始化：部署后立即初始化。 在这种状态下，可以登记余额将被清零（即 "清零"）的地址和余额将被分配（即 "分配"）的地址列表。
 
-- Registered: after all Zeroed and Allocated has been registered. In this state, there cannot be further registration. All owners of Zeroed must send a consent transaction, which indicates that they approve that their balance will be burnt.
+- 已登记：在所有清零和分配都已登记之后。 在这种情况下，不能再进行登记。 所有 Zeroed 的所有者都必须发送同意交易，表示他们同意其余额将被销毁。
 
-- Approved: after all consents have been collected, the contract can enter Approved state. Any change in this contract is prohibited until the hardfork block passes.
+- 批准：收集所有同意书后，合同可进入 "批准 "状态。 在硬分叉区块通过之前，禁止对该合约进行任何更改。
 
-- Finalized: After the hardfork block, the rebalance result, namely “memo”, is recorded and the contract is finalized. The contract is rendered immutable.
+- 最终完成：硬分叉区块结束后，重新平衡的结果（即 "备忘"）被记录下来，合约最终完成。 合约不可更改。
 
-The state transition is only possible in the following order. However, there can be a “reset” where all data is deleted and the state goes back to initialized.
+状态转换只能按以下顺序进行。 不过，也可以进行 "重置"，即删除所有数据，恢复到初始化状态。
 
 ![](/img/misc/state-machine.jpg)
 
-All block validators validate the contract state at the hardfork block. The rebalance event takes place only in the Approved state where no further change can happen. Since this event depends on the consensus of all validators, it is ensured that all validators reach the same world state after this event.
+所有区块验证器都会在硬分叉区块验证合约状态。 重新平衡事件只发生在已批准的状态，在该状态下不会再发生任何变化。 由于这一事件取决于所有验证者的共识，因此要确保所有验证者在这一事件后达到相同的世界状态。
 
-All block validators produce the result of the rebalance event called memo in their validator log. The memo is uploaded to the TreasuryRebalance contract during Finalize. memory is a JSON-formatted string which contains information such as the balance of Zeroed before the rebalance, the balance of Allocated after the rebalance, and the burnt amount. The admin of treasury rebalance validates the consistency of the memo and uploads it to TreasuryRebalance contract. After finalization, the contract becomes immutable forever.
+所有区块验证器都会在其验证器日志中生成名为 memo 的再平衡事件结果。 备忘录将在最终确定期间上传到 TreasuryRebalance 合约。 内存是一个 JSON 格式的字符串，包含的信息有：再平衡前的已清零余额、再平衡后的已分配余额以及销毁金额。 国库再平衡管理员验证备忘录的一致性，并将其上传到国库再平衡合约。 合约最终确定后，将永远不可更改。
 
-## Governance
+## 治理体系
 
-### Governance Core Components
+### 治理核心组成
 
-Kaia Governance operates based on three main components: Kaia Community, Kaia Council, and Kaia Foundation. Kaia Community encompasses all KAIA holders, who have the right to express their opinions on Kaia Mainnet operations via the governance forum and social channel. Kaia Council represents the community and directly participates in the governance decisions of the project based on the coins it holds and voting rights delegated from the community. Lastly, Kaia Foundation utilizes its expertise in blockchain and Web3 technology to provide evidence, based on professional knowledge and data that could assist Kaia Council in making decisions and implementing the decisions made through governance. Kaia Governance ensures effective decision-making and execution with this systematic structure and pursues transparent and fair community operation.
+Kaia 治理由三个主要部分组成：Kaia 社区、Kaia 理事会和 Kaia 基金会。 Kaia 社区包括所有 KAIA 持有者，他们有权通过管理论坛和社交渠道表达对 Kaia 主网运营的意见。 Kaia 理事会代表社区，根据其持有的代币和社区授予的投票权，直接参与项目的管理决策。 最后，Kaia 基金会利用其在区块链和 Web3 技术方面的专业知识，以专业知识和数据为基础，提供证据，协助 Kaia 理事会做出决策并通过治理实施决策。 通过这种系统化的结构，Kaia Governance 确保了有效的决策和执行，并追求透明和公平的社区运作。
 
-### Governance System
+### 治理系统
 
-Kaia Governance respects the diversity of the governance system and seeks to create a diverse governance ecosystem through the coexistence, cooperation, and competition of multiple systems. It encompasses various forms of governance found in the real world ranging from representative democracy, where each individual grants voting rights to decision-makers to representatives, the DAO system, where all members participate in the decision-making process of the organization, and capitalism, where shareholders influence company decisions through representatives designated by shareholders. Kaia Governance seeks to lay the foundation for a transparent and fair blockchain ecosystem through this comprehensive approach. Its vision is to build a stronger and more flexible system by combining the strengths of multiple governance models.
+Kaia 治理尊重治理体系的多样性，力求通过多种体系的共存、合作与竞争，打造一个多样化的治理生态系统。 它涵盖了现实世界中的各种治理形式，包括代议制民主（每个人都将决策者的投票权授予代表）、DAO 系统（所有成员都参与组织的决策过程）和资本主义（股东通过股东指定的代表影响公司决策）。 Kaia Governance 希望通过这种全面的方法，为建立一个透明、公平的区块链生态系统奠定基础。 其愿景是结合多种治理模式的优势，建立一个更强大、更灵活的系统。
 
-### Community-Centered Governance
+### 以社区为中心的治理
 
-At Kaia, organizations based on various governance systems will participate in governance, express their opinions, and thereby prove the excellence of their systems. More holders and assets will be concentrated in systems that have proven their greater contribution to the sustainable development of the Kaia ecosystem, resulting in more decision-making authority being concentrated in members with successful systems. Also, the council members will replicate successful governance, expanding the system.
+在 Kaia，基于各种治理体系的组织将参与治理，发表意见，从而证明其体系的卓越性。 更多的持有人和资产将集中在那些已经证明对卡伊阿生态系统的可持续发展有更大贡献的系统中，从而使更多的决策权集中在拥有成功系统的成员手中。 此外，理事会成员还将复制成功的治理经验，扩大系统规模。
 
-As time passes, optimized governance systems for new trends will emerge. Kaia Governance will continue to develop focusing on the optimized governance system in line with these changes, which will contribute to an increased efficiency of the entire ecosystem. In the process, Kaia will present an example of a governance system with both diversity and flexibility and will lead the innovation in governance in the blockchain ecosystem.
+随着时间的推移，针对新趋势的优化治理系统将会出现。 Kaia 治理公司将根据这些变化继续发展优化的治理系统，这将有助于提高整个生态系统的效率。 在此过程中，Kaia 将展示一个兼具多样性和灵活性的治理系统实例，并将引领区块链生态系统的治理创新。
 
-Kaia builds the Kaia Governance system based on the belief that Web3 innovation has its roots in the participation of various communities. In line with this hypothesis, greater importance is given to community input in the decision-making process. As a result, it ensures that decision-making power is fairly distributed among different council members. Through this approach, Kaia Governance aims to foster sustainable development and innovation in Web3 by prioritizing the voices of the community and creating a more inclusive and diverse decision-making environment.
+Kaia 建立 Kaia 治理系统的信念是，Web3 创新的根源在于各种社区的参与。 根据这一假设，在决策过程中更加重视社区的意见。 因此，它确保了决策权在不同理事会成员之间的公平分配。 通过这种方法，Kaia Governance 旨在优先考虑社区的声音，创造一个更具包容性和多样性的决策环境，从而促进 Web3 的可持续发展和创新。
 
-### Governance Direction
+### 治理方向
 
-Kaia Governance adopts a strategy of adjusting the pace of the governance process, considering changes in the cryptocurrency market and the development stage of the Kaia ecosystem. The discussion and processing speed of the agenda are determined through a consensus between the foundation, council, and community, which reflects the rapidly changing cryptocurrency market situation and the ongoing growth process of Project Kaia. Currently, in 2024, the ecosystem of Project Kaia is still in the development stage despite the rapid progress over the past five years, and Kaia takes a governance approach with growth as its priority. By establishing a structure where the agendas can be discussed and decided quickly, the project plans to proactively respond to the changing market environments and accelerate the growth of the ecosystem.
+考虑到加密货币市场的变化和 Kaia 生态系统的发展阶段，Kaia 治理采取了调整治理流程速度的策略。 议程的讨论和处理速度由基金会、理事会和社区协商一致决定，这反映了瞬息万变的加密货币市场形势和 Kaia 项目的持续发展进程。 目前，即 2024 年，Kaia 项目的生态系统仍处于发展阶段，尽管在过去五年中取得了飞速发展，但 Kaia 采取的治理方法是以增长为优先。 通过建立一个可以快速讨论和决定议程的结构，该项目计划积极应对不断变化的市场环境，加快生态系统的发展。
 
-## Technology
+## 技术
 
-### Overview
+### 概述
 
-Kaia Blockchain has three primary technical objectives.
+Kaia 区块链有三个主要技术目标。
 
-First, performance is paramount. The blockchain emphasizes rapid finality, ensuring that users receive immediate responses. It also aims to process a high volume of user requests quickly, enabling blockchain applications (dApps) on Kaia Blockchain to offer a user experience comparable to conventional mobile apps.
+首先，性能是最重要的。 区块链强调快速终结，确保用户能立即得到回复。 它还旨在快速处理大量用户请求，使 Kaia 区块链上的区块链应用程序（dApp）能够提供与传统移动应用程序相媲美的用户体验。
 
-Second, transparency is crucial. Decision-making at the layer 1 protocol has widespread implications across the ecosystem. Therefore, decisions should be made transparently through on-chain governance. Furthermore, Kaia Blockchain intends to publicly disclose all elements related to the operation of the blockchain network, ensuring that it is fully verifiable by anyone.
+第二，透明度至关重要。 第 1 层协议的决策会对整个生态系统产生广泛影响。 因此，应通过链上管理透明地做出决策。 此外，Kaia Blockchain 还打算公开披露与区块链网络运行有关的所有要素，确保任何人都可以对其进行完全验证。
 
-Third, sustainability is essential. Operating a blockchain over the long term presents various challenges, such as the continuous increase in block data and the economics necessary to sustain network operations. Kaia Blockchain is designed to reduce operational costs and increase profitability, ensuring its long-term viability.
+第三，可持续性至关重要。 区块链的长期运营面临各种挑战，例如区块数据的持续增长和维持网络运营所需的经济性。 Kaia 区块链旨在降低运营成本，提高盈利能力，确保其长期可行性。
 
-The forthcoming content will cover two main topics. The first is the genesis of the Kaia Blockchain, describing the technologies applied, including consensus mechanisms, smart contracts, and on-chain governance, which collectively reflect the extensive technical considerations made to achieve its goals. The second topic is the evolution of the Kaia Blockchain. It will introduce a variety of new technologies that are planned for the near future, including maintaining high performance while allowing anyone to operate a validator node in a permissionless manner, enhancing transparency in block transaction ordering to mitigate the negative effects of Maximal Extractable Value (MEV), and block archiving techniques for swift verification of historical blocks. These innovations will set the Kaia Blockchain apart, enhancing its uniqueness and attractiveness.
+即将发布的内容将涵盖两大主题。 首先是 Kaia 区块链的起源，介绍了所应用的技术，包括共识机制、智能合约和链上治理，这些技术共同反映了为实现其目标所做的大量技术考虑。 第二个主题是 Kaia 区块链的演变。 它将介绍计划在不久的将来采用的各种新技术，包括在保持高性能的同时允许任何人以无许可的方式操作验证器节点、提高区块交易排序的透明度以减轻最大可提取价值（MEV）的负面影响，以及用于快速验证历史区块的区块存档技术。 这些创新将使 Kaia 区块链与众不同，增强其独特性和吸引力。
 
-### Birth of Kaia Blockchain
+### Kaia 区块链的诞生
 
-To achieve the aforementioned technical goal, Kaia Blockchain is launched with various technical features. 具体来说，共识和网络拓扑结构有助于实现性能目标，而智能合约和链上治理则有助于实现透明度和可持续性。 The initial performance of Kaia Blockchain is as follows:
+为了实现上述技术目标，Kaia 区块链推出了各种技术功能。 具体来说，共识和网络拓扑结构有助于实现性能目标，而智能合约和链上治理则有助于实现透明度和可持续性。 Kaia 区块链的初始性能如下：
 
-- Process 4,000 transactions/sec (TPS)
+- 每秒处理 4,000 笔交易 (TPS)
 
-- Instant transaction finality
+- 即时交易终结
 
-- Creation time of 1 block/second
+- 创建时间为 1 个区块/秒
 
-#### Consensus and Networking
+#### 共识与联网
 
-Blockchains use a “distributed ledger,” which consists of a connected network between individuals with several network participants to record and manage the transaction information. Each blockchain adopts a consensus algorithm that is most suitable for it, with the aim of efficient and smooth consensus on transaction validation and block generation among network participants. These consensus algorithms help the system to reach a consensus on the correct state, even if there is a system failure or malicious attack on the network. They play an important role in ensuring the integrity and stability of the blockchain.
+区块链使用 "分布式账本"，由多个网络参与者组成的个人之间的连接网络来记录和管理交易信息。 每个区块链都采用最适合自己的共识算法，目的是在网络参与者之间就交易验证和区块生成达成高效、顺畅的共识。 这些共识算法有助于系统就正确的状态达成共识，即使系统出现故障或网络受到恶意攻击也是如此。 它们在确保区块链的完整性和稳定性方面发挥着重要作用。
 
-##### IBFT (Istanbul Byzantine Fault Tolerance)
+##### IBFT（伊斯坦布尔拜占庭容错技术）
 
-Kaia aims to become an enterprise-support and service-oriented platform. Therefore, the finality problem must be solved, with the network allowing many nodes to participate in the network. For this purpose, Kaia uses an optimized version of Istanbul BFT, which implements PBFT with modifications to suit the characteristics of blockchain networks.
+Kaia 的目标是成为一个以企业支持和服务为导向的平台。 因此，必须解决最终性问题，网络允许许多节点参与。 为此，Kaia 使用了伊斯坦布尔 BFT 的优化版本，该版本实现了 PBFT，并根据区块链网络的特点进行了修改。
 
-Kaia Blockchain has three types of nodes: Consensus Node(CN), Proxy Nodes(PN), and Endpoint Nodes (EN). CN is managed by a validator and is responsible for block creation. These blocks are verified by all the nodes within the network.
+Kaia 区块链有三种类型的节点：共识节点（CN）、代理节点（PN）和端点节点（EN）。 CN 由验证器管理，负责区块的创建。 这些区块由网络内的所有节点验证。
 
 ![](/img/misc/kaia-nodes.jpg)
 
-Kaia Blockchain has adopted and enhanced Istanbul BFT to achieve rapid finality. Since validation and consensus occur with each block, there are no forks, and the finality of the blocks where consensus is reached is immediately guaranteed. Block proposers are selected in an unpredictable manner using a Verifiable Random Function (VRF), thereby offering high resistance to centralized Denial of Service (DoS) attacks. CN must deposit a certain amount of tokens, maintaining reasonable networking costs while enabling easy operation by any EN, thus enhancing the scalability of the blockchain network usage.
+Kaia 区块链采用并增强了伊斯坦布尔 BFT，以实现快速终结。 由于验证和共识发生在每个区块中，因此不会出现分叉，而且达成共识的区块的最终性也能立即得到保证。 使用可验证随机函数 (VRF) 以不可预测的方式选择区块提议者，因此可有效抵御集中式拒绝服务 (DoS) 攻击。 CN 必须存入一定数量的代币，保持合理的网络成本，同时使任何 EN 都能轻松操作，从而提高区块链网络使用的可扩展性。
 
-##### Multi-channel Broadcast
+##### 多频道广播
 
-Network latency is greatly affected by network congestion. Assuming the throughput of the network is constant, network latency increases proportionally to the increase in the number of transactions. General users of mobile apps or web services do not tolerate response times longer than a few seconds, and there is no reason to assume that blockchain services will have greater user patience.
+网络延迟受网络拥塞的影响很大。 假设网络吞吐量不变，网络延迟会随着事务数量的增加而成正比增加。 移动应用程序或网络服务的普通用户无法忍受超过几秒的响应时间，没有理由认为区块链服务会有更大的用户耐心。
 
-Kaia Blockchain adopts a multi-channel approach to deal with network congestion. By allocating separate propagation channels to transactions and blocks, the Kaia network can propagate newly created blocks in a timely manner even when the network faces severe congestion due to a large number of transactions. In turn, Kaia guarantees the dApps on the network to continue responding to end-user requests despite intermittent network traffic surges.
+Kaia 区块链采用多渠道方法处理网络拥塞问题。 通过为交易和区块分配不同的传播通道，Kaia 网络即使在网络因大量交易而面临严重拥堵的情况下，也能及时传播新创建的区块。 反过来，Kaia 又能保证网络上的 dApps 在间歇性网络流量激增的情况下继续响应终端用户的请求。
 
-##### Consensus Process
+##### 协商一致进程
 
-The consensus process consists of the following three stages:
+协商一致过程包括以下三个阶段：
 
-1. Election: The Committee is composed of Consensus Nodes (CNs) that participate in achieving consensus. This is a similar task to the leader election in a general distributed system. The proposer is randomly selected through VRF since knowing them in advance can make them vulnerable to targeted DoS (denial of service).
+1. 选举：委员会由参与达成共识的共识节点 (CN) 组成。 这与一般分布式系统中的领导者选举任务类似。 提议者是通过 VRF 随机选择的，因为事先知道他们会使他们容易受到有针对性的 DoS（拒绝服务）攻击。
 
-2. Block Generation: Elected proposers create a block and make a proposal to the committee. The block proposal made through the P2P network is sent to the committee.
+2. 区块生成：当选提案人创建一个区块，并向委员会提出提案。 通过 P2P 网络提出的区块建议将发送给委员会。
 
-3. Block Verification: The committee verifies and signs the block proposed by the proposer. A block is complete when more than a quorum of signatures is collected.
+3. 区块验证：委员会核实并签署提案者提出的区块。 当收集到的签名超过法定人数时，一个区块即完成。
 
-#### Account Model and Smart Contract
+#### 账户模型和智能合约
 
-Kaia Blockchain offers scalability in service development through its expanded account model and smart contract capabilities. Smart contracts on the blockchain enhance the efficiency of transactions and contracts between individuals through contract automation, and the use of smart contracts has had a significant impact on the blockchain and dApp ecosystem. Contract conditions can be coded into smart contracts and automatically executed, solving the trusted intermediary issue. Smart contracts have allowed the blockchain ecosystem to create new business models and economic systems by reducing the cost and time required to complete transactions. Kaia Blockchain supports a distributed virtual machine for executing smart contracts, which is designed to be fast and efficient, providing the best and swiftest development environment for dApp developers and projects.
+Kaia 区块链通过其扩展的账户模型和智能合约功能，为服务开发提供了可扩展性。 区块链上的智能合约通过合约自动化提高了个人之间交易和合约的效率，智能合约的使用对区块链和 dApp 生态系统产生了重大影响。 合约条件可以编码到智能合约中并自动执行，从而解决可信中介问题。 智能合约通过降低完成交易所需的成本和时间，使区块链生态系统能够创建新的商业模式和经济体系。 Kaia 区块链支持用于执行智能合约的分布式虚拟机，该虚拟机设计快速高效，可为 dApp 开发人员和项目提供最佳、最迅速的开发环境。
 
-##### Account Model
+##### 账户模式
 
-The Kaia Blockchain supports an expanded form of the Account Model. Inside the implementation of an EOA (Externally Owned Account) account, it is possible to store an Account Key, which is an expanded form of the EOA's Public Key. This information allows users to replace the Private Key associated with that account. Additionally, users can register multiple Private Keys for use in Multi-Signature setups or to separate roles among different Private Key users. The roles provided include the authority to create transactions, update registered keys in the Account, and permissions solely for fee delegation purposes.
+Kaia 区块链支持账户模式的扩展形式。 在 EOA（外部拥有账户）账户的执行过程中，可以存储账户密钥，这是 EOA 公钥的扩展形式。 用户可以利用这些信息替换与该账户相关的私钥。 此外，用户还可以注册多个私钥，用于多重签名设置或区分不同私钥用户的角色。 所提供的角色包括创建交易、更新账户中注册密钥的权限，以及仅用于费用委托的权限。
 
-##### Kaia Virtual Machine (KVM)
+##### Kaia 虚拟机（KVM）
 
-The current version of Kaia Virtual Machine (KVM) is a derivative of the Ethereum Virtual Machine (EVM). It supports all Opcodes of the Ethereum Virtual Machine equally while providing additional precompiled contracts unique to the Kaia Virtual Machine. To prevent the additional precompiled contracts of Kaia from colliding with the precompiled contracts of the Ethereum Virtual Machine, the precompiled contract addresses of Kaia are given in a decreasing order starting from 0x03ff.
+当前版本的 Kaia 虚拟机（KVM）是以太坊虚拟机（EVM）的衍生产品。 它同样支持以太坊虚拟机的所有操作码，同时提供 Kaia 虚拟机独有的额外预编译合约。 为防止 Kaia 的额外预编译合约与以太坊虚拟机的预编译合约发生冲突，Kaia 的预编译合约地址从 0x03ff 开始依次递减。
 
-Kaia Virtual Machine provides several methods to write and run Smart Contracts on the Kaia network. Kaia supports Solidity and maintains interoperability with Ethereum development toolkits such as Remix, Hardhat, Truffle, and Foundry. A smart contract written with Solidity can be compiled using the existing Solidity compiler and can be run on Kaia without additional work. Solidity is the de facto standard contract programming language on Ethereum and is supported by an active community. Therefore, Kaia Blockchain supports the Solidity language to provide the most familiar development environment for Ethereum dApp developers allowing them to easily migrate their work.
+Kaia 虚拟机提供了几种在 Kaia 网络上编写和运行智能合约的方法。 Kaia 支持 Solidity，并与 Remix、Hardhat、Truffle 和 Foundry 等以太坊开发工具包保持互操作性。 使用 Solidity 编写的智能合约可以使用现有的 Solidity 编译器进行编译，无需额外工作即可在 Kaia 上运行。 Solidity 是以太坊上事实上的标准合约编程语言，并得到活跃社区的支持。 因此，Kaia 区块链支持 Solidity 语言，为以太坊 dApp 开发人员提供最熟悉的开发环境，使他们能够轻松迁移工作。
 
-##### System contracts
+##### 系统合约
 
-Kaia Blockchain manages a part of protocol as smart contracts, which are called system contracts. Block validators directly or indirectly interact with system contracts. System contracts facilitate transparent and easy-to-access protocol operation. There is a specification that defines a Registry contract which will contain new system contracts. It can be viewed by a REST API and thus users can continuously check and monitor system contracts.
+Kaia 区块链以智能合约的形式管理协议的一部分，即系统合约。 区块验证器直接或间接与系统合约互动。 系统合约有助于实现透明和易于访问的协议操作。 有一个规范定义了注册表合约，该合同将包含新的系统合约。 它可以通过 REST API 查看，因此用户可以持续检查和监控系统合约。
 
-Since system contracts can directly impact the blockchain protocol, they need to be managed in a highly secure manner. They are internally classified as the highest level of security, and thus they are managed as a multi-sig by default. Storing of keys and signing of transactions are performed in an isolated device which is never connected to online. In addition, there are internal manuals and tools for systematic management of system contracts.
+由于系统合约会直接影响区块链协议，因此需要以高度安全的方式对其进行管理。 它们在内部被归类为最高安全级别，因此默认情况下作为多重签名进行管理。 密钥的存储和交易的签署都在一个与外界隔绝的设备中进行，该设备永远不会与网络连接。 此外，还有系统管理系统合约的内部手册和工具。
 
-These are essential system contracts:
+这些都是必不可少的系统合约：
 
-- AddressBook: a contract which manages a list of validators.
+- 地址簿：管理验证器列表的合约。
 
-- GovParam: a contract for on-chain governance on network parameters .
+- GovParam：网络参数链上治理合同 .
 
-- SimpleBlsRegistry: a BLS key storage for validators.
+- SimpleBlsRegistry：用于验证器的 BLS 密钥存储器。
 
-#### On-Chain Governance
+#### 链上治理
 
-On-chain governance is an on-chain decision-making system among stakeholders. On-chain governance is implemented in a structure including smart contracts and has several advantages over off-chain governance. The entire process of governance is transparently recorded, and anyone can check the progress of governance on-chain (transparency). Since the governance process proceeds solely according to the contract logic, the voting and results cannot be tampered with maliciously (integrity). Therefore, the intentions of the participants can be reflected without any distortion in the governance process. Also, it is impossible to deny a vote because no one except the voter can vote (non-repudiation). As a result, the voters become accountable for their voting behaviors. An environment where the voting results can be enforced compulsorily or automatically can be created (enforceability). Without enforceability, the implementer may ignore the voting results, which will eventually reduce the credibility of governance.
+链上治理是利益相关者之间的链上决策系统。 链上治理是在包括智能合约在内的结构中实施的，与链下治理相比，链上治理具有若干优势。 治理的整个过程都被透明地记录下来，任何人都可以在链上查看治理的进展情况（透明度）。 由于治理过程完全按照合约逻辑进行，因此投票和结果不会被恶意篡改（完整性）。 因此，参与者的意图可以在治理过程中得到反映，而不会受到任何扭曲。 此外，不可能拒绝投票，因为除了投票人之外，其他人都不能投票（不可抵赖性）。 因此，选民要对自己的投票行为负责。 可以创建一个强制或自动执行投票结果的环境（可执行性）。 如果没有可执行性，执行者可能会忽视投票结果，最终会降低治理的可信度。
 
-Kaia Blockchain implements an on-chain governance system satisfying the above properties. The on-chain governance of Kaia Blockchain is designed to be fair and to ensure diverse opinions are shared. Voting entities can vote on all agenda items. Voting rights are calculated in proportion to the amount of staking. However, there is a cap on voting rights to prevent minority opinions from being ignored. Users can delegate their staking amount to other voters.
+Kaia 区块链实现了满足上述特性的链上治理系统。 Kaia 区块链的链上管理旨在实现公平，并确保分享不同意见。 有表决权的实体可对所有议程项目进行表决。 投票权按出资额的比例计算。 不过，投票权是有上限的，以防止少数人的意见被忽视。 用户可以将自己的投注额委托给其他投票人。
 
-The voting process is transparent and open. Types of agendas include text agendas, parameter change agendas, and fund expense agendas. For some agendas, such as parameter change agendas, a transaction can be attached to the agenda. In this case, once the agenda is passed, the transaction will be automatically executed. This allows the mandatory performance of governance by automatically reflecting the changes in network parameters as well as executing funds through governance.
+投票过程透明公开。 议程类型包括文本议程、参数更改议程和资金支出议程。 对于某些议程，如参数更改议程，可在议程上附加事务。 在这种情况下，一旦议程通过，事务就会自动执行。 这样就能自动反映网络参数的变化，并通过治理执行资金，从而强制执行治理。
 
-Other than this, various detailed policy decisions, such as restrictions on voting rights, voting periods, and voter participation, are needed for a comprehensive and fair decision-making system. A highly reliable network will be built by establishing a governance system that harmoniously reflects the needs and expectations of various stakeholders.
+除此之外，还需要做出各种详细的政策决定，如对投票权、投票时间和选民参与的限制，以建立一个全面、公平的决策系统。 要建立一个高度可靠的网络，就要建立一个能和谐反映各利益相关方的需求和期望的管理制度。
 
-##### Governance Process
+##### 治理程序
 
-The overall governance process of Kaia is as follows:
+Kaia 的总体管理流程如下：
 
-1. Discussion: Improve the agenda through free discussion among all participants off-chain.
+1. 讨论：通过链外所有参与者的自由讨论完善议程。
 
-2. On-Chain Agenda Voting: Register the agenda on-chain and proceed with voting.
+2. 链上议程投票：在链上注册议程并进行表决。
 
-3. Reflect Results (Activation): Implement when agenda items are approved.
+3. 反映结果（激活）：在议程项目获得批准后实施。
 
 ![](/img/misc/gov-process.jpg)
 
-Agendas registered on-chain go through several states until the voting is complete.
+在链上登记的议程会经过几个形态，直到投票结束。
 
-- Pending: Status after the agenda is registered and until voting takes place. As the agenda is registered, the list of voters is determined.
+- 待定：议程登记后至表决前的状态。 随着议程的登记，选民名单也随之确定。
 
-- Active: Voting is in progress. The voting power of the voters gets fixed when voting begins.
+- 活跃：投票正在进行中。 投票开始后，选民的投票权就固定下来了。
 
-- Passed: Agenda passed with the approval of a quorum.
+- 通过：议程经法定人数批准通过。
 
-- Failed: Agenda rejected because it did not receive a quorum of approval votes.
+- 未通过：议程因未达到法定批准票数而被否决。
 
-- Queued: Waiting period after the passing of the agenda and before the execution.
+- 排队：等待期：议程通过后至执行前的等待期。
 
-- Executed: Agenda fully executed.
+- 已执行：议程已完全执行。
 
 ![](/img/misc/gov-process-2.png)
 
-##### Enforceability
+##### 可执行性
 
-Kaia Blockchain is configurable via several network parameters, with which they can be altered by on-chain governance. An example of network parameters is “upperboundbasefee”, which defines the maximum value to which the dynamic gas fee can go up. There exists a system contract named GovParam, which enables the enforceability of the governance proposal. This contract is a key-value storage with an activation number for each key. A value of network parameter can be updated by submitting a tuple of (param as a key, new value, activation block number), which will be read by validators and be activated starting from the activation block.
+Kaia 区块链可通过多个网络参数进行配置，这些参数可通过链上管理进行更改。 网络参数的一个例子是 "upperboundbasefee"，它定义了动态Gas费可以上涨的最大值。 存在一个名为 GovParam 的系统合同，它使治理建议具有可执行性。 该合约是一个键值存储器，每个键都有一个激活号码。 网络参数值可通过提交一个元组（param 作为键、新值、激活块编号）来更新，验证器将读取该元组，并从激活块开始激活。
 
 ![](/img/misc/enforceability.png)
 
-The above figure shows how network parameters are updated via on-chain governance. A governance proposal can contain a transaction, which will be executed once the proposal passes. When proposing, the proposer attaches a transaction which invokes GovParam. When the proposal passes, the secretary sends a transaction to execute the proposal, which will internally invoke the transaction contained in the proposal. Validators check GovParam every block and apply the new network parameter value at the activation block. In this way, the network parameters can be enforced in a decentralized manner.
+上图显示了如何通过链上治理更新网络参数。 治理提案可以包含交易，一旦提案通过，交易就会执行。 提案时，提案人会附加一个调用 GovParam 的事务。 提案通过后，秘书会发送一个事务来执行提案，该事务将在内部调用提案中包含的事务。 验证器会检查每个区块的 GovParam，并在激活区块应用新的网络参数值。 这样，网络参数就能以分散的方式执行。
 
-### Kaia Evolution
+### Kaia 进化论
 
-The Kaia Blockchain is committed to continuously adopting new technologies to achieve the three technical objectives introduced earlier. Some of these technologies are expected to be developed and implemented in the near future. Specifically, new technologies that Kaia blockchain will adopt can improve the aforementioned three goals; high performance permissionless allows anyone to become a node validator, mitigating the negative effect of MEV with transparent tx ordering, archiving old blocks in a verifiable manner, and public governance delegation can facilitate high performance, transparency, and sustainability.
+Kaia 区块链致力于不断采用新技术，以实现前面介绍的三个技术目标。 其中一些技术有望在不久的将来得到开发和实施。 具体来说，Kaia 区块链将采用的新技术可以改进上述三个目标；高性能无权限允许任何人成为节点验证者，通过透明的 tx 排序减轻 MEV 的负面影响，以可验证的方式归档旧区块，以及公共治理授权可以促进高性能、透明度和可持续性。
 
-#### High-Performance Permissionless
+#### 高性能无需许可
 
-BFT-type consensus algorithms generally have restrictions in the process of participating as a validator. This is due to the tendency of the performance of the entire network to deteriorate caused by abnormal nodes when validators participate freely. As an integrated chain, Kaia pursues a completely permissionless network and will develop into a network where anyone can participate as a block creation node while maintaining high performance. After introducing the Permissionless Network, nodes meeting certain conditions will be given the role of block creation nodes. Specifically, an automated qualification verification process will be introduced to check whether the block creation node is qualified to maintain stability. In terms of consensus participating in the creation and verification of blocks, there are “candidates” and validators. In terms of governance, there are Governance Council Members. One can register as a candidate and meet specific conditions to become a validator. Validators can receive rewards by participating in the block creation consensus process. Permissionless Network is implemented through the following factors:
+BFT 类型的共识算法在作为验证者参与的过程中一般都有限制。 这是因为当验证者自由参与时，异常节点会导致整个网络的性能下降。 作为一个集成链，Kaia 追求的是一个完全无权限的网络，并将发展成为一个任何人都可以作为区块创建节点参与的网络，同时保持高性能。 引入无权限网络后，符合特定条件的节点将被赋予区块创建节点的角色。 具体来说，将引入自动资格验证流程，以检查区块创建节点是否具备保持稳定的资格。 就参与区块创建和验证的共识而言，有 "候选者 "和验证者。 在管理方面，有管理委员会成员。 一个人可以注册成为候选人，满足特定条件后即可成为验证人。 验证者可以通过参与区块创建共识过程获得奖励。 无需许可网络是通过以下因素实现的：
 
-- _**Unpredictable Proposer Selection Algorithm:**_ An algorithm that strengthens resistance to DoS attacks by changing the block proposer selection method difficult to predict.
+- _**不可预测的提议者选择算法：**_ 一种通过改变难以预测的区块提议者选择方法来加强抵御 DoS 攻击的算法。
 
-- _**VRank (Validator Reputation Evaluation Framework):**_ A framework that evaluates the reputation of a validator.
+- _**VRank（验证器声誉评估框架）：**_ 一个评估验证器声誉的框架。
 
-- _**Autonomous Validator Slashing System:**_ A system that penalizes erroneous or malicious actions of validators.
+- _**自主验证器削减系统：**_ 惩罚验证器错误或恶意行为的系统。
 
-- _**System Transaction and Consensus Msg:**_ A reflection of the latest consensus information in the contract for each block through a “system transaction” automatically generated by the block proposer.
+- _**系统交易和共识信息：**_ 通过区块提议者自动生成的 "系统交易"，反映每个区块合约中的最新共识信息。
 
-#### Maximal Extraction Value
+#### 最大提取值
 
-MEV (Maximal Extractable Value) is the potential benefit that can be gained by strategically ordering or changing the transaction order in a block. MEV involves unfair practices, such as front-running, to gain profits at the expense of other users. Kaia Network aims to build a system that ensures a fair and transparent transaction order to mitigate the negative effects of MEV. Also, a method to redistribute or burn MEV extraction profits into the network ecosystem will be provided to support the sustainable development of the network. Lastly, a system to monitor and share transactions in real time will be implemented to prevent any unfair practices that may be carried out by validators, increasing the reliability of the network. This will not only increase the transparency and fairness of the Kaia network but will also greatly contribute to the sustainable development of the ecosystem.
+MEV（Maximal Extractable Value，最大可提取价值）是指通过策略性地排序或更改区块中的交易顺序所能获得的潜在收益。 MEV 涉及以牺牲其他用户利益为代价获取利润的不公平做法，如 "抢跑"。 Kaia Network 旨在建立一个确保公平透明交易秩序的系统，以减轻 MEV 的负面影响。 此外，还将提供一种方法，将提取 MEV 的利润重新分配或烧入网络生态系统，以支持网络的可持续发展。 最后，将实施一个实时监测和共享交易的系统，以防止验证者可能采取的任何不公平做法，从而提高网络的可靠性。 这不仅将提高 Kaia 网络的透明度和公平性，还将极大地促进生态系统的可持续发展。
 
-#### Block Data Archiving
+#### 块数据存档
 
-Blockchain continuously has an increase in the blocks (data) stored over time due to transaction history and execution of smart contracts. The capacity of Kaia Blockchain is growing even faster due to its short block time and high transaction throughput (TPS). As a result, the cost of new validators participating in the network and verifying the blocks by synchronizing them is also increasing. The volume of data accumulated over the years is not small, and it takes a lot of resources to verify it. High verification costs work as a barrier for new validators to enter, which can reduce the reliability of the chain. To solve this issue, Kaia Blockchain will study how to reduce the verification cost of past blocks. The following methods will be considered and introduced as they compress or archive old blocks in a verifiable manner so that only the archived data can be quickly verified without each block having to be verified.
+由于交易历史和智能合约的执行，随着时间的推移，区块链存储的区块（数据）会不断增加。 由于其区块时间短、交易吞吐量（TPS）高，Kaia 区块链的容量增长更快。 因此，新验证器参与网络并通过同步验证区块的成本也在增加。 多年来积累的数据量并不小，要核实这些数据需要大量资源。 高昂的验证成本阻碍了新验证者的进入，从而降低了验证链的可靠性。 为了解决这个问题，Kaia 区块链将研究如何降低过去区块的验证成本。 我们将考虑并介绍以下方法，因为这些方法以可验证的方式压缩或归档旧数据块，从而只需快速验证归档数据，而无需验证每个数据块。
 
-- **Verifiable block data compression:** Compresses blocks in a verifiable manner.
+- **可验证的数据块压缩：** 以可验证的方式压缩数据块。
 
-  - Block data pruning at a certain block cycle or data unit
+  - 在某个区块周期或数据单元上剪切区块数据
 
-  - Convert the blocks pruned in on-chain into a verifiable certificate and record in on-chain. This certificate is compressed and recorded as a Commitment using cryptography (such as KZG) or Proof using the recursion method of ZKP.
+  - 将链上修剪的区块转换成可验证的证书，并记录在链上。 该证书使用加密技术（如 KZG）压缩并记录为承诺，或使用 ZKP 的递归方法证明。
 
-  - Support a verification system that can verify certificates in on-chain
+  - 支持可在链上验证证书的验证系统
 
-    - Verification system efficiently and constantly verifies certificates.
+    - 验证系统可高效、持续地验证证书。
 
-    - At the time of compression, the certificate is verified and recorded in the block when the next block is created.
+    - 在压缩时，证书将被验证，并在创建下一个区块时记录在区块中。
 
-    - Anyone can verify the corresponding certificate through a verification system.
+    - 任何人都可以通过验证系统验证相应的证书。
 
-- **Lightweight block synchronization:** When participating as a new node or verifier, synchronize and verify the compressed certificates and subsequent blocks rather than synchronize the entire block data.
+- **轻量级区块同步：** 作为新节点或验证器参与时，同步并验证压缩证书和后续区块，而不是同步整个区块数据。
 
-- **Support DA Layer:** Some users and dApps require a checkup on historical data. A DA Layer is provided to provide trusted data without faults.
+- **支持 DA 层：** 某些用户和 dApp 需要检查历史数据。 DA 层可提供无故障的可信数据。
 
-By dramatically reducing the verification cost by the above methods, new validators will be able to onboard quickly.
+通过上述方法大大降低了验证成本，新的验证人员将能够快速上岗。
 
-#### Public Delegation
+#### 公众代表团
 
-Kaia Blockchain provides a function where validator operators can be delegated. To provide this function as a default, Kaia Blockchain will additionally develop and provide a contract providing a public delegation function in conjunction with staking contracts for validators. This will allow users to participate in governance in the future by expanding the voting power of voters by delegating tokens to other voters expressing opinions on their behalf. This structure is similar to representative democracy, a form of politics in which the people elect members of the National Assembly, and the members of the National Assembly vote when the National Assembly passes an agenda. The users, furthermore, can delegate or revoke their delegation whenever they wish in Kaia Blockchain. This will allow general holders to reflect their opinions in governance and a governance system respecting diverse opinions will be established.
+Kaia 区块链提供了一个可以委托验证器操作员的功能。 为了默认提供这一功能，Kaia 区块链还将开发和提供一种合约，结合验证者的盯盘合约提供公共委托功能。 通过将代币委托给代表自己表达意见的其他投票人，扩大投票人的投票权，这将使用户未来能够参与治理。 这种结构类似于代议制民主，在代议制民主中，人民选举国民议会成员，国民议会通过议程时由国民议会成员投票。 此外，用户还可以在 Kaia 区块链中随时委托或撤销其委托。 这将使普通持有人的意见在治理中得到反映，并建立起尊重不同意见的治理体系。
 
-## Roadmap
+## 路线图
 
-Kaia Blockchain is an integrated mainnet platform that started with the integration of the Finschia Foundation and the Klaytn Foundation. Its core goal is to provide an infrastructure for the adoption of Web3. To achieve this goal, Kaia Blockchain seeks to facilitate the development of blockchain-based projects through builder-centric support. Through this, new potentials of Web3 technology will be explored. Kaia Blockchain provides developers with essential toolkits, SDKs, and IDEs to help them easily implement innovative and competitive solutions at all stages of project development.
+Kaia 区块链是一个综合主网平台，由 Finschia 基金会和 Klaytn 基金会整合而成。 其核心目标是为Web3的广泛应用提供基础设施。 为了实现这一目标，Kaia Blockchain 希望通过以建设者为中心的支持，促进基于区块链的项目发展。 由此，Web3 技术的新潜力将得到挖掘。 Kaia Blockchain 为开发人员提供必要的工具包、SDK 和集成开发环境，帮助他们在项目开发的各个阶段轻松实施具有竞争力的创新解决方案。
 
-In addition, strategies such as messenger integration through cooperation with Kakao and LINE will help Web2 users easily transfer to Web3. This approach will accelerate the adoption of Web3 technology and allow more users to experience the benefits of blockchain technology. Kaia Blockchain will foster the growth of a strong developer community and explore new possibilities in blockchain technology by enabling access to various infrastructure assets and KAIA funds while also supporting decentralized governance and permissionless participation.
+此外，通过与 Kakao 和 LINE 合作实现信使整合等战略将帮助 Web2 用户轻松转移到 Web3。 这种方法将加快 Web3 技术的应用，让更多用户体验到区块链技术的好处。 Kaia Blockchain 将促进一个强大的开发者社区的发展，通过访问各种基础设施资产和 KAIA 基金，同时支持去中心化治理和无许可参与，探索区块链技术的新可能性。
 
-The roadmap of the integrated mainnet focuses on supporting developers and driving Web3 adoption at the same time. This will enable Kaia Blockchain to help both developers and general users build successful projects, adopt blockchain technology more broadly, and establish a solid foundation to explore the new possibilities of the Web3 world.
+集成主网的路线图侧重于支持开发人员，同时推动 Web3 的采用。 这将使 Kaia Blockchain 能够帮助开发人员和普通用户建立成功的项目，更广泛地采用区块链技术，并为探索 Web3 世界的新可能性奠定坚实的基础。
 
-### Short-term Initiatives
+### 短期倡议
 
 #### 2024 Q1
 
-- Construction and operation of the Klaytn & Finschia integrated TF
+- Klaytn & Finschia 综合技术设施的建设和运营
 
 #### 2024 Q2
 
-- Establishment of a new integrated chain brand
-- Establishment of a joint marketing system and community integration
-- Preparation for ecosystem infrastructure, DApp, and service migration (~Q4)
-- Network support for integration and response to existing DApps and services (~Q4)
-- Preparation for new integrated tokens issuance and swap service provision
-- Establishment of the 1st integrated network (EVM)
+- 建立新的综合连锁品牌
+- 建立联合营销系统和社区一体化
+- 为生态系统基础设施、DApp 和服务迁移做准备（~第四季度）
+- 为集成和响应现有 DApp 和服务提供网络支持（~第四季度）
+- 准备提供新的综合代币发行和互换服务
+- 建立第一个综合网络（EVM）
 
 #### 2024 Q3
 
-- Issuance of new integrated tokens and provision of swap services
-- Strengthening of the node user/community delegation function
-- Introduction of a new burning model (~Q4)
+- 发行新的综合代币并提供互换服务
+- 加强节点用户/社区授权职能
+- 引入新的销毁模式（~第四季度）
 
 #### 2024 Q4
 
-- Reorganization of the integrated foundation and promotion of joint business initiatives
-- Establishment of the 2nd integrated network
+- 重组综合基金会，推动联合业务倡议
+- 建立第二个综合网络
 
-### Long-term Initiatives
+### 长期倡议
 
-#### Establishment of infrastructure for institutional needs
+#### 建立满足机构需求的基础设施
 
-- Establishment of integrated token, Fiat On/Off Ramp, for major Asian countries
-- Establishment of infrastructure for improved accessibility by institutional investors
+- 为亚洲主要国家建立综合代币的 "Fiat On/Off Ramp"。
+- 建立基础设施，改善机构投资者的获取途径
 
-#### Strengthening of large-scale DeFi infrastructure
+#### 加强大规模 DeFi 基础设施
 
-- Establishment of a new De-fi ecosystem for the integrated mainnet
-- Expansion of RWA (Real World Asset) linked services
+- 为综合主网建立新的De-Fi生态
+- 扩大 RWA（真实世界资产）相关服务
 
-#### Launching of native stablecoins
+#### 推出原生稳定币
 
-- Launching of key stable coins based on the integrated mainnet
-- Expansion of native stable coin-based services
+- 推出基于集成主网的关键稳定币
+- 扩大本地稳定币服务
 
-#### Asian community boost-up
+#### 促进亚裔社区发展
 
-- Re-establishment of developer and user communities in each Asian country
-- Expansion of governance and ecosystem partners in major countries
+- 在每个亚洲国家重建开发者和用户社区
+- 在主要国家扩大治理和生态系统合作伙伴
 
-#### Discovery of AI DApp categories
+#### 探索人工智能 DApp 类别
 
-- Establishment of new AI DApp categories and activation of onboarding
-- Discovery of generative AI-based content/avatar/game Dapps
+- 建立新的人工智能 DApp 类别并启动入驻程序
+- 发现基于生成式人工智能的内容/头像/游戏 Dapps
 
-#### Large-scale on-chain tokenization of Web2 assets
+#### Web2 资产的大规模链上标记化
 
-- Linking of Web2 digital items, memberships, and ticket markets
-- Discovery of large-scale item tokenization and mass adoption cases
+- 链接 Web2 数字项目、会员资格和票务市场
+- 探索大规模物品标记化和大规模采用案例
 
-#### Onboarding of Asian SSS game companies
+#### 接入亚洲SSS级游戏公司
 
-- Interoperable game onboarding based on Brown Friends IP
-- Web3 game onboarding based on Japanese SSS-rated game company IP
+- 基于 Brown Friends IP 的可互操作游戏上架
+- 基于日本 SSS 级游戏公司 IP 的 Web3 游戏上架
 
-#### Cooperation in Global IP projects
+#### 全球知识产权项目合作
 
-- Web3 project onboarding of large global IP companies
-- Strengthening of onboarding infrastructure for Web2 companies
+- 为全球大型知识产权公司提供 Web3 项目入职服务
+- 加强 Web2 公司的入职基础设施
 
-## Important Notes
+## 重要提示
 
-### Disclaimer of liability
+### 免责声明
 
-To the maximum extent permitted by the applicable laws, regulations and rules, the Kaia Foundation shall not be liable for any indirect, special, incidental, consequential or other losses of any kind, in tort, contract or otherwise (including but not limited to loss of revenue, income or profits, and loss of use or data), arising out of or in connection with any acceptance of or reliance on this Whitepaper or any part thereof by you.
+在适用法律、法规和规则允许的最大范围内，对于因您接受或依赖本白皮书或其中任何部分而产生的或与之相关的任何间接、特殊、附带、后果性或其他任何形式的损失（包括但不限于收入、收入或利润损失以及使用或数据损失），Kaia 基金会不承担侵权、合同或其他方面的责任。
 
-### No representations and warranties
+### 无陈述和保证
 
-The Kaia Foundation does not make or purport to make, and hereby disclaims, any representation, warranty or undertaking in any form whatsoever to any entity or person, including any representation, warranty or undertaking in relation to the truth, accuracy and completeness of any of the information set out in this Whitepaper.
+Kaia 基金会不向任何实体或个人作出或意图作出任何形式的陈述、保证或承诺，包括与本白皮书中任何信息的真实性、准确性和完整性有关的任何陈述、保证或承诺，并特此声明拒绝作出此类陈述、保证或承诺。
 
-Nothing contained in this Whitepaper is or may be relied upon as a promise, representation or undertaking as to the future performance or policies of the Kaia Foundation. All information, features, issuances, distributions, and architectures are subject to change at any time, at the sole and absolute discretion of Foundation and/or Kaia Governance depending on the then current roadmap presented in this Whitepaper.
+本白皮书中的任何内容均不构成或可能构成对 Kaia 基金会未来业绩或政策的承诺、陈述或保证。 基金会和/或 Kaia Governance 可随时根据本白皮书中介绍的最新路线图，自行决定更改所有信息、功能、发行、分发和架构。
 
-Further, the Kaia Foundation disclaims any responsibility to update any forward-looking statements or publicly announce any revisions to those forward-looking statements to reflect future developments, events or circumstances, even if new information becomes available or other events occur in the future.
+此外，Kaia 基金会不承担任何责任更新任何前瞻性声明或公开宣布对这些前瞻性声明的任何修订，以反映未来的发展、事件或情况，即使将来有了新的信息或发生了其他事件。
 
-Please note that this Whitepaper is also only a work in progress and the information in this Whitepaper is current only as of the date on the cover hereof. The Kaia Foundation reserves the right to update the Whitepaper from time to time.
+请注意，本白皮书也只是一份进行中的工作，其中的信息仅截至本白皮书封面上的日期。 Kaia 基金会保留随时更新白皮书的权利。
 
-### Staking services
+### 定标服务
 
-If you choose to participate in the KAIA staking programme, any such service provided to you may be facilitated by the Kaia Foundation acting as a transaction validator on the Kaia and providing its private nodes for staking on your behalf. Any applicable Delegation Rewards will be determined by the protocols of the Kaia and will be credited .
+如果您选择参与 KAIA 赌注计划，向您提供的任何此类服务都可能通过 Kaia 基金会作为 Kaia 上的交易验证者并代表您提供用于赌注的私人节点来实现。 任何适用的代表团奖励将由 Kaia 协议决定，并将记入您的帐户。
 
-You acknowledge and understand that the Kaia Foundation does not guarantee that you will receive any Delegation Rewards and such staking services do not constitute a fixed deposit product or issuance of securities, which would fall under the regulatory scope of the FSMR.
+您承认并理解，Kaia 基金会不保证您将获得任何委托奖励，且此类投注服务不构成定期存款产品或证券发行，不属于 FSMR 的监管范围。
 
-Withdrawal of staked assets may be delayed as a result of protocol unstaking periods or network conditions, and the Kaia Foundation cannot guarantee the timing and amount of the distribution of the Network Contribution Rewards. The Kaia Mainnet and relevant interfaces used for the delivery of KAIA staking services have inherent risks and the market for KAIA tokens and rewards may be highly volatile due to factors that include but are not limited to adoption, speculation, technology, security, and regulations. You agree and acknowledge that the Kaia Foundation is not responsible or liable for any of these variables or risks.
+由于协议解除锁定期或网络条件的原因，锁定资产的提取可能会延迟，Kaia 基金会无法保证网络贡献奖励的发放时间和金额。 由于包括但不限于采用、投机、技术、安全和法规等因素，KAIA 主网和用于提供 KAIA 记账服务的相关接口存在固有风险，KAIA 代币和奖励市场可能会剧烈波动。 您同意并承认 Kaia 基金会不对任何此类变数或风险负责。
 
-### No advice
+### 不提供建议
 
-No information in this Whitepaper should be considered to be business, legal, financial or tax advice regarding the Kaia Foundation or KAIA. You should consult your own legal, financial, tax or other professional adviser regarding the Kaia Foundation and their businesses and operations, and KAIA. You should be aware that you may be required to bear the financial risk of any purchase of KAIA for an indefinite period of time.
+本白皮书中的任何信息都不应被视为有关 Kaia 基金会或 KAIA 的商业、法律、财务或税务建议。 您应就 Kaia 基金会及其业务和运营以及 KAIA 咨询您自己的法律、财务、税务或其他专业顾问。 您应该知道，您可能需要无限期地承担任何购买 KAIA 的财务风险。
 
-### Restrictions on distribution and dissemination
+### 对分发和传播的限制
 
-The distribution or dissemination of this Whitepaper or any part thereof may be prohibited or restricted by the laws, regulatory requirements and rules of any jurisdiction. In the case where any restriction applies, you are to inform yourself about, and to observe, any restrictions which are applicable to your possession of this Whitepaper or such part thereof (as the case may be) at your own expense and without liability to the Kaia Foundation. Persons who have been provided access to this Whitepaper or to whom a copy of this Whitepaper has been distributed or disseminated or who otherwise have the Whitepaper in their possession shall not circulate it to any other persons, reproduce or otherwise distribute this Whitepaper or any information contained herein for any purpose whatsoever nor permit or cause the same to occur.
+任何司法管辖区的法律、监管要求和规则都可能禁止或限制分发或传播本白皮书或其中的任何部分。 在适用任何限制的情况下，您应自行了解并遵守适用于您拥有本白皮书或其部分内容（视情况而定）的任何限制，费用由您自行承担，Kaia 基金会不承担任何责任。 已获得本白皮书，或已向其分发或传播本白皮书副本，或以其他方式拥有本白皮书的人员不得出于任何目的向任何其他人分发、复制或以其他方式传播本白皮书或其中包含的任何信息，也不得允许或导致发生上述行为。
 
-### Risks and uncertainties
+### 风险和不确定性
 
-Prospective purchasers of KAIA should carefully consider and evaluate all risks and uncertainties associated with the Kaia Foundation, and its businesses and operations, and all information set out in this Whitepaper and the T&Cs, prior to any purchase of KAIA.
+KAIA 的潜在购买者在购买 KAIA 之前，应仔细考虑和评估与 KAIA 基金会及其业务和运营相关的所有风险和不确定性，以及本白皮书和条款与细则中列出的所有信息。
 
-You should not transact in KAIA if you are not familiar with digital tokens of this nature. Transacting in digital tokens may not be suitable for you if you are not familiar with the technology in which KAIA services will be provided.
+如果您不熟悉此类性质的数字代币，则不应在 KAIA 中进行交易。 如果您不熟悉提供 KAIA 服务的技术，您可能不适合使用数字代币进行交易。
 
-You should be aware that the value of KAIA may fluctuate greatly. You should buy KAIA only if you are prepared to accept the risk of losing all the money you put into KAIA.
+您应该了解 KAIA 的价值可能会大幅波动。 只有当您准备好接受您投入 KAIA 的资金全部亏损的风险时，您才应该购买 KAIA。
 
-As previously indicated, participating dApps will receive allocations of KAIA from the Foundation that are to be distributed to dApp users. Subject to dApp’s respective distribution policies, dApps may from time to time, either directly or indirectly, make large distributions of KAIA to users, which could have the effect of increasing the overall supply of KAIA that is traded on relevant trading platforms. It is possible that such distributions could have a negative impact on the market price of KAIA, particularly if a large number of recipients of KAIA engage in sales of KAIA on relevant trading platforms in a short period of time. Please note that a specific way of each dApp’s distributions of KAIA may vary depending upon each dApp’s jurisdiction or country of registration to fully comply with applicable regulations.
+如前所述，参与的 dApp 将从基金会获得 KAIA 分配，并将其分配给 dApp 用户。 根据 dApp 各自的分配政策，dApp 可能会不时直接或间接地向用户大量分配 KAIA，这可能会增加在相关交易平台上交易的 KAIA 的总体供应量。 这种分配可能会对 KAIA 的市场价格产生负面影响，特别是如果 KAIA 的大量接收者在短时间内在相关交易平台上参与 KAIA 的销售。 请注意，每个 dApp 分配 KAIA 的具体方式可能会有所不同，这取决于每个 dApp 的司法管辖区或注册国是否完全遵守适用法规。
 
-### KAIA issuance costs
+### KAIA 发行费用
 
-The Kaia Foundation will, in any event, incur no costs in regard to any issuance or distribution of KAIA.
+在任何情况下，KAIA 基金会都不会因发行或分发 KAIA 而产生任何费用。
 
-**THERE IS NO GUARANTEE THAT THE FUNCTIONALITIES OF KAIA, OR THAT THE KAIA TOKEN ECONOMY INFRASTRUCTURE, WILL BE DELIVERED OR REALISED. IF ANY OF SUCH RISKS AND UNCERTAINTIES DEVELOPS INTO ACTUAL EVENTS, THE BUSINESS, FINANCIAL CONDITION, RESULTS OF OPERATIONS AND PROSPECTS OF THE KAIA FOUNDATION COULD BE MATERIALLY AND ADVERSELY AFFECTED. IN SUCH CASES, YOU MAY LOSE ALL OR PART OF THE VALUE OF KAIA. IN THE EVENT THAT YOU HAVE PURCHASED KAIA, YOUR PURCHASE CANNOT BE REFUNDED OR EXCHANGED.**
+\*\*不保证 KAIA 的功能或 KAIA 代币经济基础设施的交付或实现。 如果任何此类风险和不确定因素演变成实际事件，KAIA 基金会的业务、财务状况、运营结果和前景都可能受到重大不利影响。 在这种情况下，您可能会失去 KAIA 的全部或部分价值。 如果您已经购买了 KAIA，则不能退款或换货。
 
-**IF YOU ARE IN ANY DOUBT AS TO THE ACTION YOU SHOULD TAKE, YOU SHOULD CONSULT YOUR LEGAL, FINANCIAL, TAX OR OTHER PROFESSIONAL ADVISOR(S).**
+\*\*如果您对自己应采取的行动有任何疑问，应咨询您的法律、财务、税务或其他专业顾问。
 
 <!-- ## Appendix
 
