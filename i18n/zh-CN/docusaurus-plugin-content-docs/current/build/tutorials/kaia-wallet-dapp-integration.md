@@ -33,19 +33,19 @@
 - [Appkit](#1.1-appkit-example)
 - [Web3-Onboard](#1.2-web3-onboard-example)
 
-### 1.1. Appkit example
+### 1.1. Appkit 示例
 
 ![Appkit Hero Banner](https://docs.reown.com/assets/images/appkit-18fbf6d4ddb8756740540b7adad92494.png)
 
-By [Reown](https://reown.com/), [Appkit](https://docs.reown.com/appkit/overview) offers the following **Features:**
+通过 [Reown](https://reown.com/)，[Appkit](https://docs.reown.com/appkit/overview) 提供以下**功能：**
 
 - 连接钱包、账户信息和网络信息的按钮 + 模式
-- Support for [Email Wallets](https://docs.reown.com/appkit/authentication/socials), [Coinbase](https://www.coinbase.com) accounts, & [EIP-4361](https://docs.reown.com/appkit/authentication/one-click-auth)
+- 支持 [电子邮件钱包](https://docs.reown.com/appkit/authentication/socials)、[Coinbase](https://www.coinbase.com) 账户和 [EIP-4361](https://docs.reown.com/appkit/authentication/one-click-auth)
 
 **考虑因素：**
 
-- Using [@reown/appkit](https://www.npmjs.com/package/@reown/appkit), you have an option to commit to either the frontend stack of [Wagmi](https://wagmi.sh) & [Tanstack Query](https://tanstack.com/query) or simply [Ethers](https://docs.ethers.org/v6/)
-- Requires a `projectId` [signup w/ Reown](https://cloud.walletconnect.com/sign-in)
+- 使用 [@reown/appkit](https://www.npmjs.com/package/@reown/appkit)，您可以选择提交到 [Wagmi](https://wagmi.sh) & [Tanstack Query](https://tanstack.com/query) 的前端堆栈，或者只提交到 [Ethers](https://docs.ethers.org/v6/)
+- 需要 `projectId` [使用 Reown 注册](https://cloud.walletconnect.com/sign-in)
 
 :::note
 
