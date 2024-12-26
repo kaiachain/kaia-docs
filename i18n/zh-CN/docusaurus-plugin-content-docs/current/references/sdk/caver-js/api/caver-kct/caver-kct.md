@@ -1,3 +1,3 @@
 # caver.kct
 
-A caver-js package used to interact with a KCT.
+用于与 KCT 交互的 caver-js 软件包。
