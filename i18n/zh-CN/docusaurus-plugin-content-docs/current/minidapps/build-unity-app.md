@@ -1,78 +1,78 @@
-# Build Unity App
+# 构建 Unity 应用程序
 
-## Prerequisites
+## 前提条件
 
-Before we dive in, make sure you have:
+在我们开始之前，请确保您拥有
 
-- [Unity Hub](https://unity.com/download) installed on your computer - this is where we'll build our dApp interface
-- Basic C# and JavaScript knowledge - nothing too fancy, just the fundamentals
-- [Kaia Wallet Extension](https://www.kaiawallet.io/) - you'll need this to test your dApp's Web3 features
-- A LINE Developer account - you can easily create one using your email
-- Some familiarity with Web3 concepts - if you understand wallets and tokens, you're good to go.
+- 在您的计算机上安装[Unity Hub](https://unity.com/download)--我们将在此构建 dApp 界面
+- 基本的 C# 和 JavaScript 知识 - 不用太花哨，只需基本知识
+- [Kaia 钱包扩展](https://www.kaiawallet.io/) - 您需要它来测试您的 dApp 的 Web3 功能
+- LINE Developer 账户--您可以使用电子邮件轻松创建一个账户
+- 熟悉一些 Web3 概念--如果你了解钱包和代币，就可以使用了。
 
-## Setting Up Your Unity Environment
+## 设置 Unity 环境
 
-Let's set up your development environment. We'll start with the Unity setup.
+让我们来设置开发环境。 我们将从 Unity 设置开始。
 
-### Step 1: Install and Verify Unity Version
+### 第 1 步：安装并验证 Unity 版本
 
-To begin, let's make sure we're all using the same Unity version to avoid any compatibility issues:
+首先，确保我们使用的是相同的 Unity 版本，以避免出现任何兼容性问题：
 
-- Install Unity Hub if you haven't already.
-- Install Unity Editor version 2022.3.50f1 specifically.
+- 如果尚未安装 Unity Hub，请安装。
+- 具体安装 2022.3.50f1 版 Unity 编辑器。
 
-### Step 2: Create Your New Unity Project
+### 第 2 步：创建新的 Unity 项目
 
-1. Open Unity Hub and head to the Projects tab.
-2. Click the inviting "New project" button in the top-right corner.
-3. Under "All templates", select the **3D (Built-in Render Pipeline)** template.
-4. Give your project a meaningful name (e.g., mini-dApp-example).
-5. Choose a convenient location for your project files.
-6. Click **Create project**.
+1. 打开 Unity Hub 并转到 "项目 "选项卡。
+2. 点击右上角的 "新建项目 "按钮。
+3. 在 "所有模板 "下，选择 **3D（内置渲染管道）** 模板。
+4. 给您的项目起一个有意义的名称（例如，mini-dApp-example）。
+5. 为项目文件选择一个方便的位置。
+6. 点击 **创建项目**。
 
 ![](/img/minidapps/unity-minidapp/create-unity-mini-dApp.png)
 
-## Creating Your dApp's UI Components
+## 创建 dApp 的用户界面组件
 
-In this section, we will build our dApp's user interface! We'll create a structured UI system with three main panels for status updates, actions, and minting functionality.
+在本部分中，我们将构建 dApp 的用户界面！ 我们将创建一个结构化的用户界面系统，其中有三个主要面板，分别用于状态更新、操作和铸币功能。
 
-### Setting Up the Main Canvas
+### 设置主画布
 
-First, let's create our base canvas:
+首先，让我们创建基本画布：
 
-1. In the Hierarchy window, right-click on "Sample Scene".
-2. Navigate to GameObject → UI → Canvas.
+1. 在 "层次结构 "窗口中，右键单击 "示例场景"。
+2. 导航至 GameObject → UI → 画布。
 
-### Creating the Web3UI Container
+### 创建 Web3UI 容器
 
-1. Right-click on your new Canvas.
-2. Select "Create Empty".
-3. Rename it to "Web3UI".
+1. 右键单击新画布。
+2. 选择 "创建空"。
+3. 重命名为 "Web3UI"。
 
-### Setting Up Main Panels
+### 设置主面板
 
-Inside Web3UI, create three panel objects:
+在 Web3UI 中创建三个面板对象：
 
-1. Right-click on Web3UI and select "Create Empty".
-2. Create and rename these panels:
-   - StatusPanel - Your dApp's information display
-   - ButtonPanel - For user interactions
-   - MintPanel - For token minting features
+1. 右键单击 Web3UI 并选择 "创建空"。
+2. 创建并重命名这些面板：
+   - StatusPanel - 您的 dApp 的信息显示屏
+   - 按钮面板 - 用于用户交互
+   - MintPanel - 用于代币铸币功能
 
-### Creating Panel Components
+### 创建面板组件
 
-#### StatusPanel Components
+#### 状态面板组件
 
-This panel shows all your important Web3 information:
+该面板显示所有重要的 Web3 信息：
 
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to StatusText. Make sure to fill the “Text Input” field in the Inspector pane e.g. "checking web3".
+- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。 确保填写检查器窗格中的 "文本输入 "字段，例如 "检查 web3"。
 
 :::note
-**TextMeshPro (TMP) Setup**
+**TextMeshPro（TMP）设置**
 
-When you first create a TextMeshPro element (UI - Text - TextMeshPro), Unity automatically prompts you to import TMP Essentials. If you accidentally skip this prompt, you can manually import it through Window > TextMeshPro > Import TMP Essentials.
+首次创建 TextMeshPro 元素时（用户界面 - 文本 - TextMeshPro），Unity 会自动提示您导入 TMP Essentials。 如果不小心跳过此提示，可以通过窗口 > TextMeshPro > 导入 TMP Essentials 手动导入。
 
-Why we need this: TextMeshPro requires core resources (shaders, default fonts, and materials) to properly display text in your game. Without these essentials, your text components won't render correctly and you'll see shader/material errors in your project. This is a one-time setup that's necessary for text to work properly.
+为什么需要TextMeshPro 需要核心资源（着色器、默认字体和材质）才能在游戏中正确显示文本。 Without these essentials, your text components won't render correctly and you'll see shader/material errors in your project. This is a one-time setup that's necessary for text to work properly.
 :::
 
 ![](/img/minidapps/unity-minidapp/statusText-textInput.png)
