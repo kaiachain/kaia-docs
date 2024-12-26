@@ -512,121 +512,121 @@
     "description": "Machine translation disclaimer for non-English documentation pages"
   },
   "JSON-RPC API Reference": {
-    "message": "JSON-RPC API Reference"
+    "message": "JSON-RPC API 参考"
   },
   "Discover and Engage with Kaia's JSON-RPC APIs": {
-    "message": "Discover and Engage with Kaia's JSON-RPC APIs"
+    "message": "发现并使用 Kaia 的 JSON-RPC API"
   },
   "Unlock Kaia's full potential with our interactive API documentation. Test API calls directly in the docs, explore detailed request and response examples, and generate code snippets in curl, Python, Node.js, and Java. Whether developing new applications or integrating with existing systems, our comprehensive API reference provides the tools for efficient development on the Kaia platform.": {
-    "message": "Unlock Kaia's full potential with our interactive API documentation. Test API calls directly in the docs, explore detailed request and response examples, and generate code snippets in curl, Python, Node.js, and Java. Whether developing new applications or integrating with existing systems, our comprehensive API reference provides the tools for efficient development on the Kaia platform."
+    "message": "通过我们的交互式 API 文档，充分挖掘 Kaia 的潜力。直接在文档中测试 API 调用，探索详细的请求和响应示例，并生成 curl、Python、Node.js 和 Java 代码片段。无论是开发新的应用程序还是与现有系统集成，我们全面的 API 参考资料都为在 Kaia 平台上进行高效开发提供了工具。"
   },
   "Get started with Kaia's JSON RPC APIs": {
-    "message": "Get started with Kaia's JSON RPC APIs"
+    "message": "开始使用 Kaia 的 JSON RPC API"
   },
   "homepage.favorites.gettingStarted.title": {
-    "message": "Getting Started",
+    "message": "开始使用",
     "description": "Title for Getting Started guide"
   },
   "homepage.favorites.gettingStarted.description": {
-    "message": "Deploy your first smart contract using Hardhat.",
+    "message": "使用 Hardhat 部署您的第一个智能合约。",
     "description": "Description for Getting Started guide"
   },
   "homepage.favorites.metamask.title": {
-    "message": "MetaMask Guide",
+    "message": "MetaMask指南",
     "description": "Title for MetaMask guide"
   },
   "homepage.favorites.metamask.description": {
-    "message": "Connect MetaMask to Kaia.",
+    "message": "将 MetaMask 连接到 Kaia。",
     "description": "Description for MetaMask guide"
   },
   "homepage.favorites.snapshot.title": {
-    "message": "Node Snapshot Guide",
+    "message": "节点快照指南",
     "description": "Title for Node Snapshot guide"
   },
   "homepage.favorites.snapshot.description": {
-    "message": "Use Chaindata Snapshots.",
+    "message": "使用 Chaindata 快照。",
     "description": "Description for Node Snapshot guide"
   },
   "homepage.favorites.rpc.title": {
-    "message": "Public JSON RPC Endpoints",
+    "message": "公共 JSON RPC 端点",
     "description": "Title for Public JSON RPC Endpoints"
   },
   "homepage.favorites.rpc.description": {
-    "message": "Build and test your products without running your own node.",
+    "message": "无需运行自己的节点，即可构建和测试您的产品。",
     "description": "Description for Public JSON RPC Endpoints"
   },
   "homepage.favorites.wallets.title": {
-    "message": "Wallets",
+    "message": "钱包",
     "description": "Title for Wallets section"
   },
   "homepage.favorites.wallets.description": {
-    "message": "Integrate and secure digital assets seamlessly.",
+    "message": "无缝整合数字资产并确保其安全。",
     "description": "Description for Wallets section"
   },
   "homepage.favorites.indexers.title": {
-    "message": "Indexers",
+    "message": "索引",
     "description": "Title for Indexers section"
   },
   "homepage.favorites.indexers.description": {
-    "message": "Query and index blockchain data for efficient dApp performance.",
+    "message": "查询和索引区块链数据，提高 dApp 性能。",
     "description": "Description for Indexers section"
   },
   "homepage.favorites.guides.title": {
-    "message": "Popular Guides",
+    "message": "热门指南",
     "description": "Title for the Popular Guides section"
   },
   "homepage.favorites.guides.viewMore": {
-    "message": "View More Guides",
+    "message": "查看更多指南",
     "description": "Link text to view more guides"
   },
   "homepage.favorites.resources.title": {
-    "message": "Popular Resources",
+    "message": "热门资源",
     "description": "Title for the Popular Resources section"
   },
   "homepage.favorites.resources.viewMore": {
-    "message": "View More Resources",
+    "message": "查看更多资源",
     "description": "Link text to view more resources"
   },
   "DApp Developers": {
-    "message": "DApp Developers"
+    "message": "dApp 开发者"
   },
   "API References": {
-    "message": "API References"
+    "message": "API 参考："
   },
   "homepage.sdk.ethersjs.name": {
-    "message": "Ethers.js Extension",
+    "message": "Ethers.js 扩展",
     "description": "Name of the Ethers.js Extension SDK"
   },
   "homepage.sdk.web3js.name": {
-    "message": "Web3.js Extension",
+    "message": "Web3.js 扩展",
     "description": "Name of the Web3.js Extension SDK"
   },
   "homepage.sdk.web3j.name": {
-    "message": "Web3j Extension",
+    "message": "Web3j 扩展",
     "description": "Name of the Web3j Extension SDK"
   },
   "homepage.sdk.web3py.name": {
-    "message": "Web3.py Extension",
+    "message": "Web3.py 扩展",
     "description": "Name of the Web3.py Extension SDK"
   },
   "homepage.sdk.section.title": {
-    "message": "SDK Documentation",
+    "message": "SDK文档",
     "description": "Title of the SDK documentation section"
   },
   "homepage.sdk.section.heading": {
-    "message": "Build freely with tools tailored for your language.",
+    "message": "使用专为您的语言定制的工具自由构建。",
     "description": "Main heading of the SDK section"
   },
   "homepage.sdk.section.description": {
-    "message": "Seamlessly integrate with Kaia Network using our enhanced SDKs for JavaScript, Java, Python and more. Built on trusted foundations like Ethers, Web3.js, Web3j, and Web3.py, our libraries give you the power to submit transactions, read smart contracts, and develop complex applications with extended functionality - all in your preferred programming language.",
+    "message": "使用我们增强的 JavaScript、Java、Python 等 SDK，与 Kaia Network 无缝集成。我们的库建立在 Ethers、Web3.js、Web3j 和 Web3.py 等值得信赖的基础之上，可让您使用自己喜欢的编程语言提交交易、读取智能合约并开发具有扩展功能的复杂应用程序。",
     "description": "Description of Kaia Network's SDK offerings"
   },
   "homepage.sdk.section.viewMore": {
-    "message": "View More SDKs",
+    "message": "查看更多 SDK",
     "description": "Link text to view additional SDKs"
   },
   "theme.blog.author.noPosts": {
-    "message": "This author has not written any posts yet.",
+    "message": "该作者尚未发表任何文章。",
     "description": "The text for authors with 0 blog post"
   }
 }
