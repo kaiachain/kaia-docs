@@ -30,12 +30,12 @@
 要签署交易，请使用 [signTransaction](../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#signtransaction) 使用给定的私钥签署交易。
 
 ```
-// using the event emitter
+// 使用事件发射器
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
-    // Create a new transaction
+    // 创建新事务
     const tx = caver.transaction.feeDelegatedValueTransfer.create({
       from: keyring.address,
       to: toAddress,
@@ -48,7 +48,7 @@ const toAddress = "TO_ADDRESS";
         // Sign the transaction
     const signed = await caver.wallet.sign(keyring.address, tx);
 
-    const senderRawTransaction = tx.getRLPEncoding();
+    const senderRawTransaction = tx.getRLPEncoding()；
 ```
 
 如果没有错误，那么 `senderRawTransaction` 将有一个已签名的事务，该事务由 `senderPrivateKey` 签名。
@@ -57,9 +57,9 @@ const toAddress = "TO_ADDRESS";
 
 ### 2.2 付款人签署交易<a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
 
-当 "付费方 "收到 "发送方原始交易 "时，"付费方 "会用自己的私钥再次对 "发送方原始交易 "进行签名，然后将交易发送给 Kaia。 下面的代码片段说明了这一过程。 `kaia.sendRawTransaction` method signs the transaction with the given account's private key before sending the transaction. 运行代码前，请将 `"FEEPAYER_ADDRESS"` 和 `"PRIVATE_KEY"` 替换为实际值。
+当 "付费方 "收到 "发送方原始交易 "时，"付费方 "会用自己的私钥再次对 "发送方原始交易 "进行签名，然后将交易发送给 Kaia。 下面的代码片段说明了这一过程。 kaia.sendRawTransaction "方法在发送交易前使用给定账户的私钥对交易进行签名。 运行代码前，请将 `"FEEPAYER_ADDRESS"` 和 `"PRIVATE_KEY"` 替换为实际值。
 
-Note that when the `fee payer` submits the transaction to Kaia on behalf of the `sender`, the `senderRawTransaction` type must be a `FEE_DELEGATED` type of transaction. 在下面的示例中，调用了 [sendTransaction(FEE_DELEGATED_VALUE_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer) 方法。由于发送方生成的原始 `senderRawTransaction` 是 [TxTypeFeeDelegatedValueTransfer](../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer），因此调用了该方法。）
+请注意，当 "费用支付方 "代表 "发送方 "向 Kaia 提交交易时，"发送方原始交易 "类型必须是 "FEE_DELEGATED "类型的交易。 在下面的示例中，调用了 [sendTransaction(FEE_DELEGATED_VALUE_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer) 方法。由于发送方生成的原始 `senderRawTransaction` 是 [TxTypeFeeDelegatedValueTransfer](../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer），因此调用了该方法。）
 
 ```
 const feePayerAddress = "FEEPAYER_ADDRESS";
@@ -70,9 +70,9 @@ const tx = caver.transaction.decode(senderRawTransaction);
 
     tx.feePayer = keyring.address;
 
-    const signed = await caver.wallet.signAsFeePayer(keyring.address, tx);
+    const signed = await caver.wallet.signAsFeePayer(keyring.address); // Send transaction const receipt = await caver.rpc.klay.sendRawTransaction( ).地址，tx);
 
-    // Send the transaction
+    // 发送交易
     const receipt = await caver.rpc.klay.sendRawTransaction(
       signed.getRLPEncoding()
     )
@@ -82,7 +82,7 @@ const tx = caver.transaction.decode(senderRawTransaction);
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // 如果出错，第二个参数就是收据。
 ```
 
 ## 3. 收费委托的简单服务器和客户端<a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
@@ -123,7 +123,7 @@ const sendFeeDelegateTx = async () => {
     // Add sender's keyring to wallet
     const keyring = caver.wallet.newKeyring(senderAddress, senderPrivateKey);
 
-    // Create a new transaction
+    // 创建新交易
     const tx = caver.transaction.feeDelegatedValueTransfer.create({
       from: keyring.address,
       to: toAddress,
@@ -133,23 +133,23 @@ const sendFeeDelegateTx = async () => {
       chainId: await caver.rpc.klay.getChainId(), // Get current chain ID
     });
 
-    // Sign the transaction
+    // 签署交易
     const signed = await caver.wallet.sign(keyring.address, tx);
 
     const senderRawTransaction = tx.getRLPEncoding();
 
     if (!senderRawTransaction) {
       throw new Error("Failed to generate raw transaction");
-    }
+    } // Send signed raw transaction to fee pay.
 
-    // Send signed raw transaction to fee payer's server
+    // 将已签名的原始交易发送到付费者的服务器
     client.connect(1337, "127.0.0.1", () => {
-      console.log("Connected to fee delegated service");
+      console.log("已连接到付费委托服务");
       client.write(senderRawTransaction);
     });
 
     client.on("data", (data) => {
-      console.log("Received data from server:", data.toString());
+      console.log("已从服务器接收数据：", data.toString());
     });
 
     client.on("error", (error) => {
@@ -164,7 +164,7 @@ const sendFeeDelegateTx = async () => {
     console.error("Transaction error:", error);
     client.end();
     process.exit(1);
-  }
+  }.
 };
 
 sendFeeDelegateTx();
@@ -214,13 +214,13 @@ const feePayerSign = async (senderRawTransaction, socket) => {
   } catch (error) {
     console.error("Error in feePayerSign:", error);
     socket.write(`Error: ${error.message}\n`);
-  }
+  }.
 };
 
 var server = createServer(function (socket) {
   console.log("Client is connected ...");
   socket.write("This is fee delegating service");
-  socket.write("Fee payer is " + feePayerAddress);
+  socket.write("Fee Payer is " + feePayerAddress);
   socket.on("data", function (data) {
     console.log("Received data from client:", data.toString());
     feePayerSign(data.toString(), socket);
@@ -264,13 +264,13 @@ Fee delegate service started ...
 
 ```
 $ node sender_client.js
-Signed a fee delegated value transfer transaction.
-Sending a signed transaction to fee delegated service.
-Connected to fee delegated service
-Received data from server: This is fee delegating service
-Received data from server: Fee payer is 0x811CE345DB9D8aD17513Cc77d76a1ace9eC46F02
-Received data from server: Tx hash is 0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6fdcb6df32b2e34a1d50f7f8a9d
-Received data from server: Sender Tx hash is 0x7263d2dc5b36abc754726b220b7ad243dd789934109c6874e539ada5c7e9f193
+已签署收费委托价值转移交易。
+向收费委托服务发送已签名交易。
+连接到收费委托服务
+从服务器接收数据：这是收费委托服务
+从服务器接收数据：费用支付方为 0x811CE345DB9D8aD17513Cc77d76a1ace9eC46F02
+从服务器接收数据：Tx hash is 0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6fdcb6df32b2e34a1d50f7f8a9d
+从服务器接收数据：发件人发送哈希值为 0x7263d2dc5b36abc754726b220b7ad243dd789934109c6874e539ada5c7e9f193
 ```
 
 它将用 "发送方 "私钥签署交易，并将签署后的交易发送到费用委托服务（即费用支付方的服务器）。 然后，它将收到缴费委托服务的响应，包括 "缴费人 "地址、"发送哈希值 "和 "发送人发送哈希值"。 Tx哈希值 "是提交给Kaia网络的交易的哈希值，而 "Sender Tx哈希值 "是交易的哈希值，不包含缴费人的地址和签名。 更多详情，请参阅 [SenderTxHash](../../learn/transactions/transactions.md#sendertxhash)。
@@ -281,78 +281,78 @@ Received data from server: Sender Tx hash is 0x7263d2dc5b36abc754726b220b7ad243d
 
 ```
 $ node feepayer_server.js
-Fee delegate service started ...
-Client is connected ...
-Received data from client: 0x09f89f0485066720b300830186a094811ce345db9d8ad17513cc77d76a1ace9ec46f02865af3107a400094213eb97cc74af77b78d1cfd968bc89ab816872daf847f8458207f5a0cefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714a0512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3940000000000000000000000000000000000000000c4c3018080
-Decoded transaction: FeeDelegatedValueTransfer {
+费用委托服务启动 ...
+客户端已连接 ...
+从客户端接收数据：0x09f89f0485066720b300830186a094811ce345db9d8ad17513cc77d76a1ace9ec46f02865af3107a400094213eb97cc74af77b78d1cfd968bc89ab816872daf847f8458207f5a0cefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714a0512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3940000000000000000000000000000000000000000c4c3018080
+解码交易：FeeDelegatedValueTransfer {
   _type: 'TxTypeFeeDelegatedValueTransfer',
   _from: '0x213eb97cc74af77b78d1cfd968bc89ab816872da',
   _gas: '0x186a0',
   _nonce: '0x4',
-  _signatures: [
+  _signatures：[
     SignatureData {
       _v: '0x07f5',
       _r: '0xcefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714',
       _s: '0x512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3'
     }
   ],
-  _klaytnCall: {
-    getChainId: [Function (anonymous)] {
-      method: [Method],
+  _klaytnCall：{
+    getChainId：[Function (anonymous)] {
+      method：[Method],
       request: [Function: bound request],
-      call: 'klay_chainID',
-      getMethod: [Function (anonymous)]
+      call：klay_chainID',
+      getMethod：[Function (anonymous)]
     },
     getGasPrice: [Function (anonymous)] {
-      method: [Method],
+      method：[Method],
       request: [Function: bound request],
-      call: 'klay_gasPrice',
-      getMethod: [Function (anonymous)]
+      call：klay_gasPrice',
+      getMethod：[Function (anonymous)]
     },
-    getTransactionCount: [Function (anonymous)] {
-      method: [Method],
+    getTransactionCount：[Function (anonymous)] {
+      method：[Method],
       request: [Function: bound request],
-      call: 'klay_getTransactionCount',
-      getMethod: [Function (anonymous)]
+      call：klay_getTransactionCount',
+      getMethod：[Function (anonymous)]
     },
     getHeaderByNumber: [Function (anonymous)] {
-      method: [Method],
+      method：[Method],
       request: [Function: bound request],
-      call: 'klay_getHeaderByNumber',
-      getMethod: [Function (anonymous)]
+      call：klay_getHeaderByNumber',
+      getMethod：[Function (anonymous)]
     },
-    getAccountKey: [Function (anonymous)] {
-      method: [Method],
+    getAccountKey：[Function (anonymous)] {
+      method：[Method],
       request: [Function: bound request],
-      call: 'klay_getAccountKey',
-      getMethod: [Function (anonymous)]
+      call：klay_getAccountKey',
+      getMethod：[Function (anonymous)]
     },
     getTransactionByHash: [Function (anonymous)] {
-      method: [Method],
+      method：[Method],
       request: [Function: bound request],
-      call: 'klay_getTransactionByHash',
-      getMethod: [Function (anonymous)]
+      call：klay_getTransactionByHash',
+      getMethod：[Function (anonymous)]
     },
     getMaxPriorityFeePerGas: [Function (anonymous)] {
-      method: [Method],
+      method：[Method],
       request: [Function: bound request],
-      call: 'klay_maxPriorityFeePerGas',
-      getMethod: [Function (anonymous)]
+      call：klay_maxPriorityFeePerGas',
+      getMethod：[Function (anonymous)]
     }
   },
-  _feePayer: '0x0000000000000000000000000000000000000000',
-  _feePayerSignatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
-  _to: '0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
+  _feePayer: '0x000000000000000000000000000000000000000000000000',
+  _feePayerSignatures：[ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _to：'0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
   _value: '0x5af3107a4000',
   _gasPrice: '0x66720b300'
 }
-Transaction receipt: {
+交易收据：{
   blockHash: '0xb2727edaa2ffc8a8fece0ce54154b469887a9f6725bac6811ac610131c135046',
   blockNumber: '0xa45da40',
-  contractAddress: null,
+  contractAddress：null,
   effectiveGasPrice: '0x66720b300',
   feePayer: '0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
-  feePayerSignatures: [
+  feePayerSignatures：[
     {
       V: '0x7f6',
       R: '0x6207f1c3c8c75f1a57ff3d1c87a51b7067f6076b1bf37c3a1ad296e441cfa9db',
@@ -362,12 +362,12 @@ Transaction receipt: {
   from: '0x213eb97cc74af77b78d1cfd968bc89ab816872da',
   gas: '0x186a0',
   gasPrice: '0x66720b300',
-  gasUsed: '0x7918',
-  logs: [],
-  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  nonce: '0x4',
+  gasUsed：'0x7918',
+  logs：[],
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  nonce：'0x4',
   senderTxHash: '0x7263d2dc5b36abc754726b220b7ad243dd789934109c6874e539ada5c7e9f193',
-  signatures: [
+  signatures：[
     {
       V: '0x7f5',
       R: '0xcefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714',
@@ -375,12 +375,12 @@ Transaction receipt: {
     }
   ],
   status: '0x1',
-  to: '0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
+  to：'0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
   transactionHash: '0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6fdcb6df32b2e34a1d50f7f8a9d',
-  transactionIndex: '0x1',
-  type: 'TxTypeFeeDelegatedValueTransfer',
-  typeInt: 9,
-  value: '0x5af3107a4000'
+  transactionIndex：'0x1',
+  类型：'TxTypeFeeDelegatedValueTransfer',
+  typeInt：9,
+  值：'0x5af3107a4000'
 }
 ```
 
@@ -388,6 +388,6 @@ Transaction receipt: {
 
 您还可以在 [Kaiascope](https://kairos.kaiascope.com) 上找到上述交易。
 
-It shows that the transaction is `TxTypeFeeDelegatedValueTransfer` and `Fee payer` is `0x811CE345DB9D8aD17513Cc77d76a1ace9eC46F02` or `feepayerAddress` that you entered, while `From` is a different address which should be the `senderAddress` in above example.
+它显示该事务为 "TxTypeFeeDelegatedValueTransfer"，"Fee payer "为 "0x811CE345DB9D8aD17513Cc77d76a1ace9eC46F02 "或您输入的 "feepayerAddress"，而 "From "是另一个地址，应为上例中的 "senderAddress"。
 
-![Fee delegated Tx](/img/build/tutorials/fee-delegation-example-kaia.png)
+收费委托 Tx](/img/build/tutorials/fee-delegation-example-kaia.png)
