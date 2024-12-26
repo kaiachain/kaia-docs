@@ -52,17 +52,17 @@ PromiEvent\`：一个承诺组合事件发射器，用一个新的 KIP17 实例�
 
    - 编译器版本：v0.8.4+commit.c7e474f2
 
-   - Open Source License Type: MIT
+   - 开源许可证类型：MIT
 
-3. Smart Contract Detail
+3. 智能合约详情
 
-   - Optimization: --optimize-run 200
+   - 优化： --optimize-run 200
 
-   - Source code: [KIP17 Contracts Github Link](https://github.com/kaiachain/caver-js/blob/dev/packages/caver-kct/src/kip17Token.sol).
+   - 源代码：[KIP17 合同 Github 链接](https://github.com/kaiachain/caver-js/blob/dev/packages/caver-kct/src/kip17Token.sol)。
 
-4. ABI-encoded Value: [kip17JsonInterface at dev · kaiachain/caver-js · GitHub](https://github.com/kaiachain/caver-js/blob/dev/packages/caver-kct/src/kctHelper.js#L408-L1319)
+4. ABI 编码值：[kip17JsonInterface at dev - kaiachain/caver-js - GitHub](https://github.com/kaiachain/caver-js/blob/dev/packages/caver-kct/src/kctHelper.js#L408-L1319)
 
-**Example**
+**示例**
 
 ```javascript
 // using the promise
@@ -115,25 +115,25 @@ KIP17 {
 })
 ```
 
-## caver.kct.kip17.detectInterface <a id="caver-kct-kip17-detectinterface"></a>
+## caver.kct.kip17.detectInterface<a id="caver-kct-kip17-detectinterface"></a>
 
 ```javascript
-caver.kct.kip17.detectInterface(contractAddress)
+caver.kct.kip17.detectInterface(contractAddress
 ```
 
-Returns the information of the interface implemented by the token contract. This static function will use [kip17.detectInterface](#kip17-detectinterface).
+返回代币合约实现的接口信息。 此静态函数将使用 [kip17.detectInterface](#kip17-detectinterface)。
 
-**Parameters**
+**参数**
 
-| Name            | Type   | Description                             |
-| --------------- | ------ | --------------------------------------- |
-| contractAddress | string | The address of the KIP-7 token contract |
+| 名称              | 类型     | 描述            |
+| --------------- | ------ | ------------- |
+| contractAddress | string | KIP-7 代币合约的地址 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.kaia.io/KIPs/kip-17#kip-13-identifiers) is implemented.
+Promise "会返回一个 "对象"，其中包含每个[KIP-17 接口](https://kips.kaia.io/KIPs/kip-17#kip-13-identifiers)是否已实现的布尔值结果。
 
-**Example**
+**示例**
 
 ```javascript
 > caver.kct.kip17.detectInterface('0x{address in hex}').then(console.log)
@@ -148,25 +148,25 @@ Returns the information of the interface implemented by the token contract. This
 }
 ```
 
-## caver.kct.kip17.create <a id="caver-kct-kip17-create"></a>
+## caver.kct.kip17.create<a id="caver-kct-kip17-create"></a>
 
 ```javascript
-caver.kct.kip17.create([tokenAddress])
+caver.kct.kip17.create([tokenAddress
 ```
 
-Creates a new KIP17 instance with its bound methods and events. This function works the same as [new KIP17](#new-kip17).
+创建新的 KIP17 实例及其绑定的方法和事件。 该功能与 [new KIP17]（#new-kip17）相同。
 
-**NOTE** `caver.kct.kip17.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `caver.kct.kip17.create`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
 
-**Parameters**
+**参数**
 
-See the [new KIP17](#new-kip17).
+请参见 [new KIP17]（#new-kip17）。
 
-**Return Value**
+**返回价值**
 
-See the [new KIP17](#new-kip17).
+请参见 [new KIP17]（#new-kip17）。
 
-**Example**
+**示例**
 
 ```javascript
 // Create a KIP17 instance without a parameter
@@ -176,27 +176,27 @@ See the [new KIP17](#new-kip17).
 > const kip17 = caver.kct.kip17.create('0x{address in hex}')
 ```
 
-## new KIP17 <a id="new-kip17"></a>
+## 新 KIP17<a id="new-kip17"></a>
 
 ```javascript
 new caver.kct.kip17([tokenAddress])
 ```
 
-Creates a new KIP17 instance with its bound methods and events.
+创建新的 KIP17 实例及其绑定的方法和事件。
 
-**Parameters**
+**参数**
 
-| Name         | Type   | Description                                                                                                                                      |
-| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| tokenAddress | string | (optional) The address of the KIP-17 token contract, which can be assigned later through `kip17.options.address = '0x1234..'` |
+| 名称   | 类型     | 描述                                                                                    |
+| ---- | ------ | ------------------------------------------------------------------------------------- |
+| 代币地址 | string | (可选）KIP-17 代币合约的地址，可稍后通过 `kip17.options.address = '0x1234...'` 指定。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                           |
-| ------ | --------------------------------------------------------------------- |
-| object | The KIP17 instance with its bound methods and events. |
+| 类型 | 描述                  |
+| -- | ------------------- |
+| 对象 | KIP17 实例及其绑定的方法和事件。 |
 
-**Example**
+**示例**
 
 ```javascript
 // Create a KIP17 instance without a parameter
@@ -206,25 +206,25 @@ Creates a new KIP17 instance with its bound methods and events.
 > const kip17 = new caver.kct.kip17('0x{address in hex}')
 ```
 
-## kip17.clone <a id="kip17-clone"></a>
+## kip17.clone<a id="kip17-clone"></a>
 
 ```javascript
 kip17.clone([tokenAddress])
 ```
 
-Clones the current KIP17 instance.
+克隆当前 KIP17 实例。
 
-**Parameters**
+**参数**
 
-| Name         | Type   | Description                                                                                                                                                                                                      |
-| ------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | string | (optional) The address of the smart contract that deployed another KIP-17 token. If omitted, it will be set to the contract address in the original instance. |
+| 名称           | 类型     | 描述                                                                   |
+| ------------ | ------ | -------------------------------------------------------------------- |
+| tokenAddress | string | (可选）部署另一个 KIP-17 令牌的智能合约地址。 如果省略，则将设置为原始实例中的合同地址。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                               |
-| ------ | --------------------------------------------------------- |
-| object | The clone of the original KIP17 instance. |
+| 类型     | 描述              |
+| ------ | --------------- |
+| object | 原始 KIP17 实例的克隆。 |
 
 **Example**
 
@@ -238,23 +238,23 @@ Clones the current KIP17 instance.
 > const cloned = kip17.clone('0x{address in hex}')
 ```
 
-## kip17.detectInterface <a id="kip17-detectinterface"></a>
+## kip17.detectInterface<a id="kip17-detectinterface"></a>
 
 ```javascript
 kip17.detectInterface()
 ```
 
-Returns the information of the interface implemented by the token contract.
+返回代币合约实现的接口信息。
 
-**Parameters**
+**参数**
 
-None
+空
 
-**Return Value**
+**返回价值**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-17 interface](https://kips.kaia.io/KIPs/kip-17#kip-13-identifiers) is implemented.
+Promise "会返回一个 "对象"，其中包含每个[KIP-17 接口](https://kips.kaia.io/KIPs/kip-17#kip-13-identifiers)是否已实现的布尔值结果。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.detectInterface().then(console.log)
@@ -269,25 +269,25 @@ None
 }
 ```
 
-## kip17.supportsInterface <a id="kip17-supportsinterface"></a>
+## kip17.supportsInterface<a id="kip17-supportsinterface"></a>
 
 ```javascript
 kip17.supportsInterface(interfaceId)
 ```
 
-Returns `true` if this contract implements the interface defined by `interfaceId`.
+如果此合约实现了由 `interfaceId` 定义的接口，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name        | Type   | Description                                    |
-| ----------- | ------ | ---------------------------------------------- |
-| interfaceId | string | The interfaceId to be checked. |
+| 名称          | 类型     | 描述                |
+| ----------- | ------ | ----------------- |
+| interfaceId | string | 要检查的 interfaceId。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`: `true` if this contract implements the interface defined by `interfaceId`.
+`Promise` 返回 `boolean`：如果此合约实现了由 "`interfaceId` 定义的接口，则返回 "true"。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.supportsInterface('0x80ac58cd').then(console.log)
@@ -297,230 +297,230 @@ true
 false
 ```
 
-## kip17.name <a id="kip17-name"></a>
+## kip17.name<a id="kip17-name"></a>
 
 ```javascript
 kip17.name()
 ```
 
-Returns the name of the token.
+返回代币的名称。
 
-**Parameters**
+**参数**
 
-None
+空
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`: The name of the token.
+`Promise` 返回 `string`：代币的名称。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.name().then(console.log)
 Jasmine
 ```
 
-## kip17.symbol <a id="kip17-symbol"></a>
+## kip17.symbol<a id="kip17-symbol"></a>
 
 ```javascript
 kip17.symbol()
 ```
 
-Returns the symbol of the token.
+返回代币的符号。
 
-**Parameters**
+**参数**
 
-None
+空
 
-**Return Value**
+**回报价值**
 
-`Promise` returns `string`: The symbol of the token.
+`Promise` 返回 `string`：标记的符号。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.symbol().then(console.log)
 JAS
 ```
 
-## kip17.totalSupply <a id="kip17-totalsupply"></a>
+## kip17.totalSupply<a id="kip17-totalsupply"></a>
 
 ```javascript
 kip17.totalSupply()
 ```
 
-Returns the total number of tokens minted by the contract.
+返回合约铸造的代币总数。
 
-**Parameters**
+**参数**
 
-None
+空
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `BigNumber`: The total number of tokens.
+`Promise` 返回 `BigNumber`：代币总数。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.totalSupply().then(console.log)
 10
 ```
 
-## kip17.tokenURI <a id="kip17-tokenuri"></a>
+## kip17.tokenURI<a id="kip17-tokenuri"></a>
 
 ```javascript
 kip17.tokenURI(tokenId)
 ```
 
-Returns the URI for a given token id.
+返回给定标记 ID 的 URI。
 
-**Parameters**
+**参数**
 
-| Name    | Type                              | Description                          |
-| ------- | --------------------------------- | ------------------------------------ |
-| tokenId | BigNumber \\| string \\| number | The id of the token. |
+| 名称      | 类型                                | 描述   |
+| ------- | --------------------------------- | ---- |
+| tokenId | BigNumber \\| string \\| number | 代币ID |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "tokenId "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`: The URI of the given token.
+`Promise` 返回 `string`：给定标记的 URI。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.tokenURI(0).then(console.log)
 https://kip17.example/uri-ex-caver.json
 ```
 
-## kip17.tokenOfOwnerByIndex <a id="kip17-tokenofownerbyindex"></a>
+## kip17.tokenOfOwnerByIndex<a id="kip17-tokenofownerbyindex"></a>
 
 ```javascript
 kip17.tokenOfOwnerByIndex(owner, index)
 ```
 
-Searches the `owner`'s token list for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match.
+搜索 "所有者 "的代币列表中的给定索引，如果匹配，则返回位于列表中匹配索引处的代币的代币 ID。
 
-**Parameters**
+**参数**
 
-| Name  | Type                              | Description                                                 |
-| ----- | --------------------------------- | ----------------------------------------------------------- |
-| owner | string                            | The address of the account who owns tokens. |
-| index | BigNumber \\| string \\| number | The index of a token in owner's token list. |
+| 名称    | 类型                                | 描述              |
+| ----- | --------------------------------- | --------------- |
+| 所有者   | string                            | 拥有代币的账户地址。      |
+| index | BigNumber \\| string \\| number | 所有者代币列表中令代币的索引。 |
 
-**NOTE** The `index` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `index`参数接受`number`类型，但如果输入值超出了number.MAX_SAFE_INTEGER的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `BigNumber`: The id of the token.
+Promise`返回`BigNumber\`：代币的 id。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.tokenOfOwnerByIndex('0x{address in hex}', 5).then(console.log)
 5
 ```
 
-## kip17.tokenByIndex <a id="kip17-tokenbyindex"></a>
+## kip17.tokenByIndex<a id="kip17-tokenbyindex"></a>
 
 ```javascript
 kip17.tokenByIndex(index)
 ```
 
-Searches the list of all tokens in this contract for the given index, and returns the token id of a token positioned at the matched index in the list if there is a match. It reverts if the index is greater or equal to the total number of tokens.
+根据给定的索引搜索此合约中所有代币的列表，如果匹配，则返回列表中匹配索引处的代币 id。 如果索引大于或等于代币总数，它就会还原。
 
-**Parameters**
+**参数**
 
-| Name  | Type                              | Description                                         |
-| ----- | --------------------------------- | --------------------------------------------------- |
-| index | BigNumber \\| string \\| number | The index of a token to be queried. |
+| 名称    | 类型                                | 描述         |
+| ----- | --------------------------------- | ---------- |
+| index | BigNumber \\| string \\| number | 要查询的标记的索引。 |
 
-**NOTE** The `index` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `index`参数接受`number`类型，但如果输入值超出了number.MAX_SAFE_INTEGER的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `BigNumber`: The id of the token.
+Promise`返回`BigNumber\`：代币的 id。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.tokenByIndex(1).then(console.log)
 1
 ```
 
-## kip17.balanceOf <a id="kip17-balanceof"></a>
+## kip17.balanceOf<a id="kip17-balanceof"></a>
 
 ```javascript
 kip17.balanceOf(address)
 ```
 
-Returns the balance of the given account address. The balance of an account in KIP-17 is the total number of NFTs (Non-Fungible Tokens) owned by the account.
+返回给定账户地址的余额。 KIP-17 中账户的余额是该账户拥有的 NFT（Non-Fungible Tokens）总数。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                               |
-| ------- | ------ | ------------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for its balance. |
+| 名称 | 类型     | 描述          |
+| -- | ------ | ----------- |
+| 地址 | string | 要查询余额的账户地址。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `BigNumber`: The account balance.
+`Promise` 返回 `BigNumber`：账户余额。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.balanceOf('0x{address in hex}').then(console.log)
 9
 ```
 
-## kip17.ownerOf <a id="kip17-ownerof"></a>
+## kip17.ownerOf<a id="kip17-ownerof"></a>
 
 ```javascript
 kip17.ownerOf(tokenId)
 ```
 
-Returns the address of the owner of the specified token id.
+返回指定代币id 所有者的地址。
 
-**Parameters**
+**参数**
 
-| Name    | Type                              | Description                          |
-| ------- | --------------------------------- | ------------------------------------ |
-| tokenId | BigNumber \\| string \\| number | The id of the token. |
+| 名称      | 类型                                | 描述    |
+| ------- | --------------------------------- | ----- |
+| tokenId | BigNumber \\| string \\| number | 代币的ID |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "tokenId "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`: The address of the account that owns the given token.
+`Promise` 返回 `string`：拥有给定代币的账户的地址。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.ownerOf(8).then(console.log)
 0x0e0E95426343d97CC7BB913C7D7DBea065A31814
 ```
 
-## kip17.getApproved <a id="kip17-getapproved"></a>
+## kip17.getApproved<a id="kip17-getapproved"></a>
 
 ```javascript
 kip17.getApproved(tokenId)
 ```
 
-Returns the address who was permitted to transfer this token, or 'zero' address, if no address was approved. It reverts if the given token id does not exist.
+返回获准转让此代币的地址，如果没有地址获准转让，则返回 "0 "地址。 如果给定的代币 ID 不存在，它将返回。
 
-**Parameters**
+**参数**
 
-| Name    | Type                              | Description                          |
-| ------- | --------------------------------- | ------------------------------------ |
-| tokenId | BigNumber \\| string \\| number | The id of the token. |
+| 名称      | 类型                                | 描述    |
+| ------- | --------------------------------- | ----- |
+| tokenId | BigNumber \\| string \\| number | 代币的ID |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "tokenId "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`: The address of the account that has the right to transfer the given token.
+`Promise` 返回 `string`：有权转移给定代币的账户地址。
 
-**Example**
+**示例**
 
 ```javascript
 // If an approved address exists
@@ -529,29 +529,29 @@ Returns the address who was permitted to transfer this token, or 'zero' address,
 
 // If no approved address exists
 > kip17.getApproved(3).then(console.log)
-0x0000000000000000000000000000000000000000
+0x000000000000000000000000000000000000000000000000
 ```
 
-## kip17.isApprovedForAll <a id="kip17-isapprovedforall"></a>
+## kip17.isApprovedForAll<a id="kip17-isapprovedforall"></a>
 
 ```javascript
 kip17.isApprovedForAll(owner, operator)
 ```
 
-Returns `true` if an `operator` is approved to transfer all tokens that belong to the `owner`.
+如果某个 "操作员 "获准转移属于 "所有者 "的所有代币，则返回 "true"。
 
-**Parameters**
+**参数**
 
-| Name     | Type   | Description                                                                                                     |
-| -------- | ------ | --------------------------------------------------------------------------------------------------------------- |
-| owner    | string | The address of an account that owns tokens and has allowed the operator to send all its tokens. |
-| operator | string | The address of the account approved to send owner's all tokens in place of the owner.           |
+| 名称  | 类型     | 描述                      |
+| --- | ------ | ----------------------- |
+| 所有者 | string | 拥有代币并允许操作员发送其所有代币的账户地址。 |
+| 操作员 | string | 获准代替所有者发送所有代币的账户地址。     |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`: `true` if an `operator` is approved to send all tokens that belong to the `owner`.
+`Promise` 返回 `boolean`:：如果  `operator` 获准发送属于 `owner` 的所有代币，则返回 "true"。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.isApprovedForAll('0x{address in hex}', '0x{address in hex}').then(console.log)
@@ -561,25 +561,25 @@ false
 true
 ```
 
-## kip17.isMinter <a id="kip17-isminter"></a>
+## kip17.isMinter<a id="kip17-isminter"></a>
 
 ```javascript
 kip17.isMinter(address)
 ```
 
-Returns `true` if the given account is a minter who can issue new tokens in the current contract conforming to KIP-17.
+如果给定账户是矿工，可以在当前合约中发行符合 KIP-17 标准的新代币，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                            |
-| ------- | ------ | -------------------------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for having the minting right. |
+| 名称 | 类型     | 描述              |
+| -- | ------ | --------------- |
+| 地址 | string | 检查是否拥有铸币权的账户地址。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`: `true` if the account is a minter.
+`Promise`  返回 \`boolean：如果账户是矿工，则返回 "true"。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.isMinter('0x{address in hex}').then(console.log)
@@ -589,23 +589,23 @@ true
 false
 ```
 
-## kip17.paused <a id="kip17-paused"></a>
+## kip17.paused<a id="kip17-paused"></a>
 
 ```javascript
 kip17.paused()
 ```
 
-Returns `true` if the contract is paused, and `false` otherwise.
+如果合约暂停，则返回 `true`，否则返回 `false`。
 
-**Parameters**
+**参数**
 
-None
+无
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`: `true` if the contract is paused.
+`Promise` 返回 `boolean`：如果合约暂停，则返回 `true`。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.paused().then(console.log)
@@ -615,25 +615,25 @@ true
 false
 ```
 
-## kip17.isPauser <a id="kip17-ispauser"></a>
+## kip17.isPauser<a id="kip17-ispauser"></a>
 
 ```javascript
 kip17.isPauser(address)
 ```
 
-Returns `true` if the given account is a pauser who can suspend transferring tokens.
+如果给定账户是可以暂停转让代币的暂停者，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                                                   |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for having the right to suspend transferring tokens. |
+| 名称 | 类型     | 描述                         |
+| -- | ------ | -------------------------- |
+| 地址 | string | 要检查的账户地址，以确定该账户是否有权暂停代币转账。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`: `true` if the account is a pauser.
+`Promise` 返回 \`boolean：如果账户是 pauser，则返回 "true"。
 
-**Example**
+**示例**
 
 ```javascript
 > kip17.isPauser('0x{address in hex}').then(console.log)
@@ -643,45 +643,45 @@ true
 false
 ```
 
-## kip17.approve <a id="kip17-approve"></a>
+## kip17.approve<a id="kip17-approve"></a>
 
 ```javascript
 kip17.approve(to, tokenId [, sendParam])
 ```
 
-Approves another address to transfer a token of the given token id. The zero address indicates there is no approved address. There can only be one approved address per token. This method is allowed to call only by the token owner or an approved operator.
+批准另一个地址传输给定代币 ID 的代币。 零地址表示没有批准的地址。 每个令牌只能有一个核准地址。 此方法只允许代币所有者或经批准的操作员调用。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                |
-| --------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| to        | string                            | The address of the account who spends tokens in place of the owner.                        |
-| tokenId   | BigNumber \\| string \\| number | The id of the token the spender is allowed to use.                                         |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. |
+| 名称        | 类型                                | 描述                                         |
+| --------- | --------------------------------- | ------------------------------------------ |
+| to        | string                            | 代替所有者使用代币的账户地址。                            |
+| tokenId   | BigNumber \\| string \\| number | 允许支出人使用的代币id。                              |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "tokenId "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-The sendParam object can contain the following:
+tokenInfo 对象必须包含以下内容：
 
-| Name          | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string                                    | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip17.options.from`. If neither of `from` in `sendParam` object nor `kip17.options.from` were not provided, an error would occur.                                                                                                                                                    |
-| gas           | number \\| string                        | (optional) The maximum gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip17.methods.approve(spender, tokenId).estimateGas({from})`.                                                                                                                                                                                            |
-| gasPrice      | number \\| string                        | (optional) The gas price in peb to use for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                                                                                                                                                                                             |
-| value         | number \\| string \\| BN \\| BigNumber | (optional) The value to be transferred in peb.                                                                                                                                                                                                                                                                                                                                                                        |
-| feeDelegation | boolean                                   | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip17.options.feeDelegation` will be used. If both omitted, fee delegation is not used.                                                                                                                                                                                                           |
-| feePayer      | string                                    | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip17.options.feePayer` will be used. If both omitted, throws an error.                                                                                                                 |
-| feeRatio      | string                                    | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip17.options.feeRatio` will be used. |
+| 名称       | 类型                                        | 描述                                                                                                                                                                                                      |
+| -------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from     | string                                    | (可选） 发送交易的地址。 如果省略，将由 `kip17.options.from` 设置。 如果未提供 `sendParam` 对象中的 `from` 或 `kip17.options.from`，则会发生错误。                                                                          |
+| gas      | number \\| string                        | (可选）本次交易提供的最大 gas（gas 限值）。 如果省略，将由 caver-js 通过调用`kip17.methods.approve(spender, tokenId).estimateGas({from})`来设置。                                                                    |
+| gasPrice | number \\| string                        | (可选）本次交易使用的 Gas 价格（以 peb 为单位）。 如果省略，将由 caver-js 通过调用 `caver.klay.getGasPrice`来设置。                                                                                                    |
+| value    | number \\| string \\| BN \\| BigNumber | (可选）以 peb 为单位传输的值。                                                                                                                                                                   |
+| 收费授权     | boolean                                   | (可选，默认为 `false`）是否使用费用委托交易。 如果省略，将使用 \`kip17.options.feeDelegation'。 如果两者都省略，则不使用收费授权。                                                               |
+| feePayer | string                                    | (可选）支付交易费的缴费人地址。 当 "feeDelegation "为 "true "时，该值将设置为交易中的 "feePayer "字段。 如果省略，将使用 \`kip17.options.feePayer'。 如果两者都省略，则会出错。                            |
+| feeRatio | string                                    | (可选）缴费人将承担的交易费比例。 如果 "feeDelegation "为 "true"，且 "feeRatio "设置为有效值，则使用部分费用委托交易。 有效范围为 1 到 99。 不允许比率为 0 或 100 及以上。 如果省略，将使用 \`kip17.options.feeRatio'。 |
 
-**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `feeDelegation`、`feePayer` 和 `feeRatio`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -736,29 +736,29 @@ The sendParam object can contain the following:
 > kip17.approve('0x{address in hex}', 10).then(console.log)
 ```
 
-## kip17.setApprovalForAll <a id="kip17-setApprovalforall"></a>
+## kip17.setApprovalForAll<a id="kip17-setApprovalforall"></a>
 
 ```javascript
 kip17.setApprovalForAll(to, approved [, sendParam])
 ```
 
-Approves the given operator `to`, or disallow the given operator, to transfer all tokens of the owner.
+批准给定操作符 "转 "或禁止给定操作符转移所有者的所有代币。
 
-Note that the setApprovalForAll method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，setApprovalForAll 方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type    | Description                                                                                                                                                    |
-| --------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to        | string  | The address of an account to be approved/prohibited to transfer the owner's all tokens.                                                        |
-| approved  | Boolean | This operator will be approved if `true`. The operator will be disallowed if `false`.                                          |
-| sendParam | object  | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型      | 描述                                                              |
+| --------- | ------- | --------------------------------------------------------------- |
+| to        | string  | 批准/禁止转让所有者所有代币的账户地址。                                            |
+| approved  | Boolean | 如果 "true"，该操作符将被批准。 如果为 `false`，则不允许使用操作符。                      |
+| sendParam | object  | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -813,32 +813,32 @@ Note that the setApprovalForAll method will submit a transaction to the kaia net
 > kip17.setApprovalForAll('0x{address in hex}', true).then(console.log)
 ```
 
-## kip17.transferFrom <a id="kip17-transferfrom"></a>
+## kip17.transferFrom<a id="kip17-transferfrom"></a>
 
 ```javascript
 kip17.transferFrom(from, to, tokenId [, sendParam])
 ```
 
-Transfers the token of the given token id, `tokenId` from the token owner's balance to another address. The address that was authorized to send the token owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized account or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip17Instance.options.from`. Unless both `sendParam.from` and `kip17Instance.options.from` are provided, an error would occur. It is recommended to use [safeTransferFrom](#kip17-safetransferfrom) whenever possible instead of this method.
+将给定代币 ID "tokenId "的代币从代币所有者的余额转移到另一个地址。 授权发送代币所有者代币的地址（操作员）或令牌所有者本人将执行该令牌转移交易。 因此，授权账户或代币所有者应是该交易的发送方，其地址必须在 `sendParam.from` 或 `kip17Instance.options.from` 中给出。 除非同时提供 `sendParam.from` 和 `kip17Instance.options.from`，否则会发生错误。 建议尽可能使用 [safeTransferFrom](#kip17-safetransferfrom) 代替此方法。
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+请注意，发送此交易将向交易发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                    |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from      | string                            | The address of the owner or the approved operator of the given token.                                                                          |
-| to        | string                            | The address of the account to receive the token.                                                                                               |
-| tokenId   | BigNumber \\| string \\| number | The id of the token you want to transfer.                                                                                                      |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型                                | 描述                                                              |
+| --------- | --------------------------------- | --------------------------------------------------------------- |
+| from      | string                            | 指定代币所有者或经批准的操作者的地址。                                             |
+| to        | string                            | 接收代币的账户地址。                                                      |
+| tokenId   | BigNumber \\| string \\| number | 您要转移的代币的 ID。                                                    |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "tokenId "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -893,35 +893,35 @@ Note that sending this transaction will charge the transaction fee to the transa
 > kip17.transferFrom('0x{address in hex}', '0x{address in hex}', 2).then(console.log)
 ```
 
-## kip17.safeTransferFrom <a id="kip17-safetransferfrom"></a>
+## kip17.safeTransferFrom<a id="kip17-safetransferfrom"></a>
 
 ```javascript
 kip17.safeTransferFrom(from, to, tokenId [, data] [, sendParam])
 ```
 
-Safely transfers the token of the given token id `tokenId` from the token owner's balance to another address. The address that was authorized to send the token owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip17Instance.options.from`. Unless both `sendParam.from` and `kip17Instance.options.from` are provided, an error would occur.
+将给定代币 id `tokenId` 的令牌从代币所有者的余额安全转移到另一个地址。 授权发送代币所有者代币的地址（操作员）或代币所有者本人将执行该代币转移交易。 因此，授权地址或代币所有者应是该交易的发送方，其地址必须在 `sendParam.from` 或 `kip17Instance.options.from` 中给出。 除非同时提供 `sendParam.from` 和 `kip17Instance.options.from`，否则会发生错误。
 
-If the `to` is a contract address, it must implement [IKIP17Receiver.onKIP17Received](https://kips.kaia.io/KIPs/kip-17#wallet-interface). otherwise, the transfer is reverted.
+如果 `to` 是合约地址，则必须执行 [IKIP17Receiver.onKIP17Received](https://kips.kaia.io/KIPs/kip-17#wallet-interface). 否则，转账将被撤销。
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+请注意，发送此交易将向交易发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                    |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from      | string                            | The address of the owner or the approved operator of the given token.                                                                          |
-| to        | string                            | The address of the account to receive the token.                                                                                               |
-| tokenId   | BigNumber \\| string \\| number | The id of the token you want to transfer.                                                                                                      |
-| data      | Buffer \\| string \\| number    | (optional) The optional data to send along with the call.                                                                   |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型                                | 描述                                                              |
+| --------- | --------------------------------- | --------------------------------------------------------------- |
+| from      | string                            | 指定代币所有者或经批准的操作者的地址。                                             |
+| to        | string                            | 接收代币的账户地址。                                                      |
+| tokenId   | BigNumber \\| string \\| number | 您要转移的代币的 ID。                                                    |
+| data      | Buffer \\| string \\| number    | (可选）与呼叫一起发送的可选数据。                            |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "tokenId "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -979,30 +979,30 @@ Note that sending this transaction will charge the transaction fee to the transa
 > kip17.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11).then(console.log)
 ```
 
-## kip17.addMinter <a id="kip17-addminter"></a>
+## kip17.addMinter<a id="kip17-addminter"></a>
 
 ```javascript
 kip17.addMinter(account [, sendParam])
 ```
 
-Adds an account as a minter, who are permitted to mint tokens.
+添加一个允许铸造代币的矿工账户。
 
-Note that the addMinter method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，addMinter 方法将向 kaia 网络提交交易，而 kaia 网络将向发送者收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                    |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be added as a minter.                                                                                            |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型     | 描述                                                              |
+| --------- | ------ | --------------------------------------------------------------- |
+| account   | string | 要添加为矿工的账户地址。                                                    |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a minter.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from` ，则应是矿工。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1053,29 +1053,29 @@ Note that the addMinter method will submit a transaction to the kaia network, wh
 > kip17.addMinter('0x{address in hex}').then(console.log)
 ```
 
-## kip17.renounceMinter <a id="kip17-renounceminter"></a>
+## kip17.renounceMinter<a id="kip17-renounceminter"></a>
 
 ```javascript
 kip17.renounceMinter([sendParam])
 ```
 
-Renounces the right to mint tokens. Only a minter address can renounce the minting right.
+放弃铸造代币的权利。 只有铸币厂地址可以放弃铸币权。
 
-Note that the renounceMinter method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，renounceMinter 方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                    |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型     | 描述                                                              |
+| --------- | ------ | --------------------------------------------------------------- |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-If `sendParam.from` or `kip17.options.from` were given, it should be a minter with MinterRole.
+如果给出了 `sendParam.from` 或 `kip17.options.from` ，则应是具有 MinterRole 的矿工。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1126,34 +1126,34 @@ If `sendParam.from` or `kip17.options.from` were given, it should be a minter wi
 > kip17.renounceMinter().then(console.log)
 ```
 
-## kip17.mintWithTokenURI <a id="kip17-mintwithtokenuri"></a>
+## kip17.mintWithTokenURI<a id="kip17-mintwithtokenuri"></a>
 
 ```javascript
 kip17.mintWithTokenURI(to, tokenId, tokenURI [, sendParam])
 ```
 
-Creates a token with the given uri and assigns them to the given account. This method increases the total supply of this token.
+使用给定的 uri 创建代币，并将其分配给给定的账户。 这种方法可以增加该代币的总供应量。
 
-Note that the mintWithTokenURI method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，mintWithTokenURI 方法将向 kaia 网络提交交易，而 kaia 网络将向发送者收取交易费用。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                    |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to        | string                            | The address of the account to which the minted token will be issued.                                                                           |
-| tokenId   | BigNumber \\| string \\| number | The id of the token to be minted.                                                                                                              |
-| tokenURI  | string                            | The uri string of token to be minted.                                                                                                          |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型                                | 描述                                                              |
+| --------- | --------------------------------- | --------------------------------------------------------------- |
+| to        | string                            | 将向其发行新币的账户地址。                                                   |
+| tokenId   | BigNumber \\| string \\| number | 要铸造的代币的 ID。                                                     |
+| tokenURI  | string                            | 要铸币的代币的 uri 字符串。                                                |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "tokenId "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a minter with MinterRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from` ，则应是具有 MinterRole 的矿工。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1208,30 +1208,30 @@ Note that the mintWithTokenURI method will submit a transaction to the kaia netw
 > kip17.mintWithTokenURI('0x{address in hex}', 18, tokenURI).then(console.log)
 ```
 
-## kip17.burn <a id="kip17-burn"></a>
+## kip17.burn<a id="kip17-burn"></a>
 
 ```javascript
 kip17.burn(tokenId [, sendParam])
 ```
 
-Destroys the token of the given token id. Without `sendParam.from` nor `kip17.options.from` being provided, an error would occur.
+销毁给定代币 id 的代币。 如果不提供 `sendParam.from` 或 `kip17.options.from`，就会发生错误。
 
-Note that the burn method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，"销毁 "方法将向 kaia 网络提交交易，而 kaia 网络将向发送者收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                    |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenId   | BigNumber \\| string \\| number | The id of the token to be destroyed.                                                                                                           |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型                                | 描述                                                              |
+| --------- | --------------------------------- | --------------------------------------------------------------- |
+| tokenId   | BigNumber \\| string \\| number | 要销毁的代币的 ID。                                                     |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** The `tokenId` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "tokenId "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1286,29 +1286,29 @@ Note that the burn method will submit a transaction to the kaia network, which w
 > kip17.burn(14).then(console.log)
 ```
 
-## kip17.pause <a id="kip17-pause"></a>
+## kip17.pause<a id="kip17-pause"></a>
 
 ```javascript
 kip17.pause([sendParam])
 ```
 
-Suspends functions related to sending tokens.
+暂停与发送代币相关的功能。
 
-Note that the pause method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，暂停方法将向 kaia 网络提交交易，而 kaia 网络将向发送者收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                    |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型     | 描述                                                              |
+| --------- | ------ | --------------------------------------------------------------- |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1359,29 +1359,29 @@ Note that the pause method will submit a transaction to the kaia network, which 
 > kip17.pause().then(console.log)
 ```
 
-## kip17.unpause <a id="kip17-unpause"></a>
+## kip17.unpause<a id="kip17-unpause"></a>
 
 ```javascript
 kip17.unpause([sendParam])
 ```
 
-Resumes the paused contract.
+恢复已暂停的合同。
 
-Note that the unpause method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，取消暂停方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                    |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型     | 描述                                                              |
+| --------- | ------ | --------------------------------------------------------------- |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1432,30 +1432,30 @@ Note that the unpause method will submit a transaction to the kaia network, whic
 > kip17.unpause().then(console.log)
 ```
 
-## kip17.addPauser <a id="kip17-addpauser"></a>
+## kip17.addPauser<a id="kip17-addpauser"></a>
 
 ```javascript
 kip17.addPauser(account [, sendParam])
 ```
 
-Adds an account as a pauser that has the right to suspend the contract.
+添加一个有权中止合同的暂停账户。
 
-Note that the addPauser method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，addPauser 方法将向 kaia 网络提交交易，而 kaia 网络将向发送者收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                    |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be a new pauser.                                                                                                 |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型     | 描述                                                              |
+| --------- | ------ | --------------------------------------------------------------- |
+| account   | string | 将成为新暂停者的账户地址。                                                   |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1506,29 +1506,29 @@ Note that the addPauser method will submit a transaction to the kaia network, wh
 > kip17.addPauser('0x{address in hex}').then(console.log)
 ```
 
-## kip17.renouncePauser <a id="kip17-renouncepauser"></a>
+## kip17.renouncePauser<a id="kip17-renouncepauser"></a>
 
 ```javascript
 kip17.renouncePauser([sendParam])
 ```
 
-Renounces the right to pause the contract. Only a pauser address can renounce its own pausing right.
+放弃暂停合约的权利。 只有暂停地址可以放弃自己的暂停权。
 
-Note that the renouncePauser method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，renouncePauser 方法将向 kaia 网络提交交易，而 kaia 网络将向发送者收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                    |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve]. |
+| 名称        | 类型     | 描述                                                              |
+| --------- | ------ | --------------------------------------------------------------- |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip17.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP-17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1580,4 +1580,4 @@ Note that the renouncePauser method will submit a transaction to the kaia networ
 ```
 
 [getTransactionReceipt]: ../caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt
-[approve]: #kip17-approve
+[approve]: kip17.approve
