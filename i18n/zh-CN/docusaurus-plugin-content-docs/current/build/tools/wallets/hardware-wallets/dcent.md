@@ -1,13 +1,13 @@
 # D'cent 生物识别钱包
 
-## Introduction <a id="introduction"></a>
+## 导言<a id="introduction"></a>
 
-D'Cent Wallet is a non-custodial biometric wallet designed to offer both Bluetooth-enabled hardware and software options to manage your crypto with ease.
+D'Cent Wallet 是一款非托管生物识别钱包，旨在提供支持蓝牙的硬件和软件选项，让您轻松管理加密货币。
 
-Get a D'CENT device in their [offical website](https://store.dcentwallet.com/pages/dcent-biometric-crypto-wallet)
+在其[官方网站](https://store.dcentwallet.com/pages/dcent-biometric-crypto-wallet) 获取 D'CENT 设备
 
-## Guide
+## 指南
 
-- [Setup](https://userguide.dcentwallet.com/biometric-wallet/setting-up)
-- [How to send and receive Kaia](https://userguide.dcentwallet.com/coin-send-receive/coins/klaytn-klay#how-to-create-an-klay-account)
+- [设置](https://userguide.dcentwallet.com/biometric-wallet/setting-up)
+- [如何发送和接收 Kaia](https://userguide.dcentwallet.com/coin-send-receive/coins/klaytn-klay#how-to-create-an-klay-account)
 - [与 Kaia 钱包连接](https://userguide.dcentwallet.com/external-service/kaikas)
