@@ -1,97 +1,97 @@
-# Kaia Chain DLT Framework
+# Kaia Chain DLT 框架
 
-我们的分布式账本技术 (DLT) 框架旨在提供高效可靠的数字账本系统。 The framework consists of the following key features:
+我们的分布式账本技术 (DLT) 框架旨在提供高效可靠的数字账本系统。 该框架包括以下主要特征：
 
-## Layer Structure
+## 层结构
 
-- Our DLT framework operates in three layers of nodes: consensus nodes (CN), proxy nodes (PN), and endpoint nodes (EN). CN is managed by a Validator and is responsible for block creation. These blocks are verified by all the nodes within the network.
-- A Core Cell (CC) is composed of a single Consensus Node (CN) and two Proxy Nodes (PNs). Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
-- Endpoint Nodes (ENs) serve as endpoints for Kaia network handling RP API requests and processing data sent to and from service chains.
+- 我们的 DLT 框架由三层节点组成：共识节点 (CN)、代理节点 (PN) 和端点节点 (EN)。 CN 由验证器管理，负责区块创建。 这些区块由网络内的所有节点验证。
+- 核心单元 (CC) 由一个共识节点 (CN) 和两个代理节点 (PN) 组成。 共识节点参与区块生成过程，而代理节点则提供网络接口。 PN 向共识节点发送交易请求，并将区块向下传播到端点节点。
+- 端点节点（EN）作为 Kaia 网络的端点，处理 RP API 请求，并处理服务链之间的数据往来。
 
 ![](/img/misc/kaia-nodes.jpg)
 
-## Consensus algorithm
+## 共识算法
 
-Blockchains use a “distributed ledger,” which consists of a connected network between individuals with several network participants to record and manage the transaction information. Each blockchain adopts a consensus algorithm that is most suitable for it, with the aim of efficient and smooth consensus on transaction validation and block generation among network participants.
+区块链使用 "分布式账本"，由多个网络参与者组成的个人之间的连接网络来记录和管理交易信息。 每个区块链都采用最适合自己的共识算法，目的是在网络参与者之间就交易验证和区块生成达成高效、顺畅的共识。
 
-- Kaia uses an optimized version of Istanbul BFT, which implements PBFT (Practical Byzantine Fault Tolerance) with modifications to suit the characteristics of blockchain networks.
+- Kaia 使用伊斯坦布尔 BFT 的优化版本，该版本实现了 PBFT（实用拜占庭容错），并根据区块链网络的特点进行了修改。
 
-The performance of Kaia is as follows:
+Kaia 的表现如下：
 
-- Process 4,000 transactions/sec
-- Instant transaction finality
-- Creation time of 1 second/block
+- 每秒处理 4,000 笔交易
+- 即时交易终结
+- 创建时间为 1 秒/块
 
-## Smart Contract
+## 智能合约
 
-- Kaia supports a distributed virtual machine for executing smart contracts, which is designed to be fast and efficient, providing the best and swiftest development environment for dApp developers and projects.
+- Kaia 支持用于执行智能合约的分布式虚拟机，其设计快速高效，可为 dApp 开发人员和项目提供最佳、最迅速的开发环境。
 
-- The current version of Kaia Virtual Machine (KVM) is a derivative of the Ethereum Virtual Machine (EVM). It supports all Opcodes of the Ethereum Virtual Machine equally while providing additional precompiled contracts unique to the Kaia Virtual Machine.
+- 当前版本的 Kaia 虚拟机（KVM）是以太坊虚拟机（EVM）的衍生产品。 它同样支持以太坊虚拟机的所有操作码，同时提供 Kaia 虚拟机独有的额外预编译合约。
 
-- Kaia supports Solidity and maintains interoperability with Ethereum development toolkits such as Remix, Hardhat, Truffle, and Foundry. A Smart Contract written with Solidity can be compiled using the existing Solidity compiler and can be run on Kaia without additional work.
+- Kaia 支持 Solidity，并与 Remix、Hardhat、Truffle 和 Foundry 等以太坊开发工具包保持互操作性。 使用 Solidity 编写的智能合约可以使用现有的 Solidity 编译器进行编译，无需额外工作即可在 Kaia 上运行。
 
-## Security measures
+## 安全措施
 
-- We introduced a VRF(Verifiable Random Function) with the selection of the committee leader for the block generation consensus algorithm. VRF is a technology that randomly selects proposer nodes that generate blocks on each round, making it impossible to predict which nodes will be selected.
+- 我们为区块生成共识算法引入了可验证随机函数（VRF），用于选择委员会领导。 VRF 是一种在每一轮随机选择生成区块的提议者节点的技术，因此无法预测哪些节点会被选中。
 
-- Kaia chain has a clear separation between the validator keys and rewards keys to protect them from stealing. Validator signatures need to be verified by all the committee members verifying the block creation.
+- Kaia chain 明确区分了验证密钥和奖励密钥，以防止它们被窃取。 验证者签名需要由验证区块创建的所有委员会成员进行验证。
 
-## Interoperability
+## 互通性
 
-- Kaia Blockchain is based on EVM so its compatible with Ethereum and all contracts developed in Solidity can run seamlessly with in Kaia Ecosystem.
+- Kaia 区块链基于 EVM，因此与以太坊兼容，所有在 Solidity 中开发的合约都可以在 Kaia 生态系统中无缝运行。
 
-- Our DLT framework is designed based on EVM-SDK(Software Development Kit) technology, and is designed to interoperate with the same EVM-SDK based chains to deploy smart contracts without any code changes.
+- 我们的 DLT 框架基于 EVM-SDK（软件开发工具包）技术设计，可与基于 EVM-SDK 的链互操作，无需修改任何代码即可部署智能合约。
 
-- It facilitates cross-platform transactions and smart contracts by enabling mutual asset movement, message exchange, and contract execution via inter.
+- 它通过 inter 实现资产相互移动、信息交换和合约执行，从而促进跨平台交易和智能合约。
 
-## Tokenization
+## 资产代币化
 
-- Kaia chain supports native coins as KAIA.
+- Kaia 链支持原生钱币 KAIA。
 
-- The framework provides the ability to issue and manage tokens, which can represent a variety of assets, including but not limited to cryptocurrencies, utility tokens, or asset-backed tokens, or NFTs.
+- 该框架提供了发行和管理代币的能力，代币可以代表各种资产，包括但不限于加密货币、实用代币或资产支持代币或 NFT。
 
-## Governance Protocol
+## 治理协议
 
-- The on-chain governance of Kaia is designed to be fair and to ensure diverse opinions are shared. Voting entities can vote on all agenda items. Voting rights are calculated in proportion to the amount of staking. However, there is a cap on voting rights to prevent minority opinions from being ignored. Voters can delegate their staking amount to other voters.
+- Kaia 的链上管理旨在实现公平，确保分享不同意见。 有表决权的实体可对所有议程项目进行投票。 投票权按出资额的比例计算。 不过，投票权是有上限的，以防止少数人的意见被忽视。 投票人可将自己的投注额委托给其他投票人。
 
-- The submitted proposal is on-chain data that anyone can inquire about, and the description and information of the proposal, the result of the vote and the execution history of the proposal are recorded and transparently disclosed.
+- 提交的提案是任何人都可以查询的链上数据，提案的描述和信息、投票结果以及提案的执行历史都会被记录并透明地披露。
 
-## Validators
+## 验证节点
 
-The consensus process consists of the following three stages:
+共识过程包括以下三个阶段：
 
-- Step 1 – Election: A committee consisting of one proposer and several nodes is selected. This is a similar task to the leader election in a generally distributed system. The proposer and the committee are randomly selected through VRF since knowing them in advance can make them vulnerable to targeted DoS (denial of service).
+- 步骤 1 - 选举：选出一个由一名提案人和几个节点组成的委员会。 这与一般分布式系统中的领导者选举任务类似。 提案人和委员会是通过 VRF 随机选出的，因为事先知道他们会使他们容易受到有针对性的 DoS（拒绝服务）攻击。
 
-- Step 2 - Block Generation: Elected proposers create a block and make a proposal to the committee. 通过 P2P 网络提出的区块建议将发送给委员会。
+- 步骤2 - 组块生成：当选提案人创建一个区块，并向委员会提出提案。 通过 P2P 网络提出的区块建议将发送给委员会。
 
-- Step 3 - Block Verification: The committee verifies and signs the block proposed by the proposer. A block is complete when more than a quorum of signatures is collected.
+- 步骤3 --区块验证：委员会核实并签署投标人提出的区块。 当收集到的签名超过法定人数时，一个区块即完成。
 
-## Token Economy
+## 代币经济
 
-- The framework is automatically issued by the native token, KAIA, at the creation of each block, and the amount of KAIA issuance in each block is determined by the inflation ratio to the total supply. Kaia Blockchain provides incentives through newly minted KAIA and transaction fees.
+- 框架在每个区块创建时由原生代币 KAIA 自动发行，每个区块的 KAIA 发行量由总供应量的通胀率决定。 Kaia 区块链通过新发行的 KAIA 和交易费提供奖励。
 
-- On the mainnet of Kaia Blockchain, a certain amount of KAIA is issued whenever a new block is created. Each time a new block is created, a certain amount of KAIA will be newly issued, and the target initial annual inflation rate (amount of KAIA newly issued per year / total KAIA token in the market) of Kaia Blockchain will be set at 5.2% .
+- 在 Kaia 区块链的主网上，每创建一个新区块，就会发行一定数量的 KAIA。 每创建一个新区块，就会新发行一定数量的 KAIA，Kaia 区块链的目标初始年通货膨胀率（每年新发行的 KAIA 数量/市场上的 KAIA 代币总量）将设定为 5.2%。
 
-- Block Reward for each block will be distributed in prespecified percentages (that can be changed subject to on-chain governance voting).
+- 每个区块的区块奖励将按预先规定的百分比分配（可根据链上治理投票进行更改）。
 
-  1. CCO and Community: 50%
-     1. Of the 50%, 20% is Block Creator rewards
-     2. Of the 50%, 80% is Staking rewards
-  2. KEF (Kaia Ecosystem Fund): 25%
-  3. KIF (Kaia Infrastructure Fund): 25%
+  1. CCO 和社区：50
+     1. 在这 50%中，20%是区块创建者奖励
+     2. 在这 50%中，80%是定金奖励
+  2. KEF（Kaia生态系统基金）：25%
+  3. KIF（Kaia基础设施基金）：25%
 
-## Auditability and transparency
+## 可审计性和透明度
 
-- All transactions provide an immutable and verifiable history of all state changes by recording the process from submission to execution in a block and transparently disclosing the entire past block history.
+- 所有事务都记录了一个区块从提交到执行的过程，并透明地披露了过去整个区块的历史，从而为所有状态变化提供了不可更改且可验证的历史记录。
 
-- Kaia chain provides KaiaScope and Kaiascan to view all the transactions happening on the blockchain.
+- Kaia 链提供 KaiaScope 和 Kaiascan 来查看区块链上发生的所有交易。
 
-- The data recorded in each block in the past can be viewed by anyone through the query function, thereby increasing transparency and confidence in the system.
+- 任何人都可以通过查询功能查看每个区块过去记录的数据，从而提高系统的透明度和可信度。
 
-- Kaia Chain provides voting platform “Square” to disclose all the expenses incurred and quarterly known transactions.
+- Kaia Chain 提供投票平台 "Square"，用于披露所有支出和季度已知交易。
 
-## Network Monitoring:
+## 网络监控：
 
-- Kaia Blockchain adopts a multi-channel approach to deal with network congestion. By allocating separate propagation channels to transactions and blocks, the Kaia network can propagate newly created blocks in a timely manner even when the network faces severe congestion due to a large number of transactions. In turn, Kaia guarantees the dApps on the network to continue responding to end-user requests despite intermittent network traffic surges.
+- Kaia 区块链采用多渠道方法处理网络拥塞问题。 通过为交易和区块分配不同的传播通道，Kaia 网络即使在网络因大量交易而面临严重拥堵的情况下，也能及时传播新创建的区块。 反过来，Kaia 又能保证网络上的 dApps 在间歇性网络流量激增的情况下继续响应终端用户的请求。
 
-- Kaia chain deploys the network monitoring for all the validators in the blockchain.
+- Kaia 链为区块链中的所有验证器部署了网络监控。
