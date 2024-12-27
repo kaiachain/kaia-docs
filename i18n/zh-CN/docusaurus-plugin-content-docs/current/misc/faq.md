@@ -30,7 +30,7 @@ Kaia 与 EVM 兼容，支持除 EIP-4844 blob 交易之外的所有以太坊坎�
 
 ## Kaia 的天然气政策是什么？ <a id="kaia-gas-policy"></a>
 
-Kaia 采用动态天然气收费模式，在正常网络条件下保持低收费，但会根据网络拥堵情况调整收费。 瓦斯费可在每个区块的有限范围内变化，有助于防止网络垃圾邮件，同时保持费用的可预测性。 每笔交易的部分费用会自动烧掉。 该模式优先考虑用户体验和企业友好性，同时保持网络稳定性。
+Kaia 采用动态天然气收费模式，在正常网络条件下保持低收费，但会根据网络拥堵情况调整收费。 手续费可在每个区块的有限范围内变化，有助于防止网络垃圾邮件，同时保持费用的可预测性。 每笔交易的部分费用会自动烧掉。 该模式优先考虑用户体验和企业友好性，同时保持网络稳定性。
 
 ## Kaia 的账户结构有什么特别之处？ <a id="kaia-account-structure"></a>
 
@@ -57,8 +57,8 @@ Kaia 当然是开源的！ 看看我们的 [Github 组织](https://github.com/ka
 
 您可以从这里获取用于开发和测试的 KAIA 测试版：
 
-- [Kaia 水龙头](https://faucet.kaia.io)
-- [NODIT 水龙头](https://kaiafaucet.com)
+- [Kaia Faucet](https://faucet.kaia.io)
+- [NODIT Faucet](https://kaiafaucet.com)
 - [Thirdweb Faucet](https://thirdweb.com/kaia-testnet-kairos)
 
 ## 如何检查公共 RPC 端点状态？ <a id="rpc-endpoint-status"></a>
@@ -83,7 +83,7 @@ Kaia 由冷钱包 D'cent 以及大量热钱包（如 Kaia Wallet、MetaMask 等�
 
 - EN 下载 ：从[下载页面](../nodes/downloads/downloads.md)选择 Kairos 软件包。
 - Kaiascope : https://kairos.kaiascope.com
-- 凯洛斯龙头 : https://faucet.kaia.io
+- Kairos Faucet : https://faucet.kaia.io
 
 ## 有 Kaia SDK 吗？ 用什么语言？ <a id="kaia-sdks"></a>
 
@@ -120,7 +120,7 @@ Kaia Node 与以太坊兼容，因此您可以使用流行的以太坊 SDK，如
 
 是的。 Kaia 支持 Solidity 作为智能合约语言。 用 Solidity 为 Etherem 编写的 [ERC-20](../build/smart-contracts/samples/erc-20.md) 和 [ERC-721](../build/smart-contracts/samples/erc-721.md) 可以在 Kaia 上部署和执行。
 
-还可以定义更多的 Kaia 专用令牌标准。 关注 [KIP（凯亚改进提案）](https://kips.kaia.io/) 并参与讨论。
+还可以定义更多的 Kaia 专用代币标准。 关注 [KIP（Kaia改进提案）](https://kips.kaia.io/) 并参与讨论。
 
 ## 在哪里可以获得像 Metamask 这样的浏览器扩展钱包？ <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
@@ -141,7 +141,7 @@ Kaia 的网络浏览器扩展钱包 [Kaia Wallet](https://chromewebstore.google.
 
 您可以找到使用多个不同 Kaia SDK 进行费用委托的完整工作示例：
 
-- 醚-ext：[收费委托价值转移示例](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/)
+- ethers-ext：[收费委托价值转移示例](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/)
 - web3js-ext：[收费委托值转移示例](https://docs.kaia.io/references/sdk/web3js-ext/fee-delegated-transaction/value-transfer/)
 - web3j-ext：[收费委托值转移示例](https://docs.kaia.io/references/sdk/web3j-ext/fee-delegated-transaction/value-transfer/)
 - web3py-ext：[收费委托价值转移示例](https://docs.kaia.io/references/sdk/web3py-ext/fee-delegated-transaction/value-transfer/)
