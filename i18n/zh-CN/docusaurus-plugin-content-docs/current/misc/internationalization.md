@@ -6,7 +6,7 @@ KaiaDocs 有以下语言版本：
 - [한국어](https://docs.kaia.io/ko/)
 - [Tiếng Việt](https://docs.kaia.io/vi/)
 
-## 参与其中 <a href="#get-involved" id="get-involved"></a>
+## 参与我们 <a href="#get-involved" id="get-involved"></a>
 
 如果您能熟练掌握某种语言，并愿意为翻译或提高本地化文件的质量做出贡献，请参阅[目前正在翻译的语言列表](https://crowdin.com/project/kaia-docs)。
 
