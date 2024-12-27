@@ -1589,7 +1589,7 @@ See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all prop
 
 **Return Value**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
 | Type   | Description                                          |
 | ------ | ---------------------------------------------------- |
@@ -1671,9 +1671,9 @@ Returns information about a transaction by `block number` and `transaction index
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                                                                                            |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more detail. |
+| Type | Description                                                                                                                                                                            |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 对象   | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more detail. |
 
 **Example**
 
