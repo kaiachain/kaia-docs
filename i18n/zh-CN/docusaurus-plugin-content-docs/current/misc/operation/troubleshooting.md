@@ -1,4 +1,4 @@
-# 故障排除
+# 问题排除
 
 ## 在哪里可以找到使用 Kaia 二进制软件包运行的 Kaia 节点的日志文件？ <a id="where-can-i-find-a-log-file-for-the-running-kaia-node-using-the-kaia-binary"></a>
 
