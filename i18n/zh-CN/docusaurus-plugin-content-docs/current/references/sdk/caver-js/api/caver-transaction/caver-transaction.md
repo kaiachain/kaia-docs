@@ -174,27 +174,27 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 transaction.sign(keyring [, index] [, hasher])
 ```
 
-Signs the transaction as a transaction sender with the private key(s) in the `keyring` and appends `signatures` in the transaction object.
+使用 "钥匙环 "中的私人密钥以事务发送者的身份签署事务，并在事务对象中添加 "签名"。
 
-For [Account Update](./basic.md#accountupdate) transaction, use [roleAccountUpdateKey](../../../../../learn/accounts.md#roles), or otherwise, use [roleTransactionKey](../../../../../learn/accounts.md#roles) in [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring). If the user has not defined an `index`, `transaction.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.sign` signs the transaction using only one private key at the given index.
+对于[账户更新]（./basic.md#accountupdate）事务，使用[roleAccountUpdateKey]（./../../../.../learn/accounts.否则，请使用 [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring) 中的 [roleTransactionKey](../../../../learn/accounts.md#roles)。 如果用户没有定义 "index"，则 "transaction.sign "会使用角色使用的所有私钥签署事务。 如果定义了 `index`，则 `transaction.sign` 只使用给定索引上的一个私钥签署事务。
 
-**Parameters**
+**参数**
 
-| Name    | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | object \\| string | A private key string ([KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If a private key string or a [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
-| index   | number             | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                         |
-| hasher  | Function           | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 名称      | 类型        | 描述                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | 对象 \| 字符串 | 也可使用私钥字符串（[KlaytnWalletKey](.../.../.../.../.../learn/accounts.md#klaytn-wallet-key-format) 格式）或 Keyring 实例（[SingleKeyring](./caver-wallet/keyring.md#singlekeyring)、[MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring)或[RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring))。 如果私钥字符串或[KlaytnWalletKey](.../.../.../.../.../.../learn/accounts.md#klaytn-wallet-key-format)作为参数传递，则会在内部创建密钥环实例。 |
+| index   | 数字        | (可选）要使用的私人密钥的索引。 索引必须小于为每个角色定义的私钥数组的长度。 如果没有定义索引，该方法将使用所有私钥。                                                                                                                                                                                                                                                                                                                                        |
+| hasher  | 函数        | (可选）用于获取交易哈希值的哈希函数。                                                                                                                                                                                                                                                                                                                                                                                 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returning `object`: The signed transaction.
+返回 "对象 "的 "许诺"：已签署的事务。
 
-| Type   | Description                                                                                                                             |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| object | An instance of signed [Transaction](#class). The signature is appended to the `transaction.signatures`. |
+| 类型     | 描述                                                                                                      |
+| ------ | ------------------------------------------------------------------------------------------------------- |
+| object | 已签名 [事务]（#类）的实例。 签名将附加到 `transaction.signatures` 中。 |
 
-**Example**
+**示例**
 
 ```javascript
 // This example uses the ValueTransfer transaction.
@@ -274,39 +274,39 @@ ValueTransfer {
 }
 ```
 
-## transaction.signAsFeePayer <a href="#transaction-signasfeepayer" id="transaction-signasfeepayer"></a>
+## transaction.signAsFeePayer<a href="#transaction-signasfeepayer" id="transaction-signasfeepayer"></a>
 
 ```javascript
 transaction.signAsFeePayer(keyring [, index] [, hasher])
 ```
 
-Signs the transaction as a transaction `fee payer` and appends `feePayerSignatures` in the transaction object with the private key(s) in the `keyring`.
+将事务签署为事务 "付费者"，并在事务对象中附加 "付费者签名 "和 "钥匙环 "中的私人密钥。
 
-For signing a transaction as a fee payer, use [roleFeePayerKey](../../../../../learn/accounts.md#roles) in `keyring`. If the user has not defined an `index`, `transaction.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `transaction.signAsFeePayer` signs the transaction using only one private key at the given index.
+要以付费者身份签署交易，请使用 `keyring` 中的 [roleFeePayerKey](../../../../../learn/accounts.md#roles) 。 如果用户未定义 "索引"，则 "transaction.signAsFeePayer "会使用角色使用的所有私钥签署交易。 如果定义了 "index"，则 "transaction.signAsFeePayer "只使用给定索引中的一个私钥来签署交易。
 
-If the `transaction.feePayer` is not defined, the address of the given keyring is set to `transaction.feePayer`.
+如果未定义 "transaction.feePayer"，给定密钥的地址将设置为 "transaction.feePayer"。
 
-If the `keyring` to be used for signing the transaction was added to `caver.wallet`, you can use [caver.wallet.signAsFeePayer](../caver-wallet/caver-wallet.md#caver-wallet-signasfeepayer).
+如果用于签署交易的 `keyring` 已添加到 `caver.wallet` 中，则可以使用 [caver.wallet.signAsFeePayer](../caver-wallet/caver-wallet.md#caver-wallet-signasfeepayer).
 
-**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
+**注意**\* 该功能仅适用于 "收费委托 "交易或 "按比例收费委托 "交易。
 
-**Parameters**
+**参数**
 
-| Name    | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | object \\| string | A private key string ([KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) format is also allowed) or an instance of Keyring ([SingleKeyring](../caver-wallet/keyring.md#singlekeyring), [MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring) or [RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)). If the private key string or [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) is passed as a parameter, the keyring instance is created internally. |
-| index   | number             | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                                                                                                                                                                                                         |
-| hasher  | Function           | (optional) The hash function to get the hash of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 名称      | 类型        | 描述                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | 对象 \| 字符串 | 也可使用私钥字符串（[KlaytnWalletKey](.../.../.../.../.../learn/accounts.md#klaytn-wallet-key-format) 格式）或 Keyring 实例（[SingleKeyring](./caver-wallet/keyring.md#singlekeyring)、[MultipleKeyring](../caver-wallet/keyring.md#multiplekeyring)或[RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring))。 如果将私钥字符串或 [KlaytnWalletKey](../../../../../../learn/accounts.md#klaytn-wallet-key-format) 作为参数传递，则会在内部创建密钥环实例。 |
+| index   | 数字        | (可选）要使用的私人密钥的索引。 索引必须小于为每个角色定义的私钥数组的长度。 如果没有定义索引，该方法将使用所有私钥。                                                                                                                                                                                                                                                                                                                                     |
+| hasher  | 函数        | (可选）用于获取交易哈希值的哈希函数。                                                                                                                                                                                                                                                                                                                                                                              |
 
-**Return Value**
+**返回价值**
 
-`Promise` returning `object`: The signed transaction.
+返回 "对象 "的 "许诺"：已签署的事务。
 
-| Type   | Description                                                                                                                                     |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | An instance of signed [Transaction](#class). The signature is appended to the `transaction.feePayerSignatures`. |
+| 类型     | 描述                                                                                                              |
+| ------ | --------------------------------------------------------------------------------------------------------------- |
+| object | 已签名 [事务]（#类）的实例。 签名将附加到 `transaction.feePayerSignatures` 中。 |
 
-**Example**
+**示例**
 
 ```javascript
 // This example uses the FeeDelegatedValueTransfer transaction.
@@ -394,257 +394,257 @@ FeeDelegatedValueTransfer {
 }
 ```
 
-## transaction.appendSignatures <a href="#transaction-appendsignatures" id="transaction-appendsignatures"></a>
+## transaction.appendSignatures<a href="#transaction-appendsignatures" id="transaction-appendsignatures"></a>
 
 ```javascript
 transaction.appendSignatures(signatures)
 ```
 
-Appends `signatures` to the transaction.
+为事务添加 "签名"。
 
-**Parameters**
+**参数**
 
-| Name       | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| signatures | object \\| Array | The signatures to be appended to the transaction. [SignatureData](../caver-wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver-wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| 名称         | 类型       | 描述                                                                                                                                                                                                       |
+| ---------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| signatures | 对象 \| 数组 | 附加到交易中的签名。 [SignatureData](../caver-wallet/keyring.md#signaturedata) 实例或包含 [SignatureData](../caver-wallet/keyring.md#signaturedata) 实例的数组。 也可以将一个数组（其中每个 "v"、"r "和 "s "都按顺序定义为字符串格式）或一个包含这些数组的二维数组作为参数。 |
 
-**Example**
+**示例**
 
 ```javascript
 > transaction.appendSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
 ```
 
-## transaction.appendFeePayerSignatures <a href="#transaction-appendfeepayersignatures" id="transaction-appendfeepayersignatures"></a>
+## transaction.appendFeePayerSignatures<a href="#transaction-appendfeepayersignatures" id="transaction-appendfeepayersignatures"></a>
 
 ```javascript
-transaction.appendFeePayerSignatures(signatures)
+transaction.appendFeePayerSignatures( 签名 )
 ```
 
-Appends `feePayerSignatures` to the transaction.
+将 "feePayerSignatures "添加到交易中。
 
-**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
+**注意**\* 该功能仅适用于 "收费委托 "交易或 "按比例收费委托 "交易。
 
-**Parameters**
+**参数：**
 
-| Name               | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| feePayerSignatures | object \\| Array | The feePayerSignatures to be appended to the transaction. [SignatureData](../caver-wallet/keyring.md#signaturedata) instance or an array containing [SignatureData](../caver-wallet/keyring.md#signaturedata) instances. An array in which each 'v', 'r', and 's' are sequentially defined as string formats or a 2D array containing those arrays can also be taken as parameters. |
+| 名称                 | 类型       | 描述                                                                                                                                                                                                          |
+| ------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| feePayerSignatures | 对象 \| 数组 | 附加到交易中的付费者签名。 [SignatureData](../caver-wallet/keyring.md#signaturedata) 实例或包含 [SignatureData](../caver-wallet/keyring.md#signaturedata) 实例的数组。 也可以将一个数组（其中每个 "v"、"r "和 "s "都按顺序定义为字符串格式）或一个包含这些数组的二维数组作为参数。 |
 
-**Example**
+**示例**
 
 ```javascript
 > transaction.appendFeePayerSignatures([ '0x4e44', '0x7010e...', '0x65d6b...' ])
 ```
 
-## transaction.combineSignedRawTransactions <a href="#transaction-combinesignatures" id="transaction-combinesignatures"></a>
+## transaction.combineSignedRawTransactions<a href="#transaction-combinesignatures" id="transaction-combinesignatures"></a>
 
 ```javascript
 transaction.combineSignedRawTransactions(rlpEncodedTxs)
 ```
 
-Collects signs in each RLP-encoded transaction string in the given array, combines them with the transaction instance, and returns a RLP-encoded transaction string which includes all signs. Note that the transaction instance doesn't necessarily be signed in advance. If the transaction is either a type of "fee-delegated" or "fee-delegated with ratio", `feePayerSignatures` is also merged and included in the output RLP-encoded transaction string.
+在给定数组中收集每个 RLP 编码事务字符串中的标志，将它们与事务实例相结合，然后返回一个包含所有标志的 RLP 编码事务字符串。 请注意，事务实例并不一定要事先签名。 如果交易属于 "收费委托 "或 "按比例收费委托 "类型，"收费人签名 "也会被合并并包含在输出的 RLP 编码交易字符串中。
 
-**Parameters**
+**参数**
 
-| Name          | Type  | Description                                                         |
-| ------------- | ----- | ------------------------------------------------------------------- |
-| rlpEncodedTxs | Array | An array of signed RLP-encoded transaction strings. |
+| 名称            | 类型 | 描述                   |
+| ------------- | -- | -------------------- |
+| rlpEncodedTxs | 数组 | 经过签名的 RLP 编码事务字符串数组。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                                                                                                                                     |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| string | A RLP-encoded transaction string which includes all `signatures` (and `feePayerSignatures` if transaction is a type of either "fee-delgated" or "fee-delegated with ratio"). |
+| 类型  | 描述                                                              |
+| --- | --------------------------------------------------------------- |
+| 字符串 | RLP 编码的交易字符串，包括所有 "签名"（如果交易类型为 "收费委托 "或 "按比例收费委托"，则包括 "收费人签名"）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > transaction.combineSignedRawTransactions(['0x09f88...'])
 '0x09f885018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0f847f845820feaa068e56f3da7fbe7a86543eb4b244ddbcb13b2d1cb9adb3ee8a4c8b046821bc492a068c29c057055f68a7860b54184bba7967bcf42b6aae12beaf9f30933e6e730c280c4c3018080'
 ```
 
-## transaction.getRLPEncoding <a href="#transaction-getrlpencoding" id="transaction-getrlpencoding"></a>
+## transaction.getRLPEncoding<a href="#transaction-getrlpencoding" id="transaction-getrlpencoding"></a>
 
 ```javascript
 transaction.getRLPEncoding()
 ```
 
-Returns a RLP-encoded transaction string.
+返回 RLP 编码的事务字符串。
 
-For information on how to make the RLP-encoded string for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+有关如何为每种事务类型创建 RLP 编码字符串的信息，请参阅 [Kaia Design - Transactions]（.../../../../.../learn/transactions/transactions.md）。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| string | A RLP-encoded transaction string. |
+| 类型     | 描述            |
+| ------ | ------------- |
+| string | RLP 编码的事务字符串。 |
 
-**Example**
+**示例**
 
 ```javascript
-> transaction.getRLPEncoding()
+> 交易。getRLPEncoding()
 '0x09f885018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0f847f845820feaa068e56f3da7fbe7a86543eb4b244ddbcb13b2d1cb9adb3ee8a4c8b046821bc492a068c29c057055f68a7860b54184bba7967bcf42b6aae12beaf9f30933e6e730c280c4c3018080'
 ```
 
-## transaction.getRawTransaction <a href="#transaction-getrawtransaction" id="transaction-getrawtransaction"></a>
+## transaction.getRawTransaction<a href="#transaction-getrawtransaction" id="transaction-getrawtransaction"></a>
 
 ```javascript
 transaction.getRawTransaction()
 ```
 
-Returns a `rawTransaction` string (a RLP-encoded transaction string). This function is same with [transaction.getRLPEncoding](#transaction-getrlpencoding).
+返回 `rawTransaction` 字符串（RLP 编码的事务字符串）。 此函数与 [transaction.getRLPEncoding]（#transaction-getrlpencoding）相同。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| string | A RLP-encoded transaction string. |
+| 类型     | 描述            |
+| ------ | ------------- |
+| string | RLP 编码的事务字符串。 |
 
-**Example**
+**示例**
 
 ```javascript
 > transaction.getRawTransaction()
 '0x09f885018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0f847f845820feaa068e56f3da7fbe7a86543eb4b244ddbcb13b2d1cb9adb3ee8a4c8b046821bc492a068c29c057055f68a7860b54184bba7967bcf42b6aae12beaf9f30933e6e730c280c4c3018080'
 ```
 
-## transaction.getTransactionHash <a href="#transaction-gettransactionhash" id="transaction-gettransactionhash"></a>
+## transaction.getTransactionHash<a href="#transaction-gettransactionhash" id="transaction-gettransactionhash"></a>
 
 ```javascript
 transaction.getTransactionHash()
 ```
 
-Returns a `transactionHash`.
+返回一个 `transactionHash`.
 
-For information on how to make the transaction hash for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+有关如何为每种事务类型创建事务哈希值的信息，请参阅 [Kaia Design - Transactions]（.../.../.../.../.../learn/transactions/transactions.md）。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                        |
-| ------ | ---------------------------------- |
-| string | A transactionHash. |
+| 类型     | 描述     |
+| ------ | ------ |
+| string | 交易哈希值。 |
 
-**Example**
+**示例**
 
 ```javascript
 > transaction.getTransactionHash()
 '0x8ac53afbba014201b02398545653683fe0536c49707fe302c59423012c0e8697'
 ```
 
-## transaction.getSenderTxHash <a href="#transaction-getsendertxhash" id="transaction-getsendertxhash"></a>
+## transaction.getSenderTxHash<a href="#transaction-getsendertxhash" id="transaction-getsendertxhash"></a>
 
 ```javascript
 transaction.getSenderTxHash()
 ```
 
-Returns a [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) of transaction.
+返回事务的 [senderTxHash]（.../.../.../.../.../learn/transactions/transactions.md#sendertxhash）。
 
-The [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) are the same for basic transactions.
+[senderTxHash](.../.../.../.../.../learn/transactions/transactions.md#sendertxhash)是除缴费人地址和签名外的交易哈希值，因此[transactionHash](#transaction-gettransactionhash)和[senderTxHash](.../.../.../.../learn/transactions/transactions.md#sendertxhash)对于基本交易是相同的。
 
-For information on how to make the [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+有关如何为每种事务类型创建 [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) 的信息，请参阅 [Kaia Design - Transactions](.../../../.../.../learn/transactions/transactions.md)。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                     |
+| 类型     | 描述                              |
 | ------ | ------------------------------- |
 | string | A senderTxHash. |
 
-**Example**
+**示例**
 
 ```javascript
 > transaction.getSenderTxHash()
 '0xb61cc1ddadb6f2ec34c9f9e6a7b6cf0a606422654d649d998587c77daa3c31fe'
 ```
 
-## transaction.getRLPEncodingForSignature <a href="#transaction-getrlpencodingforsignature" id="transaction-getrlpencodingforsignature"></a>
+## transaction.getRLPEncodingForSignature<a href="#transaction-getrlpencodingforsignature" id="transaction-getrlpencodingforsignature"></a>
 
 ```javascript
 transaction.getRLPEncodingForSignature()
 ```
 
-Returns a RLP-encoded transaction string for making the signature of the transaction sender. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
+返回 RLP 编码的事务字符串，用于制作事务发送方的签名。 请注意，返回的 RLP 编码事务字符串不会与签名一起添加，而是用于生成此签名。
 
-For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+关于如何制作 RLP 编码的事务字符串，以便为每种事务类型生成事务发送者签名，请参阅 [Kaia Design - Transactions]（.../.../.../.../.../learn/transactions/transactions.md）。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                      |
-| ------ | -------------------------------------------------------------------------------- |
-| string | A RLP-encoded transaction string without any signature attached. |
+| 类型     | 描述                     |
+| ------ | ---------------------- |
+| string | 没有附加任何签名的 RLP 编码交易字符串。 |
 
-**Example**
+**示例**
 
 ```javascript
 > transaction.getRLPEncodingForSignature()
 '0xf83fb838f709018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d08207e38080'
 ```
 
-## transaction.getRLPEncodingForFeePayerSignature <a href="#transaction-getrlpencodingforfeepayersignature" id="transaction-getrlpencodingforfeepayersignature"></a>
+## transaction.getRLPEncodingForFeePayerSignature<a href="#transaction-getrlpencodingforfeepayersignature" id="transaction-getrlpencodingforfeepayersignature"></a>
 
 ```javascript
 transaction.getRLPEncodingForFeePayerSignature()
 ```
 
-Returns a RLP-encoded transaction string for making the signature of the fee payer. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
+返回 RLP 编码的交易字符串，用于缴费人签名。 请注意，返回的 RLP 编码事务字符串不会与签名一起添加，而是用于生成此签名。
 
-For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+关于如何制作 RLP 编码的交易字符串以生成每种交易类型的缴费人签名，请参阅 [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
 
-**NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
+**注意**\* 该功能仅适用于 "收费委托 "交易或 "按比例收费委托 "交易。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                      |
-| ------ | -------------------------------------------------------------------------------- |
-| string | A RLP-encoded transaction string without any signature attached. |
+| 类型     | 描述                     |
+| ------ | ---------------------- |
+| string | 没有附加任何签名的 RLP 编码交易字符串。 |
 
-**Example**
+**示例**
 
 ```javascript
 > transaction.getRLPEncodingForFeePayerSignature()
 '0xf840b838f709018505d21dba00830f4240947b65b75d204abed71587c9e519a89277766ee1d00a9404bb86a1b16113ebe8f57071f839b002cbcbf7d0808207e38080'
 ```
 
-## transaction.fillTransaction <a href="#transaction-filltransaction" id="transaction-filltransaction"></a>
+## transaction.fillTransaction<a href="#transaction-filltransaction" id="transaction-filltransaction"></a>
 
 ```javascript
 transaction.fillTransaction()
 ```
 
-Fills in the optional variables in transaction.
+填写事务中的可选变量。
 
-If the `gasPrice`, `nonce`, or `chainId` of the transaction are not defined, this method asks the default values for these optional variables and preset them by sending JSON RPC call to the connected kaia Node.
+如果交易的 "gasPrice"、"nonce "或 "chainId "未定义，此方法会询问这些可选变量的默认值，并通过向连接的 kaia 节点发送 JSON RPC 调用来预设它们。
 
-Use [caver.rpc.klay.getGasPrice](../caver-rpc/klay.md#caver-rpc-klay-getgasprice) to get `gasPrice`, [caver.rpc.klay.getTransactionCount](../caver-rpc/klay.md#caver-rpc-klay-gettransactioncount) to get `nonce` and [caver.rpc.klay.getChainId](../caver-rpc/klay.md#caver-rpc-klay-getchainid) call to get `chainId`.
+Use [caver.rpc.klay.getGasPrice](../caver-rpc/klay.md#caver-rpc-klay-getgasprice) to get `gasPrice`, [caver.rpc.klay.getTransactionCount](../caver-rpc/klay.md#caver-rpc-klay-gettransactioncount)获取`nonce`，调用[caver.rpc.klay.getChainId](./caver-rpc/klay.md#caver-rpc-klay-getchainid)获取`chainId`。
 
-**Return Value**
+**返回价值**
 
 `Promise` returning `void`
 
-**Example**
+**示例**
 
 ```javascript
 > transaction.fillTransaction()
 ```
 
-## transaction.recoverPublicKeys <a href="#transaction-recoverpublickeys" id="transaction-recoverpublickeys"></a>
+## transaction.recoverPublicKeys<a href="#transaction-recoverpublickeys" id="transaction-recoverpublickeys"></a>
 
 ```javascript
 transaction.recoverPublicKeys()
 ```
 
-Recovers the public key strings from `signatures` field.
+从 "签名 "字段中恢复公钥字符串。
 
-**NOTE** `transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `transaction.recoverPublicKeys` 自 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 开始支持。
 
-**Return Value**
+**返回价值**
 
-| Type  | Description                                                                  |
-| ----- | ---------------------------------------------------------------------------- |
-| Array | An array containing public keys recovered from `signatures`. |
+| 类型    | 描述                          |
+| ----- | --------------------------- |
+| Array | 包含从 `signatures` 中恢复的公钥的数组。 |
 
-**Example**
+**示例**
 
 ```javascript
-> transaction.recoverPublicKeys()
+> 交易。recoverPublicKeys()
 [
   '0x8bb6aaeb2d96d024754d3b50babf116cece68977acbe8ba6a66f14d5217c60d96af020a0568661e7c72e753e80efe084a3aed9f9ac87bf44d09ce67aad3d4e01',
   '0xc7751c794337a93e4db041fb5401c2c816cf0a099d8fd4b1f3f555aab5dfead2417521bb0c03d8637f350df15ef6a6cb3cdb806bd9d10bc71982dd03ff5d9ddd',
