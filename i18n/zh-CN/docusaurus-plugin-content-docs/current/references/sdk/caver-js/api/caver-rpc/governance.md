@@ -138,19 +138,19 @@ caver.rpc.governance.getMyVotes([callback])
 
 **参数**
 
-| 名称       | 类型       | 描述                                                                                                                                                  |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `Array`
 
-| Type  | Description                                        |
-| ----- | -------------------------------------------------- |
-| Array | Node's Voting status in the epoch. |
+| 类型 | 描述          |
+| -- | ----------- |
+| 数组 | 节点在当期的投票状态。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getMyVotes().then(console.log)
@@ -170,23 +170,23 @@ caver.rpc.governance.getMyVotes([callback])
 caver.rpc.governance.getChainConfig([callback])
 ```
 
-Provides the initial chain configuration. Because it just stores the initial configuration, if there were changes in the governance made by voting, the result of chainConfig will differ from the current states. To see the current information, please use itemsAt.
+提供初始链配置。 由于 chainConfig 只存储初始配置，如果通过投票对治理进行了更改，其结果将与当前状态不同。 要查看当前信息，请使用 itemsAt。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                     |
-| ------ | ------------------------------- |
-| object | The initial chain configuration |
+| 类型 | 描述    |
+| -- | ----- |
+| 对象 | 初始链配置 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getChainConfig().then(console.log)
@@ -224,23 +224,23 @@ Provides the initial chain configuration. Because it just stores the initial con
 caver.rpc.governance.getNodeAddress([callback])
 ```
 
-Provides the address of the node that a user is using. It is derived from the nodekey and used to sign consensus messages. And the value of "governingnode" has to be one of validator's node address.
+提供用户正在使用的节点地址。 它来自节点密钥，用于签署共识信息。 而 "governingnode "的值必须是验证器的节点地址之一。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                            |
-| ------ | -------------------------------------- |
-| string | The address of a node. |
+| 类型  | 描述     |
+| --- | ------ |
+| 字符串 | 节点的地址。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getNodeAddress().then(console.log)
@@ -253,24 +253,24 @@ Provides the address of the node that a user is using. It is derived from the no
 caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 ```
 
-Returns governance items at a specific block. It is the result of previous voting of the block and used as configuration for chain at the given block number.
+返回特定区块的治理项目。 它是该区块之前的投票结果，用作给定区块编号的链配置。
 
-**Parameters**
+**参数**
 
-| Name             | Type               | Description                                                                                                                                            |
-| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumberOrTag | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback         | function           | (optional) Optional callback, which returns an error object as the first parameter and the result as the second.    |
+| 名称               | 类型                 | 描述                                                                                |
+| ---------------- | ------------------ | --------------------------------------------------------------------------------- |
+| blockNumberOrTag | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback         | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                           |
-| ------ | ------------------------------------- |
-| object | The governance items. |
+| 类型 | 描述    |
+| -- | ----- |
+| 对象 | 治理项目。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getItemsAt().then(console.log)
@@ -304,23 +304,23 @@ Returns governance items at a specific block. It is the result of previous votin
 caver.rpc.governance.getPendingChanges([callback])
 ```
 
-Returns the list of items that have received enough number of votes but not yet finalized. At the end of the current epoch, these changes will be finalized and the result will be in effect from the epoch after next epoch.
+返回已获得足够票数但尚未最终确定的项目列表。 在当期结束时，这些更改将被最终确定，其结果将从下下期开始生效。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                            |
-| ------ | ---------------------------------------------------------------------- |
-| object | Currently pending changes composed of keys and values. |
+| 类型 | 描述                |
+| -- | ----------------- |
+| 对象 | 由密码和值组成的当前待处理的更改。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getPendingChanges().then(console.log)
@@ -333,87 +333,87 @@ Returns the list of items that have received enough number of votes but not yet 
 caver.rpc.governance.getIdxCache([callback])
 ```
 
-Returns an array of current idxCache in the memory cache. idxCache contains the block numbers where governance change happened. The cache can have up to 1000 block numbers in memory by default.
+返回内存缓存中当前 idxCache 的数组。 idxCache 包含发生治理变化的区块编号。 默认情况下，高速缓存内存中最多可存储 1000 个数据块。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type  | Description                                                     |
-| ----- | --------------------------------------------------------------- |
-| Array | Block numbers where governance change happened. |
+| 类型 | 描述          |
+| -- | ----------- |
+| 数组 | 发生治理变化的区块号。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getIdxCache().then(console.log)
 [ 0, 60, 321180 ]
 ```
 
-## caver.rpc.governance.getIdxCacheFromDb <a id="caver-rpc-governance-getidxcachefromdb"></a>
+## caver.rpc.governance.getIdxCacheFromDb<a id="caver-rpc-governance-getidxcachefromdb"></a>
 
 ```javascript
 caver.rpc.governance.getIdxCacheFromDb([callback])
 ```
 
-Returns an array that contains all block numbers at which any governance changes ever took place. The result of idxCacheFromDb is the same or longer than that of [idxCache](#caver-rpc-governance-getidxcache).
+返回一个数组，其中包含发生过治理更改的所有区块编号。 idxCacheFromDb 的结果与 [idxCache](#caver-rpc-governance-getidxcache) 的结果相同或更长。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type  | Description                                                     |
-| ----- | --------------------------------------------------------------- |
-| Array | Block numbers where governance change happened. |
+| 类型 | 描述           |
+| -- | ------------ |
+| 数组 | 发生治理变化的区块编号。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getIdxCacheFromDb().then(console.log)
 [ 0, 60, 321180 ]
 ```
 
-## caver.rpc.governance.getItemCacheFromDb <a id="caver-rpc-governance-getitemcachefromdb"></a>
+## caver.rpc.governance.getItemCacheFromDb<a id="caver-rpc-governance-getitemcachefromdb"></a>
 
 ```javascript
 caver.rpc.governance.getItemCacheFromDb([callback])
 ```
 
-Returns the governance information stored on the given block. If no changes are stored on the given block, the function returns null.
+返回存储在给定块上的治理信息。 如果给定块上没有存储更改，函数将返回 null。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                |
-| ----------- | ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \\| string | A block number, or the hex number string to query the governance change made on the block. |
+| 名称   | 类型                 | 描述                           |
+| ---- | ------------------ | ---------------------------- |
+| 区块编号 | number \\| string | 区块编号或十六进制数字字符串，用于查询区块上的治理更改。 |
 
 **返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                     |
-| ------ | --------------------------------------------------------------- |
-| object | Stored governance information at a given block. |
+| 类型 | 描述            |
+| -- | ------------- |
+| 对象 | 特定区块中存储的治理信息。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getItemCacheFromDb(540).then(console.log)
@@ -422,9 +422,9 @@ Returns the governance information stored on the given block. If no changes are 
   'governance.governingnode': '0xbeafcca672100a88a953fcf5e882cb763f9e3de9',
   'governance.unitprice': 25000000000,
   'istanbul.committeesize': 22,
-  'istanbul.epoch': 30,
+  'istanbul.epoch'：30,
   'istanbul.policy': 2,
-  'kip71.basefeedenominator': 30,
+  'kip71.basefeedenominator'：30,
   'kip71.gastarget': 30000000,
   'kip71.lowerboundbasefee': 25000000000,
   'kip71.maxblockgasusedforbasefee': 60000000,
@@ -442,29 +442,29 @@ Returns the governance information stored on the given block. If no changes are 
 null
 ```
 
-## caver.rpc.governance.getVotes <a id="caver-rpc-governance-getvotes"></a>
+## caver.rpc.governance.getVotes<a id="caver-rpc-governance-getvotes"></a>
 
 ```javascript
 caver.rpc.governance.getVotes([callback])
 ```
 
-Returns the votes from all nodes in the epoch. These votes are gathered from the header of each block.
+返回历时内所有节点的投票数。 这些选票是从每个块头中收集的。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type  | Description                                                                |
-| ----- | -------------------------------------------------------------------------- |
-| Array | Current votes composed of keys, values and node addresses. |
+| 类型 | 描述                 |
+| -- | ------------------ |
+| 数组 | 当前投票由密码、价值和节点地址组成。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getVotes().then(console.log)
@@ -479,30 +479,30 @@ Returns the votes from all nodes in the epoch. These votes are gathered from the
 }]
 ```
 
-## caver.rpc.governance.getStakingInfo <a id="caver-rpc-governance-getstakinginfo"></a>
+## caver.rpc.governance.getStakingInfo<a id="caver-rpc-governance-getstakinginfo"></a>
 
 ```javascript
 caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 ```
 
-Returns the staking information at a specific block.
+返回特定区块的质押信息。
 
-**Parameters**
+**参数**
 
-| Name             | Type               | Description                                                                                                                                            |
-| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumberOrTag | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback         | function           | (optional) Optional callback, which returns an error object as the first parameter and the result as the second.    |
+| 名称               | 类型                 | 描述                                                                                |
+| ---------------- | ------------------ | --------------------------------------------------------------------------------- |
+| blockNumberOrTag | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback         | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                                                                                                                                                                          |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | Staking information. Refer to [governance_getStakingInfo](../../../../json-rpc/governance.md#governance_getstakinginfo) for a description of the return result. |
+| 类型 | 描述                                                                                                                                     |
+| -- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 对象 | 质押信息。 有关返回结果的说明，请参阅 [governance_getStakingInfo](../../../.././json-rpc/governance.md#governance_getstakinginfo) 。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getStakingInfo().then(console.log)
