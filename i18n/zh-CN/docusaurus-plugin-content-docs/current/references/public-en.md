@@ -54,7 +54,7 @@
 
 | 服务提供商                                | 终点                                                                                                                         | 命名空间              | 类型 |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | ----------------- | -- |
-| [凯亚基金会](https://www.kaia.io)         | wss://public-en.node.kaia.io/ws                            | kaia,klay,eth,net | 全部 |
+| [Kaia基金会](https://www.kaia.io)       | wss://public-en.node.kaia.io/ws                            | kaia,klay,eth,net | 全部 |
 |                                      | wss://archive-en.node.kaia.io/ws                           | kaia,klay,eth,net | 档案 |
 | [QuickNode](https://quicknode.com/)  | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`\` | kaia,klay,eth,net | 全部 |
 | [OnFinality](https://onfinality.io/) | wss://klaytn.api.onfinality.io/public-ws                   | kaia,klay,eth,net | 全部 |
@@ -65,7 +65,7 @@
 
 | 服务提供商                                  | 终点                                                           | 命名空间              | 类型 |
 | -------------------------------------- | ------------------------------------------------------------ | ----------------- | -- |
-| [凯亚基金会](https://www.kaia.io)           | `https://public-en-kairos.node.kaia.io`                      | kaia,klay,eth,net | 全部 |
+| [Kaia基金会](https://www.kaia.io)         | `https://public-en-kairos.node.kaia.io`                      | kaia,klay,eth,net | 全部 |
 |                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia,klay,eth,net | 档案 |
 | [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | 全部 |
 | [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | 全部 |
@@ -74,7 +74,7 @@
 
 | 服务提供商                               | 终点                                                                                                                           | 命名空间              | 类型 |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------- | -- |
-| [凯亚基金会](https://www.kaia.io)        | wss://public-en-kairos.node.kaia.io/ws                       | kaia,klay,eth,net | 全部 |
+| [Kaia基金会](https://www.kaia.io)      | wss://public-en-kairos.node.kaia.io/ws                       | kaia,klay,eth,net | 全部 |
 |                                     | `wss://archive-en-kairos.node.kaia.io/ws`.                                                                   | kaia,klay,eth,net | 档案 |
 | [QuickNode](https://quicknode.com/) | wss://responsive-green-emerald.kaia-kairos.quiknode.pro/\`\` | kaia,klay,eth,net | 全部 |
 
@@ -315,11 +315,11 @@ Quicknode 提供区块链基础设施，为安全的去中心化创新提供动�
 
 - 钱包[Kaia Wallet](../build/tools/wallets/kaia-wallet.md)是 Kaia 网络的浏览器扩展钱包。
 
-- 水龙头：您可以从 [KAIA 水龙头](https://faucet.kaia.io)获取用于 Kairos 测试网络的测试 KAIA。
+- Faucet：您可以从 [KAIA Faucet](https://faucet.kaia.io)获取用于 Kairos 测试网络的测试 KAIA。
 
 - 资源管理器：[Kaiascope](../build/tools/block-explorers/kaiascope.md)是 Kaia 网络的区块资源管理器。
 
 - ChainID : Kairos: 1001 (0x3E9), Mainnet：8217 (0x2019)
 
-- 天然气价格：在 [25, 750] 范围内动态调整。 该范围可通过链上管理进行更改。 更多信息，请参阅 [治理](https://docs.kaia.io/references/json-rpc/governance/chain-config/) 和
+- Gas价格：在 [25, 750] 范围内动态调整。 该范围可通过链上管理进行更改。 更多信息，请参阅 [治理](https://docs.kaia.io/references/json-rpc/governance/chain-config/) 和
   [交易费用](../learn/transaction-fees/transaction-fees.md)
