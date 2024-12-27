@@ -1287,26 +1287,26 @@ kip37.burn(account, id, value [, sendParam])
 
 Burns specific KIP-37 tokens.
 
-The address that was approved to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+The address that was approved to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. 除非同时提供 `sendParam.from` 和 `kip17Instance.options.from`，否则会发生错误。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                                                                                                           |
-| --------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string                            | The address of the account that owns the token to be destroyed.                                                                                                                                                                       |
-| id        | BigNumber \\| string \\| number | The id of token to be destroyed.                                                                                                                                                                                                      |
-| value     | BigNumber \\| string \\| number | The amount of token to be destroyed.                                                                                                                                                                                                  |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | 类型                             | 描述                                                                                                                                     |
+| --------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | string                         | 要销毁的代币的账户地址。                                                                                                                           |
+| id        | Buffer \\| string \\| number | 要销毁的代币的 ID。                                                                                                                            |
+| value     | Buffer \\| string \\| number | 要销毁的代币数量。                                                                                                                              |
+| sendParam | object                         | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `id` 和 `amount` 参数接受 `number` 类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1365,34 +1365,34 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.burn('0x{address in hex}', 2, 10).then(console.log)
 ```
 
-## kip37.burnBatch <a id="kip37-burnbatch"></a>
+## kip17.balanceOf<a id="kip17-balanceof"></a>
 
 ```javascript
-kip37.burnBatch(account, ids, values [, sendParam])
+kip37.mintBatch(to, ids, values [, sendParam])
 ```
 
-Burns the multiple KIP-37 tokens.
+烧毁多个 KIP-37 代币。
 
-The address that was authorized to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, the authorized one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+授权发送代币所有者代币的地址（操作员）或代币所有者本人将执行该代币转移交易。 因此，授权地址或令牌所有者应是该交易的发送方，其地址必须在 `sendParam.from` 或 `kip17Instance.options.from` 中给出。 除非同时提供 `sendParam.from` 和 `kip17Instance.options.from`，否则会发生错误。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account that owns the token to be destroyed.                                                                                                                                                                       |
-| ids       | Array  | An array of the token ids to burn.                                                                                                                                                                                                    |
-| values    | Array  | An array of the token amounts to burn.                                                                                                                                                                                                |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | 类型     | 描述                                                                                                                                     |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | string | 要销毁的代币的账户地址。                                                                                                                           |
+| ids       | Array  | 要查看余额的代币 ID 数组。                                                                                                                        |
+| value     | Array  | 一个代币金额数组，表示要铸造的代币金额。                                                                                                                   |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `index`参数接受`number`类型，但如果输入值超出了number.MAX_SAFE_INTEGER的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1451,30 +1451,30 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.burnBatch('0x{address in hex}', [1, 2], [100, 200]).then(console.log)
 ```
 
-## kip37.addPauser <a id="kip37-addpauser"></a>
+## kip17.addPauser<a id="kip17-addpauser"></a>
 
 ```javascript
-kip37.addPauser(account [, sendParam])
+kip17.addPauser(account [, sendParam])
 ```
 
-Adds an account as a pauser that has the right to suspend the contract.
+添加一个有权中止合约的暂停账户。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be a new pauser.                                                                                                                                                                                        |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | 类型     | 描述                                                                                                                                     |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | string | 将成为新暂停者的账户地址。                                                                                                                          |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1525,29 +1525,29 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.addPauser('0x{address in hex}').then(console.log)
 ```
 
-## kip37.renouncePauser <a id="kip37-renouncepauser"></a>
+## kip17.renouncePauser<a id="kip17-renouncepauser"></a>
 
 ```javascript
-kip37.renouncePauser([sendParam])
+kip17.renouncePauser([sendParam])
 ```
 
-Renounces the right to pause the contract. Only a pauser address can renounce the pausing right.
+放弃暂停合约的权利。 只有暂停地址可以放弃自己的暂停权。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | 类型     | 描述                                                                                                                                     |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1598,30 +1598,30 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.renouncePauser().then(console.log)
 ```
 
-## kip37.pause <a id="kip37-pause"></a>
+## kip17.paused<a id="kip17-paused"></a>
 
 ```javascript
-kip37.pause([id] [, sendParam])
+kip17.pause([sendParam])
 ```
 
-Suspends functions related to token operation. If `id` parameter is defined, pause the specific token. Otherwise pause the token contract.
+暂停与发送代币相关的功能。 如果定义了 `id` 参数，则暂停特定标记。 否则暂停代币合约。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                                                                                                           |
-| --------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id        | BigNumber \\| string \\| number | (optional) The token id to pause. If this parameter is omitted, the `pause` function pause the token contract.                                                                                     |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | 类型                             | 描述                                                                                                                                     |
+| --------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| id        | Buffer \\| string \\| number | (可选）要暂停的代币 ID。 如果省略此参数，"pause "函数将暂停令牌合约。                                                                           |
+| sendParam | object                         | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given (pause the token contract)
@@ -1708,29 +1708,29 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.pause().then(console.log)
 ```
 
-## kip37.unpause <a id="kip37-unpause"></a>
+## kip17.unpause<a id="kip17-unpause"></a>
 
 ```javascript
-kip37.unpause([id] [, sendParam])
+kip17.unpause([sendParam])
 ```
 
-Resumes the paused contract or specific token. If `id` parameter is defined, unpause the specific token. Otherwise unpause the token contract.
+恢复已暂停的合约或特定代币。 如果定义了 `id` 参数，则取消特定标记的暂停。 否则取消代币合约的暂停。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name | Type                              | Description                                                                                                                                                             |
-| ---- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id   | BigNumber \\| string \\| number | (optional) The token id to unpause. If this parameter is omitted, the `unpause` function unpause the token contract. |
+| 名称 | 类型                             | 描述                                                               |
+| -- | ------------------------------ | ---------------------------------------------------------------- |
+| id | Buffer \\| string \\| number | (可选）要取消暂停的代币 ID。 如果省略此参数，"取消暂停 "函数将取消代币合约的暂停。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given (unpause the token contract)
