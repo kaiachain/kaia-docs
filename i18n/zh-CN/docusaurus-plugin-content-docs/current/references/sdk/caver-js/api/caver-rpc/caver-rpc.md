@@ -16,7 +16,7 @@ RPC "是一个包含[Klay]、[Net]和[Governance]的类别。
 
 | 名称   | 类型     | 描述                                 |
 | ---- | ------ | ---------------------------------- |
-| Klay | [Klay] | [Klay] 提供带有`klay`名称空间的JSON-RPC 调用。 |
+| klay | [Klay] | [Klay] 提供带有`klay`名称空间的JSON-RPC 调用。 |
 | net  | [Net]  | [Net] 提供带有`net`名称空间的JSON-RPC 调用。   |
 | 治理   | \[治理]  | \[治理] 提供带有`治理`名称空间的JSON-RPC 调用。    |
 
@@ -38,7 +38,7 @@ RPC "是一个包含[Klay]、[Net]和[Governance]的类别。
 - [签名](./klay.md#caver-rpc-klay-sign)
 - [getAccounts](./klay.md#caver-rpc-klay-getaccounts)
 
-### [Block](./klay.md#caver-rpc-klay-getblocknumber)<0></0>
+### [Block](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
 
 - [getBlockNumber](./klay.md#caver-rpc-klay-getblocknumber)
 - [getBlockByNumber](./klay.md#caver-rpc-klay-getblockbynumber)
@@ -58,7 +58,7 @@ RPC "是一个包含[Klay]、[Net]和[Governance]的类别。
 ### [交易](./klay.md#caver-rpc-klay-call)<a id="transaction"></a>
 
 - [call](./klay.md#caver-rpc-klay-call)
-- [estimateGas](./klay.md#caver-rpc-klay-estimategas)
+- [estimateGas](./klay.md#caver-rpc-klay-estimategas)me
 - [estimateComputationCost](./klay.md#caver-rpc-klay-estimatecomputationcost)
 - [getTransactionByBlockHashAndIndex](./klay.md#caver-rpc-klay-gettransactionbyblockhashandindex)
 - [getTransactionByBlockNumberAndIndex](./klay.md#caver-rpc-klay-gettransactionbyblocknumberandindex)
@@ -101,7 +101,7 @@ RPC "是一个包含[Klay]、[Net]和[Governance]的类别。
 - [getPeerCount](./net.md#caver-rpc-net-getpeercount)
 - [getPeerCountByType](./net.md#caver-rpc-net-getpeercountbytype)
 
-### [杂项](./klay.md#caver-rpc-klay-sha3)<a id="miscellaneous"></a>
+### [杂项](./klay.md#caver-rpc-klay-sha3) <0></0>
 
 - [sha3](./klay.md#caver-rpc-klay-sha3)
 
