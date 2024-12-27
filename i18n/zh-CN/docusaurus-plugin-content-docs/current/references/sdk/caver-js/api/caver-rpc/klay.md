@@ -55,7 +55,7 @@ Returns the account information of a given address in the kaia. For more details
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                                  |
+| 类型     | Description                                                                                                                  |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
 | object | An object that contains the account information. Each account type has different attributes. |
 
@@ -195,7 +195,7 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 
 **Return Value**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
 | Type   | Description                               |
 | ------ | ----------------------------------------- |
@@ -436,7 +436,7 @@ Returns the balance of the account of the given address in kaia.
 | ------ | ----------------------------------------------------------------- |
 | string | The current balance for the given address in peb. |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getBalance('0x{address in hex}').then(console.log)
@@ -556,7 +556,7 @@ Generates signed data specific to the kaia. Refer to [Kaia Platform API - klay_s
 | address     | String             | The address of the imported account to sign the message.                                                                               |
 | message     | String             | Message to sign.                                                                                                                       |
 | blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| callback    | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                                                                                     |
 
 **Return Value**
 
@@ -644,7 +644,7 @@ Returns a block header by block hash or block number. If the user passes the blo
 
 **Parameters**
 
-| Name              | Type               | Description                                                                                                                                   |
+| Name              | 类型                 | Description                                                                                                                                   |
 | ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockNumberOrHash | number \\| string | The block hash, number or the block tag string.                                                                               |
 | callback          | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
