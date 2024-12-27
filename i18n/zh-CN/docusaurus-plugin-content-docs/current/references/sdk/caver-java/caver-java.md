@@ -7,7 +7,7 @@ caver-java "是一个轻量级、高模块化、方便的Java和Android库，用
 ## 特点<a id="features"></a>
 
 - 通过 HTTP 和 IPC 完整实现 Kaia 的 JSON-RPC 客户端 API
-- 支持 kaia 交易、账户和账户密钥类型
+- 支持 Kaia 交易、账户和账户密钥类型
 - 自动生成 Java 智能合约封装器，以便从本地 Java 代码部署和执行智能合约
 - 创建新钱包并管理 kaia 钱包
 - 命令行工具
