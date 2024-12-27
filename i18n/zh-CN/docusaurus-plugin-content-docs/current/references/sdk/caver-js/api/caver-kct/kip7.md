@@ -412,16 +412,16 @@ kip7.allowance(owner, spender)
 
 **参数**
 
-| 名称      | 类型     | Description                                                                          |
-| ------- | ------ | ------------------------------------------------------------------------------------ |
-| owner   | string | The address of the token owner's account.                            |
-| spender | string | The address of the account that spends tokens in place of the owner. |
+| 名称      | 类型     | 描述              |
+| ------- | ------ | --------------- |
+| owner   | string | 代币所有者账户的地址。     |
+| spender | string | 代替所有者使用代币的账户地址。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `BigNumber`: The remaining number of tokens that spender is allowed to spend in place of the owner.
+承诺 "返回 "大数"：允许花费者代替所有者花费的剩余代币数量。
 
-**Example**
+**示例**
 
 ```javascript
 > kip7.allowance('0x{address in hex}', '0x{address in hex}').then(console.log)
@@ -431,25 +431,25 @@ kip7.allowance(owner, spender)
 10
 ```
 
-## kip7.isMinter <a id="kip7-isminter"></a>
+## kip7.isMinter<a id="kip7-isminter"></a>
 
 ```javascript
 kip7.isMinter(address)
 ```
 
-Return `true` if the given account is a minter who can issue new KIP7 tokens.
+如果给定账户是可以发行新 KIP7 代币的矿工，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                            |
-| ------- | ------ | -------------------------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for having the minting right. |
+| 名称      | 类型     | 描述              |
+| ------- | ------ | --------------- |
+| address | string | 检查是否拥有铸币权的账户地址。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `Boolean`: `true` if the account is a minter.
+`Promise`  返回 \`boolean：如果账户是矿工，则返回 "true"。
 
-**Example**
+**示例**
 
 ```javascript
 > kip7.isMinter('0x{address in hex}').then(console.log)
@@ -459,25 +459,25 @@ true
 false
 ```
 
-## kip7.isPauser <a id="kip7-ispauser"></a>
+## kip7.isPauser<a id="kip7-ispauser"></a>
 
 ```javascript
 kip7.isPauser(address)
 ```
 
-Return `true` if the given account is a pauser who can suspend transferring tokens.
+如果给定账户是可以暂停转让代币的暂停者，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                                                   |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for having the right to suspend transferring tokens. |
+| 名称      | 类型     | 描述                         |
+| ------- | ------ | -------------------------- |
+| address | string | 要检查的账户地址，以确定该账户是否有权暂停代币转账。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `Boolean`: `true` if the account is a pauser.
+`Promise` 返回 \`boolean：如果账户是 pauser，则返回 "true"。
 
-**Example**
+**示例**
 
 ```javascript
 > kip7.isPauser('0x{address in hex}').then(console.log)
@@ -487,23 +487,23 @@ true
 false
 ```
 
-## kip7.paused <a id="kip7-paused"></a>
+## kip7.paused<a id="kip7-paused"></a>
 
 ```javascript
 kip7.paused()
 ```
 
-Return `true` if the contract is paused, and `false` otherwise.
+如果合约暂停，则返回 `true`，否则返回 `false`。
 
-**Parameters**
+**参数**
 
-None
+无
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `Boolean`: `true` if the contract is paused.
+`Promise` 返回 `boolean`：如果合约暂停，则返回 `true`。
 
-**Example**
+**示例**
 
 ```javascript
 > kip7.paused().then(console.log)
@@ -513,45 +513,45 @@ true
 false
 ```
 
-## kip7.approve <a id="kip7-approve"></a>
+## kip7.approve<a id="kip7-approve"></a>
 
 ```javascript
 kip7.approve(spender, amount [, sendParam])
 ```
 
-Set the `amount` of the tokens of the token owner to be spent by the `spender`.
+设置 "支出者 "要支出的代币所有者代币的 "金额"。
 
-Note that this method will submit a transaction from the owner to the kaia network, which will charge the transaction fee to the owner.
+请注意，此方法将向 kaia 网络提交所有者的交易，而 kaia 网络将向所有者收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                             |
-| --------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| spender   | string                            | The address of the account who spends tokens in place of the owner.                                     |
-| amount    | BigNumber \\| string \\| number | The amount of token the spender is allowed to use.                                                      |
-| sendParam | object                            | (optional) An object holding parameters that are required for sending a transaction. |
+| 名称        | 类型                             | 描述                                    |
+| --------- | ------------------------------ | ------------------------------------- |
+| spender   | string                         | 代替所有者使用代币的账户地址。                       |
+| 数量        | Buffer \\| string \\| number | 允许支出人使用的代币id。                         |
+| sendParam | object                         | (可选）保存发送事务所需参数的对象。 |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* `amount`参数接受 `number`类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-The `sendParam` object contains the following:
+`sendParam` 对象包含以下内容：
 
-| Name          | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string                                    | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip7.options.from`. If neither of `from` in the `sendParam` object nor `kip7.options.from` were not provided, an error would occur.                                                                                                                                                 |
-| gas           | number \\| string                        | (optional) The maximum number of gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip7.methods.approve(spender, amount).estimateGas({from})`.                                                                                                                                                                                   |
-| gasPrice      | number \\| string                        | (optional) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                                                                                                                                                                                                   |
-| value         | number \\| string \\| BN \\| BigNumber | (optional) The value to be transferred in peb.                                                                                                                                                                                                                                                                                                                                                                       |
-| feeDelegation | boolean                                   | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip7.options.feeDelegation` will be used. If both omitted, fee delegation is not used.                                                                                                                                                                                                           |
-| feePayer      | string                                    | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip7.options.feePayer` will be used. If both omitted, throws an error.                                                                                                                 |
-| feeRatio      | string                                    | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip7.options.feeRatio` will be used. |
+| 名称            | 类型                                        | 描述                                                                                                                                                                                                      |
+| ------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| from          | string                                    | (可选） 发送交易的地址。 如果省略，将由 `kip17.options.from` 设置。 如果未提供 `sendParam` 对象中的 `from` 或 `kip17.options.from`，则会发生错误。                                                                          |
+| gas           | number \\| string                        | (可选）本次交易提供的最大 gas（gas 限值）。 如果省略，将由 caver-js 通过调用`kip17.methods.approve(spender, tokenId).estimateGas({from})`来设置。                                                                    |
+| gasPrice      | number \\| string                        | (可选）本次交易使用的 Gas 价格（以 peb 为单位）。 如果省略，将由 caver-js 通过调用 `caver.klay.getGasPrice`来设置。                                                                                                    |
+| value         | number \\| string \\| BN \\| BigNumber | (可选）以 peb 为单位传输的值。                                                                                                                                                                   |
+| feeDelegation | boolean                                   | (可选，默认为 `false`）是否使用费用委托交易。 如果省略，将使用 \`kip17.options.feeDelegation'。 如果两者都省略，则不使用收费授权。                                                               |
+| feePayer      | string                                    | (可选）支付交易费的缴费人地址。 当 "feeDelegation "为 "true "时，该值将设置为交易中的 "feePayer "字段。 如果省略，将使用 \`kip17.options.feePayer'。 如果两者都省略，则会出错。                            |
+| feeRatio      | string                                    | (可选）缴费人将承担的交易费比例。 如果 "feeDelegation "为 "true"，且 "feeRatio "设置为有效值，则使用部分费用委托交易。 有效范围为 1 到 99。 不允许比率为 0 或 100 及以上。 如果省略，将使用 \`kip17.options.feeRatio'。 |
 
-**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `feeDelegation`、`feePayer` 和 `feeRatio`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -606,73 +606,73 @@ The `sendParam` object contains the following:
 > kip7.approve('0x{address in hex}', 10).then(console.log)
 ```
 
-## kip7.transfer <a id="kip7-transfer"></a>
+## kip7.transfer<a id="kip7-transfer"></a>
 
 ```javascript
 kip7.transfer(recipient, amount [, sendParam])
 ```
 
-Transfers the given `amount` of the token from the token owner's balance to the `recipient`. The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+将给定 "金额 "的代币从代币所有者的余额转给 "接收者"。 代币所有者应亲自执行令牌转让。 因此，授权地址或令牌所有者应是该交易的发送方，其地址必须在 `sendParam.from` 或 `kip17Instance.options.from` 中给出。 如果不提供 `sendParam.from` 或 `kip17.options.from`，就会发生错误。
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+请注意，发送此交易将向交易发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                                                                                      |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| recipient | string                            | The address of the account to receive the token.                                                                                                                                                                 |
-| amount    | BigNumber \\| string \\| number | The amount of token to be transferred.                                                                                                                                                                           |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型                                | 描述                                                                                                |
+| --------- | --------------------------------- | ------------------------------------------------------------------------------------------------- |
+| recipient | string                            | 接收代币的账户地址。                                                                                        |
+| amounts   | BigNumber \\| string \\| number | 要销毁的代币数量。                                                                                         |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `index`参数接受`number`类型，但如果输入值超出了number.MAX_SAFE_INTEGER的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip7.transfer('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
+> kip7.approve('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
 {
-    blockHash: '0x8a078c3a73d678cdd85d471eb21e9ed7d695f8b96fc7315cfa59c1f68be3d2bf',
-    blocknumber: 1353,
+    blockHash: '0xf010a98f66b6b36943175cd5b249da54e84abed551cfa02846a2900ddab968c7',
+    blocknumber: 2098,
     contractAddress: null,
     from: '0x2f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
     ...
     status: true,
-    to: '0x05871c21664e18b2906545f8831695650a8f4056',
+    to: '0x8ca777e464a83b939ae131ca037f0d8728c6929e',
     ...
     events: {
-        Transfer: {
-            address: '0x05871c21664E18b2906545f8831695650a8f4056',
-            blocknumber: 1353,
-            transactionHash: '0x8bd2b21a06241e4cfc0af1ec40e7b15444f730c7529440648aa4ed6b697f08f4',
+        Approval: {
+            address: '0x8CA777e464a83b939AE131CA037F0d8728C6929e',
+            blocknumber: 2098,
+            transactionHash: '0xf7469c0420cb5ebb0fbf64a314bd0c9ee7517ea64dd72eefa59bc8005bbc0f99',
             transactionIndex: 0,
-            blockHash: '0x8a078c3a73d678cdd85d471eb21e9ed7d695f8b96fc7315cfa59c1f68be3d2bf',
+            blockHash: '0xf010a98f66b6b36943175cd5b249da54e84abed551cfa02846a2900ddab968c7',
             logIndex: 0,
-            id: 'log_82ef7705',
+            id: 'log_c6ec61aa',
             returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
-                '1': '0xE411cb0B61FDcC06497794fE3f49F65D5dE41f59',
+                '1': '0xe36ffD7bc4D588c480B5925B9622881F9d85ea30',
                 '2': '10',
-                from: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
-                to: '0xE411cb0B61FDcC06497794fE3f49F65D5dE41f59',
+                owner: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
+                spender: '0xe36ffD7bc4D588c480B5925B9622881F9d85ea30',
                 value: '10'
             },
-            event: 'Transfer',
-            signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
+            event: 'Approval',
+            signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
             raw: {
                 data: '0x000000000000000000000000000000000000000000000000000000000000000a',
-                topics: [ '0xddf25...', '0x00...676', '0x00...f59' ]
+                topics: [ '0x8c5be...', '0x00...676', '0x00...a30' ]
             },
         },
     },
 }
 
 // Using FD transaction to execute the smart contract
-> kip7.transfer('0x{address in hex}', 10, {
+> kip7.approve('0x{address in hex}', 10, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
@@ -682,37 +682,37 @@ Note that sending this transaction will charge the transaction fee to the transa
 // If the value of kip7.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
-> kip7.transfer('0x{address in hex}', 10).then(console.log)
+> kip7.approve('0x{address in hex}', 10).then(console.log)
 ```
 
-## kip7.safeTransfer <a id="kip7-safetransfer"></a>
+## kip7.safeTransfer<a id="kip7-safetransfer"></a>
 
 ```javascript
 kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
 
-Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The token owner should execute this token transfer with its own hands. Thus, the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+从代币所有者的余额中安全地将给定的代币 "金额 "转给 "接收者"。 代币所有者应亲自执行代币转让。 因此，授权地址或令牌所有者应是该交易的发送方，其地址必须在 `sendParam.from` 或 `kip17Instance.options.from` 中给出。 如果不提供 `sendParam.from` 或 `kip17.options.from`，就会发生错误。
 
-If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.kaia.io/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+如果 `to` 是合约地址，则必须执行 [IKIP17Receiver.onKIP17Received](https://kips.kaia.io/KIPs/kip-7#wallet-interface). 否则，转账将被撤销。
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+请注意，发送此交易将向交易发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                                                                                      |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| recipient | string                            | The address of the account to receive the token.                                                                                                                                                                 |
-| amount    | BigNumber \\| string \\| number | The amount of token you want to transfer.                                                                                                                                                                        |
-| data      | Buffer \\| string \\| number    | (optional) The optional data to send along with the call.                                                                                                                                     |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型                                | 描述                                                                                                |
+| --------- | --------------------------------- | ------------------------------------------------------------------------------------------------- |
+| recipient | string                            | 接收代币的账户地址。                                                                                        |
+| amounts   | BigNumber \\| string \\| number | 您要转移的代币的 ID。                                                                                      |
+| data      | Buffer \\| string \\| number    | (可选）与呼叫一起发送的可选数据。                                                              |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "金额 "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -770,32 +770,32 @@ Note that sending this transaction will charge the transaction fee to the transa
 > kip7.safeTransfer('0x{address in hex}', 11).then(console.log)
 ```
 
-## kip7.transferFrom <a id="kip7-transferfrom"></a>
+## kip7.transferFrom<a id="kip7-transferfrom"></a>
 
 ```javascript
 kip7.transferFrom(sender, recipient, amount [, sendParam])
 ```
 
-Transfers the given `amount` of the token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+将给定 "金额 "的代币从代币所有者的余额转给 "接收者"。 获准发送代币所有者代币的地址将执行该代币转移交易。 因此，获得批准的应该是该事务的发件人，其地址必须在`sendParam.from`或`kip7.options.from`中给出。 如果不提供 `sendParam.from` 或 `kip7.options.from`，就会发生错误。
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+请注意，发送此交易将向交易发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                                                                                      |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sender    | string                            | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                                              |
-| recipient | string                            | The address of the account to receive the token.                                                                                                                                                                 |
-| amount    | BigNumber \\| string \\| number | The amount of token you want to transfer.                                                                                                                                                                        |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型                                | 描述                                                                                                |
+| --------- | --------------------------------- | ------------------------------------------------------------------------------------------------- |
+| sender    | string                            | 拥有要与津贴机制一起发送的代币的账户地址。                                                                             |
+| recipient | string                            | 接收代币的账户地址。                                                                                        |
+| amount    | BigNumber \\| string \\| number | 您要转移的代币数量。                                                                                        |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "金额 "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP7 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given
@@ -873,35 +873,35 @@ Note that sending this transaction will charge the transaction fee to the transa
 > kip7.transferFrom('0x{address in hex}', '0x{address in hex}', 10000).then(console.log)
 ```
 
-## kip7.safeTransferFrom <a id="kip7-safetransferfrom"></a>
+## kip7.safeTransferFrom<a id="kip7-safetransferfrom"></a>
 
 ```javascript
 kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
 
-Safely transfers the given `amount` of the token from the token owner's balance to the `recipient`. The address who was approved to send the token owner's tokens is expected to execute this token transferring transaction. Thus, the approved one should be the sender of this transaction whose address must be given at `sendParam.from` or `kip7.options.from`. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+从代币所有者的余额中安全地将给定的代币 "金额 "转给 "接收者"。 获准发送代币所有者代币的地址将执行该代币转移交易。 因此，获得批准的应该是该事务的发件人，其地址必须在`sendParam.from`或`kip7.options.from`中给出。 如果不提供 `sendParam.from` 或 `kip7.options.from`，就会发生错误。
 
-If the recipient was a contract address, it should implement [IKIP7Receiver.onKIP7Received](https://kips.kaia.io/KIPs/kip-7#wallet-interface). Otherwise, the transfer is reverted.
+如果收件人是合同地址，则应执行 [IKIP7Receiver.onKIP7Received](https://kips.kaia.io/KIPs/kip-7#wallet-interface)。 否则，将恢复转账。
 
-Note that sending this transaction will charge the transaction fee to the transaction sender.
+请注意，发送此交易将向交易发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                                                                                      |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sender    | string                            | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                                              |
-| recipient | string                            | The address of the account to receive the token.                                                                                                                                                                 |
-| amount    | BigNumber \\| string \\| number | The amount of token you want to transfer.                                                                                                                                                                        |
-| data      | Buffer \\| string \\| number    | (optional) The optional data to send along with the call.                                                                                                                                     |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| Name      | Type                              | Description                                                                                       |
+| --------- | --------------------------------- | ------------------------------------------------------------------------------------------------- |
+| sender    | string                            | 拥有要与津贴机制一起发送的代币的账户地址。                                                                             |
+| recipient | string                            | 接收代币的账户地址。                                                                                        |
+| amount    | BigNumber \\| string \\| number | 您要转移的代币数量。                                                                                        |
+| data      | Buffer \\| string \\| number    | (可选）与呼叫一起发送的可选数据。                                                              |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "金额 "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP17 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP17 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -988,27 +988,27 @@ Note that sending this transaction will charge the transaction fee to the transa
 kip7.mint(account, amount [, sendParam])
 ```
 
-Creates the `amount` of token and issues it to the `account`, increasing the total supply of token.
+创建 "数量 "代币并将其发送到 "账户"，增加代币的总供应量。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                                                                                      |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string                            | The address of the account to which the minted token will be issued.                                                                                                                                             |
-| amount    | BigNumber \\| string \\| number | The amount of token to be minted.                                                                                                                                                                                |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| Name      | 类型                                | 描述                                                                                                |
+| --------- | --------------------------------- | ------------------------------------------------------------------------------------------------- |
+| account   | string                            | 将向其发行新币的账户地址。                                                                                     |
+| amount    | BigNumber \\| string \\| number | 正在铸造的代币数量。                                                                                        |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意**\* "金额 "参数接受 "数字 "类型，但如果输入值超出 number.MAX_SAFE_INTEGER 的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter with MinterRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip7.options.from` ，则应是具有 MinterRole 的矿工。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP7 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1063,30 +1063,30 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip7.mint('0x{address in hex}', 10000).then(console.log)
 ```
 
-## kip7.addMinter <a id="kip7-addminter"></a>
+## kip7.addMinter<a id="kip7-addminter"></a>
 
 ```javascript
 kip7.addMinter(account [, sendParam])
 ```
 
-Adds an account as a minter, who are permitted to mint tokens.
+添加一个允许制造代币的矿工账户。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                      |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be added as a minter.                                                                                                                                                              |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| Name      | 类型     | 描述                                                                                                |
+| --------- | ------ | ------------------------------------------------------------------------------------------------- |
+| account   | string | 要添加为矿工的账户地址。                                                                                      |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from` ，则应是矿工。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP7 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1137,29 +1137,29 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip7.addMinter('0x{address in hex}').then(console.log)
 ```
 
-## kip7.renounceMinter <a id="kip7-renounceminter"></a>
+## kip7.renounceMinter<a id="kip7-renounceminter"></a>
 
 ```javascript
 kip7.renounceMinter([sendParam])
 ```
 
-Renounces the right to mint tokens. Only a minter address can renounce the minting right.
+放弃铸造代币的权利。 只有铸币厂地址可以放弃铸币权。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                      |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型     | 描述                                                                                                |
+| --------- | ------ | ------------------------------------------------------------------------------------------------- |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a minter with MinterRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip7.options.from` ，则应是具有 MinterRole 的矿工。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1210,30 +1210,30 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip7.renounceMinter().then(console.log)
 ```
 
-## kip7.burn <a id="kip7-burn"></a>
+## kip7.burn<a id="kip7-burn"></a>
 
 ```javascript
 kip7.burn(amount [, sendParam])
 ```
 
-Destroys the `amount` of tokens in the sender's balance. Without `sendParam.from` nor `kip7.options.from` being provided, an error would occur.
+销毁发送方余额中的代币 "数量"。 如果不提供 `sendParam.from` 或 `kip7.options.from`，就会发生错误。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                                                                                      |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| amount    | BigNumber \\| string \\| number | The amount of token to be destroyed.                                                                                                                                                                             |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型                                | 描述                                                                                                |
+| --------- | --------------------------------- | ------------------------------------------------------------------------------------------------- |
+| amounts   | BigNumber \\| string \\| number | 要销毁的代币数量。                                                                                         |
+| sendParam | object                            | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `index`参数接受`number`类型，但如果输入值超出了number.MAX_SAFE_INTEGER的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1288,31 +1288,31 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip7.burn(1000).then(console.log)
 ```
 
-## kip7.burnFrom <a id="kip7-burnfrom"></a>
+## kip7.burnFrom<a id="kip7-burnfrom"></a>
 
 ```javascript
 kip7.burnFrom(account, amount [, sendParam])
 ```
 
-Destroys the given number of tokens from `account`. The allowance of the sender specified in `sendParam.from` or `kip7.options.from` is reduced alongside the balance of `account`.
+从 `account` 中销毁给定数量的代币。 sendParam.from "或 "kip7.options.from "中指定的发件人的津贴将与 "账户 "余额一起减少。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type                              | Description                                                                                                                                                                                                                      |
-| --------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string                            | The address of the account that owns tokens to be burned with allowance mechanism.                                                                                                                               |
-| amount    | BigNumber \\| string \\| number | The amount of token to be destroyed.                                                                                                                                                                             |
-| sendParam | object                            | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型                             | 描述                                                                                                |
+| --------- | ------------------------------ | ------------------------------------------------------------------------------------------------- |
+| account   | string                         | 拥有代币的账户地址，该代币将通过津贴机制烧毁。                                                                           |
+| amount    | Buffer \\| string \\| number | 要销毁的代币数量。                                                                                         |
+| sendParam | object                         | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** The `amount` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `index`参数接受`number`类型，但如果输入值超出了number.MAX_SAFE_INTEGER的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1390,30 +1390,30 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip7.burnFrom('0x{address in hex}', 1000).then(console.log)
 ```
 
-## kip7.addPauser <a id="kip7-addpauser"></a>
+## kip7.addPauser<a id="kip7-addpauser"></a>
 
 ```javascript
 kip7.addPauser(account [, sendParam])
 ```
 
-Adds an account as a pauser that has the right to suspend the contract.
+添加一个有权中止合约的暂停账户。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                      |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be a new pauser.                                                                                                                                                                   |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型     | 描述                                                                                                |
+| --------- | ------ | ------------------------------------------------------------------------------------------------- |
+| account   | string | 将成为新暂停者的账户地址。                                                                                     |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip7.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP7 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1464,29 +1464,29 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip7.addPauser('0x{address in hex}').then(console.log)
 ```
 
-## kip7.renouncePauser <a id="kip7-renouncepauser"></a>
+## kip7.renouncePauser<a id="kip7-renouncepauser"></a>
 
 ```javascript
 kip7.renouncePauser([sendParam])
 ```
 
-Renounces the right to pause the contract. Only a pauser address can renounce the pausing right.
+放弃暂停合约的权利。 只有暂停地址可以放弃自己的暂停权。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                      |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型     | 描述                                                                                                |
+| --------- | ------ | ------------------------------------------------------------------------------------------------- |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1537,29 +1537,29 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip7.renouncePauser().then(console.log)
 ```
 
-## kip7.pause <a id="kip7-pause"></a>
+## kip7.pause<a id="kip7-pause"></a>
 
 ```javascript
 kip7.pause([sendParam])
 ```
 
-Suspends functions related to sending tokens.
+暂停与发送代币相关的功能。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                      |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型     | 描述                                                                                                |
+| --------- | ------ | ------------------------------------------------------------------------------------------------- |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip7.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1610,29 +1610,29 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip7.pause().then(console.log)
 ```
 
-## kip7.unpause <a id="kip7-unpause"></a>
+## kip7.unpause<a id="kip7-unpause"></a>
 
 ```javascript
 kip7.unpause([sendParam])
 ```
 
-Resumes the paused contract.
+恢复已暂停的合约。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                      |
-| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型     | 描述                                                                                                |
+| --------- | ------ | ------------------------------------------------------------------------------------------------- |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve](#kip7-approve) 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip7.options.from` were given, it should be a pauser with PauserRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip7.options.from`，则应是具有 PauserRole 的暂停器。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
