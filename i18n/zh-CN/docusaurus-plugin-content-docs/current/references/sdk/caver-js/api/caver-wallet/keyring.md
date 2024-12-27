@@ -200,18 +200,18 @@ caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 
 **参数**
 
-| 名称       | 类型     | 说明                                                                                 |
-| -------- | ------ | ---------------------------------------------------------------------------------- |
-| numArray | Array  | 包含每个 [role](../../../../../learn/accounts.md#roles) 键数的数组。                         |
-| entropy  | string | (optional) A random string to increase entropy. |
+| 名称       | 类型     | 说明                                                         |
+| -------- | ------ | ---------------------------------------------------------- |
+| numArray | Array  | 包含每个 [role](../../../../../learn/accounts.md#roles) 键数的数组。 |
+| entropy  | string | (可选）用于增加熵的随机字符串。                        |
 
-**Return Value**
+**返回价值**
 
-| Type  | Description                                                                                                                                       |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Array | A 2D array of which each array element contains keys defined for each [role](../../../../../learn/accounts.md#roles) is returned. |
+| 类型    | 描述                                                                                |
+| ----- | --------------------------------------------------------------------------------- |
+| Array | 返回一个 2D 数组，其中每个数组元素都包含为每个 [role](../../../../../../learn/accounts.md#roles) 定义的键。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.wallet.keyring.generateRoleBasedKeys([2, 1, 3])
@@ -231,30 +231,30 @@ caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 ]
 ```
 
-## caver.wallet.keyring.create <a href="#caver-wallet-keyring-create" id="caver-wallet-keyring-create"></a>
+## caver.wallet.keyring.create<a href="#caver-wallet-keyring-create" id="caver-wallet-keyring-create"></a>
 
 ```javascript
 caver.wallet.keyring.create(address, key)
 ```
 
-Creates a Keyring instance with parameters.
+创建一个带参数的 Keyring 实例。
 
-If `key` is a private key string, a [SingleKeyring](#singlekeyring) instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring](#multiplekeyring) instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring](#rolebasedkeyring) instance is created.
+如果 `key` 是私钥字符串，则会创建一个使用单个私钥的 [SingleKeyring](#singlekeyring) 实例。 如果 `key` 是一个包含私钥字符串的数组，则会创建一个使用多个私钥的 [MultipleKeyring](#multiplekeyring) 实例。 如果 `key` 是一个二维数组，其中每个元素都包含每个角色要使用的私钥，则会创建一个 [RoleBasedKeyring](#rolebasedkeyring) 实例。
 
-**Parameters**
+**参数**
 
-| Name    | Type              | Description                                                                                                                                                                                                  |
-| ------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address | string            | An address of keyring.                                                                                                                                                                       |
-| key     | string \\| Array | The private key string, an array of private keys, or a 2D array of which each element contains key(s) to be used for each [role](../../../../../learn/accounts.md#roles). |
+| 名称      | 类型                | 描述                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string            | keyring 地址。                                                                                                                                                                                                                                                                                                                                                                                                |
+| key     | string \\| Array | 私钥字符串、私钥数组或二维数组，其中每个元素都包含用于每个 [role] 的密钥（.../.../.../.../.../learn/accounts.md#roles）。 |
 
-**Return Value**
+**返回价值**
 
-| Type      | Description                                                                                                                                                                                                                  |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Keyring` | The keyring instance is returned. Depending on the `key` parameter, it can be [SingleKeyring](#singlekeyring), [MultipleKeyring](#multiplekeyring) or [RoleBasedKeyring](#rolebasedkeyring). |
+| 类型        | 说明                                                                                                                                                                                                                                                                                                    |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Keyring` | 返回 Keyring 实例。 根据`key`参数的不同，可以是[SingleKeyring]（#singlekeyring）、[MultipleKeyring]（#multiplekeyring）或[RoleBasedKeyring]（#rolebasedkeyring）。 |
 
-**Example**
+**示例**
 
 ```javascript
 // Create singleKeyring which uses one private key
@@ -300,27 +300,27 @@ RoleBasedKeyring {
 }
 ```
 
-## caver.wallet.keyring.createFromPrivateKey <a href="#caver-wallet-keyring-createfromprivatekey" id="caver-wallet-keyring-createfromprivatekey"></a>
+## caver.wallet.keyring.createFromPrivateKey<a href="#caver-wallet-keyring-createfromprivatekey" id="caver-wallet-keyring-createfromprivatekey"></a>
 
 ```javascript
 caver.wallet.keyring.createFromPrivateKey(key)
 ```
 
-Creates a `SingleKeyring` instance from a private key string or a [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format).
+从私钥字符串或 [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) 创建一个 `SingleKeyring` 实例。
 
-**Parameters**
+**参数**
 
-| Name | Type   | Description                                                                                                                                 |
-| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| key  | string | This parameter can be either a private key or [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format). |
+| 名称  | 类型     | 说明                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key | string | 该参数可以是私钥或 [KlaytnWalletKey]（.../.../.../.../.../learn/accounts.md#klaytn-wallet-key-format）。 |
 
-**Return Value**
+**返回价值**
 
-| Type                            | Description                                             |
-| ------------------------------- | ------------------------------------------------------- |
-| [SingleKeyring](#singlekeyring) | The SingleKeyring instance is returned. |
+| 类型                              | 说明                   |
+| ------------------------------- | -------------------- |
+| [SingleKeyring](#singlekeyring) | 返回 SingleKeyring 实例。 |
 
-**Example**
+**示例**
 
 ```javascript
 // Create singleKeyring from private key string
@@ -338,7 +338,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createFromKlaytnWalletKey <a href="#caver-wallet-keyring-createfromklaytnwalletkey" id="caver-wallet-keyring-createfromklaytnwalletkey"></a>
+## caver.wallet.keyring.createFromKlaytnWalletKey<a href="#caver-wallet-keyring-createfromklaytnwalletkey" id="caver-wallet-keyring-createfromklaytnwalletkey"></a>
 
 ```javascript
 caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
@@ -346,7 +346,7 @@ caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 
 Creates a `SingleKeyring` instance from a [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string.
 
-**Parameters**
+**参数**
 
 | Name            | Type   | Description                                                                                              |
 | --------------- | ------ | -------------------------------------------------------------------------------------------------------- |
