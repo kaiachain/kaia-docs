@@ -1,6 +1,6 @@
-# Write (Fee Delegation)
+# 撰写（费用委托）
 
-You can make a **"transaction"** that including **payment request** to feepayer when you want to execute the Smart Contract.
+当您要执行智能合约时，您可以向 feepayer 发送**"交易 "**，其中包括**支付请求**。
 
 <CH.Spotlight>
 <CH.Code>
@@ -68,7 +68,7 @@ number after:  295
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=1:2
 
@@ -76,7 +76,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **web3** and **eth_account**
+从 **web3** 和 **eth_account** 导入必要的实用程序
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=3:7
 
@@ -84,7 +84,7 @@ Import necessary utils from **web3** and **eth_account**
 
 ---
 
-Create a Web3 instance with the **kairos** testnet endpoint
+使用 **kairos** testnet 端点创建 Web3 实例
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=9:11
 
@@ -92,7 +92,7 @@ Create a Web3 instance with the **kairos** testnet endpoint
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=9:11
 from web3py_ext import extend
@@ -144,7 +144,7 @@ contract_interaction_with_fee_delegation_klaytn_type()
 
 ---
 
-Load the **user** and **fee delegator** account from each private key
+从每个私人密钥加载**用户**和**收费委托人**账户
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=14:15
 
@@ -152,7 +152,7 @@ Load the **user** and **fee delegator** account from each private key
 
 ---
 
-Create the **contract instance** with its address and ABI
+创建**合同实例**，并提供其地址和 ABI
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=17:20
 
@@ -160,7 +160,7 @@ Create the **contract instance** with its address and ABI
 
 ---
 
-Set the contract address that you deployed in the deploy tutorial (**Counter contract**). You can see the address in your deploy tx receipt
+设置在部署教程中部署的合约地址（**计数器合同**）。 您可以在部署 tx 收据中看到地址
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=18
 
@@ -168,7 +168,7 @@ Set the contract address that you deployed in the deploy tutorial (**Counter con
 
 ---
 
-Set the contract abi. You can get the ABI after compiled in remix or solc compiler
+设置合约 abi。 使用 remix 或 solc 编译器编译后，可以获得 ABI
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=19
 
@@ -176,7 +176,7 @@ Set the contract abi. You can get the ABI after compiled in remix or solc compil
 
 ---
 
-Call the view function of the contract and **print** the result
+调用合约的视图函数并**打印**结果
 
 <CH.Code>
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=22:23
@@ -192,7 +192,7 @@ number before:  294
 
 ---
 
-Make a tx with **build_transaction** that returns the tx instance along with passed fields as parameter. You should set the **TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION** type to request fee delegation to fee payer
+使用 **build_transaction**创建一个 tx，返回 tx 实例和作为参数传递的字段。 您应设置**TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**类型，以便向费用支付方申请费用委托。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=26:29
 
@@ -200,7 +200,7 @@ Make a tx with **build_transaction** that returns the tx instance along with pas
 
 ---
 
-**increment()** automatically makes the function call data and set it to the **data** field
+**increment()** 会自动让函数调用数据并将其设置到 **data** 字段中
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=26
 
@@ -208,7 +208,7 @@ Make a tx with **build_transaction** that returns the tx instance along with pas
 
 ---
 
-Use **fill_transaction** to add **rest of the fields** of the transaction like **gas limit**, **Nonce**, etc. You can print all the fields after this line if you want to see
+使用 **fill_transaction** 添加交易的**其余字段**，如**气量限制**、**Nonce**等。 如果您想查看以下内容，可以打印这一行之后的所有字段
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=30
 
@@ -216,7 +216,7 @@ Use **fill_transaction** to add **rest of the fields** of the transaction like *
 
 ---
 
-Sign the transaction with the **user's** private key
+用**用户的**私钥签署交易
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=31
 
@@ -224,7 +224,7 @@ Sign the transaction with the **user's** private key
 
 ---
 
-Sign the transaction as **fee payer** with the fee delegator's key. You need to pass the fee payer's address as well.
+使用收费委托人的密钥，以**收费人**的身份签署交易。 您还需要提供缴费人的地址。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=33:38
 
@@ -232,7 +232,7 @@ Sign the transaction as **fee payer** with the fee delegator's key. You need to 
 
 ---
 
-Send the raw transaction and get the **transaction hash**
+发送原始交易并获取**交易哈希值**
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=39
 
@@ -240,7 +240,7 @@ Send the raw transaction and get the **transaction hash**
 
 ---
 
-Wait for the transaction **receipt**
+等待交易**收据**
 
 <CH.Code>
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=40
@@ -255,10 +255,10 @@ receipt:  AttributeDict({'blockHash': HexBytes('0xa1ecb35a068736c6257915f8a89dfe
 
 ---
 
-Check if contract has **updated** the state
+检查合约是否已**更新**状态
 
 <CH.Code>
-```py contract_interaction_with_fee_delegation_kaia_type.py focus=42:43
+``py contract_interaction_with_fee_delegation_kaia_type.py focus=42:43
 
 ````
 ---
