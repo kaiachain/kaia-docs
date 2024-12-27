@@ -1,54 +1,54 @@
 # caver.kct.kip7
 
-The `caver.kct.kip7` helps you easily handle a smart contract that implements KIP-7 as a JavaScript object on the kaia blockchain platform (kaia).
+caver.kct.kip7 "可帮助您在 kaia 区块链上轻松处理以 JavaScript 对象形式实现 KIP-7 的智能合约。
 
-The `caver.kct.kip7` inherits [caver.contract](../caver.contract.md) to implement the KIP-7 token contract. The `caver.kct.kip7` holds the same properties of `caver.contract` whereas additional methods to implement extra features. This section only introduces the newly added bound methods of the `caver.kct.kip7`.
+caver.kct.kip7 "继承了[caver.contract](../caver.contract.md)，以实现 KIP-7 代币合约。 caver.kct.kip7 "拥有与 "caver.contract "相同的属性，但还有其他方法来实现额外的功能。 本节仅介绍 "caver.kct.kip7 "新增的绑定方法。
 
-The abi and bytecode used in the caver.kct.kip7 were implemented using the example of [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).
+caver.kct.kip7 中使用的 abi 和字节码是通过 [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20) 示例实现的。
 
-The code that implements KIP-7 for caver-js is available on the [Kaia Contracts Github Repo](https://github.com/kaiachain/kaia-contracts/tree/main/contracts/KIP/token/KIP7).
+为 caver-js 实现 KIP-7 的代码可在 [Kaia Contracts Github Repo](https://github.com/kaiachain/kaia-contracts/tree/main/contracts/KIP/token/KIP7) 上获取。
 
-For more information about KIP-7, see [Kaia Improvement Proposals](https://kips.kaia.io/KIPs/kip-7).
+有关 KIP-7 的更多信息，请参阅 [Kaia 改进提案](https://kips.kaia.io/KIPs/kip-7)。
 
-## caver.kct.kip7.deploy <a id="caver-klay-kip7-deploy"></a>
+## caver.kct.kip7.deploy<a id="caver-klay-kip7-deploy"></a>
 
 ```javascript
 caver.kct.kip7.deploy(tokenInfo, deployer)
 ```
 
-Deploys the KIP-7 token contract to the kaia blockchain. A contract deployed using caver.kct.kip7.deploy is a fungible token that follows the KIP-7 standard.
+将 KIP-7 代币合约部署到 kaia 区块链上。 使用 caver.kct.kip7.deploy 部署的合约是一种遵循 KIP-7 标准的不可篡改令牌。
 
-After successful deployment, the promise will be resolved with a new KIP7 instance.
+成功部署后，将使用新的 KIP17 实例解决承诺问题。
 
-**Parameters**
+**参数**
 
-| Name      | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenInfo | object             | The information needed to deploy KIP-7 token contract on the kaia blockchain. See the below table for the details.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| deployer  | string \\| object | The address of the keyring to deploy the KIP-7 token contract. This keyring must have enough KAIA to deploy. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-7 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [approve](#kip7-approve). |
+| 名称        | 类型                 | 描述                                                                                                                                                                                                                     |
+| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tokenInfo | object             | 在 kaia 区块链上部署 KIP-7 代币合约所需的信息。 详见下表。                                                                                                                                                                                   |
+| deployer  | string \\| object | 密钥环实例中部署 KIP-7 代币合约的地址。 该地址必须有足够的 KAIA 才能部署。 如果要定义发送事务时使用的字段，可以将对象类型作为参数传递。 如果要在部署 KIP-17 合约时使用费用委托，可以在对象中定义与费用委托相关的字段。 关于可在对象中定义的字段，请参阅 [创建]（#kip37-create）的参数说明。 |
 
-The tokenInfo object must contain the following:
+tokenInfo 对象必须包含以下内容：
 
-| Name          | Type                              | Description                                                         |
-| ------------- | --------------------------------- | ------------------------------------------------------------------- |
-| name          | string                            | The name of the token.                              |
-| symbol        | string                            | The symbol of the token.                            |
-| decimals      | number                            | The number of decimal places the token uses.        |
-| initialSupply | BigNumber \\| string \\| number | The total amount of token to be supplied initially. |
+| 名称            | 类型                             | 描述         |
+| ------------- | ------------------------------ | ---------- |
+| name          | string                         | 代币名称       |
+| symbol        | string                         | 代币符号       |
+| decimals      | number                         | 标记使用的小数位数。 |
+| initialSupply | Buffer \\| string \\| number | 最初提供的代币总量。 |
 
-**NOTE** The `initialSupply` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `index`参数接受`number`类型，但如果输入值超出了number.MAX_SAFE_INTEGER的范围，可能会导致意外结果或错误。 在这种情况下，建议使用 `BigNumber` 类型，特别是对于 `uint256` 大小的数值输入值。
 
-**Return Value**
+**返回价值**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP7 instance. Additionally, the following events can occur:
+PromiEvent\`：一个承诺组合事件发射器，用一个新的 KIP17 实例来解决。 此外，还可能发生以下事件：
 
-| Name            | Type   | Description                                                                                                                                                                                                                                             |
-| --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                          |
-| receipt         | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt]. Receipts from KIP7 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                                                |
+| 名称              | 类型     | 描述                                                                                                        |
+| --------------- | ------ | --------------------------------------------------------------------------------------------------------- |
+| transactionHash | string | 在事务发送且事务哈希值可用后立即触发。                                                                                       |
+| receipt         | object | 当交易收据可用时触发。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt]。 来自 KIP17 实例的收据有一个通过 abi 解析的 "事件 "属性，而不是 "日志 "属性。 |
+| error           | Error  | 发送过程中发生错误时触发。                                                                                             |
 
-**Example**
+**示例**
 
 ```javascript
 // using the promise
@@ -107,25 +107,25 @@ KIP7 {
 })
 ```
 
-## caver.kct.kip7.detectInterface <a id="caver-kct-kip7-detectinterface"></a>
+## caver.kct.kip7.detectInterface<a id="caver-kct-kip7-detectinterface"></a>
 
 ```javascript
-caver.kct.kip7.detectInterface(contractAddress)
+caver.kct.kip7.detectInterface(contractAddress
 ```
 
-Returns the information of the interface implemented by the token contract. This static function will use [kip7.detectInterface](#kip7-detectinterface).
+返回代币合约实现的接口信息。 此静态函数将使用 [kip17.detectInterface](#kip17-detectinterface)。
 
-**Parameters**
+**参数**
 
-| Name            | Type   | Description                             |
-| --------------- | ------ | --------------------------------------- |
-| contractAddress | string | The address of the KIP-7 token contract |
+| 名称              | 类型     | 描述            |
+| --------------- | ------ | ------------- |
+| contractAddress | string | KIP-7 代币合约的地址 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.kaia.io/KIPs/kip-7#kip-13-identifiers) is implemented.
+Promise "会返回一个 "对象"，其中包含每个[KIP-7 接口](https://kips.kaia.io/KIPs/kip-7#kip-13-identifiers)是否已实现的布尔值结果。
 
-**Example**
+**示例**
 
 ```javascript
 > caver.kct.kip7.detectInterface('0x{address in hex}').then(console.log)
@@ -138,25 +138,25 @@ Returns the information of the interface implemented by the token contract. This
 }
 ```
 
-## caver.kct.kip7.create <a id="caver-kct-kip7-create"></a>
+## caver.kct.kip7.create<a id="caver-kct-kip7-create"></a>
 
 ```javascript
-caver.kct.kip7.create([tokenAddress])
+caver.kct.kip7.create([tokenAddress
 ```
 
-Creates a new KIP7 instance with its bound methods and events. This function works the same as [new KIP7](#new-kip7).
+创建新的 KIP17 实例及其绑定的方法和事件。 该功能与 [new KIP17]（#new-kip17）相同。
 
-**NOTE** `caver.kct.kip7.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**注意** `caver.kct.kip7.create`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
 
-**Parameters**
+**参数**
 
-See the [new KIP7](#new-kip7).
+请参见 [new KIP17]（#new-kip17）。
 
-**Return Value**
+**返回价值**
 
-See the [new KIP7](#new-kip7).
+请参见 [new KIP17]（#new-kip17）。
 
-**Example**
+**示例**
 
 ```javascript
 // Create a KIP7 instance without a parameter
@@ -166,27 +166,27 @@ See the [new KIP7](#new-kip7).
 > const kip7 = caver.kct.kip7.create('0x{address in hex}')
 ```
 
-## new KIP7 <a id="new-kip7"></a>
+## 新 KIP17<a id="new-kip17"></a>
 
 ```javascript
 new caver.kct.kip7([tokenAddress])
 ```
 
-Creates a new KIP7 instance with its bound methods and events.
+创建新的 KIP17 实例及其绑定的方法和事件。
 
-**Parameters**
+**参数**
 
-| Name         | Type   | Description                                                                                                                                    |
-| ------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | string | (optional) The address of the KIP-7 token contract, which can be assigned later through `kip7.options.address = '0x1234..'` |
+| 名称           | 类型     | 描述                                                                                   |
+| ------------ | ------ | ------------------------------------------------------------------------------------ |
+| tokenAddress | string | (可选）KIP-7 代币合约的地址，可稍后通过 `kip17.options.address = '0x1234...'` 指定。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                          |
-| ------ | -------------------------------------------------------------------- |
-| object | The KIP7 instance with its bound methods and events. |
+| 类型     | 描述                  |
+| ------ | ------------------- |
+| object | KIP17 实例及其绑定的方法和事件。 |
 
-**Example**
+**示例**
 
 ```javascript
 // Create a KIP7 instance without a parameter
@@ -196,27 +196,27 @@ Creates a new KIP7 instance with its bound methods and events.
 > const kip7 = new caver.kct.kip7('0x{address in hex}')
 ```
 
-## kip7.clone <a id="kip7-clone"></a>
+## kip17.clone<a id="kip17-clone"></a>
 
 ```javascript
-kip7.clone([tokenAddress])
+kip17.clone([tokenAddress])
 ```
 
-Clones the current KIP7 instance.
+克隆当前 KIP17 实例。
 
-**Parameters**
+**参数**
 
-| Name         | Type   | Description                                                                                                                                                                                                    |
-| ------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | string | (optional) The address of the smart contract that deployed another KIP7 token. If omitted, it will be set to the contract address in the original instance. |
+| 名称           | 类型     | 描述                                                                   |
+| ------------ | ------ | -------------------------------------------------------------------- |
+| tokenAddress | string | (可选）部署另一个 KIP-17 代币的智能合约地址。 如果省略，则将设置为原始实例中的合约地址。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                              |
-| ------ | -------------------------------------------------------- |
-| object | The clone of the original KIP7 instance. |
+| 类型     | 描述              |
+| ------ | --------------- |
+| object | 原始 KIP17 实例的克隆。 |
 
-**Example**
+**示例**
 
 ```javascript
 > const kip7 = new caver.kct.kip7(address)
@@ -228,54 +228,54 @@ Clones the current KIP7 instance.
 > const cloned = kip7.clone('0x{address in hex}')
 ```
 
-## kip7.detectInterface <a id="kip7-detectinterface"></a>
+## kip17.detectInterface<a id="kip17-detectinterface"></a>
 
 ```javascript
-kip7.detectInterface()
+kip17.detectInterface()
 ```
 
-Returns the information of the interface implemented by the token contract.
+返回代币合约实现的接口信息。
 
-**Parameters**
+**参数**
 
-None
+无
 
-**Return Value**
+**返回价值**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-7 interface](https://kips.kaia.io/KIPs/kip-7#kip-13-identifiers) is implemented.
+Promise "会返回一个 "对象"，其中包含每个[KIP-7 接口](https://kips.kaia.io/KIPs/kip-7#kip-13-identifiers)是否已实现的布尔值结果。
 
-**Example**
+**示例**
 
 ```javascript
-> kip7.detectInterface().then(console.log)
+> kip37.detectInterface().then(console.log)
 {
-    IKIP7: true,
-    IKIP7Metadata: true,
-    IKIP7Mintable: true,
-    IKIP7Burnable: true,
-    IKIP7Pausable: true,
+    IKIP37: true,
+    IKIP37Metadata: true,
+    IKIP37Mintable: true,
+    IKIP37Burnable: true,
+    IKIP37Pausable: true,
 }
 ```
 
 ## kip7.supportsInterface <a id="kip7-supportsinterface"></a>
 
 ```javascript
-kip7.supportsInterface(interfaceId)
+kip17.supportsInterface(interfaceId)
 ```
 
-Return `true` if this contract implements the interface defined by `interfaceId`.
+如果此合约实现了由 `interfaceId` 定义的接口，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name        | Type   | Description                                    |
-| ----------- | ------ | ---------------------------------------------- |
-| interfaceId | string | The interfaceId to be checked. |
+| 名称          | 类型     | 描述                |
+| ----------- | ------ | ----------------- |
+| interfaceId | string | 要检查的 interfaceId。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `Boolean`: `true` if this contract implements the interface defined by `interfaceId`.
+`Promise` 返回 `boolean`：如果此合约实现了由 "`interfaceId` 定义的接口，则返回 "true"。
 
-**Example**
+**示例**
 
 ```javascript
 > kip7.supportsInterface('0x65787371').then(console.log)
@@ -285,134 +285,134 @@ true
 false
 ```
 
-## kip7.name <a id="kip7-name"></a>
+## kip17.name<a id="kip17-name"></a>
 
 ```javascript
-kip7.name()
+kip17.name()
 ```
 
-Return the name of the token.
+返回代币的名称。
 
-**Parameters**
+**参数**
 
-None
+无
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`: The name of the token.
+`Promise` 返回 `string`：代币的名称。
 
-**Example**
+**示例**
 
 ```javascript
-> kip7.name().then(console.log)
+> kip17.name().then(console.log)
 Jasmine
 ```
 
-## kip7.symbol <a id="kip7-symbol"></a>
+## kip7.symbol<a id="kip7-symbol"></a>
 
 ```javascript
 kip7.symbol()
 ```
 
-Return the symbol of the token.
+返回代币的符号。
 
-**Parameters**
+**参数**
 
-None
+无
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`: The symbol of the token.
+`Promise` 返回 `string`：标记的符号。
 
-**Example**
+**示例**
 
 ```javascript
 > kip7.symbol().then(console.log)
 JAS
 ```
 
-## kip7.decimals <a id="kip7-decimals"></a>
+## kip7.decimals<a id="kip7-decimals"></a>
 
 ```javascript
 kip7.decimals()
 ```
 
-Return the number of decimal places the token uses.
+返回标记使用的小数位数。
 
-**Parameters**
+**参数**
 
-None
+无
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `number`: The number of decimal places the token uses.
+`Promise` 返回 `number`：代币使用的小数位数。
 
-**Example**
+**示例**
 
 ```javascript
 > kip7.decimals().then(console.log)
 18
 ```
 
-## kip7.totalSupply <a id="kip7-totalsupply"></a>
+## kip7.totalSupply<a id="kip7-totalsupply"></a>
 
 ```javascript
 kip7.totalSupply()
 ```
 
-Return the total token supply.
+返回全部代币供应。
 
-**Parameters**
+**参数**
 
-None
+无
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `BigNumber`: The total number of tokens.
+`Promise` 返回 `BigNumber`：代币总数。
 
-**Example**
+**示例**
 
 ```javascript
 > kip7.totalSupply().then(console.log)
-100000000000000000000
+1000000000000000000000000
 ```
 
-## kip7.balanceOf <a id="kip7-balanceof"></a>
+## kip7.balanceOf<a id="kip7-balanceof"></a>
 
 ```javascript
-kip7.balanceOf(address)
+kip17.balanceOf(address)
 ```
 
-Return the balance of the given account address.
+返回给定账户地址的余额。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                               |
-| ------- | ------ | ------------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for its balance. |
+| 名称      | 类型     | 描述          |
+| ------- | ------ | ----------- |
+| address | string | 要查询余额的账户地址。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `BigNumber`: The account balance.
+`Promise` 返回 `BigNumber`：账户余额。
 
-**Example**
+**示例**
 
 ```javascript
 > kip7.balanceOf('0x{address in hex}').then(console.log)
 100000
 ```
 
-## kip7.allowance <a id="kip7-allowance"></a>
+## kip7.allowance<a id="kip7-allowance"></a>
 
 ```javascript
 kip7.allowance(owner, spender)
 ```
 
-Return the amount of token that `spender` is allowed to withdraw from `owner`.
+返回允许 `spender` 从 `owner` 提取的代币数量。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                          |
+| 名称      | 类型     | Description                                                                          |
 | ------- | ------ | ------------------------------------------------------------------------------------ |
 | owner   | string | The address of the token owner's account.                            |
 | spender | string | The address of the account that spends tokens in place of the owner. |
