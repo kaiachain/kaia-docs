@@ -1071,9 +1071,9 @@ kip37.mintBatch(to, ids, values [, sendParam])
 
 **返回价值**
 
-`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given
@@ -1132,30 +1132,30 @@ kip37.mintBatch(to, ids, values [, sendParam])
 > kip37.mintBatch('0x{address in hex}', [1, 2], [100, 200]).then(console.log)
 ```
 
-## kip37.addMinter <a id="kip37-addminter"></a>
+## kip37.addMinter <0></0>
 
 ```javascript
 kip37.addMinter(account [, sendParam])
 ```
 
-Adds an account as a minter, who are permitted to mint tokens.
+添加一个允许铸造代币的矿工账户。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be added as a minter.                                                                                                                                                                                   |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | 类型     | 描述                                                                                                                                     |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| account   | string | 要添加为矿工的账户地址。                                                                                                                           |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from` ，则应是矿工。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1206,29 +1206,29 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.addMinter('0x{address in hex}').then(console.log)
 ```
 
-## kip37.renounceMinter <a id="kip37-renounceminter"></a>
+## kip37.renounceMinter<a id="kip37-renounceminter"></a>
 
 ```javascript
 kip37.renounceMinter([sendParam])
 ```
 
-Renounces the right to mint tokens. Only a minter address can renounce the minting right.
+放弃铸造代币的权利。 只有铸币厂地址可以放弃铸币权。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | 类型     | 描述                                                                                                                                     |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | object | (可选）一个对象，包含用于发送事务的定义参数。 有关 sendParam 的更多信息，请参阅 [approve] 的参数说明。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter with MinterRole.
+**注意**\* 如果给出了 `sendParam.from` 或 `kip17.options.from` ，则应是具有 MinterRole 的矿工。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` 返回 `object` - 包含事务执行结果的收据。 如果您想了解收据对象内部的属性，请参阅 [getTransactionReceipt] 的说明。 来自 KIP37 实例的收件具有通过 ABI 解析的 "事件 "属性，而不是 "日志 "属性。
 
-**Example**
+**示例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1279,15 +1279,15 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.renounceMinter().then(console.log)
 ```
 
-## kip37.burn <a id="kip37-burn"></a>
+## kip37.burn<a id="kip37-burn"></a>
 
 ```javascript
 kip37.burn(account, id, value [, sendParam])
 ```
 
-Burns specific KIP-37 tokens.
+销毁特定的 KIP-37 令牌。
 
-The address that was approved to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. 除非同时提供 `sendParam.from` 和 `kip17Instance.options.from`，否则会发生错误。
+授权发送代币所有者代币的地址（操作员）或代币所有者本人将执行该代币转移交易。 因此，授权地址或代币所有者应是该交易的发送方，其地址必须在 `sendParam.from` 或 `kip17Instance.options.from` 中给出。 除非同时提供 `sendParam.from` 和 `kip17Instance.options.from`，否则会发生错误。
 
 请注意，此方法将向 kaia 网络提交交易，而 kaia 网络将向发送方收取交易费。
 
