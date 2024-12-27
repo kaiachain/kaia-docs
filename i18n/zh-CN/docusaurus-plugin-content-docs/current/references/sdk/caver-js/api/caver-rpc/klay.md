@@ -736,10 +736,10 @@ Returns the block number of the most recent block by using `blockHash`.
 
 **Parameters**
 
-| Name      | Type     | Description                                                                                                                                   |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | string   | The block hash.                                                                                                               |
-| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| Name      | Type     | Description                                        |
+| --------- | -------- | -------------------------------------------------- |
+| blockHash | string   | The block hash.                    |
+| callback  | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
 **Return Value**
 
@@ -760,7 +760,7 @@ Returns the block number of the most recent block by using `blockHash`.
 | reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                                                         |
 | stateRoot        | string | The root of the final state trie of the block.                                                                                                                                               |
 | timestamp        | string | The unix timestamp for when the block was collated.                                                                                                                                          |
-| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                                                   |
+| 时间戳FoS           | string | The fraction of a second of the timestamp for when the block was collated.                                                                                                                   |
 | transactionsRoot | string | The root of the transaction trie of the block.                                                                                                                                               |
 
 **Example**
@@ -855,7 +855,7 @@ Returns information about a block by block number.
 
 **Return Value**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
 | Type   | Description                                                                                                                                                                                                                |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -969,7 +969,7 @@ Returns receipts included in a block identified by block hash.
 
 | Name      | Type     | Description                                                                                                                                   |
 | --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | string   | The block hash.                                                                                                               |
+| blockHash | 字符串      | The block hash.                                                                                                               |
 | callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
 **Return Value**
@@ -1064,7 +1064,7 @@ Returns the number of transactions in a block matching the given block hash.
 
 `Promise` returns `string`
 
-| Type   | Description                                                           |
+| 类型     | Description                                                           |
 | ------ | --------------------------------------------------------------------- |
 | string | The number of transactions in the given block in hex. |
 
@@ -1174,7 +1174,7 @@ Returns a block with consensus information matched by the given hash.
 | Name             | Type   | Description                                                                                                                                                                               |
 | ---------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | blockScore       | string | Former difficulty. Always 1 in the BFT consensus engine                                                                                                                   |
-| committee        | Array  | Array of addresses of committee members of this block. The committee is a subset of validators who participated in the consensus protocol for this block. |
+| committee        | 数组     | Array of addresses of committee members of this block. The committee is a subset of validators who participated in the consensus protocol for this block. |
 | extraData        | string | The "extra data" field of this block.                                                                                                                                     |
 | gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                                         |
 | governanceData   | string | RLP encoded governance configuration                                                                                                                                                      |
@@ -1190,7 +1190,7 @@ Returns a block with consensus information matched by the given hash.
 | size             | string | Integer the size of this block in bytes.                                                                                                                                  |
 | stateRoot        | string | The root of the final state trie of the block.                                                                                                                            |
 | timestamp        | string | The unix timestamp for when the block was collated.                                                                                                                       |
-| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                                |
+| 时间戳FoS           | string | The fraction of a second of the timestamp for when the block was collated.                                                                                                |
 | totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                                            |
 | transactions     | Array  | Array of transaction objects.                                                                                                                                             |
 | transactionsRoot | string | The root of the transaction trie of the block.                                                                                                                            |
@@ -1390,9 +1390,9 @@ Returns the size of the council at the specified block.
 
 `Promise` returns `number`
 
-| Type   | Description                                                 |
-| ------ | ----------------------------------------------------------- |
-| number | The size of the council at the given block. |
+| Type   | Description |
+| ------ | ----------- |
+| number | 给定区块的议会规模。  |
 
 **Example**
 
@@ -1468,7 +1468,7 @@ Returns an object with data about the sync status or false.
 
 **Parameters**
 
-| Name     | Type     | Description                                                                                                                                   |
+| Name     | 类型       | Description                                                                                                                                   |
 | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
