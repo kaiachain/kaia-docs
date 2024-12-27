@@ -1,33 +1,33 @@
 # caver.wallet.keyring
 
-`caver.wallet.keyring` is a package that provides functionality related to Keyring which includes address and private key(s).
+caver.wallet.keyring "是一个提供 Keyring 相关功能的软件包，其中包括地址和私钥。
 
 ## Class <a href="#class" id="class"></a>
 
-`Keyring` is a structure that contains the address of the account and the private key(s). This is a class in caver-js that allows users to sign on using their own [Kaia's account](../../../../../learn/accounts.md#klaytn-accounts).
+Keyring "是一个包含账户地址和私人密钥的结构。 这是 caver-js 中的一个类，允许用户使用自己的 [Kaia 账户] 登录（.../../../../.../.../learn/accounts.md#klaytn-accounts）。
 
-`Keyring` can be classified into three types depending on the type of key being stored: [SingleKeyring](#singlekeyring) to store one address and one private key, [MultipleKeyring](#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](#rolebasedkeyring) to store one address and one or more private keys for each role.
+根据所存储密钥的类型，"钥匙圈 "可分为三种类型：[单钥匙环](#singlekeyring) 用于存储一个地址和一个私钥，[多钥匙环](#multiplekeyring) 用于存储一个地址和多个私钥，[基于角色的钥匙环](#rolebasedkeyring) 用于为每个角色存储一个地址和一个或多个私钥。
 
-- [SingleKeyring](#singlekeyring): User signs with a private key
-- [MultipleKeyring](#multiplekeyring): User signs with private keys
-- [RoleBasedKeyring](#rolebasedkeyring): User signs with the private key(s) by role
+- [SingleKeyring](#singlekeyring)：用户使用私钥签名
+- [MultipleKeyring](#multiplekeyring)：用户使用私钥签名
+- [RoleBasedKeyring](#rolebasedkeyring)：用户按角色使用私钥签名
 
-### SingleKeyring <a href="#singlekeyring" id="singlekeyring"></a>
+### SingleKeyring <0></0>
 
 ```javascript
 const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 ```
 
-`SingleKeyring` is a class that stores the `address` of the account and a `private key`. To create a SingleKeyring instance with a private key string, please refer to [caver.wallet.keyring.create](#caver-wallet-keyring-create).
+`SingleKeyring` 是一个存储账户 "地址 "和 "私人密钥 "的类。 要使用私钥字符串创建 SingleKeyring 实例，请参阅 [caver.wallet.keyring.create](#caver-wallet-keyring-create)。
 
-`SingleKeyring` uses a private key with which no roles assigned.
+`SingleKeyring`  使用的是未指定角色的私人密钥。
 
-**properties**
+**属性**
 
-| Name    | Type                      | Description                                                                                 |
-| ------- | ------------------------- | ------------------------------------------------------------------------------------------- |
-| address | string                    | The address of the account.                                                 |
-| key     | [PrivateKey](#privatekey) | An instance of [PrivateKey](#privatekey) containing one private key inside. |
+| 名称      | 类型                        | 描述                                                                                                               |
+| ------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| address | string                    | 所有者地址。                                                                                                           |
+| key     | [PrivateKey](#privatekey) | [PrivateKey] (#privatekey)的一个实例，其中包含一个私钥。 |
 
 ### MultipleKeyring <a href="#multiplekeyring" id="multiplekeyring"></a>
 
@@ -35,16 +35,16 @@ const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 ```
 
-`MultipleKeyring` is a class that stores the `address` of the account and the multiple `private keys`. To create a MultipleKeyring instance with private key strings, please refer to [caver.wallet.keyring.create](#caver-wallet-keyring-create).
+`MultipleKeyring` 是一个存储账户地址和多个私人密钥的类。 要使用私钥字符串创建 MultipleKeyring 实例，请参考 [caver.wallet.keyring.create](#caver-wallet-keyring-create)。
 
-`MultipleKeyring` uses private keys with which no roles assigned.
+`MultipleKeyring` 使用未指定角色的私人钥匙。
 
-**properties**
+**属性**
 
-| Name    | Type   | Description                                                                                        |
-| ------- | ------ | -------------------------------------------------------------------------------------------------- |
-| address | string | The address of the account.                                                        |
-| keys    | Array  | An array of [PrivateKey](#privatekey) instances containing one private key inside. |
+| 名称      | 类型     | 描述                                      |
+| ------- | ------ | --------------------------------------- |
+| address | string | 所有者地址。                                  |
+| keys    | Array  | 包含一个私钥的 [PrivateKey](#privatekey) 实例数组。 |
 
 ### RoleBasedKeyring <a href="#rolebasedkeyring" id="rolebasedkeyring"></a>
 
@@ -52,24 +52,24 @@ const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 ```
 
-`RoleBasedKeyring` is a class that stores the `address` of the account and the `private keys` to be used for each role in the form of an array.
+`RoleBasedKeyring` 是一个以数组形式存储账户地址和用于每个角色的私钥的类。
 
-`RoleBasedKeyring` defines `keys` which is implemented as a two-dimensional array (empty `keys` looks like `[ [], [], [] ]`) that can include multiple keys for each [role](../../../../../learn/accounts.md#roles). The first array element defines the private key(s) for `roleTransactionKey`, the second defines private key(s) for `roleAccountUpdateKey`, and the third defines the private key(s) for `roleFeePayerKey`.
+`RoleBasedKeyring`  "定义了 "keys"，它是一个二维数组（空 "keys "看起来像"[[], [], [] ]"），每个[role]可以包含多个密钥（.../.../.../.../.../learn/accounts.md#roles）。 第一个数组元素定义了 `roleTransactionKey` 的私钥，第二个数组元素定义了 `roleAccountUpdateKey` 的私钥，第三个数组元素定义了 `roleFeePayerKey` 的私钥。
 
-**properties**
+**属性**
 
-| Name    | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string | The address of the account.                                                                                                                                                                                                                                                                                                                                                                                                                |
-| keys    | Array  | A two-dimensional array that defines the keys used for each [role](../../../../../learn/accounts.md#roles). Each [role](../../../../../learn/accounts.md#roles) includes [PrivateKey](#privatekey) instance(s). The first element in this is `roleTransactionKey`. The second element is `roleAccountUpdateKey`. The last element is `roleFeePayerKey`. |
+| 名称      | 类型     | 描述                                                                                                                                                                                                                                                                                                   |
+| ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string | 所有者地址。                                                                                                                                                                                                                                                                                               |
+| keys    | Array  | 一个二维数组，用于定义每个 [role](../../../../../../learn/accounts.md#roles) 的键值。 每个 [role](../../../../../../learn/accounts.md#roles) 都包含 [PrivateKey](#privatekey) 实例。 其中第一个元素是 `roleTransactionKey`. 第二个元素是 `roleAccountUpdateKey`. 最后一个元素是 `roleFeePayerKey`. |
 
-Below is a getter defined in keyring to intuitively use the key defined for each role. The key used for each role can be accessed more easily through the getter below.
+下面是 keyring 中定义的一个 getter，可以直观地使用为每个角色定义的密钥。 通过下面的获取器可以更方便地获取每个角色使用的密钥。
 
-| Name                 | Type  | Description                                                                                                                                                                                                                          |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| roleTransactionKey   | Array | The roleTransactionKey used to sign transactions (except for transactions for the account update). `keyring.roleTransactionkey` will return the first element of `keys` property. |
-| roleAccountUpdateKey | Array | The roleAccountUpdateKey used to sign account update transactions. `keyring.roleAccountUpdateKey` will return the second element of `keys` property.                                                 |
-| roleFeePayerKey      | Array | The roleFeePayerKey used to sign transactions as a fee payer. `keyring.roleFeePayerKey` will return the thrid element of `keys` property.                                                            |
+| 名称                   | 类型    | 描述                                                                                      |
+| -------------------- | ----- | --------------------------------------------------------------------------------------- |
+| roleTransactionKey   | Array | 用于签署交易的 roleTransactionKey（账户更新交易除外）。 `keyring.roleTransactionkey` 将返回 `keys` 属性的第一个元素。 |
+| roleAccountUpdateKey | Array | 用于签署账户更新事务的 roleAccountUpdateKey。 `keyring.roleAccountUpdateKey` 将返回 `keys` 属性的第二个元素。   |
+| roleFeePayerKey      | Array | 用于以付费者身份签署交易的 roleFeePayerKey。 `keyring.roleFeePayerKey` 将返回 `keys` 属性的第三个元素。           |
 
 ### PrivateKey <a href="#privatekey" id="privatekey"></a>
 
@@ -77,51 +77,51 @@ Below is a getter defined in keyring to intuitively use the key defined for each
 const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 ```
 
-`PrivateKey` is a class that contains a private key string. The private key to be used for each role in Keyring is defined as this `PrivateKey` instance.
+PrivateKey`是一个包含私钥字符串的类。 Keyring 中每个角色使用的私钥都定义为这个`PrivateKey\` 实例。
 
-**properties**
+**属性**
 
-| Name       | Type   | Description                             |
-| ---------- | ------ | --------------------------------------- |
-| privateKey | string | The private key string. |
+| 名称         | 类型     | 描述     |
+| ---------- | ------ | ------ |
+| privateKey | string | 私钥字符串。 |
 
-### SignatureData <a href="#signaturedata" id="signaturedata"></a>
+### 签名数据<a href="#signaturedata" id="signaturedata"></a>
 
-`SignatureData` is a class that contains signature data inside. The signature which is the result of `sign` or `signMessage` will be returned as a signatureData. You can see how signatureData contains signature(s) inside like below.
+SignatureData`是一个包含签名数据的类。 作为`sign`或`signMessage\` 结果的签名将作为 signatureData 返回。 您可以看到 signatureData 包含签名的情况，如下所示。
 
 ```javascript
 const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', '0x15038...'])
 ```
 
-**properties**
+**属性**
 
-| Name | Type   | Description                        |
-| ---- | ------ | ---------------------------------- |
-| v    | String | ECDSA recovery id. |
-| r    | String | ECDSA signature r. |
-| s    | String | ECDSA signature s. |
+| 名称 | 类型     | 描述                          |
+| -- | ------ | --------------------------- |
+| v  | String | ECDSA 恢复 ID。                |
+| r  | String | ECDSA 签名 r. |
+| s  | String | ECDSA 签名                    |
 
-## caver.wallet.keyring.generate <a href="#caver-wallet-keyring-generate" id="caver-wallet-keyring-generate"></a>
+## caver.wallet.keyring.generate<a href="#caver-wallet-keyring-generate" id="caver-wallet-keyring-generate"></a>
 
 ```javascript
 caver.wallet.keyring.generate([entropy])
 ```
 
-Generates a SingleKeyring instance with a randomly generated private key.
+用随机生成的私钥生成一个 SingleKeyring 实例。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                        |
-| ------- | ------ | ---------------------------------------------------------------------------------- |
-| entropy | string | (optional) A random string to increase entropy. |
+| 名称      | 类型     | 描述                                  |
+| ------- | ------ | ----------------------------------- |
+| entropy | string | (可选）用于增加熵的随机字符串。 |
 
-**Return Value**
+**返回价值**
 
-| Type                            | Description                                                               |
-| ------------------------------- | ------------------------------------------------------------------------- |
-| [SingleKeyring](#singlekeyring) | A randomly generated single keyring instance is returned. |
+| 类型                              | 描述              |
+| ------------------------------- | --------------- |
+| [SingleKeyring](#singlekeyring) | 返回随机生成的单个密钥环实例。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.wallet.keyring.generate()
@@ -131,27 +131,27 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.generateSingleKey <a href="#caver-wallet-keyring-generatesinglekey" id="caver-wallet-keyring-generatesinglekey"></a>
+## caver.wallet.keyring.generateSingleKey<a href="#caver-wallet-keyring-generatesinglekey" id="caver-wallet-keyring-generatesinglekey"></a>
 
 ```javascript
 caver.wallet.keyring.generateSingleKey([entropy])
 ```
 
-Generates a private key string.
+生成私钥字符串。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                        |
-| ------- | ------ | ---------------------------------------------------------------------------------- |
-| entropy | string | (optional) A random string to increase entropy. |
+| 名称      | 类型     | 描述                                  |
+| ------- | ------ | ----------------------------------- |
+| entropy | string | (可选）用于增加熵的随机字符串。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                         |
-| ------ | --------------------------------------------------- |
-| string | The private key string is returned. |
+| 类型     | 描述       |
+| ------ | -------- |
+| string | 返回私钥字符串。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.wallet.keyring.generateSingleKey()
@@ -164,22 +164,22 @@ Generates a private key string.
 caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 ```
 
-Generates private key strings.
+生成私钥字符串。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                        |
-| ------- | ------ | ---------------------------------------------------------------------------------- |
-| num     | number | The number of private key strings.                                 |
-| entropy | string | (optional) A random string to increase entropy. |
+| 名称      | 类型     | 描述                                  |
+| ------- | ------ | ----------------------------------- |
+| num     | number | 私钥字符串的数量。                           |
+| entropy | string | (可选）用于增加熵的随机字符串。 |
 
-**Return Value**
+**返回价值**
 
-| Type  | Description                                                             |
-| ----- | ----------------------------------------------------------------------- |
-| Array | An array that includes private key strings is returned. |
+| 类型    | 描述              |
+| ----- | --------------- |
+| Array | 返回一个包含私钥字符串的数组。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.wallet.keyring.generateMultipleKeys(3)
@@ -190,20 +190,20 @@ Generates private key strings.
 ]
 ```
 
-## caver.wallet.keyring.generateRoleBasedKeys <a href="#caver-wallet-keyring-generaterolebasedkeys" id="caver-wallet-keyring-generaterolebasedkeys"></a>
+## caver.wallet.keyring.generateRoleBasedKeys<a href="#caver-wallet-keyring-generaterolebasedkeys" id="caver-wallet-keyring-generaterolebasedkeys"></a>
 
 ```javascript
 caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 ```
 
-Generates a 2D array of which each array element contains keys defined for each [role](../../../../../learn/accounts.md#roles).
+生成一个 2D 数组，其中每个数组元素都包含为每个 [role] （.../../../../.../learn/accounts.md#roles）定义的键。
 
-**Parameters**
+**参数**
 
-| Name     | Type   | Description                                                                                                     |
-| -------- | ------ | --------------------------------------------------------------------------------------------------------------- |
-| numArray | Array  | An array containing the number of keys for each [role](../../../../../learn/accounts.md#roles). |
-| entropy  | string | (optional) A random string to increase entropy.                              |
+| 名称       | 类型     | 说明                                                                                 |
+| -------- | ------ | ---------------------------------------------------------------------------------- |
+| numArray | Array  | 包含每个 [role](../../../../../learn/accounts.md#roles) 键数的数组。                         |
+| entropy  | string | (optional) A random string to increase entropy. |
 
 **Return Value**
 
