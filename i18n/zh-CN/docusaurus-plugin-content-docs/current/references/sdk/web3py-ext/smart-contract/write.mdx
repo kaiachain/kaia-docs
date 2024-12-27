@@ -1,6 +1,6 @@
-# Write
+# 写入
 
-You can make a **"transaction"** interacting with a Smart Contract when you **need to update some state ** in the contract.
+当您**需要更新合约中的某些状态**时，可以与智能合约进行**"事务 "**交互。
 
 <CH.Spotlight>
 <CH.Code>
@@ -48,7 +48,7 @@ number after:  294
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
 
 ```py smart_contract_write.py focus=1:2
 
@@ -56,7 +56,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils
+导入必要的实用程序
 
 ```py smart_contract_write.py focus=3:4
 
@@ -64,7 +64,7 @@ Import necessary utils
 
 ---
 
-Load an account from private key
+从私人密钥加载账户
 
 ```py smart_contract_write.py focus=6
 
@@ -72,7 +72,7 @@ Load an account from private key
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+使用指定的 **kairos** 测试网 URL 创建 Web3 实例
 
 ```py smart_contract_write.py focus=7:9
 
@@ -80,7 +80,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**.
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode** 。
 
 ```py smart_contract_write.py focus=7:9
 from web3py_ext import extend
@@ -113,7 +113,7 @@ contract_interaction()
 
 ---
 
-Define an **account list** as a list type to use **middleware**
+将**账户列表**定义为使用**中间件**的列表类型
 
 ```py smart_contract_write.py focus=8
 
@@ -121,7 +121,7 @@ Define an **account list** as a list type to use **middleware**
 
 ---
 
-If you want to automatically sign and send when using **transact** function, use **construct_sign_and_send_raw_middleware**
+如果想在使用 **transact** 函数时自动签名和发送，请使用 **construct_sign_and_send_raw_middleware**
 
 ```py smart_contract_write.py focus=4,11,20:22
 
@@ -129,7 +129,7 @@ If you want to automatically sign and send when using **transact** function, use
 
 ---
 
-Create a **contract instance** with its address and ABI
+创建一个**合约实例**，并标明其地址和 ABI
 
 ```py smart_contract_write.py focus=14:17
 
@@ -137,7 +137,7 @@ Create a **contract instance** with its address and ABI
 
 ---
 
-Set the **contract address** that you deployed in the deploy tutorial (**Counter contract**). You can see the address in your deploy tx receipt
+设置在部署教程中部署的**合约地址**（**计数器合约**）。 您可以在部署 tx 收据中看到地址
 
 ```py smart_contract_write.py focus=15
 
@@ -145,7 +145,7 @@ Set the **contract address** that you deployed in the deploy tutorial (**Counter
 
 ---
 
-Set the contract abi. You can get the ABI after compiled in remix or solc compiler
+设置合约 abi。 使用 remix 或 solc 编译器编译后，可以获得 ABI
 
 ```py smart_contract_write.py focus=16
 
@@ -153,22 +153,22 @@ Set the contract abi. You can get the ABI after compiled in remix or solc compil
 
 ---
 
-Call the view function of the contract and **print** the result before it is updated
+调用合约的视图函数，并在更新之前**打印**结果
 
 <CH.Code>
-```py smart_contract_write.py focus=18:19
+``py smart_contract_write.py focus=18:19
 
-````
+```
 ---
-```zsh output
-number before:  293
-````
+``zsh output
+之前的编号：293
+```
 
 </CH.Code>
 
 ---
 
-Send a **tx** to **update** the contract **state**. This automatically sign and send the tx that includes the data **calling** the **increment function**
+发送一份**文件**，以**更新**合约的**状态**。 这将自动签署并发送包含数据的 tx，**调用**增量函数\*\*
 
 ```py smart_contract_write.py focus=20:22
 
@@ -176,10 +176,10 @@ Send a **tx** to **update** the contract **state**. This automatically sign and 
 
 ---
 
-Wait the tx **receipt** from the blockchain and **print** the receipt after received
+等待来自区块链的发送**收据，并在收到后**打印\*\*收据
 
 <CH.Code>
-```py smart_contract_write.py focus=23
+``py smart_contract_write.py focus=23
 
 ````
 
@@ -192,16 +192,16 @@ receipt:  AttributeDict({'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf83
 
 ---
 
-Call the view function again to see **what number** the counter have after the tx
+再次调用视图函数，查看 tx 之后计数器的**数字**
 
 <CH.Code>
-```py smart_contract_write.py focus=24
+``py smart_contract_write.py focus=24
 
-````
+```
 ---
-```zsh output
-number after:  294
-````
+``zsh 输出
+后的编号：  294
+```
 
 </CH.Code>
 
