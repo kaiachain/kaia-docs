@@ -1,63 +1,63 @@
 # caver.rpc.governance
 
-`caver.rpc.governance` provides JSON-RPC call with the `governance` name space.
+caver.rpc.governance "使用 "governance "名称空间提供 JSON-RPC 调用。
 
-## caver.rpc.governance.vote <a id="caver-rpc-governance-vote"></a>
+## caver.rpc.governance.vote<a id="caver-rpc-governance-vote"></a>
 
 ```javascript
 caver.rpc.governance.vote(key, value [, callback])
 ```
 
-Submits a new vote. If the node has the right to vote based on the governance mode, the vote can be submitted. If not, an error will occur and the vote will be ignored.
+提交新的投票。 如果节点有权根据治理模式进行投票，则可以提交投票。 否则，将出现错误并忽略投票。
 
-**Parameters**
+**参数**
 
-| Name     | Type                            | Description                                                                                                                                         |
-| -------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key      | string                          | Name of the configuration setting to be changed. Key has the form "domain.field".                   |
-| value    | string \\| number \\| boolean | Various types of value for each key.                                                                                                |
-| callback | function                        | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型               | 描述                                                 |
+| -------- | ---------------- | -------------------------------------------------- |
+| key      | string           | 要更改的配置设置名称。 键的形式为 "domain.field"。  |
+| 值        | 字符串 \| 数字 \| 布尔值 | 每个键的各种类型的值。                                        |
+| callback | function         | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/governance.md#governance_vote).
+有关 `caver.rpc.governance.vote` 的 `key` 和 `value` 的更多详情，请参阅 [governance_vote](../../../../json-rpc/governance.md#governance_vote) 。
 
-**Return Value**
+**回报价值**
 
-`Promise` returns `string`
+承诺 "返回 "字符串
 
-| Type   | Description                                |
-| ------ | ------------------------------------------ |
-| string | Result of vote submission. |
+| 类型  | 描述    |
+| --- | ----- |
+| 字符串 | 投票结果。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.vote('governance.governancemode', 'ballot').then(console.log)
-Your vote was successfully placed.
+您的投票已成功投出。
 ```
 
-## caver.rpc.governance.showTally <a id="caver-rpc-governance-showtally"></a>
+## caver.rpc.governance.showTally<a id="caver-rpc-governance-showtally"></a>
 
 ```javascript
 caver.rpc.governance.showTally([callback])
 ```
 
-Provides the current tally of governance votes. It shows the aggregate approval rate in percentage. The suggested change shall pass when the rate is over 50%.
+提供当前治理投票的统计结果。 它以百分比显示总批准率。 当比率超过 50%时，建议的修改将获得通过。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `Array`
 
-| Type  | Description                                                                               |
-| ----- | ----------------------------------------------------------------------------------------- |
-| Array | An array containing the vote's value and the approval rate in percentage. |
+| 类型 | 描述                     |
+| -- | ---------------------- |
+| 数组 | 一个数组，包含表决值和以百分比表示的支持率。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.showTally().then(console.log)
@@ -70,62 +70,62 @@ Provides the current tally of governance votes. It shows the aggregate approval 
 ]
 ```
 
-## caver.rpc.governance.getTotalVotingPower <a id="caver-rpc-governance-gettotalvotingpower"></a>
+## caver.rpc.governance.getTotalVotingPower<a id="caver-rpc-governance-gettotalvotingpower"></a>
 
 ```javascript
 caver.rpc.governance.getTotalVotingPower([callback])
 ```
 
-Provides the sum of all voting power that CNs have. Each CN has 1.0 ~ 2.0 voting power. In  the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
+提供 CN 拥有的所有投票权的总和。 每个 CN 有 1.0 ~ 2.0 个投票权。 在 "无 "和 "单一 "治理模式下，总投票权不提供任何信息。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `number`
 
-| Type   | Description                         |
-| ------ | ----------------------------------- |
-| number | Total Voting Power. |
+| 类型 | 描述    |
+| -- | ----- |
+| 数量 | 总投票权。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.governance.getTotalVotingPower().then(console.log)
 3
 ```
 
-## caver.rpc.governance.getMyVotingPower <a id="caver-rpc-governance-getmyvotingpower"></a>
+## caver.rpc.governance.getMyVotingPower<a id="caver-rpc-governance-getmyvotingpower"></a>
 
 ```javascript
 caver.rpc.governance.getMyVotingPower([callback])
 ```
 
-Provides the voting power of the node. The voting power can be anywhere between 1.0 ~ 2.0. In the "none" and "single" governance modes, totalVotingPower doesn't provide any information.
+提供节点的投票权。 投票权可以是 1.0 ~ 2.0。 在 "无 "和 "单一 "治理模式下，总投票权不提供任何信息。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `number`
 
-| Type   | Description                          |
-| ------ | ------------------------------------ |
-| number | Node's Voting Power. |
+| 类型 | 描述      |
+| -- | ------- |
+| 数量 | 节点的投票权。 |
 
-**Example**
+**示例**
 
 ```javascript
-> caver.rpc.governance.getMyVotingPower().then(console.log)
-1
+> caver.rpc.governance.getMyVotingPower().then(console.log)1    
+
 ```
 
 ## caver.rpc.governance.getMyVotes <a id="caver-rpc-governance-getmyvotes"></a>
@@ -134,11 +134,11 @@ Provides the voting power of the node. The voting power can be anywhere between 
 caver.rpc.governance.getMyVotes([callback])
 ```
 
-Provides my vote information in the epoch. Each vote is stored in a block when the user's node generates a new block. After current epoch ends, this information is cleared.
+提供我在当期的投票信息。 当用户节点生成一个新的区块时，每一票都会存储在一个区块中。 当期结束后，该信息将被清除。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
+| 名称       | 类型       | 描述                                                                                                                                                  |
 | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
@@ -405,7 +405,7 @@ Returns the governance information stored on the given block. If no changes are 
 | ----------- | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | blockNumber | number \\| string | A block number, or the hex number string to query the governance change made on the block. |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `object`
 
