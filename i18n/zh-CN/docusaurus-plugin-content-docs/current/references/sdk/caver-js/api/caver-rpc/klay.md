@@ -1792,7 +1792,7 @@ If the transaction is in `pending` status that has not yet been processed, defau
 caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 ```
 
-Returns the information about a transaction requested by the sender transaction hash.
+返回发送方交易哈希值请求的交易信息。
 
 Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
 
