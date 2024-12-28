@@ -1,117 +1,117 @@
 # caver.rpc.net
 
-`caver.rpc.net` provides JSON-RPC call with `net` name space.
+caver.rpc.net "使用 "net "名称空间提供 JSON-RPC 调用。
 
-## caver.rpc.net.getNetworkId <a id="caver-rpc-net-getnetworkid"></a>
+## caver.rpc.net.getNetworkId<a id="caver-rpc-net-getnetworkid"></a>
 
 ```javascript
 caver.rpc.net.getNetworkId([callback])
 ```
 
-Returns the network identifier (network ID) of the kaia Node.
+返回 kaia 节点的网络标识符（网络 ID）。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `number`
 
-| Type   | Description                     |
-| ------ | ------------------------------- |
-| number | The network id. |
+| 类型 | 描述     |
+| -- | ------ |
+| 数量 | 网络 ID。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.net.getNetworkId().then(console.log)
 1001
 ```
 
-## caver.rpc.net.isListening <a id="caver-rpc-net-islistening"></a>
+## caver.rpc.net.isListening<a id="caver-rpc-net-islistening"></a>
 
 ```javascript
 caver.rpc.net.isListening([callback])
 ```
 
-Returns `true` if the kaia Node is actively listening for network connections.
+如果 kaia 节点正在监听网络连接，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`
+`Promise` returns `number`
 
-| Type    | Description                                               |
-| ------- | --------------------------------------------------------- |
-| boolean | `true` when listening, otherwise `false`. |
+| 类型      | 描述                       |
+| ------- | ------------------------ |
+| boolean | 监听时为 `true`，否则为 `false`。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.net.isListening().then(console.log)
 true
 ```
 
-## caver.rpc.net.getPeerCount <a id="caver-rpc-net-getpeercount"></a>
+## caver.rpc.net.getPeerCount<a id="caver-rpc-net-getpeercount"></a>
 
 ```javascript
 caver.rpc.net.getPeerCount([callback])
 ```
 
-Returns the number of peers currently connected to the kaia Node.
+返回当前连接到 kaia 节点的对等节点的数量。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                           |
-| ------ | ----------------------------------------------------- |
-| string | The number of connected peers in hex. |
+| Type | 描述                |
+| ---- | ----------------- |
+| 字符串  | 以十六进制为单位的连接对等体数量。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.net.getPeerCount().then(console.log)
 0x3
 ```
 
-## caver.rpc.net.getPeerCountByType <a id="caver-rpc-net-getpeercountbytype"></a>
+## caver.rpc.net.getPeerCountByType<a id="caver-rpc-net-getpeercountbytype"></a>
 
 ```javascript
 caver.rpc.net.getPeerCountByType([callback])
 ```
 
-Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+返回按类型划分的连接节点数，以及带有键/值对的连接节点总数。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                                                           |
-| ------ | ----------------------------------------------------------------------------------------------------- |
-| object | The number of connected peers by type as well as the total number of connected peers. |
+| 类型 | 描述                        |
+| -- | ------------------------- |
+| 对象 | 按类型分列的已连接对等体数量以及已连接对等体总数。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.net.getPeerCountByType().then(console.log)
