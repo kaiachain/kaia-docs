@@ -1,6 +1,6 @@
 # caver.rpc.klay
 
-`caver.rpc.klay` provides JSON-RPC call with `klay` name space.
+caver.rpc.klay "使用 "governance "名称空间提供 JSON-RPC 调用。
 
 ## caver.rpc.klay.accountCreated <a href="#caver-rpc-klay-accountcreated" id="caver-rpc-klay-accountcreated"></a>
 
@@ -8,58 +8,58 @@
 caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 ```
 
-Returns `true` if the account associated with the address is created in the kaia blockchain platform. It returns `false` otherwise.
+如果与地址相关的账户是在 kaia 区块链平台上创建的，则返回 `true`。 否则返回 `false`。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address of the account you want to query to see if it has been created on the network.                                             |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 地址       | 字符串                | 您要查询的账户地址，以查看该账户是否已在网络上创建。                                                        |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`
+`Promise` returns `number`
 
-| Type    | Description                                                    |
-| ------- | -------------------------------------------------------------- |
-| boolean | The existence of an input address in the kaia. |
+| 类型      | 描述            |
+| ------- | ------------- |
+| boolean | kaia 中输入地址的存在 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.accountCreated('0x{address in hex}').then(console.log)
 true
 ```
 
-## caver.rpc.klay.getAccount <a href="#caver-rpc-klay-getaccount" id="caver-rpc-klay-getaccount"></a>
+## caver.rpc.klay.getAccount<a href="#caver-rpc-klay-getaccount" id="caver-rpc-klay-getaccount"></a>
 
 ```javascript
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 ```
 
-Returns the account information of a given address in the kaia. For more details about the types of an account in kaia, please refer to [Kaia Account Types](../../../../../learn/accounts.md#klaytn-account-types).
+返回 kaia 中给定地址的账户信息。 有关 kaia 帐户类型的更多详情，请参阅 [Kaia 帐户类型]（.../.../.../.../.../.../learn/accounts.md#klaytn-account-types）。
 
-**NOTE** `caver.rpc.klay.getAccount` returns the account that exists on the network, so `null` is returned if the account matching the address does not exist on the actual blockchain network.
+**NOTE** `caver.rpc.klay.getAccount`返回网络上存在的账户，因此如果实际区块链网络上不存在与地址匹配的账户，则返回`null`。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address of the account for which you want to get account information.                                                              |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 地址       | 字符串                | 您要查看账户信息的账户地址。                                                                    |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| 类型     | Description                                                                                                                  |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| object | An object that contains the account information. Each account type has different attributes. |
+| 类型 | 描述                        |
+| -- | ------------------------- |
+| 对象 | 包含账户信息的对象。 每种账户类型都有不同的属性。 |
 
-**Example**
+**示例**
 
 ```javascript
 // Get account with EOA
@@ -96,27 +96,27 @@ Returns the account information of a given address in the kaia. For more details
 caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 ```
 
-Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../../../../../learn/accounts.md#accountkeylegacy) or the account of the given address is a [Smart Contract Account](../../../../../learn/accounts.md#smart-contract-accounts-scas), it will return an empty key value. Please refer to [Account Key](../../../../../learn/accounts.md#account-key) for more details.
+返回给定地址的 AccountKey。 如果账户具有 [AccountKeyLegacy](../../../../../../learn/accounts.md#accountkeylegacy) 或给定地址的账户是 [Smart Contract Account](../../../../../../learn/accounts.md#smart-contract-accounts-scas) ，则将返回空键值。 详情请参阅 [Account Key]（.../.../.../.../.../learn/accounts.md#account-key）。
 
-**NOTE** `caver.rpc.klay.getAccountKey` returns an object that differs by each AccountKey type. If a kaia account matching the given address does not exist in the network, `null` is returned.
+**注意** `caver.rpc.klay.getAccountKey` 返回的对象因 AccountKey 类型而异。 如果网络中不存在与给定地址匹配的 kaia 帐户，则返回`null`。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address of kaia account from which you want to get an object of AccountKey information.                                            |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 地址       | 字符串                | 您要从中获取 AccountKey 信息对象的 kaia 账户地址。                                                |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                                                                                    |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| object | An object that contains AccountKey information. Each AccountKey type has different attributes. |
+| 类型 | 描述                                            |
+| -- | --------------------------------------------- |
+| 对象 | 包含 AccountKey 信息的对象。 每种 AccountKey 类型都有不同的属性。 |
 
-**Example**
+**示例**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -181,27 +181,27 @@ Returns AccountKey of a given address. If the account has [AccountKeyLegacy](../
 ## caver.rpc.klay.encodeAccountKey <a href="#caver-rpc-klay-encodeaccountkey" id="caver-rpc-klay-encodeaccountkey"></a>
 
 ```javascript
-caver.rpc.klay.encodeAccountKey(accountKey [, callback])
+caver.rpc.klay.encodeAccountKey(accountKey] [, callback])
 ```
 
-Encodes an object that contains AccountKey information using the Recursive Length Prefix (RLP) encoding scheme. Also you can use [account.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) to get RLP-encoded AccountKey.
+使用递归长度前缀（RLP）编码方案对包含 AccountKey 信息的对象进行编码。 您还可以使用 [account.getRLPEncodingAccountKey](../caver.account.md#account-getrlpencodingaccountkey) 获取 RLP 编码的 AccountKey。
 
-**Parameters**
+**参数：**
 
-| Name       | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| accountKey | object   | An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail), [AccountKeyWeightedMultiSig](../caver.account.md#accountkeyweightedmultisig) or [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)). |
-| callback   | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                                                                                                                                                              |
+| 名称         | 类型       | 描述                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| accountKey | 对象       | An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail)、[AccountKeyWeightedMultiSig](./caver.account.md#accountkeyweightedmultisig)或[AccountKeyRoleBased](./caver.account.md#accountkeyrolebased))。 |
+| callback   | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                                                                                                                                                                                                                                                                                                                                                   |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `Array`
 
-| Type   | Description                               |
-| ------ | ----------------------------------------- |
-| string | A RLP-encoded AccountKey. |
+| 类型  | 描述                  |
+| --- | ------------------- |
+| 字符串 | RLP 编码的 AccountKey。 |
 
-**Example**
+**示例**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -297,30 +297,30 @@ Encodes an object that contains AccountKey information using the Recursive Lengt
 0x02a102f1d2e558cfa07151534cd406b1ac5c25d99e9c1cf925328d14fd15c6fe50df27
 ```
 
-## caver.rpc.klay.decodeAccountKey <a href="#caver-rpc-klay-decodeaccountkey" id="caver-rpc-klay-decodeaccountkey"></a>
+## caver.rpc.klay.decodeAccountKey<a href="#caver-rpc-klay-decodeaccountkey" id="caver-rpc-klay-decodeaccountkey"></a>
 
 ```javascript
-caver.rpc.klay.decodeAccountKey(encodedKey [, callback])
+caver.rpc.klay.decodeAccountKey(encodedKey] [, callback])
 ```
 
-Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.decode](../caver.account.md#caver-account-accountkey-decode) to decode a RLP-encoded AccountKey.
+解码 RLP 编码的 AccountKey。 您也可以使用 [caver.account.accountKey.decode](../caver.account.md#caver-account-accountkey-decode) 来解码 RLP 编码的 AccountKey。
 
-**Parameters**
+**参数：**
 
-| Name       | Type     | Description                                                                                                                                   |
-| ---------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| encodedKey | string   | A RLP-encoded AccountKey.                                                                                                     |
-| callback   | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 加密密码     | 字符串      | RLP 编码的 AccountKey。                                |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                   |
-| ------ | ------------------------------------------------------------- |
-| object | An object defines `keyType` and `key` inside. |
+| 类型 | 描述                         |
+| -- | -------------------------- |
+| 对象 | 对象内部定义了 `keyType` 和 `key`。 |
 
-**Example**
+**示例**
 
 ```javascript
 // AccountKey type: AccountKeyLegacy
@@ -412,29 +412,29 @@ Decodes a RLP-encoded AccountKey. Also you can use [caver.account.accountKey.dec
 }
 ```
 
-## caver.rpc.klay.getBalance <a href="#caver-rpc-klay-getbalance" id="caver-rpc-klay-getbalance"></a>
+## caver.rpc.klay.getBalance<a href="#caver-rpc-klay-getbalance" id="caver-rpc-klay-getbalance"></a>
 
 ```javascript
 caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 ```
 
-Returns the balance of the account of the given address in kaia.
+以 kaia 为单位返回给定地址的账户余额。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address of the account for which you want to get balance.                                                                          |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 地址       | 字符串                | 您要查看余额的账户地址。                                                                      |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                                       |
-| ------ | ----------------------------------------------------------------- |
-| string | The current balance for the given address in peb. |
+| 类型  | 描述                    |
+| --- | --------------------- |
+| 字符串 | 给定地址的当前余额（以 peb 为单位）。 |
 
 **示例**
 
@@ -443,93 +443,93 @@ Returns the balance of the account of the given address in kaia.
 0xde0b6b3a7640000
 ```
 
-## caver.rpc.klay.getCode <a href="#caver-rpc-klay-getcode" id="caver-rpc-klay-getcode"></a>
+## caver.rpc.klay.getCode<a href="#caver-rpc-klay-getcode" id="caver-rpc-klay-getcode"></a>
 
 ```javascript
 caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 ```
 
-Returns code at a given address.
+返回给定地址的代码。
 
-**Parameters**
+**参数：**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address to get the code from.                                                                                                      |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 地址       | 字符串                | 获取代码的地址。                                                                          |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                      |
-| ------ | ------------------------------------------------ |
-| string | The code from the given address. |
+| 类型  | 描述       |
+| --- | -------- |
+| 字符串 | 给定地址的代码。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getCode('0x{address in hex}').then(console.log)
 0x60806...
 ```
 
-## caver.rpc.klay.getTransactionCount <a href="#caver-rpc-klay-gettransactioncount" id="caver-rpc-klay-gettransactioncount"></a>
+## caver.rpc.klay.getTransactionCount<a href="#caver-rpc-klay-gettransactioncount" id="caver-rpc-klay-gettransactioncount"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 ```
 
-Returns the total number of transactions sent from an address.
+返回从某个地址发送的交易总数。
 
-**Parameters**
+**参数：**
 
-| Name        | Type               | Description                                                                                                                                                                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address to get the number of transactions from.                                                                                                                                                                                                                                    |
-| blockNumber | number \\| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                          |
+| 名称       | 类型                 | 描述                                                                                                                                                                                                      |
+| -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 地址       | 字符串                | 用于获取交易次数的地址。                                                                                                                                                                                            |
+| 区块编号     | number \\| string | (可选）一个区块编号、表示待处理的 nonce 的字符串 `pending` 或字符串 `earliest` 或 `latest`，如 [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter) 所示。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                                                                                                                                      |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                                                    |
-| ------ | ------------------------------------------------------------------------------ |
-| string | The number of transactions sent from the given address in hex. |
+| 类型  | 描述                  |
+| --- | ------------------- |
+| 字符串 | 从给定地址发送的交易次数（十六进制）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getTransactionCount('0x{address in hex}').then(console.log)
 0x5f
 ```
 
-## caver.rpc.klay.isContractAccount <a href="#caver-rpc-klay-iscontractaccount" id="caver-rpc-klay-iscontractaccount"></a>
+## caver.rpc.klay.isContractAccount<a href="#caver-rpc-klay-iscontractaccount" id="caver-rpc-klay-iscontractaccount"></a>
 
 ```javascript
 caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 ```
 
-Returns `true` if an input account has a non-empty codeHash at the time of a specific block number. It returns `false` if the account is an EOA or a smart contract account which doesn't have codeHash. Please refer to [Smart Contract Account](../../../../../learn/accounts.md#smart-contract-accounts-scas) for more details.
+如果输入账户在特定区块编号时的 codeHash 不为空，则返回 `true`。 如果账户是 EOA 或没有 codeHash 的智能合约账户，则返回 "false"。 详情请参阅 [智能合约账户]（.../.../.../.../.../learn/accounts.md#smart-contract-accounts-scas）。
 
-**Parameters**
+**参数：**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address you want to check for isContractAccount.                                                                                   |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 地址       | 字符串                | 您要检查的地址是 "ContractAccount"。                                                       |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`
+`Promise` returns `number`
 
-| Type    | Description                                                                           |
-| ------- | ------------------------------------------------------------------------------------- |
-| boolean | true means the input parameter is an existing smart contract address. |
+| 类型      | 描述                     |
+| ------- | ---------------------- |
+| boolean | true 表示输入参数是现有的智能合约地址。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.isContractAccount('0x{address in hex}').then(console.log)
@@ -539,34 +539,34 @@ false
 true
 ```
 
-## caver.rpc.klay.sign <a href="#caver-rpc-klay-sign" id="caver-rpc-klay-sign"></a>
+## caver.rpc.klay.sign<a href="#caver-rpc-klay-sign" id="caver-rpc-klay-sign"></a>
 
 ```javascript
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-Generates signed data specific to the kaia. Refer to [Kaia Platform API - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) to know how the signature is generated.
+生成 kaia 专用的签名数据。 请参阅[Kaia Platform API - klay_sign](.../.../.../.../json-rpc/klay/account.md#klay_sign)，了解签名是如何生成的。
 
-**NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your kaia node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
+**注意**：此 API 提供了使用 kaia 节点中的 [导入账户](../../../.../jsson-rpc/personal.md#personal_importrawkey) 签署消息的功能。 您节点中的导入账户必须已[解锁]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount），才能签署信息。 使用 [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction) 签署 kaia 节点中导入账户的交易。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | String             | The address of the imported account to sign the message.                                                                               |
-| message     | String             | Message to sign.                                                                                                                       |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                                                                                     |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 地址       | 字符串                | 用于签署信息的导入账户地址。                                                                    |
+| 信息       | 字符串                | 待签名消息                                                                             |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                                  |
-| ------ | ------------------------------------------------------------ |
-| string | The signature made from an imported account. |
+| 类型  | 描述       |
+| --- | -------- |
+| 字符串 | 导入账户的签名。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.sign('0x{address in hex}', '0xdeadbeaf').then(console.log)
@@ -579,85 +579,85 @@ Generates signed data specific to the kaia. Refer to [Kaia Platform API - klay_s
 caver.rpc.klay.getAccounts([callback])
 ```
 
-Returns a list of addresses owned by the kaia Node.
+返回 kaia 节点拥有的地址列表。
 
-**Parameters**
+**参数：**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `Array`
 
-| Type  | Description                                                   |
-| ----- | ------------------------------------------------------------- |
-| Array | An array of addresses owned by the kaia Node. |
+| 类型 | 描述              |
+| -- | --------------- |
+| 数组 | kaia 节点拥有的地址数组。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getAccounts().then(console.log)
 [
     '0xe1531e916857d1b3a7db92f9187b96a7b43813bf',
     '0x75331c25535052157ff5110ba7d0cf940d3a9ca6'
-]
+]。
 ```
 
-## caver.rpc.klay.getBlockNumber <a href="#caver-rpc-klay-getblocknumber" id="caver-rpc-klay-getblocknumber"></a>
+## caver.rpc.klay.getBlockNumber<a href="#caver-rpc-klay-getblocknumber" id="caver-rpc-klay-getblocknumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockNumber([callback])
 ```
 
-Returns the number of the most recent block.
+返回最近区块的数量。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                                 |
-| ------ | ----------------------------------------------------------- |
-| string | The number of the most recent block in hex. |
+| 类型  | 描述             |
+| --- | -------------- |
+| 字符串 | 最近区块的编号（十六进制）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getBlockNumber().then(console.log)
 0x5d39
 ```
 
-## caver.rpc.klay.getHeader <a href="#caver-rpc-klay-getheader" id="caver-rpc-klay-getheader"></a>
+## caver.rpc.klay.getHeader<a href="#caver-rpc-klay-getheader" id="caver-rpc-klay-getheader"></a>
 
 ```javascript
-caver.rpc.klay.getHeader(blockNumberOrHash [, callback])
+caver.rpc.klay.getHeader(blockNumberOrHash] [, callback])
 ```
 
-Returns a block header by block hash or block number. If the user passes the block hash as a parameter, [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getHeaderByNumber](#caver-rpc-klay-getheaderbynumber) is called.
+按块哈希值或区块编号返回块头。 如果用户把区块哈希值作为参数传递，[caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash)就会被调用；如果把区块编号作为参数调用，[caver.rpc.klay.getHeaderByNumber](#caver-rpc-klay-getheaderbynumber)就会被调用。
 
-**Parameters**
+**参数：**
 
-| Name              | 类型                 | Description                                                                                                                                   |
-| ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash | number \\| string | The block hash, number or the block tag string.                                                                               |
-| callback          | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型                 | 描述                                                 |
+| -------- | ------------------ | -------------------------------------------------- |
+| 区块编号或哈希值 | number \\| string | 区块哈希值、编号或区块标签字符串。                                  |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                                                                                                                                                                                               |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
+| 类型 | 描述                                                                                                                                        |
+| -- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 对象 | 区块头对象。 有关返回值的详细说明，请参阅 [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash) 。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getHeader(1).then(console.log)
@@ -665,45 +665,45 @@ Returns a block header by block hash or block number. If the user passes the blo
   baseFeePerGas: '0x0',
   blockScore: '0x1',
   extraData: '0xd8830...',
-  gasUsed: '0x0',
+  gasUsed：'0x0',
   governanceData: '0x',
-  hash: '0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
-  logsBloom: '0x00000...',
+  hash：'0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
+  logsBloom: '0x00000...'，
   number: '0xbacd3',
   parentHash: '0xd6e36611a6722b94b8e4bb4d164755445409cf43aa5db0a5d4ae01e621c81ce7',
-  receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
-  reward: '0x30be91c80566da777d30e659b6746174ecc61576',
+  receiptsRoot：'0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+  reward：'0x30be91c80566da777d30e659b6746174ecc61576',
   stateRoot: '0xe75d808889451b1dac3d209e8cfbb2159ea6b2a080ce6081be775fb426f047a8',
-  timestamp: '0x62201975',
-  timestampFoS: '0x0',
-  transactionsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
+  timestamp：'0x62201975'，
+  timestampFoS：'0x0'，
+  transactionsRoot：'0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
 }
 ```
 
-## caver.rpc.klay.getHeaderByNumber <a href="#caver-rpc-klay-getheaderbynumber" id="caver-rpc-klay-getheaderbynumber"></a>
+## caver.rpc.klay.getHeaderByNumber<a href="#caver-rpc-klay-getheaderbynumber" id="caver-rpc-klay-getheaderbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getHeaderByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
-Returns a block header by block number.
+按区块编号返回区块头。
 
-**Parameters**
+**参数：**
 
-| Name        | Type               | Description                                                                                                                                   |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \\| string | The block number or the block tag string.                                                                                     |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型                 | 描述                                                 |
+| -------- | ------------------ | -------------------------------------------------- |
+| 区块编号     | number \\| string | 区块编号或区块标记字符串。                                      |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                                                                                                                                                                                               |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A block header object. For a detailed description of the return value, please refer to [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash). |
+| 类型 | 描述                                                                                                                                        |
+| -- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 对象 | 区块头对象。 有关返回值的详细说明，请参阅 [caver.rpc.klay.getHeaderByHash](#caver-rpc-klay-getheaderbyhash) 。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getHeaderByNumber(765139).then(console.log)
@@ -711,59 +711,59 @@ Returns a block header by block number.
   baseFeePerGas: '0x0',
   blockScore: '0x1',
   extraData: '0xd8830...',
-  gasUsed: '0x0',
+  gasUsed：'0x0',
   governanceData: '0x',
-  hash: '0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
-  logsBloom: '0x00000...',
+  hash：'0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
+  logsBloom: '0x00000...'，
   number: '0xbacd3',
   parentHash: '0xd6e36611a6722b94b8e4bb4d164755445409cf43aa5db0a5d4ae01e621c81ce7',
-  receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
-  reward: '0x30be91c80566da777d30e659b6746174ecc61576',
+  receiptsRoot：'0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+  reward：'0x30be91c80566da777d30e659b6746174ecc61576',
   stateRoot: '0xe75d808889451b1dac3d209e8cfbb2159ea6b2a080ce6081be775fb426f047a8',
-  timestamp: '0x62201975',
-  timestampFoS: '0x0',
-  transactionsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
+  timestamp：'0x62201975'，
+  timestampFoS：'0x0'，
+  transactionsRoot：'0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
 }
 ```
 
-## caver.rpc.klay.getHeaderByHash <a href="#caver-rpc-klay-getheaderbyhash" id="caver-rpc-klay-getheaderbyhash"></a>
+## caver.rpc.klay.getHeaderByHash<a href="#caver-rpc-klay-getheaderbyhash" id="caver-rpc-klay-getheaderbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getHeaderByHash(blockHash [, returnTransactionObjects] [, callback])
 ```
 
-Returns the block number of the most recent block by using `blockHash`.
+使用 `blockHash` 返回最近区块的区块编号。
 
-**Parameters**
+**参数**
 
-| Name      | Type     | Description                                        |
-| --------- | -------- | -------------------------------------------------- |
-| blockHash | string   | The block hash.                    |
-| callback  | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 区块哈希     | 字符串      | 区块哈希值。                                             |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - An object includes the block header:
+`Promise` 返回 `object` - 对象包括块标头：
 
-| Name             | Type   | Description                                                                                                                                                                                                  |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                                          |
-| blockScore       | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
-| extraData        | string | The "extra data" field of this block.                                                                                                                                                        |
-| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                                                            |
-| governanceData   | string | RLP encoded governance configuration                                                                                                                                                                         |
-| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                                        |
-| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                                               |
-| number           | string | The block number. `null` when it is a pending block.                                                                                                                         |
-| parentHash       | string | Hash of the parent block.                                                                                                                                                                    |
-| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                                                  |
-| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                                                         |
-| stateRoot        | string | The root of the final state trie of the block.                                                                                                                                               |
-| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                                                          |
-| 时间戳FoS           | string | The fraction of a second of the timestamp for when the block was collated.                                                                                                                   |
-| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                                                               |
+| 名称            | 类型  | 描述                                                                                   |
+| ------------- | --- | ------------------------------------------------------------------------------------ |
+| baseFeePerGas | 字符串 | The base fee per gas. 只有当该块编号的 EthTxTypeCompatibleBlock 被激活时，才会返回该值。 |
+| blockScore    | 字符串 | 区块链网络中的挖矿难度。 区块分数 "的使用与网络共识不同。 在 BFT 共识引擎中始终为 1。                                     |
+| 额外数据          | 字符串 | 该数据块的 "额外数据 "字段。                                                                     |
+| gasUsed       | 字符串 | 该区块所有交易使用的gas总量。                                                                     |
+| 治理数据          | 字符串 | RLP 编码的治理配置                                                                          |
+| 哈希            | 字符串 | 区块的哈希值。 如果是待处理区块，则为 "null"。                                                          |
+| logsBloom     | 字符串 | 区块日志的 Bloom 过滤器。 如果是待处理区块，则为 "null"。                                                 |
+| 数量            | 字符串 | 区块编号。 如果是待处理区块，则为 "null"。                                                            |
+| 父哈希值          | 字符串 | 父块的哈希值。                                                                              |
+| receiptsRoot  | 字符串 | 区块收据三元组的根。                                                                           |
+| 奖励            | 字符串 | 整笔奖励的受益人地址。                                                                          |
+| stateRoot     | 字符串 | 区块最终状态三元组的根。                                                                         |
+| 时间戳           | 字符串 | 区块整理时的 unix 时间戳。                                                                     |
+| 时间戳FoS        | 字符串 | 区块整理时间戳的秒分数。                                                                         |
+| 交易根           | 字符串 | 区块的交易三角根。                                                                            |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getHeaderByHash('0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3').then(console.log)
@@ -771,46 +771,46 @@ Returns the block number of the most recent block by using `blockHash`.
   baseFeePerGas: '0x0',
   blockScore: '0x1',
   extraData: '0xd8830...',
-  gasUsed: '0x0',
+  gasUsed：'0x0',
   governanceData: '0x',
-  hash: '0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
-  logsBloom: '0x00000...',
+  hash：'0x1b6582f0908add2221317288482aada596551e9f9d779a2aebc55d81d3149ba3',
+  logsBloom: '0x00000...'，
   number: '0xbacd3',
   parentHash: '0xd6e36611a6722b94b8e4bb4d164755445409cf43aa5db0a5d4ae01e621c81ce7',
-  receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
-  reward: '0x30be91c80566da777d30e659b6746174ecc61576',
+  receiptsRoot：'0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+  reward：'0x30be91c80566da777d30e659b6746174ecc61576',
   stateRoot: '0xe75d808889451b1dac3d209e8cfbb2159ea6b2a080ce6081be775fb426f047a8',
-  timestamp: '0x62201975',
-  timestampFoS: '0x0',
-  transactionsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
+  timestamp：'0x62201975'，
+  timestampFoS：'0x0'，
+  transactionsRoot：'0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
 }
 ```
 
-## caver.rpc.klay.getBlock <a href="#caver-rpc-klay-getblock" id="caver-rpc-klay-getblock"></a>
+## caver.rpc.klay.getBlock<a href="#caver-rpc-klay-getblock" id="caver-rpc-klay-getblock"></a>
 
 ```javascript
 caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callback])
 ```
 
-Returns information about a block by block hash or block number. If the user passes the block hash as a parameter, [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash) is called, and if the block number is called as a parameter, [caver.rpc.klay.getBlockByNumber](#caver-rpc-klay-getblockbynumber) is called.
+按块哈希值或块编号返回区块的信息。 如果用户把区块哈希值作为参数传递，[caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash)就会被调用；如果把区块编号作为参数调用，[caver.rpc.klay.getBlockByNumber](#caver-rpc-klay-getblockbynumber)就会被调用。
 
-**Parameters**
+**参数**
 
-| Name                     | Type               | Description                                                                                                                                                                                         |
-| ------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumberOrHash        | number \\| string | The block hash, number or the block tag string.                                                                                                                                     |
-| returnTransactionObjects | boolean            | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
+| 名称                       | 类型                 | 描述                                                                                  |
+| ------------------------ | ------------------ | ----------------------------------------------------------------------------------- |
+| 区块编号或哈希值                 | number \\| string | 区块哈希值、编号或区块标签字符串。                                                                   |
+| returnTransactionObjects | boolean            | (可选，默认为 `false`） 如果为 `true`，返回的块将包含所有交易对象；如果为 `false`，则只包含交易哈希值。 |
+| callback                 | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                  |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                                                                                                                                                                                      |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A block object. For a detailed description of the return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
+| 类型 | 描述                                                                                                                                      |
+| -- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| 对象 | 一个区块对象。 有关返回值的详细说明，请参阅 [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash)。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getBlock(1).then(console.log)
@@ -818,50 +818,50 @@ Returns information about a block by block hash or block number. If the user pas
     baseFeePerGas: '0x0',
     blockscore: '0x1',
     extraData: '0xd8830...',
-    gasUsed: '0x0',
+    gasUsed：'0x0',
     governanceData: '0x',
-    hash: '0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b',
-    logsBloom: '0x00000...',
+    hash：'0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b'，
+    logsBloom：'0x00000...',
     number: '0x1',
     parentHash: '0x6b7c0a49f445d39b6d7dc9ba5b593b326f3a953e75ff1fcf64b9a5fa51c2725b',
-    receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
-    reward: '0xddc2002b729676dfd906484d35bb02a8634d7040',
+    receiptsRoot：'0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+    reward：'0xddc2002b729676dfd906484d35bb02a8634d7040',
     size: '0x285',
     stateRoot: '0xb88b6110e6f73b732714bb346e6ff24beb480c0dc901a55be24e38ad1c6d5fa9',
-    timestamp: '0x5ee7fe9f',
+    timestamp：0x5ee7fe9f',
     timestampFoS: '0xd',
     totalBlockScore: '0x2',
-    transactions: [],
+    transactions：[],
     transactionsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
     voteData: '0x',
 }
 ```
 
-## caver.rpc.klay.getBlockByNumber <a href="#caver-rpc-klay-getblockbynumber" id="caver-rpc-klay-getblockbynumber"></a>
+## caver.rpc.klay.getBlockByNumber<a href="#caver-rpc-klay-getblockbynumber" id="caver-rpc-klay-getblockbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
 ```
 
-Returns information about a block by block number.
+按区块号返回关于区块的信息。
 
-**Parameters**
+**参数**
 
-| Name                     | Type               | Description                                                                                                                                                                                         |
-| ------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber              | number \\| string | The block number or the block which is tagged with a string (`genesis` or `latest`).                                                                             |
-| returnTransactionObjects | boolean            | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
+| 名称                       | 类型                 | 描述                                                                                  |
+| ------------------------ | ------------------ | ----------------------------------------------------------------------------------- |
+| 区块编号                     | number \\| string | 区块编号或用字符串（"genesis "或 "latest"）标记的区块。                                               |
+| returnTransactionObjects | boolean            | (可选，默认为 `false`） 如果为 `true`，返回的块将包含所有交易对象；如果为 `false`，则只包含交易哈希值。 |
+| callback                 | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                  |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `number`
 
-| Type   | Description                                                                                                                                                                                                                |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A block object. For detailed description of return value, please refer to [caver.rpc.klay.getBlockByHash](#caver-rpc-klay-getblockbyhash). |
+| 类型 | 描述                                                                                                                                                                                          |
+| -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 对象 | 一个区块对象。 有关返回值的详细说明，请参阅 [caver.rpc.klay.getBlockByHash]（#caver-rpc-klay-getblockbyhash）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getBlockByNumber(1).then(console.log)
@@ -869,20 +869,20 @@ Returns information about a block by block number.
     baseFeePerGas: '0x0',
     blockscore: '0x1',
     extraData: '0xd8830...',
-    gasUsed: '0x0',
+    gasUsed：'0x0',
     governanceData: '0x',
-    hash: '0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b',
-    logsBloom: '0x00000...',
+    hash：'0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b'，
+    logsBloom：'0x00000...',
     number: '0x1',
     parentHash: '0x6b7c0a49f445d39b6d7dc9ba5b593b326f3a953e75ff1fcf64b9a5fa51c2725b',
-    receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
-    reward: '0xddc2002b729676dfd906484d35bb02a8634d7040',
+    receiptsRoot：'0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+    reward：'0xddc2002b729676dfd906484d35bb02a8634d7040',
     size: '0x285',
     stateRoot: '0xb88b6110e6f73b732714bb346e6ff24beb480c0dc901a55be24e38ad1c6d5fa9',
-    timestamp: '0x5ee7fe9f',
+    timestamp：0x5ee7fe9f',
     timestampFoS: '0xd',
     totalBlockScore: '0x2',
-    transactions: [],
+    transactions：[],
     transactionsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
     voteData: '0x'
 }
@@ -894,43 +894,43 @@ Returns information about a block by block number.
 caver.rpc.klay.getBlockByHash(blockHash [, returnTransactionObjects] [, callback])
 ```
 
-Returns the block number of the most recent block by using `blockHash`.
+使用 `blockHash` 返回最近区块的区块编号。
 
-**Parameters**
+**参数**
 
-| Name                     | Type     | Description                                                                                                                                                                                         |
-| ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash                | string   | The block hash.                                                                                                                                                                     |
-| returnTransactionObjects | boolean  | (optional, default `false`) If `true`, the returned block will contain all transactions as objects, and if `false`, it will only contain the transaction hashes. |
-| callback                 | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                       |
+| 名称                       | 类型       | 描述                                                                                  |
+| ------------------------ | -------- | ----------------------------------------------------------------------------------- |
+| 区块哈希                     | 字符串      | 区块哈希值                                                                               |
+| returnTransactionObjects | boolean  | (可选，默认为 `false`） 如果为 `true`，返回的块将包含所有交易对象；如果为 `false`，则只包含交易哈希值。 |
+| callback                 | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                  |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - An object includes block:
+`Promise` 返回 `object` - 对象包括代码块：
 
-| Name             | Type   | Description                                                                                                                                                                                                  |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| baseFeePerGas    | string | The base fee per gas. This value is returned only when EthTxTypeCompatibleBlock is activated for that block number.                                                          |
-| blockScore       | string | The difficulty of mining in the blockchain network. The use of `blockScore` differs from the consensus of the network. Always 1 in the BFT consensus engine. |
-| extraData        | string | The "extra data" field of this block.                                                                                                                                                        |
-| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                                                            |
-| governanceData   | string | RLP encoded governance configuration                                                                                                                                                                         |
-| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                                        |
-| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                                               |
-| number           | string | The block number. `null` when it is a pending block.                                                                                                                         |
-| parentHash       | string | Hash of the parent block.                                                                                                                                                                    |
-| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                                                  |
-| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                                                         |
-| size             | string | Integer the size of this block in bytes.                                                                                                                                                     |
-| stateRoot        | string | The root of the final state trie of the block.                                                                                                                                               |
-| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                                                          |
-| timestampFoS     | string | The fraction of a second of the timestamp for when the block was collated.                                                                                                                   |
-| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                                                               |
-| transactions     | Array  | Array of transaction objects, or 32-byte transaction hashes depending on the `returnTransactionObjects` parameter.                                                                           |
-| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                                                               |
-| voteData         | string | RLP encoded governance vote of the proposer.                                                                                                                                                 |
+| 名称               | 类型  | 描述                                                                  |
+| ---------------- | --- | ------------------------------------------------------------------- |
+| baseFeePerGas    | 字符串 | The base fee per gas 只有当该块编号的 EthTxTypeCompatibleBlock 被激活时，才会返回该值。 |
+| blockScore       | 字符串 | 区块链网络中的挖矿难度。 区块分数 "的使用与网络共识不同。 在 BFT 共识引擎中始终为 1。                    |
+| 额外数据             | 字符串 | 该数据块的 "额外数据 "字段。                                                    |
+| gasUsed          | 字符串 | 该区块所有交易使用的gas总量。                                                    |
+| 治理数据             | 字符串 | RLP 编码的治理配置                                                         |
+| hash             | 字符串 | 区块的哈希值。 如果是待处理区块，则为 "null"。                                         |
+| logsBloom        | 字符串 | 区块日志的 Bloom 过滤器。 如果是待处理区块，则为 "null"                                 |
+| 数量               | 字符串 | 区块编号 如果是待处理区块，则为 "null"                                             |
+| 父哈希值             | 字符串 | 父块的哈希值。                                                             |
+| receiptsRoot     | 字符串 | 区块收据三元组的根。                                                          |
+| 奖励               | 字符串 | 整笔奖励的受益人地址。                                                         |
+| Size             | 字符串 | 整数，该数据块的大小（字节）。                                                     |
+| stateRoot        | 字符串 | 区块最终状态三元组的根。                                                        |
+| 时间戳              | 字符串 | 区块整理时的 unix 时间戳。                                                    |
+| 时间戳FoS           | 字符串 | 区块整理时间戳的秒分数。                                                        |
+| totalBlockScore  | 字符串 | 该区块之前链上总 blockScore 的整数。                                            |
+| 交易               | 数组  | 事务对象数组，或 32 字节事务哈希值，取决于 `returnTransactionObjects` 参数。              |
+| transactionsRoot | 字符串 | 区块的交易三角根。                                                           |
+| voteData         | 字符串 | RLP 加密的提案治理投票。                                                      |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getBlockByHash('0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b').then(console.log)
@@ -938,49 +938,49 @@ Returns the block number of the most recent block by using `blockHash`.
     baseFeePerGas: '0x0',
     blockscore: '0x1',
     extraData: '0xd8830...',
-    gasUsed: '0x0',
+    gasUsed：'0x0',
     governanceData: '0x',
-    hash: '0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b',
-    logsBloom: '0x00000...',
+    hash：'0x58482921af951cf42a069436ac9338de50fd963bdbea40e396f416f9ac96a08b'，
+    logsBloom：'0x00000...',
     number: '0x1',
     parentHash: '0x6b7c0a49f445d39b6d7dc9ba5b593b326f3a953e75ff1fcf64b9a5fa51c2725b',
-    receiptsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
-    reward: '0xddc2002b729676dfd906484d35bb02a8634d7040',
+    receiptsRoot：'0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
+    reward：'0xddc2002b729676dfd906484d35bb02a8634d7040',
     size: '0x285',
     stateRoot: '0xb88b6110e6f73b732714bb346e6ff24beb480c0dc901a55be24e38ad1c6d5fa9',
-    timestamp: '0x5ee7fe9f',
+    timestamp：0x5ee7fe9f',
     timestampFoS: '0xd',
     totalBlockScore: '0x2',
-    transactions: [],
+    transactions：[],
     transactionsRoot: '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470',
     voteData: '0x'
 }
 ```
 
-## caver.rpc.klay.getBlockReceipts <a href="#caver-rpc-klay-getblockreceipts" id="caver-rpc-klay-getblockreceipts"></a>
+## caver.rpc.klay.getBlockReceipts<a href="#caver-rpc-klay-getblockreceipts" id="caver-rpc-klay-getblockreceipts"></a>
 
 ```javascript
-caver.rpc.klay.getBlockReceipts(blockHash [, callback])
+caver.rpc.klay.getBlockReceipts(blockHash] [, callback])
 ```
 
-Returns receipts included in a block identified by block hash.
+返回由块哈希值标识的块中包含的收据。
 
-**Parameters**
+**参数**
 
-| Name      | Type     | Description                                                                                                                                   |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | 字符串      | The block hash.                                                                                                               |
-| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 区块哈希     | 字符串      | 区块哈希值                                              |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `Array`
 
-| Type  | Description                                                                                                                                                                                                                                                                                                                                                                 |
-| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Array | The transaction receipts included in a block. If the target block contains no transaction, an empty array `[]` is returned. For detailed description of transaction receipt, please refer to [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt). |
+| 类型 | 描述                                                                                                                                                                                                                                       |
+| -- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 数组 | 交易收据包含在一个区块中。 如果目标块不包含事务，则返回空数组 `[]`。 有关交易收据的详细说明，请参阅 [caver.rpc.klay.getTransactionReceipt]（#caver-rpc-klay-gettransactionreceipt）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getBlockReceipts('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
@@ -988,16 +988,16 @@ Returns receipts included in a block identified by block hash.
     {
         blockHash: '0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0',
         blockNumber: '0x5301',
-        contractAddress: null,
+        contractAddress：null,
         from: '0xddc2002b729676dfd906484d35bb02a8634d7040',
         gas: '0x61a8',
         gasPrice: '0x5d21dba00',
-        gasUsed: '0x5208',
-        logs: [],
+        gasUsed：'0x5208',
+        logs：[],
         logsBloom: '0x00000...',
         nonce: '0x5e',
         senderTxHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
-        signatures: [
+        signatures：[
             { 
                 V: '0x4e44',
                 R: '0x98583ffa8d9a6d5f9e60e4daebb33f18e8ad4d32653c4a2fa7f12ce025af763d',
@@ -1005,146 +1005,148 @@ Returns receipts included in a block identified by block hash.
             }    
         ],
         status: '0x1',
-        to: '0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
+        to：'0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
         transactionHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
-        transactionIndex: '0x0',
-        type: 'TxTypeValueTransfer',
-        typeInt: 8,
-        value: '0xde0b6b3a7640000'
+        transactionIndex：'0x0'，
+        类型：'TxTypeValueTransfer'，
+        typeInt：8，
+        value：'0xde0b6b3a7640000'
     }
 ]
 ```
 
-## caver.rpc.klay.getBlockTransactionCountByNumber <a href="#caver-rpc-klay-getblocktransactioncountbynumber" id="caver-rpc-klay-getblocktransactioncountbynumber"></a>
+## caver.rpc.klay.getBlockTransactionCountByNumber<a href="#caver-rpc-klay-getblocktransactioncountbynumber" id="caver-rpc-klay-getblocktransactioncountbynumber"></a>
 
 ```javascript
-caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber [, callback])
+caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber] [, callback])
 ```
 
-Returns the number of transactions in a block matching the given block number.
+返回与给定区块编号匹配的区块中的交易次数。
 
-**Parameters**
+**参数：**
 
-| Name        | Type               | Description                                                                                                                                   |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \\| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型                 | 描述                                                 |
+| -------- | ------------------ | -------------------------------------------------- |
+| 区块编号     | number \\| string | 区块编号或区块标签字符串（`genesis` 或`latest`）。                 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                                           |
-| ------ | --------------------------------------------------------------------- |
-| string | The number of transactions in the given block in hex. |
+| 类型  | 描述                |
+| --- | ----------------- |
+| 字符串 | 给定区块中的交易次数（十六进制）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getBlockTransactionCountByNumber(21249).then(console.log)
 0x1
+
 ```
 
 ## caver.rpc.klay.getBlockTransactionCountByHash <a href="#caver-rpc-klay-getblocktransactioncountbyhash" id="caver-rpc-klay-getblocktransactioncountbyhash"></a>
 
 ```javascript
-caver.rpc.klay.getBlockTransactionCountByHash(blockHash [, callback])
+caver.rpc.klay.getBlockTransactionCountByHash(blockHash] [, callback])
 ```
 
-Returns the number of transactions in a block matching the given block hash.
+返回与给定块号匹配的块中的交易数量。
 
-**Parameters**
+**参数：**
 
-| Name      | Type     | Description                                                                                                                                   |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | string   | The block hash.                                                                                                               |
-| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 区块哈希     | 字符串      | 区块哈希值。                                             |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| 类型     | Description                                                           |
-| ------ | --------------------------------------------------------------------- |
-| string | The number of transactions in the given block in hex. |
+| 类型  | 描述                |
+| --- | ----------------- |
+| 字符串 | 给定区块中的交易次数（十六进制）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getBlockTransactionCountByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
 0x1
+
 ```
 
-## caver.rpc.klay.getBlockWithConsensusInfoByNumber <a href="#caver-rpc-klay-getblockwithconsensusinfobynumber" id="caver-rpc-klay-getblockwithconsensusinfobynumber"></a>
+## caver.rpc.klay.getBlockWithConsensusInfoByNumber<a href="#caver-rpc-klay-getblockwithconsensusinfobynumber" id="caver-rpc-klay-getblockwithconsensusinfobynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
 ```
 
-Returns a block with consensus information matched by the given block number.
+返回与给定区块编号匹配的共识信息区块。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                   |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \\| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型                 | 描述                                                 |
+| -------- | ------------------ | -------------------------------------------------- |
+| 区块编号     | number \\| string | 区块编号或区块标签字符串（`genesis` 或`latest`）。                 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                                                                                                                                                                                                                                                       |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| string | An object includes block with consensus information. For detailed description of return value, please refer to [caver.rpc.klay.getBlockWithConsensusInfoByHash](#caver-rpc-klay-getblockwithconsensusinfobyhash). |
+| 类型  | 描述                                                                                                                                                                                                                                   |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 字符串 | 对象包括具有共识信息的区块。 有关返回值的详细说明，请参阅 [caver.rpc.klay.getBlockWithConsensusInfoByHash]（#caver-rpc-klay-getblockwithconsensusinfobyhash）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getBlockWithConsensusInfoByNumber(21249).then(console.log)
 {
     blockscore: '0x1',
-    committee: ['0xddc2002b729676dfd906484d35bb02a8634d7040', '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e'],
+    committee：['0xddc2002b729676dfd906484d35bb02a8634d7040', '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e'],
     extraData: '0xd8830...',
-    gasUsed: '0x5208',
+    gasUsed：'0x5208',
     governanceData: '0x',
-    hash: '0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0',
-    logsBloom: '0x00000...',
+    hash：'0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0'，
+    logsBloom：'0x00000...',
     number: '0x5301',
     parentHash: '0x024f05c0e7428e33331104bedbfc453d481ce6a2f5e57f7fd68a4391ba6c2619',
     proposer: '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e',
-    receiptsRoot: '0xe38e5532717f12f769b07ea016014bd39b74fb72def4de8442114cc2728609f2',
+    receiptsRoot：'0xe38e5532717f12f769b07ea016014bd39b74fb72def4de8442114cc2728609f2',
     reward: '0xb74837f495060f3f794dcae8fa3e0c5d3cf99d9f',
-    size: '0x313',
+    size：'0x313',
     stateRoot: '0x9964b2d8f23da7383a32ec33c9700a76ebf4a36315c9067c2fef7568d97e1d55',
-    timestamp: '0x5ee851dd',
+    timestamp：'0x5ee851dd',
     timestampFoS: '0x0',
     totalBlockScore: '0x5302',
-    transactions: [
+    transactions：[
         {
             blockHash: '0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0',
             blockNumber: '0x5301',
-            contractAddress: null,
+            contractAddress：null,
             from: '0xddc2002b729676dfd906484d35bb02a8634d7040',
             gas: '0x61a8',
             gasPrice: '0x5d21dba00',
-            gasUsed: '0x5208',
-            logs: [],
+            gasUsed：'0x5208',
+            logs：[],
             logsBloom: '0x00000...',
             nonce: '0x5e',
             senderTxHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
-            signatures: {
+            signatures： {
                 V: '0x4e44',
                 R: '0x98583ffa8d9a6d5f9e60e4daebb33f18e8ad4d32653c4a2fa7f12ce025af763d',
                 S: '0x9b9e5257293e3b986842b6a203dd16ce46f16ed42dd3e9592fcaab9ea2696cb'
             },
             status: '0x1',
-            to: '0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
+            to：'0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
             transactionHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
-            transactionIndex: '0x0',
-            type: 'TxTypeValueTransfer',
-            typeInt: 8,
-            value: '0xde0b6b3a7640000',
+            transactionIndex：'0x0'，
+            类型：'TxTypeValueTransfer'，
+            typeInt：8，
+            值：'0xde0b6b3a7640000',
         },
     ],
     transactionsRoot: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
@@ -1152,121 +1154,121 @@ Returns a block with consensus information matched by the given block number.
 }
 ```
 
-## caver.rpc.klay.getBlockWithConsensusInfoByHash <a href="#caver-rpc-klay-getblockwithconsensusinfobyhash" id="caver-rpc-klay-getblockwithconsensusinfobyhash"></a>
+## caver.rpc.klay.getBlockWithConsensusInfoByHash<a href="#caver-rpc-klay-getblockwithconsensusinfobyhash" id="caver-rpc-klay-getblockwithconsensusinfobyhash"></a>
 
 ```javascript
-caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
+caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash] [, callback])
 ```
 
-Returns a block with consensus information matched by the given hash.
+返回与给定哈希值匹配的共识信息块。
 
-**Parameters**
+**参数**
 
-| Name      | Type     | Description                                                                                                                                   |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | string   | The block hash.                                                                                                               |
-| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 区块哈希     | 字符串      | 区块哈希值。                                             |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - A block object with consensus information (a proposer and a list of committee members), or null when no block was found:
+`Promise` 返回 `object` - 包含共识信息（提议者和委员会成员名单）的区块对象，如果没有找到区块，则返回 null：
 
-| Name             | Type   | Description                                                                                                                                                                               |
-| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockScore       | string | Former difficulty. Always 1 in the BFT consensus engine                                                                                                                   |
-| committee        | 数组     | Array of addresses of committee members of this block. The committee is a subset of validators who participated in the consensus protocol for this block. |
-| extraData        | string | The "extra data" field of this block.                                                                                                                                     |
-| gasUsed          | string | The gas in total that was used by all transactions in this block.                                                                                                         |
-| governanceData   | string | RLP encoded governance configuration                                                                                                                                                      |
-| hash             | string | Hash of the block. `null` when it is a pending block.                                                                                                     |
-| logsBloom        | string | The bloom filter for the logs of the block. `null` when it is a pending block.                                                                            |
-| number           | string | The block number. `null` when it is a pending block.                                                                                                      |
-| originProposer   | string | The proposal of 0 round at the same block number.                                                                                                                         |
-| parentHash       | string | Hash of the parent block.                                                                                                                                                 |
-| proposer         | string | The address of the block proposer.                                                                                                                                        |
-| receiptsRoot     | string | The root of the receipts trie of the block.                                                                                                                               |
-| reward           | string | The address of the beneficiary to whom the block rewards were given.                                                                                                      |
-| round            | number | The round number.                                                                                                                                                         |
-| size             | string | Integer the size of this block in bytes.                                                                                                                                  |
-| stateRoot        | string | The root of the final state trie of the block.                                                                                                                            |
-| timestamp        | string | The unix timestamp for when the block was collated.                                                                                                                       |
-| 时间戳FoS           | string | The fraction of a second of the timestamp for when the block was collated.                                                                                                |
-| totalBlockScore  | string | Integer of the total blockScore of the chain until this block.                                                                                                            |
-| transactions     | Array  | Array of transaction objects.                                                                                                                                             |
-| transactionsRoot | string | The root of the transaction trie of the block.                                                                                                                            |
-| voteData         | string | RLP encoded governance vote of the proposer                                                                                                                                               |
+| 名称               | 类型  | 描述                                    |
+| ---------------- | --- | ------------------------------------- |
+| blockScore       | 字符串 | 以前的困难。 在 BFT 共识引擎中始终为 1               |
+| 委员会              | 数组  | 该区块委员会成员的地址数组。 该委员会是参与该区块共识协议的验证者的子集。 |
+| 额外数据             | 字符串 | 该数据块的 "额外数据 "字段。                      |
+| gasUsed          | 字符串 | 该区块所有交易使用的gas总量。                      |
+| 治理数据             | 字符串 | RLP 编码的治理配置                           |
+| 哈希               | 字符串 | 区块的哈希值。 如果是待处理区块，则为 "null"。           |
+| logsBloom        | 字符串 | 区块日志的 Bloom 过滤器。 如果是待处理区块，则为 "null"。  |
+| 数量               | 字符串 | 区块编号。 如果是待处理区块，则为 "null"。             |
+| 起源提案人            | 字符串 | 建议在同一区段编号上进行 0 轮。                     |
+| 父哈希值             | 字符串 | 父块的哈希值。                               |
+| 提案人              | 字符串 | 提案者的地址。                               |
+| receiptsRoot     | 字符串 | 区块收据三元组的根。                            |
+| 奖励               | 字符串 | 整笔奖励的受益人地址。                           |
+| 轮次               | 数量  | 轮数                                    |
+| Size             | 字符串 | 整数，该数据块的大小（字节）。                       |
+| stateRoot        | 字符串 | 区块最终状态三元组的根。                          |
+| 时间戳              | 字符串 | 区块整理时的 unix 时间戳。                      |
+| 时间戳FoS           | 字符串 | 区块整理时间戳的秒分数。                          |
+| totalBlockScore  | 字符串 | 该区块之前链上总 blockScore 的整数。              |
+| 交易               | 数组  | 事务对象数组。                               |
+| transactionsRoot | 字符串 | 区块的交易三角根。                             |
+| voteData         | 字符串 | RLP 编码的提案人治理投票                        |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getBlockWithConsensusInfoByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
 {
     blockscore: '0x1',
-    committee: [ '0x571e5...', '0x5cb1a...', '0x99fb1...', '0xb74ff...' ],
+    committee：[ '0x571e5...', '0x5cb1a...', '0x99fb1...', '0xb74ff...' ],
     extraData: '0xd8830...',
-    gasUsed: '0x3ea49',
+    gasUsed：'0x3ea49',
     governanceData: '0x',
-    hash: '0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566',
-    logsBloom: '0x00000...',
+    hash：0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566'，
+    logsBloom：'0x00000...',
     number: '0x3f79aa7',
     originProposer: '0x99fb17d324fa0e07f23b49d09028ac0919414db6',
-    parentHash: '0x777d344c8c59c4d8d0041bb4c2ee66e95ec110303fb59d3e329f80e7a9c9c617',
+    parentHash：'0x777d344c8c59c4d8d0041bb4c2ee66e95ec110303fb59d3e329f80e7a9c9c617',
     proposer: '0x99fb17d324fa0e07f23b49d09028ac0919414db6',
-    receiptsRoot: '0xffbae3190f858531ff785bcbdc70278d91c3d9becdd8b134b0ab7974b9ef3641',
+    receiptsRoot：'0xffbae3190f858531ff785bcbdc70278d91c3d9becdd8b134b0ab7974b9ef3641',
     reward: '0xb2bd3178affccd9f9f5189457f1cad7d17a01c9d',
-    round: 0,
+    round：0,
     size: '0x507',
     stateRoot: '0xa60d0868bd41b63b4fd67e5a8f801c5949e89a8994a13426747890b77d6bc0c4',
-    timestamp: '0x610b3164',
+    timestamp：0x610b3164',
     timestampFoS: '0xc',
     totalBlockScore: '0x3f79aa8',
-    transactions: [
+    transactions：[
         {
             blockHash: '0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566',
-            blockNumber: '0x3f79aa7',
+            blockNumber：'0x3f79aa7',
             contractAddress: null,
             feePayer: '0xfee998d423d5bd2bf5b5c0f0acb4e3aae2bd2286',
-            feePayerSignatures: [
+            feePayerSignatures：[
                 {
-                    V: '0x7f5',
-                    R: '0xf9aff6f39feb7a18d3e1b8ab9f590f0227e465c72cfe05e8d7c9e390cbf1d349',
-                    S: '0x6e7317d121a3951a8cbca110be8cc86c5314349f8fb1c37f9af4cadf72fe89ec',
+                    V：'0x7f5'，
+                    R：'0xf9aff6f39feb7a18d3e1b8ab9f590f0227e465c72cfe05e8d7c9e390cbf1d349'，
+                    S：'0x6e7317d121a3951a8cbca110be8cc86c5314349f8fb1c37f9af4cadf72fe89ec',
                 },
             ],
-            from: '0x11eb23f57151a88d4bb53cc9c27355437138c278',
+            from：'0x11eb23f57151a88d4bb53cc9c27355437138c278',
             gas: '0x2dc6c0',
             gasPrice: '0x5d21dba00',
-            gasUsed: '0x3ea49',
+            gasUsed：'0x3ea49',
             input: '0x850ba...',
-            logs: [
+            logs：[
                 {
-                    address: '0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
-                    topics: [ '0xddf25...', '0x00000...', '0x00000...', '0x00000...' ],
-                    data: '0x',
+                    address：0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
+                    topics：[ '0xddf25...', '0x00000...', '0x00000...', '0x00000...' ],
+                    data：'0x',
                     blockNumber: '0x3f79aa7',
                     transactionHash: '0x109d2836d9fde9d8081a27dd6ac545fd7a53530a56bdc40f2a11e5d6dbc2a09f',
-                    transactionIndex: '0x0',
+                    transactionIndex：0x0',
                     blockHash: '0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566',
-                    logIndex: '0x0',
+                    logIndex：'0x0',
                     removed: false,
                 },
             ],
             logsBloom: '0x00000...',
             nonce: '0x0',
             senderTxHash: '0xeca2d3650403a1e27af0bbe9878dcbb248d764fc88751f35a6e05636d2ad9e78',
-            signatures: [
+            signatures：[
                 {
-                    V: '0x7f6',
-                    R: '0x9ea78985b004afa86acd455c017da374ec1aec885f963ec8134a38f7ede451b0',
-                    S: '0xfac0e417f7f7b15023e3f5ac95f1fb5b3280746a2eff04394ddedbdd259fc1',
+                    V：'0x7f6'，
+                    R：'0x9ea78985b004afa86acd455c017da374ec1aec885f963ec8134a38f7ede451b0'，
+                    S：'0xfac0e417f7f7b15023e3f5ac95f1fb5b3280746a2eff04394ddedbdd259fc1',
                 },
             ],
             status: '0x1',
-            to: '0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
+            to：'0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
             transactionHash: '0x109d2836d9fde9d8081a27dd6ac545fd7a53530a56bdc40f2a11e5d6dbc2a09f',
-            transactionIndex: '0x0',
-            type: 'TxTypeFeeDelegatedSmartContractExecution',
-            typeInt: 49,
+            transactionIndex：'0x0',
+            类型：'TxTypeFeeDelegatedSmartContractExecution',
+            typeInt：49,
             value: '0x0',
         },
     ],
@@ -1281,512 +1283,512 @@ Returns a block with consensus information matched by the given hash.
 caver.rpc.klay.getCommittee([blockNumber] [, callback])
 ```
 
-Returns a list of all validators in the committee at the specified block.
+返回指定区块的委员会中所有验证器的列表。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `Array`
 
-| Type  | Description                                                                      |
-| ----- | -------------------------------------------------------------------------------- |
-| Array | Addresses of all validators in the committee at the given block. |
+| 类型 | 描述                |
+| -- | ----------------- |
+| 数组 | 指定区块内委员会所有验证员的地址。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getCommittee().then(console.log)
 [
     '0xddc2002b729676dfd906484d35bb02a8634d7040',
     '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e'
-]
+]。
 ```
 
-## caver.rpc.klay.getCommitteeSize <a href="#caver-rpc-klay-getcommitteesize" id="caver-rpc-klay-getcommitteesize"></a>
+## caver.rpc.klay.getCommitteeSize<a href="#caver-rpc-klay-getcommitteesize" id="caver-rpc-klay-getcommitteesize"></a>
 
 ```javascript
 caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
 ```
 
-Returns the size of the committee at the specified block.
+返回指定区块的委员会大小。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `number`
 
-| Type   | Description                                                   |
-| ------ | ------------------------------------------------------------- |
-| number | The size of the committee at the given block. |
+| 类型 | 描述          |
+| -- | ----------- |
+| 数量 | 指定区块的委员会规模。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getCommitteeSize().then(console.log)
 2
 ```
 
-## caver.rpc.klay.getCouncil <a href="#caver-rpc-klay-getcouncil" id="caver-rpc-klay-getcouncil"></a>
+## caver.rpc.klay.getCouncil<a href="#caver-rpc-klay-getcouncil" id="caver-rpc-klay-getcouncil"></a>
 
 ```javascript
 caver.rpc.klay.getCouncil([blockNumber] [, callback])
 ```
 
-Returns a list of all validators of the council at the specified block.
+返回指定区块中议会所有验证器的列表。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `Array`
 
-| Type  | Description                                                                                                           |
-| ----- | --------------------------------------------------------------------------------------------------------------------- |
-| Array | An array of validator addresses of the council at the given block, or null when no council was found. |
+| 类型 | 描述                            |
+| -- | ----------------------------- |
+| 数组 | 给定区块中议会的验证器地址数组，如果没有找到议会，则为空。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getCouncil().then(console.log)
 [
     '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e',
     '0xddc2002b729676dfd906484d35bb02a8634d7040'
-]
+]。
 ```
 
-## caver.rpc.klay.getCouncilSize <a href="#caver-rpc-klay-getcouncilsize" id="caver-rpc-klay-getcouncilsize"></a>
+## caver.rpc.klay.getCouncilSize<a href="#caver-rpc-klay-getcouncilsize" id="caver-rpc-klay-getcouncilsize"></a>
 
 ```javascript
 caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 ```
 
-Returns the size of the council at the specified block.
+返回指定区块的理事会大小。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `number`
 
-| Type   | Description |
-| ------ | ----------- |
-| number | 给定区块的议会规模。  |
+| 类型 | 描述         |
+| -- | ---------- |
+| 数量 | 给定区块的议会规模。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getCouncilSize().then(console.log)
 2
 ```
 
-## caver.rpc.klay.getStorageAt <a href="#caver-rpc-klay-getstorageat" id="caver-rpc-klay-getstorageat"></a>
+## caver.rpc.klay.getStorageAt<a href="#caver-rpc-klay-getstorageat" id="caver-rpc-klay-getstorageat"></a>
 
 ```javascript
 caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 ```
 
-Returns the value from a storage position at a given address.
+从给定地址的存储位置返回值。
 
-**Parameters**
+**参数：**
 
-| Name        | Type               | Description                                                                                                                                                                                                                     |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string             | The address to get the storage from.                                                                                                                                                                            |
-| position    | number             | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                          |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                   |
+| 名称       | 类型                 | 描述                                                                                                                              |
+| -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| 地址       | 字符串                | 获取存储空间的地址。                                                                                                                      |
+| 位置       | 数量                 | 存储空间的索引位置。 有关 "计算位置 "的更多信息，请参阅 [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat) 。 |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。                                               |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                                                              |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                         |
-| ------ | --------------------------------------------------- |
-| string | The value at this storage position. |
+| 类型  | 描述       |
+| --- | -------- |
+| 字符串 | 该存储位置的值。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getStorageAt('0x407d73d8a49eeb85d32cf465507dd71d507100c1', 0).then(console.log)
 0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234
 ```
 
-## caver.rpc.klay.isMinting <a href="#caver-rpc-klay-isminting" id="caver-rpc-klay-isminting"></a>
+## caver.rpc.klay.isMinting<a href="#caver-rpc-klay-isminting" id="caver-rpc-klay-isminting"></a>
 
 ```javascript
 caver.rpc.klay.isMinting([callback])
 ```
 
-Returns `true` if client is actively mining new blocks.
+如果客户端正在积极挖掘新区块，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                         |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean` - `true` if the client is mining, otherwise `false`.
+Promise`返回`boolean`- 如果客户端正在挖矿，则返回`true`，否则返回 `false\`。
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.isMinting().then(console.log)
 true
 ```
 
-## caver.rpc.klay.isSyncing <a href="#caver-rpc-klay-issyncing" id="caver-rpc-klay-issyncing"></a>
+## caver.rpc.klay.isSyncing<a href="#caver-rpc-klay-issyncing" id="caver-rpc-klay-issyncing"></a>
 
 ```javascript
 caver.rpc.klay.isSyncing([callback])
 ```
 
-Returns an object with data about the sync status or false.
+返回一个包含同步状态数据的对象，否则返回 false。
 
-**Parameters**
+**参数**
 
-| Name     | 类型       | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object|boolean` - `false` if the kaia Node is not syncing. Otherwise, a sync object is returned:
+`Promise` 返回 `object|boolean` - 如果 kaia 节点未同步，则返回 `false`。 否则，将返回一个同步对象：
 
-| Name          | Type   | Description                                                                 |
-| ------------- | ------ | --------------------------------------------------------------------------- |
-| startingBlock | string | The block number in hex where the sync started.             |
-| currentBlock  | string | The block number in hex where the node currently synced to. |
-| highestBlock  | string | The estimated block number in hex to sync to.               |
-| knownStates   | string | The estimated states in hex to download.                    |
-| pulledStates  | string | The already downloaded states in hex.                       |
+| 名称           | 类型  | 描述                  |
+| ------------ | --- | ------------------- |
+| 起始块          | 字符串 | 同步开始的区块编号（十六进制）。    |
+| 当前区块         | 字符串 | 节点当前同步到的区块编号（十六进制）。 |
+| 最高块          | 字符串 | 要同步到的估计区块编号（十六进制）。  |
+| 已知状态         | 字符串 | 可下载以十六进制表示的估计状态。    |
+| pulledStates | 字符串 | 以十六进制表示已下载的状态。      |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.isSyncing().then(console.log)
 {
         startingBlock: 100,
-        currentBlock: 312,
+        currentBlock：312,
         highestBlock: 512,
-        knownStates: 234566,
-        pulledStates: 123455
+        knownStates：234566,
+        pulledStates：123455
 }
 
 > caver.rpc.klay.isSyncing().then(console.log)
 false
 ```
 
-## caver.rpc.klay.call <a href="#caver-rpc-klay-call" id="caver-rpc-klay-call"></a>
+## caver.rpc.klay.call<a href="#caver-rpc-klay-call" id="caver-rpc-klay-call"></a>
 
 ```javascript
 caver.rpc.klay.call(callObject [, blockNumber] [, callback])
 ```
 
-Executes a new message call immediately without sending a transaction on the blockchain. It returns data or an error object of JSON RPC if an error occurs.
+立即执行新的消息调用，而不在区块链上发送交易。 如果发生错误，它会返回数据或 JSON RPC 的错误对象。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| callObject  | object             | A transaction call object. See the next table for the object's properties.                                             |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.          |
+| 名称       | 类型                 | 描述                                                                                |
+| -------- | ------------------ | --------------------------------------------------------------------------------- |
+| 调用对象     | 对象                 | 交易调用对象。 该对象的属性请参见下表。                                                              |
+| 区块编号     | number \\| string | (可选）区块编号，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，将使用 `latest`。 |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                |
 
-`callObject` has the following properties:
+callObject\` 具有以下属性：
 
-| Name     | Type   | Description                                                                                                                                                                                                                            |
-| -------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to       | string | (optional when testing the deployment of a new contract) The address the transaction is directed to.                                                                                                |
-| input    | string | (optional) The hash of the method signature and encoded parameters. You can use [caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall). |
-| from     | string | (optional) The address the transaction is sent from.                                                                                                                                                |
-| gas      | string | (optional) The gas provided for the transaction execution. `klay_call` consumes zero gas, but this parameter may be needed by some executions.                                      |
-| gasPrice | string | (optional) The gasPrice used for each paid gas.                                                                                                                                                     |
-| value    | string | (optional) The value sent with this transaction in `peb`.                                                                                                                                           |
+| 名称       | 类型  | 描述                                                                                                              |
+| -------- | --- | --------------------------------------------------------------------------------------------------------------- |
+| to       | 字符串 | (测试新合同部署时可选） 交易指向的地址。                                                                        |
+| 输入       | 字符串 | (可选）方法签名和编码参数的哈希值。 您可以使用 `caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall`。 |
+| from     | 字符串 | (可选）交易发送的地址。                                                                                 |
+| gas      | 字符串 | (可选）为交易执行提供的gas。 `klay_call` 消耗的gas为零，但某些执行可能需要该参数。                                          |
+| gasPrice | 字符串 | (可选）用于每种付费gas的 gasPrice。                                                                     |
+| value    | 字符串 | (可选）以 `peb` 为单位与该交易一起发送的值。                                                                   |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                                                                                                                           |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| string | The returned data of the call. _e.g._, the return value of a smart contract function. |
+| 类型  | 描述                      |
+| --- | ----------------------- |
+| 字符串 | 调用返回的数据。 例如，智能合约函数的返回值。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.call({ 
-        to: '0x5481a10a47C74f800BDF4955BD77550881bde91C', // contract address
-        input: '0x70a08231000000000000000000000000ddc2002b729676dfd906484d35bb02a8634d7040'
+        to：'0x5481a10a47C74f800BDF4955BD77550881bde91C', // 合同地址
+        input: '0x70a0823100000000000000000000ddc2002b729676dfd906484d35bb02a8634d7040'
     }).then(console.log)
-0x0000000000000000000000000000000000000000000000000de0b6b3a7640000
+0x000000000000000000000000000000000000000000000de0b6b3a7640000
 ```
 
-## caver.rpc.klay.estimateGas <a href="#caver-rpc-klay-estimategas" id="caver-rpc-klay-estimategas"></a>
+## caver.rpc.klay.estimateGas<a href="#caver-rpc-klay-estimategas" id="caver-rpc-klay-estimategas"></a>
 
 ```javascript
 caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
 ```
 
-Generates and returns an estimate of how much `gas` is necessary to allow a transaction to complete. The transaction from this method will not be added to the blockchain.
+生成并返回交易完成所需的 "gas "估计值。 该方法产生的交易不会添加到区块链中。
 
-**Parameters**
+**参数**
 
-See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all properties are optional.
+参见 [caver.rpc.klay.call](#caver-rpc-klay-call)参数，预计所有属性都是可选的。
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                             |
-| ------ | --------------------------------------- |
-| string | The amount of gas used. |
+| 类型  | 描述       |
+| --- | -------- |
+| 字符串 | 用的Gas数量。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.estimateGas({ 
-        to: '0x5481a10a47C74f800BDF4955BD77550881bde91C', // contract address
-        input: '0x095ea7b300000000000000000000000028e4e077686d1aeaf54a1313ff4841181056fe32000000000000000000000000000000000000000000000000000000000000000a'
+        to：'0x5481a10a47C74f800BDF4955BD77550881bde91C', // 合同地址
+        input: '0x095ea7b30000000000000000000028e4e077686d1aeaf54a1313ff4841181056fe320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a'
     }).then(console.log)
 0xb2a0
 ```
 
-## caver.rpc.klay.estimateComputationCost <a href="#caver-rpc-klay-estimatecomputationcost" id="caver-rpc-klay-estimatecomputationcost"></a>
+## caver.rpc.klay.estimateComputationCost<a href="#caver-rpc-klay-estimatecomputationcost" id="caver-rpc-klay-estimatecomputationcost"></a>
 
 ```javascript
 caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
 ```
 
-Generates and returns an estimate of how much `computation cost` will be spent to execute the transaction. kaia limits the computation cost of a transaction to `100000000` currently not to take too much time by a single transaction. The transaction will not be added to the blockchain like [caver.rpc.klay.estimateGas](#caver-rpc-klay-estimategas).
+生成并返回执行事务的 "计算成本 "估计值。 kaia 将事务的计算成本限制为 `100000000` ，以避免单个事务耗费过多时间。 该交易不会像 [caver.rpc.klay.estimateGas]（#caver-rpc-klay-estimategas）那样被添加到区块链中。
 
-**Parameters**
+**参数**
 
-See [caver.rpc.klay.call](#caver-rpc-klay-call) parameters, expect that all properties are optional.
+参见 [caver.rpc.klay.call](#caver-rpc-klay-call)参数，预计所有属性都是可选的。
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `Array`
 
-| Type   | Description                                          |
-| ------ | ---------------------------------------------------- |
-| string | The amount of computation cost used. |
+| 类型  | 描述       |
+| --- | -------- |
+| 字符串 | 使用的计算成本。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.estimateComputationCost({ 
-        to: '0x5481a10a47C74f800BDF4955BD77550881bde91C', // contract address
-        input: '0x095ea7b300000000000000000000000028e4e077686d1aeaf54a1313ff4841181056fe32000000000000000000000000000000000000000000000000000000000000000a'
+        to：0x5481a10a47C74f800BDF4955BD77550881bde91C', // 合同地址
+        input: '0x095ea7b30000000000000000000028e4e077686d1aeaf54a1313ff4841181056fe3200000000000000000000000000000000000000000000000000000000000000000000000a'
     }).then(console.log)
 0xd761
 ```
 
-## caver.rpc.klay.getTransactionByBlockHashAndIndex <a href="#caver-rpc-klay-gettransactionbyblockhashandindex" id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
+## caver.rpc.klay.getTransactionByBlockHashAndIndex<a href="#caver-rpc-klay-gettransactionbyblockhashandindex" id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
 ```
 
-Returns information about a transaction by `block hash` and `transaction index` position.
+按 "块哈希值 "和 "事务索引 "位置返回事务信息。
 
-**Parameters**
+**参数**
 
-| Name      | Type     | Description                                                                                                                                   |
-| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash | string   | The block hash.                                                                                                               |
-| index     | number   | A transaction index position inside the block.                                                                                |
-| callback  | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称        | 类型       | 描述                                                 |
+| --------- | -------- | -------------------------------------------------- |
+| blockHash | 字符串      | 区块哈希值。                                             |
+| index     | 数量       | 区块内的事务索引位置。                                        |
+| callback  | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                                                                                                                                            |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more detail. |
+| 类型 | 描述                                                                                                                                   |
+| -- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 对象 | 事务对象，详见 [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash)。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getTransactionByBlockHashAndIndex('0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576', 0).then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
-    blockNumber: '0xb7',
+    blockNumber：'0xb7',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    hash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
+    hash：0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
-    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    transactionIndex: '0x0',
+    signatures：[ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
+    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    transactionIndex：'0x0',
     type: 'TxTypeValueTransfer',
     typeInt: 8,
     value: '0x8ac7230489e80000'
 }
 ```
 
-## caver.rpc.klay.getTransactionByBlockNumberAndIndex <a href="#caver-rpc-klay-gettransactionbyblocknumberandindex" id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
+## caver.rpc.klay.getTransactionByBlockNumberAndIndex<a href="#caver-rpc-klay-gettransactionbyblocknumberandindex" id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callback])
 ```
 
-Returns information about a transaction by `block number` and `transaction index` position.
+按 "区块编号 "和 "事务索引 "位置返回事务信息。
 
-**Parameters**
+**参数**
 
-| Name        | Type               | Description                                                                                                                                   |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number \\| string | The block number or the block tag string (`genesis` or `latest`).                                          |
-| index       | number             | A transaction index position inside the block.                                                                                |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型                 | 描述                                                 |
+| -------- | ------------------ | -------------------------------------------------- |
+| 区块编号     | number \\| string | 区块编号或区块标签字符串（`genesis` 或`latest`）。                 |
+| index    | 数量                 | 区块内的事务索引位置。                                        |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type | Description                                                                                                                                                                            |
-| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 对象   | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more detail. |
+| 类型 | 描述                                                                                                                                   |
+| -- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 对象 | 事务对象，详见 [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash)。 |
 
-**Example**
+**举例**
 
 ```javascript
 > caver.rpc.klay.getTransactionByBlockNumberAndIndex(183, 0).then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
-    blockNumber: '0xb7',
+    blockNumber：'0xb7',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    hash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
+    hash：0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
-    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    transactionIndex: '0x0',
+    signatures：[ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
+    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    transactionIndex：'0x0',
     type: 'TxTypeValueTransfer',
     typeInt: 8,
     value: '0x8ac7230489e80000'
 }
 ```
 
-## caver.rpc.klay.getTransactionByHash <a href="#caver-rpc-klay-gettransactionbyhash" id="caver-rpc-klay-gettransactionbyhash"></a>
+## caver.rpc.klay.getTransactionByHash<a href="#caver-rpc-klay-gettransactionbyhash" id="caver-rpc-klay-gettransactionbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
 ```
 
-Returns the information about a transaction requested by transaction hash.
+使用交易哈希值请求，返回有关交易的信息。
 
-**Parameters**
+**参数：**
 
-| Name            | Type     | Description                                                                                                                                   |
-| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string   | A transaction hash.                                                                                                           |
-| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 交易哈希值。   | 字符串      | 交易哈希值。                                             |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - A transaction object, or `null` when no transaction was found:
+`Promise` 返回 `object` - 一个事务对象，如果没有找到事务，则返回 `null` ：
 
-| Name               | Type    | Description                                                                                                                                                                                                                                                                                                        |
-| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                                                                                   |
-| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                                                                                        |
-| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                                                                              |
-| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                                                                            |
-| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                               |
-| from               | string  | Address of the sender.                                                                                                                                                                                                                                                                             |
-| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                                                                                        |
-| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                                                                           |
-| hash               | string  | Hash of the transaction.                                                                                                                                                                                                                                                                           |
-| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                                                                 |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of an kaia account. See [AccountKey](../../../../../learn/accounts.md#account-key) for more details.                                                                                            |
-| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                                                            |
-| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                                                                                   |
-| senderTxHash       | string  | (optional) Hash of the tx without the fee payer's address and signature. This value is always the same as the value of `hash` for non-fee-delegated transactions.                                                                                               |
-| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                           |
-| to                 | string  | Address of the receiver. `null` when it is a contract deploying transaction.                                                                                                                                                                                                       |
-| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                                                                            |
-| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                                                                                 |
-| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                                                                               |
-| value              | string  | Value transferred in peb.                                                                                                                                                                                                                                                                          |
+| 名称                 | 类型      | 描述                                                                                                                                        |
+| ------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 字符串     | 该交易所在区块的哈希值。                                                                                                                              |
+| 区块编号               | 字符串     | 该交易所在的区块编号。                                                                                                                               |
+| 代码格式               | 字符串     | (可选，默认：`'EVM'`）智能合约代码的编码格式。                                                                                            |
+| 付费人                | 字符串     | (可选）付费人地址。                                                                                                             |
+| feePayerSignatures | 数组      | (可选）付费人签名对象数组。 签名对象包含三个字段（V、R 和 S）。 V 包含 ECDSA 恢复 ID。 R 包含 ECDSA 签名 r，而 S 包含 ECDSA 签名 s。                               |
+| 费用比率               | 字符串     | (可选）付费人的缴费比例。 如果是 30，付费人将支付 30%的费用。 70% 由发送人支付。                                                                        |
+| from               | 字符串     | 发送人地址。                                                                                                                                    |
+| gas                | 字符串     | 发送人提供的gas。                                                                                                                                |
+| gasPrice           | 字符串     | 由发件人提供用 peb 的 Gas Price                                                                                                                   |
+| 哈希                 | 字符串     | 交易的哈希值。                                                                                                                                   |
+| humanReadable      | Boolean | (可选） `true`（如果地址可人工读取），`false`（如果地址不可人工读取）。                                                                            |
+| key                | 字符串     | (可选）用于更新 kaia 帐户 AccountKey 的 RLP 编码 AccountKey。 详情请参阅 [AccountKey](../../../../../../learn/accounts.md#account-key) 。 |
+| input              | 字符串     | (可选）与交易一起发送的数据。                                                                                                        |
+| nonce              | 字符串     | 发件人在此交易之前进行的交易次数。                                                                                                                         |
+| 发送方 TxHash         | 字符串     | (可选）不含缴费人地址和签名的 txash。 该值始终与非收费委托交易的 `hash` 值相同。                                                                       |
+| 签名                 | 数组      | 签名对象数组。 签名对象包含三个字段（V、R 和 S）。 V 包含 ECDSA 恢复 ID。 R 包含 ECDSA 签名 r，而 S 包含 ECDSA 签名 s。                                                         |
+| to                 | 字符串     | 收件人地址。 如果是合约部署事务，则为 "null"。                                                                                                               |
+| 交易索引               | 字符串     | 区块中事务索引位置的整数。                                                                                                                             |
+| 类型                 | 字符串     | 表示交易类型的字符串。                                                                                                                               |
+| typeInt            | 数量      | 代表交易类型的整数。                                                                                                                                |
+| value              | 字符串     | 以peb为单位的价值转移                                                                                                                              |
 
-If the transaction is in `pending` status that has not yet been processed, default values for `blockHash`, `blockNumber` and `transactionIndex` are returned. See the example below.
+如果事务处于 "待处理 "状态，尚未被处理，则会返回 "blockHash"、"blockNumber "和 "transactionIndex "的默认值。 请参见下面的示例。
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getTransactionByHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
 {
     blockHash: '0xb273976bad5f3d40ba46839c020f61b1629e2362d351e3c9cb32268afc7cb477',
     blockNumber: '0x74c',
-    codeFormat: '0x0',
+    codeFormat：'0x0',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x3d0900',
     gasPrice: '0x5d21dba00',
-    hash: '0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
+    hash：0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
     humanReadable: false,
     input: '0x60806...',
     nonce: '0xa',
     senderTxHash: '0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
-    signatures: [ { V: '0x4e44', R: '0xe4ac3...', S: '0x5374f...' } ],
+    signatures：[ { V: '0x4e44', R: '0xe4ac3...', S: '0x5374f...' } ],
     to: null,
-    transactionIndex: '0x0',
+    transactionIndex：'0x0',
     type: 'TxTypeSmartContractDeploy',
-    typeInt: 40,
+    typeInt：40,
     value: '0x0',
 }
 
-// When transaction is in pending, default values for `blockHash`, `blockNumber` and `trasnactionIndex` are returned.
+// 当事务处于待处理状态时，将返回 `blockHash`、`blockNumber` 和 `trasnactionIndex` 的默认值。
 > caver.rpc.klay.getTransactionByHash('0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1').then(console.log)
 {
-    blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000',
+    blockHash: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
     blockNumber: '0x0',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    hash: '0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1',
+    hash：0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1',
     nonce: '0xd',
     senderTxHash: '0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1',
-    signatures: [ { V: '0x4e44', R: '0x73634...', S: '0x479be...' } ],
-    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    transactionIndex: '0x0',
-    type: 'TxTypeValueTransfer',
-    typeInt: 8,
-    value: '0x8ac7230489e80000',
+    signatures：[ { V: '0x4e44', R: '0x73634...', S: '0x479be...' } ],
+    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    transactionIndex：'0x0',
+    类型：'TxTypeValueTransfer',
+    typeInt：8,
+    值：'0x8ac7230489e80000',
 }
 ```
 
-## caver.rpc.klay.getTransactionBySenderTxHash <a href="#caver-rpc-klay-gettransactionbysendertxhash" id="caver-rpc-klay-gettransactionbysendertxhash"></a>
+## caver.rpc.klay.getTransactionBySenderTxHash<a href="#caver-rpc-klay-gettransactionbysendertxhash" id="caver-rpc-klay-gettransactionbysendertxhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
@@ -1794,241 +1796,235 @@ caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 
 返回发送方交易哈希值请求的交易信息。
 
-Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+请注意，只有在节点中通过 `--sendertxhashindexing`启用了索引功能时，此 API 才会返回正确的结果。 使用 [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) 检查索引功能是否启用。
 
-**Parameters**
+**参数：**
 
-| Name         | Type     | Description                                                                                                                                                      |
-| ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for more detail. |
-| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                    |
+| 名称         | 类型       | 描述                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 发送方 TxHash | 字符串      | 发送方交易哈希值。 返回事务的 [senderTxHash]（.../.../.../.../.../learn/transactions/transactions.md#sendertxhash）。 |
+| callback   | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                                                                                                                                                                                                                                                                                                                                                       |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                                                                                                                                             |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A transaction object, see [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) for more details. |
+| 类型 | 描述                                                                                                                                    |
+| -- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 对象 | 事务对象，详见 [caver.rpc.klay.getTransactionByHash](#caver-rpc-klay-gettransactionbyhash) 。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getTransactionBySenderTxHash('0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa').then(console.log)
 {
     blockHash: '0xb273976bad5f3d40ba46839c020f61b1629e2362d351e3c9cb32268afc7cb477',
     blockNumber: '0x74c',
-    codeFormat: '0x0',
+    codeFormat：'0x0',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x3d0900',
     gasPrice: '0x5d21dba00',
-    hash: '0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
+    hash：0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
     humanReadable: false,
     input: '0x60806...',
     nonce: '0xa',
     senderTxHash: '0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
-    signatures: [ { V: '0x4e44', R: '0xe4ac3...', S: '0x5374f...' } ],
+    signatures：[ { V: '0x4e44', R: '0xe4ac3...', S: '0x5374f...' } ],
     to: null,
-    transactionIndex: '0x0',
+    transactionIndex：'0x0',
     type: 'TxTypeSmartContractDeploy',
-    typeInt: 40,
+    typeInt：40,
     value: '0x0',
 }
 ```
 
-## caver.rpc.klay.getTransactionReceipt <a href="#caver-rpc-klay-gettransactionreceipt" id="caver-rpc-klay-gettransactionreceipt"></a>
+## caver.rpc.klay.getTransactionReceipt<a href="#caver-rpc-klay-gettransactionreceipt" id="caver-rpc-klay-gettransactionreceipt"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 ```
 
-Returns the receipt of a transaction by transaction hash.
+根据交易哈希返回交易的收据。
 
-**NOTE** Receipt is not available for `pending` transactions whose transactions have not yet been processed.
+**注意**\* 对于交易尚未处理的 "待处理 "交易，不提供收据。
 
-**Parameters**
+**参数**
 
-| Name            | Type     | Description                                                                                                                                   |
-| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string   | A transaction hash.                                                                                                           |
-| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 交易哈希值。   | 字符串      | 交易哈希值。                                             |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - A transaction receipt object, or `null` when no receipt was found:
+`Promise` 返回 `object` - 交易收据对象，或 `null` - 未找到收据：
 
-| Name               | Type    | Description                                                                                                                                                                                                                                                                                                        |
-| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| blockHash          | string  | Hash of the block where this transaction was in.                                                                                                                                                                                                                                                   |
-| blockNumber        | string  | Block number where this transaction was in.                                                                                                                                                                                                                                                        |
-| codeFormat         | string  | (optional) The code format of smart contract code.                                                                                                                                                                                                                              |
-| contractAddress    | string  | The contract address created, if the transaction was a contract creation, otherwise `null`.                                                                                                                                                                                                        |
-| effectiveGasPrice  | string  | The actual value per gas deducted from the sender. Before the Magma hard fork, this value was equal to the transaction’s gas price. After the Magma hard fork, it is equal to the value of `baseFee` in the block header.                                          |
-| feePayer           | string  | (optional) Address of the fee payer.                                                                                                                                                                                                                                            |
-| feePayerSignatures | Array   | (optional) An array of fee payer's signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s. |
-| feeRatio           | string  | (optional) Fee ratio of the fee payer. If it is 30, 30% of the fee will be paid by the fee payer. 70% will be paid by the sender.                                                                                                               |
-| from               | string  | Address of the sender.                                                                                                                                                                                                                                                                             |
-| gas                | string  | Gas provided by the sender.                                                                                                                                                                                                                                                                        |
-| gasPrice           | string  | Gas price provided by the sender in peb.                                                                                                                                                                                                                                                           |
-| gasUsed            | string  | The amount of gas used by this specific transaction alone.                                                                                                                                                                                                                                         |
-| humanReadable      | Boolean | (optional) `true` if the address is humanReadable, `false` if the address is not humanReadable.                                                                                                                                                                                 |
-| key                | string  | (optional) The RLP-encoded AccountKey used to update AccountKey of a kaia account.                                                                                                                                                                                              |
-| input              | string  | (optional) The data sent along with the transaction.                                                                                                                                                                                                                            |
-| logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                                                                                                            |
-| logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                                                                                   |
-| nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                                                                                   |
-| senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions.  |
-| signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                           |
-| status             | string  | `0x1` if the transaction was successful, `0x0` if the kaia Virtual Machine reverted the transaction.                                                                                                                                                                                               |
-| txError            | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                                                                                   |
-| to                 | string  | Address of the receiver. `null` when it is a contract creation transaction.                                                                                                                                                                                                        |
-| transactionHash    | string  | Hash of the transaction.                                                                                                                                                                                                                                                                           |
-| transactionIndex   | string  | Integer of the transaction index position in the block.                                                                                                                                                                                                                                            |
-| type               | string  | A string representing the type of the transaction.                                                                                                                                                                                                                                                 |
-| typeInt            | number  | An integer representing the type of the transaction.                                                                                                                                                                                                                                               |
-| value              | string  | Value transferred in peb.                                                                                                                                                                                                                                                                          |
+| 名称                 | 类型      | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 字符串     | 该交易所在区块的哈希值。                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 区块编号               | 字符串     | 该交易所在的区块编号。                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| codeFormat         | 字符串     | (可选，默认：`'EVM'`）智能合约代码的编码格式。                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| contractAddress    | 字符串     | 如果交易是创建合约，则为创建的合同地址，否则为`null`。                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 有效GasPrice         | 字符串     | 从发送方扣除的每笔gas的实际价值。 在 Magma 硬分叉之前，该值等于交易的天然气价格。 Magma 硬分叉后，它等于区块头中的 "baseFee "值。                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 付费者                | 字符串     | (可选）付费人地址。                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| feePayerSignatures | 数组      | (可选）付费人签名对象数组。 签名对象包含三个字段（V、R 和 S）。 V 包含 ECDSA 恢复 ID。 R 包含 ECDSA 签名 r，而 S 包含 ECDSA 签名 s。                                                                                                                                                                                                                                                                                                                                                                              |
+| 费用比率               | 字符串     | (可选）付费人的缴费比例。 如果是 30，缴费人将支付 30%的费用。 70% 由发送人支付。                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| from               | 字符串     | 发送人地址。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| gas                | 字符串     | 发送人提供的gas。                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| gasPrice           | 字符串     | 由发件人提供用 peb 的 Gas Price                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| gasUsed            | 字符串     | The amount of gas used by this specific transaction alone.                                                                                                                                                                                                                                                                                                                                                                                                               |
+| humanReadable      | Boolean | (可选） `true`（如果地址可人工读取），`false`（如果地址不可人工读取）。                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| key                | 字符串     | (可选）用于更新 kaia 帐户 AccountKey 的 RLP 编码 AccountKey。                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| input              | 字符串     | (可选）与交易一起发送的数据。                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| logs               | 数组      | 该事务生成的日志对象数组。                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| logsBloom          | 字符串     | 用于轻型客户端的 Bloom 过滤器可快速检索相关日志。                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| nonce              | 字符串     | 发件人在此交易之前进行的交易次数。                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| 发送方 TxHash         | 字符串     | (可选）仅由发送方签名的交易哈希值。 返回事务的 [senderTxHash]（.../.../.../.../.../learn/transactions/transactions.md#sendertxhash）。 该值始终与非收费委托交易的 `transactionHash` 相同。 |
+| 签名                 | 数组      | 签名对象数组。 签名对象包含三个字段（V、R 和 S）。 V 包含 ECDSA 恢复 ID。 R 包含 ECDSA 签名 r，而 S 包含 ECDSA 签名 s。                                                                                                                                                                                                                                                                                                                                                                                                        |
+| status             | 字符串     | 如果事务成功，则为 `0x1`；如果 kaia 虚拟机还原了事务，则为 `0x0`。                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| txError            | 字符串     | (可选）当 `status` 等于 `0x0` 时的详细错误代码。                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| to                 | 字符串     | 收件人地址。 如果是合约部署事务，则为 "null"。                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| 交易哈希值。             | 字符串     | 交易的哈希值。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 交易索引               | 字符串     | 区块中事务索引位置的整数。                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 类型                 | 字符串     | 表示交易类型的字符串。                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| typeInt            | 数量      | An integer representing the type of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| value              | 字符串     | 以peb为单位的价值转移                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-**NOTE** `effectiveGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
+**注意** `caver.kct.kip7.create`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
 
-**Example**
+**示例**
 
 ```javascript
-// Before the Magma hard fork
+// 在 Magma 硬分叉之前
 > caver.rpc.klay.getTransactionReceipt('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
     blockNumber: '0xb7',
-    contractAddress: null,
+    contractAddress：null,
     effectiveGasPrice: '0x5d21dba00',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    gasUsed: '0x5208',
-    logs: [],
+    gasUsed：'0x5208',
+    logs：[],
     logsBloom: '0x00000...',
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
+    signatures：[ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
     status: '0x1',
-    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     transactionHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    transactionIndex: '0x0',
+    transactionIndex：'0x0',
     type: 'TxTypeValueTransfer',
     typeInt: 8,
     value: '0x8ac7230489e80000',
 }
 
-// After the Magma hard fork
+// Magma 硬分叉后
 > caver.rpc.klay.getTransactionReceipt('0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9').then(console.log)
 {
   blockHash: '0xaa358681023db9d967ff44577a34aea487c37433ebf6ef349baee50f9d1d2f03',
   blockNumber: '0x99',
-  contractAddress: null,
+  contractAddress：null,
   effectiveGasPrice: '0x5d21dba00',
   from: '0xca7a99380131e6c76cfa622396347107aeedca2d',
   gas: '0x61a8',
   gasPrice: '0xba43b7400',
-  gasUsed: '0x5208',
-  logs: [],
+  gasUsed：0x5208',
+  logs：[],
   logsBloom: '0x00000...',
   nonce: '0x2',
   senderTxHash: '0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9',
-  signatures: [ { V: '0x1cb4c6', R: '0x1605e...', S: '0x459cf...' } ],
+  signatures：[ { V: '0x1cb4c6', R: '0x1605e...', S: '0x459cf...' } ],
   status: '0x1',
-  to: '0x08ef5d2def29ff4384dd93a73e076d959abbd2f4',
+  to：'0x08ef5d2def29ff4384dd93a73e076d959abbd2f4',
   transactionHash: '0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9',
-  transactionIndex: '0x0',
-  type: 'TxTypeValueTransfer',
-  typeInt: 8,
-  value: '0xde0b6b3a7640000'
+  transactionIndex：'0x0'，
+  类型：'TxTypeValueTransfer'，
+  typeInt：8，
+  value：'0xde0b6b3a7640000'
 }
 ```
 
-## caver.rpc.klay.getTransactionReceiptBySenderTxHash <a href="#caver-rpc-klay-gettransactionreceiptbysendertxhash" id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
+## caver.rpc.klay.getTransactionReceiptBySenderTxHash<a href="#caver-rpc-klay-gettransactionreceiptbysendertxhash" id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 ```
 
-Returns the receipt of a transaction by sender transaction hash.
+根据交易哈希返回交易的收据。
 
-Please note that this API returns the correct result only if the indexing feature is enabled in the node by `--sendertxhashindexing`. Use [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) to check if the indexing feature is enabled or not.
+请注意，只有在节点中通过 `--sendertxhashindexing`启用了索引功能时，此 API 才会返回正确的结果。 使用 [caver.rpc.klay.isSenderTxHashIndexingEnabled](#caver-rpc-klay-issendertxhashindexingenabled) 检查索引功能是否启用。
 
-**NOTE** Receipt is not available for `pending` transactions whose transactions have not yet been processed.
+**注意**\* 对于交易尚未处理的 "待处理 "交易，不提供收据。
 
-**Parameters**
+**参数**
 
-| Name         | Type     | Description                                                                                                                                                      |
-| ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for more detail. |
-| callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                    |
+| 名称         | 类型       | 描述                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 发送方 TxHash | 字符串      | 发送方交易哈希值。 返回事务的 [senderTxHash]（.../.../.../.../.../learn/transactions/transactions.md#sendertxhash）。 |
+| callback   | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                                                                                                                                                                                                                                                                                                                                                       |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object`
+`Promise` returns `number`
 
-| Type   | Description                                                                                                                                                                                      |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| object | A transaction receipt object, see [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail. |
+| 类型 | 描述                                                                                                                                       |
+| -- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| 对象 | 交易收据对象，详见 [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)。 |
 
-**Example**
+**示例**
 
 ```javascript
-> caver.rpc.klay.getTransactionReceiptBySenderTxHash('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
+> caver.rpc.klay.getTransactionByBlockNumberAndIndex(183, 0).then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
-    blockNumber: '0xb7',
-    contractAddress: null,
-    effectiveGasPrice: '0x5d21dba00',
+    blockNumber：'0xb7',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    gasUsed: '0x5208',
-    logs: [],
-    logsBloom: '0x00000...',
+    hash：0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
-    status: '0x1',
-    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    transactionHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    transactionIndex: '0x0',
+    signatures：[ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
+    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    transactionIndex：'0x0',
     type: 'TxTypeValueTransfer',
     typeInt: 8,
-    value: '0x8ac7230489e80000',
+    value: '0x8ac7230489e80000'
 }
 ```
 
-## caver.rpc.klay.sendRawTransaction <a href="#caver-rpc-klay-sendrawtransaction" id="caver-rpc-klay-sendrawtransaction"></a>
+## caver.rpc.klay.sendRawTransaction<a href="#caver-rpc-klay-sendrawtransaction" id="caver-rpc-klay-sendrawtransaction"></a>
 
 ```javascript
 caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
 ```
 
-Sends a `signed transaction` to the kaia.
+向 kaia 发送 "签名交易"。
 
-The `signedTransaction` parameter can be a "RLP-encoded signed transaction." You can get the RLP-encoded transaction of a signed transaction using `transaction.getRLPEncoding`. For convenience, `caver.rpc.klay.sendRawTransaction` also accepts a "signed transaction instance" as parameter.
+signedTransaction "参数可以是 "RLP 编码的签名交易"。 您可以使用 `transaction.getRLPEncoding` 获取已签名事务的 RLP 编码事务。 为方便起见，`caver.rpc.klay.sendRawTransaction` 也接受 "已签名事务实例 "作为参数。
 
-**Parameters**
+**参数**
 
-| Name              | Type               | Description                                                                                                                                   |
-| ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| signedTransaction | string \\| object | A RLP-encoded signed transaction or an instance of signed transaction.                                                        |
-| callback          | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型                 | 描述                                                 |
+| -------- | ------------------ | -------------------------------------------------- |
+| 签名交易     | string \\| object | RLP 编码的签名事务或签名事务实例。                                |
+| callback | function           | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-| Type       | Description                                                                                                                    |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
+| 类型         | 描述                             |
+| ---------- | ------------------------------ |
+| PromiEvent | 一个承诺组合事件发射器。 当有交易收据时，该问题将得到解决。 |
 
-For PromiEvent, the following events are available:
+PromiEvent 可用于以下事件：
 
-- `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- 事务散列返回字符串：在发送事务且事务哈希值可用后立即触发。
+- 收据 "返回 "对象"：当有交易收据时触发。 详情请参阅 [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) 。
+- error`返回`Error\`：如果在发送过程中发生错误，则触发。 如果出现缺gas错误，第二个参数就是收据。
 
-**Example**
+**示例**
 
 ```javascript
 // Using promise
@@ -2036,61 +2032,61 @@ For PromiEvent, the following events are available:
 {
     blockHash: '0x8bff3eb5444711f53707c1c006dac54164af6f873c0f012aff98479155de3c46',
     blockNumber: '0x18a6',
-    contractAddress: null,
+    contractAddress：null,
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    gasUsed: '0x5208',
-    logs: [],
+    gasUsed：'0x5208',
+    logs：[],
     logsBloom: '0x00000...',
     nonce: '0xc',
     senderTxHash: '0x72ea9179350cf2943e966eaf1e1e651d4e1b50ead4b6e6a574a4297c9f0f7017',
-    signatures: [ { V: '0x4e43', R: '0x3bee4...', S: '0x101a1...' } ],
+    signatures：[ { V: '0x4e43', R: '0x3bee4...', S: '0x101a1...' } ],
     status: '0x1',
-    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     transactionHash: '0x72ea9179350cf2943e966eaf1e1e651d4e1b50ead4b6e6a574a4297c9f0f7017',
-    transactionIndex: '0x0',
-    type: 'TxTypeValueTransfer',
+    transactionIndex：'0x0',
+    类型：'TxTypeValueTransfer',
     typeInt: 8,
-    value: '0x8ac7230489e80000',
+    值：'0x8ac7230489e80000',
 }
 
-// Using event emitter
+// 使用事件发射器
 > caver.rpc.klay.sendRawTransaction('0x08f88...').on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.sendTransaction <a href="#caver-rpc-klay-sendtransaction" id="caver-rpc-klay-sendtransaction"></a>
+## caver.rpc.klay.sendTransaction<a href="#caver-rpc-klay-sendtransaction" id="caver-rpc-klay-sendtransaction"></a>
 
 ```javascript
 caver.rpc.klay.sendTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction `sender` with an "imported account's private key" in your kaia Node and propagates the transaction to the kaia.
+使用 kaia 节点中的 "导入账户私钥 "将事务签署为事务 "发送方"，并将事务传播到 kaia。
 
-For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
+有关每种事务类型的更多信息，请参阅 [事务]（.../caver-transaction/caver-transaction.md#class）。
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**注意**：此 API 提供了使用 kaia 节点中的 [导入账户](../../../.../jsson-rpc/personal.md#personal_importrawkey) 签署交易的功能。 您节点中的导入账户必须[解锁]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount）才能签署交易。
 
-**Parameters**
+**参数**
 
-| Name        | Type     | Description                                                                                                                                   |
-| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of a transaction to be sent to the kaia.                                                                          |
-| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 交易       | 对象       | 要发送到 kaia 的事务实例。                                   |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-| Type       | Description                                                                                                                    |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
+| 类型         | 描述                             |
+| ---------- | ------------------------------ |
+| PromiEvent | 一个承诺组合事件发射器。 当有交易收据时，该问题将得到解决。 |
 
-For PromiEvent, the following events are available:
+PromiEvent 可用于以下事件：
 
-- `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- 事务散列返回字符串：在发送事务且事务哈希值可用后立即触发。
+- 收据 "返回 "对象"：当有交易收据时触发。 详情请参阅 [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) 。
+- error`返回`Error\`：如果在发送过程中发生错误，则触发。 如果出现缺gas错误，第二个参数就是收据。
 
-**Example**
+**示例**
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
@@ -2127,40 +2123,40 @@ For PromiEvent, the following events are available:
 > caver.rpc.klay.sendTransaction(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.sendTransactionAsFeePayer <a href="#caver-rpc-klay-sendtransactionasfeepayer" id="caver-rpc-klay-sendtransactionasfeepayer"></a>
+## caver.rpc.klay.sendTransactionAsFeePayer<a href="#caver-rpc-klay-sendtransactionasfeepayer" id="caver-rpc-klay-sendtransactionasfeepayer"></a>
 
 ```javascript
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a fee delegated transaction as a transaction `fee payer` with an `imported account's private key` in your kaia Node and propagates the transaction to the kaia.
+使用 kaia 节点中的 "导入账户私钥 "将费用委托交易签署为交易 "费用支付方"，并将交易传播到 kaia。
 
-Before using `sendTransaction` as a fee payer, the transaction sender must have signed with valid signature(s) and the `nonce` must have been defined.
+在使用 "sendTransaction "作为付费方之前，交易发送方必须已使用有效签名，且 "nonce "已定义。
 
-For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
+有关每种事务类型的更多信息，请参阅 [事务]（.../caver-transaction/caver-transaction.md#class）。
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**注意**：此 API 提供了使用 kaia 节点中的 [导入账户](../../../.../jsson-rpc/personal.md#personal_importrawkey) 签署交易的功能。 您节点中的导入账户必须[解锁]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount）才能签署交易。
 
-**Parameters**
+**参数**
 
-| Name        | Type     | Description                                                                                                                                   |
-| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of fee delegated transaction to send to the kaia.                                                                 |
-| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称          | 类型       | 描述                                                 |
+| ----------- | -------- | -------------------------------------------------- |
+| transaction | 对象       | 要发送给 kaia 的收费委托事务实例。                               |
+| callback    | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-| Type       | Description                                                                                                                    |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| PromiEvent | A promise combined event emitter. It will be resolved when a transaction receipt is available. |
+| 类型         | 描述                             |
+| ---------- | ------------------------------ |
+| PromiEvent | 一个承诺组合事件发射器。 当有交易收据时，该问题将得到解决。 |
 
-For PromiEvent, the following events are available:
+PromiEvent 可用于以下事件：
 
-- `transactionHash` returns `string`: Is fired right after a transaction is sent and a transaction hash is available.
-- `receipt` returns `object`: Is fired when a transaction receipt is available. See [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) for more detail.
-- `error` returns `Error`: Is fired if an error occurs during sending. On an out-of-gas error, the second parameter is the receipt.
+- 事务散列返回字符串：在发送事务且事务哈希值可用后立即触发。
+- 收据 "返回 "对象"：当有交易收据时触发。 详情请参阅 [caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt) 。
+- error`返回`Error\`：如果在发送过程中发生错误，则触发。 如果出现缺gas错误，第二个参数就是收据。
 
-**Example**
+**示例**
 
 ```javascript
 > const tx = caver.transaction.feeDelegatedValueTransfer.create({
@@ -2208,35 +2204,35 @@ For PromiEvent, the following events are available:
 > caver.rpc.klay.sendTransactionAsFeePayer(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.signTransaction <a href="#caver-rpc-klay-signtransaction" id="caver-rpc-klay-signtransaction"></a>
+## caver.rpc.klay.signTransaction<a href="#caver-rpc-klay-signtransaction" id="caver-rpc-klay-signtransaction"></a>
 
 ```javascript
 caver.rpc.klay.signTransaction(transaction [, callback])
 ```
 
-Signs a transaction as a transaction sender with an "imported account's private key" in your kaia Node.
+使用 kaia 节点中的 "导入账户私钥 "作为交易发送方签署交易。
 
-For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
+有关每种事务类型的更多信息，请参阅 [事务]（.../caver-transaction/caver-transaction.md#class）。
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**注意**：此 API 提供了使用 kaia 节点中的 [导入账户](../../../.../jsson-rpc/personal.md#personal_importrawkey) 签署交易的功能。 您节点中的导入账户必须[解锁]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount）才能签署交易。
 
-**Parameters**
+**参数**
 
-| Name        | Type     | Description                                                                                                                                   |
-| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of a transaction to sign.                                                                                         |
-| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 交易       | 对象       | 要签署的交易实例。                                          |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - An object includes signed transaction:
+`Promise` 返回 `object` - 对象包括代码块：
 
-| Name | Type   | Description                                                              |
-| ---- | ------ | ------------------------------------------------------------------------ |
-| raw  | string | A RLP-encoded signed transaction.                        |
-| tx   | object | The transaction object including the sender's signature. |
+| 名称  | 类型  | 描述            |
+| --- | --- | ------------- |
+| raw | 字符串 | RLP 编码的签名交易。  |
+| tx  | 对象  | 交易对象，包括发件人签名。 |
 
-**Example**
+**示例**
 
 ```javascript
 > const tx = caver.transaction.valueTransfer.create({
@@ -2264,35 +2260,35 @@ For more information about each transaction type, refer to [Transaction](../cave
 }
 ```
 
-## caver.rpc.klay.signTransactionAsFeePayer <a href="#caver-rpc-klay-signtransactionasfeepayer" id="caver-rpc-klay-signtransactionasfeepayer"></a>
+## caver.rpc.klay.signTransactionAsFeePayer<a href="#caver-rpc-klay-signtransactionasfeepayer" id="caver-rpc-klay-signtransactionasfeepayer"></a>
 
 ```javascript
 caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 ```
 
-Signs a transaction as a transaction fee payer with an "imported account's private key" in your kaia Node.
+使用 kaia 节点中的 "导入账户私钥 "作为交易费支付方签署交易。
 
-For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
+有关每种事务类型的更多信息，请参阅 [事务]（.../caver-transaction/caver-transaction.md#class）。
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. 您节点中的导入账户必须已[解锁]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount），才能签署信息。
 
-**Parameters**
+**参数**
 
-| Name        | Type     | Description                                                                                                                                   |
-| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| transaction | object   | An instance of a transaction to sign.                                                                                         |
-| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 交易       | 对象       | 要签署的交易实例。                                          |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - An object includes signed transaction:
+`Promise` 返回 `object` - 对象包括代码块：
 
-| Name | Type   | Description                                                  |
-| ---- | ------ | ------------------------------------------------------------ |
-| raw  | string | A RLP-encoded signed transaction.            |
-| tx   | object | The transaction object to sign as fee payer. |
+| 名称  | 类型  | 描述            |
+| --- | --- | ------------- |
+| raw | 字符串 | RLP 编码的签名交易。  |
+| tx  | 对象  | 作为缴费人签署的交易对象。 |
 
-**Example**
+**示例**
 
 ```javascript
 > const tx = caver.transaction.feeDelegatedValueTransfer.craete({
@@ -2331,285 +2327,285 @@ For more information about each transaction type, refer to [Transaction](../cave
 }
 ```
 
-## caver.rpc.klay.getDecodedAnchoringTransactionByHash <a href="#caver-rpc-klay-getdecodedanchoringtransactionbyhash" id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a>
+## caver.rpc.klay.getDecodedAnchoringTransactionByHash<a href="#caver-rpc-klay-getdecodedanchoringtransactionbyhash" id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback])
 ```
 
-Returns the decoded anchored data in the transaction for the given transaction hash.
+根据给定的事务哈希值，返回事务中已解码的锚点数据。
 
-**Parameters**
+**参数：**
 
-| Name            | Type     | Description                                                                                                                                   |
-| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string   | A transaction hash.                                                                                                           |
-| callback        | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 交易哈希值。   | 字符串      | 交易哈希值。                                             |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - An object includes decoded anchored data:
+`Promise` 返回 `object` - 对象包括块标头：
 
-| Name          | Type   | Description                                                                                                                                                                                                                                                            |
-| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BlockHash     | string | Hash of the child chain block that this anchoring transaction was performed.                                                                                                                                                                           |
-| BlockNumber   | number | The child chain block number that this anchoring transaction was performed.                                                                                                                                                                            |
-| ParentHash    | string | Hash of the parent block.                                                                                                                                                                                                                              |
-| TxHash        | string | The root of the transaction trie of the block.                                                                                                                                                                                                         |
-| StateRootHash | string | The root of the final state trie of the block.                                                                                                                                                                                                         |
-| ReceiptHash   | string | The root of the receipts trie of the block.                                                                                                                                                                                                            |
-| BlockCount    | number | The number of blocks generated during this anchoring period. In most cases, this number is equal to the child chain's `SC_TX_PERIOD`, except the case that this transaction was the first anchoring tx after turning on the anchoring. |
-| TxCount       | number | The number of transactions generated in the child chain during this anchoring period.                                                                                                                                                                  |
+| 名称        | 类型  | 描述                                                                 |
+| --------- | --- | ------------------------------------------------------------------ |
+| BlockHash | 字符串 | 执行锚定交易的子链块的哈希值。                                                    |
+| 区块编号      | 数量  | 执行该锚定交易的子链区块编号。                                                    |
+| 父哈希值      | 字符串 | 父块的哈希值。                                                            |
+| TxHash    | 字符串 | 区块的交易三角根。                                                          |
+| 状态根哈希值    | 字符串 | 区块最终状态三元组的根。                                                       |
+| 收据哈希值     | 字符串 | 区块收据三元组的根。                                                         |
+| 区块数       | 数量  | 锚定期间生成的区块数。 在大多数情况下，这个数字等于子链的 `SC_TX_PERIOD`，除非该事务是开启锚定后的第一个锚定 tx。 |
+| TxCount   | 数量  | 锚定期间子链产生的交易次数。                                                     |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getDecodedAnchoringTransactionByHash('0x59831a092a9f0b48018848f5dd88a457efdbfabec13ea07cd769686741a1cd13').then(console.log)
 {
-    BlockCount: 86400,
+    BlockCount：86400,
     BlockHash: '0x3c44b2ed491be7264b9f6819c67427642447716576b6702a72f6fdc40c41abde',
-    BlockNumber: 23414400,
+    BlockNumber：23414400,
     ParentHash: '0x735468bb091a296c45553c8f67a8d0d39ac428cbe692b1b6c494d336351477f3',
-    ReceiptHash: '0x6a908d319b6f6ab4414da1afd6763d70ecc8037ec167aa8a942bc0c2af12b4ab',
+    ReceiptHash：0x6a908d319b6f6ab4414da1afd6763d70ecc8037ec167aaa8942bc0c2af12b4ab',
     StateRootHash: '0x4a664227fb2508a2952a4695cabb88b433522af2a5dee50cc6dd4036d85bf1d3',
-    TxCount: 50895,
+    TxCount：50895,
     TxHash: '0x753a85d2c53fc34cb9108301f1cf8ff8d78dde13d42d80958e47e388008319cd',
 }
 ```
 
-## caver.rpc.klay.getChainId <a href="#caver-rpc-klay-getchainid" id="caver-rpc-klay-getchainid"></a>
+## caver.rpc.klay.getChainId<a href="#caver-rpc-klay-getchainid" id="caver-rpc-klay-getchainid"></a>
 
 ```javascript
 caver.rpc.klay.getChainId([callback])
 ```
 
-Returns the chain ID of the chain.
+返回链的 ID。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                |
-| ------ | ------------------------------------------ |
-| string | The chain ID of the chain. |
+| 类型  | 描述      |
+| --- | ------- |
+| 字符串 | 链的链 ID。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getChainId().then(console.log)
 0x2710
 ```
 
-## caver.rpc.klay.getClientVersion <a href="#caver-rpc-klay-getclientversion" id="caver-rpc-klay-getclientversion"></a>
+## caver.rpc.klay.getClientVersion<a href="#caver-rpc-klay-getclientversion" id="caver-rpc-klay-getclientversion"></a>
 
 ```javascript
 caver.rpc.klay.getClientVersion([callback])
 ```
 
-Returns the current client version of a kaia node.
+返回 kaia 节点的当前客户端版本。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                                |
-| ------ | ---------------------------------------------------------- |
-| string | The current client version of a kaia node. |
+| 类型  | 描述                                                         |
+| --- | ---------------------------------------------------------- |
+| 字符串 | The current client version of a kaia node. |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getClientVersion().then(console.log)
 kaia/v1.3.0+144494d2aa/linux-amd64/go1.13.1
 ```
 
-## caver.rpc.klay.getGasPrice <a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a>
+## caver.rpc.klay.getGasPrice<a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getGasPrice([callback])
 ```
 
-Returns the current price per gas in peb.
+返回单位gas的当前价格（以 wei 为单位）。
 
-**Parameters**
+**参数：**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                   |
-| ------ | --------------------------------------------- |
-| string | The current gas price in peb. |
+| 类型  | 描述             |
+| --- | -------------- |
+| 字符串 | 目前 peb 的Gas价格。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getGasPrice().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getGasPriceAt <a href="#caver-rpc-klay-getgaspriceat" id="caver-rpc-klay-getgaspriceat"></a>
+## caver.rpc.klay.getGasPriceAt<a href="#caver-rpc-klay-getgaspriceat" id="caver-rpc-klay-getgaspriceat"></a>
 
 ```javascript
 caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
 ```
 
-Returns the current price per gas in peb for the given block.
+返回给定区块当前的单位为 peb 的gas价格。
 
-**Parameters**
+**参数**
 
-| Name        | Type     | Description                                                                                                                                   |
-| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockNumber | number   | (optional) The block number. If omitted, the latest unit price will be returned.           |
-| callback    | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 区块编号     | 数量       | (可选）区块编号。 如果省略，将返回最新单价。         |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                   |
-| ------ | --------------------------------------------- |
-| string | The current gas price in peb. |
+| 类型  | 描述             |
+| --- | -------------- |
+| 字符串 | 目前 peb 的gas价格。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getGasPriceAt().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getMaxPriorityFeePerGas <a href="#caver-rpc-klay-getmaxpriorityfeepergas" id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
+## caver.rpc.klay.getMaxPriorityFeePerGas<a href="#caver-rpc-klay-getmaxpriorityfeepergas" id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
 
 ```javascript
 caver.rpc.klay.getMaxPriorityFeePerGas([callback])
 ```
 
-Returns a suggested gas tip cap for dynamic fee transactions in peb. Since kaia has a fixed gas price, this returns the gas price set by kaia.
+返回 peb 中动态收费交易的建议gas小费上限。 由于 kaia 有固定的gas价格，因此会返回 kaia 设定的gas价格。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| string | The suggested gas tip cap in peb. |
+| 类型  | 描述            |
+| --- | ------------- |
+| 字符串 | 建议使用peb付Gas费用 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getMaxPriorityFeePerGas().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getLowerBoundGasPrice <a href="#caver-rpc-klay-getlowerboundgasprice" id="caver-rpc-klay-getlowerboundgasprice"></a>
+## caver.rpc.klay.getLowerBoundGasPrice<a href="#caver-rpc-klay-getlowerboundgasprice" id="caver-rpc-klay-getlowerboundgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getLowerBoundGasPrice([callback])
 ```
 
-Returns the lower bound gas price in peb.
+返回以 peb 为单位的gas价格下限。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| string | The lower bound gas price in peb. |
+| 类型  | 描述                 |
+| --- | ------------------ |
+| 字符串 | 以 peb 为单位的下限gas价格。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getLowerBoundGasPrice().then(console.log)
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getUpperBoundGasPrice <a href="#caver-rpc-klay-getupperboundgasprice" id="caver-rpc-klay-getupperboundgasprice"></a>
+## caver.rpc.klay.getUpperBoundGasPrice<a href="#caver-rpc-klay-getupperboundgasprice" id="caver-rpc-klay-getupperboundgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getUpperBoundGasPrice([callback])
 ```
 
-Returns the upper bound gas price in peb.
+返回以 peb 为单位的gas价格上限。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| string | The upper bound gas price in peb. |
+| 类型  | 描述                 |
+| --- | ------------------ |
+| 字符串 | 以 peb 为单位的gas价格上限。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getUpperBoundGasPrice().then(console.log)
 0xae9f7bcc00
 ```
 
-## caver.rpc.klay.getFeeHistory <a href="#caver-rpc-klay-getfeehistory" id="caver-rpc-klay-getfeehistory"></a>
+## caver.rpc.klay.getFeeHistory<a href="#caver-rpc-klay-getfeehistory" id="caver-rpc-klay-getfeehistory"></a>
 
 ```javascript
 caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callback])
 ```
 
-Returns fee history for the returned block range. This can be a subsection of the requested range if not all blocks are available.
+返回返回区块范围的收费历史记录。 如果不是所有区块都可用，则可以是所请求范围的一个分段。
 
 **Parameters**
 
-| Name              | Type                                | Description                                                                                                                                                                                                                                                                                        |
-| ----------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockCount        | number\\|BigNumber\\|BN\\|string | Number of blocks in the requested range. Between 1 and 1024 blocks can be requested in a single query. Less than requested may be returned if not all blocks are available.                                                                        |
-| lastBlock         | number\\|BigNumber\\|BN\\|string | Highest number block (or block tag string) of the requested range.                                                                                                                                                                                              |
-| rewardPercentiles | Array                               | A monotonically increasing list of percentile values to sample from each block’s effective priority fees per gas in ascending order, weighted by gas used. (Example: `['0', '25', '50', '75', '100']` or `['0', '0.5', '1', '1.5', '3', '80']`) |
-| callback          | function                            | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                      |
+| 名称                | 类型                                  | 描述                                                                                                                                       |
+| ----------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| 区块数               | number\\|BigNumber\\|BN\\|string | 请求范围内的区块数。 单次查询可请求 1 到 1024 个区块。 如果不是所有区块都可用，返回的数据可能少于要求的数据。                                                                             |
+| lastBlock         | number\\|BigNumber\\|BN\\|string | 请求范围内的最高数字区块（或区块标记字符串）。                                                                                                                  |
+| rewardPercentiles | 数组                                  | 单调递增的百分位值列表，从每个区块的每个gas有效优先权费用中按升序取样，并根据所用gas加权。 (例如：`['0'、'25'、'50'、'75'、'100']` 或 `['0'、'0.5'、'1'、'1.5'、'3'、'80']`) |
+| callback          | function                            | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                                                                       |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - An object includes fee history:
+`Promise` 返回 `object` - 对象包括代码块：
 
-| Name          | Type   | Description                                                                                                                                                                                                                                                     |
-| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                                                          |
-| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                                                  |
-| baseFeePerGas | Array  | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
-| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                                                      |
+| 名称            | 类型  | 描述                                                                        |
+| ------------- | --- | ------------------------------------------------------------------------- |
+| oldestBlock   | 字符串 | 返回范围内的最低数块。                                                               |
+| 奖励            | 数组  | 二维数组，包含所要求的区块百分位数下每种gas的有效优先权费。                                           |
+| baseFeePerGas | 数组  | 每个gas的区块基本费用数组。 这包括返回范围中最新区块之后的下一个区块，因为该值可以从最新区块中导出。 EIP-1559 之前的数据块返回 0。 |
+| gas用量比        | 数组  | 区块中gasUsed/gasLimit的数组。                                                   |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getFeeHistory(3, 'latest', [0.1, 0.2, 0.3]).then(console.log)
@@ -2620,74 +2616,74 @@ Returns fee history for the returned block range. This can be a subsection of th
     [ '0x5d21dba00', '0x5d21dba00', '0x5d21dba00' ],
     [ '0x0', '0x0', '0x0' ]
   ],
-  baseFeePerGas: [ '0x0', '0x0', '0x0', '0x0' ],
+  baseFeePerGas：[ '0x0', '0x0', '0x0', '0x0' ],
   gasUsedRatio: [ 0, 2.1000000000021e-8, 0 ]
 }
 ```
 
-## caver.rpc.klay.createAccessList <a href="#caver-rpc-klay-createaccesslist" id="caver-rpc-klay-createaccesslist"></a>
+## caver.rpc.klay.createAccessList<a href="#caver-rpc-klay-createaccesslist" id="caver-rpc-klay-createaccesslist"></a>
 
 ```javascript
 caver.rpc.klay.createAccessList(txCallObject [, callback])
 ```
 
-This method creates an accessList based on a given Transaction. The accessList contains all storage slots and addresses read and written by the transaction, except for the sender account and the precompiles. This method uses the same transaction call object and blockNumberOrTag object as `caver.rpc.klay.call`. An accessList can be used to release stuck contracts that became inaccessible due to gas cost increases. Adding an accessList to your transaction does not necessary result in lower gas usage compared to a transaction without an access list.
+此方法根据给定的事务创建访问列表。 accessList 包含事务读写的所有存储槽和地址，发送者账户和预编译器除外。 该方法使用与 `caver.rpc.klay.call` 相同的事务调用对象和 blockNumberOrTag 对象。 访问列表可用于释放因gas成本增加而无法访问的卡滞合同。 与没有访问列表的交易相比，在交易中添加访问列表并不一定会降低gas用量。
 
-**Parameters**
+**参数**
 
-| Name           | Type                                | Description                                                                                                                                                                                     |
-| -------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callObject     | object                              | A transaction call object. Please see [caver.rpc.klay.call](#caver-rpc-klay-call) parameters.                   |
-| blockParameter | number\\|BigNumber\\|BN\\|string | (optional) A block number, blockhash or the block tag string (`latest` or `earliest`). If omitted, `latest` will be used. |
-| callback       | function                            | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                   |
+| 名称             | 类型                                  | 描述                                                                                                          |
+| -------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| callObject     | 对象                                  | 交易调用对象。 请参阅 [caver.rpc.klay.call](#caver-rpc-klay-call) 参数。 |
+| blockParameter | number\\|BigNumber\\|BN\\|string | (可选）区块编号、区块斜杠或区块标签字符串（"最新 "或 "最早"）。 如果省略，将使用 `latest`。                                   |
+| callback       | function                            | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。                                                          |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `object` - An object includes an access list:
+`Promise` 返回 `object` - 对象包括代码块：
 
-| Name          | Type   | Description                                                                                                                                                                                                                                                     |
-| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| oldestBlock   | string | Lowest number block of returned range.                                                                                                                                                                                                          |
-| reward        | Array  | A two-dimensional array of effective priority fees per gas at the requested block percentiles.                                                                                                                                                  |
-| baseFeePerGas | Array  | An array of block base fees per gas. This includes the next block after the newest of the returned range, because this value can be derived from the newest block. Zeroes are returned for pre-EIP-1559 blocks. |
-| gasUsedRatio  | Array  | An array of gasUsed/gasLimit in the block.                                                                                                                                                                                                      |
+| 名称          | 类型  | 描述                                                                        |
+| ----------- | --- | ------------------------------------------------------------------------- |
+| oldestBlock | 字符串 | 返回范围内的最低数块。                                                               |
+| 奖励          | 数组  | 二维数组，包含所要求的区块百分位数下每种gas的有效优先权费。                                           |
+| 基本gas费      | 数组  | 每个gas的区块基本费用数组。 这包括返回范围中最新区块之后的下一个区块，因为该值可以从最新区块中导出。 EIP-1559 之前的数据块返回 0。 |
+| gas用量比      | 数组  | 区块中gasUsed/gasLimit的数组。                                                   |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.createAccessList({
         from: '0x3bc5885c2941c5cda454bdb4a8c88aa7f248e312',
-        data: '0x20965255',
+        data：'0x20965255',
         gasPrice: '0x3b9aca00',
         gas: '0x3d0900',
-        to: '0x00f5f5f3a25f142fafd0af24a754fafa340f32c7'
+        to：'0x00f5f5f3a25f142fafd0af24a754fafa340f32c7'
     }, 'latest').then(console.log)
-{ accessList: [], gasUsed: '0x0' }
+{ accessList：[], gasUsed：'0x0' }
 ```
 
-## caver.rpc.klay.isParallelDBWrite <a href="#caver-rpc-klay-isparalleldbwrite" id="caver-rpc-klay-isparalleldbwrite"></a>
+## caver.rpc.klay.isParallelDBWrite<a href="#caver-rpc-klay-isparalleldbwrite" id="caver-rpc-klay-isparalleldbwrite"></a>
 
 ```javascript
 caver.rpc.klay.isParallelDBWrite([callback])
 ```
 
-Returns `true` if the node is writing blockchain data in a parallel manner.
+如果节点以并行方式写入区块链数据，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`
+`Promise` returns `number`
 
-| Type    | Description                                                                                                                                                    |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| boolean | `true` means the node is writing blockchain data in a parallel manner. It is `false` if the node is serially writing the data. |
+| 类型      | 描述                                                 |
+| ------- | -------------------------------------------------- |
+| boolean | true "表示节点正在以并行方式写入区块链数据。 如果节点正在串行写入数据，则为 "false"。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.isParallelDBWrite().then(console.log)
@@ -2700,207 +2696,207 @@ true
 caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
 ```
 
-Returns `true` if the node is indexing sender transaction hash to transaction hash mapping information.
+如果节点正在索引发送方交易哈希到交易哈希映射信息，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`
+`Promise` returns `number`
 
-| Type    | Description                                                                                                        |
-| ------- | ------------------------------------------------------------------------------------------------------------------ |
-| boolean | `true` means the node is indexing sender transaction hash to transaction hash mapping information. |
+| 类型      | 描述                               |
+| ------- | -------------------------------- |
+| boolean | true "表示节点正在索引发送方交易哈希到交易哈希的映射信息。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.isSenderTxHashIndexingEnabled().then(console.log)
 true
 ```
 
-## caver.rpc.klay.getProtocolVersion <a href="#caver-rpc-klay-getprotocolversion" id="caver-rpc-klay-getprotocolversion"></a>
+## caver.rpc.klay.getProtocolVersion<a href="#caver-rpc-klay-getprotocolversion" id="caver-rpc-klay-getprotocolversion"></a>
 
 ```javascript
 caver.rpc.klay.getProtocolVersion([callback])
 ```
 
-Returns the kaia protocol version of the node. The current version (as of v1.9.0) of Cypress/Baobab is `istanbul/65`.
+返回节点的 kaia 协议版本。 Cypress/Baobab 的当前版本（截至 v1.9.0）是 `istanbul/65`。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                            |
-| ------ | ------------------------------------------------------ |
-| string | The kaia protocol version of the node. |
+| 类型  | 描述             |
+| --- | -------------- |
+| 字符串 | 节点的 kaia 协议版本。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getProtocolVersion().then(console.log)
 0x40
 ```
 
-## caver.rpc.klay.getRewardbase <a href="#caver-rpc-klay-getrewardbase" id="caver-rpc-klay-getrewardbase"></a>
+## caver.rpc.klay.getRewardbase<a href="#caver-rpc-klay-getrewardbase" id="caver-rpc-klay-getrewardbase"></a>
 
 ```javascript
 caver.rpc.klay.getRewardbase([callback])
 ```
 
-Returns the rewardbase of the current node. Rewardbase is the address of the account where the block rewards go to. It is only required for CNs.
+返回当前节点的 rewardbase。 Rewardbase 是区块奖励的账户地址。 只有 CN 才需要。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                             |
-| ------ | --------------------------------------- |
-| string | The rewardbase address. |
+| Type | 描述      |
+| ---- | ------- |
+| 字符串  | 奖励基地地址。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getRewardbase().then(console.log)
 0xa9b3a93b2a9fa3fdcc31addd240b04bf8db3414c
 ```
 
-## caver.rpc.klay.getFilterChanges <a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a>
+## caver.rpc.klay.getFilterChanges<a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a>
 
 ```javascript
 caver.rpc.klay.getFilterChanges(filterId [, callback])
 ```
 
-Polling method for a filter, which returns an array of logs since the last poll.
+过滤器的轮询方法，返回上次轮询后的日志数组。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| filterId | String   | The filter id.                                                                                                                |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| filterId | 字符串      | 过滤器 ID。                                            |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `Array` - Array of log objects, or an empty array if nothing has changed since the last poll.
+`Promise` 返回 `Array` - 日志对象数组，如果上次轮询后没有任何更改，则返回空数组。
 
-- For filters created with [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter), the returns are block hashes, _e.g._, `["0x3454645634534..."]`.
-- For filters created with [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), the returns are transaction hashes, _e.g._, `["0x6345343454645..."]`.
-- For filters created with [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter), logs are objects with the following parameters:
+- 对于使用 [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) 创建的过滤器，返回值是块哈希值，_e.g._, `["0x3454645634534..."]`。
+- 对于使用 [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter) 创建的过滤器，返回值是事务哈希值，_e.g._, `["0x6345343454645..."]`。
+- 对于使用 [caver.rpc.klay.newFilter](#caver-rpc-klay-newfilter) 创建的过滤器，日志是带有以下参数的对象：
 
-| Name             | Type   | Description                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| logIndex         | string | The log index position in the block.                                                                                                                                                                                                                                                                                                                               |
-| transactionIndex | string | The index position of transactions where this log was created from.                                                                                                                                                                                                                                                                                                |
-| transactionHash  | string | Hash of the transactions this log was created from. `null` when pending.                                                                                                                                                                                                                                                                           |
-| blockHash        | string | Hash of the block where this log was in. `null` when pending.                                                                                                                                                                                                                                                                                      |
-| blockNumber      | string | The block number where this log was in. `null` when pending.                                                                                                                                                                                                                                                                                       |
-| address          | string | Address from which this log originated.                                                                                                                                                                                                                                                                                                                            |
-| data             | string | Contains the non-indexed arguments of the log.                                                                                                                                                                                                                                                                                                                     |
-| topics           | Array  | Array of 0 to 4 32-byte DATA of indexed log arguments. (In Solidity: The first topic is the hash of the signature of the event (_e.g._, `Deposit(address,bytes32,uint256)`), except you declared the event with the `anonymous` specifier.). |
+| 名称        | 类型  | 描述                                                                                                                                                                                   |
+| --------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| logIndex  | 字符串 | 区块中的日志索引位置。                                                                                                                                                                          |
+| 交易索引      | 字符串 | 创建日志的事务索引位置。                                                                                                                                                                         |
+| 交易哈希值。    | 字符串 | 创建该日志的交易散列。 待处理时为 "null"。                                                                                                                                                            |
+| blockHash | 字符串 | 该交易所在区块的哈希值。 待处理时为 "null"。                                                                                                                                                           |
+| 区块编号      | 字符串 | 该日志所在的区块编号。 待处理时为 "null"。                                                                                                                                                            |
+| address   | 字符串 | 该日志的来源地址。                                                                                                                                                                            |
+| 数据        | 字符串 | 包含日志的非索引参数。                                                                                                                                                                          |
+| topics    | 数组  | 由 0 到 4 个 32 字节的日志参数数据组成的数组。 (在 Solidity 中：第一个主题是事件签名的哈希值（_e.g._, `Deposit(address,bytes32,uint256)`），除非你用 `anonymous` 指定符声明了事件）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getFilterChanges('0xafb8e49bbcba9d61a3c616a3a312533e').then(console.log)
 [ 
     { 
-        address: '0x71e503935b7816757AA0314d4E7354dab9D39162',
-        topics: [ '0xe8451a9161f9159bc887328b634789768bd596360ef07c5a5cbfb927c44051f9' ],
-        data: '0x0000000000000000000000000000000000000000000000000000000000000001',
+        地址：0x71e503935b7816757AA0314d4E7354dab9D39162',
+        topics：[ '0xe8451a9161f9159bc887328b634789768bd596360ef07c5a5cbfb927c44051f9' ],
+        data：0x00000000000000000000000000000000000000000001',
         blockNumber: '0xdc5',
         transactionHash: '0x1b28e2c723e45a0d8978890598903f36a74397c9cea8531dc9762c39483e417f',
-        transactionIndex: '0x0',
+        transactionIndex：'0x0',
         blockHash: '0xb7f0bdaba93d3baaa01a5c24517da443207f774e0202f02c298e8e997a540b3d',
-        logIndex: '0x0'
+        logIndex：'0x0'
     } 
 ]
 ```
 
-## caver.rpc.klay.getFilterLogs <a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
+## caver.rpc.klay.getFilterLogs<a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
 
 ```javascript
 caver.rpc.klay.getFilterLogs(filterId [, callback])
 ```
 
-Returns an array of all logs matching the filter with the given id. The filter object should be obtained by using [newFilter](#caver-rpc-klay-newfilter).
+返回一个数组，其中包含与给定 id 的过滤器匹配的所有日志。 应使用 [newFilter](#caver-rpc-klay-newfilter) 获取过滤器对象。
 
-Note that filter ids returned by other filter creation functions, such as [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) or [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter), cannot be used with this function.
+请注意，其他过滤器创建函数返回的过滤器 id，如 [caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) 或 [caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter) 不能与此函数一起使用。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| filterId | string   | The filter id.                                                                                                                |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| filterId | 字符串      | 过滤器 ID。                                            |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
+参见 [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getFilterLogs('0xcac08a7fc32fc625a519644187e9f690').then(console.log);
 [
     {
-        address: '0x55384B52a9E5091B6012717197887dd3B5779Df3',
-        topics: [ '0xe8451a9161f9159bc887328b634789768bd596360ef07c5a5cbfb927c44051f9' ],
-        data: '0x0000000000000000000000000000000000000000000000000000000000000001',
+        地址：0x55384B52a9E5091B6012717197887dd3B5779Df3',
+        topics：[ '0xe8451a9161f9159bc887328b634789768bd596360ef07c5a5cbfb927c44051f9' ],
+        data：0x00000000000000000000000000000000000000000001',
         blockNumber: '0x1c31',
         transactionHash: '0xa7436c54e47dafbce696de65f6e890c96ac22c236f50ca1be28b9b568034c3b3',
-        transactionIndex: '0x0',
+        transactionIndex：'0x0',
         blockHash: '0xe4f27c524dacfaaccb36735deccee69b3d6c315e969779784c36bb8e14b89e01',
-        logIndex: '0x0'
+        logIndex：'0x0'
     }
 ]
 ```
 
-## caver.rpc.klay.getLogs <a href="#caver-rpc-klay-getlogs" id="caver-rpc-klay-getlogs"></a>
+## caver.rpc.klay.getLogs<a href="#caver-rpc-klay-getlogs" id="caver-rpc-klay-getlogs"></a>
 
 ```javascript
 caver.rpc.klay.getLogs(options [, callback])
 ```
 
-Returns an array of all logs matching a given filter object.
+返回与给定筛选器对象匹配的所有日志的数组。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | The filter options. See the below table to find the description.                                              |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 选项       | 对象       | 过滤器选项。 请参阅下表查找说明。                                  |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-The options object can contain the following:
+选项对象可以包含以下内容
 
-| Name      | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | number \\| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                                                                                      |
-| toBlock   | number \\| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                                                                         |
-| address   | string \\| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                                                                                                 |
-| topics    | Array              | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
+| 名称        | 类型                 | 描述                                                                                                                                                                                                                 |
+| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | number \\| string | (可选）要获取日志的最早数据块的数据区块编号。 (最新 "指最近的区块）。 默认值为 \`"最新"。                                                                                                                           |
+| toBlock   | number \\| string | (可选）获取日志的最后一个区块的区块编号。 (`"latest"` means the most recent block.). 默认值为 \`"最新"。                                                                |
+| address   | string \\| Array  | (可选）地址或地址列表。 只返回与特定账户相关的日志。                                                                                                                                                                     |
+| topics    | 数组                 | (可选）必须出现在日志条目中的值数组。 顺序很重要。 如果您想省略主题，请使用 `null`, _e.g._, `[null,'0x12...']`。 您也可以为每个主题传递一个数组，其中包含该主题的选项，例如_ `[null,['option1','option2']]`。 |
 
-**Return Value**
+**返回价值**
 
-See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
+参见 [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.getLogs({
@@ -2910,88 +2906,88 @@ See [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges)
     }).then(console.log)
 [
     {
-        data: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-        topics: [
+        data：'0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
+        topics：[
             '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385
         ]
-        logIndex: '0x0',
-        transactionIndex: '0x0',
+        logIndex：'0x0',
+        transactionIndex：'0x0',
         transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-        blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
+        blockHash：'0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
         blockNumber: '0x4d2',
-        address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+        address：'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
     },
     {...}
 ]
 ```
 
-## caver.rpc.klay.newBlockFilter <a href="#caver-rpc-klay-newblockfilter" id="caver-rpc-klay-newblockfilter"></a>
+## caver.rpc.klay.newBlockFilter<a href="#caver-rpc-klay-newblockfilter" id="caver-rpc-klay-newblockfilter"></a>
 
 ```javascript
 caver.rpc.klay.newBlockFilter([callback])
 ```
 
-Creates a filter in the node, to notify when a new block arrives. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
+在节点中创建一个过滤器，在有新块到达时发出通知。 要检查状态是否已更改，请调用 [caver.rpc.klay.getFilterChanges]（#caver-rpc-klay-getfilterchanges）。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                  |
-| ------ | ---------------------------- |
-| string | A filter id. |
+| 类型  | 描述      |
+| --- | ------- |
+| 字符串 | 过滤器 ID。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.newBlockFilter().then(console.log)
 0xf90906914486a9c22d620e50022b38d5
 ```
 
-## caver.rpc.klay.newFilter <a href="#caver-rpc-klay-newfilter" id="caver-rpc-klay-newfilter"></a>
+## caver.rpc.klay.newFilter<a href="#caver-rpc-klay-newfilter" id="caver-rpc-klay-newfilter"></a>
 
 ```javascript
 caver.rpc.klay.newFilter(options [, callback])
 ```
 
-Creates a filter object using the given filter options, to receive the specific state changes (logs).
+使用给定的筛选器选项创建筛选器对象，以接收特定的状态变化（日志）。
 
-- To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
-- To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
+- 要检查状态是否已更改，请调用 [caver.rpc.klay.getFilterChanges]（#caver-rpc-klay-getfilterchanges）。
+- 要获取与`newFilter`创建的过滤器匹配的所有日志，请调用[caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs)。
 
-For detailed information about the topics in the filter object, please see [Kaia Platform API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
+有关过滤器对象主题的详细信息，请参阅 [Kaia Platform API - klay_newFilter]（.../../../../json-rpc/klay/filter.md#klay_newfilter）。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
+| 名称       | 类型       | 描述                                                                                                                                            |
 | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| options  | object   | The filter options. See the below table to find the description.                                              |
+| 选项       | 对象       | 过滤器选项。 请参阅下表查找说明。                                                                                                                             |
 | callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
 
-The options object can contain the following:
+选项对象可以包含以下内容
 
-| Name      | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fromBlock | number \\| string | (optional) The block number of the earliest block to get the logs. (`"latest"` means the most recent block.) The default value is `"latest"`.                                                                                                                                                                                                      |
-| toBlock   | number \\| string | (optional) The block number of the last block to get the logs. (`"latest"` means the most recent block.). The default value is `"latest"`.                                                                                                                                                                                         |
-| address   | string \\| Array  | (optional) An address or a list of addresses. Only the logs related to the particular account(s) will be returned.                                                                                                                                                                                                                                                 |
-| topics    | Array              | (optional) An array of values that must appear in the log entries. The order is important. If you want to leave topics out, use `null`, _e.g._, `[null, '0x12...']`. You can also pass an array for each topic with options for that topic, _e.g.,_ `[null, ['option1', 'option2']]`. |
+| 名称        | 类型                 | 描述                                                                                                                                                                                                                 |
+| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| fromBlock | number \\| string | (可选）获取日志的最后一个区块的区块编号。 (最新 "指最近的区块）。 默认值为 \`"最新"。                                                                                                                             |
+| toBlock   | number \\| string | (可选）获取日志的最后一个区块的区块编号。 ("最新 "指最近的区块）。 默认值为 \`"最新"。                                                                                                                            |
+| address   | string \\| Array  | (可选）地址或地址列表。 只返回与特定账户相关的日志。                                                                                                                                                                     |
+| topics    | 数组                 | (可选）必须出现在日志条目中的值数组。 顺序很重要。 如果您想省略主题，请使用 `null`, _e.g._, `[null,'0x12...']`。 您也可以为每个主题传递一个数组，其中包含该主题的选项，例如_ `[null,['option1','option2']]`。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                  |
-| ------ | ---------------------------- |
-| string | A filter id. |
+| 类型  | 描述      |
+| --- | ------- |
+| 字符串 | 过滤器 ID。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.newFilter({}).then(console.log)
@@ -3001,89 +2997,89 @@ The options object can contain the following:
 0xd165cbf31b9d60346aada33dbefe01b
 ```
 
-## caver.rpc.klay.newPendingTransactionFilter <a href="#caver-rpc-klay-newpendingtransactionfilter" id="caver-rpc-klay-newpendingtransactionfilter"></a>
+## caver.rpc.klay.newPendingTransactionFilter<a href="#caver-rpc-klay-newpendingtransactionfilter" id="caver-rpc-klay-newpendingtransactionfilter"></a>
 
 ```javascript
 caver.rpc.klay.newPendingTransactionFilter([callback])
 ```
 
-Creates a filter in the node, to receive the information about new pending transaction arrival. To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
+在节点中创建一个过滤器，用于接收新的待处理事务到达的信息。 要检查状态是否已更改，请调用 [caver.rpc.klay.getFilterChanges]（#caver-rpc-klay-getfilterchanges）。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                  |
-| ------ | ---------------------------- |
-| string | A filter id. |
+| 类型  | 描述      |
+| --- | ------- |
+| 字符串 | 过滤器 ID。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.newPendingTransactionFilter().then(console.log)
 0xe62da1b2a09efcd4168398bdbf586db0
 ```
 
-## caver.rpc.klay.uninstallFilter <a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a>
+## caver.rpc.klay.uninstallFilter<a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a>
 
 ```javascript
 caver.rpc.klay.uninstallFilter(filterId [, callback])
 ```
 
-Uninstalls a filter with a given id. Should always be called when a watch is no longer needed. Additionally, filters time out when they are not being called with [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) for a period of time.
+卸载具有给定 Id 的过滤器。 当不再需要监控时应总是被调用。 此外，当过滤器在一段时间内未被 [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) 调用时，过滤器就会超时。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| filterId | string   | The filter id.                                                                                                                |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| filterId | 字符串      | 过滤器 ID。                                            |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `boolean`
+`Promise` returns `number`
 
-| Type    | Description                                                                           |
-| ------- | ------------------------------------------------------------------------------------- |
-| boolean | `true` if the filter was successfully uninstalled, otherwise `false`. |
+| 类型      | 描述                                |
+| ------- | --------------------------------- |
+| boolean | 如果过滤器已成功卸载，则为 `true`，否则为 `false`。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.uninstallFilter('0x1426438ffdae5abf43edf4159c5b013b').then(console.log)
 true
 ```
 
-## caver.rpc.klay.sha3 <a href="#caver-rpc-klay-sha3" id="caver-rpc-klay-sha3"></a>
+## caver.rpc.klay.sha3<a href="#caver-rpc-klay-sha3" id="caver-rpc-klay-sha3"></a>
 
 ```javascript
 caver.rpc.klay.sha3(data[, callback])
 ```
 
-Returns Keccak-256 (not the standardized SHA3-256) of the given data. You can use [caver.utils.sha3](../caver.utils.md#sha3) instead of this.
+返回给定数据的 Keccak-256（而非标准化的 SHA3-256）。 您可以使用 [caver.utils.sha3]（../caver.utils.md#sha3）代替它。
 
-**Parameters**
+**参数**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| data     | String   | The data to be converted into a SHA3 hash.                                                                                    |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 数据       | 字符串      | 要转换成 SHA3 哈希值的数据。                                  |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returns `string`
+`Promise` returns `Array`
 
-| Type   | Description                                        |
-| ------ | -------------------------------------------------- |
-| string | The SHA3 result of the given data. |
+| 类型  | 描述             |
+| --- | -------------- |
+| 字符串 | 给定数据的 SHA3 结果。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.rpc.klay.sha3('0x11223344').then(console.log)
