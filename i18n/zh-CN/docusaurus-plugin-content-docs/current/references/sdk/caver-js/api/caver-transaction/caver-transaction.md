@@ -1,12 +1,12 @@
 # caver.transaction
 
-`caver.transaction` is a package that provides functionality related to Transaction.
+caver.transaction "是一个提供与 "Transaction "相关功能的软件包。
 
 ## Class <a href="#class" id="class"></a>
 
-Each transaction class is described in detail with the table below:
+下表详细介绍了每个交易类别：
 
-|                        | 基础                                                          | 费用委托                                                                                         | Partial Fee Delegation                                                                                                 |
+|                        | 基础                                                          | 费用委托                                                                                         | 部分费用委托                                                                                                                 |
 | ---------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | LegacyTransaction      | [LegacyTransaction](./basic.md#legacytransaction)           | N/A                                                                                          | N/A                                                                                                                    |
 | ValueTransfer          | [ValueTransfer](./basic.md#valuetransfer)                   | [FeeDelegatedValueTransfer](./fee-delegation.md#feedelegatedvaluetransfer)                   | [FeeDelegatedValueTransferWithRatio](./partial-fee-delegation.md#feedelegatedvaluetransferwithratio)                   |
@@ -19,27 +19,27 @@ Each transaction class is described in detail with the table below:
 | EthereumAccessList     | [EthereumAccessList](./basic.md#ethereumaccesslist)         | N/A                                                                                          | N/A                                                                                                                    |
 | EthereumDynamicFee     | [EthereumDynamicFee](./basic.md#ethereumdynamicfee)         | N/A                                                                                          | N/A                                                                                                                    |
 
-## caver.transaction.decode <a href="#caver-transaction-decode" id="caver-transaction-decode"></a>
+## caver.transaction.decode<a href="#caver-transaction-decode" id="caver-transaction-decode"></a>
 
 ```javascript
 caver.transaction.decode(rlpEncoded)
 ```
 
-Decodes RLP-encoded transaction string, a raw transaction, and returns a [Transaction](#class) instance.
+解码 RLP 编码的事务字符串（原始事务），并返回一个 [事务]（#class）实例。
 
-**Parameters**
+**参数**
 
-| Name       | Type   | Description                                                 |
-| ---------- | ------ | ----------------------------------------------------------- |
-| rlpEncoded | string | A RLP-encoded transaction string to decode. |
+| 名称         | 类型     | 描述                |
+| ---------- | ------ | ----------------- |
+| rlpEncoded | string | 要解码的 RLP 编码事务字符串。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                                                            |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| object | An instance of [Transaction](#class). For details of each transaction, refer to [Transaction](#class). |
+| 类型     | 描述                                                                                                                                                    |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | [Transaction]的一个实例 有关各事务的详情，请参阅 [Transaction] |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.transaction.decode('0x08f87...')
@@ -57,31 +57,31 @@ ValueTransfer {
 }
 ```
 
-## caver.transaction.getTransactionByHash <a href="#caver-transaction-gettransactionbyhash" id="caver-transaction-gettransactionbyhash"></a>
+## caver.transaction.getTransactionByHash<a href="#caver-transaction-gettransactionbyhash" id="caver-transaction-gettransactionbyhash"></a>
 
 ```javascript
 caver.transaction.getTransactionByHash('0x{transaction hash}')
 ```
 
-Queries a transaction from kaia and converts to a caver transaction instance.
+从 kaia 查询事务并转换为 caver 事务实例。
 
-**NOTE** `caver.transaction.getTransactionByHash` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `caver.transaction.getTransactionByHash` 自 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 开始支持。
 
-**Parameters**
+**参数**
 
-| Name            | Type   | Description                                                     |
-| --------------- | ------ | --------------------------------------------------------------- |
-| transactionHash | string | The transaction hash string to query from kaia. |
+| 名称              | 类型     | 描述                  |
+| --------------- | ------ | ------------------- |
+| transactionHash | string | 要从 kaia 查询的事务哈希字符串。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returning `object`: An instance of [Transaction](#class). If it fails to receive a transaction object from kaia, an error occurs.
+返回 `object` 的`Promise` 事务的实例。 如果无法从 kaia 收到事务对象，就会发生错误。
 
-| Type   | Description                                                                                                                            |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| object | An instance of [Transaction](#class). For details of each transaction, refer to [Transaction](#class). |
+| 类型     | 描述                                                                                                                                                     |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| object | [Transaction]的一个实例 有关各事务的详情，请参阅 [Transaction]。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.transaction.getTransactionByHash('0x30575f5a76a4477502aa1e5e707e47f05b92c3450132529cf55764cc94f780b0').then(console.log)
@@ -102,29 +102,29 @@ LegacyTransaction {
 }
 ```
 
-## caver.transaction.recoverPublicKeys <a href="#caver-transaction-recoverpublickeys" id="caver-transaction-recoverpublickeys"></a>
+## caver.transaction.recoverPublicKeys<a href="#caver-transaction-recoverpublickeys" id="caver-transaction-recoverpublickeys"></a>
 
 ```javascript
 caver.transaction.recoverPublicKeys('0x{RLP-encoded transaction}')
 ```
 
-Recovers the public key strings from `signatures` field of the given transaction.
+从给定事务的 "signatures "字段中恢复公钥字符串。
 
-**NOTE** `caver.transaction.recoverPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `caver.transaction.recoverPublicKeys` 自 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 开始支持。
 
-**Parameters**
+**参数**
 
-| Name  | Type   | Description                                                                                  |
-| ----- | ------ | -------------------------------------------------------------------------------------------- |
-| rawTx | string | The RLP-encoded transaction string to recover public keys from `signatures`. |
+| 名称    | 类型     | 描述                                   |
+| ----- | ------ | ------------------------------------ |
+| rawTx | string | RLP 编码的事务字符串，用于从 "signatures "中恢复公钥。 |
 
-**Return Value**
+**返回价值**
 
-| Type  | Description                                                                  |
-| ----- | ---------------------------------------------------------------------------- |
-| Array | An array containing public keys recovered from `signatures`. |
+| 类型    | 说明                          |
+| ----- | --------------------------- |
+| Array | 包含从 `signatures` 中恢复的公钥的数组。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.transaction.recoverPublicKeys('0x08f9010e808505d21dba008402faf0809459177716c34ac6e49e295a0e78e33522f14d61ee0194f21460730845e3652aa3cc9bc13b345e4f53984af8d5f845820feaa02b5934c6d26bb3e65edf099d79c57c743d2f70744ca09d3ba9a1099edff9f173a00797886edff4b449c1a599943e3a6003ae9e46b3f3f34862ced327e43fba3a6af845820fe9a063177648732ef855f800eb9f80f68501abb507f84c0d660286a6e0801334a1d2a0620a996623c114f2df35b11ec8ac4f3758d3ad89cf81ba13614e51908cfe9218f845820fe9a086c8ecbfd892be41d48443a2243274beb6daed3f72895045965a3baede4c350ea069ea748aff6e4c106d3a8ba597d8f134745b76f12dacb581318f9da07351511a')
@@ -135,29 +135,29 @@ Recovers the public key strings from `signatures` field of the given transaction
 ]
 ```
 
-## caver.transaction.recoverFeePayerPublicKeys <a href="#caver-transaction-recoverfeepayerpublickeys" id="caver-transaction-recoverfeepayerpublickeys"></a>
+## caver.transaction.recoverFeePayerPublicKeys<a href="#caver-transaction-recoverfeepayerpublickeys" id="caver-transaction-recoverfeepayerpublickeys"></a>
 
 ```javascript
 caver.transaction.recoverFeePayerPublicKeys('0x{RLP-encoded transaction}')
 ```
 
-Recovers the public key strings from `feePayerSignatures` field of the given transaction.
+从给定交易的 "feePayerSignatures "字段中恢复公钥字符串。
 
-**NOTE** `caver.transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `caver.transaction.rec recoverFeePayerPublicKeys` 自 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 开始支持。
 
-**Parameters**
+**参数**
 
-| Name  | Type   | Description                                                                                                                                                                                                                                                |
-| ----- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rawTx | string | The RLP-encoded transaction string to recover public keys from `feePayerSignatures`. To recover fee payer's public keys, the transaction should be a fee-delegated transaction with the `feePayerSignatures` field inside. |
+| 名称    | 类型     | 描述                                                                                 |
+| ----- | ------ | ---------------------------------------------------------------------------------- |
+| rawTx | string | RLP 编码的事务字符串，用于从 "付费者签名 "中恢复公钥。 要恢复缴费人的公钥，交易应是一个内含 `feePayerSignatures` 字段的收费委托交易。 |
 
-**Return Value**
+**返回价值**
 
-| Type  | Description                                                                          |
-| ----- | ------------------------------------------------------------------------------------ |
-| Array | An array containing public keys recovered from `feePayerSignatures`. |
+| 类型    | 描述                                  |
+| ----- | ----------------------------------- |
+| Array | 数组，包含从 `feePayerSignatures` 中获取的公钥。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.transaction.recoverFeePayerPublicKeys('0x09f901fa808505d21dba008402faf0809459177716c34ac6e49e295a0e78e33522f14d61ee019407a9a76ef778676c3bd2b334edcf581db31a85e5f8d5f845820feaa0cb2bbf04a12ec3a06163c30ce8782739ec4745a53e265aa9443f1c0d678bb871a07dd348c7d8fce6be36b661f116973d1c36cc92a389ad4a1a4053bd486060a083f845820fe9a06d5dfca992d6833c0da272578bc6ea941be45f44fb2fa114310ebe18d673ed52a04dc5cd7985c9ce7d44d46d65e65c995a4a8c97159a1eed8b2efb0510b981ab7cf845820feaa0945151edf556fbcebf832092d4534b9a3b1f3d46f85bce09e7d7211070cb57bea01617c8f918f96970baddd12f240a9824eca6b29d91eb7333adacb987f2dcd8dd94b5db72925b1b6b79299a1a49ae226cd7861083acf8d5f845820feaa086fd17d788e89a6e0639395b3c0a04f916103debd6cbe639d6f4ff5034dde3e8a00795551c551d9096234c290689767f34f2d409c95166ab18d216dbc93845ba16f845820feaa00653b6d1cdb90462094b089ce8e2fed0e3b8ec2c44125965e1a5af286644c758a0259b10e3bf594d48535fd0d95e15d095897c8d075c01dd56e7417d5943b0d53af845820fe9a0ce8d051427adab10d1dc93de49123aeab18ba8aadedce0d57ef5b7fa451b1f4fa04fe2a845d92ff48abca3e1d59637fab5f4a4e3172d91772d9bfce60760edc506')
@@ -168,7 +168,7 @@ Recovers the public key strings from `feePayerSignatures` field of the given tra
 ]
 ```
 
-## transaction.sign <a href="#transaction-sign" id="transaction-sign"></a>
+## transaction.sign<a href="#transaction-sign" id="transaction-sign"></a>
 
 ```javascript
 transaction.sign(keyring [, index] [, hasher])
@@ -190,9 +190,9 @@ transaction.sign(keyring [, index] [, hasher])
 
 返回 "对象 "的 "许诺"：已签署的事务。
 
-| 类型     | 描述                                                                                                      |
-| ------ | ------------------------------------------------------------------------------------------------------- |
-| object | 已签名 [事务]（#类）的实例。 签名将附加到 `transaction.signatures` 中。 |
+| 类型     | 描述                                                                                                            |
+| ------ | ------------------------------------------------------------------------------------------------------------- |
+| object | 已签名 [Transaction] 的实例。 签名将附加到 `transaction.signatures` 中。 |
 
 **示例**
 
@@ -652,23 +652,23 @@ transaction.recoverPublicKeys()
 ]
 ```
 
-## transaction.recoverFeePayerPublicKeys <a href="#transaction-recoverfeepayerpublickeys" id="transaction-recoverfeepayerpublickeys"></a>
+## transaction.recoverFeePayerPublicKeys<a href="#transaction-recoverfeepayerpublickeys" id="transaction-recoverfeepayerpublickeys"></a>
 
 ```javascript
 transaction.recoverFeePayerPublicKeys()
 ```
 
-Recovers the public key strings from `feePayerSignatures` field.
+从`feePayerSignatures` 字段中恢复公钥字符串。
 
-**NOTE** `transaction.recoverFeePayerPublicKeys` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `transaction.recoverFeePayerPublicKeys` 自 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 开始支持。
 
-**Return Value**
+**返回价值**
 
-| Type  | Description                                                                          |
-| ----- | ------------------------------------------------------------------------------------ |
-| Array | An array containing public keys recovered from `feePayerSignatures`. |
+| 类型    | 描述                                  |
+| ----- | ----------------------------------- |
+| Array | 数组，包含从 `feePayerSignatures` 中获取的公钥。 |
 
-**Example**
+**示例**
 
 ```javascript
 > transaction.recoverFeePayerPublicKeys()
@@ -679,27 +679,27 @@ Recovers the public key strings from `feePayerSignatures` field.
 ]
 ```
 
-## transaction.suggestGasPrice <a href="#transaction-suggestgasprice" id="transaction-suggestgasprice"></a>
+## transaction.suggestGasPrice<a href="#transaction-suggestgasprice" id="transaction-suggestgasprice"></a>
 
 ```javascript
 transaction.suggestGasPrice()
 ```
 
-Returns suggested gas price. This function is used to set gasPrice field in the [fillTransaction](#transaction-fillTransaction).
+返回建议Gas价格。 该函数用于设置 [fillTransaction]（#transaction-fillTransaction）中的 gasPrice 字段。
 
-Before the Magma hard fork, `suggestGasPrice` returns the unit price of the network. After the Magma hard fork, `suggestGasPrice` returns `baseFee * 2` which is recommended to use as gasPrice.
+在 Magma 硬分叉之前，"suggestGasPrice" 返回的是网络单价。 Magma 硬分叉后，"suggestGasPrice "会返回 "baseFee \* 2"，建议将其用作 gasPrice。
 
-**NOTE** `transaction.suggestGasPrice` is supported since caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0).
+**注意** `transaction.suggestGasPrice` 自 caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0) 开始支持。
 
-**Return Value**
+**返回价值**
 
-`Promise` returning `string`: The suggested gas price in hexadecimal string.
+`Promise` 返回 `string`：以十六进制字符串表示的建议Gas价格。
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
-| string | The suggested gas price. |
+| 类型     | 描述       |
+| ------ | -------- |
+| string | 建议Gas费用。 |
 
-**Example**
+**举例**
 
 ```javascript
 > tx.suggestGasPrice().then(console.log)
