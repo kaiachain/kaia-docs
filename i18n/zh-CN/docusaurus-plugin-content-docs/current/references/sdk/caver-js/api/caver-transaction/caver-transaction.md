@@ -6,7 +6,7 @@
 
 Each transaction class is described in detail with the table below:
 
-|                        | Basic                                                       | Fee Delegation                                                                               | Partial Fee Delegation                                                                                                 |
+|                        | 基础                                                          | 费用委托                                                                                         | Partial Fee Delegation                                                                                                 |
 | ---------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | LegacyTransaction      | [LegacyTransaction](./basic.md#legacytransaction)           | N/A                                                                                          | N/A                                                                                                                    |
 | ValueTransfer          | [ValueTransfer](./basic.md#valuetransfer)                   | [FeeDelegatedValueTransfer](./fee-delegation.md#feedelegatedvaluetransfer)                   | [FeeDelegatedValueTransferWithRatio](./partial-fee-delegation.md#feedelegatedvaluetransferwithratio)                   |
