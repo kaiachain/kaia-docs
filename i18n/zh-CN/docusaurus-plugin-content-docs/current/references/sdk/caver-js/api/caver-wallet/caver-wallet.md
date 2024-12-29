@@ -1,6 +1,6 @@
 # caver.wallet
 
-`caver.wallet` is a package that manages [Keyring](./keyring.md) instances in in-memory wallet. `caver.wallet` accepts all [SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring), and [RoleBasedKeyring](./keyring.md#rolebasedkeyring), and manages them by address.
+caver.wallet "是一个在内存钱包中管理[Keyring](./keyring.md)实例的软件包。 `caver.wallet` accepts all [SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring), and [RoleBasedKeyring](./keyring.md#rolebasedkeyring), and manages them by address.
 
 ## Class <a href="#class" id="class"></a>
 
@@ -10,13 +10,13 @@
 caver.wallet
 ```
 
-`KeyringContainer` is a class that manages [SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring), and [RoleBasedKeyring](./keyring.md#rolebasedkeyring) instances. When Caver is instantiated, it creates a KeyringContainer instance in the `caver.wallet`. You can store and manage keyring instances in the in-memory wallet through `caver.wallet`.
+KeyringContainer "是一个管理[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)和[RoleBasedKeyring](./keyring.md#rolebasedkeyring)实例的类。 当 Caver 实例化时，它会在 `caver.wallet` 中创建一个 KeyringContainer 实例。 您可以通过 `caver.wallet` 在内存钱包中存储和管理钥匙实例。
 
-**properties**
+**属性**
 
-| Name   | Type   | Description                                                 |
-| ------ | ------ | ----------------------------------------------------------- |
-| length | number | The number of keyrings in keyringContainer. |
+| 名称     | 类型     | 描述                             |
+| ------ | ------ | ------------------------------ |
+| length | number | keyringContainer 中keyrings的数量。 |
 
 ## caver.wallet.generate <a href="#caver-wallet-generate" id="caver-wallet-generate"></a>
 
@@ -24,22 +24,22 @@ caver.wallet
 caver.wallet.generate(numberOfKeyrings [, entropy])
 ```
 
-Generates instances of [SingleKeyring](./keyring.md#singlekeyring) in the keyringContainer with randomly generated private keys.
+在 keyringContainer 中生成带有随机生成的私钥的 [SingleKeyring](./keyring.md#singlekeyring) 实例。
 
-**Parameters**
+**参数**
 
-| Name             | Type   | Description                                                                                    |
-| ---------------- | ------ | ---------------------------------------------------------------------------------------------- |
-| numberOfKeyrings | number | The number of [SingleKeyring](./keyring.md#singlekeyring) instances to create. |
-| entropy          | string | (optional) A random string to increase entropy.             |
+| 名称               | 类型     | 描述                                                      |
+| ---------------- | ------ | ------------------------------------------------------- |
+| numberOfKeyrings | number | 要创建的 [SingleKeyring](./keyring.md#singlekeyring) 实例的数量。 |
+| entropy          | string | (可选）用于增加熵的随机字符串。                     |
 
-**Return Value**
+**返回价值**
 
-| Type  | Description                                                         |
-| ----- | ------------------------------------------------------------------- |
-| Array | An array containing the addresses of the generated. |
+| 类型    | 描述          |
+| ----- | ----------- |
+| Array | 包含已生成地址的数组。 |
 
-**Example**
+**举例**
 
 ```javascript
 // generate without entropy
@@ -59,30 +59,30 @@ Generates instances of [SingleKeyring](./keyring.md#singlekeyring) in the keyrin
 ]
 ```
 
-## caver.wallet.newKeyring <a href="#caver-wallet-newkeyring" id="caver-wallet-newkeyring"></a>
+## caver.wallet.newKeyring<a href="#caver-wallet-newkeyring" id="caver-wallet-newkeyring"></a>
 
 ```javascript
 caver.wallet.newKeyring(address, key)
 ```
 
-Creates a keyring instance with given parameters and adds it to the `caver.wallet`.
+使用给定参数创建钥匙圈实例，并将其添加到 `caver.wallet` 中。
 
-If `key` is a private key string, a [SingleKeyring](./keyring.md#singlekeyring) instance that uses a single private key is created. If `key` is an array containing private key strings, a [MultipleKeyring](./keyring.md#multiplekeyring) instance that use multiple private keys is created. If `key` is a 2D array of which each element contains the private key(s) to be used for each role, a [RoleBasedKeyring](./keyring.md#rolebasedkeyring) instance is created. The keyring created is added to `caver.wallet`.
+如果 `key` 是私钥字符串，则会创建一个使用单个私钥的 [SingleKeyring](./keyring.md#singlekeyring) 实例。 如果 `key` 是一个包含私钥字符串的数组，则会创建一个使用多个私钥的 [MultipleKeyring](./keyring.md#multiplekeyring) 实例。 如果 `key` 是一个二维数组，其中每个元素都包含每个角色要使用的私钥，则会创建一个 [RoleBasedKeyring](./keyring.md#rolebasedkeyring) 实例。 创建的keyring会添加到 `caver.wallet`。
 
-**Parameters**
+**参数**
 
-| Name    | Type              | Description                                                                                                                                                                                |
-| ------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address | string            | The address string.                                                                                                                                                        |
-| key     | string \\| Array | The private key string, an array of private keys, or a 2D array of which each array element contains keys defined for each [role](../../../../../learn/accounts.md#roles). |
+| 名称      | 类型                | 描述                                                                                                                                                                                                                                                                                                                                                         |
+| ------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | string            | 地址字符串。                                                                                                                                                                                                                                                                                                                                                     |
+| key     | string \\| Array | 私钥字符串、私钥数组或二维数组，其中每个数组元素都包含为每个 [role] 定义的密钥（.../../../../.../learn/accounts.md#roles）。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                                                                                                                                                                                    |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | The keyring instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) added to caver.wallet is returned. |
+| 类型     | 描述                                                                                                                                                                                                 |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | 返回添加到 caver.wallet 的 keyring 实例（[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring) 或 [RoleBasedKeyring](./keyring.md#rolebasedkeyring) ）。 |
 
-**Example**
+**示例**
 
 ```javascript
 // Create a instance of SingleKeyring and add to caver.wallet
@@ -134,21 +134,21 @@ RoleBasedKeyring {
 caver.wallet.updateKeyring(keyring)
 ```
 
-Updates the keyring inside the `caver.wallet`. When a new `keyring` instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) is passed as a parameter, the existing keyring stored in the `caver.wallet` that matches the `address` property of the given `keyring` instance is found and replaced with the given one. An error occurs when the matching keyring is not found.
+更新 `caver.wallet` 中的 keyring。 当一个新的 `keyring` 实例（[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring) 或 [RoleBasedKeyring](./keyring.md#rolebasedkeyring) 被作为参数传递时，存储在 `caver.wallet` 中与给定的 `keyring` 实例的 `address` 属性相匹配的现有密钥环将被找到并替换为给定的密钥环。 如果找不到匹配的 keyring，则会出现错误。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                                                                                                                                                                            |
-| ------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | object | The new keyring ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) to be stored in `caver.wallet`. |
+| 名称      | 类型     | 描述                                                                                                                                                                                 |
+| ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object | 要存储在 `caver.wallet` 中的新 keyring（[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring) 或 [RoleBasedKeyring](./keyring.md#rolebasedkeyring) ）。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                                                                                                                                                          |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| object | The updated keyring ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) stored in `caver.wallet`. |
+| 类型     | 描述                                                                                                                                                                                |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | 存储在`caver.wallet`中的已更新 keyring（[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring) 或 [RoleBasedKeyring](./keyring.md#rolebasedkeyring) ）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.wallet.updateKeyring(newKeyring)
@@ -158,27 +158,27 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.getKeyring <a href="#caver-wallet-getkeyring" id="caver-wallet-getkeyring"></a>
+## caver.wallet.getKeyring<a href="#caver-wallet-getkeyring" id="caver-wallet-getkeyring"></a>
 
 ```javascript
 caver.wallet.getKeyring(address)
 ```
 
-Returns the keyring instance corresponding to the address in `caver.wallet`.
+返回与 `caver.wallet` 中的地址相对应的密钥环实例。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                      |
-| ------- | ------ | ------------------------------------------------ |
-| address | string | The address of keyring to query. |
+| 名称      | 类型     | 描述               |
+| ------- | ------ | ---------------- |
+| address | string | 要查询的 keyring 地址。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                                                                                                                                                                 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | The found keyring instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) stored in `caver.wallet`. |
+| 类型     | 描述                                                                                                                                                                                  |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | 找到的keyring实例（[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring) 或 [RoleBasedKeyring](./keyring.md#rolebasedkeyring) ）存储在 `caver.wallet` 中。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.wallet.getKeyring('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
@@ -194,21 +194,21 @@ SingleKeyring {
 caver.wallet.isExisted(address)
 ```
 
-Returns `true` if there is a keyring matching the address.
+如果存在与地址匹配的 keyring，则返回 `true`。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                |
-| ------- | ------ | ---------------------------------------------------------- |
-| address | string | The address of keyring to check existence. |
+| 名称      | 类型     | 描述                 |
+| ------- | ------ | ------------------ |
+| address | string | 要检查是否存在的keyring地址。 |
 
-**Return Value**
+**返回价值**
 
-| Type    | Description                                                                                        |
-| ------- | -------------------------------------------------------------------------------------------------- |
-| boolean | `true` means a keyring matching with the address is existed in the `caver.wallet`. |
+| 类型      | 描述                                                    |
+| ------- | ----------------------------------------------------- |
+| boolean | true "表示 \`caver.wallet "中存在与地址匹配的密钥。 |
 
-**Example**
+**举例**
 
 ```javascript
 > caver.wallet.isExisted('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
@@ -221,21 +221,21 @@ true
 caver.wallet.add(keyring)
 ```
 
-Adds an instance of keyring to the `caver.wallet`. If the newly given keyring has the same address with one of the keyrings that already exist in `caver.wallet`, an error is returned. In this case, use [updateKeyring](#caver-wallet-updatekeyring) to update the existing keyring in `caver.wallet`.
+向 `caver.wallet` 添加 keyring 实例。 如果新给定的keyring与 `caver.wallet` 中已存在的keyring地址相同，则会返回错误信息。 在这种情况下，使用 [updateKeyring](#caver-wallet-updatekeyring) 更新`caver.wallet`中的现有keyring。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                                                                                                                                                                         |
-| ------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| keyring | object | A keyring instance ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) to add to `caver.wallet`. |
+| 名称      | 类型     | 描述                                                                                                                                                                                |
+| ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| keyring | object | 要添加到 `caver.wallet` 的keyring实例（[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring) 或 [RoleBasedKeyring](./keyring.md#rolebasedkeyring) ）。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                                                                                                                                                 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | The added keyring ([SingleKeyring](./keyring.md#singlekeyring), [MultipleKeyring](./keyring.md#multiplekeyring) or [RoleBasedKeyring](./keyring.md#rolebasedkeyring)) in `caver.wallet`. |
+| 类型     | 描述                                                                                                                                                                                           |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | caver.wallet\`中添加的keyring（[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring) 或 [RoleBasedKeyring](./keyring.md#rolebasedkeyring) ）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.wallet.add(keyring)
@@ -251,65 +251,65 @@ SingleKeyring {
 caver.wallet.remove(address)
 ```
 
-Deletes the keyring from `caver.wallet` whose address matches the address of the given keyring.
+从 `caver.wallet` 中删除地址与给定钥匙圈地址一致的keyring。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                |
-| ------- | ------ | -------------------------------------------------------------------------- |
-| address | string | An address of the keyring to be deleted in `caver.wallet`. |
+| 名称      | 类型     | 描述                                |
+| ------- | ------ | --------------------------------- |
+| address | string | 要在 `caver.wallet` 中删除的keyring的地址。 |
 
-**Return Value**
+**返回价值**
 
-| Type    | Description                                                       |
-| ------- | ----------------------------------------------------------------- |
-| boolean | `true` if keyring is removed from `caver.wallet`. |
+| 类型      | 描述                                        |
+| ------- | ----------------------------------------- |
+| boolean | 如果从 `caver.wallet`'中删除了keyring，则为 `true`。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.wallet.remove('0x6a3edfad6d1126020d5369e9097db39281876c5d')
 true
 ```
 
-## caver.wallet.signMessage <a href="#caver-wallet-signmessage" id="caver-wallet-signmessage"></a>
+## caver.wallet.signMessage<a href="#caver-wallet-signmessage" id="caver-wallet-signmessage"></a>
 
 ```javascript
 caver.wallet.signMessage(address, message, role [, index])
 ```
 
-Signs the message with kaia-specific prefix using keyring stored in caver.wallet. This calculates a kaia-specific signature with:
+使用存储在 caver.wallet 中的密钥，用 kaia 专用前缀签署信息。 这样就能计算出 kaia 特有的签名：
 
 ```
-sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
+sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message)))
 ```
 
-If the user has not provided the index parameter, `caver.wallet.signMessage` signs message using all the private keys used by the role. If the index parameter is given, `caver.wallet.signMessage` signs message using only one private key at the given index. The role used in caver-js can be found from `caver.wallet.keyring.role`.
+如果用户没有提供索引参数，`caver.wallet.signMessage` 会使用角色使用的所有私钥签署信息。 如果给定了索引参数，`caver.wallet.signMessage` 将只使用给定索引上的一个私钥来签署信息。 在 caver-js 中使用的角色可以通过 `caver.wallet.keyring.role`找到。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                                                                                                                                                                                                                                                                       |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | string | An address of the keyring to be used.                                                                                                                                                                                                                                             |
-| message | string | The message to sign.                                                                                                                                                                                                                                                              |
-| role    | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`.                                                                                                                                                                                 |
-| index   | number | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
+| 名称      | 类型     | 描述                                                                              |
+| ------- | ------ | ------------------------------------------------------------------------------- |
+| address | string | 要使用的keyring地址。                                                                  |
+| message | string | 要签署的信息。                                                                         |
+| role    | number | 表示钥匙作用的数字。 您可以使用 `caver.wallet.keyring.role`。                                   |
+| index   | number | (可选）要使用的私人密钥的索引。 索引必须小于为每个角色定义的私钥数组的长度。 如果没有定义索引，该方法将使用所有私钥。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                    |
-| ------ | -------------------------------------------------------------- |
-| object | An object that includes the result of signing. |
+| 类型     | 描述         |
+| ------ | ---------- |
+| object | 包含签名结果的对象。 |
 
-The returned object contains the following:
+返回的对象包含以下内容
 
-| Name        | Type   | Description                                                              |
-| ----------- | ------ | ------------------------------------------------------------------------ |
-| messageHash | string | The hash of message with kaia-specific prefix.           |
-| signatures  | Array  | An array of [SignatureData](./keyring.md#signaturedata). |
-| message     | string | The message to sign.                                     |
+| 名称          | 类型     | 描述                                                                                       |
+| ----------- | ------ | ---------------------------------------------------------------------------------------- |
+| messageHash | string | 用 kaia 专用前缀签署信息。                                                                         |
+| singatures  | Array  | [SignatureData] （#signaturedata）的数组。 |
+| message     | string | 待签名消息                                                                                    |
 
-**Example**
+**示例**
 
 ```javascript
 // Sign message with roleTransactionKey which uses two private keys
@@ -334,36 +334,36 @@ The returned object contains the following:
 }
 ```
 
-## caver.wallet.sign <a href="#caver-wallet-sign" id="caver-wallet-sign"></a>
+## caver.wallet.sign<a href="#caver-wallet-sign" id="caver-wallet-sign"></a>
 
 ```javascript
 caver.wallet.sign(address, transaction [, index] [, hasher])
 ```
 
-Signs the transaction as a `sender` of the transaction and appends `signatures` in the transaction object using the keyring in `caver.wallet`.
+使用 `caver.wallet` 中的密钥作为事务的`发送方`签署事务，并在事务对象中添加`签名`。
 
-For [Account Update](../caver-transaction/basic.md#accountupdate) transaction, use [roleTransactionKey](../../../../../learn/accounts.md#roles), otherwise, use [roleTransactionKey](../../../../../learn/accounts.md#roles). If the user has not defined an `index`, `caver.wallet.sign` signs the transaction using all the private keys used by the role. If `index` is defined, the `caver.wallet.sign` signs the transaction using only one private key at the given index.
+对于 [Account Update](../caver-transaction/basic.md#accountupdate) 交易，使用 [roleTransactionKey](../../../../../learn/accounts.md#roles) ，否则，使用 [roleTransactionKey](../../../../../learn/accounts.md#roles) 。 如果用户没有定义 "index"，"caver.wallet.sign "会使用角色使用的所有私钥签署交易。 如果定义了 `index`，`caver.wallet.sign` 就会只使用给定索引上的一个私钥来签署交易。
 
-**Parameters**
+**参数**
 
-| Name        | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                                                                                                                                                                                    |
-| transaction | object   | An instance of [Transaction](../caver-transaction/caver-transaction.md#class).                                                                                                                                                                                                                                                                                                                           |
-| index       | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys.                                                                                                                        |
-| hasher      | function | (optional) A hash function to get the transaction hash. If `hasher` is given as a parameter, it calculates the transaction hash instead of the default method for calculating transaction hash implemented in caver-js. See [Basic](../../../../../learn/transactions/basic.md) for details about the default method for transaction hash generation. |
+| 名称          | 类型       | 描述                                                                                                                                                                                      |
+| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string   | 要使用的 keyring 地址。                                                                                                                                                                        |
+| transaction | object   | [Transaction]（.../caver-transaction/caver-transaction.md#class）的实例。 |
+| index       | number   | (可选）要使用的私人密钥的索引。 索引必须小于为每个角色定义的私钥数组的长度。 如果没有定义索引，该方法将使用所有私钥。                                                                                                         |
+| hasher      | function | (可选）用于获取交易哈希值的哈希函数。 如果将 `hasher` 作为参数，它将计算事务哈希值，而不是使用 caver-js 中的默认方法计算事务哈希值。 有关事务散列生成的默认方法，请参阅 [Basic](../../../../../../learn/transactions/basic.md) 。             |
 
-**Return Value**
+**返回价值**
 
-`Promise` returning `object`: The signed transaction.
+返回 "对象 "的 "许诺"：已签署的事务。
 
-| Type   | Description                                                                                                                             |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A signed transaction instance. The sign(s) is added to the `transaction.signatures`. |
+| 类型     | 描述                                           |
+| ------ | -------------------------------------------- |
+| object | 已签名的事务实例。 签名将附加到 `transaction.signatures` 中。 |
 
-For more information about fields by transaction type, see [caver.transaction](../caver-transaction/caver-transaction.md).
+有关事务类型字段的更多信息，请参阅 [caver.transaction]（.../caver-transaction/caver-transaction.md）。
 
-**Example**
+**示例**
 
 ```javascript
 // This example uses the ValueTransfer transaction.
@@ -444,38 +444,38 @@ ValueTransfer {
 }
 ```
 
-## caver.wallet.signAsFeePayer <a href="#caver-wallet-signasfeepayer" id="caver-wallet-signasfeepayer"></a>
+## caver.wallet.signAsFeePayer<a href="#caver-wallet-signasfeepayer" id="caver-wallet-signasfeepayer"></a>
 
 ```javascript
 caver.wallet.signAsFeePayer(address, transaction [, index] [, hasher])
 ```
 
-Signs the transaction as `fee payer` of the transaction and appends `feePayerSignatures` in the transaction object using the keyring in `caver.wallet`.
+使用 `caver.wallet` 中的密钥，在交易对象中以交易的 `费用支付方` 身份签名并附加 `费用支付方签名`。
 
-For signing a transaction as a fee payer, use [roleFeePayerKey](../../../../../learn/accounts.md#roles). If the user has not defined an `index`, `caver.wallet.signAsFeePayer` signs the transaction using all the private keys used by the role. If `index` is defined, the `caver.wallet.signAsFeePayer` signs the transaction using only one private key at the given index.
+要以付费者身份签署交易，请使用 [roleFeePayerKey](../../../../../../learn/accounts.md#roles). 如果用户没有定义 "索引"，"caver.wallet.signAsFeePayer "会使用角色使用的所有私钥签署交易。 如果定义了 `index`，`caver.wallet.signAsFeePayer` 将只使用给定索引上的一个私钥来签署交易。
 
-If the `transaction.feePayer` is not defined, the address of keyring which is founded from `caver.wallet` is assigned.
+如果未定义 "transaction.feePayer"，则分配由 "caver.wallet "创建的密钥地址。
 
-**Parameters**
+**参数**
 
-| Name        | Type     | Description                                                                                                                                                                                                                                                                                       |
-| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string   | An address of the keyring to be used.                                                                                                                                                                                                                                             |
-| transaction | object   | An instance of [FeeDelegatedTransaction](../caver-transaction/fee-delegation.md).                                                                                                                                                                                                 |
-| index       | number   | (optional) The index of the private key you want to use. The index must be less than the length of the array of the private keys defined for each role. If an index is not defined, this method will use all the private keys. |
-| hasher      | function | (optional) A function to get the transaction hash. If hasher is defined as a parameter, this is used to get the transaction hash instead of a default implementation in caver-js.                                                              |
+| 名称          | 类型       | 描述                                                                                                                                                                 |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| address     | string   | 要使用的keyring地址。                                                                                                                                                     |
+| transaction | object   | FeeDelegatedTransaction](../caver-transaction/fee-delegation.md) 的实例。 |
+| index       | number   | (可选）要使用的私人密钥的索引。 索引必须小于为每个角色定义的私钥数组的长度。 如果没有定义索引，该方法将使用所有私钥。                                                                                    |
+| hasher      | function | (可选）用于获取交易哈希值的函数。 如果将 hasher 定义为参数，就会使用它来获取事务哈希值，而不是使用 caver-js 中的默认实现。                                                                         |
 
-**Return Value**
+**返回价值**
 
-`Promise` returning `object`: The signed transaction.
+返回 "object" 的 "Promise"：已签署的事务。
 
-| Type   | Description                                                                                                                            |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| object | A signed transaction instance. The signing result is appended to the `transaction.feePayerSignatures`. |
+| 类型     | 描述                                                                     |
+| ------ | ---------------------------------------------------------------------- |
+| object | 已签名的事务实例。 签名结果会附加到 "transaction.feePayerSignatures "中。 |
 
-For more information about fields by transaction type, see [caver.transaction](../caver-transaction/caver-transaction.md).
+有关事务类型字段的更多信息，请参阅 [caver.transaction]（.../caver-transaction/caver-transaction.md）。
 
-**Example**
+**示例**
 
 ```javascript
 // This example uses the FeeDelegatedValueTransfer transaction.
