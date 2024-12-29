@@ -712,7 +712,7 @@ keyring.getPublicKey()
 
 返回公钥字符串。 如果 `keyring` 是 [SingleKeyring](#singlekeyring) 的实例，则 getPublicKey 返回公钥字符串。 如果 `keyring` 是 [MultipleKeyring](#multiplekeyring) 的实例，则 getPublicKey 返回公钥字符串数组。 如果 `keyring` 是 [RoleBasedKeyring](#rolebasedkeyring) 的实例，getPublicKey 返回一个二维数组，其中每个角色使用的公钥都被定义为数组。
 
-**参数：**
+**参数**
 
 | 名称         | 类型      | 描述                                           |
 | ---------- | ------- | -------------------------------------------- |
@@ -930,13 +930,13 @@ sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message)))
 
 返回的对象包含以下内容
 
-| 名称          | 类型     | 描述                                                           |
-| ----------- | ------ | ------------------------------------------------------------ |
-| messageHash | string | 带有 kaia 专用前缀的报文哈希值。                                          |
-| singatures  | Array  | An array of [SignatureData](#signaturedata). |
-| message     | string | The message to sign.                         |
+| 名称          | 类型     | 描述                                                                                       |
+| ----------- | ------ | ---------------------------------------------------------------------------------------- |
+| messageHash | string | 带有 kaia 专用前缀的报文哈希值。                                                                      |
+| singatures  | Array  | [SignatureData] （#signaturedata）的数组。 |
+| message     | string | 待签名消息                                                                                    |
 
-**Example**
+**示例**
 
 ```javascript
 // Sign with roleTransactionKey
@@ -966,21 +966,21 @@ sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message)))
 keyring.getKeyByRole(role)
 ```
 
-Returns the private key(s) used by the role entered as a parameter.
+返回作为参数输入的角色所使用的私钥。
 
-**Parameters**
+**参数**
 
-| Name | Type   | Description                                                                                                       |
-| ---- | ------ | ----------------------------------------------------------------------------------------------------------------- |
-| role | number | A number indicating the role of the key. You can use `caver.wallet.keyring.role`. |
+| 名称   | 类型     | 描述                                            |
+| ---- | ------ | --------------------------------------------- |
+| role | number | 表示钥匙作用的数字。 您可以使用 `caver.wallet.keyring.role`。 |
 
-**Return Value**
+**返回价值**
 
-| Type                                 | Description                                                                                                                               |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| [PrivateKey](#privatekey) \\| Array | An instance of [PrivateKey](#privatekey) or an array containing the [PrivateKey](#privatekey) instances used by the role. |
+| 类型                                   | 描述                                                                                               |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| [PrivateKey](#privatekey) \\| Array | 私钥](#privatekey)的实例，或包含角色使用的[私钥](#privatekey)实例的数组。 |
 
-**Example**
+**示例**
 
 ```javascript
 // getKeyByRole with singleKeyring. 
@@ -1035,56 +1035,56 @@ PrivateKey { _privateKey: '0x{private key}' }
 ]
 ```
 
-## keyring.getKlaytnWalletKey <a href="#keyring-getklaytnwalletkey" id="keyring-getklaytnwalletkey"></a>
+## keyring.getKlaytnWalletKey<a href="#keyring-getklaytnwalletkey" id="keyring-getklaytnwalletkey"></a>
 
 ```javascript
 keyring.getKlaytnWalletKey()
 ```
 
-Returns the [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string for the keyring. With [MultipleKeyring](#multiplekeyring) or [RoleBasedKeyring](#rolebasedkeyring), [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) cannot be used. In this case, use [keyring.encrypt](#keyring-encrypt).
+返回钥匙圈的 [KlaytnWalletKey](.../.../.../.../.../learn/accounts.md#klaytn-wallet-key-format) 字符串。 使用 [MultipleKeyring](#multiplekeyring)或 [RoleBasedKeyring](#rolebasedkeyring) 时，不能使用 [KlaytnWalletKey](../../../.../.../learn/accounts.md#klaytn-wallet-key-format)。 在这种情况下，请使用 [keyring.encrypt](#keyring-encrypt)。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                                      |
-| ------ | ---------------------------------------------------------------------------------------------------------------- |
-| string | The [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) of the keyring. |
+| 类型     | 描述                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| string | 钥匙圈的 [KlaytnWalletKey]（.../.../.../.../.../learn/accounts.md#klaytn-wallet-key-format）。 |
 
-**Example**
+**示例**
 
 ```javascript
 > keyring.getKlaytnWalletKey()
 '0x{private key}0x{type}0x{address in hex}'
 ```
 
-## keyring.toAccount <a href="#keyring-toaccount" id="keyring-toaccount"></a>
+## keyring.toAccount<a href="#keyring-toaccount" id="keyring-toaccount"></a>
 
 ```javascript
 keyring.toAccount([options])
 ```
 
-Returns the [Account](../caver.account.md#account) instance for updating the [AccountKey](../../../../../learn/accounts.md#account-key) of the [kaiaaccounts](../../../../../learn/accounts.md#klaytn-accounts). The [Account](../caver.account.md#account) instance has an [AccountKey](../caver.account.md#accountkeylegacy) instance that can contain public key(s) inside, which will be sent to kaia Network and used for validating transactions. For more details about [Account](../caver.account.md#account), see [Account Update](../../get-started.md#account-update).
+返回用于更新 [kaiaaccounts](../../../../../learn/accounts.md#account-key) 的 [AccountKey](../../../../../learn/accounts.md#klaytn-accounts) 实例。 账户](.../caver.account.md#account)实例有一个[账户密钥](.../caver.account.md#accountkeylegacy)实例，其中可以包含公钥，公钥将被发送到 kaia Network 并用于验证交易。 有关 [Account]（.../caver.account.md#account）的更多详情，请参阅 [Account Update]（.../../get-started.md#account-update）。
 
-Note that if you update the [AccountKey](../../../../../learn/accounts.md#account-key) of the [Account](../../../../../learn/accounts.md#klaytn-accounts) stored in the kaia, the old private key(s) cannot be used anymore. See [Getting started](../../get-started.md#account-update) on how to use the returned [Account](../caver.account.md#account) instance to update information in your [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) on kaia.
+请注意，如果更新 kaia 中存储的 [Account](.../.../.../.../.../learn/accounts.md#account-key) 的 [AccountKey](.../.../.../../learn/accounts.md#klaytn-accounts) 密钥，则不能再使用旧的私钥。 请参阅 [Getting started](../../get-started.md#account-update) 了解如何使用返回的 [Account](../caver.account.md#account) 实例更新 kaia 上 [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) 中的信息。
 
-Depending on the type of the private key(s) in the keyring, the returned [Account](../caver.account.md#account) instances can be classified as follows.
+根据钥匙圈中私人密钥的类型，返回的 [Account](../caver.account.md#account) 实例可分为以下几类。
 
-- When the keyring contains a private key string: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyPublic](../caver.account.md#accountkeypublic)
-- When the keyring contains private key strings: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyWeigthedMultiSig](../caver.account.md#accountkeyweightedmultisig)
-- When the keyring contains the different private key strings by role: Return an [Account](../caver.account.md#account) instance that includes the address in the keyring and an instance of [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased)
+- 当钥匙串包含私钥字符串时：返回一个[Account]（.../caver.account.md#account）实例，其中包括密钥环中的地址和一个[AccountKeyPublic]（.../caver.account.md#accountkeypublic）实例
+- 当钥匙串包含私钥字符串时：返回包含密钥串中地址的 [Account](../caver.account.md#account) 实例和 [AccountKeyWeigthedMultiSig](../caver.account.md#accountkeyweightedmultisig) 实例
+- 当密钥环按角色包含不同的私钥字符串时：返回包含密钥环中地址的 [Account](../caver.account.md#account) 实例和 [AccountKeyRoleBased](../caver.account.md#accountkeyrolebased) 实例
 
-**Parameters**
+**参数**
 
-| Name    | Type                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| options | [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) \\| Array | (optional) [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) instance containing information that should be defined when updating your existing account to the one with a number of private keys. If keyring uses different private keys for each role, a [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) instance must be defined for each role in an array. If keyring uses more than one private key and options parameter is not defined, the default [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) with the threshold of 1 and the weight of 1 for each key will be used. |
+| 名称      | 类型                                                                           | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| options | [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) （\|数组 | (可选）[WeightedMultiSigOptions]（.../caver.account.md#weightedmultisigoptions）实例，包含将现有账户更新为具有多个私钥的账户时应定义的信息。 如果密钥环为每个角色使用不同的私钥，则必须在数组中为每个角色定义一个 [WeightedMultiSigOptions](../caver.account.md#weightedmultisigoptions) 实例。 如果密钥使用一个以上的私钥，且未定义选项参数，则将使用默认的 [WeightedMultiSigOptions]（.../caver.account.md#weightedmultisigoptions），阈值为 1，每个密钥的权重为 1。 |
 
-**Return Value**
+**返回价值**
 
-| Type                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Account](../caver.account.md#account) | An Account instance to be used when a user updates AccountKey for their account in the kaia. Note that if you want to replace the existing keyring (or the existing private key(s)) with a new keyring (or a new private key(s)) for your account, you must update your AccountKey by sending an Account Update transaction to kaia beforehand. |
+| 类型                                    | 描述                                                                                                           |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| [Account](./caver.account.md#account) | 当用户更新 kaia 账户的 AccountKey 时使用的账户实例。 请注意，如果您想用新的密钥环（或新的私钥）替换现有的密钥环（或现有的私钥），您必须事先向 kaia 发送 "账户更新 "交易来更新您的账户密钥。 |
 
-**Example**
+**示例**
 
 ```javascript
 // Get account with singleKeyring
@@ -1196,33 +1196,33 @@ Account {
 keyring.encrypt(password [, options])
 ```
 
-Encrypts a keyring and returns a keystore v4 standard. For more information, please refer to [KIP-3](https://kips.kaia.io/KIPs/kip-3).
+加密keyring并返回密钥存储 v4 标准。 更多信息，请参阅 [KIP-3](https://kips.kaia.io/KIPs/kip-3)。
 
-**Parameters**
+**参数**
 
-| Name     | Type   | Description                                                                                                                          |
-| -------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| password | string | The password to be used for encryption. The encrypted key store can be decrypted with this password. |
-| options  | string | (optional) The `options` parameter allows you to specify the values to use when using encrypt.    |
+| 名称       | 类型     | 描述                                                  |
+| -------- | ------ | --------------------------------------------------- |
+| password | string | 用于加密的密码。 加密的密钥存储空间可以用这个密码解密。                        |
+| options  | string | (可选）"options "参数允许您指定使用加密时要使用的值。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                |
-| ------ | ------------------------------------------ |
-| object | The encrypted keystore v4. |
+| 类型     | 描述                        |
+| ------ | ------------------------- |
+| object | 加密密钥库 v4. |
 
-The returned object contains the following:
+返回的对象包含以下内容
 
-| Name    | Type   | Description                                                      |
-| ------- | ------ | ---------------------------------------------------------------- |
-| version | number | The version of keystore.                         |
-| id      | string | The id of keystore.                              |
-| address | string | The address in the encrypted [Keyring](#class).  |
-| keyring | Array  | The encrypted private key(s). |
+| 名称      | 类型     | 描述                                                                  |
+| ------- | ------ | ------------------------------------------------------------------- |
+| version | number | 密钥存储的版本。                                                            |
+| id      | string | keystore 的 ID                                                       |
+| address | string | 加密[Keyring]的地址。 |
+| keyring | Array  | 加密的私人密钥。                                                            |
 
-For more information, please refer to [KIP-3](https://kips.kaia.io/KIPs/kip-3).
+更多信息，请参阅 [KIP-3](https://kips.kaia.io/KIPs/kip-3)。
 
-**Example**
+**示例**
 
 ```javascript
 // Encrypt singleKeyring
@@ -1338,39 +1338,39 @@ For more information, please refer to [KIP-3](https://kips.kaia.io/KIPs/kip-3).
 }
 ```
 
-## keyring.encryptV3 <a href="#keyring-encryptv3" id="keyring-encryptv3"></a>
+## keyring.encryptV3<a href="#keyring-encryptv3" id="keyring-encryptv3"></a>
 
 ```javascript
 keyring.encryptV3(password [, options])
 ```
 
-Encrypts an instance of [SingleKeyring](#singlekeyring) and returns a keystore v3 standard.
+加密 [SingleKeyring](#singlekeyring) 的实例，并返回密钥存储 v3 标准。
 
-Note that [MultipleKeyring](#multiplekeyring) and [RoleBasedKeyring](#rolebasedkeyring) cannot use encryptV3. In this case, please use [keyring.encrypt](#keyring-encrypt) with a keystore V4 standard.
+请注意，[MultipleKeyring](#multiplekeyring) 和 [RoleBasedKeyring](#rolebasedkeyring) 不能使用 encryptV3。 在这种情况下，请使用 [keyring.encrypt](#keyring-encrypt) 和密钥存储 V4 标准。
 
-**Parameters**
+**参数**
 
-| Name     | Type   | Description                                                                                                                                                        |
-| -------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| password | string | The password to be used for encryption. The encrypted key store can be decrypted with this password.                               |
-| options  | string | (optional) The password to be used for encryption. The encrypted key store can be decrypted with this password. |
+| 名称       | 类型     | 描述                                                  |
+| -------- | ------ | --------------------------------------------------- |
+| password | string | 用于加密的密码。 加密的密钥存储空间可以用这个密码解密。                        |
+| options  | string | (可选）用于加密的密码。 加密的密钥存储空间可以用这个密码解密。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                |
-| ------ | ------------------------------------------ |
-| object | The encrypted keystore v3. |
+| 类型     | 描述                         |
+| ------ | -------------------------- |
+| object | 加密密钥存储 v3. |
 
-The returned object contains the following:
+返回的对象包含以下内容
 
-| Name    | Type   | Description                                                 |
-| ------- | ------ | ----------------------------------------------------------- |
-| version | number | The version of keystore.                    |
-| id      | string | The id of keystore.                         |
-| address | string | The address of encrypted [Keyring](#class). |
-| crypto  | object | The encrypted private key.                  |
+| 名称      | 类型     | 描述                                                                  |
+| ------- | ------ | ------------------------------------------------------------------- |
+| version | number | 密钥存储的版本。                                                            |
+| id      | string | keystore 的 ID                                                       |
+| address | string | 加密[Keyring]的地址。 |
+| crypto  | object | 加密的私人密钥。                                                            |
 
-**Example**
+**示例**
 
 ```javascript
 > keyring.encryptV3('password')
@@ -1395,21 +1395,21 @@ The returned object contains the following:
 }
 ```
 
-## keyring.isDecoupled <a href="#keyring-isdecoupled" id="keyring-isdecoupled"></a>
+## keyring.isDecoupled<a href="#keyring-isdecoupled" id="keyring-isdecoupled"></a>
 
 ```javascript
 keyring.isDecoupled()
 ```
 
-Returns `true` if keyring has decoupled key.
+如果keyring已解耦密钥，则返回 `true`。
 
-**Return Value**
+**返回价值**
 
-| Type    | Description                                          |
-| ------- | ---------------------------------------------------- |
-| boolean | `true` if keyring has decoupled key. |
+| 类型      | 描述                    |
+| ------- | --------------------- |
+| boolean | 如果密钥环已解耦密钥，则为 `true`。 |
 
-**Example**
+**举例**
 
 ```javascript
 > keyring.isDecoupled()
