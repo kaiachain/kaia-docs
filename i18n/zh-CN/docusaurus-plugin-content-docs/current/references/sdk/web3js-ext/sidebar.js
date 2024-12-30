@@ -1,15 +1,15 @@
 export const sidebar = {
     type: 'category',
-    label: 'web3js-ext',
+    label: 'web3py-ext',
     link: {
         type: 'doc',
-        id: 'references/sdk/web3js-ext/getting-started'
+        id: 'references/sdk/web3py-ext/getting-started'
     },
     items: [
         {
             type: 'doc',
             label: 'Getting-Started',
-            id: 'references/sdk/web3js-ext/getting-started'
+            id: 'references/sdk/web3py-ext/getting-started'
         },
         {
             type: 'category',
@@ -19,7 +19,7 @@ export const sidebar = {
                     type: 'category',
                     label: 'Account Key',
                     items: [
-                        'references/sdk/web3js-ext/account-management/account-key/legacy',
+                        'references/sdk/web3py-ext/account-management/account-key/legacy',
                         'references/sdk/web3js-ext/account-management/account-key/public',
                         'references/sdk/web3js-ext/account-management/account-key/multisig',
                         'references/sdk/web3js-ext/account-management/account-key/role-based'
