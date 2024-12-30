@@ -2,22 +2,22 @@
 sidebar_label: Partial Fee Delegation
 ---
 
-# Partial Fee delegation type transaction class
+# 部分收费委托类型交易类
 
-## FeeDelegatedValueTransferWithRatio <a id="feedelegatedvaluetransferwithratio"></a>
+## 带比例的费用委托值转移<a id="feedelegatedvaluetransferwithratio"></a>
 
 ```javascript
 caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransferWithRatio` represents a [fee delegated value transfer with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransferWithRatio` transaction.
+"FeeDelegatedValueTransferWithRatio "表示[带比率的费用委托价值转移交易]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio）。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedValueTransferWithRatio "事务。
 
-`FeeDelegatedValueTransferWithRatio` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransfer` transaction.
+FeeDelegatedValueTransferWithRatio\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedValueTransfer "事务时可在 "transactionObject "中选择定义的属性。
 
 :::note
 
-NOTE: You can create an instance of `FeeDelegatedValueTransferWithRatio` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedValueTransferWithRatio.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+注意：您可以通过 RLP 编码字符串创建 `FeeDelegatedValueTransferWithRatio` 实例。 请参考下面的示例。
+注意：从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持 `caver.transaction.feeDelegatedValueTransferWithRatio.create`。
 
 NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferWithRatio({...})`, please change it to `caver.transaction.feeDelegatedValueTransferWithRatio.create({...})`.
 
@@ -355,19 +355,19 @@ NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.
 
 :::
 
-**properties**
+**属性**
 
-| Name               | Type   | Description                                                                                                                                                                                                                                                |
-| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | string | The address of the sender.                                                                                                                                                                                                                 |
-| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                   |
-| feeRatio           | string | The ratio that constitutes the proportion of the transaction fee the fee payer will be burdened with. The valid range of this ratio is between 1 and 99. The ratio of 0, or 100 and above are not allowed. |
-| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                    |
-| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                      |
-| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                              |
-| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                    |
-| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                           |
-| chainId            | string | (optional) The chain id of the kaia network. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                                                       |
+| 名称                 | 类型  | 描述                                                                                                                                                                                   |
+| ------------------ | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| from               | 字符串 | 发件人地址。                                                                                                                                                                               |
+| gas                | 字符串 | 交易允许使用的最高交易费金额。                                                                                                                                                                      |
+| feeRatio           | 字符串 | 费用支付方将承担的交易费比例。 该比率的有效范围在 1 到 99 之间。 不允许比率为 0 或 100 及以上。                                                                                                                             |
+| nonce              | 字符串 | (可选）用于唯一标识发件人交易的值。 如果省略，"caver.rpc.klay.getTransactionCount(address, 'pending')\` 将用于设置 nonce。 |
+| singatures         | 数组  | (可选）签名数组。                                                                                                                                                         |
+| feePayerSignatures | 数组  | (可选）付费者签名数组。                                                                                                                                                      |
+| feePayer           | 字符串 | (可选）缴费人地址。                                                                                                                                                        |
+| gasPrice           | 字符串 | (可选）一个乘数，用于计算发件人将支付多少代币。 如果省略，将使用 `caver.rpc.klay.getGasPrice`设置 gasPrice。                                                                                        |
+| chainId            | 字符串 | (可选）kaia 网络的链 id。 If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                            |
 
 **Example**
 
