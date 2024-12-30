@@ -1,6 +1,6 @@
 # Read
 
-You can call functions in Smart Contract via "Call" RPC API. What you can call here is limited to **view functions** that is not changing any states in the Contract.
+您可以通过 "调用 "RPC API 调用智能合约中的函数。 在这里可以调用的功能仅限于**视图函数**，不会改变合约中的任何状态。
 
 <CH.Spotlight>
 <CH.Code>
@@ -49,7 +49,7 @@ main();
 ---
 
 ```zsh output
-❯ node smartContractRead.js
+node smartContractRead.js
 number 294
 ```
 
@@ -57,7 +57,7 @@ number 294
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+导入 **web3** 和 **@kaiachain/web3js-ext** 软件包，在 web3 上添加 kaia 功能
 
 ```js smartContractRead.js focus=1
 
@@ -65,7 +65,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3js 中的提供者是访问区块链数据的只读抽象。
 
 ```js smartContractRead.js focus=3:4
 
@@ -73,7 +73,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js smartContractRead.js focus=3:4
 const { Web3 } = require("@kaiachain/web3js-ext");
@@ -118,7 +118,7 @@ main();
 
 ---
 
-Define contract Abi and addreess, you can get it from compiled solidity code
+定义合同 Abi 和 addreess，可从编译后的 solidity 代码中获取
 
 ```js smartContractRead.js focus=29:30
 
@@ -126,7 +126,7 @@ Define contract Abi and addreess, you can get it from compiled solidity code
 
 ---
 
-Create a contract instance using `Web3.eth.Contract` with defined **contractAbi** and **address**. You can read and write the contract through this instance
+使用定义了 **contractAbi** 和 **address** 的 `Web3.eth.Contract`创建合约实例。 您可以通过该实例读写合约
 
 ```js smartContractRead.js focus=33
 
@@ -134,10 +134,10 @@ Create a contract instance using `Web3.eth.Contract` with defined **contractAbi*
 
 ---
 
-Call function **number** of created contract and print the result
+调用已创建合约的**号**函数并打印结果
 
 <CH.Code>
-```js smartContractRead.js focus=34:35
+``js smartContractRead.js focus=34:35
 
 ````
 
