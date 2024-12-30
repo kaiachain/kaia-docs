@@ -215,7 +215,7 @@ web3_fee_delegated_smart_contract_execution_sign_recover()
 
 ---
 
-In this tutorial, the **data to call a function** of the contract is **encoded** into **bytes** stream. Please refer to the **write tutorial** in the **Smart Contract section** to make the encoded data
+在本教程中，调用合约函数的**数据被**编码为**字节**流。 请参阅**智能合约部分**的**编写教程**，以制作编码数据
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=22
 
@@ -223,7 +223,7 @@ In this tutorial, the **data to call a function** of the contract is **encoded**
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+使用 **fill_transaction** 为交易对象添加更多参数，如气体限制...
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=24
 
@@ -231,10 +231,10 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the value transfer tx by user's private key
+用用户的私人密钥签署值传输 tx
 
 <CH.Code>
-```py delegated_smart_contract_execution_sign_recover.py focus=26:28
+``py delegated_smart_contract_execution_sign_recover.py focus=26:28
 
 ````
 ---
@@ -248,10 +248,10 @@ raw transaction of signed tx: 0x31f8e78203a3850ba43b74008301b05d94108bf12b50c9ef
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+从已签署的 tx 中的签名中恢复**签名人地址**
 
 <CH.Code>
-```py delegated_smart_contract_execution_sign_recover.py focus=30:31
+``py delegated_smart_contract_execution_sign_recover.py focus=30:31
 
 ````
 
@@ -267,10 +267,10 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-Sign the value transfer tx by fee payer's private key
+用缴费人的私人密钥签署价值转移 tx
 
 <CH.Code>
-```py delegated_smart_contract_execution_sign_recover.py focus=33:34
+``py delegated_smart_contract_execution_sign_recover.py focus=33:34
 
 ````
 
@@ -280,17 +280,16 @@ Sign the value transfer tx by fee payer's private key
 ```zsh output
 ❯ py delegated_smart_contract_execution_sign_recover.py
 raw transaction of feePayer signed tx: 0x31f901458203a3850ba43b74008301b05d94108bf12b50c9ef65525f0495c721aec55015e1118094a2a8854b1802d8cd5de631e690817c253d6a9153b8643d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000f847f8458207f5a00a3db2a6793df0b256e2a81bce7ae3780783fcf58cc8326a14371c3413f3075da05031fd033453cf9a7be888b1db3812193d00221e299b483aa4e80a850664618a94cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f5a08275e838e70da6b1c590f6a8ee5a545ddf93963c5d62bc423835930b91295aa0a06bcd34e8a2a9114c15311e2d7b3004c041410cecb3452349a6e82e09b736b41c
-
 ````
 
 </CH.Code>
 
 ---
 
-Recover the **fee payer's address** from the signature in signed tx
+从已签署的 tx 中的签名中恢复**缴费人地址**
 
 <CH.Code>
-```py delegated_smart_contract_execution_sign_recover.py focus=36:37
+``py delegated_smart_contract_execution_sign_recover.py focus=36:37
 
 ````
 
@@ -300,17 +299,16 @@ Recover the **fee payer's address** from the signature in signed tx
 ```zsh output
 ❯ py delegated_smart_contract_execution_sign_recover.py
 recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
-
 ````
 
 </CH.Code>
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+您可以使用**Account.decode_transaction**工具对 RLP 编码的 tx 进行**解码**，如果您想让输出格式更漂亮，请使用**to_pretty**工具。
 
 <CH.Code>
-```py delegated_smart_contract_execution_sign_recover.py focus=39:40
+``py delegated_smart_contract_execution_sign_recover.py focus=39:40
 
 ````
 ---
@@ -349,7 +347,7 @@ decoded transaction: {
 
 ---
 
-Send the **tx** to the blockchain. It will return the tx hash, which will be used to wait the receipt
+将**tx**发送到区块链。 它将返回 tx 哈希值，用于等待接收
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=42
 
@@ -357,7 +355,7 @@ Send the **tx** to the blockchain. It will return the tx hash, which will be use
 
 ---
 
-The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+如果交易已在区块链中完成，**wait_for_transaction_receipt** 方法会返回交易收据。
 
 <CH.Code>
 
@@ -370,7 +368,6 @@ The **wait_for_transaction_receipt** method returns the tx receipt if it is comp
 ```zsh output
 ❯ py delegated_smart_contract_execution_sign_recover.py
 tx hash:  0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd receipt:  AttributeDict({'blockHash': HexBytes('0x83d5276dc3fec557740a2d25c8f076aba11c022e7021b71bd95a76318c4ff5c9'), 'blockNumber': 148225895, 'contractAddress': None, 'cumulativeGasUsed': 44742, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 44742, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x108bF12b50c9ef65525F0495C721aEc55015e111', 'transactionHash': HexBytes('0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd'), 'transactionIndex': 0, 'type': 0})
-
 ```
 
 </CH.Code>
