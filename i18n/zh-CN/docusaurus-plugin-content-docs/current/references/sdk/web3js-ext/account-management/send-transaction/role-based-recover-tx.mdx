@@ -1,6 +1,6 @@
-# Role-based Account Key
+# 基于角色的账户密钥
 
-**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+**AccountKeyRoleBased** 表示基于角色的密钥。 如果账户有一个** AccountKeyRoleBased**对象，且交易类型为**除账户更新外的**，那么验证过程将根据每个角色进行，如下所示：
 
 <CH.Spotlight>
 <CH.Code>
@@ -72,7 +72,7 @@ recoveredAddr rpc 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea true
 
 ---
 
-Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+导入**@kaiachain/web3js-ext**软件包，在 web3 上添加 kaia 功能
 
 ```js SignTxWithRoleBasedExample.js focus=1
 
@@ -80,7 +80,7 @@ Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ---
 
-Define sender's **address** and role-based **private keys**
+定义发件人的**地址**和role-based的**私人密钥**
 
 ```js SignTxWithRoleBasedExample.js focus=3:6
 
@@ -88,7 +88,7 @@ Define sender's **address** and role-based **private keys**
 
 ---
 
-Define receiver's **address**
+定义接收方的**地址**
 
 ```js SignTxWithRoleBasedExample.js focus=7
 
@@ -96,7 +96,7 @@ Define receiver's **address**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3js 中的提供者是访问区块链数据的只读抽象。
 
 ```js SignTxWithRoleBasedExample.js focus=9
 
@@ -104,7 +104,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js SignTxWithRoleBasedExample.js focus=9
 const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
@@ -144,7 +144,7 @@ main().catch(console.error);
 
 ---
 
-Define a **web3 instance** using the provider
+使用提供程序定义**Web3 实例**
 
 ```js SignTxWithRoleBasedExample.js focus=10
 
@@ -152,7 +152,7 @@ Define a **web3 instance** using the provider
 
 ---
 
-Create a sender's **wallet** with the **transaction role** private key and provider
+使用**交易角色**私钥和提供者创建发件人的**钱包**
 
 ```js SignTxWithRoleBasedExample.js focus=11
 
@@ -160,7 +160,7 @@ Create a sender's **wallet** with the **transaction role** private key and provi
 
 ---
 
-Create a **value transfer** transaction with `type: TxType.ValueTransfer`
+创建一个**值转移**交易，交易类型为`type.TxType.ValueTransfer`：TxType.ValueTransfer\` 类型
 
 ```js SignTxWithRoleBasedExample.js focus=14:20
 
@@ -168,7 +168,7 @@ Create a **value transfer** transaction with `type: TxType.ValueTransfer`
 
 ---
 
-Sign the transaction with the wallet that has role **sending transaction**
+与具有**发送交易角色的钱包签署交易**
 
 <CH.Code>
 
@@ -186,7 +186,7 @@ signedTx sentTx 0x3f7ee99c699ad2143bf0fac72dac1ff689c992e382e4705f7366aceaecc094
 
 ---
 
-Send the **signed transaction** to kaia network
+将**签署的交易**发送至 kaia 网络
 
 <CH.Code>
 ```js SignTxWithRoleBasedExample.js focus=25:26
@@ -219,7 +219,7 @@ receipt {
 
 ---
 
-Recover the address from signed transaction using `web3.klay.recoverFromTransaction`
+使用 `web3.klay.recoverFromTransaction` 从已签署的事务中恢复地址
 
 <CH.Code>
 ```js SignTxWithRoleBasedExample.js focus=28:30
