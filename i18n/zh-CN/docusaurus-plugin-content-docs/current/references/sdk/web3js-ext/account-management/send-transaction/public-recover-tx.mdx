@@ -1,6 +1,6 @@
-# Public Account Key
+# 公共账户密钥
 
-**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+**AccountKeyPublic** 用于有一个公钥的账户。 如果账户有一个 AccountKeyPublic 对象，交易验证过程如下：
 
 <CH.Spotlight>
 <CH.Code>
@@ -71,7 +71,7 @@ recoveredAddr rpc 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b true
 
 ---
 
-Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+导入**@kaiachain/web3js-ext**软件包，在 web3 上添加 kaia 功能
 
 ```js SignTxWithPubkeyExample.js focus=1
 
@@ -79,7 +79,7 @@ Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ---
 
-Define sender's **address** and **private keys**
+定义发件人的**地址**和**私人密钥**
 
 ```js SignTxWithPubkeyExample.js focus=5:6
 
@@ -87,7 +87,7 @@ Define sender's **address** and **private keys**
 
 ---
 
-Define receiver's **address**
+定义接收方的**地址**
 
 ```js SignTxWithPubkeyExample.js focus=7
 
@@ -95,7 +95,7 @@ Define receiver's **address**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3js 中的提供者是访问区块链数据的只读抽象。
 
 ```js SignTxWithPubkeyExample.js focus=9
 
@@ -103,7 +103,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js SignTxWithPubkeyExample.js focus=9
 const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
@@ -142,7 +142,7 @@ main().catch(console.error);
 
 ---
 
-Define a **web3 instance** using the provider
+使用提供程序定义**Web3 实例**
 
 ```js SignTxWithPubkeyExample.js focus=10
 
@@ -150,7 +150,7 @@ Define a **web3 instance** using the provider
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+用**私钥**和**提供者**创建发件人钱包
 
 ```js SignTxWithPubkeyExample.js focus=11
 
@@ -158,7 +158,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Create a value transfer transaction with `type: TxType.ValueTransfer`
+创建具有 `type：TxType.ValueTransfer` 类型
 
 ```js SignTxWithPubkeyExample.js focus=14:19
 
@@ -166,10 +166,10 @@ Create a value transfer transaction with `type: TxType.ValueTransfer`
 
 ---
 
-Sign the transaction with sender's **wallet**
+用发件人的**钱包**签署交易
 
 <CH.Code>
-```js SignTxWithPubkeyExample.js focus=21:22
+``js SignTxWithPubkeyExample.js focus=21:22
 
 ````
 ---
@@ -182,7 +182,7 @@ signedTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
 
 ---
 
-Send the **signed transaction** to kaia network and print the **receipt**
+将**签署的交易**发送到 kaia 网络，并打印**收据**
 
 <CH.Code>
 ```js SignTxWithPubkeyExample.js focus=24:25
@@ -215,7 +215,7 @@ receipt {
 
 ---
 
-Recover the address from signed transaction using `web3.klay.recoverFromTransaction`
+使用 `web3.klay.recoverFromTransaction` 从已签署的事务中恢复地址
 
 <CH.Code>
 ```js SignTxWithPubkeyExample.js focus=27:29
