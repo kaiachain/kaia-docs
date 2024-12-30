@@ -1,6 +1,6 @@
-# Smart Contract Execution
+# 智能合约执行
 
-**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+**TxTypeSmartContractExecution** 使用给定数据执行智能合约。 只有当 "to "是智能合约账户时，才接受**TxTypeSmartContractExecution**。
 
 <CH.Spotlight>
 <CH.Code>
@@ -98,7 +98,7 @@ tx hash:  0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd rec
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=1:2
 
@@ -106,7 +106,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
+从 **eth_account**、**web3py_ext** 和 **cytoolz** 中导入必要的实用程序
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=3:10
 
@@ -114,7 +114,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+使用指定的 **kairos** 测试网 URL 创建 Web3 实例
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=12
 
@@ -122,7 +122,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=12
 from web3py_ext import extend
@@ -175,7 +175,7 @@ web3_fee_delegated_smart_contract_execution_sign_recover()
 
 ---
 
-Load an **account** from private key
+从私人密钥加载账户
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=15
 
@@ -183,7 +183,7 @@ Load an **account** from private key
 
 ---
 
-Load a **fee payer account** from private key
+从私人密钥加载**缴费人账户**
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=16
 
@@ -191,7 +191,7 @@ Load a **fee payer account** from private key
 
 ---
 
-Create an **empty transaction** of type **TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**. You can use **empty_tx** util to get a tx with default fields filled.
+创建一个**TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**类型的**空事务。 您可以使用 **empty_tx\*\* 工具来获取已填写默认字段的 tx。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=18
 
@@ -199,7 +199,7 @@ Create an **empty transaction** of type **TxType.FEE_DELEGATED_SMART_CONTRACT_EX
 
 ---
 
-Merge the **additional fields** like **from**, **to** and **data** into the empty tx by using the **merge** util.
+使用 **merge** 工具将**附加字段**（如**from**、**to**和**data**）合并到空 tx 中。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=19:23
 
@@ -207,7 +207,7 @@ Merge the **additional fields** like **from**, **to** and **data** into the empt
 
 ---
 
-Set the **contract address** you want to execute into the **to** field
+在**至**字段中设置要执行的\*\*合同地址
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=21
 
