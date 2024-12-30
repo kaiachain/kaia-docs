@@ -1,61 +1,61 @@
-# Sending a sample transaction
+# 发送交易示例
 
-Let's try sending a transaction as a simple warm-up. In this short example, we will be creating a keystore, connecting to kaia node, as well as creating a transaction - all of this using caver-js!
+让我们尝试发送一笔交易作为简单的热身。 在这个简短的示例中，我们将使用 caver-js 创建一个密钥存储、连接到 kaia 节点并创建一个事务！
 
-Don't worry if this is your first time using caver-js. Just follow the simple steps below.
+如果您是第一次使用 caver-js，请不要担心。 只需按照下面的简单步骤操作即可。
 
-## Prerequisites
+## 前提条件
 
-First install the following packages.
+首先安装以下软件包
 
 - [Node.js](https://nodejs.org/en/download/) version ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 - [npm](https://www.npmjs.com/get-npm)
 - [nvm](https://github.com/nvm-sh/nvm)
 - [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-_Note:_ If you get an `nvm: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
+_注：_ 安装 nvm 后，如果出现 `nvm: command not found` 错误，请参阅此 [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060) 。
 
-## 1. Create an Account and Download Keystore <a id="1.-create-an-account-and-download-keystore"></a>
+## 1. 创建账户并下载 Keystore<a id="1.-create-an-account-and-download-keystore"></a>
 
-The most simple way to create an account is using the [Kaia Online Toolkit](https://toolkit.kaia.io/misc/generateKeystore).
+创建账户最简单的方法是使用 [Kaia 在线工具包](https://toolkit.kaia.io/misc/generateKeystore)。
 
 ![Kaia Online Toolkit](/img/references/keystore.png)
 
-Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
+下载 keystore 文件，并将文件名改为更简单的名称，如 `keystore.json` 。
 
-**You need KAIA to send a transaction.** You can get test KLAY for Kairos testnet from [Faucet](https://faucet.kaia.io). Refer to [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+\*\* 您需要 KAIA 才能发送交易。\*\* 您可以从 [Faucet](https://faucet.kaia.io) 获取用于 Kairos 测试网的测试 KLAY。 详细说明请参阅 [Kaia Wallet]（.../.../.../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay）。
 
-## 2. Initialize Project <a id="2.-initialize-project"></a>
+## 2. 初始化项目<a id="2.-initialize-project"></a>
 
-First, let's create a folder for our project. We will simply call it `test`. Navigate to your command line and type:
+首先，为我们的项目创建一个文件夹。 我们简单地将其称为 "test"。 导航到您的命令行，然后输入：
 
 ```
 mkdir test
 ```
 
-Now let's navigate to our folder.
+现在，让我们导航到我们的文件夹。
 
 ```
 cd test
 ```
 
-We are in our folder, where we will download caver-js. But before that, we have to check our `node.js` version, because we have to use 12 or 14.
+我们将在我们的文件夹中下载 caver-js。 但在此之前，我们必须检查我们的 `node.js` 版本，因为我们必须使用 12 或 14 版本。
 
-You can check the version like this:
+您可以像这样检查版本：
 
 ```
 node --version
 ```
 
-If the version is not 12 or 14, **make sure to change it**. Here, we will use the version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). So let's type `nvm use 14.16.0` to change our node version.
+如果版本不是 12 或 14，**务必更改**。 在此，我们将使用版本（[14.16.0](https://nodejs.org/dist/latest-v14.x/)）。 因此，让我们输入 `nvm use 14.16.0` 来更改节点版本。
 
-Now let's initialize our project:
+现在，让我们初始化我们的项目：
 
 ```
 npm init
 ```
 
-Since we are just doing a simple test, it doesn't matter how you answer the questions. Keep pressing `enter`.
+因为我们只是做一个简单的测试，所以如何回答问题并不重要。 继续按 `enter`。
 
 ```
 
@@ -86,41 +86,41 @@ About to write to /Users/terri.k/test/package.json:
 Is this OK? (yes)
 ```
 
-Alternatively, you can simply type the command below to skip hitting `enter`:
+或者，您也可以直接键入下面的命令，而不点击 "enter"：
 
 ```
 npm init -y
 ```
 
-## 3. Download caver-js <a id="3.-download-caver-js"></a>
+## 3. 下载 caver-js<a id="3.-download-caver-js"></a>
 
-And now we are ready to install caver-js.
+现在我们准备安装 caver-js。
 
 ```
 npm install caver-js
 ```
 
-Also, add the below module because we need it:
+同时，添加以下模块，因为我们需要它：
 
 ```
 npm i read
 ```
 
-## 4. Create Test File <a id="4.-create-test-file"></a>
+## 4. 创建测试文件<a id="4.-create-test-file"></a>
 
-Let's create a test file named `testcaver.js` like so:
+让我们像这样创建一个名为 `testcaver.js` 的测试文件：
 
 ```
 touch testcaver.js
 ```
 
-We will be writing our code in this file to send a transaction to transfer KAIA.
+我们将在该文件中编写代码，发送转账 KAIA 的交易。
 
-## 5. Connect to kaia Node <a id="5.-connect-to-klaytn-node"></a>
+## 5. 连接 kaia 节点<a id="5.-connect-to-klaytn-node"></a>
 
-Since we are sending a transaction to the blockchain network, we need to connect to a kaia node. We will be using Kairos Testnet.
+由于我们要向区块链网络发送交易，因此需要连接到 kaia 节点。 我们将使用 Kairos Testnet。
 
-We will import the `caver-js` and `read` module and connect to a kaia node in the Kairos network as shown below:
+我们将导入 `caver-js` 和 `read` 模块，并连接到 Kairos 网络中的 kaia 节点，如下图所示：
 
 ```javascript
 const Caver = require('caver-js')
@@ -128,9 +128,9 @@ const read = require('read')
 const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 ```
 
-## 6. Provide Keystore, Create Keyring, and Add to Caver Wallet <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
+## 6. 提供 Keystore、创建 Keyring 并添加到 Caver 钱包<a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
 
-You need an account to make transactions on the blockchain. That account information is included in the keystore. Using the `loadPassword()` function, we can implement a password prompt on the terminal. The function looks like this:
+您需要一个账户才能在区块链上进行交易。 账户信息包含在 keystore 中。 使用`loadPassword()`函数，我们可以在终端上实现密码提示。 函数如下
 
 ```
 async function loadPassword() {
@@ -148,9 +148,9 @@ async function loadPassword() {
 }
 ```
 
-The password entered from the prompt, along with the keystore file existing in the same directory, will be decrypted and stored as `keyring`.
+从提示符输入的密码和同一目录下的 keystore 文件将被解密，并存储为 `keyring` 文件。
 
-After that, the `keyring` will be stored in the wallet. Add the lines below:
+之后，"keyring "将被存储在钱包中。 添加以下几行：
 
 ```
 async function sendKlay() {
@@ -169,11 +169,11 @@ async function sendKlay() {
 	}
 ```
 
-## 7. Send Transaction <a id="7.-send-transaction"></a>
+## 7. 发送交易<a id="7.-send-transaction"></a>
 
-We will now create a transaction to transfer some KAIA. This type of transaction is called "value transfer transaction". Let's break down each parameter.
+现在，我们将创建一个交易来转移一些 KAIA。 这类交易被称为 "value transfer transaction"。 让我们来分析一下每个参数。
 
-The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KAIA, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KAIA into peb. Here, we will send 10 KAIA. For `gas`,
+`from` 地址来自我们上传的 keystore。  `to` 地址是 KAIA 的接收方，可以使用任何地址。 对于 `value`, 您可以方便地使用 `caver.utils.toPeb()` 将 KAIA 转换为 peb。 在这里，我们将发送 10 KAIA。 对于 "gas"、
 
 ```
 	
@@ -194,15 +194,15 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 }
 ```
 
-Don't forget to add in the end:
+别忘了在最后添加：
 
 ```
 sendKlay()
 ```
 
-## 8. Run the Code <a id="8.-run-the-code"></a>
+## 8. 运行代码<a id="8.-run-the-code"></a>
 
-Let's run the code that we've just written:
+让我们运行一下刚才编写的代码：
 
 ```
 node testcaver.js
@@ -210,7 +210,7 @@ node testcaver.js
 
 ![Type your password](/img/references/prompt.png)
 
-The result will look something like this:
+结果会是这样的
 
 ```
 SingleKeyring {
@@ -249,9 +249,9 @@ SingleKeyring {
 }
 ```
 
-You can view the transaction details in [Kaiascan](https://kairos.kaiascan.io/) or [Kaiascope](https://kairos.kaiascope.com/) using the `transactionHash`.
+您可以使用 `transactionHash` 在 [Kaiascan](https://kairos.kaiascan.io/) 或 [Kaiascope](https://kairos.kaiascope.com/) 中查看交易详情。
 
-## 9. Entire Code <a id="9.-run-the-code"></a>
+## 9. 全部代码<a id="9.-run-the-code"></a>
 
 ```
 const Caver = require('caver-js')
@@ -306,4 +306,4 @@ async function loadPassword() {
 sendKLAY()
 ```
 
-I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Kaia Forum](https://devforum.kaia.io/) for help.
+我希望您对使用 caver-js 提交的 Transacion 充满信心。 如果您遇到困难或有任何问题，请随时访问我们的 [Kaia 论坛](https://devforum.kaia.io/) 寻求帮助。
