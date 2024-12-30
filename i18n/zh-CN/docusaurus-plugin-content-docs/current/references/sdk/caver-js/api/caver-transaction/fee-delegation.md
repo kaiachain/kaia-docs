@@ -1,42 +1,42 @@
 ---
-sidebar_label: Fee Delegation
+sidebar_label: 费用委托
 ---
 
-# Fee delegation type transaction class
+# 收费委托类型 交易类型
 
-## FeeDelegatedValueTransfer <a id="feedelegatedvaluetransfer"></a>
+## FeeDelegatedValueTransfer <0></0>
 
 ```javascript
 caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransfer` represents a [fee delegated value transfer transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransfer` transaction.
+FeeDelegatedValueTransfer "代表[fee delegated value transfer transaction]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer）。 transactionObject "可以具有以下属性，以创建 "FeeDelegatedValueTransfer "事务。
 
-`FeeDelegatedValueTransfer` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransfer` transaction.
+FeeDelegatedValueTransfer\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedValueTransfer "事务时可在 "transactionObject "中选择定义的属性。
 
 :::note
 
-NOTE: You can create an instance of `FeeDelegatedValueTransfer` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedValueTransfer.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+注意：您可以通过 RLP 编码字符串创建 `FeeDelegatedValueTransfer` 实例。 请参考下面的示例。
+注意："caver.transaction.feeDelegatedValueTransfer.create "从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransfer({...})`, please change it to `caver.transaction.feeDelegatedValueTransfer.create({...})`.
+注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用 "new caver.transaction.feeDelegatedValueTransfer({...}) "这样的构造函数创建事务，请将其更改为 "caver.transaction.feeDelegatedValueTransfer.create({...})"。
 
 :::
 
-**properties**
+**属性**
 
-| Name               | Type   | Description                                                                                                                                                                                                                                               |
-| ------------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| value              | string | The amount of KAIA in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                             |
-| from               | string | The address of the sender.                                                                                                                                                                                                                |
-| to                 | string | The account address that will receive the transferred value.                                                                                                                                                                              |
-| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                  |
-| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                                                     |
-| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                                                             |
-| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                                                   |
-| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce.                                   |
-| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                                                          |
-| chainId            | string | (optional) The chain id of the kaia blockchain platform (abbreviated as "Kaia" for the rest of this document). If omitted, `caver.rpc.klay.getChainId` will be used to set chainId. |
+| 名称                 | 类型     | 说明                                                                                                                                                                                   |
+| ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| value              | string | 以 peb 为单位的 KAIA 转账金额。 您可以使用 `caver.utils.toPeb`。                                                                                                                                     |
+| from               | string | 发件人地址。                                                                                                                                                                               |
+| to                 | string | 接收转账金额的账户地址。                                                                                                                                                                         |
+| gas                | string | 交易允许使用的最高交易费金额。                                                                                                                                                                      |
+| singatures         | Array  | (可选）签名数组。                                                                                                                                                         |
+| feePayerSignatures | Array  | (可选）feePayerSignatures 数组。                                                                                                                                        |
+| feePayer           | string | (可选）缴费人地址。                                                                                                                                                        |
+| nonce              | string | (可选）用于唯一标识发件人交易的值。 如果省略，"caver.rpc.klay.getTransactionCount(address, 'pending')\` 将用于设置 nonce。 |
+| gasPrice           | string | (可选）一个乘数，用于计算发件人将支付多少代币。 如果省略，将使用 `caver.rpc.klay.getGasPrice`设置 gasPrice。                                                                                        |
+| chainId            | string | (可选）kaia 区块链平台（本文其余部分简称为 "Kaia"）的链 id。 如果省略，将使用 `caver.rpc.klay.getChainId`设置 chainId。                                                                            |
 
 **Example**
 
@@ -71,36 +71,36 @@ FeeDelegatedValueTransfer {
 caver.transaction.feeDelegatedValueTransferMemo.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransferMemo` represents a [fee delegated value transfer memo transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransferMemo` transaction.
+FeeDelegatedValueTransferMemo "代表一个[收费委托价值转移备忘录事务]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo）。 transactionObject "可以具有以下属性，以创建 "FeeDelegatedValueTransferMemo "事务。
 
-`FeeDelegatedValueTransferMemo` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransferMemo` transaction.
+FeeDelegatedValueTransferMemo\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedValueTransferMemo "事务时可在 "transactionObject "中选择定义的属性。
 
 :::note
 
-NOTE: You can create an instance of `FeeDelegatedValueTransferMemo` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedValueTransferMemo.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+注意：您可以通过 RLP 编码字符串创建 `FeeDelegatedValueTransferMemo` 实例。 请参考下面的示例。
+注意：从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持 `caver.transaction.feeDelegatedValueTransferMemo.create`。
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedValueTransferMemo({...})`, please change it to `caver.transaction.feeDelegatedValueTransferMemo.create({...})`.
+注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用类似`new caver.transaction.feeDelegatedValueTransferMemo({...})`的构造函数创建交易，请将其更改为`caver.transaction.feeDelegatedValueTransferMemo.create({...})`。
 
 :::
 
-**properties**
+**属性**
 
-| Name               | Type   | Description                                                                                                                                                                                                             |
-| ------------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| value              | string | The amount of KAIA in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                           |
-| from               | string | The address of the sender.                                                                                                                                                                              |
-| to                 | string | The account address that will receive the transferred value.                                                                                                                                            |
-| input              | string | Data attached to the transaction. The message should be passed to this property.                                                                                                        |
-| gas                | string | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                |
-| signatures         | Array  | (optional) An array of signatures.                                                                                                                                                   |
-| feePayerSignatures | Array  | (optional) An array of feePayerSignatures.                                                                                                                                           |
-| feePayer           | string | (optional) The address of fee payer.                                                                                                                                                 |
-| nonce              | string | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice           | string | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
-| chainId            | string | (optional) The chain id of the kaia. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                            |
+| 名称                 | 类型     | 描述                                                                                                                                                                                   |
+| ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| value              | string | 以 peb 为单位的 KAIA 转账金额。 您可以使用 `caver.utils.toPeb`。                                                                                                                                     |
+| from               | string | 发送人地址。                                                                                                                                                                               |
+| to                 | string | 接收转账金额的账户地址。                                                                                                                                                                         |
+| input              | string | 交易附带的数据。 信息应传递给此属性。                                                                                                                                                                  |
+| gas                | string | 交易允许使用的最高交易费金额。                                                                                                                                                                      |
+| singatures         | Array  | (可选）签名数组。                                                                                                                                                         |
+| feePayerSignatures | Array  | (可选）签名数组。                                                                                                                                                         |
+| feePayer           | string | (可选）付费人地址。                                                                                                                                                        |
+| nonce              | string | (可选）用于唯一标识发件人交易的值。 如果省略，"caver.rpc.klay.getTransactionCount(address, 'pending')\` 将用于设置 nonce。 |
+| gasPrice           | string | (可选）一个乘数，用于计算发件人将支付多少代币。 如果省略，将使用 `caver.rpc.klay.getGasPrice`设置 gasPrice。                                                                                        |
+| chainId            | string | (可选）kaia 网络的链 id。 如果省略，将使用 `caver.rpc.klay.getChainId`设置 chainId。                                                                                                 |
 
-**Example**
+**示例**
 
 ```javascript
 // Create a feeDelegatedValueTransferMemo
@@ -135,36 +135,36 @@ FeeDelegatedValueTransferMemo {
 caver.transaction.feeDelegatedAccountUpdate.create(transactionObject)
 ```
 
-`FeeDelegatedAccountUpdate` represents a [fee delegated account update transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate). The `transactionObject` can have properties below to create a `FeeDelegatedAccountUpdate` transaction.
+FeeDelegatedAccountUpdate "代表[fee delegated account update transaction]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate）。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedAccountUpdate "事务。
 
-`FeeDelegatedAccountUpdate` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedAccountUpdate` transaction.
+FeeDelegatedAccountUpdate\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedAccountUpdate "事务时可在 "transactionObject "中选择定义的属性。
 
 :::note
 
-NOTE: You can create an instance of `FeeDelegatedAccountUpdate` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedAccountUpdate.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+注意：您可以通过 RLP 编码字符串创建 `AccountUpdate` 实例。 请参考下面的示例。
+注意：从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持 `caver.transaction.feeDelegatedAccountUpdate.create`。
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedAccountUpdate({...})`, please change it to `caver.transaction.feeDelegatedAccountUpdate.create({...})`.
+注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用类似`new caver.transaction.feeDelegatedAccountUpdate({...})`的构造函数创建交易，请将其更改为`caver.transaction.feeDelegatedAccountUpdate.create({...})`。
 
 :::
 
-**properties**
+**属性**
 
-| Name               | Type                                                          | Description                                                                                                                                                                                                             |
-| ------------------ | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | string                                                        | The address of the sender.                                                                                                                                                                              |
-| account            | [Account] | An [Account] instance that contains the information needed to update your account.                                                                  |
-| gas                | string                                                        | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                |
-| signatures         | Array                                                         | (optional) An array of signatures.                                                                                                                                                   |
-| feePayerSignatures | Array                                                         | (optional) An array of feePayerSignatures.                                                                                                                                           |
-| feePayer           | string                                                        | (optional) The address of fee payer.                                                                                                                                                 |
-| nonce              | string                                                        | (optional) A value used to uniquely identify a sender’s transaction. If omitted, `caver.rpc.klay.getTransactionCount(address, 'pending')` will be used to set nonce. |
-| gasPrice           | string                                                        | (optional) A multiplier to get how much the sender will pay in tokens. If omitted, `caver.rpc.klay.getGasPrice` will be used to set gasPrice.                        |
-| chainId            | string                                                        | (optional) The chain id of the kaia. If omitted, `caver.rpc.klay.getChainId` will be used to set chainId.                                                            |
+| 名称                 | 类型                                                            | 描述                                                                                                                                                                                   |
+| ------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| from               | string                                                        | 发件人地址。                                                                                                                                                                               |
+| account            | [Account] | 包含更新账户所需信息的 [Account] 实例。                                                                                                        |
+| gas                | string                                                        | 交易允许使用的最高交易费金额。                                                                                                                                                                      |
+| singatures         | Array                                                         | (可选）签名数组。                                                                                                                                                         |
+| feePayerSignatures | Array                                                         | (可选）feePayerSignatures 数组。                                                                                                                                        |
+| feePayer           | string                                                        | (可选）付费人地址。                                                                                                                                                        |
+| nonce              | string                                                        | (可选）用于唯一标识发件人交易的值。 如果省略，"caver.rpc.klay.getTransactionCount(address, 'pending')\` 将用于设置 nonce。 |
+| gasPrice           | string                                                        | (可选）一个乘数，用于计算发件人将支付多少代币。 如果省略，将使用 `caver.rpc.klay.getGasPrice`设置 gasPrice。                                                                                        |
+| chainId            | string                                                        | (可选）kaia 的链 id。 如果省略，将使用 `caver.rpc.klay.getChainId`设置 chainId。                                                                                                   |
 
-For how to create an [Account] instance for each `AccountKey` type, refer to [Getting Started - Account Update](../../get-started.md#account-update) or [caver.account.create](../caver.account.md#caver-account-create).
+关于如何为每个 "账户密钥 "创建一个[Account]实例，请参阅[Getting Started - Account Update](.../../get-started.md#account-update)或[caver.account.create](.../caver.account.md#caver-account-create)。
 
-**Example**
+**举例**
 
 ```javascript
 // Create a feeDelegatedAccountUpdate
@@ -198,24 +198,24 @@ FeeDelegatedAccountUpdate {
 caver.transaction.feeDelegatedSmartContractDeploy.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractDeploy` represents a [fee delegated smart contract deploy transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractDeploy` transaction.
+SmartContractDeploy "代表一个[fee delegated smart contract deploy transaction]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy）。 事务对象 "可以具有以下属性，以创建 "SmartContractDeploy "事务。
 
-`FeeDelegatedSmartContractDeploy` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractDeploy` transaction.
+`SmartContractDeploy` 的成员变量属性如下。 标记为 "可选 "的属性指的是用户创建 "SmartContractDeploy "事务时可在 "transactionObject "中选择给出的属性。
 
 :::note
 
-NOTE: You can create an instance of `FeeDelegatedSmartContractDeploy` from RLP-encoded strings. Please refer to the below example.
-NOTE: `caver.transaction.feeDelegatedSmartContractDeploy.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+注意： 您可以通过 RLP 编码字符串创建 `SmartContractDeploy` 实例。 请参考下面的示例。
+注意：从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持 `caver.transaction.feeDelegatedSmartContractDeploy.create`。
 
-NOTE: As of caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4), creating transactions is only supported using the `create` function. If you've been creating transactions using a constructor like `new caver.transaction.feeDelegatedSmartContractDeploy({...})`, please change it to `caver.transaction.feeDelegatedSmartContractDeploy.create({...})`.
+注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用类似`new caver.transaction.feeDelegatedSmartContractDeploy({...})`的构造函数创建交易，请将其更改为`caver.transaction.feeDelegatedSmartContractDeploy.create({...})`。
 
 :::
 
-**properties**
+**属性**
 
-| Name               | Type    | Description                                                                                                                                                                                                                                                                                                                                    |
+| 名称                 | 类型      | 描述                                                                                                                                                                                                                                                                                                                                             |
 | ------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from               | string  | The address of the sender.                                                                                                                                                                                                                                                                                                     |
+| from               | string  | 发件人地址。                                                                                                                                                                                                                                                                                                                                         |
 | input              | string  | Data attached to the transaction. The byte code of the smart contract to be deployed and its arguments. You can get this through [caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy).                                                       |
 | gas                | string  | The maximum amount of transaction fee the transaction is allowed to use.                                                                                                                                                                                                                                                       |
 | value              | string  | (optional, default: `'0x0'`) The amount of KAIA in peb to be transferred. You can use `caver.utils.toPeb`.                                                                                                                                                                  |
