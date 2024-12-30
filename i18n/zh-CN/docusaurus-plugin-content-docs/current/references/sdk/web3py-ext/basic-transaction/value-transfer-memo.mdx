@@ -1,6 +1,6 @@
-# Value Transfer Memo
+# 价值转移备忘录
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo** 用于用户发送带有特定信息的 KAIA。
 
 <CH.Spotlight>
 <CH.Code>
@@ -83,7 +83,7 @@ tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 rec
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
 
 ```py ValueTransferWithMemo.py focus=1,2
 
@@ -91,7 +91,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
+从 **eth_account**、**web3py_ext** 和 cytoolz 中导入必要的实用程序
 
 ```py ValueTransferWithMemo.py focus=3:10
 
@@ -99,7 +99,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+使用指定的 **kairos** 测试网 URL 创建 Web3 实例
 
 ```py ValueTransferWithMemo.py focus=12:14
 
@@ -107,7 +107,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```python ValueTransferWithMemo.py focus=12:14
 from web3py_ext import extend
@@ -156,7 +156,7 @@ web3_value_transfer_with_memo_sign_recover()
 
 ---
 
-Load an account from private key
+从私人密钥加载账户
 
 ```python ValueTransferWithMemo.py focus=17
 
@@ -164,7 +164,7 @@ Load an account from private key
 
 ---
 
-Create an empty transaction of type **TxType.VALUE_TRANSFER_MEMO**. You can use **empty_tx** util to get a tx with default fields filled.
+创建一个**TxType.VALUE_TRANSFER_MEMO**类型的空事务。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py ValueTransferWithMemo.py focus=4,5,8,19
 
@@ -172,7 +172,7 @@ Create an empty transaction of type **TxType.VALUE_TRANSFER_MEMO**. You can use 
 
 ---
 
-Merge the **additional fields** like **from**, **to** and **value** into the empty tx by using the **merge** util.
+使用 **merge** 工具，将**附加字段**（如**from**、**to**和**value**）合并到空 tx 中。
 
 ```py ValueTransferWithMemo.py focus=10,20:24
 
@@ -180,7 +180,7 @@ Merge the **additional fields** like **from**, **to** and **value** into the emp
 
 ---
 
-You can use the **Web3.to_peb** util to convert decimal
+您可以使用 **Web3.to_peb** 工具来转换十进制数值。
 
 ```py ValueTransferWithMemo.py focus=23
 
@@ -188,7 +188,7 @@ You can use the **Web3.to_peb** util to convert decimal
 
 ---
 
-Especially **write down** what you want to record in the **data** field in a binary format
+特别是**以二进制格式写下**要在**数据**字段中记录的内容
 
 ```py ValueTransferWithMemo.py focus=24
 
@@ -196,7 +196,7 @@ Especially **write down** what you want to record in the **data** field in a bin
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+使用 **fill_transaction** 为交易对象添加更多参数，如 gas 限制...
 
 ```python ValueTransferWithMemo.py focus=4,6,8,26
 
@@ -204,10 +204,10 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the value transfer tx by user's private key
+用用户的私人密钥签署值传输 tx
 
 <CH.Code>
-```python ValueTransferWithMemo.py focus=28:30
+``python ValueTransferWithMemo.py focus=28:30
 
 ````
 ---
@@ -219,25 +219,25 @@ raw transaction of signed tx: 0x10f896820366850ba43b74008301042894a2a8854b1802d8
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+从已签署的 tx 中的签名中恢复**签名人地址**
 
 <CH.Code>
-```python ValueTransferWithMemo.py focus=32:33
+``python ValueTransferWithMemo.py focus=32:33
 
-````
+```
 ---
-```zsh output
+``zsh output
 recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
-````
+```
 
 </CH.Code>
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+您可以使用**Account.decode_transaction**工具对 RLP 编码的 tx 进行**解码**，如果您想让输出格式更漂亮，请使用**to_pretty**工具。
 
 <CH.Code>
-```python ValueTransferWithMemo.py focus=35:36
+``python ValueTransferWithMemo.py focus=35:36
 
 ````
 ---
@@ -266,7 +266,7 @@ decoded transaction: {
 
 ---
 
-Send the tx to the blockchain. It will return the tx hash, which will be used to wait the receipt
+向区块链发送 tx。 它将返回 tx 哈希值，用于等待接收
 
 ```python ValueTransferWithMemo.py focus=38
 
@@ -274,10 +274,10 @@ Send the tx to the blockchain. It will return the tx hash, which will be used to
 
 ---
 
-The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+如果交易已在区块链中完成，**wait_for_transaction_receipt** 方法会返回交易收据。
 
 <CH.Code>
-```python ValueTransferWithMemo.py focus=39:40
+``python ValueTransferWithMemo.py focus=39:40
 
 ````
 ---
@@ -289,10 +289,10 @@ tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 rec
 
 ---
 
-Finally, get the result.
+最后，得到结果。
 
 <CH.Code>
-```python ValueTransferWithMemo.py focus=42
+``python ValueTransferWithMemo.py focus=42
 
 ```````
 ---
