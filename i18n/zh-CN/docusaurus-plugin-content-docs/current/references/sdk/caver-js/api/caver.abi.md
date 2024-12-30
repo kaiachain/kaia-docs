@@ -1,28 +1,28 @@
 # caver.abi
 
-The `caver.abi` package allows you to decode and encode parameters with an ABI (Application Binary Interface). This will be used for calling functions of a deployed smart contracts.
+通过 `caver.abi` 软件包，您可以使用 ABI（应用程序二进制接口）对参数进行解码和编码。 这将用于调用已部署智能合约的功能。
 
-## encodeFunctionSignature <a id="encodefunctionsignature"></a>
+## 编码函数签名<a id="encodefunctionsignature"></a>
 
 ```javascript
 caver.abi.encodeFunctionSignature(functionSignature)
 ```
 
-Encodes the function signature to its ABI signature, which are the first 4 bytes of the sha3 hash of the function name including parameter types.
+将函数签名编码为 ABI 签名，即函数名称（包括参数类型）的 sha3 哈希值的前 4 个字节。
 
-**Parameters**
+**参数**
 
-| Name              | Type               | Description                                                                                                                                                                                                                                                |
-| ----------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| functionSignature | string \\| object | The function signature or the JSON interface object of the function to encode. If this is a string, it has to be in the form `function(type, type,...)`, e.g: `myFunction(uint256,uint32[],bytes10,bytes)` |
+| 名称                | 类型                 | 描述                                                                                                                   |
+| ----------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| functionSignature | string \\| object | 要编码的函数的函数签名或 JSON 接口对象。 如果是字符串，必须以 `function(type, type,...)` 的形式出现，例如： `myFunction(uint256,uint32[],bytes10,bytes)` |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                        |
-| ------ | -------------------------------------------------- |
-| string | The ABI signature of the function. |
+| 类型     | 描述          |
+| ------ | ----------- |
+| string | 函数的 ABI 签名。 |
 
-**Examples**
+**示例**
 
 ```javascript
 // From a JSON interface object
@@ -50,21 +50,21 @@ Encodes the function signature to its ABI signature, which are the first 4 bytes
 caver.abi.encodeEventSignature(eventSignature)
 ```
 
-Encodes the event signature to its ABI signature, which is the sha3 hash of the event name including input parameter types.
+将事件签名编码为 ABI 签名，即事件名称（包括输入参数类型）的 sha3 哈希值。
 
-**Parameters**
+**参数**
 
-| Name           | Type               | Description                                                                                                                                                                                                                                   |
-| -------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eventSignature | string \\| object | The event signature or the JSON interface object of the event to encode. If this is a string, it has to be in the form `event(type,type,...)`, e.g: `myEvent(uint256,uint32[],bytes10,bytes)` |
+| 名称             | 类型                 | 描述                                                                                                                                                                                                                                                   |
+| -------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eventSignature | string \\| object | 要编码的事件签名或 JSON 接口对象。 如果是字符串，则必须采用 "event(type,type,...) "的形式，例如："myEvent(uint256,uint32[],bytes10,bytes)"。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                     |
-| ------ | ----------------------------------------------- |
-| string | The ABI signature of the event. |
+| 类型     | 描述          |
+| ------ | ----------- |
+| string | 事件的 ABI 签名。 |
 
-**Examples**
+**示例**
 
 ```javascript
 // From a JSON interface object
@@ -92,24 +92,24 @@ Encodes the event signature to its ABI signature, which is the sha3 hash of the 
 caver.abi.encodeParameter(type, parameter)
 ```
 
-Encodes a parameter based on its type to its ABI representation.
+根据参数类型将参数编码为 ABI 表示法。
 
-**Parameters**
+**参数**
 
-| Name      | Type               | Description                                                                                                                                             |
-| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type      | string \\| object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)  for a list of types. |
-| parameter | Mixed              | The actual parameter to encode.                                                                                                         |
+| 名称        | 类型                 | 描述                                                                                 |
+| --------- | ------------------ | ---------------------------------------------------------------------------------- |
+| type      | string \\| object | 参数的类型，类型列表请参见 [solidity 文档](http://solidity.readthedocs.io/en/develop/types.html)。 |
+| parameter | Mixed              | 要编码的实际参数。                                                                          |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**注意** `caver.kct.kip7.create`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。 有关 `tuple` 类型的更多详情，请参阅 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                |
-| ------ | ------------------------------------------ |
-| string | The ABI encoded parameter. |
+| 类型     | 描述        |
+| ------ | --------- |
+| string | ABI 编码参数。 |
 
-**Examples**
+**示例**
 
 ```javascript
 > caver.abi.encodeParameter('uint256', '2345675643')
@@ -144,24 +144,24 @@ Encodes a parameter based on its type to its ABI representation.
 caver.abi.encodeParameters(typesArray, parameters)
 ```
 
-Encodes function parameters based on its JSON interface object.
+根据 JSON 接口对象对函数参数进行编码。
 
-**Parameters**
+**参数**
 
-| Name       | Type              | Description                                                                                                                                                                                        |
-| ---------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typesArray | Array \\| object | An array with types or a JSON interface of a function. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| parameters | Array             | The parameters to encode.                                                                                                                                                          |
+| 名称         | 类型                | 描述                                                                                                   |
+| ---------- | ----------------- | ---------------------------------------------------------------------------------------------------- |
+| typesArray | Array \\| object | 包含函数类型或 JSON 接口的数组。 有关类型的列表，请参见 [solidity 文档](http://solidity.readthedocs.io/en/develop/types.html)。 |
+| parameters | Array             | 要编码的参数。                                                                                              |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**注意** `caver.kct.kip7.create`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。 有关 `tuple` 类型的更多详情，请参阅 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                 |
-| ------ | ------------------------------------------- |
-| string | The ABI encoded parameters. |
+| 类型     | 描述        |
+| ------ | --------- |
+| string | ABI 编码参数。 |
 
-**Examples**
+**示例**
 
 ```javascript
 > caver.abi.encodeParameters(['uint256','string'], ['2345675643', 'Hello!%'])
@@ -200,28 +200,28 @@ Encodes function parameters based on its JSON interface object.
 '0xabdef18710a18a18abdef18710a18a18abdef18710a18a18abdef18710a18a180000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000100000000000000000000000077656c636f6d6520746f20657468657265756d2e'
 ```
 
-## encodeFunctionCall <a id="encodefunctioncall"></a>
+## encodeFunctionCall<a id="encodefunctioncall"></a>
 
 ```javascript
 caver.abi.encodeFunctionCall(jsonInterface, parameters)
 ```
 
-Encodes a function call using its JSON interface object and given parameters.
+使用 JSON 接口对象和给定参数对函数调用进行编码。
 
-**Parameters**
+**参数**
 
-| Name          | Type   | Description                                              |
-| ------------- | ------ | -------------------------------------------------------- |
-| jsonInterface | object | The JSON interface object of a function. |
-| parameters    | Array  | The parameters to encode.                |
+| 名称            | 类型     | 描述             |
+| ------------- | ------ | -------------- |
+| jsonInterface | object | 函数的 JSON 接口对象。 |
+| parameters    | Array  | 要编码的参数。        |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                 |
-| ------ | ------------------------------------------------------------------------------------------- |
-| string | The ABI encoded function call, which means function signature + parameters. |
+| 类型     | 描述                      |
+| ------ | ----------------------- |
+| string | ABI 编码的函数调用，即函数签名 + 参数。 |
 
-**Examples**
+**示例**
 
 ```javascript
 > caver.abi.encodeFunctionCall({
@@ -244,24 +244,24 @@ Encodes a function call using its JSON interface object and given parameters.
 caver.abi.decodeFunctionCall(abi, functionCall)
 ```
 
-Decodes a function call from its abi object of a function or function abi string and returns parameters.
+从函数或函数 abi 字符串的 abi 对象中解码函数调用，并返回参数。
 
-**NOTE** `caver.abi.decodeFunctionCall` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `caver.abi.decodeFunctionCall` 自 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 开始支持。
 
-**Parameters**
+**参数**
 
-| Name         | Type   | Description                                       |
-| ------------ | ------ | ------------------------------------------------- |
-| abi          | object | The abi object of a function.     |
-| functionCall | string | The encoded function call string. |
+| 名称           | 类型     | 描述           |
+| ------------ | ------ | ------------ |
+| abi          | object | 函数的 abi 对象。  |
+| functionCall | string | 编码后的函数调用字符串。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                                                                                                   |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | An object which includes plain params. You can use `result[0]` as it is provided to be accessed like an array in the order of the parameters. |
+| 类型     | 描述                                              |
+| ------ | ----------------------------------------------- |
+| object | 包含纯参数的对象。 您可以使用 `result[0]` ，因为它可以像数组一样按参数顺序访问。 |
 
-**Examples**
+**示例**
 
 ```javascript
 > caver.abi.decodeFunctionCall({
@@ -290,24 +290,24 @@ Result {
 caver.abi.decodeParameter(type, hexstring)
 ```
 
-Decodes an ABI encoded parameter to its JavaScript type.
+将 ABI 编码的参数解码为 JavaScript 类型。
 
-**Parameters**
+**参数**
 
-| Name      | Type               | Description                                                                                                                                            |
-| --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type      | string \\| object | The type of the parameter, see the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexstring | Array              | The ABI byte code to decode.                                                                                                           |
+| 名称        | 类型                 | 描述                                                                                 |
+| --------- | ------------------ | ---------------------------------------------------------------------------------- |
+| type      | string \\| object | 参数的类型，类型列表请参见 [solidity 文档](http://solidity.readthedocs.io/en/develop/types.html)。 |
+| hexstring | Array              | 要解码的 ABI 字节代码。                                                                     |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**注意** `caver.kct.kip7.create`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。 有关 `tuple` 类型的更多详情，请参阅 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)。
 
-**Return Value**
+**返回价值**
 
-| Type  | Description                            |
-| ----- | -------------------------------------- |
-| Mixed | The decoded parameter. |
+| 类型    | 描述    |
+| ----- | ----- |
+| Mixed | 解码参数。 |
 
-**Examples**
+**示例**
 
 ```javascript
 > caver.abi.decodeParameter('uint256', '0x0000000000000000000000000000000000000000000000000000000000000010')
@@ -341,7 +341,7 @@ Decodes an ABI encoded parameter to its JavaScript type.
 caver.abi.decodeParameters(typesArray, hexstring)
 ```
 
-Decodes ABI encoded parameters to its JavaScript types.
+将 ABI 编码参数解码为 JavaScript 类型。
 
 **Parameters**
 
