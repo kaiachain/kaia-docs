@@ -1,8 +1,8 @@
-# Value Transfer
+# 价值转移
 
-TxTypeValueTransfer is used when a user wants to send KAIA.
+TxTypeValueTransfer 用于用户发送 KAIA。
 
-- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+- 由于 kaia 提供了多种交易类型，使每种交易类型只服务于一个目的，因此 TxTypeValueTransfer 只限于将 KAIA 发送到外部拥有的账户（EOA）。
 
 <CH.Spotlight>
 <CH.Code>
@@ -53,7 +53,6 @@ def web3_fee_delegated_value_transfer_sign_recover():
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
 
 web3_fee_delegated_value_transfer_sign_recover()
-
 ```
 
 ---
@@ -99,7 +98,7 @@ tx hash:  0x5234733f874f5c8a77d6628be9958166f039f82a278888c4a6acaab17c2509ab rec
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=1:2
 
@@ -107,7 +106,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
+从 **eth_account**、**web3py_ext** 和 cytoolz 中导入必要的实用程序
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=3:10
 
@@ -115,7 +114,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+使用指定的 **kairos** 测试网 URL 创建 Web3 实例
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=12
 
@@ -123,7 +122,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=12
 from web3py_ext import extend
@@ -175,7 +174,7 @@ web3_fee_delegated_value_transfer_sign_recover()
 
 ---
 
-Load an account from private key
+从私人密钥加载账户
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=15
 
@@ -183,7 +182,7 @@ Load an account from private key
 
 ---
 
-Load an account from private key
+从私人密钥加载账户
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=16
 
@@ -191,7 +190,7 @@ Load an account from private key
 
 ---
 
-Create an empty transaction of type **TxType.FEE_DELEGATED_VALUE_TRANSFER**. You can use **empty_tx** util to get a tx with default fields filled.
+创建一个**TxType.FEE_DELEGATED_VALUE_TRANSFER**类型的空交易。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=18
 
@@ -199,7 +198,7 @@ Create an empty transaction of type **TxType.FEE_DELEGATED_VALUE_TRANSFER**. You
 
 ---
 
-Merge the **additional fields** like **from**, **to** and **value** into the empty tx by using the **merge** util.
+使用 **merge** 工具，将**附加字段**（如**from**、**to**和**value**）合并到空 tx 中。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=10,19:23
 
@@ -207,7 +206,7 @@ Merge the **additional fields** like **from**, **to** and **value** into the emp
 
 ---
 
-You can use the **Web3.to_peb** util to convert decimal
+您可以使用 **Web3.to_peb** 工具来转换十进制数值。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=22
 
@@ -215,7 +214,7 @@ You can use the **Web3.to_peb** util to convert decimal
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+使用 **fill_transaction** 为交易对象添加更多参数，如气体限制...
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=6,24
 
@@ -223,7 +222,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the value transfer tx by user's private key
+用用户的私人密钥签署值传输 tx
 
 <CH.Code>
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=26:28
@@ -242,7 +241,7 @@ raw transaction of signed tx: 0x09f88882030e850ba43b740082f61894a2a8854b1802d8cd
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+从已签署的 tx 中的签名中恢复**签名人地址**
 
 <CH.Code>
 
@@ -261,7 +260,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-Sign the value transfer tx by fee payer's private key
+用缴费人的私人密钥签署价值转移 tx
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=32:33
 
@@ -269,7 +268,7 @@ Sign the value transfer tx by fee payer's private key
 
 ---
 
-Recover the **fee payer's address** from the signature in signed tx
+从已签署的 tx 中的签名中恢复**缴费人地址**
 
 <CH.Code>
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=35:36
@@ -288,7 +287,7 @@ recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+您可以使用**Account.decode_transaction**工具对 RLP 编码的 tx 进行**解码**，如果您想让输出格式更漂亮，请使用**to_pretty**工具。
 
 <CH.Code>
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=38:39
@@ -324,14 +323,13 @@ decoded transaction: {
   ],
   "chainId": 1001
 }
-
 ````
 
 </CH.Code>
 
 ---
 
-Send the tx to the blockchain. It will return the tx hash, which will be used to wait the receipt
+向区块链发送 tx。 它将返回 tx 哈希值，用于等待接收
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=41
 
@@ -339,10 +337,10 @@ Send the tx to the blockchain. It will return the tx hash, which will be used to
 
 ---
 
-The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+如果交易已在区块链中完成，**wait_for_transaction_receipt** 方法会返回交易收据。
 
 <CH.Code>
-```py txTypeFeeDelegatedValueTransferTransaction.py focus=42:43
+``py txTypeFeeDelegatedValueTransferTransaction.py focus=42:43
 
 ````
 
