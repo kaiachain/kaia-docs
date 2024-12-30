@@ -1,6 +1,6 @@
-# Signature
+# 签名
 
-Convert signature into tuple format from object, compact signatures.
+将签名从对象转换为元组格式，压缩签名。
 
 <CH.Spotlight>
   <CH.Code>
@@ -46,14 +46,14 @@ Convert signature into tuple format from object, compact signatures.
 
   ---
 
-  Import the **getSignatureTuple** from **@kaiachain/web3js-ext** packages
+  从 **@kaiachain/web3js-ext** 包中导入 **getSignatureTuple**
 
   ```js signatureUtils.js focus=1
   ```
 
   ---
 
-  To compress a public key from `{r, s, v}` format to tuple, use `getSignatureTuple` with the **signature object** as param
+  要将公钥从{r, s, v}格式压缩为元组格式，请使用 `getSignatureTuple` 并将**signature object**作为参数
 
   <CH.Code>
     ```js signatureUtils.js focus=4:11
@@ -87,7 +87,7 @@ Convert signature into tuple format from object, compact signatures.
 
   ---
 
-  To compress a public key from compact 65 bytes format to tuple, use `getSignatureTuple` with the **compact signature** as param
+  要将公钥从紧凑的 65 字节格式压缩成元组，请使用 `getSignatureTuple` 并将**compact signature**作为参数
 
   <CH.Code>
     ```js signatureUtils.js focus=4:9
