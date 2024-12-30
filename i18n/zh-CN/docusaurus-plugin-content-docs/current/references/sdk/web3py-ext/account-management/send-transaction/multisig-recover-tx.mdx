@@ -1,10 +1,10 @@
 # Multisig Account Key
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig** 是一种账户密钥类型，包含一个阈值和加权公钥（WeightedPublicKeys），后者包含一个由公钥及其权重组成的列表。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+要使与 **AccountKeyWeightedMultiSig** 关联的账户的交易有效，必须满足以下条件：
+已签名公钥的加权和应大于阈值。
+_ 无效签名不应包含在交易中。 \* 已签名公钥的数量应少于加权公钥的数量。
 
 <CH.Spotlight>
 <CH.Code>
@@ -71,7 +71,7 @@ recovered 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=1:2
 
@@ -79,7 +79,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **web3** and **eth_account**
+从 **web3** 和 **eth_account** 导入必要的实用程序
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=3:8
 
@@ -87,7 +87,7 @@ Import necessary utils from **web3** and **eth_account**
 
 ---
 
-Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
+使用 **Web3.HTTPProvider** 和 RPC 端点定义 web3 连接
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=11
 
@@ -95,7 +95,7 @@ Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=11
 from web3py_ext import extend
@@ -147,7 +147,7 @@ web3_tx_sign_recover_multisig()
 
 ---
 
-Define 3 diffent wallet from addresses and private keys using **Account.from_key_pair**
+使用 **Account.from_key_pair ** 从地址和私钥定义 3 个不同的钱包
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=14:25
 
@@ -155,7 +155,7 @@ Define 3 diffent wallet from addresses and private keys using **Account.from_key
 
 ---
 
-Create an empty transaction of type **TxType.VALUE_TRANSFER**. You can use **empty_tx** util to get a tx with default fields filled.
+创建一个**TxType.VALUE_TRANSFER**类型的空事务。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=27
 
@@ -163,7 +163,7 @@ Create an empty transaction of type **TxType.VALUE_TRANSFER**. You can use **emp
 
 ---
 
-Create a **transaction** with **from**, **to** and **value** fields to transfer.
+创建一个**事务**，其中包含**from**、**to**和**value**字段以进行传输。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=28:32
 
@@ -171,7 +171,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**from**: the sender's address, **to**: target address to receive kaia.
+**from**：发件人地址，**to**：接收 kaia 的目标地址。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=29:30
 
@@ -179,7 +179,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**value** field means how many kaia you want to send and you can use the **Web3.to_peb** utils to convert kaia to peb unit.
+**value** 字段表示要发送多少 kaia，您可以使用 **Web3.to_peb** 工具将 kaia 转换为 peb 单位。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=31
 
@@ -187,7 +187,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-Use **fill_transaction** to add **rest of the fields** of the transaction like **gas limit**, **Nonce**, etc. You can print all the fields after this line if you want to see
+使用 **fill_transaction** 添加交易的**其余字段**，如**gas 限制**、**Nonce**等。 如果您想查看以下内容，可以打印这一行之后的所有字段
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=4:6,33
 
@@ -195,7 +195,7 @@ Use **fill_transaction** to add **rest of the fields** of the transaction like *
 
 ---
 
-Sign the transaction with the **user1's private key**
+用 ** 用户 1 的私人密钥** 签名交易
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=34
 
@@ -203,7 +203,7 @@ Sign the transaction with the **user1's private key**
 
 ---
 
-Sign the **signed_tx** with the **user2** and **user3** private keys
+用 ** 用户 2** 和 ** 用户 3** 私钥签署 **signed_tx**
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=35:36
 
@@ -211,10 +211,10 @@ Sign the **signed_tx** with the **user2** and **user3** private keys
 
 ---
 
-**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+**向网络发送\***已签名的交易，并**_等待_**接收，直到交易在区块链中完全执行为止
 
 <CH.Code>
-```py web3_multisig_value_transfer_sign_recover.py focus=38:40
+``py web3_multisig_value_transfer_sign_recover.py focus=38:40
 
 ````
 ---
@@ -226,19 +226,19 @@ tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a rec
 
 ---
 
-Recover user1 address with **Account.recover_transaction** from signed transaction from **user3**
+使用 **Account.recover_transaction** 从 **user3** 的签名交易中恢复 user1 地址
 
 <CH.Code>
-```py web3_multisig_value_transfer_sign_recover.py focus=42:43
+``py web3_multisig_value_transfer_sign_recover.py focus=42:43
 
-````
+```
 ---
 
-```zsh output
-❯ python web3_multisig_value_transfer_sign_recover.py
+``zsh output
+‖ python web3_multisig_value_transfer_sign_recover.py
 sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
-recovered 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
-````
+recovered 0x82c6a8d94993d49cfd0c1d30F0f8caa65782cc7e
+```
 
 </CH.Code>
 </CH.Spotlight>
