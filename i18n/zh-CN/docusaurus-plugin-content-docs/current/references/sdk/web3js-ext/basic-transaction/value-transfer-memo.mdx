@@ -1,6 +1,6 @@
 # Value Transfer Memo
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo** 用于用户发送带有特定信息的 KAIA。
 
 <CH.Spotlight>
 <CH.Code>
@@ -64,7 +64,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+导入 **web3** 和 **@kaiachain/web3js-ext** 软件包，在 web3 上添加 kaia 功能
 
 ```js TxTypeValueTransferMemo.js focus=1:2
 
@@ -72,7 +72,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender, receiver address and sender private key**
+定义**发送方、接收方地址和发送方私人密钥**
 
 ```js TxTypeValueTransferMemo.js focus=4:6
 
@@ -80,7 +80,7 @@ Define **sender, receiver address and sender private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3js 中的提供者是访问区块链数据的只读抽象。
 
 ```js TxTypeValueTransferMemo.js focus=9
 
@@ -88,7 +88,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+此外，您还可以更改默认提供商。 例如，使用alchemy提供者。
 
 ```js TxTypeValueTransferMemo.js focus=9
 const { KlaytnWeb3, TxType, toPeb } = require("@kaiachain/web3js-ext");
@@ -124,7 +124,7 @@ main();
 
 ---
 
-Create a **KlaytnWeb3** instance using the provider
+使用提供程序创建**KlaytnWeb3**实例
 
 ```js TxTypeValueTransferMemo.js focus=10
 
@@ -132,7 +132,7 @@ Create a **KlaytnWeb3** instance using the provider
 
 ---
 
-Define the transaction object.
+定义事务对象。
 
 ```js TxTypeValueTransferMemo.js focus=13:20
 
@@ -140,7 +140,7 @@ Define the transaction object.
 
 ---
 
-Sign the transaction with the sender's account.
+用发件人账户签署交易。
 
 <CH.Code>
 ``js TxTypeValueTransferMemo.js focus=22
@@ -160,7 +160,7 @@ rawTx0x10f88d8202fd852e69f6baec82c35094c40b6909eb7085590e1c26cb3becc25368e249e98
 
 ---
 
-Send the signed transaction to the kaia network.
+将已签名的交易发送到 kaia 网络。
 
 <CH.Code>
 ```node TxTypeValueTransferMemo.js focus=25:26
