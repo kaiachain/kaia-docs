@@ -1,6 +1,6 @@
-# Value Transfer Memo
+# 价值转移备忘录
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo** 用于用户发送带有特定信息的 KAIA。
 
 <CH.Spotlight>
 <CH.Code>
@@ -63,14 +63,13 @@ receipt {
   transactionIndex: 0n,
   type: 0n
 }
-
 ```
 
 </CH.Code>
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+导入 **web3** 和 **@kaiachain/web3js-ext** 软件包，在 web3 上添加 kaia 功能
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=1
 
@@ -78,7 +77,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender**, **fee payer** addresses and private keys
+定义**发送方**、**付费方**地址和私人密钥
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=3:6
 
@@ -86,7 +85,7 @@ Define **sender**, **fee payer** addresses and private keys
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3 中的提供者是访问区块链数据的只读抽象。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=8:9
 
@@ -94,7 +93,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=8
 const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
@@ -135,7 +134,7 @@ main();
 
 ---
 
-Create a **sender's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+使用 "web3.eth.accounts.privateKeyToAccount "创建带有私钥的**发件人钱包**
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=10
 
@@ -143,7 +142,7 @@ Create a **sender's wallet** with the private key using `web3.eth.accounts.priva
 
 ---
 
-Create a **fee payer's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+使用 "web3.eth.accounts.privateKeyToAccount "用私钥创建**付费者钱包**
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
 
@@ -151,7 +150,7 @@ Create a **fee payer's wallet** with the private key using `web3.eth.accounts.pr
 
 ---
 
-Define the transaction object.
+定义事务对象。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=14:20
 
@@ -159,7 +158,7 @@ Define the transaction object.
 
 ---
 
-Set `type: TxType.FeeDelegatedValueTransferMemo` for transaction to send a memo value transfer with a fee payer
+设置 \`type：TxType.FeeDelegatedValueTransferMemo "，用于发送有费用支付方的备忘值转账交易
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=15
 
@@ -167,7 +166,7 @@ Set `type: TxType.FeeDelegatedValueTransferMemo` for transaction to send a memo 
 
 ---
 
-Set `value: toPeb("0.01")` to define the value to be transfered, use `toPeb` to convert Klay to Peb
+设置 `value: toPeb("0.01")` 以定义要转换的值，使用 `toPeb` 将 Klay 转换为 Peb
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=18
 
@@ -175,7 +174,7 @@ Set `value: toPeb("0.01")` to define the value to be transfered, use `toPeb` to 
 
 ---
 
-Set `data: "0x1234567890"` to define the memo value attached with the transaction
+设置 `data："0x1234567890"`，以定义交易附带的备忘值
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=19
 
@@ -183,7 +182,7 @@ Set `data: "0x1234567890"` to define the memo value attached with the transactio
 
 ---
 
-Set others params like **from**, **to**
+设置其他参数，如 **从**、**到**
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=16:17
 
@@ -191,10 +190,10 @@ Set others params like **from**, **to**
 
 ---
 
-Sign the transaction with **sender** account using `signTransaction`
+使用 `signTransaction` 在**发送方**账户上签署交易
 
 <CH.Code>
-```js TxTypeFeeDelegatedValueTransferMemo.js focus=22:24
+``js TxTypeFeeDelegatedValueTransferMemo.js focus=22:24
 
 ````
 ---
@@ -208,10 +207,10 @@ senderTxHashRLP 0x11f88d8203b7850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc2
 
 ---
 
-Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
+使用 "signTransactionAsFeePayer "以**付费方**账户签署交易
 
 <CH.Code>
-```js TxTypeFeeDelegatedValueTransferMemo.js focus=26:28
+``js TxTypeFeeDelegatedValueTransferMemo.js focus=26:28
 
 ````
 ---
@@ -225,10 +224,10 @@ rawTx 0x11f8eb8202ff85157d84a54c82c35094c40b6909eb7085590e1c26cb3becc25368e249e9
 
 ---
 
-Send the transaction to blockchain. It will return the transaction receipt
+将交易发送到区块链。 它将返回交易收据
 
 <CH.Code>
-```js TxTypeFeeDelegatedValueTransferMemo.js focus=30:31
+``js TxTypeFeeDelegatedValueTransferMemo.js focus=30:31
 
 ````
 ---
