@@ -1,4 +1,4 @@
-# Account Update
+# 更新账户
 
 <CH.Spotlight>
 <CH.Code>
@@ -69,7 +69,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+导入 **web3** 和 **@kaiachain/web3js-ext** 软件包，在 web3 上添加 kaia 功能
 
 ```js TxTypeAccountUpdate.js focus=1:2
 
@@ -77,7 +77,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender address, sender private key and new private key** to be changed
+定义**要更改的发件人地址、发件人私人密钥和新私人密钥**
 
 ```js TxTypeAccountUpdate.js focus=6:8
 
@@ -85,7 +85,7 @@ Define **sender address, sender private key and new private key** to be changed
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3 中的提供者是访问区块链数据的只读抽象。
 
 ```js TxTypeAccountUpdate.js focus=11
 
@@ -93,7 +93,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js TxTypeAccountUpdate.js focus=11
 const { KlaytnWeb3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
@@ -134,7 +134,7 @@ main();
 
 ---
 
-Create a **KlaytnWeb3** instance using the provider
+使用提供程序创建**KlaytnWeb3**实例
 
 ```js TxTypeAccountUpdate.js focus=12
 
@@ -142,7 +142,7 @@ Create a **KlaytnWeb3** instance using the provider
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+用**私钥**和**提供者**创建发件人钱包
 
 ```js TxTypeAccountUpdate.js focus=13
 
@@ -150,7 +150,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Compute the **public key** from the new private key
+用新私钥计算**公钥**
 
 <CH.Code>
 
@@ -171,7 +171,7 @@ Compute the **public key** from the new private key
 
 ---
 
-Declare a transaction in the **key** field with the computed **public key**.
+用计算出的 ** 公钥** 在 **key** 字段中声明一个事务。
 
 ```js TxTypeAccountUpdate.js focus=18:25
 
@@ -179,7 +179,7 @@ Declare a transaction in the **key** field with the computed **public key**.
 
 ---
 
-Signing the transaction with the **sender**'s private key
+用**发送方**的私人密钥签署交易
 
 <CH.Code>
 ``js TxTypeAccountUpdate.js focus=27:28
@@ -198,7 +198,7 @@ signedTx 0xb54dc3c351e9a1f9ce0a120344598482226a5646838d290e46d9704db521cb94
 
 ---
 
-Send the signed tx to the blockchain. It will return the **receipt** of the transaction
+向区块链发送已签名的 tx。 它将返回交易的**收据**
 
 <CH.Code>
 ``js TxTypeAccountUpdate.js focus=30:31
