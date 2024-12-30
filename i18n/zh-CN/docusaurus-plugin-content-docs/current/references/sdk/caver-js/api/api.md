@@ -1,3 +1,3 @@
-# API References
+# API 参考：
 
-Packages provided by caver-js.
+由 caver-js 提供的软件包。
