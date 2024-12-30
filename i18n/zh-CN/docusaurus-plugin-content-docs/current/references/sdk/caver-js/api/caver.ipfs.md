@@ -1,8 +1,8 @@
 # caver.ipfs
 
-`caver.ipfs` is a package that provides functionality related to IPFS (InterPlanetary File System).
+caver.ipfs "是一个提供与 kaia Node 的 rpc 调用相关的功能的软件包。
 
-**NOTE** `caver.ipfs` is supported since caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4).
+**注意** `caver.ipfs` 自 caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4) 开始支持。
 
 ## caver.ipfs.setIPFSNode <a id="caver-ipfs-setipfsnode"></a>
 
