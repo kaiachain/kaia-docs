@@ -1,10 +1,10 @@
-# Multisig Account Key
+# 多用户账户密钥
 
 **AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+要使与 **AccountKeyWeightedMultiSig** 关联的账户的交易有效，必须满足以下条件：
+已签名公钥的加权和应大于阈值。
+_ 无效签名不应包含在交易中。 \* 已签名公钥的数量应少于加权公钥的数量。
 
 <CH.Spotlight>
 <CH.Code>
@@ -112,7 +112,7 @@ tx hash:  0x0774fac9bc9f1b49b4fb4b7a9af87fef52f298e2cbdeb61491eab7bdc401758d rec
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
 
 ```py web3_account_update_multisig.py focus=1
 
@@ -120,7 +120,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **web3** and **web3py_ext**
+从 **web3** 和 **web3py_ext** 导入必要的实用程序
 
 ```py web3_account_update_multisig.py focus=3:16
 
@@ -128,7 +128,7 @@ Import necessary utils from **web3** and **web3py_ext**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+使用指定的 **kairos** 测试网 URL 创建 Web3 实例
 
 ```py web3_account_update_multisig.py focus=17:19
 
@@ -136,7 +136,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**.
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode** 。
 
 ```py web3_account_update_multisig.py focus=17:19
 from web3py_ext import extend
@@ -204,7 +204,7 @@ web3_account_update_multisig()
 
 ---
 
-Define 3 different accounts using `Account.from_key`
+使用 `Account.from_key` 定义 3 个不同的账户
 
 ```py web3_account_update_multisig.py focus=22:24
 
@@ -212,7 +212,7 @@ Define 3 different accounts using `Account.from_key`
 
 ---
 
-Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **empty_tx** util to get a tx with default fields filled.
+创建一个**TxType.ACCOUNT_UPDATE**类型的空交易。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py web3_account_update_multisig.py focus=26
 
@@ -220,7 +220,7 @@ Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **e
 
 ---
 
-Merge **additional fields** like **sender** and **keys** into the empty tx by using the **merge** util.
+使用 **merge** 工具，将 **sender** 和 **keys** 等附加字段合并到空 tx 中。
 
 ```py web3_account_update_multisig.py focus=27:47
 
@@ -228,7 +228,7 @@ Merge **additional fields** like **sender** and **keys** into the empty tx by us
 
 ---
 
-In this case, the account keys to update is the **mutisig** key and each key inside contains a compressed public key and its weight. The **compressed_key** util will extract the compressed public key from the key
+在这种情况下，要更新的账户密钥是 **mutisig** 密钥，其中每个密钥都包含一个压缩公钥及其权重。 **compressed_key** 工具将从密钥中提取压缩公钥。
 
 ```py web3_account_update_multisig.py focus=34:35,38:39,42:43
 
@@ -236,7 +236,7 @@ In this case, the account keys to update is the **mutisig** key and each key ins
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+使用 **fill_transaction** 为交易对象添加更多参数，如 gas 限制...
 
 ```py web3_account_update_multisig.py focus=8,48
 
@@ -244,10 +244,10 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-You can use the **to_pretty** util to print the formatted tx.
+您可以使用 **to_pretty** 工具打印格式化的 tx。
 
 <CH.Code>
-```py web3_account_update_multisig.py focus=12,49
+``py web3_account_update_multisig.py focus=12,49
 
 ````
 
@@ -288,10 +288,10 @@ You can use the **to_pretty** util to print the formatted tx.
 
 ---
 
-Sign the account update tx type. You must sign it with the all 3 loaded accounts
+签署账户更新 tx 类型。 您必须用全部 3 个已加载的账户签名
 
 <CH.Code>
-```py web3_account_update_multisig.py focus=51:55
+``py web3_account_update_multisig.py focus=51:55
 
 ````
 
@@ -307,10 +307,10 @@ rawTransaction: 20f9016b67850ba43b740083026d189482c6a8d94993d49cfd0c1d30f0f8caa6
 
 ---
 
-**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+**向网络发送\***已签名的交易，并**_等待_**接收，直到交易在区块链中完全执行为止
 
 <CH.Code>
-```py web3_account_update_multisig.py focus=57:59
+``py web3_account_update_multisig.py focus=57:59
 
 ````
 
