@@ -1,4 +1,4 @@
-# Account Update
+# 更新账户
 
 <CH.Spotlight>
 <CH.Code>
@@ -77,7 +77,6 @@ def web3_fee_delegated_account_update_role_based():
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
 
 web3_fee_delegated_account_update_role_based()
-
 ```
 
 ---
@@ -301,7 +300,7 @@ web3_fee_delegated_account_update_role_based()
 
 ---
 
-Load **transaction** key from a private key to use it as **transaction role key**. You can use it to sign a transaction
+Load **transaction** key from a private key to use it as **transaction role key**. 您可以用它来签署交易
 
 ```py web3_fee_delegated_account_update_role_based.py focus=21
 
@@ -309,7 +308,7 @@ Load **transaction** key from a private key to use it as **transaction role key*
 
 ---
 
-Load **update** key from a private key to use it as **update role key**. You can use it to sign the account update transaction for this account. It means only a person who have this key can update this account.
+Load **update** key from a private key to use it as **update role key**. 您可以用它来签署该账户的账户更新交易。 这意味着只有拥有此密钥的人才能更新此账户。
 z
 
 ```py web3_fee_delegated_account_update_role_based.py focus=22
@@ -318,7 +317,7 @@ z
 
 ---
 
-Load **fee payer** key from a private key to use it as **fee payer role key**. You can use it to sign a transaction as a fee payer.
+从私人密钥中加载**缴费人**密钥，将其用作**缴费人角色密钥**。 您可以用它作为付费方签署交易。
 
 ```py web3_fee_delegated_account_update_role_based.py focus=23
 
@@ -326,7 +325,7 @@ Load **fee payer** key from a private key to use it as **fee payer role key**. Y
 
 ---
 
-Load **fee fee_delegator** key from a private key
+从私人密钥加载 ** fee_delegator** 密钥
 
 ```py web3_fee_delegated_account_update_role_based.py focus=24
 
@@ -334,7 +333,7 @@ Load **fee fee_delegator** key from a private key
 
 ---
 
-Creating an empty transaction of type **TxType.FEE_DELEGATED_ACCOUNT_UPDATE**. You can use **empty_tx** util to get a tx with default fields filled.
+创建**TxType.FEE_DELEGATED_ACCOUNT_UPDATE**类型的空事务。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py web3_fee_delegated_account_update_role_based.py focus=26
 
@@ -342,7 +341,7 @@ Creating an empty transaction of type **TxType.FEE_DELEGATED_ACCOUNT_UPDATE**. Y
 
 ---
 
-Merge **additional fields** like **sender** and **keys** into the empty tx by using the **merge** util.
+使用 **merge** 工具，将 **sender** 和 **keys** 等附加字段合并到空 tx 中。
 
 ```py web3_fee_delegated_account_update_role_based.py focus=27:46
 
@@ -350,7 +349,7 @@ Merge **additional fields** like **sender** and **keys** into the empty tx by us
 
 ---
 
-In this case, the account key to update is the **role-based** key and each role has **pubkey** type. Each role can have pubkey or multisig.
+在这种情况下，要更新的账户密钥是基于**角色的**密钥，每个角色都有**公钥**类型。 每个角色都可以使用发布密钥或多重身份验证。
 
 ```py web3_fee_delegated_account_update_role_based.py focus=30,32:33,36:37,40:41
 
@@ -358,7 +357,7 @@ In this case, the account key to update is the **role-based** key and each role 
 
 ---
 
-You can use the **compressed_key** util to set each role key. It will extract the compressed public key from the key
+您可以使用 **compressed_key** 工具来设置每个角色的密钥。 它将从密钥中提取压缩公钥
 
 ```py web3_fee_delegated_account_update_role_based.py focus=34,38,42
 
@@ -366,7 +365,7 @@ You can use the **compressed_key** util to set each role key. It will extract th
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+使用 **fill_transaction** 为交易对象添加更多参数，如gas限制...
 
 ```py web3_fee_delegated_account_update_role_based.py focus=47
 
@@ -374,7 +373,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-You can use the **to_pretty** util to print the formatted tx.
+您可以使用 **to_pretty** 工具打印格式化的 tx。
 
 <CH.Code>
 
@@ -417,7 +416,7 @@ You can use the **to_pretty** util to print the formatted tx.
 
 ---
 
-Sign the account update tx type. You should sign it with **update role key** as the account "0x5bd2...ccea" is already role-based account to update this account
+签署账户更新 tx 类型。 您应使用 ** 更新角色密钥** 签名，因为账户 "0x5bd2...cea "已是基于角色的账户，以更新该账户
 
 <CH.Code>
 ```py web3_fee_delegated_account_update_role_based.py focus=50:52
@@ -450,7 +449,6 @@ rawTransaction: 21f8da29850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238
 ```zsh output
 ❯ py web3_fee_delegated_account_update_role_based.py
 recovered sender address:  0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA
-
 ```
 
 </CH.Code>
@@ -507,7 +505,7 @@ decoded transaction: {
 
 ---
 
-Sign the **signed_tx.rawTransaction** with fee delegator account
+使用收费委托人账户签署**signed_tx.rawTransaction**。
 
 <CH.Code>
 
@@ -527,7 +525,7 @@ raw transaction of feePayer signed tx: 0x21f9013829850ba43b740083026d18945bd2fb3
 
 ---
 
-**Recovering** the fee delegator's address from the signed transaction
+**从已签署的交易中恢复**收费委托人的地址
 
 <CH.Code>
 
@@ -599,14 +597,13 @@ decoded transaction: {
   "chainId": 1001
 }
 
-
 ````
 
 </CH.Code>
 
 ---
 
-**Sending** the signed transaction to the network using fee delegator account and **waiting** receipt until it is completely executed in the blockchain
+**使用收费委托人账户向网络发送\***已签署的交易，并**_等待_**接收，直到交易在区块链中完全执行为止
 
 <CH.Code>
 ```py web3_fee_delegated_account_update_role_based.py focus=69:71
