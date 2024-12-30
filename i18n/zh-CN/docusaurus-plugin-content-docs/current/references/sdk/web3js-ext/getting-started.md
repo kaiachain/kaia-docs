@@ -1,18 +1,18 @@
-# Web3.js Extension for kaia
+# kaia 的 Web3.js 扩展
 
-Web3.js Extension for kaia offers:
+kaia 提供的 Web3.js 扩展：
 
-- Drop-in replacement to `new Web3(...)` that supports both Ethereum and kaia transaction types involving AccountKey and TxTypes. See [Modifications to the Web3 object](#modifications-to-the-web3-object) section for details
+- 可直接替代 `new Web3(...)`，支持涉及 AccountKey 和 TxTypes 的以太坊和 kaia 交易类型。 详见[修改 Web3 对象]（#modifications-to-the-web3-object）部分
 
-## Install
+## 安装
 
 ### Node.js
 
-- Install
+- 安装
   ```sh
   npm install --save @kaiachain/web3js-ext
   ```
-- ESM or TypeScript
+- ESM 或 TypeScript
   ```ts
   import { Web3 } from "@kaiachain/web3js-ext";
   const web3 = new Web3("https://public-en-kairos.node.kaia.io");
@@ -23,9 +23,9 @@ Web3.js Extension for kaia offers:
   const web3 = new Web3("https://public-en-kairos.node.kaia.io");
   ```
 
-### Browser
+### 浏览器
 
-It is not recommended to use CDNs in production, But you can use below for quick prototyping.
+不建议在生产中使用 CDN，但可以在下面使用 CDN 进行快速原型开发。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@kaiachain/web3js-ext@latest/dist/web3js-ext.bundle.js"></script>
@@ -34,17 +34,17 @@ const web3 = new web3_ext.Web3(window.klaytn);
 </script>
 ```
 
-## Usage
+## 使用情况
 
-See [example](./example) and [test](./test).
+请参阅 [example](./example) 和 [test](./test) 。
 
-## Modifications to the Web3 object
+## 修改 Web3 对象
 
-See [DESIGN](./DESIGN.md) for source code organization.
+有关源代码组织，请参见 [DESIGN]（./DESIGN.md）。
 
-### Accounts
+### 帐户
 
-- Following functions can handle kaia TxTypes. See [src/account/index.ts](./src/account/index.ts)
+- 以下函数可以处理 kaia TxType。 参见 [src/account/index.ts](./src/account/index.ts)
   ```js
   // account independent functions
   web3.eth.accounts.recoverTransaction(rlp)
@@ -58,15 +58,15 @@ See [DESIGN](./DESIGN.md) for source code organization.
   account.signTransaction(obj or rlp)
   account.signTransactionAsFeePayer(obj or rlp)
   ```
-- Following functions can handle the [KIP-3 kaia keystore format v4](https://kips.kaia.io/KIPs/kip-3)
+- 以下函数可以处理 [KIP-3 kaia 密钥存储格式 v4](https://kips.kaia.io/KIPs/kip-3)
   ```js
   web3.eth.accounts.decrypt(keystore)
   web3.eth.accounts.decryptList(keystore)
   ```
 
-### Eth RPC wrappers
+### Eth RPC 封装程序
 
-- Following functions calls different RPC, and handle kaia TxTypes. See [src/eth/index.ts](./src/eth/index.ts)
+- 以下函数调用不同的 RPC，并处理 kaia TxType。 参见 [src/eth/index.ts](./src/eth/index.ts)
   ```js
   // Try klay_protocolVersion, falls back to eth_protocolVersion
   web3.eth.getProtocolVersion()
@@ -83,9 +83,9 @@ See [DESIGN](./DESIGN.md) for source code organization.
   web3.eth.signTransaction(obj)
   ```
 
-### kaia RPCs
+### kaia RPC
 
-- Following functions calls kaia RPCs. See [src/web3.ts](./src/web3.ts)
+- 以下函数调用 kaia RPC。 参见 [src/web3.ts](./src/web3.ts)
   ```js
   web3.klay.blockNumber() // klay_blockNumber
   web3.net.networkID() // net_networkID
