@@ -1,6 +1,6 @@
-# Smart Contract Execution
+# 智能合约执行
 
-**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+**TxTypeSmartContractExecution** 使用给定数据执行智能合约。 只有当 "to "是智能合约账户时，才接受**TxTypeSmartContractExecution**。
 
 <CH.Spotlight>
 <CH.Code>
@@ -80,7 +80,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+导入 **web3** 和 **@kaiachain/web3js-ext** 软件包，在 web3 上添加 kaia 功能
 
 ```js SmartContractExecution.js focus=1:2
 
@@ -88,7 +88,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender address and sender private key**
+定义**发件人地址和发件人私人密钥**
 
 ```js SmartContractExecution.js focus=4:5
 
@@ -96,7 +96,7 @@ Define **sender address and sender private key**
 
 ---
 
-Define contract address and Abi, you can retreive it from block explorer and compiled solidity code
+定义合约地址和 Abi，可以从块资源管理器和编译后的 solidity 代码中获取
 
 ```js SmartContractExecution.js focus=6:21
 
@@ -104,7 +104,7 @@ Define contract address and Abi, you can retreive it from block explorer and com
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3js 中的提供者是访问区块链数据的只读抽象。
 
 ```js SmartContractExecution.js focus=24
 
@@ -112,7 +112,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js SmartContractExecution.js focus=24
 const { KlaytnWeb3, TxType } = require("@kaiachain/web3js-ext");
@@ -165,7 +165,7 @@ main();
 
 ---
 
-Create a **KlaytnWeb3** instance using the provider
+使用提供程序创建**KlaytnWeb3**实例
 
 ```js SmartContractExecution.js focus=25
 
@@ -173,7 +173,7 @@ Create a **KlaytnWeb3** instance using the provider
 
 ---
 
-Convert the sender's private key to an account using **web3.eth.accounts.privateKeyToAccount**
+使用**web3.eth.accounts.privateKeyToAccount**将发件人的私人密钥转换为一个账户
 
 ```js SmartContractExecution.js focus=26
 
@@ -181,7 +181,7 @@ Convert the sender's private key to an account using **web3.eth.accounts.private
 
 ---
 
-Create a contract instance using `Web3.eth.Contract` with defined **contractAbi** and **address**. You can read and write the contract through this instance
+使用定义了 **contractAbi** 和 **address** 的 `Web3.eth.Contract`创建合同实例。 您可以通过该实例读写合同
 
 ```js SmartContractExecution.js focus=29
 
@@ -189,7 +189,7 @@ Create a contract instance using `Web3.eth.Contract` with defined **contractAbi*
 
 ---
 
-Encode the function data for the "setNumber" function to convert the data to bytes
+为 "setNumber "函数的函数数据编码，将数据转换为字节
 
 ```js SmartContractExecution.js focus=30
 
@@ -197,7 +197,7 @@ Encode the function data for the "setNumber" function to convert the data to byt
 
 ---
 
-Define a transaction object for the contract execution, params `type: TxType.SmartContractExecution`, `from: senderAddr`, `to: contractAddr`, `data: data` are required
+为合同执行定义一个事务对象，参数 \`type：TxType.SmartContractExecution"、"from: senderAddr"、"to: contractAddr"、"data: data "为必填参数。
 
 ```js SmartContractExecution.js focus=32:37
 
@@ -205,7 +205,7 @@ Define a transaction object for the contract execution, params `type: TxType.Sma
 
 ---
 
-Sign the transaction with the **sender**'s private key
+用**发送方**的私人密钥签署交易
 
 <CH.Code>
 ``js SmartContractExecution.js focus=39:40
@@ -224,7 +224,7 @@ signedTx 0x6e3843d8fe5ef53b4642d82357d423dfb2741a96a9a74307df2bd7caee5659f0
 
 ---
 
-Send the signed transaction to blockchain. It will return the transaction receipt
+将已签名的交易发送到区块链。 它将返回交易收据
 
 <CH.Code>
 ``js SmartContractExecution.js focus=42:43
