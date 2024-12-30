@@ -1,6 +1,6 @@
-# Role-based Account Key
+# 基于角色的账户密钥
 
-**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+**AccountKeyRoleBased** 表示基于角色的密钥。 如果账户有一个**AccountKeyRoleBased**对象，且交易类型为**except account update**，那么验证过程将根据每个角色进行，如下所示：
 
 <CH.Spotlight>
 <CH.Code>
@@ -48,7 +48,7 @@ recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 
 ---
 
-Import necessary utils from **eth_utils**, **web3** and **eth_account**
+从 **eth_utils**、**web3** 和 **eth_account** 中导入必要的实用程序
 
 ```py web3_role_based_value_transfer_message_recover.py focus=1:4
 
@@ -56,7 +56,7 @@ Import necessary utils from **eth_utils**, **web3** and **eth_account**
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
 
 ```py web3_role_based_value_transfer_message_recover.py focus=5
 
@@ -64,7 +64,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
+使用 **Web3.HTTPProvider** 和 RPC 端点定义 web3 连接
 
 ```py web3_role_based_value_transfer_message_recover.py focus=7
 
@@ -72,7 +72,7 @@ Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```py web3_role_based_value_transfer_message_recover.py focus=7
 from eth_account import Account
@@ -104,7 +104,7 @@ web3_role_based_value_transfer_message_recover()
 
 ---
 
-Define a wallet from private key using **Account.from_key_pair** which is a role key of role-based account
+使用 **账户.from_key_pair**（基于角色的账户的角色密钥）从私钥定义钱包
 
 ```py web3_role_based_value_transfer_message_recover.py focus=10:13
 
@@ -155,10 +155,10 @@ Print out the signature and its length
 
 ---
 
-Recover sender address with **Account.recover_message** from signed message
+使用**Account.rec recover_message**从签名邮件中恢复发件人地址
 
 <CH.Code>
-```py web3_role_based_value_transfer_message_recover.py focus=20:21
+``py web3_role_based_value_transfer_message_recover.py focus=20:21
 
 ````
 ---
