@@ -1,6 +1,6 @@
-# Role-based Account Key
+# 基于角色的账户密钥
 
-**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+**AccountKeyRoleBased** 表示基于角色的密钥。 如果账户有一个** AccountKeyRoleBased**对象，且交易类型为**except account update**，那么验证过程将根据每个角色进行，如下所示：
 
 <CH.Spotlight>
 <CH.Code>
@@ -105,7 +105,7 @@ tx hash:  0x523877191b60450bf48ef29db40ee7191a0c5525af3255bea191c02970c088c7 rec
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
 
 ```py web3_account_update_role_based.py focus=1:2
 
@@ -113,7 +113,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and **cytools**
+从 **eth_account**、**web3py_ext** 和 **cytools** 中导入必要的实用程序
 
 ```py web3_account_update_role_based.py focus=3:16
 
@@ -121,7 +121,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytools**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+使用 **kairos** testnet 端点创建 Web3 实例
 
 ```py web3_account_update_role_based.py focus=18
 
@@ -129,7 +129,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**.
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode** 。
 
 ```py web3_account_update_role_based.py focus=18:20
 from web3py_ext import extend
@@ -195,7 +195,7 @@ web3_account_update_role_based()
 
 ---
 
-Load 3 accounts from private key
+从私人密钥加载 3 个账户
 
 ```py web3_account_update_role_based.py focus=22:25
 
@@ -203,7 +203,7 @@ Load 3 accounts from private key
 
 ---
 
-Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **empty_tx** util to get a tx with default fields filled.
+创建一个**TxType.ACCOUNT_UPDATE**类型的空交易。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py web3_account_update_role_based.py focus=6:7,10,27
 
@@ -211,7 +211,7 @@ Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **e
 
 ---
 
-Merge **additional fields** like **sender** and **keys** into the empty tx by using the **merge** util.
+使用 **merge** 工具，将 **sender** 和 **keys** 等附加字段合并到空 tx 中。
 
 ```py web3_account_update_role_based.py focus=15,28:47
 
@@ -219,7 +219,7 @@ Merge **additional fields** like **sender** and **keys** into the empty tx by us
 
 ---
 
-In this case, the account key to update is the **role-based** key and the possible key type of each role is the legacy, public or multisig.
+在这种情况下，要更新的账户密钥是基于**ole-based**密钥，每个角色的可能密钥类型是传统密钥、公共密钥或多重密钥。
 
 ```py web3_account_update_role_based.py focus=31,33,37,41
 
@@ -227,7 +227,7 @@ In this case, the account key to update is the **role-based** key and the possib
 
 ---
 
-You can use the **compressed_key** util to set each role key. It will extract the compressed public key from the key
+您可以使用 **compressed_key** 工具来设置每个角色的密钥。 它将从密钥中提取压缩公钥
 
 ```py web3_account_update_role_based.py focus=35,39,43
 
@@ -235,7 +235,7 @@ You can use the **compressed_key** util to set each role key. It will extract th
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+使用 **fill_transaction** 为交易对象添加更多参数，如 gas 限制...
 
 ```py web3_account_update_role_based.py focus=6,8,10,48
 
@@ -243,10 +243,10 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-You can use the **to_pretty** util to print the formatted tx.
+您可以使用 **to_pretty** 工具打印格式化的 tx。
 
 <CH.Code>
-```py web3_account_update_role_based.py focus=11,12,14,49
+``py web3_account_update_role_based.py focus=11,12,14,49
 
 ````
 
@@ -283,10 +283,10 @@ You can use the **to_pretty** util to print the formatted tx.
 
 ---
 
-Sign the account update tx type. You must sign it with the loaded **update_role** account
+签署账户更新 tx 类型。 您必须使用已加载的 **update_role** 账户签署它
 
 <CH.Code>
-```py web3_account_update_role_based.py focus=22,51:53
+``py web3_account_update_role_based.py focus=22,51:53
 
 ````
 ---
@@ -298,10 +298,10 @@ rawTransaction: 20f8da28850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238
 
 ---
 
-**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+**向网络发送\***已签名的交易，并**_等待_**接收，直到交易在区块链中完全执行为止
 
 <CH.Code>
-```py web3_account_update_role_based.py focus=55:57
+``py web3_account_update_role_based.py focus=55:57
 
 ````
 ---
