@@ -1,31 +1,31 @@
 # caver.validator
 
-The `caver.validator` package provides validation functions that should be used when implementing applications on kaia.
+caver.validator "软件包提供了在 kaia 上实施应用程序时应使用的验证函数。
 
-**NOTE** `caver.validator` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**注意** `caver.validator` 自 caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 开始支持。
 
-## validateSignedMessage <a href="#validatesignedmessage" id="validatesignedmessage"></a>
+## validateSignedMessage<a href="#validatesignedmessage" id="validatesignedmessage"></a>
 
 ```javascript
 caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 ```
 
-Validates a signed message by comparing the public key recovered from the signature with the account key of the kaia account.
+通过比较从签名中提取的公钥和 kaia 账户的账户密钥，验证已签名的信息。
 
-**Parameters**
+**参数**
 
-| Name       | Type              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message    | string            | The raw message string. If this message is hashed with the kaia-specific prefix, the third parameter should be passed as `true`.                                                                                                                                                                                                                                                                                            |
-| signatures | object \\| Array | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '\[ v, r, s ]' or '\[\[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
-| address    | string            | The address of the account that signed the message.                                                                                                                                                                                                                                                                                                                                                                                         |
-| isHashed   | boolean           | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Kaia Signed Message:\n" + message.length + message`.                                                                                                                                                                                                                                            |
+| 名称         | 类型                | 描述                                                                                                                                                                                                                                                                                  |
+| ---------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message    | string            | 原始信息字符串。 如果该信息使用 kaia 特有的前缀散列，则第三个参数应作为 `true`传入。                                                                                                                                                                                                                                   |
+| singatures | object \\| Array | 格式为 `{ v, r, s }` 的对象、`SignatureData ` 的实例或`SignatureData ` 的数组。 \[ v, r, s ]"或"\[\[ v, r, s ]"数组也可以作为参数传递，在这种情况下，它会被内部转换为 "SignatureData "类型。 |
+| address    | string            | 签署信息的账户地址。                                                                                                                                                                                                                                                                          |
+| isHashed   | boolean           | (optional, default: `false`) 作为参数传递的消息是否使用前缀`"\x19Kaia Signed Message：\n" + message.length + message`。                                                                                                                                         |
 
-**Return Value**
+**返回价值**
 
-`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the signature on the message is valid or not.
+返回`boolean` 的 `Promise`：该承诺将以一个 boolean 来表示消息上的签名是否有效。
 
-**Examples**
+**示例**
 
 ```javascript
 const address = '0xa84a1ce657e9d5b383cece6f4ba365e23fa234dd'
@@ -54,19 +54,19 @@ const signature = [
 caver.validator.validateTransaction(tx)
 ```
 
-Validates a transaction. This function compares the public keys from the account key of the kaia account with the public keys recovered from `signatures`. If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
+验证交易。 该函数比较 kaia 账户密钥中的公钥和从 "签名 "中恢复的公钥。 如果交易是收费委托的，且内含 "feePayerSignatures "变量，则该函数会比较从 "feePayerSignatures "中获取的公钥和收费人的公钥。
 
-**Parameters**
+**参数**
 
-| Name | Type   | Description                                                                                               |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
-| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
+| 名称 | 类型     | 描述                                                                     |
+| -- | ------ | ---------------------------------------------------------------------- |
+| tx | object | 要验证的 [Transaction](./caver-transaction/caver-transaction.md#class) 实例。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transacion is valid or not.
+返回 `boolean` 的 `Promise`：该承诺将以 boolean 来表示传输是否有效。
 
-**Examples**
+**示例**
 
 ```javascript
 // Basic transaction will be validated with `signatures`.
@@ -84,19 +84,19 @@ const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 caver.validator.validateSender(tx)
 ```
 
-Validates the sender of the transaction. This function compares the public keys of the account key of the kaia account with the public keys recovered from `signatures`.
+验证交易发送方。 该函数比较 kaia 帐户的帐户密钥和从 "签名 "中恢复的公钥。
 
-**Parameters**
+**参数**
 
-| Name | Type   | Description                                                                                               |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
-| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
+| 名称 | 类型     | 描述                                                                     |
+| -- | ------ | ---------------------------------------------------------------------- |
+| tx | object | 要验证的 [Transaction](./caver-transaction/caver-transaction.md#class) 实例。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
+返回`boolean`的 `Promise`：该承诺将以boolean表示交易是否有效。
 
-**Examples**
+**示例**
 
 ```javascript
 const tx = caver.transaction.valueTransfer.create({...})
@@ -109,19 +109,19 @@ const tx = caver.transaction.valueTransfer.create({...})
 caver.validator.validateFeePayer(tx)
 ```
 
-Validates a fee payer in the transaction. This function compares the public keys of the account key of the fee payer with the public keys recovered from `feePayerSignatures`.
+验证交易中的缴费人。 该函数比较缴费人账户密钥的公钥和从`feePayerSignatures` 中获取的公钥。
 
-**Parameters**
+**参数**
 
-| Name | Type   | Description                                                                                               |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
-| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
+| 名称 | 类型     | 描述                                                                     |
+| -- | ------ | ---------------------------------------------------------------------- |
+| tx | object | 要验证的 [Transaction](./caver-transaction/caver-transaction.md#class) 实例。 |
 
-**Return Value**
+**返回价值**
 
-`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
+返回`boolean`的 `Promise`：该承诺将以 boolean 表示交易是否有效。
 
-**Examples**
+**示例**
 
 ```javascript
 const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
