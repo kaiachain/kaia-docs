@@ -1,4 +1,4 @@
-# Legacy Account Key
+# 传统账户密钥
 
 <CH.Spotlight>
 <CH.Code>
@@ -66,7 +66,7 @@ recoveredAddr rpc 0xb2ba72e1f84b7b8cb15487a2bf20328f2cf40c25 true
 
 ---
 
-Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+导入**@kaiachain/web3js-ext**软件包，在 web3 上添加 kaia 功能
 
 ```js SignTxWithLegacyExample.js focus=1
 
@@ -74,7 +74,7 @@ Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ---
 
-Define sender's **address** and **private key**
+定义发件人的**地址**和**私人密钥**
 
 ```js SignTxWithLegacyExample.js focus=3:4
 
@@ -82,7 +82,7 @@ Define sender's **address** and **private key**
 
 ---
 
-Define receiver's **address**
+定义接收方的**地址**
 
 ```js SignTxWithLegacyExample.js focus=5
 
@@ -90,7 +90,7 @@ Define receiver's **address**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3js 中的提供者是访问区块链数据的只读抽象。
 
 ```js SignTxWithLegacyExample.js focus=7
 
@@ -98,7 +98,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js SignTxWithLegacyExample.js focus=7
 const { Web3, toPeb } = require("@kaiachain/web3js-ext");
@@ -134,7 +134,7 @@ main().catch(console.error);
 
 ---
 
-Define a **web3 instance** using the provider
+使用提供程序定义**Web3 实例**
 
 ```js SignTxWithLegacyExample.js focus=8
 
@@ -142,7 +142,7 @@ Define a **web3 instance** using the provider
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+用**私钥**和**提供者**创建发件人钱包
 
 ```js SignTxWithLegacyExample.js focus=9
 
@@ -150,7 +150,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Create a value transfer transaction, use `toPeb` helper to convert amount from **KLAY** to **Peb**
+创建价值转移交易，使用 `toPeb` 助手将金额从 **KLAY** 转换为 **Peb**
 
 ```js SignTxWithLegacyExample.js focus=12:16
 
@@ -158,10 +158,10 @@ Create a value transfer transaction, use `toPeb` helper to convert amount from *
 
 ---
 
-Sign the transaction with sender's **wallet**
+用发件人的**钱包**签署交易
 
 <CH.Code>
-```js SignTxWithLegacyExample.js focus=18:19
+``js SignTxWithLegacyExample.js focus=18:19
 
 ````
 ---
@@ -174,7 +174,7 @@ signedTx 0xecb117338d7a0e7e9444886ebdab5d0e14fd1b02fa476fee839a2fc3b105f391
 
 ---
 
-Send the **signed transaction** to kaia network
+将**签署的交易**发送至 kaia 网络
 
 <CH.Code>
 ```js SignTxWithLegacyExample.js focus=21:22
@@ -207,7 +207,7 @@ receipt {
 
 ---
 
-Recover the address from signed transaction using `web3.klay.recoverFromTransaction`
+使用 `web3.klay.recoverFromTransaction` 从已签署的事务中恢复地址
 
 <CH.Code>
 ```js SignTxWithLegacyExample.js focus=24:26
