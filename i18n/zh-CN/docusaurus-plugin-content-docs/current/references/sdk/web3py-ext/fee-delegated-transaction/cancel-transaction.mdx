@@ -1,6 +1,6 @@
-# Cancel
+# 取消
 
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+**TxTypeCancel** 取消事务池中具有相同 nonce 的事务的执行。 当已提交的交易在一定时间内似乎未得到处理时，这种交易类型就很有用。
 
 <CH.Spotlight>
 <CH.Code>
@@ -49,7 +49,6 @@ def web3_fee_delegated_cancel_sign_recover():
     print("\ndecoded transaction:", to_pretty(decoded_tx))
 
 web3_fee_delegated_cancel_sign_recover()
-
 ```
 
 ---
@@ -124,7 +123,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+使用指定的 **kairos** 测试网 URL 创建 Web3 实例
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=12
 
@@ -132,7 +131,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=12
 from web3py_ext import extend
@@ -182,7 +181,7 @@ web3_fee_delegated_cancel_sign_recover()
 
 ---
 
-Load an account from private key
+从私人密钥加载账户
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=15
 
@@ -190,7 +189,7 @@ Load an account from private key
 
 ---
 
-Load an fee payer account from private key to sign and send the transaction instead of above account
+用私人密钥加载一个付款人账户，代替上述账户签署和发送交易
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=16
 
@@ -198,7 +197,7 @@ Load an fee payer account from private key to sign and send the transaction inst
 
 ---
 
-Create an empty transaction of type **TxType.FEE_DELEGATED_CANCEL**. You can use **empty_tx** util to get a tx with default fields filled.
+创建一个**TxType.FEE_DELEGATED_CANCEL**类型的空交易。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=18
 
@@ -206,7 +205,7 @@ Create an empty transaction of type **TxType.FEE_DELEGATED_CANCEL**. You can use
 
 ---
 
-Merge the **from** and **nonce** fields into the empty tx by using the **merge** util.
+使用 **merge** 工具将 **from** 和 **nonce** 字段合并到空 tx 中。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=19:21
 
@@ -214,7 +213,7 @@ Merge the **from** and **nonce** fields into the empty tx by using the **merge**
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+使用 **fill_transaction** 为交易对象添加更多参数，如气体限制...
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=22
 
@@ -222,7 +221,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the **cancel tx** by user's private key
+用用户的私钥签署**取消 tx**
 
 <CH.Code>
 ```py web3_fee_delegated_cancel_sign_recover.py focus=24:26
@@ -235,14 +234,13 @@ Sign the **cancel tx** by user's private key
 ```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
 raw transaction of signed tx: 0x39f86b8203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec21
-
 ````
 
 </CH.Code>
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+从已签署的 tx 中的签名中恢复**signer's address**
 
 <CH.Code>
 ```py web3_fee_delegated_cancel_sign_recover.py focus=28:29
@@ -259,7 +257,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+您可以使用**Account.decode_transaction**工具对 RLP 编码的 tx 进行**解码**，如果您想让输出格式更漂亮，请使用**to_pretty**工具。
 
 <CH.Code>
 ```py web3_fee_delegated_cancel_sign_recover.py focus=31:32
@@ -292,10 +290,10 @@ decoded transaction: {
 
 ---
 
-Sign the raw transaction with the fee delegator's account
+用收费委托人的账户签署原始交易
 
 <CH.Code>
-```py web3_fee_delegated_cancel_sign_recover.py focus=34:35
+``py web3_fee_delegated_cancel_sign_recover.py focus=34:35
 
 ````
 
@@ -305,17 +303,16 @@ Sign the raw transaction with the fee delegator's account
 ```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
 raw transaction of feePayer signed tx: 0x39f8c98203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec2194cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f6a06697d97df68a0c4a2c59b3d7a8c5c479a6b43e7a34394518b858ef908d10b76aa0492c8da32c77a71ce26650f9ac842496bb33f0f17877ce1b23e1763b7c87e28d
-
 ````
 
 </CH.Code>
 
 ---
 
-Recover the fee payer's address from the signed transaction
+从签署的交易中找回缴费人地址
 
 <CH.Code>
-```py web3_fee_delegated_cancel_sign_recover.py focus=37:38
+``py web3_fee_delegated_cancel_sign_recover.py focus=37:38
 
 ````
 
@@ -325,14 +322,13 @@ Recover the fee payer's address from the signed transaction
 ```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
 recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
-
 ````
 
 </CH.Code>
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+您可以使用**Account.decode_transaction**工具对 RLP 编码的 tx 进行**解码**，如果您想让输出格式更漂亮，请使用**to_pretty**工具。
 
 <CH.Code>
 ```py web3_fee_delegated_cancel_sign_recover.py focus=40:41
