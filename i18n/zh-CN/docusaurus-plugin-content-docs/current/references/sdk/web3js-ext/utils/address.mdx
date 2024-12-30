@@ -1,6 +1,6 @@
-# Address
+# 地址
 
-Utils for converting public address, public key.
+用于转换公共地址和公共密钥的工具。
 
 <CH.Spotlight>
   <CH.Code>
@@ -39,14 +39,14 @@ Utils for converting public address, public key.
 
   ---
 
-  Import the **getCompressedPublicKey** from **@kaiachain/web3js-ext** packages
+  从 **@kaiachain/web3js-ext** 软件包导入 **getCompressedPublicKey**
 
   ```js addressUtils.js focus=1
   ```
 
   ---
 
-  To compress a public key from `{x, y}` format to hexadecimal, use `getCompressedPublicKey` with the **public key object** as param
+  要将公钥从{x, y}格式压缩为十六进制，请使用 `getCompressedPublicKey` 并将**公钥对象**作为参数
 
   <CH.Code>
     ```js addressUtils.js focus=4:11
@@ -76,7 +76,7 @@ Utils for converting public address, public key.
 
   ---
 
-  Otherwise if you want to compress the **public key** from **uncompressed hexadecimal**, use `getCompressedPublicKey` with the **uncompress public key** as param
+  否则，如果要压缩未压缩十六进制**的**公钥\*\*，请使用 `getCompressedPublicKey` 并将**未压缩公钥**作为参数
 
   <CH.Code>
     ```js addressUtils.js focus=4:9
