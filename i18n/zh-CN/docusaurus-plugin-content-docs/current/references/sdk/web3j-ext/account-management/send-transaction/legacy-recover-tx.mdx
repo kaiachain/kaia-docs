@@ -1,4 +1,4 @@
-# Legacy Account Key
+# 传统账户密钥
 
 <CH.Spotlight>
 <CH.Code>
@@ -88,7 +88,7 @@ Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java SignTxWithLegacyExample.java focus=1:19
 
@@ -96,7 +96,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+使用指定的 BAOBAB_URL 创建 Web3j 实例
 
 ```java SignTxWithLegacyExample.java focus=30
 
@@ -104,7 +104,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+此外，您还可以更改默认提供商。 例如，使用alchemy提供商。
 
 ```java SignTxWithLegacyExample.java focus=30
 package org.web3j.example.accountKey;
@@ -179,7 +179,7 @@ public class SignTxWithLegacyExample implements keySample {
 
 ---
 
-Create a **credential** from private key
+从私人密钥创建**证书**
 
 ```java SignTxWithLegacyExample.java focus=31
 
@@ -187,7 +187,7 @@ Create a **credential** from private key
 
 ---
 
-Gas **price** and **gas limit** settings
+燃气**价格**和**gas 限值**设置
 
 ```java SignTxWithLegacyExample.java focus=33:34
 
@@ -195,7 +195,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Set the **sender** address equal to the loaded credential's address
+将**发件人**地址设置为已加载凭据的地址
 
 ```java SignTxWithLegacyExample.java focus=35
 
@@ -203,7 +203,7 @@ Set the **sender** address equal to the loaded credential's address
 
 ---
 
-Get **chain ID** from the network
+从网络中获取**chain ID**
 
 ```java SignTxWithLegacyExample.java focus=36:37
 
@@ -211,7 +211,7 @@ Get **chain ID** from the network
 
 ---
 
-Set the **receiver** address equal to any valid address
+将**接收器**地址设置为任何有效地址
 
 ```java SignTxWithLegacyExample.java focus=38
 
@@ -219,7 +219,7 @@ Set the **receiver** address equal to any valid address
 
 ---
 
-Get the **nonce** for the sender's address
+获取发件人地址的**nonce**值
 
 ```java SignTxWithLegacyExample.java focus=39:40
 
@@ -227,7 +227,7 @@ Get the **nonce** for the sender's address
 
 ---
 
-Set the value to transfer
+设置要传输的值
 
 ```java SignTxWithLegacyExample.java focus=41
 
@@ -235,7 +235,7 @@ Set the value to transfer
 
 ---
 
-Set transaction type as **VALUE_TRANSFER**
+将交易类型设置为 **VALUE_TRANSFER**
 
 ```java SignTxWithLegacyExample.java focus=43
 
@@ -243,7 +243,7 @@ Set transaction type as **VALUE_TRANSFER**
 
 ---
 
-Create a raw transaction for value transfer
+为价值转移创建原始交易
 
 ```java SignTxWithLegacyExample.java focus=45:52
 
@@ -251,7 +251,7 @@ Create a raw transaction for value transfer
 
 ---
 
-Sign the transaction
+签署交易
 
 ```java SignTxWithLegacyExample.java focus=54
 
@@ -259,10 +259,10 @@ Sign the transaction
 
 ---
 
-Send the **signed transaction** to kaia network
+将**签署的交易**发送至 kaia 网络
 
 <CH.Code>
-```java SignTxWithLegacyExample.java focus=55:57
+``java SignTxWithLegacyExample.java focus=55:57
 
 ````
 
@@ -273,17 +273,16 @@ Send the **signed transaction** to kaia network
 ❯ java SignTxWithLegacyExample.java
 TxHash :
  0x957734684be8f79a21cef4de1842709b84c92e3920d656165ddb951981987b5a
-
 ````
 
 </CH.Code>
 
 ---
 
-Recover the sender address from signed transaction and compare it to the **from** address
+从签名交易中恢复发件人地址，并将其与**发件人**地址进行比较
 
 <CH.Code>
-```java SignTxWithLegacyExample.java focus=59:62
+``java SignTxWithLegacyExample.java focus=59:62
 
 ````
 
@@ -300,7 +299,7 @@ Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 
 ---
 
-Shut down the Web3j instance
+关闭 Web3j 实例
 
 ```java SignTxWithLegacyExample.java focus=64
 
