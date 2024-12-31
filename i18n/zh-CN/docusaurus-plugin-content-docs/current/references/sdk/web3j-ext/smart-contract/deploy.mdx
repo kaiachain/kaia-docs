@@ -1,6 +1,6 @@
 # Deploy
 
-Web3 SDKs support to interact with Smart Contract via contract instance, not low-level transaction.
+Web3 SDK 支持通过合约实例（而非底层事务）与智能合约进行交互。
 
 <CH.Spotlight>
 <CH.Code>
@@ -137,7 +137,7 @@ TxType : SMART_CONTRACT_DEPLOY
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java smartContractDeploy.java focus=1:20
 
@@ -145,7 +145,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Connect to the kaia blockchain using Web3j and specify the URL
+使用 Web3j 连接到 kaia 区块链并指定 URL
 
 ```java smartContractDeploy.java focus=31
 
@@ -153,7 +153,7 @@ Connect to the kaia blockchain using Web3j and specify the URL
 
 ---
 
-Create KlayCredentials using the private key
+使用私钥创建 KlayCredentials
 
 ```java smartContractDeploy.java focus=32
 
@@ -161,7 +161,7 @@ Create KlayCredentials using the private key
 
 ---
 
-Define gas price and gas limit for the transaction
+确定交易的gas价格和gas限额
 
 ```java smartContractDeploy.java focus=34:35
 
@@ -169,7 +169,7 @@ Define gas price and gas limit for the transaction
 
 ---
 
-Get the sender's address and nonce
+获取发件人地址和非密码
 
 ```java smartContractDeploy.java focus=36:38
 
@@ -201,7 +201,7 @@ Initialize variables for transaction parameters
 
 ---
 
-Create a raw transaction
+创建原始交易
 
 ```java smartContractDeploy.java focus=49:58
 
@@ -209,7 +209,7 @@ Create a raw transaction
 
 ---
 
-Sign the raw transaction using `KlayRawTransaction.createTransaction`
+使用 `KlayRawTransaction.createTransaction` 签署原始事务
 
 ```java smartContractDeploy.java focus=60
 
@@ -217,7 +217,7 @@ Sign the raw transaction using `KlayRawTransaction.createTransaction`
 
 ---
 
-Send the transaction to kaia network
+将交易发送至 kaia 网络
 
 <CH.Code>
 ```java smartContractDeploy.java focus=61:64
@@ -237,7 +237,7 @@ TxHash :
 
 ---
 
-Get the **transaction receipt** and using the transaction hash
+获取**交易收据**并使用交易哈希值
 
 <CH.Code>
 ```java smartContractDeploy.java focus=66:75
@@ -286,7 +286,7 @@ class TransactionReceipt {
 
 ---
 
-Shut down the Web3j connection
+关闭 Web3j 连接
 
 ```java smartContractDeploy.java focus=76
 
@@ -294,7 +294,7 @@ Shut down the Web3j connection
 
 ---
 
-Decode the raw transaction to get the transaction type
+解码原始交易以获取交易类型
 
 <CH.Code>
 ```java smartContractDeploy.java focus=78:81
