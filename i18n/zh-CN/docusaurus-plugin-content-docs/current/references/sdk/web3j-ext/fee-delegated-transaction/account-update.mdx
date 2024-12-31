@@ -1,6 +1,6 @@
 # Account Update
 
-# Fee Delegation
+# 费用委托
 
 <CH.Spotlight>
 <CH.Code>
@@ -139,7 +139,7 @@ TxType : FEE_DELEGATED_ACCOUNT_UPDATE
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java FeeDelegatedAccountUpdateExample.java focus=1:21
 
@@ -147,7 +147,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Connect to the kaia blockchain using Web3j and specify the URL
+使用 Web3j 连接到 kaia 区块链并指定 URL
 
 ```java FeeDelegatedAccountUpdateExample.java focus=30
 
@@ -155,7 +155,7 @@ Connect to the kaia blockchain using Web3j and specify the URL
 
 ---
 
-Creating **sender** and **fee payer** credentials using private keys.
+使用私钥创建**发送方**和**付费方**证书。
 
 ```java FeeDelegatedAccountUpdateExample.java focus=31:32
 
@@ -163,7 +163,7 @@ Creating **sender** and **fee payer** credentials using private keys.
 
 ---
 
-Define gas price and gas limit for the transaction
+确定交易的gas价格和gas限额
 
 ```java FeeDelegatedAccountUpdateExample.java focus=33:34
 
@@ -171,7 +171,7 @@ Define gas price and gas limit for the transaction
 
 ---
 
-Get the sender's address from `credentials.getAddress()`
+从 `credentials.getAddress()` 获取发件人地址
 
 ```java FeeDelegatedAccountUpdateExample.java focus=35
 
@@ -179,7 +179,7 @@ Get the sender's address from `credentials.getAddress()`
 
 ---
 
-Get the chain ID from the **Kaia** network
+从 **Kaia** 网络获取链 ID
 
 ```java FeeDelegatedAccountUpdateExample.java focus=36:37
 
@@ -187,7 +187,7 @@ Get the chain ID from the **Kaia** network
 
 ---
 
-Getting the **nonce** for the sender's address
+获取发件人地址的 **nonce**
 
 ```java FeeDelegatedAccountUpdateExample.java focus=38:39
 
@@ -195,7 +195,7 @@ Getting the **nonce** for the sender's address
 
 ---
 
-Generating a new account key for account update
+为账户更新生成新账户密钥
 
 ```java FeeDelegatedAccountUpdateExample.java focus=41
 
@@ -203,7 +203,7 @@ Generating a new account key for account update
 
 ---
 
-Creating a raw transaction for account update
+为账户更新创建原始交易
 
 ```java FeeDelegatedAccountUpdateExample.java focus=47:53
 
@@ -211,7 +211,7 @@ Creating a raw transaction for account update
 
 ---
 
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
+使用 "KlayTransactionEncoder.signMessage "以\*\*发送方的身份签署交易。
 
 ```java FeeDelegatedAccountUpdateExample.java focus=55:56
 
@@ -219,7 +219,7 @@ Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`
 
 ---
 
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
+使用 "KlayTransactionEncoder.signMessageAsFeePayer "将交易签署为付费方。
 
 ```java FeeDelegatedAccountUpdateExample.java focus=58:59
 
@@ -227,7 +227,7 @@ Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAs
 
 ---
 
-Sending the signed transaction to kaia network
+向 kaia 网络发送已签署的交易
 
 <CH.Code>
 ```java FeeDelegatedAccountUpdateExample.java focus=61:64
@@ -241,7 +241,7 @@ Sending the signed transaction to kaia network
 
 ---
 
-Getting the transaction receipt
+获取交易收据
 
 <CH.Code>
 ```java FeeDelegatedAccountUpdateExample.java focus=65:74
@@ -293,7 +293,7 @@ class TransactionReceipt {
 
 ---
 
-Shutting down the Web3j instance
+关闭 Web3j 实例
 
 ```java FeeDelegatedAccountUpdateExample.java focus=75
 
@@ -301,7 +301,7 @@ Shutting down the Web3j instance
 
 ---
 
-Decoding the raw transaction to get the transaction type
+解码原始交易以获取交易类型
 
 <CH.Code>
 ```java FeeDelegatedAccountUpdateExample.java focus=77:80
