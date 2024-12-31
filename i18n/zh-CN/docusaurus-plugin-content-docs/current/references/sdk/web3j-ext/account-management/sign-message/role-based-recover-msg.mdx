@@ -1,6 +1,6 @@
 # Role-based Account Key
 
-**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+**AccountKeyRoleBased** 表示基于角色的密钥。 如果账户有一个** AccountKeyRoleBased**对象，且交易类型为**除账户更新外的**，那么验证过程将根据每个角色进行，如下所示：
 
 <CH.Spotlight>
 <CH.Code>
@@ -85,7 +85,7 @@ Result address for feepayer key : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java SignMsgWithRoleBasedExample.java focus=1:12
 
@@ -93,7 +93,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+使用指定的 BAOBAB_URL 创建 Web3j 实例
 
 ```java SignMsgWithRoleBasedExample.java focus=23
 
@@ -101,7 +101,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+此外，您还可以更改默认提供商。 例如，使用alchemy提供商。
 
 ```java SignMsgWithRoleBasedExample.java focus=23
 package org.web3j.example.accountKey;
@@ -171,7 +171,7 @@ public class SignMsgWithRoleBasedExample implements keySample {
 
 ---
 
-Load different **role-based credentials** from theirs key pairs
+从他们的密钥对中加载不同的**基于角色的证书**
 
 ```java SignMsgWithRoleBasedExample.java focus=24:29
 
@@ -179,7 +179,7 @@ Load different **role-based credentials** from theirs key pairs
 
 ---
 
-Get the first credential **address**
+获取第一个证书**地址**
 
 ```java SignMsgWithRoleBasedExample.java focus=30
 
@@ -187,7 +187,7 @@ Get the first credential **address**
 
 ---
 
-Define any message to sign
+定义要签署的任何信息
 
 ```java SignMsgWithRoleBasedExample.java focus=31
 
@@ -195,7 +195,7 @@ Define any message to sign
 
 ---
 
-Set the **block number** to be the latest block in the kaia network
+设置**区块编号**为 kaia 网络中的最新区块
 
 ```java SignMsgWithRoleBasedExample.java focus=32
 
@@ -203,7 +203,7 @@ Set the **block number** to be the latest block in the kaia network
 
 ---
 
-Sign the **message** with all 3 role-based credentials in order and get the signature outputs as string
+使用所有 3 个基于角色的凭据依次签署**信息**，并以字符串形式输出签名
 
 ```java SignMsgWithRoleBasedExample.java focus=34:41
 
@@ -211,7 +211,7 @@ Sign the **message** with all 3 role-based credentials in order and get the sign
 
 ---
 
-Recover the **addresses** from 3 message responses and compare them to the original **from** address
+从 3 个报文回复中恢复**地址**，并与原始**发件人**地址进行比较
 
 <CH.Code>
 ```java SignMsgWithRoleBasedExample.java focus=43:57
@@ -233,7 +233,7 @@ Result address for feepayer key : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 
 ---
 
-Shut down the Web3j instance
+关闭 Web3j 实例
 
 ```java SignMsgWithRoleBasedExample.java focus=59
 
