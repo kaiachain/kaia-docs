@@ -48,7 +48,7 @@ Ethers.js Extension for kaia offers:
   ```sh
   npm install --save @kaiachain/ethers-ext ethers@5
   ```
-- ESM or TypeScript
+- ESM 或 TypeScript
   ```ts
   import { Wallet, JsonRpcProvider } from "@kaiachain/ethers-ext";
   const provider = new JsonRpcProvider("https://public-en-kairos.node.kaia.io");
