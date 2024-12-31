@@ -1,6 +1,6 @@
-# Role-based Account Key
+# 基于角色的账户密钥
 
-**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+**AccountKeyRoleBased** 表示基于角色的密钥。 如果账户有一个**基于账户密钥角色的**对象，且交易类型为**除账户更新外的**，那么验证过程将根据每个角色进行，如下所示：
 
 <CH.Spotlight>
 <CH.Code>
@@ -92,7 +92,7 @@ Result address : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java SignTxWithRoleBasedExample.java focus=1:19
 
@@ -100,7 +100,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+使用指定的 BAOBAB_URL 创建 Web3j 实例
 
 ```java SignTxWithRoleBasedExample.java focus=30
 
@@ -108,7 +108,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+此外，您还可以更改默认提供商。 例如，使用alchemy提供商。
 
 ```java SignTxWithRoleBasedExample.java focus=30
 package org.web3j.example.accountKey;
@@ -185,7 +185,7 @@ public class SignTxWithRoleBasedExample implements keySample {
 
 ---
 
-Create a **credential** from private key which is the **transaction** role key
+用私人密钥创建**凭证**，私人密钥是**交易**角色密钥
 
 ```java SignTxWithRoleBasedExample.java focus=31:32
 
@@ -193,7 +193,7 @@ Create a **credential** from private key which is the **transaction** role key
 
 ---
 
-Gas **price** and **gas limit** settings
+燃气**价格**和**gas 限值**设置
 
 ```java SignTxWithRoleBasedExample.java focus=34:35
 
@@ -201,7 +201,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Set the **sender** address equal to the loaded credential's address
+将**发件人**地址设置为已加载凭据的地址
 
 ```java SignTxWithRoleBasedExample.java focus=36
 
@@ -209,7 +209,7 @@ Set the **sender** address equal to the loaded credential's address
 
 ---
 
-Get **chain ID** from the network
+从网络中获取**chain ID**
 
 ```java SignTxWithRoleBasedExample.java focus=37:38
 
@@ -217,7 +217,7 @@ Get **chain ID** from the network
 
 ---
 
-Set the **receiver** address equal to any valid address
+将**接收器**地址设置为任何有效地址
 
 ```java SignTxWithRoleBasedExample.java focus=39
 
@@ -225,7 +225,7 @@ Set the **receiver** address equal to any valid address
 
 ---
 
-Get the **nonce** for the sender's address
+获取发件人地址的**nonce**值
 
 ```java SignTxWithRoleBasedExample.java focus=40:41
 
@@ -233,7 +233,7 @@ Get the **nonce** for the sender's address
 
 ---
 
-Set the value to transfer
+设置要传输的值
 
 ```java SignTxWithRoleBasedExample.java focus=42
 
@@ -241,7 +241,7 @@ Set the value to transfer
 
 ---
 
-Set transaction type as **VALUE_TRANSFER**
+将交易类型设置为 **VALUE_TRANSFER**
 
 ```java SignTxWithRoleBasedExample.java focus=44
 
@@ -249,7 +249,7 @@ Set transaction type as **VALUE_TRANSFER**
 
 ---
 
-Create a raw transaction for value transfer
+为价值转移创建原始交易
 
 ```java SignTxWithRoleBasedExample.java focus=46:53
 
@@ -257,7 +257,7 @@ Create a raw transaction for value transfer
 
 ---
 
-Sign the transaction
+签署交易
 
 ```java SignTxWithRoleBasedExample.java focus=55
 
@@ -265,7 +265,7 @@ Sign the transaction
 
 ---
 
-Send the **signed transaction** to kaia network
+将**签署的交易**发送至 kaia 网络
 
 ```java SignTxWithRoleBasedExample.java focus=56:58
 
@@ -273,7 +273,7 @@ Send the **signed transaction** to kaia network
 
 ---
 
-Recover the sender address from signed transaction and compare it to the **from** address
+从签名交易中恢复发件人地址，并将其与**发件人**地址进行比较
 
 ```java SignTxWithRoleBasedExample.java focus=60:64
 
@@ -281,7 +281,7 @@ Recover the sender address from signed transaction and compare it to the **from*
 
 ---
 
-Shut down the Web3j instance
+关闭 Web3j 实例
 
 ```java SignTxWithRoleBasedExample.java focus=66
 
