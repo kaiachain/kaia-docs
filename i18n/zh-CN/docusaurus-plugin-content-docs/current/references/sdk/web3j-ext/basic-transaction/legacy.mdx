@@ -1,6 +1,6 @@
-TxTypeLegacyTransaction represents a type of transactions existed previously in kaia.
+TxTypeLegacyTransaction 代表 kaia 以前存在的一种事务类型。
 
-\*\*This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
+\*\*这种类型的交易可以创建账户、转移代币、部署智能合约、执行智能合约，或者执行上述交易的混合。
 
 <CH.Spotlight>
 
@@ -102,7 +102,7 @@ public class LegacyExample implements keySample {
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java txTypeLegacyTransaction.java focus=1:20
 
@@ -110,7 +110,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+使用指定的 BAOBAB_URL 创建 Web3j 实例
 
 ```java txTypeLegacyTransaction.java focus=27
 
@@ -118,7 +118,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Creating new credentials using the private key
+使用私人密钥创建新证书
 
 ```java txTypeLegacyTransaction.java focus=28:29
 
@@ -126,7 +126,7 @@ Creating new credentials using the private key
 
 ---
 
-Gas **price** and **gas limit** settings
+燃气**价格**和**gas 限值**设置
 
 ```java txTypeLegacyTransaction.java focus=31:32
 
@@ -134,7 +134,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Set the sender's **from** and receiver's **to** address
+设置发送方的**发件人地址和接收方的**收件人地址
 
 ```java txTypeLegacyTransaction.java focus=33,34
 
@@ -142,7 +142,7 @@ Set the sender's **from** and receiver's **to** address
 
 ---
 
-Get the **chain ID** from the network
+从网络中获取**chain ID**
 
 ```java txTypeLegacyTransaction.java focus=35:36
 
@@ -150,7 +150,7 @@ Get the **chain ID** from the network
 
 ---
 
-Get the user's **nonce** from the network
+从网络上获取用户的**nonce**
 
 ```java txTypeLegacyTransaction.java focus=37:38
 
@@ -158,7 +158,7 @@ Get the user's **nonce** from the network
 
 ---
 
-Define the **value** to transfer from sender to receiver
+定义要从发送方转移到接收方的**值**
 
 ```java txTypeLegacyTransaction.java focus=39
 
@@ -166,7 +166,7 @@ Define the **value** to transfer from sender to receiver
 
 ---
 
-Create a raw **transaction** using above params
+使用上述参数创建原始**交易**
 
 ```java txTypeLegacyTransaction.java focus=42:47
 
@@ -174,7 +174,7 @@ Create a raw **transaction** using above params
 
 ---
 
-For **web3j-credentials**, sign transaction with with `KlayTransactionEncoder.signMessage` and encode to Hex string using `Numeric.toHexString`.
+对于 **web3j-credentials**，使用 `KlayTransactionEncoder.signMessage` 签署事务，并使用 `Numeric.toHexString` 将其编码为十六进制字符串。
 
 ```java txTypeLegacyTransaction.java focus=49:50
 
@@ -182,7 +182,7 @@ For **web3j-credentials**, sign transaction with with `KlayTransactionEncoder.si
 
 ---
 
-Using `ethSendRawTransaction` method to send the signed transaction to the blockchain.
+使用 `ethSendRawTransaction` 方法将签名交易发送到区块链。
 
 ```java txTypeLegacyTransaction.java focus=51:52
 
@@ -190,7 +190,7 @@ Using `ethSendRawTransaction` method to send the signed transaction to the block
 
 ---
 
-For **web3j-ext klaycredentials**, create raw transaction with `KlayRawTransaction.createEtherTransaction`, sign it with `KlayTransactionEncoder.signMessage` and encode to Hex string using `Numeric.toHexString`.
+对于 **web3j-ext klaycredentials**，使用 `KlayRawTransaction.createEtherTransaction` 创建原始事务，使用 `KlayTransactionEncoder.signMessage` 签名，并使用 `Numeric.toHexString` 编码为十六进制字符串。
 
 ```java txTypeLegacyTransaction.java focus=54:63
 
@@ -198,7 +198,7 @@ For **web3j-ext klaycredentials**, create raw transaction with `KlayRawTransacti
 
 ---
 
-Using `ethSendRawTransaction` method to send the signed transaction to the blockchain.
+使用 `ethSendRawTransaction` 方法将签名交易发送到区块链。
 
 ```java txTypeLegacyTransaction.java focus=64:66
 
@@ -206,7 +206,7 @@ Using `ethSendRawTransaction` method to send the signed transaction to the block
 
 ---
 
-Get the receipt hash returned.
+获取返回的收据哈希值。
 
 <CH.Code>
 
@@ -217,7 +217,7 @@ Get the receipt hash returned.
 ---
 
 ```zsh output
-❯ java txTypeLegacyTransaction.java
+java txTypeLegacyTransaction.java
 0xa02e0i90faef4323cb542312de9aac0
 ```
 
@@ -225,7 +225,7 @@ Get the receipt hash returned.
 
 ---
 
-Finally, Shut down web3j instance
+最后，关闭 web3j 实例
 
 ```java txTypeLegacyTransaction.java focus=77
 
