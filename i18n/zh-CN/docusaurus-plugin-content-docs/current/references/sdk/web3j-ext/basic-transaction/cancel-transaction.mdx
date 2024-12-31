@@ -1,6 +1,6 @@
-# Cancel
+# 取消
 
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+**TxTypeCancel** 取消事务池中具有相同 nonce 的事务的执行。 当已提交的交易在一定时间内似乎未得到处理时，这种交易类型就很有用。
 
 <CH.Spotlight>
 <CH.Code>
@@ -128,7 +128,7 @@ TxType : CANCEL
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java cancelTransactionExample.java focus=1:20
 
@@ -136,7 +136,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+使用指定的 BAOBAB_URL 创建 Web3j 实例
 
 ```java cancelTransactionExample.java focus=32
 
@@ -144,7 +144,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Creating new credentials using **LEGACY_KEY_privkey**
+使用 **LEGACY_KEY_privkey 创建新凭证**
 
 ```java cancelTransactionExample.java focus=33
 
@@ -152,7 +152,7 @@ Creating new credentials using **LEGACY_KEY_privkey**
 
 ---
 
-Gas **price** and **gas limit** settings
+燃气**价格**和**gas 限值**设置
 
 ```java cancelTransactionExample.java focus=35:36
 
@@ -160,7 +160,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Set the sender's **from** address
+设置发件人的**发件人**地址
 
 ```java cancelTransactionExample.java focus=37
 
@@ -168,7 +168,7 @@ Set the sender's **from** address
 
 ---
 
-Get the **chain ID** from the network
+从网络中获取**chain ID**
 
 ```java cancelTransactionExample.java focus=38:39
 
@@ -176,7 +176,7 @@ Get the **chain ID** from the network
 
 ---
 
-Getting the **nonce** for the sender's address
+获取发件人地址的**nonce**值
 
 ```java cancelTransactionExample.java focus=40:41
 
@@ -184,7 +184,7 @@ Getting the **nonce** for the sender's address
 
 ---
 
-Set the transaction type to **CANCEL**
+将交易类型设为**取消**
 
 ```java cancelTransactionExample.java focus=43
 
@@ -192,7 +192,7 @@ Set the transaction type to **CANCEL**
 
 ---
 
-Create a raw transaction for canceling **pending transaction**
+创建一个原始事务，用于取消**正在进行的事务**
 
 ```java cancelTransactionExample.java focus=45:50
 
@@ -200,7 +200,7 @@ Create a raw transaction for canceling **pending transaction**
 
 ---
 
-Sign the raw transaction with pre-defined **credentials**
+使用预定义的**凭证**签署原始交易
 
 ```java cancelTransactionExample.java focus=52
 
@@ -208,7 +208,7 @@ Sign the raw transaction with pre-defined **credentials**
 
 ---
 
-Send the raw transaction to the blockchain. It will return the transaction hash
+将原始交易发送到区块链。 它将返回交易哈希值
 
 <CH.Code>
 
@@ -219,7 +219,7 @@ Send the raw transaction to the blockchain. It will return the transaction hash
 ---
 
 ```zsh output
-❯ java cancelTransactionExample.java
+JAVA cancelTransactionExample.java
 TxHash :
  0x3b739ef7094ff05af24322dc0d0547aecaaea0bad69c89129f159c7f03e38b3d
 ```
@@ -228,7 +228,7 @@ TxHash :
 
 ---
 
-Get the **transaction receipt** and using the transaction hash
+获取**交易收据**并使用交易哈希值
 
 <CH.Code>
 
@@ -277,7 +277,7 @@ class TransactionReceipt {
 
 ---
 
-Shutdown the web3j instance
+关闭 web3j 实例
 
 ```java cancelTransactionExample.java focus=68
 
@@ -285,7 +285,7 @@ Shutdown the web3j instance
 
 ---
 
-Decoding the raw transaction to get the transaction type
+解码原始交易以获取交易类型
 
 <CH.Code>
 
