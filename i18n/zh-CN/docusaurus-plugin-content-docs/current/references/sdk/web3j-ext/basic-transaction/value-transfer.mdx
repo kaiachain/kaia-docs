@@ -1,8 +1,8 @@
 # Value Transfer
 
-TxTypeValueTransfer is used when a user wants to send KAIA.
+TxTypeValueTransfer 用于用户发送 KAIA。
 
-- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+- 由于 kaia 提供了多种交易类型，使每种交易类型只服务于一个目的，因此 TxTypeValueTransfer 只限于将 KAIA 发送到外部拥有的账户（EOA）。
 
 <CH.Spotlight>
 <CH.Code>
@@ -131,7 +131,7 @@ TxType : VALUE_TRANSFER
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java txTypeValueTransferTransaction.java focus=1:20
 
@@ -139,7 +139,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Connect to the kaia blockchain using Web3j and specify the URL
+使用 Web3j 连接到 kaia 区块链并指定 URL
 
 ```java txTypeValueTransferTransaction.java focus=31
 
@@ -147,7 +147,7 @@ Connect to the kaia blockchain using Web3j and specify the URL
 
 ---
 
-Create KlayCredentials using the private key
+使用私钥创建 KlayCredentials
 
 ```java txTypeValueTransferTransaction.java focus=32
 
@@ -155,7 +155,7 @@ Create KlayCredentials using the private key
 
 ---
 
-Define gas price and gas limit for the transaction
+确定交易的gas价格和gas限额
 
 ```java txTypeValueTransferTransaction.java focus=34:35
 
@@ -163,7 +163,7 @@ Define gas price and gas limit for the transaction
 
 ---
 
-Get the sender's address from `credentials.getAddress()`
+从 `credentials.getAddress()` 获取发件人地址
 
 ```java txTypeValueTransferTransaction.java focus=36
 
@@ -171,7 +171,7 @@ Get the sender's address from `credentials.getAddress()`
 
 ---
 
-Get the chain ID from the **Kaia** network
+从 **Kaia** 网络获取链 ID
 
 ```java txTypeValueTransferTransaction.java focus=37:38
 
@@ -179,7 +179,7 @@ Get the chain ID from the **Kaia** network
 
 ---
 
-Initialize variables for transaction parameters
+为交易参数初始化变量
 
 ```java txTypeValueTransferTransaction.java focus=39:44
 
@@ -187,7 +187,7 @@ Initialize variables for transaction parameters
 
 ---
 
-Create a raw transaction object using above parameters
+使用上述参数创建原始事务对象
 
 ```java txTypeValueTransferTransaction.java focus=46:53
 
@@ -195,7 +195,7 @@ Create a raw transaction object using above parameters
 
 ---
 
-Sign the raw transaction
+签署原始交易
 
 ```java txTypeValueTransferTransaction.java focus=55
 
@@ -203,7 +203,7 @@ Sign the raw transaction
 
 ---
 
-Send the transaction to kaia network.
+将交易发送到 kaia 网络。
 
 <CH.Code>
 
@@ -222,7 +222,7 @@ Send the transaction to kaia network.
 
 ---
 
-Get the **transaction receipt** and using the transaction hash
+获取**交易收据**并使用交易哈希值
 
 <CH.Code>
 
@@ -270,7 +270,7 @@ class TransactionReceipt {
 
 ---
 
-Shut down the Web3j connection
+关闭 Web3j 连接
 
 ```java txTypeValueTransferTransaction.java focus=71
 
@@ -278,7 +278,7 @@ Shut down the Web3j connection
 
 ---
 
-Decode the raw transaction to get the transaction type
+解码原始交易以获取交易类型
 
 <CH.Code>
 ```java txTypeValueTransferTransaction.java focus=73:74
