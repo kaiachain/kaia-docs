@@ -1,6 +1,6 @@
 # Signature
 
-Convert signature between `r, s, v` and `compressed string` format.
+在 "r、s、v "和 "压缩字符串 "格式之间转换签名。
 
 <CH.Spotlight>
   <CH.Code>
@@ -54,21 +54,21 @@ Convert signature between `r, s, v` and `compressed string` format.
 
   ---
 
-  Import necessary classes from the Web3j and kaia libraries(`web3j-ext`)
+  从 Web3j 和 kaia 库（`web3j-ext`）导入必要的类
 
   ```java SignatureUtilsExample.java focus=1:6
   ```
 
   ---
 
-  For converting `{r ,s ,v}` signature to `string`, create a `Sign.SignatureData` object from params r, s ,v. Use `Numeric.hexStringToByteArray` to convert string to byte array
+  要将 `{r ,s ,v}` 签名转换为 `字符串'，请根据参数 r, s ,v 创建一个 `Sign.SignatureData`对象。 使用`Numeric.hexStringToByteArray\` 将字符串转换为字节数组
 
   ```java SignatureUtilsExample.java focus=10:14,6
   ```
 
   ---
 
-  To compress `Sign.SignatureData` to `compressed signature string`, use `KaiaSignatureData.getSignatureString` with the **signature object** as param
+  要将`Sign.SignatureData`压缩为`压缩签名字符串`，请使用`KaiaSignatureData.getSignatureString`，并将**签名对象**作为参数
 
   <CH.Code>
     ```java SignatureUtilsExample.java focus=15:17
@@ -84,21 +84,21 @@ Convert signature between `r, s, v` and `compressed string` format.
 
   ---
 
-  For converting `string` signature to `{r ,s ,v}`, First convert the string signature to byte array. Use `Numeric.hexStringToByteArray` to convert string to byte array
+  将字符串签名转换为{r ,s ,v}，首先将字符串签名转换为字节数组。 使用 `Numeric.hexStringToByteArray` 将字符串转换为字节数组
 
   ```java SignatureUtilsExample.java focus=19:20
   ```
 
   ---
 
-  Extract **r, s, v** components from the byte array. `R` is the first 32 indices, `S` is the next 32 indices and `V` is the last indice
+  从字节数组中提取 **r、s、v** 成分。 R "是前 32 个索引，"S "是后 32 个索引，"V "是最后一个索引
 
   ```java SignatureUtilsExample.java focus=22:31
   ```
 
   ---
 
-  You can use `Numeric.toHexString` to convert each components from `byte array` to `string`
+  您可以使用 `Numeric.toHexString` 将每个组件从 "字节数组 "转换为 "字符串"。
 
   <CH.Code>
     ```java SignatureUtilsExample.java focus=33:35
