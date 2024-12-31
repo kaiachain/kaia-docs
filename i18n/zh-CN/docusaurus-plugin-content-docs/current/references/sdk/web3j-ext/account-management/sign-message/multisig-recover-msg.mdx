@@ -1,10 +1,10 @@
 # Multisig Account Key
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig** 是一种账户密钥类型，包含一个阈值和加权公钥（WeightedPublicKeys），后者包含一个由公钥及其权重组成的列表。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+要使与 **AccountKeyWeightedMultiSig** 关联的账户的交易有效，必须满足以下条件：
+已签名公钥的加权和应大于阈值。
+_ 无效签名不应包含在交易中。 \* 已签名公钥的数量应少于加权公钥的数量。
 
 <CH.Spotlight>
 <CH.Code>
@@ -89,7 +89,7 @@ Result address for key 3 : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java SignMsgWithMultiSigExample.java focus=1:12
 
@@ -97,7 +97,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+使用指定的 BAOBAB_URL 创建 Web3j 实例
 
 ```java SignMsgWithMultiSigExample.java focus=23
 
@@ -105,7 +105,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+此外，您还可以更改默认提供商。 例如，使用alchemy提供商。
 
 ```java SignMsgWithMultiSigExample.java focus=23
 package org.web3j.example.accountKey;
@@ -175,7 +175,7 @@ public class SignMsgWithMultiSigExample implements keySample {
 
 ---
 
-Load 3 **multi-sig credentials** from private keys
+从私人密钥加载 3 **多重签名证书**
 
 ```java SignMsgWithMultiSigExample.java focus=24:29
 
@@ -183,7 +183,7 @@ Load 3 **multi-sig credentials** from private keys
 
 ---
 
-Get the **address** of **credentials1**. This address will be used to verify the recovered address
+获取**证书1**的**地址**。 该地址将用于验证恢复的地址
 
 ```java SignMsgWithMultiSigExample.java focus=30
 
@@ -191,7 +191,7 @@ Get the **address** of **credentials1**. This address will be used to verify the
 
 ---
 
-Define any message to sign
+定义要签署的任何信息
 
 ```java SignMsgWithMultiSigExample.java focus=31
 
@@ -199,7 +199,7 @@ Define any message to sign
 
 ---
 
-Set the **block number** to be the latest block in the kaia network
+设置**区块编号**为 kaia 网络中的最新区块
 
 ```java SignMsgWithMultiSigExample.java focus=32
 
@@ -207,7 +207,7 @@ Set the **block number** to be the latest block in the kaia network
 
 ---
 
-Sign the **message** with all 3 multi-sig credentials in order and get the signature outputs as string
+依次使用所有 3 个多重签名证书对\*\*信息进行签名，并以字符串形式输出签名结果
 
 ```java SignMsgWithMultiSigExample.java focus=34:41
 
@@ -215,7 +215,7 @@ Sign the **message** with all 3 multi-sig credentials in order and get the signa
 
 ---
 
-Recover the **addresses** from 3 message responses and compare them to the original **from** address
+从 3 个报文回复中恢复**地址**，并与原始**发件人**地址进行比较
 
 <CH.Code>
 ```java SignMsgWithMultiSigExample.java focus=43:57
@@ -237,7 +237,7 @@ Result address for key 3 : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 
 ---
 
-Shut down the Web3j instance
+关闭 Web3j 实例
 
 ```java SignMsgWithMultiSigExample.java focus=37
 
