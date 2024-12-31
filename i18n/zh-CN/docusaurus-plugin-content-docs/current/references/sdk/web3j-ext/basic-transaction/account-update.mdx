@@ -133,7 +133,7 @@ TxType : ACCOUNT_UPDATE
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`)
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java AccountUpdateExample.java focus=1:21
 
@@ -141,7 +141,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`)
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+使用指定的 BAOBAB_URL 创建 Web3j 实例
 
 ```java AccountUpdateExample.java focus=33
 
@@ -149,7 +149,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+此外，您还可以更改默认提供商。 例如，使用alchemy提供商。
 
 ```java AccountUpdateExample.java focus=33
 package org.web3j.example.transactions;
@@ -238,7 +238,7 @@ public class AccountUpdateExample implements keySample {
 
 ---
 
-Creating new credentials using PUBLIC_KEY_privkey and PUBLIC_KEY_address
+使用 PUBLIC_KEY_privkey 和 PUBLIC_KEY_address 创建新凭证
 
 ```java AccountUpdateExample.java focus=34
 
@@ -246,7 +246,7 @@ Creating new credentials using PUBLIC_KEY_privkey and PUBLIC_KEY_address
 
 ---
 
-Gas **price** and **gas limit** settings
+燃气**价格**和**gas 限值**设置
 
 ```java AccountUpdateExample.java focus=36:37
 
@@ -254,7 +254,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Get **chain ID** from the network
+从网络中获取**chain ID**
 
 ```java AccountUpdateExample.java focus=39:40
 
@@ -262,7 +262,7 @@ Get **chain ID** from the network
 
 ---
 
-Get the **nonce** for the sender's address
+获取发件人地址的**nonce**值
 
 ```java AccountUpdateExample.java focus=41:42
 
@@ -270,7 +270,7 @@ Get the **nonce** for the sender's address
 
 ---
 
-Generate a **new account key** for account update
+生成**新账户密钥**用于账户更新
 
 ```java AccountUpdateExample.java focus=44:46
 
@@ -278,7 +278,7 @@ Generate a **new account key** for account update
 
 ---
 
-Create a **raw transaction** for account update
+创建**raw transaction**用于账户更新
 
 ```java AccountUpdateExample.java focus=50:56
 
@@ -286,7 +286,7 @@ Create a **raw transaction** for account update
 
 ---
 
-Sign the transaction
+签署交易
 
 ```java AccountUpdateExample.java focus=58
 
@@ -294,7 +294,7 @@ Sign the transaction
 
 ---
 
-Send the **signed transaction** to kaia network
+将**签署的交易**发送至 kaia 网络
 
 <CH.Code>
 
@@ -314,7 +314,7 @@ TxHash :
 
 ---
 
-Get the **transaction receipt** and using the transaction hash
+获取**交易收据**并使用交易哈希值
 
 <CH.Code>
 ```java AccountUpdateExample.java focus=64:73
@@ -363,7 +363,7 @@ class TransactionReceipt {
 
 ---
 
-Shutting down the Web3j instance
+关闭 Web3j 实例
 
 ```java AccountUpdateExample.java focus=74
 
@@ -371,7 +371,7 @@ Shutting down the Web3j instance
 
 ---
 
-Decoding the raw transaction to get the transaction type
+解码原始交易以获取交易类型
 
 <CH.Code>
 ``java AccountUpdateExample.java focus=76:78
