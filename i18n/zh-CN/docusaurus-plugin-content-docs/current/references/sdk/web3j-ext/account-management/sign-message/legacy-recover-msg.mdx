@@ -1,4 +1,4 @@
-# Legacy Account Key
+# 传统账户密钥
 
 <CH.Spotlight>
 <CH.Code>
@@ -59,7 +59,7 @@ Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java SignMsgWithLegacyExample.java focus=1:12
 
@@ -67,7 +67,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+使用指定的 BAOBAB_URL 创建 Web3j 实例
 
 ```java SignMsgWithLegacyExample.java focus=23
 
@@ -75,7 +75,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+此外，您还可以更改默认提供商。 例如，使用alchemy提供商。
 
 ```java SignMsgWithLegacyExample.java focus=23
 package org.web3j.example.accountKey;
@@ -123,7 +123,7 @@ public class SignMsgWithLegacyExample implements keySample {
 
 ---
 
-Load a **credential** from private key and get its address
+从私人密钥加载**证书**并获取其地址
 
 ```java SignMsgWithLegacyExample.java focus=24:25
 
@@ -131,7 +131,7 @@ Load a **credential** from private key and get its address
 
 ---
 
-Define any message to sign
+定义要签署的任何信息
 
 ```java SignMsgWithLegacyExample.java focus=26
 
@@ -139,7 +139,7 @@ Define any message to sign
 
 ---
 
-Set the **block number** to be the latest block in the kaia network
+设置**区块编号**为 kaia 网络中的最新区块
 
 ```java SignMsgWithLegacyExample.java focus=27
 
@@ -147,7 +147,7 @@ Set the **block number** to be the latest block in the kaia network
 
 ---
 
-Sign the **message** and convert the signature to string
+签署**信息**并将签名转换为字符串
 
 ```java SignMsgWithLegacyExample.java focus=29:30
 
@@ -155,10 +155,10 @@ Sign the **message** and convert the signature to string
 
 ---
 
-Recover the **address** and compare it to the original address
+恢复**地址**，并与原始地址进行比较
 
 <CH.Code>
-```java SignMsgWithLegacyExample.java focus=32:35
+``java SignMsgWithLegacyExample.java focus=32:35
 
 ````
 
@@ -175,7 +175,7 @@ Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 
 ---
 
-Shut down the Web3j instance
+关闭 Web3j 实例
 
 ```java SignMsgWithLegacyExample.java focus=37
 
