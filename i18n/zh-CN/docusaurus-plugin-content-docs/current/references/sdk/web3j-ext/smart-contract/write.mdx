@@ -1,6 +1,6 @@
 # Write
 
-You can make a **"transaction"** interacting with a Smart Contract when you **need to update some state ** in the contract.
+当您**需要更新合约中的某些状态**时，可以与智能合约进行**"事务 "**交互。
 
 <CH.Spotlight>
 <CH.Code>
@@ -57,7 +57,7 @@ number after : 298
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java WriteContractExample.java focus=1:10
 
@@ -65,7 +65,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Connect to the kaia blockchain using Web3j and specify the URL
+使用 Web3j 连接到 kaia 区块链并指定 URL
 
 ```java WriteContractExample.java focus=19
 
@@ -73,7 +73,7 @@ Connect to the kaia blockchain using Web3j and specify the URL
 
 ---
 
-Create KlayCredentials using the private key
+使用私钥创建 KlayCredentials
 
 ```java WriteContractExample.java focus=20
 
@@ -81,7 +81,7 @@ Create KlayCredentials using the private key
 
 ---
 
-Define smart contract address to interact with
+定义与之交互的智能合约地址
 
 ```java WriteContractExample.java focus=21
 
@@ -89,7 +89,7 @@ Define smart contract address to interact with
 
 ---
 
-Define gas price and gas limit for contract transactions
+确定合约交易的gas价格和gas限额
 
 ```java WriteContractExample.java focus=22:23
 
@@ -97,7 +97,7 @@ Define gas price and gas limit for contract transactions
 
 ---
 
-Create a gas provider with static gas price and gas limit
+创建gas供应商，并设定静态gas价格和gas限额
 
 ```java WriteContractExample.java focus=24
 
@@ -105,7 +105,7 @@ Create a gas provider with static gas price and gas limit
 
 ---
 
-Load the contract using **contact address**, **Web3j instance**, **credentials**, and **gas provider**. You can read and write the contract through this instance
+使用**联系地址**、**Web3j 实例**、**凭据**和**gas提供商**加载合约。 您可以通过该实例读写合约
 
 ```java WriteContractExample.java focus=25
 
@@ -113,7 +113,7 @@ Load the contract using **contact address**, **Web3j instance**, **credentials**
 
 ---
 
-Get the current **number** stored in the contract before writing
+在写入之前，获取合约中存储的当前**数字**
 
 <CH.Code>
 ```java WriteContractExample.java focus=27:28
@@ -132,7 +132,7 @@ number before : 297
 
 ---
 
-Increment the **number** stored in the contract by calling `counter.increment().send()`
+调用 "counter.increment().send() "来递增合约中存储的\*\*\*数字
 
 ```java WriteContractExample.java focus=30:31
 
@@ -140,7 +140,7 @@ Increment the **number** stored in the contract by calling `counter.increment().
 
 ---
 
-Get the updated **number** stored in the contract after writing
+写入后，获取存储在合约中的更新**号**
 
 <CH.Code>
 ```java WriteContractExample.java focus=33:34
