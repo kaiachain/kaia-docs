@@ -1,16 +1,16 @@
 # Web3j extension for kaia
 
-## Requirements
+## 要求
 
-### Setting Java
+### 设置 Java
 
-- Use java version: 11 `<=` v `<=` 18
-- Visit https://adoptopenjdk.net/ site
-- Download OpenJDK
+- 使用 java 版本： 11 `<=` v `<=` 18
+- 访问 https://adoptopenjdk.net/ 网站
+- 下载 OpenJDK
 
-## Install Web3j kaia extension
+## 安装 Web3j kaia 扩展
 
-To add the [Gradle Library](https://docs.gradle.org/current/userguide/getting_started.html) to your project:
+将 [Gradle 库](https://docs.gradle.org/current/userguide/getting_started.html) 添加到项目中：
 
 ```shell
 
@@ -25,19 +25,19 @@ dependencies {
 }
 ```
 
-## Usage
+## 用法
 
-See [example](./web3j-ext/src/main/java/org/web3j/example).
+请参见 [example]（./web3j-ext/src/main/java/org/web3j/example）。
 
-## Quickstart
+## 快速入门
 
-For basic web3j usage, you can learn through [Web3j tutorial](https://docs.web3j.io/4.10.0/quickstart/) .
+关于 web3j 的基本用法，您可以通过 [Web3j tutorial](https://docs.web3j.io/4.10.0/quickstart/) 学习。
 
-### Send Fee Delegated Transaction on Kairos Testnet
+### 在 Kairos Testnet 上发送费用委托交易
 
-If you want to know more about the concept of fee delegated transaction supported by kaia network, please refer to [kaiadocs](https://docs.klaytn.foundation/content/klaytn/design/transactions).
+如果您想进一步了解 kaia 网络支持的收费委托交易的概念，请参阅 [kaiadocs](https://docs.klaytn.foundation/content/klaytn/design/transactions)。
 
-Check FeeDelegatedValueTransferExample.java file in web3j-ext [examples](https://github.com/kaiachain/kaia-sdk/tree/dev/web3j-ext/web3j-ext/src/main/java/org/web3j/example).
+检查 web3j-ext [examples](https://github.com/kaiachain/kaia-sdk/tree/dev/web3j-ext/web3j-ext/src/main/java/org/web3j/example) 中的 FeeDelegatedValueTransferExample.java 文件。
 
 ```file
 package org.web3j.example;
@@ -72,7 +72,7 @@ public class FeeDelegatedValueTransferExample implements keySample {
         EthChainId EthchainId = web3j.ethChainId().send();
         long chainId = EthchainId.getChainId().longValue();
         String to = "0x000000000000000000000000000000000000dead";
-        BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+        BigInteger nonce = web3j.EthChainId.getChainId().longValue()ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
                 .getTransactionCount();
         BigInteger value = BigInteger.valueOf(100);
 
@@ -100,7 +100,7 @@ public class FeeDelegatedValueTransferExample implements keySample {
 
         int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
         int DEFAULT_BLOCK_TIME = 1 * 1000;
-        long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+        long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME；
         TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
                 DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
         org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
@@ -112,12 +112,12 @@ public class FeeDelegatedValueTransferExample implements keySample {
 
         TxTypeFeeDelegatedValueTransfer rawTransaction = TxTypeFeeDelegatedValueTransfer
                 .decodeFromRawTransaction(hexValue);
-        System.out.println("TxType : " + rawTransaction.getKlayType());
+        System.out.println("TxType ：" + rawTransaction.getKlayType());
     }
 }
 ```
 
-Run examples
+运行示例
 
 ```file
 import org.web3j.example.FeeDelegatedValueTransferExample;
