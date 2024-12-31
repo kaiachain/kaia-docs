@@ -1,6 +1,6 @@
 # Value Transfer Memo
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo** 用于用户发送带有特定信息的 KAIA。
 
 <CH.Spotlight>
 <CH.Code>
@@ -90,15 +90,15 @@ public class FeeDelegatedValueTransferMemoExample {
 ---
 
 ```zsh output
-❯ java FeeDelegatedValueTransferMemo.java
-output
+JAVA FeeDelegatedValueTransferMemo.java
+输出
 ```
 
 </CH.Code>
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java FeeDelegatedValueTransferMemo.java focus=1:21s
 
@@ -106,7 +106,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Connect to the kaia blockchain using Web3j and specify the URL
+使用 Web3j 连接到 kaia 区块链并指定 URL
 
 ```java FeeDelegatedValueTransferMemo.java focus=26
 
@@ -114,7 +114,7 @@ Connect to the kaia blockchain using Web3j and specify the URL
 
 ---
 
-Creating **sender** and **fee payer** credentials using private keys.
+使用私钥创建**发送方**和**付费方**证书。
 
 ```java FeeDelegatedValueTransferMemo.java focus=27:28
 
@@ -122,7 +122,7 @@ Creating **sender** and **fee payer** credentials using private keys.
 
 ---
 
-Define gas price and gas limit for the transaction
+确定交易的gas价格和gas限额
 
 ```java FeeDelegatedValueTransferMemo.java focus=30:31
 
@@ -130,7 +130,7 @@ Define gas price and gas limit for the transaction
 
 ---
 
-Get the sender's address from `credentials.getAddress()`
+从 `credentials.getAddress()` 获取发件人地址
 
 ```java FeeDelegatedValueTransferMemo.java focus=32
 
@@ -138,7 +138,7 @@ Get the sender's address from `credentials.getAddress()`
 
 ---
 
-Get the chain ID from the **Kaia** network
+从 **Kaia** 网络获取链 ID
 
 ```java FeeDelegatedValueTransferMemo.java focus=33:34
 
@@ -146,7 +146,7 @@ Get the chain ID from the **Kaia** network
 
 ---
 
-Initialize variables for transaction parameters
+为交易参数初始化变量
 
 ```java FeeDelegatedValueTransferMemo.java focus=35:42
 
@@ -154,7 +154,7 @@ Initialize variables for transaction parameters
 
 ---
 
-Create a raw transaction object.
+创建原始事务对象。
 
 ```java FeeDelegatedValueTransferMemo.java focus=44:52
 
@@ -162,7 +162,7 @@ Create a raw transaction object.
 
 ---
 
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
+使用 "KlayTransactionEncoder.signMessage "以\*\*发送方的身份签署交易。
 
 ```java FeeDelegatedValueTransferMemo.java focus=54:55
 
@@ -170,7 +170,7 @@ Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`
 
 ---
 
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
+使用 "KlayTransactionEncoder.signMessageAsFeePayer "将交易签署为付费方。
 
 ```java FeeDelegatedValueTransferMemo.java focus=57:58
 
@@ -178,7 +178,7 @@ Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAs
 
 ---
 
-Sending the signed transaction to kaia network
+向 kaia 网络发送已签署的交易
 
 <CH.Code>
 
@@ -198,7 +198,7 @@ TxHash :
 
 ---
 
-Getting the transaction receipt
+获取交易收据
 
 <CH.Code>
 
@@ -249,7 +249,7 @@ class TransactionReceipt {
 
 ---
 
-Shutting down the Web3j instance
+关闭 Web3j 实例
 
 ```java FeeDelegatedValueTransferMemo.java focus=71
 
@@ -257,7 +257,7 @@ Shutting down the Web3j instance
 
 ---
 
-Decoding the raw transaction to get the transaction type
+解码原始交易以获取交易类型
 
 <CH.Code>
 
