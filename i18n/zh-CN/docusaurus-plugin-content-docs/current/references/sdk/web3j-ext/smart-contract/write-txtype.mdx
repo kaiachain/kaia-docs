@@ -1,4 +1,4 @@
-# Write with TxType
+# 使用 TxType 写入
 
 <CH.Spotlight>
 <CH.Code>
@@ -105,7 +105,7 @@ number after : 50
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=1:28
 
@@ -113,7 +113,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Connect to the kaia blockchain using Web3j and specify the URL
+使用 Web3j 连接到 kaia 区块链并指定 URL
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=37
 
@@ -121,7 +121,7 @@ Connect to the kaia blockchain using Web3j and specify the URL
 
 ---
 
-Create **KlayCredentials** using the private key
+使用私钥创建 **KlayCredentials**
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=38
 
@@ -129,7 +129,7 @@ Create **KlayCredentials** using the private key
 
 ---
 
-Define smart contract **address** to interact with
+定义与智能合约交互的\*\*地址
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=39
 
@@ -137,7 +137,7 @@ Define smart contract **address** to interact with
 
 ---
 
-Define **gas price** and **gas limit** for contract transactions
+为合约交易定义**gas价格**和**gas限额**
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=40:41
 
@@ -145,7 +145,7 @@ Define **gas price** and **gas limit** for contract transactions
 
 ---
 
-Define **from** and get **chainId**, **nonce**
+定义**from**并获取**chainId**、**nonce**
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=42:46
 
@@ -153,7 +153,7 @@ Define **from** and get **chainId**, **nonce**
 
 ---
 
-Create a **gas provider** with static gas price and gas limit
+创建一个**gas 供应商**，具有静态gas价格和gas限额
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=48
 
@@ -161,7 +161,7 @@ Create a **gas provider** with static gas price and gas limit
 
 ---
 
-Load the contract using **contact address**, **Web3j instance**, **credentials**, and **gas provider**. You can read and write the contract through this instance
+使用**联系地址**、**Web3j 实例**、**凭据**和**gas 提供商**加载合约。 您可以通过该实例读写合约
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=43
 
@@ -169,7 +169,7 @@ Load the contract using **contact address**, **Web3j instance**, **credentials**
 
 ---
 
-Get the current number stored in the contract before writing
+在写入之前，获取当前存储在合约中的数字
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=51:52
 
@@ -177,7 +177,7 @@ Get the current number stored in the contract before writing
 
 ---
 
-Set params for calling method `setNumber` to the contract
+为调用方法 `setNumber` 设置合约参数
 
 <CH.Code>
 ```java WriteContractWithKlaytnTxTypeExample.java focus=54:59
@@ -196,7 +196,7 @@ number before : 298
 
 ---
 
-Set the transaction type to **SMART_CONTRACT_EXECUTION**
+将事务类型设为 **SMART_CONTRACT_EXECUTION**
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=61
 
@@ -204,7 +204,7 @@ Set the transaction type to **SMART_CONTRACT_EXECUTION**
 
 ---
 
-Create a raw transaction object
+创建原始事务对象
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=63:71
 
@@ -212,7 +212,7 @@ Create a raw transaction object
 
 ---
 
-Sign the transaction with `KlayTransactionEncoder.signMessage`
+使用 `KlayTransactionEncoder.signMessage` 签署交易
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=73:74
 
@@ -220,7 +220,7 @@ Sign the transaction with `KlayTransactionEncoder.signMessage`
 
 ---
 
-Send the **signed transaction** to kaia network
+将**签署的交易**发送至 kaia 网络
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=75:76
 
@@ -228,7 +228,7 @@ Send the **signed transaction** to kaia network
 
 ---
 
-Wait for the transaction to be completed
+等待交易完成
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=77:81
 
@@ -236,7 +236,7 @@ Wait for the transaction to be completed
 
 ---
 
-Get the updated number stored in the contract after writing
+写入后，获取存储在合约中的更新编号
 
 <CH.Code>
 ```java WriteContractWithKlaytnTxTypeExample.java focus=82:83
@@ -255,7 +255,7 @@ number after : 50
 
 ---
 
-Shutdown the web3j instance
+关闭 web3j 实例
 
 ```java WriteContractWithKlaytnTxTypeExample.java focus=85
 
