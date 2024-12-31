@@ -1,6 +1,6 @@
 # Public Account Key
 
-**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+**AccountKeyPublic** 用于有一个公钥的账户。 如果账户有一个 AccountKeyPublic 对象，交易验证过程如下：
 
 <CH.Spotlight>
 <CH.Code>
@@ -62,7 +62,7 @@ Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
 
 ```java SignMsgWithPubkeyExample.java focus=1:12
 
@@ -70,7 +70,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+使用指定的 BAOBAB_URL 创建 Web3j 实例
 
 ```java SignMsgWithPubkeyExample.java focus=23
 
@@ -78,7 +78,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+此外，您还可以更改默认提供商。 例如，使用alchemy提供商。
 
 ```java SignMsgWithPubkeyExample.java focus=23
 package org.web3j.example.accountKey;
@@ -127,7 +127,7 @@ public class SignMsgWithPubkeyExample implements keySample {
 
 ---
 
-Load a **credential** from the **public key's** key pair and get its address
+从**公钥的**密钥对中加载\*\*凭据，并获取其地址
 
 ```java SignMsgWithPubkeyExample.java focus=24:26
 
@@ -135,7 +135,7 @@ Load a **credential** from the **public key's** key pair and get its address
 
 ---
 
-Define any message to sign
+定义要签署的任何信息
 
 ```java SignMsgWithPubkeyExample.java focus=27
 
@@ -143,7 +143,7 @@ Define any message to sign
 
 ---
 
-Set the **block number** to be the latest block in the kaia network
+设置**区块编号**为 kaia 网络中的最新区块
 
 ```java SignMsgWithPubkeyExample.java focus=28
 
@@ -151,7 +151,7 @@ Set the **block number** to be the latest block in the kaia network
 
 ---
 
-Sign the **message** with using `KlaySignatureData.signPrefixedMessage`
+使用 `KlaySignatureData.signPrefixedMessage` 签署\*\*信息
 
 ```java SignMsgWithPubkeyExample.java focus=30:31
 
