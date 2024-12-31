@@ -1,6 +1,6 @@
 # Address
 
-Utils for compressing public key.
+用于压缩公钥的工具。
 
 <CH.Spotlight>
   <CH.Code>
@@ -37,14 +37,14 @@ Utils for compressing public key.
 
   ---
 
-  Import necessary classes from the Web3j and kaia libraries(`web3j-ext`)
+  从 Web3j 和 kaia 库（`web3j-ext`）导入必要的类
 
   ```java PublicKeyUtilsExample.java focus=1:4
   ```
 
   ---
 
-  For convert from `compressed public key` to an `AccountPublicKey` with `{x, y}` format, use `AccountKeyPublicUtils.decompressKey`
+  要将 "压缩公钥 "转换为 "{x, y}"格式的 "AccountPublicKey"，请使用 `AccountKeyPublicUtils.decompressKey` 。
 
   <CH.Code>
     ```java PublicKeyUtilsExample.java focus=10:11
@@ -61,7 +61,7 @@ Utils for compressing public key.
 
   ---
 
-  For compressing `AccountKeyPublic` to `compressed public key` string, uses `AccountKeyPublicUtils.toCompressedPublicKey`
+  要将 `AccountKeyPublic` 压缩为 `Compressed Public Key` 字符串，请使用 `AccountKeyPublicUtils.toCompressedPublicKey` 。
 
   <CH.Code>
     ```java PublicKeyUtilsExample.java focus=13:15
