@@ -1,15 +1,15 @@
 export const sidebar = {
     type: 'category',
-    label: 'web3j-ext',
+    label: 'web3py-ext',
     link: {
         type: 'doc',
-        id: 'references/sdk/web3j-ext/getting-started'
+        id: 'references/sdk/web3py-ext/getting-started'
     },
     items: [
         {
             type: 'doc',
             label: 'Getting-Started',
-            id: 'references/sdk/web3j-ext/getting-started'
+            id: 'references/sdk/web3py-ext/getting-started'
         },
         {
             type: 'category',
@@ -19,10 +19,10 @@ export const sidebar = {
                     type: 'category',
                     label: 'Account Key',
                     items: [
-                        'references/sdk/web3j-ext/account-management/account-key/legacy',
-                        'references/sdk/web3j-ext/account-management/account-key/public',
+                        'reference/sdk/web3j-ext/account-management/account-key/legacy',
+                        'reference/sdk/web3j-ext/account-management/account-key/public',
                         'references/sdk/web3j-ext/account-management/account-key/multisig',
-                        'references/sdk/web3j-ext/account-management/account-key/role-based'
+                        'reference/sdk/web3j-ext/account-management/account-key/role-based'
                     ]
                 },
                 {
@@ -49,7 +49,7 @@ export const sidebar = {
                     type: 'category',
                     label: 'Keystore',
                     items: [
-                        'references/sdk/web3j-ext/account-management/keystore/keystoreV3',
+                        'reference/sdk/web3j-ext/account-management/keystore/keystoreV3',
                         'references/sdk/web3j-ext/account-management/keystore/keystoreV4'
                     ]
                 }
@@ -95,7 +95,7 @@ export const sidebar = {
             type: 'category',
             label: 'Utils',
             items: [
-                'references/sdk/web3j-ext/utils/address',
+                'reference/sdk/web3j-ext/utils/address',
                 'references/sdk/web3j-ext/utils/signature',
                 'references/sdk/web3j-ext/utils/unit'
             ]
