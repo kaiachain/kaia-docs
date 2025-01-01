@@ -44,88 +44,195 @@ The index.html file helps us to check web3 availability, set up LINE integration
 ```code
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Unity WebGL - Mini dApp</title>
-    
-    <!-- Add Web3.js BEFORE other scripts -->
-    <script src="./scripts/web3.min.js"></script>
-    <!-- LIFF SDK -->
-    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <!-- Unity Loader -->
-    <script src="Build/minidapp.loader.js"></script>
-    <script>
-      // Allow paste anywhere on the page
-      document.addEventListener('keydown', function(e) {
-          if (e.ctrlKey && e.key === 'v') {
-              // Trigger paste event
-              navigator.clipboard.readText().then(function(text) {
-                  var pasteEvent = new ClipboardEvent('paste', {
-                      clipboardData: new DataTransfer()
-                  });
-                  pasteEvent.clipboardData.setData('text', text);
-                  document.dispatchEvent(pasteEvent);
-              });
-          }
-      });
-  </script>
-    <style>
-      html, body { height: 100%; margin: 0; padding: 0; }
-      #unity-canvas { width: 100%; height: 100%; display: block; }
-    </style>
-  </head>
-  <body>
-    <div id="loading">Loading...</div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unity WebGL Player</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="scripts/dapp_portal_sdk.js"></script>
+  <style>
+    body { margin: 0; padding: 0; }
+    #unity-container { width: 100%; height: 100%; position: absolute; }
+    #unity-canvas { width: 100%; height: 100%; background: #231F20; }
+    #unity-loading-bar { display: none; }
+    #unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; background: url('Build/minidapp.progress-bar-empty-dark.png') no-repeat center; }
+    #unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('Build/minidapp.progress-bar-full-dark.png') no-repeat center; }
+  </style>
+</head>
+<body>
+  <div id="unity-container">
     <canvas id="unity-canvas"></canvas>
-    
-    <script>
-      var myGameInstance = null;
-      
-      // Add this function to check Web3 availability
-      function checkWeb3() {
-        if (typeof Web3 !== 'undefined') {
-          console.log("Web3 is available");
-          return true;
+    <div id="unity-loading-bar">
+      <div id="unity-progress-bar-empty">
+        <div id="unity-progress-bar-full"></div>
+      </div>
+    </div>
+  </div>
+  <script src="Build/minidapp.loader.js"></script>
+  <script>
+    var sdk = null;
+    var connectedAddress = null;
+    var myGameInstance = null;
+
+    var Module = {
+      onRuntimeInitialized: function() {
+        console.log("Runtime initialized");
+      },
+      env: {
+        MintToken: function(amount) {
+          window.MintToken(amount);
+        },
+        GetBalance: function() {
+          window.GetBalance();
+        },
+        ConnectWallet: function() {
+          window.ConnectWallet();
+        },
+        DisconnectWallet: function() {
+          window.DisconnectWallet();
+        },
+        GetConnectedAddress: function() {
+          var address = window.GetConnectedAddress();
+          var bufferSize = lengthBytesUTF8(address) + 1;
+          var buffer = _malloc(bufferSize);
+          stringToUTF8(address, buffer, bufferSize);
+          return buffer;
         }
-        console.error("Web3 is not available");
+      }
+    };
+
+    async function initializeSDK() {
+      try {
+        await liff.init({
+          liffId: "YOUR_LIFF_ID" // Replace with your LIFF ID
+        });
+
+        if (!liff.isLoggedIn()) {
+          liff.login();
+        }
+
+        sdk = await DappPortalSDK.init({
+          clientId: 'YOUR CLIENT ID', // Replace with your CLIENT ID
+          chainId: '1001'
+        });
+        
+        console.log("SDKs initialized");
+        return true;
+      } catch (error) {
+        console.error("SDK init error:", error);
         return false;
       }
-      async function initializeLiff() {
-        try {
-          // Check Web3 first
-          if (!checkWeb3()) {
-            throw new Error("Web3 is not loaded");
-          }
-          await liff.init({
-            liffId: "2006555499-b4Z6DegW"
-          });
-          console.log("LIFF initialized");
-          
-          initializeUnity();
-        } catch (error) {
-          console.error("Initialization failed:", error);
-          document.getElementById('loading').textContent = 'Error: ' + error.message;
+    }
+
+    window.ConnectWallet = async function() {
+      try {
+        if (!sdk) {
+          const initialized = await initializeSDK();
+          if (!initialized) return null;
         }
+
+        if (!liff.isLoggedIn()) {
+          liff.login();
+          return;
+        }
+
+        const provider = sdk.getWalletProvider();
+        const accounts = await provider.request({ method: 'kaia_requestAccounts' });
+        
+        if (accounts && accounts.length > 0) {
+          connectedAddress = accounts[0];
+          myGameInstance.SendMessage('Web3Manager', 'OnWalletConnected', connectedAddress);
+        }
+      } catch (error) {
+        myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
       }
-      function initializeUnity() {
-        createUnityInstance(document.querySelector("#unity-canvas"), {
-          dataUrl: "Build/minidapp.data.unityweb",
-          frameworkUrl: "Build/minidapp.framework.js.unityweb",
-          codeUrl: "Build/minidapp.wasm.unityweb",
-        }).then((unityInstance) => {
-          console.log("Unity initialized");
-          myGameInstance = unityInstance;
-          document.getElementById('loading').style.display = 'none';
+    }
+
+    window.DisconnectWallet = async function() {
+      try {
+        if (liff.isLoggedIn()) {
+          await liff.logout();
+        }
+        
+        const provider = sdk.getWalletProvider();
+        await provider.request({ method: 'kaia_disconnect' });
+        connectedAddress = null;
+        myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+      } catch (error) {
+        console.error("Disconnect error:", error);
+        myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+      }
+    }
+
+    window.GetConnectedAddress = function() {
+      return connectedAddress || '';
+    }
+
+    window.MintToken = async function(amount) {
+      try {
+        const provider = sdk.getWalletProvider();
+        
+        const mintSignature = '0xa0712d68';
+        const amountHex = amount.toString(16).padStart(64, '0');
+        const data = mintSignature + amountHex;
+
+        const tx = {
+          from: connectedAddress,
+          to: '0x099D7feC4f799d1749adA8815eB21375E13E0Ddb',
+          value: '0x0',
+          data: data,
+          gas: '0x4C4B40'
+        };
+
+        const txHash = await provider.request({
+          method: 'kaia_sendTransaction',
+          params: [tx]
         });
+
+        myGameInstance.SendMessage('Web3Manager', 'OnMintSuccess', txHash);
+        GetBalance();
+      } catch (error) {
+        myGameInstance.SendMessage('Web3Manager', 'OnMintError', error.message);
       }
-      // Wait for page to load completely before initializing
-      window.addEventListener('load', function() {
-        // Give a small delay to ensure Web3 is loaded
-        setTimeout(initializeLiff, 500);
-      });
-    </script>
-  </body>
+    }
+
+    window.GetBalance = async function() {
+      try {
+        const provider = sdk.getWalletProvider();
+        
+        const balanceSignature = '0x70a08231';
+        const addressParam = connectedAddress.substring(2).padStart(64, '0');
+        const data = balanceSignature + addressParam;
+
+        const result = await provider.request({
+          method: 'kaia_call',
+          params: [{
+            from: connectedAddress,
+            to: '0x099D7feC4f799d1749adA8815eB21375E13E0Ddb',
+            data: data
+          }, 'latest']
+        });
+
+        const balance = parseInt(result, 16);
+        myGameInstance.SendMessage('Web3Manager', 'OnBalanceReceived', balance.toString());
+      } catch (error) {
+        myGameInstance.SendMessage('Web3Manager', 'OnBalanceError', error.message);
+      }
+    }
+
+    createUnityInstance(document.querySelector("#unity-canvas"), {
+      dataUrl: "Build/minidapp.data",
+      frameworkUrl: "Build/minidapp.framework.js",
+      codeUrl: "Build/minidapp.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+      productName: "minidapp",
+      productVersion: "0.1",
+    }).then((unityInstance) => {
+      myGameInstance = unityInstance;
+    });
+  </script>
+</body>
 </html>
 
 ```
@@ -135,19 +242,19 @@ Make sure to change your LIFF-ID in the code snippet above.
 ## Step 3: Deploy Your WebGL Build <a id="step3-deploy-webgl-build"></a>
 
 - Build your Unity project for WebGL
-- Upload all build files to a web server. For this guide, I have uploaded the WebGL build on Netlify and its available [here](https://kaia-minidapp-example.netlify.app/).
+- Upload all build files to a web server; e.g Netlify
 
 Your deployment folder structure should look like this:
 
 ```bash
 Minidapp/
 ├── Build/
-│   ├── minidapp.data.unityweb
-│   ├── minidapp.framework.js.unityweb
-│   ├── mini.loader.js
-│   └── minidapp.wasm.unityweb
+│   ├── minidapp.data
+│   ├── minidapp.framework.js
+│   ├── minidapp.loader.js
+│   └── minidapp.wasm
 ├── scripts/
-│   └── web3.min.js
+│   └── dapp_portal_sdk.js
 └── index.html
 ```
 
@@ -157,9 +264,9 @@ Minidapp/
    - Return to LINE Developers Console
    - Locate your LIFF app
    - Click "Edit"
-   - Update URL to your deployed site : https://kaia-minidapp-example.netlify.app/
+   - Update URL to your deployed site.
 
-Now your mini dApp should be readily available at https://liff.line.me/2006555499-b4Z6DegW
+Now your mini dApp should be readily available.
 
 ## Summing Up <a id="summing-up"></a>
 
