@@ -6,8 +6,9 @@ Before we dive in, make sure you have:
 
 - [Unity Hub](https://unity.com/download) installed on your computer - this is where we'll build our dApp interface
 - Basic C# and JavaScript knowledge - nothing too fancy, just the fundamentals
-- [Kaia Wallet Extension](https://www.kaiawallet.io/) - you'll need this to test your dApp's Web3 features
 - A LINE Developer account - you can easily create one using your email
+- 카이아 수도꼭지](https://faucet.kaia.io/)에서 카이아 테스트하기
+- 디앱 포털 팀으로부터 받은 디앱 포털 SDK 클라이언트 ID.
 - Some familiarity with Web3 concepts - if you understand wallets and tokens, you're good to go.
 
 ## Setting Up Your Unity Environment
@@ -65,7 +66,7 @@ Inside Web3UI, create three panel objects:
 
 This panel shows all your important Web3 information:
 
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to StatusText. Make sure to fill the “Text Input” field in the Inspector pane e.g. "checking web3".
+- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to StatusText. 인스펙터 창의 "텍스트 입력" 필드(예: "상태...")를 입력해야 합니다.
 
 :::note
 **TextMeshPro (TMP) Setup**
@@ -75,54 +76,45 @@ When you first create a TextMeshPro element (UI - Text - TextMeshPro), Unity aut
 Why we need this: TextMeshPro requires core resources (shaders, default fonts, and materials) to properly display text in your game. Without these essentials, your text components won't render correctly and you'll see shader/material errors in your project. This is a one-time setup that's necessary for text to work properly.
 :::
 
-![](/img/minidapps/unity-minidapp/statusText-textInput.png)
+![](/img/minidapps/unity-minidapp/status_text.png)
 
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to AddressText. Make sure to fill the "Text Input" field in the Inspector pane e.g. "Not Connected".
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to NetworkText. Make sure to fill the "Text Input" field in the Inspector pane "No Network".
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to TokenBalanceText. Make sure to fill the "Text Input" field in the Inspector pane e.g. "0.0000 UTT".
+- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to AddressText. 텍스트 객체(예: "주소 텍스트...")를 채워야 합니다.
+- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to TokenBalanceText. 텍스트 개체를 채워야 합니다(예: "0.0000 ET").
 
 ```code
 ├── StatusText (TextMeshPro)
-│   └── Default: "Checking Web3..."
+│   └── Default: "Status..."
 ├── AddressText (TextMeshPro)
-│   └── Default: "Not Connected"
-├── NetworkText (TextMeshPro)
-│   └── Default: "No Network"
+│   └── Default: "Address Text..."
 └── TokenBalanceText (TextMeshPro)
-    └── Default: "0.0000 UTT"
+    └── Default: "0.0000 ET"
 ```
 
 #### ButtonPanel Components
 
 Your main interaction buttons:
 
-- Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename it to ConnectButton. Make sure to fill the "Text Input" field in the Inspector pane with "Connect Wallet".
-- Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename to RefreshButton. Make sure to fill the "Text Input" field in the Inspector pane with "Refresh Balance".
+- 버튼패널을 마우스 오른쪽 버튼으로 클릭하고 UI → 버튼 - TextMeshPro를 클릭한 다음 이름을 ConnectWalletButton으로 변경합니다. Make sure to fill the "Text Input" field in the Inspector pane with "Connect Wallet".
 
 ```code
 ButtonPanel
 ├── ConnectButton (Button - TextMeshPro)
 │   └── Text: "Connect Wallet"
-└── RefreshButton (Button - TextMeshPro)
-    └── Text: "Refresh Balance"
 ```
 
 #### MintPanel Components
 
 The token minting interface:
 
-- Right click on MintPanel, click on UI → Legacy →  Input Field and then rename it to MintAddressInput. Make sure to fill the placeholder "Text Input" field in the Inspector pane with "Enter Address...".
-- Right click on MintPanel, click on UI → Legacy →  Input Field and then rename it to MintAmountInput. Make sure to fill the placeholder "Text Input" field in the Inspector pane with "Enter Amount…".
-- Right click on MintPanel, click on UI →  Button - TextMeshPro  and then rename it to MintButton. Make sure to fill the "Text Input" field in the Inspector pane with "Mint Tokens…".
+- MintPanel을 마우스 오른쪽 버튼으로 클릭하고 UI → 입력 필드 → TextMeshPro를 클릭한 다음 이름을 MintAmountInput으로 변경합니다. 플레이스홀더 객체에 "금액 입력…"을 입력해야 합니다.
+- 민트패널을 마우스 오른쪽 버튼으로 클릭하고 UI → 버튼 → TextMeshPro를 클릭한 다음 이름을 민트버튼으로 변경합니다. 텍스트 개체를 "민트"로 채워야 합니다.
 
 ```code
 MintPanel
-├── MintAddressInput (Legacy Input Field)
-│   └── Placeholder: "Enter Address..."
-├── MintAmountInput (Legacy Input Field)
+├── MintAmountInput (Input Field - TextMeshPro)
 │   └── Placeholder: "Enter Amount..."
 └── MintButton (Button - TextMeshPro)
-    └── Text: "Mint Tokens"
+    └── Text: "Mint"
 ```
 
 After creating all components, your hierarchy should look like this:
@@ -135,7 +127,7 @@ Canvas
     └── MintPanel
 ```
 
-![](/img/minidapps/unity-minidapp/unity-ui-canvas.png)
+![](/img/minidapps/unity-minidapp/unity_ui_canvas.png)
 
 :::note
 For your component to be well arranged as seen in the image above, you have to manually arrange them with the icon on the right-hand side when you click on each component.
@@ -154,8 +146,8 @@ First, we'll use Kaia Contract Wizard to generate our smart contract.
 1. Navigate to Kaia Contract Wizard.
 2. Select KIP7 (Kaia's token standard, similar to ERC20).
 3. Configure your token:
-   - Name: UnityTestToken (or something else!)
-   - Symbol: UTT (your token's ticker)
+   - Name: 예제 토큰 (또는 다른 이름!)
+   - 심볼: ET(토큰 시세)
    - Premint: 100 (initial token supply)
    - Features: Check ✅ Mintable
 
@@ -165,9 +157,9 @@ For this guide, we will tweak the mint function not to have onlyOwner modifier. 
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 import "@kaiachain/contracts/KIP/token/KIP7/KIP7.sol";
-contract UnityTestToken is KIP7 {
-    constructor() KIP7("UnityTestToken", "UTT") {
-        _mint(msg.sender, 1000 * 10 ** decimals());
+contract ExampleTokens is KIP7 {
+    constructor() KIP7("ExampleTokens", "ET") {
+        _mint(msg.sender, 100 * 10 ** decimals());
     }
     function supportsInterface(bytes4 interfaceId)
         public
@@ -179,8 +171,8 @@ contract UnityTestToken is KIP7 {
         return
             super.supportsInterface(interfaceId);
     }
-    function mint(address to, uint256 amount) public  {
-        _mint(to, amount);
+    function mint(uint256 amount) public  {
+        _mint(msg.sender, amount);
     }
 }
 ```
@@ -191,12 +183,12 @@ We removed the onlyOwner modifier to allow anyone to call the mint function othe
 
 #### Step 2: Deploying via Remix IDE
 
-1. Copy and Paste the code above in a newly created file `UTT.sol` on Remix IDE.
+1. 위의 코드를 복사하여 Remix IDE에서 새로 생성한 파일 `ET.sol`에 붙여넣습니다.
 2. In Remix IDE:
    - Click the **Compile contract** button.
    - Activate the **Kaia plugin** in the plugin manager.
    - Under Environment in the Kaia Plugin tab, choose **Injected Provider** - **Kaia Wallet**.
-   - Find your contract (UnityTestToken) in the **Contract** dropdown.
+   - 컨트랙트\*\* 드롭다운에서 컨트랙트(예시 토큰)를 찾습니다.
    - Click **Deploy** to launch your token!
 3. When your Kaia Wallet pops up:
    - Review the deployment details.
@@ -225,12 +217,10 @@ Assets/
 
 2. Why a .jslib? Think of it as a translator between Unity's C# and the browser's JavaScript - essential for Web3 interactions!
 
-3. The plugin will handle five core functions:
-   - InitializeWeb3() - Sets up your Web3 environment
+3. 플러그인은 세 가지 핵심 기능을 처리합니다:
    - ConnectWallet() - Handles Kaia Wallet connections
    - GetTokenBalance() - Checks token balances
    - MintTokens() - Manages token minting
-   - EnableWebGLCopyPaste() - Adds clipboard support
 
 Open this file in VS Code and paste the `KaiaPlugin.jslib` source code in [Appendix A](../minidapps/convert-unity-liff.md#appendix-a):
 
@@ -255,6 +245,7 @@ Assets/
 - Manages communication with our JavaScript plugin.
 - Updates UI elements based on blockchain events.
 - Handles all wallet and token operations.
+- '지갑 연결' 및 '민트' 버튼을 각각의 기능으로 연결합니다.
   :::
 
 2. Open this file in VS Code and paste the `Web3Manager.cs` source code in [Appendix B](../minidapps/convert-unity-liff.md#appendix-b)
@@ -276,39 +267,11 @@ Finally, let's bring it all together in Unity:
    - Drag and drop your UI elements from the Hierarchy to the corresponding fields:
      - StatusText
      - AddressText
-     - NetworkText
      - TokenBalanceText
-     - Connect/Refresh/Mint buttons
+     - 연결 / 민트 버튼
      - Input fields
 
-![](/img/minidapps/unity-minidapp/connect-ui-manager.png)
-
-## Connecting C# Script with game objects
-
-In this section, we will connect the following buttons with their respective functions from the Web3Manager script:
-
-### A. ConnectWallet
-
-- Click on ConnectButton from the Hierarchy window.
-- Add an OnClick() function by clicking on the ➕ button.
-- Drag the Web3Manager game object script into the OnClick() function.
-- Click on No Function → Web3Manager → ConnectToWallet().
-
-![](/img/minidapps/unity-minidapp/ui-connect-wallet.png)
-
-### B. RefreshBalance
-
-- Click on RefreshBalanceButton from the Hierarchy window.
-- Add an OnClick() function by clicking on the ➕ button.
-- Drag the Web3Manager game object into None object field.
-- Click on No Function → Web3Manager → RefreshBalance().
-
-### C. MintButton
-
-- Click on MintButton from the Hierarchy window.
-- Add an OnClick() function by clicking on the ➕ button.
-- Drag the Web3Manager game object into None object field.
-- Click on No Function → Web3Manager → MintTokens().
+![](/img/minidapps/unity-minidapp/connect_ui_manager.png)
 
 ## Setting Up WebGL Build Settings
 
@@ -335,7 +298,7 @@ Assets/
     └── KaiaTemplate/
         ├── index.html
         └── scripts/
-            └── web3.min.js
+            └── dapp_portal_sdk.js
 ```
 
 :::info
@@ -355,46 +318,169 @@ Copy and paste the code below in your `index.html` file:
 ```
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL - Mini dApp</title>
-    <script src="./scripts/web3.min.js"></script>
-    <style>
-      body { margin: 0; }
-      #unity-canvas { width: 100%; height: 100vh; display: block; }
-    </style>
-  </head>
-  <body>
-    <div id="loading">Loading...</div>
-    <canvas id="unity-canvas"></canvas>
-    <script src="Build/minidapp.loader.js"></script>
-    <script>
-      console.log("Script starting...");
-      var myGameInstance = null;
-      
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/minidapp.data.unityweb",
-        frameworkUrl: "Build/minidapp.framework.js.unityweb",
-        codeUrl: "Build/minidapp.wasm.unityweb",
-      }).then((unityInstance) => {
-        console.log("Unity instance created");
-        myGameInstance = unityInstance;
-        document.getElementById('loading').style.display = 'none';
-      }).catch((error) => {
-        console.error('Unity instance error:', error);
-        document.getElementById('loading').textContent = 'Error loading game: ' + error;
-      });
-    </script>
-  </body>
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Unity WebGL Player</title>
+   <script src="scripts/dapp_portal_sdk.js"></script>
+   <style>
+     body { margin: 0; padding: 0; }
+     #unity-container { width: 100%; height: 100%; position: absolute; }
+     #unity-canvas { width: 100%; height: 100%; background: #231F20; }
+     #unity-loading-bar { display: none; }
+     #unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; background: url('Build/minidapp.progress-bar-empty-dark.png') no-repeat center; }
+     #unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('Build/minidapp.progress-bar-full-dark.png') no-repeat center; }
+   </style>
+ </head>
+ <body>
+   <div id="unity-container">
+     <canvas id="unity-canvas"></canvas>
+     <div id="unity-loading-bar">
+       <div id="unity-progress-bar-empty">
+         <div id="unity-progress-bar-full"></div>
+       </div>
+     </div>
+   </div>
+   <script src="Build/minidapp.loader.js"></script>
+   <script>
+     var sdk = null;
+     var connectedAddress = null;
+     var myGameInstance = null;
+
+     var Module = {
+       onRuntimeInitialized: function() {
+         console.log("Runtime initialized");
+       },
+       env: {
+         MintToken: function(amount) {
+           window.MintToken(amount);
+         },
+         GetBalance: function() {
+           window.GetBalance();
+         },
+         ConnectWallet: function() {
+           window.ConnectWallet();
+         },
+         GetConnectedAddress: function() {
+           var address = window.GetConnectedAddress();
+           var bufferSize = lengthBytesUTF8(address) + 1;
+           var buffer = _malloc(bufferSize);
+           stringToUTF8(address, buffer, bufferSize);
+           return buffer;
+         }
+       }
+     };
+
+     async function initializeSDK() {
+       try {
+         sdk = await DappPortalSDK.init({
+           clientId: 'PASTE CLIENT ID',
+           chainId: '1001'
+         });
+         console.log("SDK initialized");
+         return true;
+       } catch (error) {
+         console.error("SDK init error:", error);
+         return false;
+       }
+     }
+
+     window.ConnectWallet = async function() {
+       try {
+         if (!sdk) {
+           const initialized = await initializeSDK();
+           if (!initialized) return null;
+         }
+
+         const provider = sdk.getWalletProvider();
+         const accounts = await provider.request({ method: 'kaia_requestAccounts' });
+         
+         if (accounts && accounts.length > 0) {
+           connectedAddress = accounts[0];
+           myGameInstance.SendMessage('Web3Manager', 'OnWalletConnected', connectedAddress);
+         }
+       } catch (error) {
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+       }
+     }
+
+     window.GetConnectedAddress = function() {
+       return connectedAddress || '';
+     }
+
+     window.MintToken = async function(amount) {
+       try {
+         const provider = sdk.getWalletProvider();
+         
+         const mintSignature = '0xa0712d68';
+         const amountHex = amount.toString(16).padStart(64, '0');
+         const data = mintSignature + amountHex;
+
+         const tx = {
+           from: connectedAddress,
+           to: '0x099D7feC4f799d1749adA8815eB21375E13E0Ddb',
+           value: '0x0',
+           data: data,
+           gas: '0x4C4B40'
+         };
+
+         const txHash = await provider.request({
+           method: 'kaia_sendTransaction',
+           params: [tx]
+         });
+
+         myGameInstance.SendMessage('Web3Manager', 'OnMintSuccess', txHash);
+         GetBalance(); // Get updated balance after mint
+       } catch (error) {
+         myGameInstance.SendMessage('Web3Manager', 'OnMintError', error.message);
+       }
+     }
+
+     window.GetBalance = async function() {
+       try {
+         const provider = sdk.getWalletProvider();
+         
+         const balanceSignature = '0x70a08231';
+         const addressParam = connectedAddress.substring(2).padStart(64, '0');
+         const data = balanceSignature + addressParam;
+
+         const result = await provider.request({
+           method: 'kaia_call',
+           params: [{
+             from: connectedAddress,
+             to: '0x099D7feC4f799d1749adA8815eB21375E13E0Ddb',
+             data: data
+           }, 'latest']
+         });
+
+         const balance = parseInt(result, 16);
+         myGameInstance.SendMessage('Web3Manager', 'OnBalanceReceived', balance.toString());
+       } catch (error) {
+         myGameInstance.SendMessage('Web3Manager', 'OnBalanceError', error.message);
+       }
+     }
+
+     createUnityInstance(document.querySelector("#unity-canvas"), {
+       dataUrl: "Build/minidapp.data",
+       frameworkUrl: "Build/minidapp.framework.js",
+       codeUrl: "Build/minidapp.wasm",
+       streamingAssetsUrl: "StreamingAssets",
+       companyName: "DefaultCompany",
+       productName: "minidapp",
+       productVersion: "0.1",
+     }).then((unityInstance) => {
+       myGameInstance = unityInstance;
+     });
+   </script>
+ </body>
 </html>
 
 ```
 
-### Step 4: Setting Up Web3.min.js
+### 4단계: Dapp 포털 SDK 설정하기
 
-1. Visit: https://cdn.jsdelivr.net/npm/web3@4.15.0/dist/web3.min.js
-2. Save the content to your `scripts/web3.min.js`.  Using a local Web3.js file improves load times and reliability.
+1. 방문: https://static.kaiawallet.io/js/dapp-portal-sdk-0.9.2.js
+2. 스크립트/dapp_portal_sdk.js\`에 콘텐츠를 저장합니다.  로컬 Dapp 포털 SDK 파일을 사용하면 로드 시간과 안정성이 향상됩니다.
 
 ### Step 5: Configure Unity to Use Custom Template
 
@@ -403,6 +489,7 @@ Copy and paste the code below in your `index.html` file:
 - Under "Resolution and Presentation":
   - Find "WebGL Template".
   - Select "KaiaTemplate".
+- '게시 설정'의 압축 형식 필드에서 **사용 안 함**을 선택합니다.
 
 ![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)
 
@@ -412,7 +499,7 @@ Now Let's bring it all together:
 
 1. Open Build Settings (File → Build Settings).
 2. Click "Build And Run".
-3. Create a new folder named "minidapp".
+3. Unity의 메시지에 따라 빌드 프로젝트를 저장합니다(예: "minidapp").
 4. Important Build Files:
 
 ```bash
@@ -433,13 +520,40 @@ After building your project,
 4. Save changes and rebuild.
 5. You should now see a tab opened in your browser.
 
-![](/img/minidapps/unity-minidapp/ui-build-app.png)
+![](/img/minidapps/unity-minidapp/ui_build_app.png)
+
+### 8단계: WebGL 빌드를 Localhost:3000으로 라우팅하기
+
+보안 및 개발 목적으로 현재 DApp 포털 SDK는 로컬호스트:3000에서 작동합니다. 현재 기본 Unity WebGL 빌드는 임의의 포트(예: 61445)를 사용하므로 앱이 효율적으로 작동하려면 Unity WebGL 빌드가 localhost:3000에서 열리도록 구성해야 합니다.
+
+이렇게 하려면 아래 단계를 따르세요:
+
+1. 프로젝트 터미널에 아래 코드를 복사하여 붙여넣으세요.
+
+```bash
+# Install http-server globally
+npm install -g http-server
+```
+
+2. 빌드 폴더로 이동
+
+```bash
+cd path/to/minidapp
+```
+
+3. 포트 3000에서 서버 시작
+
+```bash
+http-server -p 3000
+```
+
+![](/img/minidapps/unity-minidapp/lh_3000.png)
 
 ## Testing and running application
 
 Now that we have our project running, let’s test and interact with it.
 
-- Click on the Connect Wallet button to connect to Kaia Wallet.
-- Once connected, fill in details (address and amount) to mint tokens to the connected address or any stipulated address.
+- 지갑 연결 버튼을 클릭하여 Dapp 포털 지갑에 연결합니다.
+- 연결되면 연결된 주소로 발행할 세부 정보(금액)를 입력합니다.
 
 ![](/img/minidapps/unity-minidapp/minidapp.gif)
