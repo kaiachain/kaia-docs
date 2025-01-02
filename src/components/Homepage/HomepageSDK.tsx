@@ -4,34 +4,27 @@ import styled from 'styled-components';
 import { useColorMode } from '@docusaurus/theme-common';
 import Translate from '@docusaurus/Translate';
 
-const TRANSLATIONS = {
+interface TranslationData {
+  nameId: string;
+  nameText: string;
+}
+
+const TRANSLATIONS: Record<string, TranslationData> = {
   ethersjs: {
-    name: (
-      <Translate id="homepage.sdk.ethersjs.name" description="Name of the Ethers.js Extension SDK">
-        Ethers.js Extension
-      </Translate>
-    ),
+    nameId: 'homepage.sdk.ethersjs.name',
+    nameText: 'Ethers.js Extension',
   },
   web3js: {
-    name: (
-      <Translate id="homepage.sdk.web3js.name" description="Name of the Web3.js Extension SDK">
-        Web3.js Extension
-      </Translate>
-    ),
+    nameId: 'homepage.sdk.web3js.name',
+    nameText: 'Web3.js Extension',
   },
   web3j: {
-    name: (
-      <Translate id="homepage.sdk.web3j.name" description="Name of the Web3j Extension SDK">
-        Web3j Extension
-      </Translate>
-    ),
+    nameId: 'homepage.sdk.web3j.name',
+    nameText: 'Web3j Extension',
   },
   web3py: {
-    name: (
-      <Translate id="homepage.sdk.web3py.name" description="Name of the Web3.py Extension SDK">
-        Web3.py Extension
-      </Translate>
-    ),
+    nameId: 'homepage.sdk.web3py.name',
+    nameText: 'Web3.py Extension',
   },
 };
 
@@ -151,7 +144,9 @@ const SDK = ({ sdk }: { sdk: SDKData }) => {
     <SDKLink to={sdk.to} themeMode={colorMode}>
       <SDKIcon src={sdk.icon} alt={sdk.type} />
       <SDKName>
-        {translation.name}
+        <Translate id={translation.nameId} description={`Name of the ${translation.nameText} SDK`}>
+          {translation.nameText}
+        </Translate>
       </SDKName>
     </SDKLink>
   );
