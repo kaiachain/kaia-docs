@@ -85,7 +85,7 @@ receipt {
 
 ---
 
-使用指定的 **kairos** 测试网 URL 设置提供程序。 A provider in ethers is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
 ```js TxTypeAccountUpdate.js focus=10
 
@@ -93,7 +93,7 @@ receipt {
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js TxTypeAccountUpdate.js focus=10
 const ethers = require("ethers");
@@ -133,7 +133,7 @@ main();
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+用**私钥**和**提供者**创建发件人钱包
 
 ```js TxTypeAccountUpdate.js focus=11
 
@@ -141,7 +141,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Compute the **public key** from the new private key
+用新私钥计算**公钥**
 
 <CH.Code>
 ```js TxTypeAccountUpdate.js focus=14:15
@@ -181,7 +181,7 @@ sentTx 0xb803b60ec33633910e4a4d2238c1d1acf1fcca4123b78c2bd252d6c0c1416ca0
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain.
+如果已在区块链中完成发送，**wait**函数将返回发送回执。
 
 <CH.Code>
 ```js TxTypeAccountUpdate.js focus=29:30
