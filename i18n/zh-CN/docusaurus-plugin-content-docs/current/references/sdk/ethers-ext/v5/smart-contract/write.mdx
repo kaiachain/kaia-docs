@@ -1,6 +1,6 @@
 # Write
 
-You can make a **"transaction"** interacting with a Smart Contract when you **need to update some state ** in the contract.
+当您**需要更新合约中的某些状态**时，可以与智能合约进行**"事务 "**交互。
 
 <CH.Spotlight>
 <CH.Code>
@@ -141,7 +141,7 @@ number after 292
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js smartContractWrite.js focus=7
 const ethers = require("ethers");
@@ -196,7 +196,7 @@ main();
 
 ---
 
-create a wallet from sender **private key** and **web3 provider**
+用发件人**私钥**和**Web3 提供商**创建钱包
 
 ```js smartContractWrite.js focus=8
 
@@ -204,7 +204,7 @@ create a wallet from sender **private key** and **web3 provider**
 
 ---
 
-Set the **Abi** generated from solidity code
+设置由 solidity 代码生成的 **Abi**
 
 ```js smartContractWrite.js focus=33
 
@@ -212,7 +212,7 @@ Set the **Abi** generated from solidity code
 
 ---
 
-Define **contract address** to interact with
+定义与之交互的**合约地址** 
 
 ```js smartContractWrite.js focus=34
 
@@ -220,7 +220,7 @@ Define **contract address** to interact with
 
 ---
 
-Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+使用 **ethers.Contract**创建合约实例，填写参数 **contractAddr**、**abi**、**provider**。 您可以通过该实例读写合约
 
 ```js smartContractWrite.js focus=37
 
@@ -228,7 +228,7 @@ Create a contract instance with **ethers.Contract**, fill in params **contractAd
 
 ---
 
-Get the **number** value before updated by using method **counter.number()**
+使用方法**counter.number()**获取更新前的**数字**值
 
 <CH.Code>
 ```js smartContractWrite.js focus=39
@@ -242,7 +242,7 @@ Get the **number** value before updated by using method **counter.number()**
 
 ---
 
-Create a transaction data to update the **number** value
+创建事务数据以更新**编号**值
 
 ```js smartContractWrite.js focus=41
 
@@ -250,7 +250,7 @@ Create a transaction data to update the **number** value
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain.
+如果已在区块链中完成发送，**wait**函数将返回发送回执。
 
 <CH.Code>
 ```js smartContractWrite.js focus=42:
@@ -314,7 +314,7 @@ receipt {
 
 ---
 
-Get the updated value **number** by using method **counter.number()**
+使用方法 **counter.number()** 获取更新值 **number**
 
 <CH.Code>
 ```js smartContractWrite.js focus=45
