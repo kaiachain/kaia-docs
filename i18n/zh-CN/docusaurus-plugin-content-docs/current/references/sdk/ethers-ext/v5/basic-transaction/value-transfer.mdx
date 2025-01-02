@@ -1,8 +1,8 @@
 # Value Transfer
 
-**TxTypeValueTransfer** is used when a user wants to send KAIA.
+**TxTypeValueTransfer** 在用户希望发送 KAIA 时使用。
 
-- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+- 由于 kaia 提供了多种交易类型，使每种交易类型只服务于一个目的，因此 TxTypeValueTransfer 只限于将 KAIA 发送到外部拥有的账户（EOA）。
 
 <CH.Spotlight>
 <CH.Code>
@@ -87,7 +87,7 @@ receipt {
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+导入 **ethers** 和 **@kaiachain/ethers-ext** 软件包，在 ethers.js 上添加 kaia 功能
 
 ```js txTypeValueTransferTransaction.js focus=1:2
 
@@ -95,7 +95,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Define **sender address, sender private key and reciever address**
+定义**发件人地址、发件人私钥和收件人地址**
 
 ```js txTypeValueTransferTransaction.js focus=4:6
 
@@ -103,7 +103,7 @@ Define **sender address, sender private key and reciever address**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
 ```js txTypeValueTransferTransaction.js focus=8:8
 
@@ -111,7 +111,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js txTypeValueTransferTransaction.js focus=8:8
 const ethers = require("ethers");
@@ -144,7 +144,7 @@ main();
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+用**私钥**和**提供者**创建发件人钱包
 
 ```js txTypeValueTransferTransaction.js focus=9
 
@@ -152,7 +152,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Declare a transaction with the fields such as **type, from, to, value**.
+声明包含 ** 类型、来自、至、值** 等字段的事务。
 
 ```js txTypeValueTransferTransaction.js focus=11:16
 
