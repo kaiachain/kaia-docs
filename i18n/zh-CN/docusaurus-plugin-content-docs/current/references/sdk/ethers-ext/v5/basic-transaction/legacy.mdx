@@ -1,6 +1,6 @@
-TxTypeLegacyTransaction represents a type of transactions existed previously in kaia.
+TxTypeLegacyTransaction 代表 kaia 以前存在的一种事务类型。
 
-\*\*This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
+\*\*这种类型的交易可以创建账户、转移代币、部署智能合约、执行智能合约，或者执行上述交易的混合。
 
 <CH.Spotlight>
 
@@ -67,7 +67,7 @@ receipt {
 
 ---
 
-Import the **ethers** package that can interact with the Ethereum Blockchain and its ecosystem.
+导入可与以太坊区块链及其生态系统交互的**ethers**软件包。
 
 ```js txTypeLegacyTransaction.js focus=1
 
@@ -75,7 +75,7 @@ Import the **ethers** package that can interact with the Ethereum Blockchain and
 
 ---
 
-Import **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+导入 **@kaiachain/ethers-ext** 软件包，在 ethers.js 上添加 kaia 功能
 
 ```js txTypeLegacyTransaction.js focus=3
 
@@ -83,7 +83,7 @@ Import **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
 
 ---
 
-Define sender address, sender private key and reciever address
+定义发送方地址、发送方私人密钥和接收方地址
 
 ```js txTypeLegacyTransaction.js focus=5:7
 
@@ -91,7 +91,7 @@ Define sender address, sender private key and reciever address
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
 ```js txTypeLegacyTransaction.js focus=9
 
@@ -99,7 +99,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js txTypeLegacyTransaction.js focus=9
 const ethers = require("ethers");
@@ -135,7 +135,7 @@ main();
 
 ---
 
-Init Wallet instance with the private key and provider.
+使用私钥和提供商启动钱包实例。
 
 ```js txTypeLegacyTransaction.js focus=10
 
@@ -143,7 +143,7 @@ Init Wallet instance with the private key and provider.
 
 ---
 
-Declare a transaction with the fields such as **from, to, value**.
+声明一个事务，其字段包括**from（从）、to（到）、value（值）**。
 
 ```js txTypeLegacyTransaction.js focus=13:20
 
@@ -151,7 +151,7 @@ Declare a transaction with the fields such as **from, to, value**.
 
 ---
 
-Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+向区块链发送 tx。 函数 "sendTransaction "使用账户的私钥进行内部签名，然后将其传输到区块链网络。
 
 <CH.Code>
 ```js txTypeLegacyTransaction.js focus=22:23
@@ -166,7 +166,7 @@ sentTx 0xf4f0cac1985c2880fa170b650e23148f7a2c93d46bf2193603e4fc15ec5eca95
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain.
+如果已在区块链中完成发送，**wait**函数将返回发送回执。
 
 <CH.Code>
 ```js txTypeLegacyTransaction.js focus=25:26
