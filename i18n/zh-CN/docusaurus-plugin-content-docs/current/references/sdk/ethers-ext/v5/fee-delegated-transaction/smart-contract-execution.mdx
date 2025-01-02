@@ -188,7 +188,7 @@ main();
 
 ---
 
-使用 **ethers.Contract**创建合约实例，填写参数 **contractAddr**、**abi**、**provider**。 You can read and write the contract through this instance
+使用 **ethers.Contract**创建合约实例，填写参数 **contractAddr**、**abi**、**provider**。 您可以通过该实例读写合约
 
 ```js FeeDelegatedSmartContractExecution.js focus=18
 
@@ -196,7 +196,7 @@ main();
 
 ---
 
-Encode the function name and parameter with the **encodeFunctionData** function
+使用 **encodeFunctionData** 函数对函数名和参数进行编码
 
 ```js FeeDelegatedSmartContractExecution.js focus=19
 
@@ -204,7 +204,7 @@ Encode the function name and parameter with the **encodeFunctionData** function
 
 ---
 
-Build the transaction object with type **FeeDelegatedSmartContractExecution**
+以**FeeDelegatedSmartContractExecution**类型创建交易对象
 
 ```js FeeDelegatedSmartContractExecution.js focus=19:27
 
@@ -212,7 +212,7 @@ Build the transaction object with type **FeeDelegatedSmartContractExecution**
 
 ---
 
-Populate the transaction with necessary details
+在交易中输入必要的详细信息
 
 ```js FeeDelegatedSmartContractExecution.js focus=30
 
@@ -220,7 +220,7 @@ Populate the transaction with necessary details
 
 ---
 
-Sign the transaction by the **sender's wallet**
+通过**发送人的钱包**签署交易
 
 <CH.Code>
 ```js FeeDelegatedSmartContractExecution.js focus=31:32
@@ -237,7 +237,7 @@ senderTxHashRLP 0x31f8a6820355850ba43b7400830116379495be48607498109030592c08adc9
 
 ---
 
-Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+使用付费者的钱包将交易发送到区块链上。 函数 "sendTransactionAsFeePayer "会在发送者的签名上添加一个带有 FeePayer 私钥的签名，并将其传输到区块链网络。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractExecution.js focus=34:36
@@ -256,7 +256,7 @@ sentTx 0x4147867b19c609e85c2349a78429eaa9d5e6c96e1893b44c5a1159801672119b
 
 ---
 
-The **wait** function returns the tx receipt if the tx was sent to the blockchain successfully.
+如果 tx 已成功发送到区块链，**wait** 函数将返回 tx 收据。
 
 <CH.Code>
 
