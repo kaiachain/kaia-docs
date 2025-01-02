@@ -110,7 +110,7 @@ Checks if a given value is a [BN.js](https://github.com/indutny/bn.js/) instance
 
 **Parameters**
 
-| Name | Type   | Description                                                                            |
+| Name | Type   | 描述                                                                                     |
 | ---- | ------ | -------------------------------------------------------------------------------------- |
 | bn   | object | A [BN.js](https://github.com/indutny/bn.js/) instance. |
 
