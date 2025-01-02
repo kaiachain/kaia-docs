@@ -48,7 +48,7 @@ recoveredAddr rpc 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7 true
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+导入 **ethers** 和 **@kaiachain/ethers-ext** 软件包，在 ethers.js 上添加 kaia 功能
 
 ```js SignMsgWithLegacyExample.js focus=1:3
 
@@ -56,7 +56,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Define sender's **address** and **private key**
+定义发件人的**地址**和**私人密钥**
 
 ```js SignMsgWithLegacyExample.js focus=5:6
 
@@ -64,7 +64,7 @@ Define sender's **address** and **private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
 ```js SignMsgWithLegacyExample.js focus=8
 
@@ -72,7 +72,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js SignMsgWithLegacyExample.js focus=8
 const { ethers } = require("ethers");
@@ -103,7 +103,7 @@ main().catch(console.error);
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+用**私钥**和**提供者**创建发件人钱包
 
 ```js SignMsgWithLegacyExample.js focus=9
 
@@ -111,7 +111,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Define a message to be signed and recovered
+定义要签名和恢复的信息
 
 ```js SignMsgWithLegacyExample.js focus=12
 
@@ -119,7 +119,7 @@ Define a message to be signed and recovered
 
 ---
 
-Sign the message with sender's **wallet**
+用发件人的**钱包**签署信息
 
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=13:15
@@ -140,7 +140,7 @@ Sign the message with sender's **wallet**
 
 ---
 
-Recover the address from signed message using `ethers.utils.verifyMessage`
+使用`ethers.utils.verifyMessage`从已签名的信息中恢复地址
 
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=17:18
@@ -156,7 +156,7 @@ recoveredAddr lib 0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7 true
 
 ---
 
-Recover the address from signed message using `klay_recoverFromMessage`
+使用 `klay_recoverFromMessage` 从已签名的信息中恢复地址
 
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=20:21
