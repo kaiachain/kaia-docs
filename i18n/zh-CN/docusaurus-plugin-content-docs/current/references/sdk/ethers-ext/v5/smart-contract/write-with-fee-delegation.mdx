@@ -1,6 +1,6 @@
 # Write (Fee Delegation)
 
-You can make a **"transaction"** that including **payment request** to feepayer when you want to execute the Smart Contract.
+当您要执行智能合约时，您可以向 feepayer 发送**"交易 "**，其中包括**支付请求**。
 
 <CH.Spotlight>
 <CH.Code>
@@ -116,7 +116,7 @@ number after 294
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+导入 **ethers** 和 **@kaiachain/ethers-ext** 模块，在 ethers.js 上添加 kaia 功能。
 
 ```js writeWithFeeDelegation.js focus=1:2
 
@@ -124,7 +124,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features
 
 ---
 
-Define **sender, fee payer address and sender private key**
+定义 **发件人、缴费人地址和发件人私人密钥**
 
 ```js writeWithFeeDelegation.js focus=4:7
 
@@ -132,7 +132,7 @@ Define **sender, fee payer address and sender private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
 ```js writeWithFeeDelegation.js focus=9
 
@@ -140,7 +140,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js writeWithFeeDelegation.js focus=9
 const ethers = require("ethers");
@@ -213,7 +213,7 @@ main();
 
 ---
 
-Create a sender's wallet using the sender's private key and the provider
+使用发件人的私人密钥和提供商创建发件人钱包
 
 ```js writeWithFeeDelegation.js focus=10
 
@@ -221,7 +221,7 @@ Create a sender's wallet using the sender's private key and the provider
 
 ---
 
-Create a fee payer's wallet using the sender's private key and the provider
+使用发送者的私人密钥和提供者的私人密钥创建付费者钱包
 
 ```js writeWithFeeDelegation.js focus=11
 
@@ -229,7 +229,7 @@ Create a fee payer's wallet using the sender's private key and the provider
 
 ---
 
-Set the **Abi** generated from solidity code
+设置由 solidity 代码生成的 **Abi**
 
 ```js writeWithFeeDelegation.js focus=36
 
@@ -237,7 +237,7 @@ Set the **Abi** generated from solidity code
 
 ---
 
-Define **contract address** to interact with
+定义与之交互的**合约地址** 
 
 ```js writeWithFeeDelegation.js focus=37
 
@@ -245,7 +245,7 @@ Define **contract address** to interact with
 
 ---
 
-Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+使用 **ethers.Contract**创建合约实例，填写参数 **contractAddr**、**abi**、**provider**。 您可以通过该实例读写合约
 
 ```js writeWithFeeDelegation.js focus=40
 
@@ -253,7 +253,7 @@ Create a contract instance with **ethers.Contract**, fill in params **contractAd
 
 ---
 
-Get the value of **number** from contract by using method **counter.number()**
+使用**counter.number()**方法从合约中获取**数字**的值
 
 <CH.Code>
 ```js writeWithFeeDelegation.js focus=42
@@ -269,7 +269,7 @@ number before 292
 
 ---
 
-Create a transaction data to update the **number** value
+创建事务数据以更新**编号**值
 
 ```js writeWithFeeDelegation.js focus=44
 
@@ -277,7 +277,7 @@ Create a transaction data to update the **number** value
 
 ---
 
-Create a transaction object with data from previous step
+用上一步的数据创建一个事务对象
 
 ```js writeWithFeeDelegation.js focus=42:48
 
@@ -285,7 +285,7 @@ Create a transaction object with data from previous step
 
 ---
 
-Sign the transaction with sender's wallet
+用发件人的**钱包**签署交易
 
 <CH.Code>
 ```js writeWithFeeDelegation.js focus=53:56
@@ -301,7 +301,7 @@ senderTxHashRLP 0x31f8843a850ba43b7400830111939495be48607498109030592c08adc9577c
 
 ---
 
-Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+使用付费者的钱包将交易发送到区块链上。 函数 "sendTransactionAsFeePayer "会在发送者的签名上添加一个带有 FeePayer 私钥的签名，并将其传输到区块链网络。
 
 <CH.Code>
 ```js writeWithFeeDelegation.js focus=58:61
@@ -345,7 +345,7 @@ receipt {
 
 ---
 
-Get the updated value **number** by using method **counter.number()**
+使用方法 **counter.number()** 获取更新值 **number**
 
 <CH.Code>
 ```js writeWithFeeDelegation.js focus=63
