@@ -1,21 +1,21 @@
-# Ethers.js Extension for Kaia
+# 用于 Kaia 的 Ethers.js 扩展
 
-Ethers.js Extension for Kaia offers:
+为 Kaia 提供 Ethers.js 扩展：
 
-- Drop-in replacement to `ethers.Wallet` that handles both Ethereum and Kaia transaction types
-  involving AccountKey and TxTypes.
-- Drop-in replacement to `ethers.providers.JsonRpcProvider` that provides accesses to both Ethereum RPCs and
-  Kaia-specific RPCs.
-- Drop-in replacement to `ethers.Web3Provider` to work with both MetaMask (`window.ethereum`) and Kaia Wallet (`window.klaytn`)
+- 以太坊钱包的直接替代品，可处理以太坊和 Kaia 交易类型
+  ，涉及 AccountKey 和 TxTypes。
+- 可直接替代 `ethers.providers.JsonRpcProvider` ，提供对以太坊 RPC 和
+  Kaia 特定 RPC 的访问。
+- 可直接替换 `ethers.Web3Provider` 以与 MetaMask（`window.ethereum`）和 Kaia Wallet（`window.klaytn`）一起使用
 
-## Note for ethers v6
+## ethers v6 注意事项
 
-`@kaiachain/ethers-ext` supports both ethers v5 and v6. However, you need to use the right packages which are specified for each `ethers` version. So ethers v5 must be used with packages from `@kaiachain/ethers-ext/v5` and ethers v6 is only compatible with `@kaiachain/ethers-ext/v6`.
+`@kaiachain/ethers-ext` 同时支持 ethers v5 和 v6。 不过，您需要使用为每个 `ethers` 版本指定的正确软件包。 因此，ethers v5 必须与 `@kaiachain/ethers-ext/v5` 中的软件包一起使用，而 ethers v6 只能与 `@kaiachain/ethers-ext/v6`兼容。
 
 > **_NOTE:_**
-> If the import path has no version sub-path (`@kaiachain/ethers-ext`), ethers v5 will be used by default.
+> 如果导入路径没有版本子路径（`@kaiachain/ethers-ext`），则默认使用 ethers v5。
 
-- **Don't**: Mixing ethers v6 and ethers-ext for ethers v5
+- **不可以**：将 ethers v6 和 ethers-ext 混合用于 ethers v5
 
   ```js
   const ethers = require("ethers"); // ethers v6
@@ -27,7 +27,7 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-- **Do**: Using with ethers v5
+- **可以**\*：与ethers v5 一起使用
 
   ```js
   const ethers = require("ethers"); // ethers v5
@@ -39,7 +39,7 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-- **Do**: Using with ethers v6
+- **可以**\*：与ethers v6 一起使用
 
   ```js
   const ethers = require("ethers"); // ethers v6
@@ -51,7 +51,7 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-- **Do**: Using ethers-ext only
+- **可以**\*：仅使ethers-ext
 
   ```js
   const { Wallet, JsonRpcProvider } = require("@kaiachain/ethers-ext/v5");
@@ -62,16 +62,16 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-## Install
+## 安装
 
 ### Node.js
 
-- Install
+- 安装
   ```sh
   npm install --save @kaiachain/ethers-ext ethers@5 # or ethers@6
   ```
 
-- ESM or TypeScript
+- ESM 或 TypeScript
 
   ```ts
   import { Wallet, JsonRpcProvider } from "@kaiachain/ethers-ext";
@@ -109,9 +109,9 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-### Browser
+### 浏览器：
 
-It is not recommended to use CDNs in production, But you can use below for quick prototyping. using `ethers-ext.buldle.js` for ethers v5 and `ethers-ext.v6.bundle.js` for ethers v6
+不建议在生产中使用 CDN，但可以在下面使用 CDN 进行快速原型开发。 醚 v5 使用 `ethers-ext.buldle.js` ，醚 v6 使用`ethers-ext.v6.bundle.js`。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@kaiachain/ethers-ext@latest/dist/ethers-ext.bundle.js"></script>
@@ -120,6 +120,6 @@ It is not recommended to use CDNs in production, But you can use below for quick
 </script>
 ```
 
-## Usage
+## 用途
 
-See [example](./example) and [test](./test).
+请参阅 [example](./example) 和 [test](./test) 。
