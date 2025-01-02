@@ -1,10 +1,10 @@
 # Multisig Account Key
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig** 是一种账户密钥类型，包含一个阈值和加权公钥（WeightedPublicKeys），后者包含一个由公钥及其权重组成的列表。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+要使与 **AccountKeyWeightedMultiSig** 关联的账户的交易有效，必须满足以下条件：
+已签名公钥的加权和应大于阈值。
+_ 无效签名不应包含在交易中。 \* 已签名公钥的数量应少于加权公钥的数量。
 
 <CH.Spotlight>
   <CH.Code>
@@ -204,7 +204,7 @@ _ The invalid signature should not be included in the transaction. \* The number
 
   ---
 
-  Sign the transaction with **second** wallet
+  用**第二个**钱包签署交易
 
   <CH.Code>
     ```js SignTxWithMultiSigExample.js focus=34:36
@@ -266,7 +266,7 @@ _ The invalid signature should not be included in the transaction. \* The number
 
   ---
 
-  Recover the address from signed transaction using `klay_recoverFromMessage`
+  使用 `klay_recoverFromMessage` 从已签署的事务中恢复地址
 
   <CH.Code>
     ```js SignTxWithMultiSigExample.js focus=45:46
