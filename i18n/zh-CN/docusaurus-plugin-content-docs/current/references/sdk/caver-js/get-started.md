@@ -1,54 +1,54 @@
-# Getting Started
+# 新手指南
 
-This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (\~v1.4.1)](../caver-js-1.4.1/get-started-1.4.1.md).
+本文档适用于使用 caver-js v1.5.0 或更高版本的开发人员。 如果使用的是旧版本，请参阅 [Getting Started (\~v1.4.1)](../caver-js-1.4.1/get-started-1.4.1.md).
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 先决条件<a href="#prerequisites" id="prerequisites"></a>
 
-### Dependencies <a href="#dependencies" id="dependencies"></a>
+### 依赖关系<a href="#dependencies" id="dependencies"></a>
 
-The following packages are required to use the caver-js library.
+使用 caver-js 库需要以下软件包。
 
 - [Node.js](https://nodejs.org/en/download/)
 - [npm](https://www.npmjs.com/get-npm)
 - [gcc-c++](https://gcc.gnu.org/)
 - [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-**Note** caver-js can run on Node.js versions 12 and 14. The recommended versions are as follows:
+**注意**\* caver-js 可在 Node.js 12 和 14 版本上运行。 推荐的版本如下
 
 - lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
 - lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
-If you use a different version of the Node (for example, Node v15), utilize the Node Version Manager([nvm](https://github.com/nvm-sh/nvm)) to install and use the version supported by caver-js.
+如果使用不同版本的 Node（例如 Node v15），请使用 Node Version Manager([nvm](https://github.com/nvm-sh/nvm)) 安装并使用 caver-js 支持的版本。
 
-### Installation <a href="#installation" id="installation"></a>
+### 安装<a href="#installation" id="installation"></a>
 
-To try it out, install caver-js with npm using the following command:
+要试用它，请使用以下命令通过 npm 安装 caver-js：
 
 ```
 $ npm install caver-js
 ```
 
-**Note**: `package.json` file should exist on the same install path. If it does not exist, `package.json` can be generated via `npm init`.
+**注意**：package.json`文件应存在于同一安装路径中。 如果不存在，可通过`npm init`生成`package.json\`。
 
-To install a specific version of caver-js, try the following command:
+要安装特定版本的 caver-js，请尝试执行以下命令：
 
 ```
 $ npm install caver-js@X.X.X
 ```
 
-## Starting with caver-js <a href="#starting-with-caver-js" id="starting-with-caver-js"></a>
+## 从 caver-js 开始<a href="#starting-with-caver-js" id="starting-with-caver-js"></a>
 
-Once you have finished installing caver-js, you can now connect to a kaia Node using caver-js.
+完成 caver-js 安装后，就可以使用 caver-js 连接 kaia 节点了。
 
-To practice the examples below, first create a test file in the working directory.
+要练习下面的示例，首先在工作目录中创建一个测试文件。
 
 ```bash
 $ touch test.js
 ```
 
-You can see the `test.js` file created in the working directory.
+您可以看到在工作目录中创建的 `test.js` 文件。
 
-Write the following code in test.js.
+在 test.js 中编写以下代码。
 
 ```javascript
 // test.js
@@ -63,48 +63,48 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
 kaia/v1.4.0/linux-amd64/go1.14.1
 ```
 
-If you see the output of console.log like above, proceed with the steps below. The version number can be different according to the version of the connected kaia node.
+如果看到如上所示的 console.log 输出，请继续以下步骤。 版本号可能因所连接的 kaia 节点版本不同而不同。
 
-### Connecting to a kaia Node <a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
+### 连接 kaia 节点<a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
 
-You can import the caver-js module and connect it to a kaia Node in the Kairos testnet as shown in the example below:
+您可以导入 caver-js 模块，并将其连接到 Kairos 测试网络中的 kaia 节点，如下图所示：
 
 ```javascript
 const Caver = require('caver-js')
 const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 ```
 
-If you are running an EN, you can connect it to your own node by changing the host and port like below:
+如果运行的是 EN，可以通过更改主机和端口将其连接到自己的节点，如下所示：
 
 ```javascript
 const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 ```
 
-## Managing Keyrings <a href="#managing-keyrings" id="managing-keyrings"></a>
+## 管理 Keyrings <a href="#managing-keyrings" id="managing-keyrings"></a>
 
-[Keyring](api/caver-wallet/keyring.md) is a structure that contains the address of the kaia account and the private key(s).
+[Keyring](api/caver-wallet/keyring.md)是一个包含 kaia 账户地址和私钥的结构。
 
-[Keyring](api/caver-wallet/keyring.md) can be classified into three types depending on the type of key being stored: [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) to store one address and one private key, [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) to store one address and one or more private keys for each role.
+根据所存储密钥的类型，[Keyring](api/caver-wallet/keyring.md) 可分为三种类型：[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) 用于存储一个地址和一个私人钥匙，[MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) 用于存储一个地址和多个私人钥匙，[RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) 用于存储一个地址和每个角色的一个或多个私人钥匙。
 
-[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) defines `key` property inside, and this `key` store one private key.
+[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring)在内部定义了 "key "属性，该 "key "存储一个私人密钥。
 
-[MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+[MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring)在内部定义了 "keys "属性，该 "keys "以数组形式实现，用于存储多个私钥。
 
-The `keys` property defined in [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) is implemented as a two-dimensional array (empty `keys` will look like `[ [], [], [] ]`) that can include multiple keys for each [role](../../../learn/accounts.md#roles). The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring)中定义的`keys`属性是以二维数组的形式实现的（空`keys`看起来像`[ [], [], [] ]`），每个[role](../../../learn/accounts.md#roles)可以包含多个键。 数组的第一个元素填入用于 `roleTransactionKey` 的私钥，第二个元素填入用于 `roleAccountUpdateKey` 的私钥，第三个元素填入用于 `roleFeePayerKey` 的私钥。
 
-### Creating a Keyring <a href="#creating-a-keyring" id="creating-a-keyring"></a>
+### 创建Keyring<a href="#creating-a-keyring" id="creating-a-keyring"></a>
 
-#### Generating a SingleKeyring <a href="#generating-a-singlekeyring" id="generating-a-singlekeyring"></a>
+#### 生成 SingleKeyring <a href="#generating-a-singlekeyring" id="generating-a-singlekeyring"></a>
 
-You can randomly generate a single keyring as shown below.
+如下图所示，您可以随机生成一个keyring。
 
 ```javascript
 // test.js
@@ -119,7 +119,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -129,11 +129,11 @@ SingleKeyring {
 }
 ```
 
-The execution result is shown above. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.key`.
+执行结果如上图所示。 可以通过 `keyring.address` 和 `keyring.key` 访问实例内部定义的成员变量。
 
-#### Creating a SingleKeyring from private key <a href="#creating-a-singlekeyring-from-private-key" id="creating-a-singlekeyring-from-private-key"></a>
+#### 从私人密钥创建SingleKeyring<a href="#creating-a-singlekeyring-from-private-key" id="creating-a-singlekeyring-from-private-key"></a>
 
-Also, if you own a specific private key, you can use it to create a keyring as shown below.
+此外，如果你拥有特定的私人密钥，还可以用它创建一个钥匙圈，如下图所示。
 
 ```javascript
 // test.js
@@ -149,7 +149,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -159,11 +159,11 @@ SingleKeyring {
 }
 ```
 
-The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) instance with an address defined inside it and a \[PrivateKey] instance in `keyring.key`.
+caver.wallet.keyring.createFromPrivateKey "的结果，就像上面 "caver.wallet.keyring.generate "的结果一样，是一个[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring)实例，其中定义了一个地址和 "keyring.key "中的一个\[PrivateKey]实例。
 
-#### Creating a SingleKeyring with a private key and an address <a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### 使用私钥和地址创建 SingleKeyring <a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If your private key for your kaia account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
+如果 kaia 账户的私钥与地址不相关联，则可以使用给定的地址和私钥创建一个密钥环，如下所示。
 
 ```javascript
 // test.js
@@ -183,7 +183,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console like below.
+在控制台中运行代码，如下所示。
 
 ```bash
 $ node ./test.js
@@ -197,9 +197,9 @@ SingleKeyring {
 }
 ```
 
-#### Creating a MultipleKeyring with multiple private keys <a href="#creating-a-multiplekeyring-with-multiple-private-keys" id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### 创建具有多个私人密钥的 MultipleKeyring<a href="#creating-a-multiplekeyring-with-multiple-private-keys" id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) using an address and multiple private keys. The below examples show how to create a [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) with multiple private keys.
+如果要使用多个私钥，可以使用一个地址和多个私钥创建一个[MultipleKeyring]（api/caver-wallet/keyring.md#multiplekeyring）。 下面的示例展示了如何创建具有多个私钥的 [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) 。
 
 ```javascript
 // test.js
@@ -215,7 +215,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -228,11 +228,11 @@ MultipleKeyring {
 }
 ```
 
-As you can see, `_keys` has multiple PrivateKey instances in the array. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
+可以看到，`_keys` 数组中有多个 PrivateKey 实例。 可以通过 `keyring.address` 和 `keyring.keys` 访问实例内部定义的成员变量。
 
-#### Creating a RoleBasedKeyring with private keys <a href="#creating-a-rolebasedkeyring-with-role-based-private-keys" id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+#### 创建带有私钥的基于角色的密钥环<a href="#creating-a-rolebasedkeyring-with-role-based-private-keys" id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each [role](../../../learn/accounts.md#roles), `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role described in [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring). The example below shows how to create a [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) instance from different keys for each role.
+要为每个 [role](../../../learn/accounts.md#roles) 使用不同的私钥，可使用 `caver.wallet.keyring.createWithRoleBasedKey` 代替。 每个数组元素代表 [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) 中描述的一个角色。 下面的示例展示了如何根据每个角色的不同密钥创建 [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) 实例。
 
 ```javascript
 // test.js
@@ -252,7 +252,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -273,17 +273,17 @@ RoleBasedKeyring {
 }
 ```
 
-Looking at the output above, the first element of the keys array, `roleTransactionKey`, has three PrivateKey instances, and the second element, `roleAccountUpdateKey`, has one PrivateKey instance. And the last element of the array, `roleFeePayerKey`, has two PrivateKey instances.
+从上面的输出来看，键数组的第一个元素 `roleTransactionKey` 有三个私钥实例，第二个元素 `roleAccountUpdateKey` 有一个私钥实例。 而数组的最后一个元素 `roleFeePayerKey` 有两个 PrivateKey 实例。
 
-**Note**: Calling functions related to keyring ([caver.wallet.keyring](api/caver-wallet/keyring.md)) or wallet ([caver.wallet](api/caver-wallet/caver-wallet.md)) do not affect the actual kaia blockchain platform (kaia).
+**注意**：调用与钥匙圈（[caver.wallet.keyring](api/caver-wallet/keyring.md)）或钱包（[caver.wallet](api/caver-wallet/caver-wallet.md)）相关的函数不会影响实际的 kaia 区块链平台 (kaia)。
 
-### Adding Keyrings to caver-js <a href="#adding-keyrings-to-caver-js" id="adding-keyrings-to-caver-js"></a>
+### 为 caver-js 添加关键字<a href="#adding-keyrings-to-caver-js" id="adding-keyrings-to-caver-js"></a>
 
-You can use a keyring easily by using the in-memory wallet provided by caver-js. The following examples illustrate how to add a keyring to a wallet using a keyring instance and a keystore file exported from [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md).
+您可以使用 caver-js 提供的内存钱包，轻松使用钥匙圈。 下面的示例说明了如何使用密钥实例和从 [Kaia 钱包] 导出的密钥存储文件（.../.../.../build/tools/wallets/kaia-wallet.md）向钱包添加密钥。
 
 :::note
 
-When developing, it's best practice to use a an account that isn't associated with any real funds. A good way to do this is to make a new browser profile (on Chrome, Brave, Firefox, etc) and install Kaia Wallet on that browser, and never send this wallet money.
+开发时，最好使用一个与任何真实资金都不相关的账户。 好的方法是创建一个新的浏览器配置文件（在 Chrome、Brave、Firefox 等浏览器上），并在该浏览器上安装 Kaia 钱包，而且永远不要向该钱包汇款。
 
 :::
 
@@ -328,7 +328,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the in your console.
+在控制台中运行
 
 ```bash
 $ node ./test.js
@@ -342,9 +342,9 @@ SingleKeyring {
 }
 ```
 
-Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
+从上面的输出结果来看，将密钥添加到 `caver.wallet` 后，就可以从 `caver.wallet` 中查询密钥。
 
-If you have an address and private key(s) to use, you can easily create a keyring and add it directly to [caver.wallet](api/caver-wallet/caver-wallet.md) via [caver.wallet.newKeyring](api/caver-wallet/caver-wallet.md#caverwalletgetkeyring).
+如果您有需要使用的地址和私钥，可以通过 [caver.wallet.newKeyring](api/caver-wallet/caver-wallet.md#caverwalletgetkeyring) 轻松创建一个密钥环，并将其直接添加到 [caver.wallet](api/caver-wallet/caver-wallet.md) 中。
 
 ```javascript
 // test.js
@@ -372,7 +372,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. The result of the above code execution is shown below. When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created. When passing one or more private keys for each role as arguments, a Keyring instance with a different private key(s) for each role is created and also added to the `caver.wallet`.
+运行上述代码会得到以下结果。 上述代码的执行结果如下所示。 当使用私钥执行 `caver.wallet.newKeyring` 时，一个带有私钥的 Keyring 实例就会创建并添加到 `caver.wallet` 中。 对于多个私钥，会创建一个包含多个私钥的 Keyring 实例。 如果为每个角色传递一个或多个私钥作为参数，就会为每个角色创建一个带有不同私钥的 Keyring 实例，并将其添加到 `caver.wallet` 中。
 
 ```bash
 $ node ./test.js
@@ -408,32 +408,32 @@ RoleBasedKeyring {
 }
 ```
 
-`caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
+`caver.wallet.add` 或 `caver.wallet.newKeyring` 返回一个添加到 `caver.wallet` 的 Keyring 实例。
 
-## Sending a Transaction <a href="#sending-a-transaction" id="sending-a-transaction"></a>
+## 发送交易<a href="#sending-a-transaction" id="sending-a-transaction"></a>
 
-This section will show you how to send KAIA using caver-js on  Kairos Testnet.
+本节将向您介绍如何在 Kairos Testnet 上使用 caver-js 发送 KAIA。
 
-### Getting KAIA via Kairos Faucet <a href="#getting-klay-via-kairos-faucet" id="getting-klay-via-kairos-faucet"></a>
+### 通过 Kairos 龙头获取 KAIA<a href="#getting-klay-via-kairos-faucet" id="getting-klay-via-kairos-faucet"></a>
 
-If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
+如果您需要 KAIA 进行测试，可以从 [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) 获取 Kairos testnet KAIA。 使用私钥或密钥存储文件登录 kaia 钱包，并通过龙头接收 Kairos testnet KAIA 进行测试。
 
-### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
+### 发送价值转移交易<a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
-You can use a caver-js wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
+您可以使用 caver-js 钱包生成交易签名。 您必须经过以下两个步骤才能将交易发送到网络。
 
-1. Sign a transaction
-   - If the keyring you want to use is added to [caver.wallet](api/caver-wallet/caver-wallet.md), you can use `caver.wallet.sign` function to sign.
-   - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the kaia via `caver.rpc.klay.sendRawTransaction`.
+1. 签署交易
+   - 如果要使用的密钥已添加到 [caver.wallet](api/caver-wallet/caver-wallet.md)，则可以使用 `caver.wallet.sign` 函数签名。
+   - 如果单独管理钥匙圈而不将其添加到 `caver.wallet` 中，则可以通过 `transaction.sign` 函数签署交易。
+2. 通过 `caver.rpc.klay.sendRawTransaction`，向 kaia 发送已签名事务的 RLP 编码字符串。
 
-**Note:** The sender should have enough number of KAIA.
+**注意：** 发件人应有足够数量的 KAIA。
 
-#### Sign a transaction
+#### 签署交易
 
-Before sending a transaction to kaia, you should sign a transaction first.
+在向 kaia 发送交易之前，您应该先签署交易。
 
-Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet](api/caver-wallet/caver-wallet.md).
+下面是一个例子，说明在 [caver.wallet](api/caver-wallet/caver-wallet.md) 中添加密钥后如何签署交易。
 
 ```javascript
 // test.js
@@ -463,17 +463,17 @@ async function testFunction() {
 testFunction()
 ```
 
-The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
+上述代码向 `caver.wallet` 添加了一个密钥，创建了一个交易，并通过 `caver.wallet.sign` 签署了该交易。
 
-Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+运行上述代码会得到以下结果。 执行上述代码后，事务的 RLP 编码字符串如下所示。 (您得到的 RLP 编码字符串输出可能与下图所示的字符串输出不同）。
 
 ```bash
 RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### Send the RLP-encoded string of the signed transaction to the kaia
+#### 向 kaia 发送已签名交易的 RLP 编码字符串
 
-Now you can send a signed transaction to the network like below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+现在你可以像下面这样向网络发送已签名的交易。 如果要运行下面的示例，请将 `0x{RLP-encoded string}` 替换为上述 `rlpEncoded` 的值。
 
 ```javascript
 // test.js
@@ -491,7 +491,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
+运行上述代码会得到以下结果。 执行上述代码后，交易收据如下所示。
 
 ```bash
 $ node ./test.js
@@ -519,7 +519,7 @@ $ node ./test.js
 }
 ```
 
-If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
+如果您想在不使用 `caver.wallet` 的情况下签署交易并将其发送到网络，请参阅下面的示例。
 
 ```javascript
 // test.js
@@ -547,13 +547,13 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the receipt of the transaction is printed like the previous example.
+执行上述代码后，就会像上一个示例一样打印交易收据。
 
-### Checking Receipts <a href="#checking-receipts" id="checking-receipts"></a>
+### 检查收据<a href="#checking-receipts" id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the kaia by [caver.rpc.klay.sendRawTransaction](api/caver-rpc/klay.md#caver-rpc-klay-sendrawtransaction).
+当您通过 [caver.rpc.klay.sendRawTransaction](api/caver-rpc/klay.md#caver-rpc-klay-sendrawtransaction) 向 kaia 传输事务时，您可以使用承诺或事件发射器来获取事务收据。
 
-The following example shows how to get a receipt using promises and event emitters.
+下面的示例展示了如何使用承诺和事件发射器获取收据。
 
 ```javascript
 // Using a promise - async/await
@@ -567,7 +567,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call.
+如上例所述，您可以通过承诺和事件发射器获取发送事务的结果。 transactionHash "字段在收据对象中定义。 您可以使用[caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC 调用和`receipt.transactionHash`，在交易被纳入区块后的任何时间从网络查询交易的收据。 下面的示例展示了如何使用 [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC 调用获取收据。
 
 ```javascript
 // test.js
@@ -582,7 +582,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
+运行上述代码会得到以下结果。 执行上述代码后，交易收据如下所示。
 
 ```bash
 $ node ./test.js
@@ -610,15 +610,15 @@ $ node ./test.js
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../transaction-error-codes.md).
+交易结果可通过收据的 "状态 "查询。 有关返回值的详细信息，请参阅 [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt)。 如果交易失败，可以在收据的 `txError` 中查看更多有关错误的信息。 有关 `txError` 的更多信息，请参阅 [txError: Detailed Information of Transaction Failures]（.../transaction-error-codes.md）。
 
-## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
+## 执行其他事务类型<a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Kaia provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/). This section describes some examples that can be used with caver-js.
+Kaia 提供各种事务类型，以提高可扩展性和性能。 更多信息，请参阅 [事务]（.../.../.../learn/transactions/）。 本节将介绍一些可与 caver-js 配合使用的示例。
 
-### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
+### 收费代表团<a href="#fee-delegation" id="fee-delegation"></a>
 
-Kaia provides [Fee Delegation](../../../learn/transactions/transactions.md#fee-delegation) feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+Kaia 提供 [费用委托]（.../.../.../learn/transactions/transactions.md#fee-delegation）功能。 下面是一个制作 RLP 编码交易的示例，当您是此类交易的发送方时：
 
 ```javascript
 // test.js
@@ -645,14 +645,14 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
+执行上述代码后，将打印 RLP 编码字符串。 (您得到的 RLP 编码字符串输出可能与下图所示的字符串输出不同）。
 
 ```bash
 $ node ./test.js
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the kaia after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+在将 "feePayerSignatures"（付费者签名）附加到由交易发送者签名的 RLP 编码字符串（"rawTransaction"（原始交易））之后，付费者就可以向 kaia 发送交易。 如果 `caver.wallet` 也有缴费人的密钥，则可通过调用 `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`，将缴费人的签名注入到 `feeDelegatedTx` 中。 否则，费用支付方必须从发送方签名的 RLP 编码字符串中创建一个 "feeDelegatedTx"，并在其上添加费用支付方的签名，如下图所示。 如果要运行下面的示例，请将 `0x{RLP-encoded string}` 替换为上述 `rlpEncoded` 的值。
 
 ```javascript
 // test.js
@@ -677,14 +677,14 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
+执行上述代码后，包括寄件人签名和缴费人签名在内的 RLP 编码字符串将打印如下。 (您得到的输出结果可能与下面显示的字符串输出结果不同）。
 
 ```bash
 $ node ./test.js
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
-The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
+现在，发送方和缴费方都对交易进行了签名，并可通过网络发送。 将 `0x{RLP-encoded string}` 替换为上述示例代码输出的 RLP 编码字符串。
 
 ```javascript
 // test.js
@@ -700,7 +700,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. Through the execution result of the above code, you can check the FeeDelegatedValueTransfer transaction result.
+运行上述代码会得到以下结果。 通过上述代码的执行结果，您可以查看 FeeDelegatedValueTransfer 交易的结果。
 
 ```bash
 $ node ./test.js
@@ -736,27 +736,27 @@ $ node ./test.js
 }
 ```
 
-### Account Update <a href="#account-update" id="account-update"></a>
+### 账户更新<a href="#account-update" id="account-update"></a>
 
-If you want to change the private key(s) for your kaia account, there are 3 important things you need to remember:
+如果要更改 kaia 帐户的私钥，需要记住 3 件重要的事情：
 
-1. kaia validates every transaction you send to it.
-2. The validation requires your public keys which exactly corresponds to your private key(s).
-3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
+1. kaia 会验证您发送给它的每一笔交易。
+2. 验证需要与您的私人密钥完全对应的公钥。
+3. 因此，在将私钥更改为新密钥之前，必须先将旧公钥更改为新密钥。 新的公开密钥必须来自新的私人密钥。
 
-Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
+牢记以上三点，你就可以按照以下步骤更改你的私人密钥了：
 
-1. Prepare the new private key(s) to create a new keyring.
-2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
-3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your kaia account.
-4. Send AccountUpdate transaction including Account instance to kaia.
-5. Finally, replace your old keyring to the new one that was created in Step 2.
+1. 准备新私钥，创建新钥匙圈。
+2. 根据需要的类型（单个钥匙圈、多个钥匙圈或基于角色的钥匙圈）创建钥匙圈。
+3. 从新钥匙圈生成一个账户实例。 该账户实例持有 kaia 账户的新公钥。
+4. 向 kaia 发送包含账户实例的 AccountUpdate 事务。
+5. 最后，将旧钥匙圈替换为步骤 2 中创建的新钥匙圈。
 
-Please check [Account Update](api/caver-transaction/basic.md#accountupdate) for the details.
+详情请查看 [Account Update]（api/caver-transaction/basic.md#accountupdate）。
 
-To change your AccountKey, you must provide an [Account](api/caver.account.md) instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account](api/caver.account.md) instance contains the address of the kaia account and the AccountKey to be updated.
+要更改 AccountKey，必须在 `caver.transaction.accountUpdate` 的输入参数对象中为 `account` 字段提供一个 [Account](api/caver.account.md)实例。 账户]（api/caver.account.md）实例包含 kaia 账户的地址和要更新的账户密钥。
 
-The code below is an example code that changes the private key(s) you use for your kaia account along with changing AccountKey of your kaia account to [AccountKeyPublic](../../../learn/accounts.md#accountkeypublic). Don't forget to prepare your new private key(s).
+下面的代码是一个示例代码，用于更改 kaia 帐户使用的私钥，同时将 kaia 帐户的 AccountKey 更改为 [AccountKeyPublic]（../../../learn/accounts.md#accountkeypublic）。 别忘了准备新的私人密钥。
 
 ```javascript
 // test.js
@@ -790,9 +790,9 @@ async function testFunction() {
 testFunction()
 ```
 
-If the above code is executed successfully, you no longer are able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
+如果上述代码执行成功，你就不能再使用旧私钥来签署任何与旧钥匙圈有关的交易。 因此，您必须通过 `caver.wallet.updateKeyring(newKeyring)` 使用`newKeyring`更新旧钥匙圈。 一旦更新，签名将由新更新的私钥完成。
 
-Running the above code gives you the following result. In the execution result of the above code, the result of the private key and the account update that you should newly use are printed like below.
+运行上述代码会得到以下结果。 在上述代码的执行结果中，私钥和新使用的账户更新结果打印如下。
 
 ```bash
 $ node ./test.js
@@ -822,9 +822,9 @@ new private key string: 0x{private key}
 }
 ```
 
-Here comes how to update AccountKey of your kaia account with multiple \[AccountKeys]? The example below explains how to create an [Account](api/caver.account.md) instance with multiple private keys that what you want to use (You can create an [Account](api/caver.account.md) instance with multiple public keys via [caver.account.create](api/caver.account.md#caver-account-create)). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+如何用多个（[AccountKeys]）更新 kaia 帐户的 AccountKey？ 下面的示例解释了如何创建一个带有多个私钥的 [账户](api/caver.account.md) 实例（您可以通过 [caver.account.create](api/caver.account.md#caver-account-create)创建一个带有多个公钥的 [账户](api/caver.account.md) 实例）。 同样，在将创建的账户实例输入事务对象内的 "账户 "字段后，其余的更新过程与上例相同。
 
-First, let's create an Account instance to update with [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). For [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig), a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions). The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
+首先，让我们创建一个使用 [AccountKeyWeightedMultiSig] 更新的账户实例（.../.../.../learn/accounts.md#accountkeyweightedmultisig）。 对于 [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig) ，必须为每个密钥定义阈值和权重。 为此，请使用 [caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions). 第一个参数是阈值，第二个参数是包含每个键权重的数组。
 
 ```javascript
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -837,7 +837,7 @@ const options = new caver.account.weightedMultiSigOptions(3, [1, 2, 1])
 const account = newKeyring.toAccount(options)
 ```
 
-Now let's update AccountKey using [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased). [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased) is an `AccountKey` type that defines the key to use for each [role](../../../learn/accounts.md#roles).
+现在，让我们使用 [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased) 更新 AccountKey。 [AccountKeyRoleBased](.../.../.../learn/accounts.md#accountkeyrolebased)是一种 "AccountKey "类型，定义了每个[role](.../../../learn/accounts.md#roles)要使用的密钥。
 
 ```javascript
 // Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
@@ -847,7 +847,7 @@ const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, n
 const account = newKeyring.toAccount()
 ```
 
-The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions) must be defined for each role as shown below.
+上面的 AccountKeyRoleBased 就是为每个角色使用一个公钥的例子。 从上面的代码中可以看到，每个密钥对应一个私人密钥。 如果要为每个角色使用多个私钥，则必须为每个角色定义 [caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions) 如下所示。
 
 ```javascript
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
@@ -866,7 +866,7 @@ const options = [
 const account = newKeyring.toAccount(options)
 ```
 
-If you want to update AccountKey to [AccountKeyLegacy](../../../learn/accounts.md#accountkeylegacy) or [accountKeyFail](../../../learn/accounts.md#accountkeyfail), create an Account instance as shown below and assign it to the `account` field of the transaction.
+如果要将 AccountKey 更新为 [AccountKeyLegacy](../../../learn/accounts.md#accountkeylegacy) 或 [accountKeyFail](././././learn/accounts.md#accountkeyfail)，请如下所示创建一个 Account 实例，并将其分配给事务的`account`字段。
 
 ```javascript
 // Create an account with AccountKeyLegacy
@@ -876,11 +876,11 @@ const accountWithLegacyKey = caver.account.createWithAccountKeyLegacy(keyringToU
 const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
-### Smart Contract <a href="#smart-contract" id="smart-contract"></a>
+### 智能合约<a href="#smart-contract" id="smart-contract"></a>
 
-The [caver.contract](api/caver.contract.md) package makes it easy to interact with smart contracts on kaia. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI (Application Binary Interface) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
+通过 [caver.contract](api/caver.contract.md) 软件包，可以轻松与 kaia 上的智能合约进行交互。 当给出智能合约的底层 ABI（应用程序二进制接口）时，它会自动将智能合约的所有方法转换为 javascript 调用。 这样，您就可以像使用 JavaScript 对象一样与智能合约进行交互。
 
-First, we make a simple solidity example like the below. Create a 'test.sol' file and write down the below example.
+首先，我们制作一个简单的实体示例，如下所示。 创建一个 "test.sol "文件，并写下以下示例。
 
 ```
 pragma solidity ^0.5.6;
@@ -896,7 +896,7 @@ contract KVstore {
 }
 ```
 
-Now we can compile a smart contract to get its bytecode and ABI.
+现在，我们可以编译智能合约，获取其字节码和 ABI。
 
 ```
 > solc --abi --bin ./test.sol
@@ -907,11 +907,11 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed.
+**注意**：要编译智能合约，必须安装 [solidity 编译器](https://solidity.readthedocs.io/en/develop/installing-solidity.html)。
 
-For the smart contract deployment, you can use [caver.contract](api/caver.contract.md) to deploy it, or you can deploy it using [caver.transaction.smartContractDeploy](api/caver-transaction/basic.md#smartcontractdeploy), [caver.transaction.feeDelegatedSmartContractDeploy](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) or [caver.transaction.feeDelegatedSmartContractDeployWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) transaction. Here is an example of using [caver.contract](api/caver.contract.md).
+对于智能合约的部署，您可以使用 [caver.contract](api/caver.contract.md) 进行部署，也可以使用 [caver.transaction.smartContractDeploy](api/caver-transaction/basic.md#smartcontractdeploy), [caver.transaction.feeDelegatedSmartContractDeploy](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) 或 [caver.transaction.smartContractDeploy](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) 进行部署。feeDelegatedSmartContractDeploy](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy)或[caver.transaction.feeDelegatedSmartContractDeployWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio)交易。 下面是使用 [caver.contract] 的示例（api/caver.contract.md）。
 
-You can create a contract instance as below using the result of compiling the smart contract.
+您可以使用编译智能合约的结果创建一个合约实例，如下所示。
 
 ```javascript
 // test.js
@@ -948,7 +948,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -970,9 +970,9 @@ Contract {
 null
 ```
 
-Looking at the output above, you can see that the methods are managed through abi inside the Contract instance. And since it hasn't been deployed yet, you can see that the result of `contractInstance.options.address` is output as null.
+从上面的输出可以看出，这些方法是通过合同实例内部的 abi 管理的。 由于尚未部署，因此可以看到 `contractInstance.options.address` 的输出结果为空。
 
-If the smart contract has already been deployed and you know the contract address where the smart contract was deployed, please pass the contract address to the second parameter as shown below.
+如果智能合约已经部署，并且您知道部署智能合约的合约地址，请将合约地址传给第二个参数，如下所示。
 
 ```javascript
 // test.js
@@ -1010,7 +1010,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -1032,11 +1032,11 @@ Contract {
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-Since this contract instance received the address of the smart contract, it stores the contract address in `contractInstance.options.address`.
+由于该合约实例接收到了智能合约的地址，因此会将合约地址存储在 `contractInstance.options.address` 中。
 
-If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below.
+如果创建了合约实例，您可以通过将字节码传递到 `data` 字段来部署它，如下图所示。
 
-Note that [caver.contract](api/caver.contract.md) sends transactions for deployment and execution. It uses keyrings in `caver.wallet` to sign transactions. The keyring to be used must be added to `caver.wallet` before.
+请注意，[caver.contract](api/caver.contract.md) 会发送事务以供部署和执行。 它使用 `caver.wallet` 中的密钥来签署交易。 使用的钥匙圈必须事先添加到 `caver.wallet` 中。
 
 ```javascript
 // test.js
@@ -1085,7 +1085,7 @@ async function testFunction() {
 testFunction()
 ```
 
-In the code above, the `deployer` deploys the contract to the kaia and returns the deployed contract instance.
+在上面的代码中，"deployer "会将合约部署到 kaia，并返回已部署的合约实例。
 
 ```bash
 $ node ./test.js
@@ -1107,7 +1107,7 @@ Contract {
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-To deploy a smart contract through fee-delegated transaction, define `feeDelegation` and `feePayer` like the example below:
+要通过费用委托交易部署智能合约，请像下面的示例一样定义 "feeDelegation "和 "feePayer"：
 
 ```javascript
 // test.js
@@ -1159,7 +1159,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-If you want to send a transaction with sender and feePayer signed separately when deploying a smart contract through `caver.contract`, refer to the code below:
+如果您想在通过 `caver.contract` 部署智能合约时发送发送方和付费方分别签名的交易，请参考下面的代码：
 
 ```javascript
 // test.js
@@ -1213,7 +1213,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-A smart contract can be executed using one of the followings, depending on the type of contract executing transaction: `Contract` class in `caver.contract` or [caver.transaction.smartContractExecution](api/caver-transaction/basic.md#smartcontractexecution), [caver.transaction.feeDelegatedSmartContractExecution](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution), or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio). To send a transaction for executing a smart contract:
+A smart contract can be executed using one of the followings, depending on the type of contract executing transaction: `Contract` class in `caver.contract` or [caver.transaction.smartContractExecution](api/caver-transaction/basic.md#smartcontractexecution), [caver.transaction.feeDelegatedSmartContractExecution](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution), or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio). 发送执行智能合约的交易：
 
 ```javascript
 // test.js
@@ -1253,7 +1253,7 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the transaction result from executing `set` arrives as below.
+执行上述代码后，执行 `set` 的事务结果如下。
 
 ```bash
 $ node ./test.js
@@ -1278,7 +1278,7 @@ $ node ./test.js
 }
 ```
 
-To execute a smart contract through fee-delegated transaction, define `feeDelegation` and `feePayer` like the example below:
+要通过费用委托交易执行智能合约，请像下面的示例一样定义 "feeDelegation "和 "feePayer"：
 
 ```javascript
 // test.js
@@ -1326,7 +1326,7 @@ async function executionWithFeeDelegation() {
 }
 ```
 
-If you want to send a transaction with sender and feePayer signed separately when executing a smart contract through `caver.contract`, refer to the code below:
+如果您想在通过 `caver.contract` 执行智能合约时发送一个发送方和支付方分别签名的交易，请参考下面的代码：
 
 ```javascript
 // test.js
@@ -1376,7 +1376,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-To load a contract instance and call one of its functions:
+加载合约实例并调用其中一个函数：
 
 ```javascript
 // test.js
@@ -1413,30 +1413,30 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the value is shown as an output below.
+执行上述代码后，输出值如下所示。
 
 ```bash
 $ node ./test.js
 testValue
 ```
 
-To find more information, see [caver.contract](api/caver.contract.md).
+如需了解更多信息，请参阅 [caver.contract]（api/caver.contract.md）。
 
-## Sending a Transaction with multiple signers <a href="#sending-a-transaction-with-multiple-signers" id="sending-a-transaction-with-multiple-signers"></a>
+## 发送有多个签名人的交易<a href="#sending-a-transaction-with-multiple-signers" id="sending-a-transaction-with-multiple-signers"></a>
 
-If the kaia account's AccountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
+如果 kaia 账户的 AccountKey 是 AccountKeyMultiSig 或 AccountKeyRoleBased，则管理每个密钥的人可以不同。
 
-This section describes how to collect signatures and send the transaction if there are multiple signers.
+本节介绍在有多个签名者的情况下如何收集签名和发送交易。
 
-To run this example, you need to update AccountKey of the kaia account you use for testing with [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). Please refer to [Account Update](#account-update) for how to update your kaia account.
+要运行此示例，需要使用 [AccountKeyWeightedMultiSig] 更新用于测试的 kaia 帐户的 AccountKey(../../../learn/accounts.md#accountkeyweightedmultisig) 。 请参阅 [账户更新](#account-update) 了解如何更新您的 kaia 账户。
 
-### Signing sequentially <a href="#signing-sequentially" id="signing-sequentially"></a>
+### 按顺序签署<a href="#signing-sequentially" id="signing-sequentially"></a>
 
-When a transaction is signed using `caver.wallet` or the transaction's `sign` function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
+使用 `caver.wallet` 或交易的 `sign` 函数签署交易时，签名（或付费人签名）会在交易中定义（或附加）。 您可以调用已签名事务实例的 `transaction.getRLPEncoding()` 函数，获取包含签名（和付费者签名）的 RLP 编码字符串（`rawTransaction`）。
 
-The following example shows how to sign a transaction sequentially with multiple private keys. Let's assume that AccountKey of the account who sends this transaction is AccountKeyWeightedMultiSig of two public keys, which means this kaia account can use two private key strings, one private key for each user. This is a case that two users share the same kaia account.
+下面的示例展示了如何使用多个私钥按顺序签署交易。 假设发送此交易的账户的 AccountKey 是由两个公钥组成的 AccountKeyWeightedMultiSig，这意味着 kaia 账户可以使用两个私钥串，每个用户一个私钥。 这是两个用户共享同一个 kaia 帐户的情况。
 
-In the example below, user1 and user2 create a `Keyring` instances to be used. After that, each uses its own keyring to sign the transaction. The example below uses `transaction.sign` to sign it.
+在下面的示例中，用户 1 和用户 2 创建了一个要使用的 `Keyring` 实例。 之后，各自使用自己的密钥来签署交易。 下面的示例使用 `transaction.sign` 进行签名。
 
 ```javascript
 // test.js
@@ -1464,7 +1464,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData](api/caver-wallet/keyring.md#signaturedata) is an object that stores a signature.
+运行上述代码会得到以下结果。 从上面代码的执行结果来看，如果用户 1 签名，就会创建一个签名。 如果用户 2 签名，则附加用户 2 的签名。 [签名数据](api/caver-wallet/keyring.md#signaturedata) 是一个存储签名的对象。
 
 ```bash
 $ node ./test.js
@@ -1477,9 +1477,9 @@ $ node ./test.js
 ]
 ```
 
-Then let's see how to sign sequentially without sharing the same transaction object. In the below example, user1 passes RLP-encoded string that is the result of getRLPEncoding function of the signed transaction to user2.
+然后，让我们看看如何在不共享同一事务对象的情况下按顺序签名。 在下面的示例中，用户 1 将已签名事务的 getRLPEncoding 函数产生的 RLP 编码字符串传递给用户 2。
 
-The code below explains how to sign and append signatures with RLP-encoded string.
+下面的代码解释了如何使用 RLP 编码字符串签署和附加签名。
 
 ```javascript
 // test.js
@@ -1515,7 +1515,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -1525,17 +1525,17 @@ $ node ./test.js
 ]
 ```
 
-If you run the above code, you can see that user2's signature has been appended in `transactionFromRLP.signatures` and a total of two signatures are included in it.
+如果运行上述代码，可以看到用户 2 的签名已添加到 `transactionFromRLP.signatures` 中，其中总共包含两个签名。
 
-When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`.
+所有用户签名后，通过 `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`向网络发送事务。
 
-If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signAsFeePayer`.
+如果您发送的是费用委托交易，而费用支付者使用多个密钥，您可以使用 `caver.wallet.signAsFeePayer`继续上述逻辑。
 
-### Combining signed raw transactions <a href="#combining-signed-rawtransactions" id="combining-signed-rawtransactions"></a>
+### 合并已签名的原始交易<a href="#combining-signed-rawtransactions" id="combining-signed-rawtransactions"></a>
 
-If you receive multiple signed RLP-encoded raw transaction strings from several people, you can combine them into a single RLP-encoded raw transaction string that contains all the signatures.
+如果从几个人那里收到多个已签名的 RLP 编码原始事务字符串，可以将它们合并为一个包含所有签名的 RLP 编码原始事务字符串。
 
-The example below shows how to combine and send the RLP encoded transactions.
+下面的示例显示了如何合并和发送 RLP 编码的事务。
 
 ```javascript
 // test.js
@@ -1561,28 +1561,28 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
 0x08f9010d808505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef8d5f8458207f5a094ce13c39d25d44ad1d07ba2fd89f476c4dc6eef6071a2ef1f496f9b04d049e5a00f7abddd548998b0a55e53600a48286c38262fffc6c153a64e8f65a77c11c722f8458207f6a0ceeea7287b2670719d8ac15cf3b21b36fcaf74d58cce99935ce17e100064037aa0499067788d5db5e7c09ed7bfe19764d66684abc06b81e8f54ea254377bc81066f8458207f5a05c3ba89336c7d84d4ce08104cfd6f7ef33cd9f29766a1955baae8bcf964fd50fa015accbbce6bb11847a3b0660491775d64ef6d692ea709b768f64f12968c09240
 ```
 
-Running the code above outputs one RLP-encoded raw transaction string with all the signature information combined.
+运行上述代码后，就会输出一个 RLP 编码的原始事务字符串，其中包含所有签名信息。
 
-When executing `combineSignedRawTransactions` , the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignedRawTransactions`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
+执行 "combineSignedRawTransactions "时，除了签名和事务实例中的可选变量外，要合并的签名 RLP 编码原始事务字符串必须完全相同。 在基础事务实例（"combineSignedRawTransactions "的调用者）中没有任何给定值的可选变量，将与接下来要合并的原始事务字符串中的相应变量进行置换。 如果要合并的所有原始事务字符串（包括其中的可选变量值）不一致，就会发生错误。
 
-The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
+CombineSignedRawTransactions 的结果是返回一个 RLP 编码字符串，其中包含所有签名（如果交易是收费委托交易，还包括收费人签名）。 您可以通过 `await caver.rpc.klay.sendRawTransaction(combined)`向网络发送事务。
 
-## Detecting implementation of KCT interfaces <a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
+## 检测 KCT 接口的实施情况<a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
 
-`caver.kct` provides functions that return information about which interface the given KCT token contract implements. Using this, you can see which interface the KCT token contract deployed on kaia implements.
+caver.kct "提供的函数可返回有关给定的 KCT 令牌合约实现了哪些接口的信息。 使用它，你可以看到在 kaia 上部署的 KCT 令牌合约实现了哪个接口。
 
-### Detecting KIP-7 interfaces <a href="#detecting-kip-7-interfaces" id="detecting-kip-7-interfaces"></a>
+### 检测 KIP-7 接口<a href="#detecting-kip-7-interfaces" id="detecting-kip-7-interfaces"></a>
 
-In order to detect the interfaces implemented by the KIP-7 token contract, you can use `caver.kct.kip7.detectInterface(contractAddress)` or `kip7.detectInterface()`.
+为了检测 KIP-7 令牌合约实现的接口，可以使用 `caver.kct.kip7.detectInterface(contractAddress)` 或 `kip7.detectInterface()`。
 
-Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on kaia using static methods provided in `caver.kct.kip7`.
+下面的代码说明了如何使用 `caver.kct.kip7`中提供的静态方法检测在 kaia 上部署的 KIP-7 令牌合约的已实现接口。
 
 ```javascript
 // test.js
@@ -1597,7 +1597,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -1610,7 +1610,7 @@ $ node ./test.js
 }
 ```
 
-Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on kaia using member method of KIP7.
+下面是如何使用 KIP7 成员方法检测在 kaia 上部署的 KIP-7 令牌合约的已实施接口的代码。
 
 ```javascript
 // test.js
@@ -1626,7 +1626,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -1639,11 +1639,11 @@ $ node ./test.js
 }
 ```
 
-### Detecting KIP-17 interfaces <a href="#detecting-kip-17-interfaces" id="detecting-kip-17-interfaces"></a>
+### 检测 KIP-17 接口<a href="#detecting-kip-17-interfaces" id="detecting-kip-17-interfaces"></a>
 
-In order to detect the interfaces implemented by the KIP-17 token contract, you can use `caver.kct.kip17.detectInterface(contractAddress)` or `kip17.detectInterface()`.
+为了检测 KIP-17 令牌合约实现的接口，可以使用 `caver.kct.kip17.detectInterface(contractAddress)` 或 `kip17.detectInterface()`。
 
-Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on kaia using static methods provided in `caver.kct.kip17`.
+下面是一段代码，说明如何使用 `caver.kct.kip17` 中提供的静态方法检测在 kaia 上部署的 KIP-17 令牌合约的已实现接口。
 
 ```javascript
 // test.js
@@ -1658,7 +1658,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -1673,7 +1673,7 @@ $ node ./test.js
 }
 ```
 
-Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on kaia using member method of KIP17.
+下面是如何使用 KIP17 的成员方法检测在 kaia 上部署的 KIP-17 令牌合约的已实现接口的代码。
 
 ```javascript
 // test.js
@@ -1689,7 +1689,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -1704,11 +1704,11 @@ $ node ./test.js
 }
 ```
 
-### Detecting KIP-37 interfaces <a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
+### 检测 KIP-37 接口<a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
 
-In order to detect the interfaces implemented by the KIP-37 token contract, you can use `caver.kct.kip37.detectInterface(contractAddress)` or `kip37.detectInterface()`.
+为了检测 KIP-37 令牌合约实现的接口，可以使用 `caver.kct.kip37.detectInterface(contractAddress)` 或 `kip37.detectInterface()`。
 
-Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on kaia using static methods provided in `caver.kct.kip37`.
+下面的代码说明了如何使用 `caver.kct.kip37`中提供的静态方法检测在 kaia 上部署的 KIP-37 令牌合约的已实现接口。
 
 ```javascript
 // test.js
@@ -1723,7 +1723,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -1736,7 +1736,7 @@ $ node ./test.js
 }
 ```
 
-Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on kaia using member method of KIP37.
+下面是如何使用 KIP37 的成员方法检测在 kaia 上部署的 KIP-37 令牌合约的已实施接口的代码。
 
 ```javascript
 // test.js
@@ -1752,7 +1752,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+运行上述代码会得到以下结果。
 
 ```bash
 $ node ./test.js
@@ -1765,18 +1765,18 @@ $ node ./test.js
 }
 ```
 
-## Sample Projects <a href="#sample-projects" id="sample-projects"></a>
+## 样本项目<a href="#sample-projects" id="sample-projects"></a>
 
-The DApp (Blockchain Application) Development sample projects using caver-js are the following:
+使用 caver-js 开发的 DApp（区块链应用程序）示例项目如下：
 
 - [Count DApp](../../../build/tutorials/count-dapp/count-dapp.md)
 - [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
 
-## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+## 故障排除<a href="#troubleshooting" id="troubleshooting"></a>
 
-- **Error: Can't resolve 'fs'** occurs during the build with caver-js in a web browser:
+- **错误：无法解析 'fs'** 在网络浏览器中使用 caver-js 构建过程中出现：
 
-  - Add the following webpack configuration.
+  - 添加以下 webpack 配置
 
   ```
   module.exports = {
@@ -1788,7 +1788,7 @@ The DApp (Blockchain Application) Development sample projects using caver-js are
    }
   ```
 
-  If using Next.js web framework, you can add the webpack configuration to your **next.config.json** file as follows:
+  如果使用 Next.js 网络框架，可以按如下方式在**next.config.json**文件中添加 webpack 配置：
 
   ```
   module.exports = {
@@ -1803,7 +1803,7 @@ The DApp (Blockchain Application) Development sample projects using caver-js are
    }
   ```
 
-## Links <a href="#links" id="links"></a>
+## 链接<a href="#links" id="links"></a>
 
-- caver-js [GitHub repository](https://github.com/kaiachain/caver-js)
+- caver-java [GitHub 仓库](https://github.com/kaiachain/caver-js)
 - caver-js on [npm](https://www.npmjs.com/package/caver-js)
