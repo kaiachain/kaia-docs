@@ -69,7 +69,7 @@ const rightFavorites: Favorite[] = [
   { type: 'indexers', link: '/build/tools/indexers' },
 ];
 
-const Container = React.memo(styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -82,7 +82,7 @@ const Container = React.memo(styled.div`
     gap: 40px;
     align-items: flex-start;
   }
-`);
+`;
 
 const Column = styled.div<{ themeMode: string }>`
   flex: 1;
@@ -153,7 +153,7 @@ const FavoriteDescription = styled.p<{ themeMode: string }>`
   color: ${({ themeMode }) => (themeMode === 'dark' ? '#e5e7eb' : '#4b5563')};
 `;
 
-const ViewMoreLink = React.memo(styled(Link)`
+const ViewMoreLink = styled(Link)`
   display: inline-block;
   margin-top: 8px;
   font-weight: bold;
@@ -162,9 +162,9 @@ const ViewMoreLink = React.memo(styled(Link)`
   &:hover {
     text-decoration: underline;
   }
-`);
+`;
 
-const FavoriteContent = React.memo(({ favorite }: { favorite: Favorite }) => {
+const FavoriteContent = ({ favorite }: { favorite: Favorite }) => {
   const { colorMode } = useColorMode();
   const translation = React.useMemo(() => TRANSLATIONS[favorite.type], [favorite.type]);
   
@@ -182,7 +182,7 @@ const FavoriteContent = React.memo(({ favorite }: { favorite: Favorite }) => {
       </FavoriteDescription>
     </FavoriteItem>
   );
-});
+};
 
 const HomepageFavorites: React.FC = () => {
   const { colorMode } = useColorMode();
