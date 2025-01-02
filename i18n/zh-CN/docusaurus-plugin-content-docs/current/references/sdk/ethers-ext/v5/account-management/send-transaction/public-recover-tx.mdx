@@ -180,16 +180,16 @@ rawTx 0x08f8868188850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e987
 
 ---
 
-Send the **signed transaction** to kaia network
+将**签署的交易**发送至 kaia 网络
 
 <CH.Code>
-```js SignTxWithPubkeyExample.js focus=25:26
+``js SignTxWithPubkeyExample.js focus=25:26
 
 ````
 ---
 
 ```zsh output
-sentTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
+signedTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
 ````
 
 </CH.Code>
@@ -199,7 +199,7 @@ sentTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
 Wait for the transaction to be **completed** and print the **receipt**
 
 <CH.Code>
-```js SignTxWithPubkeyExample.js focus=28:29
+``js SignTxWithPubkeyExample.js focus=28:29
 
 ````
 ---
@@ -232,7 +232,7 @@ receipt {
 Recover the address from signed transaction using `klay_recoverFromMessage`
 
 <CH.Code>
-```js SignTxWithPubkeyExample.js focus=31:34
+``js SignTxWithPubkeyExample.js focus=31:34
 
 ````
 ---
