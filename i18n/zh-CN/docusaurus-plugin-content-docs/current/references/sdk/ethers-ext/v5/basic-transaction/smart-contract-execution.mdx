@@ -80,7 +80,7 @@ receipt {
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+导入 **ethers** 和 **@kaiachain/ethers-ext** 模块，在 ethers.js 上添加 kaia 功能。
 
 ```js smartContractExecution.js focus=1:2
 
@@ -88,7 +88,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features
 
 ---
 
-Define **sender address and sender private key**
+定义**发件人地址和发件人私人密钥**
 
 ```js smartContractExecution.js focus=4:5
 
@@ -96,7 +96,7 @@ Define **sender address and sender private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
 ```js smartContractExecution.js focus=7
 
@@ -104,7 +104,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js smartContractExecution.js focus=7
 const ethers = require("ethers");
@@ -143,7 +143,7 @@ main();
 
 ---
 
-Create a sender's wallet using the sender's private key and the provider
+使用发件人的私人密钥和提供商创建发件人钱包
 
 ```js smartContractExecution.js focus=8
 
@@ -151,7 +151,7 @@ Create a sender's wallet using the sender's private key and the provider
 
 ---
 
-Set the **contract address** you want to execute into the to field and set **ABI**
+在至字段中设置要执行的**合约地址**，并设置**ABI**
 
 ```js smartContractExecution.js focus=10:11
 
@@ -159,7 +159,7 @@ Set the **contract address** you want to execute into the to field and set **ABI
 
 ---
 
-Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+使用 **ethers.Contract**创建合约实例，填写参数 **contractAddr**、**abi**、**provider**。 您可以通过该实例读写合约
 
 ```js smartContractExecution.js focus=14
 
@@ -167,7 +167,7 @@ Create a contract instance with **ethers.Contract**, fill in params **contractAd
 
 ---
 
-Encode the function name and parameter with the **encodeFunctionData** function
+使用 **encodeFunctionData** 函数对函数名和参数进行编码
 
 ```js smartContractExecution.js focus=15
 
@@ -175,7 +175,7 @@ Encode the function name and parameter with the **encodeFunctionData** function
 
 ---
 
-Declare a transaction object
+声明一个事务对象
 
 ```js smartContractExecution.js focus=17:24
 
@@ -183,7 +183,7 @@ Declare a transaction object
 
 ---
 
-Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+向区块链发送 tx。 函数 "sendTransaction "使用账户的私钥进行内部签名，然后将其传输到区块链网络。
 
 <CH.Code>
 ```js smartContractExecution.js focus=25:26
@@ -201,7 +201,7 @@ sentTx 0xc0443ebef5f43edab8e76663d22bc7411720ec9b63af14301305718448881ee4
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain.
+如果已在区块链中完成发送，**wait**函数将返回发送回执。
 
 <CH.Code>
 ```js smartContractExecution.js focus=28:29
