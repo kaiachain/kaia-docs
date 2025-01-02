@@ -4,82 +4,7 @@ import styled from 'styled-components';
 import { useColorMode } from '@docusaurus/theme-common';
 import Translate from '@docusaurus/Translate';
 
-const TRANSLATIONS = {
-  gettingStarted: {
-    title: (
-      <Translate id="homepage.favorites.gettingStarted.title" description="Title for Getting Started guide">
-        Getting Started
-      </Translate>
-    ),
-    description: (
-      <Translate id="homepage.favorites.gettingStarted.description" description="Description for Getting Started guide">
-        Deploy your first smart contract using Hardhat.
-      </Translate>
-    ),
-  },
-  metamask: {
-    title: (
-      <Translate id="homepage.favorites.metamask.title" description="Title for MetaMask guide">
-        MetaMask Guide
-      </Translate>
-    ),
-    description: (
-      <Translate id="homepage.favorites.metamask.description" description="Description for MetaMask guide">
-        Connect MetaMask to Kaia.
-      </Translate>
-    ),
-  },
-  snapshot: {
-    title: (
-      <Translate id="homepage.favorites.snapshot.title" description="Title for Node Snapshot guide">
-        Node Snapshot Guide
-      </Translate>
-    ),
-    description: (
-      <Translate id="homepage.favorites.snapshot.description" description="Description for Node Snapshot guide">
-        Use Chaindata Snapshots.
-      </Translate>
-    ),
-  },
-  rpc: {
-    title: (
-      <Translate id="homepage.favorites.rpc.title" description="Title for Public JSON RPC Endpoints">
-        Public JSON RPC Endpoints
-      </Translate>
-    ),
-    description: (
-      <Translate id="homepage.favorites.rpc.description" description="Description for Public JSON RPC Endpoints">
-        Build and test your products without running your own node.
-      </Translate>
-    ),
-  },
-  wallets: {
-    title: (
-      <Translate id="homepage.favorites.wallets.title" description="Title for Wallets section">
-        Wallets
-      </Translate>
-    ),
-    description: (
-      <Translate id="homepage.favorites.wallets.description" description="Description for Wallets section">
-        Integrate and secure digital assets seamlessly.
-      </Translate>
-    ),
-  },
-  indexers: {
-    title: (
-      <Translate id="homepage.favorites.indexers.title" description="Title for Indexers section">
-        Indexers
-      </Translate>
-    ),
-    description: (
-      <Translate id="homepage.favorites.indexers.description" description="Description for Indexers section">
-        Query and index blockchain data for efficient dApp performance.
-      </Translate>
-    ),
-  },
-};
-
-type FavoriteType = keyof typeof TRANSLATIONS;
+type FavoriteType = 'gettingStarted' | 'metamask' | 'snapshot' | 'rpc' | 'wallets' | 'indexers';
 
 interface Favorite {
   type: FavoriteType;
@@ -195,15 +120,72 @@ const ViewMoreLink = styled(Link)`
 
 const FavoriteContent = ({ favorite }: { favorite: Favorite }) => {
   const { colorMode } = useColorMode();
-  const translation = TRANSLATIONS[favorite.type];
   
   return (
     <FavoriteItem to={favorite.link} themeMode={colorMode}>
       <FavoriteTitle themeMode={colorMode}>
-        {translation.title}
+        {favorite.type === 'gettingStarted' && (
+          <Translate id="homepage.favorites.gettingStarted.title" description="Title for Getting Started guide">
+            Getting Started
+          </Translate>
+        )}
+        {favorite.type === 'metamask' && (
+          <Translate id="homepage.favorites.metamask.title" description="Title for MetaMask guide">
+            MetaMask Guide
+          </Translate>
+        )}
+        {favorite.type === 'snapshot' && (
+          <Translate id="homepage.favorites.snapshot.title" description="Title for Node Snapshot guide">
+            Node Snapshot Guide
+          </Translate>
+        )}
+        {favorite.type === 'rpc' && (
+          <Translate id="homepage.favorites.rpc.title" description="Title for RPC Endpoints">
+            Public JSON RPC Endpoints
+          </Translate>
+        )}
+        {favorite.type === 'wallets' && (
+          <Translate id="homepage.favorites.wallets.title" description="Title for Wallets section">
+            Wallets
+          </Translate>
+        )}
+        {favorite.type === 'indexers' && (
+          <Translate id="homepage.favorites.indexers.title" description="Title for Indexers section">
+            Indexers
+          </Translate>
+        )}
       </FavoriteTitle>
       <FavoriteDescription themeMode={colorMode}>
-        {translation.description}
+        {favorite.type === 'gettingStarted' && (
+          <Translate id="homepage.favorites.gettingStarted.description" description="Description for Getting Started guide">
+            Deploy your first smart contract using Hardhat.
+          </Translate>
+        )}
+        {favorite.type === 'metamask' && (
+          <Translate id="homepage.favorites.metamask.description" description="Description for MetaMask guide">
+            Connect MetaMask to Kaia.
+          </Translate>
+        )}
+        {favorite.type === 'snapshot' && (
+          <Translate id="homepage.favorites.snapshot.description" description="Description for Node Snapshot guide">
+            Use Chaindata Snapshots.
+          </Translate>
+        )}
+        {favorite.type === 'rpc' && (
+          <Translate id="homepage.favorites.rpc.description" description="Description for RPC Endpoints">
+            Build and test your products without running your own node.
+          </Translate>
+        )}
+        {favorite.type === 'wallets' && (
+          <Translate id="homepage.favorites.wallets.description" description="Description for Wallets section">
+            Integrate and secure digital assets seamlessly.
+          </Translate>
+        )}
+        {favorite.type === 'indexers' && (
+          <Translate id="homepage.favorites.indexers.description" description="Description for Indexers section">
+            Query and index blockchain data for efficient dApp performance.
+          </Translate>
+        )}
       </FavoriteDescription>
     </FavoriteItem>
   );
