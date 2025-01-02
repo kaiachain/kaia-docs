@@ -99,14 +99,13 @@ receipt {
   byzantium: true
 }
 number after 293
-
 ```
 
 </CH.Code>
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+导入 **ethers** 和 **@kaiachain/ethers-ext** 模块，在 ethers.js 上添加 kaia 功能。
 
 ```js writeTxType.js focus=1:2
 
@@ -114,7 +113,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features
 
 ---
 
-Define **sender address** and **private key**
+定义**sender address**和**private key**
 
 ```js writeTxType.js focus=4:5
 
@@ -122,7 +121,7 @@ Define **sender address** and **private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
 ```js writeTxType.js focus=7
 
@@ -130,7 +129,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js writeTxType.js focus=7
 const ethers = require("ethers");
@@ -196,7 +195,7 @@ main();
 
 ---
 
-create a wallet from sender **private key** and **web3 provider**
+用发件人**私钥**和**Web3 提供商**创建钱包
 
 ```js writeTxType.js focus=8
 
@@ -204,7 +203,7 @@ create a wallet from sender **private key** and **web3 provider**
 
 ---
 
-Set the **Abi** generated from solidity code
+设置由 solidity 代码生成的 **Abi**
 
 ```js writeTxType.js focus=33
 
