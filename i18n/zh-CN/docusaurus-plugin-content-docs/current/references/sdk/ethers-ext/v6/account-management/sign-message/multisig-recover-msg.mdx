@@ -1,10 +1,10 @@
 # Multisig Account Key
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig** 是一种账户密钥类型，包含一个阈值和加权公钥（WeightedPublicKeys），后者包含一个由公钥及其权重组成的列表。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+要使与 **AccountKeyWeightedMultiSig** 关联的账户的交易有效，必须满足以下条件：
+已签名公钥的加权和应大于阈值。
+_ 无效签名不应包含在交易中。 \* 已签名公钥的数量应少于加权公钥的数量。
 
 <CH.Spotlight>
   <CH.Code>
@@ -57,28 +57,28 @@ _ The invalid signature should not be included in the transaction. \* The number
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  导入 **ethers** 和 **@kaiachain/ethers-ext** 软件包，在 ethers.js 上添加 kaia 功能
 
   ```js SignMsgWithMultiSigExample.js focus=1:3
   ```
 
   ---
 
-  Define sender's **address** and **private key** and all **weighted multi-sig** private keys
+  定义发件人的**地址**和**私人密钥**以及所有**加权多重签名**私人密钥
 
   ```js SignMsgWithMultiSigExample.js focus=5:9
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
   ```js SignMsgWithMultiSigExample.js focus=11
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
   ```js SignMsgWithMultiSigExample.js focus=11
   const { ethers } = require("ethers");
@@ -114,21 +114,21 @@ _ The invalid signature should not be included in the transaction. \* The number
 
   ---
 
-  Create 3 wallets with the **weight multi-sig** private keys and provider
+  使用**重多重签名**私钥和提供商创建 3 个钱包
 
   ```js SignMsgWithMultiSigExample.js focus=12:14
   ```
 
   ---
 
-  Define a message to be signed and recovered
+  定义要签名和恢复的信息
 
   ```js SignMsgWithMultiSigExample.js focus=17
   ```
 
   ---
 
-  Sign the message with sender's **wallet3**
+  用发件人的**钱包3**签署信息
 
   <CH.Code>
     ```js SignMsgWithMultiSigExample.js focus=18:20
@@ -148,7 +148,7 @@ _ The invalid signature should not be included in the transaction. \* The number
 
   ---
 
-  Recover the address from signed message using `ethers.verifyMessage`
+  使用 "ethers.verifyMessage "从签名信息中恢复地址
 
   <CH.Code>
     ```js SignMsgWithMultiSigExample.js focus=22:23
@@ -163,7 +163,7 @@ _ The invalid signature should not be included in the transaction. \* The number
 
   ---
 
-  Recover the address from signed message using `klay_recoverFromMessage`
+  使用 `klay_recoverFromMessage` 从已签名的信息中恢复地址
 
   <CH.Code>
     ```js SignMsgWithMultiSigExample.js focus=25:26
