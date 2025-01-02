@@ -4,53 +4,7 @@ import styled from 'styled-components';
 import { useColorMode } from '@docusaurus/theme-common';
 import Translate from '@docusaurus/Translate';
 
-interface TranslationData {
-  titleId: string;
-  titleText: string;
-  descriptionId: string;
-  descriptionText: string;
-}
-
-const TRANSLATIONS: Record<string, TranslationData> = {
-  gettingStarted: {
-    titleId: 'homepage.favorites.gettingStarted.title',
-    titleText: 'Getting Started',
-    descriptionId: 'homepage.favorites.gettingStarted.description',
-    descriptionText: 'Deploy your first smart contract using Hardhat.',
-  },
-  metamask: {
-    titleId: 'homepage.favorites.metamask.title',
-    titleText: 'MetaMask Guide',
-    descriptionId: 'homepage.favorites.metamask.description',
-    descriptionText: 'Connect MetaMask to Kaia.',
-  },
-  snapshot: {
-    titleId: 'homepage.favorites.snapshot.title',
-    titleText: 'Node Snapshot Guide',
-    descriptionId: 'homepage.favorites.snapshot.description',
-    descriptionText: 'Use Chaindata Snapshots.',
-  },
-  rpc: {
-    titleId: 'homepage.favorites.rpc.title',
-    titleText: 'Public JSON RPC Endpoints',
-    descriptionId: 'homepage.favorites.rpc.description',
-    descriptionText: 'Build and test your products without running your own node.',
-  },
-  wallets: {
-    titleId: 'homepage.favorites.wallets.title',
-    titleText: 'Wallets',
-    descriptionId: 'homepage.favorites.wallets.description',
-    descriptionText: 'Integrate and secure digital assets seamlessly.',
-  },
-  indexers: {
-    titleId: 'homepage.favorites.indexers.title',
-    titleText: 'Indexers',
-    descriptionId: 'homepage.favorites.indexers.description',
-    descriptionText: 'Query and index blockchain data for efficient dApp performance.',
-  },
-};
-
-type FavoriteType = keyof typeof TRANSLATIONS;
+type FavoriteType = 'gettingStarted' | 'metamask' | 'snapshot' | 'rpc' | 'wallets' | 'indexers';
 
 interface Favorite {
   type: FavoriteType;
@@ -166,19 +120,72 @@ const ViewMoreLink = styled(Link)`
 
 const FavoriteContent = ({ favorite }: { favorite: Favorite }) => {
   const { colorMode } = useColorMode();
-  const translation = React.useMemo(() => TRANSLATIONS[favorite.type], [favorite.type]);
   
   return (
     <FavoriteItem to={favorite.link} themeMode={colorMode}>
       <FavoriteTitle themeMode={colorMode}>
-        <Translate id={translation.titleId} description={`Title for ${translation.titleText}`}>
-          {translation.titleText}
-        </Translate>
+        {favorite.type === 'gettingStarted' && (
+          <Translate id="homepage.favorites.gettingStarted.title" description="Title for Getting Started guide">
+            Getting Started
+          </Translate>
+        )}
+        {favorite.type === 'metamask' && (
+          <Translate id="homepage.favorites.metamask.title" description="Title for MetaMask guide">
+            MetaMask Guide
+          </Translate>
+        )}
+        {favorite.type === 'snapshot' && (
+          <Translate id="homepage.favorites.snapshot.title" description="Title for Node Snapshot guide">
+            Node Snapshot Guide
+          </Translate>
+        )}
+        {favorite.type === 'rpc' && (
+          <Translate id="homepage.favorites.rpc.title" description="Title for RPC Endpoints">
+            Public JSON RPC Endpoints
+          </Translate>
+        )}
+        {favorite.type === 'wallets' && (
+          <Translate id="homepage.favorites.wallets.title" description="Title for Wallets section">
+            Wallets
+          </Translate>
+        )}
+        {favorite.type === 'indexers' && (
+          <Translate id="homepage.favorites.indexers.title" description="Title for Indexers section">
+            Indexers
+          </Translate>
+        )}
       </FavoriteTitle>
       <FavoriteDescription themeMode={colorMode}>
-        <Translate id={translation.descriptionId} description={`Description for ${translation.titleText}`}>
-          {translation.descriptionText}
-        </Translate>
+        {favorite.type === 'gettingStarted' && (
+          <Translate id="homepage.favorites.gettingStarted.description" description="Description for Getting Started guide">
+            Deploy your first smart contract using Hardhat.
+          </Translate>
+        )}
+        {favorite.type === 'metamask' && (
+          <Translate id="homepage.favorites.metamask.description" description="Description for MetaMask guide">
+            Connect MetaMask to Kaia.
+          </Translate>
+        )}
+        {favorite.type === 'snapshot' && (
+          <Translate id="homepage.favorites.snapshot.description" description="Description for Node Snapshot guide">
+            Use Chaindata Snapshots.
+          </Translate>
+        )}
+        {favorite.type === 'rpc' && (
+          <Translate id="homepage.favorites.rpc.description" description="Description for RPC Endpoints">
+            Build and test your products without running your own node.
+          </Translate>
+        )}
+        {favorite.type === 'wallets' && (
+          <Translate id="homepage.favorites.wallets.description" description="Description for Wallets section">
+            Integrate and secure digital assets seamlessly.
+          </Translate>
+        )}
+        {favorite.type === 'indexers' && (
+          <Translate id="homepage.favorites.indexers.description" description="Description for Indexers section">
+            Query and index blockchain data for efficient dApp performance.
+          </Translate>
+        )}
       </FavoriteDescription>
     </FavoriteItem>
   );
@@ -186,20 +193,6 @@ const FavoriteContent = ({ favorite }: { favorite: Favorite }) => {
 
 const HomepageFavorites: React.FC = () => {
   const { colorMode } = useColorMode();
-
-  const renderedLeftFavorites = React.useMemo(
-    () => leftFavorites.map((favorite) => (
-      <FavoriteContent key={favorite.link} favorite={favorite} />
-    )),
-    [leftFavorites]
-  );
-
-  const renderedRightFavorites = React.useMemo(
-    () => rightFavorites.map((favorite) => (
-      <FavoriteContent key={favorite.link} favorite={favorite} />
-    )),
-    [rightFavorites]
-  );
 
   return (
     <Container>
@@ -209,7 +202,9 @@ const HomepageFavorites: React.FC = () => {
             Popular Guides
           </Translate>
         </SectionTitle>
-        {renderedLeftFavorites}
+        {leftFavorites.map((favorite) => (
+          <FavoriteContent key={favorite.link} favorite={favorite} />
+        ))}
         <ViewMoreLink to="/build/tutorials">
           <Translate id="homepage.favorites.guides.viewMore" description="Link text to view more guides">
             View More Guides
@@ -223,7 +218,9 @@ const HomepageFavorites: React.FC = () => {
             Popular Resources
           </Translate>
         </SectionTitle>
-        {renderedRightFavorites}
+        {rightFavorites.map((favorite) => (
+          <FavoriteContent key={favorite.link} favorite={favorite} />
+        ))}
         <ViewMoreLink to="/build/tools">
           <Translate id="homepage.favorites.resources.viewMore" description="Link text to view more resources">
             View More Resources
