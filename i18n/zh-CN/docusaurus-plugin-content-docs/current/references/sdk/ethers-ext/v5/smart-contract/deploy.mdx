@@ -84,7 +84,7 @@ deployed address 0xb2F078a8Caed54322dDe974bf48fc11f04e6DdcD
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+导入 **ethers** 和 **@kaiachain/ethers-ext** 软件包，在 ethers.js 上添加 kaia 功能
 
 ```js smartContractDeploy.js focus=1:2
 
@@ -92,7 +92,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Define sender address, sender private key
+定义发件人地址、发件人私人密钥
 
 ```js smartContractDeploy.js focus=4:5
 
@@ -100,7 +100,7 @@ Define sender address, sender private key
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
 ```js smartContractDeploy.js focus=7
 
@@ -108,7 +108,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
 ```js smartContractDeploy.js focus=7
 const ethers = require("ethers");
@@ -161,7 +161,7 @@ main();
 
 ---
 
-Init Wallet instance with the private key and provider.
+使用私钥和提供商启动钱包实例。
 
 ```js smartContractDeploy.js focus=8
 
@@ -169,7 +169,7 @@ Init Wallet instance with the private key and provider.
 
 ---
 
-Set the **compiled bytecode** from the solidity code you want to deploy to the blockchain network
+从要部署到区块链网络的 solidity 代码中设置**编译字节码**
 
 ```js smartContractDeploy.js focus=33
 
@@ -177,7 +177,7 @@ Set the **compiled bytecode** from the solidity code you want to deploy to the b
 
 ---
 
-Set the **Abi** generated from solidity code
+设置由 solidity 代码生成的 **Abi**
 
 ```js smartContractDeploy.js focus=34
 
@@ -185,7 +185,7 @@ Set the **Abi** generated from solidity code
 
 ---
 
-Create a contract factory which deploys a contract instance with the Abi and byte code
+创建合约工厂，部署包含 Abi 和字节代码的合约实例
 
 ```js smartContractDeploy.js focus=37
 
@@ -193,7 +193,7 @@ Create a contract factory which deploys a contract instance with the Abi and byt
 
 ---
 
-Deploy the contract with initialize number value equal to 100
+部署初始化数值等于 100 的合约
 
 ```js smartContractDeploy.js focus=38
 
@@ -201,7 +201,7 @@ Deploy the contract with initialize number value equal to 100
 
 ---
 
-Send the transaction to the blockchain and wait for the receipt
+向区块链发送交易并等待收据
 
 <CH.Code>
 ```js smartContractDeploy.js focus=40:42
