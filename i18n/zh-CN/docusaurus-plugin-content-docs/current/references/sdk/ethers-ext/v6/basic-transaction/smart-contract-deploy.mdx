@@ -1,6 +1,6 @@
 # Smart Contract Deploy
 
-**TxTypeSmartContractDeploy** deploys a smart contract to the given address. The following changes will be made by this transaction type.
+**TxTypeSmartContractDeploy** 向给定地址部署智能合约。 该交易类型将进行以下更改。
 
 <CH.Spotlight>
   <CH.Code>
@@ -63,28 +63,28 @@
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+  导入 **ethers** 和 **@kaiachain/ethers-ext** 模块，在 ethers.js 上添加 kaia 功能。
 
   ```js TxTypeSmartContractDeploy.js focus=1:2
   ```
 
   ---
 
-  Define **sender address and sender private key**
+  定义**发件人地址和发件人私人密钥**
 
   ```js TxTypeSmartContractDeploy.js focus=4:5
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
   ```js TxTypeSmartContractDeploy.js focus=7
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
   ```js TxTypeSmartContractDeploy.js focus=7
   const ethers = require("ethers");
@@ -119,35 +119,35 @@
 
   ---
 
-  Create a sender's wallet using the sender's private key and the provider
+  使用发件人的私人密钥和提供商创建发件人钱包
 
   ```js TxTypeSmartContractDeploy.js focus=8
   ```
 
   ---
 
-  Declare a transaction object
+  声明一个事务对象
 
   ```js TxTypeSmartContractDeploy.js focus=11:20
   ```
 
   ---
 
-  Specify the transaction type as SmartContractDeploy
+  指定交易类型为 SmartContractDeploy
 
   ```js TxTypeSmartContractDeploy.js focus=12
   ```
 
   ---
 
-  Set the **compiled bytecode** from the solidity code you want to deploy to the blockchain network
+  从要部署到区块链网络的 solidity 代码中设置**编译字节码**
 
   ```js TxTypeSmartContractDeploy.js focus=16
   ```
 
   ---
 
-  Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+  向区块链发送 tx。 函数 "sendTransaction "使用账户的私钥进行内部签名，然后将其传输到区块链网络。
 
   <CH.Code>
     ```js TxTypeSmartContractDeploy.js focus=21:22
@@ -162,7 +162,7 @@
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  如果已在区块链中完成发送，**wait**函数将返回发送回执。
 
   <CH.Code>
     ```js TxTypeSmartContractDeploy.js focus=24:25
