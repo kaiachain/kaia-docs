@@ -24,9 +24,9 @@ export const sidebar = {
               label: 'Account Key',
               items: [
                 'references/sdk/ethers-ext/v5/account-management/account-key/legacy',
-                'references/sdk/ethers-ext/v5/account-management/account-key/public',
+                'reference/sdk/ethers-ext/v5/account-management/account-key/public',
                 'references/sdk/ethers-ext/v5/account-management/account-key/multisig',
-                'references/sdk/ethers-ext/v5/account-management/account-key/role-based'
+                'reference/sdk/ethers-ext/v5/account-management/account-key/role-based'
               ]
             },
             {
@@ -53,9 +53,9 @@ export const sidebar = {
               type: 'category',
               label: 'keystore',
               items: [
-                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV3',
-                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-single',
-                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-multi'
+                'reference/sdk/ethers-ext/v5/account-management/keystore/keystoreV3',
+                'reference/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-single',
+                'reference/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-multi'
               ]
             }
           ]
@@ -65,9 +65,9 @@ export const sidebar = {
           label: 'Basic Transaction',
           items: [
             'references/sdk/ethers-ext/v5/basic-transaction/legacy',
-            'references/sdk/ethers-ext/v5/basic-transaction/value-transfer',
+            'reference/sdk/ethers-ext/v5/basic-transaction/value-transfer',
             'references/sdk/ethers-ext/v5/basic-transaction/value-transfer-memo',
-            'references/sdk/ethers-ext/v5/basic-transaction/account-update',
+            'reference/sdk/ethers-ext/v5/basic-transaction/account-update',
             'references/sdk/ethers-ext/v5/basic-transaction/smart-contract-deploy',
             'references/sdk/ethers-ext/v5/basic-transaction/smart-contract-execution',
             'references/sdk/ethers-ext/v5/basic-transaction/cancel-transaction'
@@ -100,9 +100,9 @@ export const sidebar = {
           type: 'category',
           label: 'Utils',
           items: [
-            'references/sdk/ethers-ext/v5/utils/address',
+            'reference/sdk/ethers-ext/v5/utils/address',
             'references/sdk/ethers-ext/v5/utils/signature',
-            'references/sdk/ethers-ext/v5/utils/unit'
+            'reference/sdk/ethers-ext/v5/utils/unit'
           ]
         }
       ]
@@ -120,9 +120,9 @@ export const sidebar = {
               label: 'Account Key',
               items: [
                 'references/sdk/ethers-ext/v6/account-management/account-key/legacy',
-                'references/sdk/ethers-ext/v6/account-management/account-key/public',
+                'reference/sdk/ethers-ext/v6/account-management/account-key/public',
                 'references/sdk/ethers-ext/v6/account-management/account-key/multisig',
-                'references/sdk/ethers-ext/v6/account-management/account-key/role-based'
+                'reference/sdk/ethers-ext/v6/account-management/account-key/role-based'
               ]
             },
             {
@@ -149,9 +149,9 @@ export const sidebar = {
               type: 'category',
               label: 'keystore',
               items: [
-                'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV3',
-                'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-single',
-                'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-multi'
+                'reference/sdk/ethers-ext/v6/account-management/keystore/keystoreV3',
+                'reference/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-single',
+                'reference/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-multi'
               ]
             }
           ]
@@ -161,9 +161,9 @@ export const sidebar = {
           label: 'Basic Transaction',
           items: [
             'references/sdk/ethers-ext/v6/basic-transaction/legacy',
-            'references/sdk/ethers-ext/v6/basic-transaction/value-transfer',
+            'reference/sdk/ethers-ext/v6/basic-transaction/value-transfer',
             'references/sdk/ethers-ext/v6/basic-transaction/value-transfer-memo',
-            'references/sdk/ethers-ext/v6/basic-transaction/account-update',
+            'reference/sdk/ethers-ext/v6/basic-transaction/account-update',
             'references/sdk/ethers-ext/v6/basic-transaction/smart-contract-deploy',
             'references/sdk/ethers-ext/v6/basic-transaction/smart-contract-execution',
             'references/sdk/ethers-ext/v6/basic-transaction/cancel-transaction'
@@ -196,9 +196,9 @@ export const sidebar = {
           type: 'category',
           label: 'Utils',
           items: [
-            'references/sdk/ethers-ext/v6/utils/address',
+            'reference/sdk/ethers-ext/v6/utils/address',
             'references/sdk/ethers-ext/v6/utils/signature',
-            'references/sdk/ethers-ext/v6/utils/unit'
+            'reference/sdk/ethers-ext/v6/utils/unit'
           ]
         }
       ]
