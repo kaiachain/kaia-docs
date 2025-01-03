@@ -1,6 +1,6 @@
 # Units
 
-For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and `kei`. See [supported units](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-) .
+对于单位转换，Kaia-sdk 支持用于转换 `kaia`、`Gkei` 和 `kei` 的实用程序。 请参阅 [支持的单位](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-) 。
 
 <CH.Spotlight>
   <CH.Code>
@@ -40,35 +40,35 @@ For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and 
 
   ---
 
-  Import the `formatKlay`, `parseKlay`, `formatKlayUnits`, from **@kaiachain/ethers-ext** packages
+  从\*\*@kaiachain/ethers-ext\*\*软件包导入`formatKlay`、`parseKlay`、`formatKlayUnits`。
 
   ```js unitUtils.js focus=1
   ```
 
   ---
 
-  To convert **peb** to other units, use `formatKlayUnits`. For example, using `formatKlayUnits` converting **peb** to **ston**
+  要将 **peb** 转换为其他单位，请使用 `formatKlayUnits`。 例如，使用 `formatKlayUnits` 将 **peb** 转换为 **ston**
 
   ```js unitUtils.js focus=8:11
   ```
 
   ---
 
-  Using `formatKlay` converts **peb** to **klay**
+  使用 `formatKlay` 可将 **peb** 转换为 **klay**
 
   ```js unitUtils.js focus=12
   ```
 
   ---
 
-  Using `parseKlayUnits` to convert value from one unit to **peb**. The first param is the **value**, the second param is the unit to **be converted**
+  使用 `parseKlayUnits` 将数值从一个单位转换为 **peb**。 第一个参数是**值**，第二个参数是要**转换的单位**
 
   ```js unitUtils.js focus=13:16
   ```
 
   ---
 
-  Using `parseKlay` to convert **klay** to **peb**
+  使用 `parseKlay` 将 **klay** 转换为 **peb**
 
   ```js unitUtils.js focus=17
   ```
