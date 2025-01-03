@@ -63,10 +63,10 @@ AccountKeyWeightedMultiSig "用于使用[AccountKeyWeightedMultiSig]更新 kaia 
 
 **属性**
 
-| 名称   | 类型 | 描述                                        |
-| ---- | -- | ----------------------------------------- |
-| 阈值   | 数量 | The validation threshold. |
-| 加权公钥 | 数组 | 加权公钥]数组。                                  |
+| 名称   | 类型 | 描述       |
+| ---- | -- | -------- |
+| 阈值   | 数量 | 验证阈值。    |
+| 加权公钥 | 数组 | 加权公钥]数组。 |
 
 ### 基于账户密钥角色<a id="accountkeyrolebased"></a>
 
@@ -122,7 +122,7 @@ caver.account.create(address, accountKey [, options])
 
 生成一个带有地址和 accountKey 的账户实例。
 
-如果 accountKey 是公钥字符串，则会创建一个以 [AccountKeyPublic](#accountkeypublic) 作为 accountKey 的账户实例。 如果 accountKey 是一个包含公钥字符串的数组，则会创建一个以 [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 作为 accountKey 的账户实例。 如果最后一个参数没有定义选项，则使用默认选项创建，阈值为 1，每个键的权重为 1。 如果 accountKey 是一个数组，其中包含用于每个角色的 accountKeys，则会创建一个具有 [AccountKeyRoleBased](#accountkeyrolebased) 的 Account 实例。 Options must be defined for each role with [WeightedMultiSigOptions]. 如果未定义选项，则会对使用多个公钥的角色使用默认选项。 请参考下面的示例了解如何使用。
+如果 accountKey 是公钥字符串，则会创建一个以 [AccountKeyPublic](#accountkeypublic) 作为 accountKey 的账户实例。 如果 accountKey 是一个包含公钥字符串的数组，则会创建一个以 [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 作为 accountKey 的账户实例。 如果最后一个参数没有定义选项，则使用默认选项创建，阈值为 1，每个键的权重为 1。 如果 accountKey 是一个数组，其中包含用于每个角色的 accountKeys，则会创建一个具有 [AccountKeyRoleBased](#accountkeyrolebased) 的 Account 实例。 必须使用 [WeightedMultiSigOptions] 为每个角色定义选项。 如果未定义选项，则会对使用多个公钥的角色使用默认选项。 请参考下面的示例了解如何使用。
 
 **参数**
 
@@ -293,9 +293,9 @@ caver.account.createWithAccountKeyLegacy(address)
 
 **参数**
 
-| 名称 | 类型  | 描述                                                       |
-| -- | --- | -------------------------------------------------------- |
-| 地址 | 字符串 | The address of an account to be updated. |
+| 名称 | 类型  | 描述        |
+| -- | --- | --------- |
+| 地址 | 字符串 | 要更新的账户地址。 |
 
 **返回价值**
 
@@ -384,7 +384,7 @@ caver.account.createWithAccountKeyWeightedMultiSig(address, publicKeyArray [, op
 
 **参数**
 
-| 名称   | 类型          | Description                                  |
+| 名称   | 类型          | 描述                                           |
 | ---- | ----------- | -------------------------------------------- |
 | 地址   | 字符串         | 要更新的账户地址。                                    |
 | 公钥数组 | 数组          | 包含多个公钥字符串的数组。                                |
