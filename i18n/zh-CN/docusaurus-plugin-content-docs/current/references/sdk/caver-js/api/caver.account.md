@@ -1,144 +1,144 @@
 # caver.account
 
-`caver.account` is a package that provides functionality related to Account that is used when updating an account.
+caver.account "是一个提供与 "账户 "相关功能的软件包，在更新账户时使用。
 
-## Class <a id="class"></a>
+## 类别<a id="class"></a>
 
-### Account <a id="account"></a>
+### 账户<a id="account"></a>
 
 ```javascript
 const account = new caver.account(address, accountKey)
 ```
 
-`Account` is a class that contains information needed to update the [AccountKey] of the account in the kaia blockchain platform (kaia). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](#caver-account-create).
+账户 "是一个包含更新 kaia 区块链平台（kaia）中账户的[AccountKey]所需的信息的类。 这是 `caver.account` 软件包的默认类。 要使用公钥字符串创建账户实例，请参考 [caver.account.create](#caver-account-create)。
 
-**properties**
+**属性**
 
-| Name       | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address    | string | The address of account to be updated.                                                                                                                                                                                                                                                                                                                                                                                                  |
-| accountKey | object | The new accountKey to be used in account. This can be an instance of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) or [AccountKeyRoleBased](#accountkeyrolebased). When the transaction is executed, the accountKey of the account stored in the kaia is changed to this. |
+| 名称   | 类型  | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ---- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 地址   | 字符串 | 要更新的账户地址。                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 帐户密钥 | 对象  | 账户中要使用的新账户密钥。 An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail)、[AccountKeyWeightedMultiSig](./caver.account.md#accountkeyweightedmultisig)或[AccountKeyRoleBased](./caver.account.md#accountkeyrolebased))。 执行交易时，存储在 kaia 中的账户的 accountKey 会更改为此值。 |
 
-### AccountKeyLegacy <a id="accountkeylegacy"></a>
+### 账户密钥<a id="accountkeylegacy"></a>
 
 ```javascript
 const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 ```
 
-`AccountKeyLegacy` is used to update the AccountKey of an account in the kaia with [AccountKeyLegacy]. To create an Account instance with `AccountKeyLegacy`, please refer to [caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy).
+AccountKeyLegacy\` 用于更新 kaia 中具有 [AccountKeyLegacy] 的账户的 AccountKey。 要创建具有 "账户密钥合法性 "的账户实例，请参考 [caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy)。
 
-### AccountKeyPublic <a id="accountkeypublic"></a>
+### 公共账户密钥<a id="accountkeypublic"></a>
 
 ```javascript
 const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey)
 ```
 
-`AccountKeyPublic` is used to update the AccountKey of an account in the kaia with [AccountKeyPublic]. By updating AccountKey to `AccountKeyPublic`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in kaia. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../get-started.md#account-update) and [AccountKey] for details.
+AccountKeyPublic "用于用[AccountKeyPublic]更新 kaia 中账户的 AccountKey。 将 AccountKey 更新为 "AccountKeyPublic"，就可以将现有的 AccountKey 变为新的公钥，该公钥将用于在 kaia 中验证交易。 在将私人密钥与账户地址分离时，这一更改是必要的。 详见 [AccountUpdate](../get-started.md#account-update) 和 [AccountKey] 。
 
-To create an Account instance with `AccountKeyPublic`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic).
+要创建带有 "AccountKeyPublic "的账户实例，请参考 [caver.account.create](#caver-account-create) 或 [caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic) 。
 
-**properties**
+**属性**
 
-| Name      | Type   | Description                            |
-| --------- | ------ | -------------------------------------- |
-| publicKey | string | The public key string. |
+| 名称 | 类型  | 描述     |
+| -- | --- | ------ |
+| 公钥 | 字符串 | 公钥字符串。 |
 
-### AccountKeyFail <a id="accountkeyfail"></a>
+### AccountUpdate <a id="accountupdate"></a>
 
 ```javascript
 const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 ```
 
-`AccountKeyFail` is used to update AccountKey of an account in the kaia with [AccountKeyFail]. To create an Account instance with `AccountKeyFail`, please refer to [caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail).
+AccountKeyFail "用于以[AccountKeyFail]更新 kaia 中账户的 AccountKey。 要创建带有 "AccountKeyFail "的账户实例，请参阅 [caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail)。
 
-### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
+### 账户密钥加权多重加密<a id="accountkeyweightedmultisig"></a>
 
 ```javascript
 const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeightedMultiSig(threshold, weightedPublicKeys)
 ```
 
-`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the kaia with [AccountKeyWeightedMultiSig]. By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in kaia. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../get-started.md#account-update) and [AccountKey] for details.
+AccountKeyWeightedMultiSig "用于使用[AccountKeyWeightedMultiSig]更新 kaia 中账户的 AccountKey。 将您的 AccountKey 更新为 "AccountKeyWeightedMultiSig "后，您就可以将现有的 AccountKey 更改为新的公钥，该公钥将用于验证 kaia 中的交易。 在将私人密钥与账户地址分离时，这一更改是必要的。 详见 [AccountUpdate](../get-started.md#account-update) 和 [AccountKey] 。
 
-To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig).
+要使用 "AccountKeyWeightedMultiSig "创建账户实例，请参考 [caver.account.create](#caver-account-create) 或 [caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig) 。
 
-**properties**
+**属性**
 
-| Name               | Type   | Description                               |
-| ------------------ | ------ | ----------------------------------------- |
-| threshold          | number | The validation threshold. |
-| weightedPublicKeys | Array  | The array of [WeightedPublicKey].         |
+| 名称   | 类型 | 描述                                        |
+| ---- | -- | ----------------------------------------- |
+| 阈值   | 数量 | The validation threshold. |
+| 加权公钥 | 数组 | 加权公钥]数组。                                  |
 
-### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
+### 基于账户密钥角色<a id="accountkeyrolebased"></a>
 
 ```javascript
 const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(accountKeyArray)
 ```
 
-`AccountKeyRoleBased` is used to update AccountKey of an account in the kaia with [AccountKeyRoleBased]. By updating your AccountKey to `AccountKeyRoleBased`, you can change the AccountKey(s) assigned for each role, all of which are used to validate a transaction in kaia. See [AccountUpdate](../get-started.md#account-update) and [AccountKey] for more details.
+AccountKeyRoleBased "用于使用[AccountKeyRoleBased]更新 kaia 中账户的 AccountKey。 通过将 AccountKey 更新为 "基于角色的 AccountKey"，您可以更改为每个角色分配的 AccountKey，所有这些 AccountKey 都用于在 kaia 中验证交易。 详见 [AccountUpdate](../get-started.md#account-update) 和 [AccountKey] 。
 
-To create an Account instance with `AccountKeyRoleBased`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased).
+要创建基于 "账户密钥角色 "的账户实例，请参考 [caver.account.create](#caver-account-create) 或 [caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased) 。
 
-**properties**
+**属性**
 
-| Name            | Type  | Description                                                                                                                                                                                                                                                            |
-| --------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| accountKeyArray | Array | The array defining accountKey to be used for each [role]. Each role can be defined with [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), or [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig). |
+| 名称     | 类型 | 描述                                                                                                                                                                                                                      |
+| ------ | -- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 帐户密钥数组 | 数组 | 定义每个 [role] 使用的 accountKey 的数组。 每个角色都可以用 [AccountKeyLegacy](#accountkeylegacy)、[AccountKeyPublic](#accountkeypublic)、[AccountKeyFail](#accountkeyfail) 或 [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 来定义。 |
 
-### WeightedPublicKey <a id="weightedpublickey"></a>
+### 加权公钥<a id="weightedpublickey"></a>
 
 ```javascript
 const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight, publicKey)
 ```
 
-`WeightedPublicKey` contains a public key and its weight. `WeightedPublicKey` is a class that contains the public key and the weight of the key, and it is used in [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig).
+加权公钥 "包含一个公钥及其权重。 加权公钥 "是一个包含公钥和公钥权重的类，在 [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 中使用。
 
-**properties**
+**属性**
 
-| Name      | Type   | Description                                                                                                                                                            |
-| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| weight    | number | The weight of public key. The weight is used to check whether the weighted sum of public keys is larger than the threshold of the [AccountKeyWeightedMultiSig] object. |
-| publicKey | string | The public key string.                                                                                                                                 |
+| 名称 | 类型  | 描述                                                             |
+| -- | --- | -------------------------------------------------------------- |
+| 权重 | 数量  | 公开密钥的权重。 权重用于检查公钥的加权总和是否大于 [AccountKeyWeightedMultiSig] 对象的阈值。 |
+| 公钥 | 字符串 | 私钥字符串。                                                         |
 
-### WeightedMultiSigOptions <a id="weightedmultisigoptions"></a>
+### 加权多重加密选项<a id="weightedmultisigoptions"></a>
 
 ```javascript
 const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(threshold, weights)
 ```
 
-`WeightedMultiSigOptions` contains a threshold and weights. `WeightedMultiSigOptions` is a class for defining the options of AccountKeyWeightedMultiSig.
+加权多重签名选项 "包含阈值和权重。 WeightedMultiSigOptions "是一个用于定义 AccountKeyWeightedMultiSig 选项的类。
 
-**properties**
+**属性**
 
-| Name      | Type   | Description                                  |
-| --------- | ------ | -------------------------------------------- |
-| threshold | number | The validation threshold.    |
-| weights   | Array  | An array of weights of keys. |
+| 名称 | 类型 | 描述      |
+| -- | -- | ------- |
+| 阀值 | 数量 | 验证阈值。   |
+| 权重 | 数组 | 键值权重数组。 |
 
-## caver.account.create <a id="caver-account-create"></a>
+## caver.account.create
 
 ```javascript
 caver.account.create(address, accountKey [, options])
 ```
 
-Generates an Account instance with an address and an accountKey.
+生成一个带有地址和 accountKey 的账户实例。
 
-If accountKey is a public key string, an Account instance with [AccountKeyPublic](#accountkeypublic) as accountKey is created. If accountKey is an array containing public key strings, an Account instance with [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) as accountKey is created. If options are not defined as the last parameter, it is created using a default option with a threshold of 1 and a weight of 1 for each key. If accountKey is an array containing accountKeys that are used for each role, an Account instance with [AccountKeyRoleBased](#accountkeyrolebased) is created. Options must be defined for each role with [WeightedMultiSigOptions]. If options are not defined, the default option is used for roles that use multiple public keys. Please refer to the example below for how to use it.
+如果 accountKey 是公钥字符串，则会创建一个以 [AccountKeyPublic](#accountkeypublic) 作为 accountKey 的账户实例。 如果 accountKey 是一个包含公钥字符串的数组，则会创建一个以 [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 作为 accountKey 的账户实例。 如果最后一个参数没有定义选项，则使用默认选项创建，阈值为 1，每个键的权重为 1。 如果 accountKey 是一个数组，其中包含用于每个角色的 accountKeys，则会创建一个具有 [AccountKeyRoleBased](#accountkeyrolebased) 的 Account 实例。 Options must be defined for each role with [WeightedMultiSigOptions]. 如果未定义选项，则会对使用多个公钥的角色使用默认选项。 请参考下面的示例了解如何使用。
 
-**Parameters**
+**参数**
 
-| Name       | Type                                 | Description                                                                                                                                                                |
-| ---------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | string                               | The address of account to be updated.                                                                                                                      |
-| accountKey | string \\| Array                    | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
-| options    | [WeightedMultiSigOptions] \\| Array | (optional) Options for AccountKeyWeigthedMultiSig.                                                                                      |
+| 名称   | 类型                                   | 描述                                                     |
+| ---- | ------------------------------------ | ------------------------------------------------------ |
+| 地址   | 字符串                                  | 要更新的账户地址。                                              |
+| 帐户密钥 | 字符串                                  | 公钥字符串、公钥数组或二维数组，其中每个元素都包含用于每个角色的密钥数组。                  |
+| 选项   | [WeightedMultiSigOptions] \\| Array | (可选）AccountKeyWeigthedMultiSig 的选项。 |
 
-**Return Value**
+**返回价值**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| 类型    | 描述      |
+| ----- | ------- |
+| \[账户] | 返回账户实例。 |
 
-**Example**
+**示例**
 
 ```javascript
 // Create an Account instance with a public key string -> Account with AccountKeyPublic
@@ -245,158 +245,158 @@ Account {
 }
 ```
 
-## caver.account.createFromRLPEncoding <a id="caver-account-createfromrlpencoding"></a>
+## caver.account.createFromRLPEncoding<a id="caver-account-createfromrlpencoding"></a>
 
 ```javascript
 caver.account.createFromRLPEncoding(address, rlpEncodedKey)
 ```
 
-Creates an Account instance from RLP-encoded AccountKey.
+根据 RLP 编码的 AccountKey 创建账户实例。
 
-**Parameters**
+**参数**
 
-| Name          | Type   | Description                                              |
-| ------------- | ------ | -------------------------------------------------------- |
-| address       | string | The address of an account to be updated. |
-| rlpEncodedKey | string | The RLP-encoded string of AccountKey.    |
+| 名称            | 类型  | 描述                      |
+| ------------- | --- | ----------------------- |
+| 地址            | 字符串 | 要更新的账户地址。               |
+| rlpEncodedKey | 字符串 | AccountKey 的 RLP 编码字符串。 |
 
-**Return Value**
+**返回价值**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| 类型    | 描述      |
+| ----- | ------- |
+| \[账户] | 返回账户实例。 |
 
-**Example**
+**示例**
 
 ```javascript
-> caver.account.createFromRLPEncoding('0x{address in hex}', '0x04f84b02f848e301a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9e301a1021769a9196f523c419be50c26419ebbec34d3d6aa8b59da834212f13dbec9a9c1')
+> caver.account.createFromRLPEncoding('0x{address in hex}'、'0x04f84b02f848e301a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9e301a1021769a9196f523c419be50c26419ebbec34d3d6aa8b59da834212f13dbec9a9c1')
 Account {
-    _address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
-    _accountKey: 
+    _address：'0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
+    _accountKey： 
         AccountKeyWeightedMultiSig { 
             _threshold: 2, 
-            _weightedPublicKeys: [ 
+            _weightedPublicKeys：[ 
                 WeightedPublicKey { _weight: 1, _publicKey: '0x02c10...' },
                 WeightedPublicKey { _weight: 1, _publicKey: '0x02176...' }
-            ]
+            ]。
         }
 }
 ```
 
-## caver.account.createWithAccountKeyLegacy <a id="caver-account-createwithaccountkeylegacy"></a>
+## caver.account.createWithAccountKeyLegacy<a id="caver-account-createwithaccountkeylegacy"></a>
 
 ```javascript
 caver.account.createWithAccountKeyLegacy(address)
 ```
 
-Creates an Account instance which has AccountKeyLegacy as an accountKey.
+创建一个以 AccountKeyLegacy 作为 AccountKey 的账户实例。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                              |
-| ------- | ------ | -------------------------------------------------------- |
-| address | string | The address of an account to be updated. |
+| 名称 | 类型  | 描述                                                       |
+| -- | --- | -------------------------------------------------------- |
+| 地址 | 字符串 | The address of an account to be updated. |
 
-**Return Value**
+**返回价值**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| 类型    | 描述      |
+| ----- | ------- |
+| \[帐户] | 返回账户实例。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.account.createWithAccountKeyLegacy('0x{address in hex}')
 Account {
-  _address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
-  _accountKey: AccountKeyLegacy {}
+  _address：'0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
+  _accountKey：AccountKeyLegacy {}
 }
 ```
 
-## caver.account.createWithAccountKeyPublic <a id="caver-account-createwithaccountkeypublic"></a>
+## caver.account.createWithAccountKeyPublic<a id="caver-account-createwithaccountkeypublic"></a>
 
 ```javascript
 caver.account.createWithAccountKeyPublic(address, publicKey)
 ```
 
-Creates an Account instance which has AccountKeyPublic as an accountKey.
+创建一个以 AccountKeyPublic 作为 AccountKey 的账户实例。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                              |
-| --------- | ------ | -------------------------------------------------------- |
-| address   | string | The address of an account to be updated. |
-| publicKey | string | The public key string.                   |
+| 名称 | 类型  | 描述        |
+| -- | --- | --------- |
+| 地址 | 字符串 | 要更新的账户地址。 |
+| 公钥 | 字符串 | 公钥字符串。    |
 
-**Return Value**
+**返回价值**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| 类型    | 描述      |
+| ----- | ------- |
+| \[帐户] | 返回账户实例。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.account.createWithAccountKeyPublic('0x{address in hex}', '0xb5a9a...')
 Account {
-    _address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
-    _accountKey: AccountKeyPublic { _publicKey: ,'0xb5a9a...' }
+    _address：'0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
+    _accountKey：AccountKeyPublic { _publicKey: ,'0xb5a9a...' }
 }
 ```
 
-## caver.account.createWithAccountKeyFail <a id="caver-account-createwithaccountkeyfail"></a>
+## caver.account.createWithAccountKeyFail<a id="caver-account-createwithaccountkeyfail"></a>
 
 ```javascript
 caver.account.createWithAccountKeyFail(address)
 ```
 
-Creates an Account instance which has AccountKeyFail as an accountKey.
+创建一个 AccountKeyFail 作为 AccountKey 的 Account 实例。
 
-**Parameters**
+**参数**
 
-| Name    | Type   | Description                                              |
-| ------- | ------ | -------------------------------------------------------- |
-| address | string | The address of an account to be updated. |
+| 名称 | 类型  | 描述        |
+| -- | --- | --------- |
+| 地址 | 字符串 | 要更新的账户地址。 |
 
-**Return Value**
+**返回价值**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| 类型    | 描述      |
+| ----- | ------- |
+| \[账户] | 返回账户实例。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.account.createWithAccountKeyFail('0x{address in hex}')
 Account {
-  _address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
-  _accountKey: AccountKeyFail {}
+  _address：'0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
+  _accountKey：AccountKeyFail {}
 }
 ```
 
-## caver.account.createWithAccountKeyWeightedMultiSig <a id="caver-account-createwithaccountkeyweightedmultisig"></a>
+## caver.account.createWithAccountKeyWeightedMultiSig<a id="caver-account-createwithaccountkeyweightedmultisig"></a>
 
 ```javascript
 caver.account.createWithAccountKeyWeightedMultiSig(address, publicKeyArray [, options])
 ```
 
-Creates an Account instance which has AccountKeyWeightedMultiSig as an accountKey.
+创建账户实例，该实例的账户密钥为 AccountKeyWeightedMultiSig。
 
-**Parameters**
+**参数**
 
-| Name           | Type                      | Description                                                                                |
-| -------------- | ------------------------- | ------------------------------------------------------------------------------------------ |
-| address        | string                    | The address of an account to be updated.                                   |
-| publicKeyArray | Array                     | The array that includes multiple public key strings.                       |
-| options        | [WeightedMultiSigOptions] | (optional) The [WeightedMultiSigOptions] instance that defines threshold and weight array. |
+| 名称   | 类型          | Description                                  |
+| ---- | ----------- | -------------------------------------------- |
+| 地址   | 字符串         | 要更新的账户地址。                                    |
+| 公钥数组 | 数组          | 包含多个公钥字符串的数组。                                |
+| 选项   | \[加权多重加密选项] | (可选）定义阈值和权重数组的 [WeightedMultiSigOptions] 实例。 |
 
-**Return Value**
+**返回价值**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| 类型    | 描述      |
+| ----- | ------- |
+| \[帐户] | 返回账户实例。 |
 
-**Example**
+**示例**
 
 ```javascript
 // create an Account instance without options
@@ -429,29 +429,29 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyRoleBased <a id="caver-account-createwithaccountkeyrolebased"></a>
+## caver.account.createWithAccountKeyRoleBased<a id="caver-account-createwithaccountkeyrolebased"></a>
 
 ```javascript
 caver.account.createWithAccountKeyRoleBased(address, roledBasedPublicKeyArray [, options])
 ```
 
-Creates an Account instance which has AccountKeyRoleBased as an accountKey.
+创建一个 AccountKeyRoleBased 作为 AccountKey 的 Account 实例。
 
-**Parameters**
+**参数**
 
-| Name                     | Type   | Description                                                                                    |
-| ------------------------ | ------ | ---------------------------------------------------------------------------------------------- |
-| address                  | string | The address of an account to be updated.                                       |
-| roledBasedPublicKeyArray | Array  | A two-dimensional array containing arrays of public key strings for each role. |
-| options                  | Array  | (optional) An array that contains [WeightedMultiSigOptions] instances for each role.           |
+| 名称   | 类型  | 描述                                           |
+| ---- | --- | -------------------------------------------- |
+| 地址   | 字符串 | 要更新的账户地址。                                    |
+| 公钥数组 | 数组  | 二维数组，包含每个角色的公钥字符串数组。                         |
+| 选项   | 数组  | (可选）包含每个角色的 [WeightedMultiSigOptions] 实例的数组。 |
 
-**Return Value**
+**返回价值**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| 类型    | 描述      |
+| ----- | ------- |
+| \[账户] | 返回账户实例。 |
 
-**Example**
+**示例**
 
 ```javascript
 // create an Account instance without options
@@ -522,48 +522,48 @@ Account {
 }
 ```
 
-## caver.account.accountKey.decode <a id="caver-account-accountkey-decode"></a>
+## caver.account.accountKey.decode<a id="caver-account-accountkey-decode"></a>
 
 ```javascript
 caver.account.accountKey.decode(rlpEncodedAccountKey)
 ```
 
-Decodes an RLP-encoded string of AccountKey and returns an [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) or [AccountKeyRoleBased](#accountkeyrolebased) instance.
+An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail)、[AccountKeyWeightedMultiSig](./caver.account.md#accountkeyweightedmultisig)或[AccountKeyRoleBased](./caver.account.md#accountkeyrolebased))。
 
-**Parameters**
+**参数**
 
-| Name                 | Type   | Description                                          |
-| -------------------- | ------ | ---------------------------------------------------- |
-| rlpEncodedAccountKey | string | An RLP-encoded string of AccountKey. |
+| 名称                   | 类型  | 描述               |
+| -------------------- | --- | ---------------- |
+| rlpEncodedAccountKey | 字符串 | 账户密钥的 RLP 编码字符串。 |
 
-**Return Value**
+**返回价值**
 
-| Type                                                                                                                                                                                                                                    | Description                                          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| [AccountKeyLegacy](#accountkeylegacy) \\| [AccountKeyPublic](#accountkeypublic) \\| [AccountKeyFail](#accountkeyfail) \\| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \\| [AccountKeyRoleBased](#accountkeyrolebased) | The AccountKey instance is returned. |
+| 类型                                                                                                                                                                                                                                      | 描述             |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| [AccountKeyLegacy](#accountkeylegacy) \\| [AccountKeyPublic](#accountkeypublic) \\| [AccountKeyFail](#accountkeyfail) \\| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \\| [AccountKeyRoleBased](#accountkeyrolebased) | 返回 Keyring 实例。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.account.accountKey.decode('0x02a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9')
 AccountKeyPublic { _publicKey: '0x02c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9' }
 ```
 
-## account.getRLPEncodingAccountKey <a id="account-getrlpencodingaccountkey"></a>
+## account.getRLPEncodingAccountKey<a id="account-getrlpencodingaccountkey"></a>
 
 ```javascript
 account.getRLPEncodingAccountKey()
 ```
 
-Return RLP-encoded string of AccountKey.
+返回 AccountKey 的 RLP 编码字符串。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                          |
-| ------ | ---------------------------------------------------- |
-| string | A RLP-encoded string of AccountKey . |
+| 类型  | 描述               |
+| --- | ---------------- |
+| 字符串 | 账户密钥的 RLP 编码字符串。 |
 
-**Example**
+**示例**
 
 ```javascript
 > const account = caver.account.create('0x{address in hWeightedMultiSigOptionsex}', '0x034f1...')
@@ -571,13 +571,13 @@ Return RLP-encoded string of AccountKey.
 '0x02a102d851040f46d61a042a787cca34ad12bc43e51f01ad0b22270cfc25c15c4b4e22'
 ```
 
-[AccountKey]: ../../../../learn/accounts.md#account-key
-[AccountKeyLegacy]: ../../../../learn/accounts.md#accountkeylegacy
-[AccountKeyPublic]: ../../../../learn/accounts.md#accountkeypublic
-[AccountKeyFail]: ../../../../learn/accounts.md#accountkeyfail
-[AccountKeyWeightedMultiSig]: ../../../../learn/accounts.md#accountkeyweightedmultisig
-[AccountKeyRoleBased]: ../../../../learn/accounts.md#accountkeyrolebased
+[AccountKey]: ../../../../../learn/accounts.md#account-key
+[AccountKeyLegacy]: .../../../../.../learn/accounts.md#accountkeylegacy
+[AccountKeyPublic]: .../.../.../.../learn/accounts.md#accountkeypublic
+[AccountKeyFail]: ../../../../../learn/accounts.md#accountkeyfail
+[AccountKeyWeightedMultiSig]: .../.../.../.../learn/accounts.md#accountkey-weightedmultisig
+[AccountKeyRoleBased]: .../.../.../.../learn/accounts.md#accountkeyrolebased（基于帐户密钥
 [WeightedPublicKey]: #weightedpublickey
 [WeightedMultiSigOptions]: #weightedmultisigoptions
-[Account]: #account
-[role]: ../../../../learn/accounts.md#roles
+[Account]: #帐户
+[role]: .../.../.../.../learn/accounts.md#roles
