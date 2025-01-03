@@ -86,7 +86,7 @@
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
   ```js AccountUpdateWithLegacy.js focus=10
   const { ethers } = require("ethers");
@@ -122,21 +122,21 @@
 
   ---
 
-  Create a sender's wallet with the **private key** and **provider**
+  用**私钥**和**提供者**创建发件人钱包
 
   ```js AccountUpdateWithLegacy.js focus=11
   ```
 
   ---
 
-  Declare a transaction in the **key** field with the value `AccountKeyType.Legacy`
+  在 **key** 字段中声明一个交易，其值为 "AccountKeyType.Legacy\`"。
 
   ```js AccountUpdateWithLegacy.js focus=14:20
   ```
 
   ---
 
-  Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+  向区块链发送 tx。 函数 "sendTransaction "使用账户的私钥进行内部签名，然后将其传输到区块链网络。
 
   <CH.Code>
     ```js AccountUpdateWithLegacy.js focus=22:23
@@ -151,7 +151,7 @@
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  如果已在区块链中完成发送，**wait**函数将返回发送回执。
 
   <CH.Code>
     ```js AccountUpdateWithLegacy.js focus=25:26
