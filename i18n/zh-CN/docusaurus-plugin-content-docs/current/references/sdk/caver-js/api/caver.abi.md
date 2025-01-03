@@ -343,22 +343,22 @@ caver.abi.decodeParameters(typesArray, hexstring)
 
 将 ABI 编码参数解码为 JavaScript 类型。
 
-**Parameters**
+**参数**
 
-| Name       | Type              | Description                                                                                                                                                                                            |
-| ---------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| typesArray | Array \\| object | An array with types or an array of JSON interface outputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types. |
-| hexstring  | string            | The ABI byte code to decode.                                                                                                                                                           |
+| 名称         | 类型                | 描述                                                                                                     |
+| ---------- | ----------------- | ------------------------------------------------------------------------------------------------------ |
+| typesArray | Array \\| object | 包含类型的数组或 JSON 接口输出数组。 有关类型的列表，请参见 [solidity 文档](http://solidity.readthedocs.io/en/develop/types.html)。 |
+| hexstring  | string            | 要解码的 ABI 字节代码。                                                                                         |
 
-**NOTE** `tuple` type is supported since caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0). For more details about `tuple` type, please refer to [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types).
+**注意**\* 自 caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) 起支持`tuple`类型。 有关 `tuple` 类型的更多详情，请参阅 [Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types)。
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                          |
-| ------ | -------------------------------------------------------------------- |
-| object | The result object containing the decoded parameters. |
+| 类型     | 描述           |
+| ------ | ------------ |
+| object | 包含解码参数的结果对象。 |
 
-**Examples**
+**示例**
 
 ```javascript
 > caver.abi.decodeParameters(['string', 'uint256'], '0x000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000ea000000000000000000000000000000000000000000000000000000000000000848656c6c6f212521000000000000000000000000000000000000000000000000')
@@ -436,23 +436,23 @@ Result {
 caver.abi.decodeLog(inputs, hexstring, topics)
 ```
 
-Decodes ABI encoded log data and indexed topic data.
+解码 ABI 编码日志数据和索引主题数据。
 
-**Parameters**
+**参数**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                                                                |
-| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| inputs    | Array  | An array of JSON interface inputs. See the [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) for a list of types.                                                                                                             |
-| hexstring | string | The ABI byte code in the `data` field of a log.                                                                                                                                                                                                                            |
-| topics    | Array  | An array of the index parameter topics of the log. This array doesn't have topic[0] if it is a non-anonymous event, or otherwise, it has topic[0]. |
+| 名称        | 类型     | 描述                                                                                                                                                            |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| inputs    | Array  | 一个 JSON 接口输入数组。 有关类型的列表，请参见 [solidity 文档](http://solidity.readthedocs.io/en/develop/types.html)。                                                              |
+| hexstring | string | 日志的 `data` 字段中的 ABI 字节代码。                                                                                                                                     |
+| topics    | Array  | 日志的索引参数主题数组。 如果是非匿名事件，这个数组就没有 topic[0]，否则就有 topic[0]。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                    |
-| ------ | -------------------------------------------------------------- |
-| object | The result object containing the decoded logs. |
+| 类型     | 描述           |
+| ------ | ------------ |
+| object | 包含解码日志的结果对象。 |
 
-**Examples**
+**示例**
 
 ```javascript
 > caver.abi.decodeLog([{
@@ -485,23 +485,23 @@ Result {
 caver.abi.encodeContractDeploy(jsonInterface, hexstring [, params])
 ```
 
-Encodes smart contract bytecode with the arguments of the constructor.
+用构造函数的参数编码智能合约字节码。
 
-**Parameters**
+**参数**
 
-| Name          | Type   | Description                                                                         |
-| ------------- | ------ | ----------------------------------------------------------------------------------- |
-| jsonInterface | Array  | The JSON interface of the contract.                                 |
-| hexstring     | string | A bytecode of smart contract to be deployed.                        |
-| params        | Mixed  | (optional) Arguments to pass to the constructor. |
+| 名称            | 类型     | 描述                                 |
+| ------------- | ------ | ---------------------------------- |
+| jsonInterface | Array  | 合同的 JSON 接口。                       |
+| hexstring     | string | 要部署的智能合约字节码。                       |
+| params        | Mixed  | (可选）传递给构造函数的参数。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                                              |
-| ------ | ------------------------------------------------------------------------------------------------------------------------ |
-| string | The ABI encoded smart contract deployment with constructor arguments, which means byteCode + parameters. |
+| 类型     | 描述                              |
+| ------ | ------------------------------- |
+| string | ABI 编码的智能合约部署带有构造器参数，即字节码 + 参数。 |
 
-**Examples**
+**示例**
 
 ```javascript
 // There is no argument for constructor
