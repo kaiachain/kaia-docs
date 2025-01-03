@@ -1,6 +1,6 @@
 # Value Transfer With Memo
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo** 用于用户发送带有特定信息的 KAIA。
 
 # Fee Delegation
 
@@ -74,28 +74,28 @@
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  导入 **ethers** 和 **@kaiachain/ethers-ext** 软件包，在 ethers.js 上添加 kaia 功能
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=1:2
   ```
 
   ---
 
-  Define **sender address, sender private key, fee payer address, fee payer private key and reciever address**
+  定义**发件人地址、发件人私人密钥、缴费人地址、缴费人私人密钥和收件人地址**
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=4:8
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
   const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
@@ -138,28 +138,28 @@
 
   ---
 
-  Create a sender's wallet from private key
+  用私人密钥创建发件人钱包
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=12
   ```
 
   ---
 
-  Create fee payer's wallet from private key
+  用私人密钥创建缴费人钱包
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=13
   ```
 
   ---
 
-  Declare transaction with the fields such as **type, from, to, value, input**.
+  用 **类型、来自、至、值、输入**等字段声明事务。
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=15:21
   ```
 
   ---
 
-  Populating transaction with additional information using **senderWallet.populateTransaction**
+  使用**senderWallet.populateTransaction**为交易填充附加信息
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=23:24
@@ -185,7 +185,7 @@
 
   ---
 
-  Signing the transaction with the **sender's private key**
+  用**发送方的私人密钥**签署交易
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=26:27
@@ -201,7 +201,7 @@
 
   ---
 
-  Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+  使用付费者的钱包将交易发送到区块链上。 函数 "sendTransactionAsFeePayer "会在发送者的签名上添加一个带有 FeePayer 私钥的签名，并将其传输到区块链网络。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=29:30
@@ -217,7 +217,7 @@
 
   ---
 
-  The **wait** function returns the tx receipt if the tx was sent to the blockchain successfully.
+  如果 tx 已成功发送到区块链，**wait** 函数将返回 tx 收据。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=32:33
