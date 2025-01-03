@@ -1,6 +1,6 @@
-# Role-based Account Key
+# 基于角色的账户密钥
 
-**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+**AccountKeyRoleBased** 表示基于角色的密钥。 如果账户有一个**基于账户密钥角色的**对象，且交易类型为**除账户更新外的**，那么验证过程将根据每个角色进行，如下所示：
 
 <CH.Spotlight>
   <CH.Code>
@@ -75,35 +75,35 @@
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  导入 **ethers** 和 **@kaiachain/ethers-ext** 软件包，在 ethers.js 上添加 kaia 功能
 
   ```js SignTxWithRoleBasedExample.js focus=1:3
   ```
 
   ---
 
-  Define sender's **address** and role-based **private keys**
+  定义发件人的**地址**和基于角色的**私人密钥**
 
   ```js SignTxWithRoleBasedExample.js focus=5:9
   ```
 
   ---
 
-  Define receiver's **address**
+  定义接收方的**地址**
 
   ```js SignTxWithRoleBasedExample.js focus=10
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
   ```js SignTxWithRoleBasedExample.js focus=12
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
   ```js SignTxWithRoleBasedExample.js focus=12
   const { ethers } = require("ethers");
@@ -148,21 +148,21 @@
 
   ---
 
-  Create a sender's **wallet** with the private key and provider
+  用私钥和提供者创建发件人的**钱包**
 
   ```js SignTxWithRoleBasedExample.js focus=13
   ```
 
   ---
 
-  Create a **value transfer** transaction with `type: TxType.ValueTransfer` so that it can be recovered later with `klay_recoverFromTransaction`
+  用 `type.TxType.ValueTransfer` 创建一个**值转移**事务，以便以后用 `klay_recoverFromTransaction` 恢复：TxType.ValueTransfer"，以便以后使用 "klay_recoverFromTransaction "恢复它
 
   ```js SignTxWithRoleBasedExample.js focus=16:22
   ```
 
   ---
 
-  Sign the transaction with the wallet that has role **sending transaction**, the `populateTransaction` method add more params to the transaction object such as gas, nonce...
+  与具有**发送交易**角色的钱包签署交易，"populateTransaction "方法为交易对象添加更多参数，如gas、nonce...
 
   <CH.Code>
     ```js SignTxWithRoleBasedExample.js focus=24:26
@@ -177,7 +177,7 @@
 
   ---
 
-  Send the **signed transaction** to kaia network
+  将**签署的交易**发送至 kaia 网络
 
   <CH.Code>
     ```js SignTxWithRoleBasedExample.js focus=28:29
@@ -192,7 +192,7 @@
 
   ---
 
-  Wait for the transaction to be **completed** and print the **receipt**
+  等待交易**完成**并打印**收据**
 
   <CH.Code>
     ```js SignTxWithRoleBasedExample.js focus=31:32
@@ -224,7 +224,7 @@
 
   ---
 
-  Recover the address from signed transaction using `klay_recoverFromMessage`
+  使用 `klay_recoverFromMessage` 从已签署的事务中恢复地址
 
   <CH.Code>
     ```js SignTxWithRoleBasedExample.js focus=34:35
