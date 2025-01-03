@@ -3,13 +3,13 @@ export const sidebar = {
     label: 'ethers-ext < v1.0.1',
     link: {
         type: 'doc',
-        id: 'references/sdk/ethers-ext-prior-v1-0-1/getting-started',
+        id: 'references/sdk/ethers-ext/getting-started',
     },
     items: [
         {
             type: 'doc',
             label: 'Getting-Started',
-            id: 'references/sdk/ethers-ext-prior-v1-0-1/getting-started',
+            id: 'references/sdk/ethers-ext/getting-started',
         },
         {
             type: 'category',
@@ -19,10 +19,10 @@ export const sidebar = {
                     type: 'category',
                     label: 'Account Key',
                     items: [
-                        'references/sdk/ethers-ext-prior-v1-0-1/account-management/account-key/legacy',
-                        'references/sdk/ethers-ext-prior-v1-0-1/account-management/account-key/public',
-                        'references/sdk/ethers-ext-prior-v1-0-1/account-management/account-key/multisig',
-                        'references/sdk/ethers-ext-prior-v1-0-1/account-management/account-key/role-based',
+                        'references/sdk/ethers-ext/v6/account-management/account-key/legacy',
+                        'reference/sdk/ethers-ext/v6/account-management/account-key/public',
+                        'references/sdk/ethers-ext/v6/account-management/account-key/multisig',
+                        'reference/sdk/ethers-ext/v6/account-management/account-key/role-based',
                     ],
                 },
                 {
