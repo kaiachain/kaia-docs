@@ -4,59 +4,59 @@ caver.ipfs "是一个提供与 kaia Node 的 rpc 调用相关的功能的软件�
 
 **注意** `caver.ipfs` 自 caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4) 开始支持。
 
-## caver.ipfs.setIPFSNode <a id="caver-ipfs-setipfsnode"></a>
+## caver.ipfs.setIPFSNode<a id="caver-ipfs-setipfsnode"></a>
 
 ```javascript
 caver.ipfs.setIPFSNode(host, port, ssl)
 ```
 
-Initializes a connection with an IPFS Node. When an IPFS Node information is set through this function, you can upload files to IPFS or load files from IPFS.
+初始化与 IPFS 节点的连接。 通过此功能设置 IPFS 节点信息后，就可以向 IPFS 上载文件或从 IPFS 加载文件。
 
-**Parameters**
+**参数**
 
-| Name | Type    | Description                                                                                                    |
-| ---- | ------- | -------------------------------------------------------------------------------------------------------------- |
-| host | string  | The IPFS Node url to connect with.                                                             |
-| port | number  | The port number to use.                                                                        |
-| ssl  | boolean | If true, the `https` protocol is used. Otherwise, the `http` protocol is used. |
+| 名称   | 类型      | 描述                                         |
+| ---- | ------- | ------------------------------------------ |
+| host | string  | 要连接的 IPFS 节点网址。                            |
+| port | number  | 要使用的端口号。                                   |
+| ssl  | boolean | 如果为 true，则使用 `https` 协议。 否则，将使用 `http` 协议。 |
 
-**Return Value**
+**返回价值**
 
-None
+无
 
-**Example**
+**示例**
 
 ```javascript
 > caver.ipfs.setIPFSNode('localhost', 5001, false)
 ```
 
-## caver.ipfs.add <a id="caver-ipfs-add"></a>
+## caver.ipfs.add<a id="caver-ipfs-add"></a>
 
 ```javascript
 caver.ipfs.add(data)
 ```
 
-Adds a file to IPFS. The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file is returned.
+向 IPFS 添加文件。 将返回上传文件的 [CID（内容标识符）](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。
 
-If the path of a file is passed, the contents of the file are loaded from the path and uploaded to IPFS. If a buffer is passed, it is uploaded to IPFS directly.
+如果传入文件路径，则会从该路径加载文件内容并上载到 IPFS。 如果传递的是缓冲区，则会直接上传到 IPFS。
 
-**Parameters**
+**参数**
 
-| Name | Type                                | Description                                                           |
-| ---- | ----------------------------------- | --------------------------------------------------------------------- |
-| data | string \\| Buffer \\| ArrayBuffer | The path string of a file or a buffer to add to IPFS. |
+| 名称   | 类型                                  | 描述                       |
+| ---- | ----------------------------------- | ------------------------ |
+| data | string \\| Buffer \\| ArrayBuffer | 要添加到 IPFS 的文件或缓冲区的路径字符串。 |
 
-**NOTE** `Buffer` is supported since caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5).
+**注意** 自 caver-js [v1.5.5](https://www.npmjs.com/package/caver-js/v/1.5.5) 起支持`Buffer`。
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `string`
 
-| Type   | Description                                                                                                                                                           |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file. |
+| 类型     | 描述                                                                                                 |
+| ------ | -------------------------------------------------------------------------------------------------- |
+| string | 上传文件的 [CID（内容标识符）](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。 |
 
-**Example**
+**示例**
 
 ```javascript
 // Adds a file with path string.
@@ -68,83 +68,83 @@ Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC
 QmWmsL95CYvci8JiortAMhezezr8BhAwAVohVUSJBcZcBL
 ```
 
-## caver.ipfs.get <a id="caver-ipfs-get"></a>
+## caver.ipfs.get<a id="caver-ipfs-get"></a>
 
 ```javascript
 caver.ipfs.get(hash)
 ```
 
-Returns a file addressed by a valid IPFS path.
+通过有效的 IPFS 路径返回文件地址。
 
-**Parameters**
+**参数**
 
-| Name | Type   | Description                                                                                                                                                             |
-| ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hash | string | An [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the file to download. |
+| 名称   | 类型     | 描述                                                                                                  |
+| ---- | ------ | --------------------------------------------------------------------------------------------------- |
+| hash | string | 要下载文件的 [CID（内容标识符）](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。 |
 
-**Return Value**
+**返回价值**
 
 `Promise` returns `Buffer`
 
-| Type   | Description                              |
-| ------ | ---------------------------------------- |
-| Buffer | The content of the file. |
+| 类型     | 说明    |
+| ------ | ----- |
+| Buffer | 文件内容。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.ipfs.get('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
 <Buffer 74 65 73 74 20 64 61 74 61 20 66 6f 72 20 49 50 46 53>
 ```
 
-## caver.ipfs.toHex <a id="caver-ipfs-tohex"></a>
+## caver.ipfs.toHex<a id="caver-ipfs-tohex"></a>
 
 ```javascript
 caver.ipfs.toHex(hash)
 ```
 
-Converts a [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to a [Multihash](https://multiformats.io/multihash).
+将 [CID（内容标识符）](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) 转换为 [多散列](https://multiformats.io/multihash)。
 
-**Parameters**
+**参数**
 
-| Name | Type   | Description                                                                                                                                               |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hash | string | A [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) to convert. |
+| 名称   | 类型     | 描述                                                                                                |
+| ---- | ------ | ------------------------------------------------------------------------------------------------- |
+| hash | string | 要转换的 [CID（内容标识符）](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                |
-| ------ | -------------------------------------------------------------------------- |
-| string | The [Multihash](https://multiformats.io/multihash) string. |
+| 类型     | 描述                                                                                                                         |
+| ------ | -------------------------------------------------------------------------------------------------------------------------- |
+| string | 多重哈希](https://multiformats.io/multihash) 字符串。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.ipfs.toHex('Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC')
 0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3
 ```
 
-## caver.ipfs.fromHex <a id="caver-ipfs-fromhex"></a>
+## caver.ipfs.fromHex <0></0>
 
 ```javascript
 caver.ipfs.fromHex(hash)
 ```
 
-Converts to [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) from a [Multihash](https://multiformats.io/multihash).
+从 [Multihash](https://multiformats.io/multihash) 转换为 [CID（内容标识符）](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。
 
-**Parameters**
+**参数**
 
-| Name | Type   | Description                                                                  |
-| ---- | ------ | ---------------------------------------------------------------------------- |
-| hash | string | A [Multihash](https://multiformats.io/multihash) to convert. |
+| 名称   | 类型     | 描述                                              |
+| ---- | ------ | ----------------------------------------------- |
+| hash | string | 要转换的 [多重散列](https://multiformats.io/multihash)。 |
 
-**Return Value**
+**返回价值**
 
-| Type   | Description                                                                                                                                      |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| string | The [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids). |
+| 类型     | 描述                                                                                                                                                                                       |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| string | CID（内容标识符）](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)。 |
 
-**Example**
+**示例**
 
 ```javascript
 > caver.ipfs.fromHex('0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3')
