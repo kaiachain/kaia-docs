@@ -1,22 +1,22 @@
 > **_NOTE:_**
-> This version is going to be temporary.
-> Please upgrade the version more than v1.0.1. You can use the ethers-ext with ethers v5 or v6, look at [view](/references/sdk/ethers-ext/getting-started/).
+> 这个版本将是临时的。
+> 请将版本升级到 v1.0.1 以上。 您可以在 ethers v5 或 v6 中使用 ethers-ext，请参阅 [view](/references/sdk/ethers-ext/getting-started/)。
 
-# Ethers.js Extension for kaia
+# kaia 的 Ethers.js 扩展
 
-Ethers.js Extension for kaia offers:
+kaia 提供的 Ethers.js 扩展：
 
-- Drop-in replacement to `ethers.Wallet` that handles both Ethereum and kaia transaction types
-  involving AccountKey and TxTypes.
-- Drop-in replacement to `ethers.providers.JsonRpcProvider` that provides accesses to both Ethereum RPCs and
-  kaia-specific RPCs.
-- Drop-in replacement to `ethers.Web3Provider` to work with both MetaMask (`window.ethereum`) and Kaia Wallet (`window.klaytn`)
+- 以太坊钱包的直接替代品，可处理以太坊和 kaia 交易类型
+  ，涉及 AccountKey 和 TxTypes。
+- 可直接替代 `ethers.providers.JsonRpcProvider` ，提供对以太坊 RPC 和
+  kaia 特定 RPC 的访问。
+- 可直接替换 `ethers.Web3Provider` 以与 MetaMask（`window.ethereum`）和 Kaia Wallet（`window.klaytn`）一起使用
 
-## Note for ethers v6
+## ethers v6 注意事项
 
-`@kaiachain/ethers-ext` was developed based on ethers v5. As a result, ethers v6 classes are incompatible with ethers-ext classes. If you are using ethers v6 in your codebase, do not mix ethers v6 classes and ethers-ext classes. e.g. ethers v6 JsonRpcProvider cannot be supplied to ethers-ext Wallet.
+`@kaiachain/ethers-ext` 是基于 ethers v5 开发的。 因此，ethers v6 类与 ethers-ext 类不兼容。 如果在代码库中使用 ethers v6，请勿将 ethers v6 类与 ethers-ext 类混合使用。 例如，ether v6 JsonRpcProvider 无法提供给 ethers-ext Wallet。
 
-- **Don't**: mix ethers v6 and ethers-ext
+- **请勿**：混合使用 Ethers v6 和 Ethers-ext
   ```js
   const ethers = require("ethers");
   const { Wallet } = require("@kaiachain/ethers-ext");
@@ -24,7 +24,7 @@ Ethers.js Extension for kaia offers:
   const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
   const wallet = new Wallet("<private key>", provider);
   ```
-- **Do**: mix ethers v5 and ethers-ext
+- **可以**：混合使用ethers v5 和 ethers-ext
   ```js
   const ethers = require("ethers");
   const { Wallet } = require("@kaiachain/ethers-ext");
@@ -32,7 +32,7 @@ Ethers.js Extension for kaia offers:
   const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
   const wallet = new Wallet("<private key>", provider);
   ```
-- **Do**: ethers-ext only
+- **可以**：仅 ethers-ext
   ```js
   const { Wallet, JsonRpcProvider } = require("@kaiachain/ethers-ext");
 
@@ -63,7 +63,7 @@ Ethers.js Extension for kaia offers:
 
 ### Browser
 
-It is not recommended to use CDNs in production, But you can use below for quick prototyping.
+不建议在生产中使用 CDN，但可以在下面使用 CDN 进行快速原型开发。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@kaiachain/ethers-ext@latest/dist/ethers-ext.bundle.js"></script>
@@ -74,4 +74,4 @@ const provider = new ethers_ext.providers.Web3Provider(window.klaytn);
 
 ## Usage
 
-See [example](./example) and [test](./test).
+请参阅 [example](./example) 和 [test](./test) 。
