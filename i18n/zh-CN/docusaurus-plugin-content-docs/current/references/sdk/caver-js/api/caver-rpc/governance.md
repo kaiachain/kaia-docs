@@ -247,7 +247,7 @@ caver.rpc.governance.getNodeAddress([callback])
 0xbeafcca672100a88a953fcf5e882cb763f9e3de9
 ```
 
-## caver.rpc.governance.getItemsAt <a id="caver-rpc-governance-getitemsat"></a>
+## caver.rpc.governance.getItemsAt<a id="caver-rpc-governance-getitemsat"></a>
 
 ```javascript
 caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
