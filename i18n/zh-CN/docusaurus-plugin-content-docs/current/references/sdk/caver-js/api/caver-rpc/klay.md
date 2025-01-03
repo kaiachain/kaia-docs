@@ -1872,7 +1872,7 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 | from               | 字符串     | 发送人地址。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | gas                | 字符串     | 发送人提供的gas。                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | gasPrice           | 字符串     | 由发件人提供用 peb 的 Gas Price                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| gasUsed            | 字符串     | The amount of gas used by this specific transaction alone.                                                                                                                                                                                                                                                                                                                                                                                                               |
+| gasUsed            | 字符串     | 仅此一项交易使用的gas量。                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | humanReadable      | Boolean | (可选） `true`（如果地址可人工读取），`false`（如果地址不可人工读取）。                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | key                | 字符串     | (可选）用于更新 kaia 帐户 AccountKey 的 RLP 编码 AccountKey。                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | input              | 字符串     | (可选）与交易一起发送的数据。                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -1887,7 +1887,7 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 | 交易哈希值。             | 字符串     | 交易的哈希值。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | 交易索引               | 字符串     | 区块中事务索引位置的整数。                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | 类型                 | 字符串     | 表示交易类型的字符串。                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| typeInt            | 数量      | An integer representing the type of the transaction.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| typeInt            | 数量      | 代表交易类型的整数。                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | value              | 字符串     | 以peb为单位的价值转移                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 **注意** `caver.kct.kip7.create`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
@@ -2270,7 +2270,7 @@ caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 
 有关每种事务类型的更多信息，请参阅 [事务]（.../caver-transaction/caver-transaction.md#class）。
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. 您节点中的导入账户必须已[解锁]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount），才能签署信息。
+**注意**：此 API 提供了使用 kaia 节点中的 [导入账户](../../../.../jsson-rpc/personal.md#personal_importrawkey) 签署交易的功能。 您节点中的导入账户必须已[解锁]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount），才能签署信息。
 
 **参数**
 
@@ -2420,9 +2420,9 @@ caver.rpc.klay.getClientVersion([callback])
 
 `Promise` returns `Array`
 
-| 类型  | 描述                                                         |
-| --- | ---------------------------------------------------------- |
-| 字符串 | The current client version of a kaia node. |
+| 类型  | 描述               |
+| --- | ---------------- |
+| 字符串 | kaia 节点的当前客户端版本。 |
 
 **示例**
 
@@ -2585,7 +2585,7 @@ caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callbac
 
 返回返回区块范围的收费历史记录。 如果不是所有区块都可用，则可以是所请求范围的一个分段。
 
-**Parameters**
+**参数**
 
 | 名称                | 类型                                  | 描述                                                                                                                                       |
 | ----------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2690,7 +2690,7 @@ caver.rpc.klay.isParallelDBWrite([callback])
 true
 ```
 
-## caver.rpc.klay.isSenderTxHashIndexingEnabled <a href="#caver-rpc-klay-issendertxhashindexingenabled" id="caver-rpc-klay-issendertxhashindexingenabled"></a>
+## caver.rpc.klay.isSenderTxHashIndexingEnabled<a href="#caver-rpc-klay-issendertxhashindexingenabled" id="caver-rpc-klay-issendertxhashindexingenabled"></a>
 
 ```javascript
 caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
@@ -2766,9 +2766,9 @@ caver.rpc.klay.getRewardbase([callback])
 
 `Promise` returns `Array`
 
-| Type | 描述      |
-| ---- | ------- |
-| 字符串  | 奖励基地地址。 |
+| 类型  | 描述      |
+| --- | ------- |
+| 字符串 | 奖励基地地址。 |
 
 **示例**
 
@@ -2888,7 +2888,7 @@ caver.rpc.klay.getLogs(options [, callback])
 | 名称        | 类型                 | 描述                                                                                                                                                                                                                 |
 | --------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | fromBlock | number \\| string | (可选）要获取日志的最早数据块的数据区块编号。 (最新 "指最近的区块）。 默认值为 \`"最新"。                                                                                                                           |
-| toBlock   | number \\| string | (可选）获取日志的最后一个区块的区块编号。 (`"latest"` means the most recent block.). 默认值为 \`"最新"。                                                                |
+| toBlock   | number \\| string | (可选）获取日志的最后一个区块的区块编号。 ("latest "指最新的区块）。 默认值为 \`"最新"。                                                                                                                        |
 | address   | string \\| Array  | (可选）地址或地址列表。 只返回与特定账户相关的日志。                                                                                                                                                                     |
 | topics    | 数组                 | (可选）必须出现在日志条目中的值数组。 顺序很重要。 如果您想省略主题，请使用 `null`, _e.g._, `[null,'0x12...']`。 您也可以为每个主题传递一个数组，其中包含该主题的选项，例如_ `[null,['option1','option2']]`。 |
 
@@ -2965,10 +2965,10 @@ caver.rpc.klay.newFilter(options [, callback])
 
 **参数**
 
-| 名称       | 类型       | 描述                                                                                                                                            |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| 选项       | 对象       | 过滤器选项。 请参阅下表查找说明。                                                                                                                             |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称       | 类型       | 描述                                                 |
+| -------- | -------- | -------------------------------------------------- |
+| 选项       | 对象       | 过滤器选项。 请参阅下表查找说明。                                  |
+| callback | function | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
 选项对象可以包含以下内容
 
