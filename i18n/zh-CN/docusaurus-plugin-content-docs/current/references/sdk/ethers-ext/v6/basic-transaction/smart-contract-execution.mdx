@@ -138,42 +138,42 @@
 
   ---
 
-  Create a sender's wallet using the sender's private key and the provider
+  使用发件人的私人密钥和提供商创建发件人钱包
 
   ```js smartContractExecution.js focus=8
   ```
 
   ---
 
-  Set the **contract address** you want to execute into the to field and set **ABI**
+  在至字段中设置要执行的**合约地址**，并设置**ABI**
 
   ```js smartContractExecution.js focus=10:11
   ```
 
   ---
 
-  Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+  使用 **ethers.Contract**创建合约实例，填写参数 **contractAddr**、**abi**、**provider**。 您可以通过该实例读写合约
 
   ```js smartContractExecution.js focus=14
   ```
 
   ---
 
-  Encode the function name and parameter with the **encodeFunctionData** function
+  使用 **encodeFunctionData** 函数对函数名和参数进行编码
 
   ```js smartContractExecution.js focus=15
   ```
 
   ---
 
-  Declare a transaction object
+  定义交易对象
 
   ```js smartContractExecution.js focus=17:24
   ```
 
   ---
 
-  Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+  向区块链发送 tx。 函数 "sendTransaction "使用账户的私钥进行内部签名，然后将其传输到区块链网络。
 
   <CH.Code>
     ```js smartContractExecution.js focus=25:26
@@ -188,7 +188,7 @@
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  如果已在区块链中完成发送，**wait**函数将返回发送回执。
 
   <CH.Code>
     ```js smartContractExecution.js focus=28:29
