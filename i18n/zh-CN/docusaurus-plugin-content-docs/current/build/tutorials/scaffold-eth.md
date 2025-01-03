@@ -107,7 +107,6 @@ deployer_private_key=insert_private_key
 
 ```js
 network: "kairos",
-
 ```
 
 有关在 Kaia 中使用 Hardhat 的更多信息，请查看 [Hardhat 指南](https://docs.kaia.io/build/get-started/hardhat/) 了解更多详情。
@@ -207,7 +206,7 @@ targetNetworks：[链.klaytnBaobab]、
 
 ![Run dApp](/img/build/tutorials/scaffold-4.png)
 
-You should now be able to access a React-based dApp frontend at http://localhost:3001/. 您可以通过连接钱包或查看合约调试器页面与 dApp 进行互动。
+现在，您应该可以在 http://localhost:3001/ 上访问基于 React 的 dApp 前端。 您可以通过连接钱包或查看合约调试器页面与 dApp 进行互动。
 
 ![Scaffold dApp](/img/build/tutorials/scaffold-5.png)
 
