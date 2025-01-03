@@ -1,6 +1,6 @@
 # Read
 
-You can call functions in Smart Contract via "Call" RPC API. What you can call here is limited to **view functions** that is not changing any states in the Contract.
+您可以通过 "调用 "RPC API 调用智能合约中的函数。 在这里可以调用的功能仅限于**视图函数**，不会改变合约中的任何状态。
 
 <CH.Spotlight>
   <CH.Code>
@@ -54,21 +54,21 @@ You can call functions in Smart Contract via "Call" RPC API. What you can call h
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+  导入 **ethers** 和 **@kaiachain/ethers-ext** 模块，在 ethers.js 上添加 kaia 功能。
 
   ```js SmartContractView.js focus=1
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
 
   ```js SmartContractView.js focus=3
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
 
   ```js SmartContractView.js focus=3
   const ethers = require("ethers");
@@ -112,28 +112,28 @@ You can call functions in Smart Contract via "Call" RPC API. What you can call h
 
   ---
 
-  Set the **Abi** generated from solidity code
+  设置由 solidity 代码生成的 **Abi**
 
   ```js SmartContractView.js focus=28
   ```
 
   ---
 
-  Define **contract address** to interact with
+  定义与之交互的**合约地址**
 
   ```js SmartContractView.js focus=29
   ```
 
   ---
 
-  Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+  使用 **ethers.Contract**创建合约实例，填写参数 **contractAddr**、**abi**、**provider**。 您可以通过该实例读写合约
 
   ```js SmartContractView.js focus=32
   ```
 
   ---
 
-  Get the value of **number** from contract by using method **counter.number()**
+  使用**counter.number()**方法从合约中获取**数字**的值
 
   <CH.Code>
     ```js SmartContractView.js focus=33:34
