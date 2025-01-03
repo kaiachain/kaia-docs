@@ -211,14 +211,14 @@
 
   ---
 
-  Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+  使用 **ethers.Contract**创建合约实例，填写参数 **contractAddr**、**abi**、**provider**。 您可以通过该实例读写合约
 
   ```js writeTxType.js focus=37
   ```
 
   ---
 
-  Get the **number** value before updated by using method **counter.number()**
+  使用方法**counter.number()**获取更新前的**数字**值
 
   <CH.Code>
     ```js writeTxType.js focus=39
@@ -234,21 +234,21 @@
 
   ---
 
-  Create a transaction data to update the **number** value
+  创建事务数据以更新**编号**值
 
   ```js writeTxType.js focus=41
   ```
 
   ---
 
-  Create a transaction object with data from previous step with type **SmartContractExecution**
+  用上一步的数据创建一个事务对象，其类型为 **SmartContractExecution**
 
   ```js writeTxType.js focus=42:48
   ```
 
   ---
 
-  Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+  向区块链发送 tx。 函数 "sendTransaction "使用账户的私钥进行内部签名，然后将其传输到区块链网络。
 
   <CH.Code>
     ```js writeTxType.js focus=50:51
@@ -264,7 +264,7 @@
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  如果已在区块链中完成发送，**wait**函数将返回发送回执。
 
   <CH.Code>
     ```js writeTxType.js focus=53:54
@@ -308,7 +308,7 @@
 
   ---
 
-  Get the updated value **number** by using method **counter.number()**
+  使用方法 **counter.number()** 获取更新值 **number**
 
   <CH.Code>
     ```js writeTxType.js focus=56
