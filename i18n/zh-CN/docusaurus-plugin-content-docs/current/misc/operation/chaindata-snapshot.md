@@ -39,11 +39,11 @@
 
 - 方案 1. curl
   ```sh
-  curl -O https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  curl -O https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 - 方案 2. wget
   ```sh
-  wget https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  wget https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 - 方案 3. axel
   ```sh
@@ -52,7 +52,15 @@
   sudo yum install axel pigz
 
   # 多线程下载并打印状态栏
-  axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
+  axel -n8 https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
+  ```
+- 方案 4. 咏叹调2
+  ```sh
+  # Rocky Linux 安装示例
+  sudo yum install epel-release aria2
+
+  # 轻量级、多连接下载
+  aria2c https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 
 ## 解压文件
@@ -63,7 +71,7 @@
   ```
 - 方案 2. tar and pigz
   ```sh
-  # 亚马逊 Linux 安装示例
+  # Amazon Linux 和 Rocky Linux 安装示例
   sudo yum install pigz
 
   # 多线程解压缩
