@@ -1,24 +1,24 @@
-# caver-js (1.5.0 or later)
+# caver-java （1.5.0 或更高版本）
 
 ![](/img/references/kaiaXcaver-js.png)
 
-`caver-js` is a JavaScript API library that allows developers to interact with a kaia node using a HTTP or Websocket connection. It is available on [npm](https://www.npmjs.com/package/caver-js).
+caver-js "是一个 JavaScript API 库，允许开发人员使用 HTTP 或 Websocket 连接与 kaia 节点进行交互。 它可在 [npm](https://www.npmjs.com/package/caver-js) 上获取。
 
-## Features <a href="#features" id="features"></a>
+## 特色<a href="#features" id="features"></a>
 
-- Complete implementation of kaia’s JSON-RPC client API over HTTP and Websocket
-- Support of kaia transaction, account, and account key types
-- JavaScript smart contract package to deploy and execute a smart contract on the kaia network
-- In-memory wallet for managing kaia accounts
-- Support of fee-delegation
-- Support of the kaia wallet key format
-- Encoding/decoding of a transaction object in RLP
-- Signing of a transaction object
-- Easy to port web3-js application to caver-js
+- 通过 HTTP 和 Websocket 完整实现 kaia 的 JSON-RPC 客户端 API
+- 支持 kaia 交易、账户和账户密钥类型
+- 用于在 kaia 网络上部署和执行智能合约的 JavaScript 智能合约包
+- 用于管理 kaia 账户的内存钱包
+- 支持收费授权
+- 支持 kaia 钱包密钥格式
+- RLP 中交易对象的编码/解码
+- 签署交易对象
+- 轻松将 web3-js 应用程序移植到 caver-js
 
-## Packages in caver-js <a href="#packages-in-caver-js" id="packages-in-caver-js"></a>
+## caver-js 中的软件包<a href="#packages-in-caver-js" id="packages-in-caver-js"></a>
 
-Below are packages provided in `caver-js`.
+以下是 `caver-js` 中提供的软件包。
 
 - [caver.account](./api/caver.account.md)
 - [caver.wallet.keyring](./api/caver-wallet/keyring.md)
@@ -34,9 +34,9 @@ Below are packages provided in `caver-js`.
 
 ## Error Code Improvement <a href="#error-code-improvement" id="error-code-improvement"></a>
 
-The error messages from Ethereum via web3.js are hardly figuring out where the error occurs. `caver-js` improves the interface to catch error messages from kaia.
+以太坊通过 web3.js 发送的错误信息很难找出错误发生在哪里。 `caver-js` 改进了从 kaia 捕捉错误信息的接口。
 
-More details can be found in the value of `txError` of the transaction receipt like the below:
+更多详情可在交易收据的 `txError` 值中找到，如下所示：
 
 ```
 Error: runtime error occurred in interpreter
@@ -56,50 +56,50 @@ Error: runtime error occurred in interpreter
 }
 ```
 
-## Caution when Sending a Transaction to kaia <a href="#caution-when-sending-a-transaction-to-klaytn" id="caution-when-sending-a-transaction-to-klaytn"></a>
+## 向 kaia 发送交易时的注意事项<a href="#caution-when-sending-a-transaction-to-klaytn" id="caution-when-sending-a-transaction-to-klaytn"></a>
 
-Kaia has a new gas price policy since the Magma hard fork which enabled the [KIP-71](https://kips.kaia.io/KIPs/kip-71).
+自启用 [KIP-71](https://kips.kaia.io/KIPs/kip-71)的岩浆硬分叉后，Kaia 制定了新的gas价格政策。
 
-Therefore, you need to set the `gasPrice` logic differently when sending a transaction, depending on whether the hard fork is applicable or not.
+因此，在发送交易时，您需要根据硬分叉是否适用来设置不同的 "gasPrice "逻辑。
 
-Until the Magma hard fork, transactions on kaia have been subject to a "fixed gas price". Therefore, transactions with any other price submitted to the network are rejected. If `gasPrice` is not defined when you sign or submit a transaction, caver-js uses [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice) RPC call to set the gas price.
+在 Magma 硬分叉之前，kaia 上的交易一直采用 "固定gas价格"。 因此，以任何其他价格提交给网络的交易都会被拒绝。 如果您在签署或提交交易时未定义 "gasPrice"，caver-js 将使用 [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice) RPC 调用来设置gas价格。
 
-After the Magma hard fork, kaia uses a "dynamic gas fee pricing mechanism". The gas price of the transaction should be higher than the base fee of the kaia network. If `gasPrice` is not defined when you sign or submit a transaction, caver-js sets the `gasPrice` field of the transaction using `caver.rpc.klay.getGasPrice`.
+Magma硬分叉后，kaia 采用了 "动态gas费用定价机制"。 交易的gas价格应高于 kaia 网络的基本费用。 如果在签署或提交交易时未定义 "gasPrice"，caver-js 会使用 `caver.rpc.klay.getGasPrice`设置交易的 "gasPrice "字段。
 
-### How to set gasPrice field
+### 如何设置gas价格字段
 
-caver-js provides various ways to set the `gasPrice`. Ways to set the `gasPrice` field when using caver-js are suggested below. The methods described here can be used regardless of the hard fork.
+caver-js 提供了多种设置 `gasPrice` 的方法。 使用 caver-js 时设置 "gasPrice "字段的方法如下。 无论硬分叉与否，这里介绍的方法都可以使用。
 
-#### Do not define `gasPrice` field
+#### 不要定义 "gasPrice "字段
 
-If you create an instance without defining the `gasPrice` field, the `gasPrice` field is automatically set when you call `tx.sign` or `tx.signAsFeePayer` to sign a transaction.
+如果创建实例时未定义 `gasPrice` 字段，则在调用 `tx.sign` 或 `tx.signAsFeePayer` 签署交易时会自动设置 `gasPrice` 字段。
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 await tx.sign(from, tx) // Before signing, gasPrice is set inside `tx.sign`.
 ```
 
-#### Use `tx.fillTransaction` method
+#### 使用 `tx.fillTransaction` 方法
 
-You can use `tx.fillTransaction`, a function that fills the optional fields of a transaction with appropriate values when they are omitted.
+您可以使用 `tx.fillTransaction`，该函数会在省略事务的可选字段时，为其填充适当的值。
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 await tx.fillTransaction() // Fill the optional tx fields. 
 ```
 
-#### Use `tx.suggestGasPrice` method
+#### 使用 `tx.suggestGasPrice` 方法
 
-You can set the `gasPrice` with the result of `tx.suggestGasPrice` which returns the recommended gas price.
+您可以使用 `tx.suggestGasPrice` 的结果设置 `gasPrice` ，该结果会返回推荐的gas价格。
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 tx.gasPrice = await tx.suggestGasPrice() 
 ```
 
-For more information about the gas price, see [Gas and Unit Price Overview](../../../learn/transaction-fees.md#gas-and-unit-price-overview) The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice).
+有关gas价格的更多信息，请参阅 [Gas and Unit Price Overview](../../../learn/transaction-fees.md#gas-and-unit-price-overview) 网络中使用的gas价格可通过 [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice) 获得。
 
-## Links <a href="#links" id="links"></a>
+## 链接<a href="#links" id="links"></a>
 
 - caver-js [GitHub repository](https://github.com/kaiachain/caver-js)
 - caver-js on [npm](https://www.npmjs.com/package/caver-js)
