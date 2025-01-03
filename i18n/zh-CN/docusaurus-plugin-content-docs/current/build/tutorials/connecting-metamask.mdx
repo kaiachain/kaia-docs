@@ -1,0 +1,114 @@
+---
+id: connecting-metamask
+title: 将 MetaMask 连接到 Kaia
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# 将 MetaMask 连接到 Kaia
+
+![](/img/banners/kaia-metamask.png)
+
+> **注意**\*：MetaMask 主要用作以太坊钱包，但由于地址结构相同，它也与 Kaia 兼容。 Kaia 还有一个名为 [Kaia Wallet] 的浏览器扩展钱包(../tools/wallets/kaia-wallet.md)，因此除了 Remix 之外，它基本上提供了与 MetaMask 相同的功能。
+
+## 步骤 1. I安装 MetaMask <a href="#install-metamask" id="install-metamask" />
+
+* 本例中我们将使用 Chrome 浏览器。 ([**安装 Chrome**](https://www.google.com/intl/en_us/chrome/))。
+* 将 [**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) 添加到 Chrome 浏览器。
+
+  > **注意：** 如果使用其他浏览器，可能需要额外安装。
+* 点击 Chrome 浏览器右上角的图标，即可启动 MetaMask。
+
+## 步骤 2. 生成 MetaMask 钱包<a href="#generate-a-metamask" id="generate-a-metamask" />
+
+![Create a Wallet](/img/build/tutorials/new-to-metamask.png)
+
+* 点击[创建钱包]。
+* 设置密码
+* 您将得到一个 12 个字的种子短语；请将其备份到安全的地方。
+
+  > **注意：** 您只能使用种子短语恢复钱包。 与他人共享您的种子短语可能会导致您失去所有资金。 因此，建议您手动写下来或存储在离线设备中。
+
+![Seed phrase and Wallet](/img/build/tutorials/metamask-secret-backup.png)
+
+## 步骤 3. 连接至 Kaia 网络<a href="#connect-to-kaia-network" id="connect-to-kaia-network" />
+
+### A. 快速配置
+
+<Tabs>
+  <TabItem value="kaia-mainnet" label="Kaia Mainnet">使用<a href="https://chainlist.org/chain/8217">ChainList</a>进行一键配置，并按照说明操作。</TabItem>
+
+  <TabItem value="kairos-testnet" label="Kairos Testnet">使用<a href="https://chainlist.org/chain/1001">ChainList</a>进行一键配置，并按照说明操作。</TabItem>
+</Tabs>
+
+### B. 手动配置
+
+1. 点击上方的网络选项卡（默认为以太坊主网），然后选择 [添加网络]。
+
+![Add Network](/img/build/tutorials/mm-network-btn.png)
+
+2. 在**手动添加网络**页面输入以下 Kaia 网络详细信息，然后单击**保存**
+
+<Tabs>
+  <TabItem value="kaia-mainnet" label="Kaia Mainnet">
+    ```jsx title="Network Name "
+    Kaia Mainnet
+    ```
+
+    ```jsx title="New RPC URL "
+    https://public-en.node.kaia.io
+    ```
+
+    ```jsx title="Chain ID "
+    8217
+    ```
+
+    ```jsx title="Network Symbol "
+    KAIA
+    ```
+
+    ```jsx title="Block Explorer URL"
+    https://kaiascan.io
+    ```
+  </TabItem>
+
+  <TabItem value="开罗测试网" label="启明星测试网">
+    ```jsx title="Network Name "
+    Kairos Testnet
+    ```
+
+    ```jsx title="New RPC URL "
+    https://public-en-kairos.node.kaia.io
+    ```
+
+    ```jsx title="Chain ID "
+    1001
+    ```
+
+    ```jsx title="Network Symbol "
+    KAIA
+    ```
+
+    ```jsx title="Block Explorer URL"
+    https://kairos.kaiascan.io。
+    ```
+  </TabItem>
+</Tabs>
+
+## 步骤 4. 发送 KAIA<a href="#send-klay" id="send-klay" />
+
+**注意：** 以下步骤需要 KAIA。 在本指南中，我们将使用 Kairos Testnet。 您可以在 [**Kaia Faucet**](https://faucet.kaia.io) 中获得 Test KAIA。
+
+* 单击主页面上的[发送]，然后输入收件人地址和 KAIA 金额。
+
+![Send KAIA 1](/img/build/tutorials/kairos-metamask-send.png)
+
+**注意：** 发送 KAIA 属于支付交易，您需要使用 KAIA。
+
+* 自 Kaia v1.9.0 起，[动态燃气费机制](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) 已取代现有的固定价格政策。
+* 因此，您不必手动设置固定的燃气费。
+* 检查要发送的金额和交易费用，然后点击[确认]完成 KAIA 转账，之后您将被转到主页面。
+* 点击主页面上的[活动]确认交易历史。
+
+![Send KAIA 2](/img/build/tutorials/kairos-metamask-send-ii.png)

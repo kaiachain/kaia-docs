@@ -10,9 +10,9 @@
 
 블록체인에 앵커를 저장하는 과정입니다. 이는 외부 데이터의 해시가 포함된 트랜잭션을 생성하거나 외부 데이터를 참조하는 스마트 컨트랙트를 생성하여 수행할 수 있습니다(예: [서비스 체인에 앵커링](../nodes/service-chain/configure/anchoring.md)).
 
-### Kairos
+### BFT-based public blockchain
 
-카이아 플랫폼의 퍼블릭 테스트넷입니다. 개발자가 메인넷에 배포하기 전에 애플리케이션을 테스트하고 검증하는 데 사용됩니다.
+This is a blockchain that utilizes Byzantine Fault Tolerance (BFT), ensuring consensus can be reached even if some nodes fail or act maliciously. The system relies on algorithms designed to handle up to ⅓ of nodes behaving incorrectly or dishonestly, without compromising the integrity of the network.
 
 ### 블록 탐색기
 
@@ -97,6 +97,10 @@ This is the world state of accounts in Kaia containing the balances, storage var
 ### 카이아 네트워크 식별자(KNI, Kaia network identifier)
 
 카이아 노드를 식별하기 위한 고유한 리소스 식별자 체계입니다. nodeID, 호스트명, 포트, 디스크로 구성됩니다.
+
+### Kairos
+
+카이아 플랫폼의 퍼블릭 테스트넷입니다. 개발자가 메인넷에 배포하기 전에 애플리케이션을 테스트하고 검증하는 데 사용됩니다.
 
 ### 제안자
 

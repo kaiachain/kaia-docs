@@ -1,0 +1,190 @@
+# 取消
+
+**TxTypeCancel** 取消事务池中具有相同 nonce 的事务的执行。 当已提交的交易在一定时间内似乎未得到处理时，这种交易类型就很有用。
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxCancelType.js
+const { KlaytnWeb3, TxType } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const tx = {
+    type: TxType.Cancel,
+    from: senderAddr,
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+TxCancelType.js
+signedTx 0xe9a22708a547b5db4b1787603bdeed4b530b83ca2ba277dffba265061e675896
+receipt {
+  blockHash：0x8d3772ae12e4ef79b22631a10d02b2b731e3b099327fd58367e3374639aed4ca',
+  blockNumber: 148742706n,
+  cumulativeGasUsed：21000n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed：21000n,
+  logs：[],
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status：1n,
+  to：0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  transactionHash: '0xe9a22708a547b5db4b1787603bdeed4b530b83ca2ba277dffba265061e675896',
+  transactionIndex：0n,
+  type：0n
+}
+
+```
+
+</CH.Code>
+
+---
+
+导入 **web3** 和 **@kaiachain/web3js-ext** 软件包，在 web3 上添加 kaia 功能
+
+```js TxCancelType.js focus=1:2
+
+```
+
+---
+
+定义**发件人地址和发件人私人密钥**
+
+```js TxCancelType.js focus=4:5
+
+```
+
+---
+
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3js 中的提供者是访问区块链数据的只读抽象。
+
+```js TxCancelType.js focus=8
+
+```
+
+---
+
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
+
+```js TxCancelType.js focus=8
+const { KlaytnWeb3, TxType } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const tx = {
+    type: TxType.Cancel,
+    from: senderAddr,
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+使用提供程序创建**KlaytnWeb3**实例
+
+```js TxCancelType.js focus=9
+
+```
+
+---
+
+使用**web3.eth.accounts.privateKeyToAccount**将发件人的私人密钥转换为一个账户
+
+```js TxCancelType.js focus=10
+
+```
+
+---
+
+为取消交易定义一个交易对象，参数 `type：TxType.Cancel` 和 `from: senderAddr` 为必填参数
+
+```js TxCancelType.js focus=12:15
+
+```
+
+---
+
+用**发送人**的账户签署交易
+
+<CH.Code>
+``js TxCancelType.js focus=17:18
+
+````
+
+
+---
+
+```zsh output
+❯ node TxCancelType.js
+signedTx 0xe9a22708a547b5db4b1787603bdeed4b530b83ca2ba277dffba265061e675896
+````
+
+</CH.Code>
+
+---
+
+将已签名的交易发送到区块链，并打印**收据**
+
+<CH.Code>
+``js TxCancelType.js focus=20:21
+
+```
+
+
+---
+
+``zsh output
+‖ node TxCancelType.js
+receipt {
+  blockHash: '0x8d3772ae12e4ef79b22631a10d02b2b731e3b099327fd58367e3374639aed4ca',
+  blockNumber: 148742706n,
+  cumulativeGasUsed：21000n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed：21000n,
+  logs：[],
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status：1n,
+  to：0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  transactionHash: '0xe9a22708a547b5db4b1787603bdeed4b530b83ca2ba277dffba265061e675896',
+  transactionIndex：0n,
+  type：0n
+}
+```
+
+</CH.Code>
+</CH.Spotlight>

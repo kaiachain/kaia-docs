@@ -39,11 +39,11 @@ Download a compressed file to the new directory. URLs can be found at the bottom
 
 - Option 1. curl
   ```sh
-  curl -O https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  curl -O https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 - Option 2. wget
   ```sh
-  wget https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  wget https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 - Option 3. axel
   ```sh
@@ -52,7 +52,15 @@ Download a compressed file to the new directory. URLs can be found at the bottom
   sudo yum install axel pigz
 
   # Multi-threaded download and print status bar
-  axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
+  axel -n8 https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
+  ```
+- Option 4. aria2
+  ```sh
+  # Rocky Linux installation example
+  sudo yum install epel-release aria2
+
+  # Lightweight, multi-connection download
+  aria2c https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 
 ## Decompress the File
@@ -63,7 +71,7 @@ Download a compressed file to the new directory. URLs can be found at the bottom
   ```
 - Option 2. tar and pigz
   ```sh
-  # Amazon Linux installation example
+  # Amazon Linux & Rocky Linux installation example
   sudo yum install pigz
 
   # Multi-threaded decompression

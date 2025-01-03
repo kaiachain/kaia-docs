@@ -1,0 +1,197 @@
+TxTypeLegacyTransaction 代表 kaia 以前存在的一种事务类型。
+
+\*\*这种类型的交易可以创建账户、转移代币、部署智能合约、执行智能合约，或者执行上述交易的混合。
+
+<CH.Spotlight>
+
+<CH.Code>
+
+```js txTypeLegacyTransaction.js
+const { Web3, KlaytnWeb3, toPeb } = require("@kaiachain/web3js-ext");
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+const receiverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const tx = {
+    to: receiverAddr,
+    value: toPeb("0.01", "KLAY"),
+    from: senderAddr,
+  };
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+  const senderTx = await web3.eth.accounts.signTransaction(tx, senderAccount.privateKey);
+  console.log(senderTx);
+  const sendResult = await web3.eth.sendSignedTransaction(senderTx.rawTransaction);
+  const receipt = await web3.eth.getTransactionReceipt(sendResult.transactionHash);
+  console.log({ receipt });
+}
+main();
+```
+
+---
+
+```zsh output
+节点 txTypeLegacyTransaction.js
+signedTx 0x96b41f32f35f38ddd3e21aed8e8aa929ea6514ecf9f0b898014b00734056cc47
+receipt {
+  blockHash：0x5899dcdd7346e6b98872f93d9d74d39a118db628e8b75c08a5094b5ae2ef6314',
+  blockNumber: 148742598n,
+  cumulativeGasUsed：205837n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed：21000n,
+  logs：[],
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status：1n,
+  to：0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  transactionHash: '0x96b41f32f35f38ddd3e21aed8e8aa929ea6514ecf9f0b898014b00734056cc47',
+  transactionIndex：1n,
+  类型：2n
+}
+```
+
+</CH.Code>
+
+---
+
+导入 **web3** 和 **@kaiachain/web3js-ext** 软件包，在 web3 上添加 kaia 功能
+
+```js txTypeLegacyTransaction.js focus=1
+
+```
+
+---
+
+定义**发送方、接收方地址和发送方私人密钥**
+
+```js txTypeLegacyTransaction.js focus=2:4
+
+```
+
+---
+
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3js 中的提供者是访问区块链数据的只读抽象。
+
+```js txTypeLegacyTransaction.js focus=6
+
+```
+
+---
+
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
+
+```js txTypeLegacyTransaction.js focus=6
+const { Web3, KlaytnWeb3, toPeb } = require("@kaiachain/web3js-ext");
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+const receiverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const tx = {
+    to: receiverAddr,
+    value: toPeb("0.01", "KLAY"),
+    from: senderAddr,
+  };
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+  const senderTx = await web3.eth.accounts.signTransaction(tx, senderAccount.privateKey);
+  console.log(senderTx);
+  const sendResult = await web3.eth.sendSignedTransaction(senderTx.rawTransaction);
+  const receipt = await web3.eth.getTransactionReceipt(sendResult.transactionHash);
+  console.log({ receipt });
+}
+main();
+```
+
+---
+
+使用提供程序创建**KlaytnWeb3**实例
+
+```js txTypeLegacyTransaction.js focus=7
+
+```
+
+---
+
+定义交易数据，包括从（发送方地址）、到（接收方地址）、值（转账金额，使用 **toPeb** 在 Klay 中设置值，然后进行转换）
+
+```js txTypeLegacyTransaction.js focus=8:12
+
+```
+
+---
+
+使用 **privateKeyToAccount** 方法，可以用发送者的私钥创建账户实例。
+
+```js txTypeLegacyTransaction.js focus=13
+
+```
+
+---
+
+**signTransaction** 方法与发件人账户签署交易。
+
+<CH.Code>
+``js txTypeLegacyTransaction.js focus=14:15
+
+```
+
+---
+``zsh output
+‖ node txTypeLegacyTransaction.js
+signedTx 0x96b41f32f35f38ddd3e21aed8e8aa929ea6514ecf9f0b898014b00734056cc47
+```
+
+</CH.Code>
+
+---
+
+**sendSignedTransaction** 方法将已签名的交易发送到区块链中。
+
+```js txTypeLegacyTransaction.js focus=16
+
+```
+
+---
+
+**getTransactionReceipt** 方法返回交易收据。
+
+```js txTypeLegacyTransaction.js focus=17
+
+```
+
+---
+
+最后，得到结果。
+
+<CH.Code>
+
+```js txTypeLegacyTransaction.js focus=18
+
+```
+
+---
+
+```zsh output
+❯ node txTypeLegacyTransaction.js
+receipt {
+  blockHash: '0x5899dcdd7346e6b98872f93d9d74d39a118db628e8b75c08a5094b5ae2ef6314',
+  blockNumber: 148742598n,
+  cumulativeGasUsed: 205837n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 21000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  transactionHash: '0x96b41f32f35f38ddd3e21aed8e8aa929ea6514ecf9f0b898014b00734056cc47',
+  transactionIndex: 1n,
+  type: 2n
+}
+```
+
+</CH.Code>
+
+</CH.Spotlight>

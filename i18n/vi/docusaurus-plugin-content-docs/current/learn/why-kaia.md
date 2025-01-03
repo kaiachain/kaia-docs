@@ -22,7 +22,7 @@ Kaia Blockchain aims to become Asia's #1 blockchain, leading the adoption of Web
 
 1. **High Performance**:
    - Main chain handles at least 4,000 TPS with immediate transaction finality and one-second block generation time.
-   - Scalability through customizable and easily deployable [Service Chains](scaling-solutions.md#service-chain) as <LinkWithTooltip tooltip="L2 (level 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solutions.
+   - Scalability through customizable and easily deployable [Service Chains](scaling-solutions.md#service-chain) as <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solutions.
 
 2. **Ethereum Compatibility**:
    - 100% compatibility ensures EVM-based dApps can be onboarded without modifications.

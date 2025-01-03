@@ -10,7 +10,7 @@ In this guide, you'll learn how to use the viem library to read data from the bl
 
 ## Prerequisites
 
-- Code-Editor: a source-code editor such as [VS-Code](https://code.visualstudio.com/download).
+- Code-Editor: a source-code editor such as [VS Code](https://code.visualstudio.com/download).
 - [Metamask](../../../build/tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.

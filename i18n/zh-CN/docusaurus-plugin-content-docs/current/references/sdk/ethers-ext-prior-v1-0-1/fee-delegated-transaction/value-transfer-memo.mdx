@@ -1,0 +1,252 @@
+# Value Transfer With Memo
+
+**TxTypeValueTransferMemo** 用于用户发送带有特定信息的 KAIA。
+
+# Fee Delegation
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransferMemo.js
+    const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
+    const ethers = require("ethers");
+
+    const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+    const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+    const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+    const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+    const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+    async function main() {
+      const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+      const senderWallet = new Wallet(senderPriv, provider);
+      const feePayerWallet = new Wallet(feePayerPriv, provider);
+
+      let tx = {
+        type: TxType.FeeDelegatedValueTransferMemo,
+        to: recieverAddr,
+        value: parseKlay("0.01"),
+        from: senderAddr,
+        input: "0x1234567890",
+      };
+
+      tx = await senderWallet.populateTransaction(tx);
+      console.log(tx);
+
+      const senderTxHashRLP = await senderWallet.signTransaction(tx);
+      console.log("senderTxHashRLP", senderTxHashRLP);
+
+      const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
+      console.log("sentTx", sentTx);
+
+      const rc = await sentTx.wait();
+      console.log("receipt", rc);
+    }
+
+    main();
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxTypeFeeDelegatedValueTransferMemo.js
+    senderTxHashRLP 0x11f88d8203ac850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f5a0bf499bb98ac755430724cb9cf8deb3e2d43baa0f4dc97036d06bd66c91e74f2ca0092f32dbabd626964eeccfe7a1cfc0d14088ece28f7efde952c341428a531785
+    sentTx 0xac225ead53297c95b747abd84e7224ecbc1b40f459a532fd22a67143aa83b4ae
+    receipt {
+      to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      contractAddress: null,
+      transactionIndex: 0,
+      gasUsed: BigNumber { _hex: '0x7b0c', _isBigNumber: true },
+      logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      blockHash: '0xbc02b7afb16657cd1ec45bb6b7445767eb265702ae766dfc8bda3503f74d81a7',
+      transactionHash: '0xac225ead53297c95b747abd84e7224ecbc1b40f459a532fd22a67143aa83b4ae',
+      logs: [],
+      blockNumber: 148732018,
+      confirmations: 2,
+      cumulativeGasUsed: BigNumber { _hex: '0x7b0c', _isBigNumber: true },
+      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status: 1,
+      type: 0,
+      byzantium: true
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  导入 **ethers** 和 **@kaiachain/ethers-ext** 软件包，在 ethers.js 上添加 kaia 功能
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=1:2
+  ```
+
+  ---
+
+  定义**发件人地址、发件人私人密钥、缴费人地址、缴费人私人密钥和收件人地址**
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=4:8
+  ```
+
+  ---
+
+  使用指定的 **kairos** 测试网 URL 设置提供程序。 以太坊中的提供者是访问区块链数据的只读抽象。
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
+  ```
+
+  ---
+
+  此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
+  const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
+  const ethers = require("ethers");
+
+  const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+  const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+  const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+  const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+  const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+  async function main() {
+    const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+    const senderWallet = new Wallet(senderPriv, provider);
+    const feePayerWallet = new Wallet(feePayerPriv, provider);
+
+    let tx = {
+      type: TxType.FeeDelegatedValueTransferMemo,
+      to: recieverAddr,
+      value: parseKlay("0.01"),
+      from: senderAddr,
+      input: "0x1234567890",
+    };
+
+    tx = await senderWallet.populateTransaction(tx);
+    console.log(tx);
+
+    const senderTxHashRLP = await senderWallet.signTransaction(tx);
+    console.log("senderTxHashRLP", senderTxHashRLP);
+
+    const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
+    console.log("sentTx", sentTx);
+
+    const rc = await sentTx.wait();
+    console.log("receipt", rc);
+  }
+
+  main();
+  ```
+
+  ---
+
+  用私人密钥创建发件人钱包
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=12
+  ```
+
+  ---
+
+  用私人密钥创建缴费人钱包
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=13
+  ```
+
+  ---
+
+  用 **类型、来自、至、值、输入**等字段声明事务。
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=15:21
+  ```
+
+  ---
+
+  使用**senderWallet.populateTransaction**为交易填充附加信息
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransferMemo.js focus=23:24
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxTypeFeeDelegatedValueTransferMemo.js
+    {
+      type: 17,
+      to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+      value: BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
+      from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+      input: '0x1234567890',
+      nonce: 762,
+      gasLimit: 52500,
+      gasPrice: BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
+      chainId: 1001
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  用**发送方的私人密钥**签署交易
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransferMemo.js focus=26:27
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxTypeFeeDelegatedValueTransferMemo.js
+    senderTxHashRLP 0x11f88d8202fa850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f6a055c20733cb08839d352e8ccbfd9f977ea8ba6cdf1dfad117931a5ca2a6e0b58aa06a777f842b4f23f4ad24309408c78b315f788bcca60826bd68083827f070ee49
+    ```
+  </CH.Code>
+
+  ---
+
+  使用付费者的钱包将交易发送到区块链上。 函数 "sendTransactionAsFeePayer "会在发送者的签名上添加一个带有 FeePayer 私钥的签名，并将其传输到区块链网络。
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransferMemo.js focus=29:30
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxTypeFeeDelegatedValueTransferMemo.js
+    sentTx 0xac225ead53297c95b747abd84e7224ecbc1b40f459a532fd22a67143aa83b4ae
+    ```
+  </CH.Code>
+
+  ---
+
+  如果 tx 已成功发送到区块链，**wait** 函数将返回 tx 收据。
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransferMemo.js focus=32:33
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxTypeFeeDelegatedValueTransferMemo.js
+    receipt {
+      to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      contractAddress: null,
+      transactionIndex: 1,
+      gasUsed: BigNumber { _hex: '0x7b0c', _isBigNumber: true },
+      logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      blockHash: '0x599e1d0b915bd00eac2a80ddaa1bf7bd91c8b21c9223aaaed1f5f3cb2d5d446c',
+      transactionHash: '0xfa2ae54df3314cdeb3c0fcf6ef970634a06e7d976d5a4e7146b03471e972f851',
+      logs: [],
+      blockNumber: 143462707,
+      confirmations: 1,
+      cumulativeGasUsed: BigNumber { _hex: '0x034d11', _isBigNumber: true },
+      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status: 1,
+      type: 0,
+      byzantium: true
+    }
+    ```
+  </CH.Code>
+
+  ---
+</CH.Spotlight>

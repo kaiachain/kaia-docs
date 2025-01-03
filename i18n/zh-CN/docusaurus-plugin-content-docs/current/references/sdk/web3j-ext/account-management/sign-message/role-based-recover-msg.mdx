@@ -1,0 +1,242 @@
+# Role-based Account Key
+
+**AccountKeyRoleBased** 表示基于角色的密钥。 如果账户有一个** AccountKeyRoleBased**对象，且交易类型为**除账户更新外的**，那么验证过程将根据每个角色进行，如下所示：
+
+<CH.Spotlight>
+<CH.Code>
+
+```java SignMsgWithRoleBasedExample.java
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlaySignatureData;
+import org.web3j.crypto.Sign.SignatureData;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
+
+/**
+ *
+ */
+public class SignMsgWithRoleBasedExample implements keySample {
+        /**
+         *
+         */
+
+        public static void run() throws Exception {
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credentials1 = KlayCredentials.create(keySample.ROLEBASED_KEY_transactionkey,
+                                keySample.ROLEBASED_KEY_address);
+                KlayCredentials credentials2 = KlayCredentials.create(keySample.ROLEBASED_KEY_updatekey,
+                                keySample.ROLEBASED_KEY_address);
+                KlayCredentials credentials3 = KlayCredentials.create(keySample.ROLEBASED_KEY_feepayer,
+                                keySample.ROLEBASED_KEY_address);
+                String from = credentials1.getAddress();
+                String message = "0xdeadbeef";
+                String blockNumber = "latest";
+
+                SignatureData signature1 = KlaySignatureData.signPrefixedMessage(message, credentials1);
+                String result1 = KlaySignatureData.getSignatureString(signature1);
+
+                SignatureData signature2 = KlaySignatureData.signPrefixedMessage(message, credentials2);
+                String result2 = KlaySignatureData.getSignatureString(signature2);
+
+                SignatureData signature3 = KlaySignatureData.signPrefixedMessage(message, credentials3);
+                String result3 = KlaySignatureData.getSignatureString(signature3);
+
+                KlayRecoverFromMessageResponse response1 = web3j
+                                .klayRecoverFromMessage(from, message, result1, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response2 = web3j
+                                .klayRecoverFromMessage(from, message, result2, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response3 = web3j
+                                .klayRecoverFromMessage(from, message, result3, blockNumber)
+                                .send();
+                System.out.println("Original address : " + from);
+                System.out.println("Result address for transaction key : " + response1.getResult());
+                System.out.println("Result address for update key : " + response2.getResult());
+                System.out.println("Result address for feepayer key : " + response3.getResult());
+
+                web3j.shutdown();
+
+        }
+
+}
+```
+
+---
+
+```zsh output
+❯ java SignMsgWithRoleBasedExample.java
+Original address : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
+Result address for transaction key : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+Result address for update key : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
+Result address for feepayer key : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+```
+
+</CH.Code>
+
+---
+
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
+
+```java SignMsgWithRoleBasedExample.java focus=1:12
+
+```
+
+---
+
+使用指定的 BAOBAB_URL 创建 Web3j 实例
+
+```java SignMsgWithRoleBasedExample.java focus=23
+
+```
+
+---
+
+此外，您还可以更改默认提供商。 例如，使用alchemy提供商。
+
+```java SignMsgWithRoleBasedExample.java focus=23
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlaySignatureData;
+import org.web3j.crypto.Sign.SignatureData;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
+
+/**
+ *
+ */
+public class SignMsgWithRoleBasedExample implements keySample {
+        /**
+         *
+         */
+
+        public static void run() throws Exception {
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credentials1 = KlayCredentials.create(keySample.ROLEBASED_KEY_transactionkey,
+                                keySample.ROLEBASED_KEY_address);
+                KlayCredentials credentials2 = KlayCredentials.create(keySample.ROLEBASED_KEY_updatekey,
+                                keySample.ROLEBASED_KEY_address);
+                KlayCredentials credentials3 = KlayCredentials.create(keySample.ROLEBASED_KEY_feepayer,
+                                keySample.ROLEBASED_KEY_address);
+                String from = credentials1.getAddress();
+                String message = "0xdeadbeef";
+                String blockNumber = "latest";
+
+                SignatureData signature1 = KlaySignatureData.signPrefixedMessage(message, credentials1);
+                String result1 = KlaySignatureData.getSignatureString(signature1);
+
+                SignatureData signature2 = KlaySignatureData.signPrefixedMessage(message, credentials2);
+                String result2 = KlaySignatureData.getSignatureString(signature2);
+
+                SignatureData signature3 = KlaySignatureData.signPrefixedMessage(message, credentials3);
+                String result3 = KlaySignatureData.getSignatureString(signature3);
+
+                KlayRecoverFromMessageResponse response1 = web3j
+                                .klayRecoverFromMessage(from, message, result1, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response2 = web3j
+                                .klayRecoverFromMessage(from, message, result2, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response3 = web3j
+                                .klayRecoverFromMessage(from, message, result3, blockNumber)
+                                .send();
+                System.out.println("Original address : " + from);
+                System.out.println("Result address for transaction key : " + response1.getResult());
+                System.out.println("Result address for update key : " + response2.getResult());
+                System.out.println("Result address for feepayer key : " + response3.getResult());
+
+                web3j.shutdown();
+
+        }
+
+}
+```
+
+---
+
+从他们的密钥对中加载不同的**基于角色的证书**
+
+```java SignMsgWithRoleBasedExample.java focus=24:29
+
+```
+
+---
+
+获取第一个证书**地址**
+
+```java SignMsgWithRoleBasedExample.java focus=30
+
+```
+
+---
+
+定义要签署的任何信息
+
+```java SignMsgWithRoleBasedExample.java focus=31
+
+```
+
+---
+
+设置**区块编号**为 kaia 网络中的最新区块
+
+```java SignMsgWithRoleBasedExample.java focus=32
+
+```
+
+---
+
+使用所有 3 个基于角色的凭据依次签署**信息**，并以字符串形式输出签名
+
+```java SignMsgWithRoleBasedExample.java focus=34:41
+
+```
+
+---
+
+从 3 个报文回复中恢复**地址**，并与原始**发件人**地址进行比较
+
+<CH.Code>
+```java SignMsgWithRoleBasedExample.java focus=43:57
+
+````
+
+
+---
+
+```zsh output
+❯ java SignMsgWithRoleBasedExample.java
+Original address : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
+Result address for transaction key : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+Result address for update key : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
+Result address for feepayer key : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+````
+
+</CH.Code>
+
+---
+
+关闭 Web3j 实例
+
+```java SignMsgWithRoleBasedExample.java focus=59
+
+```
+
+</CH.Spotlight>

@@ -1,0 +1,124 @@
+# Read
+
+您可以通过 "调用 "RPC API 调用智能合约中的函数。 在这里可以调用的功能仅限于**视图函数**，不会改变合约中的任何状态。
+
+<CH.Spotlight>
+<CH.Code>
+
+```java ReadContractExample.java
+package org.web3j.example.contracts;
+
+import java.math.BigInteger;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.tx.gas.StaticGasProvider;
+
+public class ReadContractExample {
+    /**
+     * @throws Exception
+     *
+     */
+    public static void run() throws Exception {
+
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials credentials = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+        String contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+        BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+        StaticGasProvider gasProvider = new StaticGasProvider(GAS_PRICE, GAS_LIMIT);
+        Counter counter = Counter.load(contractAddr, web3j, credentials.convertToCredentials(), gasProvider);
+        System.out.println("Contract Call(number) Result : " + counter.number().send());
+
+    }
+
+}
+```
+
+---
+
+```zsh output
+❯ java ReadContractExample.java
+Contract Call(number) Result : 297
+```
+
+</CH.Code>
+
+---
+
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
+
+```java ReadContractExample.java focus=1:10
+
+```
+
+---
+
+使用**Web3j**连接到**Kaia**区块链，并指定 URL
+
+```java ReadContractExample.java focus=19
+
+```
+
+---
+
+使用私钥创建 **KlayCredentials**
+
+```java ReadContractExample.java focus=20
+
+```
+
+---
+
+指定**合约的地址**
+
+```java ReadContractExample.java focus=21
+
+```
+
+---
+
+确定交易的gas价格和gas限额
+
+```java ReadContractExample.java focus=22:23
+
+```
+
+---
+
+创建一个具有静态**gas价格**和**gas限额**的天然气供应商
+
+```java ReadContractExample.java focus=24
+
+```
+
+---
+
+使用**联系地址**、**Web3j 实例**、**凭据**和**气体提供商**加载合约。 您可以通过该实例读写合约
+
+```java ReadContractExample.java focus=25
+
+```
+
+---
+
+调用合约的 `counter.number().send()` 函数来获取存储值
+
+<CH.Code>
+```java ReadContractExample.java focus=26
+
+````
+
+
+---
+
+```zsh output
+❯ java ReadContractExample.java
+Contract Call(number) Result : 297
+````
+
+</CH.Code>
+</CH.Spotlight>

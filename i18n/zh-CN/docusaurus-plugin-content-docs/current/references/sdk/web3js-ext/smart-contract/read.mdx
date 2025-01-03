@@ -1,0 +1,153 @@
+# Read
+
+您可以通过 "调用 "RPC API 调用智能合约中的函数。 在这里可以调用的功能仅限于**视图函数**，不会改变合约中的任何状态。
+
+<CH.Spotlight>
+<CH.Code>
+
+```js smartContractRead.js
+const { Web3 } = require("@kaiachain/web3js-ext");
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const contractAbi = JSON.parse('[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]');
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
+  const number = await contract.methods.number().call();
+  console.log("number", number.toString());
+}
+
+main();
+```
+
+---
+
+```zsh output
+node smartContractRead.js
+number 294
+```
+
+</CH.Code>
+
+---
+
+导入 **web3** 和 **@kaiachain/web3js-ext** 软件包，在 web3 上添加 kaia 功能
+
+```js smartContractRead.js focus=1
+
+```
+
+---
+
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3js 中的提供者是访问区块链数据的只读抽象。
+
+```js smartContractRead.js focus=3:4
+
+```
+
+---
+
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
+
+```js smartContractRead.js focus=3:4
+const { Web3 } = require("@kaiachain/web3js-ext");
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const contractAbi = JSON.parse('[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]');
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
+  const number = await contract.methods.number().call();
+  console.log("number", number.toString());
+}
+
+main();
+```
+
+---
+
+定义合同 Abi 和 addreess，可从编译后的 solidity 代码中获取
+
+```js smartContractRead.js focus=29:30
+
+```
+
+---
+
+使用定义了 **contractAbi** 和 **address** 的 `Web3.eth.Contract`创建合约实例。 您可以通过该实例读写合约
+
+```js smartContractRead.js focus=33
+
+```
+
+---
+
+调用已创建合约的**号**函数并打印结果
+
+<CH.Code>
+``js smartContractRead.js focus=34:35
+
+````
+
+
+---
+
+```zsh output
+❯ node smartContractRead.js
+number 294
+````
+
+</CH.Code>
+</CH.Spotlight>
