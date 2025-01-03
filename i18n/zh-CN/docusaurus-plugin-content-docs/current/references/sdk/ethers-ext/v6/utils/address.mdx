@@ -1,6 +1,6 @@
 # Address
 
-Utils for compressing public key.
+用于压缩公钥的工具。
 
 <CH.Spotlight>
   <CH.Code>
@@ -39,14 +39,14 @@ Utils for compressing public key.
 
   ---
 
-  Import the **getCompressedPublicKey** from **@kaiachain/ethers-ext** packages
+  从\*\*@kaiachain/ethers-ext**软件包中导入**getCompressedPublicKey\*\*。
 
   ```js addressUtils.js focus=1
   ```
 
   ---
 
-  To compress a public key from `{x, y}` format to hexadecimal, use `getCompressedPublicKey` with the **public key object** as param
+  要将公钥从{x, y}格式压缩为十六进制，请使用 `getCompressedPublicKey` 并将**公钥对象**作为参数
 
   <CH.Code>
     ```js addressUtils.js focus=4:11
@@ -76,7 +76,7 @@ Utils for compressing public key.
 
   ---
 
-  Otherwise if you want to compress the **public key** from **uncompressed hexadecimal**, use `getCompressedPublicKey` with the **uncompress public key** as param
+  否则，如果要压缩未压缩十六进制**的**公钥\*\*，请使用 `getCompressedPublicKey` 并将**未压缩公钥**作为参数
 
   <CH.Code>
     ```js addressUtils.js focus=4:9
