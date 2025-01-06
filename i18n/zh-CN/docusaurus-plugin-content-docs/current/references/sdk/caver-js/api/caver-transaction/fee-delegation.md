@@ -4,7 +4,7 @@ sidebar_label: 费用委托
 
 # 收费委托类型 交易类型
 
-## FeeDelegatedValueTransfer <0></0>
+## FeeDelegatedValueTransfer <a id="feedelegatedvaluetransfer"></a>
 
 ```javascript
 caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
