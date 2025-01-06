@@ -203,6 +203,7 @@ const sidebars = {
                 'build/tools/wallets/kaia-safe/use-kaia-safe',
                 'build/tools/wallets/kaia-safe/contract-interaction',
                 'build/tools/wallets/kaia-safe/tx-builder',
+                'build/tools/wallets/kaia-safe/csv-airdrop',
                 'build/tools/wallets/kaia-safe/faqs',
                 'build/tools/wallets/kaia-safe/kaia-safe-api-kit'
               ],
