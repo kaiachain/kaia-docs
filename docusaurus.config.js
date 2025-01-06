@@ -31,24 +31,31 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ko', 'vi'],
+    locales: ['en', 'ko', 'zh-CN', 'vi'],
     path: 'i18n',
     localeConfigs: {
-      en: {
+      'en': {
         label: 'English',
         direction: 'ltr',
         htmlLang: 'en-US',
         calendar: 'gregory',
         path: 'en',
       },
-      ko: {
+      'ko': {
         label: '한국어',
         direction: 'ltr',
         htmlLang: 'ko',
         calendar: 'gregory',
         path: 'ko',
       },
-      vi: {
+      'zh-CN': {
+        label: '简体中文',
+        direction: 'ltr',
+        htmlLang: 'zh-Hans',
+        calendar: 'gregory',
+        path: 'zh-CN',
+      },
+      'vi': {
         label: 'Tiếng Việt',
         direction: 'ltr',
         htmlLang: 'vi',
