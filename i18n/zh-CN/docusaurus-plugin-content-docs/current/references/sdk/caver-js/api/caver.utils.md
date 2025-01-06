@@ -1756,7 +1756,7 @@ caver.utils.isKlaytnWalletKey(key)
 
 | 类型      | 说明                                                                                                  |
 | ------- | --------------------------------------------------------------------------------------------------- |
-| boolean | true "表示密钥为 "0x{private key}0x{type}0x{address in hex}"或 "{private key}0x{type}0x{address in hex}"。 |
+| boolean | `true`表示密钥为 `0x{private key}0x{type}0x{address in hex}`或 `{private key}0x{type}0x{address in hex}`。 |
 
 **示例**
 
