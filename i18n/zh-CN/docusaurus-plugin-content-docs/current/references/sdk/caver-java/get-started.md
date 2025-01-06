@@ -259,7 +259,7 @@ String[] privateKeyArray = new String[] {"0x{private key#1}", "0x{private key#2}
 MultipleKeyring multipleKeyring = caver.wallet.keyring.createWithMultipleKey(address, privateKeyArray)；
 ```
 
-#### 创建带有私钥的 RoleBasedKeyring <0></0>
+#### 创建带有私钥的 RoleBasedKeyring <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
 要为每个 "角色 "使用不同的私钥，需要使用 "caver.wallet.keyring.createWithRoleBasedKey"。 每个数组元素代表一个在 `RoleBasedKeyring` 中描述的角色。 下面的示例展示了如何根据每个角色的不同密钥创建一个 `RoleBasedKeyring` 实例。
 
