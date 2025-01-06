@@ -81,9 +81,9 @@ FeeDelegatedValueTransferMemoWithRatio\` 的成员变量属性如下。 标记�
 :::note
 
 注意：您可以通过 RLP 编码字符串创建 `FeeDelegatedValueTransferMemoWithRatio` 的实例。 请参考下面的示例。
-注意："caver.transaction.feeDelegatedValueTransferMemoWithRatio.create "从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
+注意：`caver.transaction.feeDelegatedValueTransferMemoWithRatio.create `从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
 
-注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用 "new caver.transaction.feeDelegatedValueTransferMemoWithRatio({...}) "这样的构造函数创建事务，请将其更改为 "caver.transaction.feeDelegatedValueTransferMemoWithRatio.create({...})"。
+注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用 `new caver.transaction.feeDelegatedValueTransferMemoWithRatio({...})`这样的构造函数创建事务，请将其更改为 `caver.transaction.feeDelegatedValueTransferMemoWithRatio.create({...})`。
 
 :::
 
