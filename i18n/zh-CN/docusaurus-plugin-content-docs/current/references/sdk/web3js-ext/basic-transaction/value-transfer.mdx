@@ -1,0 +1,192 @@
+# alchemy
+
+TxTypeValueTransfer 用于用户发送 KAIA。
+
+- 由于 kaia 提供了多种交易类型，使每种交易类型只服务于一个目的，因此 TxTypeValueTransfer 只限于将 KAIA 发送到外部拥有的账户（EOA）。
+
+<CH.Spotlight>
+<CH.Code>
+
+```js txTypeValueTransferTransaction.js
+const { KlaytnWeb3, TxType, toPeb } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const tx = {
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: toPeb("0.01", "KLAY"),
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node txTypeLegacyTransaction.js
+signedTx 0x9f7ef299e96a4648ccef2195897380ecd2bed589aac93d8711049e864dcdbca8
+receipt {
+  blockHash: '0x07fa42d5461f851a38014ff9a1f0b042d7ea79de63c487cdef28f15db37e7328',
+  blockNumber: 148742320n,
+  cumulativeGasUsed: 205837n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 21000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  transactionHash: '0x9f7ef299e96a4648ccef2195897380ecd2bed589aac93d8711049e864dcdbca8',
+  transactionIndex: 1n,
+  type: 0n
+}
+```
+
+</CH.Code>
+
+---
+
+导入 **web3** 和 **@kaiachain/web3js-ext** 软件包，在 web3 上添加 kaia 功能
+
+```js txTypeValueTransferTransaction.js focus=1:2
+
+```
+
+---
+
+定义**发送方、接收方地址和发送方私人密钥**
+
+```js txTypeValueTransferTransaction.js focus=3:6
+
+```
+
+---
+
+使用指定的 **kairos** 测试网 URL 设置提供程序。 web3js 中的提供者是访问区块链数据的只读抽象。
+
+```js txTypeValueTransferTransaction.js focus=9
+
+```
+
+---
+
+此外，您还可以更改默认提供商。 例如，使用alchemy提供者。
+
+```js txTypeValueTransferTransaction.js focus=9
+const { KlaytnWeb3, TxType, toPeb } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const tx = {
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: toPeb("0.01", "KLAY"),
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+使用提供程序创建**KlaytnWeb3**实例
+
+```js txTypeValueTransferTransaction.js focus=10
+
+```
+
+---
+
+声明事务参数，如 ** 类型、从、到、值**
+
+```js txTypeValueTransferTransaction.js focus=12:17
+
+```
+
+---
+
+用**发送方**账户签署交易
+
+<CH.Code>
+
+```js txTypeValueTransferTransaction.js focus=19:21
+
+```
+
+---
+
+```zsh output
+node txTypeValueTransferTransaction.js
+signedTx 0x9f7ef299e96a4648ccef2195897380ecd2bed589aac93d8711049e864dcdbca8
+```
+
+</CH.Code>
+
+---
+
+将已签名的交易发送到区块链，并打印**收据**
+
+<CH.Code>
+
+```js txTypeValueTransferTransaction.js focus=22:24
+
+```
+
+---
+
+```zsh output
+❯ node txTypeValueTransferTransaction.js
+receipt {
+  blockHash: '0x07fa42d5461f851a38014ff9a1f0b042d7ea79de63c487cdef28f15db37e7328',
+  blockNumber: 148742320n,
+  cumulativeGasUsed: 205837n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 21000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  transactionHash: '0x9f7ef299e96a4648ccef2195897380ecd2bed589aac93d8711049e864dcdbca8',
+  transactionIndex: 1n,
+  type: 0n
+}
+```
+
+</CH.Code>
+
+---
+
+</CH.Spotlight>

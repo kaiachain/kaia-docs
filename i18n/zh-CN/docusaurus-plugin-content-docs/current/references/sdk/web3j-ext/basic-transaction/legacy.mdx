@@ -1,0 +1,234 @@
+TxTypeLegacyTransaction 代表 kaia 以前存在的一种事务类型。
+
+\*\*这种类型的交易可以创建账户、转移代币、部署智能合约、执行智能合约，或者执行上述交易的混合。
+
+<CH.Spotlight>
+
+<CH.Code>
+
+```java txTypeLegacyTransaction.java
+package org.web3j.example.transactions;
+
+import java.io.IOException;
+import java.math.BigInteger;
+import org.web3j.crypto.Credentials;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.RawTransaction;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+
+public class LegacyExample implements keySample {
+        /**
+         *
+         */
+
+        public static void run() throws Exception {
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials klaycredentials = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+                Credentials credentials = Credentials.create(LEGACY_KEY_privkey);
+
+                BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+                BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+                String from = credentials.getAddress();
+                String to = "0x000000000000000000000000000000000000dead";
+                EthChainId EthchainId = web3j.ethChainId().send();
+                long chainId = EthchainId.getChainId().longValue();
+                BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+                                .getTransactionCount();
+                BigInteger value = BigInteger.valueOf(100);
+
+                // send legacy transaction with web3j-credentials
+                RawTransaction raw = KlayRawTransaction.createEtherTransaction(
+                                nonce,
+                                GAS_PRICE,
+                                GAS_LIMIT,
+                                to,
+                                value);
+
+                byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
+                String hexValue = Numeric.toHexString(signedMessage);
+                EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+                System.out.println(transactionResponse.getResult());
+
+                // send legacy transaction with web3j-ext klaycredentials
+                raw = KlayRawTransaction.createEtherTransaction(
+                                nonce,
+                                GAS_PRICE,
+                                GAS_LIMIT,
+                                to,
+                                value);
+
+                signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, klaycredentials);
+                hexValue = Numeric.toHexString(signedMessage);
+                transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+                System.out.println("TxHash : \n " + transactionResponse.getResult());
+                String txHash = transactionResponse.getResult();
+                int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
+                int DEFAULT_BLOCK_TIME = 1 * 1000;
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+                TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
+                                DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+                org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
+                                .waitForTransactionReceipt(txHash);
+                System.out.println("Receipt from eth_getTransactionReceipt : \n" + ethReceipt);
+                TransactionReceipt receipt = web3j.klayGetTransactionReceipt(txHash).send().getResult();
+                System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
+                web3j.shutdown();
+
+        }
+
+}
+```
+
+---
+
+```zsh output
+❯ java txTypeLegacyTransaction.java
+3.523785565427238379
+0xa02e0i90faef4323cb542312de9aac0
+```
+
+</CH.Code>
+
+---
+
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
+
+```java txTypeLegacyTransaction.java focus=1:20
+
+```
+
+---
+
+使用指定的 BAOBAB_URL 创建 Web3j 实例
+
+```java txTypeLegacyTransaction.java focus=27
+
+```
+
+---
+
+使用私人密钥创建新证书
+
+```java txTypeLegacyTransaction.java focus=28:29
+
+```
+
+---
+
+燃气**价格**和**gas 限值**设置
+
+```java txTypeLegacyTransaction.java focus=31:32
+
+```
+
+---
+
+设置发送方的**发件人地址和接收方的**收件人地址
+
+```java txTypeLegacyTransaction.java focus=33,34
+
+```
+
+---
+
+从网络中获取**chain ID**
+
+```java txTypeLegacyTransaction.java focus=35:36
+
+```
+
+---
+
+从网络上获取用户的**nonce**
+
+```java txTypeLegacyTransaction.java focus=37:38
+
+```
+
+---
+
+定义要从发送方转移到接收方的**值**
+
+```java txTypeLegacyTransaction.java focus=39
+
+```
+
+---
+
+使用上述参数创建原始**交易**
+
+```java txTypeLegacyTransaction.java focus=42:47
+
+```
+
+---
+
+对于 **web3j-credentials**，使用 `KlayTransactionEncoder.signMessage` 签署事务，并使用 `Numeric.toHexString` 将其编码为十六进制字符串。
+
+```java txTypeLegacyTransaction.java focus=49:50
+
+```
+
+---
+
+使用 `ethSendRawTransaction` 方法将签名交易发送到区块链。
+
+```java txTypeLegacyTransaction.java focus=51:52
+
+```
+
+---
+
+对于 **web3j-ext klaycredentials**，使用 `KlayRawTransaction.createEtherTransaction` 创建原始事务，使用 `KlayTransactionEncoder.signMessage` 签名，并使用 `Numeric.toHexString` 编码为十六进制字符串。
+
+```java txTypeLegacyTransaction.java focus=54:63
+
+```
+
+---
+
+使用 `ethSendRawTransaction` 方法将签名交易发送到区块链。
+
+```java txTypeLegacyTransaction.java focus=64:66
+
+```
+
+---
+
+获取返回的收据哈希值。
+
+<CH.Code>
+
+```java txTypeLegacyTransaction.java focus=67:76
+
+```
+
+---
+
+```zsh output
+java txTypeLegacyTransaction.java
+0xa02e0i90faef4323cb542312de9aac0
+```
+
+</CH.Code>
+
+---
+
+最后，关闭 web3j 实例
+
+```java txTypeLegacyTransaction.java focus=77
+
+```
+
+</CH.Spotlight>

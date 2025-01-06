@@ -24,7 +24,7 @@ Trong hướng dẫn này, bạn sẽ:
 
 Để làm theo hướng dẫn này, bạn cần đáp ứng các điều kiện tiên quyết sau:
 
-- Trình biên tập mã: một trình biên tập mã nguồn như [VS-Code](https://code.visualstudio.com/download).
+- Code editor: a source-code editor such [VS Code](https://code.visualstudio.com/download).
 - [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../references/public-en.md) được hỗ trợ.
 - KAIA thử nghiệm từ [Vòi](https://faucet.kaia.io): nạp tiền vào tài khoản với một lượng KAIA vừa đủ.
@@ -162,7 +162,7 @@ forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhd
 
 ![](/img/build/get-started/foundry-create.png)
 
-**Step 2**: Open [Kaiascope](https://kairos.kaiascope.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx) to check if the counter contract deployed successfully.
+**Step 2**: Open [Kaiascope](https://kairos.kaiascope.com/tx/0x83c8b55f3fd90110f9b83cd20df2b2bed76cfeb42447725af2d60b2885f479d3?tabId=internalTx) to check if the counter contract deployed successfully.
 
 **Bước 3**: Sao chép và dán hàm băm của giao dịch vào trường tìm kiếm và nhấn Enter. Bạn sẽ thấy hợp đồng vừa được triển khai.
 
@@ -181,7 +181,7 @@ cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
 **Ví dụ**
 
 ```bash
-cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://public-en-kairos.node.kaia.io
+cast call 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "number()" --rpc-url https://public-en-kairos.node.kaia.io
 ```
 
 **Kết quả đầu ra**
@@ -213,7 +213,7 @@ cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --
 **Ví dụ**
 
 ```bash
-cast send --rpc-url=https://public-en-kairos.node.kaia.io 0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
+cast send --rpc-url=https://public-en-kairos.node.kaia.io 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "setNumber(uint256)"  10 --private-key=<private key>
 ```
 
 **Kết quả đầu ra**
@@ -223,7 +223,7 @@ cast send --rpc-url=https://public-en-kairos.node.kaia.io 0xe4d576c447733da7ca91
 **Kiểm tra chéo số**
 
 ```bash
-cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://public-en-kairos.node.kaia.io
+cast call 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "number()" --rpc-url https://public-en-kairos.node.kaia.io
 ```
 
 **Kết quả đầu ra**

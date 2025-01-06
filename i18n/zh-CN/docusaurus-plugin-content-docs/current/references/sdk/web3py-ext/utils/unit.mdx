@@ -1,0 +1,68 @@
+# 单位
+
+对于单位转换，Kaia-sdk 支持用于转换 `kaia`、`Gkei` 和 `kei` 的实用程序。 请参阅 [支持的单位](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-) 。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```py unit_utils.py
+    from web3py_ext import extend
+    from web3 import Web3
+
+    def main():
+        # convert from (kei/Gkei/kaia) to kei
+        print("From Kaia to Kei", Web3.to_kei(1, 'Gkei'))
+
+        # convert from kei to (kei/Gkei/kaia)
+        print('From Kei to Kaia',Web3.from_kei(1000000000000000000,'kaia'))
+
+    main()
+    ```
+
+    ---
+
+    ```zsh output
+    py unit_utils.py
+    From Kaia to Kei 1
+    From Kei to Kaia 1
+    ```
+  </CH.Code>
+
+  ---
+
+  从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
+
+  ```py unit_utils.py focus=1
+  ```
+
+  ---
+
+  要将 `(Gkei/kaia)`转换为 `kei`，请使用 `Web3.to_kei(value,unit)`。
+
+  <CH.Code>
+    ```py unit_utils.py focus=5:6
+    ```
+
+    ---
+
+    ```zsh output
+    py unit_utils.py
+    从 Kaia 到 Kei 1
+    ```
+  </CH.Code>
+
+  ---
+
+  要将 `kei` 转换为 `(kaia/Gkei)`，请使用 `Web3.from_kei(value,unit)`。
+
+  <CH.Code>
+    ```py unit_utils.py focus=8:9
+    ```
+
+    ---
+
+    ```zsh output
+    py unit_utils.py
+    From Kei to Kaia 1
+    ```
+  </CH.Code>
+</CH.Spotlight>

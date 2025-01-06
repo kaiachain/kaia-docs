@@ -1,0 +1,138 @@
+# 签名
+
+在 "r、s、v "和 "压缩字符串 "格式之间转换签名。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```py signature_convert.py
+    from web3py_ext import bytes_to_hex_str, hex_str_to_bytes
+
+    def rsv_to_signature_string(r, s, v):
+        # Concatenate r, s, and v to form a 65-byte signature
+        signature = r + s + v
+        return bytes_to_hex_str(signature)
+    def signature_string_to_rsv(signature_str):
+        # Convert the signature string to bytes (remove '0x' if present)
+        signature = hex_str_to_bytes(signature_str)
+        # Extract r (first 32 bytes), s (next 32 bytes), and v (last byte)
+        r = signature[:32]
+        s = signature[32:64]
+        v = signature[64]
+        return bytes_to_hex_str(r), bytes_to_hex_str(s), hex(v)
+
+    def main():
+        # convert {r,s,v} signature to string
+        r = hex_str_to_bytes('0x678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6')
+        s = hex_str_to_bytes('0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed')
+        v = hex_str_to_bytes("0x1b")
+        print("From r,s,v to string",rsv_to_signature_string(r,s,v))
+
+        # convert string sigature to rsv
+        signature_str="0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b9975c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c5081b"
+        print("From string to r,s,v",signature_string_to_rsv(signature_str))
+    main()
+    ```
+
+    ---
+
+    ```zsh output
+    py signature_convert.py
+    From r,s,v to string 678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6baabb5a43a047e75e41a77b88fa7a5bf89e52271c8e40bfdfbcceb8164521ed1b
+    From string to r、s,v ('66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99', '75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508', '0x1b')
+    ```
+  </CH.Code>
+
+  ---
+
+  从**web3py_ext**导入`bytes_to_hex_str`和`hex_str_to_bytes`。
+
+  ```py signature_convert.py focus=1
+  ```
+
+  ---
+
+  要将 `{r,s,v}` 签名转换为字符串，请定义 `r,s,v` 格式的签名，然后使用 `hex_str_too_bytes` 将每个组件转换为 `bytes` 格式。
+
+  <CH.Code>
+    ```py signature_convert.py focus=17:20
+    ```
+
+    ---
+
+    ```zsh output
+    py signature_convert.py
+
+    ```
+  </CH.Code>
+
+  ---
+
+  按 "r + s + v "的顺序连接组件，并将结果字节转换为 "字符串"。
+
+  <CH.Code>
+    ```py signature_convert.py focus=3:6,21
+    ```
+
+    ---
+
+    ```zsh output
+    py signature_convert.py
+    From r,s,v to string 678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6baabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed1b
+    ```
+  </CH.Code>
+
+  ---
+
+  要将 `string` 签名转换为 `{r,s,v}`，请定义字符串格式的签名
+
+  ```py signature_convert.py focus=23:24
+  ```
+
+  ---
+
+  使用 `hex_str_too_bytes` 将字符串签名转换为\`字节
+
+  <CH.Code>
+    ```py signature_convert.py focus=8:9
+    ```
+
+    ---
+
+    ```zsh output
+    py signature_convert.py
+
+    ```
+  </CH.Code>
+
+  ---
+
+  从签名字节中提取 "R 前 32 个索引"、"S 后 32 个索引 "和 "V 最后一个索引
+
+  <CH.Code>
+    ```py signature_convert.py focus=10:13
+    ```
+
+    ---
+
+    ```zsh output
+    py signature_convert.py
+
+    ```
+  </CH.Code>
+
+  ---
+
+  您可以使用 `bytes_too_hex_str()` 和 `hex()` 将每个组件转换回字符串
+
+  <CH.Code>
+    ```py signature_convert.py focus=14,25
+    ```
+
+    ---
+
+    ```zsh output
+    py signature_convert.py
+    From string to r,s,v ('66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99', '75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508', '0x1b')
+    ```
+  </CH.Code>
+</CH.Spotlight>

@@ -1,0 +1,290 @@
+# 基于角色的账户密钥
+
+**AccountKeyRoleBased** 表示基于角色的密钥。 如果账户有一个**基于账户密钥角色的**对象，且交易类型为**除账户更新外的**，那么验证过程将根据每个角色进行，如下所示：
+
+<CH.Spotlight>
+<CH.Code>
+
+```java SignTxWithRoleBasedExample.java
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import java.math.BigInteger;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.transaction.type.TxType;
+import org.web3j.crypto.transaction.type.TxType.Type;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromTransactionResponse;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+
+/**
+ *
+ */
+public class SignTxWithRoleBasedExample implements keySample {
+        /**
+         *
+         */
+
+        public static void run() throws Exception {
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credentials1 = KlayCredentials.create(keySample.ROLEBASED_KEY_transactionkey,
+                                keySample.ROLEBASED_KEY_address);
+
+                BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+                BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+                String from = credentials1.getAddress();
+                EthChainId EthchainId = web3j.ethChainId().send();
+                long chainId = EthchainId.getChainId().longValue();
+                String to = "0x000000000000000000000000000000000000dead";
+                BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+                                .getTransactionCount();
+                BigInteger value = BigInteger.valueOf(100);
+
+                TxType.Type type = Type.VALUE_TRANSFER;
+
+                KlayRawTransaction raw = KlayRawTransaction.createTransaction(
+                                type,
+                                nonce,
+                                GAS_PRICE,
+                                GAS_LIMIT,
+                                to,
+                                value,
+                                from);
+
+                byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials1);
+                String hexValue = Numeric.toHexString(signedMessage);
+                EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+                System.out.println("TxHash : \n " + transactionResponse.getResult());
+
+                String blockNumber = "latest";
+                KlayRecoverFromTransactionResponse response = web3j.klayRecoverFromTransaction(hexValue, blockNumber)
+                                .send();
+                System.out.println("Original address : " + from);
+                System.out.println("Result address : " + response.getResult());
+
+                web3j.shutdown();
+
+        }
+
+}
+```
+
+---
+
+```zsh output
+❯ java SignTxWithRoleBasedExample.java
+TxHash :
+ 0x75b1fbfcaeb0c3fa7a0738e628a010b85b6514394ed08d25df4b055aef7d0e58
+Original address : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
+Result address : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
+```
+
+</CH.Code>
+
+---
+
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
+
+```java SignTxWithRoleBasedExample.java focus=1:19
+
+```
+
+---
+
+使用指定的 BAOBAB_URL 创建 Web3j 实例
+
+```java SignTxWithRoleBasedExample.java focus=30
+
+```
+
+---
+
+此外，您还可以更改默认提供商。 例如，使用alchemy提供商。
+
+```java SignTxWithRoleBasedExample.java focus=30
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import java.math.BigInteger;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.transaction.type.TxType;
+import org.web3j.crypto.transaction.type.TxType.Type;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromTransactionResponse;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+
+/**
+ *
+ */
+public class SignTxWithRoleBasedExample implements keySample {
+        /**
+         *
+         */
+
+        public static void run() throws Exception {
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credentials1 = KlayCredentials.create(keySample.ROLEBASED_KEY_transactionkey,
+                                keySample.ROLEBASED_KEY_address);
+
+                BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+                BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+                String from = credentials1.getAddress();
+                EthChainId EthchainId = web3j.ethChainId().send();
+                long chainId = EthchainId.getChainId().longValue();
+                String to = "0x000000000000000000000000000000000000dead";
+                BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+                                .getTransactionCount();
+                BigInteger value = BigInteger.valueOf(100);
+
+                TxType.Type type = Type.VALUE_TRANSFER;
+
+                KlayRawTransaction raw = KlayRawTransaction.createTransaction(
+                                type,
+                                nonce,
+                                GAS_PRICE,
+                                GAS_LIMIT,
+                                to,
+                                value,
+                                from);
+
+                byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials1);
+                String hexValue = Numeric.toHexString(signedMessage);
+                EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+                System.out.println("TxHash : \n " + transactionResponse.getResult());
+
+                String blockNumber = "latest";
+                KlayRecoverFromTransactionResponse response = web3j.klayRecoverFromTransaction(hexValue, blockNumber)
+                                .send();
+                System.out.println("Original address : " + from);
+                System.out.println("Result address : " + response.getResult());
+
+                web3j.shutdown();
+
+        }
+
+}
+```
+
+---
+
+用私人密钥创建**凭证**，私人密钥是**交易**角色密钥
+
+```java SignTxWithRoleBasedExample.java focus=31:32
+
+```
+
+---
+
+燃气**价格**和**gas 限值**设置
+
+```java SignTxWithRoleBasedExample.java focus=34:35
+
+```
+
+---
+
+将**发件人**地址设置为已加载凭据的地址
+
+```java SignTxWithRoleBasedExample.java focus=36
+
+```
+
+---
+
+从网络中获取**chain ID**
+
+```java SignTxWithRoleBasedExample.java focus=37:38
+
+```
+
+---
+
+将**接收器**地址设置为任何有效地址
+
+```java SignTxWithRoleBasedExample.java focus=39
+
+```
+
+---
+
+获取发件人地址的**nonce**值
+
+```java SignTxWithRoleBasedExample.java focus=40:41
+
+```
+
+---
+
+设置要传输的值
+
+```java SignTxWithRoleBasedExample.java focus=42
+
+```
+
+---
+
+将交易类型设置为 **VALUE_TRANSFER**
+
+```java SignTxWithRoleBasedExample.java focus=44
+
+```
+
+---
+
+为价值转移创建原始交易
+
+```java SignTxWithRoleBasedExample.java focus=46:53
+
+```
+
+---
+
+签署交易
+
+```java SignTxWithRoleBasedExample.java focus=55
+
+```
+
+---
+
+将**签署的交易**发送至 kaia 网络
+
+```java SignTxWithRoleBasedExample.java focus=56:58
+
+```
+
+---
+
+从签名交易中恢复发件人地址，并将其与**发件人**地址进行比较
+
+```java SignTxWithRoleBasedExample.java focus=60:64
+
+```
+
+---
+
+关闭 Web3j 实例
+
+```java SignTxWithRoleBasedExample.java focus=66
+
+```
+
+</CH.Spotlight>

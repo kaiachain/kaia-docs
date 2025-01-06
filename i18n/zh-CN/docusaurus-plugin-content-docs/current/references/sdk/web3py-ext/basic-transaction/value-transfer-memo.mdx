@@ -1,0 +1,328 @@
+# 价值转移备忘录
+
+**TxTypeValueTransferMemo** 用于用户发送带有特定信息的 KAIA。
+
+<CH.Spotlight>
+<CH.Code>
+
+```py ValueTransferWithMemo.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import to_pretty
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+
+def web3_value_transfer_with_memo_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+
+    value_transfer_tx = empty_tx(TxType.VALUE_TRANSFER_MEMO)
+    value_transfer_tx = merge(value_transfer_tx, {
+        'from' : user.address,
+        'to' : user.address,
+        'value' : Web3.to_peb(0.1, 'klay'),
+        'data' : b'TestMemoData'
+    })
+    value_transfer_tx = fill_transaction(value_transfer_tx, w3)
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
+    print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address", recovered_tx)
+
+    decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_value_transfer_with_memo_sign_recover()
+```
+
+---
+
+````zsh output
+❯ node ValueTransferWithMemo.py
+raw transaction of signed tx: 0x10f896820366850ba43b74008301042894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a91538c546573744d656d6f44617461f847f8458207f6a00daff49a09fbb8382654be6461d75e67def4d26442bf7bc8014da04d9d3b6f6da044fb682a3cd21e94e4dcf97cde1e0416d96dad2f15d353529a5db85873192c5b
+
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+
+decoded transaction: {
+  "type": 16,
+  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "value": 100000000000000000,
+  "nonce": 870,
+  "gasPrice": 50000000000,
+  "gas": 66600,
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "data": "0x546573744d656d6f44617461",
+  "signatures": [
+    {
+      "v": 2038,
+      "r": 6190953446910446010339588924128856456849311270962439470585054122192743919469,
+      "s": 31201471237264490747209103173489052293037646153294155398956746212102253390939
+    }
+  ],
+  "chainId": 1001
+}
+tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 receipt:  AttributeDict({'blockHash': HexBytes('0x2ff2f47d724ccd645010adde8cebdb88edc4a31ffa415b34230f620544ecea6c'), 'blockNumber': 147340972, 'contractAddress': None, 'cumulativeGasUsed': 22200, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 22200, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28'), 'transactionIndex': 0, 'type': 0})```
+````
+
+</CH.Code>
+
+---
+
+从**web3py_ext**导入**extend**，将 web3 扩展为 kaia web3
+
+```py ValueTransferWithMemo.py focus=1,2
+
+```
+
+---
+
+从 **eth_account**、**web3py_ext** 和 cytoolz 中导入必要的实用程序
+
+```py ValueTransferWithMemo.py focus=3:10
+
+```
+
+---
+
+使用指定的 **kairos** 测试网 URL 创建 Web3 实例
+
+```py ValueTransferWithMemo.py focus=12:14
+
+```
+
+---
+
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
+
+```python ValueTransferWithMemo.py focus=12:14
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import to_pretty
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+
+def web3_value_transfer_with_memo_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+
+    value_transfer_tx = empty_tx(TxType.VALUE_TRANSFER_MEMO)
+    value_transfer_tx = merge(value_transfer_tx, {
+        'from' : user.address,
+        'to' : user.address,
+        'value' : Web3.to_peb(0.1, 'klay'),
+        'data' : b'TestMemoData'
+    })
+    value_transfer_tx = fill_transaction(value_transfer_tx, w3)
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
+    print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address", recovered_tx)
+
+    decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_value_transfer_with_memo_sign_recover()
+```
+
+---
+
+从私人密钥加载账户
+
+```python ValueTransferWithMemo.py focus=17
+
+```
+
+---
+
+创建一个**TxType.VALUE_TRANSFER_MEMO**类型的空事务。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
+
+```py ValueTransferWithMemo.py focus=4,5,8,19
+
+```
+
+---
+
+使用 **merge** 工具，将**附加字段**（如**from**、**to**和**value**）合并到空 tx 中。
+
+```py ValueTransferWithMemo.py focus=10,20:24
+
+```
+
+---
+
+您可以使用 **Web3.to_peb** 工具来转换十进制数值。
+
+```py ValueTransferWithMemo.py focus=23
+
+```
+
+---
+
+特别是**以二进制格式写下**要在**数据**字段中记录的内容
+
+```py ValueTransferWithMemo.py focus=24
+
+```
+
+---
+
+使用 **fill_transaction** 为交易对象添加更多参数，如 gas 限制...
+
+```python ValueTransferWithMemo.py focus=4,6,8,26
+
+```
+
+---
+
+用用户的私人密钥签署值传输 tx
+
+<CH.Code>
+``python ValueTransferWithMemo.py focus=28:30
+
+````
+---
+```zsh output
+raw transaction of signed tx: 0x10f896820366850ba43b74008301042894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a91538c546573744d656d6f44617461f847f8458207f6a00daff49a09fbb8382654be6461d75e67def4d26442bf7bc8014da04d9d3b6f6da044fb682a3cd21e94e4dcf97cde1e0416d96dad2f15d353529a5db85873192c5b
+````
+
+</CH.Code>
+
+---
+
+从已签署的 tx 中的签名中恢复**签名人地址**
+
+<CH.Code>
+``python ValueTransferWithMemo.py focus=32:33
+
+```
+---
+``zsh output
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+```
+
+</CH.Code>
+
+---
+
+您可以使用**Account.decode_transaction**工具对 RLP 编码的 tx 进行**解码**，如果您想让输出格式更漂亮，请使用**to_pretty**工具。
+
+<CH.Code>
+``python ValueTransferWithMemo.py focus=35:36
+
+````
+---
+```zsh output
+decoded transaction: {
+  "type": 16,
+  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "value": 100000000000000000,
+  "nonce": 870,
+  "gasPrice": 50000000000,
+  "gas": 66600,
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "data": "0x546573744d656d6f44617461",
+  "signatures": [
+    {
+      "v": 2038,
+      "r": 6190953446910446010339588924128856456849311270962439470585054122192743919469,
+      "s": 31201471237264490747209103173489052293037646153294155398956746212102253390939
+    }
+  ],
+  "chainId": 1001
+}
+````
+
+</CH.Code>
+
+---
+
+向区块链发送 tx。 它将返回 tx 哈希值，用于等待接收
+
+```python ValueTransferWithMemo.py focus=38
+
+```
+
+---
+
+如果交易已在区块链中完成，**wait_for_transaction_receipt** 方法会返回交易收据。
+
+<CH.Code>
+``python ValueTransferWithMemo.py focus=39:40
+
+````
+---
+```zsh output
+tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 receipt:  AttributeDict({'blockHash': HexBytes('0x2ff2f47d724ccd645010adde8cebdb88edc4a31ffa415b34230f620544ecea6c'), 'blockNumber': 147340972, 'contractAddress': None, 'cumulativeGasUsed': 22200, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 22200, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28'), 'transactionIndex': 0, 'type': 0})```
+````
+
+</CH.Code>
+
+---
+
+最后，得到结果。
+
+<CH.Code>
+``python ValueTransferWithMemo.py focus=42
+
+```````
+---
+```zsh output
+❯ node ValueTransferWithMemo.py
+raw transaction of signed tx: 0x10f896820366850ba43b74008301042894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a91538c546573744d656d6f44617461f847f8458207f6a00daff49a09fbb8382654be6461d75e67def4d26442bf7bc8014da04d9d3b6f6da044fb682a3cd21e94e4dcf97cde1e0416d96dad2f15d353529a5db85873192c5b
+
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+
+decoded transaction: {
+  "type": 16,
+  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "value": 100000000000000000,
+  "nonce": 870,
+  "gasPrice": 50000000000,
+  "gas": 66600,
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "data": "0x546573744d656d6f44617461",
+  "signatures": [
+    {
+      "v": 2038,
+      "r": 6190953446910446010339588924128856456849311270962439470585054122192743919469,
+      "s": 31201471237264490747209103173489052293037646153294155398956746212102253390939
+    }
+  ],
+  "chainId": 1001
+}
+tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 receipt:  AttributeDict({'blockHash': HexBytes('0x2ff2f47d724ccd645010adde8cebdb88edc4a31ffa415b34230f620544ecea6c'), 'blockNumber': 147340972, 'contractAddress': None, 'cumulativeGasUsed': 22200, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 22200, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28'), 'transactionIndex': 0, 'type': 0})``````
+```````
+
+</CH.Code>
+
+</CH.Spotlight>

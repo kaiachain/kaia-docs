@@ -1,6 +1,6 @@
 # Kaia 개요
 
-Kaia는 엔터프라이즈급 안정성과 성능 수준을 충족하도록 설계된 고도로 최적화된 BFT 기반 퍼블릭 블록체인입니다. 이 개요에서는 Kaia의 아키텍처, 기능 및 에코시스템에 대해 자세히 설명합니다.
+Kaia is a highly optimized, <LinkWithTooltip to="../misc/glossary#bft-based-public-blockchain" tooltip="A blockchain that ensures consensus even if up to 1/3 of nodes act maliciously,<br /> using Byzantine Fault Tolerance (BFT) algorithms to maintain network integrity."> BFT-based public blockchain </LinkWithTooltip> designed to meet enterprise-grade reliability and performance standards. 이 개요에서는 Kaia의 아키텍처, 기능 및 에코시스템에 대해 자세히 설명합니다.
 
 ## 주요 설계 목표
 
@@ -39,6 +39,7 @@ Kaia 네트워크는 세 개의 논리적 하위 네트워크로 구성되어 �
 ![Kaia 메인체인 물리 토폴로지 및 계층화된 구조(CNN, PNN, ENN)](/img/learn/klaytn_network_node.png)
 
 1. **코어 셀(CC)**: 하나의 컨센서스 노드(CN)와 두 개의 프록시 노드(PN)로 구성됩니다.
+
    - **컨센서스 노드(CN)**: 블록 생성에 참여합니다.
    - **프록시 노드(PN)**: 네트워크 인터페이스를 제공하고, 트랜잭션 요청을 전송하며, 블록을 전파합니다.
 
@@ -84,7 +85,7 @@ Kaia는 몇 가지 보안 대책을 시행하고 있습니다:
 
 Kaia는 다른 블록체인 네트워크와 원활하게 상호작용할 수 있도록 설계되었습니다:
 
-- EVM과 호환되어 이더리움 스마트 컨트랙트를 쉽게 배포할 수 있습니다.
+- <LinkWithTooltip tooltip="A blockchain that can run smart contracts and <br/> interact with the Ethereum Virtual Machine(EVM)">EVM-compatible</LinkWithTooltip>, allowing easy deployment of Ethereum smart contracts.
 - 다른 EVM-SDK 기반 체인과 상호 운용 가능하도록 설계되었습니다.
 - 크로스 플랫폼 트랜잭션과 스마트 컨트랙트 실행을 지원합니다.
 

@@ -67,7 +67,7 @@ However, KaiaScan's API is not ready yet, so when asked to retry, just say "no".
 
 3. Contract Name: Just type in the name of the contract. If this is the only contract you're indexing in this subgraph, it's OK to just go with the default `Contract`.
 
-## 2) Deploy & Publish
+## 3) Query your Subgraph
 
 ### Deploy to Subgraph Studio⁠
 

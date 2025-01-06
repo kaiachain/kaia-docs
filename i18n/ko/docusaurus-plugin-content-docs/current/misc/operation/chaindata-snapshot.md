@@ -39,20 +39,28 @@ Download a compressed file to the new directory. URLs can be found at the bottom
 
 - Option 1. curl
   ```sh
-  curl -O https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  curl -O https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 - Option 2. wget
   ```sh
-  wget https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  wget https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 - Option 3. axel
   ```sh
-  # Amazon Linux installation example
+  # 아마존 리눅스 설치 예제
   sudo amazon-linux-extras install epel
   sudo yum install axel pigz
 
-  # Multi-threaded download and print status bar
-  axel -n8 https://s3.ap-northeast-2.amazonaws.com/klaytn-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
+  # 멀티 스레드 다운로드 및 인쇄 상태 표시줄
+  axel -n8 https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
+  ```
+- 옵션 4. aria2
+  ```sh
+  # Rocky Linux 설치 예제
+  sudo yum install epel-release aria2
+
+  # 경량, 다중 연결 다운로드
+  aria2c https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 
 ## Decompress the File
@@ -63,11 +71,11 @@ Download a compressed file to the new directory. URLs can be found at the bottom
   ```
 - Option 2. tar and pigz
   ```sh
-  # Amazon Linux installation example
+  # 아마존 리눅스 및 록키 리눅스 설치 예제
   sudo yum install pigz
 
-  # Multi-threaded decompression
-  tar -I pigz -xvf kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  # 멀티스레드 압축 해제
+  tar -I pigz -xvf kaia-mainnet-chaindata-xxxxxxxxxxxx.tar.gz
   ```
 
 ## Swap the data directory
@@ -98,6 +106,6 @@ For efficiency, only batch pruned (state migrated) or live pruned database are p
 | network | sync options   | download                                                                                            |
 | ------- | -------------- | --------------------------------------------------------------------------------------------------- |
 | mainnet | state migrated | https://packages.kaia.io/mainnet/chaindata/         |
-| mainnet | live pruning   | https://packages.kaia.io/mainnet/pruning-chaindata/ |
+| 메인넷     | live pruning   | https://packages.kaia.io/mainnet/pruning-chaindata/ |
 | kairos  | state migrated | https://packages.kaia.io/kairos/chaindata/          |
-| kairos  | live pruning   | https://packages.kaia.io/kairos/pruning-chaindata/  |
+| 카이로스    | live pruning   | https://packages.kaia.io/kairos/pruning-chaindata/  |

@@ -1,0 +1,444 @@
+# Multisig Account Key
+
+**AccountKeyWeightedMultiSig** 是一种账户密钥类型，包含一个阈值和加权公钥（WeightedPublicKeys），后者包含一个由公钥及其权重组成的列表。
+
+要使与 **AccountKeyWeightedMultiSig** 关联的账户的交易有效，必须满足以下条件：
+已签名公钥的加权和应大于阈值。
+_ 无效签名不应包含在交易中。 \* 已签名公钥的数量应少于加权公钥的数量。
+
+<CH.Spotlight>
+<CH.Code>
+
+```java AccountUpdateWithMultiSigExample.java
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.List;
+
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.transaction.account.AccountKeyPublic;
+import org.web3j.crypto.transaction.account.AccountKeyWeightedMultiSig;
+import org.web3j.crypto.transaction.account.AccountKeyWeightedMultiSig.WeightedPublicKey;
+import org.web3j.crypto.transaction.type.TxType;
+import org.web3j.crypto.transaction.type.TxTypeAccountUpdate;
+import org.web3j.crypto.transaction.type.TxType.Type;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
+
+public class AccountUpdateWithMultiSigExample {
+
+        public static void run() throws Exception {
+
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credential1 = KlayCredentials.create(keySample.MULTI_KEY_privkey1, keySample.MULTI_KEY_address);
+                KlayCredentials credential2 = KlayCredentials.create(keySample.MULTI_KEY_privkey2, keySample.MULTI_KEY_address);
+                KlayCredentials credential3 = KlayCredentials.create(keySample.MULTI_KEY_privkey3, keySample.MULTI_KEY_address);
+
+                BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+                BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+                String from = credential1.getAddress();
+                EthChainId EthchainId = web3j.ethChainId().send();
+                long chainId = EthchainId.getChainId().longValue();
+                BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+                                .getTransactionCount();
+
+                BigInteger newPubkey1 = credential1.getEcKeyPair().getPublicKey();
+                WeightedPublicKey weightedAccountKey1 = WeightedPublicKey.create(BigInteger.ONE,
+                                AccountKeyPublic.create(newPubkey1));
+                BigInteger newPubkey2 = credential2.getEcKeyPair().getPublicKey();
+                WeightedPublicKey weightedAccountKey2 = WeightedPublicKey.create(BigInteger.ONE,
+                                AccountKeyPublic.create(newPubkey2));
+                BigInteger newPubkey3 = credential3.getEcKeyPair().getPublicKey();
+                WeightedPublicKey weightedAccountKey3 = WeightedPublicKey.create(BigInteger.ONE,
+                                AccountKeyPublic.create(newPubkey3));
+
+                // make list with weightedAccountKey1, weightedAccountKey2, weightedAccountKey3
+                List<WeightedPublicKey> weightedAccountKeyList = List.of(weightedAccountKey1, weightedAccountKey2,
+                                weightedAccountKey3);
+
+                AccountKeyWeightedMultiSig accountkey = AccountKeyWeightedMultiSig.create(BigInteger.TWO,
+                                weightedAccountKeyList);
+
+                TxType.Type type = Type.ACCOUNT_UPDATE;
+
+                KlayRawTransaction raw = KlayRawTransaction.createTransaction(
+                                type,
+                                nonce,
+                                GAS_PRICE,
+                                GAS_LIMIT,
+                                from,
+                                accountkey);
+
+                byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credential1);
+                signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credential2);
+                String hexValue = Numeric.toHexString(signedMessage);
+                EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+                System.out.println("TxHash : \n " + transactionResponse.getResult());
+                String txHash = transactionResponse.getResult();
+
+                int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
+                int DEFAULT_BLOCK_TIME = 1 * 1000;
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+                TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
+                                DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+                org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
+                                .waitForTransactionReceipt(txHash);
+                System.out.println("Receipt from eth_getTransactionReceipt : \n" + ethReceipt);
+                TransactionReceipt receipt = web3j.klayGetTransactionReceipt(txHash).send().getResult();
+                System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
+                web3j.shutdown();
+
+                TxTypeAccountUpdate rawTransaction = TxTypeAccountUpdate.decodeFromRawTransaction(signedMessage);
+
+                System.out.println("TxType : " + rawTransaction.getKlayType());
+
+        }
+
+}
+```
+
+---
+
+```zsh output
+❯ java AccountUpdateWithMultiSigExample.java
+TxHash :
+ 0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
+Receipt from eth_getTransactionReceipt :
+TransactionReceipt{transactionHash='0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442', transactionIndex='0x3', blockHash='0x4e8c4f1b795ca48c9a60788786481b72df1e2eb16d83ffc9d89e1e2708962378', blockNumber='0x90e5807', cumulativeGasUsed='0x983cc', gasUsed='0x17700', contractAddress='null', root='null', status='0x1', from='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', to='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', logs=[], logsBloom='0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000', revertReason='null', type='0x0', effectiveGasPrice='0x5d21dba00'}
+Receipt from klay_getTransactionReceipt :
+class TransactionReceipt {
+    blockHash: 0x4e8c4f1b795ca48c9a60788786481b72df1e2eb16d83ffc9d89e1e2708962378
+    blockNumber: 0x90e5807
+    codeFormat: null
+    contractAddress: null
+    feePayer: null
+    feePayerSignatures: []
+    feeRatio: null
+    from: 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+    gas: 0x66919e
+    effectiveGasPrice: 0x5d21dba00
+    gasPrice: 0xba43b7400
+    gasUsed: 0x17700
+    humanReadable: null
+    key: 0x04f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a
+    input: null
+    logs: []
+    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce: 0x73
+    senderTxHash: 0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
+    signature: []
+    status: 0x1
+    txError: null
+    to: null
+    transactionHash: 0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
+    transactionIndex: 0x3
+    type: TxTypeAccountUpdate
+    typeInt: 32
+    value: null
+}
+TxType : ACCOUNT_UPDATE
+```
+
+</CH.Code>
+
+---
+
+从 Web3j 和 kaia 库（`web3j-ext`）中导入必要的类。
+
+```java AccountUpdateWithMultiSigExample.java focus=1:25
+
+```
+
+---
+
+使用指定的 BAOBAB_URL 创建 Web3j 实例
+
+```java AccountUpdateWithMultiSigExample.java focus=31
+
+```
+
+---
+
+此外，您还可以更改默认提供商。 例如，使用alchemy提供商。
+
+```java AccountUpdateWithMultiSigExample.java focus=31
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.List;
+
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.transaction.account.AccountKeyPublic;
+import org.web3j.crypto.transaction.account.AccountKeyWeightedMultiSig;
+import org.web3j.crypto.transaction.account.AccountKeyWeightedMultiSig.WeightedPublicKey;
+import org.web3j.crypto.transaction.type.TxType;
+import org.web3j.crypto.transaction.type.TxTypeAccountUpdate;
+import org.web3j.crypto.transaction.type.TxType.Type;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
+
+public class AccountUpdateWithMultiSigExample {
+
+        public static void run() throws Exception {
+
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credential1 = KlayCredentials.create(keySample.MULTI_KEY_privkey1, keySample.MULTI_KEY_address);
+                KlayCredentials credential2 = KlayCredentials.create(keySample.MULTI_KEY_privkey2, keySample.MULTI_KEY_address);
+                KlayCredentials credential3 = KlayCredentials.create(keySample.MULTI_KEY_privkey3, keySample.MULTI_KEY_address);
+
+                BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+                BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+                String from = credential1.getAddress();
+                EthChainId EthchainId = web3j.ethChainId().send();
+                long chainId = EthchainId.getChainId().longValue();
+                BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+                                .getTransactionCount();
+
+                BigInteger newPubkey1 = credential1.getEcKeyPair().getPublicKey();
+                WeightedPublicKey weightedAccountKey1 = WeightedPublicKey.create(BigInteger.ONE,
+                                AccountKeyPublic.create(newPubkey1));
+                BigInteger newPubkey2 = credential2.getEcKeyPair().getPublicKey();
+                WeightedPublicKey weightedAccountKey2 = WeightedPublicKey.create(BigInteger.ONE,
+                                AccountKeyPublic.create(newPubkey2));
+                BigInteger newPubkey3 = credential3.getEcKeyPair().getPublicKey();
+                WeightedPublicKey weightedAccountKey3 = WeightedPublicKey.create(BigInteger.ONE,
+                                AccountKeyPublic.create(newPubkey3));
+
+                // make list with weightedAccountKey1, weightedAccountKey2, weightedAccountKey3
+                List<WeightedPublicKey> weightedAccountKeyList = List.of(weightedAccountKey1, weightedAccountKey2,
+                                weightedAccountKey3);
+
+                AccountKeyWeightedMultiSig accountkey = AccountKeyWeightedMultiSig.create(BigInteger.TWO,
+                                weightedAccountKeyList);
+
+                TxType.Type type = Type.ACCOUNT_UPDATE;
+
+                KlayRawTransaction raw = KlayRawTransaction.createTransaction(
+                                type,
+                                nonce,
+                                GAS_PRICE,
+                                GAS_LIMIT,
+                                from,
+                                accountkey);
+
+                byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credential1);
+                signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credential2);
+                String hexValue = Numeric.toHexString(signedMessage);
+                EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+                System.out.println("TxHash : \n " + transactionResponse.getResult());
+                String txHash = transactionResponse.getResult();
+
+                int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
+                int DEFAULT_BLOCK_TIME = 1 * 1000;
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+                TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
+                                DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+                org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
+                                .waitForTransactionReceipt(txHash);
+                System.out.println("Receipt from eth_getTransactionReceipt : \n" + ethReceipt);
+                TransactionReceipt receipt = web3j.klayGetTransactionReceipt(txHash).send().getResult();
+                System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
+                web3j.shutdown();
+
+                TxTypeAccountUpdate rawTransaction = TxTypeAccountUpdate.decodeFromRawTransaction(signedMessage);
+
+                System.out.println("TxType : " + rawTransaction.getKlayType());
+
+        }
+
+}
+```
+
+---
+
+用私人密钥创建 3 个不同的**凭证**
+
+```java AccountUpdateWithMultiSigExample.java focus=32:34
+
+```
+
+---
+
+燃气**价格**和**gas 限值**设置
+
+```java AccountUpdateWithMultiSigExample.java focus=36:37
+
+```
+
+---
+
+从网络中获取**chain ID**
+
+```java AccountUpdateWithMultiSigExample.java focus=39:40
+
+```
+
+---
+
+获取发件人地址的**nonce**值
+
+```java AccountUpdateWithMultiSigExample.java focus=41:42
+
+```
+
+---
+
+为账户更新生成新的**account keys**及其权重
+
+```java AccountUpdateWithMultiSigExample.java focus=44:52
+
+```
+
+---
+
+将生成的**weighted account keys**合并为一个列表
+
+```java AccountUpdateWithMultiSigExample.java focus=54:59
+
+```
+
+---
+
+将交易类型设为 **ACCOUNT_UPDATE**
+
+```java AccountUpdateWithMultiSigExample.java focus=61
+
+```
+
+---
+
+创建**raw transaction**用于账户更新
+
+```java AccountUpdateWithMultiSigExample.java focus=63:69
+
+```
+
+---
+
+签署交易
+
+```java AccountUpdateWithMultiSigExample.java focus=71
+
+```
+
+---
+
+将**签署的交易**发送至 kaia 网络
+
+<CH.Code>
+``java AccountUpdateWithMultiSigExample.java focus=72:76
+
+````
+
+
+---
+
+```zsh output
+❯ java AccountUpdateWithMultiSigExample.java
+TxHash :
+ 0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
+````
+
+</CH.Code>
+
+---
+
+等待交易完成并获取交易收据
+
+<CH.Code>
+```java AccountUpdateWithMultiSigExample.java focus=78:87
+
+````
+
+
+---
+
+```zsh output
+❯ java AccountUpdateWithMultiSigExample.java
+Receipt from eth_getTransactionReceipt :
+TransactionReceipt{transactionHash='0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442', transactionIndex='0x3', blockHash='0x4e8c4f1b795ca48c9a60788786481b72df1e2eb16d83ffc9d89e1e2708962378', blockNumber='0x90e5807', cumulativeGasUsed='0x983cc', gasUsed='0x17700', contractAddress='null', root='null', status='0x1', from='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', to='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', logs=[], logsBloom='0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000', revertReason='null', type='0x0', effectiveGasPrice='0x5d21dba00'}
+Receipt from klay_getTransactionReceipt :
+class TransactionReceipt {
+    blockHash: 0x4e8c4f1b795ca48c9a60788786481b72df1e2eb16d83ffc9d89e1e2708962378
+    blockNumber: 0x90e5807
+    codeFormat: null
+    contractAddress: null
+    feePayer: null
+    feePayerSignatures: []
+    feeRatio: null
+    from: 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+    gas: 0x66919e
+    effectiveGasPrice: 0x5d21dba00
+    gasPrice: 0xba43b7400
+    gasUsed: 0x17700
+    humanReadable: null
+    key: 0x04f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a
+    input: null
+    logs: []
+    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce: 0x73
+    senderTxHash: 0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
+    signature: []
+    status: 0x1
+    txError: null
+    to: null
+    transactionHash: 0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
+    transactionIndex: 0x3
+    type: TxTypeAccountUpdate
+    typeInt: 32
+    value: null
+}
+````
+
+</CH.Code>
+
+---
+
+关闭 Web3j 实例
+
+```java AccountUpdateWithMultiSigExample.java focus=88
+
+```
+
+---
+
+解码原始交易以获取交易类型
+
+<CH.Code>
+```java AccountUpdateWithMultiSigExample.java focus=90:92
+
+````
+
+
+---
+
+```zsh output
+❯ java AccountUpdateWithMultiSigExample.java
+TxType : ACCOUNT_UPDATE
+````
+
+</CH.Code>
+
+</CH.Spotlight>

@@ -1,0 +1,370 @@
+# 取消
+
+**TxTypeCancel** 取消事务池中具有相同 nonce 的事务的执行。 当已提交的交易在一定时间内似乎未得到处理时，这种交易类型就很有用。
+
+<CH.Spotlight>
+<CH.Code>
+
+```py web3_fee_delegated_cancel_sign_recover.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TX_TYPE_FEE_DELEGATED_CANCEL
+)
+from web3py_ext.utils.klaytn_utils import to_pretty
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_fee_delegated_cancel_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    fee_delegator = Account.from_key('0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4')
+
+    cancel_tx = empty_tx(TX_TYPE_FEE_DELEGATED_CANCEL)
+    cancel_tx = merge(cancel_tx, {
+        'from' : user.address,
+    })
+    cancel_tx = fill_transaction(cancel_tx, w3)
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(cancel_tx, user.key)
+    print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address", recovered_tx)
+
+    decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    feepayer_signed_tx = Account.sign_transaction_as_feepayer(signed_tx.rawTransaction, fee_delegator.address, fee_delegator.key)
+    print("\nraw transaction of feePayer signed tx:", feepayer_signed_tx.rawTransaction.hex())
+
+    feepayer_recovered_tx = Account.recover_transaction_as_feepayer(feepayer_signed_tx.rawTransaction)
+    print("recovered feepayer address:", feepayer_recovered_tx)
+
+    decoded_tx = Account.decode_transaction(feepayer_signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+web3_fee_delegated_cancel_sign_recover()
+```
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_cancel_sign_recover.py
+# raw transaction of signed tx: 0x39f86b8203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec21
+
+# recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+
+# decoded transaction: {
+#   "type": 57,
+#   "nonce": 931,
+#   "gasPrice": 50000000000,
+#   "gas": 159000,
+#   "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+#   "signatures": [
+#     {
+#       "v": 2037,
+#       "r": 6749929892576958642714739615979538685230067780127794094925331144130783330367,
+#       "s": 3116598222383802394999638931088885558560578183897443089888519072063383661601
+#     }
+#   ],
+#   "chainId": 1001
+# }
+
+# raw transaction of feePayer signed tx: 0x39f8c98203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec2194cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f6a06697d97df68a0c4a2c59b3d7a8c5c479a6b43e7a34394518b858ef908d10b76aa0492c8da32c77a71ce26650f9ac842496bb33f0f17877ce1b23e1763b7c87e28d
+# recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+
+# decoded transaction: {
+#   "type": 57,
+#   "nonce": 931,
+#   "gasPrice": 50000000000,
+#   "gas": 159000,
+#   "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+#   "feePayer": "0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
+#   "signatures": [
+#     {
+#       "v": 2037,
+#       "r": 6749929892576958642714739615979538685230067780127794094925331144130783330367,
+#       "s": 3116598222383802394999638931088885558560578183897443089888519072063383661601
+#     }
+#   ],
+#   "feePayerSignatures": [
+#     {
+#       "v": 2038,
+#       "r": 46404205537188908000560167654303187399733564148219565625489961916532872230762,
+#       "s": 33097556762817862610763009383178378013466927896867683158585566455859245474445
+#     }
+#   ],
+#   "chainId": 1001
+# }
+```
+
+</CH.Code>
+
+---
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
+```py web3_fee_delegated_cancel_sign_recover.py focus=1:2
+
+```
+
+---
+
+Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
+
+```py web3_fee_delegated_cancel_sign_recover.py focus=2:10
+
+```
+
+---
+
+使用指定的 **kairos** 测试网 URL 创建 Web3 实例
+
+```py web3_fee_delegated_cancel_sign_recover.py focus=12
+
+```
+
+---
+
+此外，您还可以将提供商 URL 从 **kairos** 更改为 **quicknode**
+
+```py web3_fee_delegated_cancel_sign_recover.py focus=12
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TX_TYPE_FEE_DELEGATED_CANCEL
+)
+from web3py_ext.utils.klaytn_utils import to_pretty
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_fee_delegated_cancel_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    fee_delegator = Account.from_key('0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4')
+
+    cancel_tx = empty_tx(TX_TYPE_FEE_DELEGATED_CANCEL)
+    cancel_tx = merge(cancel_tx, {
+        'from' : user.address,
+    })
+    cancel_tx = fill_transaction(cancel_tx, w3)
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(cancel_tx, user.key)
+    print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address", recovered_tx)
+
+    decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    feepayer_signed_tx = Account.sign_transaction_as_feepayer(signed_tx.rawTransaction, fee_delegator.address, fee_delegator.key)
+    print("\nraw transaction of feePayer signed tx:", feepayer_signed_tx.rawTransaction.hex())
+
+    feepayer_recovered_tx = Account.recover_transaction_as_feepayer(feepayer_signed_tx.rawTransaction)
+    print("recovered feepayer address:", feepayer_recovered_tx)
+
+    decoded_tx = Account.decode_transaction(feepayer_signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+web3_fee_delegated_cancel_sign_recover()
+```
+
+---
+
+从私人密钥加载账户
+
+```py web3_fee_delegated_cancel_sign_recover.py focus=15
+
+```
+
+---
+
+用私人密钥加载一个付款人账户，代替上述账户签署和发送交易
+
+```py web3_fee_delegated_cancel_sign_recover.py focus=16
+
+```
+
+---
+
+创建一个**TxType.FEE_DELEGATED_CANCEL**类型的空交易。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
+
+```py web3_fee_delegated_cancel_sign_recover.py focus=18
+
+```
+
+---
+
+使用 **merge** 工具将 **from** 和 **nonce** 字段合并到空 tx 中。
+
+```py web3_fee_delegated_cancel_sign_recover.py focus=19:21
+
+```
+
+---
+
+使用 **fill_transaction** 为交易对象添加更多参数，如气体限制...
+
+```py web3_fee_delegated_cancel_sign_recover.py focus=22
+
+```
+
+---
+
+用用户的私钥签署**取消 tx**
+
+<CH.Code>
+```py web3_fee_delegated_cancel_sign_recover.py focus=24:26
+
+````
+
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_cancel_sign_recover.py
+raw transaction of signed tx: 0x39f86b8203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec21
+````
+
+</CH.Code>
+
+---
+
+从已签署的 tx 中的签名中恢复**signer's address**
+
+<CH.Code>
+```py web3_fee_delegated_cancel_sign_recover.py focus=28:29
+
+````
+---
+
+```zsh output
+❯ py web3_fee_delegated_cancel_sign_recover.py
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+````
+
+</CH.Code>
+
+---
+
+您可以使用**Account.decode_transaction**工具对 RLP 编码的 tx 进行**解码**，如果您想让输出格式更漂亮，请使用**to_pretty**工具。
+
+<CH.Code>
+```py web3_fee_delegated_cancel_sign_recover.py focus=31:32
+
+````
+
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_cancel_sign_recover.py
+decoded transaction: {
+  "type": 57,
+  "nonce": 931,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 6749929892576958642714739615979538685230067780127794094925331144130783330367,
+      "s": 3116598222383802394999638931088885558560578183897443089888519072063383661601
+    }
+  ],
+  "chainId": 1001
+}
+````
+
+</CH.Code>
+
+---
+
+用收费委托人的账户签署原始交易
+
+<CH.Code>
+``py web3_fee_delegated_cancel_sign_recover.py focus=34:35
+
+````
+
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_cancel_sign_recover.py
+raw transaction of feePayer signed tx: 0x39f8c98203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec2194cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f6a06697d97df68a0c4a2c59b3d7a8c5c479a6b43e7a34394518b858ef908d10b76aa0492c8da32c77a71ce26650f9ac842496bb33f0f17877ce1b23e1763b7c87e28d
+````
+
+</CH.Code>
+
+---
+
+从签署的交易中找回缴费人地址
+
+<CH.Code>
+``py web3_fee_delegated_cancel_sign_recover.py focus=37:38
+
+````
+
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_cancel_sign_recover.py
+recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+````
+
+</CH.Code>
+
+---
+
+您可以使用**Account.decode_transaction**工具对 RLP 编码的 tx 进行**解码**，如果您想让输出格式更漂亮，请使用**to_pretty**工具。
+
+<CH.Code>
+```py web3_fee_delegated_cancel_sign_recover.py focus=40:41
+
+````
+
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_cancel_sign_recover.py
+decoded transaction: {
+  "type": 57,
+  "nonce": 931,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "feePayer": "0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 6749929892576958642714739615979538685230067780127794094925331144130783330367,
+      "s": 3116598222383802394999638931088885558560578183897443089888519072063383661601
+    }
+  ],
+  "feePayerSignatures": [
+    {
+      "v": 2038,
+      "r": 46404205537188908000560167654303187399733564148219565625489961916532872230762,
+      "s": 33097556762817862610763009383178378013466927896867683158585566455859245474445
+    }
+  ],
+  "chainId": 1001
+}
+````
+
+</CH.Code>
+
+</CH.Spotlight>

@@ -1,5 +1,11 @@
 # Use AWS AMIs
 
+:::info[Service No Longer Updated]
+
+The AWS AMI service for Kaia endpoint nodes is no longer being updated (last update: November 2024). While existing AMIs (dated November 2024) are still available for use, please note that they may require additional synchronization time to catch up with the current blockchain state. For alternative setup methods, such as using chaindata snapshots or performing full synchronization, please refer to [Block Synchronization](../../learn/storage/block-sync.md).
+
+:::
+
 Kaia offers an AWS AMI ([Amazon Machine Image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)) for Kaia endpoint nodes (EN). These AMIs are pre-installed with both the EN software and the chaindata, enabling users to quickly and conveniently launch a fully operational node. With Kaia's AMI, setting up a new endpoint node on demand becomes seamless, allowing for simplifying the process of joining the Kaia network.
 
 ## Why use AMI
@@ -17,18 +23,14 @@ Kaia provides different types of AMIs, whose chaindata has been synced with diff
 | state-migrated | Full mode, state migrated (or state batch pruned) | `kaia-xxxx-clean-en-xxxx`         |
 | archive        | Archive mode                                                         | `kaia-xxxx-clean-archive-en-xxxx` |
 
-Kaia provides these 4 types of AMIs for both mainnet and kairos.
+Kaia provides these 4 types of AMIs for mainnet. There are also AMIs for Kairos except for the `full` type.
 
 See [State Batch Pruning](../../../learn/storage/state-pruning/#state-batch-pruning-state-migration) for more details on state migrated chaindata.
 See [Block Synchronization](../../learn/storage/block-sync.md) for more details on block sync modes.
 
-## AMI generation period
-
-We generate the latest AMI every day around 6 pm KST. Once generated, the AMIs last for 3 days. The AMI has the date of creation appended in the name, such as `kaia-mainnet-clean-en-20240926`.
-
 ## Launch new EC2 instance with AMI in Amazon console
 
-When launching a new EC2 instace in the AWS console, you should select an AMI. Search for `kaia-mainnet` or `kaia-kairos` in the AMI search bar.
+When launching a new EC2 instance in the AWS console, you should select an AMI. Search for `kaia-mainnet` in the AMI search bar.
 
 ![AMI search bar](/img/misc/ami_search.png)
 
@@ -65,6 +67,24 @@ $ sudo fio --filename=/dev/nvme1n1 --rw=read --bs=128k --iodepth=32 --ioengine=l
 This task to warmup Amazon EBS volume would take a long time depending on the data size. Refer to `fio` output for the ETA.
 
 :::
+
+### Check `kend.conf` configuration
+
+Before starting the node, check `NETWORK` and `NETWORK_ID` fields in the configuration file `kend.conf`. The `kend.conf` file is located in `/etc/kend/conf/kend.conf`.
+
+For Mainnet, the `NETWORK` field should be `mainnet`. For Kairos, the `NETWORK` field should be `kairos`.
+
+```
+# for Mainnet
+NETWORK=mainnet
+
+# for Kairos
+NETWORK=kairos
+```
+
+Note that `NETWORK_ID` is only used for private network. Thus make sure not to set `NETWORK_ID` for Mainnet or Kairos.
+
+For more details on `kend.conf`, see [Configuration](configuration.md).
 
 ### Start `kend` service
 

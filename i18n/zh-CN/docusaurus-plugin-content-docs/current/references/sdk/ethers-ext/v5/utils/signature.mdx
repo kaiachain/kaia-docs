@@ -1,0 +1,118 @@
+# Signature
+
+将签名从对象转换为元组格式，压缩签名。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js signatureUtils.js
+    const { getSignatureTuple } = require('@kaiachain/ethers-ext/v5')
+
+    async function main() {
+      console.log(
+        'signature from { v, r, s } object =',
+        getSignatureTuple({
+          v: 27,
+          r: '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+          s: '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508',
+        })
+      )
+      console.log(
+        'signature from compact 65 bytes =',
+        getSignatureTuple(
+          '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b9975c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c5081b'
+        )
+      )
+    }
+
+    main()
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node signatureUtils.js
+    signature from { v, r, s } object = [
+      '0x1b',
+      '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+      '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508'
+    ]
+    signature from compact 65 bytes = [
+      '0x1b',
+      '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+      '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508'
+    ]
+    ```
+  </CH.Code>
+
+  ---
+
+  从 **@kaiachain/ethers-ext** 软件包中导入 **getSignatureTuple**
+
+  ```js signatureUtils.js focus=1
+  ```
+
+  ---
+
+  要将公钥从`{r, s, v}`格式压缩为元组格式，请使用 `getSignatureTuple` 并将**签名对象**作为参数
+
+  <CH.Code>
+    ```js signatureUtils.js focus=4:11
+    const { getSignatureTuple } = require('@kaiachain/ethers-ext/v5')
+
+    async function main() {
+      console.log(
+        'signature from { v, r, s } object =',
+        getSignatureTuple({
+          v: 27,
+          r: '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+          s: '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508',
+        })
+      )
+    }
+
+    main()
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node signatureUtils.js
+    signature from { v, r, s } object = [
+      '0x1b',
+      '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+      '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508'
+    ```
+  </CH.Code>
+
+  ---
+
+  要将公钥从紧凑的 65 字节格式压缩成元组，请使用 `getSignatureTuple` 并将**紧凑签名**作为参数
+
+  <CH.Code>
+    ```js signatureUtils.js focus=4:9
+    const { getSignatureTuple } = require('@kaiachain/ethers-ext/v5')
+
+    async function main() {
+      console.log(
+        'signature from compact 65 bytes =',
+        getSignatureTuple(
+          '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b9975c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c5081b'
+        )
+      )
+    }
+
+    main()
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node signatureUtils.js
+    signature from compact 65 bytes = [
+      '0x1b',
+      '0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99',
+      '0x75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508'
+    ]
+    ```
+  </CH.Code>
+</CH.Spotlight>
