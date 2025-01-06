@@ -1132,7 +1132,7 @@ kip37.mintBatch(to, ids, values [, sendParam])
 > kip37.mintBatch('0x{address in hex}', [1, 2], [100, 200]).then(console.log)
 ```
 
-## kip37.addMinter <0></0>
+## kip37.addMinter <a id="kip37-addminter"></a>
 
 ```javascript
 kip37.addMinter(account [, sendParam])
