@@ -101,7 +101,7 @@ RPC "是一个包含[Klay]、[Net]和[Governance]的类别。
 - [getPeerCount](./net.md#caver-rpc-net-getpeercount)
 - [getPeerCountByType](./net.md#caver-rpc-net-getpeercountbytype)
 
-### [杂项](./klay.md#caver-rpc-klay-sha3) <0></0>
+### [杂项](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
 
 - [sha3](./klay.md#caver-rpc-klay-sha3)
 
