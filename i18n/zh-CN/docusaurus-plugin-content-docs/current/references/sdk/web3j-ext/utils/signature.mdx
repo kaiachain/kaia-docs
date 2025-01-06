@@ -1,6 +1,6 @@
 # Signature
 
-在 "r、s、v "和 "压缩字符串 "格式之间转换签名。
+在 `r, s, v` 和 "压缩字符串"格式之间转换签名。
 
 <CH.Spotlight>
   <CH.Code>
@@ -42,6 +42,7 @@
             System.out.println("Converted V " + Numeric.toHexString(convertedV));
         }
     }
+
     ```
 
     ---
@@ -84,14 +85,14 @@
 
   ---
 
-  将字符串签名转换为{r ,s ,v}，首先将字符串签名转换为字节数组。 使用 `Numeric.hexStringToByteArray` 将字符串转换为字节数组
+  将字符串签名转换为`{r ,s ,v}`，首先将字符串签名转换为字节数组。 使用 `Numeric.hexStringToByteArray` 将字符串转换为字节数组
 
   ```java SignatureUtilsExample.java focus=19:20
   ```
 
   ---
 
-  从字节数组中提取 **r、s、v** 成分。 R "是前 32 个索引，"S "是后 32 个索引，"V "是最后一个索引
+  从字节数组中提取 **r, s, v** 成分。 `R`是前 32 个索引，`S`是后 32 个索引，`V`是最后一个索引
 
   ```java SignatureUtilsExample.java focus=22:31
   ```
