@@ -145,7 +145,7 @@ ValueTransferMemo "代表一个[价值转移备忘录事务]（.../.../.../.../.
 :::note
 
 注意：您可以通过 RLP 编码字符串创建 `ValueTransferMemo` 实例。 请参考下面的示例。
-注意："caver.transaction.valueTransferMemo.create "从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
+注意：`caver.transaction.valueTransferMemo.create`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
 
 注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用类似 `new caver.transaction.valueTransferMemo({...})` 的构造函数创建事务，请将其更改为 `caver.transaction.valueTransferMemo.create({...})`。
 
@@ -326,9 +326,9 @@ SmartContractExecution\` 的成员变量属性如下。 标记为 "可选 "的�
 :::note
 
 注意： 您可以通过 RLP 编码字符串创建 `SmartContractExecution` 实例。 请参考下面的示例。
-注意："caver.transaction.smartContractExecution.create "从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
+注意：`caver.transaction.smartContractExecution.create`从 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 开始支持。
 
-注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用 "new caver.transaction.smartContractExecution({...}) "之类的构造函数创建事务，请将其更改为 "caver.transaction.smartContractExecution.create({...})"。
+注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用 `new caver.transaction.smartContractExecution({...})`之类的构造函数创建事务，请将其更改为 `caver.transaction.smartContractExecution.create({...})`。
 
 :::
 
@@ -492,7 +492,7 @@ EthereumAccessList "代表一个[以太坊访问列表事务](.../.../.../.../..
 :::note
 
 注意：您可以从 RLP 编码的字符串中创建一个 `EthereumAccessList` 实例。 请参考下面的示例。
-注意："caver.transaction.ethereumAccessList "从 caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0) 开始支持。
+注意：`caver.transaction.ethereumAccessList`从 caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0) 开始支持。
 
 注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用类似 `new caver.transaction.ethereumAccessList({...})` 的构造函数创建交易，请将其更改为 `caver.transaction.ethereumAccessList.create({...})`。
 
@@ -565,7 +565,7 @@ EthereumDynamicFee\` 的成员变量属性如下。 标记为 "可选 "的属性
 :::note
 
 注意：您可以通过 RLP 编码字符串创建 `EthereumDynamicFee` 实例。 请参考下面的示例。
-注意："caver.transaction.ethereumDynamicFee "从 caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0) 开始支持。
+注意：`caver.transaction.ethereumDynamicFee`从 caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0) 开始支持。
 
 注意：从 caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) 开始，只支持使用 `create` 函数创建事务。 如果您一直使用类似`new caver.transaction.ethereumDynamicFee({...})`的构造函数创建交易，请将其更改为`caver.transaction.ethereumDynamicFee.create({...})`。
 
