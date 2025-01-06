@@ -124,7 +124,7 @@ caver.ipfs.toHex(hash)
 0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3
 ```
 
-## caver.ipfs.fromHex <0></0>
+## caver.ipfs.fromHex <a id="caver-ipfs-fromhex"></a>
 
 ```javascript
 caver.ipfs.fromHex(hash)
