@@ -15,7 +15,7 @@ export default function FooterWrapper(props) {
   const projectId = '8ou0itrmqd'; 
 
   const placeholders = {
-    en: {
+    'en': {
       feedbackButtonText: "Make this page better",
       modalTitle: "Your feedback makes a difference. Let us know how we can do better.",
       emailPlaceholder: "Enter your email",
@@ -31,7 +31,7 @@ export default function FooterWrapper(props) {
       ratingPlaceholder: "Was this page helpful?",
       ratingStarsPlaceholder: "How would you rate this page"
     },
-    ko: {
+    'ko': {
       feedbackButtonText: "페이지를 개선해 주세요",
       modalTitle: "여러분의 피드백은 소중합니다. 개선할 부분을 알려주세요.",
       emailPlaceholder: "이메일을 입력해 주세요",
@@ -47,7 +47,23 @@ export default function FooterWrapper(props) {
       ratingPlaceholder: "이 페이지가 도움이 되었나요?",
       ratingStarsPlaceholder: "이 페이지를 평가해 주세요"
     },
-    vi: {
+    'zh-CN': {
+      feedbackButtonText: "让这个页面变得更好",
+      modalTitle: "您的反馈使我们与众不同。让我们知道如何做得更好",
+      emailPlaceholder: "输入您的电子邮件",
+      errorMessage: "请稍后再试",
+      modalTitleError403: "请求的 URL 与 PushFeedback 中为该项目定义的 URL 不匹配",
+      modalTitleError404: "我们无法在 PushFeedback 中找到所提供的项目 ID。",
+      messagePlaceholder: "评论",
+      modalTitleError: "哎呀！",
+      modalTitleSuccess: "感谢您的反馈！",
+      screenshotButtonText: "添加截图",
+      screenshotTopbarText: "在页面上选择一个元素",
+      sendButtonText: "发送",
+      ratingPlaceholder: "本页对您有帮助吗？",
+      ratingStarsPlaceholder: "您如何评价本页面？"
+    },
+    'vi': {
       feedbackButtonText: "Cải thiện trang này",
       modalTitle: "Hãy cho chúng tôi biết cách chúng tôi có thể làm tốt hơn.",
       emailPlaceholder: "Nhập email của bạn",
