@@ -12,7 +12,7 @@ Keyring "是一个包含账户地址和私人密钥的结构。 这是 caver-js 
 - [MultipleKeyring](#multiplekeyring)：用户使用私钥签名
 - [RoleBasedKeyring](#rolebasedkeyring)：用户按角色使用私钥签名
 
-### SingleKeyring <0></0>
+### SingleKeyring <a href="#singlekeyring" id="singlekeyring"></a>
 
 ```javascript
 const keyring = new caver.wallet.keyring.singleKeyring(address, key)
