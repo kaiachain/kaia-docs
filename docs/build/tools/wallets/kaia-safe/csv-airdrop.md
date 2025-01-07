@@ -8,6 +8,8 @@ Let’s get started with an example using CSV Airdrop!
 
 ## Step 1: Login into your [KaiaSafe](https://safe.kaia.io/)  <a id="login-kaiasafe"></a>
 
+If you haven't created a Safe account yet, please refer to our [Create a Safe Guide](./use-kaia-safe.md#create-a-safe) and [Add Asset Guide](./use-kaia-safe.md#add-assets) to set up your account and add assets (KAIA, FT, NFT).
+
 ## Step 2: Click apps, search CSV and select CSV Airdrop  <a id="search-CSV-airdrop"></a>
 
 ![](/img/build/tools/kaia-safe/search-csv-app.png)
