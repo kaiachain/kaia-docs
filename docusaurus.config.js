@@ -495,7 +495,7 @@ const config = {
             ],
           },
         ],
-        copyright: `© Kaia Foundation ${new Date().getFullYear()}. All rights reserved.`,
+        copyright: `© Kaia DLT Foundation ${new Date().getFullYear()}. All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,
