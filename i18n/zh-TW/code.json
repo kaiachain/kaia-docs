@@ -1,0 +1,632 @@
+{
+  "{title}": {
+    "message": "{title}"
+  },
+  "{tagline}": {
+    "message": "{tagline}"
+  },
+  "Getting Started": {
+    "message": "開始使用"
+  },
+  "Node Operators": {
+    "message": "節點操作員"
+  },
+  "API references": {
+    "message": "API 參考資料"
+  },
+  "APIs and libraries": {
+    "message": "API 與函式庫"
+  },
+  "Got a question? Visit our forum!": {
+    "message": "有問題嗎？請造訪我們的論壇！"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "此頁面崩潰。",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "捲回頂端",
+    "description": "The ARIA label for the back to top button"
+  },
+  "theme.blog.archive.title": {
+    "message": "存檔",
+    "description": "The page & hero title of the blog archive page"
+  },
+  "theme.blog.archive.description": {
+    "message": "存檔",
+    "description": "The page & hero description of the blog archive page"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "部落格清單頁導覽",
+    "description": "The ARIA label for the blog pagination"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "最新條目",
+    "description": "The label used to navigate to the newer blog posts page (previous page)"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "舊條目",
+    "description": "The label used to navigate to the older blog posts page (next page)"
+  },
+  "theme.blog.post.plurals": {
+    "message": "一個帖子|{count} 個帖子",
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} 標籤為 \"{tagName}\"",
+    "description": "The title of the page for a blog tag"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "檢視所有標籤",
+    "description": "The label of the link targeting the tag list page"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "在深色和淺色模式之間切換 (目前為 {mode})",
+    "description": "The ARIA label for the navbar color mode toggle"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "暗模式",
+    "description": "The name for the dark color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "光模式",
+    "description": "The name for the light color mode"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "部落格文章頁面導覽",
+    "description": "The ARIA label for the blog posts pagination"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "較新文章",
+    "description": "The blog post button label to navigate to the newer/previous post"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "較舊的文章",
+    "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "麵包屑",
+    "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.docs.DocCard.categoryDescription": {
+    "message": "{count} 項目",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "文件頁面",
+    "description": "The ARIA label for the docs pagination"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "上一頁",
+    "description": "The label used to navigate to the previous doc"
+  },
+  "theme.docs.paginator.next": {
+    "message": "下一頁",
+    "description": "The label used to navigate to the next doc"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "一個已標籤的文件|{count} 已標籤的文件",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} 與 \"{tagName}\"",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "版本: {versionLabel}"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "這是 {siteTitle} {versionLabel} 版本的未釋出文件。",
+    "description": "The label used to tell the user that he's browsing an unreleased doc version"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "這是 {siteTitle} {versionLabel}的說明文件，目前已不再維護。",
+    "description": "The label used to tell the user that he's browsing an unmaintained doc version"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "如需最新文件，請參閱 {latestVersionLink} ({versionLabel})。",
+    "description": "The label used to tell the user to check the latest version"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "最新版本",
+    "description": "The label used for the latest version suggestion link label"
+  },
+  "theme.common.editThisPage": {
+    "message": "編輯此頁面",
+    "description": "The link label to edit the current page"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "直接連結至 {heading}",
+    "description": "Title for link to heading"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": " {date}",
+    "description": "The words used to describe on which date a page has been last updated"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": " 作者： {user}",
+    "description": "The words used to describe by who the page has been last updated"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "最後更新{atDate}{byUser}",
+    "description": "The sentence used to display when a page has been last updated, and by who"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "版本",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
+  "theme.NotFound.title": {
+    "message": "頁面未找到",
+    "description": "The title of the 404 page"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "標籤",
+    "description": "The label alongside a tag list"
+  },
+  "theme.admonition.caution": {
+    "message": "警告",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.admonition.danger": {
+    "message": "危險",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "資訊",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.note": {
+    "message": "注意",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "提示",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.warning": {
+    "message": "警告",
+    "description": "The default label used for the Warning admonition (:::warning)"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "關閉",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "部落格最新文章導覽",
+    "description": "The ARIA label for recent posts in the blog sidebar"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "複製",
+    "description": "The copied button label on code blocks"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "複製代碼到剪貼簿",
+    "description": "The ARIA label for copy code blocks button"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "複製",
+    "description": "The copy button label on code blocks"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "切換換字",
+    "description": "The title attribute for toggle word wrapping button of code block lines"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "展開側邊列分類 '{label}'",
+    "description": "The ARIA label to expand the sidebar category"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "折疊側邊欄類別 '{label}'",
+    "description": "The ARIA label to collapse the sidebar category"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "主頁",
+    "description": "The ARIA label for the main navigation"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "語言",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "在此頁面上",
+    "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.blog.post.readMore": {
+    "message": "閱讀更多",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "閱讀更多關於 {title}",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.NotFound.p1": {
+    "message": "我們找不到您要的東西。",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "請與連結您原始 URL 的網站擁有者聯絡，讓他們知道他們的連結已損毀。",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "首頁",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "折疊側欄",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "折疊側欄",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "關閉導覽列",
+    "description": "The ARIA label for close button of mobile sidebar"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "一分鐘閱讀|{readingTime} 一分鐘閱讀",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "文件側邊欄",
+    "description": "The ARIA label for the sidebar navigation"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← 返回主功能表",
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "切換導覽列",
+    "description": "The ARIA label for hamburger menu button of mobile navigation"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "展開側邊欄",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "展開側邊欄",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "查看所有 {count} 結果"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "找到一份文件|{count} 找到文件",
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "搜尋結果為 \"{query}\"",
+    "description": "The search page title for non-empty query"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "搜尋文件",
+    "description": "The search page title for empty query"
+  },
+  "theme.SearchPage.inputPlaceholder": {
+    "message": "在此輸入您的搜尋",
+    "description": "The placeholder for search page input"
+  },
+  "theme.SearchPage.inputLabel": {
+    "message": "搜尋",
+    "description": "The ARIA label for search page input"
+  },
+  "theme.SearchPage.algoliaLabel": {
+    "message": "依 Algolia 搜尋",
+    "description": "The ARIA label for Algolia mention"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "未找到結果",
+    "description": "The paragraph for empty search result"
+  },
+  "theme.SearchPage.fetchingNewResults": {
+    "message": "擷取新結果...",
+    "description": "The paragraph for fetching new search results"
+  },
+  "theme.SearchBar.label": {
+    "message": "搜尋",
+    "description": "The ARIA label and placeholder for search button"
+  },
+  "theme.SearchModal.searchBox.resetButtonTitle": {
+    "message": "清除查詢",
+    "description": "The label and ARIA label for search box reset button"
+  },
+  "theme.SearchModal.searchBox.cancelButtonText": {
+    "message": "取消",
+    "description": "The label and ARIA label for search box cancel button"
+  },
+  "theme.SearchModal.startScreen.recentSearchesTitle": {
+    "message": "最近",
+    "description": "The title for recent searches"
+  },
+  "theme.SearchModal.startScreen.noRecentSearchesText": {
+    "message": "沒有最近的搜尋",
+    "description": "The text when no recent searches"
+  },
+  "theme.SearchModal.startScreen.saveRecentSearchButtonTitle": {
+    "message": "儲存此搜尋",
+    "description": "The label for save recent search button"
+  },
+  "theme.SearchModal.startScreen.removeRecentSearchButtonTitle": {
+    "message": "從歷史中移除此搜尋",
+    "description": "The label for remove recent search button"
+  },
+  "theme.SearchModal.startScreen.favoriteSearchesTitle": {
+    "message": "最愛",
+    "description": "The title for favorite searches"
+  },
+  "theme.SearchModal.startScreen.removeFavoriteSearchButtonTitle": {
+    "message": "將此搜尋從我的最愛移除",
+    "description": "The label for remove favorite search button"
+  },
+  "theme.SearchModal.errorScreen.titleText": {
+    "message": "無法取得結果",
+    "description": "The title for error screen of search modal"
+  },
+  "theme.SearchModal.errorScreen.helpText": {
+    "message": "您可能需要檢查網路連線。",
+    "description": "The help text for error screen of search modal"
+  },
+  "theme.SearchModal.footer.selectText": {
+    "message": "選擇",
+    "description": "The explanatory text of the action for the enter key"
+  },
+  "theme.SearchModal.footer.selectKeyAriaLabel": {
+    "message": "Enter 鍵",
+    "description": "The ARIA label for the Enter key button that makes the selection"
+  },
+  "theme.SearchModal.footer.navigateText": {
+    "message": "導航",
+    "description": "The explanatory text of the action for the Arrow up and Arrow down key"
+  },
+  "theme.SearchModal.footer.navigateUpKeyAriaLabel": {
+    "message": "向上箭頭",
+    "description": "The ARIA label for the Arrow up key button that makes the navigation"
+  },
+  "theme.SearchModal.footer.navigateDownKeyAriaLabel": {
+    "message": "箭頭向下",
+    "description": "The ARIA label for the Arrow down key button that makes the navigation"
+  },
+  "theme.SearchModal.footer.closeText": {
+    "message": "關閉",
+    "description": "The explanatory text of the action for Escape key"
+  },
+  "theme.SearchModal.footer.closeKeyAriaLabel": {
+    "message": "Escape 鍵",
+    "description": "The ARIA label for the Escape key button that close the modal"
+  },
+  "theme.SearchModal.footer.searchByText": {
+    "message": "搜尋方式",
+    "description": "The text explain that the search is making by Algolia"
+  },
+  "theme.SearchModal.noResultsScreen.noResultsText": {
+    "message": "沒有結果",
+    "description": "The text explains that there are no results for the following search"
+  },
+  "theme.SearchModal.noResultsScreen.suggestedQueryText": {
+    "message": "試著搜尋",
+    "description": "The text for the suggested query when no results are found for the following search"
+  },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
+    "message": "相信這個查詢應該會傳回結果嗎？",
+    "description": "The text for the question where the user thinks there are missing results"
+  },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
+    "message": "讓我們知道。",
+    "description": "The text for the link to report missing results"
+  },
+  "theme.SearchModal.placeholder": {
+    "message": "搜尋文件",
+    "description": "The placeholder of the input of the DocSearch pop-up modal"
+  },
+  "theme.CodeBlock.expanded": {
+    "message": "已擴充",
+    "description": "The expanded button label on code blocks"
+  },
+  "theme.CodeBlock.expandButtonAriaLabel": {
+    "message": "將程式碼展開至全螢幕",
+    "description": "The ARIA label for expand code blocks button"
+  },
+  "theme.CodeBlock.expand": {
+    "message": "展開",
+    "description": "The expand button label on code blocks"
+  },
+  "theme.CodeBlock.exitButtonAriaLabel": {
+    "message": "退出擴充檢視",
+    "description": "The ARIA label for exit expanded view button"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "再試一次",
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "跳至主要內容",
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "標籤",
+    "description": "The title of the tag list page"
+  },
+  "theme.unlistedContent.title": {
+    "message": "未列出頁面",
+    "description": "The unlisted content banner title"
+  },
+  "theme.unlistedContent.message": {
+    "message": "此頁面未列出。搜尋引擎不會索引它，只有擁有直接連結的使用者才能存取。",
+    "description": "The unlisted content banner message"
+  },
+  "Kaia Overview": {
+    "message": "Kaia 概觀"
+  },
+  "Want to know about Kaia?": {
+    "message": "想要瞭解 Kaia？"
+  },
+  "Want to start building on Kaia?": {
+    "message": "想要在 Kaia 上開始建構嗎？"
+  },
+  "Instructions on running Kaia's nodes": {
+    "message": "執行 Kaia 節點的說明"
+  },
+  "Kaia Developer Hub": {
+    "message": "Kaia 開發人員中心"
+  },
+  "Kaia's Developer portal": {
+    "message": "Kaia 的開發人員入口網站"
+  },
+  "Kaia Developer Forum": {
+    "message": "Kaia 開發人員論壇"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "{count} 項目",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}",
+    "description": "The title of the page for a blog author"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "作者",
+    "description": "The title of the authors page"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "檢視所有作者",
+    "description": "The label of the link targeting the blog authors page"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "未列出頁面",
+    "description": "The unlisted content banner title"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "此頁面未列出。搜尋引擎不會索引它，只有擁有直接連結的使用者才能存取。",
+    "description": "The unlisted content banner message"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "草稿頁",
+    "description": "The draft content banner title"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "此頁面為草稿。它只會在開發版本中顯示，而不會出現在生產版本中。",
+    "description": "The draft content banner message"
+  },
+  "disclaimer.message": {
+    "message": "本頁面使用英文機器翻譯，可能存在錯誤或語言不清。如需最準確的資訊，請參閱英文原文。由於更新頻繁，有些內容可能是英文原文。請加入我們在 Crowdin 上的努力，幫助我們改善本頁的翻譯。",
+    "description": "Machine translation disclaimer for non-English documentation pages"
+  },
+  "JSON-RPC API Reference": {
+    "message": "JSON-RPC API Reference"
+  },
+  "Discover and Engage with Kaia's JSON-RPC APIs": {
+    "message": "Discover and Engage with Kaia's JSON-RPC APIs"
+  },
+  "Unlock Kaia's full potential with our interactive API documentation. Test API calls directly in the docs, explore detailed request and response examples, and generate code snippets in curl, Python, Node.js, and Java. Whether developing new applications or integrating with existing systems, our comprehensive API reference provides the tools for efficient development on the Kaia platform.": {
+    "message": "Unlock Kaia's full potential with our interactive API documentation. Test API calls directly in the docs, explore detailed request and response examples, and generate code snippets in curl, Python, Node.js, and Java. Whether developing new applications or integrating with existing systems, our comprehensive API reference provides the tools for efficient development on the Kaia platform."
+  },
+  "Get started with Kaia's JSON RPC APIs": {
+    "message": "Get started with Kaia's JSON RPC APIs"
+  },
+  "homepage.favorites.gettingStarted.title": {
+    "message": "Getting Started",
+    "description": "Title for Getting Started guide"
+  },
+  "homepage.favorites.gettingStarted.description": {
+    "message": "Deploy your first smart contract using Hardhat.",
+    "description": "Description for Getting Started guide"
+  },
+  "homepage.favorites.metamask.title": {
+    "message": "MetaMask Guide",
+    "description": "Title for MetaMask guide"
+  },
+  "homepage.favorites.metamask.description": {
+    "message": "Connect MetaMask to Kaia.",
+    "description": "Description for MetaMask guide"
+  },
+  "homepage.favorites.snapshot.title": {
+    "message": "Node Snapshot Guide",
+    "description": "Title for Node Snapshot guide"
+  },
+  "homepage.favorites.snapshot.description": {
+    "message": "Use Chaindata Snapshots.",
+    "description": "Description for Node Snapshot guide"
+  },
+  "homepage.favorites.rpc.title": {
+    "message": "Public JSON RPC Endpoints",
+    "description": "Title for Public JSON RPC Endpoints"
+  },
+  "homepage.favorites.rpc.description": {
+    "message": "Build and test your products without running your own node.",
+    "description": "Description for Public JSON RPC Endpoints"
+  },
+  "homepage.favorites.wallets.title": {
+    "message": "Wallets",
+    "description": "Title for Wallets section"
+  },
+  "homepage.favorites.wallets.description": {
+    "message": "Integrate and secure digital assets seamlessly.",
+    "description": "Description for Wallets section"
+  },
+  "homepage.favorites.indexers.title": {
+    "message": "Indexers",
+    "description": "Title for Indexers section"
+  },
+  "homepage.favorites.indexers.description": {
+    "message": "Query and index blockchain data for efficient dApp performance.",
+    "description": "Description for Indexers section"
+  },
+  "homepage.favorites.guides.title": {
+    "message": "Popular Guides",
+    "description": "Title for the Popular Guides section"
+  },
+  "homepage.favorites.guides.viewMore": {
+    "message": "View More Guides",
+    "description": "Link text to view more guides"
+  },
+  "homepage.favorites.resources.title": {
+    "message": "Popular Resources",
+    "description": "Title for the Popular Resources section"
+  },
+  "homepage.favorites.resources.viewMore": {
+    "message": "View More Resources",
+    "description": "Link text to view more resources"
+  },
+  "DApp Developers": {
+    "message": "DApp Developers"
+  },
+  "API References": {
+    "message": "API References"
+  },
+  "homepage.sdk.ethersjs.name": {
+    "message": "Ethers.js Extension",
+    "description": "Name of the Ethers.js Extension SDK"
+  },
+  "homepage.sdk.web3js.name": {
+    "message": "Web3.js Extension",
+    "description": "Name of the Web3.js Extension SDK"
+  },
+  "homepage.sdk.web3j.name": {
+    "message": "Web3j Extension",
+    "description": "Name of the Web3j Extension SDK"
+  },
+  "homepage.sdk.web3py.name": {
+    "message": "Web3.py Extension",
+    "description": "Name of the Web3.py Extension SDK"
+  },
+  "homepage.sdk.section.title": {
+    "message": "SDK Documentation",
+    "description": "Title of the SDK documentation section"
+  },
+  "homepage.sdk.section.heading": {
+    "message": "Build freely with tools tailored for your language.",
+    "description": "Main heading of the SDK section"
+  },
+  "homepage.sdk.section.description": {
+    "message": "Seamlessly integrate with Kaia Network using our enhanced SDKs for JavaScript, Java, Python and more. Built on trusted foundations like Ethers, Web3.js, Web3j, and Web3.py, our libraries give you the power to submit transactions, read smart contracts, and develop complex applications with extended functionality - all in your preferred programming language.",
+    "description": "Description of Kaia Network's SDK offerings"
+  },
+  "homepage.sdk.section.viewMore": {
+    "message": "View More SDKs",
+    "description": "Link text to view additional SDKs"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "This author has not written any posts yet.",
+    "description": "The text for authors with 0 blog post"
+  }
+}
