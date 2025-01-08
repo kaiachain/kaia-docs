@@ -1,12 +1,12 @@
-# 账户基础知识
+# 賬戶基礎知識
 
-**警告**\*：记住您的密码。 如果您丢失了账户密码，您将无法访问该账户。 **这里没有** _**忘记密码**_ \*\*选项。 永远不要忘记。
+**警告**\*：記住您的密碼。 如果您丟失了賬戶密碼，您將無法訪問該賬戶。 **這裡沒有** _**忘記密碼**_ \*\*選項。 永遠不要忘記。
 
-Kaia 为开发人员提供了两个方便的命令行工具："ken "和 "JavaScript 控制台"，用于管理账户。 请注意，不支持以未加密格式导出私人密钥。
+Kaia 為開發人員提供了兩個方便的命令行工具："ken "和 "JavaScript 控制檯"，用於管理賬戶。 請注意，不支持以未加密格式導出私人密鑰。
 
 ## ken <a id="ken"></a>
 
-Kaia 端点节点二进制程序 `ken` 通过 `account` 命令提供账户管理。 通过命令 `account` 可以创建新账户、列出所有现有账户、将私钥导入新账户、迁移到最新的密钥格式以及更改密码。
+Kaia 端點節點二進制程序 `ken` 通過 `account` 命令提供賬戶管理。 通過命令 `account` 可以創建新賬戶、列出所有現有賬戶、將私鑰導入新賬戶、遷移到最新的密鑰格式以及更改密碼。
 
 ### 使用方法<a id="usage"></a>
 
@@ -27,7 +27,7 @@ COMMANDS:
 ...
 ```
 
-你可以通过 `ken account<command> --help` 获取子命令的信息。
+你可以通過 `ken account<command> --help` 獲取子命令的信息。
 
 ```text
 $ ken account list --help
@@ -44,23 +44,23 @@ DATABASE OPTIONS:
   --db.no-partitioning  Disable partitioned databases for persistent storage
 ```
 
-### 数据目录<a id="data-directory"></a>
+### 數據目錄<a id="data-directory"></a>
 
-密钥存储文件存储在`<DATADIR>/keystore`下。 您可以按如下方式指定数据目录。 强烈建议在执行 "ken account "命令时使用"--datadir "选项。 让数据目录指向在`kend.conf`中设置的`DATA_DIR`，以便与端点节点无缝共享账户。
+密鑰存儲文件存儲在`<DATADIR>/keystore`下。 您可以按如下方式指定數據目錄。 強烈建議在執行 "ken account "命令時使用"--datadir "選項。 讓數據目錄指向在`kend.conf`中設置的`DATA_DIR`，以便與端點節點無縫共享賬戶。
 
 ```bash
 $ ken account new --datadir <DATADIR>
 $ ken account new --datadir "~/kend_home"
 ```
 
-如果未指定数据目录，默认位置如下。
+如果未指定數據目錄，默認位置如下。
 
 - Mac: `~/Library/KEN`
 - Linux: `~/.ken`
 
-## JavaScript 控制台<a id="javascript-console"></a>
+## JavaScript 控制檯<a id="javascript-console"></a>
 
-要连接 JavaScript 控制台，EN 必须处于运行状态。 更多信息，请参阅 [启动 EN](./../smart-contracts/deploy/ken.md)。 启动 EN 并连接到控制台，如下所示。
+要連接 JavaScript 控制檯，EN 必須處於運行狀態。 更多信息，請參閱 [啟動 EN](./../smart-contracts/deploy/ken.md)。 啟動 EN 並連接到控制檯，如下所示。
 
 ### 使用方法<a id="usage"></a>
 
@@ -80,7 +80,7 @@ instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 
 **命令**
 
-输入 `personal` 或 `kaia` 可获得可用功能列表。 在本教程中，我们将访问以下函数。
+輸入 `personal` 或 `kaia` 可獲得可用功能列表。 在本教程中，我們將訪問以下函數。
 
 ```bash
 > personal.newAccount()
@@ -90,6 +90,6 @@ instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 > kaia.getBalance()
 ```
 
-### 数据目录<a id="data-directory"></a>
+### 數據目錄<a id="data-directory"></a>
 
-创建账户时，密钥存储文件存储在`<DATADIR>/keystore` 下。 `<DATADIR>`是在 "kend.conf "中设置的 "DATA_DIR"。 如果按照快速入门指南中的示例，则必须是 `~/kend_home`。
+創建賬戶時，密鑰存儲文件存儲在`<DATADIR>/keystore` 下。 `<DATADIR>`是在 "kend.conf "中設置的 "DATA_DIR"。 如果按照快速入門指南中的示例，則必須是 `~/kend_home`。
