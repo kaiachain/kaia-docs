@@ -1,83 +1,83 @@
-# 构建 "我买咖啡 "应用程序
+# 構建 "我買咖啡 "應用程序
 
-## 目录<a href="#table-of-contents" id="table-of-contents"></a>
+## 目錄<a href="#table-of-contents" id="table-of-contents"></a>
 
-- [1. 项目设置](#1-project-setup)
-- [2. 创建 "请我喝咖啡 "智能合约](#2-creating-a-buy-me-a-coffee-smart-contract)
-- [3. 使用脚本测试合同功能](#3-testing-the-contracts-functionalities-using-scripts)
-- [4. 将 BMC 智能合约部署到 Kaia Testnet ](#4-deploying-bmc-smart-contract)
-- [5. 使用 React 和 Web3Onboard 构建 BMC 前端](#5-building-the-bmc-frontend-with-react-and-web3onboard)
-- [6. 使用 Fleek 在 IPFS 上部署前端代码](#6-deploying-frontend-code-on-ipfs-using-fleek)
-- [7. 结论](#7-conclusion)
+- [1. 項目設置](#1-project-setup)
+- [2. 創建 "請我喝咖啡 "智能合約](#2-creating-a-buy-me-a-coffee-smart-contract)
+- [3. 使用腳本測試合同功能](#3-testing-the-contracts-functionalities-using-scripts)
+- [4. 將 BMC 智能合約部署到 Kaia Testnet ](#4-deploying-bmc-smart-contract)
+- [5. 使用 React 和 Web3Onboard 構建 BMC 前端](#5-building-the-bmc-frontend-with-react-and-web3onboard)
+- [6. 使用 Fleek 在 IPFS 上部署前端代碼](#6-deploying-frontend-code-on-ipfs-using-fleek)
+- [7. 結論](#7-conclusion)
 
-## 导言<a href="#1-introduction" id="1-introduction"></a>
+## 導言<a href="#1-introduction" id="1-introduction"></a>
 
-Buy Me a Coffee (BMC) 是一个创作者从粉丝或观众那里获得资金支持和捐赠的平台。 这些创作者可以是作家、艺术家、音乐家、视频创作者等。在这个平台的帮助下，粉丝可以在创作者的成功故事中扮演重要角色，受众可以对创作者完成的工作表示赞赏，创作者也可以将自己的作品货币化。
+Buy Me a Coffee (BMC) 是一個創作者從粉絲或觀眾那裡獲得資金支持和捐贈的平臺。 這些創作者可以是作家、藝術家、音樂家、視頻創作者等。在這個平臺的幫助下，粉絲可以在創作者的成功故事中扮演重要角色，受眾可以對創作者完成的工作表示讚賞，創作者也可以將自己的作品貨幣化。
 
-从高层次上讲，Buy-me-a-Coffee 简化了创作者接受付款的流程，增强了创作者与受众之间的互动。 这些都是 BMC 平台上令人兴奋的功能。 好的一面是，想象一下区块链上的这个平台。 现在，创作者将获得更多好处，例如
+從高層次上講，Buy-me-a-Coffee 簡化了創作者接受付款的流程，增強了創作者與受眾之間的互動。 這些都是 BMC 平臺上令人興奮的功能。 好的一面是，想象一下區塊鏈上的這個平臺。 現在，創作者將獲得更多好處，例如
 
-- 完全付费，而传统的 BMC 则对创作者获得的任何支持收取 5%的费用。
-- 透明度高，因为所有交易都记录在区块链上。
-- 无需任何中间环节，直接从粉丝那里获得支持费。
-- 去中心化，即没有中央机构控制平台。
+- 完全付費，而傳統的 BMC 則對創作者獲得的任何支持收取 5%的費用。
+- 透明度高，因為所有交易都記錄在區塊鏈上。
+- 無需任何中間環節，直接從粉絲那裡獲得支持費。
+- 去中心化，即沒有中央機構控制平臺。
 
-在本教程中 您将构建一个去中心化版本的 Buy Me a Coffee (BMC) 平台（前端 + 智能合约）。 该平台将是传统 BMC 平台的最小化实现，支持者可以在该平台上向您支付小费，而您则可以作为合约的所有者，提取交付给 BMC 智能合约的任何小费。 支持者可以通过该网站在咖啡交易中一起发送测试 KAIA 和可爱的信息。
+在本教程中 您將構建一個去中心化版本的 Buy Me a Coffee (BMC) 平臺（前端 + 智能合約）。 該平臺將是傳統 BMC 平臺的最小化實現，支持者可以在該平臺上向您支付小費，而您則可以作為合約的所有者，提取交付給 BMC 智能合約的任何小費。 支持者可以通過該網站在咖啡交易中一起發送測試 KAIA 和可愛的信息。
 
-本指南结束时，您将使用以下方法创建此 dApp：
+本指南結束時，您將使用以下方法創建此 dApp：
 
-- Solidity：编写 BMC 智能合约
-- NextJs 和 Tailwind：为我们的 BMC dApp 构建前端网站
-- Web3Onboard：实现与 Kaia Testnet Kairos 的多钱包连接。
-- Fleek：有了 Fleek，我们就能在 IPFS 上托管 BMC dApp。
+- Solidity：編寫 BMC 智能合約
+- NextJs 和 Tailwind：為我們的 BMC dApp 構建前端網站
+- Web3Onboard：實現與 Kaia Testnet Kairos 的多錢包連接。
+- Fleek：有了 Fleek，我們就能在 IPFS 上託管 BMC dApp。
 
-## 先决条件<a href="#2-prerequisites" id="2-prerequisites"></a>
+## 先決條件<a href="#2-prerequisites" id="2-prerequisites"></a>
 
 要完成本教程，您需要
 
 - [Node.js](https://nodejs.org/en/download/package-manager)
-- 熟悉 Javascript 和 React 基础知识，如钩子等
-- 安装必要的钱包，如 [Coinbase Wallet](https://www.coinbase.com/wallet/downloads) 和 [Metamask Wallet](https://metamask.io/download/)
-- 从 [水龙头](https://faucet.kaia.io) 测试 KAIA。
-- RPC 端点：您可以从支持的[端点提供程序](../../references/public-en.md)中获取。
-- 在 [Fleek](https://app.fleek.co/) 上创建账户。
+- 熟悉 Javascript 和 React 基礎知識，如鉤子等
+- 安裝必要的錢包，如 [Coinbase Wallet](https://www.coinbase.com/wallet/downloads) 和 [Metamask Wallet](https://metamask.io/download/)
+- 從 [水龍頭](https://faucet.kaia.io) 測試 KAIA。
+- RPC 端點：您可以從支持的[端點提供程序](../../references/public-en.md)中獲取。
+- 在 [Fleek](https://app.fleek.co/) 上創建賬戶。
 
-## 1. 项目设置<a id="1-project-setup"></a>
+## 1. 項目設置<a id="1-project-setup"></a>
 
-在本节中，我们将初始化项目文件夹。 该文件夹将包含两个单独的文件夹：
+在本節中，我們將初始化項目文件夾。 該文件夾將包含兩個單獨的文件夾：
 
-1. frontend 文件夹--其中包含我们 dApp 前端实现的代码
-2. smart-contract 文件夹--其中包含 BMC dApp 的智能合约代码。
+1. frontend 文件夾--其中包含我們 dApp 前端實現的代碼
+2. smart-contract 文件夾--其中包含 BMC dApp 的智能合約代碼。
 
-要创建项目文件夹，请在终端中粘贴以下代码
+要創建項目文件夾，請在終端中粘貼以下代碼
 
 ```bash
 mkdir BuyMeACoffee
 cd BuyMeACoffee
 ```
 
-### 1.1. 前台文件夹
+### 1.1. 前臺文件夾
 
-该文件夹包含用于构建项目前端网站的工具。 在本指南中，我们将使用 Next 的 [create-next-app](https://nextjs.org/docs/api-reference/create-next-app) 工具来引导我们的 Next.js 和 Tailwind CSS 项目。 请按照以下步骤安装必要的依赖项，并创建前台文件夹：
+該文件夾包含用於構建項目前端網站的工具。 在本指南中，我們將使用 Next 的 [create-next-app](https://nextjs.org/docs/api-reference/create-next-app) 工具來引導我們的 Next.js 和 Tailwind CSS 項目。 請按照以下步驟安裝必要的依賴項，並創建前臺文件夾：
 
-#### 步骤 1 - 创建前台文件夹
+#### 步驟 1 - 創建前臺文件夾
 
-将下面的代码粘贴到 BuyMeACoffee 文件夹中，使用 create-next-app 工具创建前端文件夹：
+將下面的代碼粘貼到 BuyMeACoffee 文件夾中，使用 create-next-app 工具創建前端文件夾：
 
 ```bash
 npx create-next-app frontend
 cd frontend
 ```
 
-#### 步骤 2 - 下载 Tailwind 依赖项并设置其配置
+#### 步驟 2 - 下載 Tailwind 依賴項並設置其配置
 
 ```bash
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-#### 步骤 3 - 修改 `tailwind.config.js`
+#### 步驟 3 - 修改 `tailwind.config.js`
 
-导航至 `tailwind.config.js` 文件，并替换为以下代码：
+導航至 `tailwind.config.js` 文件，並替換為以下代碼：
 
 ```js
 module.exports = {
@@ -92,9 +92,9 @@ module.exports = {
 }
 ```
 
-#### 步骤 4 - 替换 styles/global.css 中的代码
+#### 步驟 4 - 替換 styles/global.css 中的代碼
 
-导航至 styles/global.css 文件，并用下面的代码替换：
+導航至 styles/global.css 文件，並用下面的代碼替換：
 
 ```css
 @tailwind base;
@@ -102,15 +102,15 @@ module.exports = {
 @tailwind utilities;
 ```
 
-我们已经成功建立了前端项目文件夹。 稍后将讨论更多内容。 下一步是设置智能合约文件夹。
+我們已經成功建立了前端項目文件夾。 稍後將討論更多內容。 下一步是設置智能合約文件夾。
 
-### 1.2. 智能合约文件夹
+### 1.2. 智能合約文件夾
 
-该文件夹包含 BuyMeACoffee 功能的智能合约。 请按照以下步骤安装必要的依赖项，并创建我们的智能合约文件夹：
+該文件夾包含 BuyMeACoffee 功能的智能合約。 請按照以下步驟安裝必要的依賴項，並創建我們的智能合約文件夾：
 
-#### 步骤 1 - 创建智能合约文件夹
+#### 步驟 1 - 創建智能合約文件夾
 
-要创建该文件夹，请导航至项目目录：BuyMeACoffee 并运行以下命令创建智能合约文件夹：
+要創建該文件夾，請導航至項目目錄：BuyMeACoffee 並運行以下命令創建智能合約文件夾：
 
 ```bash
 cd ..
@@ -118,15 +118,15 @@ mkdir smart-contract
 cd smart-contract
 ```
 
-#### 步骤 2 - 生成硬礼帽项目模板
+#### 步驟 2 - 生成硬禮帽項目模板
 
-该模板适用于编写、测试和部署智能合约。 首先，在终端运行下面的代码，启动一个新的 npm 项目：
+該模板適用於編寫、測試和部署智能合約。 首先，在終端運行下面的代碼，啟動一個新的 npm 項目：
 
 ```bash
 npm init -y
 ```
 
-这将为您创建一个 package.json 文件，看起来像这样：
+這將為您創建一個 package.json 文件，看起來像這樣：
 
 ```json
 {
@@ -143,7 +143,7 @@ npm init -y
 }
 ```
 
-然后，安装 hardhat 和其他依赖项，如 hardhat-toolbox 和 dotenv。 为此，请用下面的代码替换 package.json 文件：
+然後，安裝 hardhat 和其他依賴項，如 hardhat-toolbox 和 dotenv。 為此，請用下面的代碼替換 package.json 文件：
 
 ```json
 {
@@ -158,45 +158,45 @@ npm init -y
 }
 ```
 
-最后，在终端中运行 `npm install`。
+最後，在終端中運行 `npm install`。
 
-成功安装所有依赖项（hardhat、hardhat-toolbox、dotenv）后，您可以通过以下方式确认 hardhat 的安装：
+成功安裝所有依賴項（hardhat、hardhat-toolbox、dotenv）後，您可以通過以下方式確認 hardhat 的安裝：
 
-a. 检查当前版本：
+a. 檢查當前版本：
 
 ```bash
  npx hardhat --version 
 ```
 
-控制台应打印出当前安装的版本，在我们的例子中是 **2.14.0.**
+控制檯應打印出當前安裝的版本，在我們的例子中是 **2.14.0.**
 
-b. 查看项目目录 当前目录应包括
+b. 查看項目目錄 當前目錄應包括
 
-- **contracts/** - 这是包含智能合约的文件夹。
-- **scripts/** - 此文件夹包含在区块链网络上部署合约的代码
-- **test/** - 该文件夹包含测试智能合约的所有单元测试
-- **hardhat.config.ts** - 该文件包含对 Hardhat 工作非常重要的配置，
-  智能合约的部署。
+- **contracts/** - 這是包含智能合約的文件夾。
+- **scripts/** - 此文件夾包含在區塊鏈網絡上部署合約的代碼
+- **test/** - 該文件夾包含測試智能合約的所有單元測試
+- **hardhat.config.ts** - 該文件包含對 Hardhat 工作非常重要的配置，
+  智能合約的部署。
 
-## 2. 创建 "请我喝咖啡 "智能合约<a id="creating-a-buy-me-a-coffee-contract"></a>
+## 2. 創建 "請我喝咖啡 "智能合約<a id="creating-a-buy-me-a-coffee-contract"></a>
 
-在本节中，我们将创建容纳 BMC 功能的智能合约。 要开始操作，请导航至您的**合同**文件夹，创建一个名为 "BuyMeACoffee.sol "的新文件，并粘贴以下代码：
+在本節中，我們將創建容納 BMC 功能的智能合約。 要開始操作，請導航至您的**合同**文件夾，創建一個名為 "BuyMeACoffee.sol "的新文件，並粘貼以下代碼：
 
 ```solidity
 // SPDX-License-Identifier：UNLICENSED
 pragma solidity ^0.8.9;
 contract BuyMeACoffee {
-    // 当发送带提示信息时要发出的事件
+    // 當發送帶提示信息時要發出的事件
     event NewCoffee(address indexed _sender, string name, string _message, uint256 _timestamp);
 
     // 合同部署者的地址
     address payable owner;
     constructor() {
-        // 将部署者存储为所有者
+        // 將部署者存儲為所有者
         owner = payable(msg.sender);
     }
 
-    // BuyMeACoffe Tx 的结构
+    // BuyMeACoffe Tx 的結構
     struct BuyCoffee {
         address sender;
         string name;
@@ -232,7 +232,7 @@ contract BuyMeACoffee {
         require(owner.send(address(this).balance) );
     }
 
-     // 获取所有咖啡
+     // 獲取所有咖啡
     function getAllCoffee(uint _id) public view returns(BuyCoffee[] memory c){
         require(_id <= coffeeId, "Non-existent id");
         c = new BuyCoffee[](_id);
@@ -243,27 +243,27 @@ contract BuyMeACoffee {
 }
 ```
 
-让我们快速了解一下每行代码的作用：
+讓我們快速瞭解一下每行代碼的作用：
 
-当执行 buyCoffee 函数时，**NewCoffee** 事件就会发生。 它会记录下发件人地址、发件人姓名、发送的信息和时间戳。
+當執行 buyCoffee 函數時，**NewCoffee** 事件就會發生。 它會記錄下發件人地址、發件人姓名、發送的信息和時間戳。
 
-接下来是 **owner** 变量，它代表合同部署者。 然后，我们在构造函数中将 **msg.sender** 设置为合约的所有者。
+接下來是 **owner** 變量，它代表合同部署者。 然後，我們在構造函數中將 **msg.sender** 設置為合約的所有者。
 
-创建 **coffeeId** 是为了跟踪所创建的咖啡交易。
+創建 **coffeeId** 是為了跟蹤所創建的咖啡交易。
 
-随后，我们声明了一个**buyMeACoffee 结构**，其中存储了与咖啡交易相关的所有数据：地址发送者、字符串名称、uint 时间戳、字符串消息。 然后，我们使用 **idToBuyCoffee** 变量将此结构映射为一个 id。
+隨後，我們聲明瞭一個**buyMeACoffee 結構**，其中存儲了與咖啡交易相關的所有數據：地址發送者、字符串名稱、uint 時間戳、字符串消息。 然後，我們使用 **idToBuyCoffee** 變量將此結構映射為一個 id。
 
-buyCoffee 功能是 BMC 智能合约的核心实现。 这是一个应付款函数，需要两个参数，即发件人的姓名和地址。 它检查发送的 KAIA 金额是否大于零。 接下来，它会增加 coffeeId，然后将咖啡 tx 或信息添加到区块链中。 最后，它会发出一个 NewCoffee 事件，其中包含咖啡 tx 的详细信息。
+buyCoffee 功能是 BMC 智能合約的核心實現。 這是一個應付款函數，需要兩個參數，即發件人的姓名和地址。 它檢查發送的 KAIA 金額是否大於零。 接下來，它會增加 coffeeId，然後將咖啡 tx 或信息添加到區塊鏈中。 最後，它會發出一個 NewCoffee 事件，其中包含咖啡 tx 的詳細信息。
 
-我们创建了一个 \*\*withdraw()\*\*函数，用于向所有者提取合同的总余额（`address(this).balance`）。
+我們創建了一個 \*\*withdraw()\*\*函數，用於向所有者提取合同的總餘額（`address(this).balance`）。
 
-最后，创建了一个 **getAllCoffee()** 函数。 它将返回所有加班创建的咖啡交易。
+最後，創建了一個 **getAllCoffee()** 函數。 它將返回所有加班創建的咖啡交易。
 
-现在我们已经完成了 BMC 智能合约的编写，下一步就是测试智能合约的功能，在 **Kaia Testnet Kairos** 上部署智能合约并与之交互。
+現在我們已經完成了 BMC 智能合約的編寫，下一步就是測試智能合約的功能，在 **Kaia Testnet Kairos** 上部署智能合約並與之交互。
 
-## 3. 使用脚本测试合同功能<a id="testing-bmc-contract-using-scripts"></a>
+## 3. 使用腳本測試合同功能<a id="testing-bmc-contract-using-scripts"></a>
 
-在本节中，我们将编写脚本来测试智能合约的功能。 要开始使用，请导航至脚本文件夹，新建一个名为 `bmc-sample.js` 的文件，并在其中粘贴以下代码：
+在本節中，我們將編寫腳本來測試智能合約的功能。 要開始使用，請導航至腳本文件夾，新建一個名為 `bmc-sample.js` 的文件，並在其中粘貼以下代碼：
 
 ```js
 const hre = require("hardhat");
@@ -333,27 +333,27 @@ main().catch((error) => {
 });
 ```
 
-像往常一样，让我们来看看每行代码的作用：
+像往常一樣，讓我們來看看每行代碼的作用：
 
-您会注意到，在代码顶端有一些辅助函数，用于获取单个地址和多个地址的余额。 代码中还有一个主函数，其中包含测试智能合约的功能。
+您會注意到，在代碼頂端有一些輔助函數，用於獲取單個地址和多個地址的餘額。 代碼中還有一個主函數，其中包含測試智能合約的功能。
 
-让我们来看看 **main()** 函数中的代码。
+讓我們來看看 **main()** 函數中的代碼。
 
-首先，我们通过调用`await hre.ethers.getSigners()` 来设置账户列表（所有者、小费 1、小费 2、小费 3），以便进行测试。
+首先，我們通過調用`await hre.ethers.getSigners()` 來設置賬戶列表（所有者、小費 1、小費 2、小費 3），以便進行測試。
 
-接下来，我们创建了一个合同实例并进行了部署。 在这种情况下，就是 BuyMeACoffee.sol 合同。
+接下來，我們創建了一個合同實例並進行了部署。 在這種情況下，就是 BuyMeACoffee.sol 合同。
 
-然后，我们设置收件人列表，使用 **getBalances()** 函数检查他们的余额。 然后，我们在三个不同的实例中调用了**buyCoffee**函数。 接下来，我们检查了每个地址在咖啡交易后的余额。
+然後，我們設置收件人列表，使用 **getBalances()** 函數檢查他們的餘額。 然後，我們在三個不同的實例中調用了**buyCoffee**函數。 接下來，我們檢查了每個地址在咖啡交易後的餘額。
 
-然后，我们调用**提款**函数，将所有资金提取到所有者的地址。 接下来，我们检查了取款后的地址余额。
+然後，我們調用**提款**函數，將所有資金提取到所有者的地址。 接下來，我們檢查了取款後的地址餘額。
 
-最后，我们调用\*\*getAllCoffee()\*\*函数，获取智能合约中的所有咖啡交易。 要查看脚本的运行情况，请运行下面的命令：
+最後，我們調用\*\*getAllCoffee()\*\*函數，獲取智能合約中的所有咖啡交易。 要查看腳本的運行情況，請運行下面的命令：
 
 ```bash
 npx hardhat run scripts/bmc-coffee.js
 ```
 
-终端中的输出结果应该如下所示：
+終端中的輸出結果應該如下所示：
 
 ```bash
 Ayomitans-MacBook-Pro:smart-contract oxpampam$ npx hardhat run scripts/bmc-sample.js
@@ -376,32 +376,32 @@ At 1686307886, Bob, with 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC, said: "Hi A
 At 1686307887, Japhet, with 0x90F79bf6EB2c4f870365E785982E1f101E93b906, said: "Hi Ox"
 ```
 
-## 4. 部署 BMC 智能合约
+## 4. 部署 BMC 智能合約
 
-### 4.1 向 Kaia Testnet 部署 BMC 智能合约 <a id="deploying-bmc-contract"></a>
+### 4.1 向 Kaia Testnet 部署 BMC 智能合約 <a id="deploying-bmc-contract"></a>
 
-在成功测试了 BMC 智能合约的功能后，让我们按以下步骤将其部署到 Kaia Testnet Kairos：
+在成功測試了 BMC 智能合約的功能後，讓我們按以下步驟將其部署到 Kaia Testnet Kairos：
 
-#### 步骤 1 - 创建 .env 文件
+#### 步驟 1 - 創建 .env 文件
 
-现在，在项目文件夹中创建 .env 文件。 该文件可帮助我们将 .env 文件中的环境变量加载到 process.env 文件中。
+現在，在項目文件夾中創建 .env 文件。 該文件可幫助我們將 .env 文件中的環境變量加載到 process.env 文件中。
 
-在终端中粘贴此命令以创建 .env 文件
+在終端中粘貼此命令以創建 .env 文件
 
 ```bash
 touch .env
 ```
 
-创建文件后，让我们把 .env 文件配置成这样：
+創建文件後，讓我們把 .env 文件配置成這樣：
 
 ```bash
 KAIROS_TESTNET_URL= "您的 RPC URL"
-PRIVATE_KEY= "从 metamask 钱包复制的您的私人密钥"
+PRIVATE_KEY= "從 metamask 錢包複製的您的私人密鑰"
 ```
 
-#### 步骤 2 - 设置硬头盔配置
+#### 步驟 2 - 設置硬頭盔配置
 
-将此配置粘贴到 hardhat.config.js 文件中
+將此配置粘貼到 hardhat.config.js 文件中
 
 ```
 require("@nomicfoundation/hardhat-toolbox");
@@ -421,9 +421,9 @@ module.exports = {
 };
 ```
 
-#### 步骤 3 - 创建部署脚本
+#### 步驟 3 - 創建部署腳本
 
-要创建一个新的部署脚本，将此智能合约部署到指定网络，请创建一个新文件 scripts/deploy.js，并粘贴以下代码：
+要創建一個新的部署腳本，將此智能合約部署到指定網絡，請創建一個新文件 scripts/deploy.js，並粘貼以下代碼：
 
 ```js
 const hre = require("hardhat");
@@ -441,23 +441,23 @@ main().catch((error) => {
 });
 ```
 
-现在，我们的配置已全部就绪，让我们运行下面的命令将其部署到 Kaia Testnet Kairos：
+現在，我們的配置已全部就緒，讓我們運行下面的命令將其部署到 Kaia Testnet Kairos：
 
 ```bash
 npx hardhat run scripts/deploy.js --network kairos
 ```
 
-合同部署成功后，您的终端应该是这样的：
+合同部署成功後，您的終端應該是這樣的：
 
 ```bash
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-恭喜您在 Kaia Kairos 网络上部署了 BMC 智能合约！ 您可以在搜索栏中输入您的地址，在 Kaiascope 上验证此交易。
+恭喜您在 Kaia Kairos 網絡上部署了 BMC 智能合約！ 您可以在搜索欄中輸入您的地址，在 Kaiascope 上驗證此交易。
 
-### 4.2 与 BMC 智能合约互动 <a id="interacting-with-bmc-contract"></a>
+### 4.2 與 BMC 智能合約互動 <a id="interacting-with-bmc-contract"></a>
 
-在本节中，您将学习如何使用硬帽脚本提取发送到智能合约中的咖啡提示。 要开始使用，请在脚本文件夹中新建一个文件 `withdraw.js` 并粘贴下面的代码：
+在本節中，您將學習如何使用硬帽腳本提取發送到智能合約中的咖啡提示。 要開始使用，請在腳本文件夾中新建一個文件 `withdraw.js` 並粘貼下面的代碼：
 
 ```js
 const hre = require("hardhat");
@@ -509,68 +509,68 @@ main().catch((error) => {
 });
 ```
 
-从上面的代码可以看出，在实例化 BMC 合约后，脚本只有在合约余额大于零时才会执行 withdrawCoffeTips 函数。  有道理吧？
+從上面的代碼可以看出，在實例化 BMC 合約後，腳本只有在合約餘額大於零時才會執行 withdrawCoffeTips 函數。  有道理吧？
 
-是的！ 在合同没有资金的情况下，它会打印 "无资金可提取"，从而为我们节省了一些调用合同的汽油。
+是的！ 在合同沒有資金的情況下，它會打印 "無資金可提取"，從而為我們節省了一些調用合同的汽油。
 
-让我们运行下面的脚本，看看它是如何运行的：
+讓我們運行下面的腳本，看看它是如何運行的：
 
 ```bash
 npx hardhat run scripts/withdraw.js --network kairos
 ```
 
-成功执行脚本后，您的终端应该是这样的：
+成功執行腳本後，您的終端應該是這樣的：
 
 ```bash
 Ayomitans-MacBook-Pro:smart-contract oxpampam$ npx hardhat run scripts/withdraw.js --network kairos
-提现提示前的所有者余额：155.8337532 KAIA
-提取提示前的合同余额：  2.0 KAIA
+提現提示前的所有者餘額：155.8337532 KAIA
+提取提示前的合同餘額：  2.0 KAIA
 withdrawing funds...
-提取提示后的所有者余额 157.83298835 KAIA
+提取提示後的所有者餘額 157.83298835 KAIA
 ```
 
-从输出结果可以看出，提取咖啡小费后，所有者余额增加了 2 KAIA。
+從輸出結果可以看出，提取咖啡小費後，所有者餘額增加了 2 KAIA。
 
-现在，我们已经部署了合同并测试了所有功能，是时候构建前端了。
+現在，我們已經部署了合同並測試了所有功能，是時候構建前端了。
 
-前端将使 BMC 功能上线，即我们现在可以直观地看到如何与 BMC 智能合约进行交互。
+前端將使 BMC 功能上線，即我們現在可以直觀地看到如何與 BMC 智能合約進行交互。
 
-## 5. 使用 React 和 Web3Onboard 构建 BMC 前端<a id="builidng-bmc-frontend-with-react-and-web3onboard"></a>
+## 5. 使用 React 和 Web3Onboard 構建 BMC 前端<a id="builidng-bmc-frontend-with-react-and-web3onboard"></a>
 
-在本节中，我们将使用 Next.js 和 Web3Onbaord 构建 dApp 前端网站。 要开始操作，您必须导航到之前创建的前台文件夹。
+在本節中，我們將使用 Next.js 和 Web3Onbaord 構建 dApp 前端網站。 要開始操作，您必須導航到之前創建的前臺文件夾。
 
 ```bash
 cd ..
 cd frontend 
 ```
 
-下一步是安装必要的依赖项，以启动并运行我们的 BMC 前端网站。  以下是需要安装的软件包：
+下一步是安裝必要的依賴項，以啟動並運行我們的 BMC 前端網站。  以下是需要安裝的軟件包：
 
-1. Web3Onboard 软件包：Web3-Onboard 是一个与链无关的钱包库，支持在 Kaia 区块链等 EVM 兼容网络上构建的 dApp 中兼容多个钱包。
-2. ether.js：Web3-Onboard 提供商可与 [ethers.js](https://docs.ethers.org/v6/) 和 [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 等库一起使用。 在本指南中，我们将使用 ethers.js 进行 Kaia 区块链调用，如获取用户账户、获取余额、签署交易、发送交易、读取和写入智能合约。
+1. Web3Onboard 軟件包：Web3-Onboard 是一個與鏈無關的錢包庫，支持在 Kaia 區塊鏈等 EVM 兼容網絡上構建的 dApp 中兼容多個錢包。
+2. ether.js：Web3-Onboard 提供商可與 [ethers.js](https://docs.ethers.org/v6/) 和 [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 等庫一起使用。 在本指南中，我們將使用 ethers.js 進行 Kaia 區塊鏈調用，如獲取用戶賬戶、獲取餘額、簽署交易、發送交易、讀取和寫入智能合約。
 
-重要提示：我们需要编辑 frontend/pages 文件夹中的 2 个文件
+重要提示：我們需要編輯 frontend/pages 文件夾中的 2 個文件
 
 - **_app.js**
 - **index.js**
 
-### 5.1 设置 Web3Onboard 提供程序和钱包模块<a id="setting-up-web3onboard-provider-and-wallet-modules"></a>
+### 5.1 設置 Web3Onboard 提供程序和錢包模塊<a id="setting-up-web3onboard-provider-and-wallet-modules"></a>
 
-#### 步骤 1 - 安装 @web3-onboard/react
+#### 步驟 1 - 安裝 @web3-onboard/react
 
 ```bash
 npm install @web3-onboard/react
 ```
 
-在`_app.js`文件中，导入 web3OnboardProvider 和 init 函数。 更多内容稍后讨论。
+在`_app.js`文件中，導入 web3OnboardProvider 和 init 函數。 更多內容稍後討論。
 
 ```js
 import { Web3OnboardProvider, init } from '@web3-onboard/react'
 ```
 
-#### 步骤 2 - 安装和实例化钱包模块
+#### 步驟 2 - 安裝和實例化錢包模塊
 
-在这一步中，您可以使用钱包模块在您的 dApp 中添加尽可能多的钱包。 但在本指南中，您将在 web3-Onboard 实现中添加 Coinbase 钱包、WalletConnect、注入式钱包。
+在這一步中，您可以使用錢包模塊在您的 dApp 中添加儘可能多的錢包。 但在本指南中，您將在 web3-Onboard 實現中添加 Coinbase 錢包、WalletConnect、注入式錢包。
 
 ```bash
 npm install @web3-onboard/coinbase // Coinbase Wallet
@@ -578,7 +578,7 @@ npm install @web3-onboard/walletconnect // WalletConnect
 npm install @web3-onboard/injected-wallets  // Used to connect to Metamask
 ```
 
-在您的 `_app.js` 文件中，导入并实例化钱包模块，以便与您的 dApp 集成。 请注意，每个模块都有自己独特的选项参数，如备用 JSON RPC URL 或默认链 ID。
+在您的 `_app.js` 文件中，導入並實例化錢包模塊，以便與您的 dApp 集成。 請注意，每個模塊都有自己獨特的選項參數，如備用 JSON RPC URL 或默認鏈 ID。
 
 ```js
 import coinbaseWalletModule from "@web3-onboard/coinbase";
@@ -590,19 +590,19 @@ const injected = injectedModule();
 const modules = [coinbaseWalletSdk, walletConnect, injected];
 ```
 
-#### 步骤 3 - 安装醚类
+#### 步驟 3 - 安裝醚類
 
 ```bash
 npm install --save ethers
 ```
 
-#### 步骤 4 - 使用 Web3OnboardProvider 实例化 Web3Onboard
+#### 步驟 4 - 使用 Web3OnboardProvider 實例化 Web3Onboard
 
-Web3OnboardProvider 提供了管理全局状态的更好方法。 它简化了在应用程序周围包装提供程序对象的过程，初始化的 Web3Onboard 实例将在所有子组件中可用。
+Web3OnboardProvider 提供了管理全局狀態的更好方法。 它簡化了在應用程序周圍包裝提供程序對象的過程，初始化的 Web3Onboard 實例將在所有子組件中可用。
 
-Init 函数初始化 web3-Onboard，使其可供所有钩子使用。
+Init 函數初始化 web3-Onboard，使其可供所有鉤子使用。
 
-要查看具体操作，请在您的 `_app.js`文件中粘贴前一段代码下面的代码：
+要查看具體操作，請在您的 `_app.js`文件中粘貼前一段代碼下面的代碼：
 
 ```js
 const ETH_MAINNET_RPC_URL = `https://eth-mainnet.g.alchemy.com/v2/demo`;
@@ -654,11 +654,11 @@ export default function App({ Component, pageProps }) {
 }
 ```
 
-设置好 _app.js 文件后，我们就可以在所有子组件中使用应用程序的提供程序对象和 web3Onboard 实例了。接下来，我们要在 `index.js` 文件中构建前端逻辑
+設置好 _app.js 文件後，我們就可以在所有子組件中使用應用程序的提供程序對象和 web3Onboard 實例了。接下來，我們要在 `index.js` 文件中構建前端邏輯
 
 - Index.js
 
-该页面处理钱包连接和向 BMC 智能合约发送咖啡，由合约部署者撤回。
+該頁面處理錢包連接和向 BMC 智能合約發送咖啡，由合約部署者撤回。
 
 ```js
 import React, { useEffect, useState } from 'react';
@@ -800,40 +800,40 @@ export default function Home() {
 }
 ```
 
-### 上述代码的重要说明
+### 上述代碼的重要說明
 
-1. 获取合约 ABI：  合约 ABI 向前端代码指定了智能合约上可调用的函数。 要获取合同 abi，请导航至 smart-contract 文件夹，并按照以下路径复制该文件中的文本 **artifacts/contracts/BuyMeACoffee.sol/BuyMeACoffee.json**.  接下来，我们在 **frontend/src** 文件夹中创建了一个 utils 文件夹。 然后将其粘贴到新创建的名为 BuyMeACoffee.json 文件中。
+1. 獲取合約 ABI：  合約 ABI 向前端代碼指定了智能合約上可調用的函數。 要獲取合同 abi，請導航至 smart-contract 文件夾，並按照以下路徑複製該文件中的文本 **artifacts/contracts/BuyMeACoffee.sol/BuyMeACoffee.json**.  接下來，我們在 **frontend/src** 文件夾中創建了一個 utils 文件夾。 然後將其粘貼到新創建的名為 BuyMeACoffee.json 文件中。
 
-2. 将 BMC 合同地址更改为 BMC 部署的合同地址。
+2. 將 BMC 合同地址更改為 BMC 部署的合同地址。
 
-现在，如果应用程序尚未运行，你可以进入 shell，使用 `npm run dev` 启动本地服务器，测试你的更改。 网站应在几秒钟内加载完毕，用户界面应如下所示：
+現在，如果應用程序尚未運行，你可以進入 shell，使用 `npm run dev` 啟動本地服務器，測試你的更改。 網站應在幾秒鐘內加載完畢，用戶界面應如下所示：
 
-连接钱包页面：
+連接錢包頁面：
 
 ![](/img/build/tutorials/bmc-cw.png)
 
 ![](/img/build/tutorials/bmc-connect.png)
 
-发送咖啡的前端网站
+發送咖啡的前端網站
 
 ![](/img/build/tutorials/bmc-frontend.png)
 
-现在，让我们探索一下我们的网站和代码。
+現在，讓我們探索一下我們的網站和代碼。
 
-从上面的截图中您可以看到，当您第一次访问 dApp 时，它会要求您连接一个钱包。  接下来会弹出 Web3Onboard 实例中已初始化的可用钱包列表。
+從上面的截圖中您可以看到，當您第一次訪問 dApp 時，它會要求您連接一個錢包。  接下來會彈出 Web3Onboard 實例中已初始化的可用錢包列表。
 
-然后，选择您所需的钱包；如上图所示，我们选择了 MetaMask。 连接钱包后，您会在网站右上方看到一个用户界面组件，其中包含所连接钱包的详细信息。 您还可以在页面上看到咖啡交易表单，其中包含发送者的姓名和信息，以及其他访客之前向智能合约支付的咖啡。
+然後，選擇您所需的錢包；如上圖所示，我們選擇了 MetaMask。 連接錢包後，您會在網站右上方看到一個用戶界面組件，其中包含所連接錢包的詳細信息。 您還可以在頁面上看到咖啡交易表單，其中包含發送者的姓名和信息，以及其他訪客之前向智能合約支付的咖啡。
 
-## 6. 使用 Fleek 在 IPFS 上部署前端代码<a id="deploying-bmc-frontend-to-ipfs-using-fleek"></a>
+## 6. 使用 Fleek 在 IPFS 上部署前端代碼<a id="deploying-bmc-frontend-to-ipfs-using-fleek"></a>
 
-Fleek 是一种基础设施，使我们能够在 IPFS 上构建现代网站和应用程序。 有了 fleek，您的网站或应用程序将变得无权限、无信任、无审查，并且不受集中式看门人的限制。 在本教程中，我们将把 Next js 应用程序部署到 Fleek，而不是 Vercel 等传统平台。
-是的，你说对了！ 我们正在一个分散托管平台上部署一个分散应用程序！
+Fleek 是一種基礎設施，使我們能夠在 IPFS 上構建現代網站和應用程序。 有了 fleek，您的網站或應用程序將變得無權限、無信任、無審查，並且不受集中式看門人的限制。 在本教程中，我們將把 Next js 應用程序部署到 Fleek，而不是 Vercel 等傳統平臺。
+是的，你說對了！ 我們正在一個分散託管平臺上部署一個分散應用程序！
 
-以下是将 BMC dApp 部署到 Fleek 的步骤：
+以下是將 BMC dApp 部署到 Fleek 的步驟：
 
-1. 确保在前端代码中确认这些配置：
+1. 確保在前端代碼中確認這些配置：
 
-   a. 打开 package.json，添加以下脚本：
+   a. 打開 package.json，添加以下腳本：
 
    ```js
    	"scripts": {
@@ -844,7 +844,7 @@ Fleek 是一种基础设施，使我们能够在 IPFS 上构建现代网站和�
    	}
    ```
 
-   b. 将下面的代码粘贴到根目录下的 next.config.js 文件中：
+   b. 將下面的代碼粘貼到根目錄下的 next.config.js 文件中：
 
    ```js
    	module.exports = {
@@ -852,41 +852,41 @@ Fleek 是一种基础设施，使我们能够在 IPFS 上构建现代网站和�
    	};
    ```
 
-如需了解更多信息，请访问本 [指南](https://blog.fleek.co/posts/fleek-nextJS)
+如需瞭解更多信息，請訪問本 [指南](https://blog.fleek.co/posts/fleek-nextJS)
 
-2. 导航至 Fleek 上的仪表板，点击 \*\* 添加新网站\*\*
+2. 導航至 Fleek 上的儀表板，點擊 \*\* 添加新網站\*\*
 
 ![](/img/build/tutorials/fleek-addsite.png)
 
-3. 连接 GitHub 账户以访问您的软件源。
+3. 連接 GitHub 賬戶以訪問您的軟件源。
 
 ![](/img/build/tutorials/fleek-cg.png)
 
-4. 选择要部署的版本库。
+4. 選擇要部署的版本庫。
 
-5. 在下一页，在 "基本构建设置 "选项卡中选择 "**下一个 Js** 框架"，Fleek 将自动填充其他字段。
+5. 在下一頁，在 "基本構建設置 "選項卡中選擇 "**下一個 Js** 框架"，Fleek 將自動填充其他字段。
 
-6. 点击部署网站
+6. 點擊部署網站
 
-7. 如果出现 **npm WARN EBADENGINE 不支持的引擎**，如下图所示：
+7. 如果出現 **npm WARN EBADENGINE 不支持的引擎**，如下圖所示：
 
 ![](/img/build/tutorials/fleek-err.png)
 
-前往**部署**选项卡中的**部署设置**，将**Docker 镜像名称**更改为**节点:最新**，如下图所示：
+前往**部署**選項卡中的**部署設置**，將**Docker 鏡像名稱**更改為**節點:最新**，如下圖所示：
 
 ![](/img/build/tutorials/fleek-err-fix.png)
 
-8. 现在，您的网站应能轻松构建并部署到 IPFS。
-9. 点击生成的链接查看您的网站。
+8. 現在，您的網站應能輕鬆構建並部署到 IPFS。
+9. 點擊生成的鏈接查看您的網站。
 
 ![](/img/build/tutorials/fleek-site-url.png)
 
-瞧 我们在 IPFS 上部署并托管了 BMC dApp。
+瞧 我們在 IPFS 上部署並託管了 BMC dApp。
 
-## 7. 结论<a id="conclusion"></a>
+## 7. 結論<a id="conclusion"></a>
 
-如果您已经走到这一步，那么恭喜您！ 在本教程中，您将学会如何使用 Solidity、NextJs、Web3Onboard 和 Fleek 创建一个全栈的 Buy Me A Coffee dApp。 这是在去中心化平台上创建去中心化应用程序的第一步。
+如果您已經走到這一步，那麼恭喜您！ 在本教程中，您將學會如何使用 Solidity、NextJs、Web3Onboard 和 Fleek 創建一個全棧的 Buy Me A Coffee dApp。 這是在去中心化平臺上創建去中心化應用程序的第一步。
 
-在此基础上，您还可以在前台探索一些其他选项，比如除了静态发送 1 KAIA 咖啡外，还可以添加一个新的输入字段，用于输入要发送的咖啡量。 您可以访问 [github](https://github.com/ayo-klaytn/buy-me-a-coffee) 上的完整代码库，也可以使用 [link](https://spring-fog-0605.on.fleek.co/) 测试网站。
+在此基礎上，您還可以在前臺探索一些其他選項，比如除了靜態發送 1 KAIA 咖啡外，還可以添加一個新的輸入字段，用於輸入要發送的咖啡量。 您可以訪問 [github](https://github.com/ayo-klaytn/buy-me-a-coffee) 上的完整代碼庫，也可以使用 [link](https://spring-fog-0605.on.fleek.co/) 測試網站。
 
-如果您想了解更多信息，请访问 [Kaia 文档](https://docs.klaytn.foundation/)、[Web3Onboard 文档](https://onboard.blocknative.com/docs/modules/react) 和 [Fleek 文档](https://docs.fleek.co/tutorials/hosting/)。 如果您有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。
+如果您想了解更多信息，請訪問 [Kaia 文檔](https://docs.klaytn.foundation/)、[Web3Onboard 文檔](https://onboard.blocknative.com/docs/modules/react) 和 [Fleek 文檔](https://docs.fleek.co/tutorials/hosting/)。 如果您有任何問題，請訪問 [Kaia 論壇](https://devforum.kaia.io/)。
