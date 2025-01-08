@@ -1,10 +1,10 @@
-# 智能合约
+# 智能合約
 
-本节介绍智能合约开发所需的开发资源。
+本節介紹智能合約開發所需的開發資源。
 
-为了编写智能合约，Kaia 目前支持 [Solidity](https://github.com/ethereum/solidity) 作为主要编程语言。 之所以在 Kaia 中采用 Solidity，是因为它是以太坊事实上的标准合约编程语言，拥有庞大的用户群和活跃的社区。 Kaia 团队决定为用户提供熟悉的开发体验，以便以太坊 DApp 开发人员可以轻松尝试或将其现有智能合约迁移到 Kaia。
+為了編寫智能合約，Kaia 目前支持 [Solidity](https://github.com/ethereum/solidity) 作為主要編程語言。 之所以在 Kaia 中採用 Solidity，是因為它是以太坊事實上的標準合約編程語言，擁有龐大的用戶群和活躍的社區。 Kaia 團隊決定為用戶提供熟悉的開發體驗，以便以太坊 DApp 開發人員可以輕鬆嘗試或將其現有智能合約遷移到 Kaia。
 
-未来，Kaia 还计划支持使用其他编程语言编写智能合约。 Kaia 团队正在研究开发人员可能接受的各种有利的编程语言。
+未來，Kaia 還計劃支持使用其他編程語言編寫智能合約。 Kaia 團隊正在研究開發人員可能接受的各種有利的編程語言。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
