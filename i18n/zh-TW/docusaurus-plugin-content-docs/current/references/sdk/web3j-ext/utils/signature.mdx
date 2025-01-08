@@ -1,0 +1,117 @@
+# Signature
+
+在 `r, s, v` 和 "壓縮字符串"格式之間轉換籤名。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```java SignatureUtilsExample.java
+    package org.web3j.example.utils;
+
+
+    import org.web3j.crypto.KaiaSignatureData;
+    import org.web3j.crypto.Sign;
+    import org.web3j.utils.Numeric;
+
+    public class SignatureUtilsExample {
+        public static void main(String[] args) {
+            // convert from {r, s, v} signature to string
+            byte[] r = Numeric.hexStringToByteArray("0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed");
+            byte[] s = Numeric.hexStringToByteArray("0x678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6");
+            byte[] v = Numeric.hexStringToByteArray("0x0");
+            Sign.SignatureData obj = new Sign.SignatureData(v, r, s);
+            String signature = KaiaSignatureData.getSignatureString(obj);
+
+            System.out.println("From {r, s, v} to string " + signature);
+
+            // convert from signature string to {r, s, v}
+            byte[] signatureBytes = Numeric.hexStringToByteArray("0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e600");
+
+            byte[] convertedR = new byte[32];
+            byte[] convertedS = new byte[32];
+            byte[] convertedV= new byte[1];
+
+            // r is the first 32 bytes
+            System.arraycopy(signatureBytes, 0, convertedR, 0, 32);
+            // s is the next 32 bytes
+            System.arraycopy(signatureBytes, 32, convertedS, 0, 32);
+            // v is the last byte
+            convertedV[0] = signatureBytes[64];
+
+            System.out.println("Converted R " + Numeric.toHexString(convertedR));
+            System.out.println("Converted S " + Numeric.toHexString(convertedS));
+            System.out.println("Converted V " + Numeric.toHexString(convertedV));
+        }
+    }
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ java SignatureUtilsExample.java
+    0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e600
+    ```
+  </CH.Code>
+
+  ---
+
+  從 Web3j 和 kaia 庫（`web3j-ext`）導入必要的類
+
+  ```java SignatureUtilsExample.java focus=1:6
+  ```
+
+  ---
+
+  要將 `{r ,s ,v}` 簽名轉換為 `字符串'，請根據參數 r, s ,v 創建一個 `Sign.SignatureData`對象。 使用`Numeric.hexStringToByteArray\` 將字符串轉換為字節數組
+
+  ```java SignatureUtilsExample.java focus=10:14,6
+  ```
+
+  ---
+
+  要將`Sign.SignatureData`壓縮為`壓縮簽名字符串`，請使用`KaiaSignatureData.getSignatureString`，並將**簽名對象**作為參數
+
+  <CH.Code>
+    ```java SignatureUtilsExample.java focus=15:17
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ java SignatureUtilsExample.java
+    0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e600
+    ```
+  </CH.Code>
+
+  ---
+
+  將字符串簽名轉換為`{r ,s ,v}`，首先將字符串簽名轉換為字節數組。 使用 `Numeric.hexStringToByteArray` 將字符串轉換為字節數組
+
+  ```java SignatureUtilsExample.java focus=19:20
+  ```
+
+  ---
+
+  從字節數組中提取 **r, s, v** 成分。 `R`是前 32 個索引，`S`是後 32 個索引，`V`是最後一個索引
+
+  ```java SignatureUtilsExample.java focus=22:31
+  ```
+
+  ---
+
+  您可以使用 `Numeric.toHexString` 將每個組件從 "字節數組 "轉換為 "字符串"。
+
+  <CH.Code>
+    ```java SignatureUtilsExample.java focus=33:35
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ java SignatureUtilsExample.java
+    Converted R 0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed
+    Converted S 0x678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6
+    Converted V 0x00
+    ```
+  </CH.Code>
+</CH.Spotlight>
