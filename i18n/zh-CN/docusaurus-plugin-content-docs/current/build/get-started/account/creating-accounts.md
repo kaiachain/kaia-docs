@@ -1,16 +1,16 @@
-# 创建账户
+# 創建賬戶
 
-## 创建新账户<a id="creating-a-new-account"></a>
+## 創建新賬戶<a id="creating-a-new-account"></a>
 
-这将创建一个新账户，并在屏幕上打印地址。 在数据目录下创建密钥存储文件。
+這將創建一個新賬戶，並在屏幕上打印地址。 在數據目錄下創建密鑰存儲文件。
 
-**Kaia密钥存储文件**
+**Kaia密鑰存儲文件**
 
-创建账户时，会创建一个密钥存储文件。 密钥存储文件是您唯一的 Kaia 私钥的加密版本，您将用它来签署您的交易。 密钥存储文件名的格式如下：
+創建賬戶時，會創建一個密鑰存儲文件。 密鑰存儲文件是您唯一的 Kaia 私鑰的加密版本，您將用它來簽署您的交易。 密鑰存儲文件名的格式如下：
 
 - `UTC--<created_at UTC ISO8601>-<address hex>`
 
-在 Kaia 节点之间传输整个目录或其中的单个密钥存储文件是安全的。 请注意，如果您从其他节点向您的节点添加密钥，账户的顺序可能会改变。 因此，请确保不要在脚本或代码片段中依赖索引。
+在 Kaia 節點之間傳輸整個目錄或其中的單個密鑰存儲文件是安全的。 請注意，如果您從其他節點向您的節點添加密鑰，賬戶的順序可能會改變。 因此，請確保不要在腳本或代碼片段中依賴索引。
 
 ### ken <a id="ken"></a>
 
@@ -20,7 +20,7 @@ $ ken account new --password <passwordfile> --datadir <DATADIR>
 $ ken account new --password <(echo $mypassword) --datadir <DATADIR>
 ```
 
-**`WARNING`**：请注意，使用密码文件仅供测试之用；将密码保存在文件中或以任何其他方式暴露密码都不是好主意。 如果在密码文件中使用密码标志，最好确保该文件除了你之外，任何人都无法读取，甚至无法列出。 您可以通过以下方式实现这一目标
+**`WARNING`**：請注意，使用密碼文件僅供測試之用；將密碼保存在文件中或以任何其他方式暴露密碼都不是好主意。 如果在密碼文件中使用密碼標誌，最好確保該文件除了你之外，任何人都無法讀取，甚至無法列出。 您可以通過以下方式實現這一目標
 
 ```bash
 $ touch /path/to/password
@@ -30,23 +30,23 @@ I type my pass here
 ^D
 ```
 
-### JavaScript 控制台<a id="javascript-console"></a>
+### JavaScript 控制檯<a id="javascript-console"></a>
 
-在控制台中，您可以调用以下函数来创建账户：
+在控制檯中，您可以調用以下函數來創建賬戶：
 
 ```javascript
 > personal.newAccount("passphrase")
 ```
 
-账户以加密格式保存。 您**必须**记住这个密码，以便将来解锁您的账户。
+賬戶以加密格式保存。 您**必須**記住這個密碼，以便將來解鎖您的賬戶。
 
-## 导入账户<a id="importing-an-account"></a>
+## 導入賬戶<a id="importing-an-account"></a>
 
-您可以使用密钥文件导入账户。 密钥文件假定包含未加密的私人密钥，以十六进制编码的 EC 原始字节形式表示。 简单地说，它是一个不带前缀 "0x "的纯文本私人密钥。
+您可以使用密鑰文件導入賬戶。 密鑰文件假定包含未加密的私人密鑰，以十六進制編碼的 EC 原始字節形式表示。 簡單地說，它是一個不帶前綴 "0x "的純文本私人密鑰。
 
-从给定的密钥文件中导入未加密的私钥，创建新账户，在数据目录下生成密钥存储文件，并在控制台中打印地址。 您必须记住密码，以便将来解锁账户。
+從給定的密鑰文件中導入未加密的私鑰，創建新賬戶，在數據目錄下生成密鑰存儲文件，並在控制檯中打印地址。 您必須記住密碼，以便將來解鎖賬戶。
 
-**注意**：如果可以直接将密钥存储文件复制到另一个 Kaia 实例，则不需要此导入/导出机制。
+**注意**：如果可以直接將密鑰存儲文件複製到另一個 Kaia 實例，則不需要此導入/導出機制。
 
 ### ken <a id="ken-1"></a>
 
@@ -55,7 +55,7 @@ $ ken account import --datadir <datadir> <keyfile>
 $ ken account import --password <passwordfile> --datadir <datadir> <keyfile>
 ```
 
-### JavaScript 控制台<a id="javascript-console-1"></a>
+### JavaScript 控制檯<a id="javascript-console-1"></a>
 
 ```bash
 > personal.importRawKey('{private key}', 'mypassword')
