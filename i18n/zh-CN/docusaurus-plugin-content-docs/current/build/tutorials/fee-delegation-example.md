@@ -1,41 +1,41 @@
-# 建設費委託示例
+# 建设费委托示例
 
-## 目錄<a href="#table-of-contents" id="table-of-contents"></a>
+## 目录<a href="#table-of-contents" id="table-of-contents"></a>
 
-- [1. 導言](#1-introduction)
-- [2. 如何進行收費授權](#2-how-fee-delegation-works)
-  - 2.1 發送方簽署交易
-  - 2.2 付款人簽署交易
-- [3. 收費委託的簡單服務器和客戶端](#3-simple-server-and-client-for-fee-delegation)
-  - 3.1 發件人客戶端
-  - 3.2 繳費者服務器
-- [4. 運行示例](#4-run-example)
-  - 4.1 運行 `feepayer_server.js`
-  - 4.2 運行 `sender_client.js`
-  - 4.3 檢查 `feepayer_server.js`
-  - 4.4 Kaia 範圍
+- [1. 导言](#1-introduction)
+- [2. 如何进行收费授权](#2-how-fee-delegation-works)
+  - 2.1 发送方签署交易
+  - 2.2 付款人签署交易
+- [3. 收费委托的简单服务器和客户端](#3-simple-server-and-client-for-fee-delegation)
+  - 3.1 发件人客户端
+  - 3.2 缴费者服务器
+- [4. 运行示例](#4-run-example)
+  - 4.1 运行 `feepayer_server.js`
+  - 4.2 运行 `sender_client.js`
+  - 4.3 检查 `feepayer_server.js`
+  - 4.4 Kaia 范围
 
-## 1. 導言<a href="#1-introduction" id="1-introduction"></a>
+## 1. 导言<a href="#1-introduction" id="1-introduction"></a>
 
-本教程將幫助您使用 caver-js SDK 編寫一個簡單的服務器-客戶端示例，以說明在 Kaia 中如何進行費用委託值轉移交易。 本教程和示例代碼使用的是 Kairos 測試網。
+本教程将帮助您使用 caver-js SDK 编写一个简单的服务器-客户端示例，以说明在 Kaia 中如何进行费用委托值转移交易。 本教程和示例代码使用的是 Kairos 测试网。
 
-## 2. 如何進行費用委託<a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
+## 2. 如何进行费用委托<a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
-讓我們簡要了解一下費用委託的運作方式。
+让我们简要了解一下费用委托的运作方式。
 
-### 2.1 發送方簽署交易<a href="#2-1-transaction-signing-by-the-sender" id="2-1-transaction-signing-by-the-sender"></a>
+### 2.1 发送方签署交易<a href="#2-1-transaction-signing-by-the-sender" id="2-1-transaction-signing-by-the-sender"></a>
 
-發送方 "在發送交易之前，應始終簽署交易。
+发送方 "在发送交易之前，应始终签署交易。
 
-要簽署交易，請使用 [signTransaction](../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#signtransaction) 使用給定的私鑰簽署交易。
+要签署交易，请使用 [signTransaction](../../references/sdk/caver-js-1.4.1/api/caver.kaia.accounts.md#signtransaction) 使用给定的私钥签署交易。
 
 ```
-// 使用事件發射器
+// 使用事件发射器
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
-    // 創建新事務
+    // 创建新事务
     const tx = caver.transaction.feeDelegatedValueTransfer.create({
       from: keyring.address,
       to: toAddress,
@@ -51,15 +51,15 @@ const toAddress = "TO_ADDRESS";
     const senderRawTransaction = tx.getRLPEncoding()；
 ```
 
-如果沒有錯誤，那麼 `senderRawTransaction` 將有一個已簽名的事務，該事務由 `senderPrivateKey` 簽名。
+如果没有错误，那么 `senderRawTransaction` 将有一个已签名的事务，该事务由 `senderPrivateKey` 签名。
 
-現在，您需要將 `senderRawTransaction` 發送給繳費人。 實施的方法多種多樣。 在本教程中，我們將提供一個簡單的服務器-客戶端代碼，作為向繳費人發送 "senderRawTransaction "的示例。
+现在，您需要将 `senderRawTransaction` 发送给缴费人。 实施的方法多种多样。 在本教程中，我们将提供一个简单的服务器-客户端代码，作为向缴费人发送 "senderRawTransaction "的示例。
 
-### 2.2 付款人簽署交易<a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
+### 2.2 付款人签署交易<a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
 
-當 "付費方 "收到 "發送方原始交易 "時，"付費方 "會用自己的私鑰再次對 "發送方原始交易 "進行簽名，然後將交易發送給 Kaia。 下面的代碼片段說明了這一過程。 kaia.sendRawTransaction "方法在發送交易前使用給定賬戶的私鑰對交易進行簽名。 運行代碼前，請將 `"FEEPAYER_ADDRESS"` 和 `"PRIVATE_KEY"` 替換為實際值。
+当 "付费方 "收到 "发送方原始交易 "时，"付费方 "会用自己的私钥再次对 "发送方原始交易 "进行签名，然后将交易发送给 Kaia。 下面的代码片段说明了这一过程。 kaia.sendRawTransaction "方法在发送交易前使用给定账户的私钥对交易进行签名。 运行代码前，请将 `"FEEPAYER_ADDRESS"` 和 `"PRIVATE_KEY"` 替换为实际值。
 
-請注意，當 "費用支付方 "代表 "發送方 "向 Kaia 提交交易時，"發送方原始交易 "類型必須是 "FEE_DELEGATED "類型的交易。 在下面的示例中，調用了 [sendTransaction(FEE_DELEGATED_VALUE_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer) 方法。由於發送方生成的原始 `senderRawTransaction` 是 [TxTypeFeeDelegatedValueTransfer](../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer），因此調用了該方法。）
+请注意，当 "费用支付方 "代表 "发送方 "向 Kaia 提交交易时，"发送方原始交易 "类型必须是 "FEE_DELEGATED "类型的交易。 在下面的示例中，调用了 [sendTransaction(FEE_DELEGATED_VALUE_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.kaia/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer) 方法。由于发送方生成的原始 `senderRawTransaction` 是 [TxTypeFeeDelegatedValueTransfer](../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer），因此调用了该方法。）
 
 ```
 const feePayerAddress = "FEEPAYER_ADDRESS";
@@ -72,7 +72,7 @@ const tx = caver.transaction.decode(senderRawTransaction);
 
     const signed = await caver.wallet.signAsFeePayer(keyring.address); // Send transaction const receipt = await caver.rpc.klay.sendRawTransaction( ).地址，tx);
 
-    // 發送交易
+    // 发送交易
     const receipt = await caver.rpc.klay.sendRawTransaction(
       signed.getRLPEncoding()
     )
@@ -82,16 +82,16 @@ const tx = caver.transaction.decode(senderRawTransaction);
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // 如果出錯，第二個參數就是收據。
+.on('error', console.error); // 如果出错，第二个参数就是收据。
 ```
 
-## 3. 收費委託的簡單服務器和客戶端<a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
+## 3. 收费委托的简单服务器和客户端<a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
 
-讓我們用上述費用委託代碼編寫一個簡單的服務器和客戶端。
+让我们用上述费用委托代码编写一个简单的服务器和客户端。
 
-### 3.1 環境設置<a href="#3-1-environment-setup" id="3-1-environment-setup"></a>
+### 3.1 环境设置<a href="#3-1-environment-setup" id="3-1-environment-setup"></a>
 
-我們將使用 `npm` 和 [caver-js](../../references/sdk/caver-js-1.4.1/get-started-1.4.1.md) 為本示例設置環境，如下所示。
+我们将使用 `npm` 和 [caver-js](../../references/sdk/caver-js-1.4.1/get-started-1.4.1.md) 为本示例设置环境，如下所示。
 
 ```
 $ mkdir example
@@ -100,11 +100,11 @@ $ npm init
 $ npm install caver-js@latest
 ```
 
-### 3.1 發件人客戶端<a href="#3-1-sender-s-client" id="3-1-sender-s-client"></a>
+### 3.1 发件人客户端<a href="#3-1-sender-s-client" id="3-1-sender-s-client"></a>
 
-首先，我們要編寫一個`sender_client.js`，如下所示。
+首先，我们要编写一个`sender_client.js`，如下所示。
 
-在示例中，請用實際值替換`"SENDER_ADDRESS"、`"SENDER_PRIVATEKEY "和\`"TO_ADDRESS"。
+在示例中，请用实际值替换`"SENDER_ADDRESS"、`"SENDER_PRIVATEKEY "和\`"TO_ADDRESS"。
 
 ```javascript
 import { Socket } from "net";
@@ -123,7 +123,7 @@ const sendFeeDelegateTx = async () => {
     // Add sender's keyring to wallet
     const keyring = caver.wallet.newKeyring(senderAddress, senderPrivateKey);
 
-    // 創建新交易
+    // 创建新交易
     const tx = caver.transaction.feeDelegatedValueTransfer.create({
       from: keyring.address,
       to: toAddress,
@@ -133,7 +133,7 @@ const sendFeeDelegateTx = async () => {
       chainId: await caver.rpc.klay.getChainId(), // Get current chain ID
     });
 
-    // 簽署交易
+    // 签署交易
     const signed = await caver.wallet.sign(keyring.address, tx);
 
     const senderRawTransaction = tx.getRLPEncoding();
@@ -142,14 +142,14 @@ const sendFeeDelegateTx = async () => {
       throw new Error("Failed to generate raw transaction");
     } // Send signed raw transaction to fee pay.
 
-    // 將已簽名的原始交易發送到付費者的服務器
+    // 将已签名的原始交易发送到付费者的服务器
     client.connect(1337, "127.0.0.1", () => {
-      console.log("已連接到付費委託服務");
+      console.log("已连接到付费委托服务");
       client.write(senderRawTransaction);
     });
 
     client.on("data", (data) => {
-      console.log("已從服務器接收數據：", data.toString());
+      console.log("已从服务器接收数据：", data.toString());
     });
 
     client.on("error", (error) => {
@@ -171,13 +171,13 @@ sendFeeDelegateTx();
 
 ```
 
-上述代碼使用 "senderPrivateKey "對委託收費轉賬交易進行簽名，並將簽名後的 "senderRawTransaction "發送到收費人的服務器，該服務器運行在 "127.0.0.1 "上的 "1337 "端口，即 localhost。
+上述代码使用 "senderPrivateKey "对委托收费转账交易进行签名，并将签名后的 "senderRawTransaction "发送到收费人的服务器，该服务器运行在 "127.0.0.1 "上的 "1337 "端口，即 localhost。
 
-### 3.2 繳費者服務器<a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
+### 3.2 缴费者服务器<a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
 
-現在，讓我們編寫繳費人服務器 `feepayer_server.js` ，用 `feePayerPrivateKey` 對收到的 `senderRawTransaction` 進行簽名，並將其發送到 Kairos 測試網。
+现在，让我们编写缴费人服务器 `feepayer_server.js` ，用 `feePayerPrivateKey` 对收到的 `senderRawTransaction` 进行签名，并将其发送到 Kairos 测试网。
 
-在下面的示例中，請用實際值替換`"FEEPAYER_ADDRESS "和`"FEEPAYER_PRIVATEKEY"。
+在下面的示例中，请用实际值替换`"FEEPAYER_ADDRESS "和`"FEEPAYER_PRIVATEKEY"。
 
 ```javascript
 import { createServer } from "net";
@@ -239,52 +239,52 @@ console.log("Fee delegate service started ...");
 
 ```
 
-服務器監聽端口為 `1337`。
+服务器监听端口为 `1337`。
 
-當有 "數據 "傳入時，它會用 "付費者私鑰 "對 "數據 "進行簽名，並將其發送到 Kaia 區塊鏈。 它假定 `data` 是 `sender_client.js` 中的 `senderRawTransaction` 。
+当有 "数据 "传入时，它会用 "付费者私钥 "对 "数据 "进行签名，并将其发送到 Kaia 区块链。 它假定 `data` 是 `sender_client.js` 中的 `senderRawTransaction` 。
 
-## 4. 運行示例<a href="#4-run-example" id="4-run-example"></a>
+## 4. 运行示例<a href="#4-run-example" id="4-run-example"></a>
 
-準備兩個終端，一個是 `sender_client.js` 終端，另一個是 `feepayer_server.js` 終端。
+准备两个终端，一个是 `sender_client.js` 终端，另一个是 `feepayer_server.js` 终端。
 
-### 4.1 運行 `feepayer_server.js`<a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
+### 4.1 运行 `feepayer_server.js`<a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
 
-下面的命令將啟動繳費服務器。
+下面的命令将启动缴费服务器。
 
 ```
 $ node feepayer_server.js
 Fee delegate service started ...
 ```
 
-服務器啟動並監聽 1337 端口。
+服务器启动并监听 1337 端口。
 
-### 4.2 運行 `sender_client.js`<a href="#4-2-run-sender_client-js" id="4-2-run-sender_client-js"></a>
+### 4.2 运行 `sender_client.js`<a href="#4-2-run-sender_client-js" id="4-2-run-sender_client-js"></a>
 
-讓我們運行 `sender_client.js` 發送一筆委託收費交易。
+让我们运行 `sender_client.js` 发送一笔委托收费交易。
 
 ```
 $ node sender_client.js
-已簽署收費委託價值轉移交易。
-向收費委託服務發送已簽名交易。
-連接到收費委託服務
-從服務器接收數據：這是收費委託服務
-從服務器接收數據：費用支付方為 0x811CE345DB9D8aD17513Cc77d76a1ace9eC46F02
-從服務器接收數據：Tx hash is 0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6fdcb6df32b2e34a1d50f7f8a9d
-從服務器接收數據：發件人發送哈希值為 0x7263d2dc5b36abc754726b220b7ad243dd789934109c6874e539ada5c7e9f193
+已签署收费委托价值转移交易。
+向收费委托服务发送已签名交易。
+连接到收费委托服务
+从服务器接收数据：这是收费委托服务
+从服务器接收数据：费用支付方为 0x811CE345DB9D8aD17513Cc77d76a1ace9eC46F02
+从服务器接收数据：Tx hash is 0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6fdcb6df32b2e34a1d50f7f8a9d
+从服务器接收数据：发件人发送哈希值为 0x7263d2dc5b36abc754726b220b7ad243dd789934109c6874e539ada5c7e9f193
 ```
 
-它將用 "發送方 "私鑰簽署交易，並將簽署後的交易發送到費用委託服務（即費用支付方的服務器）。 然後，它將收到繳費委託服務的響應，包括 "繳費人 "地址、"發送哈希值 "和 "發送人發送哈希值"。 Tx哈希值 "是提交給Kaia網絡的交易的哈希值，而 "Sender Tx哈希值 "是交易的哈希值，不包含繳費人的地址和簽名。 更多詳情，請參閱 [SenderTxHash](../../learn/transactions/transactions.md#sendertxhash)。
+它将用 "发送方 "私钥签署交易，并将签署后的交易发送到费用委托服务（即费用支付方的服务器）。 然后，它将收到缴费委托服务的响应，包括 "缴费人 "地址、"发送哈希值 "和 "发送人发送哈希值"。 Tx哈希值 "是提交给Kaia网络的交易的哈希值，而 "Sender Tx哈希值 "是交易的哈希值，不包含缴费人的地址和签名。 更多详情，请参阅 [SenderTxHash](../../learn/transactions/transactions.md#sendertxhash)。
 
-### 4.3 檢查 `feepayer_server.js`<a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
+### 4.3 检查 `feepayer_server.js`<a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-在服務器控制檯，您將看到以下輸出。 它可以打印來自 Kaia 的交易收據。
+在服务器控制台，您将看到以下输出。 它可以打印来自 Kaia 的交易收据。
 
 ```
 $ node feepayer_server.js
-費用委託服務啟動 ...
-客戶端已連接 ...
-從客戶端接收數據：0x09f89f0485066720b300830186a094811ce345db9d8ad17513cc77d76a1ace9ec46f02865af3107a400094213eb97cc74af77b78d1cfd968bc89ab816872daf847f8458207f5a0cefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714a0512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3940000000000000000000000000000000000000000c4c3018080
-解碼交易：FeeDelegatedValueTransfer {
+费用委托服务启动 ...
+客户端已连接 ...
+从客户端接收数据：0x09f89f0485066720b300830186a094811ce345db9d8ad17513cc77d76a1ace9ec46f02865af3107a400094213eb97cc74af77b78d1cfd968bc89ab816872daf847f8458207f5a0cefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714a0512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3940000000000000000000000000000000000000000c4c3018080
+解码交易：FeeDelegatedValueTransfer {
   _type: 'TxTypeFeeDelegatedValueTransfer',
   _from: '0x213eb97cc74af77b78d1cfd968bc89ab816872da',
   _gas: '0x186a0',
@@ -346,7 +346,7 @@ $ node feepayer_server.js
   _value: '0x5af3107a4000',
   _gasPrice: '0x66720b300'
 }
-交易收據：{
+交易收据：{
   blockHash: '0xb2727edaa2ffc8a8fece0ce54154b469887a9f6725bac6811ac610131c135046',
   blockNumber: '0xa45da40',
   contractAddress：null,
@@ -378,16 +378,16 @@ $ node feepayer_server.js
   to：'0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
   transactionHash: '0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6fdcb6df32b2e34a1d50f7f8a9d',
   transactionIndex：'0x1',
-  類型：'TxTypeFeeDelegatedValueTransfer',
+  类型：'TxTypeFeeDelegatedValueTransfer',
   typeInt：9,
   值：'0x5af3107a4000'
 }
 ```
 
-### 4.4 Kaia 範圍<a href="#4-4-kaia-scope" id="4-4-kaia-scope"></a>
+### 4.4 Kaia 范围<a href="#4-4-kaia-scope" id="4-4-kaia-scope"></a>
 
-您還可以在 [Kaiascope](https://kairos.kaiascope.com) 上找到上述交易。
+您还可以在 [Kaiascope](https://kairos.kaiascope.com) 上找到上述交易。
 
-它顯示該事務為 "TxTypeFeeDelegatedValueTransfer"，"Fee payer "為 "0x811CE345DB9D8aD17513Cc77d76a1ace9eC46F02 "或您輸入的 "feepayerAddress"，而 "From "是另一個地址，應為上例中的 "senderAddress"。
+它显示该事务为 "TxTypeFeeDelegatedValueTransfer"，"Fee payer "为 "0x811CE345DB9D8aD17513Cc77d76a1ace9eC46F02 "或您输入的 "feepayerAddress"，而 "From "是另一个地址，应为上例中的 "senderAddress"。
 
-收費委託 Tx](/img/build/tutorials/fee-delegation-example-kaia.png)
+收费委托 Tx](/img/build/tutorials/fee-delegation-example-kaia.png)
