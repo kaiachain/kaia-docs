@@ -2,45 +2,45 @@
 sidebar_label: Privy
 ---
 
-# 將 Privy 整合到 dApp 中
+# 将 Privy 整合到 dApp 中
 
 ![](/img/banners/kaia-privy.png)
 
-## 導言
+## 导言
 
-[Privy](https://docs.privy.io/)是一個簡單的錢包工具包，用於在 web3 中進行漸進式身份驗證。 有了 Privy，開發人員可以使用傳統和 web3 身份驗證方法登錄用戶，實現漸進式登錄，提高用戶轉化率。
+[Privy](https://docs.privy.io/)是一个简单的钱包工具包，用于在 web3 中进行渐进式身份验证。 有了 Privy，开发人员可以使用传统和 web3 身份验证方法登录用户，实现渐进式登录，提高用户转化率。
 
-在本指南中，您將使用 Privy 錢包工具包將 Metamask、Coinbase Wallet 等外部錢包以及 Google、Twitter、Email 等社交登錄信息整合到您在 Kaia 網絡上構建的 dApp 中。
+在本指南中，您将使用 Privy 钱包工具包将 Metamask、Coinbase Wallet 等外部钱包以及 Google、Twitter、Email 等社交登录信息整合到您在 Kaia 网络上构建的 dApp 中。
 
-## 先決條件
+## 先决条件
 
-- 一個正在運行的 Next.js 項目。 您可以克隆 Privy 提供的 [create-next-app](https://github.com/privy-io/create-next-app) 模板來學習本教程。
-- 來自[Privy 開發者控制檯](https://console.privy.io/)的[應用程序ID](https://docs.privy.io/guide/console/api-keys#app-id)
+- 一个正在运行的 Next.js 项目。 您可以克隆 Privy 提供的 [create-next-app](https://github.com/privy-io/create-next-app) 模板来学习本教程。
+- 来自[Privy 开发者控制台](https://console.privy.io/)的[应用程序ID](https://docs.privy.io/guide/console/api-keys#app-id)
 
-## 開始
+## 开始
 
-克隆模板是一個簡單的 Next.js Privy Auth 入門模板，包含三個主要核心文件：
+克隆模板是一个简单的 Next.js Privy Auth 入门模板，包含三个主要核心文件：
 
-- **index.tsx**：該文件處理用戶的登錄驗證。
-- **app.tsx**：該文件處理 Privy SDK 的初始化，並用 PrivyProvider 封裝我們的組件。
-- **dashboard.tsx**：這是用戶登錄後重定向到的頁面。 它可以測試每種登錄方法（谷歌、Twitter、電子郵件、錢包）。 對於本指南來說，更重要的是，我們將在使用 MetaMask 等外部錢包連接時執行某些功能。 這些功能包括：獲取用戶餘額、向另一個賬戶發送 KAIA、部署合約、與智能合約交互。
+- **index.tsx**：该文件处理用户的登录验证。
+- **app.tsx**：该文件处理 Privy SDK 的初始化，并用 PrivyProvider 封装我们的组件。
+- **dashboard.tsx**：这是用户登录后重定向到的页面。 它可以测试每种登录方法（谷歌、Twitter、电子邮件、钱包）。 对于本指南来说，更重要的是，我们将在使用 MetaMask 等外部钱包连接时执行某些功能。 这些功能包括：获取用户余额、向另一个账户发送 KAIA、部署合约、与智能合约交互。
 
-## 安裝
+## 安装
 
-要在 dApp 中使用 Privy，必須先安裝所需的庫和 SDK。 因此，您需要設置 ethers.js，以及 [Privy React Auth SDK](https://www.npmjs.com/package/@privy-io/react-auth)。 您可以將 Privy 與 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、[viem](https://viem.sh/) 庫一起使用，與 Kaia 區塊鏈進行通信。 在本指南中，我們將使用 ethers.js 庫。
+要在 dApp 中使用 Privy，必须先安装所需的库和 SDK。 因此，您需要设置 ethers.js，以及 [Privy React Auth SDK](https://www.npmjs.com/package/@privy-io/react-auth)。 您可以将 Privy 与 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、[viem](https://viem.sh/) 库一起使用，与 Kaia 区块链进行通信。 在本指南中，我们将使用 ethers.js 库。
 
-打開項目文件夾，運行下面的命令安裝所需的庫和 SDK：
+打开项目文件夹，运行下面的命令安装所需的库和 SDK：
 
 ```bash
 npm install —save @privy-io/react-auth
 npm install --save ethers
 ```
 
-## 初始化特權和特權提供程序
+## 初始化特权和特权提供程序
 
-成功安裝所需的庫後，接下來就是用[PrivyProvider](https://docs.privy.io/reference/react-auth/modules#privyprovider)來封裝組件。
+成功安装所需的库后，接下来就是用[PrivyProvider](https://docs.privy.io/reference/react-auth/modules#privyprovider)来封装组件。
 
-PrivyProvider 應封裝任何將使用 Privy SDK 的組件。 為此，請打開 _app.tsx 文件並粘貼下面的代碼：
+PrivyProvider 应封装任何将使用 Privy SDK 的组件。 为此，请打开 _app.tsx 文件并粘贴下面的代码：
 
 ```tsx
 import '../styles/globals.css';
@@ -68,16 +68,16 @@ function MyApp({Component, pageProps}: AppProps) {
 export default MyApp;
 ```
 
-值得注意的是，特權提供者具有以下屬性：
+值得注意的是，特权提供者具有以下属性：
 
-- 您的 `appID` 需要在 .env 文件中更新。 您可以使用 Privy 為測試目的提供的以下 "測試應用程序 ID：clpispdty00ycl80fpueukbhl "開始使用。
-- 一個可選的 `onSuccess` 回調，用戶成功登錄後執行該回調。
-- 一個可選的 "createPrivyWalletOnLogin "布爾值，用於配置是否希望用戶在登錄時創建嵌入式錢包。
-- 可選配置屬性，用於自定義上機體驗。
+- 您的 `appID` 需要在 .env 文件中更新。 您可以使用 Privy 为测试目的提供的以下 "测试应用程序 ID：clpispdty00ycl80fpueukbhl "开始使用。
+- 一个可选的 `onSuccess` 回调，用户成功登录后执行该回调。
+- 一个可选的 "createPrivyWalletOnLogin "布尔值，用于配置是否希望用户在登录时创建嵌入式钱包。
+- 可选配置属性，用于自定义上机体验。
 
-## 連接錢包
+## 连接钱包
 
-在 `index.tsx` 文件的 LoginPage 函數中，調用 [login](https://docs.privy.io/reference/react-auth/interfaces/PrivyInterface#login) 方法，打開 Privy 登錄模態，提示用戶登錄。
+在 `index.tsx` 文件的 LoginPage 函数中，调用 [login](https://docs.privy.io/reference/react-auth/interfaces/PrivyInterface#login) 方法，打开 Privy 登录模态，提示用户登录。
 
 ```ts
  import {usePrivy} from '@privy-io/react-auth';
@@ -95,11 +95,11 @@ export default MyApp;
 
 ![](/img/build/tools/privy-connect-banner.png)
 
-## 獲取賬戶和餘額
+## 获取账户和余额
 
-通過上面的步驟，你會發現我們是通過連接錢包登錄的。 在這一步中，我們將檢索用戶的相關 Kaia 地址。 此外，您還可以使用 ethers.js 檢索其當前餘額（以 KAIA 為單位）。
+通过上面的步骤，你会发现我们是通过连接钱包登录的。 在这一步中，我们将检索用户的相关 Kaia 地址。 此外，您还可以使用 ethers.js 检索其当前余额（以 KAIA 为单位）。
 
-在 dashboard.tsx 文件中，粘貼以下代碼：
+在 dashboard.tsx 文件中，粘贴以下代码：
 
 ```tsx
 import {useRouter} from 'next/router';
@@ -144,10 +144,10 @@ return (
 );
 ```
 
-## 斷開錢包連接
+## 断开钱包连接
 
-斷開錢包
-用戶登錄後，可以通過從 usePrivy 派生的 `logout` 方法以編程方式註銷用戶。 這將斷開當前活動會話與 dApp 的連接，使用戶返回初始狀態。
+断开钱包
+用户登录后，可以通过从 usePrivy 派生的 `logout` 方法以编程方式注销用户。 这将断开当前活动会话与 dApp 的连接，使用户返回初始状态。
 
 ```tsx
 const { logout } = usePrivy();
@@ -162,9 +162,9 @@ return (
   );
 ```
 
-## 獲取用戶信息
+## 获取用户信息
 
-Privy 為用戶提供了使用 web3 錢包和社交登錄連接到 dApp 的便利。 如果用戶使用自己的社交賬戶（如 twitter、discord、谷歌賬戶等）連接到 dApp，您就可以從 `usePrivy` 中調用 `user`，這會返回一個包含用戶 ID、電子郵件、錢包地址等關鍵信息的對象。
+Privy 为用户提供了使用 web3 钱包和社交登录连接到 dApp 的便利。 如果用户使用自己的社交账户（如 twitter、discord、谷歌账户等）连接到 dApp，您就可以从 `usePrivy` 中调用 `user`，这会返回一个包含用户 ID、电子邮件、钱包地址等关键信息的对象。
 
 ```tsx
 const  { user }  =  usePrivy();
@@ -181,9 +181,9 @@ return (
 );
 ```
 
-## 發送本地事務
+## 发送本地事务
 
-您可以執行本地事務，如將 KAIA 從一個用戶發送到另一個用戶。
+您可以执行本地事务，如将 KAIA 从一个用户发送到另一个用户。
 
 ```tsx
 const [klayTransferTx, setKlayTransferTx] = useState("");
@@ -218,11 +218,11 @@ return (
 );
 ```
 
-## 使用智能合約
+## 使用智能合约
 
 ### 1. 部署合同
 
-您可以根據智能合約的應用程序二進制接口（ABI）和合約字節碼來部署智能合約。
+您可以根据智能合约的应用程序二进制接口（ABI）和合约字节码来部署智能合约。
 
 ```tsx
 // add to the existing useState hook.
@@ -296,7 +296,7 @@ return (
 );
 ```
 
-### 2. 撰寫合同
+### 2. 撰写合同
 
 ```tsx
 const [contractWriteTx, setContractTx] = useState("");
@@ -375,7 +375,7 @@ return (
 );
 ```
 
-### 3. 閱讀合同
+### 3. 阅读合同
 
 ```tsx
 const [readContractMessage, setContractMessage] = useState();
@@ -449,4 +449,4 @@ return (
 
 ## 下一步工作
 
-有關 Privy 的更深入指南，請參閱[Privy 文檔](https://docs.privy.io/) 和[Privy Github 倉庫](https://github.com/privy-io)。 此外，您還可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/privy-auth-sample) 上找到本指南的完整實現代碼。
+有关 Privy 的更深入指南，请参阅[Privy 文档](https://docs.privy.io/) 和[Privy Github 仓库](https://github.com/privy-io)。 此外，您还可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/privy-auth-sample) 上找到本指南的完整实现代码。
