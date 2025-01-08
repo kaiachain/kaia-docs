@@ -104,7 +104,7 @@ Once your subgraph is ready to be put into production, you can publish it to the
 > - Kaia shows as "partially supported" for now because a final on-chain voting process to unlock rewards for indexers has not been completed yet. For now, Edge & Node's Indexer (Upgrade Indexer) will be the only indexer supporting all Kaia subgraphs.
 > - The Graph's smart contracts are all on Arbitrum One, even though your subgraph is indexing data from Kaia, Ethereum or any other [supported chain](https://thegraph.com/docs/en/developing/supported-networks/).
 
-## 3. Query your Subgraph
+## 3. 3. Query your Subgraph
 
 Congratulations! You can now query your subgraph on the decentralized network!
 
