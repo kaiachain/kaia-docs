@@ -1,0 +1,242 @@
+# 傳統賬戶密鑰
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SignTxWithLegacyExample.js
+const { ethers } = require("ethers");
+
+const { Wallet, TxType } = require("@kaiachain/ethers-ext/v5");
+
+const senderAddr = "0xb2ba72e1f84b7b8cb15487a2bf20328f2cf40c25";
+const senderPriv = "0xebceaca693ea3740231be94f38af6090d3aded336725d26a09b7d14e8e485e1e";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+async function main() {
+  const tx = {
+    // for should not be called by a legacy transaction for calling klay_recoverFromTransaction
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: 0,
+  };
+
+  const populatedTx = await wallet.populateTransaction(tx);
+  const rawTx = await wallet.signTransaction(populatedTx);
+  console.log("rawTx", rawTx);
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+
+  const addr = await provider.send("klay_recoverFromTransaction", [rawTx, "latest"]);
+  console.log("recoveredAddr rpc", addr, addr.toLowerCase() === senderAddr.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+```zsh output
+❯ js SignTxWithLegacyExample.js
+rawTx 0x08f87e05850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e98094b2ba72e1f84b7b8cb15487a2bf20328f2cf40c25f847f8458207f5a070d2c5f2dd52d6a3b7bba65594b2c875b8ce0473e16b06b43d5c2ec9ebfcd467a048af2fc51f75961a9cebfb1685b12d99db143bbd42a76f9c50970b807e1010b9
+sentTx 0xecb117338d7a0e7e9444886ebdab5d0e14fd1b02fa476fee839a2fc3b105f391
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0xb2ba72e1f84b7B8Cb15487A2bf20328F2cF40c25',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x7eae10aa2fcd3c42ac1705b63ad025f972a222bb71d65feeb0000d92c2e73732',
+  transactionHash: '0xecb117338d7a0e7e9444886ebdab5d0e14fd1b02fa476fee839a2fc3b105f391',
+  logs: [],
+  blockNumber: 152256170,
+  confirmations: 3,
+  cumulativeGasUsed: BigNumber { _hex: '0x029636', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+recoveredAddr rpc 0xb2ba72e1f84b7b8cb15487a2bf20328f2cf40c25 true
+```
+
+</CH.Code>
+
+---
+
+導入 **ethers** 和 **@kaiachain/ethers-ext** 軟件包，在 ethers.js 上添加 kaia 功能
+
+```js SignTxWithLegacyExample.js focus=1:3
+
+```
+
+---
+
+定義發件人的**地址**和**私人密鑰**
+
+```js SignTxWithLegacyExample.js focus=5:6
+
+```
+
+---
+
+定義接收方的**地址**
+
+```js SignTxWithLegacyExample.js focus=7
+
+```
+
+---
+
+使用指定的 **Kairos** 測試網 URL 設置提供程序。 以太坊中的提供者是訪問區塊鏈數據的只讀抽象。
+
+```js SignTxWithLegacyExample.js focus=9
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```js SignTxWithLegacyExample.js focus=9
+const { ethers } = require("ethers");
+
+const { Wallet, TxType } = require("@kaiachain/ethers-ext/v5");
+
+const senderAddr = "0xb2ba72e1f84b7b8cb15487a2bf20328f2cf40c25";
+const senderPriv = "0xebceaca693ea3740231be94f38af6090d3aded336725d26a09b7d14e8e485e1e";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+async function main() {
+  const tx = {
+    // for should not be called by a legacy transaction for calling klay_recoverFromTransaction
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: 0,
+  };
+
+  const populatedTx = await wallet.populateTransaction(tx);
+  const rawTx = await wallet.signTransaction(populatedTx);
+  console.log("rawTx", rawTx);
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+
+  const addr = await provider.send("klay_recoverFromTransaction", [rawTx, "latest"]);
+  console.log("recoveredAddr rpc", addr, addr.toLowerCase() === senderAddr.toLowerCase());
+}
+
+main().catch(console.error);
+```
+
+---
+
+用**私鑰**和**提供者**創建發件人錢包
+
+```js SignTxWithLegacyExample.js focus=10
+
+```
+
+---
+
+使用 `type.TxType.ValueTransfer` 創建一個價值轉移事務，以便以後使用 `klay_recoverFromTransaction` 恢復：TxType.ValueTransfer"，以便以後使用 "klay_recoverFromTransaction "恢復它
+
+```js SignTxWithLegacyExample.js focus=13:19
+
+```
+
+---
+
+用發件人的**錢包**簽署交易，"populateTransaction "方法為交易對象添加更多參數，如gas、nonce...
+
+<CH.Code>
+```js SignTxWithLegacyExample.js focus=21:23
+
+````
+---
+
+```zsh output
+rawTx 0x08f87e05850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e98094b2ba72e1f84b7b8cb15487a2bf20328f2cf40c25f847f8458207f5a070d2c5f2dd52d6a3b7bba65594b2c875b8ce0473e16b06b43d5c2ec9ebfcd467a048af2fc51f75961a9cebfb1685b12d99db143bbd42a76f9c50970b807e1010b9
+````
+
+</CH.Code>
+
+---
+
+將**簽署的交易**發送至 kaia 網絡
+
+<CH.Code>
+```js SignTxWithLegacyExample.js focus=25:26
+
+````
+---
+
+```zsh output
+sentTx 0xecb117338d7a0e7e9444886ebdab5d0e14fd1b02fa476fee839a2fc3b105f391
+````
+
+</CH.Code>
+
+---
+
+等待交易**完成**並打印**收據**
+
+<CH.Code>
+```js SignTxWithLegacyExample.js focus=28:29
+
+````
+---
+
+```zsh output
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0xb2ba72e1f84b7B8Cb15487A2bf20328F2cF40c25',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x7eae10aa2fcd3c42ac1705b63ad025f972a222bb71d65feeb0000d92c2e73732',
+  transactionHash: '0xecb117338d7a0e7e9444886ebdab5d0e14fd1b02fa476fee839a2fc3b105f391',
+  logs: [],
+  blockNumber: 152256170,
+  confirmations: 3,
+  cumulativeGasUsed: BigNumber { _hex: '0x029636', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+````
+
+</CH.Code>
+
+---
+
+使用 `klay_recoverFromMessage` 從已簽署的事務中恢復地址
+
+<CH.Code>
+```js SignTxWithLegacyExample.js focus=31:32
+
+````
+---
+```zsh output
+recoveredAddr rpc 0xb2ba72e1f84b7b8cb15487a2bf20328f2cf40c25 true
+````
+
+</CH.Code>
+</CH.Spotlight>
