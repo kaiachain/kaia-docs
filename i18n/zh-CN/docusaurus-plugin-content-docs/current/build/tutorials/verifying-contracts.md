@@ -1,34 +1,34 @@
 ---
-sidebar_label: 核实合同
+sidebar_label: 核實合同
 ---
 
-# 如何使用区块探索器验证智能合约
+# 如何使用區塊探索器驗證智能合約
 
-## 导言
+## 導言
 
-通常情况下，智能合约的部署者是唯一能接触到实际部署代码的一方，在部署者验证之前，公众无法读取合约的源代码。 然而，这正是合约验证作为智能合约开发周期中一个重要步骤的作用所在，因为它有助于提高已部署合约的透明度（对用户而言）、便利性（对开发者而言）和安全性。
+通常情況下，智能合約的部署者是唯一能接觸到實際部署代碼的一方，在部署者驗證之前，公眾無法讀取合約的源代碼。 然而，這正是合約驗證作為智能合約開發週期中一個重要步驟的作用所在，因為它有助於提高已部署合約的透明度（對用戶而言）、便利性（對開發者而言）和安全性。
 
-尽管如此，一旦智能合约得到验证，Kaiascope 和 Kaiascan 等区块探索器还可以让公众使用区块探索器的用户界面与合约的公共方法进行交互。 除此之外，公众还可以直接访问经过验证的合同源代码。
+儘管如此，一旦智能合約得到驗證，Kaiascope 和 Kaiascan 等區塊探索器還可以讓公眾使用區塊探索器的用戶界面與合約的公共方法進行交互。 除此之外，公眾還可以直接訪問經過驗證的合同源代碼。
 
-在本指南中，我们将了解如何使用区块探索器验证 Kaia 网络上部署的智能合约。
+在本指南中，我們將瞭解如何使用區塊探索器驗證 Kaia 網絡上部署的智能合約。
 
-## 先决条件
+## 先決條件
 
-- [Remix IDE](https://ide.kaia.io/)和[Kaia 钱包](https://docs.kaiawallet.io/getting_started/quick_start#install-kaia-wallet)
-- 从 [水龙头](https://faucet.kaia.io) 测试 KAIA 是否足够
+- [Remix IDE](https://ide.kaia.io/)和[Kaia 錢包](https://docs.kaiawallet.io/getting_started/quick_start#install-kaia-wallet)
+- 從 [水龍頭](https://faucet.kaia.io) 測試 KAIA 是否足夠
 
-## 开始
+## 開始
 
-在本指南中，我们将介绍在 Kaia 生态系统中存在的区块探索器上验证单个合约和多部分合约的方法，这些探索器是：
+在本指南中，我們將介紹在 Kaia 生態系統中存在的區塊探索器上驗證單個合約和多部分合約的方法，這些探索器是：
 
 - [Kaiascope](https://kaiascope.com/)
 - [Kaiascan](https://www.kaiascan.io/)
 
-废话不多说，让我们开始吧！
+廢話不多說，讓我們開始吧！
 
-## 部署单一合同
+## 部署單一合同
 
-要验证智能合约，首先需要在目标网络上部署合约。 因此，在本指南中，我们将把合同部署到 Kaia Kairos Testnet。 此外，在本教程中，我们将在 Remix IDE 上部署一个名为 "Counter.sol "的简单计数器合约。 代码如下所示：
+要驗證智能合約，首先需要在目標網絡上部署合約。 因此，在本指南中，我們將把合同部署到 Kaia Kairos Testnet。 此外，在本教程中，我們將在 Remix IDE 上部署一個名為 "Counter.sol "的簡單計數器合約。 代碼如下所示：
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -52,35 +52,35 @@ contract Counter {
 
 :::note
 
-您可以查看此页面，了解使用 Kaia Kairos Testnet 上的 [libraries](../../references/sdk/sdk.md) 部署智能合约的教程。 您也可以使用 [Hardhat](../get-started/hardhat.md), [Foundry](../smart-contracts/deploy/foundry.md), [Remix](../smart-contracts/deploy/deploy.md#remix-ide) 等开发工具或其他工具（如果愿意），将智能合约部署到 Kaia Kairos Testnet。
+您可以查看此頁面，瞭解使用 Kaia Kairos Testnet 上的 [libraries](../../references/sdk/sdk.md) 部署智能合約的教程。 您也可以使用 [Hardhat](../get-started/hardhat.md), [Foundry](../smart-contracts/deploy/foundry.md), [Remix](../smart-contracts/deploy/deploy.md#remix-ide) 等開發工具或其他工具（如果願意），將智能合約部署到 Kaia Kairos Testnet。
 
 :::
 
-## 单一合同核查参数
+## 單一合同核查參數
 
-在区块探索器上验证合约需要一些参数，在部署智能合约时必须考虑这些参数。 以下是与合同编译器和部署有关的一些细节，以便成功验证合同：
+在區塊探索器上驗證合約需要一些參數，在部署智能合約時必須考慮這些參數。 以下是與合同編譯器和部署有關的一些細節，以便成功驗證合同：
 
 Remix IDE :
 
-- 在 Remix IDE 上，导航至**Solidity 编译器选项卡**。
+- 在 Remix IDE 上，導航至**Solidity 編譯器選項卡**。
 
-  - 观察用于编译和部署合同的 \*\* 编译器版本\*\*。
-  - 注意合同中使用的**开源许可类型**。 这意味着在 Solidity 源文件开头使用的 SPDX 许可证标识符。 在 `Counter.sol` 文件中，我们使用了 `// SPDX-License-Identifier：MIT`
-  - 注意用于部署合同的 **EVM 版本**。
-  - (可选）如果在编译过程中启用了**优化**，请注意优化运行参数的值
+  - 觀察用於編譯和部署合同的 \*\* 編譯器版本\*\*。
+  - 注意合同中使用的**開源許可類型**。 這意味著在 Solidity 源文件開頭使用的 SPDX 許可證標識符。 在 `Counter.sol` 文件中，我們使用了 `// SPDX-License-Identifier：MIT`
+  - 注意用於部署合同的 **EVM 版本**。
+  - (可選）如果在編譯過程中啟用了**優化**，請注意優化運行參數的值
 
   ![](/img/build/tutorials/counter-veri-parameters.png)
 
-- 在 Remix IDE 上，导航至 **Kaia 选项卡**。
+- 在 Remix IDE 上，導航至 **Kaia 選項卡**。
 
-  - (可选） 如果合约构造函数方法接受参数，请注意构造函数参数的[ABI-编码形式](https://docs.soliditylang.org/en/develop/abi-spec.html)
-  - 成功部署后，在**已部署合约**选项卡上记下智能合约的合约地址。
+  - (可選） 如果合約構造函數方法接受參數，請注意構造函數參數的[ABI-編碼形式](https://docs.soliditylang.org/en/develop/abi-spec.html)
+  - 成功部署後，在**已部署合約**選項卡上記下智能合約的合約地址。
 
   ![](/img/build/tutorials/counter-veri-parametersII.png)
 
 ## 部署多部分合同
 
-值得注意的是，部署多部分合同的步骤与部署单部分合同的步骤相同。 在本指南中，我们将部署一个名为 `airdropToken.sol` 的简单 KIP7 空投合约。 代码如下所示：
+值得注意的是，部署多部分合同的步驟與部署單部分合同的步驟相同。 在本指南中，我們將部署一個名為 `airdropToken.sol` 的簡單 KIP7 空投合約。 代碼如下所示：
 
 ```solidity
 //SPDX-License-Identifier: MIT
@@ -114,86 +114,86 @@ contract TokenAirdrop is KIP7, Ownable {
 }
 ```
 
-## 多部分合同核查参数
+## 多部分合同核查參數
 
-验证多部分合同的参数与验证单部分合同的参数相同。 但是，由于它们是由多个从属合同组成的，我们需要将合同的所有从属关系预处理成一个单一的 solidity 文件。 这种预处理通常被称为智能合约扁平化。
+驗證多部分合同的參數與驗證單部分合同的參數相同。 但是，由於它們是由多個從屬合同組成的，我們需要將合同的所有從屬關係預處理成一個單一的 solidity 文件。 這種預處理通常被稱為智能合約扁平化。
 
-因此，我们必须将合约扁平化，以便在区块资源管理器上使用新的扁平化 Solidity 文件进行验证。
+因此，我們必須將合約扁平化，以便在區塊資源管理器上使用新的扁平化 Solidity 文件進行驗證。
 
 Remix IDE:
 
-- 在 Remix IDE 上，导航至**文件资源管理器选项卡**。
+- 在 Remix IDE 上，導航至**文件資源管理器選項卡**。
 
-  - 在**合同**文件夹下选择新创建的合同
-  - 点击或用双指轻点，即可查看合同上的所有可用命令。
-  - 选择 \*\* 压平\*\*
+  - 在**合同**文件夾下選擇新創建的合同
+  - 點擊或用雙指輕點，即可查看合同上的所有可用命令。
+  - 選擇 \*\* 壓平\*\*
 
   ![](/img/build/tutorials/airdropToken-flattened.png)
 
-  - 一旦代码被扁平化，你将看到一个名为 `airdropTokens_flattened.sol` 的新合约。
+  - 一旦代碼被扁平化，你將看到一個名為 `airdropTokens_flattened.sol` 的新合約。
 
   ![](/img/build/tutorials/airdropToken-flattened-file.png)
 
 :::note
 
-有不同的工具可以将多部分智能合约扁平化为一个单一的 Solidity 文件，如 [Hardhat Flattener](https://hardhat.org/hardhat-runner/docs/advanced/flattening)。 请参阅相关智能合约扁平化工具的文档，了解更详细的使用说明。
+有不同的工具可以將多部分智能合約扁平化為一個單一的 Solidity 文件，如 [Hardhat Flattener](https://hardhat.org/hardhat-runner/docs/advanced/flattening)。 請參閱相關智能合約扁平化工具的文檔，瞭解更詳細的使用說明。
 
 :::
 
-## 核实合同
+## 核實合同
 
-在获得所有验证参数后，我们将在本节中详细介绍在区块资源管理器上验证单一智能合约（Counter.sol）和多部分智能合约（airdropTokens.sol）的步骤。
+在獲得所有驗證參數後，我們將在本節中詳細介紹在區塊資源管理器上驗證單一智能合約（Counter.sol）和多部分智能合約（airdropTokens.sol）的步驟。
 
 ### 1. Kaiascope
 
-要在 Kaiascope 上验证单份合同和多份合同，请按以下步骤操作：
+要在 Kaiascope 上驗證單份合同和多份合同，請按以下步驟操作：
 
-#### 1.1 验证单一合同
+#### 1.1 驗證單一合同
 
-1. 进入 [Kaiascope](https://kairos.kaiascope.com)的搜索栏，粘贴已部署的合同地址。
-2. 导航至该页面上的**合同选项卡**。
-3. 单击**匹配合同源代码**链接，提交合同代码以供验证。
+1. 進入 [Kaiascope](https://kairos.kaiascope.com)的搜索欄，粘貼已部署的合同地址。
+2. 導航至該頁面上的**合同選項卡**。
+3. 單擊**匹配合同源代碼**鏈接，提交合同代碼以供驗證。
 
 ![](/img/build/tutorials/counter-contract-tab.png)
 
-4. 在合同验证页面，确保您的账户已连接到 Kaia 钱包或 Metamask。 在本指南中，我们将使用 Kaia 钱包。
-5. 在**合同地址栏**中填写合同地址。 注：该字段通常会自动填写合同地址。
-6. 选择 "Counter.sol "示例使用的**编译器版本**。
-7. 选择用于 "Counter.sol "示例的**开源许可类型**。 在 "Counter.sol "示例中，选择 "**MIT License (MIT)**" 选项。 如果没有使用许可证，请选择 **无许可证（无）**。
-8. 在**源代码字段**中，选择**源文本**，然后在文本字段中粘贴 "Counter.sol "的源代码。
-9. 如果在编译过程中启用了**优化**，则为**优化**选择**真**，并在**优化运行**下填写运行次数为**200**。
-10. 为合同选择 **EVM 版本**。 以 "Counter.sol "为例，选择 "**伊斯坦布尔**"选项。
-11. 点击底部的验证码和**签名并提交**按钮，确认并开始验证。
+4. 在合同驗證頁面，確保您的賬戶已連接到 Kaia 錢包或 Metamask。 在本指南中，我們將使用 Kaia 錢包。
+5. 在**合同地址欄**中填寫合同地址。 注：該字段通常會自動填寫合同地址。
+6. 選擇 "Counter.sol "示例使用的**編譯器版本**。
+7. 選擇用於 "Counter.sol "示例的**開源許可類型**。 在 "Counter.sol "示例中，選擇 "**MIT License (MIT)**" 選項。 如果沒有使用許可證，請選擇 **無許可證（無）**。
+8. 在**源代碼字段**中，選擇**源文本**，然後在文本字段中粘貼 "Counter.sol "的源代碼。
+9. 如果在編譯過程中啟用了**優化**，則為**優化**選擇**真**，並在**優化運行**下填寫運行次數為**200**。
+10. 為合同選擇 **EVM 版本**。 以 "Counter.sol "為例，選擇 "**伊斯坦布爾**"選項。
+11. 點擊底部的驗證碼和**簽名並提交**按鈕，確認並開始驗證。
 
 ![](/img/build/tutorials/counter-verification-page.png)
 
-12. 签署验证请求后，您将收到验证状态通知
+12. 簽署驗證請求後，您將收到驗證狀態通知
 
 ![](/img/build/tutorials/counter-success-popup.png)
 
-13. 验证完成后，浏览器将显示验证结果，并显示包含合同地址的成功结果页面。 点击合同地址，查看**合同源代码**、**合同 ABI**和**字节码**。
+13. 驗證完成後，瀏覽器將顯示驗證結果，並顯示包含合同地址的成功結果頁面。 點擊合同地址，查看**合同源代碼**、**合同 ABI**和**字節碼**。
 
 ![](/img/build/tutorials/counter-success-popup-I.png)
 
 ![](/img/build/tutorials/counter-full-verification.png)
 
-#### 1.2 验证多部分合同
+#### 1.2 驗證多部分合同
 
-在 Kaiascope 上验证多部分合同与验证单部分合同一样简单，只是需要一些额外的步骤。 在本节中，我们将通过以下额外步骤验证 `airdropToken.sol` 合约：
+在 Kaiascope 上驗證多部分合同與驗證單部分合同一樣簡單，只是需要一些額外的步驟。 在本節中，我們將通過以下額外步驟驗證 `airdropToken.sol` 合約：
 
-- 您可以在**源代码**下选择**源文本**（Counter.sol 示例的第 3 步），或在**源代码**字段下选择**合并文件**。  在**源文本**的情况下，复制 "airdropToken_flattened.sol "中的代码并粘贴到文本字段中。 如果**实体文件**，可在 Remix IDE 上下载 "airdropToken_flattened.sol "文件并上传到字段。
+- 您可以在**源代碼**下選擇**源文本**（Counter.sol 示例的第 3 步），或在**源代碼**字段下選擇**合併文件**。  在**源文本**的情況下，複製 "airdropToken_flattened.sol "中的代碼並粘貼到文本字段中。 如果**實體文件**，可在 Remix IDE 上下載 "airdropToken_flattened.sol "文件並上傳到字段。
 
-a. 来源文本
+a. 來源文本
 
 ![](/img/build/tutorials/airdrop-veri-field-I.png)
 
-b. 固体文件
+b. 固體文件
 
 ![](/img/build/tutorials/airdrop-veri-field-II.png)
 
-在此之后，其他所有步骤都与验证单个合同相同。 填写验证参数后，点击**签署并提交**按钮进行确认并开始验证。
+在此之後，其他所有步驟都與驗證單個合同相同。 填寫驗證參數後，點擊**簽署並提交**按鈕進行確認並開始驗證。
 
-验证完成后，浏览器将显示验证结果，并显示包含合同地址的成功结果页面。 点击合同地址，查看**合同源代码**、**合同 ABI**和**字节码**。
+驗證完成後，瀏覽器將顯示驗證結果，並顯示包含合同地址的成功結果頁面。 點擊合同地址，查看**合同源代碼**、**合同 ABI**和**字節碼**。
 
 ![](/img/build/tutorials/airdrop-success-popup.png)
 
@@ -203,41 +203,41 @@ b. 固体文件
 
 ### 2. Kaiascan
 
-要在 Kaiascan 上验证单个合同和多部分合同，请浏览[合同提交申请页面](https://kairos.kaiascan.io/contracts)。 不过，请确保您的账户已连接到 Kaia 钱包或 MetaMask，并按照以下步骤操作：
+要在 Kaiascan 上驗證單個合同和多部分合同，請瀏覽[合同提交申請頁面](https://kairos.kaiascan.io/contracts)。 不過，請確保您的賬戶已連接到 Kaia 錢包或 MetaMask，並按照以下步驟操作：
 
 ![](/img/build/tutorials/klaytnfinder-con-sub-page.png)
 
-#### 2.1 核查单一合同
+#### 2.1 核查單一合同
 
-1. 请注意**此合同是否为令牌**字段？ 在使用官方网站 URL、官方电子邮件地址和令牌徽标图像验证令牌合约时，需要使用此字段。 在本指南中，请选择**否**，因为我们不是在验证商业代币合约。
-2. 填写已部署合同的**合同地址** (Counter.sol)
-3. 确保从 Remix IDE 下载 "Counter.sol"，并上载到\*\*源代码（Solidity 文件）\*\*字段。
-4. 选择 "Counter.sol "示例使用的**编译器版本**
-5. 选择用于 "Counter.sol "示例的**开源许可类型**。 在 "Counter.sol "示例中，选择 "**MIT License (MIT)**" 选项。 如果没有使用，请选择 **无许可证（无）**
-6. 为合同选择 **EVM 版本**。 以 "Counter.sol "为例，选择 "**伊斯坦布尔**"选项。
-7. 如果在编译过程中启用了**优化**，则为**优化**选择**真**，并在**优化运行**下填写运行次数为**200**。
-8. (可选）要获取该字段的 ABI 编码构造函数参数，请访问 [abi.hashex.org](http://abi.hashex.org)，获取下图所示的编码数据：
+1. 請注意**此合同是否為令牌**字段？ 在使用官方網站 URL、官方電子郵件地址和令牌徽標圖像驗證令牌合約時，需要使用此字段。 在本指南中，請選擇**否**，因為我們不是在驗證商業代幣合約。
+2. 填寫已部署合同的**合同地址** (Counter.sol)
+3. 確保從 Remix IDE 下載 "Counter.sol"，並上載到\*\*源代碼（Solidity 文件）\*\*字段。
+4. 選擇 "Counter.sol "示例使用的**編譯器版本**
+5. 選擇用於 "Counter.sol "示例的**開源許可類型**。 在 "Counter.sol "示例中，選擇 "**MIT License (MIT)**" 選項。 如果沒有使用，請選擇 **無許可證（無）**
+6. 為合同選擇 **EVM 版本**。 以 "Counter.sol "為例，選擇 "**伊斯坦布爾**"選項。
+7. 如果在編譯過程中啟用了**優化**，則為**優化**選擇**真**，並在**優化運行**下填寫運行次數為**200**。
+8. (可選）要獲取該字段的 ABI 編碼構造函數參數，請訪問 [abi.hashex.org](http://abi.hashex.org)，獲取下圖所示的編碼數據：
 
 ![](/img/build/tutorials/abi-hashex.png)
 
-9. 点击**签署并提交**按钮，确认并开始验证。
+9. 點擊**簽署並提交**按鈕，確認並開始驗證。
 
 ![](/img/build/tutorials/counter-k-verification-page.png)
 
-10. 验证完成后，您将收到**提交成功**信息。 现在，您可以在资源管理器搜索栏中粘贴合同地址，查看**合同源代码**、**合同 ABI**、**创建代码**和**ABI 编码值**。
+10. 驗證完成後，您將收到**提交成功**信息。 現在，您可以在資源管理器搜索欄中粘貼合同地址，查看**合同源代碼**、**合同 ABI**、**創建代碼**和**ABI 編碼值**。
 
 > ![](/img/build/tutorials/counter-k-full-verification.png)
 
-### 2.2 验证多部分合同
+### 2.2 驗證多部分合同
 
-在 Kaiascan 验证多部分合同的步骤与验证单个合同相同。 不过，需要注意的是，我们将在 \*\* 源代码（Solidity 文件）\*\* 字段上传 `airdropToken_flattened.sol` 文件。
+在 Kaiascan 驗證多部分合同的步驟與驗證單個合同相同。 不過，需要注意的是，我們將在 \*\* 源代碼（Solidity 文件）\*\* 字段上傳 `airdropToken_flattened.sol` 文件。
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
-填写验证参数后，点击**签署并提交**按钮进行确认并开始验证。 验证完成后，您将收到**提交成功**信息。 现在，您可以在资源管理器搜索栏中粘贴合同地址，查看**合同源代码**、**合同 ABI**和**创建代码**。
+填寫驗證參數後，點擊**簽署並提交**按鈕進行確認並開始驗證。 驗證完成後，您將收到**提交成功**信息。 現在，您可以在資源管理器搜索欄中粘貼合同地址，查看**合同源代碼**、**合同 ABI**和**創建代碼**。
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
-## 结论
+## 結論
 
-恭喜您遵循本指南！ 在本教程中，您将学习如何使用 Kaiascope 和 Kaiascan 来验证合同（单部分和多部分），以提高部署合同的透明度（对用户）、便利性（对开发人员）和安全性。 如需了解更多信息，请访问 [Kaia 文档](https://docs.klaytn.foundation/)；如有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。
+恭喜您遵循本指南！ 在本教程中，您將學習如何使用 Kaiascope 和 Kaiascan 來驗證合同（單部分和多部分），以提高部署合同的透明度（對用戶）、便利性（對開發人員）和安全性。 如需瞭解更多信息，請訪問 [Kaia 文檔](https://docs.klaytn.foundation/)；如有任何問題，請訪問 [Kaia 論壇](https://devforum.kaia.io/)。
