@@ -1,6 +1,6 @@
-# 钱包图书馆
+# 錢包圖書館
 
-让我们看看如何将知名钱包库整合到 dApp 中。
+讓我們看看如何將知名錢包庫整合到 dApp 中。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
