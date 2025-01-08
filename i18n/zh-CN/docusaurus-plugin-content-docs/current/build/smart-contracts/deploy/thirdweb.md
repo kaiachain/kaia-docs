@@ -1,78 +1,78 @@
-# 使用 Thirdweb 部署智能合约
+# 使用 Thirdweb 部署智能合約
 
 ![](/img/banners/kaia-thirdweb.png)
 
-## 导言<a id="introduction"></a>
+## 導言<a id="introduction"></a>
 
-本节将指导您使用 [ThirdWeb](https://portal.thirdweb.com/)，在 Kaia Network 上部署 Marketplace 合同和相应的 NFT 收集合同。 Thirdweb 是一个完整的 Web3 开发框架，可为您提供将应用程序和游戏连接到去中心化网络所需的一切。
+本節將指導您使用 [ThirdWeb](https://portal.thirdweb.com/)，在 Kaia Network 上部署 Marketplace 合同和相應的 NFT 收集合同。 Thirdweb 是一個完整的 Web3 開發框架，可為您提供將應用程序和遊戲連接到去中心化網絡所需的一切。
 
-市场合约允许用户列出 NFT 进行直接销售或拍卖，从而加强了 NFT 的买卖，就像在 OpenSea 上所做的那样。
+市場合約允許用戶列出 NFT 進行直接銷售或拍賣，從而加強了 NFT 的買賣，就像在 OpenSea 上所做的那樣。
 
-完成本指南后，您将能够
+完成本指南後，您將能夠
 
-- 使用 thirdweb 创建和定制合同。
-- 使用 thirdweb 对智能合约进行编译、部署和交互。
+- 使用 thirdweb 創建和定製合同。
+- 使用 thirdweb 對智能合約進行編譯、部署和交互。
 
-## 入门<a id="getting-started"></a>
+## 入門<a id="getting-started"></a>
 
-在本文中，我们将探讨使用 thirdweb 创建、自定义和部署合同的不同方法，即
+在本文中，我們將探討使用 thirdweb 創建、自定義和部署合同的不同方法，即
 
-- 使用第三网络仪表板
+- 使用第三網絡儀表板
 - 使用 thirdweb CLI
 
-在本指南中，我们将演示如何使用 thirdweb 控制面板部署 MarketPlace 合同，并使用 thirdweb CLI 部署相应的 nft 集合，以便在市场上列出。
+在本指南中，我們將演示如何使用 thirdweb 控制面板部署 MarketPlace 合同，並使用 thirdweb CLI 部署相應的 nft 集合，以便在市場上列出。
 
-> 注：我们将不解释市场合约的机制，因为我们的重点是探索用于创建、部署和与智能合约交互的 thirdweb 面板和 CLI。
+> 注：我們將不解釋市場合約的機制，因為我們的重點是探索用於創建、部署和與智能合約交互的 thirdweb 面板和 CLI。
 
-## 使用 thirdweb 仪表板创建和部署市场合同<a id="creating-and-deploying-thirdweb-dashboard"></a>
+## 使用 thirdweb 儀表板創建和部署市場合同<a id="creating-and-deploying-thirdweb-dashboard"></a>
 
-在本节中，我们将使用 thirdweb 面板创建并部署市场合同。 为此，请按照以下步骤操作：
+在本節中，我們將使用 thirdweb 面板創建並部署市場合同。 為此，請按照以下步驟操作：
 
-1. 前往 [thirdweb dashboard](https://thirdweb.com/dashboard?ref=blog.thirdweb.com)，从合同列表中选择 **MarketPlace** 合同。
+1. 前往 [thirdweb dashboard](https://thirdweb.com/dashboard?ref=blog.thirdweb.com)，從合同列表中選擇 **MarketPlace** 合同。
 
 ![](/img/build/get-started/marketplace-explore.png)
 
-2. 在合同概览仪表板中单击**立即部署**。
+2. 在合同概覽儀表板中單擊**立即部署**。
 
 ![](/img/build/get-started/marketplace-deploy.png)
 
-3. 配置市场合同，使其包含以下参数：市场的**名称**、**描述**和**图像**。
+3. 配置市場合同，使其包含以下參數：市場的**名稱**、**描述**和**圖像**。
 
 ![](/img/build/get-started/marketplace-contract-details.png)
 
-4. 点击 **立即部署**，如上图所示，然后等待交易完成。
+4. 點擊 **立即部署**，如上圖所示，然後等待交易完成。
 
 ![](/img/build/get-started/marketplace-deployed.png)
 
-交易成功执行后，您可以在 [Kaiascope](https://kaiascope.com/)的搜索栏中粘贴合同地址，以验证您的部署。
+交易成功執行後，您可以在 [Kaiascope](https://kaiascope.com/)的搜索欄中粘貼合同地址，以驗證您的部署。
 
-## 使用 thirdweb CLI 创建和部署 NFT 收集合同<a id="creating-deploying-using-thirdweb-cli"></a>
+## 使用 thirdweb CLI 創建和部署 NFT 收集合同<a id="creating-deploying-using-thirdweb-cli"></a>
 
-在本节中，我们将使用 [thirdweb CLI](https://portal.thirdweb.com/cli?ref=blog.thirdweb.com)创建和部署将在 Marketplace 中列出的 NFT 程序集。 为此，请按照以下步骤操作：
+在本節中，我們將使用 [thirdweb CLI](https://portal.thirdweb.com/cli?ref=blog.thirdweb.com)創建和部署將在 Marketplace 中列出的 NFT 程序集。 為此，請按照以下步驟操作：
 
-### 创建合同<a id="creating-the-contract"></a>
+### 創建合同<a id="creating-the-contract"></a>
 
-1. 在终端中运行此命令来创建合同：
+1. 在終端中運行此命令來創建合同：
 
 ```bash
 npx thirdweb create --contract
 ```
 
-2. 输入您喜欢的命令行提示值：
+2. 輸入您喜歡的命令行提示值：
 
-   i. 为项目命名
+   i. 為項目命名
 
-   ii. 选择您喜欢的框架：**Hardhat** 或 **Foundry**.
+   ii. 選擇您喜歡的框架：**Hardhat** 或 **Foundry**.
 
-   iii. 为智能合约命名
+   iii. 為智能合約命名
 
-   iv. 选择基本合同类型：**空**、**ERC20**、**ERC721** 或 **ERC1155**。 添加任何所需的**扩展名**。 在本教程中，我们将选择 ERC721，并将扩展名设置为 "无"。
+   iv. 選擇基本合同類型：**空**、**ERC20**、**ERC721** 或 **ERC1155**。 添加任何所需的**擴展名**。 在本教程中，我們將選擇 ERC721，並將擴展名設置為 "無"。
 
 ![](/img/build/get-started/thirdweb-cli-info.png)
 
-3. 创建完成后，请导航至项目根目录，并在首选代码编辑器中打开项目。
+3. 創建完成後，請導航至項目根目錄，並在首選代碼編輯器中打開項目。
 
-4. 打开合同文件夹，合同应该是这样的：
+4. 打開合同文件夾，合同應該是這樣的：
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -97,73 +97,73 @@ contract nftcollection is ERC721Base {
 }
 ```
 
-上述合约演示了[ERC721Base](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol) 的基本功能。 它导入并继承了 **ERC721Base** 合约，还实现了所需的方法，包括构造函数及其从属参数。
+上述合約演示了[ERC721Base](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol) 的基本功能。 它導入並繼承了 **ERC721Base** 合約，還實現了所需的方法，包括構造函數及其從屬參數。
 
-您可以根据自己需要的自定义逻辑修改合同，一旦完成，您的合同就可以部署了。
+您可以根據自己需要的自定義邏輯修改合同，一旦完成，您的合同就可以部署了。
 
 ### 部署合同<a id="deploying-the-contracts"></a>
 
-1. 导航至项目根文件夹，在终端中运行该命令：
+1. 導航至項目根文件夾，在終端中運行該命令：
 
 ```bash
 npx thirdweb deploy
 ```
 
-执行该命令将触发以下操作：
+執行該命令將觸發以下操作：
 
-- 检测框架（硬帽、代工厂）
-- 编译当前目录下的所有合同。
-- 允许您选择要部署的合同。
-- 将编译好的智能合约代码（以应用程序二进制接口（ABI）的形式）上传到 IPFS。
+- 檢測框架（硬帽、代工廠）
+- 編譯當前目錄下的所有合同。
+- 允許您選擇要部署的合同。
+- 將編譯好的智能合約代碼（以應用程序二進制接口（ABI）的形式）上傳到 IPFS。
 
-2. 部署完成后，将打开一个仪表板界面，填写其余参数。
-   - **_name**：合同名称
-   - **_symbol**：符号或 "股票代码"
-   - **_版税收款人**：接收二次销售版税的钱包地址
-   - **_特许权使用费基点**：每次二次销售将给予特许权使用费收取人的基点 (bps)，如 500 = 5%。
+2. 部署完成後，將打開一個儀表板界面，填寫其餘參數。
+   - **_name**：合同名稱
+   - **_symbol**：符號或 "股票代碼"
+   - **_版稅收款人**：接收二次銷售版稅的錢包地址
+   - **_特許權使用費基點**：每次二次銷售將給予特許權使用費收取人的基點 (bps)，如 500 = 5%。
 
-3. 选择 "Kaia Mainnet "作为部署合同的网络。
+3. 選擇 "Kaia Mainnet "作為部署合同的網絡。
 
 ![](/img/build/get-started/nft-collection-deploy.png)
 
-4. 智能合约部署完成后，您可以通过其仪表板管理其他设置和功能。 例如，您可以上传 NFT、配置权限和访问控制以及添加新功能。
+4. 智能合約部署完成後，您可以通過其儀表板管理其他設置和功能。 例如，您可以上傳 NFT、配置權限和訪問控制以及添加新功能。
 
-有关 thirdweb 部署命令的更多信息，请参阅 [deploy guide](https://portal.thirdweb.com/deploy/getting-started) 。
+有關 thirdweb 部署命令的更多信息，請參閱 [deploy guide](https://portal.thirdweb.com/deploy/getting-started) 。
 
-## 与已部署的合同互动<a id="interacting-with-deployed-contracts"></a>
+## 與已部署的合同互動<a id="interacting-with-deployed-contracts"></a>
 
-在本节中，我们将分别使用**mint**和**transferfrom**函数铸造一个 NFT 并将其转入另一个账户。 让我们按以下步骤来了解一下：
+在本節中，我們將分別使用**mint**和**transferfrom**函數鑄造一個 NFT 並將其轉入另一個賬戶。 讓我們按以下步驟來了解一下：
 
-### 铸币厂<a id="minting-nft"></a>
+### 鑄幣廠<a id="minting-nft"></a>
 
-1. 导航至新部署的合同 (**puppyKlan-NC**) 面板。
-2. 点击合同仪表板下**NFTs**选项卡中的**mint**功能。
+1. 導航至新部署的合同 (**puppyKlan-NC**) 面板。
+2. 點擊合同儀表板下**NFTs**選項卡中的**mint**功能。
 
 ![](/img/build/get-started/puppy-mint-btn.png)
 
-3. 填写铸造 NFT 所需的参数：**名称**、媒体\*\*、描述**和属性**。
+3. 填寫鑄造 NFT 所需的參數：**名稱**、媒體\*\*、描述**和屬性**。
 
 ![](/img/build/get-started/puppy-mint-details.png)
 
-4. 核对输入内容，然后点击 **Mint NFT** 按钮。
-5. 确认交易，等待交易完成。 完成后，您会看到仪表板上添加了 NFT，如下图所示：
+4. 核對輸入內容，然後點擊 **Mint NFT** 按鈕。
+5. 確認交易，等待交易完成。 完成後，您會看到儀表板上添加了 NFT，如下圖所示：
 
 ![](/img/build/get-started/puppy-minted.png)
 
-### 向新业主转让 NFT<a id="transferring-nft-to-new-owner"></a>
+### 向新業主轉讓 NFT<a id="transferring-nft-to-new-owner"></a>
 
-1. 前往合同 (**puppyKlan-NC**) 面板中的资源管理器选项卡。
-2. 在 "写 "选项卡下选择 **transferFrom** 功能，如下图所示。
-3. 填写必要的函数参数：from（地址）、to（地址）和 id（uint256）。
+1. 前往合同 (**puppyKlan-NC**) 面板中的資源管理器選項卡。
+2. 在 "寫 "選項卡下選擇 **transferFrom** 功能，如下圖所示。
+3. 填寫必要的函數參數：from（地址）、to（地址）和 id（uint256）。
 
 ![](/img/build/get-started/puppy-transferfrom.png)
 
-4. 确认交易，等待交易完成。
+4. 確認交易，等待交易完成。
 
-## 结论<a id="conclusion"></a>
+## 結論<a id="conclusion"></a>
 
-祝贺你 如果您读到了本指南的结尾。 如果您有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/) 或联系 [官方第三网络支持](https://support.thirdweb.com/)。 不过，以下是您在 Kaia 上进一步使用 Thirdweb 时可能需要的有用资源列表。
+祝賀你 如果您讀到了本指南的結尾。 如果您有任何問題，請訪問 [Kaia 論壇](https://devforum.kaia.io/) 或聯繫 [官方第三網絡支持](https://support.thirdweb.com/)。 不過，以下是您在 Kaia 上進一步使用 Thirdweb 時可能需要的有用資源列表。
 
-- [Thirdweb文档](https://portal.thirdweb.com/)
-- [如何使用 Thirdweb 构建 dApp](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
-- [使用 NextJS 和 TypeScript 创建自己的 NFT 市场](https://blog.thirdweb.com/guides/nft-marketplace-with-typescript-next/)
+- [Thirdweb文檔](https://portal.thirdweb.com/)
+- [如何使用 Thirdweb 構建 dApp](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
+- [使用 NextJS 和 TypeScript 創建自己的 NFT 市場](https://blog.thirdweb.com/guides/nft-marketplace-with-typescript-next/)
