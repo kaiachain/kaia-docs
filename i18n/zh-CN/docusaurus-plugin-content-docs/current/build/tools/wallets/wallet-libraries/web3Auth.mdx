@@ -2,38 +2,38 @@
 sidebar_label: Web3Auth
 ---
 
-# 將 Web3Auth 集成到 dApp 中
+# 将 Web3Auth 集成到 dApp 中
 
 ![](/img/banners/kaia-web3Auth.png)
 
-## 導言
+## 导言
 
-[Web3Auth](https://web3auth.io/docs/) 是一種錢包基礎設施，可插入 dApp 或錢包。 它是 Web3 錢包和應用程序的可插拔認證基礎設施。 憑藉 Web3Auth 卓越的用戶體驗，無論是主流用戶還是加密貨幣原住民，都可以在幾分鐘內完成註冊。
+[Web3Auth](https://web3auth.io/docs/) 是一种钱包基础设施，可插入 dApp 或钱包。 它是 Web3 钱包和应用程序的可插拔认证基础设施。 凭借 Web3Auth 卓越的用户体验，无论是主流用户还是加密货币原住民，都可以在几分钟内完成注册。
 
-作為一種錢包基礎設施，它為所有社交登錄、網絡和移動原生平臺、錢包和其他密鑰管理方法提供開箱即用的支持。 本指南結束時，您將把 Web3Auth 集成到基於 Kaia 網絡構建的去中心化網絡應用程序中。 要將 Web3Auth 集成到其他平臺（Android、iOS、React Native、Flutter 和 Unity），請參考本 [指南](https://web3auth.io/docs/quick-start)。
+作为一种钱包基础设施，它为所有社交登录、网络和移动原生平台、钱包和其他密钥管理方法提供开箱即用的支持。 本指南结束时，您将把 Web3Auth 集成到基于 Kaia 网络构建的去中心化网络应用程序中。 要将 Web3Auth 集成到其他平台（Android、iOS、React Native、Flutter 和 Unity），请参考本 [指南](https://web3auth.io/docs/quick-start)。
 
-為了快速入門，本教程的完整代碼可在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/web3Auth.md) 上獲取。 您可以克隆或下載該版本庫，以便跟隨學習。
+为了快速入门，本教程的完整代码可在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/web3Auth.md) 上获取。 您可以克隆或下载该版本库，以便跟随学习。
 
-## 先決條件
+## 先决条件
 
-* 一個正在運行的 react 項目（通過執行 `npm create vite@latest project-name -- --template react-ts`)
-* 安裝必要的錢包（[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/)）。
-* RPC 端點：您可以從支持的[端點提供者](../../../../references/public-en.md)中獲取。
-* 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
-* 從 [Web3Auth 控制面板](https://dashboard.web3auth.io/) 獲取您的客戶 ID。
+* 一个正在运行的 react 项目（通过执行 `npm create vite@latest project-name -- --template react-ts`)
+* 安装必要的钱包（[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/)）。
+* RPC 端点：您可以从支持的[端点提供者](../../../../references/public-en.md)中获取。
+* 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
+* 从 [Web3Auth 控制面板](https://dashboard.web3auth.io/) 获取您的客户 ID。
 
-## 安裝
+## 安装
 
-要在 dApp 中使用 Web3Auth，必須先安裝所需的庫和 SDK。 因此，您需要設置 ethers.js 和 Web3Auth Web SDK。 您可以將 Web3Auth 與 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 或 [kaia sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/) 庫一起使用，以便與 Kaia 區塊鏈通信。 本指南將使用 ethers.js。
+要在 dApp 中使用 Web3Auth，必须先安装所需的库和 SDK。 因此，您需要设置 ethers.js 和 Web3Auth Web SDK。 您可以将 Web3Auth 与 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 或 [kaia sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/) 库一起使用，以便与 Kaia 区块链通信。 本指南将使用 ethers.js。
 
 ```bash
 npm install --save @web3auth/modal @web3auth/base @web3auth/ethereum-provider @web3auth/default-evm-adapter
 npm install --save ethers
 ```
 
-## 初始化 Web3Auth 和提供程序實例
+## 初始化 Web3Auth 和提供程序实例
 
-成功安裝所需的庫後，接下來要初始化 Web3Auth 實例，在 "useState() "鉤子中設置 Web3Auth **provider** 實例，並在 "useEffect() "鉤子中設置 "init() "函數。
+成功安装所需的库后，接下来要初始化 Web3Auth 实例，在 "useState() "钩子中设置 Web3Auth **provider** 实例，并在 "useEffect() "钩子中设置 "init() "函数。
 
 <CH.Spotlight>
   <CH.Code>
@@ -322,45 +322,45 @@ npm install --save ethers
 
   ---
 
-  導入 Web3Auth 和其他依賴軟件包。
+  导入 Web3Auth 和其他依赖软件包。
 
   ```js App.tsx focus=1:10
   ```
 
   ---
 
-  導入 React 掛鉤（useState 和 useEffect）和實用功能：
+  导入 React 挂钩（useState 和 useEffect）和实用功能：
 
-  * `useState` 和 `useEffect`：用於狀態管理和副作用的 React 掛鉤。
-  * `RPC`：來自 `etherRPC.ts` 的自定義實用功能，用於使用 ethers.js 進行以太坊兼容的區塊鏈交互。
+  * `useState` 和 `useEffect`：用于状态管理和副作用的 React 挂钩。
+  * `RPC`：来自 `etherRPC.ts` 的自定义实用功能，用于使用 ethers.js 进行以太坊兼容的区块链交互。
 
   ```js App.tsx focus=13:15
   ```
 
   ---
 
-  從 Web3Auth 控制面板粘貼您的 \*\* 客戶 ID\*\*。
+  从 Web3Auth 控制面板粘贴您的 \*\* 客户 ID\*\*。
 
   ```js App.tsx focus=16:17
   ```
 
   ---
 
-  設置 \*\* 鏈配置\*\*：要使用 Web3Auth，您需要為選定的鏈 - Kaia 設置鏈配置。
+  设置 \*\* 链配置\*\*：要使用 Web3Auth，您需要为选定的链 - Kaia 设置链配置。
 
   ```js App.tsx focus=18:27
   ```
 
   ---
 
-  通過使用構造函數初始化 Web3Auth，在構造函數中，您可以傳入您想要的 Web3Auth 的所有配置。
+  通过使用构造函数初始化 Web3Auth，在构造函数中，您可以传入您想要的 Web3Auth 的所有配置。
 
   ```js App.tsx focus=27:44
   ```
 
   ---
 
-  在 "useState() "鉤子中設置 Web3Auth **provider** 實例、**userInfo** 和 "useEffect() "鉤子中的 "init() "函數。
+  在 "useState() "钩子中设置 Web3Auth **provider** 实例、**userInfo** 和 "useEffect() "钩子中的 "init() "函数。
 
   ```js App.tsx focus=53:95 
   ```
@@ -368,9 +368,9 @@ npm install --save ethers
   ---
 </CH.Spotlight>
 
-## 連接錢包
+## 连接钱包
 
-在 `App.tsx` 文件的 App 函數中，調用 web3Auth 實例的 [connect()](https://web3auth.io/docs/sdk/pnp/web/modal/usage?product=PNP\&sdk=PNP_MODAL\&framework=REACT\&stepIndex=0\&stepIndex=6#logging-in-the-user) 方法啟動錢包連接。
+在 `App.tsx` 文件的 App 函数中，调用 web3Auth 实例的 [connect()](https://web3auth.io/docs/sdk/pnp/web/modal/usage?product=PNP\&sdk=PNP_MODAL\&framework=REACT\&stepIndex=0\&stepIndex=6#logging-in-the-user) 方法启动钱包连接。
 
 ```js
 function App() {
@@ -400,13 +400,13 @@ function App() {
 
 ![](/img/build/tools/web3Auth-login.png)
 
-## 設置實用工具功能
+## 设置实用工具功能
 
-在本指南中，我們將使用實用工具函數：`truncateAddress()`。 truncateAddress() 函數接收一個有效地址，並返回一個更可讀的地址格式。 以下步驟展示瞭如何在項目中設置和使用 utils 函數。
+在本指南中，我们将使用实用工具函数：`truncateAddress()`。 truncateAddress() 函数接收一个有效地址，并返回一个更可读的地址格式。 以下步骤展示了如何在项目中设置和使用 utils 函数。
 
-**第 1** 步在 `src` 根文件夾中創建一個 `utils.ts` 文件。
+**第 1** 步在 `src` 根文件夹中创建一个 `utils.ts` 文件。
 
-將以下代碼粘貼到新創建的 utils.ts 文件中：
+将以下代码粘贴到新创建的 utils.ts 文件中：
 
 ```js
 export const truncateAddress = (address) => {
@@ -419,15 +419,15 @@ export const truncateAddress = (address) => {
 }
 ```
 
-**第 2** 步在您的 `App.tsx` 文件中導入該函數。
+**第 2** 步在您的 `App.tsx` 文件中导入该函数。
 
 ```js
-從'./utils'導入 { truncateAddress }
+从'./utils'导入 { truncateAddress }
 ```
 
-## 獲取賬戶和餘額
+## 获取账户和余额
 
-調用 Web3Auth 實例上的 `connect()` 方法成功連接錢包後，就可以使用提供者和簽名者對象獲取用戶賬戶及其餘額。
+调用 Web3Auth 实例上的 `connect()` 方法成功连接钱包后，就可以使用提供者和签名者对象获取用户账户及其余额。
 
 ```js
 function App() {
@@ -479,9 +479,9 @@ function App() {
 }
 ```
 
-## 斷開錢包連接
+## 断开钱包连接
 
-使用 Web3Auth 實例上的 [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) 方法可以斷開與錢包的連接。 此外，一個好的做法是刷新狀態，清除之前存儲的連接數據。
+使用 Web3Auth 实例上的 [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) 方法可以断开与钱包的连接。 此外，一个好的做法是刷新状态，清除之前存储的连接数据。
 
 ```js
 function App() {
@@ -508,9 +508,9 @@ function App() {
 }
 ```
 
-## 獲取用戶信息
+## 获取用户信息
 
-Web3Auth 的一個獨特功能是社交登錄。 用戶使用社交平臺登錄後，Web3Auth 實例會返回登錄用戶的一些信息。 在 Web3Auth 實例上調用 `getUserInfo()` 方法即可簡單地獲取登錄用戶信息。
+Web3Auth 的一个独特功能是社交登录。 用户使用社交平台登录后，Web3Auth 实例会返回登录用户的一些信息。 在 Web3Auth 实例上调用 `getUserInfo()` 方法即可简单地获取登录用户信息。
 
 ```js
 const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
@@ -539,9 +539,9 @@ return (
 )
 ```
 
-## 簽署信息
+## 签署信息
 
-初始化提供者和簽名者對象後，用戶就可以簽署任意字符串。
+初始化提供者和签名者对象后，用户就可以签署任意字符串。
 
 ```js
 // add to the existing useState hook.
@@ -575,9 +575,9 @@ return (
 )
 ```
 
-## 發送本地事務
+## 发送本地事务
 
-您可以執行本地事務，如將 KAIA 從一個用戶發送到另一個用戶。
+您可以执行本地事务，如将 KAIA 从一个用户发送到另一个用户。
 
 ```js
 // add to the existing useState hook.
@@ -620,13 +620,13 @@ return (
 )
 ```
 
-## 使用智能合約
+## 使用智能合约
 
-您可以根據智能合約的應用程序二進制接口（ABI）和合約地址與已部署的智能合約進行交互。 以下步驟說明了如何在項目中設置和使用合同地址和 ABI。
+您可以根据智能合约的应用程序二进制接口（ABI）和合约地址与已部署的智能合约进行交互。 以下步骤说明了如何在项目中设置和使用合同地址和 ABI。
 
-**第 1** 步在 `src` 根文件夾中創建一個 `constants.ts` 文件。
+**第 1** 步在 `src` 根文件夹中创建一个 `constants.ts` 文件。
 
-將以下代碼粘貼到新創建的 constants.ts 文件中：
+将以下代码粘贴到新创建的 constants.ts 文件中：
 
 ```js
 export const contractABI = [
@@ -672,13 +672,13 @@ export const contractABI = [
   export const contractAddress = "0x3b01E4025B428fFad9481a500BAc36396719092C";
 ```
 
-**第 2 步**：在 `etherRPC.ts` 文件中導入**contractABI**和**contractAddress**。
+**第 2 步**：在 `etherRPC.ts` 文件中导入**contractABI**和**contractAddress**。
 
 ```js
-從"./constants "導入 { contractAddress, contractABI }；
+从"./constants "导入 { contractAddress, contractABI }；
 ```
 
-### 1. 撰寫合同
+### 1. 撰写合同
 
 ```js
 // add to existing useState hook
@@ -713,7 +713,7 @@ return (
 )
 ```
 
-### 2. 閱讀合同
+### 2. 阅读合同
 
 ```js
 // add to existing useState hook
@@ -744,8 +744,8 @@ return (
 
 ## 故障排除
 
-您可以訪問[故障排除頁面](https://web3auth.io/docs/troubleshooting)，從不同的捆綁程序中探索常見挑戰和問題的解決方案。
+您可以访问[故障排除页面](https://web3auth.io/docs/troubleshooting)，从不同的捆绑程序中探索常见挑战和问题的解决方案。
 
 ## 下一步
 
-有關 Web3Auth 的更多深入指南，請參閱 [Web3Auth 文檔](https://web3auth.io/docs/connect-blockchain/klaytn) 和 [Web3Auth Github 存儲庫](https://github.com/web3auth)。
+有关 Web3Auth 的更多深入指南，请参阅 [Web3Auth 文档](https://web3auth.io/docs/connect-blockchain/klaytn) 和 [Web3Auth Github 存储库](https://github.com/web3auth)。
