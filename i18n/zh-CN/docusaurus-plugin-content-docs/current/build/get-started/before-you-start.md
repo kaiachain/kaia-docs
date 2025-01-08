@@ -1,31 +1,31 @@
-# 开始之前
+# 開始之前
 
-**凯亚网络**
+**凱亞網絡**
 
-- 启明星测试网
-- 主网
+- 啟明星測試網
+- 主網
 
-**终端节点**
+**終端節點**
 
-- 您的[端点节点](../../nodes/endpoint-node/endpoint-node.md)需要连接到 Kaia 网络并发出 API 调用或发送事务。
-- `ken` 是 Kaia 端点节点二进制文件。 `ken` 公开了两个接口：[命令行接口](../../nodes/endpoint-node/ken-cli-commands.md)和[JSON-RPC APIs](../../references/json-rpc/klay/account-created)。 `ken` 可在 Linux 和 MacOS 上运行。
-- `ken` CLI 附带多种实用程序和节点管理功能。
+- 您的[端點節點](../../nodes/endpoint-node/endpoint-node.md)需要連接到 Kaia 網絡併發出 API 調用或發送事務。
+- `ken` 是 Kaia 端點節點二進制文件。 `ken` 公開了兩個接口：[命令行接口](../../nodes/endpoint-node/ken-cli-commands.md)和[JSON-RPC APIs](../../references/json-rpc/klay/account-created)。 `ken` 可在 Linux 和 MacOS 上運行。
+- `ken` CLI 附帶多種實用程序和節點管理功能。
 
-**智能合同开发**
+**智能合同開發**
 
-- [Kaia Plugin for Remix](https://ide.kaia.io) - 基于浏览器的编译器和集成开发环境 Kaia Plugin for Remix。
-- [Truffle](https://github.com/trufflesuite/truffle) - 用于在 Solidity 中开发智能合约的开源工具。
-- [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - 智能合约和 dApp 的开发环境。
-- [Foundry](https://book.getfoundry.sh/) - Foundry 是一个智能合约开发工具链。
-- [Thirdweb](https://portal.thirdweb.com/) - Thirdweb 是一个完整的 web3 开发框架，提供构建、管理和分析 web3 应用程序的服务。
+- [Kaia Plugin for Remix](https://ide.kaia.io) - 基於瀏覽器的編譯器和集成開發環境 Kaia Plugin for Remix。
+- [Truffle](https://github.com/trufflesuite/truffle) - 用於在 Solidity 中開發智能合約的開源工具。
+- [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - 智能合約和 dApp 的開發環境。
+- [Foundry](https://book.getfoundry.sh/) - Foundry 是一個智能合約開發工具鏈。
+- [Thirdweb](https://portal.thirdweb.com/) - Thirdweb 是一個完整的 web3 開發框架，提供構建、管理和分析 web3 應用程序的服務。
 
 **Kaia SDK**
 
-- [caver-js](../../references/sdk/caver-js/caver-js.md) ：实现 Kaia JSON-RPC API 的 JavaScript 库。
-- [caver-java](../../references/sdk/caver-java/caver-java.md)：实现 Kaia JSON-RPC API 的 Java 库。
+- [caver-js](../../references/sdk/caver-js/caver-js.md) ：實現 Kaia JSON-RPC API 的 JavaScript 庫。
+- [caver-java](../../references/sdk/caver-java/caver-java.md)：實現 Kaia JSON-RPC API 的 Java 庫。
 
-**凯亚工具包**
+**凱亞工具包**
 
-- [Kaiascope](https://kaiascope.com/) - 区块和事务浏览器。
-- [Kaia Wallet](https://www.kaiawallet.io/) - Kaia 网络的浏览器扩展钱包。
-- [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) - 用于引导智能合约和了解 Kaia Contracts 的交互式生成器。
+- [Kaiascope](https://kaiascope.com/) - 區塊和事務瀏覽器。
+- [Kaia Wallet](https://www.kaiawallet.io/) - Kaia 網絡的瀏覽器擴展錢包。
+- [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) - 用於引導智能合約和了解 Kaia Contracts 的交互式生成器。
