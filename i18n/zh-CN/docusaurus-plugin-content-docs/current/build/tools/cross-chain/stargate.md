@@ -1,11 +1,11 @@
 # Stargate
 
-## 導言<a id="introduction"></a>
+## 导言<a id="introduction"></a>
 
-[Stargate](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs) 是首個完全可組合的原生資產橋接器，也是首個基於 LayerZero 構建的 dApp。 Stargate的核心是使跨鏈流動性轉移成為無縫的單一交易流程。 有了Stargate，用戶可以在一次交易中跨鏈交換原生資產。 這意味著您可以在一次交易中將 ETH 換成 KAIA。
+[Stargate](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs) 是首个完全可组合的原生资产桥接器，也是首个基于 LayerZero 构建的 dApp。 Stargate的核心是使跨链流动性转移成为无缝的单一交易流程。 有了Stargate，用户可以在一次交易中跨链交换原生资产。 这意味着您可以在一次交易中将 ETH 换成 KAIA。
 
 ## 使用方法<a id="usage"></a>
 
-Stargate為開發人員提供了一種在應用程序中以編程方式執行交換的方法。 您可以在 [Kaia Mainnet](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs/technical-reference/mainnet-contracts#klaytn) 和 [Kairos Testnet](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs/technical-reference/testnet-contracts#klaytn-baobab-testnet) 上以編程方式執行交換。 要開始使用，請參閱以下指南：
+Stargate为开发人员提供了一种在应用程序中以编程方式执行交换的方法。 您可以在 [Kaia Mainnet](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs/technical-reference/mainnet-contracts#klaytn) 和 [Kairos Testnet](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs/technical-reference/testnet-contracts#klaytn-baobab-testnet) 上以编程方式执行交换。 要开始使用，请参阅以下指南：
 
-- [如何交換](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs/integrate-with-stargate/how-to-swap)
+- [如何交换](https://stargateprotocol.gitbook.io/stargate/v2-developer-docs/integrate-with-stargate/how-to-swap)
