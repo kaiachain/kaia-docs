@@ -1,117 +1,117 @@
-# 使用 Hardhat 部署第一個智能合約
+# 使用 Hardhat 部署第一个智能合约
 
 ![](/img/banners/kaia-hardhat.png)
 
-## 導言
+## 导言
 
-本節將指導你使用 [Hardhat](https://hardhat.org/) 向凱亞-凱羅斯網絡部署靈魂令牌。
+本节将指导你使用 [Hardhat](https://hardhat.org/) 向凯亚-凯罗斯网络部署灵魂令牌。
 
-Hardhat 是一個智能合約開發環境，它將為您提供幫助：
+Hardhat 是一个智能合约开发环境，它将为您提供帮助：
 
-- 開發和編譯智能合約。
-- 調試、測試和部署智能合約和 dApp。
+- 开发和编译智能合约。
+- 调试、测试和部署智能合约和 dApp。
 
-靈魂綁定令牌（SBT）是不可轉讓的 NFT。 也就是說，一旦獲得，就不得出售或轉讓給其他用戶。 要了解有關 SBT、其工作原理和使用案例的更多信息，可以查看 Vitalik Buterin 發表的這篇 [參考文章](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)。
+灵魂绑定令牌（SBT）是不可转让的 NFT。 也就是说，一旦获得，就不得出售或转让给其他用户。 要了解有关 SBT、其工作原理和使用案例的更多信息，可以查看 Vitalik Buterin 发表的这篇 [参考文章](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)。
 
-完成本指南後，您將能夠
+完成本指南后，您将能够
 
-- 在 Kaia 上建立一個 "Hardhat "項目。
-- 創建一個簡單的靈魂綁定令牌。
-- 使用 Hardhat 編譯智能合約。
-- 使用 Hardhat 測試、部署智能合約並與之交互。
+- 在 Kaia 上建立一个 "Hardhat "项目。
+- 创建一个简单的灵魂绑定令牌。
+- 使用 Hardhat 编译智能合约。
+- 使用 Hardhat 测试、部署智能合约并与之交互。
 - 探索 Hardhat 分叉功能。
 
-## 先決條件
+## 先决条件
 
-學習本教程的前提條件如下：
+学习本教程的前提条件如下：
 
-- 代碼編輯器：源代碼編輯器，如 [VS Code](https://code.visualstudio.com/download)。
-- [Metamask](../tutorials/connecting-metamask.mdx#install-metamask)：用於部署合約、簽署事務和與合約交互。
-- RPC 端點：可從支持的[端點提供程序](../../references/public-en.md)中獲取。
-- 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
+- 代码编辑器：源代码编辑器，如 [VS Code](https://code.visualstudio.com/download)。
+- [Metamask](../tutorials/connecting-metamask.mdx#install-metamask)：用于部署合约、签署事务和与合约交互。
+- RPC 端点：可从支持的[端点提供程序](../../references/public-en.md)中获取。
+- 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 - [NodeJS和NPM](https://nodejs.org/en/)
 
-## 設置開發環境
+## 设置开发环境
 
-要使用 hardhat，我們需要建立開發環境並安裝 hardhat。 讓我們按以下步驟來做：
+要使用 hardhat，我们需要建立开发环境并安装 hardhat。 让我们按以下步骤来做：
 
-**第 1**步創建項目目錄
+**第 1**步创建项目目录
 
 ```bash
 mkdir soulbound-tokens
 cd soulbound-tokens
 ```
 
-**步驟 2**：初始化 npm 項目
+**步骤 2**：初始化 npm 项目
 
-在終端中粘貼此命令以創建 package.json 文件
+在终端中粘贴此命令以创建 package.json 文件
 
 ```bash
 npm init -y
 ```
 
-**第 3 步**：安裝 hardhat 和其他依賴項：
+**第 3 步**：安装 hardhat 和其他依赖项：
 
-- 在終端中粘貼下面的代碼安裝 hardhat
+- 在终端中粘贴下面的代码安装 hardhat
 
 ```bash
 npm install --save-dev hardhat
 ```
 
-- 粘貼下面的代碼以安裝其他依賴項
+- 粘贴下面的代码以安装其他依赖项
 
 ```bash
 npm install dotenv @kaiachain/contracts
 ```
 
-> 注意：這將安裝本項目所需的其他依賴項，包括 `hardhat`、`klaytn/contract`、`dotenv` 等。
+> 注意：这将安装本项目所需的其他依赖项，包括 `hardhat`、`klaytn/contract`、`dotenv` 等。
 
-**第 4 步**：初始化硬頭盔項目：
+**第 4 步**：初始化硬头盔项目：
 
-運行以下命令啟動硬頭盔項目
+运行以下命令启动硬头盔项目
 
 ```bash
 npx hardhat
 ```
 
-在本指南中，您將選擇一個排版腳本項目，如下所示：
+在本指南中，您将选择一个排版脚本项目，如下所示：
 
 ![](/img/build/get-started/hardhat-init.png)
 
 ![](/img/build/get-started/hardhat-init-ii.png)
 
-> 注意：初始化項目時，系統會提示安裝 `hardhat-toolbox` 插件。 該插件捆綁了所有常用軟件包和 Hardhat 插件，建議在開始使用 Hardhat 進行開發時使用。
+> 注意：初始化项目时，系统会提示安装 `hardhat-toolbox` 插件。 该插件捆绑了所有常用软件包和 Hardhat 插件，建议在开始使用 Hardhat 进行开发时使用。
 
-初始化硬帽項目後，當前目錄應包括
+初始化硬帽项目后，当前目录应包括
 
-**contracts/** - 此文件夾包含智能合約代碼。
+**contracts/** - 此文件夹包含智能合约代码。
 
-**ignition/modules/** - 該文件夾包含在區塊鏈網絡上部署合約的代碼。
+**ignition/modules/** - 该文件夹包含在区块链网络上部署合约的代码。
 
-**test/** - 該文件夾包含測試智能合約的所有單元測試。
+**test/** - 该文件夹包含测试智能合约的所有单元测试。
 
-**hardhat.config.js** - 該文件包含對 Hardhat 工作和部署靈魂綁定令牌非常重要的配置。
+**hardhat.config.js** - 该文件包含对 Hardhat 工作和部署灵魂绑定令牌非常重要的配置。
 
-**第 5** 步創建 .env 文件
+**第 5** 步创建 .env 文件
 
-現在，在項目文件夾中創建 .env 文件。 該文件可幫助我們將 .env 文件中的環境變量加載到 process.env 文件中。
+现在，在项目文件夹中创建 .env 文件。 该文件可帮助我们将 .env 文件中的环境变量加载到 process.env 文件中。
 
-- 在終端中粘貼此命令以創建 .env 文件
+- 在终端中粘贴此命令以创建 .env 文件
 
 ```bash
 touch .env
 ```
 
-- 創建文件後，讓我們將 .env 文件配置為如下所示：
+- 创建文件后，让我们将 .env 文件配置为如下所示：
 
 ```js
- KAIROS_TESTNET_URL= "您的 Kairos RPC 鏈接"
- PRIVATE_KEY= "從 MetaMask 錢包複製的您的私人密鑰"
+ KAIROS_TESTNET_URL= "您的 Kairos RPC 链接"
+ PRIVATE_KEY= "从 MetaMask 钱包复制的您的私人密钥"
 ```
 
-> 注：你也可以選擇使用 hardhat 提供的[配置變量](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) 功能來配置不應包含在代碼庫中的變量。
+> 注：你也可以选择使用 hardhat 提供的[配置变量](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) 功能来配置不应包含在代码库中的变量。
 
-**第 6 步**：設置Hardhat配置
+**第 6 步**：设置Hardhat配置
 
 用以下配置修改 `hardhat.config.js`：
 
@@ -134,17 +134,17 @@ module.exports = {
 
 ```
 
-現在，我們的開發環境已經準備就緒，讓我們開始編寫我們的靈魂綁定令牌智能合約吧。
+现在，我们的开发环境已经准备就绪，让我们开始编写我们的灵魂绑定令牌智能合约吧。
 
-## 創建 SBT 智能合約
+## 创建 SBT 智能合约
 
-在本節中，您將使用 [Kaia Contracts](https://github.com/kaiachain/kaia-contracts)：這是一個建立在社區驗證代碼堅實基礎上的安全智能合約開發庫。 它是開放式齊柏林合同的分叉。
+在本节中，您将使用 [Kaia Contracts](https://github.com/kaiachain/kaia-contracts)：这是一个建立在社区验证代码坚实基础上的安全智能合约开发库。 它是开放式齐柏林合同的分叉。
 
-> 注意：您已在 "設置開發環境 "一節的第 3\*\* 步安裝了該庫。
+> 注意：您已在 "设置开发环境 "一节的第 3\*\* 步安装了该库。
 
-**步驟 1**：在資源管理器窗格中選擇合同文件夾，單擊 "新建文件 "按鈕並創建名為 "SBT.sol "的新文件
+**步骤 1**：在资源管理器窗格中选择合同文件夹，单击 "新建文件 "按钮并创建名为 "SBT.sol "的新文件
 
-**第 2**步打開文件並粘貼以下代碼：
+**第 2**步打开文件并粘贴以下代码：
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -178,21 +178,21 @@ contract SoulBoundToken is KIP17, Ownable {
 }
 ```
 
-**代碼演練**
+**代码演练**
 
-這就是你的智能合約。 **第 1** 行顯示 Hardhat 使用的是 0.8.7 或更高版本的 Solidity。 除此之外，它還導入了 KIP17.sol 和其他輔助合同。 從第6-12\*\*行開始，創建了一個繼承KIP17的智能合約。 此外，構造函數中還傳遞了標記名稱和符號。
+这就是你的智能合约。 **第 1** 行显示 Hardhat 使用的是 0.8.7 或更高版本的 Solidity。 除此之外，它还导入了 KIP17.sol 和其他辅助合同。 从第6-12\*\*行开始，创建了一个继承KIP17的智能合约。 此外，构造函数中还传递了标记名称和符号。
 
-如上代碼所示，令牌名稱和符號已分別設置為 **SoulBoundToken** 和 **SBT**。 您可以隨意更改令牌名稱和符號。
+如上代码所示，令牌名称和符号已分别设置为 **SoulBoundToken** 和 **SBT**。 您可以随意更改令牌名称和符号。
 
-該合約的一個主要特點是禁止代幣轉讓，這使得發行的代幣成為靈魂債券。
+该合约的一个主要特点是禁止代币转让，这使得发行的代币成为灵魂债券。
 
-## 測試 SBT 智能合約
+## 测试 SBT 智能合约
 
-在本節中，我們將測試一些合同功能。
+在本节中，我们将测试一些合同功能。
 
-**步驟 1**：在資源管理器窗格中，選擇測試文件夾並單擊 "新建文件 "按鈕，創建一個名為 "sbtTest.js "的新文件。
+**步骤 1**：在资源管理器窗格中，选择测试文件夹并单击 "新建文件 "按钮，创建一个名为 "sbtTest.js "的新文件。
 
-**步驟 2**：在 `sbtTest.js` 文件中複製以下代碼。
+**步骤 2**：在 `sbtTest.js` 文件中复制以下代码。
 
 ```js
 // This is an example test file. Hardhat will run every *.js file in `test/`,
@@ -280,32 +280,32 @@ describe("Token contract", function () {
 })
 ```
 
-在你剛剛複製的代碼中，第 7 行和第 12 行顯示你從 hardhat-network-helpers 的 [Chai](https://www.chaijs.com/api/bdd/) 和 [loadFixture](https://hardhat.org/tutorial/testing-contracts#reusing-common-test-setups-with-fixtures) 中導入了 expect。
+在你刚刚复制的代码中，第 7 行和第 12 行显示你从 hardhat-network-helpers 的 [Chai](https://www.chaijs.com/api/bdd/) 和 [loadFixture](https://hardhat.org/tutorial/testing-contracts#reusing-common-test-setups-with-fixtures) 中导入了 expect。
 
-上述測試可檢查以下內容：
+上述测试可检查以下内容：
 
-- 特定代幣 ID 的所有者是否與該代幣的鑄造者相同？
-- 是否禁止在賬戶之間轉移代幣？
+- 特定代币 ID 的所有者是否与该代币的铸造者相同？
+- 是否禁止在账户之间转移代币？
 
-**第 3 步**：要運行測試，請運行以下命令：
+**第 3 步**：要运行测试，请运行以下命令：
 
 ```bash
-npx 硬帽測試 test/sbtTest.js 
+npx 硬帽测试 test/sbtTest.js 
 ```
 
 ![](/img/build/get-started/sbtTest.png)
 
-如需更深入的測試指南，請查看 [Hardhat 測試](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)。
+如需更深入的测试指南，请查看 [Hardhat 测试](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)。
 
-## 部署智能合約
+## 部署智能合约
 
-腳本是 JavaScript/Typescript 文件，可幫助您將合約部署到區塊鏈網絡。 在本節中，您將為智能合約創建一個腳本。
+脚本是 JavaScript/Typescript 文件，可帮助您将合约部署到区块链网络。 在本节中，您将为智能合约创建一个脚本。
 
-**步驟 1**：在資源管理器窗格中，選擇 "scripts "文件夾，然後單擊 "新建文件 "按鈕，創建一個名為 "sbtDeploy.js "的新文件。
+**步骤 1**：在资源管理器窗格中，选择 "scripts "文件夹，然后单击 "新建文件 "按钮，创建一个名为 "sbtDeploy.js "的新文件。
 
-**第 2**步將以下代碼複製並粘貼到文件中。
+**第 2**步将以下代码复制并粘贴到文件中。
 
-> 注意：在 `deployerAddr` 變量中輸入您的 MetaMask 錢包地址。
+> 注意：在 `deployerAddr` 变量中输入您的 MetaMask 钱包地址。
 
 ```js
 const { ethers } = require("hardhat");
@@ -334,7 +334,7 @@ main().catch((error) => {
 });
 ```
 
-\*\*第 3 步在終端運行以下命令，讓 Hardhat 在 Kaia 測試網絡 (Kairos) 上部署 SBT 令牌
+\*\*第 3 步在终端运行以下命令，让 Hardhat 在 Kaia 测试网络 (Kairos) 上部署 SBT 令牌
 
 ```bash
 npx hardhat run ignition/modules/sbtDeploy.js --network kairos
@@ -342,21 +342,21 @@ npx hardhat run ignition/modules/sbtDeploy.js --network kairos
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**第 4 步**：打開 [Kaiascope](https://kairos.kaiascope.com/)，檢查 SBT 令牌是否已成功部署。
+**第 4 步**：打开 [Kaiascope](https://kairos.kaiascope.com/)，检查 SBT 令牌是否已成功部署。
 
-**第 5 步**：在搜索欄中複製並粘貼部署的合同地址，然後按 Enter 鍵。 您應該能看到最近部署的合同。
+**第 5 步**：在搜索栏中复制并粘贴部署的合同地址，然后按 Enter 键。 您应该能看到最近部署的合同。
 
 ![](/img/build/get-started/sbtKS.png)
 
 ## 硬帽叉
 
-Hardhat 為開發人員提供了在本地開發網絡中模擬主網（任何給定區塊）的功能。 這一功能的主要好處之一是，它能讓開發人員與已部署的合同進行交互，還能為複雜的案例編寫測試。
+Hardhat 为开发人员提供了在本地开发网络中模拟主网（任何给定区块）的功能。 这一功能的主要好处之一是，它能让开发人员与已部署的合同进行交互，还能为复杂的案例编写测试。
 
-要使該功能有效運行，您需要連接到存檔節點。 您可在 [此處](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks) 閱讀有關此功能的更多信息。
+要使该功能有效运行，您需要连接到存档节点。 您可在 [此处](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks) 阅读有关此功能的更多信息。
 
-### 分叉主網
+### 分叉主网
 
-現在，我們已經建立了 Hardhat 項目，讓我們使用 Hardhat fork Kaia 主網。  打開終端，運行以下命令
+现在，我们已经建立了 Hardhat 项目，让我们使用 Hardhat fork Kaia 主网。  打开终端，运行以下命令
 
 ```bash
 npx hardhat node --fork<YOUR ARCHIVE NODE URL>
@@ -364,7 +364,7 @@ npx hardhat node --fork<YOUR ARCHIVE NODE URL>
 npx hardhat node --fork https://archive-en.node.kaia.io
 ```
 
-您也可以配置 `hardhat.config.js` - Hardhat Network 始終這樣做：
+您也可以配置 `hardhat.config.js` - Hardhat Network 始终这样做：
 
 ```
 networks: {
@@ -376,27 +376,27 @@ networks: {
 }
 ```
 
-**輸出**
+**输出**
 
 ![](/img/build/get-started/hardhat-fork.png)
 
-成功運行該命令後，您的終端看起來就像上圖一樣。  您將擁有 20 個開發賬戶，這些賬戶預存了 10,000 個測試代幣。
+成功运行该命令后，您的终端看起来就像上图一样。  您将拥有 20 个开发账户，这些账户预存了 10,000 个测试代币。
 
-分叉鏈的 RPC 服務器正在`http://127.0.0.1:8545/`監聽。  您可以通過查詢最新的區塊編號來驗證分叉網絡。 讓我們嘗試使用 cURL 訪問 RPC，以獲取區塊編號。  打開一個新的終端窗口，使用以下命令：
+分叉链的 RPC 服务器正在`http://127.0.0.1:8545/`监听。  您可以通过查询最新的区块编号来验证分叉网络。 让我们尝试使用 cURL 访问 RPC，以获取区块编号。  打开一个新的终端窗口，使用以下命令：
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-**輸出**
+**输出**
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-輸出結果為十六進制，如上圖所示。 要從十六進制中獲取塊編號，請使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 將十六進制轉換為十進制。 您應該從分叉網絡時獲得最新的區塊編號。 您可以通過 [kaiascope](https://kaiascope.com/)確認區塊編號。
+输出结果为十六进制，如上图所示。 要从十六进制中获取块编号，请使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 将十六进制转换为十进制。 您应该从分叉网络时获得最新的区块编号。 您可以通过 [kaiascope](https://kaiascope.com/)确认区块编号。
 
-### 在街區分叉
+### 在街区分叉
 
-使用硬頭盔，您可以在特定區塊分叉主網。  在這種情況下，讓我們在區塊編號 "105701850 "處分叉鏈。
+使用硬头盔，您可以在特定区块分叉主网。  在这种情况下，让我们在区块编号 "105701850 "处分叉链。
 
 ```bash
 npx hardhat node --fork<YOUR ARCHIVE NODE URL> --fork-block-number 105701850
@@ -404,7 +404,7 @@ npx hardhat node --fork<YOUR ARCHIVE NODE URL> --fork-block-number 105701850
 npx hardhat node --fork https://archive-en.node.kaia.io --fork-block-number 105701850
 ```
 
-要在指定區塊確認分叉鏈，請打開一個新的終端窗口並使用以下命令：
+要在指定区块确认分叉链，请打开一个新的终端窗口并使用以下命令：
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
@@ -412,6 +412,6 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bnII.png)
 
-輸出返回十六進制，使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 轉換後應等於 `105701850`。
+输出返回十六进制，使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 转换后应等于 `105701850`。
 
-有關 Hardhat 的更深入指南，請參閱 [Hardhat 文檔](https://hardhat.org/hardhat-runner/docs/getting-started)。 此外，您還可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens) 上找到本指南的完整代碼實現。
+有关 Hardhat 的更深入指南，请参阅 [Hardhat 文档](https://hardhat.org/hardhat-runner/docs/getting-started)。 此外，您还可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens) 上找到本指南的完整代码实现。
