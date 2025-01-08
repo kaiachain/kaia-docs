@@ -1,169 +1,169 @@
 # 使用 Kaia Safe
 
-## 創建安全
+## 创建安全
 
-在這裡，您將瞭解到如何在 Kaia 網絡上創建 Safe 並評估其益處。
+在这里，您将了解到如何在 Kaia 网络上创建 Safe 并评估其益处。
 
-**步驟 1：** 導航至 [Kaia Safe App](https://safe.kaia.io/)。 通過在網絡瀏覽器上導航到應用程序，您可以探索 Kaia Safe 的功能。
+**步骤 1：** 导航至 [Kaia Safe App](https://safe.kaia.io/)。 通过在网络浏览器上导航到应用程序，您可以探索 Kaia Safe 的功能。
 
-**步驟 2：** 連接 [錢包](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)。 目前，Kaia Safe 支持多種錢包，如 [Kaia Wallet](https://docs.kaiawallet.io/)、[MetaMask](../../../tutorials/connecting-metamask.mdx) 錢包等。
+**步骤 2：** 连接 [钱包](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)。 目前，Kaia Safe 支持多种钱包，如 [Kaia Wallet](https://docs.kaiawallet.io/)、[MetaMask](../../../tutorials/connecting-metamask.mdx) 钱包等。
 
-在本指南中，我們將使用 MetaMask。 確保您的 MetaMask 錢包已添加 Kaia 網絡（[Mainnet](../../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)或 [Kairos Testnet](../../../tutorials/connecting-metamask.mdx#connect-to-kaia-network))，以便成功連接。
+在本指南中，我们将使用 MetaMask。 确保您的 MetaMask 钱包已添加 Kaia 网络（[Mainnet](../../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)或 [Kairos Testnet](../../../tutorials/connecting-metamask.mdx#connect-to-kaia-network))，以便成功连接。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-connect-wallet.png)
 
-**第 3 步：** 連接錢包後，點擊**創建賬戶**，併為新保險箱命名。 這個名字與您的安全賬戶相連，安全賬戶是一個多簽名錢包，可以保存和存儲您的所有資金。
+**第 3 步：** 连接钱包后，点击**创建账户**，并为新保险箱命名。 这个名字与您的安全账户相连，安全账户是一个多签名钱包，可以保存和存储您的所有资金。
 
-**第 4 步：** 輸入有權提交和批准交易的地址，添加所有者/簽名者。 您可以添加任意數量的簽名者，也可以隨時刪除或替換任何簽名者。
+**第 4 步：** 输入有权提交和批准交易的地址，添加所有者/签名者。 您可以添加任意数量的签名者，也可以随时删除或替换任何签名者。
 
-**第 5 步：** 選擇安全賬戶交易需要多少次簽名確認才能獲得批准。 需要注意的是，我們的應用程序默認情況下只允許一個簽名者確認。 但建議使用大於 1 的閾值，以確保賬戶安全可靠。 良好的做法是以業主總數的 51% 為界限，例如三分之二、五分之三等，如下圖所示：
+**第 5 步：** 选择安全账户交易需要多少次签名确认才能获得批准。 需要注意的是，我们的应用程序默认情况下只允许一个签名者确认。 但建议使用大于 1 的阈值，以确保账户安全可靠。 良好的做法是以业主总数的 51% 为界限，例如三分之二、五分之三等，如下图所示：
 
 ![](/img/build/tools/kaia-safe/kaia-safe-create-acct.gif)
 
-**第 6 步：** 審查並部署安全系統
+**第 6 步：** 审查并部署安全系统
 
-一旦您對 Safe 的所有參數完全滿意，您就可以提交創建 Safe 賬戶，並按照屏幕上的說明完成賬戶創建。
+一旦您对 Safe 的所有参数完全满意，您就可以提交创建 Safe 账户，并按照屏幕上的说明完成账户创建。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-create-review.gif)
 
-恭喜您成功創建 Kaia Safe 賬戶！
+恭喜您成功创建 Kaia Safe 账户！
 
-## 增加資產
+## 增加资产
 
-在本節中，您將瞭解如何將資產（KAIA、FT、NFT）添加到安全賬戶並確保資金安全。
+在本节中，您将了解如何将资产（KAIA、FT、NFT）添加到安全账户并确保资金安全。
 
 ### KAIA 存款
 
-以下是將 **KAIA** 添加到您的安全賬戶的步驟
+以下是将 **KAIA** 添加到您的安全账户的步骤
 
-**步驟 1：** 從賬戶控制面板複製您的安全地址。
+**步骤 1：** 从账户控制面板复制您的安全地址。
 
 ![](/img/build/tools/kaia-safe/ks-deposit-copy-addr.png)
 
-**步驟 2：** 打開 Metamask 錢包，點擊**發送**，將資產發送到您的安全賬戶。
+**步骤 2：** 打开 Metamask 钱包，点击**发送**，将资产发送到您的安全账户。
 
-請注意，將資產發送到 Safe 賬戶有不同的方法。 您可以通過 [硬件錢包](https://www.ledger.com/academy/crypto-hardware-wallet)、[網絡錢包](https://medium.com/arcana-network-blog/why-web-wallets-e77c776e4d5e) 甚至智能合約發送。 在本例中，我們使用的是名為 MetaMask 的網絡錢包。
+请注意，将资产发送到 Safe 账户有不同的方法。 您可以通过 [硬件钱包](https://www.ledger.com/academy/crypto-hardware-wallet)、[网络钱包](https://medium.com/arcana-network-blog/why-web-wallets-e77c776e4d5e) 甚至智能合约发送。 在本例中，我们使用的是名为 MetaMask 的网络钱包。
 
 ![](/img/build/tools/kaia-safe/ks-token-send-btn.png)
 
-**第 3 步：** 在搜索欄中輸入您的安全地址，如下所示。
+**第 3 步：** 在搜索栏中输入您的安全地址，如下所示。
 
-**步驟 4：** 輸入**金額**，然後點擊**下一步**。
+**步骤 4：** 输入**金额**，然后点击**下一步**。
 
 ![](/img/build/tools/kaia-safe/ks-token-send-details.png)
 
-**第 5 步：** 確認交易並查看資產儀表板。 您可以看到從 metamask 賬戶轉入 Kaia Safe 賬戶的金額。
+**第 5 步：** 确认交易并查看资产仪表板。 您可以看到从 metamask 账户转入 Kaia Safe 账户的金额。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-klay-bal.png)
 
 ### KIP-7 存款
 
-現在，我們來看看如何通過以下步驟將 KIP7（可替代代幣）存入我們的保險箱。
+现在，我们来看看如何通过以下步骤将 KIP7（可替代代币）存入我们的保险箱。
 
-**步驟 1：** 從賬戶控制面板複製您的安全地址。
+**步骤 1：** 从账户控制面板复制您的安全地址。
 
 ![](/img/build/tools/kaia-safe/ks-deposit-ft-copy.png)
 
-**步驟 2：** 打開 Metamask 錢包，導航至**資產**選項卡。
+**步骤 2：** 打开 Metamask 钱包，导航至**资产**选项卡。
 
-**第 3 步：** 選擇您喜歡發送的令牌，然後點擊**發送**。
+**第 3 步：** 选择您喜欢发送的令牌，然后点击**发送**。
 
 ![](/img/build/tools/kaia-safe/ks-ft-send-btn.png)
 
-**步驟 4：** 重複上述**KAIA**存款的步驟**3**、**4**、**5**。
+**步骤 4：** 重复上述**KAIA**存款的步骤**3**、**4**、**5**。
 
 ![](/img/build/tools/kaia-safe/ks-ft-send-details.png)
 
-**第 5 步：** 查看您的資產儀表板，您可以看到 KIP7 代幣正在轉入您的安全賬戶。 同樣，您也可以將任何 Fungible 代幣轉入您的安全賬戶。
+**第 5 步：** 查看您的资产仪表板，您可以看到 KIP7 代币正在转入您的安全账户。 同样，您也可以将任何 Fungible 代币转入您的安全账户。
 
 ![](/img/build/tools/kaia-safe/ks-ft-balance.png)
 
 ### KIP-17 (NFTs) 存款
 
-現在，我們來看看如何按照以下步驟將 KIP17（不可兌換代幣）存入我們的保險箱。
+现在，我们来看看如何按照以下步骤将 KIP17（不可兑换代币）存入我们的保险箱。
 
-您可以通過多種方式將 NFT 轉入您的安全賬戶。 下面是一個如何使用 [OpenSea](https://opensea.io/about) 將 NFT 轉入安全賬戶的示例。
+您可以通过多种方式将 NFT 转入您的安全账户。 下面是一个如何使用 [OpenSea](https://opensea.io/about) 将 NFT 转入安全账户的示例。
 
-1. 導航至您的 [OpenSea 帳戶](https://testnets.opensea.io/account) 資料頁面
-2. 導航至您喜歡轉接的 NFT。 確保選擇 Kaia 網絡（主網或 Kairos）上的 NFT
-3. 在下一頁，點擊傳輸按鈕。
-4. 將保險箱地址粘貼到文本框中，然後傳輸到保險箱
-5. 在 Kaia Safe 的 "資產 "部分，您可以找到 OpenSea 的 NFT。
+1. 导航至您的 [OpenSea 帐户](https://testnets.opensea.io/account) 资料页面
+2. 导航至您喜欢转接的 NFT。 确保选择 Kaia 网络（主网或 Kairos）上的 NFT
+3. 在下一页，点击传输按钮。
+4. 将保险箱地址粘贴到文本框中，然后传输到保险箱
+5. 在 Kaia Safe 的 "资产 "部分，您可以找到 OpenSea 的 NFT。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-trf-nft.gif)
 
-有關轉移 NFT 的更多詳情，請參閱 OpenSea 提供的 [指南](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea)。
+有关转移 NFT 的更多详情，请参阅 OpenSea 提供的 [指南](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea)。
 
-## 發送資產
+## 发送资产
 
-在本節中，您將學習如何從 Kaia Safe 賬戶發送 KAIA 和 KIP-7 令牌。
+在本节中，您将学习如何从 Kaia Safe 账户发送 KAIA 和 KIP-7 令牌。
 
-### 發送 KAIA 和 KIP7 令牌<a id="Send KAIA from Safe"></a>
+### 发送 KAIA 和 KIP7 令牌<a id="Send KAIA from Safe"></a>
 
-**步驟 1：** 點擊側邊菜單中的**新交易**按鈕，選擇**發送代幣**，開始新的資產轉移。
+**步骤 1：** 点击侧边菜单中的**新交易**按钮，选择**发送代币**，开始新的资产转移。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-init-send-token.gif)
 
-**第 2 步：** 選擇要轉移的資產。
+**第 2 步：** 选择要转移的资产。
 
 - **KAIA**
 
-> 注：添加**收件人地址**和 KAIA 的**金額**，以發送轉賬 KAIA。
+> 注：添加**收件人地址**和 KAIA 的**金额**，以发送转账 KAIA。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-send-token-details.gif)
 
 - **KIP-7令牌**
 
-在資產下拉菜單中選擇要發送的代幣，如上圖所示。
+在资产下拉菜单中选择要发送的代币，如上图所示。
 
-> 注意：添加收件人地址和代幣數量，以傳輸 KIP7 代幣。
+> 注意：添加收件人地址和代币数量，以传输 KIP7 代币。
 
-**第 3 步：** 審查並提交交易。 您需要用簽名者錢包簽署交易，一旦達到確認閾值，交易就會執行。
+**第 3 步：** 审查并提交交易。 您需要用签名者钱包签署交易，一旦达到确认阈值，交易就会执行。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-review-send-tokens.gif)
 
-### 發送 NFT<a id="Send NFTs from Safe"></a>
+### 发送 NFT<a id="Send NFTs from Safe"></a>
 
-在本節中，您將學習如何從 Kaia Safe 賬戶發送不可兌換的代幣。
+在本节中，您将学习如何从 Kaia Safe 账户发送不可兑换的代币。
 
-**步驟 1：** 單擊側菜單中的**新交易**按鈕，選擇**發送 NFT**，開始新的資產轉賬。
+**步骤 1：** 单击侧菜单中的**新交易**按钮，选择**发送 NFT**，开始新的资产转账。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-init-send-nft.gif)
 
-**第 2 步：** 選擇要轉移的資產。
+**第 2 步：** 选择要转移的资产。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-send-nft-details.gif)
 
-**第 3 步：** 審查並提交交易。 您需要用簽名者錢包簽署交易，一旦達到確認閾值，交易就會執行。
+**第 3 步：** 审查并提交交易。 您需要用签名者钱包签署交易，一旦达到确认阈值，交易就会执行。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-review-send-nft.gif)
 
-## 其他說明<a id="Points to Note"></a>
+## 其他说明<a id="Points to Note"></a>
 
-在使用 Kaia Safe 時，您需要注意以下事項：
+在使用 Kaia Safe 时，您需要注意以下事项：
 
-### 交易費用<a id="Transaction Fees"></a>
+### 交易费用<a id="Transaction Fees"></a>
 
-Kaia Safe 交易，無論是資產轉移還是合同互動，都會產生一筆費用，這筆費用將由執行交易的簽名者（通常是達到所需簽名門檻的最後一個簽名者）支付。
+Kaia Safe 交易，无论是资产转移还是合同互动，都会产生一笔费用，这笔费用将由执行交易的签名者（通常是达到所需签名门槛的最后一个签名者）支付。
 
 ### 安全 Nonce<a id="Safe Nonce"></a>
 
-出於安全考慮，使用 Safe 進行的交易必須按順序執行。 為此，我們為事務分配了一個名為 "**nonce**"的數字，以確保每個事務只能執行一次。
+出于安全考虑，使用 Safe 进行的交易必须按顺序执行。 为此，我们为事务分配了一个名为 "**nonce**"的数字，以确保每个事务只能执行一次。
 
 ![](/img/build/tools/kaia-safe/ks-nounce.png)
 
-在任何給定的時間內，只能執行nonce為_上一次執行的事務+1_的事務。 非ce 值較高的事務將排隊等待執行。 因此，每當一個事務完成後，只要隊列中的下一個事務積累了足夠的簽名，就可以執行。
+在任何给定的时间内，只能执行nonce为_上一次执行的事务+1_的事务。 非ce 值较高的事务将排队等待执行。 因此，每当一个事务完成后，只要队列中的下一个事务积累了足够的签名，就可以执行。
 
 ![](/img/build/tools/kaia-safe/ks-pending-tx.png)
 
-### 特定連鎖店地址<a id="Chain-specific addresses"></a>
+### 特定连锁店地址<a id="Chain-specific addresses"></a>
 
-您可以選擇複製帶鏈前綴的地址
+您可以选择复制带链前缀的地址
 
-- 複製帶鏈前綴的地址：
+- 复制带链前缀的地址：
 
 ![](/img/build/tools/kaia-safe/ks-chain-spec-addr.png)
 
-從儀表板複製安全地址粘貼到錢包時，如上圖所示，您可以點擊複選框選擇是否添加鏈名。 建議您不要選中它，以避免出現以下錯誤。
+从仪表板复制安全地址粘贴到钱包时，如上图所示，您可以点击复选框选择是否添加链名。 建议您不要选中它，以避免出现以下错误。
 
 ![](/img/build/tools/kaia-safe/ks-chain-addr-err.png)
