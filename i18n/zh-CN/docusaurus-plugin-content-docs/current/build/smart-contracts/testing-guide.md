@@ -1,21 +1,21 @@
-# 測試智能合約
+# 测试智能合约
 
-在本節中，我們將介紹如何測試智能合約。 由於區塊鏈上的任何交易都是不可逆轉的，因此在部署智能合約之前對其進行測試至關重要。
+在本节中，我们将介绍如何测试智能合约。 由于区块链上的任何交易都是不可逆转的，因此在部署智能合约之前对其进行测试至关重要。
 
-## 使用松露進行測試<a href="#testing-with-truffle" id="testing-with-truffle"></a>
+## 使用松露进行测试<a href="#testing-with-truffle" id="testing-with-truffle"></a>
 
-Truffle 提供了一個自動測試框架。 該框架可讓您以兩種不同的方式編寫簡單、易於管理的測試：
+Truffle 提供了一个自动测试框架。 该框架可让您以两种不同的方式编写简单、易于管理的测试：
 
-- 在 "Javascript "和 "TypeScript "中，用於從外部世界執行您的合約，就像應用程序一樣。
-- 在 "Solidity "中，用於在預付款、裸機情況下執行合同。
+- 在 "Javascript "和 "TypeScript "中，用于从外部世界执行您的合约，就像应用程序一样。
+- 在 "Solidity "中，用于在预付款、裸机情况下执行合同。
 
-### 1. 入門<a href="#1-getting-started" id="1-getting-started"></a>
+### 1. 入门<a href="#1-getting-started" id="1-getting-started"></a>
 
-我們將按照[使用 Truffle 的部署指南](./deploy/deploy.md#truffle)創建合約並進行部署。 不過，在部署之前，我們將在合約中添加一個設置函數 `setGreet` 以進行測試。 源代碼如下。
+我们将按照[使用 Truffle 的部署指南](./deploy/deploy.md#truffle)创建合约并进行部署。 不过，在部署之前，我们将在合约中添加一个设置函数 `setGreet` 以进行测试。 源代码如下。
 
-**注：** 我們對測試合同做了一些修改。
+**注：** 我们对测试合同做了一些修改。
 
-以下是 KaiaGreeting 合同源代碼。
+以下是 KaiaGreeting 合同源代码。
 
 ```
 pragma solidity 0.5.6;
@@ -52,19 +52,19 @@ contract KaiaGreeter is Mortal {
 }
 ```
 
-我們將測試 1) `greet()`函數是否能正確返回 "Hello, Kaia "信息，2) `setGreet()`函數是否能正確設置新的問候語信息，並在非所有者賬戶嘗試更新問候語時進行還原。
+我们将测试 1) `greet()`函数是否能正确返回 "Hello, Kaia "信息，2) `setGreet()`函数是否能正确设置新的问候语信息，并在非所有者账户尝试更新问候语时进行还原。
 
-首先，我們將為通用斷言安裝 Chai 斷言庫（或你使用的任何其他斷言庫），為智能合約斷言安裝 truffle 斷言庫。
+首先，我们将为通用断言安装 Chai 断言库（或你使用的任何其他断言库），为智能合约断言安装 truffle 断言库。
 
 ```
 npm install --save-dev chai truffle-assertions
 ```
 
-### 2. 在 Solidity 中編寫測試<a href="#2-writing-test-in-solidity" id="2-writing-test-in-solidity"></a>
+### 2. 在 Solidity 中编写测试<a href="#2-writing-test-in-solidity" id="2-writing-test-in-solidity"></a>
 
-使用 Solidity 進行測試比 JavaScript 測試更直觀。 Solidity 測試合同作為 .sol 文件與 JavaScript 測試並存。
+使用 Solidity 进行测试比 JavaScript 测试更直观。 Solidity 测试合同作为 .sol 文件与 JavaScript 测试并存。
 
-在 "test "文件夾中創建名為 "TestKaiaGreeting.sol "的文件。 Truffle 套件為我們提供了用於測試的輔助庫，因此我們需要導入這些庫。 讓我們來看看 Solidity 測試的示例：
+在 "test "文件夹中创建名为 "TestKaiaGreeting.sol "的文件。 Truffle 套件为我们提供了用于测试的辅助库，因此我们需要导入这些库。 让我们来看看 Solidity 测试的示例：
 
 ```
 pragma solidity ^0.5.6;
@@ -74,10 +74,10 @@ import "truffle/DeployedAddresses.sol";
 import "../contracts/HashMarket.sol";
 ```
 
-- Assert ：它允許我們訪問各種測試函數，如`Assert.equals()`、`Assert.g greaterThan()`等。
-- 部署地址（DeployedAddresses）：每次更改合同時，都必須將其重新部署到新地址。 您可以通過該庫獲取已部署的合同地址。
+- Assert ：它允许我们访问各种测试函数，如`Assert.equals()`、`Assert.g greaterThan()`等。
+- 部署地址（DeployedAddresses）：每次更改合同时，都必须将其重新部署到新地址。 您可以通过该库获取已部署的合同地址。
 
-現在，讓我們編寫一段測試代碼。
+现在，让我们编写一段测试代码。
 
 ```
 pragma solidity ^0.5.6;
@@ -101,7 +101,7 @@ contract TestKaiaGreeter {
 }
 ```
 
-運行 Solidity 測試代碼
+运行 Solidity 测试代码
 
 ```
 $ truffle test
@@ -137,8 +137,8 @@ Compiling your contracts...
       at process._tickCallback (internal/process/next_tick.js:68:7)
 ```
 
-哎呀，我們失敗了。 讓我們檢查一下錯誤信息，"Error: greeting message should match (Tested: Hello, Kaia, Against: Hello Kaia)"。 我注意到 _string memory expectedGreet = "Hello Kaia"_.\
-處漏掉了"'',(逗號)'\`"，請修改代碼並再次運行測試。
+哎呀，我们失败了。 让我们检查一下错误信息，"Error: greeting message should match (Tested: Hello, Kaia, Against: Hello Kaia)"。 我注意到 _string memory expectedGreet = "Hello Kaia"_.\
+处漏掉了"'',(逗号)'\`"，请修改代码并再次运行测试。
 
 ```
 $ truffle test
@@ -159,15 +159,15 @@ Compiling your contracts...
   1 passing (5s)
 ```
 
-祝賀你 您的測試已通過。
+祝贺你 您的测试已通过。
 
-### 3. 用 JavaScript 編寫測試<a href="#3-writing-test-in-javascript" id="3-writing-test-in-javascript"></a>
+### 3. 用 JavaScript 编写测试<a href="#3-writing-test-in-javascript" id="3-writing-test-in-javascript"></a>
 
-Truffle 使用 [Mocha](https://mochajs.org/) 測試框架和 [Chai](https://www.chaijs.com/) 斷言庫，為 JavaScript 測試提供了一個堅實的框架。 JavaScript 測試為您提供了更大的靈活性，使您能夠編寫更復雜的測試。
+Truffle 使用 [Mocha](https://mochajs.org/) 测试框架和 [Chai](https://www.chaijs.com/) 断言库，为 JavaScript 测试提供了一个坚实的框架。 JavaScript 测试为您提供了更大的灵活性，使您能够编写更复杂的测试。
 
-讓我們在`test`目錄下創建一個文件並命名為`0_KaiaGreeting.js`。
+让我们在`test`目录下创建一个文件并命名为`0_KaiaGreeting.js`。
 
-測試代碼是
+测试代码是
 
 ```javascript
 // Interacting directly with KaiaGreeter contract
@@ -210,24 +210,24 @@ contract("KaiaGreeter", async(accounts) => {
 });
 ```
 
-如果您不熟悉 "Mocha "單元測試，請查閱[Mocha 文檔](https://mochajs.org/#getting-started)。
+如果您不熟悉 "Mocha "单元测试，请查阅[Mocha 文档](https://mochajs.org/#getting-started)。
 
 - 使用 `contract()` 代替 `describe()`
 
-  從結構上看，Truffle 測試代碼應該與 Mocha 的常規測試代碼沒有太大區別。 您的測試應包含能被 Mocha 識別為自動測試的代碼。 Mocha 和 Truffle 測試的區別在於 contract() 函數。
+  从结构上看，Truffle 测试代码应该与 Mocha 的常规测试代码没有太大区别。 您的测试应包含能被 Mocha 识别为自动测试的代码。 Mocha 和 Truffle 测试的区别在于 contract() 函数。
 
-  **注意**使用`contract()`函數和`accounts`數組來指定可用的 Kaia 賬戶。
-- 測試中的合同抽象
+  **注意**使用`contract()`函数和`accounts`数组来指定可用的 Kaia 账户。
+- 测试中的合同抽象
 
-  由於 Truffle 無法檢測測試過程中需要與哪個合約交互，因此應明確指定合約。 一種方法是使用 `artifacts.require()` 方法。
-- it "語法
+  由于 Truffle 无法检测测试过程中需要与哪个合约交互，因此应明确指定合约。 一种方法是使用 `artifacts.require()` 方法。
+- it "语法
 
-  這表示每個測試用例的描述。 說明將在試運行時打印在控制檯上。
-- truffle-assertion\` 庫
+  这表示每个测试用例的描述。 说明将在试运行时打印在控制台上。
+- truffle-assertion\` 库
 
-  通過提供 `truffleAssert.reverts()` 和 `truffleAssert.fails()` 函數，該庫可讓您輕鬆測試還原或其他失敗。
+  通过提供 `truffleAssert.reverts()` 和 `truffleAssert.fails()` 函数，该库可让您轻松测试还原或其他失败。
 
-輸出結果如下
+输出结果如下
 
 ```
 Using network 'development'.
@@ -248,14 +248,14 @@ Compiling your contracts...
   3 passing (158ms)
 ```
 
-祝賀你 您的測試已通過。
+祝贺你 您的测试已通过。
 
-### 4. 指定測試<a href="#4-specifying-test" id="4-specifying-test"></a>
+### 4. 指定测试<a href="#4-specifying-test" id="4-specifying-test"></a>
 
-您可以選擇要執行的測試文件。
+您可以选择要执行的测试文件。
 
 ```
 truffle test ./test/0_KaiaGreeting.js
 ```
 
-詳情請查看 [Truffle 測試](https://www.trufflesuite.com/docs/truffle/testing/testing-your-contracts) 和 [Truffle 命令](https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#test)。
+详情请查看 [Truffle 测试](https://www.trufflesuite.com/docs/truffle/testing/testing-your-contracts) 和 [Truffle 命令](https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#test)。
