@@ -1,16 +1,16 @@
-# 部署智能合約
+# 部署智能合约
 
-在 Kaia 上部署智能合約有多種方法。 本文檔提供了使用各種工具部署合同樣本的分步指南。 我們假定您的 Kaia 賬戶有足夠的 KAIA 支付交易費。 要創建賬戶，您可以使用 [Kaia 在線工具包](https://toolkit.kaia.io/account/accountKeyLegacy)"。
+在 Kaia 上部署智能合约有多种方法。 本文档提供了使用各种工具部署合同样本的分步指南。 我们假定您的 Kaia 账户有足够的 KAIA 支付交易费。 要创建账户，您可以使用 [Kaia 在线工具包](https://toolkit.kaia.io/account/accountKeyLegacy)"。
 
-## Remix 在線集成開發環境<a id="remix-ide"></a>
+## Remix 在线集成开发环境<a id="remix-ide"></a>
 
-打開互聯網瀏覽器，進入 [Kaia Plugin for Remix](https://ide.kaia.io)。
+打开互联网浏览器，进入 [Kaia Plugin for Remix](https://ide.kaia.io)。
 
 1. 添加新文件。
 
 ![](/img/build/smart-contracts/01_deployment_ide.png)
 
-2. 複製並粘貼以下示例代碼（或任何您想部署的代碼）到新文件中。 代碼由兩個名為 Mortal 和 KaiaGreeter 的合約組成，可以運行一個簡單的 "Hello World!"。
+2. 复制并粘贴以下示例代码（或任何您想部署的代码）到新文件中。 代码由两个名为 Mortal 和 KaiaGreeter 的合约组成，可以运行一个简单的 "Hello World!"。
 
 ```
 pragma solidity 0.5.12;
@@ -38,42 +38,42 @@ contract KaiaGreeter is Mortal {
 }
 ```
 
-3. 在圖標面板中選擇 "編譯器"。 選擇所需的 EVM 環境。 對於 Kaia 網絡，您可以選擇 Kairos（測試網絡）和 Mainnet。 當示例代碼準備好在實際部署前編譯時，單擊 "編譯"。
+3. 在图标面板中选择 "编译器"。 选择所需的 EVM 环境。 对于 Kaia 网络，您可以选择 Kairos（测试网络）和 Mainnet。 当示例代码准备好在实际部署前编译时，单击 "编译"。
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. 現在我們可以部署合同了。 點擊圖標面板中的 Kaia 徽標。 單擊 "賬戶 "旁邊的加號按鈕，導入一個賬戶。 確保賬戶有足夠的 KAIA 來支付部署所需的智能合約的交易費用。
+4. 现在我们可以部署合同了。 点击图标面板中的 Kaia 徽标。 单击 "账户 "旁边的加号按钮，导入一个账户。 确保账户有足够的 KAIA 来支付部署所需的智能合约的交易费用。
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
-5. 設置氣體限值和發送值。
+5. 设置气体限值和发送值。
 
-- 如果部署的是更復雜的合同，可能需要設置更高的氣體限值。 在本例中，可以保持原樣。
-- 將 `Value` 設為 0，除非您想在部署時向合同發送 `KAIA`。
+- 如果部署的是更复杂的合同，可能需要设置更高的气体限值。 在本例中，可以保持原样。
+- 将 `Value` 设为 0，除非您想在部署时向合同发送 `KAIA`。
 
-6. 輸入 "Hello World!"作為構造函數的參數，然後點擊 "部署 "按鈕。
+6. 输入 "Hello World!"作为构造函数的参数，然后点击 "部署 "按钮。
 
 ![](/img/build/smart-contracts/03_deployment_hello.png)
 
-7. 如果合同部署成功，您將在終端看到相應的交易收據和詳細結果。
+7. 如果合同部署成功，您将在终端看到相应的交易收据和详细结果。
 
-8. 您可以通過點擊功能按鈕與合同互動。 這些功能用不同的顏色表示。 Solidity中的 "constant "或 "pure "函數有藍色的底色（示例中的 "greet"），不會創建新的事務，因此不耗費任何氣體。 紅色按鈕（示例中的 "kill"）代表 "可支付 "功能，可改變區塊鏈上的狀態、消耗氣體並可接受價值。 橙色按鈕用於更改合同狀態但不接受值的 "非支付 "功能。
+8. 您可以通过点击功能按钮与合同互动。 这些功能用不同的颜色表示。 Solidity中的 "constant "或 "pure "函数有蓝色的底色（示例中的 "greet"），不会创建新的事务，因此不耗费任何气体。 红色按钮（示例中的 "kill"）代表 "可支付 "功能，可改变区块链上的状态、消耗气体并可接受价值。 橙色按钮用于更改合同状态但不接受值的 "非支付 "功能。
 
 ![](/img/build/smart-contracts/06_deployment_functions.png)
 
-有關詳細信息，請參閱此 [鏈接](../ide-and-tools/ide-and-tools.md)。
+有关详细信息，请参阅此 [链接](../ide-and-tools/ide-and-tools.md)。
 
 ## VVISP <a id="vvisp"></a>
 
-vvisp 是一種易於使用的 CLI 工具/框架，用於開發智能合約，由 HEACHI LABS 提供。 只需一個命令，您就可以輕鬆設置環境、部署和執行 Kaia 智能合約。 詳情請參考以下鏈接。
+vvisp 是一种易于使用的 CLI 工具/框架，用于开发智能合约，由 HEACHI LABS 提供。 只需一个命令，您就可以轻松设置环境、部署和执行 Kaia 智能合约。 详情请参考以下链接。
 
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
 
-另一種部署合同的方法是使用 solc 手動編譯合同，然後使用 caver-js 進行部署。
+另一种部署合同的方法是使用 solc 手动编译合同，然后使用 caver-js 进行部署。
 
-1. 創建 `KaiaGreeter.sol` 並編寫以下代碼。
+1. 创建 `KaiaGreeter.sol` 并编写以下代码。
 
 ```
 pragma solidity 0.5.6;
@@ -101,25 +101,25 @@ contract KaiaGreeter is Mortal {
 }
 ```
 
-2. 安裝 solc 0.5.6。
+2. 安装 solc 0.5.6。
 
 ```
 $ sudo npm install -g solc@0.5.6
 ```
 
-3. 編制合同。
+3. 编制合同。
 
 ```
 $ solcjs KaiaGreeter.sol --bin
 ```
 
-4. 安裝 caver-js。
+4. 安装 caver-js。
 
 ```
 $ npm install caver-js.
 ```
 
-5. 使用以下代碼在同一目錄下創建 `deploy.js`。
+5. 使用以下代码在同一目录下创建 `deploy.js`。
 
 ```
 const Caver = require("caver-js");
@@ -151,9 +151,9 @@ caver.kaia.sendTransaction({
 })
 ```
 
-_注_：此示例不建議用於生產。 處理私人密鑰時要非常小心。
+_注_：此示例不建议用于生产。 处理私人密钥时要非常小心。
 
-6. 使用節點環境部署合同。
+6. 使用节点环境部署合同。
 
 ```
 $ node deploy.js
