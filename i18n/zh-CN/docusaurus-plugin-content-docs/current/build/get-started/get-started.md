@@ -1,6 +1,6 @@
-# 入門指南
+# 入门指南
 
-試著熟悉 Kaia。 本章是您使用 Kaia dApps 的起點。
+试着熟悉 Kaia。 本章是您使用 Kaia dApps 的起点。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
