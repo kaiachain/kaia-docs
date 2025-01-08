@@ -2,37 +2,37 @@
 sidebar_label: Web3Modal
 ---
 
-# 将 Web3Modal 整合到 dApp 中
+# 將 Web3Modal 整合到 dApp 中
 
 ![](/img/banners/kaia-web3Modal\(wc\).png)
 
-## 导言
+## 導言
 
-[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about)是一个简单易用的库，可帮助开发人员通过简单、可定制的配置在其 dApp 中添加对多个提供商的支持。 它让连接钱包、执行交易和管理账户变得简单。
+[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about)是一個簡單易用的庫，可幫助開發人員通過簡單、可定製的配置在其 dApp 中添加對多個提供商的支持。 它讓連接錢包、執行交易和管理賬戶變得簡單。
 
-在本指南中，您将使用 web3Modal 库将 Kaia Wallet、Klip、Metamask、Coinbase Wallet 等多个钱包集成到您在 Kaia 网络上构建的 dApp 中。
+在本指南中，您將使用 web3Modal 庫將 Kaia Wallet、Klip、Metamask、Coinbase Wallet 等多個錢包集成到您在 Kaia 網絡上構建的 dApp 中。
 
-## 先决条件
+## 先決條件
 
-- 一个正在运行的 react 项目（执行 `npx create-react-app project-name` 命令）
-- 安装必要的钱包（[Kaia Wallet](https://www.kaiawallet.io/en_US/)、[Coinbase Wallet](https://www.coinbase.com/wallet/downloads) 和 [Metamask](https://metamask.io/download/))。
-- RPC 端点：您可以从支持的[端点提供者](../../../../references/public-en.md)中获取。
-- 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
+- 一個正在運行的 react 項目（執行 `npx create-react-app project-name` 命令）
+- 安裝必要的錢包（[Kaia Wallet](https://www.kaiawallet.io/en_US/)、[Coinbase Wallet](https://www.coinbase.com/wallet/downloads) 和 [Metamask](https://metamask.io/download/))。
+- RPC 端點：您可以從支持的[端點提供者](../../../../references/public-en.md)中獲取。
+- 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
 
-## 设置 Web3Modal 和钱包提供程序选项
+## 設置 Web3Modal 和錢包提供程序選項
 
-**步骤 1**：安装 Web3Modal 和以太坊库
+**步驟 1**：安裝 Web3Modal 和以太坊庫
 
-安装 web3Modal 和您喜欢的与区块链交互的库。 在本教程中，我们将安装 [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal)，它源自 [Web3Modal](https://github.com/WalletConnect/web3modal)，并经过修改添加了 Kaia 钱包和 Klip 钱包。 此外，本教程还将使用 ethers.js 与 Kaia 区块链进行交互。
+安裝 web3Modal 和您喜歡的與區塊鏈交互的庫。 在本教程中，我們將安裝 [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal)，它源自 [Web3Modal](https://github.com/WalletConnect/web3modal)，並經過修改添加了 Kaia 錢包和 Klip 錢包。 此外，本教程還將使用 ethers.js 與 Kaia 區塊鏈進行交互。
 
 ```bash
 npm install @klaytn/web3modal
 npm install --save ethers
 ```
 
-**第 2 步**：使用钱包提供商选项实例化 Web3Modal
+**第 2 步**：使用錢包提供商選項實例化 Web3Modal
 
-安装您选择的钱包提供商。 这里我们安装 Kaia Wallet、Klip 和 Coinbase 钱包提供商。
+安裝您選擇的錢包提供商。 這裡我們安裝 Kaia Wallet、Klip 和 Coinbase 錢包提供商。
 
 ```bash
 npm install --save @coinbase/wallet-sdk
@@ -40,7 +40,7 @@ npm install --save @klaytn/kaikas-web3-provider
 npm install --save @klaytn/klip-web3-provider
 ```
 
-在您的 `App.js` 文件中，导入 CoinbaseWalletSDK、KaikasWeb3Provider 和 KlipWeb3Provider，并实例化各种提供程序选项，以便与您的 dapp 集成。
+在您的 `App.js` 文件中，導入 CoinbaseWalletSDK、KaikasWeb3Provider 和 KlipWeb3Provider，並實例化各種提供程序選項，以便與您的 dapp 集成。
 
 ```js
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
@@ -86,9 +86,9 @@ const providerOptions = {
 };
 ```
 
-**第 3 步**：实例化 web3modal
+**第 3 步**：實例化 web3modal
 
-然后，通过传递提供程序选项来实例化 Web3Modal。
+然後，通過傳遞提供程序選項來實例化 Web3Modal。
 
 ```js
 import Web3Modal from "@klaytn/web3modal";
@@ -98,9 +98,9 @@ const  web3Modal = new Web3Modal( {
   } )
 ```
 
-## 建立钱包连接
+## 建立錢包連接
 
-要建立与用户钱包的连接，请调用 Web3Modal 实例上的 `connect()` 方法。 我们建议您将此操作封装在一个异步函数中，并将检索到的提供程序存储在您的状态中，以便在整个应用程序中重复使用。
+要建立與用戶錢包的連接，請調用 Web3Modal 實例上的 `connect()` 方法。 我們建議您將此操作封裝在一個異步函數中，並將檢索到的提供程序存儲在您的狀態中，以便在整個應用程序中重複使用。
 
 ```js
 import { ethers } from 'ethers';
@@ -134,13 +134,13 @@ function App() {
 
 ![](/img/build/tools/web3Modal.png)
 
-## 设置实用工具功能
+## 設置實用工具功能
 
-在本指南中，我们将使用 `truncateAddress()` 和 `toHex()` 等实用工具函数。 truncateAddress() "函数接收有效地址，并返回所传递地址的更易读格式。 而 `toHex()` 函数则将数字转换为十六进制。  以下步骤展示了如何在项目中设置和使用 utils 函数。
+在本指南中，我們將使用 `truncateAddress()` 和 `toHex()` 等實用工具函數。 truncateAddress() "函數接收有效地址，並返回所傳遞地址的更易讀格式。 而 `toHex()` 函數則將數字轉換為十六進制。  以下步驟展示瞭如何在項目中設置和使用 utils 函數。
 
-**步骤 1**：在 `src` 根文件夹中创建一个 `utils.js` 文件。
+**步驟 1**：在 `src` 根文件夾中創建一個 `utils.js` 文件。
 
-在新创建的 utils.js 文件中粘贴以下代码。
+在新創建的 utils.js 文件中粘貼以下代碼。
 
 ```js
 export const truncateAddress = (address) => {
@@ -158,15 +158,15 @@ export const truncateAddress = (address) => {
   };
 ```
 
-**第 2**步在您的 `App.js` 文件中导入函数。
+**第 2**步在您的 `App.js` 文件中導入函數。
 
 ```js
 import { truncateAddress, toHex } from "./utils";
 ```
 
-## 访问连接、账户和网络信息
+## 訪問連接、賬戶和網絡信息
 
-目前，Web3Modal 没有为以太坊交互提供内置支持，例如检索连接的账户和网络数据。 请注意，要读取用户地址或连接的网络 ID，必须直接从以太坊库请求信息。 在本指南中，我们将使用 ethers.js 获取这些信息。 获取和存储这些数据的一种方法是将用户连接到您的 dapp。
+目前，Web3Modal 沒有為以太坊交互提供內置支持，例如檢索連接的賬戶和網絡數據。 請注意，要讀取用戶地址或連接的網絡 ID，必須直接從以太坊庫請求信息。 在本指南中，我們將使用 ethers.js 獲取這些信息。 獲取和存儲這些數據的一種方法是將用戶連接到您的 dapp。
 
 ```js
 const [provider, setProvider] = useState();
@@ -202,9 +202,9 @@ return (
 );
 ```
 
-## 断开钱包连接
+## 斷開錢包連接
 
-使用 web3Modal 实例上的 "clearCachedProvider() "方法可以断开与钱包的连接。 此外，一个好的做法是刷新状态，清除之前存储的连接数据。
+使用 web3Modal 實例上的 "clearCachedProvider() "方法可以斷開與錢包的連接。 此外，一個好的做法是刷新狀態，清除之前存儲的連接數據。
 
 ```js
 function App() {
@@ -229,7 +229,7 @@ const refreshState = () => {
 }
 ```
 
-重要的是要记住，用户与 dApp 交互时，dApp 的状态会发生变化，因此最好的做法是订阅响应发布的事件。 创建带有这些事件订阅的 useEffect 钩子，以便对变化做出适当的响应。
+重要的是要記住，用戶與 dApp 交互時，dApp 的狀態會發生變化，因此最好的做法是訂閱響應發佈的事件。 創建帶有這些事件訂閱的 useEffect 鉤子，以便對變化做出適當的響應。
 
 ```js
   useEffect(() => {
@@ -261,9 +261,9 @@ const refreshState = () => {
   }, [provider]);
 ```
 
-## 切换网络或添加自定义网络
+## 切換網絡或添加自定義網絡
 
-如前所述，Web3Modal 没有内置的以太坊交互支持。 要添加或切换网络，您必须直接向以太坊库提出申请（通过 EIP-3085 或 EIP-3326）。 下面是一个请求切换网络的示例，如果用户钱包中还没有该网络，则将其添加为备用网络：
+如前所述，Web3Modal 沒有內置的以太坊交互支持。 要添加或切換網絡，您必須直接向以太坊庫提出申請（通過 EIP-3085 或 EIP-3326）。 下面是一個請求切換網絡的示例，如果用戶錢包中還沒有該網絡，則將其添加為備用網絡：
 
 ```js
   const switchNetwork = async () => {
@@ -302,9 +302,9 @@ return (
 ) 
 ```
 
-## 签署信息
+## 簽署信息
 
-初始化提供者和签名者对象后，用户就可以签署任意字符串。
+初始化提供者和簽名者對象後，用戶就可以簽署任意字符串。
 
 ```js
  // add to the existing useState hook.
@@ -336,9 +336,9 @@ const signMessage = async(e) => {
   );
 ```
 
-## 发送本地事务
+## 發送本地事務
 
-您可以执行本地事务，如将 KAIA 从一个用户发送到另一个用户。
+您可以執行本地事務，如將 KAIA 從一個用戶發送到另一個用戶。
 
 ```js
     // add to the existing useState hook.
@@ -375,11 +375,11 @@ return (
 );
 ```
 
-## 使用智能合约
+## 使用智能合約
 
-有了 Web3Modal 提供者和签名者对象，您就可以进行合约交互，例如向部署到区块链上的智能合约写入或读取。
+有了 Web3Modal 提供者和簽名者對象，您就可以進行合約交互，例如向部署到區塊鏈上的智能合約寫入或讀取。
 
-### 1. 撰写合同
+### 1. 撰寫合同
 
 ```js
 // add to existing useState hook
@@ -464,7 +464,7 @@ return (
 )
 ```
 
-### 2. 阅读合同
+### 2. 閱讀合同
 
 ```js
 // add to existing useState hook
@@ -549,13 +549,13 @@ return (
 Node fs error, add browser {fs: false} to package.json
 ```
 
-安装 Klip-web3-provider 时会出现这种情况。  要解决这个问题，请按照以下步骤操作：
+安裝 Klip-web3-provider 時會出現這種情況。  要解決這個問題，請按照以下步驟操作：
 
-\*\*第 1 步打开并导航至 node_modules 文件夹。 查找 @Kaia/klip-web3-provider 文件夹，并导航到其 package.json 文件，如下所示：
+\*\*第 1 步打開並導航至 node_modules 文件夾。 查找 @Kaia/klip-web3-provider 文件夾，並導航到其 package.json 文件，如下所示：
 
 > **@klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json**
 
-**第 2 步**：将下面的代码粘贴到 @klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json 文件中。
+**第 2 步**：將下面的代碼粘貼到 @klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json 文件中。
 
 ```js
 "browser": {
@@ -569,8 +569,8 @@ Node fs error, add browser {fs: false} to package.json
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
 
-使用 webpack 版本 5 时会出现此错误。 在此版本中，默认情况下不再支持 NodeJS polyfills。 要解决这个问题，请参阅本 [指南](https://web3auth.io/docs/troubleshooting/webpack-issues)。
+使用 webpack 版本 5 時會出現此錯誤。 在此版本中，默認情況下不再支持 NodeJS polyfills。 要解決這個問題，請參閱本 [指南](https://web3auth.io/docs/troubleshooting/webpack-issues)。
 
 ## 下一步
 
-有关 Web3Modal 的更多深入指南，请参阅 [Web3Modal 文档](https://docs.walletconnect.com/2.0/web3modal/about) 和 [Web3Modal Github 代码库](https://github.com/klaytn/klaytn-web3modal)。 此外，您还可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample) 上找到本指南的完整实现代码。
+有關 Web3Modal 的更多深入指南，請參閱 [Web3Modal 文檔](https://docs.walletconnect.com/2.0/web3modal/about) 和 [Web3Modal Github 代碼庫](https://github.com/klaytn/klaytn-web3modal)。 此外，您還可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample) 上找到本指南的完整實現代碼。
