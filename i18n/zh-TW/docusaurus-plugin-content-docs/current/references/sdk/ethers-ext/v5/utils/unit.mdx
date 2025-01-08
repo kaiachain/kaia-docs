@@ -1,0 +1,75 @@
+# Units
+
+對於單位轉換，Kaia-sdk 支持用於轉換 `kaia`、`Gkei` 和 `kei` 的實用程序。 請參閱 [支持的單位](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-) 。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js unitUtils.js
+    const {
+      formatKlay,
+      parseKlay,
+      formatKlayUnits,
+    } = require('@kaiachain/ethers-ext/v5')
+
+    async function main() {
+      console.log(
+        'example basefee in ston =',
+        formatKlayUnits('0x5d21dba00', 'ston')
+      )
+      console.log('transfer amount in klay =', formatKlay('1230000000000000000'))
+      console.log(
+        'example gas price in peb =',
+        parseKlayUnits('50', 'ston').toString()
+      )
+      console.log('transfer amount in peb =', parseKlay('9.87').toString())
+    }
+
+    main()
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node unitUtils.js
+    example basefee in ston = 25.0
+    transfer amount in klay = 1.23
+    example gas price in peb = 50000000000
+    transfer amount in peb = 9870000000000000000
+    ```
+  </CH.Code>
+
+  ---
+
+  從\*\*@kaiachain/ethers-ext\*\*軟件包導入`formatKlay`、`parseKlay`、`formatKlayUnits`。
+
+  ```js unitUtils.js focus=1
+  ```
+
+  ---
+
+  要將 **peb** 轉換為其他單位，請使用 `formatKlayUnits`。 例如，使用 `formatKlayUnits` 將 **peb** 轉換為 **ston**
+
+  ```js unitUtils.js focus=8:11
+  ```
+
+  ---
+
+  使用 `formatKlay` 可將 **peb** 轉換為 **klay**
+
+  ```js unitUtils.js focus=12
+  ```
+
+  ---
+
+  使用 `parseKlayUnits` 將數值從一個單位轉換為 **peb**。 第一個參數是**值**，第二個參數是要**轉換的單位**
+
+  ```js unitUtils.js focus=13:16
+  ```
+
+  ---
+
+  使用 `parseKlay` 將 **klay** 轉換為 **peb**
+
+  ```js unitUtils.js focus=17
+  ```
+</CH.Spotlight>
