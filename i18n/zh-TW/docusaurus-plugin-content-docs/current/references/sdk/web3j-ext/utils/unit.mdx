@@ -1,0 +1,72 @@
+# Units
+
+對於單位轉換，Kaia-sdk 支持用於轉換 `kaia`、`Gkei` 和 `kei` 的實用程序。 請參閱 [支持的單位](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-) 。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```java UnitConvertExample.java
+    package org.web3j.example.utils;
+
+    import org.web3j.utils.KaiaConvert;
+
+    public class UnitConvertExample {
+        public static void main(String[] args) {
+            System.out.println("Convert from kei to kaia " + KaiaConvert.fromKei("1000000000000000000", KaiaConvert.Unit.KAIA));
+            System.out.println("Convert from Gkei to kaia " + KaiaConvert.fromKei("1000000000", KaiaConvert.Unit.GKEI));
+
+            System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.KAIA));
+            System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.GKEI));
+        }
+    }
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ java UnitConvertExample.java
+    Convert from kei to kaia 1
+    Convert from Gkei to kaia 1
+    Convert from kaia to kei 1000000000000000000
+    ```
+  </CH.Code>
+
+  ---
+
+  從 **org.web3j.utils.KaiaConvert**包導入 "KaiaConvert
+
+  ```java UnitConvertExample.java focus=1:3
+  ```
+
+  ---
+
+  要將其他單位轉換為 kaia，請使用 `KaiaConvert.fromKei`。 第一個參數是值，第二個參數是 `kei/Gkei/kaia` 的單位類型
+
+  <CH.Code>
+    ```java UnitConvertExample.java focus=7:8
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ java UnitConvertExample.java
+    Convert from kei to kaia 1
+    Convert from Gkei to kaia 1
+    ```
+  </CH.Code>
+
+  ---
+
+  要將其他單位轉換為kei，請使用 `KaiaConvert.toKei`。 第一個參數是值，第二個參數是 `kei/Gkei/kaia` 的單位類型
+
+  <CH.Code>
+    ```java UnitConvertExample.java focus=10:11
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ java UnitConvertExample.java
+    Convert from kaia to kei 1000000000000000000
+    ```
+  </CH.Code>
+</CH.Spotlight>
