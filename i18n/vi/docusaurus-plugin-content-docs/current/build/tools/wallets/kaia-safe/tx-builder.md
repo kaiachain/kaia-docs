@@ -4,7 +4,7 @@ This is a custom app in Kaia Safe that is responsible for batching transactions.
 
 With transaction builder, you can compose transactions from token transfers to complex contract interactions and batch them into a single transaction.
 
-## KLAY Token Transfer <a id="token-transfer"></a>
+## KAIA Token Transfer <a id="token-transfer"></a>
 
 You can perform token transfer using transaction builder by following the steps below:
 
@@ -12,13 +12,13 @@ You can perform token transfer using transaction builder by following the steps 
 
 ![](/img/build/tools/kaia-safe/ks-tx-builder.png)
 
-**Step 2:** Enter the recipient wallet address. For this guide, kindly skip the ABI field as we are trying to execute KLAY transfer transaction.
+**Step 2:** Enter the recipient wallet address. For this guide, kindly skip the ABI field as we are trying to execute KAIA transfer transaction.
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
 
-**Step 3:** Enter the KLAY value you want to send.
+**Step 3:** Enter the KAIA value you want to send.
 
-> Note: In this guide, we are sending 1 KLAY, so we entered 1 in the **KLAY value** input field. You can input any amount here, depending on your Safe's KLAY balance.
+> Note: In this guide, we are sending 1 KAIA, so we entered 1 in the **KAIA value** input field. You can input any amount here, depending on your Safe's KAIA balance.
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
 
