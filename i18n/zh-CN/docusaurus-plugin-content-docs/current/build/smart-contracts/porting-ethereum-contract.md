@@ -1,34 +1,34 @@
-# 导入以太坊合约
+# 導入以太坊合約
 
-在大多数情况下，您可以在 Kaia 上使用以太坊合约，无需做任何修改。
-不过，要注意以下两个问题。
+在大多數情況下，您可以在 Kaia 上使用以太坊合約，無需做任何修改。
+不過，要注意以下兩個問題。
 
-## 稳固支持<a id="solidity-support"></a>
+## 穩固支持<a id="solidity-support"></a>
 
-- Kairos 网络目前与**伦敦**以太坊虚拟机 (EVM) 兼容。
-- Mainnet 目前与**伦敦**以太坊虚拟机 (EVM) 兼容。
+- Kairos 網絡目前與**倫敦**以太坊虛擬機 (EVM) 兼容。
+- Mainnet 目前與**倫敦**以太坊虛擬機 (EVM) 兼容。
 
 :::note
 
-v1.7.0 协议升级 - 不兼容的更改，包括**伊斯坦布尔**硬分叉项目和 Kaia 自己的项目。
-如果是 Kairos 网络，则从区块编号 "#75,373,312 "开始启用，如果是主网络，则从区块编号 "#86,816,005 "开始启用。
+v1.7.0 協議升級 - 不兼容的更改，包括**伊斯坦布爾**硬分叉項目和 Kaia 自己的項目。
+如果是 Kairos 網絡，則從區塊編號 "#75,373,312 "開始啟用，如果是主網絡，則從區塊編號 "#86,816,005 "開始啟用。
 
-v1.7.3 协议升级 - 包括伦敦\*\*\*硬分叉产生的基本费用在内的不兼容变更。
-如果是 Kairos 网络，则从区块编号 "#80,295,291 "开始启用，如果是主网络，则从区块编号 "#86,816,005 "开始启用。
+v1.7.3 協議升級 - 包括倫敦\*\*\*硬分叉產生的基本費用在內的不兼容變更。
+如果是 Kairos 網絡，則從區塊編號 "#80,295,291 "開始啟用，如果是主網絡，則從區塊編號 "#86,816,005 "開始啟用。
 
-v1.8.0 协议升级 - 包括伦敦\*\*\*硬分叉产生的基本费用在内的不兼容变更。
-如果是 Kairos 网络，则从区块编号 "#86,513,895 "开始启用，如果是主网，则从区块编号 "#86,816,005 "开始启用。
+v1.8.0 協議升級 - 包括倫敦\*\*\*硬分叉產生的基本費用在內的不兼容變更。
+如果是 Kairos 網絡，則從區塊編號 "#86,513,895 "開始啟用，如果是主網，則從區塊編號 "#86,816,005 "開始啟用。
 
 :::
 
-不保证向后兼容 Kaia 上的其他 EVM 版本。
-因此，强烈建议根据协议升级状态使用正确的目标选项编译 Solidity 代码。
+不保證向後兼容 Kaia 上的其他 EVM 版本。
+因此，強烈建議根據協議升級狀態使用正確的目標選項編譯 Solidity 代碼。
 
 - Kairos: --evm-version london
 - Mainnet: --evm-version london
-- 其他（私有/服务链）：根据协议升级状态确定
+- 其他（私有/服務鏈）：根據協議升級狀態確定
 
-请参阅 [如何设置 Solc 的 EVM 版本](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)。
+請參閱 [如何設置 Solc 的 EVM 版本](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)。
 
 命令示例如下：
 
@@ -36,6 +36,6 @@ v1.8.0 协议升级 - 包括伦敦\*\*\*硬分叉产生的基本费用在内的�
 $ solc --evm-version london contract.sol
 ```
 
-## 解耦密钥对<a id="decoupled-key-pairs"></a>
+## 解耦密鑰對<a id="decoupled-key-pairs"></a>
 
-Kaia [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). 如果用户[更新账户](../../learn/transactions/basic.md#txtypeaccountupdate)，特定账户的私钥会被替换为另一个账户的私钥。 大多数情况下，这不会影响您的业务逻辑。 但是，如果您的业务逻辑包括 ecrecover，则应考虑使用 validateSender。 更多详情，请参阅 [此处](../../learn/computation/precompiled-contracts.md)。
+Kaia [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). 如果用戶[更新賬戶](../../learn/transactions/basic.md#txtypeaccountupdate)，特定賬戶的私鑰會被替換為另一個賬戶的私鑰。 大多數情況下，這不會影響您的業務邏輯。 但是，如果您的業務邏輯包括 ecrecover，則應考慮使用 validateSender。 更多詳情，請參閱 [此處](../../learn/computation/precompiled-contracts.md)。
