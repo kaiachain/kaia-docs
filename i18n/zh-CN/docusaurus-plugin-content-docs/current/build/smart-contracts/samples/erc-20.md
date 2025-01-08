@@ -1,10 +1,10 @@
 # ERC-20
 
-## 导言<a id="introduction"></a>
+## 導言<a id="introduction"></a>
 
-本教程帮助你创建一个符合[Kaia 代币标准](../token-standard.md)，尤其是[Fungible Token Standard （ERC-20）](../token-standard.md#fungible-token-standard-kip-7)的ERC-20 兼容代币示例。
+本教程幫助你創建一個符合[Kaia 代幣標準](../token-standard.md)，尤其是[Fungible Token Standard （ERC-20）](../token-standard.md#fungible-token-standard-kip-7)的ERC-20 兼容代幣示例。
 
-[ERC-20令牌标准](https://eips.ethereum.org/EIPS/eip-20) 定义了以下 2 个事件和 9 个方法（包括 3 个可选方法）。 与 ERC-20 兼容的代币是实现以下接口的代币合约。
+[ERC-20令牌標準](https://eips.ethereum.org/EIPS/eip-20) 定義了以下 2 個事件和 9 個方法（包括 3 個可選方法）。 與 ERC-20 兼容的代幣是實現以下接口的代幣合約。
 
 ```text
 function name() public view returns (string) //optional
@@ -21,22 +21,22 @@ event Transfer(address indexed _from, address indexed _to, uint256 _value)
 event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 ```
 
-在上述界面的基础上，开发人员可以通过添加新功能和逻辑来定制令牌，并将其部署到 Kaia 网络上。 更多信息，请参阅官方 [ERC-20 文档](https://eips.ethereum.org/EIPS/eip-20)。
+在上述界面的基礎上，開發人員可以通過添加新功能和邏輯來定製令牌，並將其部署到 Kaia 網絡上。 更多信息，請參閱官方 [ERC-20 文檔](https://eips.ethereum.org/EIPS/eip-20)。
 
-在本教程中，您将实现与 ERC-20 兼容的令牌 `MyERC20.sol`。 该代币将发行预定数量的代币，并在部署时将所有代币发送给合约所有者。
+在本教程中，您將實現與 ERC-20 兼容的令牌 `MyERC20.sol`。 該代幣將發行預定數量的代幣，並在部署時將所有代幣發送給合約所有者。
 
-MyERC20.sol "基于 OpenZeppelin 的 ERC20 实现。 本教程的大部分代码来自 [OpenZeppelin 2.3 ](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0)，以下 Solidity 文件用于实现 `MyERC20.sol`。
+MyERC20.sol "基於 OpenZeppelin 的 ERC20 實現。 本教程的大部分代碼來自 [OpenZeppelin 2.3 ](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0)，以下 Solidity 文件用於實現 `MyERC20.sol`。
 
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol)
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol)
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Detailed.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Detailed.sol)
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/math/SafeMath.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/math/SafeMath.sol)
 
-## 1. 编写 ERC-20 智能合约<a id="1-writing-erc-20-smart-contract"></a>
+## 1. 編寫 ERC-20 智能合約<a id="1-writing-erc-20-smart-contract"></a>
 
-### 1.1 MyERC20 的总体结构<a id="1-1-overall-structure-of-myerc20"></a>
+### 1.1 MyERC20 的總體結構<a id="1-1-overall-structure-of-myerc20"></a>
 
-MyERC20.sol "的完整源代码如下。 在此实现中，"构造器 "调用 "铸币"，在部署合约时铸入预定数量的代币。
+MyERC20.sol "的完整源代碼如下。 在此實現中，"構造器 "調用 "鑄幣"，在部署合約時鑄入預定數量的代幣。
 
 ```text
 pragma solidity ^0.5.0;
@@ -426,20 +426,20 @@ contract MyERC20 is IERC20 {
 }
 ```
 
-MyERC20.sol "由一个接口 "IERC20"、一个库 "SafeMath "和一个实现 "IERC20 "接口的合约 "MyERC20 "组成。
+MyERC20.sol "由一個接口 "IERC20"、一個庫 "SafeMath "和一個實現 "IERC20 "接口的合約 "MyERC20 "組成。
 
-- IERC20 "接口定义了[ERC-20 规范](https://eips.ethereum.org/EIPS/eip-20) 中描述的强制接口。
-- SafeMath "库定义了 Solidity 算术运算的包装器，并增加了溢出检查功能，可安全计算 Solidity 的 "uint256 "类型。
-- MyERC20 "实现了 "IERC20 "接口，还定义了三个可选方法，详见[ERC-20 规范](https://eips.ethereum.org/EIPS/eip-20)。
-  - 除 ERC20 外，还定义了 "构造器"，该构造器用于定义新的 ERC20 令牌名称和符号，并铸造预定数量的令牌。 `constructor` 在首次部署时被调用一次。
+- IERC20 "接口定義了[ERC-20 規範](https://eips.ethereum.org/EIPS/eip-20) 中描述的強制接口。
+- SafeMath "庫定義了 Solidity 算術運算的包裝器，並增加了溢出檢查功能，可安全計算 Solidity 的 "uint256 "類型。
+- MyERC20 "實現了 "IERC20 "接口，還定義了三個可選方法，詳見[ERC-20 規範](https://eips.ethereum.org/EIPS/eip-20)。
+  - 除 ERC20 外，還定義了 "構造器"，該構造器用於定義新的 ERC20 令牌名稱和符號，並鑄造預定數量的令牌。 `constructor` 在首次部署時被調用一次。
 
 ### 1.2 看看重要的方法<a id="1-2-take-a-look-at-important-methods"></a>
 
-让我们来详细了解一些重要的方法。
+讓我們來詳細瞭解一些重要的方法。
 
 #### \(1\) `function balanceOf(address account) external view returns (uint256);`<a id="1-function-balanceof-address-account-external-view-returns-uint256"></a>
 
-balanceOf "是 ERC-20 的强制方法。 `balanceOf` 返回给定地址的余额。
+balanceOf "是 ERC-20 的強制方法。 `balanceOf` 返回給定地址的餘額。
 
 ```text
     function balanceOf(address account) public view returns (uint256) {
@@ -447,19 +447,19 @@ balanceOf "是 ERC-20 的强制方法。 `balanceOf` 返回给定地址的余额
     }
 ```
 
-`balanceOf` 只返回存储在 `_balances`中的 key`account` 的值，它是 `mapping (address => uint256)`类型，如下所示。
+`balanceOf` 只返回存儲在 `_balances`中的 key`account` 的值，它是 `mapping (address => uint256)`類型，如下所示。
 
 ```text
     mapping (address => uint256) private _balances;
 ```
 
-如果 `_balances`中没有可用的 key `account` ，则只会返回 `0`。
+如果 `_balances`中沒有可用的 key `account` ，則只會返回 `0`。
 
 #### \(2\) `function transfer(address recipient, uint256 amount) external returns (bool);`<a id="2-function-transfer-address-recipient-uint256-amount-external-returns-bool"></a>
 
-转让 "是 ERC-20 的强制性方法。 transfer "会将 "数量 "代币转移给 "接收方"，并且必须触发 "Transfer "事件。 如果消息调用者的账户余额没有足够的代币可供使用，函数应抛出。
+轉讓 "是 ERC-20 的強制性方法。 transfer "會將 "數量 "代幣轉移給 "接收方"，並且必須觸發 "Transfer "事件。 如果消息調用者的賬戶餘額沒有足夠的代幣可供使用，函數應拋出。
 
-transfer "只是调用内部方法"_transfer"，它实现的实际传输和事件如下。
+transfer "只是調用內部方法"_transfer"，它實現的實際傳輸和事件如下。
 
 ```text
     function transfer(address recipient, uint256 amount) public returns (bool) {
@@ -468,9 +468,9 @@ transfer "只是调用内部方法"_transfer"，它实现的实际传输和事�
     }
 ```
 
-`_transfer` 实现 ERC-20 的 `transfer` 方法的实际行为。
+`_transfer` 實現 ERC-20 的 `transfer` 方法的實際行為。
 
-此外，它还能防止使用下面的 `require` 从零地址或向零地址发送令牌。
+此外，它還能防止使用下面的 `require` 從零地址或向零地址發送令牌。
 
 ```text
     function _transfer(address sender, address recipient, uint256 amount) internal {
@@ -485,9 +485,9 @@ transfer "只是调用内部方法"_transfer"，它实现的实际传输和事�
 
 #### \(3\) `function approve(address spender, uint256 amount) external returns (bool);`<a id="3-function-approve-address-spender-uint256-amount-external-returns-bool"></a>
 
-批准 "是 ERC-20 的强制性方法。 批准 "允许 "支出人 "多次从您的账户中提款，但以 "金额 "为限。 如果多次调用此函数，则会将津贴重置为 `amount`。
+批准 "是 ERC-20 的強制性方法。 批准 "允許 "支出人 "多次從您的賬戶中提款，但以 "金額 "為限。 如果多次調用此函數，則會將津貼重置為 `amount`。
 
-approve "只是调用内部方法"_approve"，它实现了 "approve "的实际行为。 msg.sender "作为账户 "owner "传递。
+approve "只是調用內部方法"_approve"，它實現了 "approve "的實際行為。 msg.sender "作為賬戶 "owner "傳遞。
 
 ```text
     function approve(address spender, uint256 value) public returns (bool) {
@@ -504,7 +504,7 @@ approve "只是调用内部方法"_approve"，它实现了 "approve "的实际�
     }
 ```
 
-批准 "更新 "允许值"，"允许值 "是一个二维字典，保存了特定 "地址 "的 "支出人 "的允许 "值"。
+批准 "更新 "允許值"，"允許值 "是一個二維字典，保存了特定 "地址 "的 "支出人 "的允許 "值"。
 
 ```text
     mapping (address => mapping (address => uint256)) private _allowances;
@@ -512,7 +512,7 @@ approve "只是调用内部方法"_approve"，它实现了 "approve "的实际�
 
 #### \(4\) `function _mint(address account, uint256 amount) internal`.<a id="4-function-_mint-address-account-uint256-amount-internal"></a>
 
-`_mint` 不是 ERC-20 的一部分。 但是，我们需要一种方法来创建新的 ERC-20 令牌，因此在此实现中引入了 `_mint` 来创建新令牌，如下所示。
+`_mint` 不是 ERC-20 的一部分。 但是，我們需要一種方法來創建新的 ERC-20 令牌，因此在此實現中引入了 `_mint` 來創建新令牌，如下所示。
 
 ```text
     function _mint(address account, uint256 amount) internal {
@@ -524,58 +524,58 @@ approve "只是调用内部方法"_approve"，它实现了 "approve "的实际�
     }
 ```
 
-`_mint` 是一个内部方法，可在本合同内部调用。
+`_mint` 是一個內部方法，可在本合同內部調用。
 
-在`MyERC20.sol`中，当部署智能合约以铸造预定数量的代币时，`_mint`只从`constructor`调用一次。
+在`MyERC20.sol`中，當部署智能合約以鑄造預定數量的代幣時，`_mint`只從`constructor`調用一次。
 
-如果想在部署智能合约后发行额外的代币，就必须引入一个新的公共方法，如 `mint`。 实施该方法时应小心谨慎，因为只有授权用户才能铸造令牌。
+如果想在部署智能合約後發行額外的代幣，就必須引入一個新的公共方法，如 `mint`。 實施該方法時應小心謹慎，因為只有授權用戶才能鑄造令牌。
 
-更多详情，请参阅 OpenZeppelin 示例 [ERC20Mintable.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Mintable.sol)。
+更多詳情，請參閱 OpenZeppelin 示例 [ERC20Mintable.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Mintable.sol)。
 
-## 2. 部署智能合约
+## 2. 部署智能合約
 
-在本节中，您将使用 Remix Online IDE 部署 MyERC20 智能合约。 MYERC20.sol 的完整源代码见 [编写 ERC-20 智能合约](https://docs.kaia.io/build/smart-contracts/samples/erc-20/#1-writing-erc-20-smart-contract)。
+在本節中，您將使用 Remix Online IDE 部署 MyERC20 智能合約。 MYERC20.sol 的完整源代碼見 [編寫 ERC-20 智能合約](https://docs.kaia.io/build/smart-contracts/samples/erc-20/#1-writing-erc-20-smart-contract)。
 
-### 2.1 先决条件<a href="#2-1-prerequisites" id="2-1-prerequisites"></a>
+### 2.1 先決條件<a href="#2-1-prerequisites" id="2-1-prerequisites"></a>
 
-- [Kaia Wallet](../../tools/wallets/kaia-wallet.md)：用于部署合约、签署交易和与合约交互。
-- 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
+- [Kaia Wallet](../../tools/wallets/kaia-wallet.md)：用於部署合約、簽署交易和與合約交互。
+- 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
 
-你可以使用 Remix Online IDE 或 Truffle 来部署 `MyERC20` 智能合约。
+你可以使用 Remix Online IDE 或 Truffle 來部署 `MyERC20` 智能合約。
 
-### 2.2 使用 Remix 在线集成开发环境部署智能合约<a href="#2-2-deploying-smart-contract-using-kaia-ide" id="2-2-deploying-smart-contract-using-kaia-ide"></a>
+### 2.2 使用 Remix 在線集成開發環境部署智能合約<a href="#2-2-deploying-smart-contract-using-kaia-ide" id="2-2-deploying-smart-contract-using-kaia-ide"></a>
 
 Remix IDE
 
-- 导航至 [Kaia Remix 插件](https://ide.kaia.io/)
-- 在合同文件夹中创建一个 `MyERC20.sol` 文件
-- 在 Remix 中，点击**编译**合同。
-- 安装插件后，点击左侧的 Kaia（前 Klaytn）选项卡
-- 选择 **环境** > **注入式提供商** - **Kaia Wallet**。
-- 在合同字段中，选择您的合同。 例如，MyERC20。
-- 在部署 **KAIROSTOKEN**、**KAIROS** 和 **8** 时分配以下参数
-- 点击 **部署**。
+- 導航至 [Kaia Remix 插件](https://ide.kaia.io/)
+- 在合同文件夾中創建一個 `MyERC20.sol` 文件
+- 在 Remix 中，點擊**編譯**合同。
+- 安裝插件後，點擊左側的 Kaia（前 Klaytn）選項卡
+- 選擇 **環境** > **注入式提供商** - **Kaia Wallet**。
+- 在合同字段中，選擇您的合同。 例如，MyERC20。
+- 在部署 **KAIROSTOKEN**、**KAIROS** 和 **8** 時分配以下參數
+- 點擊 **部署**。
 
 ![ERC20-1-deploy](/img/build/smart-contracts/remix-layout-erc20-example.png)
 
-部署完成后，可以使用用于部署合同的账户调用 `balanceOf` 。 您会发现您的账户中有 `10000000000000` 代币，如下所示。 由于您在部署上述合约时将 `decimal` 设置为 `8`，因此它在构造器中铸造了固定数量的 `100000` 代币，其中一个代币的十进制值为 `10^8`。 totalSupply "方法将返回已铸造代币的总供应量，也应为 "10000000000000"。
+部署完成後，可以使用用於部署合同的賬戶調用 `balanceOf` 。 您會發現您的賬戶中有 `10000000000000` 代幣，如下所示。 由於您在部署上述合約時將 `decimal` 設置為 `8`，因此它在構造器中鑄造了固定數量的 `100000` 代幣，其中一個代幣的十進制值為 `10^8`。 totalSupply "方法將返回已鑄造代幣的總供應量，也應為 "10000000000000"。
 
 ![ERC20-2-owner-token](/img/build/smart-contracts/bal-ts-erc20-example.png)
 
-MyERC20 "现已上线！
+MyERC20 "現已上線！
 
-## 3. 与 Kaia 钱包中的 ERC-20 令牌互动<a id="3-interacting-with-erc-20-token-from-kaia-wallet"></a>
+## 3. 與 Kaia 錢包中的 ERC-20 令牌互動<a id="3-interacting-with-erc-20-token-from-kaia-wallet"></a>
 
-您可以使用 Kaia 钱包查看余额，并转移您刚刚部署的与 ERC-20 兼容的 KAIROSTOKEN。 要在 Kaia 钱包中查看令牌余额，请按以下步骤操作：
+您可以使用 Kaia 錢包查看餘額，並轉移您剛剛部署的與 ERC-20 兼容的 KAIROSTOKEN。 要在 Kaia 錢包中查看令牌餘額，請按以下步驟操作：
 
-Kaia 钱包
+Kaia 錢包
 
-- 打开 Kaia 钱包
-- 点击令牌列表图标，然后点击添加令牌按钮
+- 打開 Kaia 錢包
+- 點擊令牌列表圖標，然後點擊添加令牌按鈕
 
 ![](/img/build/smart-contracts/kaia-add-token-kw.png)
 
-- 在 "自定义令牌 "选项卡下的 "令牌合约地址 "字段中粘贴 myERC20.sol 合约的地址。
-- 然后按照提示添加令牌。 您的令牌列表模式应该是这样的：
+- 在 "自定義令牌 "選項卡下的 "令牌合約地址 "字段中粘貼 myERC20.sol 合約的地址。
+- 然後按照提示添加令牌。 您的令牌列表模式應該是這樣的：
 
 ![](/img/build/smart-contracts/kaia-add-token-kw-ii.png)
