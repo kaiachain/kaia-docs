@@ -1,16 +1,16 @@
-# Kaia 兼容代幣（KCT）
+# Kaia 兼容代币（KCT）
 
-Kaia Compatible Token（KCT）是一種特殊類型的智能合約，它實現了某些技術規範。 每個想在 Kaia 上發行代幣的人都必須遵守規範。
+Kaia Compatible Token（KCT）是一种特殊类型的智能合约，它实现了某些技术规范。 每个想在 Kaia 上发行代币的人都必须遵守规范。
 
-Kaia 中定義了令牌標準，如 [KIP-7](https://kips.kaia.io/KIPs/kip-7) 和 [KIP-17](https://kips.kaia.io/KIPs/kip-17)。
+Kaia 中定义了令牌标准，如 [KIP-7](https://kips.kaia.io/KIPs/kip-7) 和 [KIP-17](https://kips.kaia.io/KIPs/kip-17)。
 
-還可以定義其他 KCT，以滿足某些技術規格。 如果有人需要其他令牌標準，請訪問 [Kaia Improvement Proposal](https://github.com/kaiachain/KIPs)，提出新的令牌標準。
+还可以定义其他 KCT，以满足某些技术规格。 如果有人需要其他令牌标准，请访问 [Kaia Improvement Proposal](https://github.com/kaiachain/KIPs)，提出新的令牌标准。
 
-## 可摺疊令牌標準（KIP-7）<a id="fungible-token-standard-kip-7"></a>
+## 可折叠令牌标准（KIP-7）<a id="fungible-token-standard-kip-7"></a>
 
-可變代幣是具有均勻性和可分割性的代幣。 每個可替代代幣都可以互換，因為每個單位的代幣都具有相同的價值。 就像每張一元紙幣都有一元的價值一樣。 在大多數情況下，可替代性是加密貨幣的基本特徵，因此大部分區塊鏈代幣都是可替代代幣。
+可变代币是具有均匀性和可分割性的代币。 每个可替代代币都可以互换，因为每个单位的代币都具有相同的价值。 就像每张一元纸币都有一元的价值一样。 在大多数情况下，可替代性是加密货币的基本特征，因此大部分区块链代币都是可替代代币。
 
-要通過智能合約實現這些屬性，可以使用 KIP-7 令牌標準。 與 KIP-7 兼容的令牌實現了以下接口。 請注意，[KIP-13](https://kips.kaia.io/KIPs/kip-13) 必須同時執行。 對於錢包應用，可執行 [錢包接口](https://kips.kaia.io/KIPs/kip-7#wallet-interface)。
+要通过智能合约实现这些属性，可以使用 KIP-7 令牌标准。 与 KIP-7 兼容的令牌实现了以下接口。 请注意，[KIP-13](https://kips.kaia.io/KIPs/kip-13) 必须同时执行。 对于钱包应用，可执行 [钱包接口](https://kips.kaia.io/KIPs/kip-7#wallet-interface)。
 
 ```solidity
 // IKIP7
@@ -55,19 +55,19 @@ function addPauser(address _account) external;
 function renouncePauser() external;
 ```
 
-在上述界面的基礎上，開發者可以通過添加新功能和邏輯來定製令牌，並將其部署到 Kaia 網絡上。
+在上述界面的基础上，开发者可以通过添加新功能和逻辑来定制令牌，并将其部署到 Kaia 网络上。
 
-更多信息，請參閱官方 [KIP-7 文檔](https://kips.kaia.io/KIPs/kip-7)。
+更多信息，请参阅官方 [KIP-7 文档](https://kips.kaia.io/KIPs/kip-7)。
 
-- 實施示例見 [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol)。
+- 实施示例见 [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol)。
 
 ## Non-fungible Token Standard\(KIP-17\)<a id="non-fungible-token-standard-kip-17"></a>
 
-Non-fungible token\(NFT\) 是一種特殊類型的代幣，代表一種獨特的資產。 正如 "不可篡改 "這個名字所暗示的，每一個代幣都是獨一無二、不可分割的。 不可篡改令牌的這種獨特性為資產數字化開闢了新天地。 例如，它可以用來表示數字藝術、遊戲物品或任何類型的獨特資產，並允許人們進行交易。
+Non-fungible token\(NFT\) 是一种特殊类型的代币，代表一种独特的资产。 正如 "不可篡改 "这个名字所暗示的，每一个代币都是独一无二、不可分割的。 不可篡改令牌的这种独特性为资产数字化开辟了新天地。 例如，它可以用来表示数字艺术、游戏物品或任何类型的独特资产，并允许人们进行交易。
 
-例如，區塊鏈收集遊戲[Cryptokitties](https://www.cryptokitties.co/)實現了不可篡改的代幣，以代表具有不同遺傳信息的不同小貓。 每隻小貓都是獨一無二的，不可互換，因此不同的小貓代幣有不同的價值。
+例如，区块链收集游戏[Cryptokitties](https://www.cryptokitties.co/)实现了不可篡改的代币，以代表具有不同遗传信息的不同小猫。 每只小猫都是独一无二的，不可互换，因此不同的小猫代币有不同的价值。
 
-要實現不可篡改令牌，可以使用 [KIP-17](https://kips.kaia.io/KIPs/kip-17)。 KIP-17 令牌合約執行以下接口。 請注意，[KIP-13](https://kips.kaia.io/KIPs/kip-13) 必須同時執行。 對於錢包應用，可執行 [錢包接口](https://kips.kaia.io/KIPs/kip-17#wallet-interface)。
+要实现不可篡改令牌，可以使用 [KIP-17](https://kips.kaia.io/KIPs/kip-17)。 KIP-17 令牌合约执行以下接口。 请注意，[KIP-13](https://kips.kaia.io/KIPs/kip-13) 必须同时执行。 对于钱包应用，可执行 [钱包接口](https://kips.kaia.io/KIPs/kip-17#wallet-interface)。
 
 ```solidity
 // IKIP17
@@ -121,18 +121,18 @@ function addPauser(address _account) public;
 function renouncePauser() public;
 ```
 
-在上述界面的基礎上，開發者可以通過添加新功能和邏輯來定製令牌，並將其部署到 Kaia 網絡上。
+在上述界面的基础上，开发者可以通过添加新功能和逻辑来定制令牌，并将其部署到 Kaia 网络上。
 
-更多信息，請參閱官方 [KIP-17 文檔](https://kips.kaia.io/KIPs/kip-17)。
+更多信息，请参阅官方 [KIP-17 文档](https://kips.kaia.io/KIPs/kip-17)。
 
-- 實施示例見 [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol)。
+- 实施示例见 [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol)。
 
-## Kaia 服務鏈的令牌標準<a id="token-standards-for-kaia-service-chain"></a>
+## Kaia 服务链的令牌标准<a id="token-standards-for-kaia-service-chain"></a>
 
-服務鏈指的是錨定 Kaia 主區塊鏈網絡的 Kaia 側鏈。 在實施服務鏈時，要使用特殊類型的合同來支持主鏈和服務鏈之間的價值轉移。 這些合約目前正在開發中，一旦準備就緒，Kaia 服務鏈的令牌規格將在 KaiaDocs 上提供。
+服务链指的是锚定 Kaia 主区块链网络的 Kaia 侧链。 在实施服务链时，要使用特殊类型的合同来支持主链和服务链之间的价值转移。 这些合约目前正在开发中，一旦准备就绪，Kaia 服务链的令牌规格将在 KaiaDocs 上提供。
 
-## 關於 ERC-20 和 ERC-721 的說明<a id="notes-on-erc-20-and-erc-721"></a>
+## 关于 ERC-20 和 ERC-721 的说明<a id="notes-on-erc-20-and-erc-721"></a>
 
-由於 Kaia 發佈了 KIP-7 和 KIP-17 作為其代幣標準，因此建議分別根據 KIP-7 和 KIP-17 執行可替換和不可替換代幣合約，而不是遵循 ERC-20 和 ERC-721。
-KIP-7 和 KIP-17 基於 ERC-20 和 ERC-721，但它們是為 Kaia 量身定製的，因此更適合 Kaia 生態系統。 儘管 Kaia 網絡仍然支持 ERC-20 和 ERC-721，但它們可能與 Kaia 生態系統中的各種工具不兼容。
-有關令牌標準差異的更多信息，請訪問 [KIP-7](https://kips.kaia.io/KIPs/kip-7#differences-with-erc-20) 和 [KIP-17](https://kips.kaia.io/KIPs/kip-17#differences-from-erc-721)。
+由于 Kaia 发布了 KIP-7 和 KIP-17 作为其代币标准，因此建议分别根据 KIP-7 和 KIP-17 执行可替换和不可替换代币合约，而不是遵循 ERC-20 和 ERC-721。
+KIP-7 和 KIP-17 基于 ERC-20 和 ERC-721，但它们是为 Kaia 量身定制的，因此更适合 Kaia 生态系统。 尽管 Kaia 网络仍然支持 ERC-20 和 ERC-721，但它们可能与 Kaia 生态系统中的各种工具不兼容。
+有关令牌标准差异的更多信息，请访问 [KIP-7](https://kips.kaia.io/KIPs/kip-7#differences-with-erc-20) 和 [KIP-17](https://kips.kaia.io/KIPs/kip-17#differences-from-erc-721)。
