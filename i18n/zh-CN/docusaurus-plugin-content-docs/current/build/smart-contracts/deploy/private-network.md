@@ -1,49 +1,49 @@
-# 使用专用网络部署智能合约
+# 使用專用網絡部署智能合約
 
 <!-- ![](/img/banners/kaia-ken.png) -->
 
-## 导言<a id="introduction"></a>
+## 導言<a id="introduction"></a>
 
-在本指南中，我们将指导您使用 [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) 在专用 Kaia 网络上部署 Greeter 合同。 通过本指南，您将学会如何
+在本指南中，我們將指導您使用 [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) 在專用 Kaia 網絡上部署 Greeter 合同。 通過本指南，您將學會如何
 
-- 设立 "硬头巾 "项目。
-- 启动一个模拟启明星测试网的专用网络。
-- 利用 Hardhat 工具在该私有网络上部署智能合约。
+- 設立 "硬頭巾 "項目。
+- 啟動一個模擬啟明星測試網的專用網絡。
+- 利用 Hardhat 工具在該私有網絡上部署智能合約。
 
-## 先决条件<a id="prerequisites"></a>
+## 先決條件<a id="prerequisites"></a>
 
-学习本教程的前提条件如下：
+學習本教程的前提條件如下：
 
-- 代码编辑器：源代码编辑器，如 [VS Code](https://code.visualstudio.com/download)。
-- Docker：如果您没有安装 docker，请使用此 [链接](https://docs.docker.com/desktop/) 进行安装。
-- [Node.js 和 npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)：Node 18 及以上版本。
+- 代碼編輯器：源代碼編輯器，如 [VS Code](https://code.visualstudio.com/download)。
+- Docker：如果您沒有安裝 docker，請使用此 [鏈接](https://docs.docker.com/desktop/) 進行安裝。
+- [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): Node version 18 and above.
 
-## 设置开发环境<a id="setting-up-dev-environment"></a>
+## 設置開發環境<a id="setting-up-dev-environment"></a>
 
-在本节中，我们将安装 hardhat、Kaia hardhat utils 和引导项目所需的其他必要依赖项。
+在本節中，我們將安裝 hardhat、Kaia hardhat utils 和引導項目所需的其他必要依賴項。
 
-**第 1 步：创建项目目录**
+**第 1 步：創建項目目錄**
 
 ```js
 mkdir $HOME/kaia-greeter
 cd kaia-greeter 
 ```
 
-**第 2 步：初始化 npm 项目**
+**第 2 步：初始化 npm 項目**
 
 ```js
 npm init -y
 ```
 
-**第 3 步：安装 hardhat、hardhat-utils 和其他依赖项**
+**第 3 步：安裝 hardhat、hardhat-utils 和其他依賴項**
 
-- 在终端中复制并粘贴以下代码，安装 hardhat 和 hardhat-utils
+- 在終端中複製並粘貼以下代碼，安裝 hardhat 和 hardhat-utils
 
 ```js
 npm i hardhat @klaytn/hardhat-utils
 ```
 
-- 复制并粘贴以下代码以安装其他依赖项
+- 複製並粘貼以下代碼以安裝其他依賴項
 
 ```js
 npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
@@ -51,13 +51,13 @@ npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
 
 :::note
 
-hardhat-utils 插件依赖于 [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) 和 [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) 插件。  确保在`hardhat.config.js`或`hardhat.config.ts`中要求或导入它们。
+hardhat-utils 插件依賴於 [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) 和 [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) 插件。  確保在`hardhat.config.js`或`hardhat.config.ts`中要求或導入它們。
 
 :::
 
 :::info
 
-(建议）安装硬帽速记装置。 但您仍然可以使用 npx 硬头盔执行任务。
+(建議）安裝硬帽速記裝置。 但您仍然可以使用 npx 硬頭盔執行任務。
 
 ```js
 npm install hardhat-shorthand --save
@@ -65,15 +65,15 @@ npm install hardhat-shorthand --save
 
 :::
 
-**第 4 步：初始化硬头盔项目**
+**第 4 步：初始化硬頭盔項目**
 
-运行以下命令启动硬头盔项目：
+運行以下命令啟動硬頭盔項目：
 
 ```js
-npx 硬头盔启动 
+npx 硬頭盔啟動 
 ```
 
-在本指南中，你将选择 "创建一个空的 hardhat.config.js "项目，如下图所示：
+在本指南中，你將選擇 "創建一個空的 hardhat.config.js "項目，如下圖所示：
 
 ```js
 888 888 888 888
@@ -83,20 +83,20 @@ npx 硬头盔启动
 888888 .d88888 888888 .d88888 888888
 888888 888888 Y88b.
 888 888 "Y888888 888 "Y88888 888 "Y888888 "Y888
-👷 欢迎访问 Hardhat v2.22.9 👷‍
-?您要做什么？ … 
-  创建一个 JavaScript 项目
-  创建一个 TypeScript 项目
-  创建一个 TypeScript 项目（使用 Viem）
-👷 创建一个空的 hardhat.config.js
+👷 歡迎訪問 Hardhat v2.22.9 👷‍
+?您要做什麼？ … 
+  創建一個 JavaScript 項目
+  創建一個 TypeScript 項目
+  創建一個 TypeScript 項目（使用 Viem）
+👷 創建一個空的 hardhat.config.js
   退出
 ```
 
-**第 5 步：创建 .env 文件**
+**第 5 步：創建 .env 文件**
 
-现在在项目文件夹中创建 `.env` 文件。 该文件可帮助我们将环境变量从 `.env` 文件加载到 process.env 文件中。
+現在在項目文件夾中創建 `.env` 文件。 該文件可幫助我們將環境變量從 `.env` 文件加載到 process.env 文件中。
 
-在终端中复制并粘贴此命令，创建一个 `.env` 文件
+在終端中複製並粘貼此命令，創建一個 `.env` 文件
 
 ```js
 touch .env
@@ -105,16 +105,16 @@ touch .env
 配置您的 .env 文件如下：
 
 ```
-private_key="复制并粘贴本地专用网络提供的任意私人密钥"
+private_key="複製並粘貼本地專用網絡提供的任意私人密鑰"
 ```
 
 :::note
 
-在下一节启动专用网络时，就可以访问本地网络提供的私钥。
+在下一節啟動專用網絡時，就可以訪問本地網絡提供的私鑰。
 
 :::
 
-**第 6 步：设置硬头盔配置**
+**第 6 步：設置硬頭盔配置**
 
 用以下配置修改 `hardhat.config.js`：
 
@@ -153,9 +153,9 @@ module.exports = {
 };
 ```
 
-## 启动专用网络<a id="launching-private-network"></a>
+## 啟動專用網絡<a id="launching-private-network"></a>
 
-为了启动专用网络，hardhat utils 插件为我们提供了一项任务，即轻松启动专用网络：
+為了啟動專用網絡，hardhat utils 插件為我們提供了一項任務，即輕鬆啟動專用網絡：
 
 ```js
 hh klaytn-node
@@ -163,16 +163,16 @@ hh klaytn-node
 
 ![](/img/build/smart-contracts/pn-run-node.png)
 
-## 连接控制台<a id="attaching-console"></a>
+## 連接控制檯<a id="attaching-console"></a>
 
-专用网络自带 JavaScript 控制台。 通过控制台命令行，您可以向网络发起部分 Kaia API 调用。 要附加到 JavaScript 控制台，请执行以下命令：
+專用網絡自帶 JavaScript 控制檯。 通過控制檯命令行，您可以向網絡發起部分 Kaia API 調用。 要附加到 JavaScript 控制檯，請執行以下命令：
 
 ```js
 hh klaytn-node --attach
 ```
 
 ```jsx title="Result Result "
-欢迎访问 Kaia JavaScript 控制台！
+歡迎訪問 Kaia JavaScript 控制檯！
  instance：Klaytn/v0.9.2/linux-amd64/go1.22.1
   datadir：/klaytn
   modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 kaia:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
@@ -180,15 +180,15 @@ hh klaytn-node --attach
 
 :::note
 
-输入 **kaia** 或 **personal** 可获得可用功能列表。
+輸入 **kaia** 或 **personal** 可獲得可用功能列表。
 
 :::
 
-## 查看账户余额<a id="checking-balance-in-account"></a>
+## 查看賬戶餘額<a id="checking-balance-in-account"></a>
 
-当我们启动私人网络时，它为我们提供了账户列表、私人密钥和每个账户的预资助值。
+當我們啟動私人網絡時，它為我們提供了賬戶列表、私人密鑰和每個賬戶的預資助值。
 
-要查看账户余额，请执行以下命令。
+要查看賬戶餘額，請執行以下命令。
 
 ```js
 kaia.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
@@ -196,9 +196,9 @@ kaia.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
 
 ![](/img/build/smart-contracts/pn-check-balance.png)
 
-## 配置硬帽网络环境<a id="configuring-hardhat-network-environment"></a>
+## 配置硬帽網絡環境<a id="configuring-hardhat-network-environment"></a>
 
-现在我们正在运行一个独立的本地网络，外部客户端（钱包、dApp）可以连接到该网络，我们需要通过运行此命令配置 hardhat 以使用该网络：
+現在我們正在運行一個獨立的本地網絡，外部客戶端（錢包、dApp）可以連接到該網絡，我們需要通過運行此命令配置 hardhat 以使用該網絡：
 
 ```js
 export HARDHAT_NETWORK=localhost
@@ -206,18 +206,18 @@ hh accounts
 ```
 
 ```js
-hh --network localhost 账户
+hh --network localhost 賬戶
 ```
 
 ![](/img/build/smart-contracts/pn-lh-accounts.png)
 
-## 创建 KaiaGreeter 智能合约<a id="creating-kaiagreeter-smart-contract"></a>
+## 創建 KaiaGreeter 智能合約<a id="creating-kaiagreeter-smart-contract"></a>
 
-在本节中，您将创建一个 KaiaGreeter 智能合约。
+在本節中，您將創建一個 KaiaGreeter 智能合約。
 
-**步骤 1：** 在资源管理器窗格中新建一个名为 "**合同**"的文件夹，单击 "新建文件 "按钮并新建一个名为 "KaiaGreeter.sol "的文件。
+**步驟 1：** 在資源管理器窗格中新建一個名為 "**合同**"的文件夾，單擊 "新建文件 "按鈕並新建一個名為 "KaiaGreeter.sol "的文件。
 
-**第 2 步：** 打开文件并粘贴以下代码：
+**第 2 步：** 打開文件並粘貼以下代碼：
 
 ```js
 // SPDX-License-Identifier: UNLICENSED
@@ -241,11 +241,11 @@ contract KaiaGreeter {
 
 ## 部署 KaiaGreeter<a id="deploying-kaiagreeter"></a>
 
-在本节中，我们将使用 hardhat-deploy 插件来部署我们的合同。
+在本節中，我們將使用 hardhat-deploy 插件來部署我們的合同。
 
-**步骤 1：** 在资源管理器窗格中，新建一个名为**deploy**的文件夹，然后单击 "新建文件 "按钮，创建一个名为 "deploy.js "的新文件。
+**步驟 1：** 在資源管理器窗格中，新建一個名為**deploy**的文件夾，然後單擊 "新建文件 "按鈕，創建一個名為 "deploy.js "的新文件。
 
-**第 2 步：** 将以下代码复制并粘贴到文件中。
+**第 2 步：** 將以下代碼複製並粘貼到文件中。
 
 ```js
 module.exports = async ({getNamedAccounts, deployments}) => {
@@ -260,7 +260,7 @@ module.exports = async ({getNamedAccounts, deployments}) => {
 module.exports.tags = ['KaiaGreeter'];
 ```
 
-**步骤 3：** 在终端运行以下命令，告诉 Hardhat 在专用网络上部署你的 KaiaGreeter 合同。
+**步驟 3：** 在終端運行以下命令，告訴 Hardhat 在專用網絡上部署你的 KaiaGreeter 合同。
 
 ```js
 hh 部署 
@@ -268,9 +268,9 @@ hh 部署
 
 ![](/img/build/smart-contracts/pn-deployed-tx.png)
 
-## 使用区块资源管理器验证交易<a id="verifying-transaction-using-block-explorer"></a>
+## 使用區塊資源管理器驗證交易<a id="verifying-transaction-using-block-explorer"></a>
 
-**步骤 1：** 要使用本地 blockscout 浏览器验证我们的交易，请在新终端中运行以下命令：
+**步驟 1：** 要使用本地 blockscout 瀏覽器驗證我們的交易，請在新終端中運行以下命令：
 
 ```js
 hh explorer --network localhost
@@ -283,19 +283,19 @@ hh explorer --network localhost
   DOCKER_DISABLE_TRACER: 'false',
   DOCKER_DEBUG: '0'
 }
-[+] 在浏览器中打开：http://localhost：4000
- 网络 blockscout_default 创建
- 网络 blockscout_default 创建
- 容器 blockscout-db-1 创建
- 容器 blockscout-frontend-1 创建
- 容器 blockscout-smart-contract-verifier-1 创建
- 容器 blockscout-创建
- Container blockscout-smart-contract-verifier-1 创建
- Container blockscout-db-1 创建
- Container blockscout-frontend-1 创建
- Container blockscout-redis_db-1 创建
- Container blockscout-backend-1 创建
- Container blockscout-backend-1 创建
+[+] 在瀏覽器中打開：http://localhost：4000
+ 網絡 blockscout_default 創建
+ 網絡 blockscout_default 創建
+ 容器 blockscout-db-1 創建
+ 容器 blockscout-frontend-1 創建
+ 容器 blockscout-smart-contract-verifier-1 創建
+ 容器 blockscout-創建
+ Container blockscout-smart-contract-verifier-1 創建
+ Container blockscout-db-1 創建
+ Container blockscout-frontend-1 創建
+ Container blockscout-redis_db-1 創建
+ Container blockscout-backend-1 創建
+ Container blockscout-backend-1 創建
  Container blockscout-frontend-1 Starting
  Container blockscout-redis_db-1 Starting
  Container blockscout-smart-contract-verifier-1 Starting
@@ -308,45 +308,45 @@ hh explorer --network localhost
  Container blockscout-backend-1 Started
 ```
 
-**第 2 步：** 要访问这个区块资源管理器，请在浏览器中打开 [http://localhost:4000](http://localhost:4000)。
+**第 2 步：** 要訪問這個區塊資源管理器，請在瀏覽器中打開 [http://localhost:4000](http://localhost:4000)。
 
-第 3 步：在搜索栏中复制并粘贴已部署的合同地址，然后按 Enter 键。 您应该能看到最近部署的合同。
+第 3 步：在搜索欄中複製並粘貼已部署的合同地址，然後按 Enter 鍵。 您應該能看到最近部署的合同。
 
 ![](/img/build/smart-contracts/pn-verify-tx-block-explorer.png)
 
-## 与已部署的合同互动<a id="interacting-with-deployed-contract"></a>
+## 與已部署的合同互動<a id="interacting-with-deployed-contract"></a>
 
-### 使用硬头盔工具合同任务
+### 使用硬頭盔工具合同任務
 
-1. 要调用已部署合约的只读函数，请运行下面的命令：
+1. 要調用已部署合約的只讀函數，請運行下面的命令：
 
 ```js
-hh 调用 KaiaGreeter getTotalGreetings
+hh 調用 KaiaGreeter getTotalGreetings
 ```
 
 ![](/img/build/smart-contracts/pn-read-function.png)
 
-2. 要向已部署的合约发送函数调用事务，请运行下面的命令：
+2. 要向已部署的合約發送函數調用事務，請運行下面的命令：
 
 ```js
-hh 发送 KaiaGreeter 问候
+hh 發送 KaiaGreeter 問候
 ```
 
 ```jsx title="Result Result "
-发送 KaiaGreeter#greet（tx：0xc0bd25ffb594c13d5ae1f77f7eb02f2978013c69f9f6e22694b76fa26c329e85）...ok（数据块 2837，已用气体：47457）
+發送 KaiaGreeter#greet（tx：0xc0bd25ffb594c13d5ae1f77f7eb02f2978013c69f9f6e22694b76fa26c329e85）...ok（數據塊 2837，已用氣體：47457）
 ```
 
 ### 使用 Kaia SDK
 
-**步骤 1：** 要使用 [Kaia SDK](https://github.com/kaiachain/kaia-sdk) 与已部署的合约进行交互，需要运行此命令安装 Kaia SDK：
+**步驟 1：** 要使用 [Kaia SDK](https://github.com/kaiachain/kaia-sdk) 與已部署的合約進行交互，需要運行此命令安裝 Kaia SDK：
 
 ```js
 npm install --save @kaiachain/ethers-ext
 ```
 
-**步骤 2：** 在资源管理器窗格中，新建一个名为 "utils "的文件夹，然后单击 "新建文件 "按钮，在 utils 文件夹中新建一个名为 `kaia-sdk.js` 的文件。
+**步驟 2：** 在資源管理器窗格中，新建一個名為 "utils "的文件夾，然後單擊 "新建文件 "按鈕，在 utils 文件夾中新建一個名為 `kaia-sdk.js` 的文件。
 
-第 3 步：将以下代码复制并粘贴到文件中。
+第 3 步：將以下代碼複製並粘貼到文件中。
 
 ```js
 const { JsonRpcProvider, Wallet } = require("@kaiachain/ethers-ext");
@@ -383,7 +383,7 @@ getTotalGreetings(contractAddress);
 // greet(contractAddress);
 ```
 
-**步骤 4：** 要执行本文件中声明的任何函数，请确保像执行 getTotalGreetings() 函数那样取消注释，然后在终端运行以下命令。
+**步驟 4：** 要執行本文件中聲明的任何函數，請確保像執行 getTotalGreetings() 函數那樣取消註釋，然後在終端運行以下命令。
 
 ```js
 node utils/kaia-sdk.js 
@@ -391,4 +391,4 @@ node utils/kaia-sdk.js
 
 ![](/img/build/smart-contracts/pn-run-kaia-sdk.png)
 
-有关 hardhat-utils 的更深入指南，请参阅 [hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils)。 此外，您还可以在 [GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example) 上找到本指南的完整代码实现。
+有關 hardhat-utils 的更深入指南，請參閱 [hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils)。 此外，您還可以在 [GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example) 上找到本指南的完整代碼實現。
