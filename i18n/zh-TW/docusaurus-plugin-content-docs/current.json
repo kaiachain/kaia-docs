@@ -1,6 +1,6 @@
 {
   "version.label": {
-    "message": "當前",
+    "message": "當前版本",
     "description": "The label for version current"
   },
   "sidebar.learnSidebar.category.Transactions": {
@@ -12,27 +12,27 @@
     "description": "The label for category Computation in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Get Started": {
-    "message": "開始使用",
+    "message": "開始",
     "description": "The label for category Get Started in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Account Basics": {
-    "message": "帳戶基本資料",
+    "message": "賬戶基礎知識",
     "description": "The label for category Account Basics in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Smart Contracts": {
-    "message": "智慧型契約",
+    "message": "智能合約",
     "description": "The label for category Smart Contracts in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Deploy Smart Contracts": {
-    "message": "部署智慧型契約",
+    "message": "部署智能合約",
     "description": "The label for category Deploy Smart Contracts in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Sample Contracts": {
-    "message": "合約範本",
+    "message": "合同樣本",
     "description": "The label for category Sample Contracts in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Tutorials": {
-    "message": "教學",
+    "message": "教程",
     "description": "The label for category Tutorials in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Tools": {
@@ -40,11 +40,11 @@
     "description": "The label for category Tools in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Wallets": {
-    "message": "皮夾",
+    "message": "錢包",
     "description": "The label for category Wallets in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Wallet Libraries": {
-    "message": "錢包庫",
+    "message": "錢包圖書館",
     "description": "The label for category Wallet Libraries in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Oracles": {
@@ -60,7 +60,7 @@
     "description": "The label for category Cross-chain in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Block Explorers": {
-    "message": "積木探索者",
+    "message": "積木探險家",
     "description": "The label for category Block Explorers in sidebar buildSidebar"
   },
   "sidebar.nodeSidebar.category.Endpoint Node": {
@@ -68,7 +68,7 @@
     "description": "The label for category Endpoint Node in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Core Cell": {
-    "message": "核心細胞",
+    "message": "核心單元",
     "description": "The label for category Core Cell in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Install Core Cell": {
@@ -80,27 +80,27 @@
     "description": "The label for category Service Chain in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Quick Start": {
-    "message": "快速啟動",
+    "message": "快速入門",
     "description": "The label for category Quick Start in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Configure Service Chain": {
-    "message": "設定服務鏈",
+    "message": "配置服務鏈",
     "description": "The label for category Configure Service Chain in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Node Package Downloads": {
-    "message": "Node 套件下載",
+    "message": "節點軟件包下載",
     "description": "The label for category Node Package Downloads in sidebar nodeSidebar"
   },
   "sidebar.refSidebar.category.RPC API Reference": {
-    "message": "RPC API 參考資料",
+    "message": "RPC API 參考",
     "description": "The label for category RPC API Reference in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.SDKs and Libraries": {
-    "message": "SDK 和程式庫",
+    "message": "SDK 和庫",
     "description": "The label for category SDKs and Libraries in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.API References": {
-    "message": "API 參考資料",
+    "message": "應用程序接口參考",
     "description": "The label for category API References in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver.wallet": {
@@ -116,7 +116,7 @@
     "description": "The label for category caver.rpc in sidebar refSidebar"
   },
   "sidebar.refSidebar.link.API References": {
-    "message": "API 參考資料",
+    "message": "應用程序接口參考",
     "description": "The label for link API References in sidebar refSidebar, linking to https://javadoc.io/doc/com.klaytn.caver/core/"
   },
   "sidebar.learnSidebar.category.Transaction Fees": {
@@ -124,7 +124,7 @@
     "description": "The label for category Transaction Fees in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Verify Smart Contracts": {
-    "message": "驗證智慧型契約",
+    "message": "驗證智能合約",
     "description": "The label for category Verify Smart Contracts in sidebar buildSidebar"
   },
   "sidebar.refSidebar.category.caver.kct": {
@@ -132,11 +132,11 @@
     "description": "The label for category caver.kct in sidebar refSidebar"
   },
   "sidebar.learnSidebar.category.Data Management": {
-    "message": "資料管理",
+    "message": "數據管理",
     "description": "The label for category Data Management in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Governance": {
-    "message": "治理",
+    "message": "管理",
     "description": "The label for category Governance in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Node Quick Reference": {
@@ -176,11 +176,11 @@
     "description": "The label for category ethers-ext < v1.0.1 in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Account Management": {
-    "message": "帳戶管理",
+    "message": "賬戶管理",
     "description": "The label for category Account Management in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Account Key": {
-    "message": "帳戶鑰匙",
+    "message": "賬戶密鑰",
     "description": "The label for category Account Key in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Sign Transaction": {
@@ -188,11 +188,11 @@
     "description": "The label for category Sign Transaction in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Sign Message": {
-    "message": "標誌訊息",
+    "message": "標誌信息",
     "description": "The label for category Sign Message in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.keystore": {
-    "message": "keystore",
+    "message": "鑰匙庫",
     "description": "The label for category keystore in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Basic Transaction": {
@@ -200,11 +200,11 @@
     "description": "The label for category Basic Transaction in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Fee Delegated Transaction": {
-    "message": "授權交易費用",
+    "message": "收費 委託交易",
     "description": "The label for category Fee Delegated Transaction in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Smart Contract": {
-    "message": "智慧型契約",
+    "message": "智能合約",
     "description": "The label for category Smart Contract in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.ethers-ext": {
@@ -216,7 +216,7 @@
     "description": "The label for category v5 in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Utils": {
-    "message": "工具",
+    "message": "實用工具",
     "description": "The label for category Utils in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.v6": {
@@ -232,7 +232,7 @@
     "description": "The label for category web3j-ext in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Keystore": {
-    "message": "鑰匙店",
+    "message": "鑰匙存儲",
     "description": "The label for category Keystore in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.web3py-ext": {
@@ -244,7 +244,7 @@
     "description": "The label for category caver-js in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver-java": {
-    "message": "岩洞-Java",
+    "message": "caver-java",
     "description": "The label for category caver-java in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Node Quick Reference": {
@@ -256,23 +256,23 @@
     "description": "The label for category Transition to Kaia in sidebar refSidebar"
   },
   "sidebar.refSidebar.doc.Getting-Started": {
-    "message": "開始使用",
+    "message": "入門",
     "description": "The label for the doc item Getting-Started in sidebar refSidebar, linking to the doc references/sdk/web3py-ext/getting-started"
   },
   "sidebar.buildSidebar.category.Hardware Wallets": {
-    "message": "Hardware Wallets",
+    "message": "硬件錢包",
     "description": "The label for category Hardware Wallets in sidebar buildSidebar"
   },
   "sidebar.miniDappSidebar.category.Build Mini dApps on LINE with Unity": {
-    "message": "Build Mini dApps on LINE with Unity",
+    "message": "使用 Unity 在 LINE 上構建迷你 dApps",
     "description": "The label for category Build Mini dApps on LINE with Unity in sidebar miniDappSidebar"
   },
   "sidebar.miniDappSidebar.category.Node Quick Reference": {
-    "message": "Node Quick Reference",
+    "message": "節點快速參考",
     "description": "The label for category Node Quick Reference in sidebar miniDappSidebar"
   },
   "sidebar.miniDappSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
+    "message": "過渡到 Kaia",
     "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
   }
 }
