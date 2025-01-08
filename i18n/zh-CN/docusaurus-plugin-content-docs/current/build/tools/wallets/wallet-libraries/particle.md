@@ -2,47 +2,47 @@
 sidebar_label: Particle Network
 ---
 
-# 将粒子网络整合到 dApp 中
+# 將粒子網絡整合到 dApp 中
 
 ![](/img/banners/kaia-particle.png)
 
-## 导言
+## 導言
 
-[粒子网络](https://particle.network) 提供钱包抽象服务，以简化用户入门。
+[粒子網絡](https://particle.network) 提供錢包抽象服務，以簡化用戶入門。
 
-[粒子连接 SDK](https://developers.particle.network/api-reference/connect/desktop/web) 支持与 EVM 兼容的链，包括 Kaia 及其测试网。 它允许使用[社交和 Web3 登录选项](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)进行 2 键登录，所有操作都在一个模态中完成。
+[粒子連接 SDK](https://developers.particle.network/api-reference/connect/desktop/web) 支持與 EVM 兼容的鏈，包括 Kaia 及其測試網。 它允許使用[社交和 Web3 登錄選項](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)進行 2 鍵登錄，所有操作都在一個模態中完成。
 
-通过 Particle Network，Kaia 开发人员可以为 Kaia 主网和测试网嵌入社交登录，让用户只需使用他们的谷歌、电子邮件、X 等信息就能在您的应用程序中生成和使用钱包。
+通過 Particle Network，Kaia 開發人員可以為 Kaia 主網和測試網嵌入社交登錄，讓用戶只需使用他們的谷歌、電子郵件、X 等信息就能在您的應用程序中生成和使用錢包。
 
-本页提供在基于 Kaia 的应用程序中实施 Particle Connect 的概述和教程，以帮助您开始集成过程。
+本頁提供在基於 Kaia 的應用程序中實施 Particle Connect 的概述和教程，以幫助您開始集成過程。
 
-## 先决条件
+## 先決條件
 
-- 使用 TypeScript 和 Tailwind CSS 设置的 [Next.js 项目](https://nextjs.org/docs/getting-started/installation)
-  - 您可以运行： `npx create-next-app@latest` 来创建它。
-- 来自 [Particle Dashboard](https://dashboard.particle.network)的**项目 ID**、**客户密钥**和**应用程序 ID**。
+- 使用 TypeScript 和 Tailwind CSS 設置的 [Next.js 項目](https://nextjs.org/docs/getting-started/installation)
+  - 您可以運行： `npx create-next-app@latest` 來創建它。
+- 來自 [Particle Dashboard](https://dashboard.particle.network)的**項目 ID**、**客戶密鑰**和**應用程序 ID**。
 
-## 安装
+## 安裝
 
-要在您的 dApp 中利用 Particle Network，特别是 Particle Connect，您首先需要安装所需的库。 Particle Connect SDK 通过一个界面简化了钱包创建、用户登录和区块链交互过程。 它支持社交登录和 Web3 登录，便于访问。
+要在您的 dApp 中利用 Particle Network，特別是 Particle Connect，您首先需要安裝所需的庫。 Particle Connect SDK 通過一個界面簡化了錢包創建、用戶登錄和區塊鏈交互過程。 它支持社交登錄和 Web3 登錄，便於訪問。
 
-要安装 SDK 以及 Viem（连接后台）和 ethers（演示 EIP-1193 提供商），请运行
+要安裝 SDK 以及 Viem（連接後臺）和 ethers（演示 EIP-1193 提供商），請運行
 
 ```shell
 yarn add @particle-network/connectkit viem@^2 ethers
 ```
 
-## 初始化粒子连接
+## 初始化粒子連接
 
-首先，我们将设置 Particle Connect，这是 Particle 的旗舰认证 SDK。 在项目根目录下创建名为 `ConnectKit.tsx` 的新文件。 该文件将容纳 "ParticleConnectKit "组件，它是已配置的 "ConnectKitProvider "实例的包装器，是配置 Particle Connect 的主要接口（我们稍后将以编程方式介绍）。
+首先，我們將設置 Particle Connect，這是 Particle 的旗艦認證 SDK。 在項目根目錄下創建名為 `ConnectKit.tsx` 的新文件。 該文件將容納 "ParticleConnectKit "組件，它是已配置的 "ConnectKitProvider "實例的包裝器，是配置 Particle Connect 的主要接口（我們稍後將以編程方式介紹）。
 
-接下来，前往 [Particle dashboard](https://dashboard.particle.network)，创建一个新的网络应用程序项目，并获取以下必要的 API 密钥：
+接下來，前往 [Particle dashboard](https://dashboard.particle.network)，創建一個新的網絡應用程序項目，並獲取以下必要的 API 密鑰：
 
-- **`projectId`** - 项目的唯一标识符。
-- **`clientKey`** - 客户端特有的密钥。
-- **`appId`** - 应用程序的 ID。
+- **`projectId`** - 項目的唯一標識符。
+- **`clientKey`** - 客戶端特有的密鑰。
+- **`appId`** - 應用程序的 ID。
 
-将这些 API 密钥存储在`.env`文件中，如下所示：
+將這些 API 密鑰存儲在`.env`文件中，如下所示：
 
 ```plaintext
 next_public_project_id='project_id'
@@ -50,7 +50,7 @@ next_public_client_key='client_key'
 next_public_app_id='app_id'
 ```
 
-现在，将以下代码添加到您的 `ConnectKit.tsx` 文件中：
+現在，將以下代碼添加到您的 `ConnectKit.tsx` 文件中：
 
 ```js
 "use client";
@@ -120,11 +120,11 @@ export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
 };
 ```
 
-该组件的几乎所有属性都可以配置，从支持的不同登录类型到模态的视觉外观；要探索这些不同的选项，请访问 [Particle 文档](https://developers.particle.network/api-reference/connect/desktop/web#configuration)。
+該組件的幾乎所有屬性都可以配置，從支持的不同登錄類型到模態的視覺外觀；要探索這些不同的選項，請訪問 [Particle 文檔](https://developers.particle.network/api-reference/connect/desktop/web#configuration)。
 
-## 将 Particle Connect 集成到您的应用程序中
+## 將 Particle Connect 集成到您的應用程序中
 
-配置完成后，用 "ParticleConnectKit "组件封装您的应用程序，以启用对 Particle Connect SDK 的全局访问。 要做到这一点，请对 `src` 目录中的 `layout.tsx` 文件作如下修改：
+配置完成後，用 "ParticleConnectKit "組件封裝您的應用程序，以啟用對 Particle Connect SDK 的全局訪問。 要做到這一點，請對 `src` 目錄中的 `layout.tsx` 文件作如下修改：
 
 ```typescript
 import { ParticleConnectkit } from '@/connectkit';
@@ -154,9 +154,9 @@ export default function RootLayout({
 }
 ```
 
-### 连接钱包
+### 連接錢包
 
-设置好 "layout.tsx "文件后，就可以通过中央**连接钱包**按钮连接用户了。 您可以从 `@particle-network/connectkit` 中导入 `ConnectButton` 来实现这一功能。 一旦用户登录，"连接按钮 "就会变成一个嵌入式部件。
+設置好 "layout.tsx "文件後，就可以通過中央**連接錢包**按鈕連接用戶了。 您可以從 `@particle-network/connectkit` 中導入 `ConnectButton` 來實現這一功能。 一旦用戶登錄，"連接按鈕 "就會變成一個嵌入式部件。
 
 ```js
 import { ConnectButton, useAccount } from '@particle-network/connectkit';
@@ -179,9 +179,9 @@ export const App = () => {
 };
 ```
 
-### 获取账户和余额
+### 獲取賬戶和餘額
 
-通过 `ConnectButton` 组件成功连接钱包（或社交登录）后，就可以检索用户的相关 Kaia 地址。 此外，您还可以通过 "publicClient"（利用 Particle Connect 已设置的 Viem 提供商）检索其当前余额（以 KAIA 为单位）。
+通過 `ConnectButton` 組件成功連接錢包（或社交登錄）後，就可以檢索用戶的相關 Kaia 地址。 此外，您還可以通過 "publicClient"（利用 Particle Connect 已設置的 Viem 提供商）檢索其當前餘額（以 KAIA 為單位）。
 
 ```js
 "use client";
@@ -240,9 +240,9 @@ export default function Home() {
 }
 ```
 
-### 断开钱包连接
+### 斷開錢包連接
 
-用户登录后，可以通过源自 `useDisconnect` 的 `disconnect` 以编程方式强制注销。 这将断开当前活动会话与 dApp 的连接，使用户返回初始状态。
+用戶登錄後，可以通過源自 `useDisconnect` 的 `disconnect` 以編程方式強制註銷。 這將斷開當前活動會話與 dApp 的連接，使用戶返回初始狀態。
 
 ```js
 import { useDisconnect } from "@particle-network/connectkit";
@@ -259,9 +259,9 @@ const { disconnect } = useDisconnect();
 
 ```
 
-### 获取用户信息
+### 獲取用戶信息
 
-当用户通过社交账户连接时，可以使用 `useParticleAuth()` 钩子访问 `userinfo`，其中包括用户的连接方式、账户创建日期、姓名、电子邮件和其他[来自 Particle Auth 的相关信息](https://developers.particle.network/api-reference/connect/desktop/web#fetch-user-information-with-particle-auth)。
+當用戶通過社交賬戶連接時，可以使用 `useParticleAuth()` 鉤子訪問 `userinfo`，其中包括用戶的連接方式、賬戶創建日期、姓名、電子郵件和其他[來自 Particle Auth 的相關信息](https://developers.particle.network/api-reference/connect/desktop/web#fetch-user-information-with-particle-auth)。
 
 ```js
 import { useAccount, useParticleAuth, useWallets } from '@particle-network/connectkit';
@@ -293,9 +293,9 @@ export const App = () => {
 };
 ```
 
-### 发送本地事务
+### 發送本地事務
 
-Particle Connect 允许您利用现有的 EIP-1193 提供商，在本例中，我们创建了一个带有 `ethers` 的提供商实例来发送转账交易。
+Particle Connect 允許您利用現有的 EIP-1193 提供商，在本例中，我們創建了一個帶有 `ethers` 的提供商實例來發送轉賬交易。
 
 ```js
 import { useWallets } from "@particle-network/connectkit";
@@ -326,6 +326,6 @@ const executeTransaction = async () => {
 
 ## 下一步工作
 
-您可以在 [Particle Connect 文档](https://developers.particle.network/api-reference/connect/desktop/web#key-react-hooks-for-particle-connect) 中找到可用钩子的完整列表。
+您可以在 [Particle Connect 文檔](https://developers.particle.network/api-reference/connect/desktop/web#key-react-hooks-for-particle-connect) 中找到可用鉤子的完整列表。
 
-有关 Particle Network（Particle Connect、Particle Auth 和其他 SDK）的其他指南，请参阅 [Particle Network 文档](https://developers.particle.network) 和 [Particle Network GitHub 账户](https://github.com/Particle-Network)。 此外，您还可以访问 [Particle Network 博客](https://blog.particle.network) 了解有关 Particle Network 服务、即将发布的版本和技术栈的更多信息。
+有關 Particle Network（Particle Connect、Particle Auth 和其他 SDK）的其他指南，請參閱 [Particle Network 文檔](https://developers.particle.network) 和 [Particle Network GitHub 賬戶](https://github.com/Particle-Network)。 此外，您還可以訪問 [Particle Network 博客](https://blog.particle.network) 瞭解有關 Particle Network 服務、即將發佈的版本和技術棧的更多信息。
