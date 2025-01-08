@@ -1,14 +1,14 @@
 ---
-sidebar_label: 使用硬头盔
+sidebar_label: 使用硬頭盔
 ---
 
-# 如何使用 Hardhat 验证智能合约
+# 如何使用 Hardhat 驗證智能合約
 
-本指南允许您使用Hardhat Verify Plugin直接从 CLI 在 Kaiascope 上自动验证智能合约的源代码。
+本指南允許您使用Hardhat Verify Plugin直接從 CLI 在 Kaiascope 上自動驗證智能合約的源代碼。
 
-要在 klaytn 上验证您的合同，您需要在`hardhat.config.js`中添加以下配置：
+要在 klaytn 上驗證您的合同，您需要在`hardhat.config.js`中添加以下配置：
 
-## 主网
+## 主網
 
 ```
 module.exports = {
@@ -65,7 +65,7 @@ module.exports = {
 }
 ```
 
-要验证合同，您需要运行验证命令，并输入已部署合同的地址、网络和参数（如有） 。
+要驗證合同，您需要運行驗證命令，並輸入已部署合同的地址、網絡和參數（如有） 。
 
 ```bash
 npx hardhat verify -network<network> <deployed_address> <parameters>
@@ -75,14 +75,14 @@ npx hardhat verify -network<network> <deployed_address> <parameters>
 npx hardhat verify --network kairos 0x131b54E65c99d34BCA738F29051fDAceEa91C969 1000000000000000
 ```
 
-在您的终端中，您应该可以看到您的合同源代码已成功提交验证。 如果验证成功，您应看到 "成功验证合同"，并在
-[Kaiascope] (https://kairos.kaiascope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode) 上有一个指向合同代码的链接。
+在您的終端中，您應該可以看到您的合同源代碼已成功提交驗證。 如果驗證成功，您應看到 "成功驗證合同"，並在
+[Kaiascope] (https://kairos.kaiascope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode) 上有一個指向合同代碼的鏈接。
 
 ![](/img/build/smart-contracts/verify/terminal-hh-verify-ss.png)
 
 ![](/img/build/smart-contracts/verify/scope-hh-verify-ss.png)
 
-## 实用链接
+## 實用鏈接
 
-- [Hardhat验证插件配置](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
-- [在 Kaiascope 上使用 Hardhat 验证合同](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
+- [Hardhat驗證插件配置](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
+- [在 Kaiascope 上使用 Hardhat 驗證合同](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
