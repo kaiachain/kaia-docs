@@ -2,26 +2,26 @@
 
 ![](/img/banners/kaia-supra.png)
 
-## 導言
+## 导言
 
-[SupraOracles](https://supraoracles.com/)是一種新穎、高吞吐量的 Oracle & IntraLayer：一種垂直整合的跨鏈解決方案工具包（數據oracles、資產橋、自動化網絡等），可將所有區塊鏈（公有鏈（L1s 和 L2s）或私有鏈（企業））相互連接起來。 它為智能合約提供了下一代跨鍊甲骨文解決方案，具有卓越的數據準確性、速度、可擴展性和安全性。
+[SupraOracles](https://supraoracles.com/)是一种新颖、高吞吐量的 Oracle & IntraLayer：一种垂直整合的跨链解决方案工具包（数据oracles、资产桥、自动化网络等），可将所有区块链（公有链（L1s 和 L2s）或私有链（企业））相互连接起来。 它为智能合约提供了下一代跨链甲骨文解决方案，具有卓越的数据准确性、速度、可扩展性和安全性。
 
-有了 SupraOracles，您的智能合約就可以訪問價格數據源，從而構建各種去中心化金融（DeFi）用例。 在本教程中，您將使用 SupraOracles，使用 Remix IDE 在 Kaia 區塊鏈上輕鬆獲取價格信息。
+有了 SupraOracles，您的智能合约就可以访问价格数据源，从而构建各种去中心化金融（DeFi）用例。 在本教程中，您将使用 SupraOracles，使用 Remix IDE 在 Kaia 区块链上轻松获取价格信息。
 
-## 先決條件
+## 先决条件
 
-- [Kaia 錢包](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
+- [Kaia 钱包](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 - [Remix IDE](https://remix.ethereum.org/)
 - [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- 測試來自 [龍頭] 的 KAIA(https://faucet.kaia.io)
+- 测试来自 [龙头] 的 KAIA(https://faucet.kaia.io)
 
-## 開始
+## 开始
 
-在以下步驟中，您將使用 SupraOracles 在智能合約中請求 ETH/USD 價格反饋。 讓我們開始吧！
+在以下步骤中，您将使用 SupraOracles 在智能合约中请求 ETH/USD 价格反馈。 让我们开始吧！
 
-### 步驟 1：創建 S 值接口
+### 步骤 1：创建 S 值接口
 
-這將創建用於從 SupraOracles 獲取價格的接口。 將以下代碼添加到您希望獲取 S 值的 solidity 智能合約中。
+这将创建用于从 SupraOracles 获取价格的接口。 将以下代码添加到您希望获取 S 值的 solidity 智能合约中。
 
 ```solidity
 interface ISupraSValueFeed {
@@ -29,9 +29,9 @@ function checkPrice(string memory marketPair) external view returns (int256 pric
 }
 ```
 
-### 步驟 2：配置 S 值反饋地址
+### 步骤 2：配置 S 值反馈地址
 
-要從 SupraOracles 智能合約中獲取 S-Value，首先要找到所選鏈的 S-Value Feed 地址。 有了正確的地址後，使用我們之前定義的接口創建一個 S-Value Feed 實例：
+要从 SupraOracles 智能合约中获取 S-Value，首先要找到所选链的 S-Value Feed 地址。 有了正确的地址后，使用我们之前定义的接口创建一个 S-Value Feed 实例：
 
 ```solidity
 contract ISupraSValueFeedExample {
@@ -42,11 +42,11 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-在本例中，我們在 Kaia Kairos TestNet 上實現了 S-Value Feed。 您可以在 [此處](https://supraoracles.com/docs/get-started/networks/) 驗證 Kaia Kairos S-Value Feed 地址。
+在本例中，我们在 Kaia Kairos TestNet 上实现了 S-Value Feed。 您可以在 [此处](https://supraoracles.com/docs/get-started/networks/) 验证 Kaia Kairos S-Value Feed 地址。
 
-### 第 3 步：獲取 S-Value 加密貨幣價格
+### 第 3 步：获取 S-Value 加密货币价格
 
-現在，您只需訪問我們支持的市場貨幣對的 S-Value Crypto 價格即可。 在這一步中，您將在智能合約中應用以下代碼，從而獲得 ETH/USDT (eth_usdt) 的價格。
+现在，您只需访问我们支持的市场货币对的 S-Value Crypto 价格即可。 在这一步中，您将在智能合约中应用以下代码，从而获得 ETH/USDT (eth_usdt) 的价格。
 
 ```solidity
 function getEthUsdtPrice() external view returns (int) {
@@ -58,24 +58,24 @@ return price;
 }
 ```
 
-## 具體實施
+## 具体实施
 
-在下面的示例中，我們將部署 S-Value 價格反饋合約，同時執行 getEthUsdtPrice() 函數來獲取 ETH/USDT 貨幣對的價格。
+在下面的示例中，我们将部署 S-Value 价格反馈合约，同时执行 getEthUsdtPrice() 函数来获取 ETH/USDT 货币对的价格。
 
-### 創建和部署示例代碼
+### 创建和部署示例代码
 
 **Remix IDE**
 
-- 導航至 [Remix IDE](https://remix.ethereum.org/)
-- 單擊 "文件資源管理器 "選項卡，在合同文件夾中新建一個名為 "demoSupraPriceFeed.sol "的文件。
-- 將下面的代碼粘貼到新創建的文件中
-- 在 Remix 中，點擊 **編譯合同**。
-- 安裝插件後，點擊左側的 Kaia 選項卡
-- 選擇 **環境** > **注入式提供商** - **Kaia Wallet**。
-- 在**合同**中，選擇您的合同。 例如，ISupraSValueFeedExample。
-- 點擊 **部署**。
+- 导航至 [Remix IDE](https://remix.ethereum.org/)
+- 单击 "文件资源管理器 "选项卡，在合同文件夹中新建一个名为 "demoSupraPriceFeed.sol "的文件。
+- 将下面的代码粘贴到新创建的文件中
+- 在 Remix 中，点击 **编译合同**。
+- 安装插件后，点击左侧的 Kaia 选项卡
+- 选择 **环境** > **注入式提供商** - **Kaia Wallet**。
+- 在**合同**中，选择您的合同。 例如，ISupraSValueFeedExample。
+- 点击 **部署**。
 
-\*\* 示例代碼\*\*
+\*\* 示例代码\*\*
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -98,19 +98,19 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-### 與智能合約互動
+### 与智能合约互动
 
-要獲取所選貨幣對的價格信息，必須執行`getEthUsdtPrice()`函數。
+要获取所选货币对的价格信息，必须执行`getEthUsdtPrice()`函数。
 
 ![](/img/build/tools/sPriceFeed.png)
 
-塔達 🎉！ 您剛剛請求在智能合約中提供貨幣價格（ETH/USDT）。
+塔达 🎉！ 您刚刚请求在智能合约中提供货币价格（ETH/USDT）。
 
-截至編寫本報告時，getEthUsdtPrice() 返回了 "185795966200"，一個 8 點精度的數字。 要獲得 ETH/USD 的實際價值，您需要將該數字除以 10^8，等於 1857.95966200 美元。
+截至编写本报告时，getEthUsdtPrice() 返回了 "185795966200"，一个 8 点精度的数字。 要获得 ETH/USD 的实际价值，您需要将该数字除以 10^8，等于 1857.95966200 美元。
 
 ## 使用 SupraOracles Crypto Price Feeds 的更多方法
 
-### 使用 Web3.js 實現 S-Value Feeds
+### 使用 Web3.js 实现 S-Value Feeds
 
 ```javascript
 // example assumes that the web3 library has been imported and is accessible within your scope
@@ -143,6 +143,6 @@ console.log(`The price is: ${price.toString()}`)
 getEthUsdtPrice()
 ```
 
-## 結論
+## 结论
 
-在本教程中，您將學習如何使用 SupraOracle 價格饋送解決方案請求 ETH/USD 價格。 有了 SupraOracle，您還可以在智能合約中生成隨機數。 如果您想了解這一過程，請訪問有關在 Kaia 上集成 SupraVRF 的 [指南](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)。 有關 SupraOracles 的更多深入指南，請參閱 [SupraOracles 文檔](https://supraoracles.com/docs/development-guides)。
+在本教程中，您将学习如何使用 SupraOracle 价格馈送解决方案请求 ETH/USD 价格。 有了 SupraOracle，您还可以在智能合约中生成随机数。 如果您想了解这一过程，请访问有关在 Kaia 上集成 SupraVRF 的 [指南](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)。 有关 SupraOracles 的更多深入指南，请参阅 [SupraOracles 文档](https://supraoracles.com/docs/development-guides)。
