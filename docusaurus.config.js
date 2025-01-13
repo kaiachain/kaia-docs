@@ -244,35 +244,6 @@ const config = {
         items: [
           {
             type: 'dropdown',
-            to: "learn",
-            position: 'left',
-            sidebarid: 'learnSidebar',
-            label: 'Learn',
-            items: [
-              {
-                to: "learn/why-kaia",
-                label: 'Why Kaia',
-              },
-              {
-                to: "learn/accounts",
-                label: 'Accounts',
-              },
-              {
-                to: "learn/consensus-mechanism",
-                label: 'Consensus Mechanism',
-              },
-              {
-                to: "learn/kaia-native-token",
-                label: 'Kaia Native Token',
-              },
-              {
-                to: "learn/token-economy",
-                label: 'Token Economy',
-              },
-            ],
-          },
-          {
-            type: 'dropdown',
             to: "build",
             position: 'left',
             sidebarid: 'buildSidebar',
@@ -351,6 +322,35 @@ const config = {
               {
                 to: "references/contract-addresses",
                 label: 'Contract Addresses',
+              },
+            ],
+          },
+          {
+            type: 'dropdown',
+            to: "learn",
+            position: 'left',
+            sidebarid: 'learnSidebar',
+            label: 'Learn',
+            items: [
+              {
+                to: "learn/why-kaia",
+                label: 'Why Kaia',
+              },
+              {
+                to: "learn/accounts",
+                label: 'Accounts',
+              },
+              {
+                to: "learn/consensus-mechanism",
+                label: 'Consensus Mechanism',
+              },
+              {
+                to: "learn/token-economics/kaia-native-token/",
+                label: 'Kaia Native Token',
+              },
+              {
+                to: "learn/token-economics/token-economy",
+                label: 'Token Economy',
               },
             ],
           },
