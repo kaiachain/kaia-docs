@@ -48,14 +48,14 @@ usage in Yul / Inline Assembly:
 ```text
 function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
         assembly {
-	    mstore(0, numberToHash) // store number in the zeroth memory word
+      mstore(0, numberToHash) // store number in the zeroth memory word
 
-	    let ok := staticcall(gas(), 2, 0, 32, 0, 32)
-	    if iszero(ok) {
-		revert(0,0)
-	    }
-	        return(0, 32)
-	}
+      let ok := staticcall(gas(), 2, 0, 32, 0, 32)
+      if iszero(ok) {
+    revert(0,0)
+      }
+          return(0, 32)
+  }
 }
 ```
 
@@ -65,9 +65,9 @@ The address 0x03 implements RIPEMD160 hash. It returns a RIPEMD160 hash from the
 
 ```text
 function RIPEMD160(bytes calldata data) public view returns (bytes20 h) {
-	(bool ok, bytes memory out) = address(0x03).staticcall(data);
-	require(ok);
-	h = bytes20(abi.decode(out, (bytes32)) << 96);
+  (bool ok, bytes memory out) = address(0x03).staticcall(data);
+  require(ok);
+  h = bytes20(abi.decode(out, (bytes32)) << 96);
 }
 ```
 
@@ -221,7 +221,7 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## Address 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
 
-The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug_setVMLogTarget](../../../references/json-rpc/debug/set-vm-log-target). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Kaia node starts. Also, the log level of the Kaia node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
+The address 0x3FD prints the specified string `str` to a specific file or passes it to the logger module. For more information, see [debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Kaia node starts. Also, the log level of the Kaia node should be 4 or more to see the output of vmLog. This precompiled contract is not supported by the Solidity compiler. The following code can be used to call this precompiled contract.
 
 ```text
 function callVmLog(bytes memory str) public {

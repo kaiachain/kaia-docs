@@ -9,6 +9,7 @@ Execution gas related hardfork changes can be found at the bottom of this page. 
 :::
 
 ## Overview <a id="overview"></a>
+
 Execution gas is charged during executing a contract under three distinct circumstances. Sometimes, some policies may be omitted.
 
 * The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation.
@@ -20,6 +21,7 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 Storage fees have a slightly nuanced behavior. To incentivize minimization of the use of storage \(which corresponds directly to a larger state database on all nodes\), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
 
 ## Opcode Gas Schedule <a id="opcode-gas-schedule"></a>
+
 The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. Also, there's gas items to calculate the gas of the precompiled contracts called by `CALL_*` opcodes.
 
 ### Scalar values representing `constantGas` of an opcode
@@ -39,6 +41,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 | `G_create` | 32000 |                   CreateGas | `CREATE`, `CREATE2`                                                                                                                                                                                                                                                                |
 
 ### Scalar values used to calculate the gas based on memory and log usage
+
 | Name | Value | Name in Code | Description |
 | :--- | ---: | ---: | :--- |
 | `G_memory` | 3 | MemoryGas | Amount of gas paid for every additional word when expanding memory |
@@ -48,6 +51,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 | `G_logtopic` | 375 | LogTopicGas | Amount of gas paid for each topic of a `LOG` operation |
 
 ### Scalar values used to calculate the gas of the particular opcode
+
 | Name              | Value | Name in Code | Description |
 |:------------------| ---: | --- | :--- |
 | `G_sset`          | 20000 | SstoreSetGas | Amount of gas paid when the storage value when set storage | 
@@ -65,6 +69,7 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 | `G_InitCodeWord`  | 2 | InitCodeWordGas | Amount of gas paid for each word of initcode for a `CREATE`,`CREATE2` | 
 
 ## Precompiled contracts gas cost table <a id="precompiled-contracts-gas-cost-table"></a>
+
 Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
 
 Below is the gas cost table for precompiled contracts in Kaia. `Input` is a byte array input of a precompiled contract.
@@ -87,6 +92,7 @@ Below is the gas cost table for precompiled contracts in Kaia. `Input` is a byte
 
 
 ## Gas calculation logic for contract execution <a id="gas-calculation-logic-for-contract-execution"></a>
+
 The gas cost of one transaction is calculated through the methods described below. First, gas is added according to the transaction type and input. Then, if the contract is executed, opcodes are executed one by one until the execution ends or `STOP` operation appears. In the process, the cost is charged according to the `constantGas` defined for each opcode and the additionally defined gas calculation method.
 
 Here, I will briefly explain the gas calculation logic during contract execution using the fee schedule variables defined above. As this explanation assumes a general situation, the unusual situations such as revert appears is not considered.
@@ -130,6 +136,7 @@ Here, I will briefly explain the gas calculation logic during contract execution
         * if it transfers value and if is a new account, add `G_newaccount` to gas
 
 ## Hardfork changes
+
 | Hardfork     | New Items                                                                                                                                                        | Change                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |--------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cancun EVM   | BLOBBASEFEE (0x49) opcode<br/>BLOBHASH (0x50) opcode<br/>TSTORE (0x5C) opcode<br/>TLOAD (0x5D) opcode<br/>MCOPY(0x5E) opcode<br/>kzg (0x0A) precompiled contract | accessList is fully supported, the storage <br/>access which are added to accessList <br/>put through tx args are became warm                                                                                                                                                                                                                                                                                                                                                                                               |
