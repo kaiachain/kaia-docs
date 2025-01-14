@@ -27,7 +27,7 @@ Foundry 由四個主要 CLI 工具組成，可實現快速、模塊化的智能�
 - 代碼編輯器：源代碼編輯器，如 [VS Code](https://code.visualstudio.com/download)。
 - [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)：用於部署合約、簽署事務和與合約交互。
 - RPC 端點：您可以從支持的[端點提供者](../../../references/public-en.md)中獲取。
-- 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
+- 從 [Faucet](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
 - 安裝 [Rust](https://www.rust-lang.org/tools/install) 和 [Foundry](https://github.com/foundry-rs/foundry#installation)。
 
 ## 設置開發環境
