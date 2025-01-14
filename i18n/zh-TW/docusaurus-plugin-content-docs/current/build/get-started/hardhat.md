@@ -4,7 +4,7 @@
 
 ## 導言
 
-本節將指導你使用 [Hardhat](https://hardhat.org/) 向凱亞-凱羅斯網絡部署靈魂令牌。
+本節將指導你使用 [Hardhat](https://hardhat.org/) 向Kaia-Kairos網絡部署靈魂令牌。
 
 Hardhat 是一個智能合約開發環境，它將為您提供幫助：
 
@@ -28,7 +28,7 @@ Hardhat 是一個智能合約開發環境，它將為您提供幫助：
 - 代碼編輯器：源代碼編輯器，如 [VS Code](https://code.visualstudio.com/download)。
 - [Metamask](../tutorials/connecting-metamask.mdx#install-metamask)：用於部署合約、簽署事務和與合約交互。
 - RPC 端點：可從支持的[端點提供程序](../../references/public-en.md)中獲取。
-- 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
+- 從 [Faucet](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
 - [NodeJS和NPM](https://nodejs.org/en/)
 
 ## 設置開發環境
