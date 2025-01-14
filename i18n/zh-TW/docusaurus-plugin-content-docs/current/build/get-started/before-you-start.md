@@ -24,7 +24,7 @@
 - [caver-js](../../references/sdk/caver-js/caver-js.md) ：實現 Kaia JSON-RPC API 的 JavaScript 庫。
 - [caver-java](../../references/sdk/caver-java/caver-java.md)：實現 Kaia JSON-RPC API 的 Java 庫。
 
-**凱亞工具包**
+**Kaia工具包**
 
 - [Kaiascope](https://kaiascope.com/) - 區塊和事務瀏覽器。
 - [Kaia Wallet](https://www.kaiawallet.io/) - Kaia 網絡的瀏覽器擴展錢包。
