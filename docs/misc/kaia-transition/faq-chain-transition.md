@@ -2,7 +2,7 @@
 
 :::info[Archive Notice]
 
-Please note that most of the information provided in this FAQ reflects a transitional period that occurred in 2024, specifically around the June to August timeframe. Many of the events and processes mentioned have already taken place. While the FAQ remains available for historical reference, some sections are now out of date and may no longer apply. For the most current information regarding Kaia, please consult the latest official documentation and announcements.
+Please note that most of the information provided in this FAQ reflects a transitional period that occurred in 2024, and most of the events and processes mentioned have already taken place. While the FAQ remains available for historical reference, some sections are now out of date and may no longer apply. For the most current information regarding Kaia, please consult the latest official documentation and announcements.
 
 :::
 
