@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 **Describe the content contribution you'd suggest**
-A clear and concise description of what you want to be changed in the content of Klaytn docs.
+A clear and concise description of what you want to be changed in the content of Kaia docs.
 
 **Elaborate the suggested content contribution with samples**
 Add any samples to elaborate the suggested ideas of content contribution.
