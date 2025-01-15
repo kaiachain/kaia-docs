@@ -1,0 +1,20 @@
+/* /src/theme/Footer/Feedback/Feedback.module.css */
+.feedbackWrapper {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+  pointer-events: none;
+}
+
+.loaded {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.feedbackWrapper:not(.loaded) :global(pushfeedback-button) {
+  display: none;
+}
+
+:global(:root) {
+  --feedback-primary-color: #789806;
+  --feedback-button-dark-bg-color: var(--feedback-primary-color);
+}
