@@ -12,7 +12,7 @@
 
 最后一种方法是限制交易的计算成本。 我们根据每个 EVM 操作码的实际执行时间对其计算成本进行建模，并限制一个事务的计算成本总和。 通过这种方法，我们可以排除其他因素，只计算归一化的执行时间单位，节点也能达成共识。
 
-因此，我们为 Kaia 选择了第三种方案。 计算成本上限为 100,000,000 美元，但随着 CPU 计算性能的提高，坎昆 EVM 硬分叉后上限已提高到 150,000,000 美元。 该限制值由平台决定，因此开发人员应了解交易的计算成本。 Kaia 提供 [kaia_estimateComputationCost](../../../references/json-rpc/klay/estimate-computation-cost) 来计算事务的计算成本。 用法与 [kaia_estimateGas](../../../references/json-rpc/klay/estimate-gas) 几乎相同。
+因此，我们为 Kaia 选择了第三种方案。 计算成本上限为 100,000,000 美元，但随着 CPU 计算性能的提高，坎昆 EVM 硬分叉后上限已提高到 150,000,000 美元。 该限制值由平台决定，因此开发人员应了解交易的计算成本。 为了计算交易的计算成本，Kaia 提供了 [kaia_estimateComputationCost](../../../references/json-rpc/kaia/estimate-computation-cost)。 用法与 [kaia_estimateGas](../../../references/json-rpc/kaia/estimate-gas) 几乎相同。
 
 :::note
 
@@ -24,7 +24,7 @@
 
 在执行事务时，一系列操作码或预编译合约按顺序执行。 为了限制事务的执行时间，我们根据实际执行时间为操作码和预编译合约建立了一个确定性的执行时间计算模型。
 
-根据这一模型，运算代码和预编译合同的预定计算成本值会被添加到总计算成本中。 如果总值超过计算成本限制，事务执行将中止，并返回 [ComputationCostLimitReached(0x0a)](../../references/sdk/transaction-error-codes.md) 错误。
+根据这一模型，运算代码和预编译合同的预定计算成本值会被添加到总计算成本中。 如果总值超过计算成本限制，事务执行将中止，并返回 [ComputationCostLimitReached(0x0a)](../../references/transaction-error-codes.md) 错误。
 
 在设置计算成本限制值时，如果 `--opcode-computation-cost-limit` 标志值设置为非零值，我们会将其设置为限制值。 如果为零，则限制值将设置为为每个特定硬分叉定义的默认计算成本限制。
 作为例外，call/estimateGas/estimateComputationCost 的限制始终设置为无限，不受标志或硬分叉值的影响。 但是，由于其他限制（如油箱盖），执行仍有可能中止。
