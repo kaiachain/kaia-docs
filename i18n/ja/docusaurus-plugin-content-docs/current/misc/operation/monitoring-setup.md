@@ -1,41 +1,41 @@
-# Configure Node Monitoring
+# ノード監視の設定
 
-This guide explains how to set up Prometheus and Grafana to monitor your Kaia node.
+このガイドでは、Kaiaノードを監視するためにPrometheusとGrafanaをセットアップする方法を説明します。
 
-## 1\. Metric Configuration in Kaia
+## 1\. カイアのメトリック設定
 
-Kaia provides the following flags for metric export:
+Kaiaはメトリック・エクスポート用に以下のフラグを提供しています：
 
-- `--metric`: Enables metric recording. This flag is typically used in conjunction with the `--prometheus` flag.
-- `--prometheus`: Enables exporting recorded metrics to a Prometheus server. This flag is typically used in conjunction with the `--metric` flag.
-- `--prometheusport`: Specifies the port for Prometheus metrics. Defaults to `61001`.
+- \--metric`：メトリックの記録を有効にする。 このフラグは通常、`--prometheus\`フラグと併用される。
+- \--prometheus`：記録したメトリクスをPrometheusサーバーにエクスポートできるようにする。 このフラグは通常、`--metric\`フラグと一緒に使われる。
+- \--prometheusport`：Prometheus メトリクスのポートを指定します。 デフォルトは `61001\` である。
 
-To enable metrics and Prometheus exporting, set both `METRICS` and `PROMETHEUS` to `1` in your `.conf` file:
+メトリクスと Prometheus のエクスポートを有効にするには、`.conf` ファイルで `METRICS` と `PROMETHEUS` の両方を `1` に設定します：
 
 ```conf
 METRICS=1
 PROMETHEUS=1
 ```
 
-## 2\. Setting up Prometheus
+## 2\. プロメテウスのセットアップ
 
-[Prometheus](https://prometheus.io/) acts as the central system for monitoring, providing robust data mining capabilities to extract real-time data from your nodes and archive it.
+[プロメテウス](https://prometheus.io/)は、モニタリングの中央システムとして機能し、ノードからリアルタイムデータを抽出してアーカイブする堅牢なデータマイニング機能を提供します。
 
-:::note[Prometheus Hardware Requirements]
+:::note[Prometheus ハードウェア要件］
 
-Before setting up Prometheus, ensure your system meets the following hardware requirements:
+Prometheusをセットアップする前に、お使いのシステムが以下のハードウェア要件を満たしていることを確認してください：
 
-- **Processor:** At least 2 CPUs
-- **Memory:** Minimum of 4 GB RAM
-- **Storage:** At least 20 GB of free disk space
+- \*\*プロセッサ：少なくとも2CPU
+- \*\*メモリ：最低4GB RAM
+- **ストレージ:** 少なくとも20GBのディスク空き容量
 
 :::
 
-### 2.1 Installing Prometheus
+### 2.1 Prometheusのインストール
 
-The following steps outline the manual installation process for Prometheus. Choose your operating system for specific instructions. For more information about Prometheus installation, refer to the [official Prometheus documentation](https://prometheus.io/docs/prometheus/latest/getting_started/).
+以下の手順は、Prometheus の手動インストール手順の概要です。 具体的な手順については、お使いのオペレーティングシステムを選択してください。 Prometheusのインストールに関する詳細は、[Prometheus公式ドキュメント](https://prometheus.io/docs/prometheus/latest/getting_started/)を参照してください。
 
-1. Download the latest Prometheus release suitable for your architecture (e.g., darwin-amd64) from the official Prometheus download page. This guide uses version 2.53.3 as an example.
+1. あなたのアーキテクチャに適した最新のPrometheusリリース（例：darwin-amd64）をPrometheus公式ダウンロードページからダウンロードしてください。 このガイドでは、バージョン2.53.3を例にしています。
 
 ```bash
 curl -LO https://github.com/prometheus/prometheus/releases/download/v2.53.3/prometheus-2.53.3.darwin-arm64.tar.gz
@@ -45,7 +45,7 @@ curl -LO https://github.com/prometheus/prometheus/releases/download/v2.53.3/prom
 wget https://github.com/prometheus/prometheus/releases/download/v2.53.3/prometheus-2.53.3.linux-amd64.tar.gz
 ```
 
-2. Extract the downloaded archive and install binaries by moving them to `/usr/local/bin/`:
+2. ダウンロードしたアーカイブを展開し、バイナリを `/usr/local/bin/` に移動してインストールする：
 
 ```bash
 tar xvfz prometheus-2.53.3.darwin-arm64.tar.gz
@@ -60,7 +60,7 @@ mv prometheus-2.53.3.linux-amd64/prometheus /usr/local/bin/
 mv prometheus-2.53.3.linux-amd64/promtool /usr/local/bin/
 ```
 
-3. Remove the downloaded archive and extracted directory:
+3. ダウンロードしたアーカイブと解凍したディレクトリを削除します：
 
 ```bash
 rm -rf prometheus-2.53.3.darwin-arm64.tar.gz prometheus-2.53.3.darwin-amd64
@@ -70,7 +70,7 @@ rm -rf prometheus-2.53.3.darwin-arm64.tar.gz prometheus-2.53.3.darwin-amd64
 rm -rf prometheus-2.43.0.linux-amd64.tar.gz prometheus-2.43.0.linux-amd64
 ```
 
-4. Add Prometheus to your `PATH` environment variable to access Prometheus from any terminal session.
+4. Prometheusを環境変数`PATH`に追加すると、どのターミナルセッションからでもPrometheusにアクセスできるようになります。
 
 ```bash
 echo "export PATH=\"\$HOME/monitoring/prometheus:\$PATH\"" >> ~/.bashrc
@@ -78,25 +78,25 @@ source ~/.bashrc
 # This assumes that a prometheus directory already exists in the HOME directory. If not, make a new one (mkdir -p  $HOME/monitoring/prometheus).
 ```
 
-### 2.2 Configuring Prometheus
+### 2.2 Prometheusの設定
 
-Prometheus needs to be configured to scrape metrics from your Kaia nodes.
+PrometheusはKaiaノードからメトリクスをスクレイピングするように設定する必要があります。
 
-:::info[Prometheus Configuration\]
+:::info[Prometheus 構成]
 
-The `prometheus.yml` file configures Prometheus.  The key sections are:
+prometheus.yml\`ファイルはPrometheusを設定する。  主な項目は以下の通り：
 
-- **`global`**:  Sets global configuration parameters like `evaluation_interval` (how often Prometheus evaluates rules) and `scrape_interval` (how often Prometheus scrapes targets).  15 seconds is a reasonable starting point for both, but adjust based on your needs and block time.
+- \*\*\*global`**：  evaluation_interval`（Prometheusがルールを評価する頻度）や `scrape_interval`（Prometheusがターゲットをスクレイピングする頻度）のようなグローバルな設定パラメータを設定します。  どちらも15秒が妥当なスタートポイントだが、ニーズやブロックの時間に応じて調整しよう。
 
-- **`scrape_configs`**: Defines the targets Prometheus monitors.  The `job_name` identifies the target group.  `static_configs` lists the target addresses.  Replace `<ip>` with the IP address of your Kaia node and ensure the port (`61001` by default) is correctly configured.
+- **`scrape_configs`**：Prometheusが監視するターゲットを定義します。  job_name`は対象グループを示す。  static_configs`はターゲットアドレスをリストアップする。  <ip>`をKaiaノードのIPアドレスに置き換え、ポート（デフォルトでは`61001\`）が正しく設定されていることを確認する。
 
-For more advanced configurations, refer to the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
+より高度な設定については、[Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)を参照してください。
 
 :::
 
-1. Open the `prometheus.yml` file located at `prometheus/prometheus.yml` in a text editor.
+1. prometheus/prometheus.yml`にある`prometheus.yml\`ファイルをテキストエディタで開く。
 
-2. Ensure the `scrape_configs` section includes your Kaia nodes. Below is an example configuration:
+2. scrape_configs\`セクションにKaiaノードが含まれていることを確認してください。 以下に設定例を示す：
 
 ```yaml
 global:
@@ -112,21 +112,21 @@ scrape_configs:
       ...
 ```
 
-3. Use `promtool` to check the configuration file for any syntax errors:
+3. promtool\`を使用して、設定ファイルに構文エラーがないかチェックする：
 
 ```bash
 promtool check config prometheus/prometheus.yml
 ```
 
-4. Start Prometheus with your configuration file.
+4. 設定ファイルを使ってPrometheusを起動します。
 
 ```bash
 prometheus --config.file=prometheus/prometheus.yml
 ```
 
-### 2.3 Setting up Prometheus Using Macro Script (macOS)
+### 2.3 マクロスクリプトを使ったPrometheusの設定（macOS）
 
-This script automates the Prometheus installation and configuration process on macOS. Adapt it for other Prometheus versions and operating systems as needed.
+このスクリプトは、macOS上でのPrometheusのインストールと設定プロセスを自動化します。 必要に応じて、他のPrometheusのバージョンやオペレーティングシステムに適応させてください。
 
 ```sh
 rm -rf prometheus
@@ -154,61 +154,61 @@ do
 done
 ```
 
-## 3\. Setting up Grafana
+## 3\. Grafanaのセットアップ
 
-Grafana allows you to visualize the metrics collected by Prometheus through customizable dashboards.
+Grafanaでは、カスタマイズ可能なダッシュボードを通じて、Prometheusが収集したメトリクスを可視化することができます。
 
-:::note[Grafana System Requirements]
+:::note[Grafana システム要件］
 
-Before setting up Grafana, ensure your system meets the minimum hardware and software requirements from the [official Grafana documentation](https://grafana.com/docs/grafana/latest/setup-grafana/installation/).
+Grafanaをセットアップする前に、お使いのシステムが[Grafana公式ドキュメント](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)にあるハードウェアとソフトウェアの最小要件を満たしていることを確認してください。
 
 :::
 
-### 3.1 Installing Grafana
+### 3.1 Grafanaのインストール
 
-Download and install Grafana using the appropriate method for your operating system. For example, you can install Grafana [on macOS using Hombrew](https://grafana.com/docs/grafana/latest/setup-grafana/installation/mac/) (`brew install grafana`). See the [official Grafana installation guide](https://grafana.com/docs/grafana/latest/setup-grafana/installation/) for detailed instructions.
+お使いのオペレーティングシステムに適した方法でGrafanaをダウンロードし、インストールする。 例えば、Grafanaを[Hombrewを使ってmacOSに](https://grafana.com/docs/grafana/latest/setup-grafana/installation/mac/) (`brew install grafana`)インストールすることができる。 詳細な手順については、[公式Grafanaインストールガイド](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)を参照してください。
 
-### 3.2 Configuring Grafana
+### 3.2 Grafanaの設定
 
-Set up Grafana to visualize the metrics collected by Prometheus.
+Prometheusが収集したメトリクスを可視化するためにGrafanaをセットアップする。
 
-1. Start Grafana Server.
+1. Grafana Serverを起動します。
 
 ```bash
 # macOS using Homebrew
 brew services start grafana
 ```
 
-For other operating systems, refer to the [official Grafana documentation](https://grafana.com/docs/grafana/latest/setup-grafana/start-restart-grafana/).
+その他のOSについては、[Grafana公式ドキュメント](https://grafana.com/docs/grafana/latest/setup-grafana/start-restart-grafana/)を参照してください。
 
-2. Open a web browser and navigate to `http://localhost:3000`. Log in using the default credentials (admin/admin).
+2. ウェブブラウザを開き、`http://localhost:3000`に移動する。 デフォルトの認証情報（admin/admin）を使用してログインする。
 
-3. Add Prometheus as a Data Source.
+3. プロメテウスをデータソースとして追加する。
 
-   - Navigate to **Cofiguration** -> **Data Sources**.
-   - Click on **Add data source**.
-   - Select **Prometheus** as the type.
-   - Set the **URL** to `http://localhost:9090` (modify if Prometheus is on a different server).
-   - Click **Save & Test** to verify the connection.
+   - Configiguration\*\* -> **Data Sources** に移動します。
+   - データソースの追加\*\*をクリックします。
+   - タイプは**プロメテウス**を選択してください。
+   - URL\*\*\* を `http://localhost:9090` に設定してください（Prometheus が別のサーバーにある場合は変更してください）。
+   - Save & Test\*\*をクリックして接続を確認します。
 
-4. Add a Kaia dashboard and add a panel to visualize Kaia block number.
-   - [Create a new dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/) or navigate to an existing one.
-   - Click **Edit** in the top-right corner, click **Add** in the dashboard header, and select **Visualization** in the drop-down to add a panel.
-   - Under **Query**:
-     1. Select your Prometheus as **Data source**.
-     2. Enter `klaytn_blockchain_head_blocknumber` in the **Metric** field.
-     3. In **Options**, select **Custom** from the **Legend** dropdown and enter `{{instance}}` as the custom legend format.
-   - Click **Apply** to save the panel to your dashboard.
+4. カイアのダッシュボードを追加し、カイアのブロック番号を可視化するパネルを追加する。
+   - [新しいダッシュボードを作成する](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/)、または既存のダッシュボードに移動する。
+   - 右上の**Edit**をクリックし、ダッシュボードのヘッダーにある**Add**をクリックし、ドロップダウンから**Visualization**を選択してパネルを追加します。
+   - クエリー\*\*の下：
+     1. プロメテウスを**データソース**として選択します。
+     2. Metric\*\*フィールドに `klaytn_blockchain_head_blocknumber` と入力する。
+     3. Options**で、**Legend** ドロップダウンから**Custom\*\* を選択し、カスタム凡例フォーマットとして `{{instance}}` を入力する。
+   - Apply\*\*をクリックしてパネルをダッシュボードに保存します。
 
-:::note[Additional Kaia Dashboards]
+:::note[Additional カイア・ダッシュボード］
 
-For a complete pre-configured dashboard and automated provisioning setup, refer to the [klaytn-deploy repository](https://github.com/klaytn/klaytn-deploy/tree/main/grafana). This repository contains JSON files for pre-built dashboards and configuration files for provisioning data sources.
+設定済みのダッシュボードと自動プロビジョニングのセットアップについては、[klaytn-deploy リポジトリ](https://github.com/klaytn/klaytn-deploy/tree/main/grafana) を参照してください。 このリポジトリには、事前構築されたダッシュボードの JSON ファイルと、データソースをプロビジョニングするための設定ファイルが含まれています。
 
 :::
 
-### 3.3 Setting up Grafana Using Macro Script (macOS)
+### 3.3 マクロスクリプトによるGrafanaの設定（macOS）
 
-This script automates the Grafana installation process on macOS. Adapt it for other Grafana versions and operating systems as needed.
+このスクリプトは、macOS上でのGrafanaのインストールプロセスを自動化します。 必要に応じて、他のGrafanaのバージョンやオペレーティングシステムに適応させる。
 
 ```sh
 # Remove any existing Grafana installation
@@ -247,19 +247,19 @@ fi
 cp klaytn-deploy/grafana/*.json grafana/conf/provisioning/dashboards/
 ```
 
-## 4\. Access Services
+## 4\. アクセスサービス
 
-After installation and configuration, access Prometheus and Grafana interfaces to verify that everything is set up correctly.
+インストールと設定が終わったら、PrometheusとGrafanaのインターフェースにアクセスして、すべてが正しく設定されていることを確認する。
 
-- **Prometheus Interface**
+- \*\*プロメテウス・インターフェイス
 
   - **URL:** `http://localhost:9090`
-  - **Verification:** Navigate to this URL in your browser. You should see the Prometheus web interface. Use the **Graph** tab to execute sample queries and ensure metrics are being scraped.
+  - \*\*検証：**ブラウザでこのURLに移動します。 プロメテウスのウェブインターフェイスが表示されるはずです。 Graph**タブを使用してサンプル・クエリーを実行し、メトリクスがスクレイピングされていることを確認します。
 
-- **Grafana Interface**
+- \*\*グラファナ・インターフェイス
 
   - **URL:** `http://localhost:3000`
-  - **Default Credentials:**
-    - **Username:** `admin`
-    - **Password:** `admin`
-  - **Verification:** Upon first login, you'll be prompted to change the default password. After logging in, ensure that the Prometheus data source is correctly configured and that the Kaia dashboard displays metrics.
+  - **デフォルトの認証情報:**。
+    - **ユーザー名:** `admin`
+    - **パスワード：** `admin`
+  - \*\*初回ログイン時、デフォルトパスワードの変更を求められます。 ログイン後、Prometheusデータソースが正しく設定され、Kaiaダッシュボードにメトリクスが表示されていることを確認します。
