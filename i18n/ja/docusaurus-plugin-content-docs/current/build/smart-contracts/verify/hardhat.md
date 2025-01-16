@@ -1,14 +1,14 @@
 ---
-sidebar_label: Using Hardhat
+sidebar_label: ハードハットの使用
 ---
 
-# How to Verify Smart Contracts Using Hardhat
+# Hardhatを使用してスマートコントラクトを検証する方法
 
 This guide allows you to automatically verify your smart contracts' source code on Klaytnscope straight from your CLI using the Hardhat Verify Plugin.
 
-To verify your contract on klaytn, you need to add the following configuration to your `hardhat.config.js`:
+klaytnでの契約を確認するには、`hardhat.config.js`に以下の設定を追加する必要があります：
 
-## Mainnet
+## メインネット
 
 ```
 module.exports = {
@@ -37,35 +37,35 @@ module.exports = {
 
 ```
 
-## Kairos
+## カイロス
 
 ```
 module.exports = {
-  networks: {
+  networks：{
     kairos: {
-      chainId: 1001,
-      url: "RPC_URL",
+      chainId：1001,
+      url："RPC_URL",
     },
   },
-  etherscan: {
-    apiKey: {
+  etherscan：{
+    apiKey：{
       kairos: "unnecessary",
     },
-    customChains: [
+    customChains：[
       {
-        network: "kairos",
-        chainId: 1001,
-        urls: {
-          apiURL: "https://api-baobab.klaytnscope.com/api",
-          browserURL: "https://kairos.kaiascope.com",
+        network："kairos",
+        chainId：1001,
+        urls：{
+          apiURL："https://api-baobab.klaytnscope.com/api",
+          browserURL："https://kairos.kaiascope.com",
         },
       },
-    ]
+    ]。
   }
 }
 ```
 
-To verify the contract, you will run the verify command and pass in the address of the deployed contract, network and parameters if any.
+コントラクトを検証するには、verifyコマンドを実行し、デプロイされたコントラクトのアドレス、ネットワーク、パラメータがあればそれを渡す。
 
 ```bash
 npx hardhat verify –network <network> <deployed_address> <parameters>
@@ -75,13 +75,13 @@ npx hardhat verify –network <network> <deployed_address> <parameters>
 npx hardhat verify --network klaytn 0x131b54E65c99d34BCA738F29051fDAceEa91C969 1000000000000000
 ```
 
-In your terminal you should see the source code for your contract was successfully submitted for verification. If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Kaiascope](https://kairos.kaiascope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode).
+ターミナルに、契約のソースコードが検証のために正常に送信されたことが表示されるはずです。 検証が成功した場合、[Successfully verified contract]と表示され、[Kaiascope](https://kairos.kaiascope.com/account/0x131b54E65c99d34BCA738F29051fDAceEa91C969?tabId=contractCode)に契約コードへのリンクが表示されます。
 
 ![](/img/build/smart-contracts/verify/terminal-hh-verify-ss.png)
 
 ![](/img/build/smart-contracts/verify/scope-hh-verify-ss.png)
 
-## Useful links
+## お役立ちリンク
 
-- [Configuration for Hardhat Verify Plugin](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
+- [Hardhat Verifyプラグインの設定](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
 - [Verifying contracts using Hardhat on Klaytnscope](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
