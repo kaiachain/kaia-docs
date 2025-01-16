@@ -1,3 +1,3 @@
 # State Migration
 
-See [Storage Optimization](../state-pruning/#state-batch-pruning-state-migration).
+See [Storage Optimization](state-pruning.md#state-batch-pruning-state-migration).
