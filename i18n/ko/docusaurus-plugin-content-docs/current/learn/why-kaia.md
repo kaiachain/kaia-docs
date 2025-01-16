@@ -1,4 +1,4 @@
-# 왜 카이아인가?
+# 카이아를 기반으로 구축해야 하는 이유
 
 Kaia 블록체인은 다양한 규모의 프로젝트에 강력한 인프라를 제공하여 웹3.0 채택을 선도하는 아시아 최고의 블록체인이 되는 것을 목표로 합니다. 이 문서에서는 주요 디자인 원칙과 가치 지향점을 바탕으로 Kaia가 어떻게 다른지 설명합니다.
 
@@ -34,9 +34,9 @@ Kaia 블록체인은 다양한 규모의 프로젝트에 강력한 인프라를 
 
 ## 저비용과 향상된 사용자 경험
 
-1. **합리적인 거래 수수료**: 최종 사용자는 높은 거래 수수료에 대한 부담이 없습니다. 비용은 안정적이며 트랜잭션의 복잡도에 따라 정해집니다. [합리적인 스마트 컨트랙트 실행 비용](computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost) 및 [트랜잭션 수수료](transaction-fees/transaction-fees.md)를 참조하세요.
+1. **합리적인 거래 수수료**: 최종 사용자는 높은 거래 수수료에 대한 부담이 없습니다. 비용은 안정적이며 트랜잭션의 복잡도에 따라 정해집니다. 저렴한 스마트 컨트랙트 실행 비용](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia) 및 [트랜잭션 수수료](transaction-fees/transaction-fees.md)를 참조하세요.
 
-2. **[수수료 위임](./transactions/transactions.md#fee-delegation)**: 애플리케이션에서 사용자의 거래 수수료를 부담할 수 있으므로 유연한 비즈니스 모델이 가능하고 사용자 유치 장벽을 낮출 수 있습니다.
+2. **수수료 위임**: 애플리케이션이 사용자의 거래 수수료를 부담할 수 있어 유연한 비즈니스 모델이 가능하고 사용자 확보 장벽을 낮출 수 있습니다.
 
 ## 오픈소스 인프라 및 생태계 지원
 
@@ -44,7 +44,7 @@ Kaia 블록체인은 다양한 규모의 프로젝트에 강력한 인프라를 
 
 2. **보조 인프라**: 서비스 통합, 스테이블코인 통합, DAO, NFT 마켓플레이스, DEX, DeFi, 기존 금융 인터페이스 등 제품 및 서비스를 지원하기 위한 에코시스템입니다.
 
-3. **생태계 펀드**: 새로 발행되는 토큰의 50%는 [Kaia Ecosystem Fund](token-economy.md#kaia-ecosystem-fund)와 [Kaia Infrastructure Fund](token-economy.md#kaia-infrastructure-fund)를 통해 생태계에 재투자됩니다.
+3. **생태계 펀드**: 새로 발행되는 토큰의 50%는 [카이아 생태계 펀드](./token-economics/token-economy.md#kaia-ecosystem-fund)와 [카이아 인프라 펀드](./token-economics/token-economy.md#kaia-infrastructure-fund)를 통해 생태계에 재투자됩니다.
 
 ## 커뮤니티 협업 및 거버넌스
 
