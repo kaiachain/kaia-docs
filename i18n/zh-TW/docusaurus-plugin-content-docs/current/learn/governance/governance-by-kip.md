@@ -15,7 +15,7 @@ CnStakingV3 將兼容現有的核心合約，如 AddressBook 和 StakingTracker�
 
 **日期：2024-04-22**
 
-KIP-160 建議加強國庫基金再平衡機制，解決 KIP-103 的侷限性。 主要動機是允許基金餘額的增加和減少，並使再平衡塊編號可編輯。 這次更新涉及重新平衡流程的通用化，使燒錢和鑄幣都成為可能，並確保重新平衡區塊的數量能與區塊鏈硬分叉時間表的變化保持一致。 在[合同地址](../../../references/contract-addresses) 頁面查找再平衡詳情。
+KIP-160 建議加強國庫基金再平衡機制，解決 KIP-103 的侷限性。 主要動機是允許基金餘額的增加和減少，並使再平衡塊編號可編輯。 這次更新涉及重新平衡流程的通用化，使燒錢和鑄幣都成為可能，並確保重新平衡區塊的數量能與區塊鏈硬分叉時間表的變化保持一致。 Find the rebalance detail in the [contracts addresses](../../references/contract-addresses) page.
 
 ## KIP-149：系統合同的統一部署和管理<a id="KIP-149"></a>
 
@@ -35,7 +35,7 @@ KIP-149 引入了在 Kaia 區塊鏈上部署和管理系統合約的標準化方
 
 KIP-103 是在 v1.10.2 版本中引入的。 它引入了庫務基金再平衡機制，這是實施 KGP-6 的建議。
 
-KGP-6 建議旨在建立一個可持續和可核查的 KAIA 代幣經濟。 管理委員會批准了該決議，31 名成員中有 26 人投了贊成票。 該提案包括來自 1inch、Swapscanner、Ground X 等多個組織的貢獻。 我們的目標是為 KAIA 代幣創建一個更強大、更透明的生態系統。 在[合同地址](../../../references/contract-addresses) 頁面查找再平衡詳情。
+KGP-6 建議旨在建立一個可持續和可核查的 KAIA 代幣經濟。 管理委員會批准了該決議，31 名成員中有 26 人投了贊成票。 該提案包括來自 1inch、Swapscanner、Ground X 等多個組織的貢獻。 我們的目標是為 KAIA 代幣創建一個更強大、更透明的生態系統。 Find the rebalance detail in the [contracts addresses](../../references/contract-addresses) page.
 
 ## KIP-82：KIP-82：因取消基尼係數而產生的新的 GC 獎勵結構<a id="KIP-82"></a>
 
