@@ -17,7 +17,7 @@ kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 - IPv4 映射 IPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)。
 - 域名 (`your.node.com`)
 
-**端口**\*用於通過 TCP 與對等節點建立連接。 在 Kaia 中，默認 "端口 "為 "32323"，默認 "子端口 "為 "32324"。 請注意，默認的 `subport` 在 `kend.conf` 中配置為 `port + 1`。 根據 TCP 監聽端口的數量，Kaia 提供兩種 [連接類型](./multiport.md)。
+**端口**\*用於通過 TCP 與對等節點建立連接。 在 Kaia 中，默認 "端口 "為 "32323"，默認 "子端口 "為 "32324"。 請注意，默認的 `subport` 在 `kend.conf` 中配置為 `port + 1`。 Depending on the number of TCP listening ports, Kaia offers two [types of connections](scaling-solutions.md#multi-channel-communication).
 
 **discport** 用於檢查已知鄰居是否是可到達的 kaia 節點，並獲取其鄰居地址以建立新連接。 請注意，這是一個 UDP 端口。
 默認情況下，UDP 端口或 "discport "與 TCP 端口使用相同的端口。
@@ -38,5 +38,5 @@ kni://a979...163c@10.0.0.1:32323?discport=30301                 # either single-
 kni://a979...163c@10.0.0.1:32323?subport=32324&discport=30301   # multi-channel peer
 ```
 
-如果您想知道如何生成節點的 KNI，請參閱 [節點密鑰和節點 URI 創建](../nodes/core-cell/install/before-you-install.md#node-key-node-uri-creation)。
-KNI 方案用於節點發現協議、[設置 `static-nodes.json` 文件](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodes-json)、[addPeer API](../references/json-rpc/admin/add-peer)、[bootnodes 選項](../misc/operation/configuration.md#properties)等。
+If you want to know how to generate a KNI of a node, please refer to [Node Key & Node URI Creation](../nodes/core-cell/install/before-you-install.md#node-key--node-uri-creation).
+The KNI scheme is used in node discovery protocol, [setting `static-nodes.json` file](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodesjson), [addPeer API](../references/json-rpc/admin/add-peer), [bootnodes option](../misc/operation/configuration.md#properties) and etc.
