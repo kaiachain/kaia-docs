@@ -1,14 +1,14 @@
 ---
-sidebar_label: Node Package Downloads
+sidebar_label: ノードパッケージダウンロード
 ---
 
 #
 
 <NodePackageDownloads></NodePackageDownloads>
 
-## Get the Sources <a id="get-the-sources"></a>
+## 情報源を入手する<a id="get-the-sources"></a>
 
-You can retrieve the source code through Git. Documentation is hosted on GoDoc.
+ソースコードはGitから取得できる。 ドキュメントはGoDocでホストされている。
 
 - [github/kaia](https://github.com/kaiachain/kaia)
 - [godoc/kaia](https://godoc.org/github.com/kaiachain/kaia)
