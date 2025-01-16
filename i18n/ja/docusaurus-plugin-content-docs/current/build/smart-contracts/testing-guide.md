@@ -1,19 +1,19 @@
-# Test Smart Contracts
+# スマートコントラクトのテスト
 
-In this section, we'll introduce how to test smart contracts. Because any transaction on the blockchain is not reversible, testing your smart contract is crucial before you deploy the contract.
+このセクションでは、スマート・コントラクトのテスト方法を紹介する。 ブロックチェーン上の取引は元に戻せないため、スマート・コントラクトをデプロイする前にテストすることが重要だ。
 
-## Testing with Truffle <a href="#testing-with-truffle" id="testing-with-truffle"></a>
+## トリュフを使ったテスト<a href="#testing-with-truffle" id="testing-with-truffle"></a>
 
-Truffle provides an automated testing framework. This framework lets you write simple and manageable tests in two different ways:
+Truffleは自動テストのフレームワークを提供する。 このフレームワークを使うと、シンプルで管理しやすいテストを2種類の方法で書くことができる：
 
-- In `Javascript` and `TypeScript`, for exercising your contracts from the outside world, just like application.
-- In `Solidity`, for exercising your contracts in advances, bare-to-the-metal scenarios.
+- Javascript`と`TypeScript\`では、アプリケーションと同じように、外界から契約を行使することができる。
+- Solidity\`では、前進、ベアトゥザメタル・シナリオで契約を行使する。
 
 ### Getting started <a href="#1-getting-started" id="1-getting-started"></a>
 
-We will follow the [Deployment Guide using Truffle](./deploy/deploy.md#truffle) to create a contract and deploy it. But, before we deploy it, we will add a setter function `setGreet` to the contract for testing purpose. The source code is given below.
+ここでは、[Truffleを使用したデプロイメント・ガイド](./deploy/deploy.md#truffle)に従ってコントラクトを作成し、デプロイします。 しかし、デプロイする前に、テストのためにコントラクトにセッター関数 `setGreet` を追加する。 ソースコードを以下に示す。
 
-**NOTE:** We have made some modifications to the contract for testing.
+\*\*注：\*\*\*テストのため、契約を一部変更しました。
 
 Below is KlaytnGreeting contract source code.
 
@@ -54,7 +54,7 @@ contract KlaytnGreeter is Mortal {
 
 We will test 1) `greet()` function whether it returns "Hello, Klaytn" message properly, 2) `setGreet()` function whether it set new greeting message properly and reverts when non-owner account attempts to update the greeting.
 
-First, we will install the Chai assertions library (or any different assertions library you use) for generic assertions, and the truffle-assertions library for the smart contract assertions.
+最初に、一般的なアサーションのためにChaiアサーション・ライブラリ（またはあなたが使用する別のアサーション・ライブラリ）をインストールし、スマート・コントラクトのアサーションのためにtruffle-assertionsライブラリをインストールします。
 
 ```
 npm install --save-dev chai truffle-assertions
@@ -62,9 +62,9 @@ npm install --save-dev chai truffle-assertions
 
 ### Writing test in Solidity <a href="#2-writing-test-in-solidity" id="2-writing-test-in-solidity"></a>
 
-Testing with Solidity can be a little bit more intuitive than JavaScript tests. Solidity test contracts live alongside JavaScript tests as .sol files.
+Solidity を使用したテストは、JavaScript を使用したテストよりも少し直感的です。 Solidity テスト契約は、JavaScript テストと一緒に .sol ファイルとして保存されます。
 
-Create a file called `TestKlaytnGreeting.sol` in the `test` folder. The Truffle suite provides us with helper libraries for testing, so we need to import those. Let's take a look at the example Solidity test:
+Create a file called `TestKlaytnGreeting.sol` in the `test` folder. Truffleスイートはテスト用のヘルパー・ライブラリを提供しているので、それらをインポートする必要がある。 Solidityテストの例を見てみよう：
 
 ```
 pragma solidity ^0.5.6;
@@ -74,10 +74,10 @@ import "truffle/DeployedAddresses.sol";
 import "../contracts/HashMarket.sol";
 ```
 
-- Assert : It gives us access to various testing functions, like `Assert.equals()`, `Assert.greaterThan()`, etc.
-- DeployedAddresses : Every time you change your contract, you must redeploy it to a new address. You can get the deployed contract addresses through this library.
+- Assert ：Assert.equals()`や`Assert.greaterThan()\`など、様々なテスト関数にアクセスできる。
+- DeployedAddresses : 契約を変更するたびに、新しいアドレスに再デプロイする必要があります。 このライブラリを通じて、デプロイされた契約アドレスを取得することができる。
 
-Now, Let's write a test code.
+では、テストコードを書いてみよう。
 
 ```
 pragma solidity ^0.5.6;
@@ -101,7 +101,7 @@ contract TestKlaytnGreeter {
 }
 ```
 
-Run your Solidity test code.
+Solidity テストコードを実行します。
 
 ```
 $ truffle test
@@ -137,7 +137,7 @@ Compiling your contracts...
       at process._tickCallback (internal/process/next_tick.js:68:7)
 ```
 
-Oops, we failed. Let's check the error message,`Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`. I can notice the missed `',(comma)'` at _string memory expectedGreet = "Hello Klaytn"_.\
+おっと、失敗した。 Let's check the error message,`Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`. I can notice the missed `',(comma)'` at _string memory expectedGreet = "Hello Klaytn"_.\
 Fix the code and run the test again.
 
 ```
@@ -159,15 +159,15 @@ Compiling your contracts...
   1 passing (5s)
 ```
 
-Congratulations! Your test has passed.
+おめでとう！ テストは合格だ。
 
 ### Writing test in JavaScript <a href="#3-writing-test-in-javascript" id="3-writing-test-in-javascript"></a>
 
-Truffle uses the [Mocha](https://mochajs.org/) testing framework and [Chai](https://www.chaijs.com/) assertion library to provide a solid framework for JavaScript test. JavaScript test gives you more flexibility and enables you to write more complex tests.
+Truffle は、[Mocha](https://mochajs.org/) テストフレームワークと [Chai](https://www.chaijs.com/) アサーションライブラリを使用し、JavaScript テストのための強固なフレームワークを提供します。 JavaScriptテストは、より柔軟性があり、より複雑なテストを書くことができる。
 
 Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory.\\
 
-The test code is:
+テストコードはこうだ：
 
 ```javascript
 // Interacting directly with KlaytnGreeter contract
@@ -210,24 +210,24 @@ contract("KlaytnGreeter", async(accounts) => {
 });
 ```
 
-If you are unfamiliar with `Mocha` unit test, please check the [Mocha document](https://mochajs.org/#getting-started).
+もし `Mocha` ユニットテストに馴染みがなければ、[Mocha ドキュメント](https://mochajs.org/#getting-started) を参照してください。
 
-- Use `contract()` instead of `describe()`
+- describe()`の代わりに `contract()\` を使う。
 
-  Structurally, the Truffle test code shouldn't be much different from the usual test code of Mocha. Your test should contain the code that Mocha will recognize it as an automated test. The difference between Mocha and Truffle test is the contract() function.
+  構造的には、Truffleのテストコードは通常のMochaのテストコードとあまり変わらないはずです。 テストには、Mocha が自動テストとして認識するコードを含める必要があります。 MochaとTruffleのテストの違いは、contract()関数です。
 
   **NOTE** the use of the `contract()` function, and the `accounts` array for specifying available Klaytn accounts.
-- Contract abstractions within your tests
+- テスト内で抽象化を契約する
 
-  Since Truffle has no way of detecting which contract you'll need to interact with during test, you should specify the contract explicitly. One way to do this is by using the `artifacts.require()` method.
-- `it` syntax
+  Truffle には、テスト中にどのコントラクトとやり取りする必要があるかを検出する手段がないため、コントラクトを明示的に指定する必要があります。 これを行う一つの方法は、`artifacts.require()`メソッドを使うことである。
+- it\`構文
 
-  This represents each test case with description. The description will print on the console on test-run.
-- `truffle-assertion` library
+  これは各テストケースを説明とともに表している。 説明文はテスト実行時にコンソールに表示される。
+- truffle-assertion\`ライブラリ
 
-  This library allows you to easily test reverts or other failures by offering the `truffleAssert.reverts()` and `truffleAssert.fails()` functions.
+  このライブラリは `truffleAssert.reverts()` と `truffleAssert.fails()` 関数を提供し、差し戻しやその他の失敗を簡単にテストできるようにします。
 
-The output should like the following:
+出力は以下のようになるはずだ：
 
 ```
 Using network 'development'.
@@ -248,14 +248,14 @@ Compiling your contracts...
   3 passing (158ms)
 ```
 
-Congratulations! Your test has passed.
+おめでとう！ テストは合格だ。
 
 ### Specifying test <a href="#4-specifying-test" id="4-specifying-test"></a>
 
-You can choose the test file to be executed.
+実行するテストファイルを選択できる。
 
 ```
 truffle test ./test/0_KlaytnGreeting.js
 ```
 
-For more details, please check [Truffle testing](https://www.trufflesuite.com/docs/truffle/testing/testing-your-contracts) and [Truffle commands](https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#test) for details.
+詳しくは、[Truffle testing](https://www.trufflesuite.com/docs/truffle/testing/testing-your-contracts)、[Truffle commands](https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#test)をご覧ください。
