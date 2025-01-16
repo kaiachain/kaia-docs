@@ -43,54 +43,69 @@ const sidebars = {
   learnSidebar: [
     'learn/learn',
     'learn/why-kaia',
-    'learn/consensus-mechanism',
-    'learn/accounts',
     {
       type: 'category',
-      label: 'Transactions',
-      link: { type: 'doc', id: 'learn/transactions/transactions' },
+      label: 'Core Concepts',
       items: [
-        'learn/transactions/basic',
-        'learn/transactions/ethereum',
-        'learn/transactions/fee-delegation',
-        'learn/transactions/partial-fee-delegation',
+        'learn/accounts',
+        'learn/transactions',
+        {
+          type: 'category',
+          label: 'Transaction Fees',
+          link: { type: 'doc', id: 'learn/transaction-fees/transaction-fees' },
+          items: [
+            'learn/transaction-fees/intrinsic-gas',
+            'learn/transaction-fees/execution-gas',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Smart Contracts',
+          link: { type: 'doc', id: 'learn/smart-contracts/smart-contracts' },
+          items: [
+            'learn/smart-contracts/precompiled-contracts',
+          ],
+        },
+        'learn/consensus-mechanism',
+        'learn/kni',
       ],
     },
     {
       type: 'category',
-      label: 'Transaction Fees',
-      link: { type: 'doc', id: 'learn/transaction-fees/transaction-fees' },
+      label: 'Advanced Topics',
       items: [
-        'learn/transaction-fees/intrinsic-gas',
-        'learn/transaction-fees/execution-gas',
+        {
+          type: 'category',
+          label: 'Transaction Execution',
+          link: { type: 'doc', id: 'learn/computation/computation' },
+          items: [
+            'learn/computation/execution-model',
+            'learn/computation/computation-cost',
+            'learn/computation/debug-tracing',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Data Management',
+          link: { type: 'doc', id: 'learn/storage/storage' },
+          items: [
+            'learn/storage/block-sync',
+            'learn/storage/state-pruning',
+          ],
+        },
+        'learn/scaling-solutions',
       ],
     },
+
     {
       type: 'category',
-      label: 'Computation',
-      link: { type: 'doc', id: 'learn/computation/computation' },
+      label: 'Token Economics',
+      link: { type: 'doc', id: 'learn/token-economics/token-economics' },
       items: [
-        'learn/computation/computation-cost',
-        'learn/computation/execution-model',
-        'learn/computation/kaia-smart-contract',
-        'learn/computation/precompiled-contracts',
-        'learn/computation/debug-tracing',
+        'learn/token-economics/kaia-native-token',
+        'learn/token-economics/token-economy',
       ],
     },
-    {
-      type: 'category',
-      label: 'Data Management',
-      link: { type: 'doc', id: 'learn/storage/storage' },
-      items: [
-        'learn/storage/block-sync',
-        'learn/storage/state-pruning',
-      ],
-    },
-    'learn/multiport',
-    'learn/kni',
-    'learn/scaling-solutions',
-    'learn/kaia-native-token',
-    'learn/token-economy',
     {
       type: 'category',
       label: 'Governance',
@@ -118,6 +133,17 @@ const sidebars = {
           ],
         },
         'build/get-started/getting-kaia',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Transactions',
+      link: { type: 'doc', id: 'build/transactions/transactions' },
+      items: [
+        'build/transactions/basic',
+        'build/transactions/ethereum',
+        'build/transactions/fee-delegation',
+        'build/transactions/partial-fee-delegation',
       ],
     },
     {

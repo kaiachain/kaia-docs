@@ -85,14 +85,6 @@ const StyledContent = styled(View)`
 
 const featureList: FeatureType[] = [
   {
-    title: <Translate>Kaia Overview</Translate>,
-    imgSrcLight: img1Light, // Use the light theme image here
-    imgSrcDark: img1Dark, // Use the dark theme image here
-    description: <Translate>Want to know about Kaia?</Translate>,
-    to: '/learn',
-    altText: 'Kaia Overview',
-  },
-  {
     title: <Translate>DApp Developers</Translate>,
     imgSrcLight: img2Light,
     imgSrcDark: img2Dark,
@@ -115,6 +107,14 @@ const featureList: FeatureType[] = [
     description: <Translate>APIs and libraries</Translate>,
     to: '/references',
     altText: 'Kaia API references',
+  },
+  {
+    title: <Translate>Kaia Overview</Translate>,
+    imgSrcLight: img1Light, // Use the light theme image here
+    imgSrcDark: img1Dark, // Use the dark theme image here
+    description: <Translate>Want to know about Kaia?</Translate>,
+    to: '/learn',
+    altText: 'Kaia Overview',
   },
 ]
 

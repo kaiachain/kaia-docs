@@ -14,7 +14,7 @@ Kaia’s funding structure runs continuously with Kaia network’s block generat
 * Kaia Ecosystem Fund (KEF): 25%
 * Kaia Infrastructure Fund (KIF): 25%
 
-9.6 KAIA will be minted for every new block. This implies that approximately 300 million KAIA will be minted annually, which is equivalent to 5.2% annual inflation against the total KAIA tokens in the market (the annual inflation rate is subject to change through the Kaia Governance Process). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](transaction-fees/transaction-fees.md).
+9.6 KAIA will be minted for every new block. This implies that approximately 300 million KAIA will be minted annually, which is equivalent to 5.2% annual inflation against the total KAIA tokens in the market (the annual inflation rate is subject to change through the Kaia Governance Process). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](../transaction-fees/transaction-fees.md).
 
 ## Kaia Governance Council Reward <a id="kaia-governance-council-reward"></a>
 
@@ -90,4 +90,4 @@ Key features of this contract include:
 
 This Treasury Rebalancing mechanism allows Kaia to maintain a dynamic and responsive token economy, better serving the evolving needs of its ecosystem while upholding principles of transparency and security. By leveraging smart contract technology and a consensus-based approach, it provides a structured and verifiable way to adjust treasury funds, ensuring that the Kaia blockchain can adapt to changing circumstances while maintaining the trust of its community.
 
-For the information on the Treasury Rebalance contract addresses, please refer to [KIP-160](./governance/governance-by-kip.md#kip-160-an-update-on-treasury-fund-rebalancing-) and [KIP-103](./governance/governance-by-kip.md#kip-103-treasury-fund-rebalancing-).
+For the information on the Treasury Rebalance contract addresses, please refer to [KIP-160](../governance/governance-by-kip.md#kip-160-an-update-on-treasury-fund-rebalancing) and [KIP-103](../governance/governance-by-kip.md#kip-103-treasury-fund-rebalancing).

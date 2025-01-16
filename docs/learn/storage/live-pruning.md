@@ -1,3 +1,3 @@
 # Live Pruning
 
-See [Storage Optimization](../state-pruning/#state-live-pruning).
+See [Storage Optimization](state-pruning.md#state-live-pruning).
