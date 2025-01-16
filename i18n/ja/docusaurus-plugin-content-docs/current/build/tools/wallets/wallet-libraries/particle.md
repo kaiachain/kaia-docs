@@ -2,55 +2,55 @@
 sidebar_label: Particle Network
 ---
 
-# Integrate Particle Network into a dApp
+# パーティクルネットワークをdAppに統合する
 
 ![](/img/banners/kaia-particle.png)
 
-## Introduction
+## はじめに
 
 [Particle Network](https://particle.network)'s Wallet Abstraction services enable universal, Web2-adjacent onboarding and interactions.
 
-The [Particle Connect SDK](https://developers.particle.network/api-reference/connect/desktop/web) supports EVM-compatible chains, including Kaia and its testnet. While traditional Web3 wallets are offered as connection mechanisms through Particle Connect, social logins through social accounts such as your email address, Google account, phone number, etc. are also available. If a user decides to log in with a Web2 account, you'll have the ability to call `getUserInfo` from `@particle-network/auth-core`, which will return an object containing key details such as their name, email, wallet addresses, etc.
+Particle Connect SDK](https://developers.particle.network/api-reference/connect/desktop/web)は、Kaiaとそのテストネットを含むEVM互換チェーンをサポートしています。 While traditional Web3 wallets are offered as connection mechanisms through Particle Connect, social logins through social accounts such as your email address, Google account, phone number, etc. are also available. If a user decides to log in with a Web2 account, you'll have the ability to call `getUserInfo` from `@particle-network/auth-core`, which will return an object containing key details such as their name, email, wallet addresses, etc.
 
-With Particle Network, developers on Kaia can embed social logins for the Kaia Mainnet and testnet, allowing users to generate and use a wallet within your application using only their Google, email, X, etc.
+Particle Networkを使えば、Kaiaの開発者はKaiaメインネットとテストネット用のソーシャルログインを埋め込むことができ、ユーザーはGoogle、Eメール、Xなどを使ってアプリケーション内でウォレットを生成し、使用することができます。
 
-This page offers an overview and tutorial for implementing Particle Connect within a Kaia-based application, to help you start the integration process.
+このページでは、KaiaベースのアプリケーションにParticle Connectを実装するための概要とチュートリアルをご紹介します。
 
-## Prerequisites
+## 前提条件
 
-- A [Next.js project](https://nextjs.org/docs/getting-started/installation) set up with TypeScript and Tailwind CSS
-  - You can create this by running: `npx create-next-app@latest`
+- TypeScriptとTailwind CSSを使った[Next.jsプロジェクト](https://nextjs.org/docs/getting-started/installation)
+  - これを作成するには、`npx create-next-app@latest` を実行します。
 - A project ID, client key, and app ID from the [Particle dashboard](https://dashboard.particle.network).
 
-## Installation
+## インストール
 
-To leverage Particle Network, specifically Particle Connect, within your dApp, you'll need to first install the required libraries. The Particle Connect SDK streamlines wallet creation, user login, and blockchain interactions with one interface. It supports both social and Web3 logins for easy access.
+Particle Network、特にParticle ConnectをdApp内で活用するには、まず必要なライブラリをインストールする必要があります。 Particle Connect SDKは、ウォレットの作成、ユーザーログイン、ブロックチェーンとのやり取りを1つのインターフェースで効率化します。 ソーシャルログインとWeb3ログインの両方をサポートし、簡単にアクセスできる。
 
-To install the SDK, along with Viem (backend for Connect) and ethers (demonstrating EIP-1193 providers), run:
+SDKとViem（コネクトのバックエンド）、ethers（EIP-1193プロバイダーのデモ）をインストールするには、以下を実行する：
 
 ```shell
-yarn add @particle-network/connectkit viem@^2 ethers
+yarn add @particle-network/connectkit viem@^2エーテル
 ```
 
-## Initializing Particle Connect
+## パーティクルコネクトの初期化
 
-To begin with, we’ll set up Particle Connect, Particle's flagship authentication SDK. Create a new file called `ConnectKit.tsx` in the root directory of your project. This file will house the `ParticleConnectKit` component, a wrapper for the configured `ConnectKitProvider` instance that serves as the primary interface for the configuration of Particle Connect (we'll go over what this looks like programmatically in a moment).
+まずはじめに、Particleの代表的な認証SDKであるParticle Connectを設定します。 プロジェクトのルート・ディレクトリに `ConnectKit.tsx` という新しいファイルを作成します。 このファイルには `ParticleConnectKit` コンポーネントが格納されます。このコンポーネントは、設定された `ConnectKitProvider` インスタンスのラッパーであり、Particle Connect を設定するための主要なインターフェイスとして機能します（これがプログラムでどのように見えるかについては、後で説明します）。
 
 To leverage Particle Network on alternative platforms, such as Android, iOS, React Native, Flutter, & Unity, kindly refer to Particle’s [documentation](https://developers.particle.network/reference/introduction-to-api-sdk-reference).
 
-- **`projectId`** – a unique identifier for your project.
-- **`clientKey`** – a key specific to your client.
-- **`appId`** – the ID for your application.
+- \***projectId\`** - プロジェクトの一意な識別子。
+- **`clientKey`** - クライアント固有のキー。
+- **appId\`** - アプリケーションのID。
 
-Store these API keys in a `.env` file as follows:
+これらのAPIキーを`.env`ファイルに以下のように格納する：
 
 ```plaintext
-NEXT_PUBLIC_PROJECT_ID='PROJECT_ID'
-NEXT_PUBLIC_CLIENT_KEY='CLIENT_KEY'
-NEXT_PUBLIC_APP_ID='APP_ID'
+next_public_project_id='project_id'
+next_public_client_key='client_key'
+next_public_app_id='app_id'
 ```
 
-Now, add the following code to your `ConnectKit.tsx` file:
+次のコードを `ConnectKit.tsx` ファイルに追加してください：
 
 ```js
 import { ModalProvider } from '@particle-network/connectkit';
@@ -96,11 +96,11 @@ root.render(
 );
 ```
 
-Virtually every property of this component can be configured, from the different login types you support to the visual appearance of the modal; to explore these various options, head over to [Particle's documentation](https://developers.particle.network/api-reference/connect/desktop/web#configuration).
+このコンポーネントは、サポートするさまざまなログインタイプからモーダルの視覚的な外観まで、ほぼすべてのプロパティを設定できます。これらのさまざまなオプションを調べるには、[Particleのドキュメント](https://developers.particle.network/api-reference/connect/desktop/web#configuration)にアクセスしてください。
 
-## Integrate Particle Connect into Your App
+## Particle Connectをアプリに統合
 
-Now that the configuration is complete, wrap your application with the `ParticleConnectKit` component to enable global access to the Particle Connect SDK. To achieve this, modify your `layout.tsx` file in the `src` directory as follows:
+設定が完了したら、アプリケーションを `ParticleConnectKit` コンポーネントでラップし、Particle Connect SDK へのグローバルアクセスを有効にします。 そのためには、`src`ディレクトリにある`layout.tsx`ファイルを以下のように修正します：
 
 ```typescript
 npm install --save @particle-network/connectkit
@@ -109,7 +109,7 @@ npm install --save @particle-network/connectors
 npm install --save ethers	
 ```
 
-### Connecting Wallet
+### コネクティング・ウォレット
 
 With your `index.js` file setup, you can move onto connecting your users through a central "Connect Wallet" button. To do this, you can import `ConnectButton` from `@particle-network/connectkit` alongside its corresponding css. Upon using `ConnectButton` within your `App` component, a standard "Connect Wallet" button will appear to facilitate connection.
 
@@ -122,7 +122,7 @@ export const App = () => {
 };
 ```
 
-### Getting Account and Balance
+### アカウントと残高の取得
 
 With a wallet now successfully connected through `ConnectButton`, you can retrieve the users associated Klaytn address. Additionally, you can retrieve its current balance (in KLAY) through ethers.js, passing in the corresponding EIP-1193 provider object retrieved from `useParticleProvider` within `@particle-network/connectkit`.
 
@@ -167,9 +167,9 @@ return (
 
 ```
 
-### Disconnecting Wallet
+### ウォレットの切断
 
-Once a user has logged in, you can programmatically force a logout through `disconnect` derived from `useParticleConnect`. This will disconnect the current active session from your dApp, returning the user to their initial state.
+Once a user has logged in, you can programmatically force a logout through `disconnect` derived from `useParticleConnect`. これは現在アクティブなセッションをdAppから切断し、ユーザーを初期状態に戻します。
 
 ```js
 import { useParticleConnect } from '@particle-network/connectkit';
@@ -198,9 +198,9 @@ return (
 }
 ```
 
-### Getting User Info
+### ユーザー情報の取得
 
-When a user connects via social accounts, you can use the `useParticleAuth()` hook to access `userinfo`, which includes details about their connection method, account creation date, name, emails, and other [relevant information from Particle Auth](https://developers.particle.network/api-reference/connect/desktop/web#fetch-user-information-with-particle-auth).
+ユーザーがソーシャルアカウント経由で接続すると、フック `useParticleAuth()` を使って `userinfo` にアクセスすることができます。この情報には、接続方法、アカウント作成日、名前、メールアドレス、その他の [Particle Auth の関連情報](https://developers.particle.network/api-reference/connect/desktop/web#fetch-user-information-with-particle-auth) に関する詳細が含まれます。
 
 ```js
 import  { getUserInfo }  from  '@particle-network/auth-core';
@@ -220,9 +220,9 @@ return (
   );
 ```
 
-### Sending Native Transaction
+### ネイティブ・トランザクションの送信
 
-Particle Connect allows you to leverage an already existing EIP-1193 provider, in this example we create a provider instance with `ethers` to send a transfer transaction.
+Particle Connectでは、すでに存在するEIP-1193プロバイダを活用できます。この例では、`ethers`でプロバイダインスタンスを作成し、転送トランザクションを送信します。
 
 ```js
 import { useParticleProvider } from '@particle-network/connectkit';
@@ -260,8 +260,8 @@ return (
 }
 ```
 
-## Next Steps
+## 次のステップ
 
-You can find a complete list of hooks available on the [Particle Connect docs](https://developers.particle.network/api-reference/connect/desktop/web#key-react-hooks-for-particle-connect).
+利用可能なフックの完全なリストは、[Particle Connect docs](https://developers.particle.network/api-reference/connect/desktop/web#key-react-hooks-for-particle-connect)にあります。
 
-For additional guides regarding Particle Network (Particle Connect, Particle Auth, and other SDKs), please refer to the [Particle Network docs](https://developers.particle.network) and the [Particle Network GitHub account](https://github.com/Particle-Network). Additionally, you may want to visit the [Particle Network blog](https://blog.particle.network) for additional information on Particle Network's services, upcoming releases, and tech stack.
+Particle Network（Particle Connect、Particle Auth、およびその他のSDK）に関するその他のガイドについては、[Particle Network docs](https://developers.particle.network)および[Particle Network GitHubアカウント](https://github.com/Particle-Network)を参照してください。 さらに、Particle Networkのサービス、今後のリリース、技術スタックに関する追加情報については、[Particle Networkブログ](https://blog.particle.network)をご覧ください。
