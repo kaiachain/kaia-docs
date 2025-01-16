@@ -12,7 +12,7 @@
 
 最後一種方法是限制交易的計算成本。 我們根據每個 EVM 操作碼的實際執行時間對其計算成本進行建模，並限制一個事務的計算成本總和。 通過這種方法，我們可以排除其他因素，只計算歸一化的執行時間單位，節點也能達成共識。
 
-因此，我們為 Kaia 選擇了第三種方案。 計算成本上限為 100,000,000 美元，但隨著 CPU 計算性能的提高，坎昆 EVM 硬分叉後上限已提高到 150,000,000 美元。 該限制值由平臺決定，因此開發人員應瞭解交易的計算成本。 Kaia 提供 [kaia_estimateComputationCost](../../../references/json-rpc/klay/estimate-computation-cost) 來計算事務的計算成本。 用法與 [kaia_estimateGas](../../../references/json-rpc/klay/estimate-gas) 幾乎相同。
+因此，我們為 Kaia 選擇了第三種方案。 計算成本上限為 100,000,000 美元，但隨著 CPU 計算性能的提高，坎昆 EVM 硬分叉後上限已提高到 150,000,000 美元。 該限制值由平臺決定，因此開發人員應瞭解交易的計算成本。 To calculate the computation cost of a transaction, Kaia provides [kaia_estimateComputationCost](../../../references/json-rpc/kaia/estimate-computation-cost). The usage is almost the same as [kaia_estimateGas](../../../references/json-rpc/kaia/estimate-gas).
 
 :::note
 
@@ -24,7 +24,7 @@
 
 在執行事務時，一系列操作碼或預編譯合約按順序執行。 為了限制事務的執行時間，我們根據實際執行時間為操作碼和預編譯合約建立了一個確定性的執行時間計算模型。
 
-根據這一模型，運算代碼和預編譯合同的預定計算成本值會被添加到總計算成本中。 如果總值超過計算成本限制，事務執行將中止，並返回 [ComputationCostLimitReached(0x0a)](../../references/sdk/transaction-error-codes.md) 錯誤。
+根據這一模型，運算代碼和預編譯合同的預定計算成本值會被添加到總計算成本中。 If the total value exceeds computation cost limit, transaction execution is aborted and returns [ComputationCostLimitReached(0x0a)](../../references/transaction-error-codes.md) error.
 
 在設置計算成本限制值時，如果 `--opcode-computation-cost-limit` 標誌值設置為非零值，我們會將其設置為限制值。 如果為零，則限制值將設置為為每個特定硬分叉定義的默認計算成本限制。
 作為例外，call/estimateGas/estimateComputationCost 的限制始終設置為無限，不受標誌或硬分叉值的影響。 但是，由於其他限制（如油箱蓋），執行仍有可能中止。
