@@ -1,4 +1,4 @@
-# 為什麼選擇 Kaia
+# Why Build on Kaia
 
 Kaia Blockchain 的目標是成為亞洲第一區塊鏈，通過為各種規模的項目提供強大的基礎設施，引領 Web3 的應用。 本文件根據 Kaia 的主要設計原則和價值主張，解釋了 Kaia 的與眾不同之處。
 
@@ -34,9 +34,9 @@ Kaia Blockchain 的目標是成為亞洲第一區塊鏈，通過為各種規模�
 
 ## 成本低，用戶體驗更好
 
-1. **負擔得起的交易費用**：最終用戶無需承擔高昂的交易費用。 成本穩定，由交易複雜程度決定。 請參閱 [可負擔的智能合約執行成本](computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost) 和 [交易費用](transaction-fees/transaction-fees.md)。
+1. **負擔得起的交易費用**：最終用戶無需承擔高昂的交易費用。 成本穩定，由交易複雜程度決定。 See [Affordable Smart Contract Execution Cost](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia) and [Transaction Fees](transaction-fees/transaction-fees.md).
 
-2. **[費用委託](./transactions/transactions.md#fee-delegation)**：應用程序可以支付用戶的交易費用，從而實現靈活的商業模式並降低用戶獲取門檻。
+2. **Fee Delegation**: Applications can cover users' transaction fees, allowing for flexible business models and lowering user acquisition barriers.
 
 ## 開源基礎設施和生態系統支持
 
@@ -44,7 +44,7 @@ Kaia Blockchain 的目標是成為亞洲第一區塊鏈，通過為各種規模�
 
 2. **二級基礎設施**：支持產品和服務的生態系統，包括集成服務、穩定幣集成、DAO、NFT 市場、DEX、DeFi 和傳統金融接口。
 
-3. **生態系統基金**：新發行代幣的 50% 將通過[Kaia 生態系統基金](token-economy.md#kaia-ecosystem-fund)和[Kaia 基礎設施基金](token-economy.md#kaia-infrastructure-fund)重新投資於生態系統。
+3. **Ecosystem Fund**: 50% of newly minted tokens are reinvested in the ecosystem through [Kaia Ecosystem Fund](./token-economics/token-economy.md#kaia-ecosystem-fund) and [Kaia Infrastructure Fund](./token-economics/token-economy.md#kaia-infrastructure-fund).
 
 ## 社區共建與治理
 
