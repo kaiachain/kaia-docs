@@ -1,6 +1,6 @@
-# Transition to Kaia
+# カイアへの移行
 
-The Finschia and Klaytn blockchains have transitioned to the Kaia blockchain. This section provides essential information about the transition process, including frequently asked questions and overview about Kaiabridge, a system designed to facilitate token swaps between the Finschia and Kaia networks.
+FinschiaブロックチェーンとKlaytnブロックチェーンはKaiaブロックチェーンに移行した。 このセクションでは、FinschiaネットワークとKaiaネットワーク間のトークン交換を促進するために設計されたシステムであるKaiabridgeに関するよくある質問や概要など、移行プロセスに関する重要な情報を提供します。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
