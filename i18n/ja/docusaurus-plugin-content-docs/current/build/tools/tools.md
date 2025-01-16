@@ -1,4 +1,4 @@
-# Tools
+# ツール
 
 This page contains the list of development tools to help you build Decentralized Applications on Klaytn.
 
