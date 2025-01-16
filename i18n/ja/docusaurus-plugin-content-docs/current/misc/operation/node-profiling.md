@@ -1,28 +1,28 @@
-# Profile Node Data
+# プロファイル・ノード・データ
 
-Profiling is an essential tool for understanding and optimizing the performance of Kaia nodes. This tutorial will guide you through various profiling techniques available for Kaia node operators, leveraging Kaia's debug API and the `net/http/pprof` Go package.
+プロファイリングは、Kaiaノードのパフォーマンスを理解し最適化するために不可欠なツールです。 このチュートリアルでは、Kaia のデバッグ API と `net/http/pprof` Go パッケージを活用して、Kaia ノードオペレータで利用可能な様々なプロファイリング手法を説明します。
 
-## Prerequisites
+## 前提条件
 
-Before you begin, ensure that:
+始める前に、以下のことを確認してください：
 
-- **Node Setup:** Your Kaia node is correctly installed and running.
+- \*\*ノードのセットアップ：\*\*あなたのKaiaノードは正しくインストールされ、稼動しています。
 
-- **Access to Node Console:** You'll need to interact with the node either via [the node console](../../nodes/endpoint-node/ken-cli-commands.md#javascript-console).
+- **ノード・コンソールへのアクセス:** [ノード・コンソール](../../nodes/endpoint-node/ken-cli-commands.md#javascript-console)経由でノードと対話する必要があります。
 
-- **Tools:** Go is installed on your system to use `go tool pprof` and `go tool trace`. You can verify by running:
+- **ツール:** Go tool pprof`と`go tool trace\` を使用するために、Go をシステムにインストールする。 実行すれば確認できる：
 
 ```bash
 go version
 ```
 
-## 1\. Managing Profiling: How to Start, Stop, and Check Status
+## 1\. プロファイリングの管理開始、停止、ステータスの確認方法
 
-Kaia nodes provide a `debug` API that offers several profiling methods. You can interact with these methods via the node's console or through [JSON-RPC API calls](https://docs.kaia.io/references/json-rpc/debug/start-p-prof/).
+Kaiaノードはいくつかのプロファイリング方法を提供する`debug` APIを提供する。 これらのメソッドは、ノードのコンソールまたは[JSON-RPC APIコール](https://docs.kaia.io/references/json-rpc/debug/start-p-prof/)を通じて操作することができます。
 
-### 1.1 Starting the pprof HTTP Server
+### 1.1 pprof HTTP サーバの起動
 
-The pprof HTTP server allows you to collect and analyze profiling data efficiently.
+pprof HTTPサーバーを使用すると、プロファイリングデータを効率的に収集および分析できます。
 
 ```bash
 # Start pprof server with default settings (localhost:6060)
@@ -32,21 +32,21 @@ The pprof HTTP server allows you to collect and analyze profiling data efficient
 > debug.startPProf("localhost", 8080)
 ```
 
-#### Accessing pprof Endpoints
+#### pprof エンドポイントへのアクセス
 
-Once the pprof server is running, access the profiling data at:
+pprofサーバーが実行されたら、以下のページからプロファイリングデータにアクセスする：
 
-- [http://localhost:6060/debug/pprof/](http://localhost:6060/debug/pprof/) — Overview of available profiles.
-- [http://localhost:6060/memsize/](http://localhost:6060/memsize/) — Memory size reports.
-- [http://localhost:6060/debug/vars](http://localhost:6060/debug/vars) — Exporter for Prometheus metrics.
+- [http://localhost:6060/debug/pprof/](http://localhost:6060/debug/pprof/) - 利用可能なプロファイルの概要。
+- [http://localhost:6060/memsize/](http://localhost:6060/memsize/) - メモリサイズのレポート。
+- [http://localhost:6060/debug/vars](http://localhost:6060/debug/vars) - Prometheusメトリクスのエクスポート。
 
-### 1.2 Stopping the pprof HTTP Server
+### 1.2 pprof HTTP サーバの停止
 
 ```bash
 > debug.stopPProf()
 ```
 
-### 1.3 Checking if pprof is Running
+### 1.3 pprofが起動しているかチェックする
 
 ```bash
 > debug.isPProfRunning()
@@ -54,29 +54,29 @@ true  # if running
 false # if not running
 ```
 
-## 2\. Collecting Profiles
+## 2\. プロファイルの収集
 
-Once the pprof server is running, you can collect various profiles by using several methods to analyze your node's performance.
+pprofサーバーが実行されると、ノードのパフォーマンスを分析するためにいくつかの方法を使用してさまざまなプロファイルを収集できます。
 
-### 2.1 Collect Using Web Interface
+### 2.1 ウェブインターフェースを使用した収集
 
-Enter the respective endpoints in your web browser to collect different profiles as shown in the following examples:
+以下の例に示すように、異なるプロファイルを収集するために、ウェブブラウザでそれぞれのエンドポイントを入力します：
 
-**Collect heap profile**
+\*\*ヒーププロファイルの収集
 
 `http://localhost:6060/debug/pprof/heap`
 
-**Collect 30-second CPU profile**
+\*\*30秒間のCPUプロファイルを収集する。
 
 `http://localhost:6060/debug/pprof/profile?seconds=30`
 
-**Collect goroutine profile with debug=2**
+\*\*goroutineプロファイルをdebug=2で収集する。
 
 `http://localhost:6060/debug/pprof/goroutine?debug=2`
 
-### 2.2 Collect Using API Calls
+### 2.2 APIコールによる収集
 
-Type the respective commands in the node console to collect or configure profiles as shown in the following examples:
+以下の例に示すように、ノードコンソールでそれぞれのコマンドを入力し、プロファイルを収集または設定します：
 
 ```bash
 # Collect 30-second CPU profile
@@ -89,32 +89,32 @@ Type the respective commands in the node console to collect or configure profile
 > debug.setMutexProfileFraction(1)
 ```
 
-### 2.3 Collect Using `go tool pprof`
+### 2.3 `go tool pprof` を使って収集する
 
-If you cannot access the pprof web interface, you can generate and analyze profiling results locally using `go tool pprof`.
+pprof のウェブ・インターフェイスにアクセスできない場合は、`go tool pprof` を使ってローカルにプロファイリング結果を生成し、分析することができます。
 
-#### Identify Available Profile Types
+#### 利用可能なプロファイル・タイプを特定する
 
-The supported profiles include:
+対応プロファイルは以下の通り：
 
-- `allocs`: A sampling of all past memory allocations.
-- `block`: Stack traces that led to blocking on synchronization primitives.
-- `goroutine`: Stack traces of all current goroutines. Use `debug=2` as a query parameter to export in the same format as an unrecovered panic.
-- `heap`: A sampling of memory allocations of live objects. You can specify the `gc` GET parameter to run garbage collection before taking the heap sample.
-- `mutex`: Stack traces of holders of contended mutexes.
-- `profile`: CPU profile. You can specify the duration in the `seconds` GET parameter. After you get the profile file, use the `go tool pprof` command to investigate the profile.
-- `threadcreate`: Stack traces that led to the creation of new OS threads.
-- `trace`: A trace of execution of the current program. You can specify the duration in the `seconds` GET parameter. After you get the trace file, use the `go tool trace` command to investigate the trace.
+- allocs\`：過去のメモリ割り当てのサンプリング。
+- ブロック\`：同期プリミティブでブロッキングを引き起こしたスタックトレース。
+- goroutine`：現在のすべてのゴルーチンのスタックトレース。 クエリパラメータとして `debug=2\` を使用すると、回復していないパニックと同じ形式でエクスポートされる。
+- ヒープ`：ライブオブジェクトのメモリ割り当てのサンプリング。 gc` GETパラメーターを指定すると、ヒープサンプルの前にガベージコレクションを実行することができる。
+- mutex\`：競合するミューテックスの保持者のスタックトレース。
+- プロファイル`：CPUプロファイル。 GET パラメーターの `seconds` で継続時間を指定することができる。 プロファイルファイルを入手したら、`go tool pprof\`コマンドを使ってプロファイルを調べてください。
+- threadcreate\`：新しい OS スレッドを作成したスタックトレース。
+- trace`：現在のプログラムの実行トレース。 GET パラメーターの `seconds` で継続時間を指定することができる。 トレースファイルを取得したら、`go tool trace\`コマンドを使ってトレースを調査する。
 
-#### Collect Profiles Using `go tool pprof`
+#### go tool pprof\`を使ってプロファイルを収集する
 
 ```bash
 go tool pprof http://localhost:6060/debug/pprof/<profiletype>
 ```
 
-Replace `<profiletype>` with one of the supported profiles listed above (e.g., `heap`, `profile`).
+<profiletype>` を上記のサポートされているプロファイル（例：`heap`、`profile\`）のいずれかに置き換える。
 
-#### Example Commands
+#### コマンド例
 
 ```bash
 # Collect heap profile
@@ -127,77 +127,77 @@ go tool pprof http://localhost:6060/debug/pprof/profile?seconds=30
 go tool pprof http://localhost:6060/debug/pprof/goroutine?debug=2
 ```
 
-#### Generating Text Profiling Files
+#### テキストプロファイリングファイルの生成
 
-To generate text-based profiling reports, use the `-text` option with `go tool pprof`.
+テキストベースのプロファイリングレポートを作成するには、`go tool pprof` で `-text` オプションを使用します。
 
 ```bash
 # Generate text-based CPU profile
 go tool pprof -text cpu.profile
 ```
 
-#### pprof Extra Options
+#### pprof 追加オプション
 
-Profiling can be customized further using additional query parameters and options when collecting profiles.
+プロファイリングは、プロファイルを収集する際に追加のクエリーパラメーターとオプションを使用してさらにカスタマイズすることができます。
 
-- **Response Format (`debug=N`):**
+- **レスポンスフォーマット (`debug=N`):**.
 
-  - **Binary Format (Default):** `N = 0`
-  - **Plaintext Format:** `N > 0`
+  - **バイナリ形式（デフォルト）：** `N = 0`
+  - **プレーンテキスト形式：** `N > 0`
 
-  **Example:**
+  \*\*例
 
 ```bash
 go tool pprof http://localhost:6060/debug/pprof/allocs?debug=1
 ```
 
-- **Garbage Collection (`gc=N`):**
+- **ガベージコレクション (`gc=N`):**.
 
-  - **Run GC Before Profiling:** Set `gc=1` to trigger a garbage collection cycle before capturing a heap profile.
+  - **Run GC Before Profiling:** `gc=1` を設定すると、ヒープ・プロファイルをキャプチャする前にガベージ・コレクション・サイクルが実行される。
 
-  **Example:**
+  \*\*例
 
 ```bash
 go tool pprof http://localhost:6060/debug/pprof/heap?gc=1
 ```
 
-- **Duration Parameters (`seconds=N`):**
+- **継続時間パラメータ (`seconds=N`):**.
 
-  - **Allocations, Block, Goroutine, Heap, Mutex, Threadcreate Profiles:**
+  - **アロケーション、ブロック、ゴルーチン、ヒープ、ミューテックス、スレッド作成 プロファイル:**.
 
-    - `seconds=N` returns a delta profile based on the given duration.
+    - seconds=N\`は、与えられた継続時間に基づくデルタプロファイルを返す。
 
-  - **CPU Profile and Trace Profiles:**
+  - **CPUプロファイルとトレース・プロファイル:**。
 
-    - `seconds=N` specifies the duration for which the CPU profile or trace should run.
+    - seconds=N\`は、CPUプロファイルまたはトレースを実行する時間を指定する。
 
-  **Example:**
+  \*\*例
 
 ```bash
 go tool pprof http://localhost:6060/debug/pprof/profile?seconds=30
 ```
 
-### 2.4 Collect Without Go Installed
+### 2.4 囲碁をインストールせずに収集する
 
-If your program hasn’t installed Go (you can check by running `go version`), follow these steps to download and save profiling data locally:
+あなたのプログラムにGoがインストールされていない場合は（`go version`を実行することで確認できます）、以下の手順に従ってプロファイリングデータをダウンロードしてローカルに保存してください：
 
-1. Download the Profile File Using `wget`.
+1. wget\`を使ってプロファイルファイルをダウンロードする。
 
 ```bash
 wget -O memory_profile http://localhost:6060/debug/pprof/heap
 ```
 
-2. Transfer the Profile File to Your Local Machine Using `scp`.
+2. scp\` を使ってプロファイルファイルをローカルマシンに転送する。
 
 ```bash
 scp <user>@<node_ip>:memory_profile memory_profile
 ```
 
-NOTE: Replace `<user>` with your SSH username and `<node_ip>` with the IP address of your Kaia node.
+注：`<user>` をSSHユーザー名に、`<node_ip>` をKaiaノードのIPアドレスに置き換えてください。
 
-## 3\. Memory Profiling
+## 3\. メモリ・プロファイリング
 
-As mentioned earlier, memory profiling refers to the heap information provided by go pprof. It can also be collected through writeMemProfile in the debug namespace offered by the Kaia node.
+前述したように、メモリ・プロファイリングとは、go pprofが提供するヒープ情報のことである。 また、Kaiaノードが提供するデバッグ名前空間のwriteMemProfileによって収集することもできる。
 
 ```bash
 # Using go tool pprof
@@ -206,11 +206,11 @@ As mentioned earlier, memory profiling refers to the heap information provided b
 > debug.writeMemProfile("mem.profile")
 ```
 
-Profiling memory is crucial for analyzing memory-related issues, such as memory leaks. To control the granularity of memory profiling, adjusting the `MemProfileRate` variable can be helpful in this process. This should be set as early as possible in your node's execution (e.g., at the beginning of the `main` function).
+メモリのプロファイリングは、メモリ・リークなどメモリ関連の問題を分析する上で極めて重要である。 メモリ・プロファイリングの粒度をコントロールするには、`MemProfileRate` 変数を調整すると便利である。 これは、ノードの実行のできるだけ早い段階（例えば、`main`関数の先頭）で設定する必要があります。
 
 :::note
 
-Kaia provides the `--memprofilerate` flag which can set the `MemProfileRate` variable easily. Therefore, since it is only available as a flag, it must be set when starting the node, and cannot be changed via the API call.
+Kaiaは `--memprofilerate` フラグを提供し、`MemProfileRate` 変数を簡単に設定できる。 したがって、これはフラグとしてのみ利用可能であるため、ノードの起動時に設定する必要があり、APIコールで変更することはできない。
 
 :::
 
@@ -218,49 +218,49 @@ Kaia provides the `--memprofilerate` flag which can set the `MemProfileRate` var
 var MemProfileRate int = 512 * 1024
 ```
 
-- **Set `MemProfileRate`:**
-  - **Profile Maximum Allocations:** Set to `1`.
-  - **Disable Profiling:** Set to `0`.
-  - **Default Setting:** `512 * 1024` (profiles approximately one allocation per 512KB).
+- \*\*MemProfileRate\`:\*\*を設定する。
+  - **プロファイルの最大割り当て数:** `1`に設定。
+  - **プロファイリングを無効にする:** `0`に設定する。
+  - **デフォルト設定:** `512 * 1024` (512KBごとに約1つの割り当てプロファイル)。
 
-**Impact:**
+**影響：**\*。
 
-- **Higher Profiling Rate (Lower `MemProfileRate`):** Increases the granularity but may introduce performance overhead.
-- **Lower Profiling Rate (Higher `MemProfileRate`):** Reduces profiling detail, minimizing performance impact.
+- **Higher Profiling Rate (Lower `MemProfileRate`):** 粒度が大きくなるが、パフォーマンスのオーバーヘッドが発生する可能性がある。
+- **Lower Profiling Rate (Higher `MemProfileRate`):** プロファイリングの詳細を減らし、パフォーマンスへの影響を最小限に抑えます。
 
-**Best Practice:**
+\*\*ベストプラクティス
 
-- **Consistency:** Ensure that `MemProfileRate` remains constant throughout the node's runtime to maintain accurate profiling data.
-- **Early Configuration:** Set `MemProfileRate` at the very start of the program to capture consistent profiling information
+- **Consistency:** 正確なプロファイリングデータを維持するために、ノードのランタイムを通して `MemProfileRate` が一定であることを確認する。
+- \*\*初期設定:\*\*一貫したプロファイリング情報を取得するために、`MemProfileRate`をプログラム開始時に設定する。
 
-## 4\. Analyzing Profiles
+## 4\. プロファイルの分析
 
-After collecting profiling data, use `go tool pprof` to analyze and visualize the saved profile files.
+プロファイリングデータを収集した後、`go tool pprof`を使用して、保存されたプロファイルファイルを分析し、視覚化する。
 
-### 4.1 Analyze Using Web Interface
+### 4.1 ウェブインタフェースを使った分析
 
-For example, you can analyze memory profile data visually using Go’s pprof tool, which provides a visual representation of memory usage through a web interface as shown below:
+たとえば、Go の pprof ツールを使ってメモリ・プロファイル・データを視覚的に分析することができます：
 
 ```bash
 go tool pprof -http=0.0.0.0:8081 cpu.profile
 ```
 
-### 4.2 Analyze Using Command Line
+### 4.2 コマンドラインを使った分析
 
-You can also analyze memory profile data using Go’s pprof tool in a text-based interface within the terminal:
+ターミナル内のテキストベースのインターフェイスで、Goのpprofツールを使ってメモリ・プロファイル・データを分析することもできる：
 
 ```bash
 go tool pprof cpu.profile
 ```
 
-- **Common `pprof` Commands:**
+- **一般的な`pprof`コマンド:**。
 
-  - `top`: Display the top functions consuming resources.
-  - `list <function_name>`: Show annotated source code for a specific function.
-  - `web`: Generate a visualization of the profile in your web browser.
-  - `pdf`: Generate a PDF report of the profile.
+  - top\`：リソースを消費する関数の上位を表示する。
+  - list<function_name>\`：特定の関数の注釈付きソースコードを表示する。
+  - web\`：ウェブブラウザでプロフィールを可視化する。
+  - pdf\`：プロファイルの PDF レポートを生成する。
 
-- **Example Usage:**
+- **使用例：**\*。
 
 ```bash
 go tool pprof cpu.profile
@@ -272,10 +272,10 @@ go tool pprof cpu.profile
 
 :::note
 
-Ensure you have Graphviz installed for the `web` and `pdf` commands to generate visual graphs.
+視覚的なグラフを生成するために、`web`コマンドと`pdf`コマンド用にGraphvizがインストールされていることを確認する。
 
 :::
 
-## 5\. Conclusion
+## 5\. 結論
 
-By following this profiling tutorial, Kaia node operators can effectively identify and address performance bottlenecks, optimize resource usage, and ensure the smooth and efficient operation of their nodes. Regular profiling, combined with robust monitoring and logging practices, will contribute significantly to maintaining the reliability and performance of your Kaia node within the blockchain network.
+このプロファイリング・チュートリアルに従うことで、Kaiaノードのオペレーターは、パフォーマンスのボトルネックを効果的に特定して対処し、リソースの使用を最適化し、ノードのスムーズで効率的な運用を確保することができます。 定期的なプロファイリングは、強固なモニタリングとロギングの実践と組み合わされ、ブロックチェーンネットワーク内でのKaiaノードの信頼性とパフォーマンスの維持に大きく貢献します。
