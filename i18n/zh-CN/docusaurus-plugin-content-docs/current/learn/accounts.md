@@ -183,7 +183,7 @@ AccountKeyWeightedMultiSig 是一种账户密钥类型，包含一个阈值和�
 
 :::note
 
-在 [IstanbulEVM](docs/misc/klaytn-history.md#istanbul-evm) 硬分叉中添加了以下 multiSig 验证逻辑。
+在 [IstanbulEVM](../misc/klaytn-history.md#istanbul-evm) 硬分叉中添加了以下 multiSig 验证逻辑。
 
 - 交易中不应包含无效签名。
 - 已签名公钥的数量应少于加权公钥的数量。
