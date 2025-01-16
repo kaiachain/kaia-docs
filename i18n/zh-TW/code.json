@@ -628,5 +628,9 @@
   "theme.blog.author.noPosts": {
     "message": "該作者尚未發表任何文章。",
     "description": "The text for authors with 0 blog post"
+  },
+  "theme.feedback.helpful": {
+    "message": "Is this page helpful?",
+    "description": "The text asking if the page is helpful"
   }
 }
