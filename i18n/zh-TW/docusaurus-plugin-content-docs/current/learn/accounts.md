@@ -183,7 +183,7 @@ AccountKeyWeightedMultiSig 是一種賬戶密鑰類型，包含一個閾值和�
 
 :::note
 
-在 [IstanbulEVM](docs/misc/klaytn-history.md#istanbul-evm) 硬分叉中添加了以下 multiSig 驗證邏輯。
+The following multiSig validation logic has been added with the [IstanbulEVM](../misc/klaytn-history.md#istanbul-evm) hardfork.
 
 - 交易中不應包含無效簽名。
 - 已簽名公鑰的數量應少於加權公鑰的數量。
