@@ -1,5 +1,11 @@
 # 過渡時期常見問題
 
+:::info[Archive Notice]
+
+Please note that most of the information provided in this FAQ reflects a transitional period that occurred in 2024, and most of the events and processes mentioned have already taken place. While the FAQ remains available for historical reference, some sections are now out of date and may no longer apply. For the most current information regarding Kaia, please consult the latest official documentation and announcements.
+
+:::
+
 本常見問題解決了熟悉 Klaytn 生態系統的 CEX、節點提供商、錢包提供商、dApp 構建者和零售用戶的常見問題和顧慮，以確保平穩過渡。
 
 - KLAY 和 FNSA 持有者
