@@ -1,4 +1,4 @@
-# Why Kaia
+# Why Build on Kaia
 
 Kaia Blockchain aims to become Asia's #1 blockchain, leading the adoption of Web3 by providing a robust infrastructure for projects of all sizes. This document explains how Kaia is different based on its key design principles and value propositions.
 
@@ -34,9 +34,9 @@ Kaia Blockchain aims to become Asia's #1 blockchain, leading the adoption of Web
 
 ## Low Cost and Enhanced User Experience
 
-1. **Affordable Transaction Fees**: End-users are not burdened with high transaction fees. Costs are stable and determined by transaction complexity. See [Affordable Smart Contract Execution Cost](computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost) and [Transaction Fees](transaction-fees/transaction-fees.md).
+1. **Affordable Transaction Fees**: End-users are not burdened with high transaction fees. Costs are stable and determined by transaction complexity. See [Affordable Smart Contract Execution Cost](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia) and [Transaction Fees](transaction-fees/transaction-fees.md).
 
-2. **[Fee Delegation](./transactions/transactions.md#fee-delegation)**: Applications can cover users' transaction fees, allowing for flexible business models and lowering user acquisition barriers.
+2. **Fee Delegation**: Applications can cover users' transaction fees, allowing for flexible business models and lowering user acquisition barriers.
 
 ## Open-Source Infrastructure and Ecosystem Support
 
@@ -44,7 +44,7 @@ Kaia Blockchain aims to become Asia's #1 blockchain, leading the adoption of Web
 
 2. **Secondary Infrastructure**: Ecosystem for supporting products and services, including integration services, stablecoin integrations, DAOs, NFT marketplaces, DEX, DeFi, and traditional finance interfaces.
 
-3. **Ecosystem Fund**: 50% of newly minted tokens are reinvested in the ecosystem through [Kaia Ecosystem Fund](token-economy.md#kaia-ecosystem-fund) and [Kaia Infrastructure Fund](token-economy.md#kaia-infrastructure-fund).
+3. **Ecosystem Fund**: 50% of newly minted tokens are reinvested in the ecosystem through [Kaia Ecosystem Fund](./token-economics/token-economy.md#kaia-ecosystem-fund) and [Kaia Infrastructure Fund](./token-economics/token-economy.md#kaia-infrastructure-fund).
 
 ## Community Co-Building and Governance
 
