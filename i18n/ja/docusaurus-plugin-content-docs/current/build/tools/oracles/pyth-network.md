@@ -1,21 +1,21 @@
-# Pyth Network
+# パイス・ネットワーク
 
 ![](/img/banners/kaia-pyth.png)
 
-## Overview
+## 概要
 
-The [Pyth Network](https://pyth.network/) is one of the largest first-party Oracle network, delivering real-time data across [a vast number of chains](https://docs.pyth.network/price-feeds/contract-addresses).
+Pyth Network](https://pyth.network/)は最大級のファーストパーティ・オラクル・ネットワークで、[膨大な数のチェーン](https://docs.pyth.network/price-feeds/contract-addresses)にリアルタイム・データを配信している。
 
-The network comprises some of the world’s [largest exchanges, market makers, and financial services providers](https://pyth.network/publishers). These publish proprietary data on-chain for aggregation and distribution to smart contract applications.
+このネットワークは、世界最大級の[取引所、マーケットメーカー、金融サービスプロバイダー]で構成されている(https://pyth.network/publishers)。 これらは、スマート・コントラクト・アプリケーションに集計・配信するために、独自のデータをチェーン上で公開する。
 
-## Using Pyth Network
+## Pythネットワークを使う
 
-The Pyth introduces an innovative low-latency [pull oracle design](https://docs.pyth.network/documentation/pythnet-price-feeds/on-demand), where users can pull price updates onchain when needed, enabling everyone in the onchain environment to access that data point most efficiently. Pyth network updates the prices every **400ms**, making Pyth one of the fastest on-chain oracles.
+Pythは革新的な低レイテンシー[プルオラクルデザイン](https://docs.pyth.network/documentation/pythnet-price-feeds/on-demand)を導入しており、ユーザーは必要なときにオンチェーンで価格更新をプルすることができ、オンチェーン環境にいる全員が最も効率的にそのデータポイントにアクセスすることができる。 Pythネットワークは**400ms**ごとに価格を更新し、Pythを最速のオンチェーンオークルの1つにしています。
 
-Developers on Kaia have permissionless access to any of [Pyth’s price feeds](https://pyth.network/developers/price-feed-ids) for equities, ETFs, commodities, foreign exchange pairs, and cryptocurrencies.
+カイアの開発者は、株式、ETF、コモディティ、外国為替ペア、暗号通貨の[Pyth's price feeds](https://pyth.network/developers/price-feed-ids)のいずれにも無許可でアクセスできます。
 
-Here is a working example of a contract that fetches the latest price of ETH/USD on the Kaia network.
-You have to pass [Pyth's contract address](https://docs.pyth.network/price-feeds/contract-addresses/evm) for Kaia mainnet/testnet and the desired [price feed id](https://pyth.network/developers/price-feed-ids) to fetch the latest price.
+以下は、Kaiaネットワーク上のETH/USDの最新価格をフェッチするコントラクトの動作例です。
+最新の価格を取得するには、カイアのメインネット/テストネット用の[Pyth's contract address](https://docs.pyth.network/price-feeds/contract-addresses/evm)と希望の[price feed id](https://pyth.network/developers/price-feed-ids)を渡す必要があります。
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -46,37 +46,37 @@ contract MyFirstPythContract {
 }
 ```
 
-Here you can fetch the `updateData` from our [`Hermes`](https://hermes.pyth.network/docs/), which listens to Pythnet and Wormhole for price updates; or you can use the [`pyth-evm-js`](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/js/src/EvmPriceServiceConnection.ts#L15) SDK. Check [How to Fetch Price Updates](https://docs.pyth.network/price-feeds/fetch-price-updates) to pull the latest data.
+ここでは、価格更新のためにPythnetとWormholeをリッスンする[`Hermes`](https://hermes.pyth.network/docs/)から`updateData`を取得することができます。また、[`pyth-evm-js`](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/js/src/EvmPriceServiceConnection.ts#L15)のSDKを使用することもできます。 価格更新の取得方法](https://docs.pyth.network/price-feeds/fetch-price-updates)を確認し、最新のデータを取得してください。
 
-This [package](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity) provides utilities for consuming prices from the Pyth network oracle using Solidity. Also, it contains the [Pyth Interface ABI](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/solidity/abis/IPyth.json) that you can use in your libraries to communicate with the Pyth contract.
+この[パッケージ](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)は、Solidityを使用してPythネットワークオラクルから価格を消費するためのユーティリティを提供します。 また、[Pyth Interface ABI](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/solidity/abis/IPyth.json)も含まれており、Pythコントラクトと通信するためにライブラリで使用することができます。
 
-We recommend following the [consumer best practices](https://docs.pyth.network/documentation/pythnet-price-feeds/best-practices) when consuming Pyth data.
+Pyth データを利用する際には、[consumer best practices](https://docs.pyth.network/documentation/pythnet-price-feeds/best-practices)に従うことを推奨します。
 
-For more information, check out the official [Pyth documentation](https://docs.pyth.network/price-feeds). There are details on the various functions available for interacting with the Pyth smart contract in the [API Reference section](https://api-reference.pyth.network/price-feeds/evm/getPrice).
+詳しくは公式の[Pyth documentation](https://docs.pyth.network/price-feeds)を参照してください。 Pythスマートコントラクトとやりとりするために利用できるさまざまな関数については、[APIリファレンスセクション](https://api-reference.pyth.network/price-feeds/evm/getPrice)に詳細があります。
 
-## Pyth on Kaia
+## カイアのピース
 
-The Pyth Network smart contract is available at the following address:
+Pyth Networkのスマートコントラクトは以下のアドレスで入手できる：
 
-- Mainnet: [0x2880ab155794e7179c9ee2e38200202908c17b43](https://kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
-- Kairos Testnet: [0x2880ab155794e7179c9ee2e38200202908c17b43](https://kairos.kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
+- メインネット[0x2880ab155794e7179c9ee2e38200202908c17b43](https://kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
+- カイロス・テストネット[0x2880ab155794e7179c9ee2e38200202908c17b43](https://kairos.kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
 
-Additionally, click to access the [Pyth price-feed IDs](https://pyth.network/developers/price-feed-ids).
+さらに、クリックすると[Pyth price-feed IDs](https://pyth.network/developers/price-feed-ids)にアクセスできる。
 
-## Using Pyth as a PUSH Oracle
+## PythをPUSHオラクルとして使う
 
-Pyth Oracle can be used as a Push oracle by running a scheduler which can update the prices in the backend. It will make sure that the your dapp will be updated with latest prices as per your configuration. Checkout the open source [price pusher](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/price_pusher) app to get started with the scheduler.
+Pythオラクルは、バックエンドの価格を更新するスケジューラを実行することで、プッシュオラクルとして使用することができる。 これは、あなたのダップがあなたの設定に従って最新の価格で更新されることを保証します。 スケジューラを始めるには、オープンソースの[price pusher](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/price_pusher)アプリをチェックしよう。
 
-## Developers and community
+## 開発者とコミュニティ
 
-The Pyth network provides additional tools to developers, such as [TradingView Integration](https://docs.pyth.network/guides/how-to-create-tradingview-charts), or the [Gelato web3 functions](https://docs.pyth.network/guides/how-to-schedule-price-updates-with-gelato).
+Pythネットワークは、[TradingView Integration](https://docs.pyth.network/guides/how-to-create-tradingview-charts)や[Gelato web3 functions](https://docs.pyth.network/guides/how-to-schedule-price-updates-with-gelato)のような追加ツールを開発者に提供しています。
 
-Check out the following links to get started with Pyth.
+Pythを始めるには以下のリンクをチェックしてください。
 
-- [Pyth EVM Integration Guide](https://docs.pyth.network/price-feeds/use-real-time-data/evm)
+- [Pyth EVM 統合ガイド](https://docs.pyth.network/price-feeds/use-real-time-data/evm)
 - [Pyth Docs](https://docs.pyth.network/home)
-- [Pyth API Reference](https://api-reference.pyth.network/price-feeds/evm/getPrice)
+- [Pyth APIリファレンス](https://api-reference.pyth.network/price-feeds/evm/getPrice)
 - [Pyth Examples](https://github.com/pyth-network/pyth-examples)
 - [Pyth Price Feed Ids](https://pyth.network/developers/price-feed-ids)
-- [Website](https://pyth.network/)
-- [Twitter](https://x.com/PythNetwork)
+- [ウェブサイト](https://pyth.network/)
+- [ツイッター](https://x.com/PythNetwork)
