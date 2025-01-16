@@ -1,5 +1,11 @@
 # Transition FAQ
 
+:::info[Archive 공지 사항]
+
+이 FAQ에 제공된 대부분의 정보는 2024년에 발생한 과도기를 반영한 것이며, 언급된 대부분의 이벤트와 프로세스는 이미 진행되었다는 점에 유의하시기 바랍니다. FAQ는 과거에 참조할 수 있지만, 일부 섹션은 현재 오래되어 더 이상 적용되지 않을 수 있습니다. 카이아에 관한 최신 정보는 최신 공식 문서 및 공지사항을 참조하세요.
+
+:::
+
 This FAQ addresses common questions and concerns for CEXs, node providers, wallet providers, dApp builders, and retail users familiar with the Klaytn ecosystem, to ensure a smooth transition.
 
 - KLAY and FNSA holders
