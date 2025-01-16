@@ -1,18 +1,18 @@
-# Configure Upstream Archive Node: Upstream EN
+# アップストリームアーカイブノードの設定アップストリームEN
 
-The Upstream EN (Endpoint Node) feature allows a full node operator to utilize an archive node as an RPC fallback. For more information about full and archive nodes, see the [Block Synchronization](../../learn/storage/block-sync.md) page.
+アップストリームEN（エンドポイントノード）機能により、フルノードオペレーターはアーカイブノードをRPCフォールバックとして利用することができる。 フル・ノードとアーカイブ・ノードの詳細については、[ブロック同期](../../learn/storage/block-sync.md)のページを参照してください。
 
-When a full node is about to return a `missing trie node` error, it tries to call the specified upstream RPC URL and return that result. If you configure an archive node as the upstream, the full node essentially serves archive-grade service with minimal archive node load.
+フルノードが`missing trie node`エラーを返そうとしているとき、指定された上流のRPC URLを呼び出し、その結果を返そうとする。 アーカイブノードをアップストリームとして構成した場合、フルノードは基本的にアーカイブノードの負荷を最小限に抑えながら、アーカイブグレードのサービスを提供します。
 
-## Usage
+## 使用方法
 
-Using Upstream EN feature, you can operate a cost-effective archive RPC service. Run one archive node and run many full nodes. Make the full nodes fall back to the archive node. This way, most requests are handled by full nodes and some requests that require historic states are handled by the archive node.
+アップストリームEN機能を使用することで、費用対効果の高いアーカイブRPCサービスを運用することができます。 1つのアーカイブノードを実行し、多くのフルノードを実行する。 フルノードをアーカイブノードにフォールバックさせる。 このようにして、ほとんどのリクエストはフルノードが処理し、歴史的な状態を必要とする一部のリクエストはアーカイブノードが処理する。
 
 <p align="center"><img src="/img/learn/upstream_en.png" width="50%"/></p>
 
-## How to Enable Upstream EN
+## アップストリームENを有効にする方法
 
-To use Upstream EN feature, simply pass `--upstream-en <RPC_URL>` flag to the full node. For example in your `kend.conf` file,
+アップストリームEN機能を使うには、フルノードに `--upstream-en<RPC_URL>` フラグを渡すだけでよい。 例えば、`kend.conf` ファイルに記述します、
 
 ```sh
 ADDITIONAL="$ADDITIONAL --upstream-en https://archive-en.node.kaia.io"
