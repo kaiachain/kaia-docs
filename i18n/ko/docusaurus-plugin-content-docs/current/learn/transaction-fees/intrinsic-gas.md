@@ -32,13 +32,13 @@ Before we get into the detail, keep in mind that not all key types apply the key
 | MultiSig  | Yes                                |
 | RoleBased | Depending on key types in the role |
 
-## KeyCreationGas <a id="key-creation-gas"></a>
+## KeyCreationGas <a id="keycreationgas"></a>
 
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
 Please keep in mind that Public key type always has only one registering key, so the gas would be always 20000.
 
-## KeyValidationGas <a id="key-validation-gas"></a>
+## 키 검증 가스 <a id="keyvalidationgas"></a>
 
 `KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
 `KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
@@ -50,13 +50,13 @@ A Kaia transaction can also have a feePayer, so the total KeyValidationGas is li
 KeyValidationGas =  (KeyValidationGas for a sender) + (KeyValidationGas for a feePayer)
 ```
 
-## PayloadGas <a id="payload-gas"></a>
+## 페이로드 가스 <a id="payloadgas"></a>
 
 Basically, `PayloadGas` is charged with `number_of_bytes_of_tx_input x TxDataGas (100)`.
 
 In the case of a transaction creating contract, an additional charge of `number_of_words_of_initcode x InitCodeWordGas (2)` is applied. It is effective since Shanghai hardfork.
 
-## TxTypedGas <a id="tx-typed-gas"></a>
+## TxTypedGas <a id="txtypedgas"></a>
 
 There are three types of transactions in klaytn; `base`, `feeDelegated`, and `feeDelegatedWithFeeRatio`.
 
@@ -83,7 +83,7 @@ For example,
 
 ## Hardfork changes
 
-| Hardfork     | Change                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Shanghai EVM | limit and meter initcode when calculating intrinsicGas<br/>- started to add 2 gas per word of the initcode                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Istanbul EVM | make the [PayloadGas](payload-gas) of legacyTxType consistent with other TxTypes<br/>- Before: PayloadGas=number_of_zero_bytes_of_tx_input x 4 + number_of_nonzero_bytes_of_tx_input x 68 <br/> - After: PayloadGas=number_of_bytes_of_tx_input x 100<br/><br/>change [keyValidationGas](key-validation-gas) calculation logic<br/>- Before: KeyValidationGas=(number of keys - 1) x 15,000<br/>- After: KeyValidationGas=(number of signatures - 1) x 15,000 |
+| Hardfork     | Change                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Shanghai EVM | limit and meter initcode when calculating intrinsicGas<br/>- started to add 2 gas per word of the initcode                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Istanbul EVM | legacyTxType의 [PayloadGas](#payloadgas)를 다른 TxType과 일관되게 만듭니다.<br/>- Before: PayloadGas=number_of_zero_bytes_of_tx_input x 4 + number_of_nonzero_bytes_of_tx_input x 68 <br/> - After: PayloadGas=number_of_bytes_of_tx_input x 100<br/><br/>change [keyValidationGas](#keyvalidationgas) 계산 로직<br/>- Before: KeyValidationGas=(키 수 - 1) x 15,000<br/>- 이후: KeyValidationGas=(서명 수 - 1) x 15,000 |
