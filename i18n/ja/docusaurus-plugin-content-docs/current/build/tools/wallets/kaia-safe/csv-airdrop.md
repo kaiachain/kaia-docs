@@ -1,70 +1,70 @@
-# Use CSV Airdrop
+# CSVエアドロップを使用する
 
-This is a custom app in Kaia Safe that can be used to batch multiple transfers of ERC20, ERC721, ERC1155 and native tokens into a single transaction. It's as simple as uploading / copy & pasting a single CSV transfer file and hitting the submit button.
+これはKaia Safeのカスタムアプリで、ERC20、ERC721、ERC1155、ネイティブトークンの複数の送金を一括して1つのトランザクションにすることができます。 CSV転送ファイルを1つアップロード／コピー＆ペーストし、送信ボタンを押すだけという簡単さです。
 
-This single method saves gas ⛽ and a substantial amount of time ⌚ by requiring less signatures and transactions.
+この方法一つで、署名やトランザクションが少なくて済むため、ガス⛽と相当な時間⌚を節約できる。
 
-Let’s get started with an example using CSV Airdrop!
+それでは、CSV Airdropを使った例を見てみよう！
 
-## Step 1: Login into your [KaiaSafe](https://safe.kaia.io/)  <a id="login-kaiasafe"></a>
+## ステップ1: [カイアセーフ](https://safe.kaia.io/)にログインします。 <a id="login-kaiasafe"></a>
 
-If you haven't created a Safe account yet, please refer to our [Create a Safe Guide](./use-kaia-safe.md#create-a-safe) and [Add Asset Guide](./use-kaia-safe.md#add-assets) to set up your account and add assets (KAIA, FT, NFT).
+セーフのアカウントをまだ作成していない場合は、[セーフの作成ガイド](./use-kaia-safe.md#create-a-safe)および[資産の追加ガイド](./use-kaia-safe.md#add-assets)を参照して、アカウントを設定し、資産 (KAIA、FT、NFT) を追加してください。
 
-## Step 2: Click apps, search CSV and select CSV Airdrop  <a id="search-CSV-airdrop"></a>
+## ステップ2：アプリをクリックし、CSVを検索し、CSV Airdropを選択します。 <a id="search-CSV-airdrop"></a>
 
 ![](/img/build/tools/kaia-safe/search-csv-app.png)
 
-## Step 3: Prepare a Transfer CSV file <a id="prepare-CSV-airdrop"></a>
+## ステップ3：転送用CSVファイルの準備<a id="prepare-CSV-airdrop"></a>
 
-Transfer files are expected to be in CSV format with the following required columns:
+転送ファイルは、以下の必須カラムを含むCSV形式であることが期待される：
 
-- _token_type_: The type of token that is being transferred. One of erc20,nft or native. NFT Tokens can be either ERC721 or ERC1155.
-- _token_address_: Ethereum address of ERC20 token to be transferred. This has to be left blank for native (ETH) transfers.
-- _receiver_: Ethereum address of transfer receiver.
-- _amount_: the amount of token to be transferred. This can be left blank for erc721 transfers.
-- _id_: The id of the collectible token (erc721 or erc1155) to transfer. This can be left blank for native and erc20 transfers.
+- _token_type_：転送されるトークンのタイプ。 erc20、nft、ネイティブのいずれか。 NFT トークンは ERC721 または ERC1155 のいずれかとなります。
+- _token_address_：転送する ERC20 トークンのイーサリアムアドレス。 ネイティブ(ETH)送金の場合、これは空白のままにしておかなければならない。
+- _receiver_：送金先のイーサリアムアドレス。
+- _amount_：転送するトークンの量。 erk721転送の場合は空白のままでよい。
+- _id_：転送する収集可能トークン (erc721 または erc1155) の ID。 ネイティブおよびerk20の移籍では空白のままでよい。
 
 :::important
-The CSV file has to use "," as a separator and the header row always has to be provided as the first row and include the described column names.
-[Sample Transfer File](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
+CSVファイルは、", "をセパレーターとして使用し、ヘッダー行は常に最初の行として提供され、記述されたカラム名を含まなければならない。
+[サンプル転送ファイル](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
 :::
 
-### Native Token Transfers <a id="native-token-trnasfers"></a>
+### ネイティブ・トークン・トランスファー<a id="native-token-trnasfers"></a>
 
-Since native tokens do not have a token address, you must leave the _token_address_ column blank for native transfers.
+ネイティブ・トークンはトークン・アドレスを持たないため、ネイティブ転送では _token_address_ 列を空白にする必要があります。
 
 ![](/img/build/tools/kaia-safe/native-csv-app.png)
 
 :::note
-Make sure you have enough native tokens in the kaia safe wallet address.
+kaiaセーフウォレットのアドレスに十分なネイティブトークンがあることを確認してください。
 :::
 
-### ERC-20 Transfers <a id="erc20-trnasfers"></a>
+### ERC-20 移籍<a id="erc20-trnasfers"></a>
 
-Provide erc20 as _token_type_ for erc20 transfers and other respective fields accordingly.
+erc20 の転送には _token_type_ として erc20 を指定し、その他のフィールドもそれに合わせて指定する。
 
 ![](/img/build/tools/kaia-safe/erc20-csv-app.png)
 
 :::note
-Make sure you have enough erc20 tokens in the kaia safe wallet address.
+kaia セーフウォレットのアドレスに十分な erc20 トークンがあることを確認してください。
 :::
 
-### ERC-721 Transfers <a id="erc721-transfers"></a>
+### ERC-721 移籍<a id="erc721-transfers"></a>
 
-Provide erc721 as _token_type_ for erc721 transfers and other respective fields accordingly.
+erc721 転送のために _token_type_ として erc721 を提供し、それに応じて他の各フィールドも提供する。
 
 ![](/img/build/tools/kaia-safe/erc721-csv-app.png)
 
 :::note
-Make sure you have enough erc721 tokens in the kaia safe wallet address.
+kaia セーフウォレットのアドレスに十分な erc721 トークンがあることを確認してください。
 :::
 
-### Illustration <a id="illustration"></a>
+### イラスト<a id="illustration"></a>
 
-For this illustration, we have 2 native transfers, 2 ERC20 transfers and 1 ERC721 transfers
+この例では、2つのネイティブ転送、2つのERC20転送、1つのERC721転送がある。
 
 ![](/img/build/tools/kaia-safe/rs-csv-app.png)
 
-## Step 4: Review and submit transaction <a id="review-submit-transaction"></a>
+## ステップ 4: 取引の確認と提出<a id="review-submit-transaction"></a>
 
-You'll be able to review and confirm the transaction. Once ready, click Submit to execute the transaction just like any other Safe transaction.
+取引内容を確認することができます。 準備ができたら、Submit をクリックして、他の Safe トランザクションと同様にトランザクションを実行します。
