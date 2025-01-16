@@ -1,7 +1,9 @@
-# 計算
+# Transaction Execution
 
-```mdx-code-block
-import DocCardList from '@theme/DocCardList';
+This section provides a comprehensive guide to how transactions are processed, executed, and analyzed on the Kaia blockchain. Understanding these processes is critical for developers building applications on Kaia, as it directly impacts performance, cost, and debugging strategies.
 
-<DocCardList />
-```
+- [Execution Model](./execution-model.md) details the complete lifecycle of a Kaia transaction, from its initial submission to its final inclusion in a block. Learn how transactions are validated by Consensus Nodes (CNs), the process of block creation, and the role of the BFT consensus mechanism in finalizing transactions. This includes details on Kaia's enhanced randomness for block proposer selection, as well as crucial restrictions on both transaction execution and smart contract deployment. Understanding these limitations is essential for avoiding unexpected transaction failures.
+
+- [Computation Cost](./computation-cost.md) explains the mechanics of transaction costs on the Kaia network. Dive into the gas mechanism, including how gas pricing is determined, the network's computation cost limit, and the gas costs associated with specific EVM operations. This section also details the additional gas costs incurred for contract creation based on initcode length, introduced with the Shanghai hardfork, enabling developers to accurately estimate and manage transaction expenses.
+
+- [Debug Tracing](debug-tracing.md) explores the tools and techniques available for monitoring and debugging transaction execution. Gain insights into how to identify and resolve issues within your Kaia applications, ensuring smooth operation and efficient resource utilization. This includes information on how to trace the execution flow of transactions and pinpoint potential bottlenecks or errors.
