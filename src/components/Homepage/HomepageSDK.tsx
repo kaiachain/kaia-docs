@@ -5,34 +5,10 @@ import { useColorMode } from '@docusaurus/theme-common';
 import Translate from '@docusaurus/Translate';
 
 const TRANSLATIONS = {
-  ethersjs: {
-    name: (
-      <Translate id="homepage.sdk.ethersjs.name" description="Name of the Ethers.js Extension SDK">
-        Ethers.js Extension
-      </Translate>
-    ),
-  },
-  web3js: {
-    name: (
-      <Translate id="homepage.sdk.web3js.name" description="Name of the Web3.js Extension SDK">
-        Web3.js Extension
-      </Translate>
-    ),
-  },
-  web3j: {
-    name: (
-      <Translate id="homepage.sdk.web3j.name" description="Name of the Web3j Extension SDK">
-        Web3j Extension
-      </Translate>
-    ),
-  },
-  web3py: {
-    name: (
-      <Translate id="homepage.sdk.web3py.name" description="Name of the Web3.py Extension SDK">
-        Web3.py Extension
-      </Translate>
-    ),
-  },
+  ethersjs: 'Ethers.js Extension',
+  web3js: 'Web3.js Extension',
+  web3j: 'Web3j Extension',
+  web3py: 'Web3.py Extension',
 };
 
 type SDKType = keyof typeof TRANSLATIONS;
@@ -145,13 +121,31 @@ const StyledLink = styled(Link)`
 
 const SDK = ({ sdk }: { sdk: SDKData }) => {
   const { colorMode } = useColorMode();
-  const translation = TRANSLATIONS[sdk.type];
   
   return (
     <SDKLink to={sdk.to} themeMode={colorMode}>
       <SDKIcon src={sdk.icon} alt={sdk.type} />
       <SDKName>
-        {translation.name}
+        {sdk.type === 'ethersjs' && (
+          <Translate id="homepage.sdk.ethersjs.name" description="Name of the Ethers.js Extension SDK">
+            Ethers.js Extension
+          </Translate>
+        )}
+        {sdk.type === 'web3js' && (
+          <Translate id="homepage.sdk.web3js.name" description="Name of the Web3.js Extension SDK">
+            Web3.js Extension
+          </Translate>
+        )}
+        {sdk.type === 'web3j' && (
+          <Translate id="homepage.sdk.web3j.name" description="Name of the Web3j Extension SDK">
+            Web3j Extension
+          </Translate>
+        )}
+        {sdk.type === 'web3py' && (
+          <Translate id="homepage.sdk.web3py.name" description="Name of the Web3.py Extension SDK">
+            Web3.py Extension
+          </Translate>
+        )}
       </SDKName>
     </SDKLink>
   );
