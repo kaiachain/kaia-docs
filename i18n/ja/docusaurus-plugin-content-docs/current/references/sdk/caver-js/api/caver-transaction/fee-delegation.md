@@ -10,9 +10,9 @@ sidebar_label: 手数料の委任
 caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
 ```
 
-FeeDelegatedValueTransfer`は [fee delegated value transfer transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer) を表す。 トランザクションオブジェクト`transactionObject` は、`FeeDelegatedValueTransfer\` トランザクションを作成するために以下のプロパティを持つことができる。
+`FeeDelegatedValueTransfer` は [fee delegated value transfer transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer) を表す。 トランザクションオブジェクト `transactionObject` は、`FeeDelegatedValueTransfer` トランザクションを作成するために以下のプロパティを持つことができる。
 
-FeeDelegatedValueTransfer` は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `FeeDelegatedValueTransfer` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
+FeeDelegatedValueTransfer`は以下のプロパティをメンバ変数として持つ。`optional`とマークされたプロパティは、ユーザが `FeeDelegatedValueTransfer`トランザクションを作成するときに`transactionObject\` にオプションで定義できるプロパティである。
 
 :::note
 
@@ -27,7 +27,7 @@ FeeDelegatedValueTransfer` は以下のプロパティをメンバ変数とし�
 
 | 名称       | タイプ   | 説明                                                                                                                                                       |
 | -------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 価値       | ストリング | 譲渡されるKAIAの金額。 caver.utils.toPeb\`を使うことができる。                                                                              |
+| 価値       | ストリング | 譲渡されるKAIAの金額。 `caver.utils.toPeb`を使うことができる。                                                                                                              |
 | より       | ストリング | 送信者のアドレス。                                                                                                                                                |
 | への       | ストリング | 送金された金額を受け取る口座アドレス。                                                                                                                                      |
 | ガス       | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                                 |
@@ -71,16 +71,16 @@ FeeDelegatedValueTransfer {
 caver.transaction.feeDelegatedValueTransferMemo.create(transactionObject)
 ```
 
-FeeDelegatedValueTransferMemo`は[料金委任価値譲渡メモトランザクション](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo)を表す。 トランザクションオブジェクト`transactionObject` は以下のプロパティを持つことができ、`FeeDelegatedValueTransferMemo\` トランザクションを作成することができる。
+`FeeDelegatedValueTransferMemo` は[料金委任価値譲渡メモトランザクション](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo)を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`FeeDelegatedValueTransferMemo` トランザクションを作成することができる。
 
-FeeDelegatedValueTransferMemo`は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `FeeDelegatedValueTransferMemo` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
+`FeeDelegatedValueTransferMemo`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedValueTransferMemo` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
 
 :::note
 
 注: RLP エンコードされた文字列から `FeeDelegatedValueTransferMemo` のインスタンスを作成することができます。 以下の例を参照してください。
 注意: `caver.transaction.feeDelegatedValueTransferMemo.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.feeDelegatedValueTransferMemo({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.feeDelegatedValueTransferMemo.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.feeDelegatedValueTransferMemo({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.feeDelegatedValueTransferMemo.create({...})`に変更してください。
 
 :::
 
@@ -88,7 +88,7 @@ FeeDelegatedValueTransferMemo`は以下のプロパティをメンバ変数と�
 
 | 名称       | タイプ   | 説明                                                                                                                                       |
 | -------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| 価値       | ストリング | 譲渡されるKAIAの金額。 caver.utils.toPeb\`を使うことができる。                                                              |
+| 価値       | ストリング | 譲渡されるKAIAの金額。 `caver.utils.toPeb`を使うことができる。                                                                                              |
 | より       | ストリング | 送信者のアドレス。                                                                                                                                |
 | への       | ストリング | 送金された金額を受け取る口座アドレス。                                                                                                                      |
 | 入力       | ストリング | トランザクションに付随するデータ。 メッセージはこのプロパティに渡されるべきである。                                                                                               |
@@ -135,16 +135,16 @@ FeeDelegatedValueTransferMemo {
 caver.transaction.feeDelegatedAccountUpdate.create(transactionObject)
 ```
 
-FeeDelegatedAccountUpdate`は、[fee delegated account update transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate)を表す。 トランザクションオブジェクト`transactionObject` は、`FeeDelegatedAccountUpdate\` トランザクションを作成するために以下のプロパティを持つことができる。
+`FeeDelegatedAccountUpdate` は、[fee delegated account update transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate)を表す。 トランザクションオブジェクト `transactionObject` は、`FeeDelegatedAccountUpdate` トランザクションを作成するために以下のプロパティを持つことができる。
 
-FeeDelegatedAccountUpdate` は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `FeeDelegatedAccountUpdate` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
+`FeeDelegatedAccountUpdate` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedAccountUpdate` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
 
 :::note
 
 注: RLP エンコードされた文字列から `FeeDelegatedAccountUpdate` のインスタンスを作成することができます。 以下の例を参照してください。
 注意: `caver.transaction.feeDelegatedAccountUpdate.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 以降でサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.feeDelegatedAccountUpdate({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.feeDelegatedAccountUpdate.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.feeDelegatedAccountUpdate({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.feeDelegatedAccountUpdate.create({...})`に変更してください。
 
 :::
 
@@ -198,16 +198,16 @@ FeeDelegatedAccountUpdate {
 caver.transaction.feeDelegatedSmartContractDeploy.create(transactionObject)
 ```
 
-FeeDelegatedSmartContractDeploy`は、[fee delegated smart contract deploy transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy) を表す。 トランザクションオブジェクト`transactionObject` は以下のプロパティを持つことができ、`FeeDelegatedSmartContractDeploy\` トランザクションを作成することができる。
+`FeeDelegatedSmartContractDeploy` は、[fee delegated smart contract deploy transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy) を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`FeeDelegatedSmartContractDeploy` トランザクションを作成することができる。
 
-FeeDelegatedSmartContractDeploy` は、以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `FeeDelegatedSmartContractDeploy` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティを指す。
+`FeeDelegatedSmartContractDeploy` は、以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedSmartContractDeploy` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティを指す。
 
 :::note
 
 注: RLP エンコードされた文字列から `FeeDelegatedSmartContractDeploy` のインスタンスを作成できます。 以下の例を参照してください。
 注意: `caver.transaction.feeDelegatedSmartContractDeploy.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 以降でサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.feeDelegatedSmartContractDeploy({...})`のようなコンストラクタを使用してトランザクションを作成していた場合は、`caver.transaction.feeDelegatedSmartContractDeploy.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.feeDelegatedSmartContractDeploy({...})`のようなコンストラクタを使用してトランザクションを作成していた場合は、`caver.transaction.feeDelegatedSmartContractDeploy.create({...})`に変更してください。
 
 :::
 
@@ -218,7 +218,7 @@ FeeDelegatedSmartContractDeploy` は、以下のプロパティをメンバ変�
 | より        | ストリング | 送信者のアドレス。                                                                                                                                                          |
 | 入力        | ストリング | トランザクションに付随するデータ。 デプロイされるスマート・コントラクトのバイトコードとその引数。 これは[caver.abi.encodeContractDeploy](../caver.abi.md#encodecontractdeploy)で取得できる。 |
 | ガス        | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                                           |
-| 価値        | ストリング | (オプション、デフォルト: `'0x0'`) 転送するKAIAの量をpebで指定する。 caver.utils.toPeb\`を使うことができる。                       |
+| 価値        | ストリング | (オプション、デフォルト: `'0x0'`) 転送するKAIAの量をpebで指定する。 `caver.utils.toPeb`を使うことができる。                                                       |
 | への        | ストリング | (オプション、デフォルト: `'0x'`) スマートコントラクトがデプロイされるアドレス。 現在、この値を定義することはできない。 アドレスの指定は将来サポートされる予定。                                          |
 | 人間可読      | ブーリアン | (オプション、デフォルト: `false`) 人間が読めるアドレスはまだサポートされていないので、これは false でなければならない。                                                           |
 | コードフォーマット | ストリング | (オプション、デフォルト: `'EVM'`) スマートコントラクトのコードフォーマット。 今のところ、サポートされる値はEVMのみ。 この値は、代入後、内部で16進文字列に変換される（例えば、`EVM`は`0x0`に変換される）。             |
@@ -264,16 +264,16 @@ FeeDelegatedSmartContractDeploy {
 caver.transaction.feeDelegatedSmartContractExecution.create(transactionObject)
 ```
 
-FeeDelegatedSmartContractExecution`は、[手数料委任スマートコントラクト実行トランザクション](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution)を表す。 トランザクションオブジェクト`transactionObject` は以下のプロパティを持つことができ、`FeeDelegatedSmartContractExecution\` トランザクションを作成することができる。
+`FeeDelegatedSmartContractExecution` は、[手数料委任スマートコントラクト実行トランザクション](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution)を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`FeeDelegatedSmartContractExecution` トランザクションを作成することができる。
 
-FeeDelegatedSmartContractExecution` は、以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `FeeDelegatedSmartContractExecution` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
+`FeeDelegatedSmartContractExecution` は、以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedSmartContractExecution` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
 
 :::note
 
 注: RLP エンコードされた文字列から `FeeDelegatedSmartContractExecution` のインスタンスを作成できます。 以下の例を参照してください。
 注意: `caver.transaction.feeDelegatedSmartContractExecution.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.feeDelegatedSmartContractExecution({...})`のようなコンストラクタを使用してトランザクションを作成していた場合は、`caver.transaction.feeDelegatedSmartContractExecution.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.feeDelegatedSmartContractExecution({...})`のようなコンストラクタを使用してトランザクションを作成していた場合は、`caver.transaction.feeDelegatedSmartContractExecution.create({...})`に変更してください。
 
 :::
 
@@ -285,7 +285,7 @@ FeeDelegatedSmartContractExecution` は、以下のプロパティをメンバ�
 | への       | ストリング | 実行されるスマートコントラクトアカウントのアドレス。                                                                                                                                                                             |
 | 入力       | ストリング | トランザクションの実行に使用される、トランザクションに添付されたデータ。 入力はエンコードされた文字列で、呼び出す関数とこの関数に渡すパラメータを示す。 このエンコードされた文字列は、[caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall)で取得できます。 |
 | ガス       | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                                                                               |
-| 価値       | ストリング | (オプション、デフォルト: `'0x0'`) 転送するKAIAの量をpebで指定する。 caver.utils.toPeb\`を使うことができる。                                                           |
+| 価値       | ストリング | (オプション、デフォルト: `'0x0'`) 転送するKAIAの量をpebで指定する。 `caver.utils.toPeb`を使うことができる。                                                                                           |
 | 署名       | 配列    | (オプション) シグネチャの配列。                                                                                                                                                                   |
 | 料金支払者の署名 | 配列    | (オプション) feePayerSignatures の配列。                                                                                                                                                     |
 | 料金支払者    | ストリング | (任意）料金支払者の住所。                                                                                                                                                                       |
@@ -327,16 +327,16 @@ FeeDelegatedSmartContractExecution {
 caver.transaction.feeDelegatedCancel.create(transactionObject)
 ```
 
-FeeDelegatedCancel`は[fee delegated cancel transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel)を表す。 トランザクションオブジェクト `transactionObject` は、`FeeDelegatedCancel\` トランザクションを作成するために以下のプロパティを持つことができる。
+`FeeDelegatedCancel`は[fee delegated cancel transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel)を表す。 トランザクションオブジェクト `transactionObject` は、`FeeDelegatedCancel` トランザクションを作成するために以下のプロパティを持つことができる。
 
-FeeDelegatedCancel`は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `FeeDelegatedCancel` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
+`FeeDelegatedCancel`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedCancel` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
 
 :::note
 
 注: RLPエンコードされた文字列から`FeeDelegatedCancel`のインスタンスを作成することができます。 以下の例を参照してください。
 注意: `caver.transaction.feeDelegatedCancel.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 以降でサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.feeDelegatedCancel({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.feeDelegatedCancel.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.feeDelegatedCancel({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.feeDelegatedCancel.create({...})`に変更してください。
 
 :::
 
@@ -383,16 +383,16 @@ FeeDelegatedCancel {
 caver.transaction.feeDelegatedChainDataAnchoring.create(transactionObject)
 ```
 
-FeeDelegatedChainDataAnchoring`は、[fee delegated chain data anchoring transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedchaindataanchoring)を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`FeeDelegatedChainDataAnchoring\` トランザクションを作成することができる。
+`FeeDelegatedChainDataAnchoring`は、[fee delegated chain data anchoring transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedchaindataanchoring)を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`FeeDelegatedChainDataAnchoring` トランザクションを作成することができる。
 
-FeeDelegatedChainDataAnchoring` は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `FeeDelegatedChainDataAnchoring` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
+`FeeDelegatedChainDataAnchoring` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedChainDataAnchoring` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
 
 :::note
 
 注: RLP エンコードされた文字列から `FeeDelegatedChainDataAnchoring` のインスタンスを作成することができます。 以下の例を参照してください。
 注意: `caver.transaction.feeDelegatedChainDataAnchoring.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.feeDelegatedChainDataAnchoring({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.feeDelegatedChainDataAnchoring.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.feeDelegatedChainDataAnchoring({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.feeDelegatedChainDataAnchoring.create({...})`に変更してください。
 
 :::
 
