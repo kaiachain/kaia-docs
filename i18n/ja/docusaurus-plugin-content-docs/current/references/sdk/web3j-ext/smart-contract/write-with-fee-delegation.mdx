@@ -30,10 +30,10 @@ import org.web3j.protocol.kaia.core.method.response.KlayCallResponse;
 import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
 import org.web3j.tx.gas.StaticGasProvider;
 import org.web3j.abi.FunctionEncoder;
-import org.web3j.abi.dattypes.Function;
-import org.web3j.abi.dattypes.Uint;
+import org.web3j.abi.datatypes.Function;
+import org.web3j.abi.datatypes.Uint;
 import java.util.Arrays;
-import java.util.Collections; public class Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write Write WriteCollections;
+import java.util.Collections;
 
 public class WriteContractWithFeeDelegationExample {
         /**
@@ -57,13 +57,13 @@ public class WriteContractWithFeeDelegationExample {
                 StaticGasProvider gasProvider = new StaticGasProvider(GAS_PRICE, GAS_LIMIT);
                 Counter counter = Counter.load(contractAddr, web3j, credentials.convertToCredentials(), gasProvider);
 
-                // 契約前の数値を取得 Write
+                // Get number before Contract Write
                 System.out.println("number before : " + counter.number().send());
 
-                // 契約書き込み（setNumber関数で数値を設定）
-                Function function = new Function("setNumber", // 関数名
-                                Arrays.asList(new Uint(BigInteger.valueOf(50)), // 関数の入力パラメータ
-                                Collections.emptyList()); // 関数の戻りパラメータ
+                // Contract Write (Set number with setNumber function)
+                Function function = new Function("setNumber", // Function name
+                                Arrays.asList(new Uint(BigInteger.valueOf(50))), // Function input parameters
+                                Collections.emptyList()); // Function returned parameters
                 String txData = FunctionEncoder.encode(function);
                 byte[] payload = Numeric.hexStringToByteArray(txData);
 
@@ -79,10 +79,10 @@ public class WriteContractWithFeeDelegationExample {
                                 from,
                                 payload);
 
-                // 送信者として署名
+                // Sign as sender
                 byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
 
-                // Fee payer として同じメッセージに署名
+                // Sign same message as Fee payer
                 signedMessage = KlayTransactionEncoder.signMessageAsFeePayer(raw, chainId, credentials_feePayer);
                 String hexValue = Numeric.toHexString(signedMessage);
                 web3j.ethSendRawTransaction(hexValue).send();
@@ -90,12 +90,12 @@ public class WriteContractWithFeeDelegationExample {
                         Thread.sleep(2000);
                 } catch (Exception e) {
                         System.out.println(e);
-                } // 契約書込み後に番号を取得する。
-                // 契約後の数を取得する Write
-                System.out.println("契約後の数 : " + counter.number().send());
+                }
+                // Get number after Contract Write
+                System.out.println("number after : " + counter.number().send());
 
                 web3j.shutdown();
-        }.
+        }
 }
 ```
 
