@@ -19,11 +19,11 @@ FeeDelegatedValueTransferWithRatio` は以下のプロパティをメンバ変�
 注: RLP エンコードされた文字列から `FeeDelegatedValueTransferWithRatio` のインスタンスを作成することができます。 以下の例を参照してください。
 注意: `caver.transaction.feeDelegatedValueTransferWithRatio.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.feeDelegatedValueTransferWithRatio({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.feeDelegatedValueTransferWithRatio.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.feeDelegatedValueTransferWithRatio({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.feeDelegatedValueTransferWithRatio.create({...})`に変更してください。
 
 :::
 
-\*\*プロパティ
+**プロパティ**
 
 | 名称       | タイプ   | 説明                                                                                                                                       |
 | -------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------- |
