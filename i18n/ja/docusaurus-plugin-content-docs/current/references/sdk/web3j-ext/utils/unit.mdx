@@ -1,6 +1,6 @@
-# Units
+# 単位
 
-For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and `kei`. See [supported units](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-) .
+単位変換のために、Kaia-SDKは`kaia`、`Gkei`、`kei`の変換ユーティルをサポートしている。 対応ユニット](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-)を参照。
 
 <CH.Spotlight>
   <CH.Code>
@@ -11,12 +11,12 @@ For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and 
 
     public class UnitConvertExample {
         public static void main(String[] args) {
-            System.out.println("Convert from kei to kaia " + KaiaConvert.fromKei("1000000000000000000", KaiaConvert.Unit.KAIA));
+            System.out.println("Convert from kei to kaia " + KaiaConvert.fromKei("100000000000000", KaiaConvert.Unit.KAIA));
             System.out.println("Convert from Gkei to kaia " + KaiaConvert.fromKei("1000000000", KaiaConvert.Unit.GKEI));
 
             System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.KAIA));
-            System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.GKEI));
-        }
+            System.out.println("Convert kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.GKEI));
+        }.
     }
     ```
 
@@ -24,22 +24,22 @@ For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and 
 
     ```zsh output
     ❯ java UnitConvertExample.java
-    Convert from kei to kaia 1
-    Convert from Gkei to kaia 1
-    Convert from kaia to kei 1000000000000000000
+    keiからkaiaに変換 1
+    Gkeiからkaiaに変換 1
+    kaiaからkeiに変換 100000000000000000000
     ```
   </CH.Code>
 
   ---
 
-  Import the `KaiaConvert` from **org.web3j.utils.KaiaConvert** packages
+  org.web3j.utils.KaiaConvert\*\* パッケージから `KaiaConvert` をインポートする。
 
   ```java UnitConvertExample.java focus=1:3
   ```
 
   ---
 
-  To convert other units to kaia, use `KaiaConvert.fromKei`. The first param is the value and the second param is the unit types of `kei/Gkei/kaia`
+  他の単位をKaiaに変換するには、`KaiaConvert.fromKei`を使う。 最初のパラメータは値、2番目のパラメータは `kei/Gkei/kaia` の単位型である。
 
   <CH.Code>
     ```java UnitConvertExample.java focus=7:8
@@ -49,14 +49,14 @@ For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and 
 
     ```zsh output
     ❯ java UnitConvertExample.java
-    Convert from kei to kaia 1
-    Convert from Gkei to kaia 1
+    keiからkaiaへの変換 1
+    Gkeiからkaiaへの変換 1
     ```
   </CH.Code>
 
   ---
 
-  To convert other units to kei, use `KaiaConvert.toKei`. The first param is the value and the second param is the unit types of `kei/Gkei/kaia`
+  他の単位をkeiに変換するには、`KaiaConvert.toKei`を使う。 最初のパラメータは値、2番目のパラメータは `kei/Gkei/kaia` の単位型である。
 
   <CH.Code>
     ```java UnitConvertExample.java focus=10:11
@@ -66,7 +66,7 @@ For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and 
 
     ```zsh output
     ❯ java UnitConvertExample.java
-    Convert from kaia to kei 1000000000000000000
+    「か」から「けい」への変換 10000000000000000
     ```
   </CH.Code>
 </CH.Spotlight>
