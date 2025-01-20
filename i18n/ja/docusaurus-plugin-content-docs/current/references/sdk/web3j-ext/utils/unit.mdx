@@ -11,12 +11,12 @@
 
     public class UnitConvertExample {
         public static void main(String[] args) {
-            System.out.println("Convert from kei to kaia " + KaiaConvert.fromKei("100000000000000", KaiaConvert.Unit.KAIA));
+            System.out.println("Convert from kei to kaia " + KaiaConvert.fromKei("1000000000000000000", KaiaConvert.Unit.KAIA));
             System.out.println("Convert from Gkei to kaia " + KaiaConvert.fromKei("1000000000", KaiaConvert.Unit.GKEI));
 
             System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.KAIA));
-            System.out.println("Convert kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.GKEI));
-        }.
+            System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.GKEI));
+        }
     }
     ```
 
@@ -24,9 +24,9 @@
 
     ```zsh output
     ❯ java UnitConvertExample.java
-    keiからkaiaに変換 1
-    Gkeiからkaiaに変換 1
-    kaiaからkeiに変換 100000000000000000000
+    Convert from kei to kaia 1
+    Convert from Gkei to kaia 1
+    Convert from kaia to kei 1000000000000000000
     ```
   </CH.Code>
 
@@ -49,8 +49,8 @@
 
     ```zsh output
     ❯ java UnitConvertExample.java
-    keiからkaiaへの変換 1
-    Gkeiからkaiaへの変換 1
+    Convert from kei to kaia 1
+    Convert from Gkei to kaia 1
     ```
   </CH.Code>
 
