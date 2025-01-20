@@ -65,10 +65,10 @@ public class FeeDelegatedSmartContractExecutionExample implements keySample {
                                 from,
                                 payload);
 
-                // 送信者として署名
+                // Sign as sender
                 byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
 
-                // Fee payer として同じメッセージに署名
+                // Sign same message as Fee payer
                 signedMessage = KlayTransactionEncoder.signMessageAsFeePayer(raw, chainId, credentials_feepayer);
 
                 String hexValue = Numeric.toHexString(signedMessage);
@@ -77,7 +77,7 @@ public class FeeDelegatedSmartContractExecutionExample implements keySample {
                 String txHash = transactionResponse.getResult();
                 int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
                 int DEFAULT_BLOCK_TIME = 1 * 1000;
-                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME；
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
                 TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
                                 DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
                 org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
@@ -89,8 +89,8 @@ public class FeeDelegatedSmartContractExecutionExample implements keySample {
 
                 TxTypeFeeDelegatedSmartContractExecution rawTransaction = TxTypeFeeDelegatedSmartContractExecution
                                 .decodeFromRawTransaction(signedMessage);
-                System.out.println("TxType ：" + rawTransaction.getKlayType());
-        }.
+                System.out.println("TxType : " + rawTransaction.getKlayType());
+        }
 
 }
 ```
