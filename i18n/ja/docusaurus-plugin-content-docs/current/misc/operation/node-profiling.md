@@ -106,13 +106,13 @@ pprof のウェブ・インターフェイスにアクセスできない場合�
 - threadcreate\`：新しい OS スレッドを作成したスタックトレース。
 - trace`：現在のプログラムの実行トレース。 GET パラメーターの `seconds` で継続時間を指定することができる。 トレースファイルを取得したら、`go tool trace\`コマンドを使ってトレースを調査する。
 
-#### go tool pprof\`を使ってプロファイルを収集する
+#### `go tool pprof`を使ってプロファイルを収集する
 
 ```bash
 go tool pprof http://localhost:6060/debug/pprof/<profiletype>
 ```
 
-<profiletype>` を上記のサポートされているプロファイル（例：`heap`、`profile\`）のいずれかに置き換える。
+`<profiletype>` を上記のサポートされているプロファイル（例：`heap`、`profile`）のいずれかに置き換える。
 
 #### コマンド例
 
