@@ -98,7 +98,7 @@ const caver = new Caver('https://your.en.url:8651/')
 
 [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) は内部で `keys` プロパティを定義しており、この `keys` は複数の秘密鍵を格納するための配列として実装されている。
 
-RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) で定義されている `keys` プロパティは2次元配列として実装されており、各[role](../../../learn/accounts.md#roles) に対して複数のキーを含めることができます（空の `keys` は `[ [], [], [] ]` のようになります）。 配列の最初の要素には `roleTransactionKey` に使用する秘密鍵、2 番目の要素には `roleAccountUpdateKey` に使用する秘密鍵、3 番目の要素には `roleFeePayerKey` に使用する秘密鍵が格納される。
+[RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) で定義されている `keys` プロパティは2次元配列として実装されており、各[role](../../../learn/accounts.md#roles) に対して複数のキーを含めることができます（空の `keys` は `[ [], [], [] ]` のようになります）。 配列の最初の要素には `roleTransactionKey` に使用する秘密鍵、2 番目の要素には `roleAccountUpdateKey` に使用する秘密鍵、3 番目の要素には `roleFeePayerKey` に使用する秘密鍵が格納される。
 
 ### キーホルダーの作成<a href="#creating-a-keyring" id="creating-a-keyring"></a>
 
@@ -408,7 +408,7 @@ RoleBasedKeyring {
 }
 ```
 
-caver.wallet.add`または `caver.wallet.newKeyring`は、`caver.wallet\`にKeyringを追加した後に、Keyringのインスタンスを返します。
+`caver.wallet.add`または `caver.wallet.newKeyring`は、`caver.wallet`にKeyringを追加した後に、Keyringのインスタンスを返します。
 
 ## トランザクションの送信<a href="#sending-a-transaction" id="sending-a-transaction"></a>
 
@@ -425,7 +425,7 @@ caver-jsウォレットを使用して、取引の署名を生成することが
 1. 取引に署名する
    - 使いたいキーリングが[caver.wallet](api/caver-wallet/caver-wallet.md)に追加されていれば、`caver.wallet.sign`関数を使って署名することができます。
    - キーリングを `caver.wallet` に追加せずに別途管理する場合は、`transaction.sign` 関数を使用してトランザクションに署名することができる。
-2. caver.rpc.klay.sendRawTransaction\`を介して、署名されたトランザクションのRLPエンコード文字列をkaiaに送信する。
+2. `caver.rpc.klay.sendRawTransaction`を介して、署名されたトランザクションのRLPエンコード文字列をkaiaに送信する。
 
 **注意：**\* 送信者は十分な数のKAIAを持っていなければならない。
 
@@ -519,7 +519,7 @@ $ node ./test.js
 }
 ```
 
-caver.wallet\`を使わずにトランザクションに署名してネットワークに送信したい場合は、以下の例を参照してください。
+`caver.wallet`を使わずにトランザクションに署名してネットワークに送信したい場合は、以下の例を参照してください。
 
 ```javascript
 // test.js
@@ -567,7 +567,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-上記の例で説明したように、プロミスとイベント・エミッターを通じて、トランザクションの送信結果を得ることができる。 transactionHash`フィールドはレシートオブジェクトの内部で定義される。 caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPCコールに`receipt.transactionHash\`を使用すると、トランザクションがブロックに 含まれた後、ネットワークからいつでもトランザクションの受信を問い合わせることができる。 以下の例では、[caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC コールを使用してレシートを取得する方法を示しています。
+上記の例で説明したように、プロミスとイベント・エミッターを通じて、トランザクションの送信結果を得ることができる。 `transactionHash`フィールドはレシートオブジェクトの内部で定義される。 [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPCコールに`receipt.transactionHash`を使用すると、トランザクションがブロックに 含まれた後、ネットワークからいつでもトランザクションの受信を問い合わせることができる。 以下の例では、[caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC コールを使用してレシートを取得する方法を示しています。
 
 ```javascript
 // test.js
@@ -610,7 +610,7 @@ $ node ./test.js
 }
 ```
 
-トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については、[caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 txError\`の詳細については、[txError: トランザクション失敗の詳細情報](../transaction-error-codes.md) を参照のこと。
+トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については、[caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 `txError`の詳細については、[txError: トランザクション失敗の詳細情報](../transaction-error-codes.md) を参照のこと。
 
 ## 他のトランザクション・タイプの実行<a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
@@ -684,7 +684,7 @@ $ node ./test.js
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
-これで取引は、送金者と手数料支払者の双方によって署名され、ネットワーク上で送信できるようになった。 0x{RLP-encoded string}\` を、上記のサンプルコードで出力されたRLPエンコードされた文字列に置き換える。
+これで取引は、送金者と手数料支払者の双方によって署名され、ネットワーク上で送信できるようになった。 `0x{RLP-encoded string}` を、上記のサンプルコードで出力されたRLPエンコードされた文字列に置き換える。
 
 ```javascript
 // test.js
@@ -1159,7 +1159,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-caver.contract\`を通じてスマートコントラクトをデプロイする際に、送信者とfeePayerが別々に署名されたトランザクションを送信したい場合は、以下のコードを参照のこと：
+`caver.contract`を通じてスマートコントラクトをデプロイする際に、送信者とfeePayerが別々に署名されたトランザクションを送信したい場合は、以下のコードを参照のこと：
 
 ```javascript
 // test.js
@@ -1278,7 +1278,7 @@ $ node ./test.js
 }
 ```
 
-feeDelegation`と`feePayer\`を定義する：
+`feeDelegation`と`feePayer`を定義する：
 
 ```javascript
 // test.js
@@ -1326,7 +1326,7 @@ async function executionWithFeeDelegation() {
 }
 ```
 
-caver.contract\`でスマートコントラクトを実行する際に、送信者とfeePayerが別々に署名されたトランザクションを送信したい場合は、以下のコードを参照する：
+`caver.contract`でスマートコントラクトを実行する際に、送信者とfeePayerが別々に署名されたトランザクションを送信したい場合は、以下のコードを参照する：
 
 ```javascript
 // test.js
@@ -1570,7 +1570,7 @@ $ node ./test.js
 
 上記のコードを実行すると、すべての署名情報が組み合わされた1つのRLPエンコードされた生のトランザクション文字列が出力される。
 
-combineSignedRawTransactions`を実行するとき、結合される署名付きRLPエンコードされた生トランザクショ ン文字列は、トランザクションインスタンスの署名とオプション変数を除いて、互いに全く同じでなければならない。 combineSignedRawTransactions`の呼び出し元である）ベーストランザクショ ンインスタンスに指定された値を持たないオプション変数は、次にマージされる生トランザクショ ン文字列の対応する値と交換される。 マージされるすべての生のトランザクション文字列（オプション変数の値を含む）の間に不一致がある場合、エラーが発生する。
+`combineSignedRawTransactions`を実行するとき、結合される署名付きRLPエンコードされた生トランザクショ ン文字列は、トランザクションインスタンスの署名とオプション変数を除いて、互いに全く同じでなければならない。 `combineSignedRawTransactions`の呼び出し元である）ベーストランザクショ ンインスタンスに指定された値を持たないオプション変数は、次にマージされる生トランザクショ ン文字列の対応する値と交換される。 マージされるすべての生のトランザクション文字列（オプション変数の値を含む）の間に不一致がある場合、エラーが発生する。
 
 combineSignedRawTransactionsは、結果として、すべての署名(およびトランザクショ ンがfee-delegatedトランザクションの場合はfeePayerSignatures)を含むRLPエンコードされた文字列を返す。 これを使用して、`await caver.rpc.klay.sendRawTransaction(combined)`を通してトランザクショ ンをネットワークに送信する。
 
