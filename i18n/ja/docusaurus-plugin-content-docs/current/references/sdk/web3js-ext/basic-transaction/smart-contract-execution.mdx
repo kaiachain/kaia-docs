@@ -209,17 +209,17 @@ Define a transaction object for the contract execution, params `type: TxType.Sma
 送信者\*\*の秘密鍵でトランザクションに署名する。
 
 <CH.Code>
-``js SmartContractExecution.js focus=39:40
+```js SmartContractExecution.js focus=39:40
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ node SmartContractExecution.js
 signedTx 0x6e3843d8fe5ef53b4642d82357d423dfb2741a96a9a74307df2bd7caee5659f0
-```
+````
 
 </CH.Code>
 
@@ -228,7 +228,7 @@ signedTx 0x6e3843d8fe5ef53b4642d82357d423dfb2741a96a9a74307df2bd7caee5659f0
 署名されたトランザクションをブロックチェーンに送信する。 取引レシートを返します。
 
 <CH.Code>
-``js SmartContractExecution.js focus=42:43
+```js SmartContractExecution.js focus=42:43
 
 ````
 
