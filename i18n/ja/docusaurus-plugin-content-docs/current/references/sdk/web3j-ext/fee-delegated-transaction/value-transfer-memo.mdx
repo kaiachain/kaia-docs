@@ -40,7 +40,7 @@ public class FeeDelegatedValueTransferMemoExample {
 		String from = credentials.getAddress();
 		EthChainId EthchainId = web3j.ethChainId().send();
 		long chainId = EthchainId.getChainId().longValue();
-		String to = "0x00000000000000000000dead";
+		String to = "0x000000000000000000000000000000000000dead";
 		BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
 				.getTransactionCount();
 		BigInteger value = BigInteger.valueOf(100);
@@ -62,7 +62,7 @@ public class FeeDelegatedValueTransferMemoExample {
 		// Sign as sender
 		byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
 
-		// Fee payer として同じメッセージに署名
+		// Sign same message as Fee payer
 		signedMessage = KlayTransactionEncoder.signMessageAsFeePayer(raw, chainId, credentials_feepayer);
 
 		String hexValue = Numeric.toHexString(signedMessage);
@@ -73,16 +73,16 @@ public class FeeDelegatedValueTransferMemoExample {
 			Thread.sleep(2000);
 		} catch (Exception e) {
 			System.out.println(e);
-		}.
+		}
 		TransactionReceipt receipt = web3j.klayGetTransactionReceipt(txHash).send().getResult();
 		System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
 		web3j.shutdown();
 
 		TxTypeFeeDelegatedValueTransferMemo rawTransaction = TxTypeFeeDelegatedValueTransferMemo
 				.decodeFromRawTransaction(hexValue);
-		System.out.println("TxType ：" + rawTransaction.getKlayType());
+		System.out.println("TxType : " + rawTransaction.getKlayType());
 
-	}.
+	}
 
 }
 ```
