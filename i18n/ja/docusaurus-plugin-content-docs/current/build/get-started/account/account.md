@@ -27,7 +27,7 @@ COMMANDS:
 ...
 ```
 
-ken account<command> --help\`でサブコマンドの情報を得ることができる。
+`ken account<command> --help`でサブコマンドの情報を得ることができる。
 
 ```text
 $ ken account list --help
