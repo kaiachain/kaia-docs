@@ -12,7 +12,7 @@
 
 KeyringContainer`は、[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、[RoleBasedKeyring](./keyring.md#rolebasedkeyring)のインスタンスを管理するクラスです。 Caver がインスタンス化されると、`caver.wallet` に KeyringContainer インスタンスが作成されます。 caver.wallet`を通じて、インメモリ・ウォレットにキーリング・インスタンスを保存し、管理することができる。
 
-\*\*プロパティ
+**プロパティ**
 
 | 名称 | タイプ | 説明                         |
 | -- | --- | -------------------------- |
@@ -33,13 +33,13 @@ caver.wallet.generate(numberOfKeyrings [, entropy])
 | キーリング数 | 番号    | 作成する [SingleKeyring](./keyring.md#singlekeyring) インスタンスの数。 |
 | エントロピー | ストリング | (オプション) エントロピーを高めるためのランダムな文字列。          |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ | 説明              |
 | --- | --------------- |
 | 配列  | 生成されたアドレスを含む配列。 |
 
-\*\*例
+**例**
 
 ```javascript
 // エントロピーなしで生成
@@ -76,13 +76,13 @@ key` が秘密鍵文字列の場合、単一の秘密鍵を使用する [SingleK
 | 住所 | ストリング       | アドレス文字列。                                                                               |
 | キー | string \\ | 秘密鍵文字列、秘密鍵の配列、または各配列要素が各 [役割](../../../../../learn/accounts.md#roles)に定義された鍵を含む 2D 配列。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明                                                                                                                                                                                                                        |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | オブジェクト | caver.walletに追加されたキーリングのインスタンス([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)が返されます。 |
 
-\*\*例
+**例**
 
 ```javascript
 // Create a instance of SingleKeyring and add to caver.wallet
@@ -142,13 +142,13 @@ caver.wallet`内のキーホルダーを更新する。 新しい `keyring`イ�
 | ------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | キーホルダー | オブジェクト | caver.wallet\`に格納する新しいキーリング([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明                                                                                                                                                                                                                    |
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | オブジェクト | caver.wallet\`に格納されている更新されたキーリング([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
 
-\*\*例
+**例**
 
 ```javascript
 > caver.wallet.updateKeyring(newKeyring)
@@ -172,13 +172,13 @@ caver.wallet\`のアドレスに対応するキーリングのインスタンス
 | -- | ----- | ----------------- |
 | 住所 | ストリング | 問い合わせるキーリングのアドレス。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明                                                                                                                                                                                                              |
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | オブジェクト | 見つかったキーリングのインスタンス([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または `caver.wallet` に格納されている [RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
 
-\*\*例
+**例**
 
 ```javascript
 > caver.wallet.getKeyring('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
@@ -202,13 +202,13 @@ caver.wallet.isExisted(アドレス)
 | -- | ----- | ------------------- |
 | 住所 | ストリング | 存在を確認するキーホルダーのアドレス。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ   | 説明                                                                   |
 | ----- | -------------------------------------------------------------------- |
 | ブーリアン | true`は、`caver.wallet\`にそのアドレスと一致するキーリングが存在することを意味する。 |
 
-\*\*例
+**例**
 
 ```javascript
 > caver.wallet.isExisted('0x386a4bb40abbfaa59cecdc3ced202475895fd569')
@@ -229,13 +229,13 @@ caver.wallet.add(キーリング)
 | ------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | キーホルダー | オブジェクト | caver.wallet\`に追加するキーリングのインスタンス([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明                                                                                                                                                                                                             |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | オブジェクト | caver.wallet\`に追加されたキーリング([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
 
-\*\*例
+**例**
 
 ```javascript
 > caver.wallet.add(keyring)
@@ -259,13 +259,13 @@ caver.wallet.remove(アドレス)
 | -- | ----- | ----------------------------------------------- |
 | 住所 | ストリング | caver.wallet\`で削除するキーホルダーのアドレス。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ   | 説明                                           |
 | ----- | -------------------------------------------- |
 | ブーリアン | キーリングが `caver.wallet` から削除された場合は `true` を返す。 |
 
-\*\*例
+**例**
 
 ```javascript
 > caver.wallet.remove('0x6a3edfad6d1126020d5369e9097db39281876c5d')
@@ -295,7 +295,7 @@ sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message))
 | 役割     | 番号    | キーの役割を示す数字。 caver.wallet.keyring.role\`を使用することができます。                                |
 | インデックス | 番号    | (オプション) 使用したい秘密鍵のインデックス。 このインデックスは、各ロールに定義されたプライベートキーの配列の長さより小さくなければならない。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用する。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明              |
 | ------ | --------------- |
@@ -309,7 +309,7 @@ sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message))
 | 署名        | 配列    | SignatureData](./keyring.md#signaturedata) の配列。 |
 | メッセージ     | ストリング | 署名するメッセージ                                                                                                                    |
 
-\*\*例
+**例**
 
 ```javascript
 //
@@ -353,7 +353,7 @@ caver.wallet.sign(address, transaction [, index] [, hasher])
 | インデックス   | 番号     | (オプション) 使用したい秘密鍵のインデックス。 このインデックスは、各ロールに定義されたプライベートキーの配列の長さより小さくなければならない。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用する。                                                                                                             |
 | ハッシャー    | 機能     | (オプション) トランザクションのハッシュを取得するためのハッシュ関数。 パラメータとして `hasher` を指定すると、caver-js で実装されているトランザクションハッシュのデフォルトの計算方法の代わりに、トランザクションハッシュを計算する。 トランザクション・ハッシュ生成のデフォルト・メソッドの詳細については、[Basic](../../../../../learn/transactions/basic.md)を参照のこと。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 オブジェクト`を返す `Promise\` ：署名されたトランザクション。
 
@@ -363,7 +363,7 @@ caver.wallet.sign(address, transaction [, index] [, hasher])
 
 トランザクション・タイプ別のフィールドの詳細については、[caver.transaction](../caver-transaction/caver-transaction.md)を参照のこと。
 
-\*\*例
+**例**
 
 ```javascript
 // This example uses the ValueTransfer transaction.
@@ -465,7 +465,7 @@ transaction.feePayer`が定義されていない場合は、`caver.wallet\`か�
 | インデックス   | 番号     | (オプション) 使用したい秘密鍵のインデックス。 このインデックスは、各ロールに定義されたプライベートキーの配列の長さより小さくなければならない。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用する。                                    |
 | ハッシャー    | 機能     | (オプション) トランザクションハッシュを取得する関数。 hasherがパラメータとして定義されている場合、caver-jsのデフォルトの実装ではなく、トランザクションハッシュを取得するために使用されます。                                             |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 オブジェクト`を返す `Promise\` ：署名されたトランザクション。
 
@@ -475,7 +475,7 @@ transaction.feePayer`が定義されていない場合は、`caver.wallet\`か�
 
 トランザクション・タイプ別のフィールドの詳細については、[caver.transaction](../caver-transaction/caver-transaction.md)を参照のこと。
 
-\*\*例
+**例**
 
 ```javascript
 // This example uses the FeeDelegatedValueTransfer transaction.
