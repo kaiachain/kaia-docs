@@ -24,7 +24,7 @@ RPC\`は[Klay]、[Net]、[Governance]を内部に含むクラスである。
 
 caver.rpc.klay`を使うと、kaiaノードと対話することができる。 以下のリストは `caver-js\` で現在サポートされているAPI関数を列挙したものである。
 
-### [アカウント](./klay.md#caver-rpc-klay-accountcreated)<a id="account"></a>
+### [Account](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
 
 - [アカウント作成](./klay.md#caver-rpc-klay-accountcreated)
 - [getAccount](./klay.md#caver-rpc-klay-getaccount)
@@ -38,7 +38,7 @@ caver.rpc.klay`を使うと、kaiaノードと対話することができる。 
 - [サイン](./klay.md#caver-rpc-klay-sign)
 - [getAccounts](./klay.md#caver-rpc-klay-getaccounts)
 
-### [ブロック](./klay.md#caver-rpc-klay-getblocknumber)<a id="block"></a>
+### [Block](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
 
 - [getBlockNumber](./klay.md#caver-rpc-klay-getblocknumber)
 - [getBlockByNumber](./klay.md#caver-rpc-klay-getblockbynumber)
@@ -55,7 +55,7 @@ caver.rpc.klay`を使うと、kaiaノードと対話することができる。 
 - [getStorageAt](./klay.md#caver-rpc-klay-getstorageat)
 - [isSyncing](./klay.md#caver-rpc-klay-issyncing)
 
-### [トランザクション](./klay.md#caver-rpc-klay-call)<a id="transaction"></a>
+### [Transaction](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
 
 - [コール](./klay.md#caver-rpc-klay-call)
 - [推定ガス](./klay.md#caver-rpc-klay-estimategas)
@@ -73,7 +73,7 @@ caver.rpc.klay`を使うと、kaiaノードと対話することができる。 
 - [SignTransactionAsFeePayer](./klay.md#caver-rpc-klay-signtransactionasfeepayer)
 - [GetDecodedAnchoringTransactionByHash](./klay.md#caver-rpc-klay-getdecodedanchoringtransactionbyhash)
 
-### [コンフィギュレーション](./klay.md#caver-rpc-klay-getclientversion)<a id="configuration"></a>
+### [Configuration](./klay.md#caver-rpc-klay-getclientversion) <a id="configuration"></a>
 
 - [getChainId](./klay.md#caver-rpc-klay-getchainid)
 - [getClientVersion](./klay.md#caver-rpc-klay-getclientversion)
@@ -84,7 +84,7 @@ caver.rpc.klay`を使うと、kaiaノードと対話することができる。 
 - [getProtocolVersion](./klay.md#caver-rpc-klay-getprotocolversion)
 - [リワードベース取得](./klay.md#caver-rpc-klay-getrewardbase)
 
-### [フィルター](./klay.md#caver-rpc-klay-getfilterchanges)<a id="filter"></a>
+### [Filter](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
 
 - [getFilterChanges](./klay.md#caver-rpc-klay-getfilterchanges)
 - [getFilterLogs](./klay.md#caver-rpc-klay-getfilterlogs)
@@ -101,7 +101,7 @@ caver.rpc.klay`を使うと、kaiaノードと対話することができる。 
 - [getPeerCount](./net.md#caver-rpc-net-getpeercount)
 - [getPeerCountByType](./net.md#caver-rpc-net-getpeercountbytype)
 
-### [その他](./klay.md#caver-rpc-klay-sha3)<a id="miscellaneous"></a>
+### [Miscellaneous](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
 
 - [sha3](./klay.md#caver-rpc-klay-sha3)
 
