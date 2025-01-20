@@ -45,6 +45,6 @@ ExtHash: 32-byte Keccak256 + 7-byte シリアルインデックス
 
 こうすることで、トライノードのコンテンツが変更されるたびに、そのトライノードは廃止されたと仮定しても問題ない。 Merkleハッシュは、シリアルインデックスを無視するだけで、同じように計算することができ、コンセンサスの点で非ライブ・プルーニング・ノードと互換性がある。
 
-技術的な詳細については、このブログ記事をお読みください：[StateDB Live Pruningによるブロックチェーンデータ容量の効率的管理】(https://medium.com/klaytn/strong-efficient-management-of-blockchain-data-capacity-with-statedb-live-pruning-strong-6aaa09b05f91).
+技術的な詳細については、このブログ記事をお読みください：[StateDB Live Pruningによるブロックチェーンデータ容量の効率的管理](https://medium.com/klaytn/strong-efficient-management-of-blockchain-data-capacity-with-statedb-live-pruning-strong-6aaa09b05f91).
 
 ライブ・プルーニングを有効にする方法については、[ライブ・プルーニング・ガイド](../../misc/operation/node-pruning.md#how-to-perform-live-pruning)を参照してください。
