@@ -42,19 +42,19 @@ Kaia実行環境はEthereum仮想マシンと互換性があり、Solidityで書
 <Tabs>
   <TabItem value="ハードハット" label="ハードハット">
     ```js
-    // Hardhatを使用するには、以下のネットワークを「hardhat.config.js」設定ファイル
-    に追加すれば十分である：{
+    // using Hardhat, it will be enough to add the following networks to the "hardhat.config.js" configuration file
+    networks: {
     	kaia: {
-    	  url："https://public-en.node.kaia.io",
+    	  url: "https://public-en.node.kaia.io",
     		accounts:[process.env.PRIVATE_KEY],
       },
-    	kairos_testnet：{
-    		url："https://public-en-kairos.node.kaia.io", 
+    	kairos_testnet: {
+    		url: "https://public-en-kairos.node.kaia.io", 
     		accounts:[process.env.PRIVATE_KEY],
-    	}.
+    	}
     }
 
-    //
+    // Then run the command to deploy :
     // npx hardhat run scripts/deploy.js --network kaia
     // npx hardhat run scripts/deploy.js --network kairos_testnet
 
