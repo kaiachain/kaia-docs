@@ -1,8 +1,8 @@
-# Value Transfer With Memo
+# メモによる価値移転
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo**は、ユーザーがKAIAに特定のメッセージを送りたいときに使用する。
 
-# Fee Delegation
+# 手数料の委任
 
 <CH.Spotlight>
   <CH.Code>
@@ -48,54 +48,54 @@
     ---
 
     ```zsh output
-    ❯ node TxTypeFeeDelegatedValueTransferMemo.js
-    senderTxHashRLP 0x11f88d8203ac850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f5a0bf499bb98ac755430724cb9cf8deb3e2d43baa0f4dc97036d06bd66c91e74f2ca0092f32dbabd626964eeccfe7a1cfc0d14088ece28f7efde952c341428a531785
+    ノード TxTypeFeeDelegatedValueTransferMemo.js
+    senderTxHashRLP0x11f88d8203ac850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f5a0bf499bb98ac755430724cb9cf8deb3e2d43baa0f4dc97036d06bd66c91e74f2ca0092f32dbabd626964eeccfe7a1cfc0d14088ece28f7efde952c341428a531785
     sentTx 0xac225ead53297c95b747abd84e7224ecbc1b40f459a532fd22a67143aa83b4ae
-    receipt {
-      to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+    受信 {
+      to：'0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
       from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
       contractAddress: null,
-      transactionIndex: 0,
-      gasUsed: BigNumber { _hex: '0x7b0c', _isBigNumber: true },
-      logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-      blockHash: '0xbc02b7afb16657cd1ec45bb6b7445767eb265702ae766dfc8bda3503f74d81a7',
+      transactionIndex：0,
+      gasUsed：BigNumber { _hex: '0x7b0c', _isBigNumber: true },
+      logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      blockHash：'0xbc02b7afb16657cd1ec45bb6b7445767eb265702ae766dfc8bda3503f74d81a7',
       transactionHash: '0xac225ead53297c95b747abd84e7224ecbc1b40f459a532fd22a67143aa83b4ae',
-      logs: [],
+      logs：[],
       blockNumber: 148732018,
-      confirmations: 2,
-      cumulativeGasUsed: BigNumber { _hex: '0x7b0c', _isBigNumber: true },
-      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-      status: 1,
-      type: 0,
+      confirmations：2,
+      cumulativeGasUsed：BigNumber { _hex: '0x7b0c', _isBigNumber: true },
+      effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status：1,
+      type：0,
       byzantium: true
-    }
+    }.
     ```
   </CH.Code>
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  ethers.jsにkaiaの機能を追加するために、**ethers**および\*\*@kaiachain/ethers-ext\*\*パッケージをインポートする。
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=1:2
   ```
 
   ---
 
-  Define **sender address, sender private key, fee payer address, fee payer private key and reciever address**
+  送信者アドレス、送信者秘密鍵、料金支払者アドレス、料金支払者秘密鍵、受信者アドレスを定義する。
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=4:8
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
   const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
@@ -138,28 +138,28 @@
 
   ---
 
-  Create a sender's wallet from private key
+  秘密鍵から送信者のウォレットを作成する
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=12
   ```
 
   ---
 
-  Create fee payer's wallet from private key
+  秘密鍵から料金支払者のウォレットを作成する。
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=13
   ```
 
   ---
 
-  Declare transaction with the fields such as **type, from, to, value, input**.
+  type、from、to、value、input\*\*などのフィールドを持つトランザクションを宣言する。
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=15:21
   ```
 
   ---
 
-  Populating transaction with additional information using **senderWallet.populateTransaction**
+  senderWallet.populateTransaction\*\*を使用してトランザクションに追加情報を入力する。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=23:24
@@ -170,22 +170,22 @@
     ```zsh output
     ❯ node TxTypeFeeDelegatedValueTransferMemo.js
     {
-      type: 17,
-      to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
-      value: BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
+      type：17,
+      to：'0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+      value：BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
       from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
       input: '0x1234567890',
       nonce: 762,
       gasLimit: 52500,
-      gasPrice: BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
-      chainId: 1001
-    }
+      gasPrice：BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
+      chainId：1001
+    }.
     ```
   </CH.Code>
 
   ---
 
-  Signing the transaction with the **sender's private key**
+  送信者の秘密鍵\*\*でトランザクションに署名する。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=26:27
@@ -194,14 +194,14 @@
     ---
 
     ```zsh output
-    ❯ node TxTypeFeeDelegatedValueTransferMemo.js
-    senderTxHashRLP 0x11f88d8202fa850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f6a055c20733cb08839d352e8ccbfd9f977ea8ba6cdf1dfad117931a5ca2a6e0b58aa06a777f842b4f23f4ad24309408c78b315f788bcca60826bd68083827f070ee49
+    ノード TxTypeFeeDelegatedValueTransferMemo.js
+    senderTxHashRLP0x11f88d8202fa850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f6a055c20733cb08839d352e8ccbfd9f977ea8ba6cdf1dfad117931a5ca2a6e0b58aa06a777f842b4f23f4ad24309408c78b315f788bcca60826bd68083827f070ee49
     ```
   </CH.Code>
 
   ---
 
-  Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+  手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=29:30
@@ -217,7 +217,7 @@
 
   ---
 
-  The **wait** function returns the tx receipt if the tx was sent to the blockchain successfully.
+  wait\*\*関数は、txがブロックチェーンに正常に送信された場合、txレシートを返す。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=32:33
@@ -228,23 +228,23 @@
     ```zsh output
     ❯ node TxTypeFeeDelegatedValueTransferMemo.js
     receipt {
-      to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+      to：'0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
       from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
       contractAddress: null,
-      transactionIndex: 1,
-      gasUsed: BigNumber { _hex: '0x7b0c', _isBigNumber: true },
-      logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-      blockHash: '0x599e1d0b915bd00eac2a80ddaa1bf7bd91c8b21c9223aaaed1f5f3cb2d5d446c',
+      transactionIndex：1,
+      gasUsed：BigNumber { _hex: '0x7b0c', _isBigNumber: true },
+      logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      blockHash：'0x599e1d0b915bd00eac2a80ddaa1bf7bd91c8b21c9223aaaed1f5f3cb2d5d446c',
       transactionHash: '0xfa2ae54df3314cdeb3c0fcf6ef970634a06e7d976d5a4e7146b03471e972f851',
-      logs: [],
+      logs：[],
       blockNumber: 143462707,
-      confirmations: 1,
-      cumulativeGasUsed: BigNumber { _hex: '0x034d11', _isBigNumber: true },
-      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-      status: 1,
-      type: 0,
+      confirmations：1,
+      cumulativeGasUsed：BigNumber { _hex: '0x034d11', _isBigNumber: true },
+      effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status：1,
+      type：0,
       byzantium: true
-    }
+    }.
     ```
   </CH.Code>
 
