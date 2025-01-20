@@ -65,67 +65,67 @@
     ---
 
     ```zsh output
-    ❯ node writeTxType.js
+    ❮ node writeTxType.js
     number before 292
-    sentTx 0x2af4d70ac12b5bedd960200e1791cd06c5ea110acb196c8156837570a158452e
+    sentTx 0x2af4d70ac125bbedd960200e1791cd06c5ea110acb196c8156837570a158452e
     receipt {
-      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      to：'0x95Be48607498109030592C08aDC9577c7C2d505',
       from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
       contractAddress: null,
-      transactionIndex: 0,
-      gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
-      logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
-      blockHash: '0x91742c5e371cb44f335f2e7e944d0a340bd4bc0f2004197b689020431d72cf74',
+      transactionIndex：0,
+      gasUsed：BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      logsBloom：'0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+      blockHash：'0x91742c5e371cb44f335f2e7e944d0a340bd4bc0f2004197b689020431d72cf74',
       transactionHash: '0x2af4d70ac12b5bedd960200e1791cd06c5ea110acb196c8156837570a158452e',
-      logs: [
+      logs：[
         {
-          transactionIndex: 0,
+          transactionIndex：0,
           blockNumber: 148740675,
           transactionHash: '0x2af4d70ac12b5bedd960200e1791cd06c5ea110acb196c8156837570a158452e',
-          address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
-          topics: [Array],
-          data: '0x0000000000000000000000000000000000000000000000000000000000000125',
-          logIndex: 0,
+          address：'0x95Be48607498109030592C08aDC9577c7C2dD505',
+          topics：[Array],
+          data：'0x0000000000000000000000000125',
+          logIndex：0,
           blockHash: '0x91742c5e371cb44f335f2e7e944d0a340bd4bc0f2004197b689020431d72cf74'
-        }
+        }.
       ],
       blockNumber: 148740675,
-      confirmations: 2,
-      cumulativeGasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
-      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-      status: 1,
-      type: 0,
+      confirmations：2,
+      cumulativeGasUsed：BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status：1,
+      type：0,
       byzantium: true
     }
-    number after 293
+    293以降の数
 
     ```
   </CH.Code>
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+  ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと\*\*@kaiachain/ethers-ext\*\*モジュールをインポートします。
 
   ```js writeTxType.js focus=1:2
   ```
 
   ---
 
-  Define **sender address** and **private key**
+  送信者アドレス**と**秘密鍵\*\*の定義
 
   ```js writeTxType.js focus=4:5
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js writeTxType.js focus=7
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js writeTxType.js focus=7
   const ethers = require("ethers");
@@ -191,35 +191,35 @@
 
   ---
 
-  create a wallet from sender **private key** and **web3 provider**
+  送信者の**秘密鍵**と**web3プロバイダー**からウォレットを作成する。
 
   ```js writeTxType.js focus=8
   ```
 
   ---
 
-  Set the **Abi** generated from solidity code
+  solidityコードから生成された**Abi**を設定する。
 
   ```js writeTxType.js focus=33
   ```
 
   ---
 
-  Define **contract address** to interact with
+  相互作用する**契約アドレス**を定義する
 
   ```js writeTxType.js focus=34
   ```
 
   ---
 
-  Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+  Ethers.Contract\*\*で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
   ```js writeTxType.js focus=37
   ```
 
   ---
 
-  Get the **number** value before updated by using method **counter.number()**
+  counter.number()**メソッドで更新前の**number\*\*値を取得する。
 
   <CH.Code>
     ```js writeTxType.js focus=39
@@ -235,21 +235,21 @@
 
   ---
 
-  Create a transaction data to update the **number** value
+  番号\*\*の値を更新するためのトランザクションデータを作成する。
 
   ```js writeTxType.js focus=41
   ```
 
   ---
 
-  Create a transaction object with data from previous step with type **SmartContractExecution**
+  前のステップのデータで **SmartContractExecution** 型のトランザクションオブジェクトを作成します。
 
   ```js writeTxType.js focus=42:48
   ```
 
   ---
 
-  Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+  ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
   <CH.Code>
     ```js writeTxType.js focus=50:51
@@ -258,14 +258,14 @@
     ---
 
     ```zsh output
-    ❯ node writeTxType.js
+    node writeTxType.js
     sentTx 0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306
     ```
   </CH.Code>
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
   <CH.Code>
     ```js writeTxType.js focus=53:54
@@ -276,40 +276,40 @@
     ```zsh output
     ❯ node writeTxType.js
     receipt {
-      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      to：'0x95Be48607498109030592C08aDC9577c7C2d505',
       from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
       contractAddress: null,
-      transactionIndex: 0,
-      gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
-      logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
-      blockHash: '0x56d4b7567811196525ef2704060210c1a908b245ae6ac8b296c30ecb2ff76f3b',
+      transactionIndex：0,
+      gasUsed：BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      logsBloom：'0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+      blockHash：'0x56d4b7567811196525ef2704060210c1a908b245ae6ac8b296c30ecb2ff76f3b',
       transactionHash: '0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306',
-      logs: [
+      logs：[
         {
-          transactionIndex: 0,
+          transactionIndex：0,
           blockNumber: 146818446,
           transactionHash: '0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306',
-          address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
-          topics: [Array],
-          data: '0x0000000000000000000000000000000000000000000000000000000000000124',
-          logIndex: 0,
+          address：'0x95Be48607498109030592C08aDC9577c7C2dD505',
+          topics：[Array],
+          data：'0x0000000000000000000000000124',
+          logIndex：0,
           blockHash: '0x56d4b7567811196525ef2704060210c1a908b245ae6ac8b296c30ecb2ff76f3b'
-        }
+        }.
       ],
       blockNumber: 146818446,
-      confirmations: 2,
-      cumulativeGasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
-      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-      status: 1,
-      type: 0,
+      confirmations：2,
+      cumulativeGasUsed：BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status：1,
+      type：0,
       byzantium: true
-    }
+    }.
     ```
   </CH.Code>
 
   ---
 
-  Get the updated value **number** by using method **counter.number()**
+  メソッド**counter.number()**で更新値**number**を取得する。
 
   <CH.Code>
     ```js writeTxType.js focus=56
@@ -319,7 +319,7 @@
 
     ```zsh output
     ❯ node writeTxType.js
-    number after 292
+    292以降の番号
     ```
   </CH.Code>
 </CH.Spotlight>
