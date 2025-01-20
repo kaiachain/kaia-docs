@@ -23,7 +23,7 @@ _Note:_ If you get an `nvm: command not found` error after installing nvm, refer
 
 キーストア・ファイルをダウンロードし、`keystore.json`のようなもっとシンプルな名前に変更しよう。
 
-\*\*カイロス・テストネットのテストKLAYは[Faucet](https://faucet.kaia.io)から入手できます。 詳しい使い方は「カイヤウォレット」(../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)をご参照ください。
+\*\*カイロス・テストネットのテストKLAYは[Faucet](https://faucet.kaia.io)から入手できます。 詳しい使い方は[「カイヤウォレット」](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)をご参照ください。
 
 ## 2. プロジェクトの初期化<a id="2.-initialize-project"></a>
 
