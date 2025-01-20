@@ -17,7 +17,7 @@ kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 - IPv4マップされたIPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
 - ドメイン名 (`your.node.com`)
 
-**ポート**は、TCPを介してピアノードと接続するために使用される。 In Klaytn, the default `port` is `32323` and the default `subport` is `32324`. デフォルトの `subport` は `kend.conf` で `port + 1` として設定されていることに注意すること。 Depending on the number of TCP listening ports, Kaia offers two [types of connections](scaling-solutions.md#multi-channel-communication).
+**ポート**は、TCPを介してピアノードと接続するために使用される。 In Klaytn, the default `port` is `32323` and the default `subport` is `32324`. デフォルトの `subport` は `kend.conf` で `port + 1` として設定されていることに注意すること。 TCPリスニングポートの数に応じて、カイアは2つの[接続タイプ](scaling-solutions.md#multi-channel-communication)を提供します。
 
 **discport**は、既知の隣人が到達可能なカイア・ノードかどうかをチェックし、新しい接続のために隣人のアドレスを取得するために使用される。 これはUDPポートであることに注意。
 デフォルトでは、UDPポート（`discport`）はTCPポートと同じポートを使用する。
@@ -38,5 +38,5 @@ kni://a979...163c@10.0.0.1:32323?discport=30301                 # either single-
 kni://a979...163c@10.0.0.1:32323?subport=32324&discport=30301   # multi-channel peer
 ```
 
-If you want to know how to generate a KNI of a node, please refer to [Node Key & Node URI Creation](../nodes/core-cell/install/before-you-install.md#node-key--node-uri-creation).
-The KNI scheme is used in node discovery protocol, [setting `static-nodes.json` file](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodesjson), [addPeer API](../references/json-rpc/admin/add-peer), [bootnodes option](../misc/operation/configuration.md#properties) and etc.
+ノードのKNIを生成する方法については、[ノードキーとノードURIの作成](../nodes/core-cell/install/before-you-install.md#node-key--node-uri-creation)を参照してください。
+KNIスキームは、ノード発見プロトコル、[`static-nodes.json`ファイルの設定](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodesjson)、[addPeer API](../references/json-rpc/admin/add-peer)、[bootnodesオプション](../misc/operation/configuration.md#properties)などで使用されています。
