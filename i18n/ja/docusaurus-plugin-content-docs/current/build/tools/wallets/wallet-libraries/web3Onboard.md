@@ -17,7 +17,7 @@ Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)のよ�
 - 作業中のreactプロジェクト(`npx create-react-app project-name`を実行する)
 - 必要なウォレット（[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/)）をインストールします。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../../references/public-en.md)の1つから取得できます。
-- 蛇口](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 
 ## はじめに
 
