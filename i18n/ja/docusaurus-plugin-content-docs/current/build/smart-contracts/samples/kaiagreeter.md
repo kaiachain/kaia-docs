@@ -31,7 +31,7 @@ contract KaiaGreeter is Mortal {
 
 ## RemixオンラインIDEを使ってKaiaGreeterをデプロイする<a href="#deploying-kaiagreeter-using-kaia-ide" id="deploying-kaiagreeter-using-kaia-ide"></a>
 
-- Kaia Plugin for Remix](https://ide.kaia.io)にアクセスし、\`KaiaGreeter\`契約を作成してください。 完全なソースコードは上記の通り。
+- [Kaia Plugin for Remix](https://ide.kaia.io)にアクセスし、`KaiaGreeter`契約を作成してください。 完全なソースコードは上記の通り。
 - 契約を展開するために使用するアカウントを準備します。
   - まだアカウントをお持ちでない方は、[https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy)からアカウントを作成してください。
   - 蛇口からKAIAを試す - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
