@@ -1,8 +1,8 @@
-# Value Transfer
+# 価値移転
 
-**TxTypeValueTransfer** is used when a user wants to send KAIA.
+**TxTypeValueTransfer**は、ユーザーがKAIAを送信したいときに使用される。
 
-- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+- kaiaは、各トランザクションタイプが単一の目的を果たすように複数のトランザクションタイプを提供しているため、TxTypeValueTransferは、KAIAを外部所有口座（EOA）に送信するように制限されている。
 
 <CH.Spotlight>
 <CH.Code>
@@ -42,52 +42,52 @@ main();
 ❯ node txTypeValueTransferTransaction.js
 
 sentTx {
-  hash: '0x7b6c638d8dba310d348ad80d55fbbf6024b286b982fd68b08bdb85004cace46b',
-  type: 0,
+  hash：'0x7b6c638d8dba310d348ad80d55fbbf6024b286b982fd68b08bdb85004cace46b',
+  type：0,
   accessList: null,
   blockHash: null,
   blockNumber: null,
   transactionIndex: null,
-  confirmations: 0,
+  confirmations：0,
   from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
-  gasPrice: BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
+  gasPrice：BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
   gasLimit: BigNumber { _hex: '0xcd14', _isBigNumber: true },
-  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
-  value: BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
+  to：'0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  value：BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
   nonce: 759,
-  data: '0x',
+  data：'0x',
   r: '0xd49028d36e64df5ad7e00e5163740cb734133dde320fb7e5fde1c75df38b6bb8',
   s: '0x4a7a7a7950dd6c2d905217cd6cb61948dbdeb5842c13b8376d9e3a231f266667',
   v: 2037,
   creates: null,
-  chainId: 1001,
+  chainId：1001,
 }
 
-receipt {
-  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+受け取り {
+  へ：'0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
   from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
   contractAddress: null,
-  transactionIndex: 1,
-  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
-  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  blockHash: '0x9831848ad564cb4c165bc48b3fa76b38ea08314b1fbf28fa388bec888acd50ed',
+  transactionIndex：1,
+  gasUsed：BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash：'0x9831848ad564cb4c165bc48b3fa76b38ea08314b1fbf28fa388bec888acd50ed',
   transactionHash: '0x7b6c638d8dba310d348ad80d55fbbf6024b286b982fd68b08bdb85004cace46b',
-  logs: [],
+  logs：[],
   blockNumber: 143449789,
-  confirmations: 3,
-  cumulativeGasUsed: BigNumber { _hex: '0x03240d', _isBigNumber: true },
-  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-  status: 1,
-  type: 0,
+  confirmations：3,
+  cumulativeGasUsed：BigNumber { _hex: '0x03240d', _isBigNumber: true },
+  effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status：1,
+  type：0,
   byzantium: true
-}
+}.
 ```
 
 </CH.Code>
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+ethers.jsにkaiaの機能を追加するために、**ethers**および**@kaiachain/ethers-ext**パッケージをインポートする。
 
 ```js txTypeValueTransferTransaction.js focus=1:2
 
@@ -95,7 +95,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Define **sender address, sender private key and reciever address**
+送信者アドレス、送信者秘密鍵、受信者アドレス\*\*を定義する。
 
 ```js txTypeValueTransferTransaction.js focus=4:6
 
@@ -103,7 +103,7 @@ Define **sender address, sender private key and reciever address**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js txTypeValueTransferTransaction.js focus=8:8
 
@@ -111,7 +111,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js txTypeValueTransferTransaction.js focus=8:8
 const ethers = require("ethers");
@@ -144,7 +144,7 @@ main();
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+秘密鍵**と**プロバイダー\*\*を使って送信者のウォレットを作成する。
 
 ```js txTypeValueTransferTransaction.js focus=9
 
@@ -152,7 +152,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Declare a transaction with the fields such as **type, from, to, value**.
+type、from、to、value\*\*などのフィールドを持つトランザクションを宣言する。
 
 ```js txTypeValueTransferTransaction.js focus=11:16
 
@@ -160,44 +160,44 @@ Declare a transaction with the fields such as **type, from, to, value**.
 
 ---
 
-Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
-```js txTypeValueTransferTransaction.js focus=18:20
+``js txTypeValueTransferTransaction.js focus=18:20
 
-````
+```
 
 ---
 
-```zsh output
+``zsh output
 sentTx {
-  hash: '0x7b6c638d8dba310d348ad80d55fbbf6024b286b982fd68b08bdb85004cace46b',
-  type: 0,
+  hash：'0x7b6c638d8dba310d348ad80d55fbbf6024b286b982fd68b08bdb85004cace46b',
+  type：0,
   accessList: null,
   blockHash: null,
   blockNumber: null,
   transactionIndex: null,
-  confirmations: 0,
+  confirmations：0,
   from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
-  gasPrice: BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
+  gasPrice：BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
   gasLimit: BigNumber { _hex: '0xcd14', _isBigNumber: true },
-  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
-  value: BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
+  to：'0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  value：BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
   nonce: 759,
-  data: '0x',
+  data：'0x',
   r: '0xd49028d36e64df5ad7e00e5163740cb734133dde320fb7e5fde1c75df38b6bb8',
   s: '0x4a7a7a7950dd6c2d905217cd6cb61948dbdeb5842c13b8376d9e3a231f266667',
   v: 2037,
   creates: null,
-  chainId: 1001,
-}
-````
+  chainId：1001,
+}.
+```
 
 </CH.Code>
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain.
+wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
 <CH.Code>
 
@@ -209,23 +209,23 @@ The **wait** function returns the tx receipt if it is completed in the blockchai
 
 ```zsh output
 receipt {
-  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  to：'0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
   from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
   contractAddress: null,
-  transactionIndex: 1,
-  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
-  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  blockHash: '0x9831848ad564cb4c165bc48b3fa76b38ea08314b1fbf28fa388bec888acd50ed',
+  transactionIndex：1,
+  gasUsed：BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash：'0x9831848ad564cb4c165bc48b3fa76b38ea08314b1fbf28fa388bec888acd50ed',
   transactionHash: '0x7b6c638d8dba310d348ad80d55fbbf6024b286b982fd68b08bdb85004cace46b',
-  logs: [],
+  logs：[],
   blockNumber: 143449789,
-  confirmations: 3,
-  cumulativeGasUsed: BigNumber { _hex: '0x03240d', _isBigNumber: true },
-  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-  status: 1,
-  type: 0,
+  confirmations：3,
+  cumulativeGasUsed：BigNumber { _hex: '0x03240d', _isBigNumber: true },
+  effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status：1,
+  type：0,
   byzantium: true
-}
+}.
 ```
 
 </CH.Code>
