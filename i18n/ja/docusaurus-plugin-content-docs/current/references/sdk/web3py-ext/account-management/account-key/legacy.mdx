@@ -193,38 +193,38 @@ fill_transaction\*\*を使用して、トランザクション・オブジェク
 to_pretty\*\*ユーティリティを使えば、フォーマットされたtxをプリントすることができる。
 
 <CH.Code>
-``py web3_account_update_legacy.py focus=11,12,14,33
+```py web3_account_update_legacy.py focus=11,12,14,33
 
-```
+````
 
 ---
-``zsh output
+```zsh output
 {
-  "from"："0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
-  "gas"：159000,
-  "gasPrice"：50000000000,
-  "nonce"：40,
-  "chainId"：1001,
-  "type"：32,
-  "key"：{
-    "type"：5,
-    "keys"：{
-      "roleTransactionKey"：{
-        "type"：2,
-        "キー"："0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "gas": 159000,
+  "gasPrice": 50000000000,
+  "nonce": 40,
+  "chainId": 1001,
+  "type": 32,
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
       },
-      "roleAccountUpdateKey"：{
-        "type"：2,
-        "key"："0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
       },
-      "roleFeePayerKey"：{
-        "type"：2,
-        "key"："0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
-      }.
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
     }
   }
 }
-```
+````
 
 </CH.Code>
 
@@ -233,13 +233,13 @@ to_pretty\*\*ユーティリティを使えば、フォーマットされたtx�
 アカウント更新TXタイプに署名する。 ロードされたアカウントで署名する必要があります。
 
 <CH.Code>
-``py web3_account_update_legacy.py focus=22,35:37
+```py web3_account_update_legacy.py focus=22,35:37
 
-```
+````
 ---
-``zsh output
-rawTransaction：20f8da28850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0985bec3e261c26aae4753692e485df1f2610d15a49c6d1a211aa722ebe07f83aa030de040be157e4ba1ee085adfa104ad52e6c5be2133e08eba32c23e8fdcef2f3
-```
+```zsh output
+rawTransaction: 20f8da28850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0985bec3e261c26aae4753692e485df1f2610d15a49c6d1a211aa722ebe07f83aa030de040be157e4ba1ee085adfa104ad52e6c5be2133e08eba32c23e8fdcef2f3
+````
 
 </CH.Code>
 
@@ -248,13 +248,13 @@ rawTransaction：20f8da28850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a23
 \*\*署名されたトランザクションをネットワークに送信し、ブロックチェーンで完全に実行されるまで受信を待つ。
 
 <CH.Code>
-``py web3_account_update_legacy.py focus=39:41
+```py web3_account_update_legacy.py focus=39:41
 
-```
+````
 ---
-``zsh output
-tx hash：  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a receipt:  AttributeDict({'blockHash'：HexBytes('0xcd0b362591ab28e4c5c423561ea525ad7f19e1fbc177aeef640aece7d53fc83d'), 'blockNumber':147156811, 'contractAddress'：なし, 'cumulativeGasUsed': 271841, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 81000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash'：HexBytes('0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a'), 'transactionIndex':1, 'type': 0})
-```
+```zsh output
+tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a receipt:  AttributeDict({'blockHash': HexBytes('0xcd0b362591ab28e4c5c423561ea525ad7f19e1fbc177aeef640aece7d53fc83d'), 'blockNumber': 147156811, 'contractAddress': None, 'cumulativeGasUsed': 271841, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 81000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash': HexBytes('0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a'), 'transactionIndex': 1, 'type': 0})
+````
 
 </CH.Code>
 
