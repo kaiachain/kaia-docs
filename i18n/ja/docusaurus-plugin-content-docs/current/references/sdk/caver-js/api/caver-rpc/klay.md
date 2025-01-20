@@ -2,7 +2,7 @@
 
 `caver.rpc.klay` は `klay` 名前空間を持つ JSON-RPC 呼び出しを提供する。
 
-## caver.rpc.klay.accountCreated<a href="#caver-rpc-klay-accountcreated" id="caver-rpc-klay-accountcreated"></a>
+## caver.rpc.klay.accountCreated <a href="#caver-rpc-klay-accountcreated" id="caver-rpc-klay-accountcreated"></a>
 
 ```javascript
 caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
@@ -33,7 +33,7 @@ Promise`は`boolean\` を返す。
 true
 ```
 
-## caver.rpc.klay.getAccount<a href="#caver-rpc-klay-getaccount" id="caver-rpc-klay-getaccount"></a>
+## caver.rpc.klay.getAccount <a href="#caver-rpc-klay-getaccount" id="caver-rpc-klay-getaccount"></a>
 
 ```javascript
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
@@ -62,35 +62,35 @@ Promise`は`object\` を返す。
 **例**
 
 ```javascript
-// EOAでアカウントを取得
+// Get account with EOA
 > caver.rpc.klay.getAccount('0x{address in hex}').then(console.log)
 {
-    accType：1,
-    アカウント：{
+    accType: 1,
+    account: {
         nonce: 0,
         balance: '0x',
         humanReadable: false,
-        key: { keyType：1, キー: {}。}
+        key: { keyType: 1, key: {} }
     }
 }
 
-// SCAでアカウントを取得
+// Get account with SCA
 > caver.rpc.klay.getAccount('0x{address in hex}').then(console.log)
 {
-    accType：2,
-    アカウント：{
+    accType: 2,
+    account: {
         nonce: 1,
         balance: '0x0',
         humanReadable: false,
-        key: { keyType：3, key: {}。},
+        key: { keyType: 3, key: {} },
         storageRoot: '0xd0ce6b9ba63cf727d48833bcaf69f398bb353e9a5b6235ac5bb3a8e95ff90ecf',
         codeHash: '7pemrmP8fcguH/ut/SYHJoUSecfUIcUyeCpMf0sBYVI=',
-        codeFormat：0
-    }.
+        codeFormat: 0
+    }
 }
 ```
 
-## caver.rpc.klay.getAccountKey<a href="#caver-rpc-klay-getaccountkey" id="caver-rpc-klay-getaccountkey"></a>
+## caver.rpc.klay.getAccountKey <a href="#caver-rpc-klay-getaccountkey" id="caver-rpc-klay-getaccountkey"></a>
 
 ```javascript
 caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
@@ -178,7 +178,7 @@ Promise`は`object\` を返す。
 }
 ```
 
-## caver.rpc.klay.encodeAccountKey<a href="#caver-rpc-klay-encodeaccountkey" id="caver-rpc-klay-encodeaccountkey"></a>
+## caver.rpc.klay.encodeAccountKey <a href="#caver-rpc-klay-encodeaccountkey" id="caver-rpc-klay-encodeaccountkey"></a>
 
 ```javascript
 caver.rpc.klay.encodeAccountKey(accountKey [, callback])
@@ -297,7 +297,7 @@ Promise`は`string\` を返す。
 0x02a102f1d2e558cfa07151534cd406b1ac5c25d99e9c1cf925328d14fd15c6fe50df27
 ```
 
-## caver.rpc.klay.decodeAccountKey<a href="#caver-rpc-klay-decodeaccountkey" id="caver-rpc-klay-decodeaccountkey"></a>
+## caver.rpc.klay.decodeAccountKey <a href="#caver-rpc-klay-decodeaccountkey" id="caver-rpc-klay-decodeaccountkey"></a>
 
 ```javascript
 caver.rpc.klay.decodeAccountKey(encodedKey [, callback])
@@ -412,7 +412,7 @@ Promise`は`object\` を返す。
 }.
 ```
 
-## caver.rpc.klay.getBalance<a href="#caver-rpc-klay-getbalance" id="caver-rpc-klay-getbalance"></a>
+## caver.rpc.klay.getBalance <a href="#caver-rpc-klay-getbalance" id="caver-rpc-klay-getbalance"></a>
 
 ```javascript
 caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
@@ -443,7 +443,7 @@ Promise`は`string\` を返す。
 0xde0b6b3a7640000
 ```
 
-## caver.rpc.klay.getCode<a href="#caver-rpc-klay-getcode" id="caver-rpc-klay-getcode"></a>
+## caver.rpc.klay.getCode <a href="#caver-rpc-klay-getcode" id="caver-rpc-klay-getcode"></a>
 
 ```javascript
 caver.rpc.klay.getCode(address [, blockNumber] [, callback])
@@ -474,7 +474,7 @@ Promise`は`string\` を返す。
 0x60806...
 ```
 
-## caver.rpc.klay.getTransactionCount<a href="#caver-rpc-klay-gettransactioncount" id="caver-rpc-klay-gettransactioncount"></a>
+## caver.rpc.klay.getTransactionCount <a href="#caver-rpc-klay-gettransactioncount" id="caver-rpc-klay-gettransactioncount"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
@@ -505,7 +505,7 @@ Promise`は`string\` を返す。
 0x5f
 ```
 
-## caver.rpc.klay.isContractAccount<a href="#caver-rpc-klay-iscontractaccount" id="caver-rpc-klay-iscontractaccount"></a>
+## caver.rpc.klay.isContractAccount <a href="#caver-rpc-klay-iscontractaccount" id="caver-rpc-klay-iscontractaccount"></a>
 
 ```javascript
 caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
@@ -539,7 +539,7 @@ false
 true
 ```
 
-## caver.rpc.klay.sign（ケイバー・ルクレイ・サイン<a href="#caver-rpc-klay-sign" id="caver-rpc-klay-sign"></a>
+## caver.rpc.klay.sign <a href="#caver-rpc-klay-sign" id="caver-rpc-klay-sign"></a>
 
 ```javascript
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
@@ -573,7 +573,7 @@ Promise`は`string\` を返す。
 0x1066e052c4be821daa4d0a0cd1e9e75ccb200bb4001c2e38853ba41b712a5a226da2acd67c86a13b266e0d75d0a6e7d1551c8924af413267615a5948617c746c1c
 ```
 
-## caver.rpc.klay.getAccounts<a href="#caver-rpc-klay-getaccounts" id="caver-rpc-klay-getaccounts"></a>
+## caver.rpc.klay.getAccounts <a href="#caver-rpc-klay-getaccounts" id="caver-rpc-klay-getaccounts"></a>
 
 ```javascript
 caver.rpc.klay.getAccounts([コールバック])
@@ -605,7 +605,7 @@ Promise`は`Array\` を返す。
 ].
 ```
 
-## caver.rpc.klay.getBlockNumber。<a href="#caver-rpc-klay-getblocknumber" id="caver-rpc-klay-getblocknumber"></a>
+## caver.rpc.klay.getBlockNumber <a href="#caver-rpc-klay-getblocknumber" id="caver-rpc-klay-getblocknumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockNumber([コールバック])
@@ -634,7 +634,7 @@ Promise`は`string\` を返す。
 0x5d39
 ```
 
-## ケイバー.rpc.klay.getHeader<a href="#caver-rpc-klay-getheader" id="caver-rpc-klay-getheader"></a>
+## caver.rpc.klay.getHeader <a href="#caver-rpc-klay-getheader" id="caver-rpc-klay-getheader"></a>
 
 ```javascript
 caver.rpc.klay.getHeader(blockNumberOrHash [, callback])
@@ -680,7 +680,7 @@ Promise`は`object\` を返す。
 }.
 ```
 
-## caver.rpc.klay.getHeaderByNumberを使用します。<a href="#caver-rpc-klay-getheaderbynumber" id="caver-rpc-klay-getheaderbynumber"></a>
+## caver.rpc.klay.getHeaderByNumber <a href="#caver-rpc-klay-getheaderbynumber" id="caver-rpc-klay-getheaderbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getHeaderByNumber(ブロック番号 [, returnTransactionObjects] [, コールバック)
@@ -726,7 +726,7 @@ Promise`は`object\` を返す。
 }.
 ```
 
-## Caver.rpc.klay.getHeaderByHash<a href="#caver-rpc-klay-getheaderbyhash" id="caver-rpc-klay-getheaderbyhash"></a>
+## caver.rpc.klay.getHeaderByHash <a href="#caver-rpc-klay-getheaderbyhash" id="caver-rpc-klay-getheaderbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getHeaderByHash(blockHash [, returnTransactionObjects] [, callback])
@@ -786,7 +786,7 @@ Promise`は `object\` を返す - オブジェクトはブロックヘッダを�
 }.
 ```
 
-## caver.rpc.klay.getBlock<a href="#caver-rpc-klay-getblock" id="caver-rpc-klay-getblock"></a>
+## caver.rpc.klay.getBlock <a href="#caver-rpc-klay-getblock" id="caver-rpc-klay-getblock"></a>
 
 ```javascript
 caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callback])
@@ -837,7 +837,7 @@ Promise`は`object\` を返す。
 }.
 ```
 
-## caver.rpc.klay.getBlockByNumber<a href="#caver-rpc-klay-getblockbynumber" id="caver-rpc-klay-getblockbynumber"></a>
+## caver.rpc.klay.getBlockByNumber <a href="#caver-rpc-klay-getblockbynumber" id="caver-rpc-klay-getblockbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
@@ -888,7 +888,7 @@ Promise`は`object\` を返す。
 }.
 ```
 
-## caver.rpc.klay.getBlockByHash<a href="#caver-rpc-klay-getblockbyhash" id="caver-rpc-klay-getblockbyhash"></a>
+## caver.rpc.klay.getBlockByHash <a href="#caver-rpc-klay-getblockbyhash" id="caver-rpc-klay-getblockbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getBlockByHash(blockHash [, returnTransactionObjects] [, callback])
@@ -957,7 +957,7 @@ Promise`は `object\` を返す - ブロックを含むオブジェクト：
 }.
 ```
 
-## caver.rpc.klay.getBlockReceipts<a href="#caver-rpc-klay-getblockreceipts" id="caver-rpc-klay-getblockreceipts"></a>
+## caver.rpc.klay.getBlockReceipts <a href="#caver-rpc-klay-getblockreceipts" id="caver-rpc-klay-getblockreceipts"></a>
 
 ```javascript
 caver.rpc.klay.getBlockReceipts(blockHash [, callback])
@@ -1015,7 +1015,7 @@ Promise`は`Array\` を返す。
 ]
 ```
 
-## caver.rpc.klay.getBlockTransactionCountByNumber<a href="#caver-rpc-klay-getblocktransactioncountbynumber" id="caver-rpc-klay-getblocktransactioncountbynumber"></a>
+## caver.rpc.klay.getBlockTransactionCountByNumber <a href="#caver-rpc-klay-getblocktransactioncountbynumber" id="caver-rpc-klay-getblocktransactioncountbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockTransactionCountByNumber(ブロック番号 [, コールバック])
@@ -1045,7 +1045,7 @@ Promise`は`string\` を返す。
 0x1
 ```
 
-## caver.rpc.klay.getBlockTransactionCountByHash<a href="#caver-rpc-klay-getblocktransactioncountbyhash" id="caver-rpc-klay-getblocktransactioncountbyhash"></a>
+## caver.rpc.klay.getBlockTransactionCountByHash <a href="#caver-rpc-klay-getblocktransactioncountbyhash" id="caver-rpc-klay-getblocktransactioncountbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getBlockTransactionCountByHash(blockHash [, callback])
@@ -1075,7 +1075,7 @@ Promise`は`string\` を返す。
 0x1
 ```
 
-## caver.rpc.klay.getBlockWithConsensusInfoByNumberを使用します。<a href="#caver-rpc-klay-getblockwithconsensusinfobynumber" id="caver-rpc-klay-getblockwithconsensusinfobynumber"></a>
+## caver.rpc.klay.getBlockWithConsensusInfoByNumber <a href="#caver-rpc-klay-getblockwithconsensusinfobynumber" id="caver-rpc-klay-getblockwithconsensusinfobynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockWithConsensusInfoByNumber(ブロック番号 [, コールバック])
@@ -1152,7 +1152,7 @@ Promise`は`object\` を返す。
 }
 ```
 
-## caver.rpc.klay.getBlockWithConsensusInfoByHash<a href="#caver-rpc-klay-getblockwithconsensusinfobyhash" id="caver-rpc-klay-getblockwithconsensusinfobyhash"></a>
+## caver.rpc.klay.getBlockWithConsensusInfoByHash <a href="#caver-rpc-klay-getblockwithconsensusinfobyhash" id="caver-rpc-klay-getblockwithconsensusinfobyhash"></a>
 
 ```javascript
 caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
@@ -1275,7 +1275,7 @@ caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash [, callback])
 }
 ```
 
-## caver.rpc.klay.getCommittee<a href="#caver-rpc-klay-getcommittee" id="caver-rpc-klay-getcommittee"></a>
+## caver.rpc.klay.getCommittee <a href="#caver-rpc-klay-getcommittee" id="caver-rpc-klay-getcommittee"></a>
 
 ```javascript
 caver.rpc.klay.getCommittee([blockNumber] [, callback])
@@ -1308,7 +1308,7 @@ Promise`は`Array\` を返す。
 ].
 ```
 
-## caver.rpc.klay.getCommitteeSize<a href="#caver-rpc-klay-getcommitteesize" id="caver-rpc-klay-getcommitteesize"></a>
+## caver.rpc.klay.getCommitteeSize <a href="#caver-rpc-klay-getcommitteesize" id="caver-rpc-klay-getcommitteesize"></a>
 
 ```javascript
 caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
@@ -1338,7 +1338,7 @@ caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
 2
 ```
 
-## caver.rpc.klay.getCouncil<a href="#caver-rpc-klay-getcouncil" id="caver-rpc-klay-getcouncil"></a>
+## caver.rpc.klay.getCouncil <a href="#caver-rpc-klay-getcouncil" id="caver-rpc-klay-getcouncil"></a>
 
 ```javascript
 caver.rpc.klay.getCouncil([blockNumber] [, callback])
@@ -1371,7 +1371,7 @@ Promise`は`Array\` を返す。
 ].
 ```
 
-## caver.rpc.klay.getCouncilSize<a href="#caver-rpc-klay-getcouncilsize" id="caver-rpc-klay-getcouncilsize"></a>
+## caver.rpc.klay.getCouncilSize <a href="#caver-rpc-klay-getcouncilsize" id="caver-rpc-klay-getcouncilsize"></a>
 
 ```javascript
 caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
@@ -1401,7 +1401,7 @@ caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 2
 ```
 
-## caver.rpc.klay.getStorageAt<a href="#caver-rpc-klay-getstorageat" id="caver-rpc-klay-getstorageat"></a>
+## caver.rpc.klay.getStorageAt <a href="#caver-rpc-klay-getstorageat" id="caver-rpc-klay-getstorageat"></a>
 
 ```javascript
 caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
@@ -1433,7 +1433,7 @@ Promise`は`string\` を返す。
 0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234
 ```
 
-## caver.rpc.klay.isMinting<a href="#caver-rpc-klay-isminting" id="caver-rpc-klay-isminting"></a>
+## caver.rpc.klay.isMinting <a href="#caver-rpc-klay-isminting" id="caver-rpc-klay-isminting"></a>
 
 ```javascript
 caver.rpc.klay.isMinting([コールバック])
@@ -1458,7 +1458,7 @@ Promise`は `boolean`- クライアントがマイニング中であれば`true`
 true
 ```
 
-## caver.rpc.klay.isSyncing<a href="#caver-rpc-klay-issyncing" id="caver-rpc-klay-issyncing"></a>
+## caver.rpc.klay.isSyncing <a href="#caver-rpc-klay-issyncing" id="caver-rpc-klay-issyncing"></a>
 
 ```javascript
 caver.rpc.klay.isSyncing([コールバック])
@@ -1500,7 +1500,7 @@ caver.rpc.klay.isSyncing([コールバック])
 false
 ```
 
-## caver.rpc.klay.call<a href="#caver-rpc-klay-call" id="caver-rpc-klay-call"></a>
+## caver.rpc.klay.call <a href="#caver-rpc-klay-call" id="caver-rpc-klay-call"></a>
 
 ```javascript
 caver.rpc.klay.call(callObject [, blockNumber] [, callback])
@@ -1545,7 +1545,7 @@ Promise`は`string\` を返す。
 0x000000000000000000000000000de0b6b3a7640000
 ```
 
-## caver.rpc.klay.estimateGas<a href="#caver-rpc-klay-estimategas" id="caver-rpc-klay-estimategas"></a>
+## caver.rpc.klay.estimateGas <a href="#caver-rpc-klay-estimategas" id="caver-rpc-klay-estimategas"></a>
 
 ```javascript
 caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
@@ -1575,7 +1575,7 @@ Promise`は`string\` を返す。
 0xb2a0
 ```
 
-## caver.rpc.klay.estimateComputationCost<a href="#caver-rpc-klay-estimatecomputationcost" id="caver-rpc-klay-estimatecomputationcost"></a>
+## caver.rpc.klay.estimateComputationCost <a href="#caver-rpc-klay-estimatecomputationcost" id="caver-rpc-klay-estimatecomputationcost"></a>
 
 ```javascript
 caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
@@ -1605,7 +1605,7 @@ Promise`は`string\` を返す。
 0xd761
 ```
 
-## caver.rpc.klay.getTransactionByBlockHashAndIndex<a href="#caver-rpc-klay-gettransactionbyblockhashandindex" id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
+## caver.rpc.klay.getTransactionByBlockHashAndIndex <a href="#caver-rpc-klay-gettransactionbyblockhashandindex" id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
@@ -1651,7 +1651,7 @@ Promise`は`object\` を返す。
 }
 ```
 
-## caver.rpc.klay.getTransactionByBlockNumberAndIndex（ブロック番号とインデックスによるトランザクションの取得<a href="#caver-rpc-klay-gettransactionbyblocknumberandindex" id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
+## caver.rpc.klay.getTransactionByBlockNumberAndIndex <a href="#caver-rpc-klay-gettransactionbyblocknumberandindex" id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callback])
@@ -1697,7 +1697,7 @@ Promise`は`object\` を返す。
 }
 ```
 
-## caver.rpc.klay.getTransactionByHash<a href="#caver-rpc-klay-gettransactionbyhash" id="caver-rpc-klay-gettransactionbyhash"></a>
+## caver.rpc.klay.getTransactionByHash <a href="#caver-rpc-klay-gettransactionbyhash" id="caver-rpc-klay-gettransactionbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
@@ -1786,7 +1786,7 @@ caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
 }
 ```
 
-## caver.rpc.klay.getTransactionBySenderTxHash<a href="#caver-rpc-klay-gettransactionbysendertxhash" id="caver-rpc-klay-gettransactionbysendertxhash"></a>
+## caver.rpc.klay.getTransactionBySenderTxHash <a href="#caver-rpc-klay-gettransactionbysendertxhash" id="caver-rpc-klay-gettransactionbysendertxhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
@@ -1836,7 +1836,7 @@ Promise`は`object\` を返す。
 }
 ```
 
-## caver.rpc.klay.getTransactionReceipt<a href="#caver-rpc-klay-gettransactionreceipt" id="caver-rpc-klay-gettransactionreceipt"></a>
+## caver.rpc.klay.getTransactionReceipt <a href="#caver-rpc-klay-gettransactionreceipt" id="caver-rpc-klay-gettransactionreceipt"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
@@ -1944,7 +1944,7 @@ Promise`は`object`- トランザクションのレシートオブジェクト�
 }
 ```
 
-## caver.rpc.klay.getTransactionReceiptBySenderTxHash<a href="#caver-rpc-klay-gettransactionreceiptbysendertxhash" id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
+## caver.rpc.klay.getTransactionReceiptBySenderTxHash <a href="#caver-rpc-klay-gettransactionreceiptbysendertxhash" id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
@@ -1999,7 +1999,7 @@ Promise`は`object\` を返す。
 }
 ```
 
-## caver.rpc.klay.sendRawTransaction<a href="#caver-rpc-klay-sendrawtransaction" id="caver-rpc-klay-sendrawtransaction"></a>
+## caver.rpc.klay.sendRawTransaction <a href="#caver-rpc-klay-sendrawtransaction" id="caver-rpc-klay-sendrawtransaction"></a>
 
 ```javascript
 caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
@@ -2059,7 +2059,7 @@ PromiEventでは、以下のイベントが利用可能です：
 > caver.rpc.klay.sendRawTransaction('0x08f88...').on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.sendTransaction<a href="#caver-rpc-klay-sendtransaction" id="caver-rpc-klay-sendtransaction"></a>
+## caver.rpc.klay.sendTransaction <a href="#caver-rpc-klay-sendtransaction" id="caver-rpc-klay-sendtransaction"></a>
 
 ```javascript
 caver.rpc.klay.sendTransaction(transaction [, callback])
@@ -2127,7 +2127,7 @@ PromiEventでは、以下のイベントが利用可能です：
 > caver.rpc.klay.sendTransaction(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.sendTransactionAsFeePayer<a href="#caver-rpc-klay-sendtransactionasfeepayer" id="caver-rpc-klay-sendtransactionasfeepayer"></a>
+## caver.rpc.klay.sendTransactionAsFeePayer <a href="#caver-rpc-klay-sendtransactionasfeepayer" id="caver-rpc-klay-sendtransactionasfeepayer"></a>
 
 ```javascript
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
@@ -2208,7 +2208,7 @@ PromiEventでは、以下のイベントが利用可能です：
 > caver.rpc.klay.sendTransactionAsFeePayer(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.signTransaction<a href="#caver-rpc-klay-signtransaction" id="caver-rpc-klay-signtransaction"></a>
+## caver.rpc.klay.signTransaction <a href="#caver-rpc-klay-signtransaction" id="caver-rpc-klay-signtransaction"></a>
 
 ```javascript
 caver.rpc.klay.signTransaction(transaction [, callback])
@@ -2264,7 +2264,7 @@ Promise`は `object\` を返す - オブジェクトは署名されたトラン�
 }
 ```
 
-## Caver.rpc.klay.signTransactionAsFeePayer<a href="#caver-rpc-klay-signtransactionasfeepayer" id="caver-rpc-klay-signtransactionasfeepayer"></a>
+## caver.rpc.klay.signTransactionAsFeePayer <a href="#caver-rpc-klay-signtransactionasfeepayer" id="caver-rpc-klay-signtransactionasfeepayer"></a>
 
 ```javascript
 caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
@@ -2331,7 +2331,7 @@ Promise`は `object\` を返す - オブジェクトは署名されたトラン�
 }
 ```
 
-## caver.rpc.klay.getDecodedAnchoringTransactionByHash<a href="#caver-rpc-klay-getdecodedanchoringtransactionbyhash" id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a>
+## caver.rpc.klay.getDecodedAnchoringTransactionByHash <a href="#caver-rpc-klay-getdecodedanchoringtransactionbyhash" id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback])
@@ -2377,7 +2377,7 @@ Promise`は`object\` を返す - オブジェクトはデコードされたア�
 }.
 ```
 
-## caver.rpc.klay.getChainId<a href="#caver-rpc-klay-getchainid" id="caver-rpc-klay-getchainid"></a>
+## caver.rpc.klay.getChainId <a href="#caver-rpc-klay-getchainid" id="caver-rpc-klay-getchainid"></a>
 
 ```javascript
 caver.rpc.klay.getChainId([コールバック])
@@ -2406,7 +2406,7 @@ Promise`は`string\` を返す。
 0x2710
 ```
 
-## caver.rpc.klay.getClientVersion<a href="#caver-rpc-klay-getclientversion" id="caver-rpc-klay-getclientversion"></a>
+## caver.rpc.klay.getClientVersion <a href="#caver-rpc-klay-getclientversion" id="caver-rpc-klay-getclientversion"></a>
 
 ```javascript
 caver.rpc.klay.getClientVersion([コールバック])
@@ -2435,7 +2435,7 @@ Promise`は`string\` を返す。
 kaia/v1.3.0+144494d2aa/linux-amd64/go1.13.1
 ```
 
-## caver.rpc.klay.getGasPrice<a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a>
+## caver.rpc.klay.getGasPrice <a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getGasPrice([コールバック])
@@ -2464,7 +2464,7 @@ Promise`は`string\` を返す。
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getGasPriceAt<a href="#caver-rpc-klay-getgaspriceat" id="caver-rpc-klay-getgaspriceat"></a>
+## caver.rpc.klay.getGasPriceAt <a href="#caver-rpc-klay-getgaspriceat" id="caver-rpc-klay-getgaspriceat"></a>
 
 ```javascript
 caver.rpc.klay.getGasPriceAt([ブロック番号] [, コールバック])
@@ -2494,7 +2494,7 @@ Promise`は`string\` を返す。
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getMaxPriorityFeePerGas<a href="#caver-rpc-klay-getmaxpriorityfeepergas" id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
+## caver.rpc.klay.getMaxPriorityFeePerGas <a href="#caver-rpc-klay-getmaxpriorityfeepergas" id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
 
 ```javascript
 caver.rpc.klay.getMaxPriorityFeePerGas([コールバック])
@@ -2523,7 +2523,7 @@ Promise`は`string\` を返す。
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getLowerBoundGasPrice<a href="#caver-rpc-klay-getlowerboundgasprice" id="caver-rpc-klay-getlowerboundgasprice"></a>
+## caver.rpc.klay.getLowerBoundGasPrice <a href="#caver-rpc-klay-getlowerboundgasprice" id="caver-rpc-klay-getlowerboundgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getLowerBoundGasPrice([コールバック])
@@ -2552,7 +2552,7 @@ Promise`は`string\` を返す。
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getUpperBoundGasPrice<a href="#caver-rpc-klay-getupperboundgasprice" id="caver-rpc-klay-getupperboundgasprice"></a>
+## caver.rpc.klay.getUpperBoundGasPrice <a href="#caver-rpc-klay-getupperboundgasprice" id="caver-rpc-klay-getupperboundgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getUpperBoundGasPrice([コールバック])
@@ -2581,7 +2581,7 @@ Promise`は`string\` を返す。
 0xae9f7bcc00
 ```
 
-## caver.rpc.klay.getFeeHistory<a href="#caver-rpc-klay-getfeehistory" id="caver-rpc-klay-getfeehistory"></a>
+## caver.rpc.klay.getFeeHistory <a href="#caver-rpc-klay-getfeehistory" id="caver-rpc-klay-getfeehistory"></a>
 
 ```javascript
 caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callback])
@@ -2625,7 +2625,7 @@ caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callbac
 }.
 ```
 
-## caver.rpc.klay.createAccessList<a href="#caver-rpc-klay-createaccesslist" id="caver-rpc-klay-createaccesslist"></a>
+## caver.rpc.klay.createAccessList <a href="#caver-rpc-klay-createaccesslist" id="caver-rpc-klay-createaccesslist"></a>
 
 ```javascript
 caver.rpc.klay.createAccessList(txCallObject [, callback])
@@ -2665,7 +2665,7 @@ Promise`は `object\` を返す - オブジェクトにはアクセスリスト�
 { accessList: [], gasUsed: '0x0' }
 ```
 
-## caver.rpc.klay.isParallelDBWrite<a href="#caver-rpc-klay-isparalleldbwrite" id="caver-rpc-klay-isparalleldbwrite"></a>
+## caver.rpc.klay.isParallelDBWrite <a href="#caver-rpc-klay-isparalleldbwrite" id="caver-rpc-klay-isparalleldbwrite"></a>
 
 ```javascript
 caver.rpc.klay.isParallelDBWrite([コールバック])
@@ -2694,7 +2694,7 @@ Promise`は`boolean\` を返す。
 true
 ```
 
-## caver.rpc.klay.isSenderTxHashIndexingEnabled<a href="#caver-rpc-klay-issendertxhashindexingenabled" id="caver-rpc-klay-issendertxhashindexingenabled"></a>
+## caver.rpc.klay.isSenderTxHashIndexingEnabled <a href="#caver-rpc-klay-issendertxhashindexingenabled" id="caver-rpc-klay-issendertxhashindexingenabled"></a>
 
 ```javascript
 caver.rpc.klay.isSenderTxHashIndexingEnabled([コールバック])
@@ -2723,7 +2723,7 @@ Promise`は`boolean\` を返す。
 true
 ```
 
-## caver.rpc.klay.getProtocolVersion<a href="#caver-rpc-klay-getprotocolversion" id="caver-rpc-klay-getprotocolversion"></a>
+## caver.rpc.klay.getProtocolVersion <a href="#caver-rpc-klay-getprotocolversion" id="caver-rpc-klay-getprotocolversion"></a>
 
 ```javascript
 caver.rpc.klay.getProtocolVersion([コールバック])
@@ -2752,7 +2752,7 @@ Promise`は`string\` を返す。
 0x40
 ```
 
-## caver.rpc.klay.getRewardbase<a href="#caver-rpc-klay-getrewardbase" id="caver-rpc-klay-getrewardbase"></a>
+## caver.rpc.klay.getRewardbase <a href="#caver-rpc-klay-getrewardbase" id="caver-rpc-klay-getrewardbase"></a>
 
 ```javascript
 caver.rpc.klay.getRewardbase([コールバック])
@@ -2781,7 +2781,7 @@ Promise`は`string\` を返す。
 0xa9b3a93b2a9fa3fdcc31addd240b04bf8db3414c
 ```
 
-## caver.rpc.klay.getFilterChanges<a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a>
+## caver.rpc.klay.getFilterChanges <a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a>
 
 ```javascript
 caver.rpc.klay.getFilterChanges(filterId [, callback])
@@ -2833,7 +2833,7 @@ Promise`は`Array\` - ログオブジェクトの配列、または最後のポ�
 ]
 ```
 
-## caver.rpc.klay.getFilterLogs<a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
+## caver.rpc.klay.getFilterLogs <a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
 
 ```javascript
 caver.rpc.klay.getFilterLogs(filterId [, callback])
@@ -2872,7 +2872,7 @@ caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) を参照。
 ]
 ```
 
-## caver.rpc.klay.getLogs<a href="#caver-rpc-klay-getlogs" id="caver-rpc-klay-getlogs"></a>
+## caver.rpc.klay.getLogs <a href="#caver-rpc-klay-getlogs" id="caver-rpc-klay-getlogs"></a>
 
 ```javascript
 caver.rpc.klay.getLogs(options [, callback])
@@ -2925,7 +2925,7 @@ caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) を参照。
 ]
 ```
 
-## caver.rpc.klay.newBlockFilter<a href="#caver-rpc-klay-newblockfilter" id="caver-rpc-klay-newblockfilter"></a>
+## caver.rpc.klay.newBlockFilter <a href="#caver-rpc-klay-newblockfilter" id="caver-rpc-klay-newblockfilter"></a>
 
 ```javascript
 caver.rpc.klay.newBlockFilter([コールバック])
@@ -2954,7 +2954,7 @@ Promise`は`string\` を返す。
 0xf90906914486a9c22d620e50022b38d5
 ```
 
-## caver.rpc.klay.newFilter<a href="#caver-rpc-klay-newfilter" id="caver-rpc-klay-newfilter"></a>
+## caver.rpc.klay.newFilter <a href="#caver-rpc-klay-newfilter" id="caver-rpc-klay-newfilter"></a>
 
 ```javascript
 caver.rpc.klay.newFilter(options [, callback])
@@ -3001,7 +3001,7 @@ Promise`は`string\` を返す。
 0xd165cbf31b9d60346aada33dbefe01b
 ```
 
-## caver.rpc.klay.newPendingTransactionFilter<a href="#caver-rpc-klay-newpendingtransactionfilter" id="caver-rpc-klay-newpendingtransactionfilter"></a>
+## caver.rpc.klay.newPendingTransactionFilter <a href="#caver-rpc-klay-newpendingtransactionfilter" id="caver-rpc-klay-newpendingtransactionfilter"></a>
 
 ```javascript
 caver.rpc.klay.newPendingTransactionFilter([コールバック])
@@ -3030,7 +3030,7 @@ Promise`は`string\` を返す。
 0xe62da1b2a09efcd4168398bdbf586db0
 ```
 
-## caver.rpc.klay.uninstallFilter<a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a>
+## caver.rpc.klay.uninstallFilter <a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a>
 
 ```javascript
 caver.rpc.klay.uninstallFilter(filterId [, callback])
@@ -3060,7 +3060,7 @@ Promise`は`boolean\` を返す。
 true
 ```
 
-## caver.rpc.klay.sha3<a href="#caver-rpc-klay-sha3" id="caver-rpc-klay-sha3"></a>
+## caver.rpc.klay.sha3 <a href="#caver-rpc-klay-sha3" id="caver-rpc-klay-sha3"></a>
 
 ```javascript
 caver.rpc.klay.sha3(data[, callback])
