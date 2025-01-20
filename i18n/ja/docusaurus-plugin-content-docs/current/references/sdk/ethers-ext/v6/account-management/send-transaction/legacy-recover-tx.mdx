@@ -1,4 +1,4 @@
-# Legacy Account Key
+# レガシー・アカウント・キー
 
 <CH.Spotlight>
   <CH.Code>
@@ -43,25 +43,25 @@
     ---
 
     ```zsh output
-    ❯ js SignTxWithLegacyExample.js
-    rawTx 0x08f87e05850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e98094b2ba72e1f84b7b8cb15487a2bf20328f2cf40c25f847f8458207f5a070d2c5f2dd52d6a3b7bba65594b2c875b8ce0473e16b06b43d5c2ec9ebfcd467a048af2fc51f75961a9cebfb1685b12d99db143bbd42a76f9c50970b807e1010b9
+    js SignTxWithLegacyExample.js
+    rawTx0x08f87e05850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e98094b2ba72e1f84b7b8cb15487a2bf20328f2cf40c25f847f8458207f5a070d2c5f2dd52d6a3b7bba65594b2c875b8ce0473e16b06b43d5c2ec9ebfcd467a048af2fc51f75961a9cebfb1685b12d99db143bbd42a76f9c50970b807e1010b9
     sentTx 0xecb117338d7a0e7e9444886ebdab5d0e14fd1b02fa476fee839a2fc3b105f391
     receipt {
-      to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+      to：'0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
       from: '0xb2ba72e1f84b7B8Cb15487A2bf20328F2cF40c25',
       contractAddress: null,
-      transactionIndex: 1,
-      gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
-      logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-      blockHash: '0x7eae10aa2fcd3c42ac1705b63ad025f972a222bb71d65feeb0000d92c2e73732',
+      transactionIndex：1,
+      gasUsed：BigNumber { _hex: '0x5208', _isBigNumber: true },
+      logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      blockHash：'0x7eae10aa2fcd3c42ac1705b63ad025f972a222bb71d65feeb0000d92c2e73732',
       transactionHash: '0xecb117338d7a0e7e9444886ebdab5d0e14fd1b02fa476fee839a2fc3b105f391',
-      logs: [],
+      logs：[],
       blockNumber: 152256170,
-      confirmations: 3,
-      cumulativeGasUsed: BigNumber { _hex: '0x029636', _isBigNumber: true },
-      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-      status: 1,
-      type: 0,
+      confirmations：3,
+      cumulativeGasUsed：BigNumber { _hex: '0x029636', _isBigNumber: true },
+      effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status：1,
+      type：0,
       byzantium: true
     }
     recoveredAddr rpc 0xb2ba72e1f84b7b8cb15487a2bf20328f2cf40c25 true
@@ -70,35 +70,35 @@
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  ethers.jsにkaiaの機能を追加するために、**ethers**および\*\*@kaiachain/ethers-ext\*\*パッケージをインポートする。
 
   ```js SignTxWithLegacyExample.js focus=1:3
   ```
 
   ---
 
-  Define sender's **address** and **private key**
+  送信者の**アドレス**と**秘密鍵**を定義する。
 
   ```js SignTxWithLegacyExample.js focus=5:6
   ```
 
   ---
 
-  Define receiver's **address**
+  受信者の\*\*アドレスを定義する。
 
   ```js SignTxWithLegacyExample.js focus=7
   ```
 
   ---
 
-  Set up the provider with the specified **Kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**Kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js SignTxWithLegacyExample.js focus=9
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js SignTxWithLegacyExample.js focus=9
   const { ethers } = require("ethers");
@@ -140,21 +140,21 @@
 
   ---
 
-  Create a sender's wallet with the **private key** and **provider**
+  秘密鍵**と**プロバイダー\*\*を使って送信者のウォレットを作成する。
 
   ```js SignTxWithLegacyExample.js focus=10
   ```
 
   ---
 
-  Create a value transfer transaction with `type: TxType.ValueTransfer` so that it can be recovered later with `klay_recoverFromTransaction`
+  TxType.ValueTransfer`で値転送トランザクションを作成する：TxType.ValueTransfer`で値転送トランザクションを作成し、後で `klay_recoverFromTransaction` で復元できるようにする。
 
   ```js SignTxWithLegacyExample.js focus=13:19
   ```
 
   ---
 
-  Sign the transaction with sender's **wallet**, the `populateTransaction` method add more params to the transaction object such as gas, nonce...
+  populateTransaction\`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
 
   <CH.Code>
     ```js SignTxWithLegacyExample.js focus=21:23
@@ -163,13 +163,13 @@
     ---
 
     ```zsh output
-    rawTx 0x08f87e05850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e98094b2ba72e1f84b7b8cb15487a2bf20328f2cf40c25f847f8458207f5a070d2c5f2dd52d6a3b7bba65594b2c875b8ce0473e16b06b43d5c2ec9ebfcd467a048af2fc51f75961a9cebfb1685b12d99db143bbd42a76f9c50970b807e1010b9
+    rawTx0x08f87e05850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e98094b2ba72e1f84b7b8cb15487a2bf20328f2cf40c25f847f8458207f5a070d2c5f2dd52d6a3b7bba65594b2c875b8ce0473e16b06b43d5c2ec9ebfcd467a048af2fc51f75961a9cebfb1685b12d99db143bbd42a76f9c50970b807e1010b9
     ```
   </CH.Code>
 
   ---
 
-  Send the **signed transaction** to kaia network
+  署名したトランザクション\*\*をkaiaネットワークに送信する。
 
   <CH.Code>
     ```js SignTxWithLegacyExample.js focus=25:26
@@ -184,7 +184,7 @@
 
   ---
 
-  Wait for the transaction to be **completed** and print the **receipt**
+  取引が**完了**するのを待って、**領収書**を印刷する。
 
   <CH.Code>
     ```js SignTxWithLegacyExample.js focus=28:29
@@ -194,29 +194,29 @@
 
     ```zsh output
     receipt {
-      to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+      to：'0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
       from: '0xb2ba72e1f84b7B8Cb15487A2bf20328F2cF40c25',
       contractAddress: null,
-      transactionIndex: 1,
-      gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
-      logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-      blockHash: '0x7eae10aa2fcd3c42ac1705b63ad025f972a222bb71d65feeb0000d92c2e73732',
+      transactionIndex：1,
+      gasUsed：BigNumber { _hex: '0x5208', _isBigNumber: true },
+      logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      blockHash：'0x7eae10aa2fcd3c42ac1705b63ad025f972a222bb71d65feeb0000d92c2e73732',
       transactionHash: '0xecb117338d7a0e7e9444886ebdab5d0e14fd1b02fa476fee839a2fc3b105f391',
-      logs: [],
+      logs：[],
       blockNumber: 152256170,
-      confirmations: 3,
-      cumulativeGasUsed: BigNumber { _hex: '0x029636', _isBigNumber: true },
-      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-      status: 1,
-      type: 0,
+      confirmations：3,
+      cumulativeGasUsed：BigNumber { _hex: '0x029636', _isBigNumber: true },
+      effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status：1,
+      type：0,
       byzantium: true
-    }
+    }.
     ```
   </CH.Code>
 
   ---
 
-  Recover the address from signed transaction using `klay_recoverFromMessage`
+  klay_recoverFromMessage\`を使用して、署名されたトランザクションからアドレスを回復する。
 
   <CH.Code>
     ```js SignTxWithLegacyExample.js focus=31:32
