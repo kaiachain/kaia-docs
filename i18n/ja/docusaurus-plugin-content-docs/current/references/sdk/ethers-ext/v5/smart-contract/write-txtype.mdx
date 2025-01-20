@@ -231,14 +231,14 @@ Ethers.Contract**で契約インスタンスを作成し、パラメータ **con
 counter.number()**メソッドで更新前の**number\*\*値を取得する。
 
 <CH.Code>
-``js writeTxType.js focus=39
+```js writeTxType.js focus=39
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ node writeTxType.js
 number before 291
-```
+````
 
 </CH.Code>
 
@@ -263,14 +263,14 @@ number before 291
 ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
-``js writeTxType.js focus=50:51
+```js writeTxType.js focus=50:51
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ node writeTxType.js
 sentTx 0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306
-```
+````
 
 </CH.Code>
 
@@ -279,7 +279,7 @@ sentTx 0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306
 wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
 <CH.Code>
-``js writeTxType.js focus=53:54
+```js writeTxType.js focus=53:54
 
 ````
 ---
@@ -323,14 +323,14 @@ receipt {
 メソッド**counter.number()**で更新値**number**を取得する。
 
 <CH.Code>
-``js writeTxType.js focus=56
+```js writeTxType.js focus=56
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ node writeTxType.js
 number after 292
-```
+````
 
 </CH.Code>
 
