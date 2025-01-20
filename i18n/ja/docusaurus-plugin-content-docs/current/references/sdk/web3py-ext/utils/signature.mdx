@@ -1,57 +1,57 @@
-# Signature
+# 署名
 
-Convert signature between `r, s, v` and `compressed string` format.
+シグネチャを `r, s, v` 形式と `圧縮文字列` 形式の間で変換する。
 
 <CH.Spotlight>
   <CH.Code>
     ```py signature_convert.py
     from web3py_ext import bytes_to_hex_str, hex_str_to_bytes
 
-    def rsv_to_signature_string(r, s, v):
-        # Concatenate r, s, and v to form a 65-byte signature
+    def rsv_to_signature_string(r, s, v)：
+        # r, s, vを連結して65バイトのシグネチャを形成
         signature = r + s + v
         return bytes_to_hex_str(signature)
-    def signature_string_to_rsv(signature_str):
-        # Convert the signature string to bytes (remove '0x' if present)
+    def signature_string_to_rsv(signature_str)：
+        #
         signature = hex_str_to_bytes(signature_str)
-        # Extract r (first 32 bytes), s (next 32 bytes), and v (last byte)
-        r = signature[:32]
+        # r（最初の32バイト）、s（次の32バイト）、v（最後のバイト）を取り出す
+        r = signature[：32]
         s = signature[32:64]
         v = signature[64]
         return bytes_to_hex_str(r), bytes_to_hex_str(s), hex(v)
 
-    def main():
-        # convert {r,s,v} signature to string
+    def main()：
+        # {r,s,v} シグネチャを文字列に変換
         r = hex_str_to_bytes('0x678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6')
-        s = hex_str_to_bytes('0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed')
+        s =hex_str_to_bytes('0xbaabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed')
         v = hex_str_to_bytes("0x1b")
-        print("From r,s,v to string",rsv_to_signature_string(r,s,v))
+        print("From r、s,vから文字列へ",rsv_to_signature_string(r,s,v))
 
-        # convert string sigature to rsv
+        # 文字列sigatureをrsvに変換
         signature_str="0x66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b9975c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c5081b"
-        print("From string to r,s,v",signature_string_to_rsv(signature_str))
+        print("文字列からrへ、s,v",signature_string_to_rsv(signature_str))
     main()
     ```
 
     ---
 
     ```zsh output
-    ❯ py signature_convert.py
-    From r,s,v to string 678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6baabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed1b
-    From string to r,s,v ('66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99', '75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508', '0x1b')
+    py signature_convert.py
+    r,s,v から文字列へ 678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6baabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed1b
+    文字列から r へ、s,v ('66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99', '75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508', '0x1b')
     ```
   </CH.Code>
 
   ---
 
-  Import the `bytes_to_hex_str`, `hex_str_to_bytes` from **web3py_ext**
+  web3py_ext\*\* から `bytes_to_hex_str`, `hex_str_to_bytes` をインポートする。
 
   ```py signature_convert.py focus=1
   ```
 
   ---
 
-  For converting `{r,s,v}` signature to string, define a signature in `r,s,v` format, use `hex_str_to_bytes` to convert each components to `bytes`
+  {r,s,v}` のシグネチャを文字列に変換するには、`r,s,v` フォーマットのシグネチャを定義し、`hex_str_to_bytes`を使って各要素を`bytes\` に変換する。
 
   <CH.Code>
     ```py signature_convert.py focus=17:20
@@ -60,14 +60,14 @@ Convert signature between `r, s, v` and `compressed string` format.
     ---
 
     ```zsh output
-    ❯ py signature_convert.py
+    ❯ signature_convert.py
 
     ```
   </CH.Code>
 
   ---
 
-  Concatenate the components in order of `r + s + v` and convert the result bytes to `string`.
+  構成要素を `r + s + v` の順に連結し、結果のバイトを `string` に変換する。
 
   <CH.Code>
     ```py signature_convert.py focus=3:6,21
@@ -76,21 +76,21 @@ Convert signature between `r, s, v` and `compressed string` format.
     ---
 
     ```zsh output
-    ❯ py signature_convert.py
-    From r,s,v to string 678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6baabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed1b
+    ❯ signature_convert.py
+    r,s,v から文字列へ 678f3a7b600169b800828065cda112aa28291311a5dbb729480444a2b905f6e6baabb5a43a047e75e41a77b88fa7a5bf89e5227f1c8e40bfdfbcceb8164521ed1b
     ```
   </CH.Code>
 
   ---
 
-  For converting `string` signature to `{r,s,v}`, define a signature in string format
+  文字列形式のシグネチャを `{r,s,v}` に変換するには、文字列形式でシグネチャを定義する。
 
   ```py signature_convert.py focus=23:24
   ```
 
   ---
 
-  Convert the string signature to `bytes` using `hex_str_to_bytes`
+  hex_str_to_bytes`を使って文字列シグネチャを `bytes\` に変換する。
 
   <CH.Code>
     ```py signature_convert.py focus=8:9
@@ -99,14 +99,14 @@ Convert signature between `r, s, v` and `compressed string` format.
     ---
 
     ```zsh output
-    ❯ py signature_convert.py
+    ❯ signature_convert.py
 
     ```
   </CH.Code>
 
   ---
 
-  Extract `R first 32 indices`, `S next 32 indices`, `V last indice` from the signature bytes
+  署名バイトから `R 最初の 32 個のインデックス`、`S 次の 32 個のインデックス`、`V 最後のインデックス` を取り出す。
 
   <CH.Code>
     ```py signature_convert.py focus=10:13
@@ -115,14 +115,14 @@ Convert signature between `r, s, v` and `compressed string` format.
     ---
 
     ```zsh output
-    ❯ py signature_convert.py
+    ❯ signature_convert.py
 
     ```
   </CH.Code>
 
   ---
 
-  You can convert each components back to string using `bytes_to_hex_str()` and `hex()`
+  各コンポーネントを文字列に戻すには、`bytes_to_hex_str()` と `hex()` を使用します。
 
   <CH.Code>
     ```py signature_convert.py focus=14,25
@@ -131,8 +131,8 @@ Convert signature between `r, s, v` and `compressed string` format.
     ---
 
     ```zsh output
-    ❯ py signature_convert.py
-    From string to r,s,v ('66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99', '75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508', '0x1b')
+    ❯ signature_convert.py
+    文字列から r,s,v ('66809fb130a6ea4ae4e823baa92573a5f1bfb4e88e64048aecfb18a2b4012b99', '75c2c3e5f7b0a182c767137c488649cd5104a5e747371fd922d618e328e5c508', '0x1b')
     ```
   </CH.Code>
 </CH.Spotlight>
