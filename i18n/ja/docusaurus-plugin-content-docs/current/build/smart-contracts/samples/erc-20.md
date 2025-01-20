@@ -539,7 +539,7 @@ MyERC20.sol`では、`_mint`はスマートコントラクトをデプロイす�
 ### 2.1 前提条件<a href="#2-1-prerequisites" id="2-1-prerequisites"></a>
 
 - [Kaia Wallet](../../tools/wallets/kaia-wallet.md)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとのやりとりに使用。
-- 蛇口](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 
 MyERC20\`スマートコントラクトをデプロイするには、Remix Online IDEを使用するか、Truffleを使用する。
 
@@ -547,7 +547,7 @@ MyERC20\`スマートコントラクトをデプロイするには、Remix Onlin
 
 リミックスIDE
 
-- Kaia Plugin for Remix](https://ide.kaia.io/) に移動します。
+- [Kaia Plugin for Remix](https://ide.kaia.io/) に移動します。
 - contractsフォルダに`MyERC20.sol`ファイルを作成する。
 - Remixで**コンパイル**契約をクリックします。
 - プラグインをインストールしたら、左側のKaia (prev Klaytn) タブをクリックします。
