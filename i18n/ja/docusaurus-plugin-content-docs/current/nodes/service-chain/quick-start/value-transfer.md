@@ -44,7 +44,7 @@ $ kscn attach --datadir ~/data
 Unlock account 80119c31cdae67c42c8296929bb4f89b2a52cec4
 Passphrase:
 True
-> klay.sendTransaction({from:"80119c31cdae67c42c8296929bb4f89b2a52cec4", to:subbridge.childOperator, value: web3.toPeb(1000, "KLAY")})
+> kaia.sendTransaction({from:"80119c31cdae67c42c8296929bb4f89b2a52cec4", to:subbridge.childOperator, value: web3.toPeb(1000, "KAIA")})
 "0x84caab84ebf0c4bb4ecf0a7849f1de3e479f1863a95f70c51047a7ca7bc64b33"
 ```
 
