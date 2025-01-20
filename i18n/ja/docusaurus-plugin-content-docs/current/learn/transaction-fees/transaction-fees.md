@@ -17,7 +17,7 @@ Transaction fee := (Gas used) x (GasPrice)
 取引のガスは2つの要素からなる：
 
 - `IntrinsicGas` is a gas that is statically charged based on the configuration of the transaction, such as the datasize of the transaction. 詳しくは[固有ガス](intrinsic-gas.md)をご参照ください。
-- `ExecutionGas`, on the other hand, is a gas that is dynamically calculated due to the contract execution. 詳しくは「実行ガス」(execution-gas.md)をご覧ください。
+- `ExecutionGas`, on the other hand, is a gas that is dynamically calculated due to the contract execution. 詳しくは[「実行ガス」](execution-gas.md)をご覧ください。
 
 ガスの使用量は、取引が実行された後にのみ決定される。 そのため、レシートから取引のガス使用量を調べることができる。
 
