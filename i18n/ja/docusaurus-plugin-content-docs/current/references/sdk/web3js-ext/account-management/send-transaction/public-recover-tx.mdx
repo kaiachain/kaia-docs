@@ -169,14 +169,14 @@ type.ValueTransfer`で値移転トランザクションを作成する：TxType.
 送金者の**ウォレット**で取引に署名する。
 
 <CH.Code>
-``js SignTxWithPubkeyExample.js focus=21:22
+```js SignTxWithPubkeyExample.js focus=21:22
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 signedTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
-```
+````
 
 </CH.Code>
 
@@ -185,7 +185,7 @@ signedTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
 カイアネットワークに**署名した取引**を送信し、**領収書**を印刷する。
 
 <CH.Code>
-``js SignTxWithPubkeyExample.js focus=24:25
+```js SignTxWithPubkeyExample.js focus=24:25
 
 ````
 ---
@@ -218,13 +218,13 @@ receipt {
 web3.klay.recoverFromTransaction\`を使用して、署名されたトランザクションからアドレスを回復する。
 
 <CH.Code>
-``js SignTxWithPubkeyExample.js focus=27:29
+```js SignTxWithPubkeyExample.js focus=27:29
 
-```
+````
 ---
-``zsh output
+```zsh output
 recoveredAddr rpc 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b true
-```
+````
 
 </CH.Code>
 </CH.Spotlight>
