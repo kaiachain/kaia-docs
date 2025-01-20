@@ -497,12 +497,12 @@ testFunction()
 $ node ./test.js
 { 
 	blockHash: '0xd20066b448da77a41a46fbf0856792b85b60c42213126f661f6434b5b1263072',
-	blockNumber：'0x1efb',
+	blockNumber: '0x1efb',
 	contractAddress: null,
 	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
 	gas: '0x7530',
 	...
-	signatures：[
+	signatures: [
 		{ 
 			V: '0x4e43',
 			R: '0x5737aa8c88f019a3ee184faed6d34d103f77773bd5434cb0328c11738c8d9755',
@@ -510,13 +510,13 @@ $ node ./test.js
 		}
 	],
 	status: '0x1',
-	to：'0x176ff0344de49c04be577a3512b6991507647f72',
+	to: '0x176ff0344de49c04be577a3512b6991507647f72',
 	transactionHash: '0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113',
-	transactionIndex：0,
+	transactionIndex: 0,
 	type: 'TxTypeValueTransfer',
 	typeInt: 8,
 	value: '0x1'
-}.
+}
 ```
 
 caver.wallet\`を使わずにトランザクションに署名してネットワークに送信したい場合は、以下の例を参照してください。
@@ -588,12 +588,12 @@ testFunction()
 $ node ./test.js
 { 
 	blockHash: '0x65d041011440e04643c546eb8bbb1dcabb659c3b3216e01473cb0712e47b5f69',
-	blockNumber：'0x20db',
+	blockNumber: '0x20db',
 	contractAddress: null,
 	from: '0x09a08f2289d3eb3499868908f1c84fd9523fe11b',
 	gas: '0x7530',
 	...
-	signatures：[
+	signatures: [
 		{ 
 			V: '0x4e43',
 			R: '0xfabe48071a8b72f0c340b2ee9d948a496cce467aebe027159d66a175e6b4b5b4',
@@ -601,13 +601,13 @@ $ node ./test.js
 		}
 	],
 	status: '0x1',
-	to：'0x176ff0344de49c04be577a3512b6991507647f72',
+	to: '0x176ff0344de49c04be577a3512b6991507647f72',
 	transactionHash: '0x40552efbba23347d36f6f5aaba6b9aeb6602e004df62c1988d9b7b1f036e676a',
-	transactionIndex：0,
+	transactionIndex: 0,
 	type: 'TxTypeValueTransfer',
 	typeInt: 8,
 	value: '0x1'
-}.
+}
 ```
 
 トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については、[caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 txError\`の詳細については、[txError: トランザクション失敗の詳細情報](../transaction-error-codes.md) を参照のこと。
@@ -706,10 +706,10 @@ testFunction()
 $ node ./test.js
 { 
 	blockHash: '0xb6a76163c4c558f50bdae77968a0f35dcfececf78b5cb780c3514a30a1c0a864',
-	blockNumber：'0xede',
+	blockNumber: '0xede',
 	contractAddress: null,
 	feePayer: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-	feePayerSignatures：[
+	feePayerSignatures: [
 		{
 			V: '0x4e44',
 			R: '0x921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6e',
@@ -719,7 +719,7 @@ $ node ./test.js
 	from: '0xf5a9079f311f9ec55170af351627aff0c5d2e287',
 	gas: '0xc350',
 	...
-	signatures：[
+	signatures: [
 		{
 			V: '0x4e43',
 			R: '0xf4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cc',
@@ -727,13 +727,13 @@ $ node ./test.js
 		}
 	],
 	status: '0x1',
-	to：'0x176ff0344de49c04be577a3512b6991507647f72',
+	to: '0x176ff0344de49c04be577a3512b6991507647f72',
 	transactionHash: '0x1878cc27b7f259a98d3248b41bffb6158640b4a07c503095deac1913fb3856c2',
-	transactionIndex：0,
+	transactionIndex: 0,
 	type: 'TxTypeFeeDelegatedValueTransfer',
 	typeInt: 9,
 	value: '0x5'
-}.
+}
 ```
 
 ### アカウント更新<a href="#account-update" id="account-update"></a>
@@ -796,18 +796,18 @@ testFunction()
 
 ```bash
 $ node ./test.js
-新しい秘密鍵の文字列：0x{private key}
+new private key string: 0x{private key}
 { 
-	blockHash: '0x4c0221245e7c810cc19b05257e8d7cd34f24cc829f87a832c08682640173f5',
+	blockHash: '0x4c0221245e7c810cc19b05257e8d7cd34f24cc829f8787a832c08682640173f5',
 	blockNumber: '0x26d6',
-	contractAddress：null,
+	contractAddress: null,
 	from: '0xeec694a4143e05945823b216d0c62ab91c192a63',
 	gas: '0xc350',
 	gasPrice: '0x5d21dba00',
-	gasUsed：41000,
-	key: '0x02a1024cc4670797071be16c34b22df1a3588653da5c1e9279b1d9e4b24fbcba07d8',
+	gasUsed: 41000,
+	key: '0x02a1024cc461670797071be16c34b22df1a3588653da5c1e9279b1d9e4b24fbcba07d8',
 	...
-	署名[
+	signatures: [
 		{
 			V: '0x4e43',
 			R: '0xd0fa2d25711de4bfc3a7a6a660d307264fa3b2cacbb7eb71ab68f47661ebcfaf',
@@ -816,10 +816,10 @@ $ node ./test.js
 	],
 	status: '0x1',
 	transactionHash: '0x4efdeeb1bb1e52ace11d64a19f564a973b36c29a0d85899a215621659b793665',
-	transactionIndex：0,
+	transactionIndex: 0,
 	type: 'TxTypeAccountUpdate',
-	typeInt：32
-}.
+	typeInt: 32
+}
 ```
 
 複数の[AccountKey]を持つkaiaアカウントの[AccountKey]を更新する方法は？ 以下の例では、使用したい複数の秘密鍵を持つ[Account](api/caver.account.md)インスタンスを作成する方法を説明します（複数の公開鍵を持つ[Account](api/caver.account.md)インスタンスは、[caver.account.create](api/caver.account.md#caver-account-create)で作成できます）。 繰り返しになるが、トランザクションオブジェクト内の`account`フィールドに作成されたアカウントインスタンスを投入した後、残りの更新処理は上記の例と同じである。
@@ -1260,21 +1260,21 @@ $ node ./test.js
 { 
 	blockHash: '0x610336d43644abc5ab71156f7334ff67deabdd8de27778faa9dec99d225927e6',
   blockNumber: 4724,
-  contractAddress：null,
+  contractAddress: null,
   from: '0xbbfa9e3f76ddafedc28197e0f893366dd3c5c74a',
   gas: '0x4bfd200',
   gasPrice: '0x5d21dba00',
-  gasUsed：62351,
+  gasUsed: 62351,
   input: '0xe942b...',
   ...
   status: true,
-  to：'0x3466d49256b0982e1f240b64e097ff04f99ed4b9',
+  to: '0x3466d49256b0982e1f240b64e097ff04f99ed4b9',
   transactionHash: '0x3a354703ab4a7b32492edab454b446dd3e92eec81ecbdaf2c3d84ffdd5cf9948',
-  transactionIndex：0,
+  transactionIndex: 0,
   type: 'TxTypeSmartContractExecution',
-  typeInt：48,
+  typeInt: 48,
   value: '0x0',
-  events：{}
+  events: {}
 }
 ```
 
