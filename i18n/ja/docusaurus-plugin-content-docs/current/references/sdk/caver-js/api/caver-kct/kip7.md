@@ -38,7 +38,7 @@ tokenInfoオブジェクトには、以下を含める必要があります：
 
 **注意** `initialSupply` パラメータは `number` 型を受け付けるが、投入された値が number.MAX_SAFE_INTEGER で制限された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 PromiEvent\`：新しい KIP7 インスタンスで解決されるプロミスを組み合わせたイベントエミッタ。 さらに、以下のような出来事も起こりうる：
 
@@ -48,41 +48,41 @@ PromiEvent\`：新しい KIP7 インスタンスで解決されるプロミス�
 | レシート         | オブジェクト | トランザクションのレシートが利用可能になったときに発行されます。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]を参照してください。 KIP7インスタンスからのレシートは、abi経由で解析される'logs'属性の代わりに'events'属性を持つ。 |
 | エラー          | エラー    | 送信中にエラーが発生した場合に発行される。                                                                                                                                     |
 
-\*\*例
+**例**
 
 ```javascript
-// プロミスの使用
+// using the promise
 > caver.kct.kip7.deploy({
     name: 'Jasmine',
-    symbol：'JAS',
+    symbol: 'JAS',
     decimals: 18,
-    initialSupply：'10000000000000000',
+    initialSupply: '100000000000000000000',
 }, '0x{address in hex}').then(console.log)
 KIP7 {
     ...
-    アドレス'0x598367e443D8a2b644Fec69a2C12aF44BC283f23',
-    _jsonInterface：[
+    _address: '0x598367e443D8a2b644Fec69a2C12aF44BC283f23',
+    _jsonInterface: [
         ...
         {
             anonymous: false,
-            inputs：[
+            inputs: [
                 { indexed: true, name: 'owner', type: 'address' },
                     { indexed: true, name: 'spender', type: 'address' },
                     { indexed: false, name: 'value', type: 'uint256' }
             ],
             name: 'Approval',
             type: 'event',
-            signature: '0x8c5be...'.
+            signature:  '0x8c5be...'
         }
     ] 
 }
 
-// 第2パラメータとしてオブジェクトを送信
+// Send object as second parameter
 > caver.kct.kip7.deploy({
         name: 'Jasmine',
-        symbol：'JAS',
+        symbol: 'JAS',
         decimals: 18,
-        initialSupply：'10000000000000000',
+        initialSupply: '100000000000000000000',
     },
     {
         from: '0x{address in hex}',
@@ -90,20 +90,20 @@ KIP7 {
         feePayer: '0x{address in hex}',
     }).then(console.log)
 
-// イベントエミッターとプロミスを使用
+// using event emitter and promise
 > caver.kct.kip7.deploy({
     name: 'Jasmine',
-    symbol：'JAS',
+    symbol: 'JAS',
     decimals: 18,
-    initialSupply：'100000',
+    initialSupply: '100000',
 }, '0x{address in hex}')
 .on('error', function(error) { ... })
 .on('transactionHash', function(transactionHash) { ... })
 .on('receipt', function(receipt) {
-    console.log(receipt.contractAddress) // 新しいトークンコントラクトアドレスを含む
+    console.log(receipt.contractAddress) // contains the new token contract address
 })
 .then(function(newKIP7Instance) {
-    console.log(newKIP7Instance.options.address) // 新しいトークンコントラクトアドレスを持つインスタンス
+    console.log(newKIP7Instance.options.address) // instance with the new token contract address
 })
 ```
 
@@ -121,11 +121,11 @@ caver.kct.kip7.detectInterface(契約アドレス)
 | ---- | ----- | -------------------- |
 | 契約住所 | ストリング | KIP-7トークンコントラクトのアドレス |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 `Promise` は各 [KIP-7 インタフェース](https://kips.kaia.io/KIPs/kip-7#kip-13-identifiers) が実装されているかどうかをブール値で表した結果を含む `オブジェクト` を返す。
 
-\*\*例
+**例**
 
 ```javascript
 > caver.kct.kip7.detectInterface('0x{address in hex}').then(console.log)
@@ -152,11 +152,11 @@ caver.kct.kip7.create([tokenAddress])
 
 new KIP7](#new-kip7)を参照。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 new KIP7](#new-kip7)を参照。
 
-\*\*例
+**例**
 
 ```javascript
 // Create a KIP7 instance without a parameter
@@ -180,13 +180,13 @@ new KIP7](#new-kip7)を参照。
 | -------- | ----- | -------------------------------------------------------------------------------------------------------- |
 | トークンアドレス | ストリング | (オプション) KIP-7トークンコントラクトのアドレス。これは後で`kip7.options.address = '0x1234..'`によって割り当てることができる。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明                             |
 | ------ | ------------------------------ |
 | オブジェクト | バインドされたメソッドとイベントを持つKIP7インスタンス。 |
 
-\*\*例
+**例**
 
 ```javascript
 // Create a KIP7 instance without a parameter
@@ -210,13 +210,13 @@ kip7.clone([tokenAddress])
 | -------- | ----- | ---------------------------------------------------------------------------------------------- |
 | トークンアドレス | ストリング | (オプション) 別の KIP7 トークンをデプロイしたスマートコントラクトのアドレス。 省略された場合は、元のインスタンスの契約アドレスが設定される。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明                     |
 | ------ | ---------------------- |
 | オブジェクト | オリジナルのKIP7インスタンスのクローン。 |
 
-\*\*例
+**例**
 
 ```javascript
 > const kip7 = new caver.kct.kip7(address)
@@ -240,11 +240,11 @@ kip7.detectInterface()
 
 なし
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 `Promise` は各 [KIP-7 インタフェース](https://kips.kaia.io/KIPs/kip-7#kip-13-identifiers) が実装されているかどうかをブール値で表した結果を含む `オブジェクト` を返す。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.detectInterface().then(console.log)
@@ -271,11 +271,11 @@ kip7.supportsInterface(interfaceId)
 | ------------- | ----- | ------------------ |
 | インターフェイスアイディー | ストリング | チェックするinterfaceId。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 このコントラクトが `interfaceId` で定義されたインタフェースを実装していれば `true` を返します。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.supportsInterface('0x65787371').then(console.log)
@@ -297,11 +297,11 @@ kip7.name()
 
 なし
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`string\` を返す：トークンの名前。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.name().then(console.log)
@@ -320,11 +320,11 @@ kip7.symbol()
 
 なし
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`string\` を返す：トークンのシンボル。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.symbol().then(console.log)
@@ -343,11 +343,11 @@ kip7.decimals()
 
 なし
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`number\` を返す：トークンが使用する小数点以下の桁数。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.decimals().then(console.log)
@@ -366,11 +366,11 @@ kip7.totalSupply()
 
 なし
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`BigNumber\` を返す：トークンの総数。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.totalSupply().then(console.log)
@@ -391,11 +391,11 @@ kip7.balanceOf(アドレス)
 | -- | ----- | ------------- |
 | 住所 | ストリング | 残高を確認する口座の住所。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は `BigNumber\` を返す：口座残高。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.balanceOf('0x{address in hex}').then(console.log)
@@ -417,11 +417,11 @@ spender`が`owner\` から引き出すことができるトークンの量を返
 | 所有者   | ストリング | トークン所有者のアカウントのアドレス。           |
 | スペンダー | ストリング | オーナーの代わりにトークンを消費するアカウントのアドレス。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`BigNumber\` を返す：所有者の代わりに支出者が使用できる残りのトークン数。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.allowance('0x{address in hex}', '0x{address in hex}').then(console.log)
@@ -445,11 +445,11 @@ kip7.isMinter(アドレス)
 | -- | ----- | --------------------- |
 | 住所 | ストリング | 造幣権があるかどうかを確認する口座の住所。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は `Boolean`を返す: アカウントが minter であれば`true\` を返す。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.isMinter('0x{address in hex}').then(console.log)
@@ -473,11 +473,11 @@ kip7.isPauser(アドレス)
 | -- | ----- | ------------------------------------- |
 | 住所 | ストリング | トークンの譲渡を停止する権利があるかどうかを確認するアカウントのアドレス。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`Boolean`を返します: アカウントが一時停止者であれば`true\` を返します。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.isPauser('0x{address in hex}').then(console.log)
@@ -499,11 +499,11 @@ kip7.paused()
 
 なし
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`Boolean`を返す: 契約が一時停止されていれば`true\` を返す。
 
-\*\*例
+**例**
 
 ```javascript
 > kip7.paused().then(console.log)
@@ -547,61 +547,61 @@ sendParam\`オブジェクトは以下を含む：
 
 **NOTE** `feeDelegation`、`feePayer`、`feeRatio` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-// 
-> kip7.approve('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console. log) { blockHash: '0xf01098f66da5484ab636943175555b246da5484abed551fa02846a2900ddd.log)
+// Send via a sendParam object with the from field given 
+> kip7.approve('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0xf010a98f66b6b36943175cd5b249da54e84abed551cfa02846a2900ddab968c7',
     blocknumber: 2098,
     contractAddress: null,
     from: '0x2f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
-    ... ....
-    status: true,
-    to：'0x8ca777e464a83b939ae131ca037f0d8728c6929e',
     ...
-    events：{
-        承認：{
-            アドレス：'0x8CA777e464a83b939AE131CA037F0d8728C6929e',
+    status: true,
+    to: '0x8ca777e464a83b939ae131ca037f0d8728c6929e',
+    ...
+    events: {
+        Approval: {
+            address: '0x8CA777e464a83b939AE131CA037F0d8728C6929e',
             blocknumber: 2098,
             transactionHash: '0xf7469c0420cb5ebb0fbf64a314bd0c9ee7517ea64dd72eefa59bc8005bbc0f99',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0xf010a98f66b6b36943175cd5b249da54e84abed551cfa02846a2900ddab968c7',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_c6ec61aa',
-            returnValues：{
+            returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
                 '1': '0xe36ffD7bc4D588c480B5925B9622881F9d85ea30',
                 '2': '10',
-                owner：'0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
+                owner: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
                 spender: '0xe36ffD7bc4D588c480B5925B9622881F9d85ea30',
                 value: '10'
             },
-            event：'Approval',
+            event: 'Approval',
             signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
-            raw：{
-                data：'0x0000000000000000000000000000000a',
-                topics：[ '0x8c5be...', '0x00...676', '0x00...a30' ]
+            raw: {
+                data: '0x000000000000000000000000000000000000000000000000000000000000000a',
+                topics: [ '0x8c5be...', '0x00...676', '0x00...a30' ]
             },
         },
     },
-} // FDトランザクションの実行。
+}
 
-// スマートコントラクトの実行に FD トランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.approve('0x{address in hex}', 10, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.options を使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.approve('0x{address in hex}', 10).then(console.log)
 ```
@@ -626,61 +626,61 @@ kip7.transfer(recipient, amount [, sendParam])
 
 **注意** `amount` パラメータは `number` 型を受け付けるが、投入された値が number.MAX_SAFE_INTEGER で制限された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-
-> kip7.transfer('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console. log) // sendParam オブジェクト経由で、from フィールドを指定して送信する。log)
+// Send via a sendParam object with the from field given 
+> kip7.transfer('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x8a078c3a73d678cdd85d471eb21e9ed7d695f8b96fc7315cfa59c1f68be3d2bf',
     blocknumber: 1353,
     contractAddress: null,
     from: '0x2f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
-    ... ....
-    status: true,
-    to：'0x05871c21664e18b2906545f8831695650a8f4056',
     ...
-    events：{
-        転送：{
-            アドレス：'0x05871c21664E18b2906545f8831695650a8f4056',
+    status: true,
+    to: '0x05871c21664e18b2906545f8831695650a8f4056',
+    ...
+    events: {
+        Transfer: {
+            address: '0x05871c21664E18b2906545f8831695650a8f4056',
             blocknumber: 1353,
             transactionHash: '0x8bd2b21a06241e4cfc0af1ec40e7b15444f730c7529440648aa4ed6b697f08f4',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0x8a078c3a73d678cdd85d471eb21e9ed7d695f8b96fc7315cfa59c1f68be3d2bf',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_82ef7705',
-            returnValues：{
+            returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
                 '1': '0xE411cb0B61FDcC06497794fE3f49F65D5dE41f59',
-                '2'：'10',
+                '2': '10',
                 from: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
-                to：'0xE411cb0B61FDcC06497794fE3f49F65D5dE41f59',
+                to: '0xE411cb0B61FDcC06497794fE3f49F65D5dE41f59',
                 value: '10'
             },
-            event：'Transfer',
+            event: 'Transfer',
             signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
-            raw：{
-                data：'0x0000000000000000000000000000000a',
-                topics：[ '0xddf25...', '0x00...676', '0x00...f59' ]
+            raw: {
+                data: '0x000000000000000000000000000000000000000000000000000000000000000a',
+                topics: [ '0xddf25...', '0x00...676', '0x00...f59' ]
             },
         },
     },
-} // FDトランザクションの実行。
+}
 
-// スマートコントラクトの実行に FD トランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.transfer('0x{address in hex}', 10, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.options を使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.transfer('0x{address in hex}', 10).then(console.log)
 ```
@@ -708,64 +708,64 @@ kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 
 **注意** `amount` パラメータは `number` 型を受け付けるが、投入された値が number.MAX_SAFE_INTEGER で制限された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP17インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-
-> kip7.safeTransfer('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console. log) // sendParam オブジェクトで、from フィールドを指定して送信する。log)
+// Send via a sendParam object with the from field given (without data)
+> kip7.safeTransfer('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x208cd64b95bbd91420fc6b1a7b514a8d3051d09333d79244b6b74ff2f7f3eee4',
     blocknumber: 2384,
     contractAddress: null,
     from: '0xc2c84328845a36fe0c4dcef370d24ec80cf85221',
-    .......
-    status: true,
-    to：'0xe4aeba6306b0df023aa4b765960fa59dbe925950',
     ...
-    events：{
-            転送：{
-                    アドレス：'0xe4AeBa6306b0Df023AA4b765960fA59dbE925950',
+    status: true,
+    to: '0xe4aeba6306b0df023aa4b765960fa59dbe925950',
+    ...
+    events: {
+            Transfer: {
+                    address: '0xe4AeBa6306b0Df023AA4b765960fA59dbE925950',
                     blocknumber: 2384,
                     transactionHash: '0x47bb085947c282722c1ceab1f4f0380d911ce464a47a19f1e7bddfe08a13563d',
-                    transactionIndex：0,
+                    transactionIndex: 0,
                     blockHash: '0x208cd64b95bbd91420fc6b1a7b514a8d3051d09333d79244b6b74ff2f7f3eee4',
-                    logIndex：0,
+                    logIndex: 0,
                     id: 'log_58e5e06d',
-                    returnValues：{
-                            '0': '0xC284328845A36Fe0c4DcEf370d24ec80cF85221',
+                    returnValues: {
+                            '0': '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
                             '1': '0x67B092d09B5e94fed58609777cc7Ac9193553B73',
                             '2': '10',
-                            from: '0xC284328845A36Fe0c4DcEf370d24ec80cF85221',
-                            to：'0x67B092d09B5e94fed58609777cc7Ac9193553B73',
+                            from: '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
+                            to: '0x67B092d09B5e94fed58609777cc7Ac9193553B73',
                             value: '10',
                     },
-                    event：'Transfer',
+                    event: 'Transfer',
                     signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
-                    raw：{
-                            data：'0x0000000000000000000000000000000a',
-                            topics：[ '0xddf25...', '0x00...221', '0x00...b73' ],
+                    raw: {
+                            data: '0x000000000000000000000000000000000000000000000000000000000000000a',
+                            topics: [ '0xddf25...', '0x00...221', '0x00...b73' ],
                     },
             },
     },
-}.
+}
 
-// スマートコントラクトを実行するためにFDトランザクションを使用する
+// Using FD transaction to execute the smart contract
 > kip7.safeTransfer('0x{address in hex}', 10, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// 与えられたfromフィールドを持つsendParamオブジェクトを介して送信する（データ付き）
+// Send via a sendParam object with the from field given (with data)
 > kip7.safeTransfer('0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
-// kip7.options.from の使用
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用される 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.safeTransfer('0x{address in hex}', 11).then(console.log)
 ```
@@ -791,84 +791,84 @@ kip7.transferFrom(sender, recipient, amount [, sendParam])
 
 **注意** `amount` パラメータは `number` 型を受け付けるが、投入された値が number.MAX_SAFE_INTEGER で制限された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-//
+// Send via a sendParam object with the from field given
 > kip7.transferFrom('0x{address in hex}', '0x{address in hex}', 10000, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x3adec238e06a9e8d5fa09fc1e1d7c8748b64d07e89678d27e8a379a12a34974f',
     blocknumber: 2331,
     contractAddress: null,
     from: '0x01958c62ab4aec7fc282bec9491da0ef7f830ac2',
-    .......
-    status: true,
-    to：'0x3d5eb40665d25aaa4160023c4278fa6a94ba4acb',
     ...
-    events：{
-        転送：{
-            アドレス：'0x3D5EB40665D25aAa4160023C4278FA6A94BA4aCb',
+    status: true,
+    to: '0x3d5eb40665d25aaa4160023c4278fa6a94ba4acb',
+    ...
+    events: {
+        Transfer: {
+            address: '0x3D5EB40665D25aAa4160023C4278FA6A94BA4aCb',
             blocknumber: 2331,
             transactionHash: '0x5b2232b68681f19d9b6fcd6fb03964ef105912fecb772c11c8ec9fc906be4cbf',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0x3adec238e06a9e8d5fa09fc1e1d7c8748b64d07e89678d27e8a379a12a34974f',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_ae57b7a0',
-            returnValues：{
+            returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
                 '1': '0x49ff9cb8BB8CA10D7f6E1094b2Ba56c3C2DBA231',
-                '2'：'10000',
+                '2': '10000',
                 from: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
-                to：'0x49ff9cb8BB8CA10D7f6E1094b2Ba56c3C2DBA231',
+                to: '0x49ff9cb8BB8CA10D7f6E1094b2Ba56c3C2DBA231',
                 value: '10000'
             },
-            event：'Transfer',
+            event: 'Transfer',
             signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
-            raw：{
-                data：'0x00000000000000000000000000002710',
-                topics：[ '0xddf25...', '0x00...676', '0x00...231' ]
+            raw: {
+                data: '0x0000000000000000000000000000000000000000000000000000000000002710',
+                topics: [ '0xddf25...', '0x00...676', '0x00...231' ]
             },
         },
-        Approval：{
-            アドレス：'0x3D5EB40665D25aAa4160023C4278FA6A94BA4aCb',
+        Approval: {
+            address: '0x3D5EB40665D25aAa4160023C4278FA6A94BA4aCb',
             blocknumber: 2331,
             transactionHash: '0x5b2232b68681f19d9b6fcd6fb03964ef105912fecb772c11c8ec9fc906be4cbf',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0x3adec238e06a9e8d5fa09fc1e1d7c8748b64d07e89678d27e8a379a12a34974f',
-            logIndex：1,
+            logIndex: 1,
             id: 'log_cee37d26',
-            returnValues：{
+            returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
                 '1': '0x01958c62aB4aEC7fC282bEc9491dA0EF7F830AC2',
                 '2': '0',
-                owner：'0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
+                owner: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
                 spender: '0x01958c62aB4aEC7fC282bEc9491dA0EF7F830AC2',
                 value: '0'
             },
-            event：'Approval',
+            event: 'Approval',
             signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
-            raw：{
-                data：'0x00000000000000000000000000000000',
-                topics：[ '0x8c5be...', '0x00...676', '0x00...ac2' ]
+            raw: {
+                data: '0x0000000000000000000000000000000000000000000000000000000000000000',
+                topics: [ '0x8c5be...', '0x00...676', '0x00...ac2' ]
             },
         },
     },
-} // FDトランザクションの実行。
+}
 
-// スマートコントラクトの実行にFDトランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.transferFrom('0x{address in hex}', '0x{address in hex}', 10000, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7を使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.transferFrom('0x{address in hex}', '0x{address in hex}', 10000).then(console.log)
 ```
@@ -897,87 +897,87 @@ kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 
 **注意** `amount` パラメータは `number` 型を受け付けるが、投入された値が number.MAX_SAFE_INTEGER で制限された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP17インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-//
-> kip7.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 10000, { from: '0x{address in hex}' }).then(console. log.log)
+// Send via a sendParam object with the from field given (without data)
+> kip7.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 10000, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x0d641b9cebb032f10348288623898f8aa319faa0845c5b3b7a59ac397a6a218b',
     blocknumber: 2404,
     contractAddress: null,
     from: '0x090937f5c9b83d961da29149a3c37104bc5e71b3',
-    ... ....
-    status: true,
-    to：'0xe4aeba6306b0df023aa4b765960fa59dbe925950',
     ...
-    events：{
-            転送：{
-                    アドレス：'0xe4AeBa6306b0Df023AA4b765960fA59dbE925950',
+    status: true,
+    to: '0xe4aeba6306b0df023aa4b765960fa59dbe925950',
+    ...
+    events: {
+            Transfer: {
+                    address: '0xe4AeBa6306b0Df023AA4b765960fA59dbE925950',
                     blocknumber: 2404,
                     transactionHash: '0xed8c33facaea963f57c268134aaab48fa765e7298fd70d4bc796b1e93c12ad45',
-                    transactionIndex：0,
+                    transactionIndex: 0,
                     blockHash: '0x0d641b9cebb032f10348288623898f8aa319faa0845c5b3b7a59ac397a6a218b',
-                    logIndex：0,
+                    logIndex: 0,
                     id: 'log_5eaef2c3',
-                    returnValues：{
-                            '0': '0xC284328845A36Fe0c4DcEf370d24ec80cF85221',
+                    returnValues: {
+                            '0': '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
                             '1': '0x67B092d09B5e94fed58609777cc7Ac9193553B73',
                             '2': '10000',
-                            from: '0xC284328845A36Fe0c4DcEf370d24ec80cF85221',
-                            to：'0x67B092d09B5e94fed58609777cc7Ac9193553B73',
+                            from: '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
+                            to: '0x67B092d09B5e94fed58609777cc7Ac9193553B73',
                             value: '10000',
                     },
-                    event：'Transfer',
+                    event: 'Transfer',
                     signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
-                    raw：{
-                            data：'0x00000000000000000000000000002710',
-                            topics：[ '0xddf25...', '0x00...221', '0x00...b73' ],
+                    raw: {
+                            data: '0x0000000000000000000000000000000000000000000000000000000000002710',
+                            topics: [ '0xddf25...', '0x00...221', '0x00...b73' ],
                     },
             },
-            Approval：{
-                    アドレス：'0xe4AeBa6306b0Df023AA4b765960fA59dbE925950',
+            Approval: {
+                    address: '0xe4AeBa6306b0Df023AA4b765960fA59dbE925950',
                     blocknumber: 2404,
                     transactionHash: '0xed8c33facaea963f57c268134aaab48fa765e7298fd70d4bc796b1e93c12ad45',
-                    transactionIndex：0,
+                    transactionIndex: 0,
                     blockHash: '0x0d641b9cebb032f10348288623898f8aa319faa0845c5b3b7a59ac397a6a218b',
-                    logIndex：1,
+                    logIndex: 1,
                     id: 'log_3f3aedf8',
-                    returnValues：{
-                            '0': '0xC284328845A36Fe0c4DcEf370d24ec80cF85221',
+                    returnValues: {
+                            '0': '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
                             '1': '0x090937f5C9B83d961da29149a3C37104Bc5e71B3',
                             '2': '0',
-                            owner：'0xC284328845A36Fe0c4DcEf370d24ec80cF85221',
+                            owner: '0xC2C84328845A36Fe0c4DcEf370d24ec80cF85221',
                             spender: '0x090937f5C9B83d961da29149a3C37104Bc5e71B3',
                             value: '0',
                     },
-                    event：'Approval',
+                    event: 'Approval',
                     signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
-                    raw：{
-                            data：'0x00000000000000000000000000000000',
-                            topics：[ '0x8c5be...', '0x00...221', '0x00...1b3' ],
+                    raw: {
+                            data: '0x0000000000000000000000000000000000000000000000000000000000000000',
+                            topics: [ '0x8c5be...', '0x00...221', '0x00...1b3' ],
                     },
             },
     },
-}.
+}
 
-// スマートコントラクトを実行するためにFDトランザクションを使用する
+// Using FD transaction to execute the smart contract
 > kip7.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 10000, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// 与えられたfromフィールドを持つsendParamオブジェクトを介して送信する（データ付き）
+// Send via a sendParam object with the from field given (with data)
 > kip7.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11, '0x1234', { from: '0x{address in hex}' }).then(console.log)
 
-// kip7.options.from の使用
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用される 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 11).then(console.log)
 ```
@@ -1004,61 +1004,61 @@ kip7.mint(account, amount [, sendParam])
 
 **注意** `sendParam.from` または `kip7.options.from` が指定された場合、MinterRole を持つ minter でなければならない。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-// 
+// Send via a sendParam object with the from field given 
 > kip7.mint('0x{address in hex}', 10000, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x71e1c7c9de471ed9eb9ec2aca09beb63a654e21514b2b8d25ec93f34b810a709',
     blocknumber: 8466,
     contractAddress: null,
     from: '0x2f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
-    ... ....
-    status: true,
-    to：'0x54e9ad10ffcbcc2384863157c851a75a31c1e925',
     ...
-    events：{
-        転送：{
-            アドレス：'0x54e9Ad10FFcBCc2384863157c851A75a31C1E925',
+    status: true,
+    to: '0x54e9ad10ffcbcc2384863157c851a75a31c1e925',
+    ...
+    events: {
+        Transfer: {
+            address: '0x54e9Ad10FFcBCc2384863157c851A75a31C1E925',
             blocknumber: 8466,
-            transactionHash: '0xef1db1544d0ba70aa06b77599a8421cee22703cff7d0233bd09ab3561ab49a',
-            transactionIndex：0,
+            transactionHash: '0xef1db1544d0ba70aa06b77599a8421cee2270703cff7d0233bd09ab3561ab49a',
+            transactionIndex: 0,
             blockHash: '0x71e1c7c9de471ed9eb9ec2aca09beb63a654e21514b2b8d25ec93f34b810a709',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_151f8e90',
-            returnValues：{
-                '0': '0x0000000000000000000000000000',
+            returnValues: {
+                '0': '0x0000000000000000000000000000000000000000',
                 '1': '0x4756D3c2A3DC61450D949BD9bF702b4209Fc15a0',
                 '2': '10000',
-                from: '0x00000000000000000000000000000000',
-                to：'0x4756D3c2A3DC61450D949BD9bF702b4209Fc15a0',
+                from: '0x0000000000000000000000000000000000000000',
+                to: '0x4756D3c2A3DC61450D949BD9bF702b4209Fc15a0',
                 value: '10000',
             },
-            event：'Transfer',
+            event: 'Transfer',
             signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
-            raw：{
-                data：'0x00000000000000000000000000002710',
-                topics：[ '0xddf25...', '0x00...000', '0x00...5a0' ],
+            raw: {
+                data: '0x0000000000000000000000000000000000000000000000000000000000002710',
+                topics: [ '0xddf25...', '0x00...000', '0x00...5a0' ],
             },
         },
     },
-}.
+}
 
-// スマートコントラクトの実行に FD トランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.mint('0x{address in hex}', 10000, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.options を使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用される 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.mint('0x{address in hex}', 10000).then(console.log)
 ```
@@ -1082,57 +1082,57 @@ kip7.addMinter(account [, sendParam])
 
 **NOTE** `sendParam.from` または `kip7.options.from` が指定された場合、それは minter でなければならない。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-
-> kip7.addMinter('0x{address in hex}', { from: '0x{address in hex}' }).then(console. log) // sendParam オブジェクトで、from フィールドを指定して送信する。log)
+// Send via a sendParam object with the from field given 
+> kip7.addMinter('0x{address in hex}', { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x169db7e80c954f7d95bbb6a5ef3065190e842d515485e1679f8f3027d1b2975f',
     blocknumber: 9593,
     contractAddress: null,
     from: '0x2f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
-    ... ....
-    status: true,
-    to：'0x9e2851aff794e69c58e112a3beacbf0de6587f6b',
     ...
-    events：{
+    status: true,
+    to: '0x9e2851aff794e69c58e112a3beacbf0de6587f6b',
+    ...
+    events: {
         MinterAdded: {
-            アドレス：'0x9E2851Aff794E69C58E112a3beacbF0De6587f6b',
+            address: '0x9E2851Aff794E69C58E112a3beacbF0De6587f6b',
             blocknumber: 9593,
             transactionHash: '0x11c86fe739ce3f8e6f93f5de87c9626c7cd032dd5e119171f9ec821292cd68e9',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0x169db7e80c954f7d95bbb6a5ef3065190e842d515485e1679f8f3027d1b2975f',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_d93efbcd',
-            returnValues： {
+            returnValues: {
                 '0': '0x823EA6Eb41985218D478C07E77cFBdAd233569C5',
                 account: '0x823EA6Eb41985218D478C07E77cFBdAd233569C5',
             },
-            event：'MinterAdded',
+            event: 'MinterAdded',
             signature: '0x6ae172837ea30b801fbfcdd4108aa1d5bf8ff775444fd70256b44e6bf3dfc3f6',
-            raw：{
-                data：'0x',
-                topics：[ '0x6ae17...', '0x00...9c5' ],
+            raw: {
+                data: '0x',
+                topics: [ '0x6ae17...', '0x00...9c5' ],
             },
         },
     },
-} // FDトランザクションの実行。
+}
 
-// スマートコントラクトの実行にFDトランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.addMinter('0x{address in hex}', {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.optionsを使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.addMinter('0x{address in hex}').then(console.log)
 ```
@@ -1155,57 +1155,57 @@ kip7.renounceMinter([sendParam])
 
 **NOTE** `sendParam.from` または `kip7.options.from` が指定された場合、MinterRole を持つ minter でなければならない。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-// 
-> kip7.renounceMinter({ from: '0x{address in hex}' }).then(console. log).log)
+// Send via a sendParam object with the from field given 
+> kip7.renounceMinter({ from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0xc1d96a519d9a31a1dab77111af0de73241aa212722859062a96dc3115a2eca23',
     blocknumber: 9996,
     contractAddress: null,
     from: '0x34b91db0f4c7d1381fdf054cc3d0c433b19fca16',
-    ....
-    status: true,
-    to：'0xeba808dcd0fdbfc21a99961be42665f351487f52',
     ...
-    events：{
-        MinterRemoved：{
-            アドレス：'0xebA808dCD0Fdbfc21a99961BE42665f351487F52',
+    status: true,
+    to: '0xeba808dcd0fdbfc21a99961be42665f351487f52',
+    ...
+    events: {
+        MinterRemoved: {
+            address: '0xebA808dCD0Fdbfc21a99961BE42665f351487F52',
             blocknumber: 9996,
             transactionHash: '0x52328e3cfb8061915d000dc308ffd67650fa36cf4560f1fb12fdb28a7c903ac9',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0xc1d96a519d9a31a1dab77111af0de73241aa212722859062a96dc3115a2eca23',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_bd3a8e46',
-            returnValues： {
+            returnValues: {
                 '0': '0x34b91Db0F4c7D1381FdF054cc3D0c433B19fCa16',
                 account: '0x34b91Db0F4c7D1381FdF054cc3D0c433B19fCa16',
             },
-            event：'MinterRemoved',
+            event: 'MinterRemoved',
             signature: '0xe94479a9f7e1952cc78f2d6baab678adc1b772d936c6583def489e524cb66692',
-            raw：{
-                data：'0x',
-                topics：[ '0xe9447...', '0x00...a16' ],
+            raw: {
+                data: '0x',
+                topics: [ '0xe9447...', '0x00...a16' ],
             },
         },
     },
-} // FDトランザクションの実行。
+}
 
-// スマートコントラクトの実行に FD トランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.renounceMinter({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.options を使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.renounceMinter().then(console.log)
 ```
@@ -1229,61 +1229,61 @@ kip7.burn(amount [, sendParam])
 
 **注意** `amount` パラメータは `number` 型を受け付けるが、投入された値が number.MAX_SAFE_INTEGER で制限された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-// 
-> kip7.burn(1000, { from: '0x{address in hex}' }).then(console. log).log)
+// Send via a sendParam object with the from field given 
+> kip7.burn(1000, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x7cf9e982510d17a2fd5fca3e7a6f9ce5a25a9da6ba81d51b33129fb7fb93e0ae',
     blocknumber: 10495,
     contractAddress: null,
     from: '0x2f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
-    ... ....
-    status: true,
-    to：'0x0f681dbc120d9d3be997565626cd87f049f5c405',
     ...
-    events：{
-        転送：{
-            アドレス：'0x0f681Dbc120D9d3BE997565626CD87F049f5C405',
+    status: true,
+    to: '0x0f681dbc120d9d3be997565626cd87f049f5c405',
+    ...
+    events: {
+        Transfer: {
+            address: '0x0f681Dbc120D9d3BE997565626CD87F049f5C405',
             blocknumber: 10495,
             transactionHash: '0x4f2de0b4310c40eeef20ae8e8d129d209195975792de86e1cd00f2345789c9f7',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0x7cf9e982510d17a2fd5fca3e7a6f9ce5a25a9da6ba81d51b33129fb7fb93e0ae',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_20f6c253',
-            returnValues：{
+            returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
-                '1': '0x0000000000000000000000000000',
+                '1': '0x0000000000000000000000000000000000000000',
                 '2': '1000',
                 from: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
-                to：'0x000000000000000000000000',
+                to: '0x0000000000000000000000000000000000000000',
                 value: '1000',
             },
-            event：'Transfer',
+            event: 'Transfer',
             signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
-            raw：{
-                data：'0x00000000000000000000000000000003e8',
-                topics：[ '0xddf25...', '0x00...676', '0x00...000' ],
+            raw: {
+                data: '0x00000000000000000000000000000000000000000000000000000000000003e8',
+                topics: [ '0xddf25...', '0x00...676', '0x00...000' ],
             },
         },
     },
-} // FDトランザクションの実行。
+}
 
-// スマートコントラクトの実行に FD トランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.burn(1000, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.options を使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.burn(1000).then(console.log)
 ```
@@ -1308,84 +1308,84 @@ kip7.burnFrom(account, amount [, sendParam])
 
 **注意** `amount` パラメータは `number` 型を受け付けるが、投入された値が number.MAX_SAFE_INTEGER で制限された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-// sendParam オブジェクトに from フィールドを指定して送信 
+// Send via a sendParam object with the from field given 
 > kip7.burnFrom('0x{address in hex}', 1000, { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0xcd9f3d00856a056e54697cde2621d8af779c11378c422700510d6ebf65bea0a8',
     blocknumber: 11371,
     contractAddress: null,
     from: '0x1b7bdfcfb0008d0c958da13f2dc30388271e9ef0',
-    .......
-    status: true,
-    to：'0x50fafa2b059d26c47d26c35ccb3cd3b856ecc852',
     ...
-    events：{
-        転送：{
-            アドレス：'0x50fAFa2B059d26C47D26c35Ccb3Cd3b856Ecc852',
+    status: true,
+    to: '0x50fafa2b059d26c47d26c35ccb3cd3b856ecc852',
+    ...
+    events: {
+        Transfer: {
+            address: '0x50fAFa2B059d26C47D26c35Ccb3Cd3b856Ecc852',
             blocknumber: 11371,
             transactionHash: '0xed37eafc35272bd7c45695b4b94c578c681a1800b1612ca82d0e4e595e947f27',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0xcd9f3d00856a056e54697cde2621d8af779c11378c422700510d6ebf65bea0a8',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_a7263788',
-            returnValues：{
+            returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
-                '1': '0x0000000000000000000000000000',
+                '1': '0x0000000000000000000000000000000000000000',
                 '2': '10000',
                 from: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
-                to：'0x000000000000000000000000',
+                to: '0x0000000000000000000000000000000000000000',
                 value: '10000',
             },
-            event：'Transfer',
+            event: 'Transfer',
             signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
-            raw：{
-                data：'0x00000000000000000000000000002710',
-                topics：[ '0xddf25...', '0x00...676', '0x00...000' ],
+            raw: {
+                data: '0x0000000000000000000000000000000000000000000000000000000000002710',
+                topics: [ '0xddf25...', '0x00...676', '0x00...000' ],
             },
         },
-        Approval：{
-            アドレス：'0x50fAFa2B059d26C47D26c35Ccb3Cd3b856Ecc852',
+        Approval: {
+            address: '0x50fAFa2B059d26C47D26c35Ccb3Cd3b856Ecc852',
             blocknumber: 11371,
             transactionHash: '0xed37eafc35272bd7c45695b4b94c578c681a1800b1612ca82d0e4e595e947f27',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0xcd9f3d00856a056e54697cde2621d8af779c11378c422700510d6ebf65bea0a8',
-            logIndex：1,
+            logIndex: 1,
             id: 'log_4ca1aac4',
-            returnValues：{
+            returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
                 '1': '0x1B7BdfCFb0008D0C958dA13F2dc30388271E9eF0',
                 '2': '0',
-                owner：'0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
+                owner: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
                 spender: '0x1B7BdfCFb0008D0C958dA13F2dc30388271E9eF0',
                 value: '0',
             },
-            event：'Approval',
+            event: 'Approval',
             signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
-            raw：{
-                data：'0x00000000000000000000000000000000',
-                topics：[ '0x8c5be...', '0x00...676', '0x00...ef0' ],
+            raw: {
+                data: '0x0000000000000000000000000000000000000000000000000000000000000000',
+                topics: [ '0x8c5be...', '0x00...676', '0x00...ef0' ],
             },
         },
     },
-}.
+}
 
-// スマートコントラクトの実行に FD トランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.burnFrom('0x{address in hex}', 1000, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.options を使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.burnFrom('0x{address in hex}', 1000).then(console.log)
 ```
@@ -1409,57 +1409,57 @@ kip7.addPauser(account [, sendParam])
 
 **NOTE** `sendParam.from` または `kip7.options.from` が与えられた場合、それは PauserRole を持つ pauser でなければならない。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-
-> kip7.addPauser('0x{address in hex}', { from: '0x{address in hex}' }).then(console. log) // sendParam オブジェクトで、from フィールドを指定して送信する。log)
+// Send via a sendParam object with the from field given 
+> kip7.addPauser('0x{address in hex}', { from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0x14bcefa90f95f5db03ed9c43a77ae910b57960f4f44c786e3a650a8ad163f67a',
     blocknumber: 16524,
     contractAddress: null,
     from: '0x2f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
-    ... ....
-    status: true,
-    to：'0x31fee792a85ff4d714f47a151975b4979cb47308',
     ...
-    events：{
+    status: true,
+    to: '0x31fee792a85ff4d714f47a151975b4979cb47308',
+    ...
+    events: {
         PauserAdded: {
-            アドレス：'0x31fee792A85ff4D714F47A151975b4979CB47308',
+            address: '0x31fee792A85ff4D714F47A151975b4979CB47308',
             blocknumber: 16524,
             transactionHash: '0x9bd0cba9f5fdc3fdae4b9f40f46f11bf42314ca2518724e78be266d46a8a9f96',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0x14bcefa90f95f5db03ed9c43a77ae910b57960f4f44c786e3a650a8ad163f67a',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_d847b043',
-            returnValues： {
+            returnValues: {
                 '0': '0x6610B93bAE66F89716C3b010ad39DF476Da9234b',
                 account: '0x6610B93bAE66F89716C3b010ad39DF476Da9234b',
             },
-            event：'PauserAdded',
+            event: 'PauserAdded',
             signature: '0x6719d08c1888103bea251a4ed56406bd0c3e69723c8a1686e017e7bbe159b6f8',
-            raw：{
-                data：'0x',
-                topics：[ '0x6719d...', '0x00...34b' ],
+            raw: {
+                data: '0x',
+                topics: [ '0x6719d...', '0x00...34b' ],
             },
         },
     },
-} // FDトランザクションの実行。
+}
 
-// スマートコントラクトの実行にFDトランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.addPauser('0x{address in hex}', {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.optionsを使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.addPauser('0x{address in hex}').then(console.log)
 ```
@@ -1482,57 +1482,57 @@ kip7.renouncePauser([sendParam])
 
 **NOTE** `sendParam.from` または `kip7.options.from` が与えられた場合、それは PauserRole を持つ pauser でなければならない。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-// 
-> kip7.renouncePauser({ from: '0x{address in hex}' }).then(console. log) { blockHash: '0xc0b14914dd874e8034fe86ede1b5b88a216ee658facac.log)
+// Send via a sendParam object with the from field given 
+> kip7.renouncePauser({ from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0xc0b1b4914ddc8d74e8034fe86ede1b5b88a2c16ee4d678e58fac325c589713f6',
     blocknumber: 16567,
     contractAddress: null,
     from: '0x5934a0c01baa98f3457981b8f5ce6e52ac585578',
-    ... ....
-    status: true,
-    to：'0x31fee792a85ff4d714f47a151975b4979cb47308',
     ...
-    events：{
-        PauserRemoved：{
-            アドレス：'0x31fee792A85ff4D714F47A151975b4979CB47308',
+    status: true,
+    to: '0x31fee792a85ff4d714f47a151975b4979cb47308',
+    ...
+    events: {
+        PauserRemoved: {
+            address: '0x31fee792A85ff4D714F47A151975b4979CB47308',
             blocknumber: 16567,
-            transactionHash: '0xefc93382f5609531dd16f644cf6a3b8e086c623a9fb80389662f7260482df6',
-            transactionIndex：0,
+            transactionHash: '0xefc93382f5609531dd16f644cf6a3b8e086c623a9fb8038984662f7260482df6',
+            transactionIndex: 0,
             blockHash: '0xc0b1b4914ddc8d74e8034fe86ede1b5b88a2c16ee4d678e58fac325c589713f6',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_e9518d2f',
-            returnValues： {
+            returnValues: {
                 '0': '0x5934a0c01baA98F3457981b8f5ce6E52ac585578',
                 account: '0x5934a0c01baA98F3457981b8f5ce6E52ac585578',
             },
-            event：'PauserRemoved',
+            event: 'PauserRemoved',
             signature: '0xcd265ebaf09df2871cc7bd4133404a235ba12eff2041bb89d9c714a2621c7c7e',
-            raw：{
-                data：'0x',
-                topics：[ '0xcd265...', '0x00...578' ],
+            raw: {
+                data: '0x',
+                topics: [ '0xcd265...', '0x00...578' ],
             },
         },
     },
-} // FDトランザクションの実行。
+}
 
-// スマートコントラクトの実行に FD トランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.renouncePauser({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.options を使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.renouncePauser().then(console.log)
 ```
@@ -1555,57 +1555,57 @@ kip7.pause([sendParam])
 
 **NOTE** `sendParam.from` または `kip7.options.from` が与えられた場合、それは PauserRole を持つ pauser でなければならない。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-// 
-> kip7.pause({ from: '0x{address in hex}' }).then(console. log).log)
+// Send via a sendParam object with the from field given 
+> kip7.pause({ from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0xcd5e787e738a6197df871f0d651f2a9149d5ed03fdf62e918c4eed03003ea539',
     blocknumber: 18218,
     contractAddress: null,
     from: '0x2f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
-    ... ....
-    status: true,
-    to：'0xfc83abf47d232739dab9610c46b3f10c8022b3ef',
     ...
-    events：{
-        一時停止中：{
-            アドレス：'0xFc83ABF47d232739dAb9610C46B3F10C8022b3eF',
+    status: true,
+    to: '0xfc83abf47d232739dab9610c46b3f10c8022b3ef',
+    ...
+    events: {
+        Paused: {
+            address: '0xFc83ABF47d232739dAb9610C46B3F10C8022b3eF',
             blocknumber: 18218,
             transactionHash: '0x0e660b8c49e8212a69f2d68324e105b4295b534d22ac0b70263d3e54d429d1bb',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0xcd5e787e738a6197df871f0d651f2a9149d5ed03fdf62e918c4eed03003ea539',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_2ab0db96',
-            returnValues： {
+            returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
                 account: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
             },
-            event：'Paused',
+            event: 'Paused',
             signature: '0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258',
-            raw：{
-                data：'0x0000000000002f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
-                topics：['0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258'],
+            raw: {
+                data: '0x0000000000000000000000002f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
+                topics: ['0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258'],
             },
         },
     },
-}.
+}
 
-// スマートコントラクトの実行に FD トランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.pause({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.options を使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.pause().then(console.log)
 ```
@@ -1628,57 +1628,57 @@ kip7.unpause([sendParam])
 
 **NOTE** `sendParam.from` または `kip7.options.from` が与えられた場合、それは PauserRole を持つ pauser でなければならない。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-\*\*例
+**例**
 
 ```javascript
-// 
-> kip7.unpause({ from: '0x{address in hex}' }).then(console. log).log)
+// Send via a sendParam object with the from field given 
+> kip7.unpause({ from: '0x{address in hex}' }).then(console.log)
 {
     blockHash: '0xa45194ba608a0a00152f974fb1388ced326522979f4b8f19c3fab3083f1339ac',
     blocknumber: 18239,
     contractAddress: null,
     from: '0x2f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
-    ....
-    status: true,
-    to：'0xfc83abf47d232739dab9610c46b3f10c8022b3ef',
     ...
-    events：{
-        Unpaused：{
-            アドレス：'0xFc83ABF47d232739dAb9610C46B3F10C8022b3eF',
+    status: true,
+    to: '0xfc83abf47d232739dab9610c46b3f10c8022b3ef',
+    ...
+    events: {
+        Unpaused: {
+            address: '0xFc83ABF47d232739dAb9610C46B3F10C8022b3eF',
             blocknumber: 18239,
             transactionHash: '0x449dff9d7970bfe326091516ebb22aeaefb0bda59bc4e2577467618863e36c99',
-            transactionIndex：0,
+            transactionIndex: 0,
             blockHash: '0xa45194ba608a0a00152f974fb1388ced326522979f4b8f19c3fab3083f1339ac',
-            logIndex：0,
+            logIndex: 0,
             id: 'log_9c5a3823',
-            returnValues： {
+            returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
                 account: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
             },
-            event：'Unpaused',
-            signature: '0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38ae4b073aa',
-            raw：{
-                data：'0x0000000000002f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
-                topics：['0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38ae4b073aa'],
+            event: 'Unpaused',
+            signature: '0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa',
+            raw: {
+                data: '0x0000000000000000000000002f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
+                topics: ['0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa'],
             },
         },
     },
-} // FDトランザクションを実行する。
+}
 
-// スマートコントラクトの実行に FD トランザクションを使用
+// Using FD transaction to execute the smart contract
 > kip7.unpause({
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
 }).then(console.log)
 
-// kip7.options を使用。
-// kip7.options.from の値が設定されている場合、この値がデフォルト値として使用されます 
-// kip7 インスタンスでトランザクションを送信する際に sendParam オブジェクトで `from` を指定しない限り。
+// Using kip7.options.from
+// If the value of kip7.options.from is set, this value is used as the default value 
+// unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
 > kip7.unpause().then(console.log)
 ```
