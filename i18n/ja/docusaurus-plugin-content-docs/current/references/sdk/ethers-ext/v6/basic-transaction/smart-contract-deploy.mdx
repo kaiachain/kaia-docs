@@ -1,6 +1,6 @@
-# Smart Contract Deploy
+# スマートコントラクトのデプロイ
 
-**TxTypeSmartContractDeploy** deploys a smart contract to the given address. The following changes will be made by this transaction type.
+**TxTypeSmartContractDeploy**は、指定されたアドレスにスマートコントラクトをデプロイする。 このトランザクションタイプでは、以下の変更が行われる。
 
 <CH.Spotlight>
   <CH.Code>
@@ -38,53 +38,53 @@
     ---
 
     ```zsh output
-    ❯ node TxTypeSmartContractDeploy.js
+    ノード TxTypeSmartContractDeploy.js
     sentTx 0xeff15464362194155acfb4e0eb0cedc470320d3d12fc504dbab9f918cf57452d
     receipt {
       to: null,
       from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
-      contractAddress: '0x028016AE0996097bB329a91f3D0C44C0Ee700f34',
-      transactionIndex: 1,
-      gasUsed: BigNumber { _hex: '0x01fd0d', _isBigNumber: true },
-      logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-      blockHash: '0x07a0f27ebddc4c4633c5ea70125e6e09ecc460b19f0e83ff8b271ad34aa868ec',
+      contractAddress：'0x028016AE0996097bB329a91f3D0C44C0Ee700f34',
+      transactionIndex：1,
+      gasUsed：BigNumber { _hex: '0x01fd0d', _isBigNumber: true },
+      logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      blockHash：'0x07a0f27ebddc4c4633c5ea70125e6e09ecc460b19f0e83ff8b271ad34aa868ec',
       transactionHash: '0xeff15464362194155acfb4e0eb0cedc470320d3d12fc504dbab9f918cf57452d',
-      logs: [],
+      logs：[],
       blockNumber: 148720946,
-      confirmations: 2,
-      cumulativeGasUsed: BigNumber { _hex: '0x04387b', _isBigNumber: true },
-      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-      status: 1,
-      type: 0,
+      confirmations：2,
+      cumulativeGasUsed：BigNumber { _hex: '0x04387b', _isBigNumber: true },
+      effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status：1,
+      type：0,
       byzantium: true
-    }
+    }.
     ```
   </CH.Code>
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+  ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと\*\*@kaiachain/ethers-ext\*\*モジュールをインポートします。
 
   ```js TxTypeSmartContractDeploy.js focus=1:2
   ```
 
   ---
 
-  Define **sender address and sender private key**
+  送信者アドレスと送信者秘密鍵\*\*の定義
 
   ```js TxTypeSmartContractDeploy.js focus=4:5
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js TxTypeSmartContractDeploy.js focus=7
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js TxTypeSmartContractDeploy.js focus=7
   const ethers = require("ethers");
@@ -119,35 +119,35 @@
 
   ---
 
-  Create a sender's wallet using the sender's private key and the provider
+  送信者の秘密鍵とプロバイダーを使って送信者のウォレットを作成する。
 
   ```js TxTypeSmartContractDeploy.js focus=8
   ```
 
   ---
 
-  Declare a transaction object
+  トランザクションオブジェクトの宣言
 
   ```js TxTypeSmartContractDeploy.js focus=11:20
   ```
 
   ---
 
-  Specify the transaction type as SmartContractDeploy
+  トランザクション・タイプをSmartContractDeployに指定する。
 
   ```js TxTypeSmartContractDeploy.js focus=12
   ```
 
   ---
 
-  Set the **compiled bytecode** from the solidity code you want to deploy to the blockchain network
+  ブロックチェーン・ネットワークにデプロイしたいsolidityコードから**コンパイル済みバイトコード**を設定する。
 
   ```js TxTypeSmartContractDeploy.js focus=16
   ```
 
   ---
 
-  Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+  ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
   <CH.Code>
     ```js TxTypeSmartContractDeploy.js focus=21:22
@@ -162,7 +162,7 @@
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
   <CH.Code>
     ```js TxTypeSmartContractDeploy.js focus=24:25
@@ -174,21 +174,21 @@
     receipt {
       to: null,
       from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
-      contractAddress: '0x3e6647a6f2a1B217323Bf6b7793036A092Eb2796',
-      transactionIndex: 0,
-      gasUsed: BigNumber { _hex: '0x01fd0d', _isBigNumber: true },
-      logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-      blockHash: '0x2d6235e99116f98ec0af262ac1bf8aa4d2178b98ad56254a18eadb2e395bace6',
+      contractAddress：'0x3e6647a6f2a1B217323Bf6b7793036A092Eb2796',
+      transactionIndex：0,
+      gasUsed：BigNumber { _hex: '0x01fd0d', _isBigNumber: true },
+      logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      blockHash：'0x2d6235e99116f98ec0af262ac1bf8aa4d2178b98ad56254a18eadb2e395bace6',
       transactionHash: '0x609538b72ced9bf103ae69032155cdf5a34e8458d389ce38cdec21b4aa107b55',
-      logs: [],
+      logs：[],
       blockNumber: 146753080,
-      confirmations: 1,
-      cumulativeGasUsed: BigNumber { _hex: '0x01fd0d', _isBigNumber: true },
-      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-      status: 1,
-      type: 0,
+      confirmations：1,
+      cumulativeGasUsed：BigNumber { _hex: '0x01fd0d', _isBigNumber: true },
+      effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status：1,
+      type：0,
       byzantium: true
-    }
+    }.
     ```
   </CH.Code>
 </CH.Spotlight>
