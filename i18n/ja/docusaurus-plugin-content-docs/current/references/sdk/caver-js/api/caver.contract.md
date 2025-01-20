@@ -64,8 +64,8 @@ JSON インターフェース・オブジェクトに定義されたすべての
 | ガス         | 番号    | (オプション) 取引に提供されるガスの最大値（ガスリミット）。                                                                                                    |
 | データ        | ストリング | (オプション）契約のバイトコード。 契約が配備されるときに使用される。                                                                                                |
 | フィーデレゲーション | ブーリアン | (オプション) 手数料委任取引を使用するかどうか。                                                                                                          |
-| 料金支払者      | ストリング | (オプション）取引手数料を支払う手数料支払人の住所。 feeDelegation`が `true`のとき、その値はトランザクションの`feePayer\` フィールドに設定される。                                         |
-| 手数料率       | ストリング | (任意）手数料支払者が負担する取引手数料の比率。 feeDelegation`が `true` で、`feeRatio\`に有効な値が設定されている場合、部分的な料金委譲トランザクショ ンが使用される。 有効範囲は1～99。 0や100以上の比率は許されない。 |
+| 料金支払者      | ストリング | (オプション）取引手数料を支払う手数料支払人の住所。 `feeDelegation`が `true` のとき、その値はトランザクションの `feePayer` フィールドに設定される。                                       |
+| 手数料率       | ストリング | (任意）手数料支払者が負担する取引手数料の比率。 `feeDelegation`が `true` で、`feeRatio`に有効な値が設定されている場合、部分的な料金委譲トランザクショ ンが使用される。 有効範囲は1～99。 0や100以上の比率は許されない。 |
 
 **リターン・バリュー**
 
@@ -85,7 +85,7 @@ const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '
 myContract.options
 ```
 
-契約インスタンスの `options` オブジェクト。 from`、`gas`、`gasPrice`、`feePayer`および`feeRatio\` は、トランザクションを送信する際のフォールバック値として使用される。
+契約インスタンスの `options` オブジェクト。 `from`、`gas`、`gasPrice`、`feePayer` および `feeRatio` は、トランザクションを送信する際のフォールバック値として使用される。
 
 **プロパティ**
 
@@ -98,8 +98,8 @@ myContract.options
 | ガス            | 番号    | 取引に提供されるガスの上限（ガスリミット）。                                                                                                                                |
 | データ           | ストリング | 契約のバイトコード。 契約が配備されるときに使用される。                                                                                                                          |
 | フィーデレゲーション    | ブーリアン | (オプション) 手数料委任取引を使用するかどうか。                                                                                                          |
-| 料金支払者         | ストリング | (オプション）取引手数料を支払う手数料支払人の住所。 feeDelegation`が `true`のとき、その値はトランザクションの`feePayer\` フィールドに設定される。                                         |
-| 手数料率          | ストリング | (任意）手数料支払者が負担する取引手数料の比率。 feeDelegation`が `true` で、`feeRatio\`に有効な値が設定されている場合、部分的な料金委譲トランザクショ ンが使用される。 有効範囲は1～99。 0や100以上の比率は許されない。 |
+| 料金支払者         | ストリング | (オプション）取引手数料を支払う手数料支払人の住所。 `feeDelegation`が `true` のとき、その値はトランザクションの `feePayer` フィールドに設定される。                                       |
+| 手数料率          | ストリング | (任意）手数料支払者が負担する取引手数料の比率。 `feeDelegation`が `true` で、`feeRatio`に有効な値が設定されている場合、部分的な料金委譲トランザクショ ンが使用される。 有効範囲は1～99。 0や100以上の比率は許されない。 |
 
 **NOTE** `feeDelegation`、`feePayer`、`feeRatio` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
@@ -251,7 +251,7 @@ myContract.deploy(options, byteCode [, param1 [, param2 [, ...]])
 
 **リターン・バリュー**
 
-Promise`は`PromiEvent\` を返す：プロミスは新しいコントラクトのインスタンスで解決される。
+`Promise` は `PromiEvent` を返す：プロミスは新しいコントラクトのインスタンスで解決される。
 
 | タイプ     | 説明                                                                                                                     |
 | ------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -260,8 +260,8 @@ Promise`は`PromiEvent\` を返す：プロミスは新しいコントラクト�
 PromiEventでは、以下のイベントが利用可能です：
 
 - トランザクションハッシュ `transactionHash`: トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。 型は `string` である。
-- receipt`：トランザクションのレシートが利用可能になったときに発生する。 詳細については、[caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 型は `object\` である。
-- エラー`：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。 その型は `Error\` である。
+- `receipt`：トランザクションのレシートが利用可能になったときに発生する。 詳細については、[caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 型は `object` である。
+- `error`：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。 その型は `Error` である。
 
 **例**
 
@@ -359,7 +359,7 @@ myContract.deploy(options)
 
 | 名称                                                   | タイプ | 説明                                                                     |
 | ---------------------------------------------------- | --- | ---------------------------------------------------------------------- |
-| 引数                                                   | 配列  | options.arguments\`に渡された引数。                            |
+| 引数                                                   | 配列  | `options.arguments`に渡された引数。                                            |
 | [送信](#methods-methodname-send)                       | 機能  | カイアにコントラクトをデプロイする関数。 この関数の結果としてのプロミスは、新しいコントラクト・インスタンスで解決される。          |
 | [サイン](#methods-methodname-sign)                      | 機能  | 送信者としてスマートコントラクトのデプロイ取引に署名する関数。 sign関数は署名されたトランザクションを返す。               |
 | [SignAsFeePayer](#methods-methodname-signasfeepayer) | 機能  | スマートコントラクトのデプロイ取引に手数料支払者として署名する機能。 signAsFeePayer 関数は署名されたトランザクションを返す。 |
@@ -430,12 +430,12 @@ myContract.send(options, methodName [, param1 [, param2 [, ...]])
 
 スマートコントラクトの機能を実行するためにトランザクションを提出する。 これにより、スマート・コントラクトの状態を変更することができる。
 
-この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 myContract.send`で手数料を委譲したトランザクションを使用したい場合は、`feeDelegation`と`feePayer\`を適切に設定する必要がある。
+この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 `myContract.send`で手数料を委譲したトランザクションを使用したい場合は、`feeDelegation`と`feePayer`を適切に設定する必要がある。
 
-- feeDelegation`が定義されていないか、`false\`に定義されています：[SmartContractExecution](./caver-transaction/basic.md#smartcontractexecution)
-- feeDelegation`は`true` に定義されているが、`feePayer\` は定義されていない : エラーをスローする。
-- feeDelegation`は`true`に定義され、`feePayer`は定義されているが、`feeRatio\`は定義されていない：[FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-- feeDelegation`を`true`に定義し、`feePayer`と`feeRatio\`を定義する：[FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
+- `feeDelegation`が定義されていないか、`false`に定義されています：[SmartContractExecution](./caver-transaction/basic.md#smartcontractexecution)
+- `feeDelegation` は `true` に定義されているが、`feePayer` は定義されていない : エラーをスローする。
+- `feeDelegation`は`true`に定義され、`feePayer`は定義されているが、`feeRatio`は定義されていない：[FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+- `feeDelegation`を`true`に定義し、`feePayer`と`feeRatio`を定義する：[FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)
 
 **NOTE** `caver.wallet`に署名を行うには、`options`または`myContract.options`の`from`と`feePayer`に対応するキーリングのインスタンスが含まれていなければならない。
 
@@ -451,7 +451,7 @@ myContract.send(options, methodName [, param1 [, param2 [, ...]])
 
 **リターン・バリュー**
 
-Promise`は`PromiEvent\` を返す。
+`Promise` は `PromiEvent` を返す。
 
 | タイプ     | 説明                                                                |
 | ------- | ----------------------------------------------------------------- |
@@ -459,9 +459,9 @@ Promise`は`PromiEvent\` を返す。
 
 PromiEventでは、以下のイベントが利用可能です：
 
-- transactionHash`：トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。 型は `string\` である。
-- receipt`：トランザクションのレシートが利用可能になったときに発生する。 詳細については、[caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 その型は `object\` である。
-- エラー`：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。 その型は `Error\` である。
+- `transactionHash`：トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。 型は `string` である。
+- `receipt`：トランザクションのレシートが利用可能になったときに発生する。 詳細については、[caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 その型は `object` である。
+- `error`：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。 その型は `Error` である。
 
 **例**
 
@@ -578,7 +578,7 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]])
 
 }, 'constructor', byteCode, ...)\`.
 
-この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 myContract.sign`で手数料を委譲したトランザクションを使用したい場合は、`feeDelegation`を `true\`として定義する必要がある。
+この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 `myContract.sign`で手数料を委譲したトランザクションを使用したい場合は、`feeDelegation`を `true`として定義する必要がある。
 
 - feeDelegation` が定義されていないか、`false\` に定義されています：[SmartContractDeploy](./caver-transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](./caver-transaction/basic.md#smartcontractexecution)
 - FeeDelegation`は`true` に定義されているが、`feeRatio\` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
@@ -1534,10 +1534,10 @@ myContract.once(event [, options], callback)
 
 オプション・オブジェクトには、以下のものを含めることができる：
 
-| 名称    | タイプ    | 説明                                                                                                                                                                                            |
-| ----- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| フィルター | オブジェクト | (オプション) インデックス化されたパラメータでイベントをフィルタすることができます：{mynumber:[12,13]}}\`は、"mynumber "が12または13であるすべてのイベントを意味する。 |
-| トピックス | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的に設定されない。                                                                                   |
+| 名称    | タイプ    | 説明                                                                                                                                    |
+| ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| フィルター | オブジェクト | (オプション) インデックス化されたパラメータでイベントをフィルタリングできます。例えば、`{filter: {mynumber: [12,13]}}` は「mynumber」が12または13であるすべてのイベントを意味します。 |
+| トピックス | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的に設定されない。                           |
 
 **リターン・バリュー**
 
