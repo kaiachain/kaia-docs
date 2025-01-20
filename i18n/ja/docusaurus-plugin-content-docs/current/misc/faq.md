@@ -11,7 +11,7 @@
 - [Are there faucets to get test KLAY?](#are-there-faucets)
 - [パブリックRPCのエンドポイントの状態を確認するにはどうすればよいですか](#rpc-endpoint-status)
 - [Which wallets support Klaytn?](#which-wallets)
-- [メインネットとは何か、カイロスとは何か】(#what-is-mainnet-what-is-kairos)
+- [メインネットとは何か、カイロスとは何か](#what-is-mainnet-what-is-kairos)
 - [Are there any Klaytn SDKs? In what languages?](#klaytn-sdks)
 - [Must I install and run an EN (Endpoint Node) to use Klaytn?](#must-i-install-and-run-en)
 - [ENを使用していますが、ノードのデータ同期が遅すぎます](#node-data-sync-is-too-slow)
@@ -22,7 +22,7 @@
 
 ## カイアとは？ <a id="what-is-klaytn"></a>
 
-Kaiaは、特にアジアにおけるWeb3の大量導入のために設計された高性能なレイヤー1ブロックチェーンである。 4,000以上のTPS、即時のファイナリティ、1秒のブロックタイムを提供する。 イーサリアムと完全な互換性を持つカイアは、シームレスなdApp移行を可能にし、開発者に優しいツール、低手数料、エコシステムファンドからの強力な流動性を備えた強固なエコシステムを提供します。 カカオやLINEのような主要なメッセージング・プラットフォームとの統合を通じて、Web2ユーザーのアクセシビリティを優先している。 詳しくは【ホワイトペーパー】(https://docs.kaia.io/kaiatech/kaia-white-paper/)をご覧ください。
+Kaiaは、特にアジアにおけるWeb3の大量導入のために設計された高性能なレイヤー1ブロックチェーンである。 4,000以上のTPS、即時のファイナリティ、1秒のブロックタイムを提供する。 イーサリアムと完全な互換性を持つカイアは、シームレスなdApp移行を可能にし、開発者に優しいツール、低手数料、エコシステムファンドからの強力な流動性を備えた強固なエコシステムを提供します。 カカオやLINEのような主要なメッセージング・プラットフォームとの統合を通じて、Web2ユーザーのアクセシビリティを優先している。 詳しくは【ホワイトペーパー](https://docs.kaia.io/kaiatech/kaia-white-paper/)をご覧ください。
 
 ## How does Klaytn support Ethereum equivalence? <a id="how-ethereum-equivalence"></a>
 
@@ -57,7 +57,7 @@ You may purchase KLAY on the exchange. 利用可能な取引所のリストは�
 
 開発およびテスト用のテストKAIAはこちらから入手できます：
 
-- [カイア蛇口](https://faucet.kaia.io)
+- [カイア[Faucet](https://faucet.kaia.io)
 - [NODIT蛇口](https://kaiafaucet.com)
 - [サードウェブ蛇口](https://thirdweb.com/kaia-testnet-kairos)
 
