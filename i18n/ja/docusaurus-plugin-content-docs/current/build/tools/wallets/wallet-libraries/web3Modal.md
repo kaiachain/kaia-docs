@@ -4,7 +4,7 @@ sidebar_label: Web3Modal
 
 # Web3ModalをdAppに統合する
 
-![](/img/banners/kaia-web3Modal\\(wc\\).png)
+
 
 ## はじめに
 
@@ -17,7 +17,7 @@ sidebar_label: Web3Modal
 - 作業中のreactプロジェクト(`npx create-react-app project-name`を実行する)
 - 必要なウォレット（[Kaia Wallet](https://www.kaiawallet.io/en_US/)、[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/)）をインストールします。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../../references/public-en.md)の1つから取得できます。
-- 蛇口](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 
 ## Web3Modalとウォレットプロバイダーのオプションを設定する
 
