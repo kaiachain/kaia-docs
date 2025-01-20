@@ -72,7 +72,7 @@ const tx = caver.transaction.decode(senderRawTransaction);
 
     const signed = await caver.wallet.signAsFeePayer(keyring.address, tx);
 
-    // トランザクションの送信
+    // Send the transaction
     const receipt = await caver.rpc.klay.sendRawTransaction(
       signed.getRLPEncoding()
     )
@@ -82,7 +82,7 @@ const tx = caver.transaction.decode(senderRawTransaction);
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // ガス欠エラーの場合、2番目のパラメータはレシートとなる。
+.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
 ```
 
 ## 3. 料金委譲のためのシンプルなサーバーとクライアント<a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
@@ -188,7 +188,7 @@ const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey =
   "FEEPAYER_PRIVATE_KEY";
 
-// 料金支払者のキーリングをウォレットに追加
+// add fee payer's keyring to wallet
 
 const keyring = caver.wallet.newKeyring(feePayerAddress, feePayerPrivateKey);
 
@@ -201,7 +201,7 @@ const feePayerSign = async (senderRawTransaction, socket) => {
 
     const signed = await caver.wallet.signAsFeePayer(keyring.address, tx);
 
-    // トランザクションの送信
+    // Send the transaction
     const receipt = await caver.rpc.klay.sendRawTransaction(
       signed.getRLPEncoding()
     );
@@ -210,19 +210,19 @@ const feePayerSign = async (senderRawTransaction, socket) => {
     if (receipt.transactionHash) {
       socket.write(`Tx hash: ${receipt.transactionHash}\n`);
       socket.write(`Sender Tx hash: ${receipt.senderTxHash || ""}\n`);
-    }.
+    }
   } catch (error) {
     console.error("Error in feePayerSign:", error);
     socket.write(`Error: ${error.message}\n`);
-  }.
+  }
 };
 
 var server = createServer(function (socket) {
-  console.log("クライアントが接続されました ...");
-  socket.write("これは手数料の委任サービスです");
-  socket.write("手数料の支払者は " + feePayerAddress");
+  console.log("Client is connected ...");
+  socket.write("This is fee delegating service");
+  socket.write("Fee payer is " + feePayerAddress);
   socket.on("data", function (data) {
-    console.log("クライアントからデータを受け取りました:", data.toString());
+    console.log("Received data from client:", data.toString());
     feePayerSign(data.toString(), socket);
   });
   socket.on("error", (error) => {
