@@ -63,8 +63,8 @@ public class AccountUpdateWithMultiSigExample {
                 WeightedPublicKey weightedAccountKey3 = WeightedPublicKey.create(BigInteger.ONE,
                                 AccountKeyPublic.create(newPubkey3));
 
-                // weightedAccountKey1、weightedAccountKey2、weightedAccountKey3 でリストを作成する
-                リスト<WeightedPublicKey> weightedAccountKeyList = List.of(weightedAccountKey1, weightedAccountKey2,
+                // make list with weightedAccountKey1, weightedAccountKey2, weightedAccountKey3
+                List<WeightedPublicKey> weightedAccountKeyList = List.of(weightedAccountKey1, weightedAccountKey2,
                                 weightedAccountKey3);
 
                 AccountKeyWeightedMultiSig accountkey = AccountKeyWeightedMultiSig.create(BigInteger.TWO,
@@ -89,7 +89,7 @@ public class AccountUpdateWithMultiSigExample {
 
                 int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
                 int DEFAULT_BLOCK_TIME = 1 * 1000;
-                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME；
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
                 TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
                                 DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
                 org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
@@ -101,9 +101,9 @@ public class AccountUpdateWithMultiSigExample {
 
                 TxTypeAccountUpdate rawTransaction = TxTypeAccountUpdate.decodeFromRawTransaction(signedMessage);
 
-                System.out.println("TxType ：" + rawTransaction.getKlayType());
+                System.out.println("TxType : " + rawTransaction.getKlayType());
 
-        }.
+        }
 
 }
 ```
@@ -226,8 +226,8 @@ public class AccountUpdateWithMultiSigExample {
                 WeightedPublicKey weightedAccountKey3 = WeightedPublicKey.create(BigInteger.ONE,
                                 AccountKeyPublic.create(newPubkey3));
 
-                // weightedAccountKey1、weightedAccountKey2、weightedAccountKey3 でリストを作成する
-                リスト<WeightedPublicKey> weightedAccountKeyList = List.of(weightedAccountKey1, weightedAccountKey2,
+                // make list with weightedAccountKey1, weightedAccountKey2, weightedAccountKey3
+                List<WeightedPublicKey> weightedAccountKeyList = List.of(weightedAccountKey1, weightedAccountKey2,
                                 weightedAccountKey3);
 
                 AccountKeyWeightedMultiSig accountkey = AccountKeyWeightedMultiSig.create(BigInteger.TWO,
@@ -252,7 +252,7 @@ public class AccountUpdateWithMultiSigExample {
 
                 int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
                 int DEFAULT_BLOCK_TIME = 1 * 1000;
-                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME；
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
                 TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
                                 DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
                 org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
@@ -264,9 +264,9 @@ public class AccountUpdateWithMultiSigExample {
 
                 TxTypeAccountUpdate rawTransaction = TxTypeAccountUpdate.decodeFromRawTransaction(signedMessage);
 
-                System.out.println("TxType ：" + rawTransaction.getKlayType());
+                System.out.println("TxType : " + rawTransaction.getKlayType());
 
-        }.
+        }
 
 }
 ```
