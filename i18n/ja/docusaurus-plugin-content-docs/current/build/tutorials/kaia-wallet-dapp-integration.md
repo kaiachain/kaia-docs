@@ -31,16 +31,16 @@ UI ライブラリは、`ConnectWallet` コンポーネントのように、ユ�
 ほとんどのUIライブラリはMetamaskをビルトインでサポートしているが、Kaia Walletの[API](https://docs.kaia.io/references/json-rpc/kaia/account-created/)は[Metamaskの](https://docs.metamask.io/wallet/reference/json-rpc-api)をベースに構築されているので、統合も簡単だ。 ライブラリがKaia Walletをネイティブにサポートしていなくても、Kaia Wallet統合のために拡張するのは簡単です。 例えば、[React](https://react.dev)や[Next.js](https://nextjs.org)の2つの人気のあるライブラリです：
 
 - [Appkit](#1.1-appkit-example)
-- [Web3-Onboard】(#1.2-web3-onboard-example)
+- [Web3-Onboard](#1.2-web3-onboard-example)
 
 ### 1.1. Appkitの例
 
-Appkitヒーローバナー](https://docs.reown.com/assets/images/appkit-18fbf6d4ddb8756740540b7adad92494.png)
 
-Reown](https://reown.com/), [Appkit](https://docs.reown.com/appkit/overview) では、以下の**機能を提供しています:**。
+
+[Reown](https://reown.com/), [Appkit](https://docs.reown.com/appkit/overview) では、以下の**機能を提供しています:**。
 
 - ウォレット接続、アカウント情報、ネットワーク情報のボタンとモーダル
-- Eメールウォレット](https://docs.reown.com/appkit/authentication/socials)、[Coinbase](https://www.coinbase.com)アカウント、および[EIP-4361](https://docs.reown.com/appkit/authentication/one-click-auth)をサポートします。
+- [Eメールウォレット](https://docs.reown.com/appkit/authentication/socials)、[Coinbase](https://www.coinbase.com)アカウント、および[EIP-4361](https://docs.reown.com/appkit/authentication/one-click-auth)をサポートします。
 
 \*\*考慮事項
 
