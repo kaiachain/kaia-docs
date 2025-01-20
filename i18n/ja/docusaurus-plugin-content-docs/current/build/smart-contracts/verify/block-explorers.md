@@ -15,7 +15,7 @@ In this guide, we'll take a look at how to use block explorers to verify deploye
 ## 前提条件
 
 - [Remix IDE](https://ide.kaia.io/) と [Kaia Wallet](https://docs.kaiawallet.io/getting_started/quick_start#install-kaia-wallet)
-- 蛇口](https://faucet.kaia.io)から十分なテストKAIA
+- [Faucet](https://faucet.kaia.io)から十分なテストKAIA
 
 ## はじめに
 
@@ -150,7 +150,7 @@ To verify a single contract and multi-part contracts on Klaytnscope, follow the 
 
 #### 1.1 単一契約の検証
 
-1. Kaiascope](https://kairos.kaiascope.com)の検索バーに、デプロイされた契約書のアドレスを貼り付ける。
+1. [Kaiascope](https://kairos.kaiascope.com)の検索バーに、デプロイされた契約書のアドレスを貼り付ける。
 2. そのページの**契約タブ**に移動する。
 3. Click on the **Match Contract Source Code** link to submit contract code for verification.
 
