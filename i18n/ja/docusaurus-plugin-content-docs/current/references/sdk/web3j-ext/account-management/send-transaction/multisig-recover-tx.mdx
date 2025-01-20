@@ -286,19 +286,19 @@ sender\*\*アドレスをロードされたクレデンシャルのアドレス�
 署名したトランザクション\*\*をkaiaネットワークに送信する。
 
 <CH.Code>
-``java SignTxWithMultiSigExample.java focus=63:65
+```java SignTxWithMultiSigExample.java focus=63:65
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ java SignTxWithMultiSigExample.java
 TxHash :
  0x957734684be8f79a21cef4de1842709b84c92e3920d656165ddb951981987b5a
 
-```
+````
 
 </CH.Code>
 
@@ -307,18 +307,18 @@ TxHash :
 署名されたトランザクションから**送信者アドレス**を復元し、**送信元アドレス**と比較する。
 
 <CH.Code>
-``java SignTxWithMultiSigExample.java focus=67:71
+```java SignTxWithMultiSigExample.java focus=67:71
 
-```
+````
 
 
 ---
 
-``zsh output
-/ java SignTxWithMultiSigExample.java
-元アドレス : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
-結果アドレス : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
-```
+```zsh output
+❯ java SignTxWithMultiSigExample.java
+Original address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+Result address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+````
 
 </CH.Code>
 
