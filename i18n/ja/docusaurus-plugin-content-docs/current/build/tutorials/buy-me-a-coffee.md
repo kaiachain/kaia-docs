@@ -36,8 +36,8 @@ Buy Me a Coffee（BMC）は、クリエイターがファンや視聴者から�
 
 - [Node.js](https://nodejs.org/en/download/package-manager)
 - フックなど、JavascriptとReactの基本に精通していること
-- Coinbase Wallet】(https://www.coinbase.com/wallet/downloads)、【Metamask Wallet】(https://metamask.io/download/)など、必要なウォレットのインストール。
-- 蛇口](https://faucet.kaia.io)からKAIAをテストする。
+- Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、【Metamask Wallet](https://metamask.io/download/)など、必要なウォレットのインストール。
+- [Faucet](https://faucet.kaia.io)からKAIAをテストする。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../references/public-en.md)のいずれかから取得できます。
 - Fleek](https://app.fleek.co/)にアカウント作成。
 
