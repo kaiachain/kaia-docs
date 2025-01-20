@@ -32,7 +32,7 @@ IntrinsicGasCost = KeyCreationGas + KeyValidationGas + PayloadGas + TxTypedGas
 | マルチシグ | はい                |
 | 役割ベース | 役割の主要タイプによる       |
 
-## KeyCreationGas <a id="keycreationgas"></a>
+## キークリエーションガス<a id="keycreationgas"></a>
 
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
@@ -40,7 +40,7 @@ Please keep in mind that Public key type always has only one registering key, so
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
 Please keep in mind that Public key type always has only one registering key, so the gas would be always 20000.
 
-## KeyValidationGas <a id="keyvalidationgas"></a>
+## キーバリデーション・ガス<a id="keyvalidationgas"></a>
 
 `KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
 `KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
@@ -54,13 +54,13 @@ A Klaytn transaction can also have a feePayer, so the total KeyValidationGas is 
 KeyValidationGas = (送信者のKeyValidationGas) + (料金支払者のKeyValidationGas)
 ```
 
-## PayloadGas <a id="payloadgas"></a>
+## ペイロードガス<a id="payloadgas"></a>
 
 基本的に、`PayloadGas` には `number_of_bytes_of_tx_input x TxDataGas (100)` がチャージされる。
 
 トランザクション作成契約の場合、`number_of_words_of_initcode x InitCodeWordGas (2)` の追加料金が適用される。 上海のハードフォークから有効だ。
 
-## TxTypedGas <a id="txtypedgas"></a>
+## TxTypedガス<a id="txtypedgas"></a>
 
 klaytnのトランザクションには、`base`、`feeDelegated`、`feeDelegatedWithFeeRatio`の3種類がある。
 
@@ -87,7 +87,7 @@ klaytnのトランザクションには、`base`、`feeDelegated`、`feeDelegate
 
 ## ハードフォークの変更
 
-| ハードフォーク    | 変更                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 上海EVM      | intrinsicGas<br/> を計算する際の limit と meter initcode - initcode のワードごとに 2 ガスを追加するようになった。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| イスタンブールEVM | make the [PayloadGas](#payloadgas) of legacyTxType consistent with other TxTypes<br/>- Before: PayloadGas=number_of_zero_bytes_of_tx_input x 4 + number_of_nonzero_bytes_of_tx_input x 68 <br/> - After: PayloadGas=number_of_bytes_of_tx_input x 100<br/><br/>change [keyValidationGas](#keyvalidationgas) calculation logic<br/>- Before: KeyValidationGas=(number of keys - 1) x 15,000<br/>- After: KeyValidationGas=(number of signatures - 1) x 15,000 |
+| ハードフォーク    | 変更                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 上海EVM      | intrinsicGas<br/> を計算する際の limit と meter initcode - initcode のワードごとに 2 ガスを追加するようになった。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| イスタンブールEVM | legacyTxType の [PayloadGas](#payloadgas) を他の TxType と整合させる<br/>- 変更前：PayloadGas=number_of_zero_bytes_of_tx_input x 4 + number_of_nonzero_bytes_of_tx_input x 68<br/> - After：PayloadGas=number_of_bytes_of_tx_input x 100<br/><br/>変更 [keyValidationGas](#keyvalidationgas) 計算ロジック<br/>- 変更前：KeyValidationGas=(key number of keys - 1) x 15,000<br/>- After：KeyValidationGas=(署名数 - 1) x 15,000 |
