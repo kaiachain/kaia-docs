@@ -14,7 +14,7 @@ Klaytn’s funding structure runs continuously with Klaytn network’s block gen
 - カイア・エコシステム・ファンド（KEF）：25
 - カイア・インフラストラクチャー・ファンド（KIF）：25
 
-9.6 KAIAは新しいブロックごとに鋳造される。 これは、年間約3億KAIAが鋳造されることを意味し、市場におけるKAIAトークン総量に対して年間5.2％のインフレ率に相当します（年間インフレ率は、カイア・ガバナンス・プロセスを通じて変更される可能性があります）。 取引手数料は、あらかじめ決められた手数料テーブルに従って請求され、計量される。 For detailed information about the transaction fees, please refer to [Transaction Fees](../transaction-fees/transaction-fees.md).
+9.6 KAIAは新しいブロックごとに鋳造される。 これは、年間約3億KAIAが鋳造されることを意味し、市場におけるKAIAトークン総量に対して年間5.2％のインフレ率に相当します（年間インフレ率は、カイア・ガバナンス・プロセスを通じて変更される可能性があります）。 取引手数料は、あらかじめ決められた手数料テーブルに従って請求され、計量される。 取引手数料の詳細については、「取引手数料」(../transaction-fees/transaction-fees.md)をご参照ください。
 
 ## Klaytn Governance Council Reward <a id="klaytn-governance-council-reward"></a>
 
@@ -89,4 +89,4 @@ KIFは、ブロック創設時に発行されたKAIA総額の25％を資金源�
 
 このトレジャリー・リバランスの仕組みにより、カイアは透明性と安全性の原則を守りながら、エコシステムの進化するニーズによりよく対応し、ダイナミックで応答性の高いトークンエコノミーを維持することができます。 スマート・コントラクト技術とコンセンサスに基づくアプローチを活用することで、国庫資金を調整するための構造化された検証可能な方法を提供し、カイア・ブロックチェーンがコミュニティの信頼を維持しながら状況の変化に適応できることを保証する。
 
-For the information on the Treasury Rebalance contract addresses, please refer to [KIP-160](../governance/governance-by-kip.md#kip-160-an-update-on-treasury-fund-rebalancing) and [KIP-103](../governance/governance-by-kip.md#kip-103-treasury-fund-rebalancing).
+財務省のリバランス契約アドレスについては、[KIP-160](../governance/governance-by-kip.md#kip-160-an-update-on-treasury-fund-rebalancing)および[KIP-103](../governance/governance-by-kip.md#kip-103-treasury-fund-rebalancing)を参照。
