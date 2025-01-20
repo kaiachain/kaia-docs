@@ -21,11 +21,11 @@ caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 | 住所       | ストリング       | メッセージに署名したアカウントのアドレス。                                                                                                                                          |
 | isHashed | ブーリアン       | (オプション、デフォルト: `false`) パラメータとして渡されたメッセージを、接頭辞 `"\x19Kaia Signed Message：\n" + message.length + message`.  |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 promise`は `boolean\` を返す：このプロミスは、メッセージの署名が有効か無効かのブール値で解決される。
 
-\*\*例
+**例**
 
 ```javascript
 const address = '0xa84a1ce657e9d5b383cece6f4ba365e23fa234dd'
@@ -62,11 +62,11 @@ caver.validator.validateTransaction(tx)
 | -- | ------ | ------------------------------------------------------------------------- |
 | TX | オブジェクト | 検証する[Transaction](./caver-transaction/caver-transaction.md#class)のインスタンス。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 プロミスは `boolean` を返す：このプロミスは、トランザクションが有効か無効かのブール値で解決される。
 
-\*\*例
+**例**
 
 ```javascript
 // Basic transaction will be validated with `signatures`.
@@ -92,11 +92,11 @@ caver.validator.validateSender(tx)
 | -- | ------ | ------------------------------------------------------------------------- |
 | TX | オブジェクト | 検証する[Transaction](./caver-transaction/caver-transaction.md#class)のインスタンス。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 プロミスは `boolean` を返す：プロミスは、トランザクションが有効か無効かを示すブール値で解決される。
 
-\*\*例
+**例**
 
 ```javascript
 const tx = caver.transaction.valueTransfer.create({...})
@@ -117,11 +117,11 @@ caver.validator.validateFeePayer(tx)。
 | -- | ------ | ------------------------------------------------------------------------- |
 | TX | オブジェクト | 検証する[Transaction](./caver-transaction/caver-transaction.md#class)のインスタンス。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 プロミスは `boolean` を返す：プロミスは、トランザクションが有効か無効かを示すブール値で解決される。
 
-\*\*例
+**例**
 
 ```javascript
 const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
