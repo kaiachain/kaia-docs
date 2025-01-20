@@ -226,17 +226,17 @@ Create a transaction object with `data` is the encoded contract bytecode, `from:
 signTransaction\`を使用して**送信者**のアカウントでトランザクションに署名する。
 
 <CH.Code>
-``js smartContractDeploy.js focus=48:49
+```js smartContractDeploy.js focus=48:49
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractDeploy.js
 signedTx 0x476a6257353fc48dfd1bad5090026f065345c5ef0dbce85434c372b6d5817e75
-```
+````
 
 </CH.Code>
 
@@ -245,7 +245,7 @@ signedTx 0x476a6257353fc48dfd1bad5090026f065345c5ef0dbce85434c372b6d5817e75
 署名されたトランザクションをネットワークに送信し、受信を待つ。
 
 <CH.Code>
-``js smartContractDeploy.js focus=51:52
+```js smartContractDeploy.js focus=51:52
 
 ````
 
