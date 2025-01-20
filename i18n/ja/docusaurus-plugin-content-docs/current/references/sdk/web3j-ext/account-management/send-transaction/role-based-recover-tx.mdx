@@ -44,7 +44,7 @@ public class SignTxWithRoleBasedExample implements keySample {
                 String from = credentials1.getAddress();
                 EthChainId EthchainId = web3j.ethChainId().send();
                 long chainId = EthchainId.getChainId().longValue();
-                String to = "0x00000000000000000000dead";
+                String to = "0x000000000000000000000000000000000000dead";
                 BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
                                 .getTransactionCount();
                 BigInteger value = BigInteger.valueOf(100);
@@ -68,12 +68,12 @@ public class SignTxWithRoleBasedExample implements keySample {
                 String blockNumber = "latest";
                 KlayRecoverFromTransactionResponse response = web3j.klayRecoverFromTransaction(hexValue, blockNumber)
                                 .send();
-                System.out.println("元のアドレス : " + from);
-                System.out.println("結果のアドレス : " + response.getResult());
+                System.out.println("Original address : " + from);
+                System.out.println("Result address : " + response.getResult());
 
                 web3j.shutdown();
 
-        }.
+        }
 
 }
 ```
@@ -149,7 +149,7 @@ public class SignTxWithRoleBasedExample implements keySample {
                 String from = credentials1.getAddress();
                 EthChainId EthchainId = web3j.ethChainId().send();
                 long chainId = EthchainId.getChainId().longValue();
-                String to = "0x00000000000000000000dead";
+                String to = "0x000000000000000000000000000000000000dead";
                 BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
                                 .getTransactionCount();
                 BigInteger value = BigInteger.valueOf(100);
@@ -173,12 +173,12 @@ public class SignTxWithRoleBasedExample implements keySample {
                 String blockNumber = "latest";
                 KlayRecoverFromTransactionResponse response = web3j.klayRecoverFromTransaction(hexValue, blockNumber)
                                 .send();
-                System.out.println("元のアドレス : " + from);
-                System.out.println("結果のアドレス : " + response.getResult());
+                System.out.println("Original address : " + from);
+                System.out.println("Result address : " + response.getResult());
 
                 web3j.shutdown();
 
-        }.
+        }
 
 }
 ```
