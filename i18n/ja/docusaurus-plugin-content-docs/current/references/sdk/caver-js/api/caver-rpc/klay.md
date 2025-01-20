@@ -39,7 +39,7 @@ true
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 ```
 
-指定されたアドレスの口座情報をkaiaで返します。 カイアの口座の種類については、「カイアの口座の種類」(../../../../../learn/accounts.md#klaytn-account-types)をご参照ください。
+指定されたアドレスの口座情報をkaiaで返します。 カイアの口座の種類については、[「カイアの口座の種類」](../../../../../learn/accounts.md#klaytn-account-types)をご参照ください。
 
 **注意** `caver.rpc.klay.getAccount` はネットワーク上に存在するアカウントを返すので、アドレスと一致するアカウントが実際のブロックチェーンネットワーク上に存在しない場合は `null` が返される。
 
