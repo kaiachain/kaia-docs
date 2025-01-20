@@ -14,7 +14,7 @@ Klaytn’s funding structure runs continuously with Klaytn network’s block gen
 - カイア・エコシステム・ファンド（KEF）：25
 - カイア・インフラストラクチャー・ファンド（KIF）：25
 
-9.6 KAIAは新しいブロックごとに鋳造される。 これは、年間約3億KAIAが鋳造されることを意味し、市場におけるKAIAトークン総量に対して年間5.2％のインフレ率に相当します（年間インフレ率は、カイア・ガバナンス・プロセスを通じて変更される可能性があります）。 取引手数料は、あらかじめ決められた手数料テーブルに従って請求され、計量される。 取引手数料の詳細については、「取引手数料」(../transaction-fees/transaction-fees.md)をご参照ください。
+9.6 KAIAは新しいブロックごとに鋳造される。 これは、年間約3億KAIAが鋳造されることを意味し、市場におけるKAIAトークン総量に対して年間5.2％のインフレ率に相当します（年間インフレ率は、カイア・ガバナンス・プロセスを通じて変更される可能性があります）。 取引手数料は、あらかじめ決められた手数料テーブルに従って請求され、計量される。 取引手数料の詳細については、[「取引手数料」](../transaction-fees/transaction-fees.md)をご参照ください。
 
 ## Klaytn Governance Council Reward <a id="klaytn-governance-council-reward"></a>
 
