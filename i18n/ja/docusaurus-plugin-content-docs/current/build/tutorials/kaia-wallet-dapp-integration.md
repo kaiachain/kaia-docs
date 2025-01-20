@@ -35,17 +35,17 @@ UI ライブラリは、`ConnectWallet` コンポーネントのように、ユ�
 
 ### 1.1. Appkitの例
 
-
+![Appkit Hero Banner](https://docs.reown.com/assets/images/appkit-18fbf6d4ddb8756740540b7adad92494.png)
 
 [Reown](https://reown.com/), [Appkit](https://docs.reown.com/appkit/overview) では、以下の**機能を提供しています:**。
 
 - ウォレット接続、アカウント情報、ネットワーク情報のボタンとモーダル
 - [Eメールウォレット](https://docs.reown.com/appkit/authentication/socials)、[Coinbase](https://www.coinbase.com)アカウント、および[EIP-4361](https://docs.reown.com/appkit/authentication/one-click-auth)をサポートします。
 
-\*\*考慮事項
+**考慮事項**
 
-- reown/appkit](https://www.npmjs.com/package/@reown/appkit)を使って、[Wagmi](https://wagmi.sh)&[Tanstack Query](https://tanstack.com/query)のフロントエンドスタックか、単に[Ethers](https://docs.ethers.org/v6/)のどちらかにコミットするオプションがある。
-- projectId\`が必要 [Reownでサインアップ](https://cloud.walletconnect.com/sign-in)
+- [@reown/appkit](https://www.npmjs.com/package/@reown/appkit)を使って、[Wagmi](https://wagmi.sh)&[Tanstack Query](https://tanstack.com/query)のフロントエンドスタックか、単に[Ethers](https://docs.ethers.org/v6/)のどちらかにコミットするオプションがある。
+- `projectId`が必要 [Reownでサインアップ](https://cloud.walletconnect.com/sign-in)
 
 :::note
 
@@ -55,16 +55,16 @@ UI ライブラリは、`ConnectWallet` コンポーネントのように、ユ�
 
 ### 1.2. Web3-Onboardの例
 
-Web3オンボードグラフィック](https://onboard.blocknative.com/_app/immutable/assets/connect-modal.b7439c5e.svg)
+![Web3-Onboard Graphic](https://onboard.blocknative.com/_app/immutable/assets/connect-modal.b7439c5e.svg)
 
-Blocknative](https://www.blocknative.com)による[Web3-Onboard](https://onboard.blocknative.com)は以下の\*\*機能を提供します:\*\*。
+[Blocknative](https://www.blocknative.com)による[Web3-Onboard](https://onboard.blocknative.com)は以下の**機能を提供します:**。
 
 - 設定可能なオンボード・テキスト
 - Connect Wallet、Switch Account、Switch Networkの各モダル
 - [通知コンポーネント](https://onboard.blocknative.com/docs/modules/core#customnotification)
 - (オプション) リアルタイムデータをフェッチ＆レンダリングするためのAPIキーを登録する。
 
-\*\*考慮事項
+**考慮事項**
 
 - ボタンを書く必要がある
 
@@ -76,9 +76,9 @@ Blocknative](https://www.blocknative.com)による[Web3-Onboard](https://onboard
 
 ## 2. ユーティリティ・ライブラリ
 
-kaia-sdk](#21-kaia-sdk)や[ethers.js](#22-ethersjs-example)のようなライブラリは、ブロックチェーンのやり取りを効率化するのに十分な抽象化を行い、なおかつ[Provider](#3-providers)のAPIを直接呼び出すことができる。
+[kaia-sdk](#21-kaia-sdk)や[ethers.js](#22-ethersjs-example)のようなライブラリは、ブロックチェーンのやり取りを効率化するのに十分な抽象化を行い、なおかつ[Provider](#3-providers)のAPIを直接呼び出すことができる。
 
-Using Utility Libraries to connect an account or send native tokens (e.g., KLAY/ETH) will be no different, _in terms of syntax & lines of code_, from calling Providers directly. 図書館が主に改善するのは、以下の分野である：
+ユーティリティライブラリを使用してアカウントを接続したり、ネイティブトークン（KAIA/ETHなど）を送信したりすることは、構文やコード行数\*の点で、プロバイダを直接呼び出すのと変わりません。 図書館が主に改善するのは、以下の分野である：
 
 - スマートコントラクトの相互作用
   - これらには、ABI、エンコード入力、デコード出力が含まれる。 ライブラリーがないと、これらのコードは冗長でエラーになりやすい。
@@ -86,7 +86,7 @@ Using Utility Libraries to connect an account or send native tokens (e.g., KLAY/
   - 文字列エラーコード/メッセージは、カスタムプロパティとメソッドを持つエラークラスにマッピングされます。
 - ドキュメンテーションと型式安全性
 
-### 2.1. カイヤSDK
+### 2.1. kaia-sdk
 
 [kaia-sdk](https://github.com/kaiachain/kaia-sdk)は、[ethers.js](https://docs.ethers.io/v6)や[web3.js](https://web3js.org)のような他のユーティリティ・ライブラリのドロップイン拡張のセットです。 これにより、[カイア固有のメソッド](https://docs.kaia.io/references/json-rpc/kaia/account-created/)のファーストパーティ・サポートを公開しながら、お好みのライブラリを使用することができます：
 
@@ -114,4 +114,4 @@ Using Utility Libraries to connect an account or send native tokens (e.g., KLAY/
 
 ## 3. プロバイダー
 
-最も低いレベルでは、プロバイダーである[`window.klaytn`](https://docs.kaiawallet.io/02_api_reference/01_klaytn_provider)（カイア・ウォレットそのもの）があります。 ユーティリティ・ライブラリ](#2-utility-libraries)を好むかもしれないが、プロバイダAPIの知識は、デバッグや依存ライブラリの動作を理解するのに役立つ。 kaia_getAccount`](https://docs.kaia.io/references/json-rpc/kaia/get-account/)、[`kaia_sendTransactionAsFeePayer\`](https://docs.kaia.io/references/json-rpc/kaia/send-transaction-as-fee-payer/)などのKaia固有のメソッドを使用するには、[Kaia's JSON-RPC API][Kaia-API]を参照する必要があります。
+最も低いレベルでは、プロバイダーである[`window.klaytn`](https://docs.kaiawallet.io/02_api_reference/01_klaytn_provider)（カイア・ウォレットそのもの）があります。 ユーティリティ・ライブラリ](#2-utility-libraries)を好むかもしれないが、プロバイダAPIの知識は、デバッグや依存ライブラリの動作を理解するのに役立つ。 [`kaia_getAccount`](https://docs.kaia.io/references/json-rpc/kaia/get-account/)、[`kaia_sendTransactionAsFeePayer`](https://docs.kaia.io/references/json-rpc/kaia/send-transaction-as-fee-payer/)などのKaia固有のメソッドを使用するには、[Kaia's JSON-RPC API][Kaia-API]を参照する必要があります。
