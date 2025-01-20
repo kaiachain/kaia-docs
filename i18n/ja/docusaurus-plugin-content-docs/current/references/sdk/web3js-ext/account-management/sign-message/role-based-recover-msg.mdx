@@ -140,18 +140,18 @@ main().catch(console.error)
 <CH.Code>
 ```js SignMsgWithRoleBased.js focus=14:16
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ js SignMsgWithRoleBased.js
 {
   senderAddr: '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea',
   msg: 'hello',
   msghex: '0x68656c6c6f',
-  sig：'0x736460622fcfab0fa7de0ca1cde05178f01b124294a640b5f5820c7271262c6c271f1ad15f0d7b974d68eaac60d5daa1e7dd65301bbfb814beecbca1238b64121c'
+  sig: '0x736460622fcfab0fa7de0ca1cde05178f01b124294a640b5f5820c7271262c6c271f1ad15f0d7b974d68eaac60d5daa1e7dd65301bbfb814beecbca1238b64121c'
 }
-```
+````
 
 </CH.Code>
 
@@ -160,14 +160,14 @@ main().catch(console.error)
 web3.eth.accounts.recover\`を使用して署名されたメッセージからアドレスを回復する。
 
 <CH.Code>
-``js SignMsgWithRoleBased.js focus=18:20
+```js SignMsgWithRoleBased.js focus=18:20
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ js SignMsgWithRoleBasedExample.js
 recoveredAddr lib 0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA true
-```
+````
 
 </CH.Code>
 
@@ -178,12 +178,12 @@ web3.klay.recoverFromMessage\` を使って、署名されたメッセージか�
 <CH.Code>
 ```js SignMsgWithRoleBased.js focus=22:24
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ js SignMsgWithRoleBasedExample.js
 recoveredAddr rpc 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea true
-```
+````
 
 </CH.Code>
 </CH.Spotlight>
