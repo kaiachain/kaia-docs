@@ -8,12 +8,12 @@
     from web3py_ext import extend
     from web3 import Web3
 
-    def main()：
-        # (kei/Gkei/kaia)からkeiに変換
-        print("KaiaからKeiへ", Web3.to_kei(1, 'Gkei'))
+    def main():
+        # convert from (kei/Gkei/kaia) to kei
+        print("From Kaia to Kei", Web3.to_kei(1, 'Gkei'))
 
-        # keiから(kei/Gkei/kaia)への変換
-        print('KeiからKaiaへ',Web3.from_kei(1000000000000000000,'kaia'))
+        # convert from kei to (kei/Gkei/kaia)
+        print('From Kei to Kaia',Web3.from_kei(1000000000000000000,'kaia'))
 
     main()
     ```
@@ -21,9 +21,9 @@
     ---
 
     ```zsh output
-    ❯ unit_utils.py
-    カイアからケイへ 1
-    ケイからカイアへ 1
+    ❯ py unit_utils.py
+    From Kaia to Kei 1
+    From Kei to Kaia 1
     ```
   </CH.Code>
 
@@ -45,8 +45,8 @@
     ---
 
     ```zsh output
-    ❯ unit_utils.py
-    カイアからケイへ 1
+    ❯ py unit_utils.py
+    From Kaia to Kei 1
     ```
   </CH.Code>
 
@@ -61,8 +61,8 @@
     ---
 
     ```zsh output
-    ❯ unit_utils.py
-    ケイからカイアへ 1
+    ❯ py unit_utils.py
+    From Kei to Kaia 1
     ```
   </CH.Code>
 </CH.Spotlight>
