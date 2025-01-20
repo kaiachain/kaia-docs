@@ -1,4 +1,4 @@
-# Why Build on Kaia
+# カイアを建てる理由
 
 カイア・ブロックチェーンはアジアNo.1のブロックチェーンになることを目指し、あらゆる規模のプロジェクトに堅牢なインフラを提供することで、Web3の導入をリードしている。 本書では、主要な設計原則と価値提案に基づき、カイアがどのように異なるかを説明する。
 
@@ -34,9 +34,9 @@
 
 ## 低コストとユーザー・エクスペリエンスの向上
 
-1. **手頃な取引手数料**：エンドユーザーに高額な取引手数料を負担させることはありません。 コストは安定しており、取引の複雑さによって決まる。 See [Affordable Smart Contract Execution Cost](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia) and [Transaction Fees](transaction-fees/transaction-fees.md).
+1. **手頃な取引手数料**：エンドユーザーに高額な取引手数料を負担させることはありません。 コストは安定しており、取引の複雑さによって決まる。 手頃なスマートコントラクト実行コスト](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia)および[取引手数料](transaction-fees/transaction-fees.md)を参照。
 
-2. **Fee Delegation**: Applications can cover users' transaction fees, allowing for flexible business models and lowering user acquisition barriers.
+2. **手数料の委任**：アプリケーションがユーザーの取引手数料を負担することで、柔軟なビジネスモデルを可能にし、ユーザー獲得の障壁を下げることができる。
 
 ## オープンソースのインフラとエコシステムのサポート
 
@@ -44,7 +44,7 @@
 
 2. **二次インフラ**：統合サービス、ステーブルコイン統合、DAO、NFTマーケットプレイス、DEX、DeFi、伝統的な金融インターフェースなど、製品やサービスをサポートするエコシステム。
 
-3. **Ecosystem Fund**: 50% of newly minted tokens are reinvested in the ecosystem through [Kaia Ecosystem Fund](./token-economics/token-economy.md#kaia-ecosystem-fund) and [Kaia Infrastructure Fund](./token-economics/token-economy.md#kaia-infrastructure-fund).
+3. **エコシステム・ファンド**：新たに鋳造されたトークンの50%は、[Kaia Ecosystem Fund](./token-economics/token-economy.md#kaia-ecosystem-fund)と[Kaia Infrastructure Fund](./token-economics/token-economy.md#kaia-infrastructure-fund)を通じてエコシステムに再投資されます。
 
 ## コミュニティの共同構築とガバナンス
 
