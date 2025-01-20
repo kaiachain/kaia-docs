@@ -256,14 +256,14 @@ Ethers.Contract**で契約インスタンスを作成し、パラメータ **con
 メソッド**counter.number()**を使用して、契約から**number**の値を取得する。
 
 <CH.Code>
-``js writeWithFeeDelegation.js focus=42
+```js writeWithFeeDelegation.js focus=42
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ node TxTypeFeeDelegatedValueTransfer.js
 number before 292
-```
+````
 
 </CH.Code>
 
@@ -288,14 +288,14 @@ number before 292
 送金者のウォレットで取引に署名する
 
 <CH.Code>
-``js writeWithFeeDelegation.js focus=53:56
+```js writeWithFeeDelegation.js focus=53:56
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ node TxTypeFeeDelegatedValueTransfer.js
-senderTxHashRLP0x31f8843a850ba43b7400830111939495be48607498109030592c08adc9577c7c2dd505809424e8efd18d65bcb6b3ba15a4698c0b0d69d13ff784d09de08af847f8458207f5a014ebdbabc74b5b93770f1f0980b67af59fa47a1bf450d0c27928a5f3f831219aa0027c3a6262e28dfad9166ec8d7a5d77da55272d18a3c1b656024764f8cb3379a
-```
+senderTxHashRLP 0x31f8843a850ba43b7400830111939495be48607498109030592c08adc9577c7c2dd505809424e8efd18d65bcb6b3ba15a4698c0b0d69d13ff784d09de08af847f8458207f5a014ebdbabc74b5b93770f1f0980b67af59fa47a1bf450d0c27928a5f3f831219aa0027c3a6262e28dfad9166ec8d7a5d77da55272d18a3c1b656024764f8cb3379a
+````
 
 </CH.Code>
 
@@ -304,7 +304,7 @@ senderTxHashRLP0x31f8843a850ba43b7400830111939495be48607498109030592c08adc9577c7
 手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
-``js writeWithFeeDelegation.js focus=58:61
+```js writeWithFeeDelegation.js focus=58:61
 
 ````
 ---
@@ -348,14 +348,14 @@ receipt {
 メソッド**counter.number()**で更新値**number**を取得する。
 
 <CH.Code>
-``js writeWithFeeDelegation.js focus=63
+```js writeWithFeeDelegation.js focus=63
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ node TxTypeFeeDelegatedValueTransfer.js
-293以降の番号
-```
+number after 293
+````
 
 </CH.Code>
 
