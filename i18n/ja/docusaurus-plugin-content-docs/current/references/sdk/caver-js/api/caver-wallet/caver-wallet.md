@@ -18,7 +18,7 @@ KeyringContainer`は、[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKe
 | -- | --- | -------------------------- |
 | 長さ | 番号  | keyringContainer内のキーリングの数。 |
 
-## ケイバー.ウォレット.ジェネレート<a href="#caver-wallet-generate" id="caver-wallet-generate"></a>
+## caver.wallet.generate <a href="#caver-wallet-generate" id="caver-wallet-generate"></a>
 
 ```javascript
 caver.wallet.generate(numberOfKeyrings [, entropy])
@@ -59,7 +59,7 @@ caver.wallet.generate(numberOfKeyrings [, entropy])
 ].
 ```
 
-## キーリング<a href="#caver-wallet-newkeyring" id="caver-wallet-newkeyring"></a>
+## caver.wallet.newKeyring <a href="#caver-wallet-newkeyring" id="caver-wallet-newkeyring"></a>
 
 ```javascript
 caver.wallet.newKeyring(アドレス, キー)
@@ -128,7 +128,7 @@ RoleBasedKeyring {
 }
 ```
 
-## caver.wallet.updateKeyring<a href="#caver-wallet-updatekeyring" id="caver-wallet-updatekeyring"></a>
+## caver.wallet.updateKeyring <a href="#caver-wallet-updatekeyring" id="caver-wallet-updatekeyring"></a>
 
 ```javascript
 caver.wallet.updateKeyring(キーリング)
@@ -158,7 +158,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.getKeyringキーリング<a href="#caver-wallet-getkeyring" id="caver-wallet-getkeyring"></a>
+## caver.wallet.getKeyring <a href="#caver-wallet-getkeyring" id="caver-wallet-getkeyring"></a>
 
 ```javascript
 caver.wallet.getKeyring(アドレス)
@@ -188,7 +188,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.isExisted<a href="#caver-wallet-isexisted" id="caver-wallet-isexisted"></a>
+## caver.wallet.isExisted <a href="#caver-wallet-isexisted" id="caver-wallet-isexisted"></a>
 
 ```javascript
 caver.wallet.isExisted(アドレス)
@@ -215,7 +215,7 @@ caver.wallet.isExisted(アドレス)
 true
 ```
 
-## ケイバーウォレット<a href="#caver-wallet-add" id="caver-wallet-add"></a>
+## caver.wallet.add <a href="#caver-wallet-add" id="caver-wallet-add"></a>
 
 ```javascript
 caver.wallet.add(キーリング)
@@ -245,7 +245,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.remove<a href="#caver-wallet-remove" id="caver-wallet-remove"></a>
+## caver.wallet.remove <a href="#caver-wallet-remove" id="caver-wallet-remove"></a>
 
 ```javascript
 caver.wallet.remove(アドレス)
@@ -272,7 +272,7 @@ caver.wallet.remove(アドレス)
 true
 ```
 
-## caver.wallet.signMessage<a href="#caver-wallet-signmessage" id="caver-wallet-signmessage"></a>
+## caver.wallet.signMessage <a href="#caver-wallet-signmessage" id="caver-wallet-signmessage"></a>
 
 ```javascript
 caver.wallet.signMessage(address, message, role [, index])
@@ -334,7 +334,7 @@ sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message))
 }.
 ```
 
-## ケイバー.ウォレット.サイン<a href="#caver-wallet-sign" id="caver-wallet-sign"></a>
+## caver.wallet.sign <a href="#caver-wallet-sign" id="caver-wallet-sign"></a>
 
 ```javascript
 caver.wallet.sign(address, transaction [, index] [, hasher])
@@ -444,7 +444,7 @@ ValueTransfer {
 }
 ```
 
-## Caver.wallet.signAsFeePayer<a href="#caver-wallet-signasfeepayer" id="caver-wallet-signasfeepayer"></a>
+## caver.wallet.signAsFeePayer <a href="#caver-wallet-signasfeepayer" id="caver-wallet-signasfeepayer"></a>
 
 ```javascript
 caver.wallet.signAsFeePayer(address, transaction [, index] [, hasher])
