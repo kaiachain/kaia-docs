@@ -1,9 +1,9 @@
-# Transaction Execution
+# トランザクションの実行
 
-This section provides a comprehensive guide to how transactions are processed, executed, and analyzed on the Kaia blockchain. Understanding these processes is critical for developers building applications on Kaia, as it directly impacts performance, cost, and debugging strategies.
+このセクションでは、カイアブロックチェーン上でトランザクションがどのように処理され、実行され、分析されるかを包括的に説明します。 これらのプロセスを理解することは、パフォーマンス、コスト、デバッグ戦略に直接影響するため、Kaia上でアプリケーションを構築する開発者にとって非常に重要である。
 
-- [Execution Model](./execution-model.md) details the complete lifecycle of a Kaia transaction, from its initial submission to its final inclusion in a block. Learn how transactions are validated by Consensus Nodes (CNs), the process of block creation, and the role of the BFT consensus mechanism in finalizing transactions. This includes details on Kaia's enhanced randomness for block proposer selection, as well as crucial restrictions on both transaction execution and smart contract deployment. Understanding these limitations is essential for avoiding unexpected transaction failures.
+- [実行モデル](./execution-model.md)は、最初の送信からブロックへの最終的な組み込みまで、Kaiaトランザクションの完全なライフサイクルを詳述している。 コンセンサス・ノード（CN）によるトランザクションの検証方法、ブロックの生成プロセス、トランザクションの最終決定におけるBFTコンセンサス・メカニズムの役割についてご紹介します。 これには、ブロック提案者選択のためのカイアの強化されたランダム性の詳細や、取引実行とスマートコントラクト展開の両方に関する重要な制限が含まれる。 これらの制限を理解することは、予期せぬトランザクションの失敗を避けるために不可欠である。
 
-- [Computation Cost](./computation-cost.md) explains the mechanics of transaction costs on the Kaia network. Dive into the gas mechanism, including how gas pricing is determined, the network's computation cost limit, and the gas costs associated with specific EVM operations. This section also details the additional gas costs incurred for contract creation based on initcode length, introduced with the Shanghai hardfork, enabling developers to accurately estimate and manage transaction expenses.
+- [計算コスト](./computation-cost.md)は、カイア・ネットワークにおける取引コストの仕組みを説明している。 ガス料金の決定方法、ネットワークの計算コスト上限、特定のEVMオペレーションに関連するガスコストなど、ガス・メカニズムに踏み込む。 本セクションでは、上海ハードフォークで導入された、initcodeの長さに基づくコントラクト作成に発生する追加ガスコストについても詳述する。これにより、開発者はトランザクション費用を正確に見積もり、管理できるようになる。
 
-- [Debug Tracing](debug-tracing.md) explores the tools and techniques available for monitoring and debugging transaction execution. Gain insights into how to identify and resolve issues within your Kaia applications, ensuring smooth operation and efficient resource utilization. This includes information on how to trace the execution flow of transactions and pinpoint potential bottlenecks or errors.
+- [デバッグ・トレース](debug-tracing.md)では、トランザクションの実行を監視し、デバッグするために利用可能なツールやテクニックを探ります。 Kaiaアプリケーションの問題を特定し解決する方法について理解を深め、スムーズな運用と効率的なリソース利用を実現します。 これには、トランザクションの実行フローをトレースし、潜在的なボトルネックやエラーを突き止める方法に関する情報も含まれる。
