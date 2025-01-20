@@ -1,6 +1,6 @@
-# Cancel
+# キャンセル
 
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+**TxTypeCancel**は、トランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。 このトランザクション・タイプは、送信されたトランザクションが一定時間未処理のように見える場合に有用である。
 
 <CH.Spotlight>
 <CH.Code>
@@ -38,20 +38,20 @@ main();
 ❯ js TxCancelType.js
 signedTx 0xe9a22708a547b5db4b1787603bdeed4b530b83ca2ba277dffba265061e675896
 receipt {
-  blockHash: '0x8d3772ae12e4ef79b22631a10d02b2b731e3b099327fd58367e3374639aed4ca',
+  blockHash：'0x8d3772ae12e4ef79b22631a10d02b2b731e3b099327fd58367e3374639aed4ca',
   blockNumber: 148742706n,
-  cumulativeGasUsed: 21000n,
+  cumulativeGasUsed：21000n,
   effectiveGasPrice: 25000000000n,
   from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
-  gasUsed: 21000n,
-  logs: [],
-  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  status: 1n,
-  to: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed：21000n,
+  logs：[],
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status：1n,
+  to：'0xa2a8854b1802d8cd5de631e690817c253d6a9153',
   transactionHash: '0xe9a22708a547b5db4b1787603bdeed4b530b83ca2ba277dffba265061e675896',
-  transactionIndex: 0n,
-  type: 0n
-}
+  transactionIndex：0n,
+  type：0n
+}.
 
 ```
 
@@ -59,7 +59,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js TxCancelType.js focus=1:2
 
@@ -67,7 +67,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender address and sender private key**
+送信者アドレスと送信者秘密鍵\*\*の定義
 
 ```js TxCancelType.js focus=4:5
 
@@ -75,7 +75,7 @@ Define **sender address and sender private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js TxCancelType.js focus=8
 
@@ -83,7 +83,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js TxCancelType.js focus=8
 const { KlaytnWeb3, TxType } = require("@kaiachain/web3js-ext");
@@ -114,7 +114,7 @@ main();
 
 ---
 
-Create a **KlaytnWeb3** instance using the provider
+プロバイダを使用して**KlaytnWeb3**インスタンスを作成する。
 
 ```js TxCancelType.js focus=9
 
@@ -122,7 +122,7 @@ Create a **KlaytnWeb3** instance using the provider
 
 ---
 
-Convert the sender's private key to an account using **web3.eth.accounts.privateKeyToAccount**
+送信者の秘密鍵を、**web3.eth.account.privateKeyToAccount**を使ってアカウントに変換する。
 
 ```js TxCancelType.js focus=10
 
@@ -130,7 +130,7 @@ Convert the sender's private key to an account using **web3.eth.accounts.private
 
 ---
 
-Define a transaction object for the Cancel transaction, params `type: TxType.Cancel` and `from: senderAddr` are required
+Cancel トランザクションのトランザクションオブジェクトを定義する：パラメータ `type: TxType.Cancel` と `from: senderAddr` は必須である。
 
 ```js TxCancelType.js focus=12:15
 
@@ -138,53 +138,53 @@ Define a transaction object for the Cancel transaction, params `type: TxType.Can
 
 ---
 
-Sign the transaction with the **sender**'s account
+送信者\*\*のアカウントで取引に署名する。
 
 <CH.Code>
-```js TxCancelType.js focus=17:18
+``js TxCancelType.js focus=17:18
 
-````
+```
 
 
 ---
 
-```zsh output
+``zsh output
 ❯ node TxCancelType.js
 signedTx 0xe9a22708a547b5db4b1787603bdeed4b530b83ca2ba277dffba265061e675896
-````
+```
 
 </CH.Code>
 
 ---
 
-Send the signed transaction to blockchain and print the **receipt**
+署名されたトランザクションをブロックチェーンに送信し、**レシート**を印刷する。
 
 <CH.Code>
-```js TxCancelType.js focus=20:21
+``js TxCancelType.js focus=20:21
 
-````
+```
 
 
 ---
 
-```zsh output
+``zsh output
 ❯ node TxCancelType.js
 receipt {
-  blockHash: '0x8d3772ae12e4ef79b22631a10d02b2b731e3b099327fd58367e3374639aed4ca',
+  blockHash: '0x8d3772ae12e4ef79b22631a10d02b2731e3b099327fd58367e3374639aed4ca',
   blockNumber: 148742706n,
-  cumulativeGasUsed: 21000n,
+  cumulativeGasUsed：21000n,
   effectiveGasPrice: 25000000000n,
   from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
-  gasUsed: 21000n,
-  logs: [],
-  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  status: 1n,
-  to: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed：21000n,
+  logs：[],
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status：1n,
+  to：'0xa2a8854b1802d8cd5de631e690817c253d6a9153',
   transactionHash: '0xe9a22708a547b5db4b1787603bdeed4b530b83ca2ba277dffba265061e675896',
-  transactionIndex: 0n,
-  type: 0n
-}
-````
+  transactionIndex：0n,
+  type：0n
+}.
+```
 
 </CH.Code>
 </CH.Spotlight>
