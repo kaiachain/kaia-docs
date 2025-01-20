@@ -1,22 +1,22 @@
-# Contract addresses
+# 契約住所
 
-This page lists the deployed addresses of notable system contracts. You can see the contract code and transactions in the [Block Explorers](../../build/tools/block-explorers).
+このページでは、注目すべきシステム契約の配備済みアドレスをリストアップしている。 契約コードとトランザクションは、[Block Explorers](../../build/tools/block-explorers)で見ることができる。
 
-Some Kaia features rely on the special smart contracts called _system contracts_. They hold critical information such as validators and staking. A Kaia node reads the storage states of system contracts as part of its block processing job. Users and developers can interact with these contracts to query information and build applications such as staking services.
+カイアのいくつかの機能は、_システムコントラクト_と呼ばれる特別なスマートコントラクトに依存している。 バリデーターやステーキングなどの重要な情報を保持している。 カイア・ノードは、ブロック処理ジョブの一環として、システム・コントラクトのストレージ状態を読み込む。 ユーザーや開発者は、これらのコントラクトとやりとりして情報を照会し、ステーキング・サービスなどのアプリケーションを構築することができる。
 
-| Contract                    | Mainnet                                                                                                 | Kairos                                                                                                  |
+| 契約                          | メインネット                                                                                                  | カイロス                                                                                                    |
 | --------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | AddressBook                 | 0x0000000000000000000000000000000000000400                                                              | 0x0000000000000000000000000000000000000400                                                              |
-| CypressCredit               | 0x0000000000000000000000000000000000000000                                                              | n/a                                                                                                     |
+| CypressCredit               | 0x0000000000000000000000000000000000000000                                                              | 該当なし                                                                                                    |
 | KIP-81 GovParam             | 0x362976Cc2Ef6751DE6bf6008e3E90e1e02deCa51                                                              | 0x84214cec245d752a9f2faf355b59ddf7f58a6edb                                                              |
 | KIP-103 TreasuryRebalance   | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95                                                              | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95                                                              |
 | KIP-160 TreasuryRebalanceV2 | 0xa4df15717Da40077C0aD528296AdBBd046579Ee9                                                              | 0x3D478E73c9dBebB72332712D7265961B1868d193                                                              |
 | KIP-149 Registry            | 0x0000000000000000000000000000000000000401                                                              | 0x0000000000000000000000000000000000000401                                                              |
 | KIP-113 SimpleBlsRegistry   | proxy 0x3e80e75975bdb8e04B800485DD28BebeC6d97679 <br/> logic 0xb5ed8d6edd437a0d6ae828580c0aef5678d87f1a | proxy 0x4BEed0651C46aE5a7CB3b7737345d2ee733789e6 <br/> logic 0x6751096fe72d835307d7e635aed51296948b93c5 |
 
-Some contracts are not directly read by Kaia nodes but play crucial roles in operating the Kaia blockchain and its ecosystem. They include treasury, governance, and KAIA token bridge contracts.
+いくつかのコントラクトはKaiaノードによって直接読み取られることはないが、Kaiaブロックチェーンとそのエコシステムの運用において重要な役割を果たしている。 これらには、財務、ガバナンス、KAIAトークンのブリッジ契約などが含まれる。
 
-| Contract                        | Mainnet                                    | Kairos                                     |
+| 契約                              | メインネット                                     | カイロス                                       |
 | ------------------------------- | ------------------------------------------ | ------------------------------------------ |
 | KIP-81 StakingTracker           | 0x9b8688d616D3D5180d29520c6a0E28582E82BF4d | 0x8Fe0f06DF2C95B8D5D9D4232405614E505Ab04C0 |
 | KIP-81 Voting                   | 0xca4ef926634a530f12e55a0aee87f195a7b22aa3 | 0x2C41DdBF0239cEaa75325D66809d0199F368188b |
