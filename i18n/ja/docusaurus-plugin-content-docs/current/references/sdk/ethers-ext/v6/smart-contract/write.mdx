@@ -1,6 +1,6 @@
-# Write
+# 書く
 
-You can make a **"transaction"** interacting with a Smart Contract when you \*\*need to update some state \*\* in the contract.
+スマートコントラクトの状態を更新する必要がある場合、スマートコントラクトと\*\*「トランザクション」\*\*を行うことができる。
 
 <CH.Spotlight>
   <CH.Code>
@@ -61,82 +61,82 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
     ❯ node smartContractWrite.js
     number before 291
     receipt {
-      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      to：'0x95Be48607498109030592C08aDC9577c7C2d505',
       from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
       contractAddress: null,
-      transactionIndex: 0,
-      gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
-      logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
-      blockHash: '0xbc6486ec825cf2388917f6c5c250af3f811bc838ea3f83382c1786d31b1eaaac',
+      transactionIndex：0,
+      gasUsed：BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      logsBloom：'0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+      blockHash：'0xbc6486ec825cf2388917f6c5c250af3f811bc838ea3f83382c1786d31b1eaaaac',
       transactionHash: '0x07c87084001218f66e260cb63c207c676eae3bb4a338b7384457f6a4fdebd5da',
-      logs: [
+      logs：[
         {
-          transactionIndex: 0,
+          transactionIndex：0,
           blockNumber: 148740640,
           transactionHash: '0x07c87084001218f66e260cb63c207c676eae3bb4a338b7384457f6a4fdebd5da',
-          address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
-          topics: [Array],
-          data: '0x0000000000000000000000000000000000000000000000000000000000000124',
-          logIndex: 0,
+          address：'0x95Be48607498109030592C08aDC9577c7C2dD505',
+          topics：[Array],
+          data：'0x0000000000000000000000000124',
+          logIndex：0,
           blockHash: '0xbc6486ec825cf2388917f6c5c250af3f811bc838ea3f83382c1786d31b1eaaac'
-        }
+        }.
       ],
       blockNumber: 148740640,
-      confirmations: 1,
-      cumulativeGasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
-      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-      status: 1,
+      confirmations：1,
+      cumulativeGasUsed：BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status：1,
       type: 2,
       byzantium: true,
-      events: [
+      events：[
         {
-          transactionIndex: 0,
+          transactionIndex：0,
           blockNumber: 148740640,
           transactionHash: '0x07c87084001218f66e260cb63c207c676eae3bb4a338b7384457f6a4fdebd5da',
-          address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
-          topics: [Array],
-          data: '0x0000000000000000000000000000000000000000000000000000000000000124',
-          logIndex: 0,
+          address：'0x95Be48607498109030592C08aDC9577c7C2dD505',
+          topics：[Array],
+          data：'0x0000000000000000000000000124',
+          logIndex：0,
           blockHash: '0xbc6486ec825cf2388917f6c5c250af3f811bc838ea3f83382c1786d31b1eaaac',
           args: [Array],
-          decode: [Function (anonymous)],
-          event: 'SetNumber',
+          decode：[Function (anonymous)],
+          event：'SetNumber',
           eventSignature: 'SetNumber(uint256)',
-          removeListener: [Function (anonymous)],
-          getBlock: [Function (anonymous)],
-          getTransaction: [Function (anonymous)],
-          getTransactionReceipt: [Function (anonymous)]
-        }
+          removeListener：[Function (anonymous)],
+          getBlock：[Function (anonymous)],
+          getTransaction：[Function (anonymous)],
+          getTransactionReceipt：[Function (anonymous)]
+        }.
       ]
     }
-    number after 292
+    292以降の番号
     ```
   </CH.Code>
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+  ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと\*\*@kaiachain/ethers-ext\*\*モジュールをインポートします。
 
   ```js smartContractWrite.js focus=1:2
   ```
 
   ---
 
-  Define **sender address** and **private key**
+  送信者アドレス**と**秘密鍵\*\*の定義
 
   ```js smartContractWrite.js focus=4:5
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js smartContractWrite.js focus=7
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js smartContractWrite.js focus=7
   const ethers = require("ethers");
@@ -191,35 +191,35 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
 
   ---
 
-  create a wallet from sender **private key** and **web3 provider**
+  送信者の**秘密鍵**と**web3プロバイダー**からウォレットを作成する。
 
   ```js smartContractWrite.js focus=8
   ```
 
   ---
 
-  Set the **Abi** generated from solidity code
+  solidityコードから生成された**Abi**を設定する。
 
   ```js smartContractWrite.js focus=33
   ```
 
   ---
 
-  Define **contract address** to interact with
+  相互作用する**契約アドレス**を定義する
 
   ```js smartContractWrite.js focus=34
   ```
 
   ---
 
-  Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+  Ethers.Contract\*\*で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
   ```js smartContractWrite.js focus=37
   ```
 
   ---
 
-  Get the **number** value before updated by using method **counter.number()**
+  counter.number()**メソッドで更新前の**number\*\*値を取得する。
 
   <CH.Code>
     ```js smartContractWrite.js focus=39
@@ -235,14 +235,14 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
 
   ---
 
-  Create a transaction data to update the **number** value
+  番号\*\*の値を更新するためのトランザクションデータを作成する。
 
   ```js smartContractWrite.js focus=41
   ```
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
   <CH.Code>
     ```js smartContractWrite.js focus=42:43
@@ -253,52 +253,52 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
     ```zsh output
     ❯ node smartContractWrite.js
     receipt {
-      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      to：'0x95Be48607498109030592C08aDC9577c7C2d505',
       from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
       contractAddress: null,
-      transactionIndex: 2,
-      gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
-      logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
-      blockHash: '0xc17dbcfb8c5582dc0646a01138fda179ee05a1134e167dfd5edafe46977f008a',
+      transactionIndex：2,
+      gasUsed：BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      logsBloom：'0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+      blockHash：'0xc17dbcfb8c5582dc0646a01138fda179ee05a1134e167dfd5edafe46977f008a',
       transactionHash: '0x3bc3042d157a877af42b9a4a60a719e9523f1c901c4aefa3c6ded12f946f7317',
-      logs: [
+      logs：[
         {
-          transactionIndex: 2,
+          transactionIndex：2,
           blockNumber: 146819181,
           transactionHash: '0x3bc3042d157a877af42b9a4a60a719e9523f1c901c4aefa3c6ded12f946f7317',
-          address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
-          topics: [Array],
-          data: '0x0000000000000000000000000000000000000000000000000000000000000126',
-          logIndex: 0,
+          address：'0x95Be48607498109030592C08aDC9577c7C2dD505',
+          topics：[Array],
+          data：'0x0000000000000000000000000126',
+          logIndex：0,
           blockHash: '0xc17dbcfb8c5582dc0646a01138fda179ee05a1134e167dfd5edafe46977f008a'
-        }
+        }.
       ],
       blockNumber: 146819181,
-      confirmations: 8,
-      cumulativeGasUsed: BigNumber { _hex: '0x026fa8', _isBigNumber: true },
-      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-      status: 1,
+      confirmations：8,
+      cumulativeGasUsed：BigNumber { _hex: '0x026fa8', _isBigNumber: true },
+      effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      ステータス：1,
       type: 2,
       byzantium: true,
-      events: [
+      events：[
         {
-          transactionIndex: 2,
+          transactionIndex：2,
           blockNumber: 146819181,
           transactionHash: '0x3bc3042d157a877af42b9a4a60a719e9523f1c901c4aefa3c6ded12f946f7317',
-          address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
-          topics: [Array],
-          data: '0x0000000000000000000000000000000000000000000000000000000000000126',
-          logIndex: 0,
+          address：'0x95Be48607498109030592C08aDC9577c7C2dD505',
+          topics：[Array],
+          data：'0x0000000000000000000000000126',
+          logIndex：0,
           blockHash: '0xc17dbcfb8c5582dc0646a01138fda179ee05a1134e167dfd5edafe46977f008a',
           args: [Array],
-          decode: [Function (anonymous)],
-          event: 'SetNumber',
+          decode：[関数（匿名）],
+          event：'SetNumber',
           eventSignature: 'SetNumber(uint256)',
-          removeListener: [Function (anonymous)],
-          getBlock: [Function (anonymous)],
-          getTransaction: [Function (anonymous)],
-          getTransactionReceipt: [Function (anonymous)]
-        }
+          removeListener：[Function (anonymous)],
+          getBlock：[Function (anonymous)],
+          getTransaction：[Function (anonymous)],
+          getTransactionReceipt：[Function (anonymous)]
+        }.
       ]
     }
     ```
@@ -306,7 +306,7 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
 
   ---
 
-  Get the updated value **number** by using method **counter.number()**
+  メソッド**counter.number()**で更新値**number**を取得する。
 
   <CH.Code>
     ```js smartContractWrite.js focus=45
@@ -316,7 +316,7 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
 
     ```zsh output
     ❯ node smartContractWrite.js
-    number after 294
+    294 以降の番号
     ```
   </CH.Code>
 </CH.Spotlight>
