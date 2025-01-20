@@ -12,7 +12,7 @@ Since Klaytn aims to maintain 1-second block time, the execution time of transac
 
 最後のアプローチは、トランザクションの計算コストを制限することである。 各EVMオペコードの計算コストを実際の実行時間に基づいてモデル化し、トランザクションの計算コストの合計を制限した。 このアプローチでは、他の要因を排除し、正規化された実行時間単位のみをカウントし、ノードは同様にコンセンサスを得ることができる。
 
-Therefore, we chose the third option for Klaytn. 計算コストの上限は100,000,000だったが、CPUの計算性能が向上したため、Cancun EVMのハードフォーク後は上限が150,000,000に引き上げられた。 この制限値はプラットフォームによって決定されるので、開発者はトランザクションの計算コストに注意すべきである。 To calculate the computation cost of a transaction, Kaia provides [kaia_estimateComputationCost](../../../references/json-rpc/kaia/estimate-computation-cost). The usage is almost the same as [kaia_estimateGas](../../../references/json-rpc/kaia/estimate-gas).
+Therefore, we chose the third option for Klaytn. 計算コストの上限は100,000,000だったが、CPUの計算性能が向上したため、Cancun EVMのハードフォーク後は上限が150,000,000に引き上げられた。 この制限値はプラットフォームによって決定されるので、開発者はトランザクションの計算コストに注意すべきである。 トランザクションの計算コストを計算するために、カイアは[kaia_estimateComputationCost](../../../references/json-rpc/kaia/estimate-computation-cost)を提供する。 使い方は[kaia_estimateGas](../../../references/json-rpc/kaia/estimate-gas)とほぼ同じ。
 
 :::note
 
@@ -24,7 +24,7 @@ Therefore, we chose the third option for Klaytn. 計算コストの上限は100,
 
 トランザクションの実行時には、一連のオペコードまたはコンパイル済みのコントラクトが順次実行される。 トランザクションの実行時間を制限するために、実実行時間に基づくオペコードとコンパイル済みコントラクトの決定論的実行時間計算モデルを作成した。
 
-このモデルに基づいて、オペコードとプリコンパイル・コントラクトに対する所定の計算コスト値が総計算コストに加算される。 If the total value exceeds computation cost limit, transaction execution is aborted and returns [ComputationCostLimitReached(0x0a)](../../references/transaction-error-codes.md) error.
+このモデルに基づいて、オペコードとプリコンパイル・コントラクトに対する所定の計算コスト値が総計算コストに加算される。 合計値が計算コスト制限を超えた場合、トランザクションの実行は中断され、[ComputationCostLimitReached(0x0a)](../../references/transaction-error-codes.md) エラーが返される。
 
 計算コストの制限値を設定する際、`--opcode-computation-cost-limit`フラグの値が0以外であれば制限値として設定する。 ゼロの場合、各ハードフォークに定義されたデフォルトの計算コスト制限に設定される。
 例外的に、call/estimateGas/estimateComputationCostの上限は常に無制限に設定され、フラグやハードフォーク値の影響を受けない。 ただし、ガスキャップのような他の制限により、実行が中断されることはある。
