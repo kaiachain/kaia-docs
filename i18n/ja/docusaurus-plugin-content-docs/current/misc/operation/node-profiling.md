@@ -145,7 +145,7 @@ go tool pprof -text cpu.profile
   - **バイナリ形式（デフォルト）：** `N = 0`
   - **プレーンテキスト形式：** `N > 0`
 
-  \*\*例
+  **例**
 
 ```bash
 go tool pprof http://localhost:6060/debug/pprof/allocs?debug=1
@@ -155,7 +155,7 @@ go tool pprof http://localhost:6060/debug/pprof/allocs?debug=1
 
   - **Run GC Before Profiling:** `gc=1` を設定すると、ヒープ・プロファイルをキャプチャする前にガベージ・コレクション・サイクルが実行される。
 
-  \*\*例
+  **例**
 
 ```bash
 go tool pprof http://localhost:6060/debug/pprof/heap?gc=1
@@ -171,7 +171,7 @@ go tool pprof http://localhost:6060/debug/pprof/heap?gc=1
 
     - seconds=N\`は、CPUプロファイルまたはトレースを実行する時間を指定する。
 
-  \*\*例
+  **例**
 
 ```bash
 go tool pprof http://localhost:6060/debug/pprof/profile?seconds=30
