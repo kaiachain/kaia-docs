@@ -1,5 +1,5 @@
 ---
-id: カイアセーフアピキット
+id: kaia-safe-api-kit
 title: カイアセーフAPI-Kit
 ---
 
