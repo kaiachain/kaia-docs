@@ -63,14 +63,14 @@ public class SignMsgWithMultiSigExample implements keySample {
                 KlayRecoverFromMessageResponse response3 = web3j
                                 .klayRecoverFromMessage(from, message, result3, blockNumber)
                                 .send();
-                System.out.println("元のアドレス : " + from);
-                System.out.println("キー1の結果アドレス : " + response1.getResult());
-                System.out.println("キー2の結果アドレス ：" + response2.getResult());
+                System.out.println("Original address : " + from);
+                System.out.println("Result address for key 1 : " + response1.getResult());
+                System.out.println("Result address for key 2 : " + response2.getResult());
                 System.out.println("Result address for key 3 : " + response3.getResult());
 
                 web3j.shutdown();
 
-        }.
+        }
 
 }
 ```
@@ -161,14 +161,14 @@ public class SignMsgWithMultiSigExample implements keySample {
                 KlayRecoverFromMessageResponse response3 = web3j
                                 .klayRecoverFromMessage(from, message, result3, blockNumber)
                                 .send();
-                System.out.println("元のアドレス : " + from);
-                System.out.println("キー1の結果アドレス : " + response1.getResult());
-                System.out.println("キー2の結果アドレス ：" + response2.getResult());
+                System.out.println("Original address : " + from);
+                System.out.println("Result address for key 1 : " + response1.getResult());
+                System.out.println("Result address for key 2 : " + response2.getResult());
                 System.out.println("Result address for key 3 : " + response3.getResult());
 
                 web3j.shutdown();
 
-        }.
+        }
 
 }
 ```
