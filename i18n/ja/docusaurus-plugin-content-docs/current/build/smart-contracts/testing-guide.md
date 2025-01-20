@@ -170,21 +170,21 @@ Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory.\\
 テストコードはこうだ：
 
 ```javascript
-// Interacting directly with KlaytnGreeter contract
-const KlaytnGreeter = artifacts.require("./KlaytnGreeter.sol");
+// Interacting directly with KaiaGreeter contract
+const KaiaGreeter = artifacts.require("./KaiaGreeter.sol");
 const truffleAssert = require('truffle-assertions');
 
-contract("KlaytnGreeter", async(accounts) => {
+contract("KaiaGreeter", async(accounts) => {
     // store the contract instance at a higher level 
     // to enable access from all functions.
     var klaytnGreeterInstance;
     var owner = accounts[0];
-    var greetMsg = "Hello, Klaytn";
+    var greetMsg = "Hello, Kaia";
 
     // This will run before each test proceed.
     before(async function() {
         // set contract instance into a variable
-        klaytnGreeterInstance = await KlaytnGreeter.new(greetMsg, {from:owner});
+        klaytnGreeterInstance = await KaiaGreeter.new(greetMsg, {from:owner});
     })
 
     it("#1 check Greeting message", async function() {
@@ -196,7 +196,7 @@ contract("KlaytnGreeter", async(accounts) => {
     })
 
     it("#2 update greeting message.", async function() {
-        var newGreeting = "Hi, Klaytn";
+        var newGreeting = "Hi, Kaia";
         
         await klaytnGreeterInstance.setGreet(newGreeting, { from:owner });
         var greet = await klaytnGreeterInstance.greet();
