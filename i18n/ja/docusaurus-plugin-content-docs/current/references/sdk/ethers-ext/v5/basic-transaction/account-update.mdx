@@ -144,14 +144,14 @@ main();
 新しい秘密鍵から**公開鍵**を計算する。
 
 <CH.Code>
-``js TxTypeAccountUpdate.js focus=14:15
+```js TxTypeAccountUpdate.js focus=14:15
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
-```
+````
 
 </CH.Code>
 
@@ -168,7 +168,7 @@ pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
 ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
-``js TxTypeAccountUpdate.js focus=26:27
+```js TxTypeAccountUpdate.js focus=26:27
 
 ````
 ---
@@ -184,7 +184,7 @@ sentTx 0xb803b60ec33633910e4a4d2238c1d1acf1fcca4123b78c2bd252d6c0c1416ca0
 wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
 <CH.Code>
-``js TxTypeAccountUpdate.js focus=29:30
+```js TxTypeAccountUpdate.js focus=29:30
 
 ````
 ---
