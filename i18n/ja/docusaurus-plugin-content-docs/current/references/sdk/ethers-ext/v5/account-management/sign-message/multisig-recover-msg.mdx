@@ -138,19 +138,19 @@ main().catch(console.error);
 送信者の**wallet3**でメッセージに署名する。
 
 <CH.Code>
-``js SignMsgWithMultiSigExample.js focus=18:20
+```js SignMsgWithMultiSigExample.js focus=18:20
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 {
   senderAddr: '0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e',
   msg: 'hello',
   msghex: '0x68656c6c6f',
-  sig：'0x4bb3156dfd3349b974222b9ed754a3835802d920b63e8c07f41a75a174ce99d92a70d62e7a4b30d18599de61a882c59c0fd726883e3ce9955f8d5f60ce5b65211c'
+  sig: '0x4bb3156dfd3349b974222b9ed754a3835802d920b63e8c07f41a75a174ce99d92a70d62e7a4b30d18599de61a882c59c0fd726883e3ce9955f8d5f60ce5b65211c'
 }
-```
+````
 
 </CH.Code>
 
@@ -161,12 +161,12 @@ ethers.utils.verifyMessage\`を使用して署名されたメッセージから�
 <CH.Code>
 ```js SignMsgWithMultiSigExample.js focus=22:23
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 recoveredAddr lib 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b true
-```
+````
 
 </CH.Code>
 
@@ -177,11 +177,11 @@ klay_recoverFromMessage\` を使って署名されたメッセージからアド
 <CH.Code>
 ```js SignMsgWithMultiSigExample.js focus=25:26
 
-```
+````
 ---
-``zsh output
+```zsh output
 recoveredAddr rpc 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b true
-```
+````
 
 </CH.Code>
 </CH.Spotlight>
