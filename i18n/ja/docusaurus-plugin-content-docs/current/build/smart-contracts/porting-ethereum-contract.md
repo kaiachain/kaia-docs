@@ -28,7 +28,7 @@ Backward compatibility is not guaranteed with other EVM versions on Klaytn.
 - Baobab: --evm-version london
 - その他（プライベート／サービスチェーン）：プロトコルのアップグレード状況に応じて決定
 
-solcのEVMバージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)をご参照ください。
+[solcのEVMバージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)をご参照ください。
 
 コマンドの例を以下に示す：
 
