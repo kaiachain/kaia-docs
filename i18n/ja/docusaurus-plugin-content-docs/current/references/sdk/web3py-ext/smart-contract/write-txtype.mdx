@@ -158,13 +158,13 @@ contract_interaction_with_klaytn_type()
 コントラクトのビュー関数を呼び出し、更新される前に結果を**印刷**する。
 
 <CH.Code>
-``py contract_interaction_with_kaia_type.py focus=20:21
+```py contract_interaction_with_kaia_type.py focus=20:21
 
-```
+````
 ---
-``zsh output
-number before: 295
-```
+```zsh output
+number before:  295
+````
 
 </CH.Code>
 
@@ -213,13 +213,13 @@ fill_transaction**を使用して、**gas limit**、**Nonce**などのトラン�
 ブロックチェーンからの**受信**を待ち、受信後**印刷**する。
 
 <CH.Code>
-``py contract_interaction_with_kaia_type.py focus=31
+```py contract_interaction_with_kaia_type.py focus=31
 
-```
+````
 ---
-``zsh output
-受け取る：  AttributeDict({'blockHash'：HexBytes('0xe12ce22f39c5104ceae275bd326e6aef8378ca4cf750bec87d28f5bc8416c09b'), 'blockNumber':147325275, 'contractAddress'：None, 'cumulativeGasUsed'：497423, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 28014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2d505', 'topics'：[HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000128'), 'blockNumber':147325275, 'transactionHash'：HexBytes('0x1eff7f363dc48eb91fe825939097ee8795f4a080339a9173cfdba444de69e61e'), 'transactionIndex':3, 'blockHash'：HexBytes('0xe12ce22f39c5104ceae275bd326e6aef8378ca4cf750bec87d28f5bc8416c09b'), 'logIndex':9, 'removed'：False})], 'logsBloom'：HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'),'status'：1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash'：HexBytes('0x1eff7f363dc48eb91fe825939097ee8795f4a080339a9173cfdba444de69e61e'), 'transactionIndex':3, 'type': 0})
-```
+```zsh output
+receipt:  AttributeDict({'blockHash': HexBytes('0xe12ce22f39c5104ceae275bd326e6aef8378ca4cf750bec87d28f5bc8416c09b'), 'blockNumber': 147325275, 'contractAddress': None, 'cumulativeGasUsed': 497423, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 28014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'topics': [HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000128'), 'blockNumber': 147325275, 'transactionHash': HexBytes('0x1eff7f363dc48eb91fe825939097ee8795f4a080339a9173cfdba444de69e61e'), 'transactionIndex': 3, 'blockHash': HexBytes('0xe12ce22f39c5104ceae275bd326e6aef8378ca4cf750bec87d28f5bc8416c09b'), 'logIndex': 9, 'removed': False})], 'logsBloom': HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'), 'status': 1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash': HexBytes('0x1eff7f363dc48eb91fe825939097ee8795f4a080339a9173cfdba444de69e61e'), 'transactionIndex': 3, 'type': 0})
+````
 
 </CH.Code>
 
@@ -228,13 +228,13 @@ fill_transaction**を使用して、**gas limit**、**Nonce**などのトラン�
 Txの後にカウンタが何番\*\*かを見るために、もう一度ビュー関数を呼び出す。
 
 <CH.Code>
-``py contract_interaction_with_kaia_type.py focus=33:34
+```py contract_interaction_with_kaia_type.py focus=33:34
 
-```
+````
 ---
-``zsh output
-number before: 296
-```
+```zsh output
+number before:  296
+````
 
 </CH.Code>
 
