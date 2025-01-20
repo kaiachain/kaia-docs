@@ -124,17 +124,17 @@ main().catch(console.error);
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=13:15
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 {
   senderAddr: '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7',
   msg: 'hello',
   msghex: '0x68656c6c6f',
-  sig：'0xcf6792ecd73ccc5efc1612f461bffa699e824a4ed64ec1073709c9d6b8c6daf608060326371544811e2015398f7e48ad839e1f3c551e8cb7c3c82f10d226bd671b'
+  sig: '0xcf6792ecd73ccc5efc1612f461bffa699e824a4ed64ec1073709c9d6b8c6daf608060326371544811e2015398f7e48ad839e1f3c551e8cb7c3c82f10d226bd671b'
 }
-```
+````
 
 </CH.Code>
 
@@ -145,12 +145,12 @@ ethers.utils.verifyMessage\`を使用して署名されたメッセージから�
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=17:18
 
-```
+````
 
 ---
-``zsh output
+```zsh output
 recoveredAddr lib 0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7 true
-```
+````
 
 </CH.Code>
 
@@ -161,11 +161,11 @@ klay_recoverFromMessage\` を使って署名されたメッセージからアド
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=20:21
 
-```
+````
 ---
-``zsh output
+```zsh output
 recoveredAddr rpc 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7 true
-```
+````
 
 </CH.Code>
 </CH.Spotlight>
