@@ -225,18 +225,18 @@ fill_transaction\*\*を使用して、トランザクション・オブジェク
 ユーザーの秘密鍵で**cancel tx**に署名する。
 
 <CH.Code>
-``py web3_fee_delegated_cancel_sign_recover.py focus=24:26
+```py web3_fee_delegated_cancel_sign_recover.py focus=24:26
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
-署名済み tx の raw トランザクション：0x39f86b8203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec21
+raw transaction of signed tx: 0x39f86b8203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec21
 
-```
+````
 
 </CH.Code>
 
@@ -245,15 +245,15 @@ fill_transaction\*\*を使用して、トランザクション・オブジェク
 署名されたTxの署名から**署名者のアドレス**を復元する。
 
 <CH.Code>
-``py web3_fee_delegated_cancel_sign_recover.py focus=28:29
+```py web3_fee_delegated_cancel_sign_recover.py focus=28:29
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
-回復した送信者アドレス 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
-```
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+````
 
 </CH.Code>
 
@@ -262,31 +262,31 @@ fill_transaction\*\*を使用して、トランザクション・オブジェク
 RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 <CH.Code>
-``py web3_fee_delegated_cancel_sign_recover.py focus=31:32
+```py web3_fee_delegated_cancel_sign_recover.py focus=31:32
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
-デコードされたトランザクション：{
-  "type"：57,
-  "nonce"：931,
-  "gasPrice"：50000000000,
-  "gas"：159000,
-  "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-  "signatures"：[
+decoded transaction: {
+  "type": 57,
+  "nonce": 931,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "signatures": [
     {
-      "v"：2037,
-      "r"：6749929892576958642714739615979538685230067780127794094925331144130783330367,
-      "s"：3116598222383802394999638931088885558560578183897443089888519072063383661601
-    }.
+      "v": 2037,
+      "r": 6749929892576958642714739615979538685230067780127794094925331144130783330367,
+      "s": 3116598222383802394999638931088885558560578183897443089888519072063383661601
+    }
   ],
-  "chainId"：1001
-}.
-```
+  "chainId": 1001
+}
+````
 
 </CH.Code>
 
@@ -295,18 +295,18 @@ RLPエンコードされたtxは**Account.decode_transaction**ユーティリテ
 手数料デリゲータのアカウントで生トランザクションに署名する。
 
 <CH.Code>
-``py web3_fee_delegated_cancel_sign_recover.py focus=34:35
+```py web3_fee_delegated_cancel_sign_recover.py focus=34:35
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
-feePayer が署名した tx の raw トランザクション：0x39f8c98203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec2194cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f6a06697d97df68a0c4a2c59b3d7a8c5c479a6b43e7a34394518b858ef908d10b76aa0492c8da32c77a71ce26650f9ac842496bb33f0f17877ce1b23e1763b7c87e28d
+raw transaction of feePayer signed tx: 0x39f8c98203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec2194cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f6a06697d97df68a0c4a2c59b3d7a8c5c479a6b43e7a34394518b858ef908d10b76aa0492c8da32c77a71ce26650f9ac842496bb33f0f17877ce1b23e1763b7c87e28d
 
-```
+````
 
 </CH.Code>
 
@@ -315,18 +315,18 @@ feePayer が署名した tx の raw トランザクション：0x39f8c98203a3850
 署名されたトランザクションから料金支払者の住所を復元する。
 
 <CH.Code>
-``py web3_fee_delegated_cancel_sign_recover.py focus=37:38
+```py web3_fee_delegated_cancel_sign_recover.py focus=37:38
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
-feepayer アドレスを回復しました：['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
 
-```
+````
 
 </CH.Code>
 
@@ -335,39 +335,39 @@ feepayer アドレスを回復しました：['0xCb0eb737dfda52756495A5e08A9b37A
 RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 <CH.Code>
-``py web3_fee_delegated_cancel_sign_recover.py focus=40:41
+```py web3_fee_delegated_cancel_sign_recover.py focus=40:41
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
-デコードされたトランザクション：{
-  "type"：57,
-  "nonce"：931,
-  "gasPrice"：50000000000,
-  "gas"：159000,
-  "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-  "feePayer"："0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
-  "signatures"：[
+decoded transaction: {
+  "type": 57,
+  "nonce": 931,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "feePayer": "0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
+  "signatures": [
     {
-      "v"：2037,
-      "r"：6749929892576958642714739615979538685230067780127794094925331144130783330367,
-      "s"：3116598222383802394999638931088885558560578183897443089888519072063383661601
-    }.
+      "v": 2037,
+      "r": 6749929892576958642714739615979538685230067780127794094925331144130783330367,
+      "s": 3116598222383802394999638931088885558560578183897443089888519072063383661601
+    }
   ],
-  "feePayerSignatures"：[
+  "feePayerSignatures": [
     {
-      "v"：2038,
-      "r"：46404205537188908000560167654303187399733564148219565625489961916532872230762,
-      "s"：33097556762817862610763009383178378013466927896867683158585566455859245474445
-    }.
+      "v": 2038,
+      "r": 46404205537188908000560167654303187399733564148219565625489961916532872230762,
+      "s": 33097556762817862610763009383178378013466927896867683158585566455859245474445
+    }
   ],
-  "chainId"：1001
-}.
-```
+  "chainId": 1001
+}
+````
 
 </CH.Code>
 
