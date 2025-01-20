@@ -6,7 +6,7 @@
 
 [Solidity](https://github.com/ethereum/solidity) は、イーサリアムプラットフォーム上でスマートコントラクトを実装するための、高レベルの静的型付けされたコントラクト指向言語です。 Although Solidity was originally designed for Ethereum, it is general enough to write smart contracts; therefore, it can also be used for other blockchain platforms, such as Klaytn.
 
-Klaytn is officially compatible with **London** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. したがって、Istanbul ターゲットオプションを使用して Solidity コードをコンパイルすることを強く推奨します。 solcのEVMバージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)をご参照ください。
+Klaytn is officially compatible with **London** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. したがって、Istanbul ターゲットオプションを使用して Solidity コードをコンパイルすることを強く推奨します。 [solcのEVMバージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)をご参照ください。
 
 :::note
 
