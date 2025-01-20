@@ -177,19 +177,19 @@ web3.eth.account.privateKeyToAccount\`を使用して、秘密鍵で**料金支�
 getPublicKeyFromPrivate\`を使用して、**新しい秘密鍵**から**公開鍵**を生成する。
 
 <CH.Code>
-``js TxTypeFeeDelegatedAccountUpdate.js focus=17:18
+```js TxTypeFeeDelegatedAccountUpdate.js focus=17:18
 
-```
+````
 
 
 ---
 
-``zsh output
-↪Node TxTypeFeeDelegatedAccountUpdate.js
+```zsh output
+❯ node TxTypeFeeDelegatedAccountUpdate.js
 {
   publicKey: '0x02dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8'
 }
-```
+````
 
 </CH.Code>
 
@@ -225,17 +225,17 @@ senderTxHashRLP0x21f88d0c850ba43b7400830205949430908464d76604420162a6c880c0e1c7e
 signTransactionAsFeePayer\`を使用してトランザクションに署名するには、**fee payer**アカウントを使用する。
 
 <CH.Code>
-``js TxTypeFeeDelegatedAccountUpdate.js focus=33:35
+```js TxTypeFeeDelegatedAccountUpdate.js focus=33:35
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ node TxTypeFeeDelegatedAccountUpdate.js
 signedTx 0xbf72aae23989ca58eabfca9bd84b1ad9d60354e22b55102f5f5d4af18725a58e
-```
+````
 
 </CH.Code>
 
@@ -244,7 +244,7 @@ signedTx 0xbf72aae23989ca58eabfca9bd84b1ad9d60354e22b55102f5f5d4af18725a58e
 web3.eth.sendSignedTransaction\`でブロックチェーンに署名付きトランザクションを送信する。 取引レシートを返します。
 
 <CH.Code>
-``js TxTypeFeeDelegatedAccountUpdate.js focus=37:38
+```js TxTypeFeeDelegatedAccountUpdate.js focus=37:38
 
 ````
 
