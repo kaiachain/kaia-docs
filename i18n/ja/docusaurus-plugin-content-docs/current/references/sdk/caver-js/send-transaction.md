@@ -68,22 +68,22 @@ git repository:
 keywords: 
 author: 
 license: (ISC) 
-/Users/terri.k/test/package.json への書き込みについて:
+About to write to /Users/terri.k/test/package.json:
 
 {
-  "name"："test",
-  "version"："1.0.0",
-  "description"："",
-  "main"："index.js",
-  "scripts"：{
-    "test"："echo \"Error: no test specified\" && exit 1"
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author"："",
-  "license"："ISC"
-}.
+  "author": "",
+  "license": "ISC"
+}
 
 
-これでOKですか？
+Is this OK? (yes)
 ```
 
 あるいは、`enter`を押すのを省略するために、以下のコマンドを入力することもできる：
