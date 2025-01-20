@@ -242,17 +242,17 @@ Web3.eth.Contract\`を使用して、**contractAbi**と**address**を定義し�
 更新前の**number**の値を取得する。
 
 <CH.Code>
-``js smartContractWriteFeeDelegated.js focus=43
+```js smartContractWriteFeeDelegated.js focus=43
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractWriteFeeDelegated.js
 number before 296
-```
+````
 
 </CH.Code>
 
@@ -277,15 +277,15 @@ contract.methods.increment().encodeABI()\`でコントラクト・メソッド�
 signTransaction\`を使って**sender**アカウントでトランザクションに署名する。
 
 <CH.Code>
-``js smartContractWriteFeeDelegated.js focus=53:55
+```js smartContractWriteFeeDelegated.js focus=53:55
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractWriteFeeDelegated.js
-senderTxHashRLP0x31f8844c850ba43b7400830111939495be48607498109030592c08adc9577c7c2dd505809424e8efd18d65bcb6b3ba15a4698c0b0d69d13ff784d09de08af847f8458207f6a03a9ade9fb5c2e4e513c56341ab64ad0a70613d826479f2117b53d3b57cee5021a07612c8538ee5b895f44b50858164dd67da473e264c29d331437273e581652eea
-```
+senderTxHashRLP 0x31f8844c850ba43b7400830111939495be48607498109030592c08adc9577c7c2dd505809424e8efd18d65bcb6b3ba15a4698c0b0d69d13ff784d09de08af847f8458207f6a03a9ade9fb5c2e4e513c56341ab64ad0a70613d826479f2117b53d3b57cee5021a07612c8538ee5b895f44b50858164dd67da473e264c29d331437273e581652eea
+````
 
 </CH.Code>
 
@@ -294,15 +294,15 @@ senderTxHashRLP0x31f8844c850ba43b7400830111939495be48607498109030592c08adc9577c7
 signTransactionAsFeePayer\`を使用して、**fee payer**アカウントでトランザクションに署名する。
 
 <CH.Code>
-``js smartContractWriteFeeDelegated.js focus=57:59
+```js smartContractWriteFeeDelegated.js focus=57:59
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractWriteFeeDelegated.js
 signedTx 0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f
-```
+````
 
 </CH.Code>
 
@@ -311,7 +311,7 @@ signedTx 0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f
 トランザクションをブロックチェーンに送信する。 取引レシートを返します。
 
 <CH.Code>
-``js smartContractWriteFeeDelegated.js focus=61:62
+```js smartContractWriteFeeDelegated.js focus=61:62
 
 ````
 ---
@@ -354,15 +354,15 @@ receipt {
 number\*\*の更新値を取得する。
 
 <CH.Code>
-``js smartContractWriteFeeDelegated.js focus=64
+```js smartContractWriteFeeDelegated.js focus=64
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractWriteFeeDelegated.js
-297以降の番号
-```
+number after 297
+````
 
 </CH.Code>
 </CH.Spotlight>
