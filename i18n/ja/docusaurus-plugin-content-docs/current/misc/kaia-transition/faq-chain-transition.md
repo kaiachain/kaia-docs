@@ -9,8 +9,8 @@
 このFAQは、CEX、ノードプロバイダー、ウォレットプロバイダー、dAppビルダー、およびKlaytnエコシステムに精通したリテールユーザーに対する一般的な質問や懸念に対応し、円滑な移行を保証するものです。
 
 - KLAYおよびFNSAホルダー
-  - [クレイトンとフィンシャに何が起こったのか】(#what-happened-to-klaytn-and-finschia-)
-  - [KLAYとFNSAはどうなるのか】(#what-happens-to-klay-and-fnsa-)
+  - [クレイトンとフィンシャに何が起こったのか](#what-happened-to-klaytn-and-finschia-)
+  - [KLAYとFNSAはどうなるのか](#what-happens-to-klay-and-fnsa-)
   - [カイアのために新しい財布を作る必要があるのでしょうか](#will-i-need-to-create-a-new-wallet-for-kaia-)
   - [Klaytnは新しいKAIAトークンのためのスワップまたは移行ウェブサイトを提供しますか](#will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-)
   - [KAIAトークンの受け取りが遅れることはありますか](#will-there-be-any-delay-in-receiving-kaia-tokens-)
@@ -21,7 +21,7 @@
 - アプリビルダー
   - [Klaytn上のDAppsがKaiaに移行するためには何が必要か](#what-do-dapps-on-klaytn-need-to-do-to-migrate-to-kaia-)
   - [Finschia上のDAppがKaiaに移行するためには何が必要か](#what-do-dapps-on-finschia-need-to-do-to-migrate-to-kaia-)
-  - [カイア財団はクレイトン財団のようにコード監査助成金を提供し続けるのか】(#will-kaia-foundation-continue-to-provide-code-audit-grants-as-klaytn-foundation-did-)
+  - [カイア財団はクレイトン財団のようにコード監査助成金を提供し続けるのか](#will-kaia-foundation-continue-to-provide-code-audit-grants-as-klaytn-foundation-did-)
 
 - ウォレットプロバイダー
   - [財布の中のブランド名をKlaytnからKaiaに更新する必要がありますか？](#is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-)
@@ -32,7 +32,7 @@
   - [KAIAはKLAYのリブランドなのか、それとも全く新しいトークンなのか](#is-kaia-a-rebrand-from-klay-or-a-completely-new-token-)
   - [カイアはクレイトンのメインネットにいるのか、それとも別のメインネットにいるのか](#will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-)
   - [現在のKlaytnメインネットはリブランド後も機能し続けるのか](#will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-)
-  - [KAIA市場はいつオープンするのか】(#when-will-the-kaia-market-open-)
+  - [KAIA市場はいつオープンするのか](#when-will-the-kaia-market-open-)
   - \#where-can-i-find-kaias-whitepaper-[カイアのホワイトペーパーはどこで入手できますか？
 
 - RPCノード・プロバイダ
@@ -107,7 +107,7 @@ Klaytnscopeはこれまで通り機能し、3ヶ月後にアップグレード�
 
 KAIAはKLAYのリブランドである。 KLAYは新しい名称とティッカーシンボルで引き続き使用される。 可能であれば、トークン表を更新することをお勧めします。
 
-KlaytnチェーンとFinschiaチェーンの合併により、総供給量と流通量が変更された。 流通供給量は約38億400万KAIAから58億500万KAIAに増加し、総供給量は約60億500万KAIAから58億500万KAIAに減少した。 これらの数字は、インフレが進行しているため、現在の流通量と総供給量を反映していない可能性がある。 KAIAのインフレ率は1ブロックあたり6.4KAIAから9.6KAIAに調整された。 これらの変更の詳細については、【KAIA 発行・分配計画】(../../kaiatech/kaia-white-paper.md#kaia-issuancedistribution-plan-1) をご参照ください。
+KlaytnチェーンとFinschiaチェーンの合併により、総供給量と流通量が変更された。 流通供給量は約38億400万KAIAから58億500万KAIAに増加し、総供給量は約60億500万KAIAから58億500万KAIAに減少した。 これらの数字は、インフレが進行しているため、現在の流通量と総供給量を反映していない可能性がある。 KAIAのインフレ率は1ブロックあたり6.4KAIAから9.6KAIAに調整された。 これらの変更の詳細については、【KAIA 発行・分配計画](../../kaiatech/kaia-white-paper.md#kaia-issuancedistribution-plan-1) をご参照ください。
 
 ### カイアはKlaytnのメインネットにいるのか、それとも別のメインネットにいるのか？ <a id="will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-"></a>
 
@@ -144,6 +144,6 @@ KaiaはKlaytnチェーンのハードフォークであり、チェーンIDは�
 - [ガバナンス提案](https://govforum.klaytn.foundation/t/kgp-25-klaytn-finschia-mainnet-merge/719)
 - [合併に隠されたビジョン](https://medium.com/klaytn/finschia-klaytn-chain-merge-proposal-our-vision-for-asias-1-blockchain-ecosystem-7de1588e28c0)
 - [カイア・デフィのコアを作る](https://medium.com/klaytn/crafting-the-core-of-project-dragons-defi-ecosystem-0fa561e02f56)
-- [機関の需要に応える】(https://medium.com/klaytn/project-dragon-responding-to-institutional-demand-bd36e2e1e2a6)
+- [機関の需要に応える](https://medium.com/klaytn/project-dragon-responding-to-institutional-demand-bd36e2e1e2a6)
 - [補足データと考察](https://medium.com/klaytn/project-dragon-supplementary-data-and-insights-d36abd25ca0f)
 - [カイア・ブランド・ストーリー](https://medium.com/klaytn/say-hello-to-kaia-4182ccafe456)
