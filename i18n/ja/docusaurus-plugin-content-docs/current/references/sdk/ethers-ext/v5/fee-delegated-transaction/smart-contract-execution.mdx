@@ -1,6 +1,6 @@
-# Smart Contract Execution
+# スマート・コントラクトの実行
 
-**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+**TxTypeSmartContractExecution\***は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
 
 <CH.Spotlight>
 <CH.Code>
@@ -53,45 +53,45 @@ main();
 ---
 
 ```zsh output
-❯ node FeeDelegatedSmartContractExecution.js
-senderTxHashRLP 0x31f8a68203ad850ba43b7400830116379495be48607498109030592c08adc9577c7c2dd5058094a2a8854b1802d8cd5de631e690817c253d6a9153a43fb5c1cb0000000000000000000000000000000000000000000000000000000000000123f847f8458207f6a0f23531b148298b6b686af71c9722702732bed89202dd2a22adf9880b716ed205a074c31ec53da203c1421ae71e36e3b720f9550a00771784562b68c1cfa23e19e8
+❮ node FeeDelegatedSmartContractExecution.js
+senderTxHashRLP0x31f8a68203ad850ba43b7400830116379495be48607498109030592c08adc9577c7c2dd5058094a2a8854b1802d8cd5de631e690817c253d6a9153a43fb5c1cb0000000000000000000000000000000000000000000000000000000000000123f847f8458207f6a0f23531b148298b6b686af71c9722702732bed89202dd2a22adf9880b716ed205a074c31ec53da203c1421ae71e36e3b720f9550a00771784562b68c1cfa23e19e8
 sentTx 0x8ddf463d1e2d5745b9ba71abce52eb02b6680d9699298c463c72180a7dd2c539
-receipt {
-  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+受信 {
+  to：'0x95Be48607498109030592C08aDC9577c7C2dD505',
   from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
   contractAddress: null,
-  transactionIndex: 4,
-  gasUsed: BigNumber { _hex: '0x9659', _isBigNumber: true },
-  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
-  blockHash: '0xa466ec90d778b7ea3e2c2cd3ec2a707fcf31a8c5f44d29d1e85f4c690af8ddb4',
+  transactionIndex：4,
+  gasUsed：BigNumber { _hex: '0x9659', _isBigNumber: true },
+  logsBloom：'0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  blockHash：'0xa466ec90d778b7ea3e2c2cd3ec2a707fcf31a8c5f44d29d1e85f4c690af8ddb4',
   transactionHash: '0x8ddf463d1e2d5745b9ba71abce52eb02b6680d9699298c463c72180a7dd2c539',
-  logs: [
+  logs：[
     {
-      transactionIndex: 4,
+      transactionIndex：4,
       blockNumber: 148732388,
       transactionHash: '0x8ddf463d1e2d5745b9ba71abce52eb02b6680d9699298c463c72180a7dd2c539',
-      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
-      topics: [Array],
-      data: '0x0000000000000000000000000000000000000000000000000000000000000123',
-      logIndex: 14,
+      address：'0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics：[Array],
+      data：'0x0000000000000000000000000123',
+      logIndex：14,
       blockHash: '0xa466ec90d778b7ea3e2c2cd3ec2a707fcf31a8c5f44d29d1e85f4c690af8ddb4'
-    }
+    }.
   ],
   blockNumber: 148732388,
-  confirmations: 3,
-  cumulativeGasUsed: BigNumber { _hex: '0x0b61a0', _isBigNumber: true },
-  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-  status: 1,
-  type: 0,
+  confirmations：3,
+  cumulativeGasUsed：BigNumber { _hex: '0x0b61a0', _isBigNumber: true },
+  effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status：1,
+  type：0,
   byzantium: true
-}
+}.
 ```
 
 </CH.Code>
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと**@kaiachain/ethers-ext**モジュールをインポートします。
 
 ```js FeeDelegatedSmartContractExecution.js focus=1:3
 
@@ -99,7 +99,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features
 
 ---
 
-Define **sender** and **fee payer** addresses and private keys
+送信者**と料金支払者**のアドレスと秘密鍵を定義する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=5:8
 
@@ -107,7 +107,7 @@ Define **sender** and **fee payer** addresses and private keys
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js FeeDelegatedSmartContractExecution.js focus=10
 
@@ -115,7 +115,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js FeeDelegatedSmartContractExecution.js focus=10
 const ethers = require("ethers");
@@ -164,7 +164,7 @@ main();
 
 ---
 
-Create a sender's wallet using the sender's private key and the provider
+送信者の秘密鍵とプロバイダーを使って送信者のウォレットを作成する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=11
 
@@ -172,7 +172,7 @@ Create a sender's wallet using the sender's private key and the provider
 
 ---
 
-Create a fee payer's wallet using the sender's private key and the provider
+送金者の秘密鍵とプロバイダーの秘密鍵を使用して、料金支払者のウォレットを作成する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=12
 
@@ -180,7 +180,7 @@ Create a fee payer's wallet using the sender's private key and the provider
 
 ---
 
-Set the **contract address** you want to execute into the to field and set **ABI**
+実行したい**契約アドレス**をtoフィールドにセットし、**ABI**をセットする。
 
 ```js FeeDelegatedSmartContractExecution.js focus=14:15
 
@@ -188,7 +188,7 @@ Set the **contract address** you want to execute into the to field and set **ABI
 
 ---
 
-Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider\*\* を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js FeeDelegatedSmartContractExecution.js focus=18
 
@@ -196,7 +196,7 @@ Create a contract instance with **ethers.Contract**, fill in params **contractAd
 
 ---
 
-Encode the function name and parameter with the **encodeFunctionData** function
+関数名とパラメータを**encodeFunctionData**関数でエンコードする。
 
 ```js FeeDelegatedSmartContractExecution.js focus=19
 
@@ -204,7 +204,7 @@ Encode the function name and parameter with the **encodeFunctionData** function
 
 ---
 
-Build the transaction object with type **FeeDelegatedSmartContractExecution**
+FeeDelegatedSmartContractExecution\*\*型を持つトランザクションオブジェクトを構築する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=19:27
 
@@ -212,7 +212,7 @@ Build the transaction object with type **FeeDelegatedSmartContractExecution**
 
 ---
 
-Populate the transaction with necessary details
+必要な詳細をトランザクションに入力する
 
 ```js FeeDelegatedSmartContractExecution.js focus=30
 
@@ -220,43 +220,43 @@ Populate the transaction with necessary details
 
 ---
 
-Sign the transaction by the **sender's wallet**
+送信者の財布\*\*で取引に署名する。
 
 <CH.Code>
-```js FeeDelegatedSmartContractExecution.js focus=31:32
+``js FeeDelegatedSmartContractExecution.js focus=31:32
 
-````
+```
 ---
 
-```zsh output
+``zsh output
 ❯ node FeeDelegatedSmartContractExecution.js
-senderTxHashRLP 0x31f8a6820355850ba43b7400830116379495be48607498109030592c08adc9577c7c2dd5058094a2a8854b1802d8cd5de631e690817c253d6a9153a43fb5c1cb0000000000000000000000000000000000000000000000000000000000000123f847f8458207f5a0831b71d0a0e4c9f14f6d59fda140f15e5f77738d58466e0e3b11baf67a3a9bd4a03f16a7e78d82ee96ebaafa0bbc691b78e7cc63a294e499c48c16f057f3f8a0d9
-````
+senderTxHashRLP0x31f8a6820355850ba43b7400830116379495be48607498109030592c08adc9577c7c2dd5058094a2a8854b1802d8cd5de631e690817c253d6a9153a43fb5c1cb0000000000000000000000000000000000000000000000000000000000000123f847f8458207f5a0831b71d0a0e4c9f14f6d59fda140f15e5f77738d58466e0e3b11baf67a3a9bd4a03f16a7e78d82ee96ebaafa0bbc691b78e7cc63a294e499c48c16f057f3f8a0d9
+```
 
 </CH.Code>
 
 ---
 
-Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
-```js FeeDelegatedSmartContractExecution.js focus=34:36
+``js FeeDelegatedSmartContractExecution.js focus=34:36
 
-````
+```
 
 
 ---
 
-```zsh output
+``zsh output
 ❯ node FeeDelegatedSmartContractExecution.js
 sentTx 0x4147867b19c609e85c2349a78429eaa9d5e6c96e1893b44c5a1159801672119b
-````
+```
 
 </CH.Code>
 
 ---
 
-The **wait** function returns the tx receipt if the tx was sent to the blockchain successfully.
+wait\*\*関数は、txがブロックチェーンに正常に送信された場合、txレシートを返す。
 
 <CH.Code>
 
@@ -269,34 +269,34 @@ The **wait** function returns the tx receipt if the tx was sent to the blockchai
 ```zsh output
 ❯ node FeeDelegatedSmartContractExecution.js
 receipt {
-  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  to：'0x95Be48607498109030592C08aDC9577c7C2dD505',
   from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
   contractAddress: null,
-  transactionIndex: 0,
-  gasUsed: BigNumber { _hex: '0x9659', _isBigNumber: true },
-  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
-  blockHash: '0x79534bab10fc2af347aa3164959825a0dd587471e2f864102cae3f6167202dcb',
+  transactionIndex：0,
+  gasUsed：BigNumber { _hex: '0x9659', _isBigNumber: true },
+  logsBloom：'0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  blockHash：'0x79534bab10fc2af347aa3164959825a0dd587471e2f864102cae3f6167202dcb',
   transactionHash: '0x4147867b19c609e85c2349a78429eaa9d5e6c96e1893b44c5a1159801672119b',
-  logs: [
+  logs：[
     {
-      transactionIndex: 0,
+      transactionIndex：0,
       blockNumber: 146757423,
       transactionHash: '0x4147867b19c609e85c2349a78429eaa9d5e6c96e1893b44c5a1159801672119b',
-      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
-      topics: [Array],
-      data: '0x0000000000000000000000000000000000000000000000000000000000000123',
-      logIndex: 0,
+      address：'0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics：[Array],
+      data：'0x0000000000000000000000000123',
+      logIndex：0,
       blockHash: '0x79534bab10fc2af347aa3164959825a0dd587471e2f864102cae3f6167202dcb'
-    }
+    }.
   ],
   blockNumber: 146757423,
-  confirmations: 1,
-  cumulativeGasUsed: BigNumber { _hex: '0x9659', _isBigNumber: true },
-  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-  status: 1,
-  type: 0,
+  confirmations：1,
+  cumulativeGasUsed：BigNumber { _hex: '0x9659', _isBigNumber: true },
+  effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status：1,
+  type：0,
   byzantium: true
-}
+}.
 ```
 
 </CH.Code>
