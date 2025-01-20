@@ -1,6 +1,6 @@
-# Cancel
+# キャンセル
 
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+**TxTypeCancel**は、トランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。 このトランザクション・タイプは、送信されたトランザクションが一定時間未処理のように見える場合に有用である。
 
 <CH.Spotlight>
 <CH.Code>
@@ -58,10 +58,10 @@ public class FeeDelegatedCancelExample implements keySample {
                 GAS_LIMIT,
                 from);
 
-        // Sign as sender
+        // 送信者として署名
         byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
 
-        // Sign same message as Fee payer
+        // 料金支払人として同じメッセージに署名する
         signedMessage = KlayTransactionEncoder.signMessageAsFeePayer(raw, chainId, credentials_feepayer);
 
         String hexValue = Numeric.toHexString(signedMessage);
@@ -71,7 +71,7 @@ public class FeeDelegatedCancelExample implements keySample {
 
         int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
         int DEFAULT_BLOCK_TIME = 1 * 1000;
-        long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+        long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME；
         TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
                 DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
         org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
@@ -83,8 +83,8 @@ public class FeeDelegatedCancelExample implements keySample {
 
         TxTypeFeeDelegatedCancel rawTransaction = TxTypeFeeDelegatedCancel.decodeFromRawTransaction(signedMessage);
 
-        System.out.println("TxType : " + rawTransaction.getKlayType());
-    }
+        System.out.println("TxType ：" + rawTransaction.getKlayType());
+    }.
 
 }
 ```
@@ -92,52 +92,52 @@ public class FeeDelegatedCancelExample implements keySample {
 ---
 
 ```zsh output
-❯ java FeeDelegatedCancel.java
+java FeeDelegatedCancel.java
 TxHash :
  0x2e9abcc9d23fc32e3a2afb55172e5925b9543b445f1a8fbdb8b7aa50d9bad812
 receipt :
 class TransactionReceipt {
-    blockHash: 0xa1985b9c6a7cd8d58ef511915a677e33c5d6029d95f9223fec3febed65500051
+    blockHash：0xa1985b9c6a7cd8d58ef511915a677e33c5d6029d95f9223fec3febed65500051
     blockNumber: 0x8def165
     codeFormat: null
     contractAddress: null
-    feePayer: 0xcb0eb737dfda52756495a5e08a9b37aab3b271da
-    feePayerSignatures: [class TransactionReceiptFeePayerSignaturesInner {
+    feePayer：0xcb0eb737dfda52756495a5e08a9b37aab3b271da
+    feePayerSignatures：[class TransactionReceiptFeePayerSignaturesInner {
         V: 0x7f5
         R: 0xed71b68bca8a44a6de168c51d312ea4815d742f779f2a7aaa66f9102a5d03d54
-        S: 0x16d7e9f7dc05d2a510cfb34a967ea6cb025b793973d116fce51ed83922a8812b
+        S：0x16d7e9f7dc05d2a510cfb34a967ea6cb025b793973d116fce51ed83922a8812b
     }]
     feeRatio: null
-    from: 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    from：0xa2a8854b1802d8cd5de631e690817c253d6a9153
     gas: 0x66919e
     effectiveGasPrice: 0x5d21dba00
     gasPrice: 0xba43b7400
-    gasUsed: 0x7918
+    gasUsed：0x7918
     humanReadable: null
     key: null
     input: null
-    logs: []
-    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    nonce: 0x3c8
+    logs：[]
+    logsBloom：0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce0x3c8
     senderTxHash: 0x8800b74af76967feb1229a827416896b1856be65d4178d58b57e247f6b4238c2
-    signature: []
-    status: 0x1
+    signature：[
+    ステータス：0x1
     txError: null
     to: null
     transactionHash: 0x2e9abcc9d23fc32e3a2afb55172e5925b9543b445f1a8fbdb8b7aa50d9bad812
-    transactionIndex: 0x0
-    type: TxTypeFeeDelegatedCancel
-    typeInt: 57
+    transactionIndex：0x0
+    type：TxTypeFeeDelegatedCancel
+    typeInt：57
     value: null
-}
-TxType : FEE_DELEGATED_CANCEL
+}.
+TxType ：fee_delegated_cancel
 ```
 
 </CH.Code>
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java FeeDelegatedCancel.java focus=1:20
 
@@ -145,7 +145,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+指定されたBAOBAB_URLでWeb3jインスタンスを作成する
 
 ```java FeeDelegatedCancel.java focus=32
 
@@ -153,7 +153,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Load credentials for **sender** and **fee payer**
+送信者**と料金支払者**の認証情報をロードする。
 
 ```java FeeDelegatedCancel.java focus=33:34
 
@@ -161,7 +161,7 @@ Load credentials for **sender** and **fee payer**
 
 ---
 
-Gas **price** and **gas limit** settings
+ガス**価格**と**ガス制限**の設定
 
 ```java FeeDelegatedCancel.java focus=36:37
 
@@ -169,7 +169,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Set the sender's **from** address using `credentials.getAddress`
+credentials.getAddress\`を使用して送信者の**from**アドレスを設定する。
 
 ```java FeeDelegatedCancel.java focus=38
 
@@ -177,7 +177,7 @@ Set the sender's **from** address using `credentials.getAddress`
 
 ---
 
-Get the **chain ID** from the network
+ネットワークから**チェーンID**を取得する。
 
 ```java FeeDelegatedCancel.java focus=39:40
 
@@ -185,7 +185,7 @@ Get the **chain ID** from the network
 
 ---
 
-Getting the **nonce** for the sender's address
+送信者アドレスの**nonce**取得
 
 ```java FeeDelegatedCancel.java focus=41:42
 
@@ -193,7 +193,7 @@ Getting the **nonce** for the sender's address
 
 ---
 
-Set the transaction type to **FEE_DELEGATED_CANCEL**
+トランザクション・タイプを**FEE_DELEGATED_CANCEL**に設定する。
 
 ```java FeeDelegatedCancel.java focus=44
 
@@ -201,7 +201,7 @@ Set the transaction type to **FEE_DELEGATED_CANCEL**
 
 ---
 
-Create a raw transaction for canceling **pending transaction**
+保留中のトランザクション\*\*をキャンセルするための生トランザクションを作成する。
 
 ```java FeeDelegatedCancel.java focus=46:51
 
@@ -209,7 +209,7 @@ Create a raw transaction for canceling **pending transaction**
 
 ---
 
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
+KlayTransactionEncoder.signMessage\` を使用して、**送信者** としてトランザクションに署名する。
 
 ```java FeeDelegatedCancel.java focus=53:54
 
@@ -217,7 +217,7 @@ Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`
 
 ---
 
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
+KlayTransactionEncoder.signMessageAsFeePayer\` を使用して、トランザクションを料金支払者として署名する。
 
 ```java FeeDelegatedCancel.java focus=56:57
 
@@ -225,7 +225,7 @@ Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAs
 
 ---
 
-Sending the signed transaction to kaia network
+署名されたトランザクションをkaiaネットワークに送信する
 
 <CH.Code>
 
@@ -245,15 +245,15 @@ TxHash :
 
 ---
 
-Getting the transaction receipt
+取引レシートの取得
 
 <CH.Code>
-```java FeeDelegatedCancel.java focus=64:73
+``java FeeDelegatedCancel.java focus=64:73
 
-````
+```
 ---
 
-```zsh output
+``zsh output
 ❯ java FeeDelegatedCancel.java
 receipt :
 class TransactionReceipt {
@@ -261,42 +261,42 @@ class TransactionReceipt {
     blockNumber: 0x8def165
     codeFormat: null
     contractAddress: null
-    feePayer: 0xcb0eb737dfda52756495a5e08a9b37aab3b271da
-    feePayerSignatures: [class TransactionReceiptFeePayerSignaturesInner {
+    feePayer：0xcb0eb737dfda52756495a5e08a9b37aab3b271da
+    feePayerSignatures：[class TransactionReceiptFeePayerSignaturesInner {
         V: 0x7f5
-        R: 0xed71b68bca8a44a6de168c51d312ea4815d742f779f2a7aaa66f9102a5d03d54
-        S: 0x16d7e9f7dc05d2a510cfb34a967ea6cb025b793973d116fce51ed83922a8812b
+        R: 0xed71b68bca8a44a6de168c51d312ea4815d742f779f2a7aa66f9102a5d03d54
+        S：0x16d7e9f7dc05d2a510cfb34a967ea6cb025b793973d116fce51ed83922a8812b
     }]
     feeRatio: null
-    from: 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    from：0xa2a8854b1802d8cd5de631e690817c253d6a9153
     gas: 0x66919e
     effectiveGasPrice: 0x5d21dba00
     gasPrice: 0xba43b7400
-    gasUsed: 0x7918
+    gasUsed：0x7918
     humanReadable: null
     key: null
     input: null
-    logs: []
-    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    nonce: 0x3c8
+    logs：[]
+    logsBloom：0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce0x3c8
     senderTxHash: 0x8800b74af76967feb1229a827416896b1856be65d4178d58b57e247f6b4238c2
-    signature: []
-    status: 0x1
+    signature：[
+    ステータス：0x1
     txError: null
     to: null
     transactionHash: 0x2e9abcc9d23fc32e3a2afb55172e5925b9543b445f1a8fbdb8b7aa50d9bad812
-    transactionIndex: 0x0
-    type: TxTypeFeeDelegatedCancel
-    typeInt: 57
+    transactionIndex：0x0
+    type：TxTypeFeeDelegatedCancel
+    typeInt：57
     value: null
-}
-````
+}.
+```
 
 </CH.Code>
 
 ---
 
-Shutdown the web3j instance
+web3jインスタンスをシャットダウンする
 
 ```java FeeDelegatedCancel.java focus=74
 
@@ -304,19 +304,19 @@ Shutdown the web3j instance
 
 ---
 
-Decoding the raw transaction to get the transaction type
+生のトランザクションをデコードしてトランザクションタイプを取得する。
 
 <CH.Code>
-```java FeeDelegatedCancel.java focus=76:78
+``java FeeDelegatedCancel.java focus=76:78
 
-````
+```
 ---
 
-```zsh output
+``zsh output
 ❯ java FeeDelegatedCancel.java
-TxType : FEE_DELEGATED_CANCEL
+TxType ：fee_delegated_cancel
 
-````
+```
 
 </CH.Code>
 
