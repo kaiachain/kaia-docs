@@ -1,106 +1,106 @@
 {
   "version.label": {
-    "message": "Current",
+    "message": "現在",
     "description": "The label for version current"
   },
   "sidebar.learnSidebar.category.Transactions": {
-    "message": "Transactions",
+    "message": "トランザクション",
     "description": "The label for category Transactions in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Computation": {
-    "message": "Computation",
+    "message": "計算",
     "description": "The label for category Computation in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Get Started": {
-    "message": "Get Started",
+    "message": "スタート",
     "description": "The label for category Get Started in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Account Basics": {
-    "message": "Account Basics",
+    "message": "口座の基本",
     "description": "The label for category Account Basics in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Smart Contracts": {
-    "message": "Smart Contracts",
+    "message": "スマートコントラクト",
     "description": "The label for category Smart Contracts in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Deploy Smart Contracts": {
-    "message": "Deploy Smart Contracts",
+    "message": "スマートコントラクトの導入",
     "description": "The label for category Deploy Smart Contracts in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Sample Contracts": {
-    "message": "Sample Contracts",
+    "message": "サンプル契約",
     "description": "The label for category Sample Contracts in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Tutorials": {
-    "message": "Tutorials",
+    "message": "チュートリアル",
     "description": "The label for category Tutorials in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Tools": {
-    "message": "Tools",
+    "message": "ツール",
     "description": "The label for category Tools in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Wallets": {
-    "message": "Wallets",
+    "message": "財布",
     "description": "The label for category Wallets in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Wallet Libraries": {
-    "message": "Wallet Libraries",
+    "message": "財布ライブラリ",
     "description": "The label for category Wallet Libraries in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Oracles": {
-    "message": "Oracles",
+    "message": "神託",
     "description": "The label for category Oracles in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Indexers": {
-    "message": "Indexers",
+    "message": "インデクサ",
     "description": "The label for category Indexers in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Cross-chain": {
-    "message": "Cross-chain",
+    "message": "クロスチェーン",
     "description": "The label for category Cross-chain in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Block Explorers": {
-    "message": "Block Explorers",
+    "message": "ブロック探検隊",
     "description": "The label for category Block Explorers in sidebar buildSidebar"
   },
   "sidebar.nodeSidebar.category.Endpoint Node": {
-    "message": "Endpoint Node",
+    "message": "エンドポイントノード",
     "description": "The label for category Endpoint Node in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Core Cell": {
-    "message": "Core Cell",
+    "message": "コアセル",
     "description": "The label for category Core Cell in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Install Core Cell": {
-    "message": "Install Core Cell",
+    "message": "コアセルの設置",
     "description": "The label for category Install Core Cell in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Service Chain": {
-    "message": "Service Chain",
+    "message": "サービスチェーン",
     "description": "The label for category Service Chain in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Quick Start": {
-    "message": "Quick Start",
+    "message": "クイックスタート",
     "description": "The label for category Quick Start in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Configure Service Chain": {
-    "message": "Configure Service Chain",
+    "message": "サービスチェーンの設定",
     "description": "The label for category Configure Service Chain in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Node Package Downloads": {
-    "message": "Node Package Downloads",
+    "message": "ノードパッケージダウンロード",
     "description": "The label for category Node Package Downloads in sidebar nodeSidebar"
   },
   "sidebar.refSidebar.category.RPC API Reference": {
-    "message": "RPC API Reference",
+    "message": "RPC APIリファレンス",
     "description": "The label for category RPC API Reference in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.SDKs and Libraries": {
-    "message": "SDKs and Libraries",
+    "message": "SDKとライブラリ",
     "description": "The label for category SDKs and Libraries in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.API References": {
-    "message": "API References",
+    "message": "APIリファレンス",
     "description": "The label for category API References in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver.wallet": {
@@ -116,15 +116,15 @@
     "description": "The label for category caver.rpc in sidebar refSidebar"
   },
   "sidebar.refSidebar.link.API References": {
-    "message": "API References",
+    "message": "APIリファレンス",
     "description": "The label for link API References in sidebar refSidebar, linking to https://javadoc.io/doc/com.klaytn.caver/core/"
   },
   "sidebar.learnSidebar.category.Transaction Fees": {
-    "message": "Transaction Fees",
+    "message": "取引手数料",
     "description": "The label for category Transaction Fees in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Verify Smart Contracts": {
-    "message": "Verify Smart Contracts",
+    "message": "スマートコントラクトの検証",
     "description": "The label for category Verify Smart Contracts in sidebar buildSidebar"
   },
   "sidebar.refSidebar.category.caver.kct": {
@@ -132,43 +132,43 @@
     "description": "The label for category caver.kct in sidebar refSidebar"
   },
   "sidebar.learnSidebar.category.Data Management": {
-    "message": "Data Management",
+    "message": "データ管理",
     "description": "The label for category Data Management in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Governance": {
-    "message": "Governance",
+    "message": "ガバナンス",
     "description": "The label for category Governance in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Node Quick Reference": {
-    "message": "Node Quick Reference",
+    "message": "ノード・クイック・リファレンス",
     "description": "The label for category Node Quick Reference in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
+    "message": "カイアへの移行",
     "description": "The label for category Transition to Kaia in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Kaia Safe": {
-    "message": "Kaia Safe",
+    "message": "カイア・セーフ",
     "description": "The label for category Kaia Safe in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Node Quick Reference": {
-    "message": "Node Quick Reference",
+    "message": "ノード・クイック・リファレンス",
     "description": "The label for category Node Quick Reference in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
+    "message": "カイアへの移行",
     "description": "The label for category Transition to Kaia in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.link.KaiaScan": {
-    "message": "KaiaScan",
+    "message": "カイアスキャン",
     "description": "The label for link KaiaScan in sidebar buildSidebar, linking to https://kaiascan.io/"
   },
   "sidebar.nodeSidebar.category.Node Quick Reference": {
-    "message": "Node Quick Reference",
+    "message": "ノード・クイック・リファレンス",
     "description": "The label for category Node Quick Reference in sidebar nodeSidebar"
   },
   "sidebar.nodeSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
+    "message": "カイアへの移行",
     "description": "The label for category Transition to Kaia in sidebar nodeSidebar"
   },
   "sidebar.refSidebar.category.ethers-ext < v1.0.1": {
@@ -176,35 +176,35 @@
     "description": "The label for category ethers-ext < v1.0.1 in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Account Management": {
-    "message": "Account Management",
+    "message": "アカウント管理",
     "description": "The label for category Account Management in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Account Key": {
-    "message": "Account Key",
+    "message": "アカウント・キー",
     "description": "The label for category Account Key in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Sign Transaction": {
-    "message": "Sign Transaction",
+    "message": "サイン取引",
     "description": "The label for category Sign Transaction in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Sign Message": {
-    "message": "Sign Message",
+    "message": "サインメッセージ",
     "description": "The label for category Sign Message in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.keystore": {
-    "message": "keystore",
+    "message": "キーストア",
     "description": "The label for category keystore in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Basic Transaction": {
-    "message": "Basic Transaction",
+    "message": "基本取引",
     "description": "The label for category Basic Transaction in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Fee Delegated Transaction": {
-    "message": "Fee Delegated Transaction",
+    "message": "手数料 委任取引",
     "description": "The label for category Fee Delegated Transaction in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Smart Contract": {
-    "message": "Smart Contract",
+    "message": "スマート契約",
     "description": "The label for category Smart Contract in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.ethers-ext": {
@@ -216,7 +216,7 @@
     "description": "The label for category v5 in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Utils": {
-    "message": "Utils",
+    "message": "ユーティリティ",
     "description": "The label for category Utils in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.v6": {
@@ -232,7 +232,7 @@
     "description": "The label for category web3j-ext in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Keystore": {
-    "message": "Keystore",
+    "message": "キーストア",
     "description": "The label for category Keystore in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.web3py-ext": {
@@ -240,39 +240,39 @@
     "description": "The label for category web3py-ext in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver-js": {
-    "message": "caver-js",
+    "message": "ケイバージェイエス",
     "description": "The label for category caver-js in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.caver-java": {
-    "message": "caver-java",
+    "message": "ケイバー・ジャバ",
     "description": "The label for category caver-java in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Node Quick Reference": {
-    "message": "Node Quick Reference",
+    "message": "ノード・クイック・リファレンス",
     "description": "The label for category Node Quick Reference in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
+    "message": "カイアへの移行",
     "description": "The label for category Transition to Kaia in sidebar refSidebar"
   },
   "sidebar.refSidebar.doc.Getting-Started": {
-    "message": "Getting-Started",
+    "message": "はじめに",
     "description": "The label for the doc item Getting-Started in sidebar refSidebar, linking to the doc references/sdk/web3py-ext/getting-started"
   },
   "sidebar.buildSidebar.category.Hardware Wallets": {
-    "message": "Hardware Wallets",
+    "message": "ハードウェア財布",
     "description": "The label for category Hardware Wallets in sidebar buildSidebar"
   },
   "sidebar.miniDappSidebar.category.Build Mini dApps on LINE with Unity": {
-    "message": "Build Mini dApps on LINE with Unity",
+    "message": "UnityでLINEのミニdAppを作る",
     "description": "The label for category Build Mini dApps on LINE with Unity in sidebar miniDappSidebar"
   },
   "sidebar.miniDappSidebar.category.Node Quick Reference": {
-    "message": "Node Quick Reference",
+    "message": "ノード・クイック・リファレンス",
     "description": "The label for category Node Quick Reference in sidebar miniDappSidebar"
   },
   "sidebar.miniDappSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
+    "message": "カイアへの移行",
     "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
   }
 }
