@@ -315,7 +315,7 @@ Kaia、Ethereum、Polygon、Arbitrumなどへの分散型RPCノードプロバ�
 
 - ウォレット[カイアウォレット](../build/tools/wallets/kaia-wallet.md)は、カイアネットワークのブラウザ拡張ウォレットです。
 
-- 蛇口：[KAIA蛇口](https://faucet.kaia.io)からKairosテストネットワーク用のテストKAIAを入手できます。
+- 蛇口：[KAIA[Faucet](https://faucet.kaia.io)からKairosテストネットワーク用のテストKAIAを入手できます。
 
 - エクスプローラー[Kaiascope](../build/tools/block-explorers/kaiascope.md)はカイアネットワークのブロックエクスプローラーです。
 
