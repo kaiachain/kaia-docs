@@ -15,7 +15,7 @@ Orakl Networkを使えば、ユーザーはスマートコントラクトに予�
 - [カイア・ウォレット](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 - [Remix IDE](https://remix.ethereum.org/)
 - [Klaytn Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- 蛇口](https://faucet.kaia.io)からKAIAをテストする。
+- [Faucet](https://faucet.kaia.io)からKAIAをテストする。
 
 ## はじめに
 
