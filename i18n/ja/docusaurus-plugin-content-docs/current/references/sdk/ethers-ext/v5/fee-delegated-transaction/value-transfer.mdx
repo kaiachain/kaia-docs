@@ -162,7 +162,7 @@ type、from、to、value\*\*のようなフィールドでトランザクショ�
 senderWallet.populateTransaction\*\*でトランザクションに追加情報を入力する。
 
 <CH.Code>
-``js TxTypeFeeDelegatedValueTransfer.js focus=22:23
+```js TxTypeFeeDelegatedValueTransfer.js focus=22:23
 
 ````
 ---
@@ -192,17 +192,17 @@ receipt 123
 送信者の秘密鍵\*\*でトランザクションに署名する。
 
 <CH.Code>
-``js TxTypeFeeDelegatedValueTransfer.js focus=25:26
+```js TxTypeFeeDelegatedValueTransfer.js focus=25:26
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ node TxTypeFeeDelegatedValueTransfer.js
-senderTxHashRLP0x09f8878202f8850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a06021c9de1bd99691fbb97161b63ed11cb15a5729fd9ba5cdee1611884700b1f6a0427b48381bbeb437a63fcfe0f7ba4d641f9ab8fa8dd3e25ade4c83944b3f2c2c
-```
+senderTxHashRLP 0x09f8878202f8850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a06021c9de1bd99691fbb97161b63ed11cb15a5729fd9ba5cdee1611884700b1f6a0427b48381bbeb437a63fcfe0f7ba4d641f9ab8fa8dd3e25ade4c83944b3f2c2c
+````
 
 </CH.Code>
 
@@ -211,7 +211,7 @@ senderTxHashRLP0x09f8878202f8850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25
 手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
-``js TxTypeFeeDelegatedValueTransfer.js focus=28:29
+```js TxTypeFeeDelegatedValueTransfer.js focus=28:29
 
 ````
 
