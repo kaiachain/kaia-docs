@@ -1,6 +1,6 @@
-# Role-based Account Key
+# 役割ベースのアカウント・キー
 
-**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+**AccountKeyRoleBased**はロールベースのキーを表す。 アカウントに**AccountKeyRoleBased**オブジェクトがあり、トランザクションタイプが**アカウント更新を除く**ものである場合、以下のようにそれぞれのロールに応じたバリデーション処理が行われます：
 
 <CH.Spotlight>
 <CH.Code>
@@ -16,8 +16,8 @@ w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
 
 def web3_role_based_value_transfer_message_recover():
     user = Account.from_key_pair(
-        # role-based account address
-        '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea',
+        # ロールベースアカウントアドレス
+        '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea'、
         # transaction role key of role-based account
         '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
     )
@@ -28,7 +28,7 @@ def web3_role_based_value_transfer_message_recover():
     print(signature.signature.hex())
     print(len(signature.signature.hex()))
     recovered = w3.klay.recover_from_message(user.address, message, signature.signature.hex(), "latest")
-    print("\nsender", user.address, "\nrecovered", recovered) # recovered is an original address of the member key
+    print("\nsender", user.address, "\nrecovered", recovered) # recovered はメンバーキーのオリジナルアドレス
 
 web3_role_based_value_transfer_message_recover()
 ```
@@ -48,7 +48,7 @@ recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 
 ---
 
-Import necessary utils from **eth_utils**, **web3** and **eth_account**
+eth_utils**、**web3**、**eth_account\*\*から必要なユーティリティをインポートする。
 
 ```py web3_role_based_value_transfer_message_recover.py focus=1:4
 
@@ -56,7 +56,7 @@ Import necessary utils from **eth_utils**, **web3** and **eth_account**
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py web3_role_based_value_transfer_message_recover.py focus=5
 
@@ -64,7 +64,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
+Web3.HTTPProvider\*\*とRPCエンドポイントを使用してWeb3接続を定義します。
 
 ```py web3_role_based_value_transfer_message_recover.py focus=7
 
@@ -72,7 +72,7 @@ Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```py web3_role_based_value_transfer_message_recover.py focus=7
 from eth_account import Account
@@ -85,8 +85,8 @@ w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
 
 def web3_role_based_value_transfer_message_recover():
     user = Account.from_key_pair(
-        # role-based account address
-        '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea',
+        # ロールベースアカウントアドレス
+        '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea'、
         # transaction role key of role-based account
         '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
     )
@@ -97,14 +97,14 @@ def web3_role_based_value_transfer_message_recover():
     print(signature.signature.hex())
     print(len(signature.signature.hex()))
     recovered = w3.klay.recover_from_message(user.address, message, signature.signature.hex(), "latest")
-    print("\nsender", user.address, "\nrecovered", recovered) # recovered is an original address of the member key
+    print("\nsender", user.address, "\nrecovered", recovered) # recovered はメンバーキーのオリジナルアドレス
 
 web3_role_based_value_transfer_message_recover()
 ```
 
 ---
 
-Define a wallet from private key using **Account.from_key_pair** which is a role key of role-based account
+ロールベースのアカウントのロールキーである**Account.from_key_pair**を使用して、秘密鍵からウォレットを定義します。
 
 ```py web3_role_based_value_transfer_message_recover.py focus=10:13
 
@@ -112,7 +112,7 @@ Define a wallet from private key using **Account.from_key_pair** which is a role
 
 ---
 
-Define any message to sign
+署名するメッセージを定義する
 
 ```py web3_role_based_value_transfer_message_recover.py focus=16
 
@@ -120,7 +120,7 @@ Define any message to sign
 
 ---
 
-Format the message using **encode_defunct** to make it compatible with EIP-191 standard.
+EIP-191標準と互換性を持たせるために、**encode_defunct**を使ってメッセージをフォーマットする。
 
 ```py web3_role_based_value_transfer_message_recover.py focus=17
 
@@ -128,7 +128,7 @@ Format the message using **encode_defunct** to make it compatible with EIP-191 s
 
 ---
 
-Sign the transaction with the created account
+作成したアカウントで取引に署名する
 
 ```py web3_role_based_value_transfer_message_recover.py focus=18
 
@@ -136,38 +136,38 @@ Sign the transaction with the created account
 
 ---
 
-Print out the signature and its length
+署名とその長さをプリントアウトする
 
 <CH.Code>
-```py web3_role_based_value_transfer_message_recover.py focus=20:21
+``py web3_role_based_value_transfer_message_recover.py focus=20:21
 
-````
+```
 
 ---
 
-```zsh output
+``zsh output
 ❯ python web3_role_based_value_transfer_message_recover.py
 0xb7057812498a0a6f740fb218ce5ef945dce3b8437e5662fc707dad72e096b7036f98e96d48dd10de502a1d0ce0ae91e048357721dc7502a9aa2018561c06a97d1b
 132
-````
+```
 
 </CH.Code>
 
 ---
 
-Recover sender address with **Account.recover_message** from signed message
+署名されたメッセージから**Account.recover_message**で送信者アドレスを復元する
 
 <CH.Code>
-```py web3_role_based_value_transfer_message_recover.py focus=20:21
+``py web3_role_based_value_transfer_message_recover.py focus=20:21
 
-````
+```
 ---
 
-```zsh output
+``zsh output
 ❯ python web3_role_based_value_transfer_message_recover.py
 sender 0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA
 recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
-````
+```
 
 </CH.Code>
 </CH.Spotlight>
