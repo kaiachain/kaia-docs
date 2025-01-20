@@ -2,7 +2,7 @@
 
 `caver.rpc.net` は `net` 名前空間を使用して JSON-RPC コールを提供する。
 
-## caver.rpc.net.getNetworkId<a id="caver-rpc-net-getnetworkid"></a>
+## caver.rpc.net.getNetworkId <a id="caver-rpc-net-getnetworkid"></a>
 
 ```javascript
 caver.rpc.net.getNetworkId([コールバック])
@@ -31,7 +31,7 @@ kaiaノードのネットワーク識別子（ネットワークID）を返し�
 1001
 ```
 
-## caver.rpc.net.isListening<a id="caver-rpc-net-islistening"></a>
+## caver.rpc.net.isListening <a id="caver-rpc-net-islistening"></a>
 
 ```javascript
 caver.rpc.net.isListening([コールバック])
@@ -60,7 +60,7 @@ Promise`は`boolean\` を返す。
 true
 ```
 
-## caver.rpc.net.getPeerCount<a id="caver-rpc-net-getpeercount"></a>
+## caver.rpc.net.getPeerCount <a id="caver-rpc-net-getpeercount"></a>
 
 ```javascript
 caver.rpc.net.getPeerCount([コールバック])
@@ -89,7 +89,7 @@ Promise`は`string\` を返す。
 0x3
 ```
 
-## caver.rpc.net.getPeerCountByType<a id="caver-rpc-net-getpeercountbytype"></a>
+## caver.rpc.net.getPeerCountByType <a id="caver-rpc-net-getpeercountbytype"></a>
 
 ```javascript
 caver.rpc.net.getPeerCountByType([コールバック])
