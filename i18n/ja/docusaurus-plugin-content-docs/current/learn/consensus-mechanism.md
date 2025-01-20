@@ -37,7 +37,7 @@ In the document, we will go over how Klaytn implemented the high-performing cons
 
 Klaytn is aiming to be an Enterprise-ready and Service-centric platform. したがって、上に書いた最終性の問題を解決し、多くのノードがネットワークに参加できるようなネットワークにする必要がある。 To make this possible, Klaytn is using an optimized version of Istanbul BFT, which implements PBFT with modifications to deal with blockchain network's characteristics.
 
-In Klaytn, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CNはCCO（コアセルオペレーター）によって管理され、ブロック生成を担当する。 これらのブロックは、ネットワーク内のすべてのノードによって検証される。 Please refer to [here](learn.md#network-architecture) to know more about this network topology.
+In Klaytn, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CNはCCO（コアセルオペレーター）によって管理され、ブロック生成を担当する。 これらのブロックは、ネットワーク内のすべてのノードによって検証される。 このネットワーク・トポロジーの詳細については、[こちら](learn.md#network-architecture)を参照されたい。
 
 ![Network topology](/img/learn/klaytn_network_node.png)
 
