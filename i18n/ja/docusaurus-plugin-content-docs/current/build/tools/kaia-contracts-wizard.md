@@ -58,7 +58,7 @@ Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-in
 - klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) コードをクローンします。
 - [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../references/public-en.md)の1つから取得できます。
-- 蛇口](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 
 ### はじめに
 
