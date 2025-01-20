@@ -27,8 +27,8 @@ Foundryは、高速でモジュール化されたスマート・コントラク�
 - Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 - [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../references/public-en.md)の1つから取得できます。
-- 蛇口](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
-- Rust](https://www.rust-lang.org/tools/install)と[Foundry](https://github.com/foundry-rs/foundry#installation)をインストールする。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
+- [Rust](https://www.rust-lang.org/tools/install)と[Foundry](https://github.com/foundry-rs/foundry#installation)をインストールする。
 
 ## 開発環境のセットアップ
 
@@ -162,7 +162,7 @@ forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhd
 
 ![](/img/build/get-started/foundry-create.png)
 
-**Step 2**: Open [Kaiascope](https://kairos.kaiascope.com/tx/0x669e39c9661fdab59aa34989b58b3f89376a93f846a0c71d2858918f58a307e2?tabId=internalTx) to check if the counter contract deployed successfully.
+**ステップ2**:[Kaiascope](https://kairos.kaiascope.com/tx/0x83c8b55f3fd90110f9b83cd20df2b2bed76cfeb42447725af2d60b2885f479d3?tabId=internalTx) を開き、カウンター契約が正常にデプロイされたかチェックする。
 
 **ステップ 3**：取引ハッシュをコピーして検索フィールドに貼り付け、Enterキーを押します。 最近配備された契約が表示されるはずだ。
 
@@ -170,7 +170,7 @@ forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhd
 
 ## 契約とのやり取り
 
-スマート・コントラクトのデプロイに成功したら、関数を正しく呼び出して実行したいだろう。 Let's get to interact with the deployed contracts on Klaytn Baobab Network using [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html).  このセクションでは、[cast call](https://book.getfoundry.sh/reference/cast/cast-call) を使って `read-only` 関数を実行し、[cast send](https://book.getfoundry.sh/reference/cast/cast-send) を使って `write` 関数を実行する方法を学びます。
+スマート・コントラクトのデプロイに成功したら、関数を正しく呼び出して実行したいだろう。 Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) を使って、Kaia Kairos Networkに配備されたコントラクトとやりとりしてみましょう。  このセクションでは、[cast call](https://book.getfoundry.sh/reference/cast/cast-call) を使って `read-only` 関数を実行し、[cast send](https://book.getfoundry.sh/reference/cast/cast-send) を使って `write` 関数を実行する方法を学びます。
 
 \*\*A. を呼び出す：コントラクトに格納されている数字を取得するには、`number`関数を呼び出します。 以下のコマンドを実行し、その動きを見てみよう。
 
