@@ -6,7 +6,7 @@
 
 - [メタマスク](https://metamask.io/download/) & [カイアメタマスクコンフィグ](../../../tutorials/connecting-metamask.mdx#send-klay)
 - [Remix](https://remix.ethereum.org/) & [Kaia Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- 蛇口](https://faucet.kaia.io)からテスト用KAIAを入手。
+- [Faucet](https://faucet.kaia.io)からテスト用KAIAを入手。
 
 **ステップ1:** [Remix](https://remix.ethereum.org/)に移動します。
 
