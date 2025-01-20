@@ -18,7 +18,7 @@ Scaffold-ETH 2ツールキットは、Next.js、RainbowKit、Hardhat、Foundry�
 - 糸（[v1](https://classic.yarnpkg.com/en/docs/install/)または[v2+](https://yarnpkg.com/getting-started/install)）。
 - フックなど、JavascriptとReactの基本に精通していること
 - [メタマスク財布](https://metamask.io/download/)
-- 蛇口](https://faucet.kaia.io)からKAIAをテストする。
+- [Faucet](https://faucet.kaia.io)からKAIAをテストする。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](https://docs.kaia.io/references/public-en/)のいずれかから取得できます。
 
 ## 開発環境の構築<a href="#setting-up-dev-environment" id="setting-up-dev-environment"></a>
@@ -179,7 +179,7 @@ yarn hardhat-verify --network kairos 0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da
 
 検証](/img/build/tutorials/scaffold-verify.png)
 
-カイアスコープで検証】(/img/build/tutorials/scaffold-3.png)
+カイアスコープで検証](/img/build/tutorials/scaffold-3.png)
 
 Hardhat Verifyプラグインを使用したKaia上でのスマートコントラクトの検証の詳細については、H[ardhat-Verify-Pluginsガイド](https://docs.kaia.io/build/smart-contracts/verify/hardhat/)を参照してください。
 
