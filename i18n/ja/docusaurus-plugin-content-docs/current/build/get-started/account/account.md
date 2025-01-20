@@ -6,7 +6,7 @@ Klaytn provides two handy command-line tools, `ken` and `JavaScript console`, fo
 
 ## ken <a id="ken"></a>
 
-The Klaytn Endpoint Node binary `ken` provides account management via the `account` command. account\`コマンドを使うと、新しいアカウントの作成、既存のアカウントの一覧表示、秘密鍵の新しいアカウントへのインポート、最新の鍵フォーマットへの移行、パスワードの変更ができます。
+The Klaytn Endpoint Node binary `ken` provides account management via the `account` command. `account`コマンドを使うと、新しいアカウントの作成、既存のアカウントの一覧表示、秘密鍵の新しいアカウントへのインポート、最新の鍵フォーマットへの移行、パスワードの変更ができます。
 
 ### 使用方法<a id="usage"></a>
 
@@ -46,7 +46,7 @@ DATABASE OPTIONS:
 
 ### データディレクトリ<a id="data-directory"></a>
 
-キーストア・ファイルは、`<DATADIR>/keystore`に保存される。 データ・ディレクトリは以下のように指定できます。 ken account`コマンドに--datadir`オプションを付けることを強く推奨する。 Endpoint Node とシームレスにアカウントを共有するために、`kend.conf` で設定した `DATA_DIR` をデータディレクトリの指すようにします。
+キーストア・ファイルは、`<DATADIR>/keystore`に保存される。 データ・ディレクトリは以下のように指定できます。 `ken account`コマンドに--datadir`オプションを付けることを強く推奨する。 Endpoint Node とシームレスにアカウントを共有するために、`kend.conf`で設定した`DATA_DIR\` をデータディレクトリの指すようにします。
 
 ```bash
 $ ken account new --datadir <DATADIR>
