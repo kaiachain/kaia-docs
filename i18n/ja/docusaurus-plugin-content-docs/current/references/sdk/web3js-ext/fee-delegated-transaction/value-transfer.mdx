@@ -186,15 +186,15 @@ from**や**to\*\*などのパラメータを設定する。
 signTransaction\`を使って**sender**アカウントでトランザクションに署名する。
 
 <CH.Code>
-``js TxTypeFeeDelegatedValueTransfer.js focus=21:23
+```js TxTypeFeeDelegatedValueTransfer.js focus=21:23
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node TxTypeFeeDelegatedValueTransfer.js
-senderTxHashRLP0x11f88d8203b7850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f5a0fbd13725c0e913f564469d43e6e928514caca92ca5d5fcc18c493445d2bd3f00a065980c9c0ea0bcfa4324c23b21d45acaa8a64d1d47d45a6730774756be794e86
-```
+senderTxHashRLP 0x11f88d8203b7850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f5a0fbd13725c0e913f564469d43e6e928514caca92ca5d5fcc18c493445d2bd3f00a065980c9c0ea0bcfa4324c23b21d45acaa8a64d1d47d45a6730774756be794e86
+````
 
 </CH.Code>
 
@@ -203,15 +203,15 @@ senderTxHashRLP0x11f88d8203b7850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc25
 signTransactionAsFeePayer\`を使用して、**fee payer**アカウントでトランザクションに署名する。
 
 <CH.Code>
-``js TxTypeFeeDelegatedValueTransfer.js focus=25:27
+```js TxTypeFeeDelegatedValueTransfer.js focus=25:27
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node TxTypeFeeDelegatedValueTransfer.js
 signedTx 0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae
-```
+````
 
 </CH.Code>
 
@@ -220,7 +220,7 @@ signedTx 0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae
 トランザクションをブロックチェーンに送信する。 取引レシートを返します。
 
 <CH.Code>
-``js TxTypeFeeDelegatedValueTransfer.js focus=29:30
+```js TxTypeFeeDelegatedValueTransfer.js focus=29:30
 
 ````
 ---
