@@ -231,14 +231,14 @@ Ethers.Contract**で契約インスタンスを作成し、パラメータ **con
 counter.number()**メソッドで更新前の**number\*\*値を取得する。
 
 <CH.Code>
-``js smartContractWrite.js focus=39
+```js smartContractWrite.js focus=39
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ node smartContractWrite.js
 number before 293
-```
+````
 
 </CH.Code>
 
@@ -255,7 +255,7 @@ number before 293
 wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
 <CH.Code>
-``js smartContractWrite.js focus=42:43
+```js smartContractWrite.js focus=42:43
 
 ````
 ---
@@ -319,14 +319,14 @@ receipt {
 メソッド**counter.number()**で更新値**number**を取得する。
 
 <CH.Code>
-``js smartContractWrite.js focus=45
+```js smartContractWrite.js focus=45
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ node smartContractWrite.js
-294以降の番号
-```
+number after 294
+````
 
 </CH.Code>
 
