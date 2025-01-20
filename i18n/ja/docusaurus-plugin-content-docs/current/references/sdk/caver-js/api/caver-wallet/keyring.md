@@ -101,7 +101,7 @@ const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', 
 | r  | ストリング | ECDSA署名。     |
 | s  | ストリング | ECDSA署名。     |
 
-## キーホルダー生成<a href="#caver-wallet-keyring-generate" id="caver-wallet-keyring-generate"></a>
+## caver.wallet.keyring.generate <a href="#caver-wallet-keyring-generate" id="caver-wallet-keyring-generate"></a>
 
 ```javascript
 caver.wallet.keyring.generate([エントロピー])
@@ -131,7 +131,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.generateSingleKey<a href="#caver-wallet-keyring-generatesinglekey" id="caver-wallet-keyring-generatesinglekey"></a>
+## caver.wallet.keyring.generateSingleKey <a href="#caver-wallet-keyring-generatesinglekey" id="caver-wallet-keyring-generatesinglekey"></a>
 
 ```javascript
 caver.wallet.keyring.generateSingleKey([エントロピー])
@@ -158,7 +158,7 @@ caver.wallet.keyring.generateSingleKey([エントロピー])
 '0x{private key}'
 ```
 
-## caver.wallet.keyring.generateMultipleKeysを使用します。<a href="#caver-wallet-keyring-generatemultiplekeys" id="caver-wallet-keyring-generatemultiplekeys"></a>
+## caver.wallet.keyring.generateMultipleKeys <a href="#caver-wallet-keyring-generatemultiplekeys" id="caver-wallet-keyring-generatemultiplekeys"></a>
 
 ```javascript
 caver.wallet.keyring.generateMultipleKeys(num [, entropy])
@@ -190,7 +190,7 @@ caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 ].
 ```
 
-## caver.wallet.keyring.generateRoleBasedKeys<a href="#caver-wallet-keyring-generaterolebasedkeys" id="caver-wallet-keyring-generaterolebasedkeys"></a>
+## caver.wallet.keyring.generateRoleBasedKeys <a href="#caver-wallet-keyring-generaterolebasedkeys" id="caver-wallet-keyring-generaterolebasedkeys"></a>
 
 ```javascript
 caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
@@ -231,7 +231,7 @@ caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 ]。
 ```
 
-## キーホルダー作成<a href="#caver-wallet-keyring-create" id="caver-wallet-keyring-create"></a>
+## caver.wallet.keyring.create <a href="#caver-wallet-keyring-create" id="caver-wallet-keyring-create"></a>
 
 ```javascript
 caver.wallet.keyring.create(アドレス、キー)
@@ -300,7 +300,7 @@ RoleBasedKeyring {
 }
 ```
 
-## caver.wallet.keyring.createFromPrivateKey。<a href="#caver-wallet-keyring-createfromprivatekey" id="caver-wallet-keyring-createfromprivatekey"></a>
+## caver.wallet.keyring.createFromPrivateKey <a href="#caver-wallet-keyring-createfromprivatekey" id="caver-wallet-keyring-createfromprivatekey"></a>
 
 ```javascript
 caver.wallet.keyring.createFromPrivateKey(キー)
@@ -338,7 +338,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createFromKlaytnWalletKey。<a href="#caver-wallet-keyring-createfromklaytnwalletkey" id="caver-wallet-keyring-createfromklaytnwalletkey"></a>
+## caver.wallet.keyring.createFromKlaytnWalletKey <a href="#caver-wallet-keyring-createfromklaytnwalletkey" id="caver-wallet-keyring-createfromklaytnwalletkey"></a>
 
 ```javascript
 caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
@@ -368,7 +368,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithSingleKey。<a href="#caver-wallet-keyring-createwithsinglekey" id="caver-wallet-keyring-createwithsinglekey"></a>
+## caver.wallet.keyring.createWithSingleKey <a href="#caver-wallet-keyring-createwithsinglekey" id="caver-wallet-keyring-createwithsinglekey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithSingleKey(アドレス、キー)
@@ -399,7 +399,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithMultipleKeyを使用します。<a href="#caver-wallet-keyring-createwithmultiplekey" id="caver-wallet-keyring-createwithmultiplekey"></a>
+## caver.wallet.keyring.createWithMultipleKey <a href="#caver-wallet-keyring-createwithmultiplekey" id="caver-wallet-keyring-createwithmultiplekey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithMultipleKey(アドレス、キー)
@@ -433,7 +433,7 @@ MultipleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithRoleBasedKeyを使用します。<a href="#caver-wallet-keyring-createwithrolebasedkey" id="caver-wallet-keyring-createwithrolebasedkey"></a>
+## caver.wallet.keyring.createWithRoleBasedKey <a href="#caver-wallet-keyring-createwithrolebasedkey" id="caver-wallet-keyring-createwithrolebasedkey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithRoleBasedKey(アドレス、roledBasedKeyArray)
@@ -482,7 +482,7 @@ RoleBasedKeyring {
 }
 ```
 
-## ケイバー.ウォレット.キーリング.デクリプト<a href="#caver-wallet-keyring-decrypt" id="caver-wallet-keyring-decrypt"></a>
+## caver.wallet.keyring.decrypt <a href="#caver-wallet-keyring-decrypt" id="caver-wallet-keyring-decrypt"></a>
 
 ```javascript
 caver.wallet.keyring.decrypt(キーストア, パスワード)
