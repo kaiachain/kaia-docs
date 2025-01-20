@@ -88,7 +88,7 @@ prometheus.yml\`ファイルはPrometheusを設定する。  主な項目は以�
 
 - \*\*\*global`**：  evaluation_interval`（Prometheusがルールを評価する頻度）や `scrape_interval`（Prometheusがターゲットをスクレイピングする頻度）のようなグローバルな設定パラメータを設定します。  どちらも15秒が妥当なスタートポイントだが、ニーズやブロックの時間に応じて調整しよう。
 
-- **`scrape_configs`**：Prometheusが監視するターゲットを定義します。  job_name`は対象グループを示す。  static_configs`はターゲットアドレスをリストアップする。  <ip>`をKaiaノードのIPアドレスに置き換え、ポート（デフォルトでは`61001\`）が正しく設定されていることを確認する。
+- **`scrape_configs`**：Prometheusが監視するターゲットを定義します。  `job_name`は対象グループを示す。  `static_configs`はターゲットアドレスをリストアップする。  `<ip>`をKaiaノードのIPアドレスに置き換え、ポート（デフォルトでは`61001`）が正しく設定されていることを確認する。
 
 より高度な設定については、[Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)を参照してください。
 
