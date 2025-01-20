@@ -1,13 +1,13 @@
-# ケイバー契約
+# caver.contract
 
-caver.contract\`オブジェクトは、kaiaブロックチェーンプラットフォーム上のスマートコントラクトとのやり取りを容易にする。 新しいコントラクト・オブジェクトを作成する際、そのスマート・コントラクトのJSONインターフェースを提供する必要がある。caver-jsは、javascriptでコントラクト・オブジェクトを使用するすべての呼び出しを、RPCを介した低レベルABI呼び出しに自動的に変換する。
+`caver.contract`オブジェクトは、kaiaブロックチェーンプラットフォーム上のスマートコントラクトとのやり取りを容易にする。 新しいコントラクト・オブジェクトを作成する際、そのスマート・コントラクトのJSONインターフェースを提供する必要がある。caver-jsは、javascriptでコントラクト・オブジェクトを使用するすべての呼び出しを、RPCを介した低レベルABI呼び出しに自動的に変換する。
 
 これにより、スマート・コントラクトをJavaScriptのオブジェクトのように扱うことができる。
 
-## ケイバー・コントラクト・クリエイト<a href="#caver-contract-create" id="caver-contract-create"></a>
+## caver.contract.create <a href="#caver-contract-create" id="caver-contract-create"></a>
 
 ```javascript
-caver.contract.create(jsonInterface [, アドレス] [, オプション])
+caver.contract.create(jsonInterface [, address] [, options])
 ```
 
 JSON インターフェース・オブジェクトに定義されたすべてのメソッドとイベントを持つ、新しいコントラクト・インスタンスを作成します。 この関数は、[new caver.contract](#new-contract) と同じ働きをする。
@@ -18,11 +18,11 @@ JSON インターフェース・オブジェクトに定義されたすべての
 
 new caver.contract](#new-contract) を参照。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 new caver.contract](#new-contract) を参照。
 
-\*\*例
+**例**
 
 ```javascript
 const contract = caver.contract.create([
@@ -39,10 +39,10 @@ const contract = caver.contract.create([
   ], '0x{address in hex}')
 ```
 
-## ケイバー契約<a href="#new-contract" id="new-contract"></a>
+## caver.contract <a href="#new-contract" id="new-contract"></a>
 
 ```javascript
-new caver.contract(jsonInterface [, アドレス] [, オプション])
+new caver.contract(jsonInterface [, address] [, options])
 ```
 
 JSON インターフェース・オブジェクトに定義されたすべてのメソッドとイベントを持つ、新しいコントラクト・インスタンスを作成します。
@@ -67,27 +67,27 @@ JSON インターフェース・オブジェクトに定義されたすべての
 | 料金支払者      | ストリング | (オプション）取引手数料を支払う手数料支払人の住所。 feeDelegation`が `true`のとき、その値はトランザクションの`feePayer\` フィールドに設定される。                                         |
 | 手数料率       | ストリング | (任意）手数料支払者が負担する取引手数料の比率。 feeDelegation`が `true` で、`feeRatio\`に有効な値が設定されている場合、部分的な料金委譲トランザクショ ンが使用される。 有効範囲は1～99。 0や100以上の比率は許されない。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明                        |
 | ------ | ------------------------- |
 | オブジェクト | すべてのメソッドとイベントを持つ契約インスタンス。 |
 
-\*\*例
+**例**
 
 ```javascript
 const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '25000000000' })
 ```
 
-## myContract.オプション<a href="#mycontract-options" id="mycontract-options"></a>
+##
 
 ```javascript
-myContract.オプション
+myContract.options
 ```
 
 契約インスタンスの `options` オブジェクト。 from`、`gas`、`gasPrice`、`feePayer`および`feeRatio\` は、トランザクションを送信する際のフォールバック値として使用される。
 
-\*\*プロパティ
+**プロパティ**
 
 | 名称            | タイプ   | 説明                                                                                                                                                    |
 | ------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -103,31 +103,31 @@ myContract.オプション
 
 **NOTE** `feeDelegation`、`feePayer`、`feeRatio` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.options
 {
-  address：[Getter/Setter],
-  jsonInterface：[Getter/Setter],
+  address: [Getter/Setter],
+  jsonInterface: [Getter/Setter],
   from: [Getter/Setter],
-  feePayer：[Getter/Setter],
-  feeDelegation：[Getter/Setter],
+  feePayer: [Getter/Setter],
+  feeDelegation: [Getter/Setter],
   feeRatio: [Getter/Setter],
   gasPrice: [Getter/Setter],
-  gas：[Getter/Setter],
-  data：[Getter/Setter]
-}.
+  gas: [Getter/Setter],
+  data: [Getter/Setter]
+}
 
-> myContract.options.from = '0x123456789012345678901234567891' // デフォルトの送信元アドレス
-> myContract.options.gasPrice = '25000000000000' // peb におけるデフォルトのガス料金
-> myContract.options.gas = 5000000 // フォールバックとして常に 5M のガスを提供
-> myContract.options.feeDelegation = 0x12345678901234567891' // デフォルトの送信元アドレス > myContract.options.feeDelegation = 0x12345678901234567891options.feeDelegation = true // 手数料委任トランザクションを使用する
-> myContract.options.feePayer = '0x1234567890123456789012345678901234567891' // デフォルトの手数料支払人アドレス
-> myContract.options.feeRatio = 20 // 部分的手数料委任トランザクション送信時のデフォルト手数料比率
+> myContract.options.from = '0x1234567890123456789012345678901234567891' // default from address
+> myContract.options.gasPrice = '25000000000000' // default gas price in peb
+> myContract.options.gas = 5000000 // provide as fallback always 5M gas
+> myContract.options.feeDelegation = true // use fee delegation transaction
+> myContract.options.feePayer = '0x1234567890123456789012345678901234567891' // default fee payer address
+> myContract.options.feeRatio = 20 // default fee ratio when send partial fee delegation transaction
 ```
 
-## myContract.options.アドレス<a href="#mycontract-options-address" id="mycontract-options-address"></a>
+## myContract.options.address <a href="#mycontract-options-address" id="mycontract-options-address"></a>
 
 ```javascript
 myContract.options.アドレス
@@ -141,7 +141,7 @@ myContract.options.アドレス
 | -- | ----------- | ----------------------------------- |
 | 住所 | string \\ | このコントラクトのアドレス。まだ設定されていない場合は `null`。 |
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.options.address
@@ -165,7 +165,7 @@ myContract.options.jsonInterface
 | ------------- | --- | -------------------------------------------------------------- |
 | jsonInterface | 配列  | この契約の JSON インターフェース。 これを再設定すると、コントラクト・インスタンスのメソッドとイベントが再生成される。 |
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.options.jsonInterface
@@ -212,13 +212,13 @@ myContract.clone([contractAddress])
 | ---- | ----- | ------------------------------------------------------------------------------------------------ |
 | 契約住所 | ストリング | (オプション）新しい契約の住所。 省略された場合、元のインスタンスのアドレスが設定される（例：`myContract.options.address`）。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明                   |
 | ------ | -------------------- |
 | オブジェクト | クローン化された新しい契約インスタンス。 |
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.clone()
@@ -249,7 +249,7 @@ myContract.deploy(options, byteCode [, param1 [, param2 [, ...]])
 | バイトコード | ストリング  | 契約のバイトコード。                                                                                                    |
 | パラメーター | ミックス   | (オプション) デプロイ時にコンストラクタに渡されるパラメータ。                                                           |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`PromiEvent\` を返す：プロミスは新しいコントラクトのインスタンスで解決される。
 
@@ -263,7 +263,7 @@ PromiEventでは、以下のイベントが利用可能です：
 - receipt`：トランザクションのレシートが利用可能になったときに発生する。 詳細については、[caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 型は `object\` である。
 - エラー`：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。 その型は `Error\` である。
 
-\*\*例
+**例**
 
 ```javascript
 // Deploy a smart contract without constructor arguments
@@ -349,7 +349,7 @@ myContract.deploy(options)
 | データ | ストリング | 契約のバイトコード。                                       |
 | 引数  | 配列    | (オプション) デプロイ時にコンストラクタに渡される引数。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明                                        |
 | ------ | ----------------------------------------- |
@@ -368,7 +368,7 @@ myContract.deploy(options)
 
 **注意** `myContract.deploy({ data, arguments }).sign(options)` と `myContract.deploy({ data, arguments }).signAsFeePayer(options)` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 以降でサポートされています。
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.deploy({
@@ -376,35 +376,35 @@ myContract.deploy(options)
       arguments: [123, 'My string']
   })
   .send({
-      from: '0x123456789012345678901234567891',
+      from: '0x1234567890123456789012345678901234567891',
       gas: 1500000,
       value: 0,
   }, function(error, transactionHash) { ... })
   .on('error', function(error) { ... })
   .on('transactionHash', function(transactionHash) { ... })
   .on('receipt', function(receipt) {
-     console.log(receipt.contractAddress) // 新しい契約アドレスを含む
+     console.log(receipt.contractAddress) // contains the new contract address
    })
   .then(function(newContractInstance) {
-      console.log(newContractInstance.options.address) // 新しい契約アドレスを含むインスタンス
+      console.log(newContractInstance.options.address) // instance with the new contract address
   })
 
-// 契約自体のオプションとしてデータがすでに設定されている場合
+// When the data is already set as an option to the contract itself
 > myContract.options.data = '0x12345...'
 
 > myContract.deploy({
         arguments: [123, 'My string']
   })
   .send({
-      from: '0x123456789012345678901234567891',
+      from: '0x1234567890123456789012345678901234567891',
       gas: 1500000,
       value: 0,
   })
   .then(function(newContractInstance) {
-      console.log(newContractInstance.options.address) // 新しい契約アドレスを持つインスタンス
+      console.log(newContractInstance.options.address) // instance with the new contract address
   })
 
-// 単純にエンコード
+// Simply encoding
 > myContract.deploy({
       data: '0x12345...',
       arguments: [123, 'My string']
@@ -412,14 +412,14 @@ myContract.deploy(options)
   .encodeABI()
 '0x12345...0000012345678765432'
 
-// ガス推定
+// Gas estimation
 > myContract.deploy({
       data: '0x12345...',
       arguments: [123, 'My string']
   })
   .estimateGas(function(err, gas) {
       console.log(gas)
-})
+  })
 ```
 
 ## myContract.send<a href="#mycontract-send" id="mycontract-send"></a>
@@ -449,7 +449,7 @@ myContract.send(options, methodName [, param1 [, param2 [, ...]])
 | メソッド名  | ストリング  | 実行するコントラクト関数のメソッド名。                                                                                           |
 | パラメーター | ミックス   | (オプション) スマートコントラクト関数に渡されるパラメータ。                                                            |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`PromiEvent\` を返す。
 
@@ -463,35 +463,35 @@ PromiEventでは、以下のイベントが利用可能です：
 - receipt`：トランザクションのレシートが利用可能になったときに発生する。 詳細については、[caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 その型は `object\` である。
 - エラー`：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。 その型は `Error\` である。
 
-\*\*例
+**例**
 
 ```javascript
-// SmartContractExecution を送信し、プロミスを使用する
+// Send a SmartContractExecution and use the promise
 > myContract.send({ from: '0x{address in hex}', gas: 1000000 }, 'methodName', 123).then(console.log)
 {
   blockHash: '0x294202dcd1d3c422880e2a209b9cd70ce7036300536c78ab74130c5717cb90da',
   blockNumber: 16342,
-  contractAddress：null,
+  contractAddress: null,
   from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
   gas: '0xf4240',
   gasPrice: '0x5d21dba00',
-  gasUsed：47411,
+  gasUsed: 47411,
   input: '0x983b2...',
   logsBloom: '0x00800...',
   nonce: '0x1cd',
-  senderTxHash: '0xe3f50d2bab2c462ef99379860d2b634d85a0c9fba4e2b189daf196bd4bbf8ff',
-  signatures：[ { V: '0x4e43', R: '0x2ba27...', S: '0x50d37...' } ],
+  senderTxHash: '0xe3f50d2bab2c462ef99379860d2b634d85a0c9fba4e2b189daf1d96bd4bbf8ff',
+  signatures: [ { V: '0x4e43', R: '0x2ba27...', S: '0x50d37...' } ],
   status: true,
-  to：'0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
   transactionHash: '0xe3f50d2bab2c462ef99379860d2b634d85a0c9fba4e2b189daf1d96bd4bbf8ff',
-  transactionIndex：0,
+  transactionIndex: 0,
   type: 'TxTypeSmartContractExecution',
-  typeInt：48,
+  typeInt: 48,
   value: '0x0',
-  events： {...}
+  events: {...}
 }
 
-// SmartContractExecution を送信し、イベントエミッタを使用する
+// Send a SmartContractExecution and use the event emitter
 > myContract.send({ from: '0x{address in hex}', gas: 1000000 }, 'methodName', 123)
   .on('transactionHash', function(hash) {
     ...
@@ -501,7 +501,7 @@ PromiEventでは、以下のイベントが利用可能です：
   })
   .on('error', console.error)
 
-// FeeDelegatedSmartContractExecution の送信
+// Send a FeeDelegatedSmartContractExecution
 > myContract.send({
     from: '0x{address in hex}',
     gas: 1000000,
@@ -513,27 +513,27 @@ PromiEventでは、以下のイベントが利用可能です：
   blockNumber: 16458,
   contractAddress: null,
   feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
-  feePayerSignatures：[ { V: '0x4e43', R: '0x48c28...', S: '0x18413...' } ],
+  feePayerSignatures: [ { V: '0x4e43', R: '0x48c28...', S: '0x18413...' } ],
   from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
   gas: '0xf4240',
   gasPrice: '0x5d21dba00',
-  gasUsed：57411,
-  input: '0x983b2d5600000000000022bb89bd35e7b12bd25bea4165cf0f9330032f8c',
-  logsBloom: '0x00800....',
+  gasUsed: 57411,
+  input: '0x983b2d5600000000000000000000000022bb89bd35e7b12bd25bea4165cf0f9330032f8c',
+  logsBloom: '0x00800...',
   nonce: '0x1f5',
   senderTxHash: '0x5b06ca5046229e066c11dfc0c74fcbc98509294370981f9b142378a8f2bd5fe8',
-  signatures：[ { V: '0x4e44', R: '0xfb707...', S: '0x641c6...' } ],
+  signatures: [ { V: '0x4e44', R: '0xfb707...', S: '0x641c6...' } ],
   status: true,
-  to：'0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
   transactionHash: '0x0e04be479ad06ec87acbf49abd44f16a56390c736f0a7354860ebc7fc0f92e13',
-  transactionIndex：1,
+  transactionIndex: 1,
   type: 'TxTypeFeeDelegatedSmartContractExecution',
-  typeInt：49,
+  typeInt: 49,
   value: '0x0',
-  events： {...}
+  events: {...}
 }
 
-// FeeDelegatedSmartContractExecutionWithRatio を送信
+// Send a FeeDelegatedSmartContractExecutionWithRatio
 > myContract.send({
     from: '0x{address in hex}',
     gas: 1000000,
@@ -546,25 +546,25 @@ PromiEventでは、以下のイベントが利用可能です：
   blockNumber: 16539,
   contractAddress: null,
   feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
-  feePayerSignatures：[ { V: '0x4e43', R: '0x80db0...', S: '0xf8c7c...' } ],
+  feePayerSignatures: [ { V: '0x4e43', R: '0x80db0...', S: '0xf8c7c...' } ],
   feeRatio: '0x1e',
   from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
   gas: '0xf4240',
   gasPrice: '0x5d21dba00',
-  gasUsed：62411,
-  input: '0x983b2d5600000000000000007ad1a538041fa3ba1a721f87203cb1a3822b8eaa',
-  logsBloom: '0x00800....',
+  gasUsed: 62411,
+  input: '0x983b2d560000000000000000000000007ad1a538041fa3ba1a721f87203cb1a3822b8eaa',
+  logsBloom: '0x00800...',
   nonce: '0x219',
   senderTxHash: '0x14c7b674a0e253b31c85c7be8cbfe4bf9d86e66e940fcae34b854e25eab1ce15',
-  signatures：[ { V: '0x4e43', R: '0xd57ef...', S: '0xe14f3...' } ],
+  signatures: [ { V: '0x4e43', R: '0xd57ef...', S: '0xe14f3...' } ],
   status: true,
-  to：'0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
   transactionHash: '0xfbf00ec189aeb0941d554384f1660ffdac7768b3af2bb1526bcb3983215c1183',
-  transactionIndex：0,
+  transactionIndex: 0,
   type: 'TxTypeFeeDelegatedSmartContractExecutionWithRatio',
-  typeInt：50,
+  typeInt: 50,
   value: '0x0',
-  events： {...}
+  events: {...}
 }
 ```
 
@@ -576,7 +576,7 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]])
 
 スマートコントラクトを展開したり、スマートコントラクトの機能を実行したりするために、送信者としてスマートコントラクト取引に署名する。
 
-スマート・コントラクトがデプロイされている場合、「コンストラクタ」は、「myContract.sign({ from, ...)」のようにmethodNameに入力することができる。 }, 'constructor', byteCode, ...)\`.
+}, 'constructor', byteCode, ...)\`.
 
 この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 myContract.sign`で手数料を委譲したトランザクションを使用したい場合は、`feeDelegation`を `true\`として定義する必要がある。
 
@@ -596,11 +596,11 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]])
 | メソッド名  | ストリング  | 実行するコントラクト関数のメソッド名。 スマート・コントラクトをデプロイするためのトランザクションに署名したい場合は、メソッド名の代わりに「コンストラクタ」文字列を使用する。                           |
 | パラメーター | ミックス   | (オプション) スマートコントラクト関数に渡されるパラメータ。 スマート・コントラクトをデプロイしたトランザクションに署名したい場合は、byteCodeとコンストラクタのパラメータを渡す。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise\` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
 
-\*\*例
+**例**
 
 ```javascript
 // Sign a SmartContractDeploy
@@ -719,7 +719,7 @@ FeeDelegatedSmartContractExecutionWithRatio {
 }
 ```
 
-## myContract.signAsFeePayer。<a href="#mycontract-signasfeepayer" id="mycontract-signasfeepayer"></a>
+## myContract.signAsFeePayer <a href="#mycontract-signasfeepayer" id="mycontract-signasfeepayer"></a>
 
 ```javascript
 myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]])
@@ -748,11 +748,11 @@ myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]])
 | メソッド名  | ストリング  | 実行するコントラクト関数のメソッド名。 スマート・コントラクトをデプロイするためのトランザクションに署名したい場合は、メソッド名の代わりに「コンストラクタ」文字列を使用する。                           |
 | パラメーター | ミックス   | (オプション) スマートコントラクト関数に渡されるパラメータ。 スマート・コントラクトをデプロイしたトランザクションに署名したい場合は、byteCodeとコンストラクタのパラメータを渡す。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise\` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
 
-\*\*例
+**例**
 
 ```javascript
 // Sign a FeeDelegatedSmartContractDeploy
@@ -860,18 +860,18 @@ myContract.call(options, 'methodName', [param1 [, param2 [, ...]])
 | メソッド名  | ストリング  | 呼び出す契約関数のメソッド名。                                                                                                                             |
 | パラメーター | ミックス   | (オプション) スマートコントラクト関数に渡されるパラメータ。                                                                                          |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Mixed`を返す`Promise\` - スマートコントラクトメソッドの戻り値。 単一の値を返す場合は、そのまま返される。 複数の戻り値を持つ場合は、プロパティとインデックスを持つオブジェクトを返す。
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.call('methodName').then(console.log)
-ジャスミン
+Jasmine
 
 > myContract.call({ from: '0x{address in hex}' }, 'methodName', 123).then(console.log)
-テスト結果
+Test Result
 ```
 
 ## myContract.decodeFunctionCall<a href="#mycontract-decodefunctioncall" id="mycontract-decodefunctioncall"></a>
@@ -890,13 +890,13 @@ myContract.decodeFunctionCall(functionCall)
 | ---------- | ----- | ------------------ |
 | ファンクションコール | ストリング | エンコードされた関数呼び出し文字列。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ    | 説明                                                                                                                                    |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
 | オブジェクト | プレーンパラメータを含むオブジェクト。 result[0]\`は、パラメーターの順番で配列のようにアクセスできるように用意されているので、それを使うことができる。 |
 
-\*\*例
+**例**
 
 ```javascript
 // The myContract variable is instantiated with the below abi.
@@ -930,7 +930,7 @@ Result {
 }
 ```
 
-## myContract.メソッド<a href="#mycontract-methods" id="mycontract-methods"></a>
+## myContract.methods <a href="#mycontract-methods" id="mycontract-methods"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]])
@@ -968,7 +968,7 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
 
 JSONインターフェイスで定義された、このスマート・コントラクトに属するメソッドのパラメータ。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 契約実行のための引数と関数が定義されたオブジェクト：
 
@@ -984,7 +984,7 @@ JSONインターフェイスで定義された、このスマート・コント�
 
 **NOTE** `sign` と `signAsFeePayer` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-\*\*例
+**例**
 
 ```javascript
 // Calling a method
@@ -1096,14 +1096,14 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).call(options [, cal
 | ガス価格 | ストリング | (オプション）この呼び出しに使用するガス価格（peb）。                        |
 | ガス   | 番号    | (オプション) この呼に供給されるガスの最大値(ガスリミット)。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Mixed`を返す`Promise\` - スマートコントラクトメソッドの戻り値。 単一の値を返す場合は、そのまま返される。 複数の戻り値を持つ場合は、プロパティとインデックスを持つオブジェクトを返す。
 
-\*\*例
+**例**
 
 ```javascript
-// プロミスの使用
+// using the promise
 > myContract.methods.methodName(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(result) {
       ...
@@ -1127,7 +1127,7 @@ Result {
       mystring: 'Hello!%',
       0: '23456',
       1: 'Hello!%'
-}.
+}
 ```
 
 ```solidity
@@ -1145,7 +1145,7 @@ contract MyContract {
 "Hello!%"
 ```
 
-## メソッド名.送信<a href="#methods-methodname-send" id="methods-methodname-send"></a>
+## methods.methodName.send <a href="#methods-methodname-send" id="methods-methodname-send"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]).send(options [, callback])
@@ -1186,7 +1186,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).send(options [, cal
 
 **NOTE** `feeDelegation`、`feePayer`、`feeRatio` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`PromiEvent\` を返す。
 
@@ -1200,7 +1200,7 @@ PromiEventでは、以下のイベントが利用可能です：
 - receipt`：トランザクションのレシートが利用可能になったときに発生する。 詳細については、[caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 型は `object\` である。
 - エラー`：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。 その型は `Error\` である。
 
-\*\*例
+**例**
 
 ```javascript
 // using the promise
@@ -1260,7 +1260,7 @@ PromiEventでは、以下のイベントが利用可能です：
 > myContract.methods['constructor']('0x{byte code}', 123).send({ from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', gas: 1000000 })
 ```
 
-## メソッド名.符号<a href="#methods-methodname-sign" id="methods-methodname-sign"></a>
+## methods.methodName.sign <a href="#methods-methodname-sign" id="methods-methodname-sign"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]).sign(options)
@@ -1287,11 +1287,11 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).sign(options)
 | ----- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
 | オプション | オブジェクト | トランザクションの作成に使用されるオプション。 詳しくは[methods.methodName.send](#methods-methodname-send)のパラメータ表を参照のこと。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise\` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
 
-\*\*例
+**例**
 
 ```javascript
 // Sign a SmartContractDeploy transaction
@@ -1374,7 +1374,7 @@ FeeDelegatedSmartContractExecution {
 > myContract.methods['methodName']('0x...').sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }).then(console.log)
 ```
 
-## メソッド名.signAsFeePayer<a href="#methods-methodname-signasfeepayer" id="methods-methodname-signasfeepayer"></a>
+## methods.methodName.signAsFeePayer <a href="#methods-methodname-signasfeepayer" id="methods-methodname-signasfeepayer"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]).signAsFeePayer(options)
@@ -1402,11 +1402,11 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).signAsFeePayer(opti
 | ----- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
 | オプション | オブジェクト | トランザクションの作成に使用されるオプション。 詳しくは[methods.methodName.send](#methods-methodname-send)のパラメータ表を参照のこと。 |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise\` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
 
-\*\*例
+**例**
 
 ```javascript
 // Sign a FeeDelegatedSmartContractDeploy transaction
@@ -1448,7 +1448,7 @@ Promise\` return [Transaction](./caver-transaction/caver-transaction.md) - 署�
 > myContract.methods['methodName'](123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
 ```
 
-## メソッド名.estimateGas<a href="#methods-methodname-estimategas" id="methods-methodname-estimategas"></a>
+## methods.methodName.estimateGas <a href="#methods-methodname-estimategas" id="methods-methodname-estimategas"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]).estimateGas(options [, callback])
@@ -1471,7 +1471,7 @@ kaia仮想マシンで実行されるメソッドの実行にかかる時間を�
 | ガス | 番号          | (オプション) この呼に供給されるガスの最大値(ガスリミット)。 特定の値を設定することで、ガス欠エラーの検出に役立つ。 すべてのガスが使用された場合、同じ数値が返される。 |
 | 価値 | number \\ | (オプション) このコントラクト関数を実行するためのトランザクションがkaiaに送信された場合に、スマートコントラクトのアドレスに転送されるpebの値。                              |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 プロミス`は `number\` を返す。
 
@@ -1479,7 +1479,7 @@ kaia仮想マシンで実行されるメソッドの実行にかかる時間を�
 | --- | ------------------------------ |
 | 番号  | コール/トランザクションのシミュレーションに使用されるガス。 |
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.methods.methodName(123).estimateGas({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
@@ -1503,20 +1503,20 @@ myContract.methods.methodName([param1 [, param2[, ...]]).encodeABI()
 
 JSONインターフェイスで定義された、このスマート・コントラクトに属するメソッドのパラメータ。
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 | タイプ   | 説明                                       |
 | ----- | ---------------------------------------- |
 | ストリング | トランザクションまたはコールで送信するためにエンコードされたABIバイトコード。 |
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.methods.methodName(123).encodeABI()
 '0x58cf5f1000000000000000000000000000000000000000000000000000000000000007B'
 ```
 
-## myContract.one（マイ・コントラクト・ワンス<a href="#mycontract-once" id="mycontract-once"></a>
+## myContract.once <a href="#mycontract-once" id="mycontract-once"></a>
 
 ```javascript
 myContract.once(event [, options], callback)
@@ -1539,11 +1539,11 @@ myContract.once(event [, options], callback)
 | フィルター | オブジェクト | (オプション) インデックス化されたパラメータでイベントをフィルタすることができます：{mynumber:[12,13]}}\`は、"mynumber "が12または13であるすべてのイベントを意味する。 |
 | トピックス | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的に設定されない。                                                                                   |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - イベントオブジェクトを返す。 イベント・オブジェクトの詳細については、[myContract.getPastEvents](#getpastevents) を参照してください。
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.once('eventName', {
@@ -1599,11 +1599,11 @@ myContract.subscribe(event [, options], callback)
 | フィルター | オブジェクト | (オプション) インデックス化されたパラメータでイベントをフィルタすることができます：{mynumber:[12,13]}}\`は、"mynumber "が12または13であるすべてのイベントを意味する。 |
 | トピックス | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的には設定されない。                                                                                  |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 Promise`は`object\` - イベントオブジェクトを返す。 イベント・オブジェクトの詳細については、[myContract.getPastEvents](#getpastevents) を参照してください。
 
-\*\*例
+**例**
 
 ```javascript
 > const subscription = myContract.subscribe('eventName', {
@@ -1631,7 +1631,7 @@ Promise`は`object\` - イベントオブジェクトを返す。 イベント�
 > subscription.unsubscribe() // unsubscribe the event
 ```
 
-## myContract.イベント<a href="#mycontract-events" id="mycontract-events"></a>
+## myContract.events <a href="#mycontract-events" id="mycontract-events"></a>
 
 ```javascript
 myContract.events.eventName([options][, callback])
@@ -1654,7 +1654,7 @@ myContract.events.eventName([options][, callback])
 | フロムブロック | 番号     | (オプション) イベントを取得するブロック番号。                                                                                                                                                   |
 | トピックス   | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的に設定されない。                                                                                   |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 イベントエミッター\`である：イベントエミッタは以下のイベントを持つ：
 
@@ -1683,45 +1683,45 @@ myContract.events.eventName([options][, callback])
 | raw\.topics | 配列          | 最大4つの32バイトのトピックを持つ配列で、トピック1-3にはイベントのインデックス付きパラメータが含まれる。                                                                |
 | アイドル                         | ストリング       | ログの識別子。 これは、"log_"文字列と`keccak256(blockHash + transactionHash + logIndex).substr(0, 8)`を連結したものである。 |
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.events.eventName({
-    filter：filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // 配列を使用すると OR: 例: 20 または 23
+    filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
     fromBlock: 0
   }, function(error, event) { console.log(event) })
   .on('connected', function(subscriptionId){
       console.log(subscriptionId)
   })
   .on('data', function(event){
-      console.log(event) // 上記のオプションのコールバックと同じ結果
+      console.log(event) // same results as the optional callback above
   })
   .on('error', console.error)
 
-// イベント出力の例
+// event output example
 {
-    returnValues： {
+    returnValues: {
         myIndexedParam: 20,
         myOtherIndexedParam: '0x123456789...',
         myNonIndexParam: 'My string'
-    }
-    raw：{
-        data：'0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-        topics：['0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385']
     },
-    event：'eventName',
+    raw: {
+        data: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
+        topics: ['0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385']
+    },
+    event: 'eventName',
     signature: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
-    logIndex：0,
-    transactionIndex：0,
+    logIndex: 0,
+    transactionIndex: 0,
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-    blockHash：'0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
+    blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blocknumber: 1234,
-    address：'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
+    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
     id: 'log_41d221bc',
-}.
+}
 ```
 
-## イベント.allEvents<a href="#events-allevents" id="events-allevents"></a>
+## events.allEvents <a href="#events-allevents" id="events-allevents"></a>
 
 ```javascript
 myContract.events.allEvents([options] [, callback])
@@ -1729,7 +1729,7 @@ myContract.events.allEvents([options] [, callback])
 
 myContract.events](#mycontract-events) と同じですが、このスマートコントラクトからのすべてのイベントを受け取ります。 オプションで、filterプロパティはこれらのイベントをフィルタリングすることができる。
 
-## 過去のイベントの取得<a href="#getpastevents" id="getpastevents"></a>
+## getPastEvents <a href="#getpastevents" id="getpastevents"></a>
 
 ```javascript
 myContract.getPastEvents(event [, options] [, callback])
@@ -1754,7 +1754,7 @@ myContract.getPastEvents(event [, options] [, callback])
 | ブロックする  | 番号     | (オプション) イベントを取得するブロック番号 (デフォルトは `"latest"`).                                                                                            |
 | トピックス   | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的に設定されない。                                                                                   |
 
-\*\*リターン・バリュー
+**リターン・バリュー**
 
 プロミス `Promise` は `Array` - 指定されたイベント名とフィルターにマッチする、過去のイベントオブジェクトを含む配列 を返す。
 
@@ -1773,37 +1773,37 @@ myContract.getPastEvents(event [, options] [, callback])
 | ブロック番号         | 番号          | このログが作成されたブロック番号。保留中の場合はnull。                                                                                                                                     |
 | 生              | オブジェクト      | オブジェクトは `data` と `topic` を定義する。 raw.data`には、インデックス化されていないログパラメータが含まれている。 raw.topic`は、最大4つの32バイトのトピックを持つ配列であり、トピック1-3には、イベントのインデックス化されたパラメータが含まれる。 |
 
-\*\*例
+**例**
 
 ```javascript
 > myContract.getPastEvents('eventName', {
-      filter：filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // 配列を使用すると OR: 例: 20 または 23
+      filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
       fromBlock: 0,
       toBlock: 'latest'
   }, function(error, events) { console.log(events) })
   .then(function(events) {
-      console.log(events) // 上記のオプションのコールバックと同じ結果
+      console.log(events) // same results as the optional callback above
   })
 
 [{
-    returnValues： {
+    returnValues: {
         myIndexedParam: 20,
         myOtherIndexedParam: '0x123456789...',
         myNonIndexParam: 'My string'
-    }
-    raw：{
-        data：'0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-        topics：['0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385']
     },
-    event：'eventName',
+    raw: {
+        data: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
+        topics: ['0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385']
+    },
+    event: 'eventName',
     signature: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
-    logIndex：0,
-    transactionIndex：0,
+    logIndex: 0,
+    transactionIndex: 0,
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-    blockHash：'0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
+    blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blocknumber: 1234,
-    address：'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
 },{
       ...
-}].
+}]
 ```
