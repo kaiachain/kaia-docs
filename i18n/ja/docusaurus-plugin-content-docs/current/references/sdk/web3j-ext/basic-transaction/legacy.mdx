@@ -1,6 +1,6 @@
-TxTypeLegacyTransaction represents a type of transactions existed previously in kaia.
+TxTypeLegacyTransactionは、kaiaに以前存在したトランザクションのタイプを表す。
 
-\*\*This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
+\*\*このタイプのトランザクションは、アカウントの作成、トークンの転送、スマート・コントラクトのデプロイ、スマート・コントラクトの実行、または前述の混合を実行できる。
 
 <CH.Spotlight>
 
@@ -40,14 +40,14 @@ public class LegacyExample implements keySample {
                 BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
                 BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
                 String from = credentials.getAddress();
-                String to = "0x000000000000000000000000000000000000dead";
+                String to = "0x000000000000000000000000dead";
                 EthChainId EthchainId = web3j.ethChainId().send();
                 long chainId = EthchainId.getChainId().longValue();
                 BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
                                 .getTransactionCount();
                 BigInteger value = BigInteger.valueOf(100);
 
-                // send legacy transaction with web3j-credentials
+                // web3j-credentialsでレガシートランザクションを送る
                 RawTransaction raw = KlayRawTransaction.createEtherTransaction(
                                 nonce,
                                 GAS_PRICE,
@@ -60,7 +60,7 @@ public class LegacyExample implements keySample {
                 EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
                 System.out.println(transactionResponse.getResult());
 
-                // send legacy transaction with web3j-ext klaycredentials
+                // web3j-ext klaycredentialsでレガシートランザクションを送信
                 raw = KlayRawTransaction.createEtherTransaction(
                                 nonce,
                                 GAS_PRICE,
@@ -75,7 +75,7 @@ public class LegacyExample implements keySample {
                 String txHash = transactionResponse.getResult();
                 int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
                 int DEFAULT_BLOCK_TIME = 1 * 1000;
-                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME；
                 TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
                                 DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
                 org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
@@ -85,7 +85,7 @@ public class LegacyExample implements keySample {
                 System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
                 web3j.shutdown();
 
-        }
+        }.
 
 }
 ```
@@ -93,7 +93,7 @@ public class LegacyExample implements keySample {
 ---
 
 ```zsh output
-❯ java txTypeLegacyTransaction.java
+java txTypeLegacyTransaction.java
 3.523785565427238379
 0xa02e0i90faef4323cb542312de9aac0
 ```
@@ -102,7 +102,7 @@ public class LegacyExample implements keySample {
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java txTypeLegacyTransaction.java focus=1:20
 
@@ -110,7 +110,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+指定されたBAOBAB_URLでWeb3jインスタンスを作成する
 
 ```java txTypeLegacyTransaction.java focus=27
 
@@ -118,7 +118,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Creating new credentials using the private key
+秘密鍵を使った新しい認証情報の作成
 
 ```java txTypeLegacyTransaction.java focus=28:29
 
@@ -126,7 +126,7 @@ Creating new credentials using the private key
 
 ---
 
-Gas **price** and **gas limit** settings
+ガス**価格**と**ガス制限**の設定
 
 ```java txTypeLegacyTransaction.java focus=31:32
 
@@ -134,7 +134,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Set the sender's **from** and receiver's **to** address
+送信者の**from**アドレスと受信者の**to**アドレスを設定する。
 
 ```java txTypeLegacyTransaction.java focus=33,34
 
@@ -142,7 +142,7 @@ Set the sender's **from** and receiver's **to** address
 
 ---
 
-Get the **chain ID** from the network
+ネットワークから**チェーンID**を取得する。
 
 ```java txTypeLegacyTransaction.java focus=35:36
 
@@ -150,7 +150,7 @@ Get the **chain ID** from the network
 
 ---
 
-Get the user's **nonce** from the network
+ネットワークからユーザーの**nonce**を取得する。
 
 ```java txTypeLegacyTransaction.java focus=37:38
 
@@ -158,7 +158,7 @@ Get the user's **nonce** from the network
 
 ---
 
-Define the **value** to transfer from sender to receiver
+送信者から受信者へ転送する\*\*値を定義する。
 
 ```java txTypeLegacyTransaction.java focus=39
 
@@ -166,7 +166,7 @@ Define the **value** to transfer from sender to receiver
 
 ---
 
-Create a raw **transaction** using above params
+上記のパラメータを使用して生の**トランザクション**を作成する。
 
 ```java txTypeLegacyTransaction.java focus=42:47
 
@@ -174,7 +174,7 @@ Create a raw **transaction** using above params
 
 ---
 
-For **web3j-credentials**, sign transaction with with `KlayTransactionEncoder.signMessage` and encode to Hex string using `Numeric.toHexString`.
+web3j-credentials\*\*では、`KlayTransactionEncoder.signMessage`でトランザクションに署名し、`Numeric.toHexString`で16進文字列にエンコードします。
 
 ```java txTypeLegacyTransaction.java focus=49:50
 
@@ -182,7 +182,7 @@ For **web3j-credentials**, sign transaction with with `KlayTransactionEncoder.si
 
 ---
 
-Using `ethSendRawTransaction` method to send the signed transaction to the blockchain.
+ethSendRawTransaction\`メソッドを使用して、署名されたトランザクションをブロックチェーンに送信する。
 
 ```java txTypeLegacyTransaction.java focus=51:52
 
@@ -190,7 +190,7 @@ Using `ethSendRawTransaction` method to send the signed transaction to the block
 
 ---
 
-For **web3j-ext klaycredentials**, create raw transaction with `KlayRawTransaction.createEtherTransaction`, sign it with `KlayTransactionEncoder.signMessage` and encode to Hex string using `Numeric.toHexString`.
+web3j-ext klaycredentials\*\* では、`KlayRawTransaction.createEtherTransaction` で生のトランザクションを作成し、`KlayTransactionEncoder.signMessage` で署名し、`Numeric.toHexString` で16進文字列にエンコードします。
 
 ```java txTypeLegacyTransaction.java focus=54:63
 
@@ -198,7 +198,7 @@ For **web3j-ext klaycredentials**, create raw transaction with `KlayRawTransacti
 
 ---
 
-Using `ethSendRawTransaction` method to send the signed transaction to the blockchain.
+ethSendRawTransaction\`メソッドを使用して、署名されたトランザクションをブロックチェーンに送信する。
 
 ```java txTypeLegacyTransaction.java focus=64:66
 
@@ -206,7 +206,7 @@ Using `ethSendRawTransaction` method to send the signed transaction to the block
 
 ---
 
-Get the receipt hash returned.
+返されたレシートハッシュを取得する。
 
 <CH.Code>
 
@@ -217,7 +217,7 @@ Get the receipt hash returned.
 ---
 
 ```zsh output
-❯ java txTypeLegacyTransaction.java
+java txTypeLegacyTransaction.java
 0xa02e0i90faef4323cb542312de9aac0
 ```
 
@@ -225,7 +225,7 @@ Get the receipt hash returned.
 
 ---
 
-Finally, Shut down web3j instance
+最後に、web3jインスタンスをシャットダウンする
 
 ```java txTypeLegacyTransaction.java focus=77
 
