@@ -224,15 +224,15 @@ Web3.eth.Contract\`を使用して、**contractAbi**と**address**を定義し�
 更新前に\*\*番号を取得
 
 <CH.Code>
-``js smartContractWriteWithTxType.js focus=39
+```js smartContractWriteWithTxType.js focus=39
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractWriteWithTxType.js
 number before 295
-```
+````
 
 </CH.Code>
 
@@ -257,15 +257,15 @@ contract.methods.increment().encodeABI()\`でコントラクト・メソッド�
 送信者\*\*のアカウントで取引に署名する。
 
 <CH.Code>
-``js smartContractWriteWithTxType.js focus=49:50
+```js smartContractWriteWithTxType.js focus=49:50
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractWriteWithTxType.js
 signedTx 0xb4e2f9d3a6c3d24a318028ff904f2d21e79ca6f2adc41aa099cd1be70f7952b9
-```
+````
 
 </CH.Code>
 
@@ -274,7 +274,7 @@ signedTx 0xb4e2f9d3a6c3d24a318028ff904f2d21e79ca6f2adc41aa099cd1be70f7952b9
 トランザクションをネットワークに送信し、レシートを待つ。
 
 <CH.Code>
-``js smartContractWriteWithTxType.js focus=52:53
+```js smartContractWriteWithTxType.js focus=52:53
 
 ````
 ---
@@ -317,15 +317,15 @@ receipt {
 アップデート後の\*\*番号を取得
 
 <CH.Code>
-``js smartContractWriteWithTxType.js focus=55
+```js smartContractWriteWithTxType.js focus=55
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractWriteWithTxType.js
-296以降の番号
-```
+number after 296
+````
 
 </CH.Code>
 
