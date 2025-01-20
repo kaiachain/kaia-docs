@@ -220,15 +220,15 @@ Web3.eth.Contract\`を使用して、**contractAbi**と**address**を定義し�
 更新前に\*\*番号を取得
 
 <CH.Code>
-``js smartContractWrite.js focus=39
+```js smartContractWrite.js focus=39
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractWrite.js
 number before 294
-```
+````
 
 </CH.Code>
 
@@ -245,15 +245,15 @@ number before 294
 送信者アカウントで取引に署名する
 
 <CH.Code>
-``js smartContractWrite.js focus=48:49
+```js smartContractWrite.js focus=48:49
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractWrite.js
 signedTx 0x842b7043b185e1e9506529f4562f27e70d6a4f1bd8fd0971e844f70a2d103eb6
-```
+````
 
 </CH.Code>
 
@@ -262,7 +262,7 @@ signedTx 0x842b7043b185e1e9506529f4562f27e70d6a4f1bd8fd0971e844f70a2d103eb6
 トランザクションをネットワークに送信し、レシートを待つ。
 
 <CH.Code>
-``js smartContractWrite.js focus=51:52
+```js smartContractWrite.js focus=51:52
 
 ````
 ---
@@ -305,15 +305,15 @@ receipt {
 アップデート後の\*\*番号を取得
 
 <CH.Code>
-``js smartContractWrite.js focus=54
+```js smartContractWrite.js focus=54
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 ❯ node smartContractWrite.js
-295以降の番号
-```
+number after 295
+````
 
 </CH.Code>
 </CH.Spotlight>
