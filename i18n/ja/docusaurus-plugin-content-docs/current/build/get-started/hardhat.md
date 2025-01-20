@@ -4,7 +4,7 @@
 
 ## はじめに
 
-This section will guide you through deploying a Soulbound Token to the Klaytn Baobab Network using [Hardhat](https://hardhat.org/).
+このセクションでは、[Hardhat](https://hardhat.org/)を使用してKaia KairosネットワークにSoulbound Tokenを配備する方法を説明します。
 
 Hardhatは、スマート・コントラクト開発環境です：
 
@@ -28,7 +28,7 @@ Hardhatは、スマート・コントラクト開発環境です：
 - Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
 - [メタマスク](../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダ](../../references/public-en.md)の1つから取得できます。
-- 蛇口](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 - [NodeJSとNPM](https://nodejs.org/en/)
 
 ## 開発環境のセットアップ
@@ -342,7 +342,7 @@ npx hardhat run scripts/sbtDeploy.js --network baobab
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**ステップ4**：Kaiascope](https://kairos.kaiascope.com/) を開き、SBTトークンが正常にデプロイされたかどうかを確認します。
+**ステップ4**：[Kaiascope](https://kairos.kaiascope.com/) を開き、SBTトークンが正常にデプロイされたかどうかを確認します。
 
 \*\*ステップ5配備された契約書アドレスを検索フィールドにコピー＆ペーストし、Enterキーを押します。 最近配備された契約が表示されるはずだ。
 
