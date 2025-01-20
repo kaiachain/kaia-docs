@@ -10,7 +10,7 @@ KIP-37の詳細については、[カイア改善提案](https://kips.kaia.io/KI
 
 **NOTE** `caver.kct.kip37` は caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7) からサポートされています。
 
-## caver.kct.kip37.デプロイメント<a id="caver-klay-kip37-deploy"></a>
+## caver.kct.kip37.deploy <a id="caver-klay-kip37-deploy"></a>
 
 ```javascript
 caver.kct.kip37.deploy(tokenInfo, deployer)
@@ -109,7 +109,7 @@ KIP37 {
 })
 ```
 
-## caver.kct.kip37.detectInterface<a id="caver-kct-kip37-detectinterface"></a>
+## caver.kct.kip37.detectInterface <a id="caver-kct-kip37-detectinterface"></a>
 
 ```javascript
 caver.kct.kip37.detectInterface(契約アドレス)
@@ -140,7 +140,7 @@ caver.kct.kip37.detectInterface(契約アドレス)
 }.
 ```
 
-## caver.kct.kip37.クリエイト<a id="caver-kct-kip37-create"></a>
+## caver.kct.kip37.create <a id="caver-kct-kip37-create"></a>
 
 ```javascript
 caver.kct.kip37.create([tokenAddress])
