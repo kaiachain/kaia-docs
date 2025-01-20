@@ -167,14 +167,14 @@ main();
 新しい秘密鍵から新しい公開鍵を計算する
 
 <CH.Code>
-``js TxTypeFeeDelegatedAccountUpdate.js focus=18:19
+```js TxTypeFeeDelegatedAccountUpdate.js focus=18:19
 
-```
+````
 ---
-``zsh output
-↪Node TxTypeFeeDelegatedSmartContractDeploy.js
+```zsh output
+❯ node TxTypeFeeDelegatedSmartContractDeploy.js
 pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
-```
+````
 
 </CH.Code>
 
@@ -199,14 +199,14 @@ pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
 senderWallet\*\*でトランザクションに署名する。
 
 <CH.Code>
-``js TxTypeFeeDelegatedAccountUpdate.js focus=32:33
+```js TxTypeFeeDelegatedAccountUpdate.js focus=32:33
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ node TxTypeFeeDelegatedSmartContractDeploy.js
-senderTxHashRLP0x21f88c67850ba43b740082cd1494e15cd70a41dfb05e7214004d7d054801b2a2f06ba302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f6a0d6754f250d0f0cb631ea5574dbdfd749ef67213570b4c5105cec45595f99a962a066872e325455e7351dbb0861f23c89c1fdba9e15cc18319adf0907fa42025d81
-```
+senderTxHashRLP 0x21f88c67850ba43b740082cd1494e15cd70a41dfb05e7214004d7d054801b2a2f06ba302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f6a0d6754f250d0f0cb631ea5574dbdfd749ef67213570b4c5105cec45595f99a962a066872e325455e7351dbb0861f23c89c1fdba9e15cc18319adf0907fa42025d81
+````
 
 </CH.Code>
 
@@ -215,14 +215,14 @@ senderTxHashRLP0x21f88c67850ba43b740082cd1494e15cd70a41dfb05e7214004d7d054801b2a
 手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
-``js TxTypeFeeDelegatedAccountUpdate.js focus=35:37
+```js TxTypeFeeDelegatedAccountUpdate.js focus=35:37
 
-```
+````
 ---
-``zsh output
+```zsh output
 ❯ node TxTypeFeeDelegatedSmartContractDeploy.js
 sentTx 0x7530c3309220e8d86a216694c3809de6f6d437da22ee54a60f5ba701856e467b
-```
+````
 
 </CH.Code>
 
@@ -231,7 +231,7 @@ sentTx 0x7530c3309220e8d86a216694c3809de6f6d437da22ee54a60f5ba701856e467b
 取引レシートを待つ
 
 <CH.Code>
-``js TxTypeFeeDelegatedAccountUpdate.js focus=39:40
+```js TxTypeFeeDelegatedAccountUpdate.js focus=39:40
 
 ````
 ---
