@@ -1,6 +1,6 @@
-# Write
+# 書く
 
-You can make a **"transaction"** interacting with a Smart Contract when you **need to update some state ** in the contract.
+スマートコントラクトの状態を更新する必要がある場合、スマートコントラクトと**「トランザクション」**を行うことができる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -72,40 +72,40 @@ main();
 number before 294
 signedTx 0x842b7043b185e1e9506529f4562f27e70d6a4f1bd8fd0971e844f70a2d103eb6
 receipt {
-  blockHash: '0xa6e2b651bfd1f04ca7711f43eb650363a33fbd626314164bceb9e71ac6c709fa',
+  blockHash：'0xa6e2b651bfd1f04ca7711f43eb650363a33fbd626314164bceb9e71ac6c709fa',
   blockNumber: 148743520n,
-  cumulativeGasUsed: 28014n,
+  cumulativeGasUsed：28014n,
   effectiveGasPrice: 25000000000n,
   from: '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7',
-  gasUsed: 28014n,
-  logs: [
+  gasUsed：28014n,
+  logs：[
     {
-      address: '0x95be48607498109030592c08adc9577c7c2dd505',
-      topics: [Array],
-      data: '0x0000000000000000000000000000000000000000000000000000000000000127',
+      アドレス：'0x95be48607498109030592c08adc9577c7c2dd505',
+      topics：[Array],
+      data：'0x0000000000000000000000000127',
       blockNumber: 148743520n,
       transactionHash: '0x842b7043b185e1e9506529f4562f27e70d6a4f1bd8fd0971e844f70a2d103eb6',
-      transactionIndex: 0n,
+      transactionIndex：0n,
       blockHash: '0xa6e2b651bfd1f04ca7711f43eb650363a33fbd626314164bceb9e71ac6c709fa',
-      logIndex: 0n,
+      logIndex：0n,
       removed: false
-    }
+    }.
   ],
-  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
-  status: 1n,
-  to: '0x95be48607498109030592c08adc9577c7c2dd505',
+  logsBloom：'0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  status：1n,
+  to：'0x95be48607498109030592c08adc9577c7c2dd505',
   transactionHash: '0x842b7043b185e1e9506529f4562f27e70d6a4f1bd8fd0971e844f70a2d103eb6',
-  transactionIndex: 0n,
+  transactionIndex：0n,
   type: 2n
 }
-number after 295
+295以降の番号
 ```
 
 </CH.Code>
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js smartContractWrite.js focus=1
 
@@ -113,7 +113,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define sender's **address** and **private key**
+送信者の**アドレス**と**秘密鍵**を定義する。
 
 ```js smartContractWrite.js focus=3:4
 
@@ -121,7 +121,7 @@ Define sender's **address** and **private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js smartContractWrite.js focus=6:7
 
@@ -129,7 +129,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js smartContractWrite.js focus=6
 const { Web3 } = require("@kaiachain/web3js-ext");
@@ -193,7 +193,7 @@ main();
 
 ---
 
-Create a sender's account using `web3.eth.accounts.privateKeyToAccount`
+web3.eth.account.privateKeyToAccount\`を使って送信者アカウントを作成する。
 
 ```js smartContractWrite.js focus=8
 
@@ -201,7 +201,7 @@ Create a sender's account using `web3.eth.accounts.privateKeyToAccount`
 
 ---
 
-Define contract **Abi** and **address** to interact with
+契約**アビ**と**アドレス**を定義する。
 
 ```js smartContractWrite.js focus=33:34
 
@@ -209,7 +209,7 @@ Define contract **Abi** and **address** to interact with
 
 ---
 
-Create a contract instance using `Web3.eth.Contract` with defined **contractAbi** and **address**. You can read and write the contract through this instance
+Web3.eth.Contract\`を使用して、**contractAbi**と**address**を定義した契約インスタンスを作成する。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js smartContractWrite.js focus=37
 
@@ -217,24 +217,24 @@ Create a contract instance using `Web3.eth.Contract` with defined **contractAbi*
 
 ---
 
-Get the **number** before update
+更新前に\*\*番号を取得
 
 <CH.Code>
-```js smartContractWrite.js focus=39
+``js smartContractWrite.js focus=39
 
-````
+```
 ---
 
-```zsh output
+``zsh output
 ❯ node smartContractWrite.js
 number before 294
-````
+```
 
 </CH.Code>
 
 ---
 
-Create a transaction object that increment the **number**
+番号\*\*をインクリメントするトランザクション・オブジェクトを作成する。
 
 ```js smartContractWrite.js focus=41:46
 
@@ -242,78 +242,78 @@ Create a transaction object that increment the **number**
 
 ---
 
-Sign the transaction with sender account
+送信者アカウントで取引に署名する
 
 <CH.Code>
-```js smartContractWrite.js focus=48:49
+``js smartContractWrite.js focus=48:49
 
-````
+```
 ---
 
-```zsh output
+``zsh output
 ❯ node smartContractWrite.js
 signedTx 0x842b7043b185e1e9506529f4562f27e70d6a4f1bd8fd0971e844f70a2d103eb6
-````
+```
 
 </CH.Code>
 
 ---
 
-Send the transaction to network and wait for the receipt
+トランザクションをネットワークに送信し、レシートを待つ。
 
 <CH.Code>
-```js smartContractWrite.js focus=51:52
+``js smartContractWrite.js focus=51:52
 
-````
+```
 ---
 
-```zsh output
+``zsh output
 ❯ node smartContractWrite.js
 receipt {
   blockHash: '0xa6e2b651bfd1f04ca7711f43eb650363a33fbd626314164bceb9e71ac6c709fa',
   blockNumber: 148743520n,
-  cumulativeGasUsed: 28014n,
+  cumulativeGasUsed：28014n,
   effectiveGasPrice: 25000000000n,
   from: '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7',
-  gasUsed: 28014n,
-  logs: [
+  gasUsed：28014n,
+  logs：[
     {
-      address: '0x95be48607498109030592c08adc9577c7c2dd505',
-      topics: [Array],
-      data: '0x0000000000000000000000000000000000000000000000000000000000000127',
+      アドレス：'0x95be48607498109030592c08adc9577c7c2dd505',
+      topics：[Array],
+      data：'0x0000000000000000000000000127',
       blockNumber: 148743520n,
       transactionHash: '0x842b7043b185e1e9506529f4562f27e70d6a4f1bd8fd0971e844f70a2d103eb6',
-      transactionIndex: 0n,
+      transactionIndex：0n,
       blockHash: '0xa6e2b651bfd1f04ca7711f43eb650363a33fbd626314164bceb9e71ac6c709fa',
-      logIndex: 0n,
+      logIndex：0n,
       removed: false
-    }
+    }.
   ],
-  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
-  status: 1n,
-  to: '0x95be48607498109030592c08adc9577c7c2dd505',
+  logsBloom：'0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  status：1n,
+  to：'0x95be48607498109030592c08adc9577c7c2dd505',
   transactionHash: '0x842b7043b185e1e9506529f4562f27e70d6a4f1bd8fd0971e844f70a2d103eb6',
-  transactionIndex: 0n,
+  transactionIndex：0n,
   type: 2n
-}
-````
+}.
+```
 
 </CH.Code>
 
 ---
 
-Get the **number** after update
+アップデート後の\*\*番号を取得
 
 <CH.Code>
-```js smartContractWrite.js focus=54
+``js smartContractWrite.js focus=54
 
-````
+```
 ---
 
-```zsh output
+``zsh output
 ❯ node smartContractWrite.js
-number after 295
-````
+295以降の番号
+```
 
 </CH.Code>
 </CH.Spotlight>
