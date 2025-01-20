@@ -580,9 +580,9 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]])
 
 この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 `myContract.sign`で手数料を委譲したトランザクションを使用したい場合は、`feeDelegation`を `true`として定義する必要がある。
 
-- feeDelegation` が定義されていないか、`false\` に定義されています：[SmartContractDeploy](./caver-transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](./caver-transaction/basic.md#smartcontractexecution)
-- FeeDelegation`は`true` に定義されているが、`feeRatio\` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-- FeeDelegation`を`true` に定義し、`feeRatio\` を定義する：[FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) です。
+- `feeDelegation` が定義されていないか、`false` に定義されています：[SmartContractDeploy](./caver-transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](./caver-transaction/basic.md#smartcontractexecution)
+- `FeeDelegation` は `true` に定義されているが、`feeRatio` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+- `FeeDelegation` を `true` に定義し、`feeRatio` を定義する：[FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) です。
 
 **NOTE** `caver.wallet`は、署名を行うために、`options`または`myContract.options`の`from`に対応するキーリングのインスタンスを含んでいなければならない。
 
@@ -598,7 +598,7 @@ myContract.sign(options, methodName [, param1 [, param2 [, ...]])
 
 **リターン・バリュー**
 
-Promise\` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
+`Promise` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
 
 **例**
 
@@ -729,12 +729,12 @@ myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]])
 
 スマート・コントラクトがデプロイされている場合、'constructor' を methodName に入力することができる。例えば、`myContract.signAsFeePayer({ from, feeDelegation: true, feePayer, .... }, 'constructor', byteCode, ...)`.
 
-この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 signAsFeePayer` は取引手数料の支払者として署名する関数なので、`feeDelegation`フィールドは`true` として定義しなければならない。 また、`feePayer\`フィールドに料金支払者のアドレスを定義しなければならない。
+この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 `signAsFeePayer` は取引手数料の支払者として署名する関数なので、`feeDelegation` フィールドは `true` として定義しなければならない。 また、`feePayer`フィールドに料金支払者のアドレスを定義しなければならない。
 
-- feeDelegation\` が定義されていません : エラーをスローします。
-- feeDelegation`は定義されているが、`feePayer\`は定義されていない : エラーをスローする。
-- FeeDelegation`は`true` に定義され、`feePayer` は定義されているが、`feeRatio\` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-- FeeDelegation`を`true` に定義し、`feePayer`と`feeRatio\` を定義する：[FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio).
+- `feeDelegation` が定義されていません : エラーをスローします。
+- `feeDelegation`は定義されているが、`feePayer`は定義されていない : エラーをスローする。
+- `FeeDelegation` は `true` に定義され、`feePayer` は定義されているが、`feeRatio` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+- `FeeDelegation` を `true` に定義し、`feePayer` と `feeRatio` を定義する：[FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio).
 
 **NOTE** `caver.wallet`に署名を行うには、`options`または`myContract.options`の`feePayer`に対応するkeyringインスタンスが含まれていなければならない。
 
@@ -750,7 +750,7 @@ myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]])
 
 **リターン・バリュー**
 
-Promise\` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
+`Promise` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
 
 **例**
 
@@ -862,7 +862,7 @@ myContract.call(options, 'methodName', [param1 [, param2 [, ...]])
 
 **リターン・バリュー**
 
-Mixed`を返す`Promise\` - スマートコントラクトメソッドの戻り値。 単一の値を返す場合は、そのまま返される。 複数の戻り値を持つ場合は、プロパティとインデックスを持つオブジェクトを返す。
+`Mixed` を返す `Promise` - スマートコントラクトメソッドの戻り値。 単一の値を返す場合は、そのまま返される。 複数の戻り値を持つ場合は、プロパティとインデックスを持つオブジェクトを返す。
 
 **例**
 
@@ -892,9 +892,9 @@ myContract.decodeFunctionCall(functionCall)
 
 **リターン・バリュー**
 
-| タイプ    | 説明                                                                                                                                    |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| オブジェクト | プレーンパラメータを含むオブジェクト。 result[0]\`は、パラメーターの順番で配列のようにアクセスできるように用意されているので、それを使うことができる。 |
+| タイプ    | 説明                                                                                |
+| ------ | --------------------------------------------------------------------------------- |
+| オブジェクト | プレーンパラメータを含むオブジェクト。 `result[0]`は、パラメーターの順番で配列のようにアクセスできるように用意されているので、それを使うことができる。 |
 
 **例**
 
@@ -1156,12 +1156,12 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).send(options [, cal
 
 スマートコントラクトをデプロイする場合、methodName に 'constructor' を入力することができる。例えば `myContract.methods.constructor` や `myContract.methods['constructor']` などだが、[myContract.deploy](#mycontract-deploy2) 関数を使用することを推奨する。
 
-この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 methods.methodName.send`を使用して手数料を委譲したトランザクションを使用したい場合は、`feeDelegation`と`feePayer\`を適切に設定する必要があります。
+この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 `methods.methodName.send`を使用して手数料を委譲したトランザクションを使用したい場合は、`feeDelegation`と`feePayer`を適切に設定する必要があります。
 
-- feeDelegation`が定義されていないか、または`false\` に定義されています：[SmartContractDeploy](./caver-transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](./caver-transaction/basic.md#smartcontractexecution)
-- feeDelegation`は`true` に定義されているが、`feePayer\` は定義されていない : エラーをスローする。
-- FeeDelegation`は`true` に定義され、`feePayer` は定義されているが、`feeRatio\` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-- FeeDelegation`を`true` に定義し、`feePayer`と`feeRatio\` を定義する：[FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio).
+- `feeDelegation` が定義されていないか、または `false` に定義されています：[SmartContractDeploy](./caver-transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](./caver-transaction/basic.md#smartcontractexecution)
+- `feeDelegation` は `true` に定義されているが、`feePayer` は定義されていない : エラーをスローする。
+- `FeeDelegation` は `true` に定義され、`feePayer` は定義されているが、`feeRatio` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+- `FeeDelegation` を `true` に定義し、`feePayer` と `feeRatio` を定義する：[FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio).
 
 **NOTE** `caver.wallet`に署名を行うには、`options`または`myContract.options`の`from`と`feePayer`に対応するキーリングのインスタンスが含まれていなければならない。
 
@@ -1174,21 +1174,21 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).send(options [, cal
 
 オプション・オブジェクトには、以下のものを含めることができる：
 
-| 名称         | タイプ         | 説明                                                                                                                                                                                                                                 |
-| ---------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| より         | ストリング       | トランザクションの送信元アドレス。 省略された場合は、`myContract.options.from`が使用される。                                                                                                                                                                        |
-| ガス         | 番号          | この取引で提供されるガスの上限（ガスリミット）。                                                                                                                                                                                                           |
-| ガス価格       | ストリング       | (オプション）この取引に使用するガス価格（peb）。                                                                                                                                                                                      |
-| 価値         | number \\ | (オプション）このトランザクションによってスマートコントラクトのアドレスに転送されるpebの値。                                                                                                                                                                |
-| フィーデレゲーション | ブーリアン       | (オプション、デフォルト `false`) フィー委任トランザクションを使用するかどうか。 省略された場合、`myContract.options.feeDelegation`が使用される。                                                                                                                 |
-| 料金支払者      | ストリング       | (オプション）取引手数料を支払う手数料支払人の住所。 feeDelegation`が `true`のとき、その値はトランザクションの`feePayer` フィールドに設定される。 省略された場合、`myContract.options.feePayer\`が使用される。                                         |
-| 手数料率       | ストリング       | (任意）手数料支払者が負担する取引手数料の比率。 feeDelegation`が `true` で、`feeRatio`に有効な値が設定されている場合、部分的な料金委譲トランザクショ ンが使用される。 有効範囲は1～99。 0や100以上の比率は許されない。 省略された場合、`myContract.options.feeRatio\`が使用される。 |
+| 名称         | タイプ         | 説明                                                                                                                                                                                                 |
+| ---------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| より         | ストリング       | トランザクションの送信元アドレス。 省略された場合は、`myContract.options.from`が使用される。                                                                                                                                        |
+| ガス         | 番号          | この取引で提供されるガスの上限（ガスリミット）。                                                                                                                                                                           |
+| ガス価格       | ストリング       | (オプション）この取引に使用するガス価格（peb）。                                                                                                                                                      |
+| 価値         | number \\ | (オプション）このトランザクションによってスマートコントラクトのアドレスに転送されるpebの値。                                                                                                                                |
+| フィーデレゲーション | ブーリアン       | (オプション、デフォルト `false`) フィー委任トランザクションを使用するかどうか。 省略された場合、`myContract.options.feeDelegation`が使用される。                                                                                 |
+| 料金支払者      | ストリング       | (オプション）取引手数料を支払う手数料支払人の住所。 `feeDelegation`が `true` のとき、その値はトランザクションの `feePayer` フィールドに設定される。 省略された場合、`myContract.options.feePayer`が使用される。                                       |
+| 手数料率       | ストリング       | (任意）手数料支払者が負担する取引手数料の比率。 `feeDelegation`が `true` で、`feeRatio`に有効な値が設定されている場合、部分的な料金委譲トランザクショ ンが使用される。 有効範囲は1～99。 0や100以上の比率は許されない。 省略された場合、`myContract.options.feeRatio`が使用される。 |
 
 **NOTE** `feeDelegation`、`feePayer`、`feeRatio` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
 **リターン・バリュー**
 
-Promise`は`PromiEvent\` を返す。
+`Promise` は `PromiEvent` を返す。
 
 | タイプ     | 説明                                                                |
 | ------- | ----------------------------------------------------------------- |
@@ -1196,8 +1196,8 @@ Promise`は`PromiEvent\` を返す。
 
 PromiEventでは、以下のイベントが利用可能です：
 
-- transactionHash`：トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。 型は `string\` である。
-- receipt`：トランザクションのレシートが利用可能になったときに発生する。 詳細については、[caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 型は `object\` である。
+- `transactionHash`：トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。 型は `string` である。
+- `receipt`：トランザクションのレシートが利用可能になったときに発生する。 詳細については、[caver.rpc.klay.getTransactionReceipt](caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照してください。 型は `object` である。
 - エラー`：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。 その型は `Error\` である。
 
 **例**
@@ -1271,11 +1271,11 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).sign(options)
 
 スマートコントラクトがデプロイされている場合は、`myContract.methods.constructor`や`myContract.methods['constructor']`のように、methodNameに'constructor'を入力することができる。
 
-この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 methods.methodName.sign`によって手数料を委譲されたトランザクションを使用したい場合は、`feeDelegation`を`true\`として定義しなければならない。
+この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 `methods.methodName.sign`によって手数料を委譲されたトランザクションを使用したい場合は、`feeDelegation`を`true`として定義しなければならない。
 
-- feeDelegation`が定義されていないか、または`false\` に定義されています：[SmartContractDeploy](./caver-transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](./caver-transaction/basic.md#smartcontractexecution)
-- FeeDelegation`は`true` に定義されているが、`feeRatio\` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-- FeeDelegation`を`true` に定義し、`feeRatio\` を定義する：[FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) です。
+- `feeDelegation` が定義されていないか、または `false` に定義されています：[SmartContractDeploy](./caver-transaction/basic.md#smartcontractdeploy) / [SmartContractExecution](./caver-transaction/basic.md#smartcontractexecution)
+- `FeeDelegation` は `true` に定義されているが、`feeRatio` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+- `FeeDelegation` を `true` に定義し、`feeRatio` を定義する：[FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio) です。
 
 **NOTE** `caver.wallet`は、署名を行うために、`options`または`myContract.options`の`from`に対応するキーリングのインスタンスを含んでいなければならない。
 
@@ -1289,7 +1289,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).sign(options)
 
 **リターン・バリュー**
 
-Promise\` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
+`Promise` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
 
 **例**
 
@@ -1385,12 +1385,12 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).signAsFeePayer(opti
 
 スマートコントラクトがデプロイされている場合は、`myContract.methods.constructor`や`myContract.methods['constructor']`のように、methodNameに'constructor'を入力することができる。
 
-この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 signAsFeePayer` は取引手数料の支払者として署名する関数なので、`feeDelegation`フィールドは`true` として定義しなければならない。 また、`feePayer\`フィールドに料金支払者のアドレスを定義しなければならない。
+この関数で使用されるトランザクションタイプは、`options` または `myContract.options` で定義された値に依存する。 `signAsFeePayer` は取引手数料の支払者として署名する関数なので、`feeDelegation` フィールドは `true` として定義しなければならない。 また、`feePayer`フィールドに料金支払者のアドレスを定義しなければならない。
 
-- feeDelegation\` が定義されていません : エラーをスローします。
-- feeDelegation`は定義されているが、`feePayer\`は定義されていない : エラーをスローする。
-- FeeDelegation`は`true` に定義され、`feePayer` は定義されているが、`feeRatio\` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
-- FeeDelegation`を`true` に定義し、`feePayer`と`feeRatio\` を定義する：[FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio).
+- `feeDelegation` が定義されていません : エラーをスローします。
+- `feeDelegation`は定義されているが、`feePayer`は定義されていない : エラーをスローする。
+- `FeeDelegation` は `true` に定義され、`feePayer` は定義されているが、`feeRatio` は定義されていない：[FeeDelegatedSmartContractDeploy](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) / [FeeDelegatedSmartContractExecution](./caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)
+- `FeeDelegation` を `true` に定義し、`feePayer` と `feeRatio` を定義する：[FeeDelegatedSmartContractDeployWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) / [FeeDelegatedSmartContractExecutionWithRatio](./caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio).
 
 **NOTE** `caver.wallet`に署名を行うには、`options`または`myContract.options`の`feePayer`に対応するkeyringインスタンスが含まれていなければならない。
 
@@ -1404,7 +1404,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).signAsFeePayer(opti
 
 **リターン・バリュー**
 
-Promise\` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
+`Promise` return [Transaction](./caver-transaction/caver-transaction.md) - 署名されたスマートコントラクトのトランザクション。
 
 **例**
 
@@ -1541,7 +1541,7 @@ myContract.once(event [, options], callback)
 
 **リターン・バリュー**
 
-Promise`は`object\` - イベントオブジェクトを返す。 イベント・オブジェクトの詳細については、[myContract.getPastEvents](#getpastevents) を参照してください。
+`Promise` は `object` - イベントオブジェクトを返す。 イベント・オブジェクトの詳細については、[myContract.getPastEvents](#getpastevents) を参照してください。
 
 **例**
 
@@ -1594,14 +1594,14 @@ myContract.subscribe(event [, options], callback)
 
 オプション・オブジェクトには、以下のものを含めることができる：
 
-| 名称    | タイプ    | 説明                                                                                                                                                                                            |
-| ----- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| フィルター | オブジェクト | (オプション) インデックス化されたパラメータでイベントをフィルタすることができます：{mynumber:[12,13]}}\`は、"mynumber "が12または13であるすべてのイベントを意味する。 |
-| トピックス | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的には設定されない。                                                                                  |
+| 名称    | タイプ    | 説明                                                                                                                                    |
+| ----- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| フィルター | オブジェクト | (オプション) インデックス化されたパラメータでイベントをフィルタリングできます。例えば、`{filter: {mynumber: [12,13]}}` は「mynumber」が12または13であるすべてのイベントを意味します。 |
+| トピックス | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的には設定されない。                          |
 
 **リターン・バリュー**
 
-Promise`は`object\` - イベントオブジェクトを返す。 イベント・オブジェクトの詳細については、[myContract.getPastEvents](#getpastevents) を参照してください。
+`Promise` は `object` - イベントオブジェクトを返す。 イベント・オブジェクトの詳細については、[myContract.getPastEvents](#getpastevents) を参照してください。
 
 **例**
 
@@ -1648,11 +1648,11 @@ myContract.events.eventName([options][, callback])
 
 オプション・オブジェクトには、以下のものを含めることができる：
 
-| 名称      | タイプ    | 説明                                                                                                                                                                                            |
-| ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| フィルター   | オブジェクト | (オプション) インデックス化されたパラメータでイベントをフィルタすることができます：{mynumber:[12,13]}}\`は、"mynumber "が12または13であるすべてのイベントを意味する。 |
-| フロムブロック | 番号     | (オプション) イベントを取得するブロック番号。                                                                                                                                                   |
-| トピックス   | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的に設定されない。                                                                                   |
+| 名称      | タイプ    | 説明                                                                                                                                    |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| フィルター   | オブジェクト | (オプション) インデックス化されたパラメータでイベントをフィルタリングできます。例えば、`{filter: {mynumber: [12,13]}}` は「mynumber」が12または13であるすべてのイベントを意味します。 |
+| フロムブロック | 番号     | (オプション) イベントを取得するブロック番号。                                                                                           |
+| トピックス   | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的に設定されない。                           |
 
 **リターン・バリュー**
 
@@ -1747,12 +1747,12 @@ myContract.getPastEvents(event [, options] [, callback])
 
 オプション・オブジェクトには、以下を含めることができる：
 
-| 名称      | タイプ    | 説明                                                                                                                                                                                            |
-| ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| フィルター   | オブジェクト | (オプション) インデックス化されたパラメータでイベントをフィルタすることができます：{mynumber:[12,13]}}\`は、"mynumber "が12または13であるすべてのイベントを意味する。 |
-| フロムブロック | 番号     | (オプション) イベントを取得するブロック番号。                                                                                                                                                   |
-| ブロックする  | 番号     | (オプション) イベントを取得するブロック番号 (デフォルトは `"latest"`).                                                                                            |
-| トピックス   | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的に設定されない。                                                                                   |
+| 名称      | タイプ    | 説明                                                                                                                                    |
+| ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| フィルター   | オブジェクト | (オプション) インデックス化されたパラメータでイベントをフィルタリングできます。例えば、`{filter: {mynumber: [12,13]}}` は「mynumber」が12または13であるすべてのイベントを意味します。 |
+| フロムブロック | 番号     | (オプション) イベントを取得するブロック番号。                                                                                           |
+| ブロックする  | 番号     | (オプション) イベントを取得するブロック番号 (デフォルトは `"latest"`).                                    |
+| トピックス   | 配列     | (オプション) これにより、イベント フィルタのトピックを手動で設定できます。 フィルタープロパティとイベントシグネチャを考えると、`topic[0]`は自動的に設定されない。                           |
 
 **リターン・バリュー**
 
@@ -1760,18 +1760,18 @@ myContract.getPastEvents(event [, options] [, callback])
 
 イベント・オブジェクトには以下のものが含まれる：
 
-| 名称             | タイプ         | 説明                                                                                                                                                                |
-| -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| イベント           | ストリング       | イベント名。                                                                                                                                                            |
-| 署名             | string \\ | 匿名イベントの場合は `null`。                                                                                                                                                |
-| 住所             | ストリング       | このイベントが発生した住所                                                                                                                                                     |
-| 戻り値            | オブジェクト      | イベントからの戻り値、例えば `{myVar: 1, myVar2: '0x234...'}`.                                                                                                  |
-| ログインデックス       | 番号          | ブロック内のイベントインデックス位置。                                                                                                                                               |
-| トランザクションインデックス | 番号          | イベントが作成されたトランザクションのインデックス位置。                                                                                                                                      |
-| トランザクションハッシュ   | ストリング       | このイベントが作成されたトランザクションのハッシュ。                                                                                                                                        |
-| ブロックハッシュ       | ストリング       | このイベントが作成されたブロックのハッシュ。保留中の場合はnull。                                                                                                                                |
-| ブロック番号         | 番号          | このログが作成されたブロック番号。保留中の場合はnull。                                                                                                                                     |
-| 生              | オブジェクト      | オブジェクトは `data` と `topic` を定義する。 raw.data`には、インデックス化されていないログパラメータが含まれている。 raw.topic`は、最大4つの32バイトのトピックを持つ配列であり、トピック1-3には、イベントのインデックス化されたパラメータが含まれる。 |
+| 名称             | タイプ         | 説明                                                                                                                                                  |
+| -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| イベント           | ストリング       | イベント名。                                                                                                                                              |
+| 署名             | string \\ | 匿名イベントの場合は `null`。                                                                                                                                  |
+| 住所             | ストリング       | このイベントが発生した住所                                                                                                                                       |
+| 戻り値            | オブジェクト      | イベントからの戻り値、例えば `{myVar: 1, myVar2: '0x234...'}`.                                                                                    |
+| ログインデックス       | 番号          | ブロック内のイベントインデックス位置。                                                                                                                                 |
+| トランザクションインデックス | 番号          | イベントが作成されたトランザクションのインデックス位置。                                                                                                                        |
+| トランザクションハッシュ   | ストリング       | このイベントが作成されたトランザクションのハッシュ。                                                                                                                          |
+| ブロックハッシュ       | ストリング       | このイベントが作成されたブロックのハッシュ。保留中の場合はnull。                                                                                                                  |
+| ブロック番号         | 番号          | このログが作成されたブロック番号。保留中の場合はnull。                                                                                                                       |
+| 生              | オブジェクト      | オブジェクトは `data` と `topic` を定義する。 `raw.data`には、インデックス化されていないログパラメータが含まれている。 `raw.topic`は、最大4つの32バイトのトピックを持つ配列であり、トピック1-3には、イベントのインデックス化されたパラメータが含まれる。 |
 
 **例**
 
