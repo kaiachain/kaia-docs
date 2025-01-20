@@ -10,16 +10,16 @@ sidebar_label: ベーシック
 caver.transaction.legacyTransaction.create(transactionObject)
 ```
 
-LegacyTransaction`は[レガシートランザクション](../../../../../learn/transactions/basic.md#txtypelegacytransaction)を表す。 kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) が `LegacyTransaction` を実行できるのは、[AccountKeyLegacy] を持つ場合のみです。 transactionObject` には、`LegacyTransaction` を作成するための以下のプロパティを指定することができる。
+`LegacyTransaction`は[レガシートランザクション](../../../../../learn/transactions/basic.md#txtypelegacytransaction)を表す。 [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) が `LegacyTransaction` を実行できるのは、[AccountKeyLegacy] を持つ場合のみです。 `transactionObject` には、`LegacyTransaction` を作成するための以下のプロパティを指定することができる。
 
-LegacyTransaction`は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `LegacyTransaction` を作成するときに `transactionObject` にオプションで指定できるプロパティを指す。
+`LegacyTransaction`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `LegacyTransaction` を作成するときに `transactionObject` にオプションで指定できるプロパティを指す。
 
 :::note
 
 注: RLP エンコードされた文字列から `LegacyTransaction` のインスタンスを作成することができる。 以下の例を参照してください。
 注意: `caver.transaction.legacyTransaction.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 以降でサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.legacyTransaction({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.legacyTransaction.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.legacyTransaction({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.legacyTransaction.create({...})`に変更してください。
 
 :::
 
@@ -28,7 +28,7 @@ LegacyTransaction`は以下のプロパティをメンバ変数として持つ�
 | 名称     | タイプ   | 説明                                                                                                                                                                     |
 | ------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ガス     | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                                               |
-| 価値     | ストリング | (オプション、デフォルト: `'0x0'`) 転送するKAIAの量をpebで指定する。 caver.utils.toPeb\`を使うことができる。                           |
+| 価値     | ストリング | (オプション、デフォルト: `'0x0'`) 転送するKAIAの量をpebで指定する。 `caver.utils.toPeb`を使うことができる。                                                           |
 | より     | ストリング | (オプション) 送信者のアドレス。 省略した場合は、署名に使用するキーリング・アドレスが設定される。                                                                                                  |
 | への     | ストリング | (オプション、デフォルト: `'0x'`) 送金された値を受け取る口座アドレス、またはレガシー取引でスマートコントラクトを実行する場合はスマートコンタクトアドレス。 レガシートランザクションがスマートコントラクトをデプロイする場合、`to`を定義する必要はない。 |
 | 入力     | ストリング | (オプション）スマートコントラクトの展開/実行に使用される、トランザクションに添付されたデータ。                                                                                                    |
@@ -81,16 +81,16 @@ LegacyTransaction {
 caver.transaction.valueTransfer.create(transactionObject)
 ```
 
-ValueTransfer`は[価値移転トランザクション](../../../../../learn/transactions/basic.md#txtypevaluetransfer)を表す。 トランザクションオブジェクト `transactionObject`は`ValueTransfer\` トランザクションを作成するために以下のプロパティを持つことができる。
+`ValueTransfer`は[価値移転トランザクション](../../../../../learn/transactions/basic.md#txtypevaluetransfer)を表す。 トランザクションオブジェクト `transactionObject` は `ValueTransfer` トランザクションを作成するために以下のプロパティを持つことができる。
 
-ValueTransfer`は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `ValueTransfer` トランザクションを作成するときに `transactionObject` にオプションで与えることができるプロパティを指す。
+`ValueTransfer`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `ValueTransfer` トランザクションを作成するときに `transactionObject` にオプションで与えることができるプロパティを指す。
 
 :::note
 
 注: RLP エンコードされた文字列から `ValueTransfer` のインスタンスを作成することができる。 以下の例を参照してください。
 注意: `caver.transaction.valueTransfer.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.valueTransfer({...})`のようなコンストラクタを使用してトランザクションを作成していた場合は、`caver.transaction.valueTransfer.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.valueTransfer({...})`のようなコンストラクタを使用してトランザクションを作成していた場合は、`caver.transaction.valueTransfer.create({...})`に変更してください。
 
 :::
 
@@ -98,7 +98,7 @@ ValueTransfer`は以下のプロパティをメンバ変数として持つ。 op
 
 | 名称     | タイプ   | 説明                                                                                                                                       |
 | ------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| 価値     | ストリング | 譲渡されるKAIAの金額。 caver.utils.toPeb\`を使うことができる。                                                              |
+| 価値     | ストリング | 譲渡されるKAIAの金額。 `caver.utils.toPeb`を使うことができる。                                                                                              |
 | より     | ストリング | 送信者のアドレス。                                                                                                                                |
 | への     | ストリング | 送金された金額を受け取る口座アドレス。                                                                                                                      |
 | ガス     | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                 |
@@ -138,16 +138,16 @@ ValueTransfer {
 caver.transaction.valueTransferMemo.create(transactionObject)
 ```
 
-ValueTransferMemo`は[値移転メモトランザクション](../../../../../learn/transactions/basic.md#txtypevaluetransfermemo)を表す。 トランザクションオブジェクト `transactionObject`は`ValueTransferMemo\` トランザクションを作成するために以下のプロパティを持つことができる。
+`ValueTransferMemo`は[値移転メモトランザクション](../../../../../learn/transactions/basic.md#txtypevaluetransfermemo)を表す。 トランザクションオブジェクト `transactionObject` は `ValueTransferMemo` トランザクションを作成するために以下のプロパティを持つことができる。
 
-ValueTransferMemo`は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `ValueTransferMemo` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティである。
+`ValueTransferMemo`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `ValueTransferMemo` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティである。
 
 :::note
 
 注: RLPでエンコードされた文字列から `ValueTransferMemo` のインスタンスを作成することができる。 以下の例を参照してください。
 注意: `caver.transaction.valueTransferMemo.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.valueTransferMemo({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.valueTransferMemo.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.valueTransferMemo({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.valueTransferMemo.create({...})`に変更してください。
 
 :::
 
@@ -198,16 +198,16 @@ ValueTransferMemo {
 caver.transaction.accountUpdate.create(transactionObject)
 ```
 
-AccountUpdate`は[アカウント更新トランザクション](../../../../../learn/transactions/basic.md#txtypeaccountupdate)を表す。 トランザクションオブジェクト `transactionObject` は、`AccountUpdate\` トランザクションを作成するために以下のプロパティを持つことができる。
+`AccountUpdate`は[アカウント更新トランザクション](../../../../../learn/transactions/basic.md#txtypeaccountupdate)を表す。 トランザクションオブジェクト `transactionObject` は、`AccountUpdate` トランザクションを作成するために以下のプロパティを持つことができる。
 
-AccountUpdate`は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `AccountUpdate` トランザクションを作成するときに `transactionObject` にオプションで与えることができるプロパティである。
+`AccountUpdate`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `AccountUpdate` トランザクションを作成するときに `transactionObject` にオプションで与えることができるプロパティである。
 
 :::note
 
 注: RLPエンコードされた文字列から`AccountUpdate`のインスタンスを作成することができる。 以下の例を参照してください。
 注意: `caver.transaction.accountUpdate.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.accountUpdate({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.accountUpdate.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.accountUpdate({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.accountUpdate.create({...})`に変更してください。
 
 :::
 
@@ -223,7 +223,7 @@ AccountUpdate`は以下のプロパティをメンバ変数として持つ。 op
 | ガス価格   | ストリング    | (オプション) 送信者がトークンで支払う金額を得るための乗数。 省略された場合は、`caver.rpc.klay.getGasPrice`がgasPriceの設定に使用される。                              |
 | チェーンID | ストリング    | (オプション) kaiaネットワークのチェーンID。 省略した場合は、`caver.rpc.klay.getChainId` を使用して chainId を設定する。                                   |
 
-AccountKey\`ごとに[Account]インスタンスを作成する方法については、[Getting Started - Account Update](../../get-started.md#account-update)または[caver.account.create](../caver.account.md#caver-account-create)を参照してください。
+`AccountKey`ごとに[Account]インスタンスを作成する方法については、[Getting Started - Account Update](../../get-started.md#account-update)または[caver.account.create](../caver.account.md#caver-account-create)を参照してください。
 
 **例**
 
@@ -257,16 +257,16 @@ AccountUpdate {
 caver.transaction.smartContractDeploy.create(transactionObject)
 ```
 
-SmartContractDeploy`は[スマートコントラクトのデプロイトランザクション](../../../../../learn/transactions/basic.md#txtypesmartcontractdeploy)を表す。 トランザクションオブジェクト`transactionObject` は以下のプロパティを持つことができ、`SmartContractDeploy\` トランザクションを作成することができる。
+`SmartContractDeploy` は[スマートコントラクトのデプロイトランザクション](../../../../../learn/transactions/basic.md#txtypesmartcontractdeploy)を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`SmartContractDeploy` トランザクションを作成することができる。
 
-SmartContractDeploy` は、以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `SmartContractDeploy` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティである。
+`SmartContractDeploy` は、以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `SmartContractDeploy` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティである。
 
 :::note
 
 注: RLP エンコードされた文字列から `SmartContractDeploy` のインスタンスを作成できます。 以下の例を参照してください。
 注意: `caver.transaction.smartContractDeploy.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 以降でサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.smartContractDeploy({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.smartContractDeploy.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.smartContractDeploy({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.smartContractDeploy.create({...})`に変更してください。
 
 :::
 
@@ -319,16 +319,16 @@ SmartContractDeploy {
 caver.transaction.smartContractExecution.create(transactionObject)
 ```
 
-SmartContractExecution`は[スマートコントラクトの実行トランザクション](../../../../../learn/transactions/basic.md#txtypesmartcontractexecution)を表す。 トランザクションオブジェクト`transactionObject` は以下のプロパティを持つことができ、`SmartContractExecution\` トランザクションを作成することができる。
+`SmartContractExecution` は[スマートコントラクトの実行トランザクション](../../../../../learn/transactions/basic.md#txtypesmartcontractexecution)を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`SmartContractExecution` トランザクションを作成することができる。
 
-SmartContractExecution` は、以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `SmartContractExecution` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティである。
+`SmartContractExecution` は、以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `SmartContractExecution` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティである。
 
 :::note
 
 注: RLP エンコードされた文字列から `SmartContractExecution` のインスタンスを作成することができる。 以下の例を参照してください。
 注意: `caver.transaction.smartContractExecution.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 以降でサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.smartContractExecution({...})`のようなコンストラクタを使用してトランザクションを作成していた場合は、`caver.transaction.smartContractExecution.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.smartContractExecution({...})`のようなコンストラクタを使用してトランザクションを作成していた場合は、`caver.transaction.smartContractExecution.create({...})`に変更してください。
 
 :::
 
@@ -378,18 +378,18 @@ SmartContractExecution {
 caver.transaction.cancel.create(transactionObject)
 ```
 
-Cancel`は[トランザクションのキャンセル](../../../../../learn/transactions/basic.md#txtypecancel)を表す。 トランザクションオブジェクト `transactionObject`は`Cancel\` トランザクションを作成するために以下のプロパティを持つことができる。
+`Cancel`は[トランザクションのキャンセル](../../../../../learn/transactions/basic.md#txtypecancel)を表す。 トランザクションオブジェクト `transactionObject` は `Cancel` トランザクションを作成するために以下のプロパティを持つことができる。
 
-Cancel\`トランザクションはトランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。
+`Cancel`トランザクションはトランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。
 
-Cancel`は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `Cancel` トランザクションを作成するときに `transactionObject` にオプションで与えることができるプロパティを指す。
+`Cancel`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `Cancel` トランザクションを作成するときに `transactionObject` にオプションで与えることができるプロパティを指す。
 
 :::note
 
 注: RLPエンコードされた文字列から`Cancel`のインスタンスを作成することができる。 以下の例を参照してください。
 注意: `caver.transaction.cancel.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.xcancelxx({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.cancelxx.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.xcancelxx({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.cancelxx.create({...})`に変更してください。
 
 :::
 
@@ -432,16 +432,16 @@ Cancel {
 caver.transaction.chainDataAnchoring.create(transactionObject)
 ```
 
-ChainDataAnchoring`は[チェーンデータアンカリングトランザクション](../../../../../learn/transactions/basic.md#txtypechaindataanchoring)を表す。 トランザクションオブジェクト `transactionObject` には、`ChainDataAnchoring\` トランザクションを作成するための以下のプロパティを指定することができる。
+`ChainDataAnchoring`は[チェーンデータアンカリングトランザクション](../../../../../learn/transactions/basic.md#txtypechaindataanchoring)を表す。 トランザクションオブジェクト `transactionObject` には、`ChainDataAnchoring` トランザクションを作成するための以下のプロパティを指定することができる。
 
-ChainDataAnchoring`は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `ChainDataAnchoring` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティを指す。
+`ChainDataAnchoring`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `ChainDataAnchoring` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティを指す。
 
 :::note
 
 注: RLP エンコードされた文字列から `ChainDataAnchoring` のインスタンスを作成することができる。 以下の例を参照してください。
 注意: `caver.transaction.chainDataAnchoring.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.chainDataAnchoring({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.chainDataAnchoring.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.chainDataAnchoring({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.chainDataAnchoring.create({...})`に変更してください。
 
 :::
 
@@ -486,16 +486,16 @@ ChainDataAnchoring {
 caver.transaction.ethereumAccessList.create(transactionObject)
 ```
 
-EthereumAccessList`は[イーサリアムのアクセスリストトランザクション](../../../../../learn/transactions/basic.md#txtypeethereumaccesslist)を表す。 kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) が `EthereumAccessList`を実行できるのは、[AccountKeyLegacy] がある場合のみです。 トランザクションオブジェクト`transactionObject` は以下のプロパティを持つことができ、`EthereumAccessList\` を作成することができる。
+`EthereumAccessList`は[イーサリアムのアクセスリストトランザクション](../../../../../learn/transactions/basic.md#txtypeethereumaccesslist)を表す。 [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) が `EthereumAccessList` を実行できるのは、[AccountKeyLegacy] がある場合のみです。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`EthereumAccessList` を作成することができる。
 
-EthereumAccessList` は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザが `EthereumAccessList` を作成する際に `transactionObject` にオプションで指定できるプロパティを指す。
+`EthereumAccessList` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `EthereumAccessList` を作成する際に `transactionObject` にオプションで指定できるプロパティを指す。
 
 :::note
 
 注: RLP エンコードされた文字列から `EthereumAccessList` のインスタンスを作成できる。 以下の例を参照してください。
 注意: `caver.transaction.ethereumAccessList` は caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0) 以降でサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.ethereumAccessList({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.ethereumAccessList.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.ethereumAccessList({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.ethereumAccessList.create({...})`に変更してください。
 
 :::
 
@@ -558,9 +558,9 @@ EthereumAccessList {
 caver.transaction.ethereumDynamicFee.create(transactionObject)
 ```
 
-EthereumDynamicFee`は[イーサリアムの動的手数料取引](../../../../../learn/transactions/basic.md#txtypeethereumdynamicfee)を表す。 kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) は、[AccountKeyLegacy] がある場合のみ、`EthereumDynamicFee` を実行することができます。 EthereumDynamicFee`を作成するために、`transactionObject`は以下のプロパティを持つことができる。
+`EthereumDynamicFee`は[イーサリアムの動的手数料取引](../../../../../learn/transactions/basic.md#txtypeethereumdynamicfee)を表す。 [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) は、[AccountKeyLegacy] がある場合のみ、`EthereumDynamicFee` を実行することができます。 `EthereumDynamicFee`を作成するために、`transactionObject`は以下のプロパティを持つことができる。
 
-EthereumDynamicFee`は以下のプロパティをメンバ変数として持つ。 optional`とマークされたプロパティは、ユーザーが `EthereumDynamicFee` を作成する際に `transactionObject` にオプションで指定できるプロパティを指す。
+`EthereumDynamicFee`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザーが `EthereumDynamicFee` を作成する際に `transactionObject` にオプションで指定できるプロパティを指す。
 また、`EthereumDynamicFee` は `gasPrice` を使用せず、`maxPriorityFeePerGas` と `maxFeePerGas` を使用することに注意。
 
 :::note
@@ -568,7 +568,7 @@ EthereumDynamicFee`は以下のプロパティをメンバ変数として持つ�
 注: RLP エンコードされた文字列から `EthereumDynamicFee` のインスタンスを作成することができます。 以下の例を参照してください。
 注意: `caver.transaction.ethereumDynamicFee` は caver-js [v1.8.0](https://www.npmjs.com/package/caver-js/v/1.8.0) 以降でサポートされています。
 
-注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 new caver.transaction.ethereumDynamicFee({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.ethereumDynamicFee.create({...})\`に変更してください。
+注意: caver-js [v1.8.1-rc.4](https://www.npmjs.com/package/caver-js/v/1.8.1-rc.4) では、トランザクションの作成は `create` 関数を使用してのみサポートされています。 `new caver.transaction.ethereumDynamicFee({...})`のようなコンストラクタを使ってトランザクションを作成していた場合は、`caver.transaction.ethereumDynamicFee.create({...})`に変更してください。
 
 :::
 
@@ -577,7 +577,7 @@ EthereumDynamicFee`は以下のプロパティをメンバ変数として持つ�
 | 名称           | タイプ   | 説明                                                                                                                                                                                          |
 | ------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ガス           | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                                                                    |
-| 価値           | ストリング | (オプション、デフォルト: `'0x0'`) 転送するKAIAの量をpebで指定する。 caver.utils.toPeb\`を使うことができる。                                                |
+| 価値           | ストリング | (オプション、デフォルト: `'0x0'`) 転送するKAIAの量をpebで指定する。 `caver.utils.toPeb`を使うことができる。                                                                                |
 | より           | ストリング | (オプション) 送信者のアドレス。 省略した場合は、署名に使用したキーリングのアドレスが設定される。                                                                                                                       |
 | への           | ストリング | (オプション、デフォルト: `'0x'`) イーサリアムのダイナミックフィー取引でスマートコントラクトが実行される際に、送金された値またはスマートコンタクトアドレスを受け取るアカウントアドレス。 イーサリアムのダイナミックフィー取引がスマートコントラクトをデプロイするとき、`to`を定義する必要はない。 |
 | 入力           | ストリング | (オプション）スマートコントラクトの展開/実行に使用される、トランザクションに添付されたデータ。                                                                                                                         |
