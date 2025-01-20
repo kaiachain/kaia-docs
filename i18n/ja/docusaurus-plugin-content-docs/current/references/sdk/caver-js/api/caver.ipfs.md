@@ -4,7 +4,7 @@
 
 **NOTE** `caver.ipfs`はcaver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4)からサポートされています。
 
-## caver.ipfs.setIPFSNode<a id="caver-ipfs-setipfsnode"></a>
+## caver.ipfs.setIPFSNode <a id="caver-ipfs-setipfsnode"></a>
 
 ```javascript
 caver.ipfs.setIPFSNode(host, port, ssl)
@@ -30,7 +30,7 @@ IPFS ノードとの接続を初期化します。 この機能でIPFSノード�
 > caver.ipfs.setIPFSNode('localhost',5001,false)。
 ```
 
-## ケイバー.ipfs.add<a id="caver-ipfs-add"></a>
+## caver.ipfs.add <a id="caver-ipfs-add"></a>
 
 ```javascript
 caver.ipfs.add(データ)
@@ -68,7 +68,7 @@ Qmd9thymMS6mejhEDZfwXPowSDunzma9ex4ezpCSRZGwC
 QmWmsL95CYvci8JiortAMhezezr8BhAwAVohVUSJBcZcBL
 ```
 
-## ケイバー.ipfs.get<a id="caver-ipfs-get"></a>
+## caver.ipfs.get <a id="caver-ipfs-get"></a>
 
 ```javascript
 caver.ipfs.get(ハッシュ)
@@ -97,7 +97,7 @@ Promise`は`Buffer\` を返す。
 <Buffer 74 65 73 74 20 64 61 74 61 20 66 6f 72 20 49 50 46 53>
 ```
 
-## caver.ipfs.toHex<a id="caver-ipfs-tohex"></a>
+## caver.ipfs.toHex <a id="caver-ipfs-tohex"></a>
 
 ```javascript
 caver.ipfs.toHex(ハッシュ)
@@ -124,7 +124,7 @@ CID(コンテンツ識別子)](https://docs.ipfs.io/concepts/content-addressing/
 0x1220dc1dbe0bcf1e5f6cce80bd3d7e7d873801c5a1732add889c0f25391d53470dc3
 ```
 
-## ケイバー.ipfs.fromHex<a id="caver-ipfs-fromhex"></a>
+## caver.ipfs.fromHex <a id="caver-ipfs-fromhex"></a>
 
 ```javascript
 caver.ipfs.fromHex(ハッシュ)
