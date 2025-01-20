@@ -12,12 +12,12 @@
 
     def main():
         private_key=Account.from_key("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
-        print("秘密鍵からの公開鍵",address_from_private_key(private_key))
-        print("秘密鍵からの圧縮鍵"、compressed_key(private_key))
+        print("Public key from private key",address_from_private_key(private_key))
+        print("Compress key from private key",compressed_key(private_key))
 
         x = "0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
         y = "0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79"
-        print("Compress public key from x、y", compressed_key_from_xy(x, y))
+        print("Compress public key from x,y", compressed_key_from_xy(x, y))
         print("Compress public key and address from x,y", compressed_key_and_address_from_xy(x, y))
 
     main()
@@ -27,10 +27,10 @@
 
     ```zsh output
     ❯ python address_utils.py
-    秘密鍵から公開鍵 0xa2a8854b1802d8cd5de631e690817c253d6a9153
-    秘密鍵から圧縮鍵 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
-    x から圧縮鍵、y 03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
-    x からキーとアドレスを圧縮する、y ('0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd', '0xA2a8854b1802D8Cd5De631E690817c253d6a9153')
+    Public key from private key 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    Compress key from private key 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    Compress key from x,y 03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    Compress key and address from x,y ('0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd', '0xA2a8854b1802D8Cd5De631E690817c253d6a9153')
 
     ```
   </CH.Code>
@@ -53,8 +53,8 @@
     ---
 
     ```zsh output
-    ❯ address_utils.py
-    pubkey from { x, y } object = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc029cd63f04d48b54fe6250453cd
+    ❯ python address_utils.py
+    pubkey from { x, y } object = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
     ```
   </CH.Code>
 
@@ -69,9 +69,9 @@
     ---
 
     ```zsh output
-    ❯ address_utils.py
-    秘密鍵から公開鍵 0xa2a8854b1802d8cd5de631e690817c253d6a9153
-    秘密鍵から圧縮鍵 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    ❯ python address_utils.py
+    Public key from private key 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    Compress key from private key 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
     ```
   </CH.Code>
 </CH.Spotlight>
