@@ -4,7 +4,7 @@
 
 ## はじめに<a id="introduction"></a>
 
-This section will guide you through deploying a Marketplace contract and a corresponding NFT collection contract to Klaytn Network using [ThirdWeb](https://portal.thirdweb.com/). Thirdwebは、あなたのアプリやゲームを分散型ネットワークに接続するために必要なすべてを提供する完全なWeb3開発フレームワークです。
+このセクションでは、[ThirdWeb](https://portal.thirdweb.com/)を使用して、マーケットプレイス契約と対応するNFTコレクション契約をカイアネットワークにデプロイする方法を説明します。 Thirdwebは、あなたのアプリやゲームを分散型ネットワークに接続するために必要なすべてを提供する完全なWeb3開発フレームワークです。
 
 マーケットプレイス契約により、ユーザーはNFTを直接販売やオークションに出品することができ、OpenSeaで行われているのと同様にNFTの売買を強化することができます。
 
@@ -28,7 +28,7 @@ This section will guide you through deploying a Marketplace contract and a corre
 
 このセクションでは、thirdwebダッシュボードを使用してマーケットプレイス契約を作成し、デプロイします。 そのためには、以下の手順に従ってください：
 
-1. thirdweb dashboard](https://thirdweb.com/dashboard?ref=blog.thirdweb.com)にアクセスし、契約リストから\*\*MarketPlace\*\*契約を選択します。
+1. [thirdweb dashboard](https://thirdweb.com/dashboard?ref=blog.thirdweb.com)にアクセスし、契約リストから**MarketPlace**契約を選択します。
 
 ![](/img/build/get-started/marketplace-explore.png)
 
