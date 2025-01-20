@@ -32,7 +32,7 @@ Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/usernam
 
 ### ken <a id="ken"></a>
 
-You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts (in hex or index) as an argument so you can unlock the accounts programmatically for one session. これは、RPC経由でdAppsからアカウントを使用したい場合に便利です。 unlock\`はリストの最初のアカウントのロックを解除する。 これは、プログラムでアカウントを作成した場合に便利で、実際のアカウントを知らなくてもロックを解除できる。
+You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts (in hex or index) as an argument so you can unlock the accounts programmatically for one session. これは、RPC経由でdAppsからアカウントを使用したい場合に便利です。 `unlock`はリストの最初のアカウントのロックを解除する。 これは、プログラムでアカウントを作成した場合に便利で、実際のアカウントを知らなくてもロックを解除できる。
 
 アカウントを作成し、ロックを解除した状態でノードを開始する：
 
