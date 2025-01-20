@@ -150,7 +150,7 @@ forge build
 $ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Counter.sol:Counter
 ```
 
-\*\*例
+**例**
 
 ```bash
 forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhdhprivatekey hhdhdhud src/Counter.sol:Counter
@@ -178,7 +178,7 @@ forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhd
 cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
 ```
 
-\*\*例
+**例**
 
 ```bash
 cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://public-en-kairos.node.kaia.io
@@ -210,7 +210,7 @@ cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000
 cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --private-key=<PRIVATE-KEY>
 ```
 
-\*\*例
+**例**
 
 ```bash
 cast send --rpc-url=https://public-en-kairos.node.kaia.io 0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
@@ -258,7 +258,7 @@ Now that you have your Foundry project up and running, you can fork the mainnet 
 anvil --fork-url rpc-url
 ```
 
-\*\*例
+**例**
 
 ```bash
 anvil --fork-url https://archive-en.node.kaia.io
