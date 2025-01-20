@@ -40,23 +40,23 @@ Kaiaの`callTracer`出力フォーマットは、以下を除いてgo-ethereum�
   - `result.reverted.message`: revertReasonと同じ。
 
 ```js
-> debug.traceTransaction("0x49aa6074a3b4970399ef2af12b109c4cb4a65ab8a833d1540e4cefa657a3c0c7", {tracer:「callTracer"})
+> debug.traceTransaction("0x49aa6074a3b4970399ef2af12b109c4cb4a65ab8a833d1540e4cefa657a3c0c7", {tracer: "callTracer"})
 {
-  error："execution reverted",
+  error: "execution reverted",
   from: "0x7f0546832758f61410e81a94d7a07d55b1dfd278",
-  gas："0xc350",
-  gasUsed："0x6992",
-  input："0x96670644",
-  出力："0x08c379a0000000000000000000000000000000200000000000000000000962616420696e7075740000000000000000000000000000000000",
+  gas: "0xc350",
+  gasUsed: "0x6992",
+  input: "0x96670644",
+  output: "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000962616420696e7075740000000000000000000000000000000000000000000000",
   revertReason: "bad input",
-  reverted：{
+  reverted: {
     contract: "0xe6c5b1cbf283d9482088136b8cee53fdb6c088eb",
-    message："bad input"
+    message: "bad input"
   },
-  to："0xe6c5b1cbf283d9482088136b8cee53fdb6c088eb",
-  type："CALL",
-  value："0x0"
-}.
+  to: "0xe6c5b1cbf283d9482088136b8cee53fdb6c088eb",
+  type: "CALL",
+  value: "0x0"
+}
 ```
 
 - VMが実行されないいくつかのトランザクションタイプは、送信者自身への0KAIA転送として扱われる。 これらのトランザクション・タイプは、AccountUpdate、Cancel、ChainDataAnchoring、およびそれらの手数料デリゲート・バリアントである。
@@ -64,16 +64,16 @@ Kaiaの`callTracer`出力フォーマットは、以下を除いてgo-ethereum�
 ```js
 > kaia.getTransaction("0xac43859eb4064916e8be8e74645d6019cc48cb6791f68ea21d42ead6bba569b5").type
 "TxTypeAccountUpdate"
-> debug.traceTransaction("0xac43859eb4064916e8be8e74645d6019cc48cb6791f68ea21d42ead6bba569b5", {tracer:「callTracer"})
+> debug.traceTransaction("0xac43859eb4064916e8be8e74645d6019cc48cb6791f68ea21d42ead6bba569b5", {tracer: "callTracer"})
 {
   from: "0x7f0546832758f61410e81a94d7a07d55b1dfd278",
-  gas："0xcd14",
-  gasUsed："0xa028",
-  input："0x",
-  to："0x7f0546832758f61410e81a94d7a07d55b1dfd278",
-  type："CALL",
-  value："0x0"
-}.
+  gas: "0xcd14",
+  gasUsed: "0xa028",
+  input: "0x",
+  to: "0x7f0546832758f61410e81a94d7a07d55b1dfd278",
+  type: "CALL",
+  value: "0x0"
+}
 ```
 
 ### バッチトレース
