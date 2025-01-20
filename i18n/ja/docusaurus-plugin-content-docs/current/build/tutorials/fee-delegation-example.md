@@ -30,25 +30,25 @@ This tutorial helps you to write a simple server-client example using caver-js S
 To sign a transaction, use [signTransaction](../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#signtransaction) which signs a transaction with given private key.
 
 ```
-// イベントエミッタの使用
+// using the event emitter
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATEKEY";
 const toAddress = "TO_ADDRESS";
 
-    // 新規トランザクションの作成
+    // Create a new transaction
     const tx = caver.transaction.feeDelegatedValueTransfer.create({
       from: keyring.address,
       to: toAddress,
       value: caver.utils.toPeb("0.0001", "KAIA"),
       gas: 100000,
-      gasPrice: await caver.rpc.klay.getGasPrice(), // 現在のガス価格を取得する
-      chainId: await caver.rpc.klay.getChainId(), // 現在のガス価格を取得する chainId: await caver.rpc.klay.getChainId(), // 現在のガス価格を取得するgetChainId(), // 現在のチェーンIDを取得
+      gasPrice: await caver.rpc.klay.getGasPrice(), // Get current gas price
+      chainId: await caver.rpc.klay.getChainId(), // Get current chain ID
     });
 
-        // トランザクションに署名
+        // Sign the transaction
     const signed = await caver.wallet.sign(keyring.address, tx);
 
-    const senderRawTransaction = tx.getRLPEncoding()；
+    const senderRawTransaction = tx.getRLPEncoding();
 ```
 
 エラーがなければ、 `senderRawTransaction` は `senderPrivateKey` で署名されたトランザクションを持つ。
@@ -120,40 +120,40 @@ const toAddress = "TO_ADDRESS";
 
 const sendFeeDelegateTx = async () => {
   try {
-    // 送信者のキーリングをウォレットに追加
+    // Add sender's keyring to wallet
     const keyring = caver.wallet.newKeyring(senderAddress, senderPrivateKey);
 
-    // 新規トランザクションの作成
+    // Create a new transaction
     const tx = caver.transaction.feeDelegatedValueTransfer.create({
       from: keyring.address,
       to: toAddress,
       value: caver.utils.toPeb("0.0001", "KAIA"),
       gas: 100000,
-      gasPrice: await caver.rpc.klay.getGasPrice(), // 現在のガス価格を取得
-      chainId: await caver.rpc.klay.getChainId(), // 現在のチェーンIDを取得
+      gasPrice: await caver.rpc.klay.getGasPrice(), // Get current gas price
+      chainId: await caver.rpc.klay.getChainId(), // Get current chain ID
     });
 
-    // トランザクションに署名
+    // Sign the transaction
     const signed = await caver.wallet.sign(keyring.address, tx);
 
     const senderRawTransaction = tx.getRLPEncoding();
 
     if (!senderRawTransaction) {
       throw new Error("Failed to generate raw transaction");
-    }.
+    }
 
-    // 署名された生トランザクションを手数料支払者のサーバーに送信する
+    // Send signed raw transaction to fee payer's server
     client.connect(1337, "127.0.0.1", () => {
-      console.log("手数料委任サービスに接続しました");
+      console.log("Connected to fee delegated service");
       client.write(senderRawTransaction);
     });
 
     client.on("data", (data) => {
-      console.log("サーバーからデータを受け取りました:", data.toString());
+      console.log("Received data from server:", data.toString());
     });
 
     client.on("error", (error) => {
-      console.error("接続エラー:", error);
+      console.error("Connection error:", error);
       s;
     });
 
@@ -164,7 +164,7 @@ const sendFeeDelegateTx = async () => {
     console.error("Transaction error:", error);
     client.end();
     process.exit(1);
-  }.
+  }
 };
 
 sendFeeDelegateTx();
@@ -281,78 +281,78 @@ Received data from server：Tx hash is 0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6f
 
 ```
 $ node feepayer_server.js
-Fee delegate サービス開始 ...
-クライアントが接続されました ...
-クライアントからデータを受信0x09f89f0485066720b300830186a094811ce345db9d8ad17513cc77d76a1ace9ec46f02865af3107a400094213eb97cc74af77b78d1cfd968bc89ab816872daf847f8458207f5a0cefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714a0512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3940000000000000000000000000000000000000000c4c3018080
-デコードされたトランザクション：FeeDelegatedValueTransfer {
+Fee delegate service started ...
+Client is connected ...
+Received data from client: 0x09f89f0485066720b300830186a094811ce345db9d8ad17513cc77d76a1ace9ec46f02865af3107a400094213eb97cc74af77b78d1cfd968bc89ab816872daf847f8458207f5a0cefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714a0512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3940000000000000000000000000000000000000000c4c3018080
+Decoded transaction: FeeDelegatedValueTransfer {
   _type: 'TxTypeFeeDelegatedValueTransfer',
   _from: '0x213eb97cc74af77b78d1cfd968bc89ab816872da',
   _gas: '0x186a0',
   _nonce: '0x4',
-  _signatures：[
+  _signatures: [
     SignatureData {
       _v: '0x07f5',
       _r: '0xcefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714',
       _s: '0x512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3'
     }
   ],
-  _klaytnCall：{
-    getChainId：[関数（匿名）] {
-      method：[method],
+  _klaytnCall: {
+    getChainId: [Function (anonymous)] {
+      method: [Method],
       request: [Function: bound request],
-      call：'klay_chainID',
-      getMethod：[Function (anonymous)]
+      call: 'klay_chainID',
+      getMethod: [Function (anonymous)]
     },
     getGasPrice: [Function (anonymous)] {
-      method：[Method],
+      method: [Method],
       request: [Function: bound request],
-      call：'klay_gasPrice',
-      getMethod：[Function (anonymous)]
+      call: 'klay_gasPrice',
+      getMethod: [Function (anonymous)]
     },
-    getTransactionCount：[Function (anonymous)] {
-      method：[Method],
+    getTransactionCount: [Function (anonymous)] {
+      method: [Method],
       request: [Function: bound request],
-      call：'klay_getTransactionCount',
-      getMethod：[Function (anonymous)]
+      call: 'klay_getTransactionCount',
+      getMethod: [Function (anonymous)]
     },
     getHeaderByNumber: [Function (anonymous)] {
-      method：[Method],
+      method: [Method],
       request: [Function: bound request],
-      call：'klay_getHeaderByNumber',
-      getMethod：[Function (anonymous)]
+      call: 'klay_getHeaderByNumber',
+      getMethod: [Function (anonymous)]
     },
-    getAccountKey：[関数（匿名）] {
-      method：[Method],
+    getAccountKey: [Function (anonymous)] {
+      method: [Method],
       request: [Function: bound request],
-      call：'klay_getAccountKey',
-      getMethod：[Function (anonymous)]
+      call: 'klay_getAccountKey',
+      getMethod: [Function (anonymous)]
     },
     getTransactionByHash: [Function (anonymous)] {
-      method：[Method],
+      method: [Method],
       request: [Function: bound request],
-      call：'klay_getTransactionByHash',
-      getMethod：[Function (anonymous)]
+      call: 'klay_getTransactionByHash',
+      getMethod: [Function (anonymous)]
     },
     getMaxPriorityFeePerGas: [Function (anonymous)] {
-      method：[Method],
+      method: [Method],
       request: [Function: bound request],
-      call：'klay_maxPriorityFeePerGas',
-      getMethod：[関数（匿名）]
-    }.
+      call: 'klay_maxPriorityFeePerGas',
+      getMethod: [Function (anonymous)]
+    }
   },
-  _feePayer: '0x0000000000000000000000000000',
-  _feePayerSignatures：[ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
-  _to：'0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
+  _feePayer: '0x0000000000000000000000000000000000000000',
+  _feePayerSignatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
+  _to: '0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
   _value: '0x5af3107a4000',
   _gasPrice: '0x66720b300'
-}.
-トランザクション・レシート：{
+}
+Transaction receipt: {
   blockHash: '0xb2727edaa2ffc8a8fece0ce54154b469887a9f6725bac6811ac610131c135046',
   blockNumber: '0xa45da40',
-  contractAddress：null,
+  contractAddress: null,
   effectiveGasPrice: '0x66720b300',
   feePayer: '0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
-  feePayerSignatures：[
+  feePayerSignatures: [
     {
       V: '0x7f6',
       R: '0x6207f1c3c8c75f1a57ff3d1c87a51b7067f6076b1bf37c3a1ad296e441cfa9db',
@@ -362,12 +362,12 @@ Fee delegate サービス開始 ...
   from: '0x213eb97cc74af77b78d1cfd968bc89ab816872da',
   gas: '0x186a0',
   gasPrice: '0x66720b300',
-  gasUsed：'0x7918',
-  logs：[],
-  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  nonce：'0x4',
-  senderTxHash: '0x7263d2dc5b36abc754726b220b7ad243dd7899349109c6874e539ada5c7e9f193',
-  signatures：[
+  gasUsed: '0x7918',
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  nonce: '0x4',
+  senderTxHash: '0x7263d2dc5b36abc754726b220b7ad243dd789934109c6874e539ada5c7e9f193',
+  signatures: [
     {
       V: '0x7f5',
       R: '0xcefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714',
@@ -375,13 +375,13 @@ Fee delegate サービス開始 ...
     }
   ],
   status: '0x1',
-  to：'0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
+  to: '0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
   transactionHash: '0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6fdcb6df32b2e34a1d50f7f8a9d',
-  transactionIndex：'0x1',
+  transactionIndex: '0x1',
   type: 'TxTypeFeeDelegatedValueTransfer',
   typeInt: 9,
   value: '0x5af3107a4000'
-}.
+}
 ```
 
 ### 4.4 Klaytn scope <a href="#4-4-klaytn-scope" id="4-4-klaytn-scope"></a>
