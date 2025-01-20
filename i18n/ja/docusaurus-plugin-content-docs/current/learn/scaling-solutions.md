@@ -1,6 +1,6 @@
 # スケーリング・ソリューション
 
-Kaia offers robust scaling solutions to ensure high throughput and responsiveness even under heavy network load. These solutions include Service Chains and a novel Multi-Channel communication architecture
+カイアは堅牢なスケーリング・ソリューションを提供し、ネットワーク負荷が高い場合でも高いスループットと応答性を確保します。 これらのソリューションには、サービスチェーンと斬新なマルチチャネル・コミュニケーション・アーキテクチャが含まれる。
 
 ## サービスチェーン<a id="service-chain"></a>
 
@@ -48,51 +48,51 @@ To help the service providers (SPs) to easily migrate service users and values a
 transferring tokens, such as KLAY (Klaytn's native unit of value) and Klaytn tokens issued by dApps, between different chains can be enabled.
 ユーザーは、ブリッジコントラクトと呼ばれる特別なコントラクトにトランザクションを送信することで、他のチェーンへのトークン転送を簡単にリクエストできる。
 
-## Multi-Channel Communication
+## マルチチャンネル・コミュニケーション
 
-Kaia employs a multi-channel communication architecture to enhance network performance and resilience, particularly during periods of high transaction volume. By separating different message types onto dedicated communication channels, Kaia can maintain efficient block propagation and consensus even under heavy network congestion.
+カイアはマルチチャネル通信アーキテクチャを採用し、特にトランザクション量が多い時期のネットワーク・パフォーマンスと耐障害性を強化している。 異なるメッセージタイプを専用の通信チャネルに分離することで、Kaiaはネットワークの輻輳が激しい場合でも、効率的なブロック伝搬とコンセンサスを維持することができる。
 
-### Architecture
+### 建築
 
-![Multi-Channel Server](/img/learn/multichannel.png)
+多チャンネル・サーバー](/img/learn/multichannel.png)
 
-_Multi-Channel Connection_
+\*多チャンネル接続
 
-![Single Channel Server](/img/learn/singlechannel.png)
+シングルチャンネルサーバー](/img/learn/singlechannel.png)
 
-_Single-Channel Connection_
+\*シングルチャンネル接続
 
-### Configuration Modes
+### 設定モード
 
-- **Multi-Channel:** Uses two ports. Enabled by default in `kend` due to `MULTICHANNEL=1` in `kend.conf`. Disable by setting `MULTICHANNEL=0`. Customize ports using `--port` and `--subport` flags.
-- **Single-Channel:** Uses one port (default 32323). Active when `MULTICHANNEL` is not set or set to `0`.
+- \*\*マルチチャンネル：2つのポートを使用。 kend.conf`の`MULTICHANNEL=1` により、`kend` ではデフォルトで有効になっている。 MULTICHANNEL=0`で無効にする。 port`と`--subport\` フラグを使ってポートをカスタマイズする。
+- **シングル・チャンネル：** 1つのポートを使用（デフォルトは32323）。 MULTICHANNEL`が設定されていないか、`0\`に設定されているときに有効。
 
-### How Multi-Channel Works
+### マルチチャネルの仕組み
 
-Multi-channel separates different message types onto dedicated ports:
+マルチチャンネルは、異なるメッセージタイプを専用ポートに分離する：
 
-- **Main Port:** Handles block-related messages (requests/responses for hash, header, body, receipt) and consensus messages (Request, Preprepare, Prepare, Commit, RoundChange). The meaning of the messages can be found in [PBFT](./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance).
-- **Subport:** Handles transaction messages.
+- **メインポート:** ブロック関連メッセージ（ハッシュ、ヘッダー、ボディ、レシートのリクエスト/レスポンス）とコンセンサスメッセージ（リクエスト、準備、準備、コミット、RoundChange）を扱う。 メッセージの意味は[PBFT](./consensus-mechanism.md#pbft-practical-byzantine-fault-tolerance)を参照されたい。
+- \*\*トランザクション・メッセージを処理する。
 
-This separation enhances network stability: if one port fails, the other continues operating. For example, if the subport (typically congested during high traffic) fails, the main port maintains essential block and consensus operations.
+この分離により、ネットワークの安定性が向上する。片方のポートに障害が発生しても、もう片方のポートは動作を継続する。 例えば、サブポート（通常、高トラフィック時に輻輳する）に障害が発生しても、メインポートは必要不可欠なブロックとコンセンサスのオペレーションを維持する。
 
-### Connection Establishment
+### 接続の確立
 
-- **Multi-Channel to Multi-Channel:** Both ports are used.
-- **Other Cases (Multi-Channel to Single-Channel or Single-Channel to Single-Channel):** A single port is used.
+- \*\*マルチチャンネルからマルチチャンネルへ:\*\*両方のポートを使用。
+- \*\*その他の場合（マルチチャンネルからシングルチャンネル、シングルチャンネルからシングルチャンネル）： \*\* シングルポートを使用。
 
-If a node attempts to connect without specifying a subport, it initially connects using a single port. During the handshake, if the peer is multi-channel, the connection is re-established using both ports.
+ノードがサブポートを指定せずに接続しようとすると、最初は1つのポートを使って接続する。 ハンドシェイク中、相手がマルチチャンネルであれば、両方のポートを使って接続が再確立される。
 
-### Port Configuration (KNI)
+### ポート構成 (KNI)
 
-See [the KNI scheme](./kni.md) for details. Default ports are 32323 (main) and 32324 (sub).
+詳しくは[KNIスキーム](./kni.md)を参照。 デフォルトのポートは32323（メイン）と32324（サブ）である。
 
-### Integration with KNI
+### KNIとの統合
 
-Multi-channel integrates with KNI for node discovery and connection. KNI URLs allow specifying both main and subports.
+マルチチャンネルは、ノード検出と接続のためにKNIと統合されています。 KNI URLはメインポートとサブポートの両方を指定できる。
 
-### Implementation Note
+### インプリメンテーション・ノート
 
-Kaia's multi-channel implementation deviates slightly from the original specification. While the details of this deviation are beyond the scope of this document, the core principles of enhanced network communication and robustness remain central to Kaia's operation. This information is primarily relevant for node operators and developers.
+カイアのマルチチャンネル実装は、オリジナルの仕様からわずかに逸脱している。 この逸脱の詳細は本書の範囲外であるが、ネットワーク・コミュニケーションの強化と堅牢性という基本原則は、カイアの運営の中心であることに変わりはない。 この情報は主にノードのオペレーターや開発者に関連するものである。
 
-In summary, multi-channel enhances Kaia's network by segregating message traffic, improving efficiency and resilience. While providing advanced configuration options for node operators, the system remains transparent to general users.
+要約すると、マルチチャンネルはメッセージ・トラフィックを分離し、効率性と回復力を向上させることによって、カイアのネットワークを強化する。 ノードオペレータに高度な設定オプションを提供する一方で、システムは一般ユーザには透過的なままである。
