@@ -652,7 +652,7 @@ $ node ./test.js
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-料金支払者は、トランザクション送信者によって署名されたRLPエンコード文字列(`rawTransaction`)に`feePayerSignatures`を付加した後、kaiaにトランザクションを送信することができる。 caver.wallet`が料金支払者の鍵も持っている場合、`caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`を呼び出すことで、料金支払者の署名を `feeDelegatedTx`に注入することができる。 そうでない場合、料金支払者は、下図のように、送信者によって署名されたRLPエンコー ディング文字列から`feeDelegatedTx`を作成し、料金支払者の署名を追加しなければならない。 以下の例を実行したい場合は、`0x{RLP-encoded string}`を上記の`rlpEncoded\` の値に置き換えてください。
+料金支払者は、トランザクション送信者によって署名されたRLPエンコード文字列(`rawTransaction`)に`feePayerSignatures`を付加した後、kaiaにトランザクションを送信することができる。 `caver.wallet`が料金支払者の鍵も持っている場合、`caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`を呼び出すことで、料金支払者の署名を `feeDelegatedTx`に注入することができる。 そうでない場合、料金支払者は、下図のように、送信者によって署名されたRLPエンコー ディング文字列から`feeDelegatedTx`を作成し、料金支払者の署名を追加しなければならない。 以下の例を実行したい場合は、`0x{RLP-encoded string}` を上記の `rlpEncoded` の値に置き換えてください。
 
 ```javascript
 // test.js
