@@ -987,19 +987,19 @@ JSONインターフェイスで定義された、このスマート・コント�
 \*\*例
 
 ```javascript
-// メソッドの呼び出し
+// Calling a method
 > myContract.methods.methodName(123).call({ ... }, function(error, result) { ... })
 > myContract.methods.methodName(123).call({ ... }).then((result) => { ... })
 
-// 基本トランザクションの送信とプロミスの使用
+// Sending basic transaction and using the promise
 > myContract.methods.methodName(123).send({
     from: '0x{address in hex}',
     ...
   }).then(function(receipt) {
-    // "contract.deploy({...}).send()" から来た場合、receipt は新しいコントラクトインスタンスにもなる
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
   })
 
-// 基本トランザクションの送信とeventEmitterの使用
+// Sending basic transaction and using the eventEmitter
 > myContract.methods.methodName(123).send({
     from: '0x{address in hex}',
     ...
@@ -1011,17 +1011,17 @@ JSONインターフェイスで定義された、このスマート・コント�
   })
   .on('error', console.error)
 
-// 料金委譲トランザクションの送信とプロミスの使用
+// Sending fee delegation transaction and using the promise
 > myContract.methods.methodName(123).send({
     from: '0x{address in hex}',
     feePayer: '0x{fee-payer address}',
     feeDelegation: true,f
     ...
   }).then(function(receipt) {
-    // "contract.deploy({...}).send()"
-  }) から来る場合、receipt は新しいコントラクトインスタンスにもなる。
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
+  })
 
-
+// Sending partial fee delegation transaction and using the promise
 > myContract.methods.methodName(123).send({
     from: '0x{address in hex}',
     feePayer: '0x{fee-payer address}',
@@ -1029,24 +1029,24 @@ JSONインターフェイスで定義された、このスマート・コント�
     feeRatio: 30,
     ...
   }).then(function(receipt) {
-    // 「contract.deploy({...}).send()」から来た場合、レシートは新しいコントラクトインスタンスにもなる
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
   })
 
-// 基本トランザクションに署名する
+// sign the basic transaction
 > myContract.methods.methodName(123).sign({
     from: '0x{address in hex}',
     feeDelegation: true,
     ...
   }).then(function(signedTx) { ... })
 
-// 手数料委任トランザクションに署名する
+// sign the fee delegation transaction
 > myContract.methods.methodName(123).sign({
     from: '0x{address in hex}',
     feeDelegation: true,
     ...
   }).then(function(signedTx) { ... })
 
-// 部分手数料委任トランザクションに署名する
+// sign the partial fee delegation transaction
 > myContract.methods.methodName(123).sign({
     from: '0x{address in hex}',
     feeDelegation: true,
@@ -1054,7 +1054,7 @@ JSONインターフェイスで定義された、このスマート・コント�
     ...
   }).then(function(signedTx) { ... })
 
-// 手数料支払人として手数料委任トランザクションに署名する
+// sign the fee delegation transaction as a fee payer
 > myContract.methods.methodName(123).signAsFeePayer({
     from: '0x{address in hex}',
     feePayer: '0x{fee-payer address}',
@@ -1062,7 +1062,7 @@ JSONインターフェイスで定義された、このスマート・コント�
     ...
   }).then(function(signedTx) { ... })
 
-// 部分的手数料委任トランザクションを手数料支払者として署名する
+// sign the partial fee delegation transaction as a fee payer
 > myContract.methods.methodName(123).signAsFeePayer({
     from: '0x{address in hex}',
     feePayer: '0x{fee-payer address}',
