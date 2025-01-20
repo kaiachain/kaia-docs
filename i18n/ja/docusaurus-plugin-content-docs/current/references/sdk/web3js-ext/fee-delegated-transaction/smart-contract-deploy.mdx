@@ -1,6 +1,6 @@
-# Smart Contract Deploy
+# スマートコントラクトのデプロイ
 
-**TxTypeSmartContractDeploy** deploys a smart contract to the given address. The following changes will be made by this transaction type.
+**TxTypeSmartContractDeploy**は、指定されたアドレスにスマートコントラクトをデプロイする。 このトランザクションタイプでは、以下の変更が行われる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -45,24 +45,24 @@ main();
 ---
 
 ```zsh output
-❯ node FeeDelegatedSmartContractDeployExample.js
-senderTxHashRLP 0x29f901888203b9850ba43b74008304f8a1808094a2a8854b1802d8cd5de631e690817c253d6a9153b90116608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c634300081200338080f847f8458207f6a0a480e856acb96964dee71443f7c1cdae7681df5073c6a0a81b2651172bd227b3a0249072c7e4f0dfc54af5f1bfaae187dda4f9b8d5dde0a93172cd10a1f6617ca4
+❮ node FeeDelegatedSmartContractDeployExample.js
+senderTxHashRLP0x29f901888203b9850ba43b74008304f8a1808094a2a8854b1802d8cd5de631e690817c253d6a9153b90116608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c634300081200338080f847f8458207f6a0a480e856acb96964dee71443f7c1cdae7681df5073c6a0a81b2651172bd227b3a0249072c7e4f0dfc54af5f1bfaae187dda4f9b8d5dde0a93172cd10a1f6617ca4
 signedTx 0x57cf3bfddf3e72effc39e80b9cb6995273822e51d50f55da93a14574b5dae9d1
 receipt {
-  blockHash: '0x84f6aefd1ee6425e03cd8571fbfb653cf5971c729e7b3864456bb36bfd212622',
+  blockHash：'0x84f6aefd1ee6425e03cd8571fbfb653cf5971c729e7b3864456bb36bfd212622',
   blockNumber: 148744885n,
-  contractAddress: '0x661c557c1b7c2b1fbd6c4793d210cd1e421064e9',
-  cumulativeGasUsed: 333958n,
+  contractAddress：'0x661c557c1b7c2b1fbd6c4793d210cd1e421064e9',
+  cumulativeGasUsed：333958n,
   effectiveGasPrice: 25000000000n,
   from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
-  gasUsed: 140317n,
-  logs: [],
-  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  status: 1n,
+  gasUsed：140317n,
+  logs：[],
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status：1n,
   transactionHash: '0x57cf3bfddf3e72effc39e80b9cb6995273822e51d50f55da93a14574b5dae9d1',
-  transactionIndex: 1n,
-  type: 0n
-}
+  transactionIndex：1n,
+  type：0n
+}.
 
 ```
 
@@ -70,7 +70,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=1:2
 
@@ -78,7 +78,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender**, **fee payer** addresses and private keys
+送信者**、料金支払者**のアドレスと秘密鍵を定義する。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=3:6
 
@@ -86,7 +86,7 @@ Define **sender**, **fee payer** addresses and private keys
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=8:9
 
@@ -94,7 +94,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=8
 const { Web3, TxType } = require("@kaiachain/web3js-ext");
@@ -135,7 +135,7 @@ main();
 
 ---
 
-Create a **sender's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+web3.eth.account.privateKeyToAccount\`を使用して、秘密鍵で**送信者のウォレット**を作成する。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=10
 
@@ -143,7 +143,7 @@ Create a **sender's wallet** with the private key using `web3.eth.accounts.priva
 
 ---
 
-Create a **fee payer's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+web3.eth.account.privateKeyToAccount\`を使用して、秘密鍵で**料金支払者のウォレット**を作成する。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=11
 
@@ -151,7 +151,7 @@ Create a **fee payer's wallet** with the private key using `web3.eth.accounts.pr
 
 ---
 
-Define a transaction object
+トランザクションオブジェクトの定義
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=14:19
 
@@ -159,7 +159,7 @@ Define a transaction object
 
 ---
 
-Set `type: TxType.FeeDelegatedSmartContractDeploy` for transaction to deploy a new contract with a fee payer
+typeを設定する：TxType.FeeDelegatedSmartContractDeploy\`を設定する。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=15
 
@@ -167,7 +167,7 @@ Set `type: TxType.FeeDelegatedSmartContractDeploy` for transaction to deploy a n
 
 ---
 
-Set `data: "0x60806040...` is the bytecode of the compile solidity source code
+データをセットする："0x60806040...\`はコンパイルされたソリッドソースコードのバイトコードです。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=17
 
@@ -175,7 +175,7 @@ Set `data: "0x60806040...` is the bytecode of the compile solidity source code
 
 ---
 
-Set others required parameters such as **senderAddr**, **humanReadable**, **codeFormat**
+その他、**senderAddr**、**humanReadable**、**codeFormat**などの必要なパラメータを設定する。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=16,18,19
 
@@ -183,45 +183,45 @@ Set others required parameters such as **senderAddr**, **humanReadable**, **code
 
 ---
 
-Sign the transaction with **sender** account using `signTransaction`
+signTransaction\`を使って**sender**アカウントでトランザクションに署名する。
 
 <CH.Code>
-```js FeeDelegatedSmartContractDeployExample.js focus=22:24
+``js FeeDelegatedSmartContractDeployExample.js focus=22:24
 
-````
+```
 
 
 ---
 
-```zsh output
-❯ node FeeDelegatedSmartContractDeployExample.js
-senderTxHashRLP 0x29f901888203b9850ba43b74008304f8a1808094a2a8854b1802d8cd5de631e690817c253d6a9153b90116608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c634300081200338080f847f8458207f6a0a480e856acb96964dee71443f7c1cdae7681df5073c6a0a81b2651172bd227b3a0249072c7e4f0dfc54af5f1bfaae187dda4f9b8d5dde0a93172cd10a1f6617ca4
-````
+``zsh output
+ɶ node FeeDelegatedSmartContractDeployExample.js
+senderTxHashRLP0x29f901888203b9850ba43b74008304f8a1808094a2a8854b1802d8cd5de631e690817c253d6a9153b90116608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c634300081200338080f847f8458207f6a0a480e856acb96964dee71443f7c1cdae7681df5073c6a0a81b2651172bd227b3a0249072c7e4f0dfc54af5f1bfaae187dda4f9b8d5dde0a93172cd10a1f6617ca4
+```
 
 </CH.Code>
 
 ---
 
-Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
+signTransactionAsFeePayer\`を使用して、**fee payer**アカウントでトランザクションに署名する。
 
 <CH.Code>
-```js FeeDelegatedSmartContractDeployExample.js focus=26:28
+``js FeeDelegatedSmartContractDeployExample.js focus=26:28
 
-````
+```
 
 
 ---
 
-```zsh output
+``zsh output
 ❯ node FeeDelegatedSmartContractDeployExample.js
 signedTx 0x57cf3bfddf3e72effc39e80b9cb6995273822e51d50f55da93a14574b5dae9d1
-````
+```
 
 </CH.Code>
 
 ---
 
-Send the transaction to blockchain. It will return the transaction receipt
+トランザクションをブロックチェーンに送信する。 取引レシートを返します。
 
 <CH.Code>
 
@@ -232,22 +232,22 @@ Send the transaction to blockchain. It will return the transaction receipt
 ---
 
 ```zsh output
-❯ node FeeDelegatedSmartContractDeployExample.js
+｠ node FeeDelegatedSmartContractDeployExample.js
 receipt {
   blockHash: '0x84f6aefd1ee6425e03cd8571fbfb653cf5971c729e7b3864456bb36bfd212622',
   blockNumber: 148744885n,
-  contractAddress: '0x661c557c1b7c2b1fbd6c4793d210cd1e421064e9',
-  cumulativeGasUsed: 333958n,
+  contractAddress：'0x661c557c1b7c2b1fbd6c4793d210cd1e421064e9',
+  cumulativeGasUsed：333958n,
   effectiveGasPrice: 25000000000n,
   from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
-  gasUsed: 140317n,
-  logs: [],
-  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  status: 1n,
+  gasUsed：140317n,
+  logs：[],
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status：1n,
   transactionHash: '0x57cf3bfddf3e72effc39e80b9cb6995273822e51d50f55da93a14574b5dae9d1',
-  transactionIndex: 1n,
-  type: 0n
-}
+  transactionIndex：1n,
+  type：0n
+}.
 ```
 
 </CH.Code>
