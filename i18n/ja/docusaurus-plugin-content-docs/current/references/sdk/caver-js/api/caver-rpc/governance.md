@@ -2,7 +2,7 @@
 
 `caver.rpc.governance` は `governance` 名前空間を持つ JSON-RPC コールを提供する。
 
-## ケイバー.RPC.ガバナンス.投票<a id="caver-rpc-governance-vote"></a>
+## caver.rpc.governance.vote <a id="caver-rpc-governance-vote"></a>
 
 ```javascript
 caver.rpc.governance.vote(key, value [, callback])
@@ -35,7 +35,7 @@ Promise`は`string\` を返す。
 あなたの投票は成功しました。
 ```
 
-## caver.rpc.governance.showTally<a id="caver-rpc-governance-showtally"></a>
+## caver.rpc.governance.showTally <a id="caver-rpc-governance-showtally"></a>
 
 ```javascript
 caver.rpc.governance.showTally([コールバック])
@@ -70,7 +70,7 @@ Promise`は`Array\` を返す。
 ]。
 ```
 
-## caver.rpc.governance.getTotalVotingPower<a id="caver-rpc-governance-gettotalvotingpower"></a>
+## caver.rpc.governance.getTotalVotingPower <a id="caver-rpc-governance-gettotalvotingpower"></a>
 
 ```javascript
 caver.rpc.governance.getTotalVotingPower([コールバック])
@@ -99,7 +99,7 @@ CNが持つすべての議決権の合計を提供する。 各CNは1.0～2.0の
 3
 ```
 
-## caver.rpc.governance.getMyVotingPower<a id="caver-rpc-governance-getmyvotingpower"></a>
+## caver.rpc.governance.getMyVotingPower <a id="caver-rpc-governance-getmyvotingpower"></a>
 
 ```javascript
 caver.rpc.governance.getMyVotingPower([コールバック])
@@ -128,7 +128,7 @@ caver.rpc.governance.getMyVotingPower([コールバック])
 1
 ```
 
-## caver.rpc.governance.getMyVotes<a id="caver-rpc-governance-getmyvotes"></a>
+## caver.rpc.governance.getMyVotes <a id="caver-rpc-governance-getmyvotes"></a>
 
 ```javascript
 caver.rpc.governance.getMyVotes([コールバック])
@@ -164,7 +164,7 @@ Promise`は`Array\` を返す。
 ]
 ```
 
-## caver.rpc.governance.getChainConfig<a id="caver-rpc-governance-getchainconfig"></a>
+## caver.rpc.governance.getChainConfig <a id="caver-rpc-governance-getchainconfig"></a>
 
 ```javascript
 caver.rpc.governance.getChainConfig([コールバック])
@@ -218,7 +218,7 @@ Promise`は`object\` を返す。
 }
 ```
 
-## caver.rpc.governance.getNodeAddress<a id="caver-rpc-governance-getnodeaddress"></a>
+## caver.rpc.governance.getNodeAddress <a id="caver-rpc-governance-getnodeaddress"></a>
 
 ```javascript
 caver.rpc.governance.getNodeAddress([コールバック])
@@ -247,7 +247,7 @@ Promise`は`string\` を返す。
 0xbeafcca672100a88a953fcf5e882cb763f9e3de9
 ```
 
-## caver.rpc.governance.getItemsAt<a id="caver-rpc-governance-getitemsat"></a>
+## caver.rpc.governance.getItemsAt <a id="caver-rpc-governance-getitemsat"></a>
 
 ```javascript
 caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
@@ -298,7 +298,7 @@ Promise`は`object\` を返す。
 > caver.rpc.governance.getItemsAt('latest').then(console.log)
 ```
 
-## caver.rpc.governance.getPendingChanges<a id="caver-rpc-governance-getpendingchanges"></a>
+## caver.rpc.governance.getPendingChanges <a id="caver-rpc-governance-getpendingchanges"></a>
 
 ```javascript
 caver.rpc.governance.getPendingChanges([コールバック])
@@ -327,7 +327,7 @@ Promise`は`object\` を返す。
 { 'governance.governancemode': 'single' }
 ```
 
-## caver.rpc.governance.getIdxCache<a id="caver-rpc-governance-getidxcache"></a>
+## caver.rpc.governance.getIdxCache <a id="caver-rpc-governance-getidxcache"></a>
 
 ```javascript
 caver.rpc.governance.getIdxCache([コールバック])
@@ -356,7 +356,7 @@ Promise`は`object\` を返す。
 [ 0, 60, 321180 ]。
 ```
 
-## caver.rpc.governance.getIdxCacheFromDb<a id="caver-rpc-governance-getidxcachefromdb"></a>
+## caver.rpc.governance.getIdxCacheFromDb <a id="caver-rpc-governance-getidxcachefromdb"></a>
 
 ```javascript
 caver.rpc.governance.getIdxCacheFromDb([コールバック])
@@ -385,7 +385,7 @@ Promise`は`object\` を返す。
 [ 0, 60, 321180 ]。
 ```
 
-## caver.rpc.governance.getItemCacheFromDb<a id="caver-rpc-governance-getitemcachefromdb"></a>
+## caver.rpc.governance.getItemCacheFromDb <a id="caver-rpc-governance-getitemcachefromdb"></a>
 
 ```javascript
 caver.rpc.governance.getItemCacheFromDb([コールバック])
@@ -442,7 +442,7 @@ Promise`は`object\` を返す。
 null
 ```
 
-## caver.rpc.governance.getVotes<a id="caver-rpc-governance-getvotes"></a>
+## caver.rpc.governance.getVotes <a id="caver-rpc-governance-getvotes"></a>
 
 ```javascript
 caver.rpc.governance.getVotes([コールバック])
@@ -479,7 +479,7 @@ Promise`は`object\` を返す。
 }]。
 ```
 
-## caver.rpc.governance.getStakingInfo<a id="caver-rpc-governance-getstakinginfo"></a>
+## caver.rpc.governance.getStakingInfo <a id="caver-rpc-governance-getstakinginfo"></a>
 
 ```javascript
 caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
