@@ -41,7 +41,7 @@ public class SignTxWithLegacyExample implements keySample {
         String from = credentials1.getAddress();
         EthChainId EthchainId = web3j.ethChainId().send();
         long chainId = EthchainId.getChainId().longValue();
-        String to = "0x000000000000000000000000dead";
+        String to = "0x000000000000000000000000000000000000dead";
         BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
                 .getTransactionCount();
         BigInteger value = BigInteger.valueOf(100);
@@ -69,7 +69,7 @@ public class SignTxWithLegacyExample implements keySample {
 
         web3j.shutdown();
 
-    }.
+    }
 
 }
 ```
@@ -144,7 +144,7 @@ public class SignTxWithLegacyExample implements keySample {
         String from = credentials1.getAddress();
         EthChainId EthchainId = web3j.ethChainId().send();
         long chainId = EthchainId.getChainId().longValue();
-        String to = "0x000000000000000000000000dead";
+        String to = "0x000000000000000000000000000000000000dead";
         BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
                 .getTransactionCount();
         BigInteger value = BigInteger.valueOf(100);
@@ -172,7 +172,7 @@ public class SignTxWithLegacyExample implements keySample {
 
         web3j.shutdown();
 
-    }.
+    }
 
 }
 ```
