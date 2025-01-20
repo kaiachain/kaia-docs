@@ -54,13 +54,13 @@ public class WriteContractWithKlaytnTxTypeExample {
                 StaticGasProvider gasProvider = new StaticGasProvider(GAS_PRICE, GAS_LIMIT);
                 Counter counter = Counter.load(contractAddr, web3j, credentials.convertToCredentials(), gasProvider);
 
-                // 契約書書き込み前に数値を取得
+                // Get number before Contract Write
                 System.out.println("number before : " + counter.number().send());
 
-                // 契約書込み（setNumber関数で数値を設定）
-                Function function = new Function("setNumber", // 関数名
-                                Arrays.asList(new Uint(BigInteger.valueOf(50))), // 関数入力パラメータ
-                                Collections.emptyList()); // 関数戻りパラメータ
+                // Contract Write (Set number with setNumber function)
+                Function function = new Function("setNumber", // Function name
+                                Arrays.asList(new Uint(BigInteger.valueOf(50))), // Function input parameters
+                                Collections.emptyList()); // Function returned parameters
                 String txData = FunctionEncoder.encode(function);
                 byte[] payload = Numeric.hexStringToByteArray(txData);
 
@@ -76,7 +76,7 @@ public class WriteContractWithKlaytnTxTypeExample {
                                 from,
                                 payload);
 
-                // 送信者として署名する
+                // Sign as sender
                 byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
                 String hexValue = Numeric.toHexString(signedMessage);
                 web3j.ethSendRawTransaction(hexValue).send();
@@ -84,12 +84,12 @@ public class WriteContractWithKlaytnTxTypeExample {
                         Thread.sleep(2000);
                 } catch (Exception e) {
                         System.out.println(e);
-                }.
-                // 契約後の数値を取得 Write
-                System.out.println("契約後の数値 : " + counter.number().send());
+                }
+                // Get number after Contract Write
+                System.out.println("number after : " + counter.number().send());
 
                 web3j.shutdown();
-        }.
+        }
 }
 
 ```
