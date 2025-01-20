@@ -167,14 +167,14 @@ TxType.ValueTransfer`で値転送トランザクションを作成する：TxTyp
 populateTransaction\`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
 
 <CH.Code>
-``js SignTxWithPubkeyExample.js focus=21:23
+```js SignTxWithPubkeyExample.js focus=21:23
 
-```
+````
 ---
 
-``zsh output
-rawTx0x08f8868188850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094e15cd70a41dfb05e7214004d7d054801b2a2f06bf847f8458207f5a05e2299e8d947e8b39d3715ba3945535ad05da364ebc1fa168b3fea675cb27f60a05adf38401f83409216fd29aa6fb5b39f7113c0a49e2bb3e2003cb60baf2df7ac
-```
+```zsh output
+rawTx 0x08f8868188850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094e15cd70a41dfb05e7214004d7d054801b2a2f06bf847f8458207f5a05e2299e8d947e8b39d3715ba3945535ad05da364ebc1fa168b3fea675cb27f60a05adf38401f83409216fd29aa6fb5b39f7113c0a49e2bb3e2003cb60baf2df7ac
+````
 
 </CH.Code>
 
@@ -183,14 +183,14 @@ rawTx0x08f8868188850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872
 署名したトランザクション\*\*をkaiaネットワークに送信する。
 
 <CH.Code>
-``js SignTxWithPubkeyExample.js focus=25:26
+```js SignTxWithPubkeyExample.js focus=25:26
 
-```
+````
 ---
 
-``zsh output
+```zsh output
 sentTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
-```
+````
 
 </CH.Code>
 
@@ -199,7 +199,7 @@ sentTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
 取引が**完了**するのを待って、**領収書**を印刷する。
 
 <CH.Code>
-``js SignTxWithPubkeyExample.js focus=28:29
+```js SignTxWithPubkeyExample.js focus=28:29
 
 ````
 ---
@@ -232,13 +232,13 @@ receipt {
 klay_recoverFromMessage\`を使用して、署名されたトランザクションからアドレスを回復する。
 
 <CH.Code>
-``js SignTxWithPubkeyExample.js focus=31:34
+```js SignTxWithPubkeyExample.js focus=31:34
 
-```
+````
 ---
-``zsh output
+```zsh output
 recoveredAddr rpc 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b true
-```
+````
 
 </CH.Code>
 </CH.Spotlight>
