@@ -185,7 +185,7 @@ AccountKeyWeightedMultiSigは、閾値と、公開鍵とその重みからなる
 
 :::note
 
-The following multiSig validation logic has been added with the [IstanbulEVM](../misc/klaytn-history.md#istanbul-evm) hardfork.
+IstanbulEVM](../misc/klaytn-history.md#istanbul-evm) ハードフォークにより、以下のマルチシグ検証ロジックが追加された。
 
 - 無効な署名はトランザクションに含めるべきでない。
 - 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
