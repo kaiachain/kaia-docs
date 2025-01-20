@@ -1,25 +1,25 @@
-# Transactions
+# トランザクション
 
-Transactions are the core mechanism for state changes on the Kaia blockchain. They represent messages passed between accounts, altering balances, deploying smart contracts, or executing contract functions. For example, when a transaction that sends 10 KAIA from Alice’s account to Bob’s is executed, Alice's balance decreases by 10 KAIA, and Bob's balance increases by 10 KAIA. Understanding transactions is fundamental to grasping how Kaia works.
+取引は、カイア・ブロックチェーンにおける状態変更の中核となるメカニズムである。 これらのメッセージは、アカウント間でやり取りされるメッセージ、残高の変更、スマート・コントラクトの展開、またはコントラクト機能の実行を表す。 例えば、アリスの口座からボブの口座に10KAIAを送る取引が実行されると、アリスの残高は10KAIA減少し、ボブの残高は10KAIA増加する。 トランザクションを理解することは、カイアがどのように機能するかを把握するための基本である。
 
-## Key Aspects of Kaia Transactions
+## カイア取引の主な側面
 
-- **Atomic Operations:** Each transaction is treated as a single, indivisible unit. Either the entire transaction succeeds, applying all changes, or it fails, leaving the blockchain state unchanged. This ensures data integrity and prevents partial updates.
+- \*\*アトミック・オペレーション：\*\*各トランザクションは、単一の不可分な単位として扱われる。 トランザクション全体が成功してすべての変更が適用されるか、失敗してブロックチェーンの状態が変更されないままになるかのどちらかだ。 これにより、データの完全性が保証され、部分的な更新が防止される。
 
-- **Components:** Kaia transactions share core components with other blockchains but also have unique elements due to its decoupling of key pairs and addresses. This decoupling enhances flexibility but requires explicit sender information within the transaction. Typical components include:
-  - **Sender:** The originating account (`from` field).  This is explicitly included in Kaia transactions because addresses and key pairs are not directly linked.
-  - **Recipient:** The destination account (`to` field, for value transfers and smart contract interactions).
-  - **Value:** The amount of KAIA being transferred (`value` field, in `kei`).
-  - **Data:**  Additional information (`input` field), often used as input for smart contract execution.
-  - **Fees:** Calculated based on `gas` (maximum gas allowed) \* `gasPrice` (price per unit of gas).  Fees are paid in KAIA (unit: `kei`, see [link to KAIA units documentation]).
-  - **Signature (`v`, `r`, `s` fields):** Cryptographic proof authorizing the transaction.
+- **コンポーネント：** カイアのトランザクションは他のブロックチェーンとコア・コンポーネントを共有しているが、キー・ペアとアドレスの切り離しにより独自の要素も持っている。 このデカップリングは柔軟性を高めるが、トランザクショ ン内に明示的な送信者情報を必要とする。 代表的なコンポーネントは以下の通り：
+  - **送信者：** 送信元アカウント（`from`フィールド）。  アドレスとキー・ペアは直接リンクされていないため、これはKaiaトランザクションに明示的に含まれている。
+  - **Recipient:** 宛先アカウント（`to`フィールド、バリュー転送とスマートコントラクトのやり取り用）。
+  - \*\*Value:\*\*転送されるKAIAの量（`value`フィールド、単位は`kei`）。
+  - \*\*スマートコントラクト実行の入力としてよく使われる。
+  - **料金:** `gas` (許可されたガスの最大量) \* `gasPrice` (ガスの単位あたりの価格)に基づいて計算されます。  料金はKAIA（単位：`kei`、[KAIA単位ドキュメントへのリンク]を参照）で支払われる。
+  - **署名 (`v`, `r`, `s` フィールド):** トランザクションを認可する暗号証明。
 
-- **Transaction Types:** Kaia offers a variety of transaction types to support different use cases, from basic value transfers to complex smart contract interactions and fee delegation. This flexibility caters to diverse needs and optimizes performance. See the [Implementing Transactions](../build/transactions/transactions.md#transaction-types) page for details on each type.
+- **トランザクションの種類：** カイアは、基本的な価値の移転から複雑なスマートコントラクトのやり取りや手数料の委譲まで、様々なユースケースをサポートするために様々なトランザクションの種類を提供しています。 この柔軟性が多様なニーズに対応し、パフォーマンスを最適化する。 各タイプの詳細については、[トランザクションの実装](../build/transactions/transactions.md#transaction-types)のページを参照してください。
 
-- **Fee Mechanism:** Transactions require fees to incentivize validators. These fees are calculated based on the computational resources consumed (`gas`) and a price per unit of gas (`gasPrice`), which can be dynamic.
+- **料金の仕組み：**\* 取引には、検証者にインセンティブを与えるために料金が必要である。 これらの料金は、消費された計算リソース(`gas`)と単位ガスあたりの価格(`gasPrice`)に基づいて計算される。
 
-- **Security:** Transactions are cryptographically signed, ensuring authenticity and preventing unauthorized modifications. Kaia's decoupling of key pairs and addresses adds another layer of security.
+- **セキュリティ：**\* トランザクションは暗号署名され、真正性を保証し、不正な変更を防止します。 カイアのキー・ペアとアドレスの分離は、セキュリティのレイヤーをもう1つ増やす。
 
-- **Fee Delegation:** Kaia's fee delegation feature allows third parties to pay transaction fees on behalf of users, simplifying user onboarding and supporting various business models.  This requires two signatures: one from the sender and one from the fee payer. See the [Fee Delegation](../build/transactions/fee-delegation.md) for its implementation details.
+- \*\*手数料の委任:\*\*カイアの手数料委任機能は、第三者がユーザーの代わりに取引手数料を支払うことを可能にし、ユーザーのオンボーディングを簡素化し、様々なビジネスモデルをサポートします。  これには2つの署名が必要である。1つは差出人の署名、もう1つは手数料支払者の署名である。 その実装の詳細については、[料金委譲](../build/transactions/fee-delegation.md)を参照のこと。
 
-This conceptual overview provides a foundation for understanding Kaia transactions. The [Implementing Transactions](../build/transactions/transactions.md) offers a detailed guide for developers.
+この概念的な概要は、カイアの取引を理解するための基礎となる。 トランザクションの実装](../build/transactions/transactions.md)では、開発者向けに詳細なガイドを提供している。
