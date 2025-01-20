@@ -1,6 +1,6 @@
-# Cancel
+# キャンセル
 
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+**TxTypeCancel**は、トランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。 このトランザクション・タイプは、送信されたトランザクションが一定時間未処理のように見える場合に有用である。
 
 <CH.Spotlight>
 <CH.Code>
@@ -44,34 +44,34 @@ main();
 ---
 
 ```zsh output
-❯ node TxFeeDelegatedCancelType.js
-senderTxHashRLP 0x39f86a8203af850ba43b740082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a06c639b8828bb27b36b2575636b4ec9dd4c7de4820327fe158746d03b28b90d8ba0332b43ec974ecb3ea16593760cb6e139a95d4ce03847681fb053a00143eb91a1
+ノード TxFeeDelegatedCancelType.js
+senderTxHashRLP0x39f86a8203af850ba43b740082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a06c639b8828bb27b36b2575636b4ec9dd4c7de4820327fe158746d03b28b90d8ba0332b43ec974ecb3ea16593760cb6e139a95d4ce03847681fb053a00143eb91a1
 sentTx 0xd81cd9190f2fd40f6b2e6472f91b95a1e09e2ad3dfc41a6b3458274eb5c9175c
-receipt {
-  to: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+受信 {
+  to：'0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
   from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
   contractAddress: null,
-  transactionIndex: 1,
-  gasUsed: BigNumber { _hex: '0x7918', _isBigNumber: true },
-  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  blockHash: '0x02d655e716e1a5c8d497f66a6d80683c633d3e4002a9e26026f101983d951c1a',
+  transactionIndex：1,
+  gasUsed：BigNumber { _hex: '0x7918', _isBigNumber: true },
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash：'0x02d655e716e1a5c8d497f66a6d80683c633d3e4002a9e26026f101983d951c1a',
   transactionHash: '0xd81cd9190f2fd40f6b2e6472f91b95a1e09e2ad3dfc41a6b3458274eb5c9175c',
-  logs: [],
+  logs：[],
   blockNumber: 148732476,
-  confirmations: 3,
-  cumulativeGasUsed: BigNumber { _hex: '0x034b1d', _isBigNumber: true },
-  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-  status: 1,
-  type: 0,
+  confirmations：3,
+  cumulativeGasUsed：BigNumber { _hex: '0x034b1d', _isBigNumber: true },
+  effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status：1,
+  type：0,
   byzantium: true
-}
+}.
 ```
 
 </CH.Code>
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+ethers.jsにkaiaの機能を追加するために、**ethers**および**@kaiachain/ethers-ext**パッケージをインポートする。
 
 ```js TxFeeDelegatedCancelType.js focus=1:3
 
@@ -79,7 +79,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Define **sender**, **fee payer** addresses and private keys
+送信者**、料金支払者**のアドレスと秘密鍵を定義する。
 
 ```js TxFeeDelegatedCancelType.js focus=5:8
 
@@ -87,7 +87,7 @@ Define **sender**, **fee payer** addresses and private keys
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js TxFeeDelegatedCancelType.js focus=10
 
@@ -95,7 +95,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js TxFeeDelegatedCancelType.js focus=10
 const ethers = require("ethers");
@@ -135,7 +135,7 @@ main();
 
 ---
 
-Create a **sender**'s wallet with the private key and the provider
+秘密鍵とプロバイダーを使って**送信者**のウォレットを作成する。
 
 ```js TxFeeDelegatedCancelType.js focus=11
 
@@ -143,7 +143,7 @@ Create a **sender**'s wallet with the private key and the provider
 
 ---
 
-Create a **fee payer**'s wallet with the private key and the provider
+料金支払い者\*\*のウォレットを秘密鍵とプロバイダーで作成する。
 
 ```js TxFeeDelegatedCancelType.js focus=12
 
@@ -151,7 +151,7 @@ Create a **fee payer**'s wallet with the private key and the provider
 
 ---
 
-Declare a transaction with the **from** field as **sender address** and the **type** field as **TxType.FeeDelegatedCancel**
+from**フィールドを**sender address**とし、**type**フィールドを**TxType.FeeDelegatedCancel\*\* とするトランザクションを宣言する。
 
 ```js TxFeeDelegatedCancelType.js focus=15:18
 
@@ -159,75 +159,75 @@ Declare a transaction with the **from** field as **sender address** and the **ty
 
 ---
 
-Sign the transaction with **sender** wallet and print out the **senderTxHashRLP**
+sender**ウォレットでトランザクションに署名し、**senderTxHashRLP\*\*をプリントアウトする。
 
 <CH.Code>
-```js TxFeeDelegatedCancelType.js focus=20:23
+``js TxFeeDelegatedCancelType.js focus=20:23
 
-````
+```
 
 
 ---
 
-```zsh output
+``zsh output
 ❯ node TxFeeDelegatedCancelType.js
-senderTxHashRLP 0x39f86a820356850ba43b740082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0ec92eaed1a4b88de5645122b78f1f060aa44e9a6f35d1804ed624dbf74e0c59fa01a9b1e1a4bc35fdb4d1d71ead6be57a15fd06945cf486cf3d0f10f11099db878
-````
+senderTxHashRLP0x39f86a820356850ba43b740082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0ec92eaed1a4b88de5645122b78f1f060aa44e9a6f35d1804ed624dbf74e0c59fa01a9b1e1a4bc35fdb4d1d71ead6be57a15fd06945cf486cf3d0f10f11099db878
+```
 
 </CH.Code>
 
 ---
 
-Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
-```js TxFeeDelegatedCancelType.js focus=25:27
+``js TxFeeDelegatedCancelType.js focus=25:27
 
-````
+```
 
 
 ---
 
-```zsh output
+``zsh output
 ❯ node TxFeeDelegatedCancelType.js
 sentTx 0x88f96c02abd305e5395cfdc87515ba3a4f6139568a48ddeca66be286acf5be68
-````
+```
 
 </CH.Code>
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain.
+wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
 <CH.Code>
-```js TxFeeDelegatedCancelType.js focus=29:30
+``js TxFeeDelegatedCancelType.js focus=29:30
 
-````
+```
 
 
 ---
 
-```zsh output
-❯ node TxFeeDelegatedCancelType.js
+``zsh output
+↪Node TxFeeDelegatedCancelType.js
 receipt {
-  to: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  to：'0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
   from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
   contractAddress: null,
-  transactionIndex: 2,
-  gasUsed: BigNumber { _hex: '0x7918', _isBigNumber: true },
-  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  blockHash: '0xfe9f4c67ac858fc9dc534612649c89aee502771e5c19c10575874cfc48ef6f18',
+  transactionIndex：2,
+  gasUsed：BigNumber { _hex: '0x7918', _isBigNumber: true },
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash：'0xfe9f4c67ac858fc9dc534612649c89aee502771e5c19c10575874cfc48ef6f18',
   transactionHash: '0x88f96c02abd305e5395cfdc87515ba3a4f6139568a48ddeca66be286acf5be68',
-  logs: [],
+  logs：[],
   blockNumber: 146759527,
-  confirmations: 2,
-  cumulativeGasUsed: BigNumber { _hex: '0x063f86', _isBigNumber: true },
-  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
-  status: 1,
-  type: 0,
+  confirmations：2,
+  cumulativeGasUsed：BigNumber { _hex: '0x063f86', _isBigNumber: true },
+  effectiveGasPrice：BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status：1,
+  type：0,
   byzantium: true
-}
-````
+}.
+```
 
 </CH.Code>
 
