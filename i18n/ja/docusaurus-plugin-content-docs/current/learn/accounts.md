@@ -14,7 +14,7 @@ An account in Klaytn is a data structure containing information about a person's
 - ユーザーがアカウントのセキュリティを高めるために複数のキー・ペアを使用することは不可能である。
 - 秘密鍵が誤って公開されたときや、アカウントのセキュリティを高めるために秘密鍵を定期的に更新したいときに、ユーザーがアカウントの鍵ペアを変更することは不可能である。
 
-これらは、ユーザーがブロックチェーン・プラットフォームにおける識別子として住所を考えることができないという大きなハードルである。 To clear this hurdle, Klaytn provides a feature that users can choose their addresses and key pairs. この機能を使えば、ユーザーは好きなアドレスを選ぶことができ、セキュリティを高めるために複数のキー・ペアを使うことができる。 キー・ペアの数は1つでも複数でもよく、キー・ペアは異なる役割を持つことができる。 複数キー・ペアまたはロール・ベース・キーの詳細については、「複数キー・ペアおよびロール・ベース・キー」(#multiple-key-pairs-and-role-based-keys)を参照されたい。
+これらは、ユーザーがブロックチェーン・プラットフォームにおける識別子として住所を考えることができないという大きなハードルである。 To clear this hurdle, Klaytn provides a feature that users can choose their addresses and key pairs. この機能を使えば、ユーザーは好きなアドレスを選ぶことができ、セキュリティを高めるために複数のキー・ペアを使うことができる。 キー・ペアの数は1つでも複数でもよく、キー・ペアは異なる役割を持つことができる。 複数キー・ペアまたはロール・ベース・キーの詳細については、[「複数キー・ペアおよびロール・ベース・キー」](#multiple-key-pairs-and-role-based-keys)を参照されたい。
 
 It is worth noting that Klaytn also supports the old scheme that a key pair and an address are strongly coupled.
 
