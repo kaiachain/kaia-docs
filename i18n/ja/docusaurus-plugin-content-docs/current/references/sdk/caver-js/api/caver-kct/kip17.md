@@ -8,7 +8,7 @@ caver-jsにKIP-17を実装するコードは、[Kaia Contracts Github Repo](http
 
 KIP-17の詳細については、[カイア改善提案](https://kips.kaia.io/KIPs/kip-17)を参照のこと。
 
-## caver.kct.kip17.deploy<a id="caver-klay-kip17-deploy"></a>
+## caver.kct.kip17.deploy <a id="caver-klay-kip17-deploy"></a>
 
 ```javascript
 caver.kct.kip17.deploy(tokenInfo, deployer)
@@ -115,7 +115,7 @@ KIP17 {
 })
 ```
 
-## caver.kct.kip17.detectInterface<a id="caver-kct-kip17-detectinterface"></a>
+## caver.kct.kip17.detectInterface <a id="caver-kct-kip17-detectinterface"></a>
 
 ```javascript
 caver.kct.kip17.detectInterface(契約アドレス)
@@ -148,7 +148,7 @@ Promise`は、各[KIP-17 インタフェース](https://kips.kaia.io/KIPs/kip-17
 }.
 ```
 
-## caver.kct.kip17.クリエイト<a id="caver-kct-kip17-create"></a>
+## caver.kct.kip17.create <a id="caver-kct-kip17-create"></a>
 
 ```javascript
 caver.kct.kip17.create([tokenAddress])
