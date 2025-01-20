@@ -40,14 +40,14 @@ public class LegacyExample implements keySample {
                 BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
                 BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
                 String from = credentials.getAddress();
-                String to = "0x000000000000000000000000dead";
+                String to = "0x000000000000000000000000000000000000dead";
                 EthChainId EthchainId = web3j.ethChainId().send();
                 long chainId = EthchainId.getChainId().longValue();
                 BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
                                 .getTransactionCount();
                 BigInteger value = BigInteger.valueOf(100);
 
-                // web3j-credentialsでレガシートランザクションを送る
+                // send legacy transaction with web3j-credentials
                 RawTransaction raw = KlayRawTransaction.createEtherTransaction(
                                 nonce,
                                 GAS_PRICE,
@@ -60,7 +60,7 @@ public class LegacyExample implements keySample {
                 EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
                 System.out.println(transactionResponse.getResult());
 
-                // web3j-ext klaycredentialsでレガシートランザクションを送信
+                // send legacy transaction with web3j-ext klaycredentials
                 raw = KlayRawTransaction.createEtherTransaction(
                                 nonce,
                                 GAS_PRICE,
@@ -75,7 +75,7 @@ public class LegacyExample implements keySample {
                 String txHash = transactionResponse.getResult();
                 int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
                 int DEFAULT_BLOCK_TIME = 1 * 1000;
-                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME；
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
                 TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
                                 DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
                 org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
@@ -85,7 +85,7 @@ public class LegacyExample implements keySample {
                 System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
                 web3j.shutdown();
 
-        }.
+        }
 
 }
 ```
