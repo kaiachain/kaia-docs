@@ -14,7 +14,7 @@ import org.web3j.tx.response.PollingTransactionReceiptProcessor;
 import org.web3j.tx.response.TransactionReceiptProcessor;
 import org.web3j.example.keySample;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.protocol.kaia.Web3j; import org.web3j.example.keySamplekaia.Web3j;
+import org.web3j.protocol.kaia.Web3j;
 import org.web3j.tx.gas.StaticGasProvider;
 
 public class WriteContractExample {
@@ -26,21 +26,21 @@ public class WriteContractExample {
 
         Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
         KlayCredentials credentials = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
-        String contractAddr = "0x95Be48607498109030592C08aDC9577c7C2d505";
+        String contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
         BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
         BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
         StaticGasProvider gasProvider = new StaticGasProvider(GAS_PRICE, GAS_LIMIT);
         Counter counter = Counter.load(contractAddr, web3j, credentials.convertToCredentials(), gasProvider);
 
-        // 契約書込み前の数値を取得
-        System.out.println("書込み前の数値 : " + counter.数値().send());
+        // Get number before Contract Write
+        System.out.println("number before : " + counter.number().send());
 
-        // 契約書込み（インクリメント関数）
+        // Contract Write (increment function)
         counter.increment().send();
 
-        // 契約書込み後の数値を取得
-        System.out.println("書込み後の数値 : " + counter.数値().send());
-    }.
+        // Get number after Contract Write
+        System.out.println("number after : " + counter.number().send());
+    }
 
 }
 ```
