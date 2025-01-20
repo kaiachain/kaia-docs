@@ -420,18 +420,18 @@ to_pretty\*\*ユーティリティを使えば、フォーマットされたtx�
 アカウント更新TXタイプに署名する。 アカウント "0x5bd2...cea "はすでにロールベースのアカウントであるため、このアカウントを更新するには、**update role key**で署名する必要があります。
 
 <CH.Code>
-``py web3_fee_delegated_account_update_role_based.py focus=50:52
+```py web3_fee_delegated_account_update_role_based.py focus=50:52
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ py web3_fee_delegated_account_update_role_based.py
 
-rawTransaction：21f8da29850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a029674da4dd604844d0ba315984d03d5bed928d17e687a99d6daf8193e6c94e09a054aae388b9297d80186595a8c4e25a9a5317ab022965db737a1c10bf4dd6a974
-```
+rawTransaction: 21f8da29850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a029674da4dd604844d0ba315984d03d5bed928d17e687a99d6daf8193e6c94e09a054aae388b9297d80186595a8c4e25a9a5317ab022965db737a1c10bf4dd6a974
+````
 
 </CH.Code>
 
@@ -549,58 +549,58 @@ recover feepayer address：['0xA2a8854b1802D8Cd5De631E690817c253d6a9153']
 RLPエンコードされた署名付きtxを見たい場合は、**decode_transaction**ユーティリティを使用する。
 
 <CH.Code>
-``py web3_fee_delegated_account_update_role_based.py focus=66:67
+```py web3_fee_delegated_account_update_role_based.py focus=66:67
 
-```
+````
 
 
 ---
 
-``zsh output
+```zsh output
 ❯ py web3_fee_delegated_account_update_role_based.py
-デコードされたトランザクション：{
-  "type"：33,
-  "nonce"：41,
-  "gasPrice"：50000000000,
-  "gas"：159000,
-  "from"："0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
-  "feePayer"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-  "signatures"：[
+decoded transaction: {
+  "type": 33,
+  "nonce": 41,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "feePayer": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "signatures": [
     {
-      "v"：2037,
-      "r"：18727347918799676494996859755384456453784169075037049001717055518319697284617,
-      "s"：382962136644800122015735343596922654220317978252242974823380611328892798452
-    }.
+      "v": 2037,
+      "r": 18727347918799676494996859755384456453784169075037049001717055518319697284617,
+      "s": 38296213664480012201573534359692265422031797825224297482338061132889882798452
+    }
   ],
-  "feePayerSignatures"：[
+  "feePayerSignatures": [
     {
-      "v"：2037,
-      "r"：66607034336854704869676726256115158277487333092054504647329956124483114823968,
-      "s"：65925796516352825543629476415866897275388037603811376489932442025345336562
-    }.
+      "v": 2037,
+      "r": 66607034336854704869676726256115158277487333092054504647329956124483114823968,
+      "s": 6592579651635282554362947641586686897275388037603811376489932442025345336562
+    }
   ],
-  "key"：{
-    "type"：5,
-    "キー"：{
-      "roleTransactionKey"：{
-        "type"：2,
-        "key"："0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
       },
-      "roleAccountUpdateKey"：{
-        "type"：2,
-        "key"："0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
       },
-      "roleFeePayerKey"：{
-        "type"：2,
-        "key"："0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
-      }.
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
     }
   },
-  "chainId"：1001
-}.
+  "chainId": 1001
+}
 
 
-```
+````
 
 </CH.Code>
 
@@ -609,15 +609,15 @@ RLPエンコードされた署名付きtxを見たい場合は、**decode_transa
 \*\*署名されたトランザクションを手数料デリゲーターアカウントを使ってネットワークに送信し、ブロックチェーンで完全に実行されるまで受領を待つ。
 
 <CH.Code>
-``py web3_fee_delegated_account_update_role_based.py focus=69:71
+```py web3_fee_delegated_account_update_role_based.py focus=69:71
 
-```
+````
 ---
 
-``zsh output
-❮ py web3_fee_delegated_account_update_role_based.py
-tx hash：  0x78dc150b70538beed168e5f673bd6a058287bb6177295e9117771ac3e9e31d69 receipt:  AttributeDict({'blockHash'：HexBytes('0x2b85cd7babae3f2d49405da8f4d5500ae3bc2462bccf1c46b3a1e3b0cb7fb7c5'), 'blockNumber':148223525, 'contractAddress'：None, 'cumulativeGasUsed'：483882, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 91000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash'：HexBytes('0x78dc150b70538beed168e5f673bd6a058287bb6177295e9117771ac3e9e31d69'), 'transactionIndex': 2, 'type': 0})
-```
+```zsh output
+❯ py web3_fee_delegated_account_update_role_based.py
+tx hash:  0x78dc150b70538beed168e5f673bd6a058287bb6177295e9117771ac3e9e31d69 receipt:  AttributeDict({'blockHash': HexBytes('0x2b85cd7babae3f2d49405da8f4d5500ae3bc2462bccf1c46b3a1e3b0cb7fb7c5'), 'blockNumber': 148223525, 'contractAddress': None, 'cumulativeGasUsed': 483882, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 91000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash': HexBytes('0x78dc150b70538beed168e5f673bd6a058287bb6177295e9117771ac3e9e31d69'), 'transactionIndex': 2, 'type': 0})
+````
 
 </CH.Code>
 
