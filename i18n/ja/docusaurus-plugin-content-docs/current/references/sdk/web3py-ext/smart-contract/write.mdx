@@ -156,13 +156,13 @@ transact**関数を使用する際に自動的に署名と送信を行いたい�
 コントラクトのビュー関数を呼び出し、更新される前に結果を**印刷**する。
 
 <CH.Code>
-``py smart_contract_write.py focus=18:19
+```py smart_contract_write.py focus=18:19
 
-```
+````
 ---
-``zsh output
-number before: 293
-```
+```zsh output
+number before:  293
+````
 
 </CH.Code>
 
@@ -179,14 +179,14 @@ tx**を送り、**契約を**更新**する。 これは自動的に署名し、
 ブロックチェーンからの受信を待ち、受信後にレシートを印刷する。
 
 <CH.Code>
-``py smart_contract_write.py focus=23
+```py smart_contract_write.py focus=23
 
-```
+````
 
 ---
-``zsh output
-受け取る：  AttributeDict({'blockHash'：HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'blockNumber':147329610, 'contractAddress'：None, 'cumulativeGasUsed'：361377, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 28014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2d505', 'topics'：[HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000126'), 'blockNumber':147329610, 'transactionHash'：HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'blockHash':HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'logIndex':6, 'removed'：False})], 'logsBloom'：HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'),'status'：1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash'：HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'type': 2})
-```
+```zsh output
+receipt:  AttributeDict({'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'blockNumber': 147329610, 'contractAddress': None, 'cumulativeGasUsed': 361377, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 28014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'topics': [HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000126'), 'blockNumber': 147329610, 'transactionHash': HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'logIndex': 6, 'removed': False})], 'logsBloom': HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'), 'status': 1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash': HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'type': 2})
+````
 
 </CH.Code>
 
@@ -195,13 +195,13 @@ tx**を送り、**契約を**更新**する。 これは自動的に署名し、
 Txの後にカウンタが何番\*\*かを見るために、もう一度ビュー関数を呼び出す。
 
 <CH.Code>
-``py smart_contract_write.py focus=24
+```py smart_contract_write.py focus=24
 
-```
+````
 ---
-``zsh output
-number after：  294
-```
+```zsh output
+number after:  294
+````
 
 </CH.Code>
 
