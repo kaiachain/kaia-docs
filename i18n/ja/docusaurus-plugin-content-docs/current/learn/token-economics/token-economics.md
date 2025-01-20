@@ -1,9 +1,9 @@
-# Token Economics
+# トークン経済学
 
-This section describes the token economics of the Kaia blockchain, including details about its native coin, KAIA, and the overall token economy model.  It explains how KAIA functions as the fuel for the platform, its various denominations, and its role in transaction fees and smart contract execution.  Further, this section outlines the distribution of KAIA, the funding mechanisms supporting the ecosystem's growth, and the governance structure ensuring its stability and sustainability.  Explore the following pages for a comprehensive understanding:
+このセクションでは、KAIAブロックチェーンのトークンエコノミクスについて、ネイティブコインであるKAIAの詳細や、全体的なトークンエコノミーモデルを含めて説明します。  KAIAがプラットフォームの燃料としてどのように機能するか、その様々なデノミネーション、取引手数料とスマートコントラクトの実行における役割について説明している。  さらに本セクションでは、KAIAの分配、エコシステムの成長を支える資金調達メカニズム、そしてその安定性と持続可能性を保証するガバナンス構造について概説する。  包括的な理解のために、以下のページをご覧ください：
 
-- [Kaia Native Token - KAIA](kaia-native-token.md): Learn about KAIA, its units (kei, Gkei, KAIA), and its utility within the Kaia ecosystem.
-- [Token Economy](token-economy.md): Discover the distribution of KAIA, including the allocation to validators, community members, and dedicated funds like the Kaia Ecosystem Fund (KEF) and Kaia Infrastructure Fund (KIF).  This page also details the governance and reward mechanisms.
+- [カイアネイティブトークン - KAIA](kaia-native-token.md)：KAIA、その単位（kei、Gkei、KAIA）、カイア・エコシステム内でのその有用性について学びましょう。
+- [トークンエコノミー](token-economy.md)：バリデーター、コミュニティメンバー、Kaia Ecosystem Fund (KEF)やKaia Infrastructure Fund (KIF)のような専用ファンドへの割り当てを含むKAIAの分配をご覧ください。  このページでは、ガバナンスと報酬の仕組みについても詳述する。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
