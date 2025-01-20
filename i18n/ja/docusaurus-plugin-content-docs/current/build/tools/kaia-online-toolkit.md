@@ -6,7 +6,7 @@
 - Kaia SDK(caver-js)\`は、開発者がHTTPまたはWebsocket接続を使ってKaiaノードとやりとりできるJavaScript APIライブラリです。
 - コードを書かなくても、カイアの機能を試すことができる。
 
-> より多くの方に「カイアオンラインツールキット」をご利用いただくために、「カイアオンラインツールキットを使う」(https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278)シリーズをご用意しました。
+> より多くの方に「カイアオンラインツールキット」をご利用いただくために、[「カイアオンラインツールキットを使う」](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278)シリーズをご用意しました。
 
 ## リンク<a id="links"></a>
 
