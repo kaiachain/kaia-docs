@@ -49,14 +49,14 @@ function sha256(uint256 numberToHash) public view returns (bytes32 hash) {
 ```text
 function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
         assembly {
-      mstore(0, numberToHash) // store number in the zeroth memory word
+      mstore(0, numberToHash) // 0番目のメモリワードに数値を格納
 
       let ok := staticcall(gas(), 2, 0, 32, 0, 32)
       if iszero(ok) {
     revert(0,0)
       }
           return(0, 32)
-  }
+  }.
 }
 ```
 
@@ -68,8 +68,8 @@ function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
 function RIPEMD160(bytes calldata data) public view returns (bytes20 h) {
   (bool ok, bytes memory out) = address(0x03).staticcall(data);
   require(ok);
-  h = bytes20(abi.decode(out, (bytes32)) << 96);
-}
+  h = bytes20(abi.decode(out, (bytes32)))<< 96);
+}.
 ```
 
 ## アドレス 0x04: datacopy(data)<a id="address-0x-04-datacopy-data"></a>
@@ -224,7 +224,7 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## アドレス 0x3fd: vmLog<a id="address-0x-3fc-vmlog-str"></a>
 
-アドレス0x3FDは、指定された文字列 `str` を特定のファイルに出力するか、ロガーモジュールに渡す。 For more information, see [debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target). Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x3FDは、指定された文字列 `str` を特定のファイルに出力するか、ロガーモジュールに渡す。 詳細は、[debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target) を参照してください。 Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function callVmLog(bytes memory str) public {
