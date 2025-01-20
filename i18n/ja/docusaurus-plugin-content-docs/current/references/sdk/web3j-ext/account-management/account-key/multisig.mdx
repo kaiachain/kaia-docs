@@ -1,10 +1,10 @@
-# Multisig Account Key
+# マルチシグ・アカウント・キー
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+署名された公開鍵の加重和が閾値より大きいこと。
+無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 <CH.Spotlight>
 <CH.Code>
@@ -63,8 +63,8 @@ public class AccountUpdateWithMultiSigExample {
                 WeightedPublicKey weightedAccountKey3 = WeightedPublicKey.create(BigInteger.ONE,
                                 AccountKeyPublic.create(newPubkey3));
 
-                // make list with weightedAccountKey1, weightedAccountKey2, weightedAccountKey3
-                List<WeightedPublicKey> weightedAccountKeyList = List.of(weightedAccountKey1, weightedAccountKey2,
+                // weightedAccountKey1、weightedAccountKey2、weightedAccountKey3 でリストを作成する
+                リスト<WeightedPublicKey> weightedAccountKeyList = List.of(weightedAccountKey1, weightedAccountKey2,
                                 weightedAccountKey3);
 
                 AccountKeyWeightedMultiSig accountkey = AccountKeyWeightedMultiSig.create(BigInteger.TWO,
@@ -89,7 +89,7 @@ public class AccountUpdateWithMultiSigExample {
 
                 int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
                 int DEFAULT_BLOCK_TIME = 1 * 1000;
-                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME；
                 TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
                                 DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
                 org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
@@ -101,9 +101,9 @@ public class AccountUpdateWithMultiSigExample {
 
                 TxTypeAccountUpdate rawTransaction = TxTypeAccountUpdate.decodeFromRawTransaction(signedMessage);
 
-                System.out.println("TxType : " + rawTransaction.getKlayType());
+                System.out.println("TxType ：" + rawTransaction.getKlayType());
 
-        }
+        }.
 
 }
 ```
@@ -114,8 +114,8 @@ public class AccountUpdateWithMultiSigExample {
 ❯ java AccountUpdateWithMultiSigExample.java
 TxHash :
  0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
-Receipt from eth_getTransactionReceipt :
-TransactionReceipt{transactionHash='0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442', transactionIndex='0x3', blockHash='0x4e8c4f1b795ca48c9a60788786481b72df1e2eb16d83ffc9d89e1e2708962378', blockNumber='0x90e5807', cumulativeGasUsed='0x983cc', gasUsed='0x17700', contractAddress='null', root='null', status='0x1', from='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', to='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', logs=[], logsBloom='0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000', revertReason='null', type='0x0', effectiveGasPrice='0x5d21dba00'}
+eth_getTransactionReceipt からの Receipt ：
+TransactionReceipt{transactionHash='0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442', transactionIndex='0x3', blockHash='0x4e8c4f1b795ca48c9a60788786481b72df1e2eb16d83ffc9d89e1e2708962378',blockNumber='0x90e5807', cumulativeGasUsed='0x983cc', gasUsed='0x17700', contractAddress='null', root='null'、status='0x1', from='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', to='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', logs=[],logsBloom='0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',revertReason='null', type='0x0', effectiveGasPrice='0x5d21dba00'}.
 Receipt from klay_getTransactionReceipt :
 class TransactionReceipt {
     blockHash: 0x4e8c4f1b795ca48c9a60788786481b72df1e2eb16d83ffc9d89e1e2708962378
@@ -123,38 +123,38 @@ class TransactionReceipt {
     codeFormat: null
     contractAddress: null
     feePayer: null
-    feePayerSignatures: []
+    feePayerSignatures：[]
     feeRatio: null
     from: 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
     gas: 0x66919e
     effectiveGasPrice: 0x5d21dba00
     gasPrice: 0xba43b7400
-    gasUsed: 0x17700
+    gasUsed：0x17700
     humanReadable: null
-    key: 0x04f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a
-    input: null
-    logs: []
-    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    nonce: 0x73
+    key：0x04f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a
+    input：null
+    logs：[]
+    logsBloom：0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce0x73
     senderTxHash: 0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
-    signature: []
-    status: 0x1
+    signature：[
+    ステータス：0x1
     txError: null
     to: null
     transactionHash: 0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
-    transactionIndex: 0x3
-    type: TxTypeAccountUpdate
-    typeInt: 32
+    transactionIndex：0x3
+    タイプ：TxTypeAccountUpdate
+    typeInt：32
     value: null
-}
-TxType : ACCOUNT_UPDATE
+}.
+TxType ：ACCOUNT_UPDATE
 ```
 
 </CH.Code>
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java AccountUpdateWithMultiSigExample.java focus=1:25
 
@@ -162,7 +162,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+指定されたBAOBAB_URLでWeb3jインスタンスを作成する
 
 ```java AccountUpdateWithMultiSigExample.java focus=31
 
@@ -170,7 +170,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
 
 ```java AccountUpdateWithMultiSigExample.java focus=31
 package org.web3j.example.accountKey;
@@ -226,8 +226,8 @@ public class AccountUpdateWithMultiSigExample {
                 WeightedPublicKey weightedAccountKey3 = WeightedPublicKey.create(BigInteger.ONE,
                                 AccountKeyPublic.create(newPubkey3));
 
-                // make list with weightedAccountKey1, weightedAccountKey2, weightedAccountKey3
-                List<WeightedPublicKey> weightedAccountKeyList = List.of(weightedAccountKey1, weightedAccountKey2,
+                // weightedAccountKey1、weightedAccountKey2、weightedAccountKey3 でリストを作成する
+                リスト<WeightedPublicKey> weightedAccountKeyList = List.of(weightedAccountKey1, weightedAccountKey2,
                                 weightedAccountKey3);
 
                 AccountKeyWeightedMultiSig accountkey = AccountKeyWeightedMultiSig.create(BigInteger.TWO,
@@ -252,7 +252,7 @@ public class AccountUpdateWithMultiSigExample {
 
                 int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
                 int DEFAULT_BLOCK_TIME = 1 * 1000;
-                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
+                long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME；
                 TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
                                 DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
                 org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
@@ -264,16 +264,16 @@ public class AccountUpdateWithMultiSigExample {
 
                 TxTypeAccountUpdate rawTransaction = TxTypeAccountUpdate.decodeFromRawTransaction(signedMessage);
 
-                System.out.println("TxType : " + rawTransaction.getKlayType());
+                System.out.println("TxType ：" + rawTransaction.getKlayType());
 
-        }
+        }.
 
 }
 ```
 
 ---
 
-Create 3 different **credentials** from private keys
+秘密鍵から3つの異なる**認証情報**を作成する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=32:34
 
@@ -281,7 +281,7 @@ Create 3 different **credentials** from private keys
 
 ---
 
-Gas **price** and **gas limit** settings
+ガス**価格**と**ガス制限**の設定
 
 ```java AccountUpdateWithMultiSigExample.java focus=36:37
 
@@ -289,7 +289,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Get **chain ID** from the network
+ネットワークから**チェーンID**を取得する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=39:40
 
@@ -297,7 +297,7 @@ Get **chain ID** from the network
 
 ---
 
-Get the **nonce** for the sender's address
+送信者アドレスの**nonce**を取得する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=41:42
 
@@ -305,7 +305,7 @@ Get the **nonce** for the sender's address
 
 ---
 
-Generate new **account keys** and theirs weights for account update
+アカウント更新のために新しい**アカウント・キー**とウェイトを生成する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=44:52
 
@@ -313,7 +313,7 @@ Generate new **account keys** and theirs weights for account update
 
 ---
 
-Combine generated **weighted account keys** into a list
+生成された**重み付けされたアカウント・キー**をリストにまとめる。
 
 ```java AccountUpdateWithMultiSigExample.java focus=54:59
 
@@ -321,7 +321,7 @@ Combine generated **weighted account keys** into a list
 
 ---
 
-Set transaction type as **ACCOUNT_UPDATE**
+トランザクション・タイプを**ACCOUNT_UPDATE**に設定する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=61
 
@@ -329,7 +329,7 @@ Set transaction type as **ACCOUNT_UPDATE**
 
 ---
 
-Create a **raw transaction** for account update
+口座更新のために**生トランザクション**を作成する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=63:69
 
@@ -337,7 +337,7 @@ Create a **raw transaction** for account update
 
 ---
 
-Sign the transaction
+取引に署名する
 
 ```java AccountUpdateWithMultiSigExample.java focus=71
 
@@ -345,40 +345,40 @@ Sign the transaction
 
 ---
 
-Send the **signed transaction** to kaia network
+署名したトランザクション\*\*をkaiaネットワークに送信する。
 
 <CH.Code>
-```java AccountUpdateWithMultiSigExample.java focus=72:76
+``java AccountUpdateWithMultiSigExample.java focus=72:76
 
-````
+```
 
 
 ---
 
-```zsh output
+``zsh output
 ❯ java AccountUpdateWithMultiSigExample.java
 TxHash :
  0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
-````
+```
 
 </CH.Code>
 
 ---
 
-Wait for the transaction to be completed and get the transaction receipt
+トランザクションが完了するのを待ち、トランザクション・レシートを受け取る。
 
 <CH.Code>
-```java AccountUpdateWithMultiSigExample.java focus=78:87
+``java AccountUpdateWithMultiSigExample.java focus=78:87
 
-````
+```
 
 
 ---
 
-```zsh output
+``zsh出力
 ❯ java AccountUpdateWithMultiSigExample.java
-Receipt from eth_getTransactionReceipt :
-TransactionReceipt{transactionHash='0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442', transactionIndex='0x3', blockHash='0x4e8c4f1b795ca48c9a60788786481b72df1e2eb16d83ffc9d89e1e2708962378', blockNumber='0x90e5807', cumulativeGasUsed='0x983cc', gasUsed='0x17700', contractAddress='null', root='null', status='0x1', from='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', to='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', logs=[], logsBloom='0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000', revertReason='null', type='0x0', effectiveGasPrice='0x5d21dba00'}
+eth_getTransactionReceiptからのレシート ：
+TransactionReceipt{transactionHash='0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442', transactionIndex='0x3', blockHash='0x4e8c4f1b795ca48c9a60788786481b72df1e2eb16d83ffc9d89e1e2708962378',blockNumber='0x90e5807', cumulativeGasUsed='0x983cc', gasUsed='0x17700', contractAddress='null', root='null'、status='0x1', from='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', to='0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e', logs=[],logsBloom='0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',revertReason='null', type='0x0', effectiveGasPrice='0x5d21dba00'}.
 Receipt from klay_getTransactionReceipt :
 class TransactionReceipt {
     blockHash: 0x4e8c4f1b795ca48c9a60788786481b72df1e2eb16d83ffc9d89e1e2708962378
@@ -386,37 +386,37 @@ class TransactionReceipt {
     codeFormat: null
     contractAddress: null
     feePayer: null
-    feePayerSignatures: []
+    feePayerSignatures：[]
     feeRatio: null
     from: 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
     gas: 0x66919e
     effectiveGasPrice: 0x5d21dba00
     gasPrice: 0xba43b7400
-    gasUsed: 0x17700
+    gasUsed：0x17700
     humanReadable: null
-    key: 0x04f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a
-    input: null
-    logs: []
-    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    nonce: 0x73
+    key：0x04f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a
+    input：null
+    logs：[]
+    logsBloom：0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce0x73
     senderTxHash: 0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
-    signature: []
-    status: 0x1
+    signature：[
+    ステータス：0x1
     txError: null
     to: null
     transactionHash: 0xfffe87a710a452a8457f80a8a5bdce48e2e50cac53663dbc72cfc104926fd442
-    transactionIndex: 0x3
-    type: TxTypeAccountUpdate
-    typeInt: 32
+    transactionIndex：0x3
+    タイプ：TxTypeAccountUpdate
+    typeInt：32
     value: null
-}
-````
+}.
+```
 
 </CH.Code>
 
 ---
 
-Shut down the Web3j instance
+Web3jインスタンスをシャットダウンする
 
 ```java AccountUpdateWithMultiSigExample.java focus=88
 
@@ -424,20 +424,20 @@ Shut down the Web3j instance
 
 ---
 
-Decode the raw transaction to get the transaction type
+生のトランザクションをデコードしてトランザクションタイプを取得する。
 
 <CH.Code>
-```java AccountUpdateWithMultiSigExample.java focus=90:92
+``java AccountUpdateWithMultiSigExample.java focus=90:92
 
-````
+```
 
 
 ---
 
-```zsh output
+``zsh output
 ❯ java AccountUpdateWithMultiSigExample.java
-TxType : ACCOUNT_UPDATE
-````
+TxType ：ACCOUNT_UPDATE
+```
 
 </CH.Code>
 
