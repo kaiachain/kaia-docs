@@ -1,6 +1,6 @@
 # スマートコントラクトの導入
 
-There are various ways of deploying a smart contract on Klaytn. この文書では、さまざまなツールを使用してサンプル契約を展開するためのステップバイステップのガイドを提供します。 We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. アカウントを作成するには、[Kaia Online Toolkit](https://toolkit.kaia.io/account/accountKeyLegacy)をご利用ください。"
+スマート・コントラクトをカイアにデプロイするには、さまざまな方法がある。 この文書では、さまざまなツールを使用してサンプル契約を展開するためのステップバイステップのガイドを提供します。 取引手数料を支払うのに十分なKAIAアカウントをお持ちであることを前提としています。 アカウントを作成するには、[Kaia Online Toolkit](https://toolkit.kaia.io/account/accountKeyLegacy)をご利用ください。"
 
 ## リミックス・オンラインIDE<a id="remix-ide"></a>
 
@@ -10,7 +10,7 @@ There are various ways of deploying a smart contract on Klaytn. この文書で�
 
 ![](/img/build/smart-contracts/01_deployment_ide.png)
 
-2. 以下のサンプルコード（または配置したいコード）をコピーして、新しいファイルに貼り付けます。 The code consists of two contracts called Mortal and KlaytnGreeter, and it allows you to run a simple "Hello World!".
+2. 以下のサンプルコード（または配置したいコード）をコピーして、新しいファイルに貼り付けます。 このコードはMortalとKaiaGreeterと呼ばれる2つのコントラクトで構成されており、シンプルな "Hello World!"を実行することができる。
 
 ```
 pragma solidity 0.5.12;
@@ -38,11 +38,11 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-3. アイコンパネルでコンパイラを選択します。 必要なEVM環境を選択します。 For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). 実際のデプロイ前にサンプルコードをコンパイルする準備ができたら、`Compile`をクリックする。
+3. アイコンパネルでコンパイラを選択します。 必要なEVM環境を選択します。 Kaiaネットワークでは、Kairos（テストネット）とMainnetのいずれかを選択できます。 実際のデプロイ前にサンプルコードをコンパイルする準備ができたら、`Compile`をクリックする。
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. これで契約を展開できる。 Click on the Klaytn logo in the icon panel. アカウント\`の横にあるプラスボタンをクリックしてアカウントをインポートします。 Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
+4. これで契約を展開できる。 アイコンパネルのKaiaロゴをクリックします。 アカウント\`の横にあるプラスボタンをクリックしてアカウントをインポートします。 Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
@@ -65,7 +65,7 @@ contract KlaytnGreeter is Mortal {
 
 ## VVISP <a id="vvisp"></a>
 
-vvispは、HEACHI LABSが提供する、スマートコントラクトを開発するための使いやすいCLIツール／フレームワークです。 You can easily set environment, deploy and execute Klaytn smart contracts with a single command. 詳細は以下のリンクを参照。
+vvispは、HEACHI LABSが提供する、スマートコントラクトを開発するための使いやすいCLIツール／フレームワークです。 Kaiaスマートコントラクトの環境設定、デプロイ、実行は1つのコマンドで簡単に行える。 詳細は以下のリンクを参照。
 
 - https\://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
