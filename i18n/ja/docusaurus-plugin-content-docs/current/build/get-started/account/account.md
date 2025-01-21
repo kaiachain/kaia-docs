@@ -2,11 +2,11 @@
 
 \*\*警告パスワードを忘れないでください。 アカウントのパスワードを紛失すると、そのアカウントにアクセスできなくなります。 \*\*パスワードを忘れました。 決して忘れてはならない。
 
-Klaytn provides two handy command-line tools, `ken` and `JavaScript console`, for developers to manage accounts. 暗号化されていない形式で秘密鍵をエクスポートすることはサポートされていません。
+Kaiaは開発者がアカウントを管理するために、`ken`と`JavaScript console`という2つの便利なコマンドラインツールを提供している。 暗号化されていない形式で秘密鍵をエクスポートすることはサポートされていません。
 
 ## ken <a id="ken"></a>
 
-The Klaytn Endpoint Node binary `ken` provides account management via the `account` command. `account`コマンドを使うと、新しいアカウントの作成、既存のアカウントの一覧表示、秘密鍵の新しいアカウントへのインポート、最新の鍵フォーマットへの移行、パスワードの変更ができます。
+Kaia エンドポイントノードのバイナリ `ken` は `account` コマンドでアカウント管理を行う。 `account`コマンドを使うと、新しいアカウントの作成、既存のアカウントの一覧表示、秘密鍵の新しいアカウントへのインポート、最新の鍵フォーマットへの移行、パスワードの変更ができます。
 
 ### 使用方法<a id="usage"></a>
 
@@ -80,7 +80,7 @@ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 
 \*\*コマンド
 
-Type `personal` or `klay` to get the list of available functions. このチュートリアルでは、以下の関数を訪ねます。
+`personal`または`kaia`と入力すると、利用可能な機能のリストが表示される。 このチュートリアルでは、以下の関数を訪ねます。
 
 ```bash
 > personal.newAccount()
