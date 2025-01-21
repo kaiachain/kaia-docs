@@ -2,14 +2,14 @@
 
 コンセンサスメカニズム（アルゴリズム）とは、信頼のないエンティティ間でコンセンサスを得るための方法である。 ブロックチェーン技術では、ブロックが有効かどうかのコンセンサスを得るために使われる。 ブロックチェーン・ネットワークの性能は、採用されたコンセンサス・メカニズムの性能に依存し、ブロックチェーン・アプリケーションのユーザビリティに大きな影響を与える。
 
-Klaytn Mainnet Cypress exhibits the following performance.
+カイヤメインネットは以下の性能を発揮する。
 
 - 毎秒4,000トランザクションを処理。
 - 取引の即時確定。
 - ブロック生成時間は1秒。
 - 50以上のコンセンサスノードがコンセンサスプロセスに参加できる。
 
-In the document, we will go over how Klaytn implemented the high-performing consensus process.
+この文書では、カイアがどのように高パフォーマンスのコンセンサスプロセスを実施したかを説明する。
 
 ## 背景<a id="background"></a>
 
@@ -33,15 +33,15 @@ In the document, we will go over how Klaytn implemented the high-performing cons
 
 このように、PBFTに参加するノードは、基本的にネットワーク上のすべてのノードといくつかのフェーズに分けて通信を行う。 この特性により、ノード数が増加すると通信量が指数関数的に増加するため、ノード数が制限される。
 
-## Consensus Mechanism in Klaytn <a id="consensus-mechanism-in-klaytn"></a>
+## カイアのコンセンサスメカニズム<a id="consensus-mechanism-in-kaia"></a>
 
-Klaytn is aiming to be an Enterprise-ready and Service-centric platform. したがって、上に書いた最終性の問題を解決し、多くのノードがネットワークに参加できるようなネットワークにする必要がある。 To make this possible, Klaytn is using an optimized version of Istanbul BFT, which implements PBFT with modifications to deal with blockchain network's characteristics.
+Kaiaはエンタープライズ対応でサービス中心のプラットフォームを目指している。 したがって、上に書いた最終性の問題を解決し、多くのノードがネットワークに参加できるようなネットワークにする必要がある。 これを可能にするため、Kaiaはブロックチェーン・ネットワークの特性に対応するよう修正されたPBFTを実装するIstanbul BFTの最適化バージョンを使用している。
 
-In Klaytn, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CNはCCO（コアセルオペレーター）によって管理され、ブロック生成を担当する。 これらのブロックは、ネットワーク内のすべてのノードによって検証される。 このネットワーク・トポロジーの詳細については、[こちら](learn.md#network-architecture)を参照されたい。
+Kaiaには、CN(Consensus Node)、PN(Proxy Node)、EN(Endpoint Node)の3種類のノードがある。 CNはCCO（コアセルオペレーター）によって管理され、ブロック生成を担当する。 これらのブロックは、ネットワーク内のすべてのノードによって検証される。 このネットワーク・トポロジーの詳細については、[こちら](learn.md#network-architecture)を参照されたい。
 
 ![Network topology](/img/learn/klaytn_network_node.png)
 
-Klaytn achieves fast finality by adopting and improving Istanbul BFT. 検証とコンセンサスはブロックごとに行われるため、フォークが発生することはなく、コンセンサスが得られ次第、即座にブロックの最終性が保証される。
+カイアはイスタンブールBFTを採用し、改良することで、高速決勝を実現した。 検証とコンセンサスはブロックごとに行われるため、フォークが発生することはなく、コンセンサスが得られ次第、即座にブロックの最終性が保証される。
 
 また、BFTアルゴリズムにおける通信量の増大の問題は、ランダムに選択された「委員会」を利用することで解決している。 CNは集合的に「協議会」を形成し、ブロック生成ごとに、その一部がVRF（検証可能ランダム関数）を使って「委員会」のメンバーとして選ばれる。
 
@@ -49,4 +49,4 @@ Klaytn achieves fast finality by adopting and improving Istanbul BFT. 検証と�
 
 コンセンサスメッセージは委員間でしかやり取りされないため、CNの総数が増えても通信量は設計レベル以下に抑えることができる。
 
-Currently, Klaytn Mainnet Cypress can provide a high throughput of 4,000 transactions per second with one-second block generation interval. More than 50 consensus nodes can participate in the CNN (Consensus Node Network) at the moment and the number will continuously increase as Klaytn continues to aggressively optimize the algorithm.
+現在、カイア・メインネットは、1秒間のブロック生成間隔で1秒間に4,000件のトランザクションという高いスループットを提供できる。 現在50以上のコンセンサスノードがCNN（コンセンサスノードネットワーク）に参加することができ、カイアがアルゴリズムを積極的に最適化し続けるにつれて、その数は継続的に増加する。
