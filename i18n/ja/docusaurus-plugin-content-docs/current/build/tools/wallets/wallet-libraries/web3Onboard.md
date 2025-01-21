@@ -41,7 +41,7 @@ npm install @web3-onboard/walletconnect // WalletConnect
 npm install @web3-onboard/injected-wallets  // Used to connect to Metamask
 ```
 
-App.js\`ファイルで、ウォレットモジュールをインスタンス化して、dAppと統合します。 各モジュールには、フォールバックJSON RPC URLやデフォルト・チェーンIDなど、渡すべき独自のオプション・パラメータがあることに注意してください。
+`App.js`ファイルで、ウォレットモジュールをインスタンス化して、dAppと統合します。 各モジュールには、フォールバックJSON RPC URLやデフォルト・チェーンIDなど、渡すべき独自のオプション・パラメータがあることに注意してください。
 
 ```js
 import coinbaseWalletModule from "@web3-onboard/coinbase";
@@ -63,7 +63,7 @@ Web3-Onboardプロバイダは、[ethers.js](https://docs.ethers.org/v6/)や[web
 npm install --save ethers
 ```
 
-App.js\`ファイルで、ethersパッケージを次のようにインポートする：
+`App.js`ファイルで、ethersパッケージを次のようにインポートする：
 
 ```js
 import { ethers } from "ethers";
@@ -71,7 +71,7 @@ import { ethers } from "ethers";
 
 **ステップ 4**：Web3ReactProviderのインポートとセットアップ
 
-このステップでは、作成したモジュールとライブラリーと互換性のあるチェーンのリストを使ってOnboardをインスタンス化します。 App.js\`ファイルを開き、以下のコードを貼り付ける：
+このステップでは、作成したモジュールとライブラリーと互換性のあるチェーンのリストを使ってOnboardをインスタンス化します。 `App.js`ファイルを開き、以下のコードを貼り付ける：
 
 ```js
 import Onboard from "@web3-onboard/core";
@@ -150,7 +150,7 @@ import { truncateAddress, toHex } from "./utils";
 
 ## コネクティング・ウォレット
 
-App.js`ファイルの App 関数内で、オンボードインスタンスの`connectWallet()\` メソッドを呼び出し、オンボードポップアップモーダルを開始します。
+`App.js` ファイルの App 関数内で、オンボードインスタンスの `connectWallet()` メソッドを呼び出し、オンボードポップアップモーダルを開始します。
 
 ```js
 function App() {
@@ -261,7 +261,7 @@ function App() {
 
 ## スイッチング・ネットワーク
 
-dAppsでネットワークの切り替えをユーザーに促すために、Web3-Onboardは初期化されたOnboardのインスタンスに`setChain`メソッドを提供します。 ターゲット・ネットワークは、アプリケーションの開始時にオンボード・インスタンスで初期化されていなければならないことに注意してください。
+`dAppsでネットワークの切り替えをユーザーに促すために、Web3-Onboardは初期化されたOnboardのインスタンスに`setChain\`メソッドを提供します。 ターゲット・ネットワークは、アプリケーションの開始時にオンボード・インスタンスで初期化されていなければならないことに注意してください。
 
 ```js
 const switchNetwork = async () => {
