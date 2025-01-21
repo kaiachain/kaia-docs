@@ -10,7 +10,7 @@
 const account = new caver.account(address, accountKey)
 ```
 
-Account`は、kaiaブロックチェーンプラットフォーム（kaia）のアカウントの[AccountKey]を更新するために必要な情報を含むクラスです。 これは `caver.account\` パッケージのデフォルトクラスである。 公開鍵文字列を持つアカウント・インスタンスを作成するには、[caver.account.create](#caver-account-create) を参照。
+`Account`は、kaiaブロックチェーンプラットフォーム（kaia）のアカウントの[AccountKey]を更新するために必要な情報を含むクラスです。 これは `caver.account` パッケージのデフォルトクラスである。 公開鍵文字列を持つアカウント・インスタンスを作成するには、[caver.account.create](#caver-account-create) を参照。
 
 **プロパティ**
 
@@ -25,7 +25,7 @@ Account`は、kaiaブロックチェーンプラットフォーム（kaia）の�
 const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 ```
 
-AccountKeyLegacy`は、KaiaのアカウントのAccountKeyを[AccountKeyLegacy]で更新するために使用される。 AccountKeyLegacy`を持つAccountインスタンスを作成するには、[caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy) を参照してください。
+`AccountKeyLegacy`は、KaiaのアカウントのAccountKeyを[AccountKeyLegacy]で更新するために使用される。 `AccountKeyLegacy`を持つAccountインスタンスを作成するには、[caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy) を参照してください。
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
@@ -33,9 +33,9 @@ AccountKeyLegacy`は、KaiaのアカウントのAccountKeyを[AccountKeyLegacy]�
 const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey)
 ```
 
-AccountKeyPublic`は、kaiaのアカウントのAccountKeyを[AccountKeyPublic]で更新するために使用される。 AccountKeyを`AccountKeyPublic\`に更新することで、既存のAccountKeyを新しい公開鍵に変更することができます。 この変更は、秘密鍵をアカウントのアドレスから切り離すときに必要です。 詳細は[AccountUpdate](../get-started.md#account-update)および[AccountKey]を参照。
+`AccountKeyPublic`は、kaiaのアカウントのAccountKeyを[AccountKeyPublic]で更新するために使用される。 AccountKeyを`AccountKeyPublic`に更新することで、既存のAccountKeyを新しい公開鍵に変更することができます。 この変更は、秘密鍵をアカウントのアドレスから切り離すときに必要です。 詳細は[AccountUpdate](../get-started.md#account-update)および[AccountKey]を参照。
 
-AccountKeyPublic\`を持つAccountインスタンスを作成するには、[caver.account.create](#caver-account-create)または[caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic)を参照してください。
+`AccountKeyPublic`を持つAccountインスタンスを作成するには、[caver.account.create](#caver-account-create)または[caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic)を参照してください。
 
 **プロパティ**
 
@@ -49,7 +49,7 @@ AccountKeyPublic\`を持つAccountインスタンスを作成するには、[cav
 const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 ```
 
-AccountKeyFail`は、[AccountKeyFail]でカイアのアカウントのAccountKeyを更新するために使用される。 AccountKeyFail`付きのAccountインスタンスを作成するには、[caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail) を参照してください。
+`AccountKeyFail`は、[AccountKeyFail]でカイアのアカウントのAccountKeyを更新するために使用される。 `AccountKeyFail`付きのAccountインスタンスを作成するには、[caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail) を参照してください。
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
@@ -57,9 +57,9 @@ AccountKeyFail`は、[AccountKeyFail]でカイアのアカウントのAccountKey
 const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeightedMultiSig(threshold, weightedPublicKeys)
 ```
 
-AccountKeyWeightedMultiSig`は、[AccountKeyWeightedMultiSig]を使用してkaiaのアカウントのAccountKeyを更新するために使用される。 AccountKeyWeightedMultiSig`に更新することで、既存のAccountKeyを新しい公開鍵に変更することができます。 この変更は、秘密鍵をアカウントのアドレスから切り離すときに必要です。 詳細は[AccountUpdate](../get-started.md#account-update)および[AccountKey]を参照。
+`AccountKeyWeightedMultiSig`は、[AccountKeyWeightedMultiSig]を使用してkaiaのアカウントのAccountKeyを更新するために使用される。 `AccountKeyWeightedMultiSig`に更新することで、既存のAccountKeyを新しい公開鍵に変更することができます。 この変更は、秘密鍵をアカウントのアドレスから切り離すときに必要です。 詳細は[AccountUpdate](../get-started.md#account-update)および[AccountKey]を参照。
 
-AccountKeyWeightedMultiSig\`を使用してAccountインスタンスを作成するには、[caver.account.create](#caver-account-create)または[caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig)を参照してください。
+`AccountKeyWeightedMultiSig`を使用してAccountインスタンスを作成するには、[caver.account.create](#caver-account-create)または[caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig)を参照してください。
 
 **プロパティ**
 
@@ -74,9 +74,9 @@ AccountKeyWeightedMultiSig\`を使用してAccountインスタンスを作成す
 const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(accountKeyArray)
 ```
 
-AccountKeyRoleBased`は、[AccountKeyRoleBased]でカイアのアカウントのAccountKeyを更新するために使用される。 AccountKeyを`AccountKeyRoleBased\`に更新すると、ロールごとに割り当てられたAccountKeyを変更することができます。 詳しくは[AccountUpdate](../get-started.md#account-update)および[AccountKey]を参照のこと。
+`AccountKeyRoleBased`は、[AccountKeyRoleBased]でカイアのアカウントのAccountKeyを更新するために使用される。 AccountKeyを`AccountKeyRoleBased`に更新すると、ロールごとに割り当てられたAccountKeyを変更することができます。 詳しくは[AccountUpdate](../get-started.md#account-update)および[AccountKey]を参照のこと。
 
-AccountKeyRoleBased\`を使用してアカウントインスタンスを作成するには、[caver.account.create](#caver-account-create)または[caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased)を参照してください。
+`AccountKeyRoleBased`を使用してアカウントインスタンスを作成するには、[caver.account.create](#caver-account-create)または[caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased)を参照してください。
 
 **プロパティ**
 
@@ -90,7 +90,7 @@ AccountKeyRoleBased\`を使用してアカウントインスタンスを作成�
 const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight, publicKey)
 ```
 
-WeightedPublicKey`は公開鍵とその重みを含む。 WeightedPublicKey`は公開鍵と鍵の重みを含むクラスで、[AccountKeyWeightedMultiSig](#accountkeyweightedmultisig)で使用される。
+`WeightedPublicKey`は公開鍵とその重みを含む。 `WeightedPublicKey`は公開鍵と鍵の重みを含むクラスで、[AccountKeyWeightedMultiSig](#accountkeyweightedmultisig)で使用される。
 
 **プロパティ**
 
@@ -105,7 +105,7 @@ WeightedPublicKey`は公開鍵とその重みを含む。 WeightedPublicKey`は�
 const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(threshold, weights)
 ```
 
-WeightedMultiSigOptions`は閾値と重みを含む。 WeightedMultiSigOptions` は AccountKeyWeightedMultiSig のオプションを定義するクラスである。
+`WeightedMultiSigOptions`は閾値と重みを含む。 `WeightedMultiSigOptions` は AccountKeyWeightedMultiSig のオプションを定義するクラスである。
 
 **プロパティ**
 
