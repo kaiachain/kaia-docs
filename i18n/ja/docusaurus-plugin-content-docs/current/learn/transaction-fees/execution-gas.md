@@ -125,13 +125,13 @@ Over an account's execution, the total fee payable for memory-usage payable is p
     - [**_eip2929_**] スロット(contractAddr, slot)がAccessListにない場合、それをaccessListに追加し、`G_coldSloadCost`をgasに追加する。
     - [**_eip2929_**] スロット(contractAddr, slot)がAccessListにある場合、`G_warmStorageReadCost`をgasに追加します。
   - CALL`、`CALLCODE`、`DELEGATECALL`、`STATICCALL\`の場合、
-    - [アドレスが AccessList にない場合、accessList に追加し、gas に `G_coldSloadCost` を追加する。
+    - [**_eip2929_**] アドレスがAccessListに含まれていない場合、それをaccessListに追加し、`G_coldSloadCost`をgasに追加する。
     - それが `CALL` と `CALLCODE` で、値を転送する場合は `G_callvalue` を gas に追加する。
     - もしそれが `CALL` で、もしそれが値を移し、もしそれが新しいアカウントであれば、 `G_newaccount` を gas に追加する。
     - 着信側契約がプリコンパイル契約の場合、プリコンパイル契約のガス料金を計算し、ガス料金に加算する。
     - メモリー・ガス・コスト + 利用可能なガス - 利用可能なガス/64、ここで利用可能なガス = 契約.ガス - ガス\` をガスに追加する。
   - SELFDESTRUCT\`の場合、
-    - [アドレスが AccessList にない場合、accessList に追加し、gas に `G_coldSloadCost` を追加する。
+    - [**_eip2929_**] アドレスがAccessListに含まれていない場合、それをaccessListに追加し、`G_coldSloadCost`をgasに追加する。
     - 値を移し、新しいアカウントであれば、`G_newaccount`をgasに追加する。
 
 ## Hardfork changes
