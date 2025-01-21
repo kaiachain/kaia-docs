@@ -49,7 +49,7 @@ contract KlaytnGreeter is Mortal {
 5. ガスリミットと送信する値を設定します。
 
 - より複雑な契約を展開する場合は、ガス上限を高く設定する必要があるかもしれません。 この例では、そのままでいい。
-- Set `Value` to 0 unless you want to send `KLAY` to the contract at the time of deployment.
+- デプロイ時にコントラクトに `KAIA` を送信したくない場合は `Value` を 0 に設定する。
 
 6. コンストラクタ関数の引数に "Hello World!"を入力し、`Deploy`ボタンをクリックする。
 
@@ -73,7 +73,7 @@ vvispは、HEACHI LABSが提供する、スマートコントラクトを開発�
 
 コントラクトをデプロイするもう一つの方法は、solcでコントラクトを手動でコンパイルし、caver-jsでデプロイすることです。
 
-1. Create `KlaytnGreeter.sol` and write the following code.
+1. `KaiaGreeter.sol`を作成し、以下のコードを記述する。
 
 ```
 pragma solidity 0.5.6;
