@@ -153,7 +153,7 @@ main();
 
 ---
 
-web3.eth.account.privateKeyToAccount\`を使用して、秘密鍵で**送信者のウォレット**を作成する。
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**送信者のウォレット**を作成する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=10
 
@@ -161,7 +161,7 @@ web3.eth.account.privateKeyToAccount\`を使用して、秘密鍵で**送信者�
 
 ---
 
-web3.eth.account.privateKeyToAccount\`を使用して、秘密鍵で**料金支払者のウォレット**を作成する。
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**料金支払者のウォレット**を作成する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=11
 
@@ -185,7 +185,7 @@ Web3.eth.Contract\`を使用して、**contractAbi**と**address**を定義し�
 
 ---
 
-setNumber` 関数のデータをエンコードし、`encodeABI\` でバイトコードに変換する。
+`setNumber` 関数のデータをエンコードし、`encodeABI` でバイトコードに変換する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=18
 
@@ -217,7 +217,7 @@ setNumber` 関数のデータをエンコードし、`encodeABI\` でバイト�
 
 ---
 
-signTransaction\`を使って**sender**アカウントでトランザクションに署名する。
+`signTransaction`を使って**sender**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractExecution.js focus=27:29
@@ -236,7 +236,7 @@ senderTxHashRLP 0x31f8a68203b8850ba43b74008301087994d7fa6634bdde0b2a9d491388e2fd
 
 ---
 
-signTransactionAsFeePayer\`を使用して、**fee payer**アカウントでトランザクションに署名する。
+`signTransactionAsFeePayer`を使用して、**fee payer**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractExecution.js focus=31:33
