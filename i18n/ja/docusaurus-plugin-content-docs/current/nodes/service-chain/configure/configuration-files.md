@@ -6,7 +6,7 @@
 
 - サービス・チェーン・コンセンサス・ノードを設定する `kscnd.conf`
 
-The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution (`tar.gz`) or a package distribution (RPM).
+設定ファイルは `conf` ディレクトリにあり、そのデフォルトの場所はアーカイブディストリビュー ションからのインストールかパッケージディストリビューションからのインストールかに よって異なります。
 
 - アーカイブディストリビューションの場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/kscn-linux-amd64/conf/` です。
 - パッケージ配布の場合、config ディレクトリのデフォルトは `/etc/kscnd/conf/` です。
