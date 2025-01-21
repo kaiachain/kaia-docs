@@ -2,11 +2,11 @@
 
 ## 1. オープンソース・ソフトウェアの使用<a id="1-your-use-of-open-source-software"></a>
 
-We may make (but are not obligated to make) the source code of Klaytn Blockchain Network Platform ("Platform"), the software on the Platform, etc. for download as open source software. 本オープンソースソフトウェアを使用する場合、お客様は、本オープンソースソフトウェアに適用されるライセンスに拘束され、これを遵守することに同意するものとします。 本オープンソースソフトウェアの使用、改変、配布に関連して、あなたが当社と関係があることを示すことはできません。
+当社は、Kaia Blockchain Network Platform（以下「本プラットフォーム」といいます）のソースコード、本プラットフォーム上のソフトウェア等を、オープンソースソフトウェアとしてダウンロードできるようにすることがあります（ただし、公開する義務を負うものではありません）。 本オープンソースソフトウェアを使用する場合、お客様は、本オープンソースソフトウェアに適用されるライセンスに拘束され、これを遵守することに同意するものとします。 本オープンソースソフトウェアの使用、改変、配布に関連して、あなたが当社と関係があることを示すことはできません。
 
 ## 2. プラットフォームで提供されるサービス<a id="2-services-provided-on-the-platform"></a>
 
-プラットフォームは、価値の移転とスマートコントラクトの実行のために、トランザクションとブロックを送信するノードのピアツーピア・サブネットワークの組み合わせである。 The Core Cell Network ("CCN"), which is one of the subnetworks that constitute the Platform, verifies and executes transactions that occur on the Platform. The CCN is operated by Klaytn Governance Council, which is a collective group of Core Cell Operators, and Klaytn is not directly involved in any services that are provided in or individual transactions that occur on the Platform.
+プラットフォームは、価値の移転とスマートコントラクトの実行のために、トランザクションとブロックを送信するノードのピアツーピア・サブネットワークの組み合わせである。 The Core Cell Network ("CCN"), which is one of the subnetworks that constitute the Platform, verifies and executes transactions that occur on the Platform. CCNは、コアセル事業者の集合体であるカイア・ガバナンス・カウンシルによって運営されており、カイアは、本プラットフォームにおいて提供されるサービス及び本プラットフォーム上で発生する個々の取引には直接関与しません。
 
 ## 3. プラットフォームへのdAppのインストール<a id="3-your-installation-of-dapp-on-the-platform"></a>
 
