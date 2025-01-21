@@ -207,7 +207,7 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 `Keyring`は、保存する鍵の種類によって3つのタイプに分類できる：1つのアドレスと1つの秘密鍵を保存する `SingleKeyring`、1つのアドレスと複数の秘密鍵を保存する `MultipleKeyring`、1つのアドレスとロールごとに1つ以上の秘密鍵を保存する `RoleBasedKeyring` である。
 
-SingleKeyring`は内部に`key`プロパティを定義し、この`key\`に秘密鍵を1つ格納する。
+`SingleKeyring`は内部に`key`プロパティを定義し、この`key`に秘密鍵を1つ格納する。
 
 `MultipleKeyring`は内部で `keys` プロパティを定義しており、この `keys` は複数の秘密鍵を格納する配列として実装されている。
 
