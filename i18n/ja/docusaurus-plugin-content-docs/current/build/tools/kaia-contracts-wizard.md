@@ -42,7 +42,7 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 
 ![](/img/build/tools/kcw-image.png)
 
-カイアのコントラクトウィザードの様々な部分を探索した後、ご希望のコントラクトの種類を選択し（現在サポートされているのは、**KIP7**、\***KIP17**、\***KIP37**、\***ERC20**、\***ERC721**、\***ERC1155**、\***Governor**、およびカスタムコントラクト）、パラメータとご希望の機能（トークン名、シンボル、プレミント量、アクセス制御など）を設定すると、コントラクトウィザードが必要なコードをすべて生成します。 こうして生成されたコードは、すぐにコンパイルしてデプロイすることもできるし、出発点として利用し、アプリケーション固有のロジックでさらにカスタマイズすることもできる。
+カイアのコントラクトウィザードの様々な部分を探索した後、ご希望のコントラクトの種類を選択し（現在サポートされているのは、**KIP7**、**KIP17**、**KIP37**、**ERC20**、**ERC721**、**ERC1155**、**Governor**、およびカスタムコントラクト）、パラメータとご希望の機能（トークン名、シンボル、プレミント量、アクセス制御など）を設定すると、コントラクトウィザードが必要なコードをすべて生成します。 こうして生成されたコードは、すぐにコンパイルしてデプロイすることもできるし、出発点として利用し、アプリケーション固有のロジックでさらにカスタマイズすることもできる。
 
 ## カイアネットワーク上でのカイア契約のカスタマイズと展開
 
@@ -71,7 +71,7 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 エアドロップ契約に変更する前に、KIP7契約をカスタマイズする必要があります。 そのためには、以下の手順に従ってください：
 
 1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/) に移動します。
-2. 契約**タブで**KIP7\*\*を選択する。
+2. **契約**タブで**KIP7**を選択する。
 3. 次に、**SETTINGS**タブに名前(KIP7 Token Airdrop)とシンボル(KTA)を入力します。 プレミントの欄は空のまま
 4. その後、**FEATURES**タブで**Mintable**機能にチェックを入れると、自動的に**ACCESS CONTROL**タブでOwnable機能が選択されます。
 
@@ -139,7 +139,7 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 
 上で修正したコードから、`airdropTokens()`という新しい関数を追加したことがわかります。 この関数は特定の選択されたアドレスにトークンをミン トし、コントラクトの作成者である`onlyOwner`によってのみ呼び出される。
 
-Subsequently, we modified the _public_ **mint()** _onlyOwner_ function to **_mintSingleTokens()** private.
+その後、_public_ **mint()** _onlyOwner_ 関数を **_mintSingleTokens()** private に変更しました。
 
 KIP7エアドロップ契約コードの準備ができたので、次のステップは、プロジェクトディレクトリのsrcフォルダにairdropKIP7.solという名前の新しいファイルを作成し、修正したコードをそのファイルに貼り付けることです。
 
@@ -148,9 +148,9 @@ KIP7エアドロップ契約コードの準備ができたので、次のステ�
 エアドロップ契約に変更する前に、KIP17契約をカスタマイズする必要があります。 そのためには、以下の手順に従ってください：
 
 1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/) に移動します。
-2. 契約**タブで**KIP17\*\*を選択する。
+2. **契約**タブで**KIP17**を選択する。
 3. 次に、**SETTINGS**タブに名前（KIP7 NFT Airdrop）と記号（KNA）を記入する。  Base URIフィールドは空のままにしておく。
-4. 続いて、**FEATURES** タブで、**Mintable**、**Auto-increment Ids**、**Enumerable** の各機能にチェックを入れます。 ACCESS CONTROL\*\*タブのOwnable機能が自動的に選択されていることがわかります。
+4. 続いて、**FEATURES** タブで、**Mintable**、**Auto-increment Ids**、**Enumerable** の各機能にチェックを入れます。 **ACCESS CONTROL**タブのOwnable機能が自動的に選択されていることがわかります。
 
 これらの設定を行った後のカイアの契約ウィザードはこのようになる：
 
@@ -237,7 +237,7 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
 
 上で修正したコードから、\*\*airdropNfts()\*\*という新しい関数を追加したことがわかる。 この関数は、特定の選択されたアドレスにトークンを鋳造し、コントラクトの作成者であるonlyOwnerによってのみ呼び出される。
 
-Subsequently, we modified the **safeMint()** _public onlyOwner_ function to **_mintSingleTokens()** **private**.
+その後、**safeMint()** _public onlyOwner_ 関数を **_mintSingleTokens()** **private** に変更しました。
 
 KIP17のエアドロップ契約コードの準備ができたので、次のステップは、プロジェクト・ディレクトリのsrcフォルダにairdropKIP17.solという名前の新しいファイルを作成し、修正したコードをそのファイルに貼り付けることです。
 
@@ -248,7 +248,7 @@ KIP37は一括鋳造に対応しているため、契約書だけをカスタマ
 1. [wizard.klaytn.foundation.]に移動する(https://wizard.klaytn.foundation/)
 2. 契約**タブで**KIP37\*\*を選択する。
 3. 次に、**SETTINGS**タブに名前（KIP7 NFT Airdrop）と記号（KNA）を記入する。  Base URIフィールドは空のままにしておく。
-4. 続いて、**FEATURES** タブで、**Mintable**、**Auto-increment Ids**、**Enumerable** の各機能にチェックを入れます。 ACCESS CONTROL\*\*タブのOwnable機能が自動的に選択されていることがわかります。
+4. 続いて、**FEATURES** タブで、**Mintable**、**Auto-increment Ids**、**Enumerable** の各機能にチェックを入れます。 **ACCESS CONTROL**タブのOwnable機能が自動的に選択されていることがわかります。
 
 これらの設定を行った後のカイアの契約ウィザードはこのようになる：
 
@@ -404,12 +404,12 @@ contract KIP37MultiTokenDeployScript is Script {
 
 まず、各スクリプト・ファイルのSPDXライセンスとプラグマ・バージョンを宣言した。 各スクリプトファイルはsolidityプログラムであるため、SPDX-licenseとプラグマ・バージョンを宣言する必要があり、スマート・コントラクトのように動作するが、決してデプロイされないことに注意。
 
-次に、コントラクトのデプロイに使用するスクリプト・ユーティリティを提供する[Forge Std/Script.sol](https://github.com/foundry-rs/forge-std/blob/master/src/Script.sol)をインポートしました。 その後、配備する契約をインポートした。 この場合、各スクリプトに対して、**airdropKIP7**、\***airdropKIP17**、\***KIP37MultiToken**を使用する。
+次に、コントラクトのデプロイに使用するスクリプト・ユーティリティを提供する[Forge Std/Script.sol](https://github.com/foundry-rs/forge-std/blob/master/src/Script.sol)をインポートしました。 その後、配備する契約をインポートした。 この場合、各スクリプトに対して、**airdropKIP7**、**airdropKIP17**、**KIP37MultiToken**を使用する。
 
-次に、Forge Std ライブラリから Script を継承する各スクリプト ファイルに対して、**KIP7AirdropDeployScript**、\***KIP17AirdropDeployScript**、\***KIP37MultiTokenDeployScript** というコントラクトを作成しました。
+次に、Forge Std ライブラリから Script を継承する各スクリプト ファイルに対して、**KIP7AirdropDeployScript**、**KIP17AirdropDeployScript**、**KIP37MultiTokenDeployScript** というコントラクトを作成しました。
 
-次に、\*\*run()\*\*関数を宣言した。 run()関数は、スクリプトを実行するためのエントリー・ポイントである。 We
-then declared a **deployerPrivateKey** variable that loads in the private key from our .env file.
+次に、**run()**関数を宣言した。 run()関数は、スクリプトを実行するためのエントリー・ポイントである。
+次に、.envファイルから秘密鍵をロードする**deployerPrivateKey**変数を宣言します。
 
 その後、\*\*vm.startBroadcast(deployerPrivateKey)\*\*という特殊なチートコードを呼び出し、メインスクリプト・コントラクトが行った呼び出しとコントラクトの作成を記録する。このコードは、トランザクションに署名するためのdeployerPrivateKeyを渡している。
 
