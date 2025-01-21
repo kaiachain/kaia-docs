@@ -1,6 +1,6 @@
 # 用語集
 
-This glossary provides explanation on technical terms specific to the Klaytn Blockchain. It stands as your goto for understanding numerous terms you will encounter while exploring Klaytn documentation, guides and tutorials.
+この用語集は、カイア・ブロックチェーンに特有の専門用語に関する説明を提供します。 これは、Kaiaのドキュメント、ガイド、チュートリアルを探索中に遭遇する多くの用語を理解するための、あなたのゴーサインです。
 
 ### アンカー
 
@@ -22,7 +22,7 @@ This glossary provides explanation on technical terms specific to the Klaytn Blo
 
 ### コアセル（CC）
 
-An entity in the Klaytn blockchain architecture that is responsible for executing transactions and generating blocks. コアセルは通常、コンセンサスノードと複数のプロキシノードで構成される。
+Kaiaブロックチェーンアーキテクチャにおける、トランザクションの実行とブロックの生成を担うエンティティ。 コアセルは通常、コンセンサスノードと複数のプロキシノードで構成される。
 
 コンセンサスノード(CN)](#consensus-node-cn)、[プロキシノード(PN)](#proxy-node-pn)も参照。
 
@@ -32,11 +32,11 @@ An entity in the Klaytn blockchain architecture that is responsible for executin
 
 ### コンセンサスノード（CN）
 
-A node that is responsible for generating and propagating blocks, and for reaching consensus on the state of the Klaytn blockchain. コンセンサスノードは提出されたトランザクションを検証し、有効なトランザクションを実行する。
+ブロックの生成と伝播、およびKaiaブロックチェーンの状態に関する合意形成に責任を持つノード。 コンセンサスノードは提出されたトランザクションを検証し、有効なトランザクションを実行する。
 
 ### エンドポイントノード（EN）
 
-A node that serves as an entry point for service chains and DApps to interact with the Klaytn blockchain through its exposed RPC APIs. エンドポイントノードはブロックチェーン台帳全体を同期し、プロキシノードを介さずにブロックチェーンのデータを読んだり、ネットワークに直接トランザクションを送信したりできる。
+サービスチェーンやDAppが、公開されているRPC APIを通じてKaiaブロックチェーンとやり取りするためのエントリーポイントとして機能するノード。 エンドポイントノードはブロックチェーン台帳全体を同期し、プロキシノードを介さずにブロックチェーンのデータを読んだり、ネットワークに直接トランザクションを送信したりできる。
 
 ### エンドポイントノードネットワーク（ENN）
 
@@ -66,45 +66,45 @@ A node that serves as an entry point for service chains and DApps to interact wi
 
 ### カイア・エコシステム・ファンド（KEF）
 
-A fund established by the Klaytn Foundation to support initiatives that contribute to the growth and development of the Klaytn blockchain ecosystem. KEFは、カイアの利用拡大と普及に取り組むプロジェクト、組織、個人に助成金と財政支援を提供している。 KEFの目標は、資金提供されたイニシアチブを通じて、カイア周辺のイノベーションとコミュニティの成長を促進することである。
+カイア・ブロックチェーン・エコシステムの成長と発展に貢献するイニシアチブを支援するために、カイア財団によって設立されたファンド。 KEFは、カイアの利用拡大と普及に取り組むプロジェクト、組織、個人に助成金と財政支援を提供している。 KEFの目標は、資金提供されたイニシアチブを通じて、カイア周辺のイノベーションとコミュニティの成長を促進することである。
 
-### Klaytn endpoint node (KEN)
+### カイアエンドポイントノード (KEN)
 
 エンドポイントノード(EN)](#endpoint-node-en)を参照のこと。
 
 ### カイア・インフラストラクチャー・ファンド（KIF）
 
-A reserve fund established by the Klaytn Foundation to support its operating expenses and long-term initiatives. KIFは、研究、ビジネス開発活動、教育プログラムなどを通じて、カイア・ブロックチェーン・プロトコルとエコシステムをさらに発展させ、強化するための財団の活動資金を援助する。
+カイア財団が運営費と長期的なイニシアチブを支援するために設立した準備基金。 KIFは、研究、ビジネス開発活動、教育プログラムなどを通じて、カイア・ブロックチェーン・プロトコルとエコシステムをさらに発展させ、強化するための財団の活動資金を援助する。
 
-### Klaytn Governance Council (KGC)
+### カイア・ガバナンス・カウンシル (KGC)
 
-A council of organizations that are responsible for governing the Klaytn blockchain. The GC members are selected by the Klaytn Foundation and are required to operate a consensus node on the Klaytn network. The GC is responsible for making decisions about the development and operation of the Klaytn blockchain, including upgrades, partnerships, and ecosystem development initiatives.
+Kaiaブロックチェーンを管理する責任を負う組織の協議会。 GCのメンバーはカイア財団によって選ばれ、カイアネットワーク上でコンセンサスノードを運営することが要求される。 GCは、アップグレード、パートナーシップ、エコシステム開発イニシアチブを含む、Kaiaブロックチェーンの開発と運用に関する決定を行う責任があります。
 
-### Klaytn Improvement Proposal (KIP)
+### カイア改善提案書（KIP）
 
-A design document providing information to Klaytn stakeholders regarding new features or processes for the Klaytn blockchain network. KIPは、プロトコルのアップグレードや技術革新を提案、検討、採用するための一貫した管理されたメカニズムを提供することを目的としている。 They allow advocates to collaborate with the Klaytn community to refine any potential protocol upgrades before being considered for inclusion in the software.
+Kaiaブロックチェーンネットワークの新しい機能やプロセスに関する情報をKaiaのステークホルダーに提供する設計文書。 KIPは、プロトコルのアップグレードや技術革新を提案、検討、採用するための一貫した管理されたメカニズムを提供することを目的としている。 これらは、ソフトウェアに含めることを検討する前に、プロトコルのアップグレードの可能性を改良するために、支持者がKaiaコミュニティと協力することを可能にする。
 
 KIPの代表的な例としては、[KIP-7](http://kips.klaytn.foundation/KIPs/kip-7)、[KIP-17](http://kips.klaytn.foundation/KIPs/kip-17)、[KIP-37](http://kips.klaytn.foundation/KIPs/kip-37)などがある。
 
-### Klaytn State
+### カイア州
 
-This is the world state of accounts in Klaytn containing the balances, storage variables of the account and the hash of the code or bytecode depending on if the account is an EOA or SCA.
+これは、残高、口座のストレージ変数、口座がEOAかSCAかに応じたコードまたはバイトコードのハッシュを含むカイアの口座の世界状態です。
 
 ### カイア仮想マシン（KVM）
 
-A virtual state machine that executes Klaytn smart contracts. イーサリアム仮想マシン（EVM）から派生した準チューリング完全スタックベースの仮想マシンである。 KVMはカイア・ブロックチェーン上のスマート・コントラクトの処理と実行を担う。
+Kaiaスマートコントラクトを実行する仮想ステートマシン。 イーサリアム仮想マシン（EVM）から派生した準チューリング完全スタックベースの仮想マシンである。 KVMはカイア・ブロックチェーン上のスマート・コントラクトの処理と実行を担う。
 
-### Klaytn network identifier (KNI)
+### カイアネットワーク識別子 (KNI)
 
-A unique resource identifier scheme to identify a Klaytn node. nodeID、ホスト名、ポート、ディスクポートで構成される。
+Kaiaノードを識別するための一意なリソース識別子スキーム。 nodeID、ホスト名、ポート、ディスクポートで構成される。
 
 ### Kairos
 
-The public testnet of the Klaytn platform. It is used by developers to test and verify their applications before deploying them to the Cypress mainnet.
+Kaiaプラットフォームの公開テストネット。 It is used by developers to test and verify their applications before deploying them to the Cypress mainnet.
 
 ### 提出者
 
-ブロック生成の各ラウンドでコンセンサスノード（CN）に割り当てられる役割。 提案者はランダムに、しかし決定論的に次のブロックを作るために選ばれる。 The probability of a CN being enlisted as the proposer is determined by the amount of Klaytn tokens, or KLAY, that the CN stakes.
+ブロック生成の各ラウンドでコンセンサスノード（CN）に割り当てられる役割。 提案者はランダムに、しかし決定論的に次のブロックを作るために選ばれる。 CNが提案者として参加する確率は、CNが賭けるKAIAトークンの量によって決まる。
 
 ### プロキシノード
 
@@ -112,7 +112,7 @@ The public testnet of the Klaytn platform. It is used by developers to test and 
 
 ### 再帰長プレフィックス (RLP)
 
-コンピュータネットワークにおいて、プレフィックスの長さがアドレス情報の一部として含まれるアドレスプレフィックス形式。ルートごとにプレフィックスの長さを別々に保存する必要がなくなるため、より効率的なルーティングが可能になる。 Klaytn uses recursive-length prefix to represent blockchain addresses.
+コンピュータネットワークにおいて、プレフィックスの長さがアドレス情報の一部として含まれるアドレスプレフィックス形式。ルートごとにプレフィックスの長さを別々に保存する必要がなくなるため、より効率的なルーティングが可能になる。 Kaiaはブロックチェーンのアドレスを表すために再帰的長さの接頭辞を使用する。
 
 ### リモートプロシージャコール
 
@@ -130,17 +130,17 @@ Web3エコシステムにおける個人のアイデンティティと実績を�
 
 ### サービスチェーン
 
-A sidechain or auxiliary blockchain that is connected to the Klaytn mainnet. サービス・チェーンは、即時のファイナリティ、クロス・チェーンでのトークン転送、メイン・チェーンへのデータ・アンカリングなど、さまざまなアプリケーションや業界の特定のニーズを満たすように設計されている。
+カイアのメインネットに接続されているサイドチェーンまたは補助ブロックチェーン。 サービス・チェーンは、即時のファイナリティ、クロス・チェーンでのトークン転送、メイン・チェーンへのデータ・アンカリングなど、さまざまなアプリケーションや業界の特定のニーズを満たすように設計されている。
 
 ### サービスチェーンコンセンサスノード（SCN）
 
-A node that is responsible for participating in the consensus process in a Klaytn service chain.
+Kaiaサービスチェーンにおけるコンセンサスプロセスへの参加を担当するノード。
 
 コンセンサスノード(CN)](#consensus-node-cn)、[サービスチェーン](#service-chain)も参照。
 
 ### サービスチェーンエンドポイントノード（SEN）
 
-A node in a Klaytn service chain that provides a public interface for interacting with the service chain.
+サービスチェーンと相互作用するためのパブリックインターフェースを提供するKaiaサービスチェーンのノード。
 
 エンドポイントノード(EN)](#endpoint-node-en)、[サービスチェーン](#service-chain)も参照のこと。
 
@@ -154,4 +154,4 @@ A node in a Klaytn service chain that provides a public interface for interactin
 
 ### バリデータ
 
-新しいブロックに含まれるデータの正確性を検証し、ネットワーク全体でブロックが効率的に処理されるようにするノード。 In Klaytn's permissionless validation structure, anyone can act as a block validator if they meet certain qualifications while maintaining the existing Governance Council structure and roles.
+新しいブロックに含まれるデータの正確性を検証し、ネットワーク全体でブロックが効率的に処理されるようにするノード。 Kaiaのパーミッションレス検証構造では、既存のガバナンス評議会の構造と役割を維持しつつ、一定の資格を満たせば誰でもブロック検証者として活動できる。
