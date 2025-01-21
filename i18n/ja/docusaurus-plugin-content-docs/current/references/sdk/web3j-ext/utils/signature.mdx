@@ -62,14 +62,14 @@
 
   ---
 
-  {r ,s ,v}`の署名を`string`に変換するには、r, s, v のパラメータから`Sign.SignatureData`オブジェクトを作成する。 文字列をバイト配列に変換するには`Numeric.hexStringToByteArray\` を使用する。
+  `{r ,s ,v}` の署名を `string` に変換するには、r, s, v のパラメータから `Sign.SignatureData` オブジェクトを作成する。 文字列をバイト配列に変換するには `Numeric.hexStringToByteArray` を使用する。
 
   ```java SignatureUtilsExample.java focus=10:14,6
   ```
 
   ---
 
-  Sign.SignatureData`を圧縮して`圧縮署名文字列`にするには、`KaiaSignatureData.getSignatureString\`を**署名オブジェクト**を引数として使用します。
+  `Sign.SignatureData`を圧縮して`圧縮署名文字列`にするには、`KaiaSignatureData.getSignatureString`を**署名オブジェクト**を引数として使用します。
 
   <CH.Code>
     ```java SignatureUtilsExample.java focus=15:17
@@ -99,7 +99,7 @@
 
   ---
 
-  Numeric.toHexString\`を使用すると、各要素をバイト配列から文字列に変換することができます。
+  `Numeric.toHexString`を使用すると、各要素をバイト配列から文字列に変換することができます。
 
   <CH.Code>
     ```java SignatureUtilsExample.java focus=33:35
