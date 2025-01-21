@@ -1,6 +1,6 @@
-# Klaytn Hard Fork History
+# カイア・ハードフォークの歴史
 
-This page shows all the hard forks to the Klaytn blockchain.
+このページでは、カイアブロックチェーンへのハードフォークをすべて示している。
 
 ## Randao
 
@@ -44,7 +44,7 @@ This page shows all the hard forks to the Klaytn blockchain.
 
 ### 概要
 
-KIP-103ハードフォークが[v1.10.2リリース](https://github.com/klaytn/klaytn/releases/tag/v1.10.2)で導入されました。 KIP-103](https://kips.kaia.io/KIPs/kip-103) の実装が含まれており、これはトレジャリー・リバランスの技術仕様である([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157))。
+KIP-103ハードフォークが[v1.10.2リリース](https://github.com/klaytn/klaytn/releases/tag/v1.10.2)で導入されました。 [KIP-103](https://kips.kaia.io/KIPs/kip-103) の実装が含まれており、これはトレジャリー・リバランスの技術仕様である([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157))。
 
 ### 財務省のリバランス<a id="treasury-rebalance"></a>
 
