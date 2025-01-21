@@ -2,7 +2,7 @@
 
 ![](/img/references/kaiaXcaver-js.png)
 
-caver-js\`はJavaScript APIライブラリで、HTTPまたはWebsocket接続を使ってkaiaノードと対話することができる。 npm](https://www.npmjs.com/package/caver-js)で入手できる。
+`caver-js`はJavaScript APIライブラリで、HTTPまたはWebsocket接続を使ってkaiaノードと対話することができる。 npm](https://www.npmjs.com/package/caver-js)で入手できる。
 
 ## 特徴<a href="#features" id="features"></a>
 
@@ -34,7 +34,7 @@ caver-js\`はJavaScript APIライブラリで、HTTPまたはWebsocket接続を�
 
 ## エラーコードの改善<a href="#error-code-improvement" id="error-code-improvement"></a>
 
-イーサリアムからのweb3.js経由のエラーメッセージでは、どこでエラーが発生しているのかほとんどわからない。 caver-js\`はkaiaからのエラーメッセージをキャッチするインターフェースを改善した。
+イーサリアムからのweb3.js経由のエラーメッセージでは、どこでエラーが発生しているのかほとんどわからない。 `caver-js`はkaiaからのエラーメッセージをキャッチするインターフェースを改善した。
 
 詳細はトランザクションレシートの `txError` の値で確認できる：
 
@@ -70,27 +70,27 @@ Error: runtime error occurred in interpreter
 
 caver-jsは、`gasPrice`を設定する様々な方法を提供する。 caver-jsを使用する際に、`gasPrice`フィールドを設定する方法を以下に提案する。 ここで説明する方法は、ハードフォークに関係なく使うことができる。
 
-#### gasPrice\`フィールドを定義しない
+#### `gasPrice`フィールドを定義しない
 
-gasPrice`フィールドを定義せずにインスタンスを作成した場合、トランザクションに署名するために`tx.sign`または`tx.signAsFeePayer`を呼び出すと、自動的に`gasPrice\` フィールドが設定される。
+`gasPrice` フィールドを定義せずにインスタンスを作成した場合、トランザクションに署名するために `tx.sign` または `tx.signAsFeePayer` を呼び出すと、自動的に `gasPrice` フィールドが設定される。
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 await tx.sign(from, tx) // Before signing, gasPrice is set inside `tx.sign`.
 ```
 
-#### tx.fillTransaction\`メソッドを使用する。
+#### `tx.fillTransaction`メソッドを使用する。
 
-tx.fillTransaction\`は、トランザクションのオプションフィールドが省略されたときに適切な値で埋める関数である。
+`tx.fillTransaction`は、トランザクションのオプションフィールドが省略されたときに適切な値で埋める関数である。
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 await tx.fillTransaction() // Fill the optional tx fields. 
 ```
 
-#### tx.suggestGasPrice\`メソッドを使用する。
+#### `tx.suggestGasPrice`メソッドを使用する。
 
-gasPrice`には、推奨ガス価格を返す`tx.suggestGasPrice\`の結果を設定することができる。
+`gasPrice`には、推奨ガス価格を返す`tx.suggestGasPrice`の結果を設定することができる。
 
 ```
 const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
