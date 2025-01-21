@@ -93,7 +93,7 @@ Kaiaの`callTracer`出力フォーマットは、以下を除いてgo-ethereum�
 
 Chaindatafetcher (CDF)はKaiaのユニークな機能で、ブロック処理の結果をKafkaキューに公開し、下流のデータサービス構築を簡素化します。 例えば、ブロック・エクスプローラーはCDFを利用してデータベースを作成することができる。
 
-**注**\*：Kaia v1.0.1以降、トレースグループ（内部的にはcallTracer）の出力は、より正しく実行を反映するように更新されています。 同じトランザクションでも、以前のバージョンでは異なるトレースが得られたかもしれない。 詳細は[GitHub PR](https://github.com/kaiachain/kaia/pull/15)を参照のこと。
+**注**：Kaia v1.0.1以降、トレースグループ（内部的にはcallTracer）の出力は、より正しく実行を反映するように更新されています。 同じトランザクションでも、以前のバージョンでは異なるトレースが得られたかもしれない。 詳細は[GitHub PR](https://github.com/kaiachain/kaia/pull/15)を参照のこと。
 
 ### Kafkaへの接続
 
