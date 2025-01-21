@@ -6,7 +6,7 @@
 
 - コンセンサス・ノードの設定を行う `kcnd.conf`
 
-The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution (`tar.gz`) or a package distribution (RPM).
+設定ファイルは `conf` ディレクトリにあり、そのデフォルトの場所はアーカイブディストリビュー ションからのインストールかパッケージディストリビューションからのインストールかに よって異なります。
 
 - アーカイブディストリビューションの場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/kcn-linux-amd64/conf/` です。
 - パッケージ配布の場合、configディレクトリのデフォルトは `/etc/kcnd/conf/` です。
@@ -15,7 +15,7 @@ The configuration file is located in the `conf` directory, whose default locatio
 
 - プロキシノードを設定する `kpnd.conf`
 
-The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution (`tar.gz`) or a package distribution (RPM).
+設定ファイルは `conf` ディレクトリにあり、そのデフォルトの場所はアーカイブディストリビュー ションからのインストールかパッケージディストリビューションからのインストールかに よって異なります。
 
 - アーカイブディストリビューションの場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/kpn-linux-amd64/conf/` です。
 - パッケージ配布の場合、configディレクトリのデフォルトは `/etc/kpnd/conf/` です。
@@ -24,7 +24,7 @@ The configuration file is located in the `conf` directory, whose default locatio
 
 - エンドポイントノードを設定するための `kend.conf`
 
-The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution (`tar.gz`) or a package distribution (RPM).
+設定ファイルは `conf` ディレクトリにあり、そのデフォルトの場所はアーカイブディストリビュー ションからのインストールかパッケージディストリビューションからのインストールかに よって異なります。
 
 - アーカイブ・ディストリビューションの場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/ken-linux-amd64/conf/` です。
 - パッケージ配布の場合、config ディレクトリのデフォルトは `/etc/kend/conf/` です。
@@ -33,7 +33,7 @@ The configuration file is located in the `conf` directory, whose default locatio
 
 CNとPNは同じコンフィギュレーション・ファイル・フォーマットとプロパティを持つ。
 
-Below is a sample configuration file for the CN that participates in the `cypress` network and stores the blockchain data in the default location, which is `~/kcnd_home` with the archive distribution, `/var/kcnd/data` with the package distribution.
+以下は、メインネットに参加し、ブロックチェーンデータをデフォルトの場所に保存するCNの構成ファイルのサンプルです。デフォルトの場所は、アーカイブ配布では `~/kcnd_home`、パッケージ配布では `/var/kcnd/data` です。
 
 ```text
 # Configuration file for the kcnd
@@ -114,7 +114,7 @@ TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 | WS_ADDR                                                                | WS-RPC サーバーリスニングインターフェース。                                                                                                                                                                                                                                                            |
 | WS_PORT                                                                | WS-RPCサーバーのリスニングポート。 (デフォルト："8552"）                                                                                                                                                                                                                               |
 | WS_ORIGINS                                                             | ウェブソケットリクエストを受け付けるオリジン。 (デフォルト："localhost"）                                                                                                                                                                                                                       |
-| AUTO_RESTART                                                           | autorestart.timeout\`（例：60秒、10分、1時間）が1に設定されている場合、現在のブロックが更新されなかったときにプロセスを再起動する。                                                                                                                                                                                      |
+| AUTO_RESTART                                                           | `autorestart.timeout`（例：60秒、10分、1時間）が1に設定されている場合、現在のブロックが更新されなかったときにプロセスを再起動する。                                                                                                                                                                                                      |
 | METRICS                                                                                     | 1 に設定されている場合は、メトリクスの収集とレポートを有効にします。                                                                                                                                                                                                                                                  |
 | PROMETHEUS                                                                                  | プロメテウス・エクスポーターが1に設定されている場合、有効にする。                                                                                                                                                                                                                                                    |
 | DB_NO_PARALLEL_WRITE         | 1に設定すると、永続データベースへのブロック・データの並列書き込みを無効にする。                                                                                                                                                                                                                                             |
