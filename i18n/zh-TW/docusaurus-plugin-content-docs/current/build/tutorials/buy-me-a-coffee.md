@@ -183,20 +183,20 @@ b. 查看項目目錄 當前目錄應包括
 在本節中，我們將創建容納 BMC 功能的智能合約。 要開始操作，請導航至您的**合同**文件夾，創建一個名為 "BuyMeACoffee.sol "的新文件，並粘貼以下代碼：
 
 ```solidity
-// SPDX-License-Identifier：UNLICENSED
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 contract BuyMeACoffee {
-    // 當發送帶提示信息時要發出的事件
+    // event to emit when a message is sent with tip
     event NewCoffee(address indexed _sender, string name, string _message, uint256 _timestamp);
 
-    // 合同部署者的地址
+    // address of contract deployer
     address payable owner;
     constructor() {
-        // 將部署者存儲為所有者
+        // stores deployer as owner
         owner = payable(msg.sender);
     }
 
-    // BuyMeACoffe Tx 的結構
+    // struct of BuyMeACoffe Tx
     struct BuyCoffee {
         address sender;
         string name;
@@ -213,7 +213,7 @@ contract BuyMeACoffee {
     // buy coffee function
     function buyCoffee(string memory name, string memory message) public payable {
 	  // Must accept more than 0 KAIA for a coffee.
-        require(msg. value > 0, "Tip must be required for a coffee")。value > 0, "Tip must be greater than zero");
+        require(msg.value > 0, "Tip must be greater than zero");
         coffeeId++;
 	
 	// Add the coffee tx to storage
@@ -224,7 +224,7 @@ contract BuyMeACoffee {
         coffee.timestamp = block.timestamp;
          // Emit a NewCoffee event with details about the coffee tx.
         emit NewCoffee(msg.sender, name, message, block.timestamp);
-    } // withdraw coffee tips to the contract owner.
+    }
 
     // withdraw coffee tips to the contract owner
     function withdrawCoffeTips() public {
@@ -232,7 +232,7 @@ contract BuyMeACoffee {
         require(owner.send(address(this).balance) );
     }
 
-     // 獲取所有咖啡
+     // get all coffee
     function getAllCoffee(uint _id) public view returns(BuyCoffee[] memory c){
         require(_id <= coffeeId, "Non-existent id");
         c = new BuyCoffee[](_id);
