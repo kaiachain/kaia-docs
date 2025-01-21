@@ -19,7 +19,7 @@ DB + AppServerやProxy Web Serversのような一般的なWebサービスでは�
 
 ### CNサブネット<a id="cn-subnet"></a>
 
-CNサブネットはコアセル内のCNサーバーで構成される。 コアセルで稼働するCNは1つだけだが、高可用性のために予備のCNを用意しておく必要がある。 コアセル・ネットワーク（CCN）内のすべてのCNは、コアセルの外から他のCNに接続しようとするため、IP/Portを互いにオープンにしておく必要がある。 (This connection information can be received from Baobab operators.) The internal communication with other subnets in the Core Cell requires to open default port (32323: default Klaytn P2P port number) in order to connect to PNs of the PN Subnet. さらに、監視サーバー用のCN監視ポート（61001）や管理用のSSHポート（22）など、他のポートを開く必要があります。 マルチチャンネル機能を使用する場合は、別のポート（32324：デフォルトのマルチチャンネルポート）も開く必要がある。
+CNサブネットはコアセル内のCNサーバーで構成される。 コアセルで稼働するCNは1つだけだが、高可用性のために予備のCNを用意しておく必要がある。 コアセル・ネットワーク（CCN）内のすべてのCNは、コアセルの外から他のCNに接続しようとするため、IP/Portを互いにオープンにしておく必要がある。 (This connection information can be received from Baobab operators.) コアセル内の他のサブネットとの内部通信では、PNサブネットのPNに接続するためにデフォルトポート（32323：デフォルトのKaia P2Pポート番号）を開放する必要がある。 さらに、監視サーバー用のCN監視ポート（61001）や管理用のSSHポート（22）など、他のポートを開く必要があります。 マルチチャンネル機能を使用する場合は、別のポート（32324：デフォルトのマルチチャンネルポート）も開く必要がある。
 
 ![CN Subnet](/img/nodes/cn_subnet.png)
 
