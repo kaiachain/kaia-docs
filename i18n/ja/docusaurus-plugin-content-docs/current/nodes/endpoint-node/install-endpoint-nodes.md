@@ -62,7 +62,7 @@ $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 
 ### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
 
-Alternatively, you can install `kend` from the Klaytn Yum repo, run:
+あるいは、Kaia Yum repoから`kend`をインストールして実行することもできる：
 
 ```bash
 sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kend
@@ -146,7 +146,7 @@ Endpoint Nodeが正常にインストールされ、インストール後に期�
 
 #### systemctl <a id="systemctl"></a>
 
-systemctl\`はRPMと一緒にインストールされ、以下のようにしてEN状態を確認することができる。
+`systemctl`はRPMと一緒にインストールされ、以下のようにしてEN状態を確認することができる。
 
 ```bash
 $ systemctl status kend.service
@@ -168,7 +168,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Start
 
 #### kend <a id="kend"></a>
 
-kend\` はパッケージと一緒にインストールされ、EN の状態は以下のように確認できる。
+`kend` はパッケージと一緒にインストールされ、EN の状態は以下のように確認できる。
 
 ```bash
 $ kend status
@@ -199,7 +199,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 #### けんコンソール<a id="ken-console"></a>
 
-Klaytn provides a CLI client: `ken console`. クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。 IPC ファイル `klay.ipc` は EN の `DATA_DIR` パスにある。
+KaiaはCLIクライアント`ken console`を提供している。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。 IPC ファイル `klay.ipc` は EN の `DATA_DIR` パスにある。
 
 以下のコマンドを実行し、結果を確認してください。
 
@@ -217,8 +217,8 @@ $ ken attach --datadir /var/kend/data
 
 EN の状態をチェックするのに便利な API：
 
-- `klay.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+- `kaia.blockNumber` (最新のブロック番号を取得する)
+- `net.peerCount` (現在接続されているKaiaノードの数を取得する)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 
