@@ -1,8 +1,8 @@
 # 財布
 
-Wallets on Klaytn allows for access to accounts controlled by private keys, thus facilitating private key management, signing crypto transactions and also provides an interface to access(i.e send and receive) digital assets. This section provides a list of Klaytn supported wallets. 始めよう！
+カイアのウォレットは、秘密鍵で管理されたアカウントへのアクセスを可能にし、秘密鍵の管理、暗号トランザクションへの署名を容易にし、デジタル資産へのアクセス（送受信）のインターフェースも提供します。 このセクションでは、カイアがサポートしているウォレットのリストを提供します。 始めよう！
 
-> **Note**: The wallets provided below are third party wallets that have integrated with Klaytn and as such it’s much advised for users to do their due diligence before using them.
+> **注意**：下記のウォレットはカイアと統合されたサードパーティーウォレットです。
 
 | 財布                                                 | 親権       | 口座種別   | プラットフォーム             | マルチシグ | ブラウザ拡張機能 | エヌエフティー | ブリッジサポート |
 | -------------------------------------------------- | -------- | ------ | -------------------- | ----- | -------- | ------- | -------- |
