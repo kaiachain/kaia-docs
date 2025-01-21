@@ -1,6 +1,6 @@
-# Klaytn Compatible Tokens (KCTs)
+# Kaia Compatible Tokens (KCTs)
 
-Klaytn Compatible Token (KCT) is a special type of smart contract that implements certain technical specifications. Everyone who wants to issue tokens on top of Klaytn must follow the specification.
+Kaia Compatible Tokens（KCT）は、特定の技術仕様を実装した特別なタイプのスマートコントラクトである。 カイアの上でトークンを発行したい人は皆、この仕様に従わなければならない。
 
 Kaiaでは、[KIP-7](https://kips.kaia.io/KIPs/kip-7)や[KIP-17](https://kips.kaia.io/KIPs/kip-17)といったトークンの規格が定義されている。
 
@@ -55,7 +55,7 @@ function addPauser(address _account) external;
 function renouncePauser() external;
 ```
 
-Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
+上記のインターフェイスに基づき、開発者は新しい機能やロジックを追加することでトークンをカスタマイズし、Kaiaネットワークにデプロイすることができる。
 
 詳細については、公式の[KIP-7ドキュメント](https://kips.kaia.io/KIPs/kip-7)を参照してください。
 
@@ -121,18 +121,18 @@ function addPauser(address _account) public;
 function renouncePauser() public;
 ```
 
-Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
+上記のインターフェイスに基づき、開発者は新しい機能やロジックを追加することでトークンをカスタマイズし、Kaiaネットワークにデプロイすることができる。
 
 詳しくは、公式の[KIP-17ドキュメント](https://kips.kaia.io/KIPs/kip-17)を参照してください。
 
 - 実装例は[https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol)にある。
 
-## Token Standards for Klaytn Service Chain <a id="token-standards-for-klaytn-service-chain"></a>
+## カイア・サービス・チェーンのトークン標準<a id="token-standards-for-kaia-service-chain"></a>
 
-Service chain refers to Klaytn's side chain that anchors to Klaytn's main blockchain network. サービス・チェーンを実施する場合、メイン・チェーンとサービス・チェーン間の価値移転をサポートするために、特別なタイプの契約が使用される。 These contracts are currently under development, and when they are ready, the token specifications for Klaytn service chain will be provided on KlaytnDocs.
+サービスチェーンとは、カイアのメインブロックチェーンネットワークに固定されたカイアのサイドチェーンを指す。 サービス・チェーンを実施する場合、メイン・チェーンとサービス・チェーン間の価値移転をサポートするために、特別なタイプの契約が使用される。 これらの契約は現在開発中であり、準備が整い次第、Kaiaサービスチェーン用のトークン仕様をKaiaDocsで提供する。
 
 ## ERC-20およびERC-721に関する注意事項<a id="notes-on-erc-20-and-erc-721"></a>
 
-Since Klaytn published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721.
-KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Klaytn and thus more suitable on Klaytn ecosystem. Yet ERC-20 and ERC-721 are still supported on Klaytn network, they may not be compatible with various tools in Klaytn ecosystem.
+カイアはトークン標準としてKIP-7とKIP-17を公表しているため、ERC-20とERC-721に従うのではなく、それぞれKIP-7とKIP-17に従ってファンジブルとノンファンジブルのトークンコントラクトを実装することが推奨される。
+KIP-7とKIP-17はERC-20とERC-721をベースにしているが、カイア用に調整されているため、カイアのエコシステムにより適している。 ERC-20とERC-721はまだカイアのネットワークでサポートされているが、カイアのエコシステムの様々なツールとは互換性がないかもしれない。
 トークン規格の違いについては、[KIP-7](https://kips.kaia.io/KIPs/kip-7#differences-with-erc-20)、[KIP-17](https://kips.kaia.io/KIPs/kip-17#differences-from-erc-721)をご覧ください。
