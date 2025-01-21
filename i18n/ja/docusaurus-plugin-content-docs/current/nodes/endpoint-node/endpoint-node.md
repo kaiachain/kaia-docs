@@ -2,8 +2,8 @@
 
 ## 対象読者<a id="intended-audience"></a>
 
-- Anyone who wants to send transactions or query the state of Klaytn network using [Klaytn APIs](../../references/json-rpc/klay/account-created) needs to do so via an Endpoint Node.
-- Endpoint Nodes are the interface to the Klaytn Network.
+- [Kaia API](../../references/json-rpc/klay/account-created)を使ってトランザクションを送信したり、Kaiaネットワークの状態を照会したい人は、エンドポイントノードを介して行う必要があります。
+- エンドポイントノードはカイアネットワークへのインターフェースである。
 
 ## エンドポイントノードの概要<a id="endpoint-node-overview"></a>
 
