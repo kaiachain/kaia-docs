@@ -4,9 +4,9 @@
 
 ## クラス<a href="#class" id="class"></a>
 
-Keyring\`は、アカウントのアドレスと秘密鍵を含む構造体である。 これは、ユーザーが自分の[Kaiaのアカウント](../../../../../learn/accounts.md#klaytn-accounts)を使ってサインオンできるようにするcaver-jsのクラスです。
+`Keyring`は、アカウントのアドレスと秘密鍵を含む構造体である。 これは、ユーザーが自分の[Kaiaのアカウント](../../../../../learn/accounts.md#klaytn-accounts)を使ってサインオンできるようにするcaver-jsのクラスです。
 
-Keyring\`は、保存する鍵の種類によって3つのタイプに分類できる：1つのアドレスと1つの秘密鍵を保存する[SingleKeyring](#singlekeyring)、1つのアドレスと複数の秘密鍵を保存する[MultipleKeyring](#multiplekeyring)、1つのアドレスと役割ごとに1つ以上の秘密鍵を保存する[RoleBasedKeyring](#rolebasedkeyring)である。
+`Keyring`は、保存する鍵の種類によって3つのタイプに分類できる：1つのアドレスと1つの秘密鍵を保存する[SingleKeyring](#singlekeyring)、1つのアドレスと複数の秘密鍵を保存する[MultipleKeyring](#multiplekeyring)、1つのアドレスと役割ごとに1つ以上の秘密鍵を保存する[RoleBasedKeyring](#rolebasedkeyring)である。
 
 - [SingleKeyring](#singlekeyring)：秘密鍵で署名
 - [MultipleKeyring](#multiplekeyring)：秘密鍵で署名
@@ -18,9 +18,9 @@ Keyring\`は、保存する鍵の種類によって3つのタイプに分類で�
 const keyring = new caver.wallet.keyring.singleKeyring(address, key)
 ```
 
-SingleKeyring`は、アカウントの`アドレス`と`秘密鍵\`を格納するクラスである。 秘密鍵文字列でSingleKeyringインスタンスを作成するには、[caver.wallet.keyring.create](#caver-wallet-keyring-create) を参照してください。
+`SingleKeyring`は、アカウントの`アドレス`と`秘密鍵`を格納するクラスである。 秘密鍵文字列でSingleKeyringインスタンスを作成するには、[caver.wallet.keyring.create](#caver-wallet-keyring-create) を参照してください。
 
-SingleKeyring\`は、ロールが割り当てられていない秘密鍵を使用する。
+`SingleKeyring`は、ロールが割り当てられていない秘密鍵を使用する。
 
 **プロパティ**
 
@@ -35,9 +35,9 @@ SingleKeyring\`は、ロールが割り当てられていない秘密鍵を使�
 const keyring = new caver.wallet.keyring.multipleKeyring(address, keys)
 ```
 
-MultipleKeyring`は、アカウントの`アドレス`と複数の`秘密鍵\`を格納するクラスである。 秘密鍵文字列でMultipleKeyringインスタンスを作成するには、[caver.wallet.keyring.create](#caver-wallet-keyring-create) を参照してください。
+`MultipleKeyring`は、アカウントの`アドレス`と複数の`秘密鍵`を格納するクラスである。 秘密鍵文字列でMultipleKeyringインスタンスを作成するには、[caver.wallet.keyring.create](#caver-wallet-keyring-create) を参照してください。
 
-MultipleKeyring\`は、ロールが割り当てられていない秘密鍵を使用する。
+`MultipleKeyring`は、ロールが割り当てられていない秘密鍵を使用する。
 
 **プロパティ**
 
@@ -52,7 +52,7 @@ MultipleKeyring\`は、ロールが割り当てられていない秘密鍵を使
 const keyring = new caver.wallet.keyring.roleBasedKeyring(address, keys)
 ```
 
-RoleBasedKeyring`は、アカウントの`address`と各役割に使用する`private keys\` を配列の形式で格納するクラスである。
+`RoleBasedKeyring` は、アカウントの `address` と各役割に使用する `private keys` を配列の形式で格納するクラスである。
 
 `RoleBasedKeyring` は `keys` を定義しており、2次元配列として実装されている（空の `keys` は `[ [], [], [] ]` のように見える）。各 [role](../../../../../learn/accounts.md#roles) に対して複数のキーを含めることができる。 最初の配列要素は `roleTransactionKey` の秘密鍵を定義し、2 番目の配列要素は `roleAccountUpdateKey` の秘密鍵を定義し、3 番目の配列要素は `roleFeePayerKey` の秘密鍵を定義する。
 
@@ -65,11 +65,11 @@ RoleBasedKeyring`は、アカウントの`address`と各役割に使用する`pr
 
 以下は、各ロールに定義されたキーを直感的に使用するために、keyringで定義されたゲッターです。 各役割に使用されるキーは、以下のゲッターからより簡単にアクセスすることができる。
 
-| 名称            | タイプ | 説明                                                                                                                      |
-| ------------- | --- | ----------------------------------------------------------------------------------------------------------------------- |
-| ロールトランザクションキー | 配列  | トランザクションの署名に使用される roleTransactionKey（アカウント更新のトランザクションを除く）。 `keyring.roleTransactionkey` は `keys` プロパティの最初の要素を返します。      |
-| ロールアカウント更新キー  | 配列  | アカウント更新トランザクションの署名に使用される roleAccountUpdateKey。 keyring.roleAccountUpdateKey`は、`keys\`プロパティの2番目の要素を返します。 |
-| ロールフィー・ペイヤーキー | 配列  | 料金支払者としてトランザクションに署名するために使用される roleFeePayerKey。 `keyring.roleFeePayerKey` は `keys` プロパティの 3 番目の要素を返します。                  |
+| 名称            | タイプ | 説明                                                                                                                 |
+| ------------- | --- | ------------------------------------------------------------------------------------------------------------------ |
+| ロールトランザクションキー | 配列  | トランザクションの署名に使用される roleTransactionKey（アカウント更新のトランザクションを除く）。 `keyring.roleTransactionkey` は `keys` プロパティの最初の要素を返します。 |
+| ロールアカウント更新キー  | 配列  | アカウント更新トランザクションの署名に使用される roleAccountUpdateKey。 `keyring.roleAccountUpdateKey`は、`keys`プロパティの2番目の要素を返します。            |
+| ロールフィー・ペイヤーキー | 配列  | 料金支払者としてトランザクションに署名するために使用される roleFeePayerKey。 `keyring.roleFeePayerKey` は `keys` プロパティの 3 番目の要素を返します。             |
 
 ### プライベートキー<a href="#privatekey" id="privatekey"></a>
 
@@ -77,7 +77,7 @@ RoleBasedKeyring`は、アカウントの`address`と各役割に使用する`pr
 const privateKey = new caver.wallet.keyring.privateKey('0x{private key}')
 ```
 
-PrivateKey`は秘密鍵の文字列を格納するクラスである。 Keyringの各ロールで使用される秘密鍵は、この `PrivateKey\` インスタンスとして定義されます。
+`PrivateKey`は秘密鍵の文字列を格納するクラスである。 Keyringの各ロールで使用される秘密鍵は、この `PrivateKey` インスタンスとして定義されます。
 
 **プロパティ**
 
@@ -87,7 +87,7 @@ PrivateKey`は秘密鍵の文字列を格納するクラスである。 Keyring�
 
 ### 署名データ<a href="#signaturedata" id="signaturedata"></a>
 
-SignatureData`は内部に署名データを格納するクラスである。 sign`または`signMessage`の結果である署名は、signatureDataとして返される。 以下のように、signatureDataの中に署名が含まれていることがわかる。
+`SignatureData`は内部に署名データを格納するクラスである。 `sign`または`signMessage`の結果である署名は、signatureDataとして返される。 以下のように、signatureDataの中に署名が含まれていることがわかる。
 
 ```javascript
 const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', '0x15038...'])
@@ -239,7 +239,7 @@ caver.wallet.keyring.create(アドレス、キー)
 
 パラメータを指定して Keyring インスタンスを作成します。
 
-key` が秘密鍵文字列の場合、単一の秘密鍵を使用する [SingleKeyring](#singlekeyring) インスタンスが作成される。 key` が秘密鍵文字列を含む配列の場合、複数の秘密鍵を使用する [MultipleKeyring](#multiplekeyring) インスタンスが作成される。 key\` が2次元配列で、各要素に各ロールで使用する秘密鍵が格納されている場合、[RoleBasedKeyring](#rolebasedkeyring) インスタンスが生成される。
+`key` が秘密鍵文字列の場合、単一の秘密鍵を使用する [SingleKeyring](#singlekeyring) インスタンスが作成される。 `key` が秘密鍵文字列を含む配列の場合、複数の秘密鍵を使用する [MultipleKeyring](#multiplekeyring) インスタンスが作成される。 `key` が2次元配列で、各要素に各ロールで使用する秘密鍵が格納されている場合、[RoleBasedKeyring](#rolebasedkeyring) インスタンスが生成される。
 
 \*\*パラメーター
 
@@ -252,7 +252,7 @@ key` が秘密鍵文字列の場合、単一の秘密鍵を使用する [SingleK
 
 | タイプ    | 説明                                                                                                                                                      |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| キーホルダー | キーリングのインスタンスが返されます。 key\`パラメータによって、[SingleKeyring](#singlekeyring)、[MultipleKeyring](#multiplekeyring)、[RoleBasedKeyring](#rolebasedkeyring)のいずれかになります。 |
+| キーホルダー | キーリングのインスタンスが返されます。 `key`パラメータによって、[SingleKeyring](#singlekeyring)、[MultipleKeyring](#multiplekeyring)、[RoleBasedKeyring](#rolebasedkeyring)のいずれかになります。 |
 
 **例**
 
@@ -344,7 +344,7 @@ SingleKeyring {
 caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 ```
 
-KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) 文字列から `SingleKeyring` インスタンスを作成します。
+[KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) 文字列から `SingleKeyring` インスタンスを作成します。
 
 \*\*パラメーター
 
@@ -710,7 +710,7 @@ SingleKeyring {
 keyring.getPublicKey()
 ```
 
-公開鍵文字列を返します。 keyring` が [SingleKeyring](#singlekeyring) のインスタンスの場合、getPublicKey は公開鍵文字列を返す。 keyring` が [MultipleKeyring](#multiplekeyring) のインスタンスの場合、getPublicKey は公開鍵文字列の配列を返す。 keyring\`が[RoleBasedKeyring](#rolebasedkeyring)のインスタンスである場合、getPublicKeyは2次元の配列を返し、その配列には各ロールに使用される公開鍵が配列として定義されている。
+公開鍵文字列を返します。 `keyring` が [SingleKeyring](#singlekeyring) のインスタンスの場合、getPublicKey は公開鍵文字列を返す。 `keyring` が [MultipleKeyring](#multiplekeyring) のインスタンスの場合、getPublicKey は公開鍵文字列の配列を返す。 `keyring`が[RoleBasedKeyring](#rolebasedkeyring)のインスタンスである場合、getPublicKeyは2次元の配列を返し、その配列には各ロールに使用される公開鍵が配列として定義されている。
 
 \*\*パラメーター
 
@@ -805,7 +805,7 @@ RoleBasedKeyring {
 keyring.sign(transactionHash, chainId, role [, index])
 ```
 
-秘密鍵で transactionHash に署名し、署名を返す。 ユーザがインデックスパラメータを定義していない場合、`keyring.sign`はロールが使用するすべての秘密鍵を使用してトランザクションに署名します。 index` が定義されている場合、`keyring.sign` はインデックスにある1つの秘密鍵のみを使用してトランザクションに署名する。 caver-jsで使用されているロールは、`caver.wallet.keyring.role\`で確認できる。
+秘密鍵で transactionHash に署名し、署名を返す。 ユーザがインデックスパラメータを定義していない場合、`keyring.sign`はロールが使用するすべての秘密鍵を使用してトランザクションに署名します。 `index` が定義されている場合、`keyring.sign` はインデックスにある1つの秘密鍵のみを使用してトランザクションに署名する。 caver-jsで使用されているロールは、`caver.wallet.keyring.role`で確認できる。
 
 トランザクションに署名する場合、[caver.wallet.sign](./caver-wallet.md#caver-wallet-sign)または[transaction.sign](../caver-transaction/caver-transaction.md#transaction-sign)を使用することを推奨する。
 
@@ -815,7 +815,7 @@ keyring.sign(transactionHash, chainId, role [, index])
 | ------------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | トランザクションハッシュ | ストリング       | 署名するトランザクションのハッシュ文字列。                                                                                                               |
 | チェーンID       | string \\ | kaiaブロックチェーンプラットフォームのチェーンID。                                                                                                        |
-| 役割           | 番号          | キーの役割を示す数字。 caver.wallet.keyring.role\`を使用することができます。                                |
+| 役割           | 番号          | キーの役割を示す数字。 `caver.wallet.keyring.role`を使用することができます。                                                                                |
 | インデックス       | 番号          | (オプション) 使用したい秘密鍵のインデックス。 このインデックスは、各ロールに定義されたプライベートキーの配列の長さより小さくなければならない。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用する。 |
 
 **リターン・バリュー**
@@ -882,7 +882,7 @@ keyring.ecsign(hash, role [, index])
 | 名称     | タイプ   | 説明                                                                                                                                  |
 | ------ | ----- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | ハッシュ   | ストリング | 署名するハッシュ文字列。                                                                                                                        |
-| 役割     | 番号    | キーの役割を示す数字。 caver.wallet.keyring.role\`を使用することができます。                                |
+| 役割     | 番号    | キーの役割を示す数字。 `caver.wallet.keyring.role`を使用することができます。                                                                                |
 | インデックス | 番号    | (オプション) 使用したい秘密鍵のインデックス。 このインデックスは、各ロールに定義されたプライベートキーの配列の長さより小さくなければならない。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用する。 |
 
 **リターン・バリュー**
@@ -919,7 +919,7 @@ sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message))
 | 名称     | タイプ   | 説明                                                                                                                                  |
 | ------ | ----- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | メッセージ  | ストリング | 署名するメッセージ                                                                                                                           |
-| 役割     | 番号    | キーの役割を示す数字。 caver.wallet.keyring.role\`を使用することができます。                                |
+| 役割     | 番号    | キーの役割を示す数字。 `caver.wallet.keyring.role`を使用することができます。                                                                                |
 | インデックス | 番号    | (オプション) 使用したい秘密鍵のインデックス。 このインデックスは、各ロールに定義されたプライベートキーの配列の長さより小さくなければならない。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用する。 |
 
 **リターン・バリュー**
@@ -970,9 +970,9 @@ keyring.getKeyByRole(ロール)
 
 \*\*パラメーター
 
-| 名称 | タイプ | 説明                                                                                                   |
-| -- | --- | ---------------------------------------------------------------------------------------------------- |
-| 役割 | 番号  | キーの役割を示す数字。 caver.wallet.keyring.role\`を使用することができます。 |
+| 名称 | タイプ | 説明                                                   |
+| -- | --- | ---------------------------------------------------- |
+| 役割 | 番号  | キーの役割を示す数字。 `caver.wallet.keyring.role`を使用することができます。 |
 
 **リターン・バリュー**
 
