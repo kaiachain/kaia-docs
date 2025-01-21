@@ -65,7 +65,7 @@ Remix IDE :
 - Remix IDEで、**Solidityコンパイラタブ**に移動します。
 
   - 契約のコンパイルとデプロイに使用された**コンパイラのバージョン**を確認してください。
-  - 契約で使用されている**オープンソースライセンスの種類**を確認してください。 これは、Solidity ソース ファイルの先頭で使用される SPDX ライセンス識別子を意味します。 Counter.sol`ファイルでは、`// SPDX-License-Identifier：MIT\`
+  - 契約で使用されている**オープンソースライセンスの種類**を確認してください。 これは、Solidity ソース ファイルの先頭で使用される SPDX ライセンス識別子を意味します。 `Counter.sol`ファイルでは、`// SPDX-License-Identifier：MIT`
   - コントラクトのデプロイに使用される**EVMバージョン**を確認してください。
   - (オプション）コンパイル時に**最適化**が有効になっている場合、最適化実行パラメータの値に注意する。
 
@@ -130,7 +130,7 @@ Remix IDE:
 
   ![](/img/build/tutorials/airdropToken-flattened.png)
 
-  - Once code is flattened, you will see a new contract named `airdropTokens_flattened.sol`.
+  - コードが平坦化されると、`airdropTokens_flattened.sol`という名前の新しいコントラクトが表示されます。
 
   ![](/img/build/tutorials/airdropToken-flattened-file.png)
 
@@ -158,11 +158,11 @@ To verify a single contract and multi-part contracts on Klaytnscope, follow the 
 
 4. 契約確認ページで、アカウントがKaia WalletまたはMetamaskのいずれかに接続されていることを確認します。 このガイドでは、カイア・ウォレットを使用します。
 5. 契約住所欄\*\*に契約住所を記入する。 注：このフィールドには通常、契約住所が自動的に入力されます。
-6. Counter.sol\`の例で使用した**コンパイラのバージョン**を選択する。
-7. Counter.sol\`の例で使用した**オープン・ソース・ライセンス・タイプ**を選択します。 Counter.solの例では、\*\*MIT License (MIT)\*\*を選択してください。 使用されていない場合は、\*\*ライセンスなし（None）\*\*を選択します。
-8. In the **Source Code field**, select **Source Text** and paste the source code for `Counter.sol` in the text-field.
+6. `Counter.sol`の例で使用した**コンパイラのバージョン**を選択する。
+7. `Counter.sol`の例で使用した**オープン・ソース・ライセンス・タイプ**を選択します。 Counter.solの例では、\*\*MIT License (MIT)\*\*を選択してください。 使用されていない場合は、\*\*ライセンスなし（None）\*\*を選択します。
+8. **Source Code field**で、**Source Text**を選択し、テキストフィールドに`Counter.sol`のソースコードを貼り付けます。
 9. 最適化**がコンパイル時に有効になっている場合は**True**を選択し、**Optimization Runs**の実行回数を**200\*\*になるように入力します。
-10. 契約の**EVMバージョン**を選択します。 Counter.sol\`の例では、**Istanbul**を選択する。
+10. 契約の**EVMバージョン**を選択します。 `Counter.sol`の例では、**Istanbul**を選択する。
 11. 下部のCAPTCHAと**Sign and Submit**ボタンをクリックして確認し、認証を開始します。
 
 ![](/img/build/tutorials/counter-verification-page.png)
@@ -181,7 +181,7 @@ To verify a single contract and multi-part contracts on Klaytnscope, follow the 
 
 Verifying a multi-part contract on Klaytnscope is as straightforward as verifying a single contract, except that it requires some additional steps. このセクションでは、`airdropToken.sol`コントラクトを以下のステップを追加して検証する：
 
-- ソースコード**の下にある**ソーステキスト\*\*(Counter.solの例のステップ3)、または**ソースコード**フィールドの下にある\*\*ソリディティファイル(s)\*\*を選択することができます。  In the case of **Source Text**, copy the code in the `airdropToken_flattened.sol` and paste in the text field. If **Solidity File(s)**, you can download the `airdropToken_flattened.sol` file on Remix IDE and upload to the field.
+- ソースコード**の下にある**ソーステキスト\*\*(Counter.solの例のステップ3)、または**ソースコード**フィールドの下にある\*\*ソリディティファイル(s)\*\*を選択することができます。  **Source Text**の場合、`airdropToken_flattened.sol`内のコードをコピーしてテキストフィールドに貼り付けます。 \*\*Solidity File(s)\*\*の場合、Remix IDEで`airdropToken_flattened.sol`ファイルをダウンロードし、フィールドにアップロードします。
 
 a. ソース・テキスト
 
@@ -216,10 +216,10 @@ Kaiascanでの契約の検証は現在ベータ版です。
 #### 2.1 単一契約の検証
 
 1. 配置された契約（Counter.sol）の**契約アドレス**を記入してください。
-2. Counter.sol\`の例で使用されている**コンパイラのバージョン**を選択してください。
-3. Counter.sol\`の例で使用した**オープン・ソース・ライセンス・タイプ**を選択します。 Counter.solの例では、\*\*MIT License (MIT)\*\*を選択してください。 使用されたものがない場合は、\*\*ライセンスなし（None）\*\*を選択する。
-4. Make sure to download `Counter.sol` from Remix IDE and upload in the **Source Code (Solidity File)** field
-5. 契約の**EVMバージョン**を選択します。 Counter.sol\`の例では、**Istanbul**を選択する。
+2. `Counter.sol`の例で使用されている**コンパイラのバージョン**を選択してください。
+3. `Counter.sol`の例で使用した**オープン・ソース・ライセンス・タイプ**を選択します。 Counter.solの例では、\*\*MIT License (MIT)\*\*を選択してください。 使用されたものがない場合は、\*\*ライセンスなし（None）\*\*を選択する。
+4. 必ずRemix IDEから`Counter.sol`をダウンロードし、\*\*Source Code (Solidity File)\*\*フィールドにアップロードしてください。
+5. 契約の**EVMバージョン**を選択します。 `Counter.sol`の例では、**Istanbul**を選択する。
 6. 最適化**がコンパイル時に有効になっている場合は**True**を選択し、**Optimization Runs**の実行回数を**200\*\*になるように入力します。
 7. (オプション) このフィールドのABIエンコードされたコンストラクタ引数を取得するには、[abi.hashex.org](http://abi.hashex.org) にアクセスして、以下の画像に従ってエンコードされたデータを取得します：
 
@@ -235,7 +235,7 @@ Kaiascanでの契約の検証は現在ベータ版です。
 
 ### 2.2 複数パート契約の検証
 
-Kaiascanで複数パートにまたがる契約を検証する場合は、単一の契約を検証する場合と同じ手順を踏みます。 However, it is important to note we will be uploading the `airdropToken_flattened.sol` file in the **Source Code(Solidity File)** field.
+Kaiascanで複数パートにまたがる契約を検証する場合は、単一の契約を検証する場合と同じ手順を踏みます。 ただし、Kaiascan は現在検証用ファイルのアップロードをサポートしていないため、`airdropToken_flattened.sol` ファイルをコピーして **Enter the Solidity Contract Code below** フィールドに貼り付けることに注意してください。
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
