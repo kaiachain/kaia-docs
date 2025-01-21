@@ -4,13 +4,13 @@
 
 - EthereumとKaiaの両方のトランザクションタイプを扱う`ethers.Wallet`のドロップイン置き換え
   、AccountKeyとTxTypesを含む。
-- Ethers.providers.JsonRpcProvider\` をドロップインで置き換え、Ethereum RPC と
+- `Ethers.providers.JsonRpcProvider` をドロップインで置き換え、Ethereum RPC と
   Kaia 固有の RPC の両方にアクセスできるようにする。
 - MetaMask (`window.ethereum`) と Kaia Wallet (`window.klaytn`) の両方で動作するように `ethers.Web3Provider` をドロップインで置き換える。
 
 ## エーテルV6に関する注意事項
 
-kaiachain/ethers-ext`はethers v5とv6の両方をサポートしている。 ただし、各 `ethers` バージョンで指定されている正しいパッケージを使用する必要がある。 そのため、ethers v5は`@kaiachain/ethers-ext/v5`のパッケージと使用する必要があり、ethers v6は`@kaiachain/ethers-ext/v6\`とのみ互換性がある。
+`kaiachain/ethers-ext`はethers v5とv6の両方をサポートしている。 ただし、各 `ethers` バージョンで指定されている正しいパッケージを使用する必要がある。 そのため、ethers v5は`@kaiachain/ethers-ext/v5`のパッケージと使用する必要があり、ethers v6は`@kaiachain/ethers-ext/v6`とのみ互換性がある。
 
 > **_NOTE:_**
 > インポートパスにバージョンのサブパス(`@kaiachain/ethers-ext`)がない場合、ethers v5がデフォルトで使用されます。
