@@ -16,8 +16,8 @@ w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
 
 def web3_role_based_value_transfer_message_recover():
     user = Account.from_key_pair(
-        # ロールベースアカウントアドレス
-        '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea'、
+        # role-based account address
+        '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea',
         # transaction role key of role-based account
         '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
     )
@@ -28,7 +28,7 @@ def web3_role_based_value_transfer_message_recover():
     print(signature.signature.hex())
     print(len(signature.signature.hex()))
     recovered = w3.klay.recover_from_message(user.address, message, signature.signature.hex(), "latest")
-    print("\nsender", user.address, "\nrecovered", recovered) # recovered はメンバーキーのオリジナルアドレス
+    print("\nsender", user.address, "\nrecovered", recovered) # recovered is an original address of the member key
 
 web3_role_based_value_transfer_message_recover()
 ```
@@ -85,8 +85,8 @@ w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
 
 def web3_role_based_value_transfer_message_recover():
     user = Account.from_key_pair(
-        # ロールベースアカウントアドレス
-        '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea'、
+        # role-based account address
+        '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea',
         # transaction role key of role-based account
         '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
     )
@@ -97,7 +97,7 @@ def web3_role_based_value_transfer_message_recover():
     print(signature.signature.hex())
     print(len(signature.signature.hex()))
     recovered = w3.klay.recover_from_message(user.address, message, signature.signature.hex(), "latest")
-    print("\nsender", user.address, "\nrecovered", recovered) # recovered はメンバーキーのオリジナルアドレス
+    print("\nsender", user.address, "\nrecovered", recovered) # recovered is an original address of the member key
 
 web3_role_based_value_transfer_message_recover()
 ```
