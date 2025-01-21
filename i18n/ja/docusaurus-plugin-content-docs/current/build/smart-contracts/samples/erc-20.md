@@ -551,10 +551,10 @@ MyERC20\`スマートコントラクトをデプロイするには、Remix Onlin
 - contractsフォルダに`MyERC20.sol`ファイルを作成する。
 - Remixで**コンパイル**契約をクリックします。
 - プラグインをインストールしたら、左側のKaia (prev Klaytn) タブをクリックします。
-- Environment\*\* > **Injected Provider** - **Kaia Wallet** を選択します。
+- **Environment** > **Injected Provider** - **Kaia Wallet** を選択します。
 - 契約フィールドで、契約を選択します。 例えば、MyERC20。
-- KAIROSTOKEN\*\*、**KAIROS**、_8_\* 配置で以下の引数を指定する。
-- デプロイ\*\*をクリックします。
+- **KAIROSTOKEN**、**KAIROS**、_8_\* 配置で以下の引数を指定する。
+- 「Deploy」（展開）をクリックします。
 
 ![ERC20-1-deploy](/img/build/smart-contracts/remix-layout-erc20-example.png)
 
