@@ -162,7 +162,7 @@ thirdwebのデプロイコマンドについては、こちらの[デプロイ�
 
 ## 結論<a id="conclusion"></a>
 
-おめでとう！ このガイドを最後まで読んでくれたなら。 ご不明な点がございましたら、[カイアフォーラム](https://devforum.kaia.io/)、または[サードウェブ公式サポート](https://support.thirdweb.com/)までお問い合わせください。 However, below is a list of useful resources you might need while further building with Thirdweb on Klaytn.
+おめでとう！ このガイドを最後まで読んでくれたなら。 ご不明な点がございましたら、[カイアフォーラム](https://devforum.kaia.io/)、または[サードウェブ公式サポート](https://support.thirdweb.com/)までお問い合わせください。 しかし、以下は、Kaia上でThirdwebをさらに構築する際に必要となる可能性がある便利なリソースの一覧です。
 
 - [サードウェブ・ドックス](https://portal.thirdweb.com/)
 - [Thirdwebを使ったdAppの作り方](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
