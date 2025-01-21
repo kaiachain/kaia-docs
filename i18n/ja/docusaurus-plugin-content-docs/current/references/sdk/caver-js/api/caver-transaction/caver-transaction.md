@@ -149,13 +149,13 @@ caver.transaction.recoverFeePayerPublicKeys('0x{RLP-encoded transaction}')
 
 | 名称    | タイプ   | 説明                                                                                                                                             |
 | ----- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| rawTx | ストリング | feePayerSignatures`から公開鍵を復元するための RLP エンコードされたトランザクション文字列。 料金支払者の公開鍵を回収するためには、トランザクションは、`feePayerSignatures\` フィールドを内部に持つ料金委譲トランザクションでなければならない。 |
+| rawTx | ストリング | `feePayerSignatures`から公開鍵を復元するための RLP エンコードされたトランザクション文字列。 料金支払者の公開鍵を回収するためには、トランザクションは、`feePayerSignatures` フィールドを内部に持つ料金委譲トランザクションでなければならない。 |
 
 **リターン・バリュー**
 
 | タイプ | 説明                                  |
 | --- | ----------------------------------- |
-| 配列  | feePayerSignatures\`から復元した公開鍵を含む配列。 |
+| 配列  | `feePayerSignatures`から復元した公開鍵を含む配列。 |
 
 **例**
 
@@ -176,7 +176,7 @@ transaction.sign(keyring [, index] [, hasher])
 
 トランザクションの送信者として `keyring` 内の秘密鍵でトランザクションに署名し、トランザクショ ンオブジェクトに `signatures` を追加する。
 
-アカウント更新](./basic.md#accountupdate)トランザクションの場合は、[roleAccountUpdateKey](../../../../../learn/accounts.md#roles)を使用し、そうでない場合は、[RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)の[roleTransactionKey](../../../../../learn/accounts.md#roles)を使用する。 ユーザが `index` を定義していない場合、`transaction.sign` はロールが使用するすべての秘密鍵を使用してトランザクションに署名する。 index` が定義されている場合、`transaction.sign\` は指定されたインデックスの 1 つの秘密鍵のみを使用してトランザクションに署名する。
+アカウント更新](./basic.md#accountupdate)トランザクションの場合は、[roleAccountUpdateKey](../../../../../learn/accounts.md#roles)を使用し、そうでない場合は、[RoleBasedKeyring](../caver-wallet/keyring.md#rolebasedkeyring)の[roleTransactionKey](../../../../../learn/accounts.md#roles)を使用する。 ユーザが `index` を定義していない場合、`transaction.sign` はロールが使用するすべての秘密鍵を使用してトランザクションに署名する。 `index` が定義されている場合、`transaction.sign` は指定されたインデックスの 1 つの秘密鍵のみを使用してトランザクションに署名する。
 
 \*\*パラメーター
 
@@ -282,7 +282,7 @@ transaction.signAsFeePayer(keyring [, index] [, hasher])
 
 トランザクションを `fee payer` として署名し、トランザクションオブジェクトの `feePayerSignatures` に `keyring` 内の秘密鍵を付加する。
 
-keyring`で[roleFeePayerKey](../../../../../learn/accounts.md#roles)を使用する。 ユーザが `index` を定義していない場合、`transaction.signAsFeePayer` はロールが使用するすべての秘密鍵を使用してトランザクションに署名する。 index` が定義されている場合、`transaction.signAsFeePayer` は指定されたインデックスの 1 つの秘密鍵のみを使用してトランザクションに署名する。
+`keyring`で[roleFeePayerKey](../../../../../learn/accounts.md#roles)を使用する。 ユーザが `index` を定義していない場合、`transaction.signAsFeePayer` はロールが使用するすべての秘密鍵を使用してトランザクションに署名する。 `index` が定義されている場合、`transaction.signAsFeePayer` は指定されたインデックスの 1 つの秘密鍵のみを使用してトランザクションに署名する。
 
 もし `transaction.feePayer` が定義されていなければ、与えられたキーリングのアドレスが `transaction.feePayer` に設定される。
 
@@ -492,7 +492,7 @@ RLPエンコードされたトランザクション文字列を返します。
 トランザクション.getRawTransaction()
 ```
 
-rawTransaction\` 文字列（RLP エンコードされたトランザクション文字列）を返す。 この関数は、[transaction.getRLPEncoding](#transaction-getrlpencoding) と同じである。
+`rawTransaction` 文字列（RLP エンコードされたトランザクション文字列）を返す。 この関数は、[transaction.getRLPEncoding](#transaction-getrlpencoding) と同じである。
 
 **リターン・バリュー**
 
@@ -513,7 +513,7 @@ rawTransaction\` 文字列（RLP エンコードされたトランザクショ�
 transaction.getTransactionHash()
 ```
 
-transactionHash\` を返す。
+`transactionHash` を返す。
 
 各トランザクション・タイプのトランザクション・ハッシュの作成方法については、[Kaia Design - Transactions](../../../../../learn/transactions/transactions.md) を参照のこと。
 
@@ -613,11 +613,11 @@ transaction.fillTransaction()
 
 トランザクションの `gasPrice`、`nonce`、`chainId` が定義されていない場合、このメソッドはこれらのオプション変数のデフォルト値を問い合わせ、接続されている kaia Node に JSON RPC コールを送信することでプリセットする。
 
-caver.rpc.klay.getGasPrice](../caver-rpc/klay.md#caver-rpc-klay-getgasprice) を使用して `gasPrice` を取得し、[caver.rpc.klay.getTransactionCount](../caver-rpc/klay.md#caver-rpc-klay-gettransactioncount) を使用して `nonce` を取得し、[caver.rpc.klay.getChainId](../caver-rpc/klay.md#caver-rpc-klay-getchainid) を使用して `chainId` を取得する。
+[caver.rpc.klay.getGasPrice](../caver-rpc/klay.md#caver-rpc-klay-getgasprice) を使用して `gasPrice` を取得し、[caver.rpc.klay.getTransactionCount](../caver-rpc/klay.md#caver-rpc-klay-gettransactioncount) を使用して `nonce` を取得し、[caver.rpc.klay.getChainId](../caver-rpc/klay.md#caver-rpc-klay-getchainid) を使用して `chainId` を取得する。
 
 **リターン・バリュー**
 
-void`を返す`約束\`。
+`void`を返す`約束`。
 
 **例**
 
@@ -631,7 +631,7 @@ void`を返す`約束\`。
 トランザクション.recoverPublicKeys()
 ```
 
-signatures\`フィールドから公開鍵文字列を復元する。
+`signatures`フィールドから公開鍵文字列を復元する。
 
 **NOTE** `transaction.recoverPublicKeys` は caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 以降でサポートされています。
 
@@ -658,7 +658,7 @@ signatures\`フィールドから公開鍵文字列を復元する。
 トランザクション.recoverFeePayerPublicKeys()
 ```
 
-feePayerSignatures\`フィールドから公開鍵文字列を復元する。
+`feePayerSignatures`フィールドから公開鍵文字列を復元する。
 
 **NOTE** `transaction.recoverFeePayerPublicKeys` は caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3) 以降でサポートされています。
 
@@ -666,7 +666,7 @@ feePayerSignatures\`フィールドから公開鍵文字列を復元する。
 
 | タイプ | 説明                                  |
 | --- | ----------------------------------- |
-| 配列  | feePayerSignatures\`から復元した公開鍵を含む配列。 |
+| 配列  | `feePayerSignatures`から復元した公開鍵を含む配列。 |
 
 **例**
 
@@ -693,7 +693,7 @@ Magmaハードフォーク前は、`suggestGasPrice`はネットワークの単�
 
 **リターン・バリュー**
 
-Promise`は`string\` を返します：16進数文字列での希望ガソリン価格。
+`Promise` は `string` を返します：16進数文字列での希望ガソリン価格。
 
 | タイプ   | 説明         |
 | ----- | ---------- |
