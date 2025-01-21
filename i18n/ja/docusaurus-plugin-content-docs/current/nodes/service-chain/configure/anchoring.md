@@ -26,7 +26,7 @@ Kaia JavaScript コンソールへようこそ！
 
 ```
 
-_This parent operator account address is derived from a keystore file in `$dataDIR/parent_bridge_account` directory._
+\*この親オペレータアカウントのアドレスは、`$dataDIR/parent_bridge_account` ディレクトリにあるキーストアファイルから派生したものです。
 
 ### Add KLAY to Parent Operator account<a id="add-klay-to-parent-operator-account"></a>
 
