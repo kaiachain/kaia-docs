@@ -156,7 +156,7 @@ main().catch(console.error);
 
 ---
 
-TxType.ValueTransfer`で値転送トランザクションを作成する：TxType.ValueTransfer`で値転送トランザクションを作成し、後で `klay_recoverFromTransaction` で復元できるようにする。
+`type: TxType.ValueTransfer` を使用して価値移転トランザクションを作成し、後で `klay_recoverFromTransaction` で回復できるようにします。
 
 ```js SignTxWithPubkeyExample.js focus=14:19
 
@@ -164,7 +164,7 @@ TxType.ValueTransfer`で値転送トランザクションを作成する：TxTyp
 
 ---
 
-populateTransaction\`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
+`populateTransaction`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
 
 <CH.Code>
 ```js SignTxWithPubkeyExample.js focus=21:23
@@ -229,7 +229,7 @@ receipt {
 
 ---
 
-klay_recoverFromMessage\`を使用して、署名されたトランザクションからアドレスを回復する。
+`klay_recoverFromMessage`を使用して、署名されたトランザクションからアドレスを回復する。
 
 <CH.Code>
 ```js SignTxWithPubkeyExample.js focus=31:34
