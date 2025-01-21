@@ -23,7 +23,7 @@ sidebar_label: Web3Modal
 
 **ステップ 1**：Web3ModalとEthereumライブラリのインストール
 
-web3Modalと、ブロックチェーンとやりとりするためのお好みのライブラリをインストールする。 このチュートリアルでは、[Web3Modal](https://github.com/WalletConnect/web3modal)から派生した[@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal)をインストールし、Kaia WalletとKlip walletを追加するように修正します。 Also, this tutorial will use ethers.js to interact with the Klaytn blockchain.
+web3Modalと、ブロックチェーンとやりとりするためのお好みのライブラリをインストールする。 このチュートリアルでは、[Web3Modal](https://github.com/WalletConnect/web3modal)から派生した[@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal)をインストールし、Kaia WalletとKlip walletを追加するように修正します。 また、このチュートリアルでは、ethers.jsを使ってKaiaブロックチェーンとやりとりします。
 
 ```bash
 npm install @klaytn/web3modal
@@ -551,7 +551,7 @@ Node fs error, add browser {fs: false} to package.json
 
 これはKlip-web3-providerをインストールしたときに発生します。  この問題を解決するには、以下の手順に従ってください：
 
-**ステップ 1**：node_modulesフォルダを開いて移動します。 Look for the @Klaytn/klip-web3-provider folder and navigate to it's package.json file as shown below:
+**ステップ 1**：node_modulesフォルダを開いて移動します。 Kaia/klip-web3-providerフォルダを探し、以下のようにpackage.jsonファイルに移動します：
 
 > **@klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json**
 
