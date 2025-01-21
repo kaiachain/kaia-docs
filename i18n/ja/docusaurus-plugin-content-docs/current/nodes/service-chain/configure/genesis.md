@@ -6,20 +6,20 @@
 
 `genesis.json`ファイルの構造は以下の表のとおりである。
 
-| フィールド名     | 説明                                                                                                               |
-| ---------- | ---------------------------------------------------------------------------------------------------------------- |
-| config     | blokchainのコンフィギュレーション。 Config](#config) の項を参照。                      |
-| nonce      | (deprecated) This field is derived from the Ethereum, but not used in Klaytn. |
-| timestamp  | ブロックが作成されたunix時間。                                                                                                |
-| extraData  | 署名者の虚栄心とRLPエンコードされたistanbulの追加データを含むデータ結合フィールドで、バリデータリスト、提案者シール、コミットシールを含む。                                      |
-| gasLimit   | ブロック内で使用されるガスの最大量。                                                                                               |
-| difficulty | (deprecated) This field is derived from the Ethereum, but not used in Klaytn. |
-| mixhash    | (deprecated) This field is derived from the Ethereum, but not used in Klaytn. |
-| coinbase   | マイナーが報酬を受け取るアドレス。 このフィールドは Clique コンセンサスエンジンのみに使用される。                                                            |
-| alloc      | 定義済みのアカウント。                                                                                                      |
-| number     | ブロック番号フィールド。                                                                                                     |
-| gasUsed    | ブロックに使用されるガスの量。                                                                                                  |
-| parentHash | 前のブロックのハッシュ値。                                                                                                    |
+| フィールド名     | 説明                                                                                          |
+| ---------- | ------------------------------------------------------------------------------------------- |
+| config     | blokchainのコンフィギュレーション。 Config](#config) の項を参照。 |
+| nonce      | (非推奨) このフィールドはイーサリアムに由来するが、カイアでは使用されない。                                  |
+| timestamp  | ブロックが作成されたunix時間。                                                                           |
+| extraData  | 署名者の虚栄心とRLPエンコードされたistanbulの追加データを含むデータ結合フィールドで、バリデータリスト、提案者シール、コミットシールを含む。                 |
+| gasLimit   | ブロック内で使用されるガスの最大量。                                                                          |
+| difficulty | (非推奨) このフィールドはイーサリアムに由来するが、カイアでは使用されない。                                  |
+| mixhash    | (非推奨) このフィールドはイーサリアムに由来するが、カイアでは使用されない。                                  |
+| coinbase   | マイナーが報酬を受け取るアドレス。 このフィールドは Clique コンセンサスエンジンのみに使用される。                                       |
+| alloc      | 定義済みのアカウント。                                                                                 |
+| number     | ブロック番号フィールド。                                                                                |
+| gasUsed    | ブロックに使用されるガスの量。                                                                             |
+| parentHash | 前のブロックのハッシュ値。                                                                               |
 
 ### Config <a id="config"></a>
 
@@ -65,7 +65,7 @@ With this function, the output `extraData` for this example is 0x000000000000000
 
 ## コンセンサス・エンジン<a id="consensus-engine"></a>
 
-The available consensus engines for Klaytn network are Clique and Istanbul. 各エンジンの説明は以下の通り。
+Kaiaネットワークで利用可能なコンセンサスエンジンは、CliqueとIstanbulである。 各エンジンの説明は以下の通り。
 
 ### Clique <a id="clique"></a>
 
