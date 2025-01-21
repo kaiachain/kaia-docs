@@ -143,21 +143,21 @@ KaiaネットワークをサポートするためにHardhatを設定した後、
 すでにデプロイされたコントラクトを検証するために、hardhat verifyプラグインを使おう。 必要なのは、Kairos Testnet用のetherscan設定オブジェクトの下にある**hardhat.config.ts**に以下の設定を追加することだけです。
 
 ```js
-  イーサースキャン{
-    apiKey：{
+  etherscan: {
+    apiKey: {
       kairos: "unnecessary",
     },
-    customChains：[
+    customChains: [
       {
-        network："kairos",
-        chainId：1001,
-        urls：{
-          apiURL："https://api-baobab.klaytnscope.com/api",
-          browserURL："https://kairos.kaiascope.com",
+        network: "kairos",
+        chainId: 1001,
+        urls: {
+          apiURL: "https://api-baobab.klaytnscope.com/api",
+          browserURL: "https://kairos.kaiascope.com",
         },
       },
     ],
-}、
+  },
 ```
 
 次に、スマート・コントラクトを検証するために、以下のコマンドをターミナルにコピー＆ペーストする：
@@ -190,7 +190,7 @@ Hardhat Verifyプラグインを使用したKaia上でのスマートコント�
 ### targetNetwork配列を変更する<a href="#modify-targetnetwork-array" id="modify-targetnetwork-array"></a>
 
 ```js
-ターゲットネットワーク[chains.klaytnBaobab]、
+targetNetworks: [chains.klaytnBaobab],
 ```
 
 以上でNext.jsの設定は完了です！ 次に、ローカルホストでdAppを起動する。
