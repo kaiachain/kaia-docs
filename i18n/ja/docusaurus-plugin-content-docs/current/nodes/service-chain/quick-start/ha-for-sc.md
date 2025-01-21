@@ -75,7 +75,7 @@ null
 
 ![](/img/nodes/sc-ha-before-register2.png)
 
-ブリッジ契約では、追加ブリッジに関する情報を更新する必要がある。 service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) の `erc20/erc20-addOperator4HA.js` ファイルに、追加したブリッジの子オペレータと親オペレータの情報を記述し、`node erc20-addOperator4HA.js` を実行する。
+ブリッジ契約では、追加ブリッジに関する情報を更新する必要がある。 [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) の `erc20/erc20-addOperator4HA.js` ファイルに、追加したブリッジの子オペレータと親オペレータの情報を記述し、`node erc20-addOperator4HA.js` を実行する。
 
 ```
 // register operator
@@ -83,7 +83,7 @@ await conf.child.newInstanceBridge.methods.registerOperator("0xCHILD_BRIDGE_ADDR
 await conf.parent.newInstanceBridge.methods.registerOperator("0xPARENT_BRIDGE_ADDR").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
 ```
 
-複数のブリッジがある場合、閾値を設定することで、より安全に値の伝達を行うことができる。 バリュー・トランスファーは、通常、閾値以上のオペレーターがバリュー・トランスファーを要求した場合にのみ有効にすることができる。 例えば、今回の例のように、ブリッジペアが2つあり、閾値が2に設定されている場合、両方が正常に要求された場合にのみ値転送を行うことができる。 つまり、1つのブリッジが攻撃を受けて異常なリクエストを送信したとしても、それを防ぐことができる。 閾値のデフォルト値は1である。 service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples)の\`erc20/erc20-addOperator4HA.js\`ファイルで、以下のコードをアンコメントして閾値を設定し、ブリッジ契約の閾値を変更するために実行してください。
+複数のブリッジがある場合、閾値を設定することで、より安全に値の伝達を行うことができる。 バリュー・トランスファーは、通常、閾値以上のオペレーターがバリュー・トランスファーを要求した場合にのみ有効にすることができる。 例えば、今回の例のように、ブリッジペアが2つあり、閾値が2に設定されている場合、両方が正常に要求された場合にのみ値転送を行うことができる。 つまり、1つのブリッジが攻撃を受けて異常なリクエストを送信したとしても、それを防ぐことができる。 閾値のデフォルト値は1である。 [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples)の`erc20/erc20-addOperator4HA.js`ファイルで、以下のコードをアンコメントして閾値を設定し、ブリッジ契約の閾値を変更するために実行してください。
 
 ```
 // // set threshold
