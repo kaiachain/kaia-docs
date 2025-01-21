@@ -5,8 +5,8 @@
 
 ## ソリディティ・サポート<a id="solidity-support"></a>
 
-- Cypress network is currently compatible with **London** Ethereum Virtual Machine (EVM).
-- Baobab network is currently compatible with **London** Ethereum Virtual Machine (EVM).
+- Kairosネットワークは現在、**ロンドン**イーサリアム仮想マシン（EVM）と互換性があります。
+- メインネットは現在、**ロンドン**イーサリアム仮想マシン（EVM）と互換性があります。
 
 :::note
 
