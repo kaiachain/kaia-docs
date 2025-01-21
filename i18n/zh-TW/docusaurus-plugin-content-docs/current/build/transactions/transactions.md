@@ -1,15 +1,15 @@
-# Implementing Transactions
+# 實作交易
 
-This guide provides a comprehensive overview of implementing transactions on the Kaia network, covering various transaction types, encoding, signing, and network interaction.
+本指南提供在 Kaia 網路上實作交易的全面概觀，涵蓋各種交易類型、編碼、簽章和網路互動。
 
-## Kaia Transaction Components
+## Kaia 交易元件
 
-Kaia transactions generally include the following components:
+Kaia 交易一般包括下列元件：
 
 | 組件            | 說明                                                                                                                                                                                                                                  |
 | :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `from`        | The sender's address.  Required for most Kaia transaction types due to the decoupling of key pairs and addresses.                                                                                   |
-| `to`          | 接收轉賬金額的賬戶地址。                                                                                                                                                                                                                        |
+| from          | 寄件者的地址。  由於 key 對和位址的解耦，對於大多數 Kaia 交易類型是必需的。                                                                                                                                                                                        |
+| to            | 接收轉賬金額的賬戶地址。                                                                                                                                                                                                                        |
 | `value`       | 以 `kei` 為單位的 KAIA 轉賬金額。                                                                                                                                                                                                             |
 | `input`       | 附屬於事務的數據，用於執行事務。                                                                                                                                                                                                                    |
 | `v`, `r`, `s` | 發送方為讓接收方獲取發送方地址而生成的加密簽名。                                                                                                                                                                                                            |
