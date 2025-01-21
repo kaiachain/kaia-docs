@@ -40,12 +40,12 @@ SCN が起動されると、親/子オペレータの鍵が存在しない場合
 パスワード・ファイルは、キーストア・ファイルのパスワード文字列を持つべきである。
 パスワード・ファイル名は、対応するキーストア・ファイルのアカウント・アドレスでなければならない。
 
-\*\*ファイル
+**ファイル**
 
 - keystore file : `UTC--2019-10-21T04-05-41.493850000Z--2ed72a9d7fe5da7672fd21567e07302431649b0b`
 - password file : `0x2eD72a9D7fe5da7672fD21567e07302431649B0B`
 
-\*\*ファイルパス
+**ファイルパス**
 
 - 親チェーン・ブリッジ・オペレーター : $datadir/parent_bridge_account
 - 子チェーン・ブリッジ・オペレーター : $datadir/child_bridge_account
@@ -93,7 +93,7 @@ If the service chain's gas price is set to non-zero, the service chain bridge op
 
 オペレーターの口座に入金した後、以下のように残高を確認することができる。
 
-\*\*親チェーンブリッジ・オペレーター
+**親チェーンブリッジ・オペレーター**
 
 ```
 $ kscn attach --datadir ~/kscnd_home
@@ -107,7 +107,7 @@ Kaia JavaScript コンソールへようこそ！
 1e+50
 ```
 
-\*\*子供のチェーンブリッジ・オペレーター
+**子供のチェーンブリッジ・オペレーター**
 
 ```
 $ kscn attach --datadir ~/kscnd_home
@@ -344,11 +344,11 @@ SC_VTRECOVERY=1`に設定すると、値移行のリカバリーが自動的に�
 
 In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
 
-\*\*近日中に更新予定。
+**近日中に更新予定。**
 
 ## ブリッジ契約のカスタマイズ <a id="customizing-your-bridge-contract"></a>
 
 ServiceChainでは、オリジナルのBridgeコントラクトを継承し、独自にカスタマイズしたBridgeコントラクトを独自のサービスに使用することができます。
 このセクションでは、ブリッジのコントラクトをカスタマイズする方法を説明し、サンプルコードを示します。
 
-\*\*まもなく更新されます。
+**まもなく更新されます。**
