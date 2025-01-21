@@ -16,13 +16,13 @@ RPC\`は[Klay]、[Net]、[Governance]を内部に含むクラスである。
 
 | 名称    | タイプ      | 説明                                               |
 | ----- | -------- | ------------------------------------------------ |
-| クレイ   | \[クレイ]   | Klay] は `klay` 名前空間を持つ JSON-RPC 呼び出しを提供する。       |
-| ネット   | \[ネット］   | net\` 名前空間を持つ JSON-RPC 呼び出しを提供する [Net] 。         |
-| ガバナンス | \[ガバナンス］ | governance\`名前空間を持つJSON-RPCコールを提供する[Governance]。 |
+| クレイ   | \[クレイ]   | [Klay] は `klay` 名前空間を持つ JSON-RPC 呼び出しを提供する。      |
+| ネット   | \[ネット］   | `net` 名前空間を持つ JSON-RPC 呼び出しを提供する [Net] 。         |
+| ガバナンス | \[ガバナンス］ | `governance`名前空間を持つJSON-RPCコールを提供する[Governance]。 |
 
 ## JSON-RPCコール<a id="json-rpc-calls"></a>
 
-caver.rpc.klay`を使うと、kaiaノードと対話することができる。 以下のリストは `caver-js\` で現在サポートされているAPI関数を列挙したものである。
+`caver.rpc.klay`を使うと、kaiaノードと対話することができる。 以下のリストは `caver-js` で現在サポートされているAPI関数を列挙したものである。
 
 ### [Account](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
 
