@@ -14,7 +14,7 @@
 
 ## ステップ1：L3のHomiデータの作成と更新<a id="step-1-create-and-update-homi"></a>
 
-ServiceChain L2 を設定するときと同様に、`homi` コマンドを実行して L3 を構築するためのスクリプトと設定ファイルを作成する。 homi`はLinux/MacのどのPCでも実行できる。 Kairos の `chainID`は`1001`で、L2 の`chainID`は前の例では`1002`に設定されていたので、便宜上 L3 の`chainID`は`1003`に設定する。 実際のサービスでブロックチェーンを運用する場合、他の ServiceChain や EVM チェーンとの`chainID`の衝突を避けるために、https://chainlist.defillama.com/ で新しい`chainID\` 値を登録する必要があります。
+ServiceChain L2 を設定するときと同様に、`homi` コマンドを実行して L3 を構築するためのスクリプトと設定ファイルを作成する。 `homi`はLinux/MacのどのPCでも実行できる。 Kairos の `chainID` は `1001` で、L2 の `chainID` は前の例では `1002` に設定されていたので、便宜上 L3 の `chainID` は `1003` に設定する。 実際のサービスでブロックチェーンを運用する場合、他の ServiceChain や EVM チェーンとの `chainID` の衝突を避けるために、https://chainlist.defillama.com/ で新しい `chainID` 値を登録する必要があります。
 
 ```console
 $ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1003 --p2p-port 22323 -o homi-output
@@ -40,7 +40,7 @@ Created :  homi-output/Kaia_txpool.json
 
 ![](/img/nodes/sc-nestedsc-ip.png)
 
-homi-output/scripts/static-nodes.json`のServiceChain L3ノードの`IPアドレス`と`ポート\`情報を更新する。
+`homi-output/scripts/static-nodes.json`のServiceChain L3ノードの`IPアドレス`と`ポート`情報を更新する。
 
 ```json
 [
@@ -51,7 +51,7 @@ homi-output/scripts/static-nodes.json`のServiceChain L3ノードの`IPアドレ
 ]
 ```
 
-homi-output\`をServiceChain L3の全SCNノード(SCN-L3-01, SCN-L3-02, SCN-L3-03, SCN-L3-04)にコピーする。
+`homi-output`をServiceChain L3の全SCNノード(SCN-L3-01, SCN-L3-02, SCN-L3-03, SCN-L3-04)にコピーする。
 
 ```console
 $ scp -r path/to/homi-output user@192.168.0.21:~/ 
@@ -77,7 +77,7 @@ $ cp   ~/homi-output/keys/nodekey{1..4}   ~/data/klay/nodekey
 
 ## ステップ2：L3のSCNコンフィギュレーション<a id="step-2-scn-configuration"></a>
 
-ServiceChain L3のすべてのSCNで`conf/kscnd.conf`を以下のように編集します：PORT` には ServiceChain のデフォルトポートである 22323 を使用します。 DATA_DIR` は `~/data` である。
+ServiceChain L3のすべてのSCNで`conf/kscnd.conf`を以下のように編集します：PORT`には ServiceChain のデフォルトポートである 22323 を使用します。`DATA_DIR`は`~/data\` である。
 
 ```
 ...
@@ -156,7 +156,7 @@ SCN-L3-01$ kscnd start
 Starting kscnd: OK
 ```
 
-subbridge.peers.length`をチェックしてSCN-L3-01がSCN-L2-03に接続されているかどうかを確認し、`subbridge.latestAnchoredBlockNumber\`をチェックして最新のアンカーブロック番号を確認し、アンカーリングが進行中かどうかを確認する。
+`subbridge.peers.length`をチェックしてSCN-L3-01がSCN-L2-03に接続されているかどうかを確認し、`subbridge.latestAnchoredBlockNumber`をチェックして最新のアンカーブロック番号を確認し、アンカーリングが進行中かどうかを確認する。
 
 ```console
 SCN-L3-01$ kscn attach --datadir ~/data
