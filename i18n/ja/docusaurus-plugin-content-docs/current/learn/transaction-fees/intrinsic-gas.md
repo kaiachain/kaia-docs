@@ -16,10 +16,10 @@
 IntrinsicGasCost = KeyCreationGas + KeyValidationGas + PayloadGas + TxTypedGas
 ```
 
-- PayloadGas\`はtxのデータフィールドのサイズに基づいて計算される。
-- KeyCreationGas`はトランザクションが新しいキーを登録するときに計算される。 accountUpdate`トランザクションでのみ適用できる。
-- KeyValidationGas\`は署名数に基づいて計算される。
-- TxTypedGas\`はトランザクションタイプに基づいて定義される。
+- `PayloadGas`はtxのデータフィールドのサイズに基づいて計算される。
+- `KeyCreationGas`はトランザクションが新しいキーを登録するときに計算される。 `accountUpdate`トランザクションでのみ適用できる。
+- `KeyValidationGas`は署名数に基づいて計算される。
+- `TxTypedGas`はトランザクションタイプに基づいて定義される。
 
 詳細に入る前に、すべてのキータイプにキーガス（`KeyCreationGas`と`KeyValidationGas`）が適用されるわけではないことを覚えておいてほしい。
 
@@ -42,11 +42,8 @@ Please keep in mind that Public key type always has only one registering key, so
 
 ## キーバリデーション・ガス<a id="keyvalidationgas"></a>
 
-`KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
-`KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
-Please keep in mind that Public key type always has only one signature key, so the gas would be always zero.\
-`KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
-Please keep in mind that Public key type always has only one signature key, so the gas would be always zero.
+KeyValidationGas`は`(署名数 - 1) x TxValidationGasPerKey(15000)\`として計算されます。\
+公開鍵タイプは常に1つの署名鍵しか持たないので、ガスは常にゼロであることに留意してください。
 
 A Klaytn transaction can also have a feePayer, so the total KeyValidationGas is like this.
 
@@ -67,13 +64,13 @@ klaytnのトランザクションには、`base`、`feeDelegated`、`feeDelegate
 例えば、こうだ、
 
 - TxTypeValueTransferはvalueTransactionトランザクションの`ベース`タイプである。
-- TxTypeFeeDelegatedValueTransferはvalueTransferトランザクションの`feeDelegated`タイプである。
-- TxTypeFeeDelegatedValueTransferWithRatio は、valueTransfer トランザクションの `feeDelegatedWithRatio` タイプである。
+- `TxTypeFeeDelegatedValueTransferはvalueTransferトランザクションの`feeDelegated\`タイプである。
+- `TxTypeFeeDelegatedValueTransferWithRatio は、valueTransfer トランザクションの `feeDelegatedWithRatio\` タイプである。
 
 これはTxTypedGasを計算する際に重要である：
 
 - まず、TxType が `feeDelegated` または `feeDelegatedWithFeeRatio` であることを確認する。
-  - TxTypeが`feeDelegated`の場合、TxTypedGasに`TxGasFeeDelegated(10000)`を追加する。
+  - `TxTypeが`feeDelegated`の場合、TxTypedGasに`TxGasFeeDelegated(10000)\`を追加する。
   - TxTypeが`feeDelegatedWithFeeRatio`の場合、TxTypedGasに`TxGasFeeDelegatedWithRatio (15000)`を追加する。
 - 次に、取引が契約を結ぶかどうかをチェックする。
   - トランザクションがコントラクトを作成する場合、TxTypedGas に `TxGasContractCreation (53000)` を追加する。
