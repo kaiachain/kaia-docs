@@ -10,7 +10,7 @@
 
 アーカイブファイルは実行バイナリとコンフィギュレーションファイルで構成され、以下のような構造になっている。
 
-**注**\*：ファイル構造やファイル名を変更しないでください。 これを変更すると、ノードが正しく機能しなくなる可能性があります。
+**注**：ファイル構造やファイル名を変更しないでください。 これを変更すると、ノードが正しく機能しなくなる可能性があります。
 
 ```text
 - bin
@@ -38,7 +38,7 @@ $ tar zxf ken-vX.X.X-linux-amd64.tar.gz
 $ tar zxf ken-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**注**\*: `ken` と `kend` をグローバルに実行するには、解凍されたディレクトリ `ken-linux-amd64/bin` のパスを環境変数 `$PATH` に追加することを推奨します。 一例を挙げよう、
+**注**: `ken` と `kend` をグローバルに実行するには、解凍されたディレクトリ `ken-linux-amd64/bin` のパスを環境変数 `$PATH` に追加することを推奨します。 一例を挙げよう、
 
 ```text
 $ export PATH=$PATH:~/downloaded/path/ken-linux-amd64/bin
@@ -60,7 +60,7 @@ $ yum install kend-vX.X.X.el7.x86_64.rpm
 $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Kaia Yum Repoからインストールする<a id="install-from-kaia-yum-repo"></a>
 
 あるいは、Kaia Yum repoから`kend`をインストールして実行することもできる：
 
@@ -86,7 +86,7 @@ EN の設定は、データ・ディレクトリを作成し、設定ファイ�
 
 ### ENデータディレクトリの作成<a id="en-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. 希望のパスにディレクトリを作成する必要がある。
+カイア・ブロックチェーンのデータサイズが増加し続けているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。 希望のパスにディレクトリを作成する必要がある。
 
 ```text
 $ sudo mkdir -p /var/kend/data
@@ -115,21 +115,21 @@ DATA_DIR=/var/kend/data
 
 以下のコマンドを使用して、エンドポイントノードを起動または停止できます。
 
-\*\*スタート
+**スタート**
 
 ```bash
 $ kend start
 Starting kend: OK
 ```
 
-\*\*ストップ
+**ストップ**
 
 ```bash
 $ kend stop
 Shutting down kend: Killed
 ```
 
-\*\*ステータス
+**ステータス**
 
 ```bash
 $ kend status
