@@ -59,7 +59,7 @@ Fatal: プロトコルスタックの起動エラー: チェーンが進んだ�
 ken attach --datadir /var/kend/data
 ```
 
-2. admin\`名前空間RPCを使用して状態の移行を制御する：
+2. `admin`名前空間RPCを使用して状態の移行を制御する：
 
 ```js
 // 開始
