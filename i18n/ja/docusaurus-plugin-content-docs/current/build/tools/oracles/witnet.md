@@ -9,7 +9,7 @@ Witnet](https://docs.witnet.io/)のマルチチェーン分散型オラクルは
 
 ## 使用方法
 
-This oracle network is currently running on the Klaytn Cypress Mainnet and Klaytn Baobab Testnet. To get started with connecting to the data feeds and randomness on Klaytn, refer to the following guides:
+このオラクルネットワークは現在、KaiaメインネットとKaia Kairosテストネットで稼働している。 カイアのデータフィードとランダム性への接続を開始するには、以下のガイドを参照してください：
 
 - [ウィットネット・プライス・フィード・チュートリアル](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/witnet-tutorial)
 - [Random Number Generation on Klaytn with Witnet](https://medium.com/klaytn/random-number-generation-on-klaytn-with-witnet-ae136dad0562)
