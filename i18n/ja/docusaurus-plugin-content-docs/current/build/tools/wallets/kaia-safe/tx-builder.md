@@ -8,17 +8,17 @@
 
 以下の手順で、トランザクションビルダーを使用してトークン転送を行うことができます：
 
-\*\*Safe Apps に移動し、Transaction Builder Safe App を開きます。
+**ステップ 1:** Safe Apps に移動し、Transaction Builder Safe App を開きます。
 
 ![](/img/build/tools/kaia-safe/ks-tx-builder.png)
 
-\*\*受取人のウォレットアドレスを入力してください。 For this guide, kindly skip the ABI field as we are trying to execute KLAY transfer transaction.
+**ステップ2:** 受取人のウォレットアドレスを入力します。 For this guide, kindly skip the ABI field as we are trying to execute KLAY transfer transaction.
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
 
-**Step 3:** Enter the KLAY value you want to send.
+**ステップ3：** 送信したいKAIA値を入力してください。
 
-> Note: In this guide, we are sending 1 KLAY, so we entered 1 in the **KLAY value** input field. You can input any amount here, depending on your Safe's KLAY balance.
+> 注：このガイドでは、1つのKAIAを送信するので、**KAIA値**入力フィールドに1を入力した。 You can input any amount here, depending on your Safe's KLAY balance.
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
 
@@ -26,7 +26,7 @@
 
 **ステップ5:** すべての受信者アドレスについて、ステップ2、3、4を繰り返します。
 
-**ステップ6：**\* バッチにすべての操作を追加したら、[Create Batch]をクリックします。
+**ステップ6：** バッチにすべての操作を追加したら、[Create Batch]をクリックします。
 
 ![](/img/build/tools/kaia-safe/token-trf-tx-builder.gif)
 
@@ -50,7 +50,7 @@
 
 ![](/img/build/tools/kaia-safe/ks-use-tx-builder.png)
 
-**ステップ3：\***あなたの**トークン契約アドレス**と**ABI**を入力します。
+**ステップ3：**あなたの**トークン契約アドレス**と**ABI**を入力します。
 
 この例では、CCTの契約アドレスとABIが使われる。 あなたのABIをコピーして**Enter ABI**フィールドに貼り付けることができます。
 
@@ -64,11 +64,11 @@
 
 ![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-details.gif)
 
-**ステップ5：**\* 取引の追加\*\*をクリックします。
+**ステップ5：** 取引の追加\*\*をクリックします。
 
-**ステップ6:**受信者アドレスごとにステップ**4**、\***5**、**6**を繰り返します。
+**ステップ6:**受信者アドレスごとにステップ**4**、**5**、**6**を繰り返します。
 
-**ステップ7：**\* すべての操作をバッチに追加したら、**Create Batch** をクリックします。
+**ステップ7：** すべての操作をバッチに追加したら、**Create Batch** をクリックします。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-batch.gif)
 
