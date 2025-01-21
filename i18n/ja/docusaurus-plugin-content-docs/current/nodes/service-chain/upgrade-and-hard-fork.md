@@ -1,18 +1,18 @@
 # アップグレード・サービス・チェーン
 
-Klaytn and its ServiceChain have constantly released new versions to develop new features and fix bugs. このページはServiceChainのバイナリをアップグレードし、ServiceChainのハードフォークブロック番号を設定するためのガイドです。
+カイアとそのServiceChainは、新機能の開発とバグの修正のため、常に新しいバージョンをリリースしてきた。 このページはServiceChainのバイナリをアップグレードし、ServiceChainのハードフォークブロック番号を設定するためのガイドです。
 
 ## アップグレード<a href="#upgrade" id="upgrade"></a>
 
 このセクションでは、ServiceChainバイナリをアップグレードする方法を示します。
 
-**注意** ServiceChainバイナリのアップグレードは、不可逆的で後方互換性がない場合があります。 詳細はリリースノートを参照。 For example, the [Klaytn v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544) says:
+**注意** ServiceChainバイナリのアップグレードは、不可逆的で後方互換性がない場合があります。 詳細はリリースノートを参照。 例えば、[Kaia v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544)にはこうある：
 
 > 注：このバージョンは、スナップショット同期をサポートするためにデータベースのバージョンを更新します。 v1.9.0にアップデート後、既存のデータで旧バージョンにダウングレードすることはできません。
 
-You can get the latest version of Klaytn and ServiceChain binaries in one of the below links:
+最新版のKaiaとServiceChainのバイナリは、以下のリンクから入手できます：
 
-- [Klaytn Docs](../downloads/downloads.md)
+- [カイア・ドックス](../downloads/downloads.md)
 - [カイアGithubリポジトリ](https://github.com/kaiachain/kaia/releases)
 
 ServiceChainバイナリをアップグレードするには、ServiceChainノードを停止してバイナリを置き換えます。 例えば、以下のコマンドを使って SCN ノードを停止し、バイナリを新しいものに置き換えることができます。
@@ -31,7 +31,7 @@ $ kscnd start
 
 ## ハードフォーク<a href="#hard-fork" id="hard-fork"></a>
 
-This section describes the steps for applying Klaytn [hard forks](../../misc/klaytn-history.md) to ServiceChain.
+このセクションでは、カイアの[ハードフォーク](../../misc/klaytn-history.md)をServiceChainに適用する手順について説明します。
 
 ServiceChainにハードフォークを適用するには、次のことが必要だ：
 
@@ -122,7 +122,7 @@ ServiceChainのバイナリを希望するハードフォークをサポート�
 }
 ```
 
-You can find the history of Klaytn hard forks in the [Klaytn Docs](../../misc/klaytn-history.md).
+Kaiaのハードフォークの歴史は[Kaia Docs](../../misc/klaytn-history.md)にあります。
 
 ハードフォークを使用して `genesis.json` を更新した場合は、チェーン設定を再初期化して変更を適用します。
 
