@@ -2,7 +2,7 @@
 
 ## 画像をダウンロード
 
-https://hub.docker.com/r/kaiachain/kaia/tags、画像タグを選択します。 kaiachain/kaia:latest\`は最近のリリースバージョンである。 しかし、特定のバージョンを選択することもできる。 現在のところ、linux/amd64プラットフォームのみがサポートされている。 コンテナはWindowsまたはMacホストでは正しく動作しない場合があります。
+https://hub.docker.com/r/kaiachain/kaia/tags、画像タグを選択します。 `kaiachain/kaia:latest`は最近のリリースバージョンである。 しかし、特定のバージョンを選択することもできる。 現在のところ、linux/amd64プラットフォームのみがサポートされている。 コンテナはWindowsまたはMacホストでは正しく動作しない場合があります。
 
 ```sh
 docker pull kaiachain/kaia:latest # 最新リリース
