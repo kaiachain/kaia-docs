@@ -4,7 +4,7 @@
 
 ネットワークの性能は、ネットワーク内の最悪のハードウェア仕様に基づいて測定される。 According to the blockchain network structure, it is only possible to be scaled up vertically (increasing hardware capacity). したがって、ネットワーク内のすべてのノードは、少なくとも互いに似たような仕様を持つ最高のハードウエアを持つことが推奨される。
 
-If you're curious about the rationale of this hardware spec, the medium article [Determining optimal hardware specs for Klaytn node operators](https://klaytn.foundation/node-operator-optimal-specs/) would help you understand.
+このハードウェア仕様の根拠が気になる方は、MEDIAの記事[Kaiaノード運用者に最適なハードウェア仕様の決定](https://klaytn.foundation/node-operator-optimal-specs/)が参考になるだろう。
 
 以下のセクションでは、CNとPNの推奨仕様を示す。
 
@@ -15,7 +15,7 @@ If you're curious about the rationale of this hardware spec, the medium article 
 | サーバー  | インテル® サーバー・システム [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html) |
 | CPU   | Intel® Xeon 8358 2.60 GHz (32-core/64-thread)                                                                |
 | メモリー  | 128GB (32GB \* 4)                                                                                                            |
-| ストレージ | 4TB（またはそれ以上のサイズ）のSSD（チェーンデータのサイズによって、望ましいストレージのサイズと構成は異なる可能性があります。 Please consult the Klaytn Team for more information.)        |
+| ストレージ | 4TB（またはそれ以上のサイズ）のSSD（チェーンデータのサイズによって、望ましいストレージのサイズと構成は異なる可能性があります。 詳しくはカイア・チームにご相談ください)。                                                        |
 
 これはCNとPNの推奨ハードウェア仕様であり、厳密な要件ではないことに注意。 同様のハードウェア構成を持つ物理的なマシンであれば、CNやPNを操作するのに十分だろう。
 
@@ -64,4 +64,4 @@ Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second bl
 ## オペレーティングシステム<a id="operating-system"></a>
 
 推奨環境はRHEL（7.8以降）です。
-Klaytn binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well. 開発用にmacOSのバイナリも提供されている。
+KaiaのバイナリはAmazon Linux 2で完全にテストされていますが、他のLinuxベースの環境でも動作するはずです。 開発用にmacOSのバイナリも提供されている。
