@@ -181,8 +181,8 @@ $ node kip7-transfer-2step-erc20-interface.js
 
 ## KIP-7およびKIP-17のネイティブ・サポート（実装予定）<a id="native-support-for-kip-7-and-kip-17-to-be-implemented"></a>
 
-Currently, the bridge contract provided by the Klaytn team supports only `requestERC20Transfer()` and `requestERC721Transfer()` for token transfer. KIP-7とKIP-17に対応するリクエスト機能は近日中にサポートされる予定である。 実装が完了する前に、上で見たように、ERC-20インターフェースを使用してKIP-7トークンを転送することができます。
+現在、Kaiaチームが提供しているブリッジ契約は、トークン転送のために `requestERC20Transfer()` と `requestERC721Transfer()` のみをサポートしています。 KIP-7とKIP-17に対応するリクエスト機能は近日中にサポートされる予定である。 実装が完了する前に、上で見たように、ERC-20インターフェースを使用してKIP-7トークンを転送することができます。
 
 ## Value Transfer for ERC-721, KIP-17, and KLAY <a id="value-transfer-for-erc721-kip17-and-klay"></a>
 
-The workflow for ERC-721, KIP-17, and KLAY is the same as above. [`erc721`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/erc721), [`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/kip17), and [`klay`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/klay) directories contain corresponding example source code.
+The workflow for ERC-721, KIP-17, and KLAY is the same as above. [`erc721`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/erc721)、[`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/kip17)、[`kaia`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/klay)の各ディレクトリには、対応するサンプルソースコードが含まれています。
