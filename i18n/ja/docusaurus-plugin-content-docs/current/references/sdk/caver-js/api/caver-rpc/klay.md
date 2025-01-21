@@ -20,7 +20,7 @@ caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`boolean\` を返す。
+`Promise` は `boolean` を返す。
 
 | タイプ   | 説明             |
 | ----- | -------------- |
@@ -53,7 +53,7 @@ caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                    |
 | ------ | ------------------------------------- |
@@ -110,7 +110,7 @@ caver.rpc.klay.getAccountKey(address [, blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                                  |
 | ------ | --------------------------------------------------- |
@@ -195,7 +195,7 @@ AccountKey 情報を含むオブジェクトを、RLP (Recursive Length Prefix) 
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                     |
 | ----- | ---------------------- |
@@ -314,7 +314,7 @@ RLPエンコードされたAccountKeyをデコードする。 また、[caver.ac
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                  |
 | ------ | ----------------------------------- |
@@ -430,7 +430,7 @@ caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                    |
 | ----- | --------------------- |
@@ -461,7 +461,7 @@ caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明             |
 | ----- | -------------- |
@@ -492,7 +492,7 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                               |
 | ----- | -------------------------------- |
@@ -523,7 +523,7 @@ caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`boolean\` を返す。
+`Promise` は `boolean` を返す。
 
 | タイプ   | 説明                                          |
 | ----- | ------------------------------------------- |
@@ -560,7 +560,7 @@ caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                      |
 | ----- | ----------------------- |
@@ -589,7 +589,7 @@ kaiaノードが所有するアドレスのリストを返します。
 
 **リターン・バリュー**
 
-Promise`は`Array\` を返す。
+`Promise` は `Array` を返す。
 
 | タイプ | 説明                   |
 | --- | -------------------- |
@@ -621,7 +621,7 @@ caver.rpc.klay.getBlockNumber([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                  |
 | ----- | ------------------- |
@@ -651,7 +651,7 @@ caver.rpc.klay.getHeader(blockNumberOrHash [, callback])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                                                                                                                                       |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -697,7 +697,7 @@ caver.rpc.klay.getHeaderByNumber(ブロック番号 [, returnTransactionObjects]
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                                                                                                                                       |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -732,7 +732,7 @@ Promise`は`object\` を返す。
 caver.rpc.klay.getHeaderByHash(blockHash [, returnTransactionObjects] [, callback])
 ```
 
-blockHash\` を使用して、最新のブロックのブロック番号を返す。
+`blockHash` を使用して、最新のブロックのブロック番号を返す。
 
 \*\*パラメーター
 
@@ -743,12 +743,12 @@ blockHash\` を使用して、最新のブロックのブロック番号を返�
 
 **リターン・バリュー**
 
-Promise`は `object\` を返す - オブジェクトはブロックヘッダを含む：
+`Promise`は `object` を返す - オブジェクトはブロックヘッダを含む：
 
 | 名称          | タイプ   | 説明                                                                                      |
 | ----------- | ----- | --------------------------------------------------------------------------------------- |
 | 基本ガス料金      | ストリング | ガス1本あたりの基本料金。 この値は、そのブロック番号に対して EthTxTypeCompatibleBlock が有効になっている場合にのみ返される。            |
-| ブロックスコア     | ストリング | ブロックチェーン・ネットワークにおけるマイニングの難易度。 blockScore\`の使い方は、ネットワークのコンセンサスとは異なる。 BFTコンセンサスエンジンでは常に1。 |
+| ブロックスコア     | ストリング | ブロックチェーン・ネットワークにおけるマイニングの難易度。 `blockScore`の使い方は、ネットワークのコンセンサスとは異なる。 BFTコンセンサスエンジンでは常に1。 |
 | エクストラデータ    | ストリング | このブロックの「追加データ」フィールド。                                                                    |
 | ガス使用済み      | ストリング | このブロック内のすべての取引で使用されたガスの合計。                                                              |
 | ガバナンスデータ    | ストリング | RLPエンコードされたガバナンス・コンフィギュレーション                                                            |
@@ -804,7 +804,7 @@ caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callba
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                                                                                                                              |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -855,7 +855,7 @@ caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, call
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                                                                                                                                 |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -894,7 +894,7 @@ Promise`は`object\` を返す。
 caver.rpc.klay.getBlockByHash(blockHash [, returnTransactionObjects] [, callback])
 ```
 
-blockHash\` を使用して、最新のブロックのブロック番号を返す。
+`blockHash` を使用して、最新のブロックのブロック番号を返す。
 
 \*\*パラメーター
 
@@ -906,12 +906,12 @@ blockHash\` を使用して、最新のブロックのブロック番号を返�
 
 **リターン・バリュー**
 
-Promise`は `object\` を返す - ブロックを含むオブジェクト：
+`Promise`は `object` を返す - ブロックを含むオブジェクト：
 
 | 名称          | タイプ   | 説明                                                                                      |
 | ----------- | ----- | --------------------------------------------------------------------------------------- |
 | 基本ガス料金      | ストリング | ガス1本あたりの基本料金。 この値は、そのブロック番号に対して EthTxTypeCompatibleBlock が有効になっている場合にのみ返される。            |
-| ブロックスコア     | ストリング | ブロックチェーン・ネットワークにおけるマイニングの難易度。 blockScore\`の使い方は、ネットワークのコンセンサスとは異なる。 BFTコンセンサスエンジンでは常に1。 |
+| ブロックスコア     | ストリング | ブロックチェーン・ネットワークにおけるマイニングの難易度。 `blockScore`の使い方は、ネットワークのコンセンサスとは異なる。 BFTコンセンサスエンジンでは常に1。 |
 | エクストラデータ    | ストリング | このブロックの「追加データ」フィールド。                                                                    |
 | ガス使用済み      | ストリング | このブロック内のすべての取引で使用されたガスの合計。                                                              |
 | ガバナンスデータ    | ストリング | RLPエンコードされたガバナンス・コンフィギュレーション                                                            |
@@ -974,7 +974,7 @@ caver.rpc.klay.getBlockReceipts(blockHash [, callback])
 
 **リターン・バリュー**
 
-Promise`は`Array\` を返す。
+`Promise` は `Array` を返す。
 
 | タイプ | 説明                                                                                                                                                                                                                      |
 | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1032,7 +1032,7 @@ caver.rpc.klay.getBlockTransactionCountByNumber(ブロック番号 [, コール�
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                          |
 | ----- | --------------------------- |
@@ -1062,7 +1062,7 @@ caver.rpc.klay.getBlockTransactionCountByHash(blockHash [, callback])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                          |
 | ----- | --------------------------- |
@@ -1092,7 +1092,7 @@ caver.rpc.klay.getBlockWithConsensusInfoByNumber(ブロック番号 [, コール
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ   | 説明                                                                                                                                                                                                   |
 | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1292,7 +1292,7 @@ caver.rpc.klay.getCommittee([blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`Array\` を返す。
+`Promise` は `Array` を返す。
 
 | タイプ | 説明                                 |
 | --- | ---------------------------------- |
@@ -1355,7 +1355,7 @@ caver.rpc.klay.getCouncil([blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`Array\` を返す。
+`Promise` は `Array` を返す。
 
 | タイプ | 説明                                                    |
 | --- | ----------------------------------------------------- |
@@ -1420,7 +1420,7 @@ caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明         |
 | ----- | ---------- |
@@ -1449,7 +1449,7 @@ caver.rpc.klay.isMinting([コールバック])
 
 **リターン・バリュー**
 
-Promise`は `boolean`- クライアントがマイニング中であれば`true`を返し、そうでなければ`false\` を返す。
+`Promise`は `boolean` - クライアントがマイニング中であれば `true` を返し、そうでなければ `false` を返す。
 
 **例**
 
@@ -1516,20 +1516,20 @@ caver.rpc.klay.call(callObject [, blockNumber] [, callback])
 | ブロック番号    | number \\ | (オプション) ブロック番号、または `latest` または `earliest` という文字列。 省略した場合は `latest` が使用される。 |
 | コールバック    | 機能          | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。            |
 
-callObject\`は以下のプロパティを持つ：
+`callObject`は以下のプロパティを持つ：
 
 | 名称   | タイプ   | 説明                                                                                                                                                                                                                                                                                |
 | ---- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | への   | ストリング | (新しいコントラクトのデプロイメントをテストする場合はオプション) トランザクションの送信先アドレス。                                                                                                                                                                                                            |
 | 入力   | ストリング | (オプション) メソッドのシグネチャとエンコードされたパラメータのハッシュ。 caver.abi.encodeFunctionCall](../caver.abi.md#encodefunctioncall) を使用できます。 |
 | より   | ストリング | (オプション) トランザクションの送信元アドレス。                                                                                                                                                                                                                                      |
-| ガス   | ストリング | (オプション) トランザクション実行のために提供されるガス。 klay_call\`はガスを消費しないが、実行によってはこのパラメータが必要になることがある。                                                                                                                                                           |
+| ガス   | ストリング | (オプション) トランザクション実行のために提供されるガス。 `klay_call`はガスを消費しないが、実行によってはこのパラメータが必要になることがある。                                                                                                                                                                                |
 | ガス価格 | ストリング | (オプション) 各有料ガスに使用される gasPrice。                                                                                                                                                                                                                                  |
 | 価値   | ストリング | (オプション) このトランザクションと共に `peb` で送られる値。                                                                                                                                                                                                                            |
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                                   |
 | ----- | ------------------------------------ |
@@ -1559,7 +1559,7 @@ caver.rpc.klay.call](#caver-rpc-klay-call) パラメータを参照。ただし�
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明      |
 | ----- | ------- |
@@ -1589,7 +1589,7 @@ caver.rpc.klay.call](#caver-rpc-klay-call) パラメータを参照。ただし�
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明         |
 | ----- | ---------- |
@@ -1623,7 +1623,7 @@ caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                                                                                                                 |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -1669,7 +1669,7 @@ caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callbac
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                                                                                                                 |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -1805,7 +1805,7 @@ caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                                                                                                                 |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -1855,7 +1855,7 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 
 **リターン・バリュー**
 
-Promise`は`object`- トランザクションのレシートオブジェクト、またはレシートが見つからない場合は`null\` を返す：
+`Promise` は `object` - トランザクションのレシートオブジェクト、またはレシートが見つからない場合は `null` を返す：
 
 | 名称             | タイプ   | 説明                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | -------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1965,7 +1965,7 @@ caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                                                                                                                      |
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2007,7 +2007,7 @@ caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
 
 kaiaに`signed transaction`を送る。
 
-signedTransaction`パラメータには "RLP-encoded signed transaction "を指定することができる。 transaction.getRLPEncoding`を使用すると、署名付きトランザクションのRLPエンコードされたトランザクションを取得できる。 便宜上、`caver.rpc.klay.sendRawTransaction` は「署名済みトランザクションインスタンス」もパラメータとして受け付ける。
+`signedTransaction`パラメータには "RLP-encoded signed transaction "を指定することができる。 `transaction.getRLPEncoding`を使用すると、署名付きトランザクションのRLPエンコードされたトランザクションを取得できる。 便宜上、`caver.rpc.klay.sendRawTransaction` は「署名済みトランザクションインスタンス」もパラメータとして受け付ける。
 
 \*\*パラメーター
 
@@ -2024,9 +2024,9 @@ signedTransaction`パラメータには "RLP-encoded signed transaction "を指�
 
 PromiEventでは、以下のイベントが利用可能です：
 
-- transactionHash`は`string\` を返す：トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。
-- receipt`は `object\` を返す：トランザクションのレシートが利用可能になったときに発生する。 詳細は[caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)を参照。
-- error`は`Error\` を返す：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。
+- `transactionHash` は `string` を返す：トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。
+- `receipt`は `object` を返す：トランザクションのレシートが利用可能になったときに発生する。 詳細は[caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)を参照。
+- `error` は `Error` を返す：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。
 
 **例**
 
@@ -2086,9 +2086,9 @@ caver.rpc.klay.sendTransaction(transaction [, callback])
 
 PromiEventでは、以下のイベントが利用可能です：
 
-- transactionHash`は`string\` を返す：トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。
-- receipt`は `object\` を返す：トランザクションのレシートが利用可能になったときに発生する。 詳細は[caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)を参照。
-- error`は`Error\` を返す：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。
+- `transactionHash` は `string` を返す：トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。
+- `receipt`は `object` を返す：トランザクションのレシートが利用可能になったときに発生する。 詳細は[caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)を参照。
+- `error` は `Error` を返す：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。
 
 **例**
 
@@ -2135,7 +2135,7 @@ caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 
 自分のkaia Nodeにある`インポートされたアカウントの秘密鍵`を使って、トランザクション`fee payer`として手数料委任トランザクションに署名し、そのトランザクションをkaiaに伝播する。
 
-sendTransaction`を手数料の支払者として使用する前に、トランザクションの送信者は有効な署名をし、 `nonce\`が定義されていなければならない。
+`sendTransaction`を手数料の支払者として使用する前に、トランザクションの送信者は有効な署名をし、 `nonce`が定義されていなければならない。
 
 各トランザクション・タイプの詳細については、[トランザクション](../caver-transaction/caver-transaction.md#class)を参照してください。
 
@@ -2156,9 +2156,9 @@ sendTransaction`を手数料の支払者として使用する前に、トラン�
 
 PromiEventでは、以下のイベントが利用可能です：
 
-- transactionHash`は`string\` を返す：トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。
-- receipt`は `object\` を返す：トランザクションのレシートが利用可能になったときに発生する。 詳細は[caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)を参照。
-- error`は`Error\` を返す：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。
+- `transactionHash` は `string` を返す：トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発生する。
+- `receipt`は `object` を返す：トランザクションのレシートが利用可能になったときに発生する。 詳細は[caver.rpc.klay.getTransactionReceipt](#caver-rpc-klay-gettransactionreceipt)を参照。
+- `error` は `Error` を返す：送信中にエラーが発生した場合に発生する。 ガス欠エラーの場合、2番目のパラメータはレシートとなる。
 
 **例**
 
@@ -2229,7 +2229,7 @@ caver.rpc.klay.signTransaction(transaction [, callback])
 
 **リターン・バリュー**
 
-Promise`は `object\` を返す - オブジェクトは署名されたトランザクションを含む：
+`Promise`は `object` を返す - オブジェクトは署名されたトランザクションを含む：
 
 | 名称 | タイプ    | 説明                       |
 | -- | ------ | ------------------------ |
@@ -2285,7 +2285,7 @@ kaiaノードにある「インポートされたアカウントの秘密鍵」�
 
 **リターン・バリュー**
 
-Promise`は `object\` を返す - オブジェクトは署名されたトランザクションを含む：
+`Promise`は `object` を返す - オブジェクトは署名されたトランザクションを含む：
 
 | 名称 | タイプ    | 説明                           |
 | -- | ------ | ---------------------------- |
@@ -2348,7 +2348,7 @@ caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback]
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す - オブジェクトはデコードされたアンカーデータを含む：
+`Promise` は `object` を返す - オブジェクトはデコードされたアンカーデータを含む：
 
 | 名称          | タイプ   | 説明                                                                                                               |
 | ----------- | ----- | ---------------------------------------------------------------------------------------------------------------- |
@@ -2393,7 +2393,7 @@ caver.rpc.klay.getChainId([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明       |
 | ----- | -------- |
@@ -2422,7 +2422,7 @@ kaiaノードの現在のクライアントバージョンを返します。
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                      |
 | ----- | ----------------------- |
@@ -2451,7 +2451,7 @@ caver.rpc.klay.getGasPrice([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明         |
 | ----- | ---------- |
@@ -2481,7 +2481,7 @@ caver.rpc.klay.getGasPriceAt([ブロック番号] [, コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明         |
 | ----- | ---------- |
@@ -2510,7 +2510,7 @@ peb関数は、pebのダイナミックフィー取引で推奨されるガス�
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                 |
 | ----- | ------------------ |
@@ -2539,7 +2539,7 @@ caver.rpc.klay.getLowerBoundGasPrice([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明         |
 | ----- | ---------- |
@@ -2568,7 +2568,7 @@ caver.rpc.klay.getUpperBoundGasPrice([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明          |
 | ----- | ----------- |
@@ -2643,7 +2643,7 @@ caver.rpc.klay.createAccessList(txCallObject [, callback])
 
 **リターン・バリュー**
 
-Promise`は `object\` を返す - オブジェクトにはアクセスリストが含まれる：
+`Promise`は `object` を返す - オブジェクトにはアクセスリストが含まれる：
 
 | 名称      | タイプ   | 説明                                                                                                           |
 | ------- | ----- | ------------------------------------------------------------------------------------------------------------ |
@@ -2681,11 +2681,11 @@ caver.rpc.klay.isParallelDBWrite([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`boolean\` を返す。
+`Promise` は `boolean` を返す。
 
 | タイプ   | 説明                                                                              |
 | ----- | ------------------------------------------------------------------------------- |
-| ブーリアン | true`はノードがブロックチェーンのデータを並列に書き込んでいることを意味する。 ノードがデータをシリアルに書き込んでいる場合は `false\` となる。 |
+| ブーリアン | `true`はノードがブロックチェーンのデータを並列に書き込んでいることを意味する。 ノードがデータをシリアルに書き込んでいる場合は `false` となる。 |
 
 **例**
 
@@ -2710,11 +2710,11 @@ caver.rpc.klay.isSenderTxHashIndexingEnabled([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`boolean\` を返す。
+`Promise` は `boolean` を返す。
 
 | タイプ   | 説明                                                                      |
 | ----- | ----------------------------------------------------------------------- |
-| ブーリアン | true\`は、ノードが送信者トランザクションハッシュとトランザクションハッシュのマッピング情 報のインデックスを作成していることを意味する。 |
+| ブーリアン | `true`は、ノードが送信者トランザクションハッシュとトランザクションハッシュのマッピング情 報のインデックスを作成していることを意味する。 |
 
 **例**
 
@@ -2739,7 +2739,7 @@ caver.rpc.klay.getProtocolVersion([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                   |
 | ----- | -------------------- |
@@ -2768,7 +2768,7 @@ caver.rpc.klay.getRewardbase([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明            |
 | ----- | ------------- |
@@ -2798,7 +2798,7 @@ caver.rpc.klay.getFilterChanges(filterId [, callback])
 
 **リターン・バリュー**
 
-Promise`は`Array\` - ログオブジェクトの配列、または最後のポーリングから何も変更がない場合は空の配列を返す。
+`Promise` は `Array` - ログオブジェクトの配列、または最後のポーリングから何も変更がない場合は空の配列を返す。
 
 - caver.rpc.klay.newBlockFilter](#caver-rpc-klay-newblockfilter) で作成されたフィルタでは、ブロックハッシュが返されます。
 - caver.rpc.klay.newPendingTransactionFilter](#caver-rpc-klay-newpendingtransactionfilter) で作成されたフィルタの場合、返り値はトランザクションハッシュ、_例えば `["0x6345343454645..."]` です。
@@ -2941,7 +2941,7 @@ caver.rpc.klay.newBlockFilter([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明       |
 | ----- | -------- |
@@ -2963,7 +2963,7 @@ caver.rpc.klay.newFilter(options [, callback])
 与えられたフィルターオプションを使用して、特定の状態変化 (ログ) を受け取るフィルターオブジェクトを作成します。
 
 - 状態が変更されたかどうかを確認するには、[caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) を呼び出す。
-- newFilter\` によって作成されたフィルタにマッチするすべてのログを取得するには、[caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs) を呼び出します。
+- `newFilter` によって作成されたフィルタにマッチするすべてのログを取得するには、[caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs) を呼び出します。
 
 フィルターオブジェクトのトピックの詳細については、[Kaia Platform API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter) を参照してください。
 
@@ -2985,7 +2985,7 @@ caver.rpc.klay.newFilter(options [, callback])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明       |
 | ----- | -------- |
@@ -3017,7 +3017,7 @@ caver.rpc.klay.newPendingTransactionFilter([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明       |
 | ----- | -------- |
@@ -3047,7 +3047,7 @@ caver.rpc.klay.uninstallFilter(filterId [, callback])
 
 **リターン・バリュー**
 
-Promise`は`boolean\` を返す。
+`Promise` は `boolean` を返す。
 
 | タイプ   | 説明                                                  |
 | ----- | --------------------------------------------------- |
@@ -3077,7 +3077,7 @@ Keccak-256（標準のSHA3-256ではない）を返します。 この代わり�
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明               |
 | ----- | ---------------- |
