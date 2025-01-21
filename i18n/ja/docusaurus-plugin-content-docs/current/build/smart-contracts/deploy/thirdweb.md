@@ -122,7 +122,7 @@ npx thirdweb deploy
    - **__royaltyRecipient**：二次販売からのロイヤルティを受け取るウォレットアドレス
    - **ロイヤリティBps**：二次販売ごとにロイヤリティ受取人に付与されるベーシス・ポイント（bps）。
 
-3. Select `Klaytn Mainnet Cypress` as the network to deploy the contract to.
+3. 契約を展開するネットワークとして`Kaia Mainnet`を選択する。
 
 ![](/img/build/get-started/nft-collection-deploy.png)
 
