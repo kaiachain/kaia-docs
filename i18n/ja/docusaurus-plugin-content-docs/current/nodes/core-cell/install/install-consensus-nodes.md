@@ -62,7 +62,7 @@ $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 
 ### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
 
-Alternatively, you can install `kcnd` from the Klaytn Yum repo, run:
+あるいは、Kaia Yum repoから`kcnd`をインストールして実行することもできる：
 
 ```bash
 sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kcnd
@@ -83,7 +83,7 @@ CNのコンフィギュレーションは、データディレクトリを作成
 
 1. CNデータディレクトリを作成する。
 2. ノードキーのインストール
-3. kcnd.conf\`でCNを設定する。
+3. `kcnd.conf`でCNを設定する。
 
 ### CNデータディレクトリの作成<a id="cn-data-directory-creation"></a>
 
@@ -95,7 +95,7 @@ $ mkdir -p /var/kcnd/data
 
 ### ノードキーのインストール<a id="install-node-key"></a>
 
-CNを操作するには、`nodekey`が必要である。 KCNのバイナリをお持ちでない場合は、新しいバイナリを作成します。 もしあれば、CNデータディレクトリに`nodekey`を置く必要がある。 nodekey`の作成方法は'[インストールする前に](./before-you-install.md)'のセクションで説明されている。 以下のコマンドラインは`nodekey\`をCN dataディレクトリにコピーする。
+CNを操作するには、`nodekey`が必要である。 KCNのバイナリをお持ちでない場合は、新しいバイナリを作成します。 もしあれば、CNデータディレクトリに`nodekey`を置く必要がある。 `nodekey`の作成方法は'[インストールする前に](./before-you-install.md)'のセクションで説明されている。 以下のコマンドラインは`nodekey`をCN dataディレクトリにコピーする。
 
 ```bash
 $ cp nodekey /var/kcnd/data
@@ -149,7 +149,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-作成したキーストアとパスワードはかなり重要なので、管理には十分注意すること。 kcnd.conf\`の詳細については、[設定ファイル](../../../misc/operation/configuration.md)のセクションを参照してください。
+作成したキーストアとパスワードはかなり重要なので、管理には十分注意すること。 `kcnd.conf`の詳細については、[設定ファイル](../../../misc/operation/configuration.md)のセクションを参照してください。
 
 ### (オプション）Chaindata Snapshotのダウンロード
 
@@ -159,7 +159,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 ### CNスタート/ストップ <a id="cn-start-stop"></a>
 
-You can start/stop the Klaytn service with the following `systemctl` command.
+以下の `systemctl` コマンドでKaiaサービスを開始/停止できる。
 
 **注**\*：これにはroot権限が必要です。
 
@@ -220,7 +220,7 @@ Core Cellが正常にインストールされ、期待通りに動作してい�
 
 #### systemctl <a id="systemctl"></a>
 
-systemctl\`はRPMと一緒にインストールされ、以下のようにCNの状態をチェックすることができる。
+`systemctl`はRPMと一緒にインストールされ、以下のようにCNの状態をチェックすることができる。
 
 ```bash
 $ systemctl status kcnd.service
@@ -242,7 +242,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Start
 
 #### kcnd <a id="kcnd-kpnd"></a>
 
-kcnd\`はパッケージと一緒にインストールされ、CNの状態は以下のように確認できる。
+`kcnd`はパッケージと一緒にインストールされ、CNの状態は以下のように確認できる。
 
 ```bash
 $ kcnd status
@@ -271,7 +271,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ### kcnコンソール<a id="kcn-console-kpn-console"></a>
 
-Klaytn provides a CLI client: `kcn console`. しかし、CNは、セキュリティ上の理由から、クライアントのRPCイン ターフェースを無効にすることができる。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。
+KaiaはCLIクライアント`kcn console`を提供している。 しかし、CNは、セキュリティ上の理由から、クライアントのRPCイン ターフェースを無効にすることができる。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。
 
 IPC ファイル `klay.ipc` は CN の `DATA_DIR` パスにある。
 
@@ -291,8 +291,8 @@ $ ken attach --datadir /var/kend/data
 
 CNのステータスをチェックするのに便利なAPI：
 
-- `klay.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+- `kaia.blockNumber` (最新のブロック番号を取得する)
+- `net.peerCount` (現在接続されているKaiaノードの数を取得する)
 
 #### klay.blockNumber  <a id="klay-blocknumber"></a>
 
