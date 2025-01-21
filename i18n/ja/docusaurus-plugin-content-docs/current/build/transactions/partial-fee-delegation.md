@@ -2,7 +2,7 @@
 
 ## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransferWithRatio is limited to send KLAY to an externally owned account. したがって、TxTypeFeeDelegatedValueTransferWithRatioは、`to`が外部所有口座である場合にのみ受け入れられる。 To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio) instead. このトランザクションタイプでは、以下の変更が行われる。
+TxTypeFeeDelegatedValueTransferWithRatio is used when a user wants to send KLAY. カイアは、各トランザクションタイプが単一の目的を果たすように、複数のトランザクションタイプを提供するため、TxTipeFeyDelegatedValueTransferWithRatioは、KAIAを外部所有口座に送信するように制限されています。 したがって、TxTypeFeeDelegatedValueTransferWithRatioは、`to`が外部所有口座である場合にのみ受け入れられる。 To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio) instead. このトランザクションタイプでは、以下の変更が行われる。
 
 1. 手数料支払者の残高は、取引手数料の所定の比率だけ減少する。
 2. 送信者の残高は、残りの取引手数料分だけ減少する。 例えば、`feeRatio`が30であれば、手数料の30%は手数料を支払う側が支払い、残りの70%は手数料を支払う側が支払うことになります。
@@ -904,13 +904,13 @@ SenderTxHash c0818be4cffbacfe29be1134e0267e10fd1afb6571f4ccc95dcc67a788bab5e7
 
 ## TxTypeFeeDelegatedChainDataAnchoringWithRatio <a id="txtypefeedelegatedchaindataanchoringwithratio"></a>
 
-TxTypeFeeDelegatedChainDataAnchoringWithRatio is a fee-delegated transaction, with the ratio, that anchors service chain data to the Klaytn mainchain.
-Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data.
+TxTypeFeeDelegatedChainDataAnchoringWithRatioは、サービスチェーンデータをカイアメインチェーンにアンカーする、比率を持つ手数料委任トランザクションである。
+サービスチェーンはこの種のトランザクションを定期的にKaiaメインチェーンに送信し、データの安全性と信頼性を確保します。
 データ・アンカリングの詳細については、[アンカリング](../../nodes/service-chain/configure/anchoring.md)を参照のこと。
 この取引も所定の比率による手数料委任取引であるため、手数料支払者は所定の比率に基づく取引手数料の所定の部分のみを負担し、残りを送金者が支払う。
 このトランザクションをRPC経由で送信することは禁じられている。
 現在、この取引はセキュリティ上の理由から、プライベートなp2pチャネルを通じて実行されている。
-This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+このトランザクションは、送信者のnonceが1増加した以外は、Kaiaブロックチェーンの状態を変更しない。
 
 ### 属性<a id="attributes"></a>
 
