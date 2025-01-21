@@ -4,20 +4,20 @@ Endpoint NodeはJSON-RPC APIを公開します。 APIの有効／無効は以下
 
 **注**\*：注意: HTTP (`rpc`) または WebSocket (`ws`) インターフェース上で API を提供すると、このインターフェースにアクセスできるすべての人 (DApps, ブラウザのタブなど) に
 アクセス権が与えられます。 どのAPI（
-）を有効にするかは注意してください。 By default, Klaytn enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
+）を有効にするかは注意してください。 デフォルトでは、Kaia は IPC (`ipc`) インターフェース上のすべての API を有効にするが、`rpc` と `ws` については必要なモジュールを明示的に有効にする必要がある。
 
 ## APIの有効化 <a id="enabling-apis"></a>
 
 ### コマンドラインから<a id="from-commandline"></a>
 
-To offer the APIs over the Klaytn RPC endpoints, please specify them with the `--${interface}api`
-command-line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
+KaiaのRPCエンドポイント上でAPIを提供するには、`--${interface}api`
+コマンドライン引数で指定してください。ここで `${interface}` はHTTPエンドポイントの場合は `rpc` 、WebSocketエンドポイントの場合は `ws` となります。
 
 ipc\` は、フラグなしで unix ソケット (Unix) または名前付きパイプ (Windows) のエンドポイントを介してすべての API を提供する。
 
 You can launch a Klaytn node with specific APIs you want to add like the example below. しかし、一度ノードを立ち上げるとAPIを変更することはできないことを覚えておいてほしい。
 
-Example) launching a Klaytn node with `klay` and `net` modules enabled:
+例) `kaia` と `net` モジュールを有効にして Kaia ノードを起動する：
 
 ```shell
 $ ken --rpcapi klay,net --rpc --{other options}
@@ -93,7 +93,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": 
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 
-rpc.unsafe-debug.disable` フラグを設定するには、`kend.conf\` ファイルに以下の行を追加する。
+`rpc.unsafe-debug.disable` フラグを設定するには、`kend.conf` ファイルに以下の行を追加する。
 
 ```
 ADDITIONAL="$ADDITIONAL --rpc.unsafe-debug.disable"
