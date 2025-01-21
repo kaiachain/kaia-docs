@@ -2,13 +2,13 @@
 
 ## 概要<a id="overview"></a>
 
-カイアチームは、カイアCCNの監視サイトを[http://node.kaia.io:3000](http://node.kaia.io:3000)に提供している。 telegraf\`監視エージェントはCCの各CN/PNにインストールされ、メトリクスを収集し、監視サーバーに送信する。 Once installed, you may visit the monitoring site to view the metrics of the Klaytn CCs.
+カイアチームは、カイアCCNの監視サイトを[http://node.kaia.io:3000](http://node.kaia.io:3000)に提供している。 `telegraf`監視エージェントはCCの各CN/PNにインストールされ、メトリクスを収集し、監視サーバーに送信する。 Once installed, you may visit the monitoring site to view the metrics of the Klaytn CCs.
 
 インストール手順は以下の通り：
 
 1. CN/PNに`telegraf`をインストールする。
-2. telegraf\`を設定する
-3. telegraf\`を開始する。
+2. `telegraf`を設定する
+3. `telegraf`を開始する。
 
 ## テレグラフ・インストール<a id="telegraf-installation"></a>
 
@@ -53,7 +53,7 @@ tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 
 **テレグラフサービスを設定する**。
 
-Copy the following file to the `telegraf` configuration directory (`/etc/telegraf/telegraf.d/`), and edit `nodetype`, `instance`, and `hostname` appropriately for each node:
+以下のファイルを `telegraf` 設定ディレクトリにコピーし、各ノードの `nodetype`、`instance`、`hostname` を適切に編集する：
 
 ```text
 [global_tags]
@@ -75,7 +75,7 @@ Copy the following file to the `telegraf` configuration directory (`/etc/telegra
   urls = [ "http://localhost:61001/metrics" ]
 ```
 
-etc/telegraf/telegraf.conf\`の以下を変更してください：
+`etc/telegraf/telegraf.conf`の以下を変更してください：
 
 - outputs.influxdb]]\`セクションをコメントアウトする。
 
