@@ -2,7 +2,7 @@
 
 ## 概要<a id="overview"></a>
 
-カイアチームは、カイアCCNの監視サイトを[http://node.kaia.io:3000](http://node.kaia.io:3000)に提供している。 `telegraf`監視エージェントはCCの各CN/PNにインストールされ、メトリクスを収集し、監視サーバーに送信する。 Once installed, you may visit the monitoring site to view the metrics of the Klaytn CCs.
+カイアチームは、カイアCCNの監視サイトを[http://node.kaia.io:3000](http://node.kaia.io:3000)に提供している。 `telegraf`監視エージェントはCCの各CN/PNにインストールされ、メトリクスを収集し、監視サーバーに送信する。 インストールが完了したら、モニタリング・サイトにアクセスして、カイアCCのメトリクスを見ることができます。
 
 インストール手順は以下の通り：
 
