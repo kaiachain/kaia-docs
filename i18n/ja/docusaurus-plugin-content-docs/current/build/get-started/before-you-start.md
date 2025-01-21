@@ -8,7 +8,7 @@
 \*\*エンドポイントノード
 
 - Your [Endpoint Node](../../nodes/endpoint-node/endpoint-node.md) is needed to connect to the Klaytn network and to issue an API call or send a transaction.
-- `ken` is a Klaytn Endpoint Node binary. `ken` は2つのインターフェイス、[コマンドラインインターフェイス](../../nodes/endpoint-node/ken-cli-commands.md)と[JSON-RPC API](../../../references/json-rpc/klay/account-created)を公開している。 `ken`はLinuxとMacOSで動作する。
+- ken`はKaia Endpoint Nodeのバイナリである。 `ken`は2つのインターフェイス、[コマンドラインインターフェイス](../../nodes/endpoint-node/ken-cli-commands.md)と[JSON-RPC API](../../../references/json-rpc/klay/account-created)を公開している。`ken\`はLinuxとMacOSで動作する。
 - `ken` CLI はいくつかのユーティリティとノード管理機能を備えている。
 
 **スマートな契約開発**
