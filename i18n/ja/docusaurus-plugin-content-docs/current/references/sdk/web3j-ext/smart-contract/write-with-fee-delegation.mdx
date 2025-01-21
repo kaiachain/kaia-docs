@@ -1,6 +1,6 @@
 # 書き込み（手数料の委任）
 
-スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**「トランザクション」**を行うことができる。
+スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**transaction**を行うことができる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -127,7 +127,7 @@ Web3jを使ってkaiaブロックチェーンに接続し、URLを指定する�
 
 ---
 
-秘密鍵を使用して、**送信者**および**料金支払者**のクレデンシャルを作成する。
+秘密鍵を使用して、**sender**および**fee payer**のクレデンシャルを作成する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=38:39
 
@@ -167,7 +167,7 @@ credentials.getAddress()\`から送信者のアドレスを取得する。
 
 ---
 
-カイア\*\*ネットワークからチェーンIDを取得する。
+**Kaia**ネットワークからチェーンIDを取得する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=46:47
 
@@ -191,7 +191,7 @@ credentials.getAddress()\`から送信者のアドレスを取得する。
 
 ---
 
-コンタクトアドレス**、**Web3jインスタンス**、\*認証情報**、および**ガスプロバイダー**を使用して、契約をロードします。 このインスタンスを通じて、契約の読み書きができる。
+**コンタクトアドレス**、**Web3jインスタンス**、\*認証情報**、および**ガスプロバイダー\*\*を使用して、契約をロードします。 このインスタンスを通じて、契約の読み書きができる。
 
 ```java WriteContractWithFeeDelegationExample.java focus=50
 
@@ -199,7 +199,7 @@ credentials.getAddress()\`から送信者のアドレスを取得する。
 
 ---
 
-を書き込む前に、コントラクトに格納されている現在の\*\*番号を取得する。
+を書き込む前に、コントラクトに格納されている現在の**number**を取得する。
 
 <CH.Code>
 ```java WriteContractWithFeeDelegationExample.java focus=52:53
@@ -243,7 +243,7 @@ number before : 298
 
 ---
 
-`KlayTransactionEncoder.signMessage` を使用して、**送信者** としてトランザクションに署名する。
+`KlayTransactionEncoder.signMessage` を使用して、**sender** としてトランザクションに署名する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=74:75
 
@@ -275,7 +275,7 @@ number before : 298
 
 ---
 
-を書いた後、コントラクトに格納されている更新された\*\*番号を取得する。
+を書いた後、コントラクトに格納されている更新された**number**を取得する。
 
 <CH.Code>
 ```java WriteContractWithFeeDelegationExample.java focus=86:87
