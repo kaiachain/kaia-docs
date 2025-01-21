@@ -331,8 +331,8 @@ npm install --save ethers
 
   Reactフック（useStateとuseEffect）とユーティリティ関数をインポートする：
 
-  * useState`と `useEffect\`：状態管理と副作用のための React フック。
-  * RPC`：ethers.js を使用したイーサリアム互換ブロックチェーンとのインタラクションのための `etherRPC.ts\` からのカスタムユーティリティ関数。
+  * `useState`と `useEffect`：状態管理と副作用のための React フック。
+  * `RPC`：ethers.js を使用したイーサリアム互換ブロックチェーンとのインタラクションのための `etherRPC.ts` からのカスタムユーティリティ関数。
 
   ```js App.tsx focus=13:15
   ```
@@ -370,7 +370,7 @@ npm install --save ethers
 
 ## コネクティング・ウォレット
 
-Inside your App function in your `App.tsx` file, call the [connect()](https://web3auth.io/docs/sdk/pnp/web/modal/usage?product=PNP\&sdk=PNP_MODAL\&framework=REACT\&stepIndex=0\&stepIndex=6#logging-in-the-user) method on the web3Auth instance to initiate the connection of your wallet.
+`App.tsx`ファイルのApp関数内で、web3Authインスタンスの[connect()](https://web3auth.io/docs/sdk/pnp/web/modal/usage?product=PNP\&sdk=PNP_MODAL\&framework=REACT\&stepIndex=0\&stepIndex=6#logging-in-the-user)メソッドを呼び出し、ウォレットの接続を開始します。
 
 ```js
 function App() {
