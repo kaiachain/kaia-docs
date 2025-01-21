@@ -54,10 +54,10 @@
 
 | サービスプロバイダー                          | エンドポイント                                                                                                                                   | 名前空間           | タイプ   |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----- |
-| [カイア財団](https://www.kaia.io)        | wss://public-ja.node.kaia.io/ws\`。                                        | カイア、クレイ、エス、ネット | フル    |
-|                                     | wss://archive-ja.node.kaia.io/ws\`。                                       | カイア、クレイ、エス、ネット | アーカイブ |
+| [カイア財団](https://www.kaia.io)        | `wss://public-ja.node.kaia.io/ws`。                                                                                                        | カイア、クレイ、エス、ネット | フル    |
+|                                     | `wss://archive-ja.node.kaia.io/ws`。                                                                                                       | カイア、クレイ、エス、ネット | アーカイブ |
 | [クイックノード](https://quicknode.com/)   | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`. | カイア、クレイ、エス、ネット | フル    |
-| [オンファイナリティ](https://onfinality.io/) | wss://klaytn.api.onfinality.io/public-ws\`。                               | カイア、クレイ、エス、ネット | フル    |
+| [オンファイナリティ](https://onfinality.io/) | `wss://klaytn.api.onfinality.io/public-ws`。                                                                                               | カイア、クレイ、エス、ネット | フル    |
 
 ### Testnet (Kairos) パブリックJSON-RPCエンドポイント
 
@@ -72,11 +72,11 @@
 
 \*\*ウェブソケット
 
-| サービスプロバイダー                        | エンドポイント                                                                                                    | 名前空間           | タイプ   |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------- | ----- |
-| [カイア財団](https://www.kaia.io)      | wss://public-en-kairos.node.kaia.io/ws\`。  | カイア、クレイ、エス、ネット | フル    |
-|                                   | wss://archive-ja-kairos.node.kaia.io/ws\`。 | カイア、クレイ、エス、ネット | アーカイブ |
-| [クイックノード](https://quicknode.com/) | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/`                                                 | カイア、クレイ、エス、ネット | フル    |
+| サービスプロバイダー                        | エンドポイント                                                    | 名前空間           | タイプ   |
+| --------------------------------- | ---------------------------------------------------------- | -------------- | ----- |
+| [カイア財団](https://www.kaia.io)      | `wss://public-en-kairos.node.kaia.io/ws`。                  | カイア、クレイ、エス、ネット | フル    |
+|                                   | `wss://archive-ja-kairos.node.kaia.io/ws`。                 | カイア、クレイ、エス、ネット | アーカイブ |
+| [クイックノード](https://quicknode.com/) | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | カイア、クレイ、エス、ネット | フル    |
 
 ## RPCサービスプロバイダー
 
