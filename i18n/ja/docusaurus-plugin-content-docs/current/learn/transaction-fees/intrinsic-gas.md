@@ -45,7 +45,7 @@ Please keep in mind that Public key type always has only one registering key, so
 KeyValidationGas`は`(署名数 - 1) x TxValidationGasPerKey(15000)\`として計算されます。\
 公開鍵タイプは常に1つの署名鍵しか持たないので、ガスは常にゼロであることに留意してください。
 
-A Klaytn transaction can also have a feePayer, so the total KeyValidationGas is like this.
+KaiaトランザクションはfeePayerを持つこともできるので、KeyValidationGasの合計はこのようになる。
 
 ```
 KeyValidationGas = (送信者のKeyValidationGas) + (料金支払者のKeyValidationGas)
