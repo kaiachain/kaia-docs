@@ -8,21 +8,21 @@ CN、PN用のパッケージは[ダウンロードページ](../../downloads/dow
 
 Before installing the Klaytn package, it is required to create the associated node information to enroll your node URIs. KgenパッケージはCCオペレーターのために提供されています。
 
-1. kgen\` パッケージをダウンロードする
+1. `kgen` パッケージをダウンロードする
 2. ノードキーとノードURIの作成
 3. ノード URI 登録
 
-### kgen\` パッケージをダウンロードする<a id="download-kgen-package"></a>
+### `kgen` パッケージをダウンロードする<a id="download-kgen-package"></a>
 
 まず、[Download](../../downloads/downloads.md) ページから、お使いのオペレーティング・システムに応じて `kgen` パッケージの最新バージョンをダウンロードできます。
 
-kgen`のバイナリファイルは`bin\` ディレクトリの下にある。
+`kgen` のバイナリファイルは `bin` ディレクトリの下にある。
 
 ### ノードキーとノードURIの作成<a id="node-key-node-uri-creation"></a>
 
 ノード・キーとノードURIは最初に一度だけ作成される。 ノードURIは、コアセルネットワークの他のコアセルと共有されなければならない。 CNは他のCNに接続し、PNは作成されたノードURIを使ってCNといくつかのPNに接続する。 ノードURIは、ダウンロードした `kgen` を使用して、ノードキーに基づいて作成される。 以下のコマンドラインは `nodekey` と `node_info.json` を作成する。
 
-kgen\`は以下のようにIPとポート番号を取る。
+`kgen`は以下のようにIPとポート番号を取る。
 
 ```text
 $ kgen --ip "123.456.789.012" --port 32323 --file
@@ -30,7 +30,7 @@ $ ls
 nodekey node_info.json
 ```
 
-nodekey\`は64バイトの16進文字列で、ノード内部で使用する秘密鍵である。 This private key must be present at the Klaytn data directory and be careful not to lose it.
+`nodekey`は64バイトの16進文字列で、ノード内部で使用する秘密鍵である。 This private key must be present at the Klaytn data directory and be careful not to lose it.
 
 ```text
 $ cat nodekey
@@ -61,8 +61,8 @@ $ cat node_info.json
 
 The created node URI should be enrolled to participate in the Core Cell Network (CCN). 入団の流れは以下の通り。
 
-1. Create a node URI using `kgen` (`node_info.json`) which contains the associated IP and Port number.
-2. Send the information to the official Klaytn email address (`bootstrap@klaytn.com` for Cypress or `baobab@klaytn.com` for Baobab).
+1. 関連するIPとポート番号を含むノードURIを、`kgen` \(`node_info.json`) を使用して作成する。
+2. カイア公式メールアドレス(`bootstrap@klaytn.com` for Mainnet or `baobab@klaytn.com` for Kairos)に情報を送信してください。
 
 The enrolled information should be sent to the official Klaytn email address. フォーマットは以下の通り。
 
