@@ -1,55 +1,55 @@
 # よくあるご質問
 
-- [What is Klaytn?](#what-is-klaytn)
-- [How does Klaytn support Ethereum equivalence?](#how-ethereum-equivalence)
-- [What is Klaytn’s gas policy?](#klaytn-gas-policy)
-- [What is special about Klaytn’s account structure?](#klaytn-account-structure)
-- [Where can I start dApp development with Klaytn?](#dapp-development)
-- [Is Klaytn Open Source?](#is-klaytn-open-source)
+- [カイアとは?](#what-is-kaia)
+- [Kaiaはイーサリアム等価性をどのようにサポートしていますか?](#how-ethereum-equivalence)
+- [カイアのガス政策とは?](#kaia-gas-policy)
+- [カイアのアカウント構成は特別なのか?](#kaia-account-structure)
+- [カイアのdApp開発はどこから始められますか?](#dapp-development)
+- [Kaiaはオープンソースですか？](#is-kaia-open-source)
 - [口座への初期資金はどうすればよいですか](#fund-my-acconut)
-- [Any Klaytn’s Public Node Providers for testing and development?](#node-providers)
+- [カイアのパブリックノードプロバイダーでテストや開発用に使えるものはありますか？](#node-providers)
 - [Are there faucets to get test KLAY?](#are-there-faucets)
 - [パブリックRPCのエンドポイントの状態を確認するにはどうすればよいですか](#rpc-endpoint-status)
-- [Which wallets support Klaytn?](#which-wallets)
+- [どのウォレットがKaiaに対応していますか？](#which-wallets)
 - [メインネットとは何か、カイロスとは何か](#what-is-mainnet-what-is-kairos)
-- [Are there any Klaytn SDKs? In what languages?](#klaytn-sdks)
-- [Must I install and run an EN (Endpoint Node) to use Klaytn?](#must-i-install-and-run-en)
+- [カイアSDKはありますか？ どの言語で](#kaia-sdks)
+- [Kaiaを使用するには、EN（エンドポイントノード）をインストールして実行する必要がありますか?](#must-i-install-and-run-en)
 - [ENを使用していますが、ノードのデータ同期が遅すぎます](#node-data-sync-is-too-slow)
-- [Can I use ERC-20 and ERC-721 contracts on Klaytn?](#can-i-use-erc-20-and-erc-721)
+- [カイアでERC-20とERC-721コントラクトを使用できますか?](#can-i-use-erc-20-and-erc-721)
 - [Metamaskのようなブラウザ拡張ウォレットはどこで手に入りますか](#where-can-i-get-a-browser-extension-wallet)
 - [私の料金支払者アカウントのアドレスが、提供されたキーから導き出されないのはなぜですか](#account-address-is-not-derived-from-the-key)
 - [フィーデレグの完全な実務サンプルはどこで入手できますか](#fee-delegation-samples)
 
-## カイアとは？ <a id="what-is-klaytn"></a>
+## カイアとは？ <a id="what-is-kaia"></a>
 
 Kaiaは、特にアジアにおけるWeb3の大量導入のために設計された高性能なレイヤー1ブロックチェーンである。 4,000以上のTPS、即時のファイナリティ、1秒のブロックタイムを提供する。 イーサリアムと完全な互換性を持つカイアは、シームレスなdApp移行を可能にし、開発者に優しいツール、低手数料、エコシステムファンドからの強力な流動性を備えた強固なエコシステムを提供します。 カカオやLINEのような主要なメッセージング・プラットフォームとの統合を通じて、Web2ユーザーのアクセシビリティを優先している。 詳しくは【ホワイトペーパー](https://docs.kaia.io/kaiatech/kaia-white-paper/)をご覧ください。
 
-## How does Klaytn support Ethereum equivalence? <a id="how-ethereum-equivalence"></a>
+## Kaiaはイーサリアム等価性をどのようにサポートしていますか？ <a id="how-ethereum-equivalence"></a>
 
 KaiaはEVM互換であり、EIP-4844 blobトランザクションを除くすべてのEthereum Cancun EVM機能をサポートしている。 これは `eth` 名前空間 RPC API を提供し、Ethereum SDK やツールをシームレスに使用できるようにします。 Kaia固有のトランザクションタイプはeth名前空間API内でタイプ0のレガシートランザクションとして表現されるため、イーサリアムSDKはそれらを認識する必要はない。
 
-## What is Klaytn’s gas policy? <a id="klaytn-gas-policy"></a>
+## カイアのガス政策とは？ <a id="kaia-gas-policy"></a>
 
 カイアは、通常のネットワーク状態では低料金を維持し、ネットワークの混雑状況に応じて料金を調整するダイナミックなガス料金モデルを採用している。 ガス料金はブロックごとに限られた範囲内で変更できるため、料金を予測可能に保ちながらネットワーク・スパムを防止するのに役立つ。 取引手数料の一部は自動的に焼却される。 このモデルは、ネットワークの安定性を維持しながら、ユーザーエクスペリエンスと企業にとっての利便性を優先している。
 
-## What is special about Klaytn’s account structure? <a id="klaytn-account-structure"></a>
+## カイアのアカウント構成は特別ですか？ <a id="kaia-account-structure"></a>
 
-To provide maximum convenience for dApp developers, Klaytn has devised a way to [decouple private keys from addresses](https://klaytn-tech.medium.com/klaytn-usability-improvement-series-1-separating-keys-and-addresses-dd5e367a0744). その結果、[multisig](https://medium.com/klaytn/klaytn-usability-improvement-series-2-introducing-multisig-on-the-platform-level-85141893db01)を簡単に実装することができる。これにより、1つのアカウントに対して複数の秘密鍵を作成し、それぞれの鍵に異なる重みを持たせることができる。 各キーには[異なる役割](https://medium.com/klaytn/klaytn-usability-improvement-series-4-supporting-role-based-keys-on-the-platform-level-e2c912672b7b)を割り当てることもできる。
+dApp開発者に最大限の利便性を提供するために、Kaiaは[秘密鍵をアドレスから切り離す](https://klaytn-tech.medium.com/klaytn-usability-improvement-series-1-separating-keys-and-addresses-dd5e367a0744)方法を考案しました。 その結果、[multisig](https://medium.com/klaytn/klaytn-usability-improvement-series-2-introducing-multisig-on-the-platform-level-85141893db01)を簡単に実装することができる。これにより、1つのアカウントに対して複数の秘密鍵を作成し、それぞれの鍵に異なる重みを持たせることができる。 各キーには[異なる役割](https://medium.com/klaytn/klaytn-usability-improvement-series-4-supporting-role-based-keys-on-the-platform-level-e2c912672b7b)を割り当てることもできる。
 
-## Where can I start dApp development with Klaytn? <a id="dapp-development"></a>
+## カイアのdApp開発はどこから始められますか？ <a id="dapp-development"></a>
 
-Whether you are migrating from Ethereum, or building on Klaytn from scratch, we support all the necessary tools and infrastructure. スマートコントラクトは、Kaiaプラグインを使用して[Remix IDE](../build/tutorials/connecting-remix.md)上でテストしたり、[MetaMask](../build/tutorials/connecting-metamask.mdx)ウォレットや[Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)に接続することができます。 カイアのsdkは[こちら](https://github.com/kaiachain/kaia-sdk)から入手できる。 私たちの[チュートリアル](../build/tutorials/tutorials.md)を参考に、KaiaでdAppをビルドしてみてください。
+イーサリアムから移行する場合でも、ゼロからKaiaで構築する場合でも、必要なツールとインフラをすべてサポートします。 スマートコントラクトは、Kaiaプラグインを使用して[Remix IDE](../build/tutorials/connecting-remix.md)上でテストしたり、[MetaMask](../build/tutorials/connecting-metamask.mdx)ウォレットや[Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)に接続することができます。 カイアのsdkは[こちら](https://github.com/kaiachain/kaia-sdk)から入手できる。 私たちの[チュートリアル](../build/tutorials/tutorials.md)を参考に、KaiaでdAppをビルドしてみてください。
 
-## Is Klaytn Open Source? <a id="is-klaytn-open-source"></a>
+## カイアはオープンソースですか？ <a id="is-kaia-open-source"></a>
 
-Klaytn is most certainly open source! 私たちの[Github Organization](https://github.com/kaiachain)を見て、私たちのカイア・ドキュメンテーションへの[貢献](https://github.com/kaiachain/kaia-docs/blob/main/CONTRIBUTING.md)を始めてください。 オープンソースの方針については [こちら](opensource.md) をお読みください。
+カイアは確かにオープンソースだ！ 私たちの[Github Organization](https://github.com/kaiachain)を見て、私たちのカイア・ドキュメンテーションへの[貢献](https://github.com/kaiachain/kaia-docs/blob/main/CONTRIBUTING.md)を始めてください。 オープンソースの方針については [こちら](opensource.md) をお読みください。
 
 ## 口座に最初に入金する方法を教えてください。 <a id="fund-my-acconut"></a>
 
 You may purchase KLAY on the exchange. 利用可能な取引所のリストはこちらをご覧ください：
 [Coinmarketcap](https://coinmarketcap.com/currencies/klaytn/markets/)、[Coingecko](https://www.coingecko.com/en/coins/klay#markets)。
 
-## Any Klaytn’s Public Node Providers for testing and development? <a id="node-providers"></a>
+## テストや開発のためのカイアのパブリックノードプロバイダはありますか？ <a id="node-providers"></a>
 
 カイアのパブリック・ノード・プロバイダーとネットワーク・ドメインについては、[このリスト](../references/public-en.md#rpc-service-providers)を参照してください。
 
@@ -65,13 +65,13 @@ You may purchase KLAY on the exchange. 利用可能な取引所のリストは�
 
 エンドポイントの稼働時間と安定性を保証することはできませんので、ノードプロバイダのステータスは常にここで確認することができます：[ChainList](https://chainlist.org/chain/8217), [Kaia Status](https://status.kaia.io/).
 
-## Which wallets support Klaytn? <a id="which-wallets"></a>
+## どのウォレットがカイアをサポートしていますか？ <a id="which-wallets"></a>
 
 カイアは、コールドウォレットのD'centや、カイアウォレット、MetaMaskなどのホットウォレットのホストによってサポートされています。 リスト[こちら](../build/tools/wallets/wallets.md)をご参照ください。
 
 ## メインネットとは、カイロスとは？ <a id="what-is-cypress-what-is-baobab"></a>
 
-Cypress is the Klaytn mainnet, Baobab is a testnet.
+メインネットはKaiaメインネット、Kairosはテストネット。
 以下は各ネットワークに関する情報である。
 
 Cypress mainnet:
@@ -85,7 +85,7 @@ Baobab testnet:
 - カイアスコープ : https://kairos.kaiascope.com
 - カイロス水栓 : https://faucet.kaia.io
 
-## Are there any Klaytn SDKs? どの言語で？ <a id="klaytn-sdks"></a>
+## カイアSDKはありますか？ どの言語で？ <a id="kaia-sdks"></a>
 
 Kaia Nodeはイーサリアムと互換性があるため、ethers.js、web3.js、web3py、web3j、viemのような一般的なイーサリアムSDKを使用できます。 しかし、Kaia Nodeには、Kaia固有のアカウントとトランザクションタイプによる拡張機能も含まれている。
 
@@ -106,7 +106,7 @@ Kaia Nodeはイーサリアムと互換性があるため、ethers.js、web3.js�
 - JavaScript用caver-js
 - caver-java（Java用
 
-## Must I install and run an EN (Endpoint Node) to use Klaytn? <a id="must-i-install-and-run-en"></a>
+## Kaiaを使用するには、EN（エンドポイントノード）をインストールして実行する必要がありますか？ <a id="must-i-install-and-run-en"></a>
 
 それはあなたのニーズ次第だ。 ノードを完全に制御し、ブロックを自分で検証する必要がある場合は、独自のENをインストールして実行する必要があります。 これは、ほとんどのカイアのアプリケーションの典型的なセットアップである。 しかし、テストや開発のため、あるいは独自のインフラを管理したくない場合は、[Kaia API Service (KAS)](https://www.klaytnapi.com/en/landing/main)が素晴らしい選択肢です。 KASは、KairosとMainnetの両方のKaia Node RPC APIへのアクセスに加え、追加のAPIサービスを提供します。 KASは登録後、無料でAPIリクエストを提供します。 料金プランについては、KAS [料金ページ](https://www.klaytnapi.com/en/landing/pricing)をご確認ください。
 
@@ -116,11 +116,11 @@ Kaia Nodeはイーサリアムと互換性があるため、ethers.js、web3.js�
 
 次に、[chaindata snapshotをダウンロードする](../nodes/endpoint-node/install-endpoint-nodes.md#optional-download-chaindata-snapshot)ことで、時間のかかるFull Syncプロセスを省略することができます。 chaindataスナップショットは、発生以降に生成されたすべてのブロックを保存するデータベーススナップショットである。 毎日更新される。
 
-## Can I use ERC-20 and ERC-721 contracts on Klaytn? <a id="can-i-use-erc-20-and-erc-721"></a>
+## カイアでERC-20とERC-721を使用できますか？ <a id="can-i-use-erc-20-and-erc-721"></a>
 
-そうだ。 Klaytn supports Solidity as a smart contract language. [ERC-20](../build/smart-contracts/samples/erc-20.md) and [ERC-721](../build/smart-contracts/samples/erc-721.md) written in Solidity for Etherem can be deployed and executed on Klaytn.
+そうだ。 Kaiaはスマートコントラクト言語としてSolidityをサポートしています。 Etherem用のSolidityで書かれた[ERC-20](../build/smart-contracts/samples/erc-20.md)と[ERC-721](../build/smart-contracts/samples/erc-721.md)は、Kaiaにデプロイして実行することができます。
 
-Further Klaytn-specific token standards can be defined. KIP (Kaia Improvement Proposal)](https://kips.kaia.io/)をフォローして、議論に参加しよう。
+さらにKaia固有のトークン標準を定義することができます。 KIP (Kaia Improvement Proposal)](https://kips.kaia.io/)をフォローして、議論に参加しよう。
 
 ## Metamaskのようなブラウザ拡張ウォレットはどこで手に入りますか？ <a id="where-can-i-get-a-browser-extension-wallet"></a>
 
@@ -128,7 +128,7 @@ Further Klaytn-specific token standards can be defined. KIP (Kaia Improvement Pr
 
 ## フィーペイ・アカウントのアドレスが提供されたキーから導き出されないのはなぜですか？ <a id="account-address-is-not-derived-from-the-key"></a>
 
-In Klaytn, [the account address can be decoupled from the key pair](../learn/accounts.md#decoupling-key-pairs-from-addresses).
+Kaiaでは、[アカウントアドレスをキーペアから切り離すことができる](../learn/accounts.md#decoupling-key-pairs-from-addresses)。
 
 一般的な使用例は以下の通り。
 
