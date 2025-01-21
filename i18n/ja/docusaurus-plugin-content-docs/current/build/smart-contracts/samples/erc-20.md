@@ -25,7 +25,7 @@ Based on above interface, developers may customize tokens by adding new features
 
 このチュートリアルでは、ERC-20互換トークンである`MyERC20.sol`を実装する。 このトークンはあらかじめ定義された量のトークンを発行し、デプロイ時にすべてのトークンを契約オーナーに送信する。
 
-MyERC20.sol`はOpenZeppelinのERC20実装に基づいている。 このチュートリアルのコードの大部分は[OpenZeppelin 2.3 ](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0)からフォークしたもので、`MyERC20.sol\`を実装するために以下のSolidityファイルを使用しています。
+`MyERC20.sol`はOpenZeppelinのERC20実装に基づいている。 このチュートリアルのコードの大部分は[OpenZeppelin 2.3 ](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0)からフォークしたもので、`MyERC20.sol`を実装するために以下のSolidityファイルを使用しています。
 
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/IERC20.sol)
 - [https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20.sol)
@@ -36,7 +36,7 @@ MyERC20.sol`はOpenZeppelinのERC20実装に基づいている。 このチュ�
 
 ### 1.1 MyERC20の全体構造<a id="1-1-overall-structure-of-myerc20"></a>
 
-MyERC20.sol`のソースコード全体を以下に示す。 この実装では、 `constructor`が`_mint\` を呼び出して、コントラクトのデプロイ時にあらかじめ定義された量のトークンを鋳造する。
+`MyERC20.sol`のソースコード全体を以下に示す。 この実装では、 `constructor` が `_mint` を呼び出して、コントラクトのデプロイ時にあらかじめ定義された量のトークンを鋳造する。
 
 ```text
 pragma solidity ^0.5.0;
@@ -429,7 +429,7 @@ contract MyERC20 is IERC20 {
 `MyERC20.sol` は1つのインターフェース `IERC20`、1つのライブラリ `SafeMath`、そして `IERC20` インターフェースを実装した1つのコントラクト `MyERC20` から構成されている。
 
 - IERC20\` インターフェースは、[ERC-20 仕様書](https://eips.ethereum.org/EIPS/eip-20) に記述されている必須インターフェースを定義する。
-- SafeMath`ライブラリは、Solidityの `uint256\` 型の安全な計算のためのオーバーフローチェックを追加した、Solidityの算術演算のラッパーを定義する。
+- `SafeMath`ライブラリは、Solidityの `uint256` 型の安全な計算のためのオーバーフローチェックを追加した、Solidityの算術演算のラッパーを定義する。
 - MyERC20`は`IERC20\` インターフェースを実装し、[ERC-20 仕様書](https://eips.ethereum.org/EIPS/eip-20) で説明されている 3 つのオプションのメソッドも定義している。
   - ERC20に加えて、`コンストラクタ`が定義されており、このコンストラクタを使って新しいERC20トークンの名前とシンボルを定義し、あらかじめ定義された量のトークンを鋳造する。 コンストラクター\`は最初のデプロイ時に一度だけ呼ばれる。
 
@@ -439,7 +439,7 @@ contract MyERC20 is IERC20 {
 
 #### (1) `function balanceOf(address account) external view returns (uint256);` <a id="1-function-balanceof-address-account-external-view-returns-uint256"></a>
 
-balanceOf`はERC-20の必須メソッドである。 balanceOf` は指定されたアドレスの残高を返す。
+`balanceOf`はERC-20の必須メソッドである。 `balanceOf` は指定されたアドレスの残高を返す。
 
 ```text
     function balanceOf(address account) public view returns (uint256) {
@@ -447,7 +447,7 @@ balanceOf`はERC-20の必須メソッドである。 balanceOf` は指定され�
     }
 ```
 
-balanceOf`は`_balances`に格納されているキー`account\` の値を返すだけである。
+`balanceOf` は `_balances` に格納されているキー `account` の値を返すだけである。
 
 ```text
     mapping (address => uint256) private _balances;
@@ -459,7 +459,7 @@ balanceOf`は`_balances`に格納されているキー`account\` の値を返す
 
 転送`はERC-20の必須メソッドである。 また、 `Transfer\` イベントを発生させなければならない。 この関数は、メッセージ呼び出し元のアカウント残高が、使用するのに十分なトークンを 持っていない場合に throw すべきである(SHOULD)。
 
-transfer`は内部メソッド `_transfer\` を呼び出すだけで、以下のように実際の転送とイベントを実装している。
+`transfer`は内部メソッド `_transfer` を呼び出すだけで、以下のように実際の転送とイベントを実装している。
 
 ```text
     function transfer(address recipient, uint256 amount) public returns (bool) {
@@ -485,9 +485,9 @@ transfer`は内部メソッド `_transfer\` を呼び出すだけで、以下の
 
 #### (3) `function approve(address spender, uint256 amount) external returns (bool);` <a id="3-function-approve-address-spender-uint256-amount-external-returns-bool"></a>
 
-approve`はERC-20の必須メソッドである。 approve`は `spender`が `amount`を上限として何度もあなたの口座から引き出すことを許可する。 この関数が複数回呼ばれた場合、単純に許容量を `amount` にリセットする。
+`approve`はERC-20の必須メソッドである。 `approve`は `spender`が `amount`を上限として何度もあなたの口座から引き出すことを許可する。 この関数が複数回呼ばれた場合、単純に許容量を `amount` にリセットする。
 
-これは `approve` の実際の動作を実装した内部メソッド `_approve` を呼び出すだけである。 msg.sender`にはアカウント`owner\`が渡される。
+これは `approve` の実際の動作を実装した内部メソッド `_approve` を呼び出すだけである。 `msg.sender`にはアカウント`owner`が渡される。
 
 ```text
     function approve(address spender, uint256 value) public returns (bool) {
@@ -510,9 +510,9 @@ approve`はERC-20の必須メソッドである。 approve`は `spender`が `amo
     mapping (address => mapping (address => uint256)) private _allowances;
 ```
 
-#### (4) `function _mint(address account, uint256 amount) internal` <a id="4-function-_mint-address-account-uint256-amount-internal"></a>
+#### \(4\) `function _mint(address account, uint256 amount) internal` <a id="4-function-_mint-address-account-uint256-amount-internal"></a>
 
-_mint`はERC-20の一部ではない。 しかし、新しいERC-20トークンを作成する方法が必要であり、この実装では以下のように新しいトークンを作成するために`_mint\`を導入しました。
+`_mint`はERC-20の一部ではない。 しかし、新しいERC-20トークンを作成する方法が必要であり、この実装では以下のように新しいトークンを作成するために`_mint`を導入しました。
 
 ```text
     function _mint(address account, uint256 amount) internal {
@@ -524,9 +524,9 @@ _mint`はERC-20の一部ではない。 しかし、新しいERC-20トークン�
     }
 ```
 
-_mint\`は内部メソッドであり、このコントラクトの内部で呼び出すことができる。
+`_mint`は内部メソッドであり、このコントラクトの内部で呼び出すことができる。
 
-MyERC20.sol`では、`_mint`はスマートコントラクトをデプロイするときに`constructor\`から一度だけ呼び出され、事前に定義された量のトークンを鋳造する。
+`MyERC20.sol`では、`_mint`はスマートコントラクトをデプロイするときに`constructor`から一度だけ呼び出され、事前に定義された量のトークンを鋳造する。
 
 スマートコントラクトをデプロイした後で追加トークンを発行したい場合は、`mint`のような新しいパブリックメソッドを導入しなければならない。 トークンを鋳造できるのは許可されたユーザーだけであるべきなので、この方法は注意して実装されるべきである。
 
@@ -558,7 +558,7 @@ MyERC20\`スマートコントラクトをデプロイするには、Remix Onlin
 
 ![ERC20-1-deploy](/img/build/smart-contracts/remix-layout-erc20-example.png)
 
-デプロイ後、コントラクトのデプロイに使用したアカウントで `balanceOf` を呼び出すことができる。 あなたのアカウントには以下のように`10000000000`トークンがあります。 上のコントラクトをデプロイするときに `decimal` を `8` に設定したため、コンストラクタで固定数の `100000` トークンが鋳造され、1 つのトークンは `10^8` の小数値を持つ。 totalSupply\`メソッドは、鋳造されたトークンの総供給量を返す。
+デプロイ後、コントラクトのデプロイに使用したアカウントで `balanceOf` を呼び出すことができる。 あなたのアカウントには以下のように`10000000000`トークンがあります。 上のコントラクトをデプロイするときに `decimal` を `8` に設定したため、コンストラクタで固定数の `100000` トークンが鋳造され、1 つのトークンは `10^8` の小数値を持つ。 `totalSupply`メソッドは、鋳造されたトークンの総供給量を返す。
 
 ![ERC20-2-owner-token](/img/build/smart-contracts/bal-ts-erc20-example.png)
 
