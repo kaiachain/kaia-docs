@@ -25,5 +25,5 @@ EN の正確な物理マシンの仕様は規定しないが、クラウド VM �
 ## オペレーティングシステム<a id="operating-system"></a>
 
 推奨環境は[Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/)です。
-Klaytn binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well.
+KaiaのバイナリはAmazon Linux 2で完全にテストされていますが、他のLinuxベースの環境でも動作するはずです。
 開発用にmacOSのバイナリも提供されている。
