@@ -18,11 +18,11 @@ caver.rpc.governance.vote(key, value [, callback])
 | 価値     | string \\ | 各キーには様々なタイプの値がある。                                                                   |
 | コールバック | 機能          | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。 |
 
-caver.rpc.governance.vote`の `key`と`value\` の詳細については、[governance_vote](../../../../json-rpc/governance.md#governance_vote) を参照してください。
+`caver.rpc.governance.vote`の `key` と `value` の詳細については、[governance_vote](../../../../json-rpc/governance.md#governance_vote) を参照してください。
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明      |
 | ----- | ------- |
@@ -51,7 +51,7 @@ caver.rpc.governance.showTally([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`Array\` を返す。
+`Promise` は `Array` を返す。
 
 | タイプ | 説明                                          |
 | --- | ------------------------------------------- |
@@ -144,7 +144,7 @@ caver.rpc.governance.getMyVotes([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`Array\` を返す。
+`Promise` は `Array` を返す。
 
 | タイプ | 説明                |
 | --- | ----------------- |
@@ -180,7 +180,7 @@ caver.rpc.governance.getChainConfig([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明        |
 | ------ | --------- |
@@ -234,7 +234,7 @@ caver.rpc.governance.getNodeAddress([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明        |
 | ----- | --------- |
@@ -264,7 +264,7 @@ caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明         |
 | ------ | ---------- |
@@ -314,7 +314,7 @@ caver.rpc.governance.getPendingChanges([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                  |
 | ------ | ------------------- |
@@ -343,7 +343,7 @@ caver.rpc.governance.getIdxCache([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ | 説明                   |
 | --- | -------------------- |
@@ -372,7 +372,7 @@ caver.rpc.governance.getIdxCacheFromDb([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ | 説明                   |
 | --- | -------------------- |
@@ -407,7 +407,7 @@ caver.rpc.governance.getItemCacheFromDb([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                  |
 | ------ | ------------------- |
@@ -458,7 +458,7 @@ caver.rpc.governance.getVotes([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ | 説明                       |
 | --- | ------------------------ |
@@ -496,7 +496,7 @@ caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                                                                                                                                          |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
