@@ -67,7 +67,7 @@ Failed to start kcnd.service: Unit not found.
 sudo systemctl daemon-reload
 ```
 
-## CN can't connect to network with `Add dial candidate from static nodes` ログメッセージ。 <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
+## CNは `Add dial candidate from static nodes`というログメッセージとともにネットワークに接続できません。 <a id="cn-can-t-connect-to-network-with-add-dial-candidate-from-static-nodes-log-messag"></a>
 
 ```
 INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
