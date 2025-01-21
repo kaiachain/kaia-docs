@@ -97,7 +97,7 @@ web3をkaia web3に拡張するために、**web3py_ext**から**extend**をイ�
 
 ---
 
-eth_account**、**web3py_ext**、\*cytoolz**から必要なutilsをインポートする。
+**eth_account**、**web3py_ext**、\*cytoolz\*\*から必要なutilsをインポートする。
 
 ```py cancel_example.py focus=3:10
 
@@ -178,7 +178,7 @@ web3_cancel_sign_recover()
 
 ---
 
-値転送TX**を送信する。 それは**txプール**にあり、実行前に**キャンセル\*\*される。 キャンセルTXは、すでに実行されていれば失敗する。
+**値転送TX**を送信する。 それは**txプール**にあり、実行前に**キャンセル**される。 キャンセルTXは、すでに実行されていれば失敗する。
 
 ```py cancel_example.py focus=19:27
 
@@ -186,7 +186,7 @@ web3_cancel_sign_recover()
 
 ---
 
-TxType.CANCEL**型の空のトランザクションを作成する。 empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
+**TxType.CANCEL**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py cancel_example.py focus=4,5,8,29
 
@@ -194,7 +194,7 @@ TxType.CANCEL**型の空のトランザクションを作成する。 empty_tx**
 
 ---
 
-from**フィールドと**nonce**フィールドを、**merge\*\*ユーティリティを使用して空のtxにマージする。
+**from**フィールドと**nonce**フィールドを、**merge**ユーティリティを使用して空のtxにマージする。
 
 ```py cancel_example.py focus=10,30:33
 
@@ -202,7 +202,7 @@ from**フィールドと**nonce**フィールドを、**merge\*\*ユーティリ
 
 ---
 
-nonce**を、以前に送信された**値転送tx**と**同じ**にする。 キャンセルしたいのと同じtx nonce**を設定する必要がある。
+**nonce**を、以前に送信された**値転送tx**と**同じ**にする。 キャンセルしたいのと同じtx nonce\*\*を設定する必要がある。
 
 ```python cancel_example.py focus=4,6,8,32
 
@@ -210,7 +210,7 @@ nonce**を、以前に送信された**値転送tx**と**同じ**にする。 �
 
 ---
 
-fill_transaction\*\*を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```python cancel_example.py focus=4,6,8,34
 
@@ -285,7 +285,7 @@ decoded transaction: {
 
 ---
 
-wait_for_transaction_receipt\*\*メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 <CH.Code>
 ```python cancel_example.py focus=47:48
