@@ -11,7 +11,7 @@
 1. アクティブなCNの `nodekey` のバックアップを作成する。
 2. スタンバイCNを設置する。 以外はアクティブCNと同じ構成である：
    - スタンバイでは別の `nodekey` を使用する。
-   - $DATA_DIR/static-nodes.json\`にPNのアドレスを追加する。
+   - `$DATA_DIR/static-nodes.json`にPNのアドレスを追加する。
 
 ### フェイルオーバー<a id="failover"></a>
 
@@ -37,16 +37,16 @@ CCのPNノードのいずれかを使用して、チェーンデータのスナ�
 
 1. 任意のPNノードに接続し、kpndを停止する：sudo systemctl stop kpnd\`。 データの一貫性を確保するために、まずkpndを停止することが重要である。
 2. AWSコンソールを使用して、PNの`DATA_DIR`を含むボリュームのスナップショットを作成する。
-3. kpndを起動する：sudo systemctl start kpnd\` です。
+3. kpndを起動する：`sudo systemctl start kpnd` です。
 
 ベースCNイメージとchaindataイメージを使って新しいCNを作成する：
 
 1. Create an instance using the CN image (created in "Setup" above).
 2. PN の `$DATA_DIR` のスナップショットから作成されたボリュームをアタッチする。
-3. $DATA_DIR/klay/chaindata` を除くすべてのファイルをボリュームから削除する。 kcnd.conf`に設定されている`DATA_DIR`がchaindataのあるディレクトリと一致していることを確認する。 ディレクトリ名が異なる場合は、リネームする必要があるかもしれない。
+3. `$DATA_DIR/klay/chaindata` を除くすべてのファイルをボリュームから削除する。 `kcnd.conf`に設定されている`DATA_DIR`がchaindataのあるディレクトリと一致していることを確認する。 ディレクトリ名が異なる場合は、リネームする必要があるかもしれない。
 4. 失敗した CN の `nodekey` を `$DATA_DIR/klay/nodekey` にコピーする。
 5. 障害が発生したCNのIPアドレスを代替CNに再割り当てする。
-6. kcndを起動する：sudo systemctl start kcnd\` です。
+6. kcndを起動する：`sudo systemctl start kcnd` です。
 7. CNがネットワークと同期していることを確認する。
 
 ## その他の考慮事項<a id="additional-considerations"></a>
