@@ -151,14 +151,14 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
   ---
 
-  TxType.ValueTransfer`で値転送トランザクションを作成する：TxType.ValueTransfer`で値転送トランザクションを作成し、後で `klay_recoverFromTransaction` で復元できるようにする。
+  `type: TxType.ValueTransfer` を使用して価値移転トランザクションを作成し、後で `klay_recoverFromTransaction` で回復できるようにします。
 
   ```js SignTxWithPubkeyExample.js focus=14:19
   ```
 
   ---
 
-  populateTransaction\`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
+  `populateTransaction`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
 
   <CH.Code>
     ```js SignTxWithPubkeyExample.js focus=21:23
@@ -220,7 +220,7 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
   ---
 
-  klay_recoverFromMessage\`を使用して、署名されたトランザクションからアドレスを回復する。
+  `klay_recoverFromMessage`を使用して、署名されたトランザクションからアドレスを回復する。
 
   <CH.Code>
     ```js SignTxWithPubkeyExample.js focus=31:34
