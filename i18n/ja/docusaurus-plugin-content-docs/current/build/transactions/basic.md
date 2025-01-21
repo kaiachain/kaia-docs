@@ -2,7 +2,7 @@
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
 
-TxTypeLegacyTransaction represents a type of transactions existed previously in Klaytn. このトランザクション・タイプは互換性をサポートするために存在するため、[AccountKeyLegacy](../../learn/accounts.md#accountkeylegacy) に関連付けられた EOA でのみ機能する。 他のアカウント・キー・タイプに関連するEOAは、TxTypeValueTransfer、TxTypeSmartContractExecutionなどの他のトランザクション・タイプを使用すべきである。 この種の取引は、アカウントの作成、トークンの送金、スマートコントラクトの展開、スマートコントラクトの実行、または前述の組み合わせの実行が可能である。 このトランザクションタイプは以下の変更を開始する。
+TxTypeLegacyTransactionは、Kaiaに以前存在したトランザクションのタイプを表す。 このトランザクション・タイプは互換性をサポートするために存在するため、[AccountKeyLegacy](../../learn/accounts.md#accountkeylegacy) に関連付けられた EOA でのみ機能する。 他のアカウント・キー・タイプに関連するEOAは、TxTypeValueTransfer、TxTypeSmartContractExecutionなどの他のトランザクション・タイプを使用すべきである。 この種の取引は、アカウントの作成、トークンの送金、スマートコントラクトの展開、スマートコントラクトの実行、または前述の組み合わせの実行が可能である。 このトランザクションタイプは以下の変更を開始する。
 
 1. 送金人の残高は取引手数料分だけ減少する。
 2. 送信者のnonceは1増加する。
@@ -120,7 +120,7 @@ SenderTxHash e434257753bf31a130c839fec0bd34fc6ea4aa256b825288ee82db31c2ed7524
 
 ## TxType値転送<a id="txtypevaluetransfer"></a>
 
-TxTypeValueTransfer is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KLAY to an externally owned account. したがって、TxTypeValueTransferは、`to`が外部所有アカウントである場合にのみ受 け入れられる。 To transfer KLAY to a smart contract account, use [TxTypeSmartContractExecution](#txtypesmartcontractexecution) instead. このトランザクションタイプでは、以下の変更が行われる。
+TxTypeValueTransfer is used when a user wants to send KLAY. Kaiaは複数のトランザクションタイプを提供し、各トランザクションタイプが単一の目的を果たすようにするため、TxTypeValueTransferはKAIAを外部所有のアカウントに送信するように制限されています。 したがって、TxTypeValueTransferは、`to`が外部所有アカウントである場合にのみ受 け入れられる。 To transfer KLAY to a smart contract account, use [TxTypeSmartContractExecution](#txtypesmartcontractexecution) instead. このトランザクションタイプでは、以下の変更が行われる。
 
 1. 送金人の残高は取引手数料分だけ減少する。
 2. 送信者のnonceは1増加する。
@@ -717,11 +717,11 @@ SenderTxHash 8c70627d6b637c7d033ead083fc5e43e5cad10c704a86dd9bda7ac104a0e5ad0
 
 TxTypeCancelは、トランザクションプール中の同じnonceを持つトランザク ションの実行をキャンセルする。 このトランザクション・タイプは、送信されたトランザクションが一定時間未処理のように見える場合に有用である。 トランザクションが未処理と思われるケースはいくつかある：1. The transaction was lost somewhere and did not reach any of the consensus nodes. 2. トランザクションはどのコンセンサスノードでもまだ処理されていない。 3. トランザクションは処理されたが、トランザクションを含むブロックを受信していない。
 
-クライアント側から、正確な理由を把握するのは非常に難しい。なぜなら、理由を把握するためには、すべてのコンセンサスノードの内部を調べる必要があるからだ。 ただし、コンセンサス・ノードに一般から接続することは禁止されている。 このような状況下で、典型的なブロックチェーンプラットフォームでは、ユーザーは古い取引と置き換えるために、より高いガス価格で別の取引を提出することが多い。 However, because the gas price is fixed in Klaytn, replacing the old transaction with a higher gas price is not applicable.
+クライアント側から、正確な理由を把握するのは非常に難しい。なぜなら、理由を把握するためには、すべてのコンセンサスノードの内部を調べる必要があるからだ。 ただし、コンセンサス・ノードに一般から接続することは禁止されている。 このような状況下で、典型的なブロックチェーンプラットフォームでは、ユーザーは古い取引と置き換えるために、より高いガス価格で別の取引を提出することが多い。 しかし、カイアではガス料金が固定されているため、古い取引を高いガス料金に置き換えることは適用されない。
 
 そのトランザクションが未処理のままであれば、nonceがトランザクションの実行順序を決定するため、より高いnonceを持つ他のトランザクションは処理できない。
 
-To solve this problem, Klaytn provides a transaction type TxTypeCancel. ユーザーがそのような状況に遭遇した場合、TxTypeCancelのトランザクショ ンを提出することができる。
+この問題を解決するために、KaiaはトランザクションタイプTxTypeCancelを提供する。 ユーザーがそのような状況に遭遇した場合、TxTypeCancelのトランザクショ ンを提出することができる。
 
 上記の各状況は以下のように処理される：1. 古いトランザクションが失われた場合、このTxTypeCancelトランザクショ ンが実行され、ブロックに含まれる。 2. 古いトランザクションがまだ処理されていない場合、この TxTypeCancelは古いトランザクションを置き換える。 そして実行され、ブロックに含まれる。 3. 古いトランザクションがすでに実行されていた場合、nonceは増加し ているので、このTxTypeCancelトランザクションは低いnonceのために破棄 される。
 
@@ -839,7 +839,7 @@ SenderTxHash 10d135d590cb587cc45c1f94f4a0e3b8c24d24a6e4243f09ca395fb4e2450413
 
 ## TxTypeChainDataAnchoring <a id="txtypechaindataanchoring"></a>
 
-TxTypeChainDataAnchoringTransaction is a transaction that anchors service chain data to the Klaytn mainchain. Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data. データ・アンカリングの詳細については、[アンカリング](../../nodes/service-chain/configure/anchoring.md)を参照のこと。 このトランザクションをRPC経由で送信することは禁じられている。 現在、この取引はセキュリティ上の理由から、プライベートなp2pチャネルを通じて実行されている。 This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+TxTypeChainDataAnchoringTransactionは、サービスチェーンデータをKaiaメインチェーンにアンカーするトランザクションである。 サービスチェーンはこの種のトランザクションを定期的にKaiaメインチェーンに送信し、データの安全性と信頼性を確保します。 データ・アンカリングの詳細については、[アンカリング](../../nodes/service-chain/configure/anchoring.md)を参照のこと。 このトランザクションをRPC経由で送信することは禁じられている。 現在、この取引はセキュリティ上の理由から、プライベートなp2pチャネルを通じて実行されている。 このトランザクションは、送信者のnonceが1増加した以外は、Kaiaブロックチェーンの状態を変更しない。
 
 ### 属性<a id="attributes"></a>
 
