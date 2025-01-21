@@ -57,7 +57,7 @@ web3をkaia web3に拡張するために、**web3py_ext**から**extend**をイ�
 
 ---
 
-web3**と**eth_account\*\*から必要なutilsをインポートする。
+**web3**と**eth_account**から必要なutilsをインポートする。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=3:6
 
@@ -65,7 +65,7 @@ web3**と**eth_account\*\*から必要なutilsをインポートする。
 
 ---
 
-Web3.HTTPProvider\*\*とRPCエンドポイントを使用してWeb3接続を定義します。
+**Web3.HTTPProvider**とRPCエンドポイントを使用してWeb3接続を定義します。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=8:10
 
@@ -109,7 +109,7 @@ web3_legacy_value_transfer_sign_recover() \
 
 ---
 
-Account.from_key\*\*を使用して、秘密鍵から送信者のウォレットを定義する。
+**Account.from_key**を使用して、秘密鍵から送信者のウォレットを定義する。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=13
 
@@ -141,7 +141,7 @@ Account.from_key\*\*を使用して、秘密鍵から送信者のウォレット
 
 ---
 
-fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド\*\*を追加する。 この行以降のすべてのフィールドを印刷することができる。
+**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。 この行以降のすべてのフィールドを印刷することができる。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=4:6,19
 
@@ -149,7 +149,7 @@ fill_transaction**を使用して、**gas limit**、**Nonce**などのような�
 
 ---
 
-送信者\*\*の秘密鍵でトランザクションに署名する。
+**sender**の秘密鍵でトランザクションに署名する。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=20
 
@@ -157,7 +157,7 @@ fill_transaction**を使用して、**gas limit**、**Nonce**などのような�
 
 ---
 
-\*\*署名されたトランザクションをネットワークに送信し、ブロックチェーンで完全に実行されるまで受信を待つ。
+署名済みのトランザクションをネットワークに**送信**し、ブロックチェーンで完全に実行されるまで受領を**待機**する。
 
 <CH.Code>
 ```py web3_legacy_value_transfer_sign_recover.py focus=22:24
