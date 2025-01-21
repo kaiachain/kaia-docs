@@ -182,14 +182,14 @@ AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引�
 
   ---
 
-  TxType.ValueTransfer`で値転送トランザクションを作成する：TxType.ValueTransfer`で値転送トランザクションを作成し、後で `klay_recoverFromTransaction` で復元できるようにする。
+  `type: TxType.ValueTransfer` を使用して価値移転トランザクションを作成し、後で `klay_recoverFromTransaction` で回復できるようにします。
 
   ```js SignTxWithMultiSigExample.js focus=18:24
   ```
 
   ---
 
-  populateTransaction\`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
+  `populateTransaction`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
 
   <CH.Code>
     ```js SignTxWithMultiSigExample.js focus=29:32
@@ -266,7 +266,7 @@ AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引�
 
   ---
 
-  klay_recoverFromMessage\`を使用して、署名されたトランザクションからアドレスを回復する。
+  `klay_recoverFromMessage`を使用して、署名されたトランザクションからアドレスを回復する。
 
   <CH.Code>
     ```js SignTxWithMultiSigExample.js focus=45:46
