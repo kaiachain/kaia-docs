@@ -22,10 +22,10 @@
 **NOTE**：Kaia v1.0.1以降、 `callTracer` と `fastCallTracer` の出力は、より正しく実行を反映するように更新されています。 同じトランザクションでも、以前のバージョンでは異なるトレースが得られたかもしれない。 詳細は[GitHub PR](https://github.com/kaiachain/kaia/pull/15)を参照のこと。
 
 - 定義済みトレーサー
-  - callTracer\`は、トランザクション（内部tx）内のコントラクトコールとコントラクト作成をトレースする。 各コールフレームで、特定のコールまたは作成のオペコード、復帰理由、ガス消費量を返す。 速度が遅いため使用は推奨されていなかったが、v1.0.1から問題は解決された。 開発者はこのトレーサーを安全に使うことができる。
-  - fastCallTracer`は`callTracer\` の Golang 実装である。 しかし、v1.0.1以降、この2つは同一なので、fastCallTracerを使う必要はなくなった。
-  - prestateTracer\`は、このトランザクションが実行できるカスタムローカルジェネシス状態を構築するために必要な情報を返す。 ライブのブロックチェーンデータからテストケースを作成するのに便利。
-  - revertTracer`は、もしあれば、復帰の理由を返す。 これは `.reverted.reason`と`.revertReason`フィールドを返す`callTracer\` で置き換えることができる。
+  - `callTracer`は、トランザクション（内部tx）内のコントラクトコールとコントラクト作成をトレースする。 各コールフレームで、特定のコールまたは作成のオペコード、復帰理由、ガス消費量を返す。 速度が遅いため使用は推奨されていなかったが、v1.0.1から問題は解決された。 開発者はこのトレーサーを安全に使うことができる。
+  - `fastCallTracer` は `callTracer` の Golang 実装である。 しかし、v1.0.1以降、この2つは同一なので、fastCallTracerを使う必要はなくなった。
+  - `prestateTracer`は、このトランザクションが実行できるカスタムローカルジェネシス状態を構築するために必要な情報を返す。 ライブのブロックチェーンデータからテストケースを作成するのに便利。
+  - `revertTracer`は、もしあれば、復帰の理由を返す。 これは `.reverted.reason` と `.revertReason` フィールドを返す `callTracer` で置き換えることができる。
   - サポートされているトレーサーの全リストは、[API reference](../../../references/json-rpc/debug/trace-transaction)を参照。
 - structLogger は、トレーサーを指定しない場合にアクティブになるトレーサーです。 すべてのオペコードの実行が詳細に表示されるが、これは非常に重く、アプリケーションのデバッグには冗長すぎる。
 - ノードが`--rpc.unsafe-debug.disable`オプションで使用を禁止していない限り、カスタムJSトレーサーもサポートされている。 トランザクションの実行と同時に呼び出されるJavaScriptコードの一部をサブミットすることができる。 以下は、各オペコードの後に gasUsed を表示するカスタムトレーサの例です `"{gasUsed：[], step: function(log) { this.gasUsed.push(log.getGas()); }, result: function() { return this.gasUsed; }, fault: function() {}}"`. カスタムJSトレーサーについては[こちら](https://docs.chainstack.com/reference/custom-js-tracing-ethereum)と[こちら](https://geth.ethereum.org/docs/developers/evm-tracing/custom-tracer)をご覧ください。
@@ -80,10 +80,10 @@ Kaiaの`callTracer`出力フォーマットは、以下を除いてgo-ethereum�
 
 デバッグ・トレーサーは異なる粒度で取得することができる。
 
-- debug_traceTransaction\`は単一のトランザクションハッシュをトレースする。
-- debug_traceBlockByNumber`と`debug_traceBlockByHash\` はブロック内のすべてのトランザクションをトレースする。
-- debug_traceBlobkByRange\`は範囲内の連続したブロックをトレースする。
-- debug_traceCall`を使うと、与えられたブロックの最終状態で `eth_call\` を実行することができる。 これは、送信前にトランザクションの実行をシミュレートするのに便利である。
+- `debug_traceTransaction`は単一のトランザクションハッシュをトレースする。
+- `debug_traceBlockByNumber` と `debug_traceBlockByHash` はブロック内のすべてのトランザクションをトレースする。
+- `debug_traceBlobkByRange`は範囲内の連続したブロックをトレースする。
+- `debug_traceCall`を使うと、与えられたブロックの最終状態で `eth_call` を実行することができる。 これは、送信前にトランザクションの実行をシミュレートするのに便利である。
 
 ### 州再生
 
@@ -125,7 +125,7 @@ ADDITIONAL="--chaindatafetcher ˶
 --chaindatafetcher.kafka.brokers localhost:9092"
 ```
 
-ノードは2つのKafkaトピックにパブリッシュする。 blockgroup`はブロックヘッダ、コンセンサス関連情報、トランザクションの受信を運ぶ。 tracegroup`を有効にすると、ブロックの内部txトレース（つまりcallTrace）を伝送する。 以下はデフォルトのトピック名である。
+ノードは2つのKafkaトピックにパブリッシュする。 `blockgroup`はブロックヘッダ、コンセンサス関連情報、トランザクションの受信を運ぶ。 `tracegroup`を有効にすると、ブロックの内部txトレース（つまりcallTrace）を伝送する。 以下はデフォルトのトピック名である。
 
 ```sh
 $ kafka-topics.sh --bootstrap-server localhost:9092 --list
@@ -134,7 +134,7 @@ local.klaytn.chaindatafetcher.en-0.blockgroup.v1
 local.klaytn.chaindatafetcher.en-0.tracegroup.v1
 ```
 
-ken`コマンドラインフラグ`--chaindatafetcher.\*\` を使用すると、トピック名、パーティション、レプリカ、その他の Kafka 設定をカスタマイズできる。
+`ken` コマンドラインフラグ `--chaindatafetcher.*` を使用すると、トピック名、パーティション、レプリカ、その他の Kafka 設定をカスタマイズできる。
 
 ### 現在同期中のブロックからのトレース
 
