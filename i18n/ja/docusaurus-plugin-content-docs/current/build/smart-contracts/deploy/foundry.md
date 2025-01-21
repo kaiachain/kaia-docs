@@ -38,7 +38,7 @@ Foundryは、高速でモジュール化されたスマート・コントラク�
 forge -V
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/forge-version.png)
 
@@ -126,7 +126,7 @@ contract CounterTest is Test {
 forge test
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/forge-test.png)
 
@@ -156,9 +156,9 @@ $ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Cou
 forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhdhprivatekey hhdhdhud src/Counter.sol:Counter
 ```
 
-\*\*警告：引数の秘密鍵は、MetaMaskの秘密鍵に置き換えてください。 秘密鍵を公開しないよう、十分注意してください。
+**警告**：引数の秘密鍵は、MetaMaskの秘密鍵に置き換えてください。 秘密鍵を公開しないよう、十分注意してください。
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/foundry-create.png)
 
@@ -184,7 +184,7 @@ cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
 cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://public-en-kairos.node.kaia.io
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/cast-call-number.png)
 
@@ -200,7 +200,7 @@ cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https:
 cast --to-base 0x0000000000000000000000000000000000000000000000000000000000000000 10
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/cast-call-0.png)
 
@@ -216,17 +216,17 @@ cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --
 cast send --rpc-url=https://public-en-kairos.node.kaia.io 0xe4d576c447733da7ca9197e88d34a74c3c865cff "setNumber(uint256)"  10 --private-key=<private key>
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/cast-send-setNum.png)
 
-\*\*クロスチェック番号
+**クロスチェック番号**
 
 ```bash
 cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https://public-en-kairos.node.kaia.io
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/cast-call-10.png)
 
@@ -242,7 +242,7 @@ cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https:
 cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000a 10
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/cast-call-result-10.png)
 
@@ -264,7 +264,7 @@ anvil --fork-url rpc-url
 anvil --fork-url https://archive-en.node.kaia.io
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/anvil-localnode.png)
 
@@ -302,7 +302,7 @@ cast call $oUSDC \
   $BOB
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/oUsdcBob4.png)
 
@@ -314,7 +314,7 @@ cast call $oUSDC \
   $oUSDCHolder
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/oUsdcHolder4.png)
 
@@ -331,7 +331,7 @@ cast send $oUSDC \
 ```0000
 ````
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/cast-send.png)
 
@@ -343,7 +343,7 @@ cast call $oUSDC \
   $BOB
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/oUsdcBobAfter.png)
 
@@ -353,7 +353,7 @@ cast call $oUSDC \
   $oUSDCHolder
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/oUsdcHolderAfter.png)
 
