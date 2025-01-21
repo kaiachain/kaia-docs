@@ -1,4 +1,4 @@
-# Connect Remix to Klaytn
+# RemixをKaiaに接続する
 
 ![](/img/banners/kaia-remix.png)
 
