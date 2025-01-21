@@ -10,7 +10,7 @@
 
 アーカイブファイルは実行バイナリとコンフィギュレーションファイルで構成され、以下のような構造になっている。
 
-**注**\*：ファイル構造やファイル名を変更しないでください。 これを変更すると、ノードが正しく機能しなくなる可能性があります。
+**注**：ファイル構造やファイル名を変更しないでください。 これを変更すると、ノードが正しく機能しなくなる可能性があります。
 
 ```text
 - bin
@@ -38,7 +38,7 @@ $ tar zxf kpn-vX.X.X-linux-amd64.tar.gz
 $ tar zxf kpn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**注**\*: `kpn` と `kpnd` をグローバルに実行するには、環境変数 `$PATH` に `kpn-linux-amd64/bin` のパスを追加することを推奨する。 一例を挙げよう、
+**注**: `kpn` と `kpnd` をグローバルに実行するには、環境変数 `$PATH` に `kpn-linux-amd64/bin` のパスを追加することを推奨する。 一例を挙げよう、
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kpn-linux-amd64/bin
@@ -60,7 +60,7 @@ $ yum install kpnd-vX.X.X.el7.x86_64.rpm
 $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Kaia Yum Repoからインストールする<a id="install-from-kaia-yum-repo"></a>
 
 あるいは、Kaia Yum repoから`kpnd`をインストールして実行することもできる：
 
@@ -88,7 +88,7 @@ PNの設定は、データ・ディレクトリを作成し、設定ファイル
 
 ### PNデータディレクトリの作成<a id="pn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. 希望のパスにディレクトリを作成する必要があるかもしれません。
+カイア・ブロックチェーンのデータサイズが常に増加しているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。 希望のパスにディレクトリを作成する必要があるかもしれません。
 
 ```bash
 $ mkdir -p /var/kpnd/data
@@ -148,23 +148,23 @@ DATA_DIR=/var/kpnd/data
 
 以下の `systemctl` コマンドでKaiaサービスを開始/停止できる。
 
-**注**\*：これにはroot権限が必要です。
+**注**：これにはroot権限が必要です。
 
-\*\*スタート
+**スタート**
 
 ```bash
 $ systemctl start kpnd.service
 
 ```
 
-\*\*ストップ
+**ストップ**
 
 ```bash
 $ systemctl stop kpnd.service
 
 ```
 
-\*\*ステータス
+**ステータス**
 
 ```bash
 $ systemctl status kpnd.service
