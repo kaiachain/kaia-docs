@@ -1,6 +1,6 @@
 # クイックスタート
 
-This tutorial provides a step-by-step guide for setting up a ServiceChain network and connecting it to the Klaytn Baobab network.
+このチュートリアルでは、ServiceChainネットワークを設定し、Kaia Kairosネットワークに接続するためのステップバイステップのガイドを提供します。
 また、定期的なアンカリングとクロスチェーンの価値移転を可能にする方法についても学ぶ。
 実際にServiceChainでブロックチェーンサービスを運用するために、高可用性、ServiceChainの階層的な構築、兄弟ServiceChain間の価値移転について説明する。
 
