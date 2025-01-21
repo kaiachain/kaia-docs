@@ -39,9 +39,9 @@ def web3_account_update_multisig():
     account_update_tx = merge(account_update_tx, {
         'from' : user1.address, #0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
         'key' : {
-            'type'：KeyType.MULTISIG,
+            'type': KeyType.MULTISIG,
             'threshold': 2,
-            'keys'：[
+            'keys': [
                 {
                     'weight':1,
                     'key': compressed_key(user1),
@@ -54,13 +54,13 @@ def web3_account_update_multisig():
                     'weight':1,
                     'key': compressed_key(user3),
                 },
-            ].
+            ]
         }
     })
     account_update_tx = fill_transaction(account_update_tx, w3)
     print(to_pretty(account_update_tx))
 
-    # web3pyでkaia特有のトランザクションタイプに署名する
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(account_update_tx, user1.key)
     signed_tx = Account.sign_transaction(signed_tx.rawTransaction, user2.key)
     signed_tx = Account.sign_transaction(signed_tx.rawTransaction, user3.key)
@@ -168,9 +168,9 @@ def web3_account_update_multisig():
     account_update_tx = merge(account_update_tx, {
         'from' : user1.address, #0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
         'key' : {
-            'type'：KeyType.MULTISIG,
+            'type': KeyType.MULTISIG,
             'threshold': 2,
-            'keys'：[
+            'keys': [
                 {
                     'weight':1,
                     'key': compressed_key(user1),
@@ -183,13 +183,13 @@ def web3_account_update_multisig():
                     'weight':1,
                     'key': compressed_key(user3),
                 },
-            ].
+            ]
         }
     })
     account_update_tx = fill_transaction(account_update_tx, w3)
     print(to_pretty(account_update_tx))
 
-    # web3pyでkaia特有のトランザクションタイプに署名する
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(account_update_tx, user1.key)
     signed_tx = Account.sign_transaction(signed_tx.rawTransaction, user2.key)
     signed_tx = Account.sign_transaction(signed_tx.rawTransaction, user3.key)
