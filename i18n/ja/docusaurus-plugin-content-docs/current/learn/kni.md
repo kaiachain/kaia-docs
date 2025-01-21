@@ -1,6 +1,6 @@
-# Klaytn Network Identifier
+# カイアネットワーク識別子
 
-**KNI (Klaytn Network Identifier)** is a URL scheme to identify a Klaytn node. その構文を以下に示す：
+\*\*KNI (Kaia Network Identifier)\*\*はKaiaノードを識別するためのURLスキームです。 その構文を以下に示す：
 
 ```
 kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
