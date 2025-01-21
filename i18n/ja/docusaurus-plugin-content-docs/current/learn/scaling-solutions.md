@@ -64,7 +64,7 @@ transferring tokens, such as KLAY (Klaytn's native unit of value) and Klaytn tok
 
 ### 設定モード
 
-- \*\*マルチチャンネル：2つのポートを使用。 kend.conf`の`MULTICHANNEL=1` により、`kend` ではデフォルトで有効になっている。 MULTICHANNEL=0`で無効にする。 port`と`--subport\` フラグを使ってポートをカスタマイズする。
+- \*\*マルチチャンネル：2つのポートを使用。 `kend.conf` の `MULTICHANNEL=1` により、`kend` ではデフォルトで有効になっている。 MULTICHANNEL=0`で無効にする。 `port`と`--subport\` フラグを使ってポートをカスタマイズする。
 - **シングル・チャンネル：** 1つのポートを使用（デフォルトは32323）。 MULTICHANNEL`が設定されていないか、`0\`に設定されているときに有効。
 
 ### マルチチャネルの仕組み
