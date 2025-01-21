@@ -2,11 +2,11 @@
 
 ## 概要<a id="overview"></a>
 
-Klaytn’s token economy is designed to create sustainable funding structures for empowering its ecosystem, growth initiatives, and strategic investments. Many public blockchain projects have monetary systems that solely incentivize their node operators (miners or block producers), focusing only on the technical aspect of network maintenance. しかし、このような設計では、ネットワークのトークンエコノミーの成長に貢献したり、長期的な成長の見通しに投資したりする他のタイプの参加者にインセンティブを与えることの重要性を見逃してしまう。 In contrast, Klaytn’s token economy is designed to compensate more diverse forms of contributions from a wider range of participants, and has built-in funding structure to procure sustained resources to fuel future growth initiatives and strategically sourced investment projects in addition to maintaining its blockchain nodes.
+カイアのトークンエコノミーは、エコシステムの強化、成長イニシアティブ、戦略的投資のための持続可能な資金調達構造を構築するために設計されています。 Many public blockchain projects have monetary systems that solely incentivize their node operators (miners or block producers), focusing only on the technical aspect of network maintenance. しかし、このような設計では、ネットワークのトークンエコノミーの成長に貢献したり、長期的な成長の見通しに投資したりする他のタイプの参加者にインセンティブを与えることの重要性を見逃してしまう。 対照的に、カイアのトークンエコノミーは、より幅広い参加者からの多様な形の貢献を補償するように設計されており、ブロックチェーンノードの維持に加えて、将来の成長イニシアティブや戦略的に調達された投資プロジェクトに燃料を供給するための持続的なリソースを調達するための資金調達構造が組み込まれている。
 
 ## 資金調達の仕組み<a id="funding-structure"></a>
 
-Klaytn’s funding structure runs continuously with Klaytn network’s block generation. With every new block, newly issued KLAY and the sum of transaction fees used in the block (collectively called “block reward”) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
+カイアの資金調達構造は、カイアネットワークのブロック生成と連動している。 With every new block, newly issued KLAY and the sum of transaction fees used in the block (collectively called “block reward”) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
 
 - 検証者とコミュニティ：50
   - ブロック提案者報酬：50％の20％（全体の10）
@@ -16,21 +16,21 @@ Klaytn’s funding structure runs continuously with Klaytn network’s block gen
 
 9.6 KAIAは新しいブロックごとに鋳造される。 これは、年間約3億KAIAが鋳造されることを意味し、市場におけるKAIAトークン総量に対して年間5.2％のインフレ率に相当します（年間インフレ率は、カイア・ガバナンス・プロセスを通じて変更される可能性があります）。 取引手数料は、あらかじめ決められた手数料テーブルに従って請求され、計量される。 取引手数料の詳細については、[「取引手数料」](../transaction-fees/transaction-fees.md)をご参照ください。
 
-## Klaytn Governance Council Reward <a id="klaytn-governance-council-reward"></a>
+## カイア統治評議会の報酬<a id="kaia-governance-council-reward"></a>
 
-Klaytn Governance Council is the collective group of Core Cell Operators (CCOs). Council members are responsible for maintaining Core Cells (CCs), which makes the Council an essential body in the Klaytn ecosystem responsible for providing the underlying infrastructure. To become a Council member, the candidate must undergo a qualification review by the Klaytn Governance Process and must stake at least 5 million KLAY. The Klaytn Governance Council Reward is a structure for incentivizing Council members to continue to provide a stable foundation for the Klaytn ecosystem.
+カイア・ガバナンス・カウンシルは、コアセルオペレーターの集合体。 評議会のメンバーは、コアセル（CC）の維持管理を担当しており、評議会はカイア・エコシステムにおいて基盤となるインフラストラクチャを提供する重要な機関となっています。 カウンシルメンバーになるには、候補者はカイア・ガバナンス・プロセスによる資格審査を受け、少なくとも500万KAIAの出資をしなければならない。 カイア統治評議会報酬は、評議会メンバーがカイアのエコシステムの安定した基盤を提供し続けるためのインセンティブの仕組みです。
 
-### Klaytn Governance Council Reward Mechanism <a id="klaytn-governance-council-reward-mechanism"></a>
+### カイア統治評議会の報酬メカニズム<a id="kaia-governance-council-reward-mechanism"></a>
 
-For each block in the Klaytn blockchain, a Committee is formed by randomly selecting members from the Klaytn Governance Council (GC). この委員会は、プロポーザーの役割を割り当てられた1名の委員で構成され、残りの委員はバリデーターの役割を担う。 Once a block is successfully created and appended to the Klaytn blockchain, the block reward is distributed among the Council members and various funds according to the previously mentioned ratios.
+Kaiaブロックチェーンの各ブロックについて、委員会はKaiaガバナンス評議会(GC)からランダムにメンバーを選ぶことで形成される。 この委員会は、プロポーザーの役割を割り当てられた1名の委員で構成され、残りの委員はバリデーターの役割を担う。 ブロックが正常に作成され、カイアブロックチェーンに追加されると、ブロック報酬は前述の比率に従ってカウンシルメンバーと様々なファンドに分配されます。
 
 すべての評議会メンバーは、あるブロックの提案者に選ばれる確率が等しく、ブロック提案者報酬は評議会メンバー間で均等に分配される。 However, the GC staking reward is allocated proportionally based on the amount of KLAY staked by each member, minus the minimum requirement of 5 million KLAY. This means that Council members who stake a larger amount of KLAY beyond the minimum threshold will receive a greater share of the staking reward compared to those who stake less. As a result, Council members are incentivized to stake more KLAY to maximize their potential rewards from the GC staking award portion of the block reward distribution.
 
-As long as the minimum 5 million KLAY staking requirement is met, Klaytn Governance Council members can freely stake or unstake his or her own KLAY. Staking information is updated every 86,400 blocks, and newly staked KLAY comes info effect two update cycles later from when the staking is completed. Withdrawing staked KLAY requires one week of delay to prevent malicious members from immediately exiting.
+最低500万KAIAのステーキング要件が満たされている限り、カイア統治評議会のメンバーは自分のKAIAを自由にステーキングまたはアンステーキングすることができます。 Staking information is updated every 86,400 blocks, and newly staked KLAY comes info effect two update cycles later from when the staking is completed. Withdrawing staked KLAY requires one week of delay to prevent malicious members from immediately exiting.
 
 ### 不品行な議員に対する罰則<a id="penalty-for-misbehaving-council-members"></a>
 
-審議会議員は、以下に定義される不正行為を行った場合、罰則の対象となることがある。 In the future, more penalty rules can be established and refined through the Klaytn Governance Process.
+審議会議員は、以下に定義される不正行為を行った場合、罰則の対象となることがある。 将来的には、カイア・ガバナンス・プロセスを通じて、より多くの罰則規定を設け、洗練させることができる。
 
 安全性の失敗の原因：
 
