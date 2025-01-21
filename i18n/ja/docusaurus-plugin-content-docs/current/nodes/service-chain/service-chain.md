@@ -7,7 +7,7 @@
 
 ## サービス・チェーンの概要<a id="service-chain-overview"></a>
 
-Klaytn Service Chain provides the following features.
+カイア・サービスチェーンには次のような特徴がある。
 
 - 即座の最終決定。
 - クロスチェーン・トークン転送。
@@ -16,4 +16,4 @@ Klaytn Service Chain provides the following features.
 
 ![](/img/nodes/sc_connection.png)
 
-Read the [Klaytn Scaling Solution](../../learn/scaling-solutions.md) for more details about the Service Chain.
+サービスチェーンの詳細については、[Kaia Scaling Solution](../../learn/scaling-solutions.md)をお読みください。
