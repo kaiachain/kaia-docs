@@ -6,13 +6,13 @@
 
 [SupraOracles](https://supraoracles.com/)は、新しい、高スループットのオラクル＆イントラレイヤー：パブリック（L1とL2）またはプライベート（企業）のすべてのブロックチェーンを相互リンクするクロスチェーンソリューション（データオラクル、アセットブリッジ、オートメーションネットワークなど）の垂直統合ツールキットです。 スマートコントラクトに、データ精度、スピード、スケーラビリティ、セキュリティに優れた次世代クロスチェーン・オラクル・ソリューションを提供する。
 
-SupraOraclesを使えば、スマートコントラクトは価格データフィードにアクセスし、様々な分散型金融（DeFi）のユースケースを構築することができます。 In this tutorial, you will use SupraOracles  to get price feeds easily on Klaytn blockchain using Remix IDE.
+SupraOraclesを使えば、スマートコントラクトは価格データフィードにアクセスし、様々な分散型金融（DeFi）のユースケースを構築することができます。 このチュートリアルでは、Remix IDEを使ってKaiaブロックチェーンの価格フィードを簡単に取得するためにSupraOraclesを使用します。
 
 ## 前提条件
 
 - [カイア・ウォレット](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 - [Remix IDE](https://remix.ethereum.org/)
-- [Klaytn Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- [KaiaプラグインをRemixで](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 - [Faucet](https://faucet.kaia.io)からKAIAをテストする。
 
 ## はじめに
@@ -42,7 +42,7 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-In this example, we are implementing the S-Value Feed on the Klaytn Baobab TestNet. You can verify the Klaytn Baobab S-Value Feed Address [here](https://supraoracles.com/docs/get-started/networks/).
+この例では、Kaia Kairos TestNetにS-Value Feedを実装しています。 カイア・カイロスS-Valueのフィードアドレスは[こちら](https://supraoracles.com/docs/get-started/networks/)で確認できます。
 
 ### ステップ3: S-Value暗号価格を取得する
 
@@ -70,7 +70,7 @@ return price;
 - ファイルエクスプローラタブをクリックし、contractsフォルダに`demoSupraPriceFeed.sol`という新しいファイルを作成する。
 - 新しく作成したファイルに以下のコードを貼り付けます。
 - Remixで、**Compile contract**をクリックします。
-- Click the Klaytn tab on your left having installed the plugin
+- プラグインをインストールしたら、左側のKaiaタブをクリックします。
 - Environment\*\* > **Injected Provider** - **Kaia Wallet** を選択します。
 - Contract\*\*で、契約を選択します。 例えば、ISupraSValueFeedExample。
 - Deploy\*\*をクリックします。
@@ -145,4 +145,4 @@ getEthUsdtPrice()
 
 ## 結論
 
-このチュートリアルでは、SupraOracle 価格フィードソリューションを使用して ETH/USD 価格を要求する方法を学びました。 SupraOracleを使えば、スマートコントラクト内で乱数を生成することもできる。 Curious about this process, visit this [guide](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial) on integrating SupraVRF on Klaytn. SupraOraclesに関するより詳細なガイドについては、[SupraOracles Docs](https://supraoracles.com/docs/development-guides) を参照してください。
+このチュートリアルでは、SupraOracle 価格フィードソリューションを使用して ETH/USD 価格を要求する方法を学びました。 SupraOracleを使えば、スマートコントラクト内で乱数を生成することもできる。 このプロセスに興味がある方は、カイアにSupraVRFを統合するための[ガイド](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)をご覧ください。 SupraOraclesに関するより詳細なガイドについては、[SupraOracles Docs](https://supraoracles.com/docs/development-guides) を参照してください。
