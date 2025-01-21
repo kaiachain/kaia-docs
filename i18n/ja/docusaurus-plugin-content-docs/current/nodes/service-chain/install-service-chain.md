@@ -182,7 +182,7 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
 
 #### nodekeyのインストール<a id="install_nodekey"></a>
 
-Copy `homi-output/keys/nodekey1` to the `klay` directory in the SCN's data directory like below.
+`homi-output/keys/nodekey1`をSCNのデータディレクトリの`kaia`ディレクトリに以下のようにコピーします。
 
 ```bash
 $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
@@ -221,7 +221,7 @@ DATA_DIR=~/kscnd_home
 
 ## SCNの起動／停止<a id="starting-stopping-scn"></a>
 
-Depending on your installation type, you can start/stop the Klaytn service with the following `systemctl`  or `kscnd` command.
+インストールの種類に応じて、以下の `systemctl` または `kscnd` コマンドでKaiaサービスを開始/停止できる。
 
 \*\*スタート
 
@@ -264,7 +264,7 @@ $ kscnd status
 
 #### systemctl <a id="systemctl"></a>
 
-systemctl\`はRPMと一緒にインストールされ、SCNの状態は以下のように確認できる。
+`systemctl`はRPMと一緒にインストールされ、SCNの状態は以下のように確認できる。
 
 ```bash
 $ systemctl status kscnd.service
@@ -286,7 +286,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Start
 
 #### kscnd <a id="kscnd"></a>
 
-kscnd\`はパッケージと一緒にインストールされ、SCNの状態は以下のようにチェックできる。
+`kscnd`はパッケージと一緒にインストールされ、SCNの状態は以下のようにチェックできる。
 
 ```bash
 $ kscnd status
@@ -318,7 +318,7 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 #### kscnコンソール<a id="kscn-console"></a>
 
-Klaytn provides a CLI client: `kscn console`. クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。 IPC ファイル `klay.ipc` は SCN の `DATA_DIR` パスにあります。
+KaiaはCLIクライアント `kscn console` を提供している。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。 IPC ファイル `klay.ipc` は SCN の `DATA_DIR` パスにあります。
 
 以下のコマンドを実行し、結果を確認してください。
 
@@ -337,8 +337,8 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 SCNのステータスをチェックするのに便利なAPI：
 
-- `klay.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+- `kaia.blockNumber` (最新のブロック番号を取得する)
+- net.peerCount\` (現在接続されているKaiaノードの数を取得する)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 
