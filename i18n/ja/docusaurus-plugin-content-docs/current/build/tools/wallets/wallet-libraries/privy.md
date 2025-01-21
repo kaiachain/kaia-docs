@@ -77,7 +77,7 @@ export default MyApp;
 
 ## コネクティング・ウォレット
 
-index.tsx\`ファイル内のLoginPage関数内で、[login](https://docs.privy.io/reference/react-auth/interfaces/PrivyInterface#login) メソッドを呼び出します。このメソッドは、Privyのログインモーダルを開き、ユーザーにログインを促します。
+`index.tsx`ファイル内のLoginPage関数内で、[login](https://docs.privy.io/reference/react-auth/interfaces/PrivyInterface#login) メソッドを呼び出します。このメソッドは、Privyのログインモーダルを開き、ユーザーにログインを促します。
 
 ```ts
  import {usePrivy} from '@privy-io/react-auth';
