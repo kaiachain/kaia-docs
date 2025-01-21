@@ -33,7 +33,7 @@ def web3_fee_delegated_value_transfer_sign_recover():
     })
     fee_delegated_value_transfer_tx = fill_transaction(fee_delegated_value_transfer_tx, w3)
 
-    # kaia特有のトランザクションタイプにweb3pyで署名
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(fee_delegated_value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
@@ -151,7 +151,7 @@ def web3_fee_delegated_value_transfer_sign_recover():
     })
     fee_delegated_value_transfer_tx = fill_transaction(fee_delegated_value_transfer_tx, w3)
 
-    # kaia特有のトランザクションタイプにweb3pyで署名
+    # sign the kaia specific transaction type with web3py
     signed_tx = Account.sign_transaction(fee_delegated_value_transfer_tx, user.key)
     print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
