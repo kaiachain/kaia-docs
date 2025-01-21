@@ -12,7 +12,7 @@ caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
 
 `FeeDelegatedValueTransfer` は [fee delegated value transfer transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer) を表す。 トランザクションオブジェクト `transactionObject` は、`FeeDelegatedValueTransfer` トランザクションを作成するために以下のプロパティを持つことができる。
 
-FeeDelegatedValueTransfer`は以下のプロパティをメンバ変数として持つ。`optional`とマークされたプロパティは、ユーザが `FeeDelegatedValueTransfer`トランザクションを作成するときに`transactionObject\` にオプションで定義できるプロパティである。
+`FeeDelegatedValueTransfer` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedValueTransfer` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
 
 :::note
 
