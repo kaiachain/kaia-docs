@@ -20,7 +20,7 @@ Particle Networkを使えば、Kaiaの開発者はKaiaメインネットとテ�
 
 - TypeScriptとTailwind CSSを使った[Next.jsプロジェクト](https://nextjs.org/docs/getting-started/installation)
   - これを作成するには、`npx create-next-app@latest` を実行します。
-- A project ID, client key, and app ID from the [Particle dashboard](https://dashboard.particle.network).
+- [Particle Dashboard] (https://dashboard.particle.network) から取得した **Project ID**、**Client Key**、および **App ID**。
 
 ## インストール
 
