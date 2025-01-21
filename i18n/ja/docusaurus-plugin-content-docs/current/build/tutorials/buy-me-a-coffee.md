@@ -77,7 +77,7 @@ npx tailwindcss init -p
 
 #### ステップ3 - `tailwind.config.js` を修正する
 
-tailwind.config.js\`ファイルに移動し、以下のコードに置き換える：
+`tailwind.config.js`ファイルに移動し、以下のコードに置き換える：
 
 ```js
 module.exports = {
@@ -180,7 +180,7 @@ b. プロジェクトディレクトリの表示 あなたのカレント・デ�
 
 ## 2. コーヒーを買うスマートコントラクトの作成<a id="creating-a-buy-me-a-coffee-contract"></a>
 
-このセクションでは、BMC機能を格納するスマート・コントラクトを作成する。 BuyMeACoffee.sol\`という名前の新しいファイルを作成し、以下のコードを貼り付けてください：
+このセクションでは、BMC機能を格納するスマート・コントラクトを作成する。 `BuyMeACoffee.sol`という名前の新しいファイルを作成し、以下のコードを貼り付けてください：
 
 ```solidity
 // SPDX-License-Identifier：UNLICENSED
@@ -562,7 +562,7 @@ cd frontend
 npm install @web3-onboard/react
 ```
 
-_app.js\`ファイルで、web3OnboardProviderとinit関数をインポートする。 詳細は後述する。
+`_app.js`ファイルで、web3OnboardProviderとinit関数をインポートする。 詳細は後述する。
 
 ```js
 import { Web3OnboardProvider, init } from '@web3-onboard/react'
@@ -578,7 +578,7 @@ npm install @web3-onboard/walletconnect // WalletConnect
 npm install @web3-onboard/injected-wallets  // Used to connect to Metamask
 ```
 
-_app.js\`ファイルで、dAppと統合するためのウォレットモジュールをインポートし、インスタンス化します。 各モジュールには、フォールバックJSON RPC URLやデフォルト・チェーンIDなど、渡すべき独自のオプション・パラメータがあることに注意してください。
+`_app.js`ファイルで、dAppと統合するためのウォレットモジュールをインポートし、インスタンス化します。 各モジュールには、フォールバックJSON RPC URLやデフォルト・チェーンIDなど、渡すべき独自のオプション・パラメータがあることに注意してください。
 
 ```js
 import coinbaseWalletModule from "@web3-onboard/coinbase";
