@@ -28,13 +28,13 @@ To add the KLAY native coin to your hardware wallet, kindly follow the steps bel
 
 ![](/img/build/tools/step1-add-klay.png)
 
-**Step 2**: Select the coins you want to add (in our case KLAY), and click **Add Coin** at the bottom
+**ステップ 2**: 追加したいコイン（私たちの場合はKAIA）を選択し、下部にある**Add Coin**（コインを追加）をクリックします。
 
 ![](/img/build/tools/step2-add-klay.png)
 
-\*\*ステップ3  アプリとS1ハードウェアウォレットの間でスキャンを繰り返し、データがアプリとデバイス間で正しく同期されるようにします。
+**ステップ3**:  アプリとS1ハードウェアウォレットの間でスキャンを繰り返し、データがアプリとデバイス間で正しく同期されるようにします。
 
-**ステップ4コインの追加に成功したら、S1デバイスの**資産管理\*\*タブでコインを確認できます。
+**ステップ4**: コインの追加に成功したら、S1デバイスの**資産管理**タブでコインを確認できます。
 
 ![](/img/build/tools/step4-add-klay.png)
 
@@ -42,7 +42,7 @@ To add the KLAY native coin to your hardware wallet, kindly follow the steps bel
 
 ### Receiving KLAY native coin  <a id="receiving-klay-native-coin"></a>
 
-Once the coins (KLAY, KCTs) are successfully added, you can view them in the **Asset Management** tab on the S1 device. You can receive KLAY native coin using the following approach:
+コイン（KAIA、KCT）が正常に追加されると、S1デバイスの**資産管理**タブで確認できます。 You can receive KLAY native coin using the following approach:
 
 #### SafePal アプリの使用
 
@@ -53,7 +53,7 @@ Once the coins (KLAY, KCTs) are successfully added, you can view them in the **A
 
 **ステップ 1** SafePal S1 を起動し、「Asset Management（資産管理）」に移動します。
 
-**Step 2** Select KLAY as the coin you would like to receive from others.
+**ステップ2** 他者から受け取りたいコインとしてKAIAを選択します。
 
 **ステップ3** 「受信」ボタンをクリックする。
 
