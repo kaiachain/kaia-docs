@@ -174,7 +174,7 @@ Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポー�
 
 ---
 
-web3j-credentials\*\*では、`KlayTransactionEncoder.signMessage`でトランザクションに署名し、`Numeric.toHexString`で16進文字列にエンコードします。
+**web3j-credentials**では、`KlayTransactionEncoder.signMessage`でトランザクションに署名し、`Numeric.toHexString`で16進文字列にエンコードします。
 
 ```java txTypeLegacyTransaction.java focus=49:50
 
@@ -182,7 +182,7 @@ web3j-credentials\*\*では、`KlayTransactionEncoder.signMessage`でトラン�
 
 ---
 
-ethSendRawTransaction\`メソッドを使用して、署名されたトランザクションをブロックチェーンに送信する。
+`ethSendRawTransaction`メソッドを使用して、署名されたトランザクションをブロックチェーンに送信する。
 
 ```java txTypeLegacyTransaction.java focus=51:52
 
@@ -190,7 +190,7 @@ ethSendRawTransaction\`メソッドを使用して、署名されたトランザ
 
 ---
 
-web3j-ext klaycredentials\*\* では、`KlayRawTransaction.createEtherTransaction` で生のトランザクションを作成し、`KlayTransactionEncoder.signMessage` で署名し、`Numeric.toHexString` で16進文字列にエンコードします。
+**web3j-ext klaycredentials** では、`KlayRawTransaction.createEtherTransaction` で生のトランザクションを作成し、`KlayTransactionEncoder.signMessage` で署名し、`Numeric.toHexString` で16進文字列にエンコードします。
 
 ```java txTypeLegacyTransaction.java focus=54:63
 
@@ -198,7 +198,7 @@ web3j-ext klaycredentials\*\* では、`KlayRawTransaction.createEtherTransactio
 
 ---
 
-ethSendRawTransaction\`メソッドを使用して、署名されたトランザクションをブロックチェーンに送信する。
+`ethSendRawTransaction`メソッドを使用して、署名されたトランザクションをブロックチェーンに送信する。
 
 ```java txTypeLegacyTransaction.java focus=64:66
 
