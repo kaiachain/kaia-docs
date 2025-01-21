@@ -69,18 +69,18 @@ L20: }
 したがって、他のプログラミング言語に慣れている人は、このセクションの以下の説明を読み飛ばして、次のセクションに飛んでも構わない。 しかし、コードが何をするのか明確に理解できない人や、Solidityが初めてのプログラミング言語である人のために、以下にソースコードの簡単な説明を記載します：
 
 - The portions of the code starting with a double forward slash (`//`) are comments rather than code; they are used to annotate and explain the code.  コンパイラーはコメントを無視する。
-- L01`の`pragma\`文は、コンパイラの最小バージョンを示す。
-- L03`の`import` ステートメントは、"`ファイル名`" からすべてのグローバルシンボルをインポートする。 filename`は実際のファイル名でなければならない。
-- L05`-`L20`は`UserStorage`というスマートコントラクトを定義している。  キーワード`contract\` はコントラクト名の前にあり、コードがスマート・コントラクトを表すことを宣言する。  Solidity のコントラクトは、オブジェクト指向言語のクラスに似ています。  各コントラクトには、ステート変数、関数、関数修飾子、イベント、構造体タイプ、enumタイプの宣言を含めることができる。  さらに、契約は他の契約を継承することができる。  サンプルコードには 1 つのコントラクト定義が含まれていますが、1 つの Solidity ファイルには複数のコントラクト定義が含まれている場合があります。
-- L07`では、`userData`はマッピングタイプの状態変数である。  状態変数はコントラクト・ストレージに恒久的に保存される。  状態変数 `userData`は`address`と`uint`値の対応を保持する。  The`address\` type holds a 20-byte address (Klaytn uses a 20-byte address similar to Ethereum).
-- L09`では、メッセージの送信者の値`x`を`userData`に保存するパブリック関数`set`を定義しています。  The variable`msg.sender` is a special variable defined in Solidity that represents the address of the message (_i.e._, current call) sender.  public`というキーワードは、その関数がコントラクト・インターフェースの一部であり、外部からも内部からも呼び出せることを意味する。
-- L13`の`get`関数と`L17`の`getUserData`関数は`view`で宣言されている。  これらの宣言には`returns (uint)`が含まれており、これは`uint\` 値を返すことを意味している。
+- `L01`の`pragma`文は、コンパイラの最小バージョンを示す。
+- `L03` の `import` ステートメントは、"`ファイル名`" からすべてのグローバルシンボルをインポートする。 `filename`は実際のファイル名でなければならない。
+- `L05` - `L20` は `UserStorage` というスマートコントラクトを定義している。  キーワード `contract` はコントラクト名の前にあり、コードがスマート・コントラクトを表すことを宣言する。  Solidity のコントラクトは、オブジェクト指向言語のクラスに似ています。  各コントラクトには、ステート変数、関数、関数修飾子、イベント、構造体タイプ、enumタイプの宣言を含めることができる。  さらに、契約は他の契約を継承することができる。  サンプルコードには 1 つのコントラクト定義が含まれていますが、1 つの Solidity ファイルには複数のコントラクト定義が含まれている場合があります。
+- `L07`では、`userData`はマッピングタイプの状態変数である。  状態変数はコントラクト・ストレージに恒久的に保存される。  状態変数 `userData` は `address` と `uint` 値の対応を保持する。  `address` 型は20バイトのアドレスを保持します（KaiaはEthereumと同様の20バイトのアドレスを使用します）。
+- `L09` では、メッセージの送信者の値 `x` を `userData` に保存するパブリック関数 `set` を定義しています。  変数 `msg.sender` は、Solidityで定義された特別な変数であり、メッセージ（つまり、現在のコール）の送信者のアドレスを表します。  `public`というキーワードは、その関数がコントラクト・インターフェースの一部であり、外部からも内部からも呼び出せることを意味する。
+- `L13` の `get` 関数と `L17` の `getUserData` 関数は `view` で宣言されている。  これらの宣言には `returns (uint)` が含まれており、これは `uint` 値を返すことを意味している。
 
 Solidity 言語の構文とセマンティクスの詳細については、[Solidity ドキュメント](https://docs.soliditylang.org/) を参照してください。
 
 ## コンパイル、デプロイ、実行の方法<a id="how-to-compile-deploy-and-execute"></a>
 
-Solidityコードをコンパイルする一つの方法は、コマンドラインコンパイラ_solc_を使用することです。 This compiler can produce various outputs, ranging from simple binaries and assembly to an abstract syntax tree (parse tree). Assuming that the code above is saved in `UserStorage.sol` (`L03` is excluded in the source file shown above), some examples of compiling the file `UserStorage.sol` are as follows.
+Solidityコードをコンパイルする一つの方法は、コマンドラインコンパイラ_solc_を使用することです。 This compiler can produce various outputs, ranging from simple binaries and assembly to an abstract syntax tree (parse tree). 上記のコードを`UserStorage.sol`に保存すると仮定した場合（上記のソースファイルでは `L03` は除外されている）、`UserStorage.sol`をコンパイルする例を以下に示す。
 
 ```bash
 $ solc --bin UserStorage.sol
@@ -92,7 +92,7 @@ $ solc --bin UserStorage.sol
 solc -o output --bin --ast --asm UserStorage.sol
 ```
 
-- The compiler generates a binary (by `--bin`), an abstract syntax tree (by `--ast`), and assembly code (by `--asm`) as separate files in the `output` directory.
+- コンパイラは、バイナリの(`--bin`)ファイル、抽象構文木の(`--ast`)ファイル、アセンブ リコードの(`--asm`)ファイルを、それぞれ別のファイルとして `output` ディレクトリに生成します。
 
 ```bash
 solc --optimize --bin UserStorage.sol
