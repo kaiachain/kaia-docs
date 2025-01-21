@@ -124,9 +124,9 @@ Remix IDE:
 
 - Remix IDEで、**ファイルエクスプローラタブ**に移動します。
 
-  - contracts\*\*フォルダの下に新しく作成した契約を選択します。
+  - **contracts**フォルダの下に新しく作成した契約を選択します。
   - 2本指でクリックまたはタップすると、契約で利用可能なすべてのコマンドが表示されます。
-  - フラット化\*\*を選択
+  - **flatten**を選択
 
   ![](/img/build/tutorials/airdropToken-flattened.png)
 
@@ -152,7 +152,7 @@ Kaiascopeで単一契約および複数パート契約を検証するには、�
 
 1. [Kaiascope](https://kairos.kaiascope.com)の検索バーに、デプロイされた契約書のアドレスを貼り付ける。
 2. そのページの**契約タブ**に移動する。
-3. Click on the **Match Contract Source Code** link to submit contract code for verification.
+3. **Match Contract Source Code** リンクをクリックして、確認のために契約コードを送信します。
 
 ![](/img/build/tutorials/counter-contract-tab.png)
 
@@ -161,7 +161,7 @@ Kaiascopeで単一契約および複数パート契約を検証するには、�
 6. `Counter.sol`の例で使用した**コンパイラのバージョン**を選択する。
 7. `Counter.sol`の例で使用した**オープン・ソース・ライセンス・タイプ**を選択します。 Counter.solの例では、\*\*MIT License (MIT)\*\*を選択してください。 使用されていない場合は、\*\*ライセンスなし（None）\*\*を選択します。
 8. **Source Code field**で、**Source Text**を選択し、テキストフィールドに`Counter.sol`のソースコードを貼り付けます。
-9. 最適化**がコンパイル時に有効になっている場合は**True**を選択し、**Optimization Runs**の実行回数を**200\*\*になるように入力します。
+9. **最適化**がコンパイル時に有効になっている場合は**True**を選択し、**Optimization Runs**の実行回数を**200**になるように入力します。
 10. 契約の**EVMバージョン**を選択します。 `Counter.sol`の例では、**Istanbul**を選択する。
 11. 下部のCAPTCHAと**Sign and Submit**ボタンをクリックして確認し、認証を開始します。
 
@@ -171,7 +171,7 @@ Kaiascopeで単一契約および複数パート契約を検証するには、�
 
 ![](/img/build/tutorials/counter-success-popup.png)
 
-13. 検証が完了すると、検証結果がブラウザに表示され、契約先が記載された成功結果ページが表示される。 契約アドレスをクリックすると、**契約ソースコード**、**契約ABI**、\***バイトコード**が表示されます。
+13. 検証が完了すると、検証結果がブラウザに表示され、契約先が記載された成功結果ページが表示される。 契約アドレスをクリックすると、**契約ソースコード**、**契約ABI**、**バイトコード**が表示されます。
 
 ![](/img/build/tutorials/counter-success-popup-I.png)
 
@@ -191,9 +191,9 @@ b. ソリディティファイル
 
 ![](/img/build/tutorials/airdrop-veri-field-II.png)
 
-この後、他のすべてのステップは、単一の契約を検証するのと同じである。 Having filled the verification parameter, click on the **Sign and Submit** button to confirm and begin verification.
+この後、他のすべてのステップは、単一の契約を検証するのと同じである。 検証パラメータを入力したら、**Sign and Submit** ボタンをクリックして確認し、検証を開始します。
 
-検証が完了すると、検証結果がブラウザに表示され、契約先が記載された成功結果ページが表示される。 契約アドレスをクリックすると、**契約ソースコード**、**契約ABI**、\***バイトコード**が表示されます。
+検証が完了すると、検証結果がブラウザに表示され、契約先が記載された成功結果ページが表示される。 契約アドレスをクリックすると、**契約ソースコード**、**契約ABI**、**バイトコード**が表示されます。
 
 ![](/img/build/tutorials/airdrop-success-popup.png)
 
@@ -220,7 +220,7 @@ Kaiascanでの契約の検証は現在ベータ版です。
 3. `Counter.sol`の例で使用した**オープン・ソース・ライセンス・タイプ**を選択します。 Counter.solの例では、\*\*MIT License (MIT)\*\*を選択してください。 使用されたものがない場合は、\*\*ライセンスなし（None）\*\*を選択する。
 4. 必ずRemix IDEから`Counter.sol`をダウンロードし、\*\*Source Code (Solidity File)\*\*フィールドにアップロードしてください。
 5. 契約の**EVMバージョン**を選択します。 `Counter.sol`の例では、**Istanbul**を選択する。
-6. 最適化**がコンパイル時に有効になっている場合は**True**を選択し、**Optimization Runs**の実行回数を**200\*\*になるように入力します。
+6. **最適化**がコンパイル時に有効になっている場合は**True**を選択し、**Optimization Runs**の実行回数を**200**になるように入力します。
 7. (オプション) このフィールドのABIエンコードされたコンストラクタ引数を取得するには、[abi.hashex.org](http://abi.hashex.org) にアクセスして、以下の画像に従ってエンコードされたデータを取得します：
 
 ![](/img/build/tutorials/abi-hashex.png)
@@ -239,7 +239,7 @@ Kaiascanで複数パートにまたがる契約を検証する場合は、単一
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
-After filling the verification parameters, click on the **Sign and Submit** button to confirm and begin verification. 認証が完了すると、認証ページが更新されます。 これで、エクスプローラーの検索バーに契約書のアドレスを貼り付けて、**契約書のソースコード**、**契約書のABI**、**作成コード**を表示できる。
+検証パラメータを入力したら、**Verify and Publish** ボタンをクリックして検証を開始します。 認証が完了すると、認証ページが更新されます。 これで、エクスプローラーの検索バーに契約書のアドレスを貼り付けて、**契約書のソースコード**、**契約書のABI**、**作成コード**を表示できる。
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
