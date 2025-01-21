@@ -1,6 +1,6 @@
 # ケイバー・アビ
 
-caver.abi\`パッケージを使うと、ABI（Application Binary Interface）を使ってパラメータをデコードしたりエンコードしたりすることができる。 これは、デプロイされたスマート・コントラクトの機能を呼び出すために使用される。
+`caver.abi`パッケージを使うと、ABI（Application Binary Interface）を使ってパラメータをデコードしたりエンコードしたりすることができる。 これは、デプロイされたスマート・コントラクトの機能を呼び出すために使用される。
 
 ## 符号化関数シグネチャ<a id="encodefunctionsignature"></a>
 
@@ -101,7 +101,7 @@ caver.abi.encodeParameter(タイプ, パラメータ)
 | タイプ   | string \\ | パラメータの型。型のリストについては [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) を参照してください。 |
 | パラメータ | ミックス        | エンコードする実際のパラメータ。                                                                                             |
 
-**NOTE** `tuple` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 tuple\` 型の詳細については、[Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
+**NOTE** `tuple` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 `tuple` 型の詳細については、[Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
 
 **リターン・バリュー**
 
@@ -153,7 +153,7 @@ JSONインターフェイスオブジェクトに基づいて、関数パラメ�
 | タイプ配列  | Array \\ | 型の配列、または関数の JSON インターフェース。 型のリストについては[solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)を参照してください。 |
 | パラメーター | 配列         | エンコードするパラメータ。                                                                                                                 |
 
-**NOTE** `tuple` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 tuple\` 型の詳細については、[Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
+**NOTE** `tuple` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 `tuple` 型の詳細については、[Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
 
 **リターン・バリュー**
 
@@ -299,7 +299,7 @@ ABI エンコードされたパラメータを JavaScript の型にデコード�
 | タイプ       | string \\ | パラメータの型。型のリストについては [solidity documentation](http://solidity.readthedocs.io/en/develop/types.html) を参照してください。 |
 | ヘックスストリング | 配列          | デコードするABIバイトコード。                                                                                             |
 
-**NOTE** `tuple` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 tuple\` 型の詳細については、[Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
+**NOTE** `tuple` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 `tuple` 型の詳細については、[Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
 
 **リターン・バリュー**
 
@@ -350,7 +350,7 @@ ABI エンコードされたパラメータを JavaScript の型にデコード�
 | タイプ配列     | Array \\ | 型、または JSON インタフェース出力の配列。 型のリストについては[solidity documentation](http://solidity.readthedocs.io/en/develop/types.html)を参照してください。 |
 | ヘックスストリング | ストリング      | デコードするABIバイトコード。                                                                                                            |
 
-**NOTE** `tuple` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 tuple\` 型の詳細については、[Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
+**NOTE** `tuple` 型は caver-js [v1.6.0](https://www.npmjs.com/package/caver-js/v/1.6.0) からサポートされています。 `tuple` 型の詳細については、[Solidity Docs](https://docs.soliditylang.org/en/v0.6.10/abi-spec.html#handling-tuple-types) を参照してください。
 
 **リターン・バリュー**
 
