@@ -6,7 +6,7 @@ Klaytn provides wrapped transaction types to support Ethereum compatibility. Eth
 
 EthereumTxTypeEnvelopeは、Ethereumのトランザクションタイプを示す生トランザクション用の1バイト接頭辞である。 Ethereum has adopted an extendable transaction type scheme from [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718) and it uses a type numbering system that conflicts with Klaytn's. To resolve the conflict between two different transaction type schemes, Klaytn has introduced `EthereumTxTypeEnvelope` which allows for separation and expansion for future Ethereum transaction types.
 
-EthereumTxTypeEnvelope`は追加の型区切り文字であり、生のトランザクションと型番号付けにのみ使用される。 トランザクションハッシュや署名ハッシュには使用されない。 そのために、EIPs で定義されている `EthereumTransactionType\` が使われる。
+`EthereumTxTypeEnvelope`は追加の型区切り文字であり、生のトランザクションと型番号付けにのみ使用される。 トランザクションハッシュや署名ハッシュには使用されない。 そのために、EIPs で定義されている `EthereumTransactionType` が使われる。
 
 - EthereumTxTypeEnvelope: `0x78`
 - TxHashRLP : EthereumTransactionType || TransactionPayload
@@ -14,7 +14,7 @@ EthereumTxTypeEnvelope`は追加の型区切り文字であり、生のトラン
 
 ## TxTypeEthereumAccessList <a id="txtypeethereumaccesslist"></a>
 
-TxTypeEthereumAccessList`は[EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)で指定されたイーサリアム取引のタイプを表す。 このトランザクションタイプは、アクセスリスト、すなわち、トランザクションが アクセスすることになっているアドレスとストレージキーのリストを含む。 このトランザクション・タイプは互換性をサポートするために存在するため、[AccountKeyLegacy]に関連付けられた EOA でのみ機能する。 他のアカウント・キー・タイプに関連する EOA は、`TxTypeValueTransfer`や`TxTypeSmartContractExecution\` などの他のトランザクション・タイプを使用すべきである。 このトランザクションタイプは、アカウントの作成、トークンの移転、スマートコントラクトのデプロイ/実行、または前述の混合が可能である。
+`TxTypeEthereumAccessList`は[EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)で指定されたイーサリアム取引のタイプを表す。 このトランザクションタイプは、アクセスリスト、すなわち、トランザクションが アクセスすることになっているアドレスとストレージキーのリストを含む。 このトランザクション・タイプは互換性をサポートするために存在するため、[AccountKeyLegacy]に関連付けられた EOA でのみ機能する。 他のアカウント・キー・タイプに関連する EOA は、`TxTypeValueTransfer` や `TxTypeSmartContractExecution` などの他のトランザクション・タイプを使用すべきである。 このトランザクションタイプは、アカウントの作成、トークンの移転、スマートコントラクトのデプロイ/実行、または前述の混合が可能である。
 
 :::note
 
@@ -32,7 +32,7 @@ Klaytn networks can process this transaction type after the `EthTxTypeCompatible
 
 | 属性         | タイプ                                                                                | 説明                                                                                                                                                                                                                                                                                                                                                                                                   |
 | :--------- | :--------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type       | uint8 (Go)                                                      | EthereumTxTypeEnvelope`と`EthereumTransactionType`を連結した`TxTypeEthereumAccessList\` 型。 これは0x7801でなければならない。                                                                                                                                                                                                                                                                                             |
+| type       | uint8 (Go)                                                      | `EthereumTxTypeEnvelope` と `EthereumTransactionType` を連結した `TxTypeEthereumAccessList` 型。 これは0x7801でなければならない。                                                                                                                                                                                                                                                                                         |
 | chainId    | \*big.Int (Go)                                  | デスティネーションチェーンID。                                                                                                                                                                                                                                                                                                                                                                                     |
 | nonce      | uint64 (Go)                                                     | 送信者のトランザクションを一意に識別するために使用される値。 同じnonceを持つ2つのトランザクションが送信者によって生成された場合、1つだけが実行される。                                                                                                                                                                                                                                                                                                                      |
 | gasPrice   | \*big.Int (Go)                                  | 送信者がトークンで支払う金額を得るための乗数。 送信者が支払うトークンの金額は `gas` ⑭ `gasPrice` によって計算される。 For example, the sender will pay 10 KLAY for a transaction fee if gas is 10 and gasPrice is 10^18. KAIAのユニット](../../learn/token-economics/kaia-native-token.md#units-of-kaia)を参照。 |
@@ -112,7 +112,7 @@ RawTx = EthereumTxTypeEnvelope || EthereumTransactionType || encode([chainId, no
 
 以下は、JSON RPCを介して返されるトランザクション・オブジェクトを示している。
 
-eth_getTransactionByHash\` の戻り値。
+`eth_getTransactionByHash` の戻り値。
 
 ```javascript
 {
@@ -182,7 +182,7 @@ The return of `klay_getTransactionByHash`
 
 ## TxTypeEthereumDynamicFee <a id="txtypeethereumdynamicfee"></a>
 
-TxTypeEthereumDynamicFee`は、[EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) で指定されているイーサリアム取引のタイプを表す。 この取引タイプは`gasPrice`の代わりに`gasTipCap`と`gasFeeCap` を含む。 このトランザクション・タイプは互換性をサポートするために存在するため、[AccountKeyLegacy]に関連付けられた EOA でのみ機能する。 他のアカウント・キー・タイプに関連する EOA は、`TxTypeValueTransfer`や`TxTypeSmartContractExecution\` などの他のトランザクション・タイプを使用すべきである。 この種の取引は、アカウントの作成、トークンの移転、スマートコントラクトの導入/実行、または前述の混合が可能である。
+`TxTypeEthereumDynamicFee` は、[EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) で指定されているイーサリアム取引のタイプを表す。 この取引タイプは `gasPrice` の代わりに `gasTipCap` と `gasFeeCap` を含む。 このトランザクション・タイプは互換性をサポートするために存在するため、[AccountKeyLegacy]に関連付けられた EOA でのみ機能する。 他のアカウント・キー・タイプに関連する EOA は、`TxTypeValueTransfer` や `TxTypeSmartContractExecution` などの他のトランザクション・タイプを使用すべきである。 この種の取引は、アカウントの作成、トークンの移転、スマートコントラクトの導入/実行、または前述の混合が可能である。
 
 :::note
 
@@ -206,14 +206,14 @@ NOTE: Since Klaytn has a fixed gas price, `gasTipCap` and `gasFeeCap` should tak
 
 | 属性         | タイプ                                                                                | 説明                                                                                                                                                                                                                                                               |
 | :--------- | :--------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type       | uint8 (Go)                                                      | EthereumTxTypeEnvelope`と`EthereumTransactionType`を連結した`TxTypeEthereumDynamicFee` の型。 0x7802`でなければならない。                                                                                                                                                           |
+| type       | uint8 (Go)                                                      | `EthereumTxTypeEnvelope` と `EthereumTransactionType` を連結した `TxTypeEthereumDynamicFee` の型。 0x7802\`でなければならない。                                                                                                                                                     |
 | chainId    | \*big.Int (Go)                                  | デスティネーションチェーンID。                                                                                                                                                                                                                                                 |
 | nonce      | uint64 (Go)                                                     | 送信者のトランザクションを一意に識別するために使用される値。 同じnonceを持つ2つのトランザクションが送信者によって生成された場合、1つだけが実行される。                                                                                                                                                                                  |
 | gasTipCap  | \*big.Int (Go)                                  | ベースフィー(`baseFee`)に加えて送信者が支払う金額を得るための乗数。 Since Klaytn has a fixed gas price, `gasTipCap` and `gasFeeCap` should take the gas price for the respective network, which is 250 ston at the time of writing.                       |
 | gasFeeCap  | \*big.Int (Go)                                  | 送信者がトークンで支払う金額を得るための乗数。 送信者が支払うトークンの量は、`gas`\* `gasFeeCap` によって計算されます。 Since Klaytn has a fixed gas price, `gasTipCap` and `gasFeeCap` should take the gas price for the respective network, which is 250 ston at the time of writing.           |
 | gas        | uint64 (Go)                                                     | トランザクションが使用できる取引手数料の上限額。                                                                                                                                                                                                                                         |
 | to         | \*common.Address (Go)                           | 送金された金額を受け取る口座アドレス。                                                                                                                                                                                                                                              |
-| value      | \*big.Int (Go)                                  | The amount of KLAY in `peb` to be transferred.                                                                                                                                                                                                   |
+| value      | \*big.Int (Go)                                  | 譲渡される`kei`のKAIAの量。                                                                                                                                                                                                                                               |
 | data       | []byte (Go) | トランザクションの実行に使用される、トランザクションに添付されたデータ。                                                                                                                                                                                                                             |
 | accessList | type.AccessList (Go)                            | A list of addresses and storage keys consisting of [](common.Address, []common.Hash). |
 | v, r, s    | \*big.Int (Go)                                  | 受信者が送信者のアドレスを取得するために送信者が生成した暗号署名。                                                                                                                                                                                                                                |
@@ -286,7 +286,7 @@ RawTx = EthereumTxTypeEnvelope || EthereumTransactionType || encode([chainId, no
 
 以下は、JSON RPCを介して返されるトランザクション・オブジェクトを示している。
 
-eth_getTransactionByHash\` の戻り値。
+`eth_getTransactionByHash` の戻り値。
 
 ```javascript
 {
@@ -319,7 +319,7 @@ eth_getTransactionByHash\` の戻り値。
 }
 ```
 
-The return of `klay_getTransactionByHash`
+`kaia_getTransactionByHash` の戻り値
 
 ```javascript
 {
