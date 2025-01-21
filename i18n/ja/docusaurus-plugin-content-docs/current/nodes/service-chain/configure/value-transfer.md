@@ -1,6 +1,6 @@
 # 譲渡価格
 
-As explained in the Klaytn design section, Service Chain supports value (KLAY, ERC-20, and ERC-721) transfer between parent chain & child chain.
+カイアのデザイン・セクションで説明したように、サービス・チェーンは、親チェーンと子チェーン間の価値（KAIA、ERC-20、ERC-721）の移転をサポートします。
 このページでは、SCNでバリュー・トランスファー機能を有効にする方法を説明します。
 
 EN と SCN を設定した後、チェーン間のバリュー・トランスファーを有効にするには、以下の手順が必要です。
