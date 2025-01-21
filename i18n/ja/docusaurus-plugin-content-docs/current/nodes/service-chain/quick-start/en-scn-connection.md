@@ -28,7 +28,7 @@ EN-01$ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
 
 ## ステップ1：genesis.jsonの準備<a id="step-1-preparing-genesis-json"></a>
 
-From the EN server, download the `genesis.json` for `Baobab` network.
+ENサーバーから、`Kairos`ネットワーク用の`genesis.json`をダウンロードする。
 
 ```
 EN-01$ curl -X GET https://packages.kaia.io/kairos/genesis.json -o ~/genesis.json
@@ -65,7 +65,7 @@ EN-01$ kend start
 Starting kscnd: OK
 ```
 
-You can check block sync status by watching `klay.blockNumber`. この数値が0でなければ、ノードは正常に動作している。 Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/install-endpoint-nodes.md#fast-sync-optional) to synchronize blocks.
+ブロックの同期状況は `kaia.blockNumber` を見ることで確認できる。 この数値が0でなければ、ノードは正常に動作している。 Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/install-endpoint-nodes.md#fast-sync-optional) to synchronize blocks.
 
 ```
 EN-01$ ken attach --datadir ~/data
@@ -135,7 +135,7 @@ EN-01とSCN-L2-01の接続が完了したら、アンカリングにより親チ
 
 ### Step 1: Get KLAY to test anchoring <a id="step-1-get-klay-to-test-anchoring"></a>
 
-Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have enough KLAY to pay the transaction fee. Kairos Faucet](https://faucet.kaia.io/)からKAIAを取得し、\`parentOperator\`にKAIAを転送する。 For data anchoring in real service, `parentOperator` needs to have enough KLAY for transaction fee.
+Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. そのため、`subbridge.parentOperator`アカウントは、取引手数料を支払うのに十分なKAIAを持っていなければならない。 [Kairos Faucet](https://faucet.kaia.io/)からKAIAを取得し、`parentOperator`にKAIAを転送する。 実サービスでのデータアンカリングのために、`parentOperator`はトランザクション料金に十分なKAIAを持つ必要がある。
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -155,7 +155,7 @@ SCN-L2-01$ kscn attach --datadir ~/data
 true
 ```
 
-After anchoring starts, you can check the latest block anchored to Baobab by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Baobab. デフォルトでは、SCN-L2-01はアンカーをオンにしたブロックからすべてのブロックでアンカーを試行する。 SC_ANCHORING_PERIOD\`を変更することで、アンカー期間を設定することができる。 値が10に設定されている場合、ノードはブロック番号が10の倍数のときにアンカリングを試みる。
+アンカー開始後、`subbridge.latestAnchoredBlockNumber`を使用することで、Kairosにアンカーされた最新のブロックを確認することができます。 Please note that this only works after the EN already followed up on the latest block of Baobab. デフォルトでは、SCN-L2-01はアンカーをオンにしたブロックからすべてのブロックでアンカーを試行する。 SC_ANCHORING_PERIOD\`を変更することで、アンカー期間を設定することができる。 値が10に設定されている場合、ノードはブロック番号が10の倍数のときにアンカリングを試みる。
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
