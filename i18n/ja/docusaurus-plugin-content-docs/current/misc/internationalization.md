@@ -1,6 +1,6 @@
 # 国際化
 
-KlaytnDocs is available in the following languages:
+KaiaDocsに関する製造業者、販売業者、サービス提供業者は次の言語でも提供されます：
 
 - [英語](https://docs.kaia.io/)
 - [한국어](https://docs.kaia.io/ko/)
@@ -8,18 +8,18 @@ KlaytnDocs is available in the following languages:
 
 ## 参加する <a href="#get-involved" id="get-involved"></a>
 
-If you are fluent and confident in a language and are willing to contribute to translate or to improve the quality of the localized documents, see [the list of languages currently being translated](https://crowdin.com/project/klaytn-docs).
+もしあなたが言語に堪能で自信があり、ローカライズされたドキュメントの翻訳や品質向上に貢献する意思があるのであれば、[現在翻訳中の言語リスト](https://crowdin.com/project/kaia-docs)をご覧ください。
 
 ### Crowdinを通じたKaiaDocsのローカライゼーションへの貢献方法 [!](https://badges.crowdin.net/kaia-docs/localized.svg)](https://crowdin.com/project/kaia-docs)<a href="#how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd" id="how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd"></a>
 
 Crowdinは共同翻訳のためのウェブサービスです。 ローカライゼーションに貢献するには、以下の手順に従ってください：
 
-1. Go to [Klaytn-Docs project at Crowdin](https://crowdin.com/project/klaytn-docs).
+1. CrowdinのKaia-Docsプロジェクト](https://crowdin.com/project/kaia-docs)へ。
 2. そこでアカウントを作成する。
 3. 投稿したい言語を選択してください。 言語が見つかりませんか？ プロジェクトオーナーに新しい言語の翻訳を開始するリクエストを送信します。
 4. 翻訳者チームに参加 マネージャーの誰かがあなたのリクエストを承認するまで待つ。
 5. 投稿したいファイルを選択してください。
-6. 文字列に翻訳を投稿したり、翻訳に投票したり、コメントを残したりすることができます。 When you submit a translation, please make sure your word choice conforms to the Klaytn Terminologies.
+6. 文字列に翻訳を投稿したり、翻訳に投票したり、コメントを残したりすることができます。 翻訳を提出する際は、単語の選択がカイア用語集に準拠していることを確認してください。
 
 ![](/img/misc/crowdin-editor.png)
 
@@ -29,7 +29,7 @@ Crowdinは共同翻訳のためのウェブサービスです。 ローカライ
 
 ### ディスカッション<a href="#discussion" id="discussion"></a>
 
-Join the [discussion board](https://crowdin.com/project/klaytn-docs/discussions) and meet the fellow contributors.
+ディスカッションボード](https://crowdin.com/project/kaia-docs/discussions)に参加して、投稿者仲間に会いましょう。
 
 ### 行動規範<a href="#code-of-conduct" id="code-of-conduct"></a>
 
