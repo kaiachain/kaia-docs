@@ -1,6 +1,6 @@
 # スマート・コントラクトの実行
 
-**TxTypeSmartContractExecution\***は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
+**TxTypeSmartContractExecution**は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
 
 <CH.Spotlight>
 <CH.Code>
@@ -75,7 +75,7 @@ receipt {
 
 ---
 
-web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js FeeDelegatedSmartContractExecution.js focus=1
 
@@ -83,7 +83,7 @@ web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ex
 
 ---
 
-送信者**、料金支払者**のアドレスと秘密鍵を定義する。
+**sender**、**fee payer**のアドレスと秘密鍵を定義する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=3:6
 
@@ -169,7 +169,7 @@ main();
 
 ---
 
-contractAddr**と**contractAbi\*\*を定義します。contractAddrとAbiはコンパイルされたsolidityコードまたはブロックチェーンエクスプローラから取得できます。
+**contractAddr**と**contractAbi**を定義します。contractAddrとAbiはコンパイルされたsolidityコードまたはブロックチェーンエクスプローラから取得できます。
 
 ```js FeeDelegatedSmartContractExecution.js focus=13:14
 
@@ -177,7 +177,7 @@ contractAddr**と**contractAbi\*\*を定義します。contractAddrとAbiはコ�
 
 ---
 
-Web3.eth.Contract\`を使用して、**contractAbi**と**address**を定義した契約インスタンスを作成する。 このインスタンスを通じて、契約の読み書きができる。
+`Web3.eth.Contract`を使用して、**contractAbi**と**address**を定義した契約インスタンスを作成する。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js FeeDelegatedSmartContractExecution.js focus=17
 
