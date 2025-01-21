@@ -10,7 +10,7 @@ sidebar_label: Web3-Onboard
 
 Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)のようなツールを活用することで、プロジェクトや開発者は複数のウォレットを分散型アプリケーション（dApps）に素早く統合することができる。 Web3-Onboardの助けを借りて、ユーザーのオンボーディングが簡素化されました。 Web3-Onboardには、複数のウォレットのサポートから、ユーザーが自分のアカウントを異なるチェーンやネットワークに接続し、リアルタイムの取引通知を受け取る機能など、さまざまな機能がある。
 
-このガイドでは、Web3-Onboardライブラリを使用して複数のウォレット（Coinbase Wallet、Metamask、WalletConnectなど）を統合します。 into your dApp built on the Klaytn Network.
+このガイドでは、Web3-Onboardライブラリを使用して複数のウォレット（Coinbase Wallet、Metamask、WalletConnectなど）を統合します。 をカイアネットワーク上に構築したdAppに追加することができます。
 
 ## 前提条件
 
@@ -21,7 +21,7 @@ Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)のよ�
 
 ## はじめに
 
-チェーンにとらわれないウォレットライブラリであるWeb3-Onboardは、すべてのEVM互換ネットワークをサポートし、ライブラリに新しいネットワークを追加する柔軟性も提供します。 In this guide, we'll use Web3-Onboard to add the Klaytn Mainnet Cypress and Klaytn Testnet Baobab to our dApp. With that said, let’s get started integrating multi-wallet compatibility using Web3-Onboard into your dApp built on Klaytn Network.
+チェーンにとらわれないウォレットライブラリであるWeb3-Onboardは、すべてのEVM互換ネットワークをサポートし、ライブラリに新しいネットワークを追加する柔軟性も提供します。 このガイドでは、Web3-Onboardを使ってKaia MainnetとKaia Testnet KairosをdAppに追加します。 ということで、さっそくWeb3-Onboardを使ったマルチウォレットの互換性をKaia Networkで構築したdAppに統合してみましょう。
 
 ## オンボードモジュールとウォレットモジュールのセットアップ
 
@@ -57,7 +57,7 @@ const modules = [coinbaseWalletSdk, walletConnect, injected];
 
 **ステップ 3**：エーテルのインストールとインポート
 
-Web3-Onboardプロバイダは、[ethers.js](https://docs.ethers.org/v6/)や[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)のようなライブラリで使用することができます。 In this guide, we will use ethers.js to make Klaytn blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
+Web3-Onboardプロバイダは、[ethers.js](https://docs.ethers.org/v6/)や[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)のようなライブラリで使用することができます。 このガイドでは、ethers.jsを使用して、ユーザーのアカウントの取得、残高の取得、トランザクションの署名、トランザクションの送信、スマートコントラクトからの読み取り、スマートコントラクトへの書き込みなどのKaiaブロックチェーンの呼び出しを行います。
 
 ```bash
 npm install --save ethers
