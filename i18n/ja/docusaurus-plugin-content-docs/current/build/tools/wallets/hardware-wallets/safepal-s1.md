@@ -6,11 +6,11 @@
 
 ハードウェアウォレットは、インターネット接続から切り離されたオフライン環境に秘密鍵（取引の署名に必要）を保管することで、インターネット接続に依存するソフトウェアウォレットで発生する数々のハッキングや脅威を回避し、車輪を再発明した。 こうすることで、ユーザーの暗号資産はより安全になり、ソフトウェア・ウォレットがもたらすインターネット上の危険から守られる。
 
-One of such hardware wallets that has integrated with Klaytn is **SafePal S1 Hardware Wallet**. SafePal S1は、暗号通貨ハードウェアウォレットで、安全でシンプルで楽しい暗号通貨管理ソリューションを提供することを目的としています。 SafePal is an hardware wallet to secure and manage cryptocurrencies and NFTs, such as Bitcoin, KLAY, Klaytn Compatible Tokens(KCT), Ether and ERC20 tokens e.t.c.
+カイアと統合されたハードウェア・ウォレットのひとつが**SafePal S1 Hardware Wallet**である。 SafePal S1は、暗号通貨ハードウェアウォレットで、安全でシンプルで楽しい暗号通貨管理ソリューションを提供することを目的としています。 SafePalは、Bitcoin、KAIA、Kaia Compatible Tokens(KCT)、Ether、ERC20トークンなどの暗号通貨やNFTを安全に管理するハードウェアウォレットです。
 
 このガイドでは、次のことを説明する：
 
-- Add, Receive and Send Klay, and any Klaytn Compatible Tokens(KCT)  with SafePal S1 Hardware Wallet
+- SafePal S1ハードウェアウォレットでKlayおよびKaia互換トークン(KCT)を追加、受信、送信できます。
 
 ## 前提条件<a id="prerequisites"></a>
 
@@ -18,7 +18,7 @@ One of such hardware wallets that has integrated with Klaytn is **SafePal S1 Har
 
 ## はじめに<a id="getting-started"></a>
 
-ウォレットのセットアップに成功したら、次はウォレットを実際に使ってみましょう。 In this tutorial we will be adding, receiving and sending KLAY native coin, and any Klaytn Compatible Tokens(KCT) using the SafePal S1 Hardware Wallet.
+ウォレットのセットアップに成功したら、次はウォレットを実際に使ってみましょう。 このチュートリアルでは、SafePal S1ハードウェアウォレットを使用して、KAIAネイティブコインとKaia互換トークン（KCT）の追加、受信、送信を行います。
 
 ### Adding KLAY native coin <a id="adding-klay-native-coin"></a>
 
@@ -38,7 +38,7 @@ To add the KLAY native coin to your hardware wallet, kindly follow the steps bel
 
 ![](/img/build/tools/step4-add-klay.png)
 
-Kindly note that the steps above are applicable for adding any Klaytn Compatible Tokens.
+上記の手順は、カイア互換トークンを追加する場合に適用されます。
 
 ### Receiving KLAY native coin  <a id="receiving-klay-native-coin"></a>
 
@@ -63,7 +63,7 @@ Once the coins (KLAY, KCTs) are successfully added, you can view them in the **A
 
 ![](/img/build/tools/sphw-rec-banner.png)
 
-Kindly note that the steps above are applicable for receiving any Klaytn Compatible Tokens.
+上記の手順は、カイア互換トークンを受け取る際に適用されます。
 
 ### Sending KLAY native coin  <a id="sending-klay-native-coin"></a>
 
@@ -93,13 +93,13 @@ To send KLAY native coin from your hardware wallet, kindly follow the steps belo
 
 S1デバイスで転送の署名に成功すると、S1デバイスに一連のダイナミックQRコードが表示されます。 SafePal アプリで「次へ」をクリックし、携帯電話のカメラを開きます。 SafePal アプリを使って、S1 デバイスに表示されるダイナミック QR コードをスキャンします。
 
-Doing this ensures the App receives the signature contained in the QR codes and is ready to broadcast the transfer to the blockchain (Klaytn).
+こうすることで、アプリはQRコードに含まれる署名を確実に受け取り、ブロックチェーン（Kaia）への転送をブロードキャストする準備が整う。
 
 **ステップ6** アプリで**ブロードキャスト**をクリックし、転送が完了するのを待ちます。
 
 ![](/img/build/tools/step6-send-klay.png)
 
-Kindly note that the steps above are applicable for sending any Klaytn Compatible Tokens.
+上記の手順は、カイア互換トークンを送信する際に適用されます。
 
 ## 参考文献 <a id="further-references"></a>
 
