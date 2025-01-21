@@ -1,6 +1,6 @@
 # 計算コスト
 
-Since Klaytn aims to maintain 1-second block time, the execution time of transactions has to be managed. そのための3つのアプローチを紹介しよう：
+Kaiaは1秒のブロック時間を維持することを目標としているので、トランザクションの実行時間は管理されなければならない。 そのための3つのアプローチを紹介しよう：
 
 1. トランザクションのガス制限
 2. トランザクションの実行時間の制限
@@ -12,7 +12,7 @@ Since Klaytn aims to maintain 1-second block time, the execution time of transac
 
 最後のアプローチは、トランザクションの計算コストを制限することである。 各EVMオペコードの計算コストを実際の実行時間に基づいてモデル化し、トランザクションの計算コストの合計を制限した。 このアプローチでは、他の要因を排除し、正規化された実行時間単位のみをカウントし、ノードは同様にコンセンサスを得ることができる。
 
-Therefore, we chose the third option for Klaytn. 計算コストの上限は100,000,000だったが、CPUの計算性能が向上したため、Cancun EVMのハードフォーク後は上限が150,000,000に引き上げられた。 この制限値はプラットフォームによって決定されるので、開発者はトランザクションの計算コストに注意すべきである。 トランザクションの計算コストを計算するために、カイアは[kaia_estimateComputationCost](../../../references/json-rpc/kaia/estimate-computation-cost)を提供する。 使い方は[kaia_estimateGas](../../../references/json-rpc/kaia/estimate-gas)とほぼ同じ。
+したがって、カイアには3番目の選択肢を選びました。 計算コストの上限は100,000,000だったが、CPUの計算性能が向上したため、Cancun EVMのハードフォーク後は上限が150,000,000に引き上げられた。 この制限値はプラットフォームによって決定されるので、開発者はトランザクションの計算コストに注意すべきである。 トランザクションの計算コストを計算するために、カイアは[kaia_estimateComputationCost](../../../references/json-rpc/kaia/estimate-computation-cost)を提供する。 使い方は[kaia_estimateGas](../../../references/json-rpc/kaia/estimate-gas)とほぼ同じ。
 
 :::note
 
