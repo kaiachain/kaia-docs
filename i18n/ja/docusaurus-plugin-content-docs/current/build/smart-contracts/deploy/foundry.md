@@ -17,7 +17,7 @@ Foundryは、高速でモジュール化されたスマート・コントラク�
 
 - 簡単な鋳造プロジェクトを立ち上げる。
 - Foundryを使用してスマート・コントラクトのサンプルをコンパイルし、テストします。
-- Deploy smart contracts using Foundry to the Klaytn Baobab Network.
+- Foundryを使用してスマートコントラクトをKaia Kairosネットワークにデプロイします。
 - キャストとアンビルでメインネットをフォークする。
 
 ## 前提条件
@@ -144,7 +144,7 @@ forge build
 
 ファウンドリを使用してコントラクトをデプロイするには、RPC URLと、コントラクトをデプロイするアカウントの秘密鍵を提供する必要があります。 Kaiaの[rpc-providers](../../../references/public-en.md)のリストを見て、あなたのrpc-urlを見つけ、[MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)を使ってアカウントを作成してください。
 
-**Step 1**: To deploy your contract to the Klaytn Baobab network, run the command below:
+**ステップ1**: 契約をカイア・カイロス・ネットワークに展開するには、以下のコマンドを実行します。
 
 ```bash
 $ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Counter.sol:Counter
@@ -170,7 +170,7 @@ forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhd
 
 ## 契約とのやり取り
 
-スマート・コントラクトのデプロイに成功したら、関数を正しく呼び出して実行したいだろう。 Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) を使って、Kaia Kairos Networkに配備されたコントラクトとやりとりしてみましょう。  このセクションでは、[cast call](https://book.getfoundry.sh/reference/cast/cast-call) を使って `read-only` 関数を実行し、[cast send](https://book.getfoundry.sh/reference/cast/cast-send) を使って `write` 関数を実行する方法を学びます。
+スマート・コントラクトのデプロイに成功したら、関数を正しく呼び出して実行したいだろう。 [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) を使って、Kaia Kairos Networkに配備されたコントラクトとやりとりしてみましょう。  このセクションでは、[cast call](https://book.getfoundry.sh/reference/cast/cast-call) を使って `read-only` 関数を実行し、[cast send](https://book.getfoundry.sh/reference/cast/cast-send) を使って `write` 関数を実行する方法を学びます。
 
 **A. cast call**：コントラクトに格納されている数字を取得するには、`number`関数を呼び出します。 以下のコマンドを実行し、その動きを見てみよう。
 
@@ -284,7 +284,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 **OUSDC**を譲渡する。
 
-Go to Klaytnscope and search for holders of oUSDC tokens (here). ランダムにアカウントを選んでみよう。 この例では、`0x8e61241e0525bd45cfc43dd7ba0229b422545bca`を使用する。
+Kaiascopeに行き、oUSDCトークンの保有者を検索する（ここ）。 ランダムにアカウントを選んでみよう。 この例では、`0x8e61241e0525bd45cfc43dd7ba0229b422545bca`を使用する。
 
 契約とアカウントを環境変数としてエクスポートしよう：
 
