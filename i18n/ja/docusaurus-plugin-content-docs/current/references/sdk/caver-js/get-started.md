@@ -159,7 +159,7 @@ SingleKeyring {
 }
 ```
 
-The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) instance with an address defined inside it and a [PrivateKey] instance in `keyring.key`.
+`caver.wallet.keyring.createFromPrivateKey`の結果は、上記の`caver.wallet.keyring.generate`の結果と同様に、アドレスが定義された[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring)インスタンスとなり、`keyring.key`の中の[PrivateKey]インスタンスが生成されます。
 
 #### 秘密鍵とアドレスを持つSingleKeyringの作成<a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
@@ -1036,7 +1036,7 @@ Contract {
 
 コントラクトのインスタンスが作成されたら、以下のように `data` フィールドにバイトコードを渡してデプロイすることができる。
 
-caver.contract](api/caver.contract.md)は、デプロイと実行のためにトランザクションを送信することに注意。 caver.wallet`にあるキーリングを使って取引に署名する。 使用するキーホルダーは事前に `caver.wallet\` に追加しておく必要がある。
+caver.contract](api/caver.contract.md)は、デプロイと実行のためにトランザクションを送信することに注意。 `caver.wallet`にあるキーリングを使って取引に署名する。 使用するキーホルダーは事前に `caver.wallet` に追加しておく必要がある。
 
 ```javascript
 // test.js
@@ -1107,7 +1107,7 @@ Contract {
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-feeDelegation`と`feePayer\`を定義する：
+`feeDelegation`と`feePayer`を定義する：
 
 ```javascript
 // test.js
