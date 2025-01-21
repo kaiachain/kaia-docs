@@ -1,4 +1,4 @@
-This RPC API docs will be automatically generated in the Klaytn-docs official site.
+このRPC APIドキュメントはKaia-docs公式サイトに自動生成されます。
 Please follow the steps below if you also want to build the RPC API documentation
 
 ```shell
