@@ -2,7 +2,7 @@
 
 ## はじめに<a id="introduction"></a>
 
-This tutorial helps you to create an example ERC-20 compatible token that conforms to the [Klaytn Token Standards](../token-standard.md), especially [Fungible Token Standard (ERC-20)](../token-standard.md#fungible-token-standard-kip-7).
+このチュートリアルでは、[Kaia Token Standards](../token-standard.md)、特に[Fungible Token Standard \(ERC-20)](../token-standard.md#fungible-token-standard-kip-7)に準拠した、ERC-20互換トークンの例を作成します。
 
 [ERC-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20) defines two events and 9 methods (including 3 optional methods) as below. ERC-20互換トークンは、以下のインターフェイスを実装したトークンコントラクトです。
 
@@ -21,7 +21,7 @@ event Transfer(address indexed _from, address indexed _to, uint256 _value)
 event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 ```
 
-Based on above interface, developers may customize tokens by adding new features and logics, and deploy on Klaytn network. 詳細については、公式の[ERC-20ドキュメント](https://eips.ethereum.org/EIPS/eip-20)を参照してください。
+上記のインターフェイスに基づき、開発者は新しい機能やロジックを追加することでトークンをカスタマイズし、Kaiaネットワークにデプロイすることができる。 詳細については、公式の[ERC-20ドキュメント](https://eips.ethereum.org/EIPS/eip-20)を参照してください。
 
 このチュートリアルでは、ERC-20互換トークンである`MyERC20.sol`を実装する。 このトークンはあらかじめ定義された量のトークンを発行し、デプロイ時にすべてのトークンを契約オーナーに送信する。
 
@@ -564,7 +564,7 @@ MyERC20\`スマートコントラクトをデプロイするには、Remix Onlin
 
 MyERC20\`は現在ライブです！
 
-## 3. Interacting with ERC-20 token from Klaytn Wallet <a id="3-interacting-with-erc-20-token-from-klaytn-wallet"></a>
+## 3. Kaia WalletからERC-20トークンとやりとりする <a id="3-interacting-with-erc-20-token-from-kaia-wallet"></a>
 
 カイアウォレットで残高を確認し、ERC-20互換のKAIROSTOKENを送金することができます。 カイアウォレットでトークン残高を確認するには、以下の手順に従ってください：
 
