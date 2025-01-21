@@ -35,11 +35,11 @@ RPC ポートを公開する。`kend.conf` で変更していなければ 8551 �
 
 ```sh
 mkdir -p data
-docker run -d --name ken ˶
-  -p 8551:8551 ˶
-  -v $(pwd)/conf:/klaytn-docker-pkg/conf ˶
-  -v $(pwd)/data:/var/kend/data ˶
-  kaiachain/kaia:latest ˶
+docker run -d --name ken \
+  -p 8551:8551 \
+  -v $(pwd)/conf:/klaytn-docker-pkg/conf \
+  -v $(pwd)/data:/var/kend/data \
+  kaiachain/kaia:latest \
   /bin/bash -c "kend start && touch /var/kend/logs/kend.out && tail -f /var/kend/logs/kend.out"
 ```
 
