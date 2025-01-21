@@ -117,12 +117,12 @@ function fulfillRandomWords(
 - 新しく作成したファイルに以下のコードを貼り付けます。
 - Remixで、**Compile contract**をクリックします。
 - プラグインをインストールしたら、左側の「Kaia」タブをクリックします。
-- Environment\*\* > **Injected Provider** - **Kaia Wallet** を選択します。
-- Contract\*\*で、契約を選択します。 例えば、`VRFConsumer`である。
+- **Environment** > **Injected Provider** - **Kaia Wallet** を選択します。
+- **Contract**で、契約を選択します。 例えば、`VRFConsumer`である。
 - コーディネーター契約アドレス `0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499` (Kairos), `0x3F247f70DC083A2907B8E76635986fd09AA80EFb` (Mainnet) を渡す。
-- Deploy\*\*をクリックします。
+- **Deploy**をクリックします。
 
-\*\*サンプルコード
+**サンプルコード**
 
 ```solidity
 // SPDX-License-Identifier: MIT
