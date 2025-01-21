@@ -168,15 +168,15 @@ a. 現在のバージョンをチェックする：
  npx hardhat --version 
 ```
 
-コンソールには、インストールされている現在のバージョンが表示されるはずです。
+コンソールには、インストールされている現在のバージョンが印刷されるはずです。私たちの場合は**2.14.0**です。
 
 b. プロジェクトディレクトリの表示 あなたのカレント・ディレクトリは、以下を含むべきである：
 
-- **contracts/**\*-これはスマート・コントラクトを含むフォルダである。
-- **スクリプト/**\* - このフォルダには、あなたのコントラクトをブロックチェーン・ネットワーク上にデプロイするコードが含まれています。
+- **contracts/**-これはスマート・コントラクトを含むフォルダである。
+- **スクリプト/** - このフォルダには、あなたのコントラクトをブロックチェーン・ネットワーク上にデプロイするコードが含まれています。
 - **test/** - このフォルダには、スマートコントラクトをテストするすべてのユニットテストが含まれています。
-- **hardhat.config.ts** – this file contains configurations important for the work of Hardhat and
-  the deployment of smart contracts.
+- **hardhat.config.ts** - このファイルには、Hardhatの作業に重要な設定が含まれており、
+  、スマート・コントラクトのデプロイが行われます。
 
 ## 2. コーヒーを買うスマートコントラクトの作成<a id="creating-a-buy-me-a-coffee-contract"></a>
 
@@ -249,7 +249,7 @@ BuyCoffee関数が実行されると、**NewCoffee**イベントが発生しま�
 
 次に**owner**変数であるが、これはコントラクトのデプロイ先を表す。 次に、コンストラクタで**msg.sender**をコントラクトのオーナーに設定する。
 
-coffeeId\*\*は、作成されたコーヒーのトランザクションを追跡するために作成された。
+**coffeeId**は、作成されたコーヒーのトランザクションを追跡するために作成された。
 
 buyMeACoffee構造体\*\*を宣言し、コーヒー取引に関連するすべてのデータ（送信者アドレス、文字列名、uintタイムスタンプ、文字列メッセージ）を格納する。 次に、**idToBuyCoffee**変数を使用して、この構造体をidにマッピングしました。
 
@@ -872,7 +872,7 @@ Fleekは、IPFS上にモダンなサイトやアプリを構築するための�
 
 ![](/img/build/tutorials/fleek-err.png)
 
-Deploy**タブの**Deploy setting**に移動し、以下の画像のように**Docker image Name**を**node:latest\*\*に変更します：
+**Deploy**タブの**Deploy setting**に移動し、以下の画像のように**Docker image Name**を**node:latest**に変更します：
 
 ![](/img/build/tutorials/fleek-err-fix.png)
 
