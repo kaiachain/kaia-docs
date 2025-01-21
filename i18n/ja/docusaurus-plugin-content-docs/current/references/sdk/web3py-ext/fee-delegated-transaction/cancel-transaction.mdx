@@ -116,7 +116,7 @@ web3をkaia web3に拡張するために、**web3py_ext**から**extend**をイ�
 
 ---
 
-eth_account**、**web3py_ext**、\*cytoolz**から必要なutilsをインポートする。
+**eth_account**、**web3py_ext**、\*cytoolz\*\*から必要なutilsをインポートする。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=2:10
 
@@ -198,7 +198,7 @@ web3_fee_delegated_cancel_sign_recover()
 
 ---
 
-TxType.FEE_DELEGATED_CANCEL**型の空のトランザクションを作成する。 empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
+**TxType.FEE_DELEGATED_CANCEL**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=18
 
@@ -206,7 +206,7 @@ TxType.FEE_DELEGATED_CANCEL**型の空のトランザクションを作成する
 
 ---
 
-from**フィールドと**nonce**フィールドを、**merge\*\*ユーティリティを使用して空のtxにマージする。
+**from**フィールドと**nonce**フィールドを、**merge**ユーティリティを使用して空のtxにマージする。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=19:21
 
@@ -214,7 +214,7 @@ from**フィールドと**nonce**フィールドを、**merge\*\*ユーティリ
 
 ---
 
-fill_transaction\*\*を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=22
 
