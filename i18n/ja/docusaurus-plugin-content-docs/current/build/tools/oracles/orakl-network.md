@@ -46,7 +46,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### ステップ 2：VRF コーディネーターの初期化
 
-スマートコントラクトでランダムな単語を要求するには、[`VRFCoordinator`](https://github.com/Bisonai/orakl/blob/master/contracts-v0.1/src/v0.1/VRFCoordinator.sol) スマートコントラクトを初期化する必要がある。 VRFCoordinator`インターフェースは、コンストラクタのパラメータで`VRFCoordinator` のアドレスを指定して結合し、ランダムワードのリクエスト (`requestRandomWords`) に使用することを推奨する。 VRFCoordinator`コントラクトはKaia Kairos [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://kairos.kaiascan.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499)とKaia Mainnet [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.kaiascan.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb)の両方に配備されている。
+スマートコントラクトでランダムな単語を要求するには、[`VRFCoordinator`](https://github.com/Bisonai/orakl/blob/master/contracts-v0.1/src/v0.1/VRFCoordinator.sol) スマートコントラクトを初期化する必要がある。 `VRFCoordinator` インターフェースは、コンストラクタのパラメータで `VRFCoordinator` のアドレスを指定して結合し、ランダムワードのリクエスト (`requestRandomWords`) に使用することを推奨する。 `VRFCoordinator`コントラクトはKaia Kairos [0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499](https://kairos.kaiascan.io/account/0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499)とKaia Mainnet [0x3F247f70DC083A2907B8E76635986fd09AA80EFb](https://www.kaiascan.io/account/0x3F247f70DC083A2907B8E76635986fd09AA80EFb)の両方に配備されている。
 
 ```solidity
   IVRFCoordinator COORDINATOR;
@@ -82,11 +82,11 @@ To request random words with a temporary account, users need to send $KLAY toget
   }
 ```
 
-この関数は `COORDINATOR` で定義された関数 `requestRandomWords()` を呼び出し、引数として `keyHash`、`callbackGasLimit`、`numWords` および `refundRecipient` を渡す。 サービスに対する支払いは `msg.value` を通して `COORDINATOR` 契約の `requestRandomWords()` に送られる。 もし支払いが予定より多かった場合、超過分の支払いは `refundRecipient` アドレスに返される。 最終的には、ランダムな単語のリクエストを生成する。 requestRandomWords`関数の`msg.value\`を正確に指定するには、[サービス料金の見積もり方法](https://docs.orakl.network/developers-guide/vrf#get-estimated-service-fee)の説明を参照してください。
+この関数は `COORDINATOR` で定義された関数 `requestRandomWords()` を呼び出し、引数として `keyHash`、`callbackGasLimit`、`numWords` および `refundRecipient` を渡す。 サービスに対する支払いは `msg.value` を通して `COORDINATOR` 契約の `requestRandomWords()` に送られる。 もし支払いが予定より多かった場合、超過分の支払いは `refundRecipient` アドレスに返される。 最終的には、ランダムな単語のリクエストを生成する。 `requestRandomWords`関数の`msg.value`を正確に指定するには、[サービス料金の見積もり方法](https://docs.orakl.network/developers-guide/vrf#get-estimated-service-fee)の説明を参照してください。
 
 ### ステップ4：ランダムな言葉を満たす
 
-fulfillRandomWords`関数は、`VRFCoordinator\`コントラクトがランダムワードの要求を満たすときに呼び出される。
+`fulfillRandomWords`関数は、`VRFCoordinator`コントラクトがランダムワードの要求を満たすときに呼び出される。
 
 ```solidity
 function fulfillRandomWords(
@@ -119,7 +119,7 @@ function fulfillRandomWords(
 - Click the Klaytn tab on your left having installed the plugin.
 - Environment\*\* > **Injected Provider** - **Kaia Wallet** を選択します。
 - Contract\*\*で、契約を選択します。 例えば、`VRFConsumer`である。
-- Pass in the coordinator contract address `0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499` (Baobab), `0x3F247f70DC083A2907B8E76635986fd09AA80EFb` (Cypress).
+- コーディネーター契約アドレス `0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499` (Kairos), `0x3F247f70DC083A2907B8E76635986fd09AA80EFb` (Mainnet) を渡す。
 - Deploy\*\*をクリックします。
 
 \*\*サンプルコード
@@ -180,16 +180,16 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### スマートコントラクトとの対話
 
-スマート・コントラクトでランダムな単語を要求するには、まず `requestRandomWordsDirect()` 関数を実行しなければならない。 For this function to successfully execute, the user has to send KLAY (minimum of 1 KLAY) as stated previously, and supply `keyHash`, `callbackGasLimit`, `numWords`, and `refundRecipient` parameters. keyHash\`パラメータは、誰がリクエストを処理できるかを一意に定義する。 Orakl Network VRF provides one key hash for each Klaytn chain:
+スマート・コントラクトでランダムな単語を要求するには、まず `requestRandomWordsDirect()` 関数を実行しなければならない。 この関数が正常に実行されるためには、ユーザは前述のようにKAIAを送信し(最低1KAIA)、 `keyHash`、`callbackGasLimit`、`numWords`、`refundRecipient`パラメータを与える必要がある。 `keyHash`パラメータは、誰がリクエストを処理できるかを一意に定義する。 Orakl Network VRF provides one key hash for each Klaytn chain:
 
 - Kairos: `0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c`
 - Mainnet: `0x6cff5233743b3c0321a19ae11ab38ae0ddc7ddfe1e91b162fa8bb657488fb157`
 
 残りのパラメーターは、以下のように設定することができる：
 
-- callbackGasLimit`を`500000\`とする、
-- numWords`を`1\`、そして
-- refundRecipient\`にEOAのアドレスを設定します。
+- `callbackGasLimit`を`500000`とする、
+- `numWords`を`1`、そして
+- `refundRecipient`にEOAのアドレスを設定します。
 
 その後、リクエストが満たされると、 `sRandomWord()` 関数を実行することができる。 この `sRandomWord()` 関数はランダムな単語を返す。
 
