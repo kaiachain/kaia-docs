@@ -2,7 +2,7 @@
 
 caver.kct.kip7\`は、kaiaブロックチェーンプラットフォーム(kaia)上のJavaScriptオブジェクトとしてKIP-7を実装したスマートコントラクトを簡単に処理するのに役立つ。
 
-caver.kct.kip7`は[caver.contract](../caver.contract.md)を継承し、KIP-7トークンコントラクトを実装する。 caver.kct.kip7`は`caver.contract`と同じプロパティを持つが、追加機能を実装するためのメソッドが追加されている。 このセクションでは `caver.kct.kip7` の新しく追加されたバウンドメソッドのみを紹介する。
+caver.kct.kip7`は[caver.contract](../caver.contract.md)を継承し、KIP-7トークンコントラクトを実装する。 `caver.kct.kip7`は`caver.contract`と同じプロパティを持つが、追加機能を実装するためのメソッドが追加されている。 このセクションでは `caver.kct.kip7\` の新しく追加されたバウンドメソッドのみを紹介する。
 
 caver.kct.kip7で使われているabiとバイトコードは、[openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20)の例を使って実装されている。
 
@@ -40,7 +40,7 @@ tokenInfoオブジェクトには、以下を含める必要があります：
 
 **リターン・バリュー**
 
-PromiEvent\`：新しい KIP7 インスタンスで解決されるプロミスを組み合わせたイベントエミッタ。 さらに、以下のような出来事も起こりうる：
+`PromiEvent`：新しい KIP7 インスタンスで解決されるプロミスを組み合わせたイベントエミッタ。 さらに、以下のような出来事も起こりうる：
 
 | 名称           | タイプ    | 説明                                                                                                                                                        |
 | ------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -299,7 +299,7 @@ kip7.name()
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す：トークンの名前。
+`Promise` は `string` を返す：トークンの名前。
 
 **例**
 
@@ -322,7 +322,7 @@ kip7.symbol()
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す：トークンのシンボル。
+`Promise` は `string` を返す：トークンのシンボル。
 
 **例**
 
@@ -345,7 +345,7 @@ kip7.decimals()
 
 **リターン・バリュー**
 
-Promise`は`number\` を返す：トークンが使用する小数点以下の桁数。
+`Promise` は `number` を返す：トークンが使用する小数点以下の桁数。
 
 **例**
 
@@ -368,7 +368,7 @@ kip7.totalSupply()
 
 **リターン・バリュー**
 
-Promise`は`BigNumber\` を返す：トークンの総数。
+`Promise` は `BigNumber` を返す：トークンの総数。
 
 **例**
 
@@ -393,7 +393,7 @@ kip7.balanceOf(アドレス)
 
 **リターン・バリュー**
 
-Promise`は `BigNumber\` を返す：口座残高。
+`Promise`は `BigNumber` を返す：口座残高。
 
 **例**
 
@@ -408,7 +408,7 @@ Promise`は `BigNumber\` を返す：口座残高。
 kip7.allowance(所有者, 支出者)
 ```
 
-spender`が`owner\` から引き出すことができるトークンの量を返す。
+`spender` が `owner` から引き出すことができるトークンの量を返す。
 
 \*\*パラメーター
 
@@ -419,7 +419,7 @@ spender`が`owner\` から引き出すことができるトークンの量を返
 
 **リターン・バリュー**
 
-Promise`は`BigNumber\` を返す：所有者の代わりに支出者が使用できる残りのトークン数。
+`Promise` は `BigNumber` を返す：所有者の代わりに支出者が使用できる残りのトークン数。
 
 **例**
 
@@ -447,7 +447,7 @@ kip7.isMinter(アドレス)
 
 **リターン・バリュー**
 
-Promise`は `Boolean`を返す: アカウントが minter であれば`true\` を返す。
+`Promise`は `Boolean` を返す: アカウントが minter であれば `true` を返す。
 
 **例**
 
@@ -475,7 +475,7 @@ kip7.isPauser(アドレス)
 
 **リターン・バリュー**
 
-Promise`は`Boolean`を返します: アカウントが一時停止者であれば`true\` を返します。
+`Promise` は `Boolean` を返します: アカウントが一時停止者であれば `true` を返します。
 
 **例**
 
@@ -501,7 +501,7 @@ kip7.paused()
 
 **リターン・バリュー**
 
-Promise`は`Boolean`を返す: 契約が一時停止されていれば`true\` を返す。
+`Promise` は `Boolean` を返す: 契約が一時停止されていれば `true` を返す。
 
 **例**
 
@@ -533,23 +533,23 @@ kip7.approve(spender, amount [, sendParam])
 
 **注意** `amount` パラメータは `number` 型を受け付けるが、投入された値が number.MAX_SAFE_INTEGER で制限された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-sendParam\`オブジェクトは以下を含む：
+`sendParam`オブジェクトは以下を含む：
 
-| 名称         | タイプ         | 説明                                                                                                                                                                                                                             |
-| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| より         | ストリング       | (オプション) トランザクションの送信元アドレス。 省略された場合は `kip7.options.from` によって設定される。 もし `sendParam` オブジェクトの `from` と `kip7.options.from` のどちらも指定されなかった場合、エラーが発生する。                                                             |
-| ガス         | number \\ | (オプション）このトランザクションで提供されるガスの最大数（ガスリミット）。 省略された場合は、`kip7.methods.approve(spender, amount).estimateGas({from})` を呼び出すことでcaver-jsによって設定されます。                                                                     |
-| ガス価格       | number \\ | (オプション) このトランザクションのガス価格（peb）。 省略した場合は、caver-js が `caver.klay.getGasPrice` を呼び出して設定する。                                                                                                                       |
-| 価値         | number \\ | (オプション) peb で転送される値。                                                                                                                                                                                        |
-| フィーデレゲーション | ブーリアン       | (オプション、デフォルト `false`) フィー委任トランザクションを使用するかどうか。 省略された場合は `kip7.options.feeDelegation` が使用される。 両方が省略された場合、料金委譲は行われない。                                                                                          |
-| 料金支払者      | ストリング       | (オプション）取引手数料を支払う手数料支払人の住所。 feeDelegation`が `true`のとき、その値はトランザクションの`feePayer`フィールドに設定される。 省略された場合は`kip7.options.feePayer\` が使用される。 両方が省略された場合はエラーを投げる。                       |
-| 手数料率       | ストリング       | (任意）手数料支払者が負担する取引手数料の比率。 feeDelegation`が `true` で、`feeRatio`に有効な値が設定されている場合、部分的な料金委譲トランザクショ ンが使用される。 有効範囲は1～99。 0や100以上の比率は許されない。 省略された場合は `kip7.options.feeRatio\` が使用される。 |
+| 名称         | タイプ         | 説明                                                                                                                                                                                             |
+| ---------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| より         | ストリング       | (オプション) トランザクションの送信元アドレス。 省略された場合は `kip7.options.from` によって設定される。 もし `sendParam` オブジェクトの `from` と `kip7.options.from` のどちらも指定されなかった場合、エラーが発生する。                             |
+| ガス         | number \\ | (オプション）このトランザクションで提供されるガスの最大数（ガスリミット）。 省略された場合は、`kip7.methods.approve(spender, amount).estimateGas({from})` を呼び出すことでcaver-jsによって設定されます。                                     |
+| ガス価格       | number \\ | (オプション) このトランザクションのガス価格（peb）。 省略した場合は、caver-js が `caver.klay.getGasPrice` を呼び出して設定する。                                                                                       |
+| 価値         | number \\ | (オプション) peb で転送される値。                                                                                                                                                        |
+| フィーデレゲーション | ブーリアン       | (オプション、デフォルト `false`) フィー委任トランザクションを使用するかどうか。 省略された場合は `kip7.options.feeDelegation` が使用される。 両方が省略された場合、料金委譲は行われない。                                                          |
+| 料金支払者      | ストリング       | (オプション）取引手数料を支払う手数料支払人の住所。 `feeDelegation`が `true` のとき、その値はトランザクションの `feePayer` フィールドに設定される。 省略された場合は `kip7.options.feePayer` が使用される。 両方が省略された場合はエラーを投げる。                   |
+| 手数料率       | ストリング       | (任意）手数料支払者が負担する取引手数料の比率。 `feeDelegation`が `true` で、`feeRatio`に有効な値が設定されている場合、部分的な料金委譲トランザクショ ンが使用される。 有効範囲は1～99。 0や100以上の比率は許されない。 省略された場合は `kip7.options.feeRatio` が使用される。 |
 
 **NOTE** `feeDelegation`、`feePayer`、`feeRatio` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -612,7 +612,7 @@ Promise`は`object\` - トランザクションの実行結果を含むレシー
 kip7.transfer(recipient, amount [, sendParam])
 ```
 
-トークン所有者の残高から `受取人` にトークンの `金額` を転送する。 トークン所有者は、自らの手でこのトークン譲渡を実行しなければならない。 したがって、トークンの所有者はこのトランザク ションの送信者でなければならず、そのアドレスは `sendParam.from` または `kip7.options.from` で与えられなければならない。 sendParam.from`や`kip7.options.from\`を指定しないとエラーになる。
+トークン所有者の残高から `受取人` にトークンの `金額` を転送する。 トークン所有者は、自らの手でこのトークン譲渡を実行しなければならない。 したがって、トークンの所有者はこのトランザク ションの送信者でなければならず、そのアドレスは `sendParam.from` または `kip7.options.from` で与えられなければならない。 `sendParam.from`や`kip7.options.from`を指定しないとエラーになる。
 
 このトランザクションを送信すると、トランザクション送信者にトランザクション手数料が請求されることに注意。
 
@@ -628,7 +628,7 @@ kip7.transfer(recipient, amount [, sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -691,7 +691,7 @@ Promise`は`object\` - トランザクションの実行結果を含むレシー
 kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 ```
 
-トークンの所有者の残高から `受取人` にトークンの `金額` を安全に転送する。 トークン所有者は、自らの手でこのトークン譲渡を実行しなければならない。 したがって、トークンの所有者はこのトランザク ションの送信者でなければならず、そのアドレスは `sendParam.from` または `kip7.options.from` で与えられなければならない。 sendParam.from`や`kip7.options.from\`を指定しないとエラーになる。
+トークンの所有者の残高から `受取人` にトークンの `金額` を安全に転送する。 トークン所有者は、自らの手でこのトークン譲渡を実行しなければならない。 したがって、トークンの所有者はこのトランザク ションの送信者でなければならず、そのアドレスは `sendParam.from` または `kip7.options.from` で与えられなければならない。 `sendParam.from`や`kip7.options.from`を指定しないとエラーになる。
 
 受信者が契約アドレスの場合、[IKIP7Receiver.onKIP7Received](https://kips.kaia.io/KIPs/kip-7#wallet-interface) を実装する必要がある。 そうでなければ、移籍は取り消される。
 
@@ -710,7 +710,7 @@ kip7.safeTransfer(recipient, amount [, data] [, sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP17インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP17インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -776,7 +776,7 @@ Promise`は`object\` - トランザクションの実行結果を含むレシー
 kip7.transferFrom(sender, recipient, amount [, sendParam])
 ```
 
-トークン所有者の残高から `受取人` にトークンの `金額` を転送する。 トークン所有者のトークンを送信することを承認されたアドレスが、このトークン転送トランザクションを実行することが期待される。 したがって、承認されたものは、 `sendParam.from`または`kip7.options.from`でアドレスを指定されたこのトランザクションの送信者でなければならない。 sendParam.from`や`kip7.options.from\`を指定しないとエラーになる。
+トークン所有者の残高から `受取人` にトークンの `金額` を転送する。 トークン所有者のトークンを送信することを承認されたアドレスが、このトークン転送トランザクションを実行することが期待される。 したがって、承認されたものは、 `sendParam.from`または`kip7.options.from`でアドレスを指定されたこのトランザクションの送信者でなければならない。 `sendParam.from`や`kip7.options.from`を指定しないとエラーになる。
 
 このトランザクションを送信すると、トランザクション送信者にトランザクション手数料が請求されることに注意。
 
@@ -793,7 +793,7 @@ kip7.transferFrom(sender, recipient, amount [, sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -879,7 +879,7 @@ Promise`は`object\` - トランザクションの実行結果を含むレシー
 kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 ```
 
-トークンの所有者の残高から `受取人` にトークンの `金額` を安全に転送する。 トークン所有者のトークンを送信することを承認されたアドレスが、このトークン転送トランザクションを実行することが期待される。 したがって、承認されたものは、 `sendParam.from`または`kip7.options.from`でアドレスを指定されたこのトランザクションの送信者でなければならない。 sendParam.from`や`kip7.options.from\`を指定しないとエラーになる。
+トークンの所有者の残高から `受取人` にトークンの `金額` を安全に転送する。 トークン所有者のトークンを送信することを承認されたアドレスが、このトークン転送トランザクションを実行することが期待される。 したがって、承認されたものは、 `sendParam.from`または`kip7.options.from`でアドレスを指定されたこのトランザクションの送信者でなければならない。 `sendParam.from`や`kip7.options.from`を指定しないとエラーになる。
 
 受信者が契約アドレスの場合、[IKIP7Receiver.onKIP7Received](https://kips.kaia.io/KIPs/kip-7#wallet-interface) を実装する必要がある。 そうでなければ、移籍は取り消される。
 
@@ -899,7 +899,7 @@ kip7.safeTransferFrom(sender, recipient, amount [, data] [, sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP17インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP17インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -1006,7 +1006,7 @@ kip7.mint(account, amount [, sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -1084,7 +1084,7 @@ kip7.addMinter(account [, sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -1157,7 +1157,7 @@ kip7.renounceMinter([sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -1216,7 +1216,7 @@ Promise`は`object\` - トランザクションの実行結果を含むレシー
 kip7.burn(amount [, sendParam])
 ```
 
-送信者の残高のトークン `amount` を破棄する。 sendParam.from`や`kip7.options.from\`を指定しないとエラーになる。
+送信者の残高のトークン `amount` を破棄する。 `sendParam.from`や`kip7.options.from`を指定しないとエラーになる。
 
 このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークは送信者にトランザクション手数料を請求する。
 
@@ -1231,7 +1231,7 @@ kip7.burn(amount [, sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -1294,7 +1294,7 @@ Promise`は`object\` - トランザクションの実行結果を含むレシー
 kip7.burnFrom(account, amount [, sendParam])
 ```
 
-アカウント`から指定された数のトークンを破棄する。 sendParam.from`または`kip7.options.from`で指定された送信者の許容量は、`account`の残高と一緒に削減される。
+アカウント`から指定された数のトークンを破棄する。 `sendParam.from`または`kip7.options.from`で指定された送信者の許容量は、`account\`の残高と一緒に削減される。
 
 このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークは送信者にトランザクション手数料を請求する。
 
@@ -1310,7 +1310,7 @@ kip7.burnFrom(account, amount [, sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -1411,7 +1411,7 @@ kip7.addPauser(account [, sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -1484,7 +1484,7 @@ kip7.renouncePauser([sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -1557,7 +1557,7 @@ kip7.pause([sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
@@ -1630,7 +1630,7 @@ kip7.unpause([sendParam])
 
 **リターン・バリュー**
 
-Promise`は`object\` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP7インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
 **例**
 
