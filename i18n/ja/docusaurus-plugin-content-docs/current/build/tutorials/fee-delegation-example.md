@@ -13,11 +13,11 @@
   - 4.1 `feepayer_server.js` を実行する
   - 4.2 `sender_client.js` を実行する
   - 4.3 `feepayer_server.js` のチェック
-  - 4.4 Klaytn scope
+  - 4.4 カイアのスコープ
 
 ## 1. はじめに<a href="#1-introduction" id="1-introduction"></a>
 
-This tutorial helps you to write a simple server-client example using caver-js SDK to illustrate how fee delegated value transfer transaction works in Klaytn. This tutorial and the example code is using the Baobab testnet.
+このチュートリアルは、Caver-js SDKを使用して、Kaiaにおける料金委譲トランザクションがどのように機能するかを説明する、簡単なサーバ・クライアントの例を書くのに役立ちます。 This tutorial and the example code is using the Baobab testnet.
 
 ## 2. 料金委譲の仕組み<a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
@@ -277,7 +277,7 @@ Received data from server：Tx hash is 0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6f
 
 ### 4.3 `feepayer_server.js` のチェック<a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-サーバーのコンソールには、以下のような出力が表示される。 It prints the transaction receipt from the Klaytn.
+サーバーのコンソールには、以下のような出力が表示される。 カイアからの取引レシートを印刷する。
 
 ```
 $ node feepayer_server.js
@@ -384,7 +384,7 @@ Transaction receipt: {
 }
 ```
 
-### 4.4 Klaytn scope <a href="#4-4-klaytn-scope" id="4-4-klaytn-scope"></a>
+### 4.4 カイアスコープ<a href="#4-4-kaia-scope" id="4-4-kaia-scope"></a>
 
 上記の取引は[Kaiascope](https://kairos.kaiascope.com)でもご覧いただけます。
 
