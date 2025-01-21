@@ -51,7 +51,7 @@ npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
 
 :::note
 
-hardhat-utils プラグインは [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) と [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) プラグインに依存しています。  hardhat.config.js`または`hardhat.config.ts\`で、これらをrequireまたはimportしてください。
+hardhat-utils プラグインは [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) と [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) プラグインに依存しています。  `hardhat.config.js`または`hardhat.config.ts`で、これらをrequireまたはimportしてください。
 
 :::
 
