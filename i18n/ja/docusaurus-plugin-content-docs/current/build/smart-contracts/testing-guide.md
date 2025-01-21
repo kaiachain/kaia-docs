@@ -15,7 +15,7 @@ Truffleは自動テストのフレームワークを提供する。 このフレ
 
 \*\*注：\*\*\*テストのため、契約を一部変更しました。
 
-Below is KlaytnGreeting contract source code.
+以下は、KaiaGreetingの契約ソースコードです。
 
 ```
 pragma solidity 0.5.6;
@@ -52,7 +52,7 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-We will test 1) `greet()` function whether it returns "Hello, Klaytn" message properly, 2) `setGreet()` function whether it set new greeting message properly and reverts when non-owner account attempts to update the greeting.
+1\)`greet()`関数が "Hello, Kaia "メッセージを正しく返すかどうか、2)`setGreet()`関数が新しい挨拶メッセージを正しく設定し、所有者でないアカウントが挨拶を更新しようとすると元に戻るかどうかをテストする。
 
 最初に、一般的なアサーションのためにChaiアサーション・ライブラリ（またはあなたが使用する別のアサーション・ライブラリ）をインストールし、スマート・コントラクトのアサーションのためにtruffle-assertionsライブラリをインストールします。
 
@@ -137,8 +137,8 @@ Compiling your contracts...
       at process._tickCallback (internal/process/next_tick.js:68:7)
 ```
 
-おっと、失敗した。 Let's check the error message,`Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)`. I can notice the missed `',(comma)'` at _string memory expectedGreet = "Hello Klaytn"_.\
-Fix the code and run the test again.
+おっと、失敗した。 エラーメッセージ`Error: greeting message should match (Tested: Hello, Kaia, Againstst: Hello Kaia)`を確認してみよう。 文字列メモリ expectedGreet = "Hello Kaia"_.∕
+コードを修正して、もう一度テストを実行してください。
 
 ```
 $ truffle test
