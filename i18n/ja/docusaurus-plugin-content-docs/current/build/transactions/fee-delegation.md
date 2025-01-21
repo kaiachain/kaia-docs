@@ -2,7 +2,7 @@
 
 ## TxTypeFeeDelegatedValueTransfer <a id="txtypefeedelegatedvaluetransfer"></a>
 
-TxTypeFeeDelegatedValueTransfer is used when a user wants to send KLAY. As Klaytn provides multiple transaction types to make each transaction type serve a single purpose, TxTypeFeeDelegatedValueTransfer is limited to send KLAY to an externally owned account. したがって、TxTypeFeeDelegatedValueTransferは、`to`が外部所有口座である場合にのみ受理される。 To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecution](#txtypefeedelegatedsmartcontractexecution) instead. このトランザクションタイプでは、以下の変更が行われる。
+TxTypeFeeDelegatedValueTransfer is used when a user wants to send KLAY. Kaiaは複数のトランザクションタイプを提供し、各トランザクションタイプが単一の目的を果たすようにするため、TxTypeFeeDelegatedValueTransferはKAIAを外部所有口座に送信するように制限されています。 したがって、TxTypeFeeDelegatedValueTransferは、`to`が外部所有口座である場合にのみ受理される。 To transfer KLAY to a smart contract account, use [TxTypeFeeDelegatedSmartContractExecution](#txtypefeedelegatedsmartcontractexecution) instead. このトランザクションタイプでは、以下の変更が行われる。
 
 1. 手数料支払者の残高は、取引手数料の分だけ減少する。
 2. 送信者のnonceは1増加する。
@@ -886,7 +886,7 @@ SenderTxHash cc6c2673398903b3d906a3023b41636fc08bd1bddd5aa1602116091638f48447
 
 ## TxTypeFeeDelegatedChainDataAnchoring <a id="txtypefeedelegatedchaindataanchoring"></a>
 
-TxTypeFeeDelegatedChainDataAnchoring is a fee-delegated transaction that anchors service chain data to the Klaytn mainchain. Service chains periodically send this type of transaction to the Klaytn mainchain to ensure its security and credibility of data. データ・アンカリングの詳細については、[アンカリング](../../nodes/service-chain/configure/anchoring.md)を参照のこと。 この取引もまた、フィー委任取引であるため、その取引手数料はフィー支払者に請求される。 このトランザクションをRPC経由で送信することは禁じられている。 現在、この取引はセキュリティ上の理由から、プライベートなp2pチャネルを通じて実行されている。 This transaction does not change the state of the Klaytn blockchain except the sender's nonce being increased by one.
+TxTypeFeeDelegatedChainDataAnchoringは、サービスチェーンデータをカイアメインチェーンにアンカーする、手数料委任トランザクションである。 サービスチェーンはこの種のトランザクションを定期的にKaiaメインチェーンに送信し、データの安全性と信頼性を確保します。 データ・アンカリングの詳細については、[アンカリング](../../nodes/service-chain/configure/anchoring.md)を参照のこと。 この取引もまた、フィー委任取引であるため、その取引手数料はフィー支払者に請求される。 このトランザクションをRPC経由で送信することは禁じられている。 現在、この取引はセキュリティ上の理由から、プライベートなp2pチャネルを通じて実行されている。 このトランザクションは、送信者のnonceが1増加した以外は、Kaiaブロックチェーンの状態を変更しない。
 
 ### 属性<a id="attributes"></a>
 
