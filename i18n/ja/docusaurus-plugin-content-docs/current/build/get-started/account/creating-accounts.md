@@ -4,13 +4,13 @@
 
 これで新しいアカウントが作成され、住所が画面に印刷される。 データ・ディレクトリの下にキーストア・ファイルが作成される。
 
-**Klaytn Keystore File**
+**Kaia Keystore File**
 
-アカウントを作成すると、キーストア・ファイルが作成される。 The keystore file is an encrypted version of your unique Klaytn private key that you will use to sign your transactions. キーストア・ファイル名は以下のフォーマットである：
+アカウントを作成すると、キーストア・ファイルが作成される。 キーストアファイルは、トランザクションに署名するために使用する、あなた独自のKaia秘密鍵の暗号化バージョンです。 キーストア・ファイル名は以下のフォーマットである：
 
 - `UTC--<created_at UTC ISO8601>-<address hex>`
 
-It is safe to transfer the entire directory or the individual keystore file therein between Klaytn nodes. 別のノードから自分のノードにキーを追加する場合、アカウントの順序が変わる可能性があることに注意してください。 そのため、スクリプトやコード・スニペットでインデックスに依存しないように注意してください。
+Kaiaノード間で、ディレクトリ全体または個々のキーストア・ファイルを転送することは安全です。 別のノードから自分のノードにキーを追加する場合、アカウントの順序が変わる可能性があることに注意してください。 そのため、スクリプトやコード・スニペットでインデックスに依存しないように注意してください。
 
 ### ken <a id="ken"></a>
 
@@ -46,7 +46,7 @@ I type my pass here
 
 これは、与えられたキーファイルから暗号化されていない秘密鍵をインポートし、新しいアカウントを作成し、データ・ディレクトリの下にキーストア・ファイルを生成し、コンソールにアドレスを表示する。 今後アカウントのロックを解除するには、パスフレーズを覚えておく必要があります。
 
-**NOTE**: If you can directly copy your keystore files to another Klaytn instance, this import/export mechanism is not needed.
+**注**\*：キーストアファイルを別のKaiaインスタンスに直接コピーできる場合、このインポート/エクスポート機構は必要ありません。
 
 ### ken <a id="ken-1"></a>
 
