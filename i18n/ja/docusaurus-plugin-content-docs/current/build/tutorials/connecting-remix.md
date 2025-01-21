@@ -50,7 +50,7 @@ contract KaiaGreeter {
 
 契約書をまとめるには、以下のようにする：
 
-- Solidity Compiler\*\* タブに移動します。
+- **Solidity Compiler** タブに移動します。
 - コンパイラのバージョンを0.8.27に選択
 - 自動コンパイル」オプションをオンにする。
 - CompileKaiaGreeter.solボタンをクリックして`KaiaGreeter.sol`コントラクトをコンパイルする。
@@ -62,7 +62,7 @@ contract KaiaGreeter {
 
 RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Plugin for Remix](https://ide.kaia.io/)を使うか、以下のステップに従ってください：
 
-- プラグインマネージャー\*\*タブに移動する。
+- **Plugin manager**タブに移動します。
 - 検索フィールドにKlaytnを入れる
 - Klaytnプラグインを有効にします。 Klaytnタブが表示されたら、カイアと対話する準備はできている。
 
