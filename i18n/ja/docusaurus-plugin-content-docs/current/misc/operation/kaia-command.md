@@ -4,7 +4,7 @@
 
 ---
 
-kcn`または`kpn`のコンフィグでKaiaディレクトリを確認できる。 設定ファイルは `/etc/kcnd/conf`または`/etc/kpnd/conf\` にある。
+`kcn`または`kpn`のコンフィグでKaiaディレクトリを確認できる。 設定ファイルは `/etc/kcnd/conf` または `/etc/kpnd/conf` にある。
 
 ```bash
 cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)
