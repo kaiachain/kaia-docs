@@ -214,9 +214,9 @@ Kaia JavaScript コンソールへようこそ！
 }
 ```
 
-istanbul.epoch\`の値が3600ブロックであることがわかる。
+`istanbul.epoch`の値が3600ブロックであることがわかる。
 
-governance.vote\`のAPIを使えば、エポックも変更できる。
+`governance.vote`のAPIを使えば、エポックも変更できる。
 
 ```javascript
 > governance.vote("istanbul.epoch", 60)
