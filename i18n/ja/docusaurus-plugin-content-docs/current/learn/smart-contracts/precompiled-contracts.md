@@ -224,7 +224,7 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## アドレス 0x3fd: vmLog<a id="address-0x-3fc-vmlog-str"></a>
 
-アドレス0x3FDは、指定された文字列 `str` を特定のファイルに出力するか、ロガーモジュールに渡す。 詳細は、[debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target) を参照してください。 Note that this precompiled contract should be used only for debugging purposes, and it is required to enable the `--vmlog` option when the Klaytn node starts. Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x3FDは、指定された文字列 `str` を特定のファイルに出力するか、ロガーモジュールに渡す。 詳細は、[debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target) を参照してください。 このプリコンパイルされたコントラクトはデバッグ目的でのみ使用されるべきで、Kaiaノードが起動するときに`--vmlog`オプションを有効にする必要があることに注意してください。 Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function callVmLog(bytes memory str) public {
