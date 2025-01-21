@@ -62,7 +62,7 @@ $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 
 ### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
 
-Alternatively, you can install `kpnd` from the Klaytn Yum repo, run:
+あるいは、Kaia Yum repoから`kpnd`をインストールして実行することもできる：
 
 ```bash
 sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kpnd
@@ -83,8 +83,8 @@ PNの設定は、データ・ディレクトリを作成し、設定ファイル
 
 1. PNデータディレクトリの作成
 2. ノードキーのインストール
-3. static-node.json\`をインストールする
-4. kpnd.conf\`でPNを設定する。
+3. `static-node.json`をインストールする
+4. `kpnd.conf`でPNを設定する。
 
 ### PNデータディレクトリの作成<a id="pn-data-directory-creation"></a>
 
@@ -96,15 +96,15 @@ $ mkdir -p /var/kpnd/data
 
 ### ノードキーのインストール<a id="install-node-key"></a>
 
-PNを操作するには、`nodekey`が必要である。 KPNのバイナリをお持ちでない場合は、新しいバイナリを作成します。 もしあれば、`nodekey`をPN dataディレクトリに置く必要がある。 nodekey`を作成する方法は、"[インストールする前に](./before-you-install.md) "のセクションにあります。 以下のコマンドラインは `nodekey\` をPN dataディレクトリにコピーする。
+PNを操作するには、`nodekey`が必要である。 KPNのバイナリをお持ちでない場合は、新しいバイナリを作成します。 もしあれば、`nodekey`をPN dataディレクトリに置く必要がある。 `nodekey`を作成する方法は、"[インストールする前に](./before-you-install.md) "のセクションにあります。 以下のコマンドラインは `nodekey` をPN dataディレクトリにコピーする。
 
 ```bash
 $ cp nodekey /var/kpnd/data
 ```
 
-### static-nodes.json\`をインストールする。<a id="install-static-nodes-json"></a>
+### `static-nodes.json`をインストールする。<a id="install-static-nodes-json"></a>
 
-static-nodes.json`はPN演算子から作成する。 PNが接続しているアドレスが含まれている。 あなたのCNと他のコアセルのPNを含むアドレスを追加することをお勧めします。 Please contact to the Klaytn official email for more details (`bootstrap@klaytn.com`for Cypress or`baobab@klaytn.com\` for Baobab).
+`static-nodes.json`はPN演算子から作成する。 PNが接続しているアドレスが含まれている。 あなたのCNと他のコアセルのPNを含むアドレスを追加することをお勧めします。 詳しくはカイア公式メール(メインネットの場合は`bootstrap@klaytn.com`、カイロスの場合は`baobab@klaytn.com`)までお問い合わせください。
 
 **static-nodes.json**
 
@@ -115,7 +115,7 @@ static-nodes.json`はPN演算子から作成する。 PNが接続しているア
 ]
 ```
 
-PNのノードURIは「[インストールの前に](./before-you-install.md)」セクションにあります。 The following command line copies the `static-nodes.json` file into the PN data directory.
+PNのノードURIは「[インストールの前に](./before-you-install.md)」セクションにあります。 \注：このIPアドレスはCN公開IPとは異なります。）以下のコマンドラインは、`static-nodes.json`ファイルをPN dataディレクトリにコピーします。
 
 ```bash
 $ cp static-nodes.json /var/kpnd/data
@@ -146,7 +146,7 @@ DATA_DIR=/var/kpnd/data
 
 ### PNスタート/ストップ <a id="pn-start-stop"></a>
 
-You can start/stop the Klaytn service with the following `systemctl` command.
+以下の `systemctl` コマンドでKaiaサービスを開始/停止できる。
 
 **注**\*：これにはroot権限が必要です。
 
@@ -195,7 +195,7 @@ Core Cellが正常にインストールされ、期待通りに動作してい�
 
 #### systemctl <a id="systemctl"></a>
 
-systemctl\`はRPMと一緒にインストールされ、以下のようにしてPNの状態をチェックできる。
+`systemctl`はRPMと一緒にインストールされ、以下のようにしてPNの状態をチェックできる。
 
 ```bash
 $ systemctl status kpnd.service
@@ -217,7 +217,7 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]：起�
 
 #### kpnd <a id="kcnd-kpnd"></a>
 
-kpnd\`はパッケージと一緒にインストールされ、PNの状態は以下のように確認できる。
+`kpnd`はパッケージと一緒にインストールされ、PNの状態は以下のように確認できる。
 
 ```bash
 $ kpnd status
@@ -246,7 +246,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ### kpnコンソール<a id="kcn-console-kpn-console"></a>
 
-Klaytn provides a CLI client: `kpn console`. しかし、PNは、セキュリティ上の理由から、クライアントのRPCインタフェースを無効にすることができる。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。
+KaiaはCLIクライアント`kpn console`を提供している。 しかし、PNは、セキュリティ上の理由から、クライアントのRPCインタフェースを無効にすることができる。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。
 
 IPC ファイル `klay.ipc` は PN の `DATA_DIR` パスにある。
 
@@ -268,8 +268,8 @@ IPC ファイル `klay.ipc` は PN の `DATA_DIR` パスにある。
 
 PNのステータスをチェックするのに便利なAPI：
 
-- `klay.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+- `kaia.blockNumber` (最新のブロック番号を取得する)
+- `net.peerCount` (現在接続されているKaiaノードの数を取得する)
 
 #### klay.blockNumber  <a id="klay-blocknumber"></a>
 
