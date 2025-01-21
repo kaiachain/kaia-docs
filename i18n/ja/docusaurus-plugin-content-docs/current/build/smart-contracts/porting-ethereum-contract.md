@@ -1,6 +1,6 @@
 # イーサリアム契約のインポート
 
-In most cases, you can use Ethereum contracts on Klaytn without any modification.
+ほとんどの場合、Ethereumの契約はKaia上で修正せずにそのまま使用できます。
 ただし、以下の2点には注意すること。
 
 ## ソリディティ・サポート<a id="solidity-support"></a>
@@ -10,7 +10,7 @@ In most cases, you can use Ethereum contracts on Klaytn without any modification
 
 :::note
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
+v1.7.0プロトコルアップグレード - **Istanbul**ハードフォークアイテムとKaia自身のアイテムを含む互換性のない変更。
 It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 v1.7.3プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
@@ -21,7 +21,7 @@ It has been enabled from block number `#86,513,895` in case of Baobab network an
 
 :::
 
-Backward compatibility is not guaranteed with other EVM versions on Klaytn.
+Kaia上の他のEVMバージョンとの後方互換性は保証されていません。
 したがって、プロトコルのアップグレード状況に応じて、正しいターゲットオプションでSolidityコードをコンパイルすることを強くお勧めします。
 
 - Cypress: --evm-version london
@@ -38,4 +38,4 @@ $ solc --evm-version london contract.sol
 
 ## 分離されたキー・ペア<a id="decoupled-key-pairs"></a>
 
-Klaytn [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). user [updates account](../../learn/transactions/basic.md#txtypeaccountupdate) とすると、特定のアカウントの秘密鍵が別のものに置き換えられる。 ほとんどの場合、ビジネスロジックには影響しません。 しかし、ビジネスロジックにecrecoverが含まれている場合は、validateSenderの使用を検討する必要があります。 詳細は[こちら](../../learn/computation/precompiled-contracts.md)を参照。
+カイア [キー・ペアをアドレスから切り離す](../../learn/accounts.md#decoupling-key-pairs-from-addresses)。 user [updates account](../../learn/transactions/basic.md#txtypeaccountupdate) とすると、特定のアカウントの秘密鍵が別のものに置き換えられる。 ほとんどの場合、ビジネスロジックには影響しません。 しかし、ビジネスロジックにecrecoverが含まれている場合は、validateSenderの使用を検討する必要があります。 詳細は[こちら](../../learn/computation/precompiled-contracts.md)を参照。
