@@ -22,7 +22,7 @@ Once it is turned on, a node in your service chain can periodically anchor its c
 ### クレデンシャルの作成<a id="check-credential"></a>
 
 ログイン後、以下のようにクレデンシャルを作成します。
-AccessKey ID`と`Secret AccessKey`または`Authorization\` は KAS API を呼び出す際に使用される。
+`AccessKey ID` と `Secret AccessKey` または `Authorization` は KAS API を呼び出す際に使用される。
 
 ![credential](/img/nodes/kas-credential-en.png)
 
