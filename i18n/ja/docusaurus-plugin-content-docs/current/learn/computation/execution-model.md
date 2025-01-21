@@ -1,12 +1,12 @@
 # 実行モデル
 
-This page describes the execution model, the data structures, and the life cycle of Klaytn smart contracts.
+このページでは、Kaiaスマートコントラクトの実行モデル、データ構造、ライフサイクルについて説明します。
 
 ## 実行モデル<a id="execution-model"></a>
 
 トランザクションは、[Platform API Specification](../../../references/json-rpc/kaia/account-created)に記述されているように、プラットフォームAPIによって生成することができる。 These transactions are sent to _Consensus Nodes (CNs)_ to be stored in a block. CNは受信した各トランザクションが有効かどうかをチェックする。 有効なトランザクションはトランザクションプールに保存され、そうでない場合は破棄される。 CNは、トランザクションプール内の現在のブロック内の実行可能なトランザクションを選択し、1つずつ実行する。
 
-To execute a transaction, the sender must pay some amount of KLAY as a transaction fee. This transaction fee in KLAY is calculated based on gas and a multiplier, _i.e._, unit price. 気体は計算の基本単位である。 Every operation executed on a Klaytn node consumes a predefined amount of gas. The exact amount of KLAY required for the transaction is calculated by the formula illustrated in [Transaction Fees](../transaction-fees/transaction-fees.md). 送信者が不十分なガスを伴うトランザクションを送信した場合、トランザクションは失敗する可能性がある。 差出人の口座の残高が不足している場合も、取引に失敗することがある。
+To execute a transaction, the sender must pay some amount of KLAY as a transaction fee. This transaction fee in KLAY is calculated based on gas and a multiplier, _i.e._, unit price. 気体は計算の基本単位である。 Kaiaノード上で実行される全ての操作は、予め定義された量のガスを消費する。 The exact amount of KLAY required for the transaction is calculated by the formula illustrated in [Transaction Fees](../transaction-fees/transaction-fees.md). 送信者が不十分なガスを伴うトランザクションを送信した場合、トランザクションは失敗する可能性がある。 差出人の口座の残高が不足している場合も、取引に失敗することがある。
 
 トランザクションが正常に実行されると、そのトランザクションは現在のブロックに含まれる。 CNは、ブロック・ガス・リミットまたはブロック・タイム・リミットに達するまでトランザクションを収集する。 その後、CNはトランザクションでブロックを作成する。 このステップでは、ブロック内のいくつかのフィールドを埋める必要がある。 例えば、トランザクション、レシート、ステートなどのハッシュ値を計算しなければならない。 すべての必須フィールドが入力されると、CNはブロックハッシュを生成する。
 
@@ -56,15 +56,15 @@ Kaiaはスマート・コントラクトの展開にいくつかの制限を設�
 
 ### アカウント<a id="account"></a>
 
-An account in Klaytn blockchain platform is a data structure containing information about a person's balance or a smart contract. Klaytn redesigns its account model to provide better DX and UX. アカウントモデルに関する詳しい情報は[こちら](../accounts.md)をご覧ください。
+Kaiaブロックチェーンプラットフォームのアカウントは、個人の残高やスマートコントラクトに関する情報を含むデータ構造です。 カイアは、より良いDXとUXを提供するためにアカウントモデルを再設計した。 アカウントモデルに関する詳しい情報は[こちら](../accounts.md)をご覧ください。
 
 ### トランザクション<a id="transaction"></a>
 
-ブロックチェーンプラットフォームにおけるトランザクションとは、ブロックチェーンの状態を変更するノード間で送信されるメッセージのことである。 Klaytn also redesigns its transaction model. トランザクションはそれぞれの目的に応じて様々なタイプに分けられ、パフォーマンスの最適化の可能性を見つけ、再設計されたアカウントモデルをサポートする。 トランザクションモデルに関する詳細な情報は[こちら](../../build/transactions/transactions.md)を参照されたい。
+ブロックチェーンプラットフォームにおけるトランザクションとは、ブロックチェーンの状態を変更するノード間で送信されるメッセージのことである。 カイアはトランザクションモデルも再設計している。 トランザクションはそれぞれの目的に応じて様々なタイプに分けられ、パフォーマンスの最適化の可能性を見つけ、再設計されたアカウントモデルをサポートする。 トランザクションモデルに関する詳細な情報は[こちら](../../build/transactions/transactions.md)を参照されたい。
 
 ### 州<a id="state"></a>
 
-Klaytn's **state** is a collection of account states. This state must be the same across Klaytn nodes if they have processed the same blocks in the same order. The state is changed when a transaction is executed on a Klaytn node.
+Klaytn's **state** is a collection of account states. この状態は、同じブロックを同じ順序で処理した場合、Kaiaノード間で同じでなければなりません。 Kaiaノード上でトランザクションが実行されると、状態が変更される。
 
 下の表は、州に保存されている口座データを示している。
 
@@ -77,7 +77,7 @@ Klaytn's **state** is a collection of account states. This state must be the sam
 
 ### ブロック<a id="block"></a>
 
-A block is a crucial element of the Klaytn blockchain because the blockchain literally consists of a chain of blocks. 下の表は、ブロックの構成要素を示している。
+ブロックチェーンは文字通りブロックの連鎖で構成されるため、ブロックはKaiaブロックチェーンの重要な要素である。 下の表は、ブロックの構成要素を示している。
 
 | コンポーネント          | 説明                                                                           |
 | :--------------- | :--------------------------------------------------------------------------- |
@@ -103,11 +103,11 @@ A block is a crucial element of the Klaytn blockchain because the blockchain lit
 
 ## スマート・コントラクトのライフサイクル<a id="smart-contract-lifecycle"></a>
 
-A _smart contract_ consists of a collection of code (functions) and data (state) that resides at a specific address on the Klaytn blockchain. 契約アカウントは、互いにメッセージを受け渡しできるだけでなく、実質的にチューリング完全な計算を実行することができる。 Contracts exist on the blockchain in Klaytn-specific binary formats. Currently, Klaytn supports one binary format --Ethereum Virtual Machine (EVM) bytecode; however, other formats will be supported in the future.
+スマートコントラクトは、Kaiaブロックチェーン上の特定のアドレスに存在するコ ード﹑機能﹑とデータ﹑の集合体で構成される。 契約アカウントは、互いにメッセージを受け渡しできるだけでなく、実質的にチューリング完全な計算を実行することができる。 コントラクトはブロックチェーン上にカイア固有のバイナリ形式で存在する。 現在、Kaiaは1つのバイナリ形式--Ethereum Virtual Machine ∮（EVM）バイトコード--をサポートしていますが、将来的には他の形式もサポートする予定です。
 
 ### スマートコントラクトの作成<a id="creating-smart-contracts"></a>
 
-A smart contract can be created in the Klaytn blockchain by sending a transaction to an empty address with the binary as data. The binary can be in various formats; however, Klaytn currently supports one binary format, EVM bytecode. この取引の実行には支払いが必要であることを指摘しておく。 送金者の口座残高は、取引がブロックに保存された後、取引手数料モデルに従って減額される。 しばらくすると、その取引はブロックに表示され、その状態がコンセンサスに達したことが確認される。 At this point, the smart contract now exists in the Klaytn blockchain.
+スマートコントラクトは、バイナリをデータとして空のアドレスにトランザクションを送信することで、Kaiaブロックチェーンに作成することができる。 バイナリは様々な形式がありますが、Kaiaは現在1つのバイナリ形式、EVMバイトコードをサポートしています。 この取引の実行には支払いが必要であることを指摘しておく。 送金者の口座残高は、取引がブロックに保存された後、取引手数料モデルに従って減額される。 しばらくすると、その取引はブロックに表示され、その状態がコンセンサスに達したことが確認される。 この時点で、スマートコントラクトはKaiaブロックチェーンに存在している。
 
 ### スマートコントラクトの実行<a id="executing-smart-contracts"></a>
 
@@ -117,11 +117,11 @@ A smart contract can be created in the Klaytn blockchain by sending a transactio
 
 ### スマートコントラクトの無効化<a id="disabling-smart-contracts"></a>
 
-Because smart contracts exist in the Klaytn blockchain, they cannot be deleted; they can only be disabled. For now, Klaytn has adopted the same process for disabling a Klaytn smart contract as is used for disabling smart contracts in Ethereum. For example, the Klaytn smart contract for KLVM can be disabled by using the [`selfdestruct(address recipient)`](https://solidity.readthedocs.io/en/v0.5.6/introduction-to-smart-contracts.html#self-destruct) call in Solidity (or the KLVM opcode `SELFDESTRUCT`). The Klaytn team will also provide ways to disable smart contracts for other execution environments.
+スマートコントラクトはKaiaブロックチェーンに存在するため、削除することはできません。 今のところ、KaiaはKaiaスマートコントラクトを無効にするために、Ethereumでスマートコントラクトを無効にするために使われているのと同じプロセスを採用している。 例えば、KLVMのKaiaスマートコントラクトは、Solidityの[`selfdestruct(address recipient)`](https://solidity.readthedocs.io/en/v0.5.6/introduction-to-smart-contracts.html#self-destruct)コール(またはKLVMのオペコード`SELFDESTRUCT`)を使用して無効にできます。 Kaiaチームは、他の実行環境のスマートコントラクトを無効にする方法も提供する予定である。
 
 ### スマートコントラクトのアップグレード<a id="upgrading-smart-contracts"></a>
 
-Klaytn will provide ways to upgrade a deployed smart contract to address the inconvenient user experience with existing blockchains. 例えば、ブロックチェーン上に展開されたサービスはアップグレードが難しい。 Klaytn will provide frameworks and smart contract libraries to enable service providers (SPs) to upgrade deployed services and migrate service information. Klaytn will provide this feature carefully by considering the following requirements.
+Kaiaは、既存のブロックチェーンでの不便なユーザーエクスペリエンスに対処するために、デプロイされたスマートコントラクトをアップグレードする方法を提供する。 例えば、ブロックチェーン上に展開されたサービスはアップグレードが難しい。 Kaiaは、サービスプロバイダが配置されたサービスをアップグレードしたり、サービス情報を移行したりできるように、フレームワークとスマートコントラクトライブラリを提供する。 カイアは、以下の要件を考慮して、この機能を慎重に提供します。
 
 - スマート・コントラクトをアップグレードできるのは、認可されたアカウントか、スマート・コントラクトの所有者のみでなければならない。
 - アップグレードされたスマート・コントラクトは、古いスマート・コントラクトが保持する既存のデータを操作できるようにしなければならない。
