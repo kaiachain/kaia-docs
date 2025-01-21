@@ -67,7 +67,7 @@ ls
 
 ## スマート・コントラクトのサンプル
 
-このセクションでは、初期化されたファウンドリー・プロジェクトのサンプル・カウンター契約を使用する。 src/`フォルダにある`counter.sol\`ファイルは以下のようになるはずだ：
+このセクションでは、初期化されたファウンドリー・プロジェクトのサンプル・カウンター契約を使用する。 `src/`フォルダにある`counter.sol`ファイルは以下のようになるはずだ：
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -172,7 +172,7 @@ forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhd
 
 スマート・コントラクトのデプロイに成功したら、関数を正しく呼び出して実行したいだろう。 Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) を使って、Kaia Kairos Networkに配備されたコントラクトとやりとりしてみましょう。  このセクションでは、[cast call](https://book.getfoundry.sh/reference/cast/cast-call) を使って `read-only` 関数を実行し、[cast send](https://book.getfoundry.sh/reference/cast/cast-send) を使って `write` 関数を実行する方法を学びます。
 
-\*\*A. を呼び出す：コントラクトに格納されている数字を取得するには、`number`関数を呼び出します。 以下のコマンドを実行し、その動きを見てみよう。
+**A. cast call**：コントラクトに格納されている数字を取得するには、`number`関数を呼び出します。 以下のコマンドを実行し、その動きを見てみよう。
 
 ```bash
 cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
