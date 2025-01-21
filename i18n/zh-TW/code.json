@@ -85,7 +85,7 @@
     "description": "The blog post button label to navigate to the older/next post"
   },
   "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "麵包屑",
+    "message": "導覽列 (Breadcrumbs)",
     "description": "The ARIA label for the breadcrumbs"
   },
   "theme.docs.DocCard.categoryDescription": {
