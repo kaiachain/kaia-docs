@@ -14,7 +14,7 @@ Orakl Networkを使えば、ユーザーはスマートコントラクトに予�
 
 - [カイア・ウォレット](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 - [Remix IDE](https://remix.ethereum.org/)
-- [Klaytn Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- [KaiaプラグインをRemixで](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 - [Faucet](https://faucet.kaia.io)からKAIAをテストする。
 
 ## はじめに
@@ -116,7 +116,7 @@ function fulfillRandomWords(
 - ファイルエクスプローラー\*\*タブをクリックし、contractsフォルダに`consumer-vrf.sol`という名前のファイルを新規作成する。
 - 新しく作成したファイルに以下のコードを貼り付けます。
 - Remixで、**Compile contract**をクリックします。
-- Click the Klaytn tab on your left having installed the plugin.
+- プラグインをインストールしたら、左側の「Kaia」タブをクリックします。
 - Environment\*\* > **Injected Provider** - **Kaia Wallet** を選択します。
 - Contract\*\*で、契約を選択します。 例えば、`VRFConsumer`である。
 - コーディネーター契約アドレス `0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499` (Kairos), `0x3F247f70DC083A2907B8E76635986fd09AA80EFb` (Mainnet) を渡す。
@@ -180,7 +180,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### スマートコントラクトとの対話
 
-スマート・コントラクトでランダムな単語を要求するには、まず `requestRandomWordsDirect()` 関数を実行しなければならない。 この関数が正常に実行されるためには、ユーザは前述のようにKAIAを送信し(最低1KAIA)、 `keyHash`、`callbackGasLimit`、`numWords`、`refundRecipient`パラメータを与える必要がある。 `keyHash`パラメータは、誰がリクエストを処理できるかを一意に定義する。 Orakl Network VRF provides one key hash for each Klaytn chain:
+スマート・コントラクトでランダムな単語を要求するには、まず `requestRandomWordsDirect()` 関数を実行しなければならない。 この関数が正常に実行されるためには、ユーザは前述のようにKAIAを送信し(最低1KAIA)、 `keyHash`、`callbackGasLimit`、`numWords`、`refundRecipient`パラメータを与える必要がある。 `keyHash`パラメータは、誰がリクエストを処理できるかを一意に定義する。 Orakl Network VRFは、Kaiaチェーンごとに1つのキーハッシュを提供します：
 
 - Kairos: `0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c`
 - Mainnet: `0x6cff5233743b3c0321a19ae11ab38ae0ddc7ddfe1e91b162fa8bb657488fb157`
