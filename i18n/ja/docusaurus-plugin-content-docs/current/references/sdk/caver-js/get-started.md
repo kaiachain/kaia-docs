@@ -427,7 +427,7 @@ caver-jsウォレットを使用して、取引の署名を生成することが
    - キーリングを `caver.wallet` に追加せずに別途管理する場合は、`transaction.sign` 関数を使用してトランザクションに署名することができる。
 2. `caver.rpc.klay.sendRawTransaction`を介して、署名されたトランザクションのRLPエンコード文字列をkaiaに送信する。
 
-**注意：**\* 送信者は十分な数のKAIAを持っていなければならない。
+**注意：** 送信者は十分な数のKAIAを持っていなければならない。
 
 #### 取引に署名する
 
@@ -907,7 +907,7 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**注**\*：スマートコントラクトをコンパイルするには、[solidityコンパイラ](https://solidity.readthedocs.io/en/develop/installing-solidity.html)がインストールされている必要があります。
+**注**：スマートコントラクトをコンパイルするには、[solidityコンパイラ](https://solidity.readthedocs.io/en/develop/installing-solidity.html)がインストールされている必要があります。
 
 スマート・コントラクトのデプロイには、[caver.contract](api/caver.contract.md)を使用するか、[caver.transaction.smartContractDeploy](api/caver-transaction/basic.md#smartcontractdeploy)、[caver.transaction.feeDelegatedSmartContractDeploy](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy)、または[caver.transaction.feeDelegatedSmartContractDeployWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio)トランザクションを使用してデプロイできます。 以下は、[caver.contract](api/caver.contract.md)の使用例である。
 
@@ -1774,7 +1774,7 @@ caver-jsを使ったDApp（ブロックチェーンアプリケーション）�
 
 ## トラブルシューティング<a href="#troubleshooting" id="troubleshooting"></a>
 
-- \*\*エラー：Can't resolve 'fs'\*\*は、ウェブブラウザでcaver-jsを使用してビルド中に発生します：
+- **Error: Can't resolve 'fs'** は、ウェブブラウザでcaver-jsを使用してビルド中に発生します：
 
   - 以下のwebpackの設定を追加します。
 
