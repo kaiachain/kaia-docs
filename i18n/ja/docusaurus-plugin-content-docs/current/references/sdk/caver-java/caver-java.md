@@ -2,7 +2,7 @@
 
 ![](/img/references/kaiaXcaver-java.png)
 
-caver-java\`は、kaiaネットワーク上のクライアント(ノード)と対話するための、軽 量でモジュール性の高い便利なJavaおよびAndroidライブラリです：このライブラリは、Javaアプリケーションが[kaia](https://kaia.io)ネットワークと簡単に通信できるようにするインターフェースです。
+`caver-java`は、kaiaネットワーク上のクライアント(ノード)と対話するための、軽 量でモジュール性の高い便利なJavaおよびAndroidライブラリです：このライブラリは、Javaアプリケーションが[kaia](https://kaia.io)ネットワークと簡単に通信できるようにするインターフェースです。
 
 ## 特徴<a id="features"></a>
 
