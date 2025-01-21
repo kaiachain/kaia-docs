@@ -211,7 +211,7 @@ Caver caver = new Caver("http://your.en.url:8551/");
 
 `MultipleKeyring`は内部で `keys` プロパティを定義しており、この `keys` は複数の秘密鍵を格納する配列として実装されている。
 
-RoleBasedKeyring`で定義されている`keys`プロパティは、秘密鍵の3つの配列を要素とするリストオブジェクトとして実装されている (空の`keys`は`[ [], [], [] ]`のようになる)。 配列の最初の要素には`roleTransactionKey`に使用する秘密鍵、2 番目の要素には`roleAccountUpdateKey`に使用する秘密鍵、3 番目の要素には`roleFeePayerKey\` に使用する秘密鍵が格納される。
+`RoleBasedKeyring` で定義されている `keys` プロパティは、秘密鍵の3つの配列を要素とするリストオブジェクトとして実装されている (空の `keys` は `[ [], [], [] ]` のようになる)。 配列の最初の要素には `roleTransactionKey` に使用する秘密鍵、2 番目の要素には `roleAccountUpdateKey` に使用する秘密鍵、3 番目の要素には `roleFeePayerKey` に使用する秘密鍵が格納される。
 
 ### キーホルダーの作成<a id="creating-a-keyring"></a>
 
