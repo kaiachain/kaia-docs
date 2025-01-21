@@ -6,7 +6,7 @@ CN、PN用のパッケージは[ダウンロードページ](../../downloads/dow
 
 ## インストールの前に<a id="before-you-install"></a>
 
-Before installing the Klaytn package, it is required to create the associated node information to enroll your node URIs. KgenパッケージはCCオペレーターのために提供されています。
+Kaiaパッケージをインストールする前に、ノードURIを登録するための関連ノード情報を作成する必要があります。 KgenパッケージはCCオペレーターのために提供されています。
 
 1. `kgen` パッケージをダウンロードする
 2. ノードキーとノードURIの作成
@@ -30,7 +30,7 @@ $ ls
 nodekey node_info.json
 ```
 
-`nodekey`は64バイトの16進文字列で、ノード内部で使用する秘密鍵である。 This private key must be present at the Klaytn data directory and be careful not to lose it.
+`nodekey`は64バイトの16進文字列で、ノード内部で使用する秘密鍵である。 この秘密鍵はカイアのデータディレクトリに存在しなければならないので、紛失しないように注意すること。
 
 ```text
 $ cat nodekey
@@ -64,7 +64,7 @@ The created node URI should be enrolled to participate in the Core Cell Network 
 1. 関連するIPとポート番号を含むノードURIを、`kgen` \(`node_info.json`) を使用して作成する。
 2. カイア公式メールアドレス(`bootstrap@klaytn.com` for Mainnet or `baobab@klaytn.com` for Kairos)に情報を送信してください。
 
-The enrolled information should be sent to the official Klaytn email address. フォーマットは以下の通り。
+在籍情報は、カイアの公式メールアドレスに送信すること。 フォーマットは以下の通り。
 
 CNの場合
 
