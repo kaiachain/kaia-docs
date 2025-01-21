@@ -18,10 +18,10 @@ AMIは、新しいカイアENを立ち上げる便利な方法を提供する。
 
 | \*\*タイプ | \*\*シンクモード            | \*\*AMI名                           |
 | ------- | --------------------- | ---------------------------------- |
-| フル      | フルモード                 | カイア-xxxx-クリーン-フル-エン-xxxx\`。        |
-| 剪定      | フルモード・ライブプルーニング       | kaia-xxxx-clean-剪定-en-xxxx\`。      |
-| 国家移住者   | フルモード、状態移行（または状態一括削除） | kaia-xxxx-clean-en-xxxx\`。         |
-| アーカイブ   | アーカイブ・モード             | kaia-xxxx-clean-archive-en-xxxx\`。 |
+| フル      | フルモード                 | `カイア-xxxx-クリーン-フル-エン-xxxx`。        |
+| 剪定      | フルモード・ライブプルーニング       | `kaia-xxxx-clean-剪定-en-xxxx`。      |
+| 国家移住者   | フルモード、状態移行（または状態一括削除） | `kaia-xxxx-clean-en-xxxx`。         |
+| アーカイブ   | アーカイブ・モード             | `kaia-xxxx-clean-archive-en-xxxx`。 |
 
 カイアはメインネット用にこれら4種類のAMIを提供している。 カイロス用のAMIもある。
 
@@ -68,9 +68,9 @@ Amazon EBSボリュームをウォームアップするこのタスクには、�
 
 :::
 
-### kend.conf\`の設定を確認する
+### `kend.conf`の設定を確認する
 
-ノードを起動する前に、設定ファイル `kend.conf` の `NETWORK` と `NETWORK_ID` フィールドを確認する。 kend.conf`ファイルは`/etc/kend/conf/kend.conf\` にある。
+ノードを起動する前に、設定ファイル `kend.conf` の `NETWORK` と `NETWORK_ID` フィールドを確認する。 `kend.conf` ファイルは `/etc/kend/conf/kend.conf` にある。
 
 メインネットの場合、`NETWORK`フィールドは`mainnet`でなければならない。 カイロスの場合、`NETWORK`フィールドは`kairos`でなければならない。
 
@@ -84,11 +84,11 @@ NETWORK=kairos
 
 NETWORK_ID`はプライベートネットワークにのみ使用されることに注意。 したがって、メインネットやカイロスに`NETWORK_ID\`を設定しないようにしてください。
 
-kend.conf\` の詳細については、[Configuration](configuration.md) を参照してください。
+`kend.conf` の詳細については、[Configuration](configuration.md) を参照してください。
 
-### kend\` サービスを開始する。
+### `kend` サービスを開始する。
 
-EC2インスタンスには、Kaia CLIクライアントとchaindataがインストールされている。 また、ENを開始/終了するスクリプトである`kend`もサービスとしてインストールされている。 kend\`サービスの状態は以下のコマンドで確認できる。
+EC2インスタンスには、Kaia CLIクライアントとchaindataがインストールされている。 また、ENを開始/終了するスクリプトである`kend`もサービスとしてインストールされている。 `kend`サービスの状態は以下のコマンドで確認できる。
 
 ```bash
 sudo service kend status
