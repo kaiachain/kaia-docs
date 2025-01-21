@@ -158,7 +158,7 @@ module.exports = {
 プライベート・ネットワークを立ち上げるために、hardhat utilsプラグインは簡単に立ち上げるタスクを提供してくれる：
 
 ```js
-hhクレイトン・ノード
+hh klaytn-node
 ```
 
 ![](/img/build/smart-contracts/pn-run-node.png)
@@ -172,9 +172,9 @@ hh klaytn-node --attach
 ```
 
 ```jsx title="Result Result "
-KaiaのJavaScriptコンソールへようこそ！
- インスタンス：Klaytn/v0.9.2/linux-amd64/go1.22.1
-  datadir：/klaytn
+Welcome to the Kaia JavaScript console!
+ instance: Klaytn/v0.9.2/linux-amd64/go1.22.1
+  datadir: /klaytn
   modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 kaia:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 ```
 
