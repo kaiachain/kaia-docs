@@ -154,7 +154,7 @@ Kaia JavaScript コンソールへようこそ！
 
 詳しくは[subbridge API](../../..references/json-rpc/subbridge/deploy-bridge)を参照されたい。
 
-subbridge_listBridge\`はブリッジのコントラクトアドレスとサブスクリプションステータスを表示します。
+`subbridge_listBridge`はブリッジのコントラクトアドレスとサブスクリプションステータスを表示します。
 サブブリッジは、ブリッジ契約アドレスのリストをファイルに保存する。 再起動時に、サブブリッジはブリッジ契約リストをファイルからリロードする。
 
 ### 購読<a id="subscribing"></a>
@@ -274,7 +274,7 @@ function () external payable;
 
 #### requestKLAYTransfer <a id="requestklaytransfer"></a>
 
-If a user calls this function with `_to`, this requests a KLAY transfer to `_to` address in the counterpart chain.
+ユーザーがこの関数を `_to` で呼び出すと、相手チェーンの `_to` アドレスにKAIA転送を要求する。
 
 ```solidity
 function requestKLAYTransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
