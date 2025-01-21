@@ -215,7 +215,7 @@ main();
 
 ---
 
-web3.eth.account.privateKeyToAccount\`を使用して、定義された秘密鍵から**送信者**と**料金支払者**のアカウントを作成する。
+`web3.eth.account.privateKeyToAccount`を使用して、定義された秘密鍵から**送信者**と**料金支払者**のアカウントを作成する。
 
 ```js smartContractWriteFeeDelegated.js focus=10:11
 
@@ -231,7 +231,7 @@ web3.eth.account.privateKeyToAccount\`を使用して、定義された秘密鍵
 
 ---
 
-Web3.eth.Contract\`を使用して、**contractAbi**と**address**を定義した契約インスタンスを作成する。 このインスタンスを通じて、契約の読み書きができる。
+`Web3.eth.Contract`を使用して、**contractAbi**と**address**を定義した契約インスタンスを作成する。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js smartContractWriteFeeDelegated.js focus=41
 
@@ -274,7 +274,7 @@ contract.methods.increment().encodeABI()\`でコントラクト・メソッド�
 
 ---
 
-signTransaction\`を使って**sender**アカウントでトランザクションに署名する。
+`signTransaction`を使って**sender**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js smartContractWriteFeeDelegated.js focus=53:55
@@ -291,7 +291,7 @@ senderTxHashRLP 0x31f8844c850ba43b7400830111939495be48607498109030592c08adc9577c
 
 ---
 
-signTransactionAsFeePayer\`を使用して、**fee payer**アカウントでトランザクションに署名する。
+`signTransactionAsFeePayer`を使用して、**fee payer**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js smartContractWriteFeeDelegated.js focus=57:59
