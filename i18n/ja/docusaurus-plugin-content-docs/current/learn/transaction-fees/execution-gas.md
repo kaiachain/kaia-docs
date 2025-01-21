@@ -52,27 +52,27 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 
 ### 特定のオペコードのガスを計算するために使用されるスカラー値
 
-| Name                              | Value | Name in Code                      | Description                                                                                |
-| :-------------------------------- | ----: | --------------------------------- | :----------------------------------------------------------------------------------------- |
-| `G_sset`                          | 20000 | SstoreSetGas                      | 貯蔵設定時に貯蔵値が設定された場合に支払われるガス量                                                                 |
-| `G_sreset`                        |  5000 | SstoreResetGas                    | 貯蔵量がゼロのまま、またはゼロに設定された場合に支払われるガス量                                                           |
-| `G_coldSloadCost`                 |  2100 | ColdSloadCostEIP2929              | 貯蔵量がaccessListにない場合の支払ガス量                                                                  |
-| `R_sclear`                        | 15000 | SstoreClearsScheduleRefundEIP3529 | `G_sreset` - `G_coldSloadCost` + `TxAccessListStorageKeyGas (1900)`                        |
-| `G_exp`                           |    10 | ExpGas                            | Partial payment                                                                            |
-| `G_expbyte`                       |    50 | ExpByte                           | ceil(log_256(指数))\`を掛けた場合の一部支払い |
-| `G_selfdestruct`                  |  5000 | SelfdestructGas                   | SELFDESTRUCT\`操作のために支払われたガス量                                                               |
-| `G_callvalue`                     |  9000 | CallValueTransferGas              | 非ゼロ・バリュー・トランスファーに支払われたガス量                                                                  |
-| `G_callstipend`                   |  2300 | CallStipend                       | ゼロでない値での移籍の場合、通話開始時に無料ガスが与えられる。                                                            |
-| `G_newaccount`                    | 25000 | CallNewAccountGas                 | アカウント作成時に支払ったガス料金。 また、`SELFDESTRUCT`操作を伴う`CreateBySelfdestructGas`としても定義される。               |
-| `G_codedeposit`                   |   200 | CreateDataGas                     | コードの状態への配置に成功した契約を作成するために1バイトあたりに支払われるガスの量                                                 |
-| G_sha3word\` |     6 | Sha3WordGas                       | Amount of gas paid for each word (rounded up) for an `SHA3` input data  |
-| `G_InitCodeWord`                  |     2 | InitCodeWordGas                   | CREATE`,`CREATE2\`のinitcodeの各単語に対して支払われるガス量。                                               |
+| Name              | Value | Name in Code                      | Description                                                                                |
+| :---------------- | ----: | --------------------------------- | :----------------------------------------------------------------------------------------- |
+| `G_sset`          | 20000 | SstoreSetGas                      | 貯蔵設定時に貯蔵値が設定された場合に支払われるガス量                                                                 |
+| `G_sreset`        |  5000 | SstoreResetGas                    | 貯蔵量がゼロのまま、またはゼロに設定された場合に支払われるガス量                                                           |
+| `G_coldSloadCost` |  2100 | ColdSloadCostEIP2929              | 貯蔵量がaccessListにない場合の支払ガス量                                                                  |
+| `R_sclear`        | 15000 | SstoreClearsScheduleRefundEIP3529 | `G_sreset` - `G_coldSloadCost` + `TxAccessListStorageKeyGas (1900)`                        |
+| `G_exp`           |    10 | ExpGas                            | Partial payment                                                                            |
+| `G_expbyte`       |    50 | ExpByte                           | ceil(log_256(指数))\`を掛けた場合の一部支払い |
+| `G_selfdestruct`  |  5000 | SelfdestructGas                   | SELFDESTRUCT\`操作のために支払われたガス量                                                               |
+| `G_callvalue`     |  9000 | CallValueTransferGas              | 非ゼロ・バリュー・トランスファーに支払われたガス量                                                                  |
+| `G_callstipend`   |  2300 | CallStipend                       | ゼロでない値での移籍の場合、通話開始時に無料ガスが与えられる。                                                            |
+| `G_newaccount`    | 25000 | CallNewAccountGas                 | アカウント作成時に支払ったガス料金。 また、`SELFDESTRUCT`操作を伴う`CreateBySelfdestructGas`としても定義される。               |
+| `G_codedeposit`   |   200 | CreateDataGas                     | コードの状態への配置に成功した契約を作成するために1バイトあたりに支払われるガスの量                                                 |
+| `G_sha3word`      |     6 | Sha3WordGas                       | Amount of gas paid for each word (rounded up) for an `SHA3` input data  |
+| `G_InitCodeWord`  |     2 | InitCodeWordGas                   | CREATE`,`CREATE2\`のinitcodeの各単語に対して支払われるガス量。                                               |
 
 ## 契約ガス料金表<a id="precompiled-contracts-gas-cost-table"></a>
 
 プリコンパイルされたコントラクトは、通常、複雑な暗号計算を行い、他のコントラクトによって開始される特別な種類のコントラクトである。
 
-Below is the gas cost table for precompiled contracts in Klaytn. Input\`はコンパイル済みのコントラクトのバイト配列の入力である。
+Below is the gas cost table for precompiled contracts in Klaytn. `Input`はコンパイル済みのコントラクトのバイト配列の入力である。
 
 | Address | Precompiled contracts | Gas Cost                                                                                                                                                                                                               |
 | :------ | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -100,18 +100,18 @@ Below is the gas cost table for precompiled contracts in Klaytn. Input\`はコ�
   - 例えば、オペコードが `MUL` なら、`G_low` を gas に加える。
   - 例えば、オペコードが`CREATE2`の場合、`G_create`をgasに追加する。
 - 追加で定義されたガス計算方法で計算されたガスを追加する。
-  - LOG'N'`（Nは[0,1,2,3,4]）については、`G_log + memoryGasCost \* g_logdata + N x G_logtopic\`をガスに加える。
-  - EXP`の場合は、`G_exp + byteSize(stack.back(1)) x G_expbyte\`をgasに加える。
-  - CALLDATACOPY`または`CODECOPY`または`RETURNDATACOPY` の場合は、`wordSize(stack.back(2)) x G_copy\` を gas に追加する。
+  - `LOG'N'`（Nは[0,1,2,3,4]）については、`G_log + memoryGasCost * g_logdata + N x G_logtopic`をガスに加える。
+  - `EXP`の場合は、`G_exp + byteSize(stack.back(1)) x G_expbyte`をgasに加える。
+  - `CALLDATACOPY` または `CODECOPY` または `RETURNDATACOPY` の場合は、`wordSize(stack.back(2)) x G_copy` を gas に追加する。
   - EXTCODECOPY\`の場合、
-    - wordSize(stack.back(3))×G_copy\`をgasに追加する。
+    - `wordSize(stack.back(3))×G_copy`をgasに追加する。
     - [**_eip2929_**] アドレスが AccessList にない場合、accessList に追加し、`G_coldSloadCost - G_warmStorageReadCost` を gas に追加する。
   - EXTCODESIZE`または`EXTCODEHASH`または`BALANCE\` の場合、
     - [**_eip2929_**] アドレスが AccessList にない場合、accessList に追加し、`G_coldSloadCost - G_warmStorageReadCost` を gas に追加する。
-  - SHA3`の場合、`G_sha3 + wordSize(stack.back(1)) x G_sha3word\`をgasに加える。
-  - RETURN`、`REVERT`、`MLoad`、`MStore8`、`MStore`では、ガスに`memoryGasCost\` を追加する。
-  - CREATE`では、`memoryGasCost + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord\`をガスに追加する。
-  - CREATE2`では、`memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord\`をgasに追加する。
+  - `SHA3`の場合、`G_sha3 + wordSize(stack.back(1)) x G_sha3word`をgasに加える。
+  - `RETURN`、`REVERT`、`MLoad`、`MStore8`、`MStore` では、ガスに `memoryGasCost` を追加する。
+  - `CREATE`では、`memoryGasCost + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord`をガスに追加する。
+  - `CREATE2`では、`memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord`をgasに追加する。
   - SSTORE\`の場合、
     - [**_eip2929_**] スロット(contractAddr, slot)がAccessListにない場合、それをaccessListに追加し、`G_coldSloadCost`をgasに追加する。
     - 単にスロットを読み込むだけなら(no-op)、gasに`G_warmStorageReadCost`を追加する。
