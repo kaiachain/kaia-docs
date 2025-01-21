@@ -20,7 +20,7 @@
 
 なお、以下のURLは2024年9月末日をもって廃止となりました。 サービスが中断しないよう、適宜設定を更新することをお勧めします：
 
-\*\*メインネット
+**メインネット**
 
 - `https://public-en-cypress.klaytn.net` (`https://public-en.node.kaia.io` に置き換わる)
 - `https://archive-en.cypress.klaytn.net` (`https://archive-en.node.kaia.io` に置き換わる)
@@ -133,7 +133,7 @@ Tatumは、ブロックチェーンアプリを構築、テスト、実行する
 
 #### 参考文献
 
-- [Docs](https://apidoc.tatum.io/tag/Klaytn?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
+- [ドキュメント](https://apidoc.tatum.io/tag/Kaia?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
 - [価格設定](https://tatum.io/pricing)
 - [ウェブサイト](https://tatum.io/)
 
@@ -141,12 +141,12 @@ Tatumは、ブロックチェーンアプリを構築、テスト、実行する
 
 BlockPI Networkは、高品質で堅牢かつ効率的なRPCサービスの提供を目指しています。 一点障害とスケーラビリティの制限を避けるため、ネットワークは拡張可能なRPCノードを持つ分散構造となるように設計されている。
 
-BlockPI provides free public endpoints to the Klaytn community and advanced features to paid users.  BlockPIは2つの有料パッケージを設計し、柔軟なユーザーニーズを満たすためにPay As You Goをサポートしています。 You can check the pricing details for each package (https\://docs.blockpi.io/documentations/pricing) and the individual method cost for Klaytn  (https\://docs.blockpi.io/documentations/request-unit-ru)
+BlockPIは、Kaiaコミュニティには無料のパブリックエンドポイントを、有料ユーザには高度な機能を提供しています。  BlockPIは2つの有料パッケージを設計し、柔軟なユーザーニーズを満たすためにPay As You Goをサポートしています。 各パッケージの料金詳細 (https://docs.blockpi.io/documentations/pricing) およびカイアの個別メソッド費用 (https://docs.blockpi.io/documentations/request-unit-ru) を確認できます。
 
 #### 特徴
 
 - 無料サービスでは毎秒20リクエスト、有料パッケージでは無制限。
-- Choice of Klaytn archive node and endpoint node
+- Kaiaアーカイブノードとエンドポイントノードの選択
 - エンドポイントノードのホワイトリストが可能
 - WSSが利用可能で、近日中にサブスクリプションが開始される
 - トレースをサポート
