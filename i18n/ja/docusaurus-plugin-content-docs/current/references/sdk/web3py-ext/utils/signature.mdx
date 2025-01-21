@@ -44,14 +44,14 @@
 
   ---
 
-  web3py_ext\*\* から `bytes_to_hex_str`, `hex_str_to_bytes` をインポートする。
+  **web3py_ext** から `bytes_to_hex_str`, `hex_str_to_bytes` をインポートする。
 
   ```py signature_convert.py focus=1
   ```
 
   ---
 
-  {r,s,v}` のシグネチャを文字列に変換するには、`r,s,v` フォーマットのシグネチャを定義し、`hex_str_to_bytes`を使って各要素を`bytes\` に変換する。
+  `{r,s,v}` のシグネチャを文字列に変換するには、`r,s,v` フォーマットのシグネチャを定義し、`hex_str_to_bytes` を使って各要素を `bytes` に変換する。
 
   <CH.Code>
     ```py signature_convert.py focus=17:20
@@ -90,7 +90,7 @@
 
   ---
 
-  hex_str_to_bytes`を使って文字列シグネチャを `bytes\` に変換する。
+  `hex_str_to_bytes`を使って文字列シグネチャを `bytes` に変換する。
 
   <CH.Code>
     ```py signature_convert.py focus=8:9
