@@ -6,7 +6,7 @@
 
 ログファイルはdataディレクトリにあります。 例えば、`kcnd` RPMパッケージをインストールすると、`kcnd`のログのデフォルトの場所は `/var/log/kcnd/kcnd.out` になる。
 
-## Klaytn node can not connect to network with `Protocol istanbul/64 failed` and `Genesis block mismatch` error message as below. <a id="klaytn-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
+## Kaiaノードはネットワークに接続できず、以下のような「Protocol istanbul/64 failed」と「Genesis block mismatch」のエラーメッセージが表示される。 <a id="klaytn-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
 
 ```
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
@@ -45,15 +45,15 @@ Error: Returned error: The method net_version does not exist/is not available
 
 \*\*回答
 
-kend.conf`ファイルを以下のように編集して、RPCコンソール用の `net\` およびその他のAPIを有効にする。
+`kend.conf`ファイルを以下のように編集して、RPCコンソール用の `net` およびその他のAPIを有効にする。
 
 ```
 RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: admin,debug,klay,miner,net,personal,rpc,txpool,web3
 ```
 
-After updating `kend.conf`, restart Klaytn node.
+`kend.conf`を更新したら、Kaiaノードを再起動する。
 
-## Can't start Klaytn node with `Unit not found` error as below after installing binary package. <a id="can-t-start-klaytn-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
+## バイナリパッケージのインストール後、以下のような「Unit not found」エラーでKaiaノードが起動できません。 <a id="can-t-start-klaytn-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
 Failed to start kcnd.service: Unit not found.
