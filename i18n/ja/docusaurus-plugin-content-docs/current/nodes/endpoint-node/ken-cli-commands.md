@@ -57,7 +57,7 @@ participating.
 
 ## JavaScriptコンソール
 
-Klaytn Endpoint Node comes with JavaScript console. From the console command line, you can initiate part of Klaytn API calls to your EN. JavaScriptコンソールに接続するには、以下のコマンドを実行する。
+カイア・エンドポイント・ノードにはJavaScriptコンソールが付属しています。 コンソールのコマンドラインから、Kaia APIの一部をENに呼び出すことができます。 JavaScriptコンソールに接続するには、以下のコマンドを実行する。
 
 ```bash
 $ ken attach --datadir ~/kend_home
@@ -79,7 +79,7 @@ attachコマンドは実行中のノードに接続し、consoleコマンドは�
 
 ### モジュールAPI
 
-コンソールのプロンプトにモジュール名を入力すると、モジュールの利用可能なプロパティと機能が表示されます。 For the details of functions, please see [Klaytn API](../../../references/json-rpc/klay/account-created).
+コンソールのプロンプトにモジュール名を入力すると、モジュールの利用可能なプロパティと機能が表示されます。 機能の詳細については、[Kaia API](../../../references/json-rpc/klay/account-created) をご参照ください。
 
 ```javascript
 > personal
