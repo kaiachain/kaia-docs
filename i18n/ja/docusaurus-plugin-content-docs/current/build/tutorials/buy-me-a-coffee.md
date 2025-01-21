@@ -5,7 +5,7 @@
 - [1. プロジェクト・セットアップ](#1-project-setup)
 - [2. コーヒーを買うスマートコントラクトの作成](#2-creating-a-buy-me-a-coffee-smart-contract)
 - [3. スクリプトを使った契約の機能テスト](#3-testing-the-contracts-functionalities-using-scripts)
-- [4. Deploying BMC Smart contract to Klaytn Testnet ](#4-deploying-bmc-smart-contract)
+- [4. カイア・テストネットへのBMCスマート・コントラクトの導入 ](#4-deploying-bmc-smart-contract)
 - [5. ReactとWeb3OnboardによるBMCフロントエンドの構築](#5-building-the-bmc-frontend-with-react-and-web3onboard)
 - [6. Fleekを使ってフロントエンドのコードをIPFSにデプロイする](#6-deploying-frontend-code-on-ipfs-using-fleek)
 - [7. 結論](#7-conclusion)
@@ -27,7 +27,7 @@ Buy Me a Coffee（BMC）は、クリエイターがファンや視聴者から�
 
 - Solidity：BMCスマートコントラクトを記述する
 - NextJsとTailwind：BMC dAppのフロントエンドウェブサイト構築用
-- Web3Onboard: to enable multiple wallet connections to Klaytn Testnet Baobab.
+- Web3Onboard: Kaia Testnet Kairosへの複数のウォレット接続を可能にする。
 - Fleek：Fleekを使えば、IPFS上でBMC dAppをホストできる。
 
 ## 前提条件<a href="#2-prerequisites" id="2-prerequisites"></a>
@@ -259,7 +259,7 @@ buyCoffee機能は、BMCスマートコントラクトのコア実装である�
 
 最後に、\*\*getAllCoffee()\*\*関数が作られた。 これは、時間外に作成されたすべてのコーヒー・トランザクションを返す。
 
-Now that we have completed writing our BMC smart contract, the next step is to test the functionalities of our smart contract, deploy and interact with the smart contract on **Klaytn Testnet Baobab**.
+BMCスマートコントラクトの記述が完了したので、次のステップはスマートコントラクトの機能をテストし、**Kaia Testnet Kairos**にデプロイしてスマートコントラクトとやり取りすることです。
 
 ## 3. スクリプトを使った契約書の機能テスト<a id="testing-bmc-contract-using-scripts"></a>
 
@@ -378,9 +378,9 @@ At 1686307887, Japhet, with 0x90F79bf6EB2c4f870365E785982E1f101E93b906, said: "H
 
 ## 4. BMCスマートコントラクトの導入
 
-### 4.1 Deploying BMC Smart contract to Klaytn Testnet  <a id="deploying-bmc-contract"></a>
+### 4.1 BMCスマートコントラクトをKaia Testnetにデプロイする <a id="deploying-bmc-contract"></a>
 
-After successfully testing the functionalities of our BMC smart contract, let’s proceed to deploy to the Klaytn Testnet Baobab in the following steps:
+BMCスマートコントラクトの機能テストに成功したら、次のステップでKaia Testnet Kairosにデプロイしましょう：
 
 #### ステップ1 - .envファイルの作成
 
@@ -441,7 +441,7 @@ main().catch((error) => {
 });
 ```
 
-Now that we have our configurations all set, let’s deploy to Klaytn Testnet Baobab by running the command below:
+これで設定がすべて整ったので、以下のコマンドを実行してKaia Testnet Kairosにデプロイしてみよう：
 
 ```bash
 npx hardhat run scripts/deploy.js --network baobab
@@ -453,7 +453,7 @@ npx hardhat run scripts/deploy.js --network baobab
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-Congratulations on deploying your BMC smart contract on Klaytn Baobab Network! You can verify this transaction on Klaytnscope  by pasting your address in the search field.
+BMCスマートコントラクトのKaia Kairos Networkへのデプロイおめでとうございます！ 検索フィールドにあなたのアドレスを貼り付けると、Kaiascopeでこの取引を確認することができます。
 
 ### 4.2 BMCスマートコントラクトとの対話 <a id="interacting-with-bmc-contract"></a>
 
@@ -546,8 +546,8 @@ cd frontend
 
 次のステップは、BMCフロントエンドのウェブサイトを立ち上げて実行するために必要な依存関係をインストールすることだ。  インストールするパッケージは以下の通り：
 
-1. Web3Onboard packages: Web3-Onboard is a chain-agnostic wallet library that supports multi-wallet compatibility in your dApp built on EVM-compatible networks like Klaytn Blockchain.
-2. ethers.jsを使用しています：Web3-Onboardプロバイダは、[ethers.js](https://docs.ethers.org/v6/)や[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)のようなライブラリで使用することができます。 In this guide, we will use ethers.js to make Klaytn blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
+1. Web3Onboardパッケージ：Web3-Onboardはチェーンに依存しないウォレットライブラリで、Kaia BlockchainのようなEVM互換ネットワーク上に構築されたdAppでマルチウォレットの互換性をサポートします。
+2. ethers.jsを使用しています：Web3-Onboardプロバイダは、[ethers.js](https://docs.ethers.org/v6/)や[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)のようなライブラリで使用することができます。 このガイドでは、ethers.jsを使用して、ユーザーのアカウントの取得、残高の取得、トランザクションの署名、トランザクションの送信、スマートコントラクトからの読み取り、スマートコントラクトへの書き込みなどのKaiaブロックチェーンの呼び出しを行います。
 
 重要：frontend/pagesフォルダ内の2つのファイルを編集する必要があります。
 
@@ -887,6 +887,6 @@ Deploy**タブの**Deploy setting**に移動し、以下の画像のように**D
 
 ここまで来たなら、おめでとう！ このチュートリアルでは、Solidity、NextJs、Web3Onboard、Fleek を使用してフルスタックの Buy Me A Coffee dApp を作成する方法を学びました。 これは、分散型プラットフォーム上でホストされる分散型アプリケーションを作成するための最初のステップである。
 
-From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KLAY statically. github](https://github.com/ayo-klaytn/buy-me-a-coffee)にあるコードベース全体にアクセスすることができ、この[リンク](https://spring-fog-0605.on.fleek.co/)を使ってウェブサイトをテストすることもできる。
+From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KLAY statically. [github](https://github.com/ayo-klaytn/buy-me-a-coffee)にあるコードベース全体にアクセスすることができ、この[リンク](https://spring-fog-0605.on.fleek.co/)を使ってウェブサイトをテストすることもできる。
 
-If you want more information, visit [Klaytn Docs](https://docs.klaytn.foundation/), [Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react), and [Fleek Docs](https://docs.fleek.co/tutorials/hosting/). ご質問は[カイアフォーラム](https://devforum.kaia.io/)まで。
+より詳細な情報をお知りになりたい方は、[Kaia Docs](https://docs.klaytn.foundation/)、[Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react)、[Fleek Docs](https://docs.fleek.co/tutorials/hosting/)をご覧ください。 ご質問は[カイアフォーラム](https://devforum.kaia.io/)まで。
