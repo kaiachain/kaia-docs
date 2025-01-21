@@ -1,7 +1,7 @@
 # KASでデータ・アンカリングを使用する
 
-As explained in the design section, you can anchor your service chain data to Klaytn main chain.
-This page introduces how to enable data anchoring via [KAS (Klaytn API Service)](https://www.klaytnapi.com).
+デザインのセクションで説明したように、サービスチェーンのデータをカイアのメインチェーンに固定することができます。
+[KAS (Kaia API Service)](https://www.klaytnapi.com)を利用してデータアンカリングを有効にする方法を紹介します。
 
 Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Cypress or Baobab as a proof of existence and immutability of the service chain.
 これにより、サービスチェーンの安全性と信頼性が確保される。
@@ -10,7 +10,7 @@ Once it is turned on, a node in your service chain can periodically anchor its c
 
 このセクションでは、データ・アンカリングにKASを使用するための前提条件を紹介する。
 
-### Sign Up KAS (Klaytn API Service) <a id="sign-up-kas"></a>
+### KAS（カイアAPIサービス）の登録<a id="sign-up-kas"></a>
 
 まず、[KAS console website](https://www.klaytnapi.com)でKASにサインアップし、KASアカウントを取得する必要があります。
 上記のウェブサイトにアクセスし、KASに登録してください。
@@ -34,9 +34,9 @@ KASが提供するAnchor APIは、データ・アンカリングのために設�
 
 ## オペレーター・アドレスの作成<a id="create-kas-credential"></a>
 
-To anchor service chain data via KAS, there should be a Klaytn address, enrolled in KAS, that actually send anchoring transaction to Klaytn. So, before you set up your service node, you need to create an Klaytn account called "operator" via KAS. このアカウントを作成するには、KASコンソールを使用してください。
+KAS経由でサービスチェーンデータをアンカーするためには、KASに登録されたKaiaアドレスが存在し、実際にアンカートランザクションをKaiaに送信する必要がある。 従って、サービスノードをセットアップする前に、KAS経由で "operator "と呼ばれるKaiaアカウントを作成する必要があります。 このアカウントを作成するには、KASコンソールを使用してください。
 
-It is important to be noticed that you must **first select the chain** in Klaytn to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Cypress/Baobab).
+KASコンソールページの右上にある、データをアンカーしたいKaia内のチェーンを**最初に選択する**必要があることに注意してください。 You should create an operator for each chain (Cypress/Baobab).
 
 ![select chain](/img/nodes/kas-select-chain-en.png)
 
