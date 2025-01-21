@@ -60,7 +60,7 @@ $ yum install kcnd-vX.X.X.el7.x86_64.rpm
 $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Kaia Yum Repoからインストールする<a id="install-from-kaia-yum-repo"></a>
 
 あるいは、Kaia Yum repoから`kcnd`をインストールして実行することもできる：
 
@@ -87,7 +87,7 @@ CNのコンフィギュレーションは、データディレクトリを作成
 
 ### CNデータディレクトリの作成<a id="cn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. 希望のパスにディレクトリを作成する必要があるかもしれません。
+カイア・ブロックチェーンのデータサイズが常に増加しているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。 希望のパスにディレクトリを作成する必要があるかもしれません。
 
 ```bash
 $ mkdir -p /var/kcnd/data
@@ -120,7 +120,7 @@ DATA_DIR=/var/kcnd/data
 
 #### リワードベースの設定<a id="setup-rewardbase"></a>
 
-As a reward of participating in the consensus of the Klaytn network, CN operator will receive KLAY. このため、設定ファイル`kcnd.conf`にアドレスを設定する必要がある。
+カイア・ネットワークのコンセンサスに参加する報酬として、CNオペレーターはKAIAを受け取る。 このため、設定ファイル`kcnd.conf`にアドレスを設定する必要がある。
 
 新しいアカウントを作る方法はいろいろあるが、`kcn`もその機能を提供している。 ヘルプメッセージは以下のコマンドで確認できる。
 
