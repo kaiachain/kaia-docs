@@ -6,9 +6,9 @@
 
 Kaiaはメトリック・エクスポート用に以下のフラグを提供しています：
 
-- \--metric`：メトリックの記録を有効にする。 このフラグは通常、`--prometheus\`フラグと併用される。
-- \--prometheus`：記録したメトリクスをPrometheusサーバーにエクスポートできるようにする。 このフラグは通常、`--metric\`フラグと一緒に使われる。
-- \--prometheusport`：Prometheus メトリクスのポートを指定します。 デフォルトは `61001\` である。
+- `--metric`：メトリックの記録を有効にする。 このフラグは通常、`--prometheus`フラグと併用される。
+- `--prometheus`：記録したメトリクスをPrometheusサーバーにエクスポートできるようにする。 このフラグは通常、`--metric`フラグと一緒に使われる。
+- `--prometheusport`：Prometheus メトリクスのポートを指定します。 デフォルトは `61001` である。
 
 メトリクスと Prometheus のエクスポートを有効にするには、`.conf` ファイルで `METRICS` と `PROMETHEUS` の両方を `1` に設定します：
 
@@ -84,7 +84,7 @@ PrometheusはKaiaノードからメトリクスをスクレイピングするよ
 
 :::info[Prometheus 構成]
 
-prometheus.yml\`ファイルはPrometheusを設定する。  主な項目は以下の通り：
+`prometheus.yml`ファイルはPrometheusを設定する。  主な項目は以下の通り：
 
 - \*\*\*global`**：  evaluation_interval`（Prometheusがルールを評価する頻度）や `scrape_interval`（Prometheusがターゲットをスクレイピングする頻度）のようなグローバルな設定パラメータを設定します。  どちらも15秒が妥当なスタートポイントだが、ニーズやブロックの時間に応じて調整しよう。
 
@@ -94,9 +94,9 @@ prometheus.yml\`ファイルはPrometheusを設定する。  主な項目は以�
 
 :::
 
-1. prometheus/prometheus.yml`にある`prometheus.yml\`ファイルをテキストエディタで開く。
+1. `prometheus/prometheus.yml`にある`prometheus.yml`ファイルをテキストエディタで開く。
 
-2. scrape_configs\`セクションにKaiaノードが含まれていることを確認してください。 以下に設定例を示す：
+2. `scrape_configs`セクションにKaiaノードが含まれていることを確認してください。 以下に設定例を示す：
 
 ```yaml
 global:
@@ -112,7 +112,7 @@ scrape_configs:
       ...
 ```
 
-3. promtool\`を使用して、設定ファイルに構文エラーがないかチェックする：
+3. `promtool`を使用して、設定ファイルに構文エラーがないかチェックする：
 
 ```bash
 promtool check config prometheus/prometheus.yml
@@ -196,7 +196,7 @@ brew services start grafana
    - 右上の**Edit**をクリックし、ダッシュボードのヘッダーにある**Add**をクリックし、ドロップダウンから**Visualization**を選択してパネルを追加します。
    - クエリー\*\*の下：
      1. プロメテウスを**データソース**として選択します。
-     2. Metric\*\*フィールドに `klaytn_blockchain_head_blocknumber` と入力する。
+     2. **Metric**フィールドに `klaytn_blockchain_head_blocknumber` と入力する。
      3. Options**で、**Legend** ドロップダウンから**Custom\*\* を選択し、カスタム凡例フォーマットとして `{{instance}}` を入力する。
    - Apply\*\*をクリックしてパネルをダッシュボードに保存します。
 
