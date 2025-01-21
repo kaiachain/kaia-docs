@@ -13,7 +13,7 @@ caver-jsを使うのが初めてでも心配しないでください。 以下�
 - [nvm](https://github.com/nvm-sh/nvm)
 - [Solidityコンパイラ](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-_Note:_ If you get an `nvm: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
+_注意:_ nvmのインストール後に`nvm: command not found`エラーが発生した場合は、こちらの[トラブルシューティングガイド](https://github.com/nvm-sh/nvm/issues/2060)を参照してください。
 
 ## 1. アカウントの作成とKeystoreのダウンロード<a id="1.-create-an-account-and-download-keystore"></a>
 
@@ -173,7 +173,7 @@ async function sendKlay() {
 
 KAIAを譲渡するためのトランザクションを作成する。 この種の取引は「価値移転取引」と呼ばれる。 各パラメーターを分解してみよう。
 
-from`アドレスは、アップロードしたキーストアから取得する。 to`アドレスはKAIAの受信者であり、任意のアドレスを使うことができる。 value`については、`caver.utils.toPeb()\`を使ってKAIAをpebに変換すると便利である。 ここでは10KAIAを送る。 ガス」の場合、
+`from`アドレスは、アップロードしたキーストアから取得する。 `to`アドレスはKAIAの受信者であり、任意のアドレスを使うことができる。 `value`については、`caver.utils.toPeb()`を使ってKAIAをpebに変換すると便利である。 ここでは10KAIAを送る。 ガス」の場合、
 
 ```
 	
