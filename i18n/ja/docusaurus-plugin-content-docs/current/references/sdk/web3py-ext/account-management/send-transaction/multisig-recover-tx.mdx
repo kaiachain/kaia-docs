@@ -2,7 +2,7 @@
 
 **AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
 署名された公開鍵の加重和が閾値より大きいこと。
 無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
@@ -79,7 +79,7 @@ web3をkaia web3に拡張するために、**web3py_ext**から**extend**をイ�
 
 ---
 
-web3**と**eth_account\*\*から必要なutilsをインポートする。
+**web3**と**eth_account**から必要なutilsをインポートする。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=3:8
 
@@ -87,7 +87,7 @@ web3**と**eth_account\*\*から必要なutilsをインポートする。
 
 ---
 
-Web3.HTTPProvider\*\*とRPCエンドポイントを使用してWeb3接続を定義します。
+**Web3.HTTPProvider**とRPCエンドポイントを使用してWeb3接続を定義します。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=11
 
@@ -155,7 +155,7 @@ web3_tx_sign_recover_multisig()
 
 ---
 
-TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
+**TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=27
 
@@ -187,7 +187,7 @@ TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 em
 
 ---
 
-fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド\*\*を追加する。 この行以降のすべてのフィールドを印刷することができる。
+**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。 この行以降のすべてのフィールドを印刷することができる。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=4:6,33
 
@@ -203,7 +203,7 @@ fill_transaction**を使用して、**gas limit**、**Nonce**などのような�
 
 ---
 
-signed_tx**に**user2**と**user3\*\*の秘密鍵で署名する。
+**signed_tx**に**user2**と**user3**の秘密鍵で署名する。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=35:36
 
@@ -226,7 +226,7 @@ tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a rec
 
 ---
 
-user3**からの署名付きトランザクションから**account.recover_transaction\*\*でuser1のアドレスを回復する。
+**user3**からの署名付きトランザクションから**account.recover_transaction**でuser1のアドレスを回復する。
 
 <CH.Code>
 ```py web3_multisig_value_transfer_sign_recover.py focus=42:43
