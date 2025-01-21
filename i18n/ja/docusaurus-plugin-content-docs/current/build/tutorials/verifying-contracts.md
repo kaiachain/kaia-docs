@@ -10,7 +10,7 @@ sidebar_label: 契約の確認
 
 とはいえ、スマート・コントラクトが検証されると、KaiascopeやKaiascanのようなブロック・エクスプローラーは、ブロック・エクスプローラーのユーザー・インターフェースを使用して、一般の人がコントラクトのパブリック・メソッドと対話することも可能にする。 これは、一般の人々が検証済みの契約ソースコードに直接アクセスできることに加えてのことである。
 
-In this guide, we'll take a look at how to use block explorers to verify deployed smart contracts on the Klaytn Network.
+このガイドでは、ブロックエクスプローラーを使用してKaiaネットワーク上でデプロイされたスマートコントラクトを検証する方法を見ていきます。
 
 ## 前提条件
 
@@ -19,7 +19,7 @@ In this guide, we'll take a look at how to use block explorers to verify deploye
 
 ## はじめに
 
-In this guide, we will be going over verifying both single contracts and multi-part contracts on the block explorers that exist in the Klaytn ecosystem, viz.:
+このガイドでは、Kaiaエコシステムに存在するブロックエクスプローラーで、シングルコントラクトとマルチパートコントラクトの検証について説明します：
 
 - [カイアスコープ](https://kaiascope.com/)
 - [カイアスカン](https://www.kaiascan.io/)
@@ -28,7 +28,7 @@ In this guide, we will be going over verifying both single contracts and multi-p
 
 ## 単一契約の展開
 
-スマート・コントラクトを検証するには、まずターゲット・ネットワーク上にコントラクトをデプロイする必要がある。 Hence, for the sake of this guide, we will be deploying the contract to Klaytn Baobab Testnet. また、このチュートリアルでは、Remix IDE上に`Counter.sol`というシンプルなカウンターのコントラクトをデプロイする。 コードを以下に示す：
+スマート・コントラクトを検証するには、まずターゲット・ネットワーク上にコントラクトをデプロイする必要がある。 したがって、このガイドでは、Kaia Kairos Testnetにコントラクトをデプロイすることにする。 また、このチュートリアルでは、Remix IDE上に`Counter.sol`というシンプルなカウンターのコントラクトをデプロイする。 コードを以下に示す：
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -52,7 +52,7 @@ contract Counter {
 
 :::note
 
-You can check this page for a tutorial on deploying smart contracts using [libraries](../../references/sdk/sdk.md) on Klaytn Baobab Testnet. You may also use a developer tool such as [Hardhat](../get-started/hardhat.md), [Foundry](../smart-contracts/deploy/foundry.md), [Remix](../smart-contracts/deploy/deploy.md#remix-ide)  or another tool if preferred, to deploy the smart contract to Klaytn Baobab Testnet.
+Kaia Kairos Testnetの[ライブラリ](../../references/sdk/sdk.md)を使用したスマートコントラクトのデプロイに関するチュートリアルは、こちらのページをご覧ください。 スマートコントラクトをKaia Kairos Testnetにデプロイするには、[Hardhat](../get-started/hardhat.md)、[Foundry](../smart-contracts/deploy/foundry.md)、[Remix](../smart-contracts/deploy/deploy.md#remix-ide)などの開発者ツールを使用することもできます。
 
 :::
 
@@ -71,7 +71,7 @@ Remix IDE :
 
   ![](/img/build/tutorials/counter-veri-parameters.png)
 
-- On Remix IDE, navigate to **Klaytn tab**.
+- Remix IDEで**Kaiaタブ**に移動します。
 
   - (オプション) コンストラクタのメソッドが引数を受け付ける場合は、コンストラクタの引数の [ABI エンコード形式](https://docs.soliditylang.org/en/develop/abi-spec.html) に注意してください。
   - デプロイに成功したら、**Deployed Contracts**タブでスマートコントラクトのコントラクトアドレスをメモしてください。
@@ -144,9 +144,9 @@ Remix IDE:
 
 検証パラメータをすべて取得したので、このセクションでは、ブロック・エクスプローラ上で単一のスマート・コントラクト（Counter.sol）と複数パートのスマート・コントラクト（airdropTokens.sol）を検証する手順を説明します。
 
-### 1. Klaytnscope
+### 1. Kaiascope
 
-To verify a single contract and multi-part contracts on Klaytnscope, follow the steps below:
+Kaiascopeで単一契約および複数パート契約を検証するには、以下の手順に従ってください：
 
 #### 1.1 単一契約の検証
 
@@ -179,7 +179,7 @@ To verify a single contract and multi-part contracts on Klaytnscope, follow the 
 
 #### 1.2 複数パート契約の検証
 
-Verifying a multi-part contract on Klaytnscope is as straightforward as verifying a single contract, except that it requires some additional steps. このセクションでは、`airdropToken.sol`コントラクトを以下のステップを追加して検証する：
+Kaiascopeでの複数パート契約の検証は、いくつかの追加ステップが必要なことを除けば、単一契約の検証と同じくらい簡単です。 このセクションでは、`airdropToken.sol`コントラクトを以下のステップを追加して検証する：
 
 - ソースコード**の下にある**ソーステキスト\*\*(Counter.solの例のステップ3)、または**ソースコード**フィールドの下にある\*\*ソリディティファイル(s)**を選択することができます。  ソース・テキスト**の場合は、`airdropToken_flattened.sol`のコードをコピーし、テキスト・フィールドにペーストしてください。 もし、\*\*Solidity File(s)\*\*であれば、Remix IDE上で`airdropToken_flattened.sol`ファイルをダウンロードし、フィールドにアップロードしてください。
 
