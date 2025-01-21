@@ -8,19 +8,19 @@
 
 ## ServiceChainの概要<a id="service-chain-overview"></a>
 
-ServiceChainは、価値移転、セキュリティ、高性能、カスタマイズといった企業の要件を満たすエンタープライズレベルのブロックチェーンである。 Klaytn ServiceChain provides the following features:
+ServiceChainは、価値移転、セキュリティ、高性能、カスタマイズといった企業の要件を満たすエンタープライズレベルのブロックチェーンである。 Kaia ServiceChainは以下の機能を提供する：
 
 - 即時の最終決定
-- Token transfer between Klaytn chains
+- カイアチェーン間のトークン移動
 - データの整合性を保つためのメインチェーンへのデータアンカリング
 - 企業レベルのセキュリティ要件を満たすマルチシグブリッジ契約
 
 ![](/img/nodes/sc-overview.png)
 
-Read the [Klaytn Scaling Solution](../../learn/scaling-solutions.md) for more details about the ServiceChain. And the following videos will help you understand Klaytn ServiceChain.
+ServiceChainの詳細については、[Kaia Scaling Solution](../../learn/scaling-solutions.md)をお読みください。 また、以下のビデオはカイアServiceChainを理解するのに役立ちます。
 
-- [Horizontal Scaling through Service Chain in Klaytn | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
-- [High Availability Architecture of Klaytn Service Chain | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
+- [カイアにおけるサービスチェーンによる水平展開｜TXGX2019】(https://www.youtube.com/watch?v=8yQc5FQysJc)
+- [カイア・サービスチェーンの高可用性アーキテクチャ｜TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
 
 ## ダウンロード<a id="download"></a>
 
@@ -64,7 +64,7 @@ $ yum install homi-vX.X.X.el7.x86_64.rpm
 
 ### 設置場所<a id="scn-configuration"></a>
 
-The Klaytn Linux package consists of the executable binary and the configuration file structured as follows.
+Kaia Linuxパッケージは、以下のような構造の実行バイナリとコンフィギュレーション・ファイルから構成される。
 
 | ファイル名                      | 所在地                                        |
 | :------------------------- | :----------------------------------------- |
@@ -138,14 +138,14 @@ $ cat homi-output/keys/nodekey1
 ```
 
 genesisファイルのchainIDを変更してください。 リプレイ攻撃を防ぐため、自分の番号を使用する。
-(Do not use the same chainID with Klaytn Cypress (8217) and Baobab (1001))
+(カイアメインネット(8217)とカイロス(1001)で同じchainIDを使用しないでください)
 
 必要であれば、genesisファイルの`"alloc"`を編集することで、事前に資金を提供するアドレスを変更することができる。
 (詳しくは[Genesis JSON](../service-chain/configure/genesis.md)をご覧ください）。
 
 ### SCNデータディレクトリの作成<a id="scn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage.
+カイア・ブロックチェーンのデータサイズが増加し続けているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。
 データ・ディレクトリは好きなパスに作成できる。
 このドキュメントでは、データディレクトリとして `~/kscnd_home` を作成する。
 
@@ -223,7 +223,7 @@ DATA_DIR=~/kscnd_home
 
 インストールの種類に応じて、以下の `systemctl` または `kscnd` コマンドでKaiaサービスを開始/停止できる。
 
-\*\*スタート
+**スタート**
 
 ```bash
 ## when installed from rpm distribution 
@@ -234,7 +234,7 @@ $ kscnd start
 
 ```
 
-\*\*ストップ
+**ストップ**
 
 ```bash
 ## when installed from rpm distribution 
@@ -245,7 +245,7 @@ $ kscnd stop
 
 ```
 
-\*\*ステータス
+**status**
 
 ```bash
 ## when installed from rpm distribution 
