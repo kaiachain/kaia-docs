@@ -71,11 +71,11 @@ return price;
 - 新しく作成したファイルに以下のコードを貼り付けます。
 - Remixで、**Compile contract**をクリックします。
 - プラグインをインストールしたら、左側のKaiaタブをクリックします。
-- Environment\*\* > **Injected Provider** - **Kaia Wallet** を選択します。
-- Contract\*\*で、契約を選択します。 例えば、ISupraSValueFeedExample。
-- Deploy\*\*をクリックします。
+- **Environment** > **Injected Provider** - **Kaia Wallet** を選択します。
+- **Contract**で、契約を選択します。 例えば、ISupraSValueFeedExample。
+- **Deploy**をクリックします。
 
-\*\*サンプルコード
+**サンプルコード**
 
 ```solidity
 // SPDX-License-Identifier: MIT
