@@ -1,10 +1,10 @@
 # アカウント
 
-## Klaytn Accounts <a id="klaytn-accounts"></a>
+## カイアアカウント<a id="kaia-accounts"></a>
 
 ### 口座、都道府県、住所の概要<a id="overview-of-account-state-and-address"></a>
 
-An account in Klaytn is a data structure containing information about a person's balance or a smart contract. Klaytn's state is the collection of all its accounts' states - that is, the past and current state of all data stored across Klaytn's accounts. When a transaction is executed on a Klaytn node, the state of Klaytn consequently changes across all its nodes. The state should be the same across all nodes in the Klaytn network if they have processed the same blocks in the same order. 各アカウントの状態情報は、各アカウントを識別するために使用される20バイトのアドレスに関連付けられている。
+カイアのアカウントは、個人の残高やスマートコントラクトに関する情報を含むデータ構造です。 つまり、カイアのアカウントに保存されているすべてのデータの過去と現在の状態です。 トランザクションがKaiaノード上で実行されると、Kaiaの状態は結果的にすべてのノードで変更されます。 Kaiaネットワーク内のすべてのノードが同じブロックを同じ順序で処理した場合、状態は同じになるはずです。 各アカウントの状態情報は、各アカウントを識別するために使用される20バイトのアドレスに関連付けられている。
 
 ### アドレスからキー・ペアを切り離す<a id="decoupling-key-pairs-from-addresses"></a>
 
@@ -14,31 +14,31 @@ An account in Klaytn is a data structure containing information about a person's
 - ユーザーがアカウントのセキュリティを高めるために複数のキー・ペアを使用することは不可能である。
 - 秘密鍵が誤って公開されたときや、アカウントのセキュリティを高めるために秘密鍵を定期的に更新したいときに、ユーザーがアカウントの鍵ペアを変更することは不可能である。
 
-これらは、ユーザーがブロックチェーン・プラットフォームにおける識別子として住所を考えることができないという大きなハードルである。 To clear this hurdle, Klaytn provides a feature that users can choose their addresses and key pairs. この機能を使えば、ユーザーは好きなアドレスを選ぶことができ、セキュリティを高めるために複数のキー・ペアを使うことができる。 キー・ペアの数は1つでも複数でもよく、キー・ペアは異なる役割を持つことができる。 複数キー・ペアまたはロール・ベース・キーの詳細については、[「複数キー・ペアおよびロール・ベース・キー」](#multiple-key-pairs-and-role-based-keys)を参照されたい。
+これらは、ユーザーがブロックチェーン・プラットフォームにおける識別子として住所を考えることができないという大きなハードルである。 このハードルをクリアするために、カイアはユーザーがアドレスとキー・ペアを選択できる機能を提供している。 この機能を使えば、ユーザーは好きなアドレスを選ぶことができ、セキュリティを高めるために複数のキー・ペアを使うことができる。 キー・ペアの数は1つでも複数でもよく、キー・ペアは異なる役割を持つことができる。 複数キー・ペアまたはロール・ベース・キーの詳細については、[「複数キー・ペアおよびロール・ベース・キー」](#multiple-key-pairs-and-role-based-keys)を参照されたい。
 
-It is worth noting that Klaytn also supports the old scheme that a key pair and an address are strongly coupled.
+Kaiaは、鍵ペアとアドレスが強く結合しているという古いスキームもサポートしていることは注目に値する。
 
 ### 複数の鍵ペアと役割ベースの鍵<a id="multiple-key-pairs-and-role-based-keys"></a>
 
-前述したように、秘密鍵が盗まれたり、公開されたり、何らかの形で漏洩した場合、アカウントのセキュリティを回復するためにできることは何もない。最善の選択肢は、別の鍵ペアを生成して新しいアカウントを作成し、漏洩した古いアカウントから新しいアカウントに残高を移行することである。 マルチシグや用途別キーのような高度な鍵スキームをサポートしていないことも、大きな不便の原因となっている。 To address those problems more efficiently, Klaytn accounts provide the following capabilities:
+前述したように、秘密鍵が盗まれたり、公開されたり、何らかの形で漏洩した場合、アカウントのセキュリティを回復するためにできることは何もない。最善の選択肢は、別の鍵ペアを生成して新しいアカウントを作成し、漏洩した古いアカウントから新しいアカウントに残高を移行することである。 マルチシグや用途別キーのような高度な鍵スキームをサポートしていないことも、大きな不便の原因となっている。 これらの問題をより効率的に解決するために、Kaiaアカウントは以下の機能を提供します：
 
-- Klaytn account allows the key pair associated with the account to be changed.
-- Klaytn account supports multiple key pairs, along with the ability to assign each key with different purpose.
-- Klaytn account maintains compatibility with accounts having a single key that is strongly coupled with the address.
+- Kaiaアカウントでは、アカウントに関連付けられたキーペアを変更することができます。
+- カイアカウントは複数のキーペアをサポートしており、それぞれのキーに異なる目的を割り当てることができます。
+- カイアカウントは、アドレスと強く結合された単一のキーを持つアカウントとの互換性を維持します。
 
-By utilizing Klaytn account’s role-based multi-key support, end-users can better handle real-life security risk situations such as private key mismanagement. 例えば、ユーザが自分の秘密鍵が漏洩したことに気づいた場合、ユーザは、漏洩した鍵ペアを自分のアカウントから削除し、新しい鍵ペアを作成することで、漏洩した秘密鍵を単純に置き換えることができる。 これは、アカウント情報の更新に使用する専用の鍵をあらかじめ作成し、漏洩した秘密鍵とは別に保管することで実現できる。
+Kaiaアカウントのロールベースのマルチキーサポートを利用することで、エンドユーザは秘密鍵の誤操作などの現実のセキュリティリスク状況にうまく対処することができます。 例えば、ユーザが自分の秘密鍵が漏洩したことに気づいた場合、ユーザは、漏洩した鍵ペアを自分のアカウントから削除し、新しい鍵ペアを作成することで、漏洩した秘密鍵を単純に置き換えることができる。 これは、アカウント情報の更新に使用する専用の鍵をあらかじめ作成し、漏洩した秘密鍵とは別に保管することで実現できる。
 
-### Klaytn Wallet Key Format <a id="klaytn-wallet-key-format"></a>
+### Kaia 財布キーフォーマット <a id="kaia-wallet-key-format"></a>
 
-Klaytn wallet key format is provided to easily handle a private key along with the corresponding address. これによって、ユーザーは自分の秘密鍵をアドレスで管理しやすくなる。 フォーマットは16進数表記で`0x{private key}0x{type}0x{address in hex}`で、`{type}`は`00`でなければならない。 その他の値は予約されている。 以下に例を示す：
+Kaiaウォレット鍵フォーマットは、対応するアドレスと共に秘密鍵を簡単に扱うために提供されます。 これによって、ユーザーは自分の秘密鍵をアドレスで管理しやすくなる。 フォーマットは16進数表記で`0x{private key}0x{type}0x{address in hex}`で、`{type}`は`00`でなければならない。 その他の値は予約されている。 以下に例を示す：
 
 ```text
 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ```
 
-### Klaytn Account Types <a id="klaytn-account-types"></a>
+### Kaiaアカウントの種類 <a id="kaia-account-types"></a>
 
-There are two types of accounts in Klaytn: <LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> \(EOAs\), and <LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> \(SCAs\).
+Kaiaのアカウントには、<LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">外部所有アカウント</LinkWithTooltip>(EOAs)と<LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">スマートコントラクトアカウント</LinkWithTooltip>(SCAs)がある。
 
 #### 外部保有口座数<a id="externally-owned-accounts-eoas"></a>
 
@@ -78,7 +78,7 @@ EOAとは対照的に、SCAはそれらに関連するコードを持ち、そ�
 
 :::
 
-### Klaytn Account Type ID <a id="klaytn-account-type-id"></a>
+### Kaia アカウント タイプ ID <a id="kaia-account-type-id"></a>
 
 以下は、各アカウント・タイプに割り当てられたアカウント・タイプIDです。
 
@@ -185,7 +185,7 @@ AccountKeyWeightedMultiSigは、閾値と、公開鍵とその重みからなる
 
 :::note
 
-IstanbulEVM](../misc/klaytn-history.md#istanbul-evm) ハードフォークにより、以下のマルチシグ検証ロジックが追加された。
+[IstanbulEVM](../misc/klaytn-history.md#istanbul-evm) ハードフォークにより、以下のマルチシグ検証ロジックが追加された。
 
 - 無効な署名はトランザクションに含めるべきでない。
 - 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
