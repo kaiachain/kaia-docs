@@ -6,8 +6,8 @@
 
 Truffleは自動テストのフレームワークを提供する。 このフレームワークを使うと、シンプルで管理しやすいテストを2種類の方法で書くことができる：
 
-- Javascript`と`TypeScript\`では、アプリケーションと同じように、外界から契約を行使することができる。
-- Solidity\`では、前進、ベアトゥザメタル・シナリオで契約を行使する。
+- `Javascript`と`TypeScript`では、アプリケーションと同じように、外界から契約を行使することができる。
+- `Solidity`では、前進、ベアトゥザメタル・シナリオで契約を行使する。
 
 ### Getting started <a href="#1-getting-started" id="1-getting-started"></a>
 
@@ -64,7 +64,7 @@ npm install --save-dev chai truffle-assertions
 
 Solidity を使用したテストは、JavaScript を使用したテストよりも少し直感的です。 Solidity テスト契約は、JavaScript テストと一緒に .sol ファイルとして保存されます。
 
-Create a file called `TestKlaytnGreeting.sol` in the `test` folder. Truffleスイートはテスト用のヘルパー・ライブラリを提供しているので、それらをインポートする必要がある。 Solidityテストの例を見てみよう：
+`test`フォルダに`TestKaiaGreeting.sol`というファイルを作成する。 Truffleスイートはテスト用のヘルパー・ライブラリを提供しているので、それらをインポートする必要がある。 Solidityテストの例を見てみよう：
 
 ```
 pragma solidity ^0.5.6;
@@ -165,7 +165,7 @@ Compiling your contracts...
 
 Truffle は、[Mocha](https://mochajs.org/) テストフレームワークと [Chai](https://www.chaijs.com/) アサーションライブラリを使用し、JavaScript テストのための強固なフレームワークを提供します。 JavaScriptテストは、より柔軟性があり、より複雑なテストを書くことができる。
 
-Let's create a file and name it `0_KlaytnGreeting.js` under `test` directory.\\
+それでは、`test`ディレクトリの下に`0_KaiaGreeting.js`という名前のファイルを作ってみよう。
 
 テストコードはこうだ：
 
@@ -216,14 +216,14 @@ contract("KaiaGreeter", async(accounts) => {
 
   構造的には、Truffleのテストコードは通常のMochaのテストコードとあまり変わらないはずです。 テストには、Mocha が自動テストとして認識するコードを含める必要があります。 MochaとTruffleのテストの違いは、contract()関数です。
 
-  **NOTE** the use of the `contract()` function, and the `accounts` array for specifying available Klaytn accounts.
+  **注**：`contract()` 関数と、利用可能な Kaia アカウントを指定するための `accounts` 配列の使用に注意してください。
 - テスト内で抽象化を契約する
 
   Truffle には、テスト中にどのコントラクトとやり取りする必要があるかを検出する手段がないため、コントラクトを明示的に指定する必要があります。 これを行う一つの方法は、`artifacts.require()`メソッドを使うことである。
-- it\`構文
+- `it`構文
 
   これは各テストケースを説明とともに表している。 説明文はテスト実行時にコンソールに表示される。
-- truffle-assertion\`ライブラリ
+- `truffle-assertion`ライブラリ
 
   このライブラリは `truffleAssert.reverts()` と `truffleAssert.fails()` 関数を提供し、差し戻しやその他の失敗を簡単にテストできるようにします。
 
