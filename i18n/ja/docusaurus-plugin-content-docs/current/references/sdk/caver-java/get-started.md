@@ -47,7 +47,7 @@ caver.utilsはユーティリティ関数を提供します。
 
 IPFSを使用する前に、ライブラリ・リポジトリを追加する必要があります。 まず、以下のリポジトリを追加してください。
 
-\*\*紳士淑女
+**maven**
 
 ```groovy
 <repositories>
@@ -58,7 +58,7 @@ IPFSを使用する前に、ライブラリ・リポジトリを追加する必�
 </repositories>
 ```
 
-\*\*グラドル
+**gradle**
 
 ```groovy
 allprojects {
@@ -71,7 +71,7 @@ allprojects {
 
 ### 依存関係の追加<a id="adding-a-dependency"></a>
 
-\*\*紳士淑女
+**maven**
 
 ```groovy
 <dependency>
@@ -81,7 +81,7 @@ allprojects {
 </dependency>
 ```
 
-\*\*グラドル
+**gradle**
 
 ```groovy
 implementation 'com.klaytn.caver:core:1.5.0'
@@ -95,7 +95,7 @@ JSON-RPCのリクエストとレスポンスの詳細を見たい場合は、プ
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-**注**\*：中央リポジトリでは、RC版、Android版、Java版が一緒に表示されています。 ワイルドカードを使ってバージョンを取得した場合、あなたのプラットフォームに適切でないバージョンを使っている可能性があります。
+**注**：中央リポジトリでは、RC版、Android版、Java版が一緒に表示されています。 ワイルドカードを使ってバージョンを取得した場合、あなたのプラットフォームに適切でないバージョンを使っている可能性があります。
 
 #### コマンドラインツール<a id="command-line-tool"></a>
 
@@ -106,7 +106,7 @@ implementation "ch.qos.logback:logback-classic:1.2.3"
 インストールにはJava 1.8+が必要です。
 
 ```text
-brew tap klaytn/klaytn
+$ brew tap klaytn/klaytn
 $ brew install caver-java
 ```
 
@@ -405,7 +405,7 @@ caver-javaウォレットを使用して、取引の署名を生成すること�
    - キーリングを `caver.wallet` に追加せずに別途管理する場合は、`transaction.sign` 関数を使用してトランザクションに署名することができる。
 2. `caver.rpc.klay.sendRawTransaction`を介して、署名されたトランザクションのRLPエンコード文字列をkaiaに送信する。
 
-**注意：**\* 送金者は、送金されるKAIAの十分な数と取引手数料を支払う必要があります。
+**注意：** 送金者は、送金されるKAIAの十分な数と取引手数料を支払う必要があります。
 
 #### 取引に署名する
 
@@ -786,7 +786,7 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**注**\*：スマートコントラクトをコンパイルするには、[solidityコンパイラ](https://solidity.readthedocs.io/en/develop/installing-solidity.html)がインストールされている必要があります。 上記のプログラムをコンパイルするには、solc:0.5.6をインストールする必要がある。
+**注**：スマートコントラクトをコンパイルするには、[solidityコンパイラ](https://solidity.readthedocs.io/en/develop/installing-solidity.html)がインストールされている必要があります。 上記のプログラムをコンパイルするには、solc:0.5.6をインストールする必要がある。
 
 スマート・コントラクトをタイプ別にデプロイするには、以下のcaver-javaクラスを使用する：
 
