@@ -1,12 +1,12 @@
 # トラブルシューティング
 
-## Where can I find a log file for the running Klaytn node using the Klaytn binary package? <a id="where-can-i-find-a-log-file-for-the-running-klaytn-node-using-the-klaytn-binary"></a>
+## Kaiaバイナリパッケージを使用しているKaiaノードのログファイルはどこにありますか？ <a id="where-can-i-find-a-log-file-for-the-running-kaia-node-using-the-kaia-binary"></a>
 
 \*\*回答
 
 ログファイルはdataディレクトリにあります。 例えば、`kcnd` RPMパッケージをインストールすると、`kcnd`のログのデフォルトの場所は `/var/log/kcnd/kcnd.out` になる。
 
-## Kaiaノードはネットワークに接続できず、以下のような「Protocol istanbul/64 failed」と「Genesis block mismatch」のエラーメッセージが表示される。 <a id="klaytn-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
+## Kaiaノードはネットワークに接続できず、以下のような「Protocol istanbul/64 failed」と「Genesis block mismatch」のエラーメッセージが表示される。 <a id="kaia-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
 
 ```
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
@@ -15,7 +15,7 @@ ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b106
 \*\*回答
 
 このエラーは、`genesis.json`が異なる場合に発生する可能性がある。
-Please stop Klaytn node and remove data directory. その後、以下のように正しい `genesis.json` を使用して `ken init` を再度実行してください。
+Kaiaノードを停止し、データディレクトリを削除してください。 その後、以下のように正しい `genesis.json` を使用して `ken init` を再度実行してください。
 
 例えば、データディレクトリが `/var/kend/data` の場合。
 
@@ -53,7 +53,7 @@ RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: 
 
 `kend.conf`を更新したら、Kaiaノードを再起動する。
 
-## バイナリパッケージのインストール後、以下のような「Unit not found」エラーでKaiaノードが起動できません。 <a id="can-t-start-klaytn-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
+## バイナリパッケージのインストール後、以下のような「Unit not found」エラーでKaiaノードが起動できません。 <a id="can-t-start-kaia-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
 Failed to start kcnd.service: Unit not found.
@@ -80,15 +80,15 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 これは、`genesis.json`とnodekey/validatorの情報が異なる場合に発生する可能性がある。
 nodekey/validatorと`genesis.json`ファイルをもう一度確認してください。
 
-## Klaytn node can't start with following error log message. <a id="klaytn-node-can-t-start-with-following-error-log-message"></a>
+## Kaiaノードが起動できません。 <a id="kaia-node-can-t-start-with-following-error-log-message"></a>
 
 ```
-Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: 引数が無効です。
+Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
 ```
 
 \*\*回答
 
-If you see the above protocol stack error message in the log file, it means Klaytn failed to start because the full path name of current working directory is too long. Please launch a Klaytn node with a shorter full data directory. パス名の最大長はオペレーティング・システムによって異なる。
+ログファイルに上記のプロトコルスタックエラーメッセージが表示された場合、カレント作業ディレクトリのフルパス名が長すぎるため、Kaiaの起動に失敗したことを意味します。 より短いフルデータディレクトリでKaiaノードを起動してください。 パス名の最大長はオペレーティング・システムによって異なる。
 
 ## ENがCCに接続できず、以下のログメッセージが表示される。 <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
 
