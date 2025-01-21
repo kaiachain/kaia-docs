@@ -25,7 +25,7 @@ KIP-97シグネチャは以下のものに対応している：
 
 - カイア・ウォレット [`klay_sign`](https://docs.kaiawallet.io/api_reference/caver_methods#caverklaysign) メソッド
 - caver-js [`keyring.signMessage`](../sdk/caver-js/api/caver-wallet/keyring) と [`utils.recover`](../sdk/caver-js/api/caver.utils) メソッド。
-- caver-java [`AbstractKeyring.signMessage`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/wallet/keyring/AbstractKeyring.html) と [`Utils.recover`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/utils/Utils.html) メソッド。
+- caver-java [`AbstractKeyring.signMessage​`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/wallet/keyring/AbstractKeyring.html) and [`Utils.recover`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/utils/Utils.html) methods
 - v1.0.0 までの Kaia ノードでは、[`eth_sign`](../json-rpc/eth/sign), [`kaia_sign`](../json-rpc/kaia/sign), [`personal_sign`](../json-rpc/personal/sign) [`personal_ecRecover`](../json-rpc/personal/ec-recover) RPCs
 - すべてのバージョンの Kaia ノードでは、[`kaia_recoverFromMessage`](../json-rpc/kaia/recover-from-message) RPC
 
@@ -33,7 +33,7 @@ KIP-97シグネチャは以下のものに対応している：
 
 ```js
 window.klaytn.request({ method: "eth_requestAccounts" })
-window.klaytn.request({ method："klay_sign", params：["0xbC7d1aBe33E6EC19cA873A3042A4DCF49149BC7A", "0x61626364"] }).then(console.log)
+window.klaytn.request({ method: "klay_sign", params: ["0xbC7d1aBe33E6EC19cA873A3042A4DCF49149BC7A", "0x61626364"] }).then(console.log)
 
 0x90824271750d7a09f90a76b6f8ec1e5e2afd31790fea9f43e26c120fef3152be46ad09c76f87bd6c495859fa37127754f1f0780180df53eda80034dac036b8d31b
 ```
