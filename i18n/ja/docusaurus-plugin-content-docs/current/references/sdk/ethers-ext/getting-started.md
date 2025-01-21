@@ -15,7 +15,7 @@
 > **_NOTE:_**
 > インポートパスにバージョンのサブパス(`@kaiachain/ethers-ext`)がない場合、ethers v5がデフォルトで使用されます。
 
-- \*\*しないでください：エーテルV6とエーテル・エクストラをエーテルV5と混合すること。
+- **しないでください**：エーテルV6とエーテル・エクストラをエーテルV5と混合すること。
 
   ```js
   const ethers = require("ethers"); // ethers v6
@@ -27,7 +27,7 @@
   const wallet = new Wallet("<private key>", provider);
   ```
 
-- \*\*する：エーテル v5 との併用
+- **する**：エーテル v5 との併用
 
   ```js
   const ethers = require("ethers"); // ethers v5
@@ -39,7 +39,7 @@
   const wallet = new Wallet("<private key>", provider);
   ```
 
-- \*\*する：エーテルv6との併用
+- **する**：エーテルv6との併用
 
   ```js
   const ethers = require("ethers"); // ethers v6
@@ -51,7 +51,7 @@
   const wallet = new Wallet("<private key>", provider);
   ```
 
-- \*\*する：エーテル・エクステルのみを使用
+- **する**：エーテル・エクステルのみを使用
 
   ```js
   const { Wallet, JsonRpcProvider } = require("@kaiachain/ethers-ext/v5");
