@@ -10,7 +10,7 @@ sidebar_label: Privy
 
 [Privy](https://docs.privy.io/) は、Web3におけるプログレッシブ認証のためのシンプルなウォレットツールキットです。 Privyを使用すると、開発者は従来の認証方法とWeb3認証方法を使用してユーザーをオンボーディングすることができ、ユーザーのコンバージョンを高めるプログレッシブオンボーディングが可能になります。
 
-In this guide, you will use Privy wallet toolkit to integrate external wallets such as Metamask, Coinbase Wallet, and social logins such as Google, Twitter, Email  into your dApp built on the Klaytn Network.
+このガイドでは、Privy wallet toolkitを使用して、Metamask、Coinbase Wallet、Google、Twitter、Emailなどのソーシャルログインなどの外部ウォレットをKaia Network上に構築したdAppに統合します。
 
 ## 前提条件
 
@@ -27,7 +27,7 @@ In this guide, you will use Privy wallet toolkit to integrate external wallets s
 
 ## インストール
 
-あなたのdAppでPrivyを利用するには、まず必要なライブラリとSDKをインストールする必要があります。 したがって、ethers.jsと[Privy React Auth SDK](https://www.npmjs.com/package/@privy-io/react-auth)をセットアップする必要がある。 You can use Privy together with either [ethers.js](https://docs.ethers.org/v6/), [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html), [viem](https://viem.sh/) libraries to communicate with the Klaytn blockchain. このガイドでは、ethers.jsライブラリを使用する。
+あなたのdAppでPrivyを利用するには、まず必要なライブラリとSDKをインストールする必要があります。 したがって、ethers.jsと[Privy React Auth SDK](https://www.npmjs.com/package/@privy-io/react-auth)をセットアップする必要がある。 Privyは、[ethers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、[viem](https://viem.sh/)のいずれかのライブラリと一緒に使って、カイア・ブロックチェーンと通信することができます。 このガイドでは、ethers.jsライブラリを使用する。
 
 プロジェクトフォルダを開き、以下のコマンドを実行して必要なライブラリとSDKをインストールします：
 
@@ -97,7 +97,7 @@ export default MyApp;
 
 ## アカウントと残高の取得
 
-先ほどのステップで、ウォレットを接続してログインしたことがわかるだろう。 In this step, we will retrieve the user’s associated Klaytn address. Additionally, you can retrieve its current balance (in KLAY) using ethers.js.
+先ほどのステップで、ウォレットを接続してログインしたことがわかるだろう。 このステップでは、ユーザーの関連するカイアのアドレスを取得する。 Additionally, you can retrieve its current balance (in KLAY) using ethers.js.
 
 dashboard.tsxファイルに以下のコードを貼り付けます：
 
