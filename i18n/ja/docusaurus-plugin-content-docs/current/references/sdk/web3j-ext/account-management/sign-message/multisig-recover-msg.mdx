@@ -2,7 +2,7 @@
 
 **AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
 署名された公開鍵の加重和が閾値より大きいこと。
 無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
@@ -183,7 +183,7 @@ public class SignMsgWithMultiSigExample implements keySample {
 
 ---
 
-credentials1**の**アドレスを取得する。 このアドレスは、回収されたアドレスを検証するために使用される。
+**credentials1**の\*\*アドレスを取得する。 このアドレスは、回収されたアドレスを検証するために使用される。
 
 ```java SignMsgWithMultiSigExample.java focus=30
 
@@ -199,7 +199,7 @@ credentials1**の**アドレスを取得する。 このアドレスは、回収
 
 ---
 
-ブロック番号\*\*をkaiaネットワークの最新ブロックに設定する。
+**ブロック番号**をkaiaネットワークの最新ブロックに設定する。
 
 ```java SignMsgWithMultiSigExample.java focus=32
 
@@ -215,7 +215,7 @@ credentials1**の**アドレスを取得する。 このアドレスは、回収
 
 ---
 
-3つのメッセージレスポンスから**アドレスを復元し、元の**from\*\*アドレスと比較する。
+3つのメッセージ応答から**アドレス**を回復し、それらを元の**from**アドレスと比較する。
 
 <CH.Code>
 ```java SignMsgWithMultiSigExample.java focus=43:57
