@@ -2,15 +2,15 @@
 
 この章では、Solidity で記述された高レベルの概念、開発プロセス、例のみを説明します。 言語の仕様や実装については、以下の[参考文献](#references)をご参照ください。 本章の内容は、[参考文献](#references)に掲載されている様々なウェブサイトに基づいている。
 
-## Solidity and Klaytn <a id="solidity-and-klaytn"></a>
+## SolidityとKaia <a id="solidity-and-kaia"></a>
 
-[Solidity](https://github.com/ethereum/solidity) は、イーサリアムプラットフォーム上でスマートコントラクトを実装するための、高レベルの静的型付けされたコントラクト指向言語です。 Although Solidity was originally designed for Ethereum, it is general enough to write smart contracts; therefore, it can also be used for other blockchain platforms, such as Klaytn.
+[Solidity](https://github.com/ethereum/solidity) は、イーサリアムプラットフォーム上でスマートコントラクトを実装するための、高レベルの静的型付けされたコントラクト指向言語です。 Solidityはもともとイーサリアム用に設計されたものだが、スマートコントラクトを記述するのに十分な汎用性があるため、Kaiaなど他のブロックチェーンプラットフォームにも使用できる。
 
-Klaytn is officially compatible with **London** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. したがって、Istanbul ターゲットオプションを使用して Solidity コードをコンパイルすることを強く推奨します。 [solcのEVMバージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)をご参照ください。
+Kaiaは、**ロンドン**のEthereum Virtual Machine (EVM) バージョンと正式に互換性があります。 カイアの他のEVMバージョンとの後方互換性は保証されません。 したがって、Istanbul ターゲットオプションを使用して Solidity コードをコンパイルすることを強く推奨します。 [solcのEVMバージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)をご参照ください。
 
 :::note
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
+v1.7.0プロトコルアップグレード - **Istanbul**ハードフォークアイテムとKaia自身のアイテムを含む互換性のない変更。
 It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 v1.7.3プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
@@ -21,7 +21,7 @@ It has been enabled from block number `#86,513,895` in case of Baobab network an
 
 :::
 
-Development tools such as [Remix](https://remix.ethereum.org/) (a browser-based IDE) and [Truffle](https://github.com/trufflesuite/truffle) (a development framework) can be utilized when developing smart contracts for Klaytn. The Klaytn team will attempt to maintain compatibility between Ethereum's development tools and Klaytn's but may elect to provide the Klaytn smart contract developers with enhanced or updated versions of those tools when necessary.
+Kaiaのスマートコントラクトを開発する際には、[Remix](https://remix.ethereum.org/) ㊨や[Truffle](https://github.com/trufflesuite/truffle) ㊨などの開発ツールを利用することができます。 KaiaチームはEthereumの開発ツールとKaiaの開発ツール間の互換性を維持するよう努めますが、必要に応じてKaiaスマートコントラクト開発者にこれらのツールの拡張版または更新版を提供することを選択する可能性があります。
 
 スマートコントラクトの開発には、RemixやTruffleを利用するのが便利ですが、Solidityコンパイラは、以下のウェブページに記載されている手順に従ってビルドまたはインストールすることで、ローカルで使用することができます：
 
