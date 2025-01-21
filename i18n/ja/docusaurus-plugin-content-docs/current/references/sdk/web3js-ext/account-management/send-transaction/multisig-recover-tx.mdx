@@ -2,7 +2,7 @@
 
 **AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
 署名された公開鍵の加重和が閾値より大きいこと。
 無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
@@ -91,7 +91,7 @@ recoveredAddr rpc 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e true
 
 ---
 
-web3にkaiaの機能を追加するために**@kaiachain/web3js-ext**パッケージをインポートする。
+web3にkaiaの機能を追加するために **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js SignTxWithMultiSigExample.js focus=1
 
@@ -99,7 +99,7 @@ web3にkaiaの機能を追加するために**@kaiachain/web3js-ext**パッケ�
 
 ---
 
-送信者の**アドレス**、**秘密鍵**、その他の**重み付きマルチシグ**秘密鍵を定義する。
+送信者の**address**、**private key**、その他の**重み付きマルチシグ**秘密鍵を定義する。
 
 ```js SignTxWithMultiSigExample.js focus=3:6
 
@@ -107,7 +107,7 @@ web3にkaiaの機能を追加するために**@kaiachain/web3js-ext**パッケ�
 
 ---
 
-受信者の\*\*アドレスを定義する。
+受信者の**address**を定義します。
 
 ```js SignTxWithMultiSigExample.js focus=7
 
@@ -185,7 +185,7 @@ main().catch(console.error);
 
 ---
 
-重み付きマルチシグ\*\*秘密鍵とプロバイダーを使って3つの異なるウォレットを作成する。
+**Weighted Multi-Sig**のプライベートキーとプロバイダーを使用して、3種類の異なるウォレットを作成します。
 
 ```js SignTxWithMultiSigExample.js focus=11:13
 
