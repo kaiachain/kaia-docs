@@ -1,14 +1,14 @@
 # コンパイル済み契約書
 
-Klaytn provides several useful precompiled contracts, none of which are state-changing.
-These contracts are implemented in the platform itself as a native implementation, which means they are part of the Klaytn client specifications.
+Kaiaはいくつかの便利なコンパイル済みコントラクトを提供しますが、どれも状態を変更するものではありません。
+これらのコントラクトはネイティブ実装としてプラットフォーム自体に実装されており、Kaiaクライアント仕様の一部であることを意味します。
 アドレス0x01から0x0Aまでのプリコンパイルされたコントラクトは、イーサリアムのものと同じである。
 The utility of precompiles falls into four major categories:
 . 楕円曲線デジタル署名の復元
 . Hash Methods
 . Memory copying
 . zk証明のための楕円曲線数学を可能にする方法。
-Klaytn additionally implements precompiled contracts from 0x3FD through 0x3FF to support new Klaytn features.
+Kaiaはさらに、Kaiaの新機能をサポートするために、0x3FDから0x3FFまでのプリコンパイルされたコントラクトを実装しています。
 
 :::note
 
@@ -224,7 +224,7 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## アドレス 0x3fd: vmLog<a id="address-0x-3fc-vmlog-str"></a>
 
-アドレス0x3FDは、指定された文字列 `str` を特定のファイルに出力するか、ロガーモジュールに渡す。 詳細は、[debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target) を参照してください。 このプリコンパイルされたコントラクトはデバッグ目的でのみ使用されるべきで、Kaiaノードが起動するときに`--vmlog`オプションを有効にする必要があることに注意してください。 Also, the log level of the Klaytn node should be 4 or more to see the output of vmLog. このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x3FDは、指定された文字列 `str` を特定のファイルに出力するか、ロガーモジュールに渡す。 詳細は、[debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target) を参照してください。 このプリコンパイルされたコントラクトはデバッグ目的でのみ使用されるべきで、Kaiaノードが起動するときに`--vmlog`オプションを有効にする必要があることに注意してください。 また、vmLogの出力を見るには、Kaiaノードのログレベルを4以上にする必要があります。 このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -251,13 +251,13 @@ function feePayer() internal returns (address addr) {
 
 ## Address 0x3ff: validateSender(Γ)<a id="address-0x-3fe-validatesender"></a>
 
-アドレス0x3FFは、メッセージとともに送信者の署名を検証する。 Since Klaytn [decouples key pairs from addresses](../accounts.md#decoupling-key-pairs-from-addresses), it is required to validate that a signature is properly signed by the corresponding sender. そのために、このコンパイル済みコントラクトは3つのパラメーターを受け取る：
+アドレス0x3FFは、メッセージとともに送信者の署名を検証する。 Kaiaは[鍵ペアをアドレスから切り離す](../accounts.md#decoupling-key-pairs-from-addresses)ので、署名が対応する送信者によって適切に署名されていることを検証する必要がある。 そのために、このコンパイル済みコントラクトは3つのパラメーターを受け取る：
 
 - 公開鍵を取得するための送信者のアドレス
 - 署名の生成に使われるメッセージ・ハッシュ。
 - 送信者の秘密鍵によって、与えられたメッセージ・ハッシュで署名された署名。
 
-プリコンパイルされたコントラクトは、与えられた署名が送信者の秘密鍵によって適切に署名されていることを検証する。 Note that Klaytn natively support multi signatures, which means there can be multiple signatures. 署名は65バイト長でなければならない。
+プリコンパイルされたコントラクトは、与えられた署名が送信者の秘密鍵によって適切に署名されていることを検証する。 Kaiaはネイティブにマルチシグネチャをサポートしていることに注意してください。 署名は65バイト長でなければならない。
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
