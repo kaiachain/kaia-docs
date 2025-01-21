@@ -36,23 +36,23 @@ SCNはまた、RHEL、CentOS、Fedoraのような様々なRPMディストリビ�
 
 ```console
 $ curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/prod.repo
-  % Total % Received % Xferd Average Speed Time Time Current Dload Upload Total Spent Left Speed
-     100 118 100 118 0 0 1113 0 --:--:--:--:--:--:-- 1102 
+  % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed
+     100 118 100 118 0 0 1113 0 --:--:-- --:--:-- --:--:-- 1102 
 
 $ yum list | grep kaia 
 packages-klaytn-prod 31 kB/s | 2.9 kB 00:00 
-homi.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-kbnd.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-kcnd.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-kcnd-baobab.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-kend.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-kend-baobab.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-kgen.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-kpnd.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-kpnd-baobab.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-kscnd.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-ksend.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
-kspnd.x86_64 v1.8.0-0.el7 packages-klaytn-prod 
+homi.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kbnd.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kcnd.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kcnd-baobab.x86_64    v1.8.0-0.el7      packages-klaytn-prod 
+kend.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kend-baobab.x86_64    v1.8.0-0.el7      packages-klaytn-prod 
+kgen.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kpnd.x86_64           v1.8.0-0.el7      packages-klaytn-prod 
+kpnd-baobab.x86_64    v1.8.0-0.el7      packages-klaytn-prod 
+kscnd.x86_64          v1.8.0-0.el7      packages-klaytn-prod 
+ksend.x86_64          v1.8.0-0.el7      packages-klaytn-prod 
+kspnd.x86_64          v1.8.0-0.el7      packages-klaytn-prod 
 
 $ yum install kscnd
 ```
