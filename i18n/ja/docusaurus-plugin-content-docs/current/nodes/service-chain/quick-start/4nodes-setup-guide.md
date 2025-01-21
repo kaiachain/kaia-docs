@@ -6,7 +6,7 @@
 
 ## 前提条件<a id="prerequisites"></a>
 
-- Download](../../downloads/downloads.md) から `kscn`, `homi` バイナリのパッケージをダウンロードする。
+- [Download](../../downloads/downloads.md) から `kscn`, `homi` バイナリのパッケージをダウンロードする。
 - LinuxまたはMacOSサーバー4台
 - 最小ハードウェア要件
   - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
@@ -60,7 +60,7 @@ $ yum install kscnd
 ## ステップ1：genesis.jsonとnodekeysの作成<a id="step-1-create-genesis-json-and-a-key"></a>
 
 homiユーティリティを使って、必要なファイルを生成する。
-homi\`は、Kaiaブロックチェーンの設定に必要なスクリプト、設定ファイル、秘密鍵を自動的に生成するユーティリティである。
+`homi`は、Kaiaブロックチェーンの設定に必要なスクリプト、設定ファイル、秘密鍵を自動的に生成するユーティリティである。
 homiはLinux/MacのどのPCからでも実行できる。
 
 まず、ダウンロードしたhomiアーカイブを解凍する。
@@ -72,9 +72,9 @@ x homi-XXXXX-amd64/bin/
 x homi-XXXXX-amd64/bin/homi
 ```
 
-bin`フォルダに移動し、以下のオプションを指定して`homi`を実行し、ファイルを生成する。
+`bin`フォルダに移動し、以下のオプションを指定して`homi`を実行し、ファイルを生成する。
 `homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output`
-Kairosの`chainID`は1001なので、便宜上、この例で構築したServiceChainの`chainID\`は1002とする。 実際のサービスを立ち上げてブロックチェーンを運用する場合は、他のServiceChainとchainIDが重ならないように、https://chainlist.defillama.com/、新しいchainID値を登録してから利用することを推奨する。 ServiceChainのポートはデフォルトの22323に設定されている。
+Kairosの`chainID`は1001なので、便宜上、この例で構築したServiceChainの`chainID`は1002とする。 実際のサービスを立ち上げてブロックチェーンを運用する場合は、他のServiceChainとchainIDが重ならないように、https://chainlist.defillama.com/、新しいchainID値を登録してから利用することを推奨する。 ServiceChainのポートはデフォルトの22323に設定されている。
 
 ```console
 $ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
@@ -102,7 +102,7 @@ Created :  homi-output/Kaia_txpool.json
 
 ## ステップ2： static-nodes.jsonのカスタマイズ<a id="step-2-customize-static-nodes-json"></a>
 
-homi-output/scripts/static-nodes.json\`をテキストエディタで開き、IPアドレスとポートをノードの実際の値で更新する。
+`homi-output/scripts/static-nodes.json`をテキストエディタで開き、IPアドレスとポートをノードの実際の値で更新する。
 この例では、ServiceChain内の各SCNノードのIPが下図のようになっているものとする。 ここで割り当てたポートは、後のステップ4で使用するので覚えておいてください。
 
 ![](/img/nodes/sc-4scn-ip.png)
@@ -116,7 +116,7 @@ homi-output/scripts/static-nodes.json\`をテキストエディタで開き、IP
 ]
 ```
 
-static-nodes.json`を更新したら、出力フォルダ（`homi-output\`）をすべてのSCNにアップロードします。 この例では SCN-L2-01、SCN-L2-02、SCN-L2-03、SCN-L2-04 ノード。
+`static-nodes.json`を更新したら、出力フォルダ（`homi-output`）をすべてのSCNにアップロードします。 この例では SCN-L2-01、SCN-L2-02、SCN-L2-03、SCN-L2-04 ノード。
 
 ```console
 $ scp -r path/to/homi-output/ user@192.168.0.1:~/
@@ -159,7 +159,7 @@ $ cp ~/homi-output/keys/nodekey{1..4} ~/data/klay/nodekey
 
 ## ステップ 5: ノードの設定<a id="step-5-configure-nodes"></a>
 
-各 SCN で kscn のインストールフォルダに移動し、`conf/kscnd.conf` を以下のように編集します。 PORT`は`homi`をセットアップする際に使用するポートで、`SC_SUB_BRIDGE`は次のセクションでブリッジを接続する際に必要となる。 とりあえず、0にしておいてください。 DATA_DIR`には、ステップ3で使用したデータフォルダを入力する。
+各 SCN で kscn のインストールフォルダに移動し、`conf/kscnd.conf` を以下のように編集します。 `PORT`は`homi`をセットアップする際に使用するポートで、`SC_SUB_BRIDGE`は次のセクションでブリッジを接続する際に必要となる。 とりあえず、0にしておいてください。 DATA_DIR\`には、ステップ3で使用したデータフォルダを入力する。
 
 ```
 ...
@@ -198,7 +198,7 @@ $ kscn attach --datadir ~/data
 
 ### ステップ1：テストアカウントのインポート<a id="step-1-import-the-test-account"></a>
 
-testkey1`はステップ1で`homi`が自動生成したものである。 KAIAは`homi`によって生成された`genesis.json\`に記述されているようにテストアカウントに割り当てられる。
+`testkey1`はステップ1で`homi`が自動生成したものである。 KAIAは`homi`によって生成された`genesis.json`に記述されているようにテストアカウントに割り当てられる。
 
 ```console
 $ kscn account import --datadir ~/data ~/homi-output/keys_test/testkey1
