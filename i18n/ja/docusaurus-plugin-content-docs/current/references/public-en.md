@@ -25,7 +25,7 @@
 - `https://public-en-cypress.klaytn.net` (`https://public-en.node.kaia.io` に置き換わる)
 - `https://archive-en.cypress.klaytn.net` (`https://archive-en.node.kaia.io` に置き換わる)
 
-\*\*テストネット
+**テストネット**
 
 - `https://public-en-baobab.klaytn.net` (`https://public-en-kairos.node.kaia.io` に置き換わる)
 - `https://archive-en.baobab.klaytn.net` (`https://archive-en-kairos.node.kaia.io` に置き換わる)
@@ -50,7 +50,7 @@
 | [ポクト・ネットワーク](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | カイア、クレイ、エス、ネット | フル    |
 | [GetBlock](https://getblock.io/)     | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | カイア、クレイ、エス、ネット | フル    |
 
-\*\*ウェブソケット
+**ウェブソケット**
 
 | サービスプロバイダー                          | エンドポイント                                                                                                                                   | 名前空間           | タイプ   |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----- |
@@ -70,7 +70,7 @@
 | [クイックノード](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | カイア、クレイ、エス、ネット | フル    |
 | [BlockPIネットワーク](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | カイア、クレイ、エス、ネット | フル    |
 
-\*\*ウェブソケット
+**ウェブソケット**
 
 | サービスプロバイダー                        | エンドポイント                                                    | 名前空間           | タイプ   |
 | --------------------------------- | ---------------------------------------------------------- | -------------- | ----- |
