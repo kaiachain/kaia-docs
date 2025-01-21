@@ -37,10 +37,10 @@ npx create-eth@latest
 
 **プロジェクト名**：プロジェクト名の入力: プロジェクト名を入力してください。
 
-\*\*どのsolidityフレームワークを使用しますか？お好みのsolidityフレームワーク(Hardhat、Foundry)を選択してください。 このガイドでは、Hardhatフレームワークを使用する。
+**Solidity Framework**; どのSolidityフレームワークを使用しますか？：お好みのSolidityフレームワーク（Hardhat、Foundry）を選択してください。 このガイドでは、Hardhatフレームワークを使用する。
 
-\*\*パッケージをインストールしますか？yes（デフォルト・オプション）の場合はEnterを押すか、nと入力してnoの場合はEnterを押す
-セットアップが完了したら、プロジェクト・ディレクトリに移動します。
+**パッケージをインストールしますか？**：はい（デフォルトのオプション）の場合はEnterキーを、いいえの場合はnと入力してEnterキーを押します
+セットアップが完了したら、プロジェクトディレクトリに移動します。
 
 ```bash
 cd project-name
@@ -55,11 +55,11 @@ Scaffold-ETH 2を使ったプロジェクト開発のプロセスは以下のよ
 
 1. カイアのハードハットのネットワーク設定を更新する
 2. スマートコントラクトを **packages/hardhat/contracts** に追加する。
-3. packages/hardhat/deploy\*\*にあるデプロイスクリプトを編集します。
+3. **packages/hardhat/deploy**にあるデプロイスクリプトを編集します。
 4. スマートコントラクトをKaiaにデプロイする
 5. ハードハット検証プラグインでスマートコントラクトを検証する
-6. packages/nextjs/scaffold.config.ts\*\*ファイルで、Kaiaをターゲットとするフロントエンドを設定します。
-7. packages/nextjs/pages\*\*ディレクトリで、必要に応じてフロントエンドを編集してください。
+6. **packages/nextjs/scaffold.config.ts**ファイルで、Kaiaをターゲットとするフロントエンドを設定します。
+7. **packages/nextjs/pages**ディレクトリで、必要に応じてフロントエンドを編集してください。
 
 このガイドでは、Scaffold-ETH 2のインストール後に利用できるデフォルトのサンプルコントラクトとフロントエンドを使用します。 必要なのは、これらのコンポーネントをカイア用に変更することだけだ。 その場合、コンフィギュレーションを**Hardhat**と**Next.js**に分割する。
 
@@ -71,7 +71,7 @@ Scaffold-ETH 2を使ったプロジェクト開発のプロセスは以下のよ
 
 Kaia用にhardhatを設定するには、.envファイルを作成し、Kaiaをサポートするようにhardhat.config.tsを修正する必要があります。
 
-**ステップ1：.env**の作成
+**ステップ1：.envの作成**
 
 .envファイルを作成するには、以下のコードをターミナルにコピー＆ペーストする。
 
@@ -79,17 +79,17 @@ Kaia用にhardhatを設定するには、.envファイルを作成し、Kaiaを�
 touch packages/hardhat/.env
 ```
 
-hardhat.config.jsファイルですでに使用されている変数については、**.env.example**ファイルを参照できる。 カイアの場合、必要な変数は1つだけです：**deployed_private_key**。
+hardhat.config.jsファイルですでに使用されている変数については、**.env.example**ファイルを参照できる。 カイアの場合、必要な変数は1つだけです：**DEPLOYED_PRIVATE_KEY**。
 
-\*\*ステップ2：.envファイルを編集して、この変数を追加する。
+**ステップ2：.envファイルを編集して、この変数を追加する。**
 
 ```bash
 deployer_private_key=insert_private_key
 ```
 
-.env\*\*ファイルに記述された秘密鍵は、Hardhatプロジェクトでスマート・コントラクトをデプロイし、やり取りするアカウントに対応します。
+**.env**ファイルに記述された秘密鍵は、Hardhatプロジェクトでスマート・コントラクトをデプロイし、やり取りするアカウントに対応します。
 
-\*\*ステップ3：hardhat.config.tsを修正する。
+**ステップ3：hardhat.config.tsを修正する。**
 
 次にやりたいことは、**hardhat.config.ts**をカイアに対応するように設定することだ。
 
