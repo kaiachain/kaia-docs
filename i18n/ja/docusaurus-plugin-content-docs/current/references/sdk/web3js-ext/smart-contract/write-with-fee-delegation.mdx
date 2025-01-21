@@ -1,6 +1,6 @@
 # 書き込み（手数料の委任）
 
-スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**「トランザクション」**を行うことができる。
+スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**トランザクション**を行うことができる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -117,7 +117,7 @@ number after 297
 
 ---
 
-web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js smartContractWriteFeeDelegated.js focus=1
 
@@ -125,7 +125,7 @@ web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ex
 
 ---
 
-送信者**、料金支払者**のアドレスと秘密鍵を定義する。
+**sender**、**fee payer**のアドレスと秘密鍵を定義する。
 
 ```js smartContractWriteFeeDelegated.js focus=3:6
 
@@ -215,7 +215,7 @@ main();
 
 ---
 
-`web3.eth.account.privateKeyToAccount`を使用して、定義された秘密鍵から**送信者**と**料金支払者**のアカウントを作成する。
+`web3.eth.account.privateKeyToAccount`を使用して、定義された秘密鍵から**sender**と**fee payer**のアカウントを作成する。
 
 ```js smartContractWriteFeeDelegated.js focus=10:11
 
@@ -223,7 +223,7 @@ main();
 
 ---
 
-契約**アビ**と**契約アドレス**の定義
+契約**Abi**と**契約アドレス**の定義
 
 ```js smartContractWriteFeeDelegated.js focus=37:38
 
@@ -351,7 +351,7 @@ receipt {
 
 ---
 
-number\*\*の更新値を取得する。
+**number**の更新値を取得する。
 
 <CH.Code>
 ```js smartContractWriteFeeDelegated.js focus=64
