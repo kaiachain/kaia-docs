@@ -47,7 +47,7 @@ kaia ノードがアクティブにネットワーク接続をリッスンして
 
 **リターン・バリュー**
 
-Promise`は`boolean\` を返す。
+`Promise` は `boolean` を返す。
 
 | タイプ   | 説明                                |
 | ----- | --------------------------------- |
@@ -76,7 +76,7 @@ caver.rpc.net.getPeerCount([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`string\` を返す。
+`Promise` は `string` を返す。
 
 | タイプ   | 説明                 |
 | ----- | ------------------ |
@@ -105,7 +105,7 @@ caver.rpc.net.getPeerCountByType([コールバック])
 
 **リターン・バリュー**
 
-Promise`は`object\` を返す。
+`Promise` は `object` を返す。
 
 | タイプ    | 説明                 |
 | ------ | ------------------ |
