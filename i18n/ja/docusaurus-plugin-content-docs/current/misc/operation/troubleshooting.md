@@ -2,7 +2,7 @@
 
 ## Kaiaバイナリパッケージを使用しているKaiaノードのログファイルはどこにありますか？ <a id="where-can-i-find-a-log-file-for-the-running-kaia-node-using-the-kaia-binary"></a>
 
-\*\*回答
+**回答**
 
 ログファイルはdataディレクトリにあります。 例えば、`kcnd` RPMパッケージをインストールすると、`kcnd`のログのデフォルトの場所は `/var/log/kcnd/kcnd.out` になる。
 
@@ -12,7 +12,7 @@
 ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b10697e43d4f8e30 conn=staticdial err="Genesis block mismatch - 81cf117d44f99b21 (!= 74647b98b9f06cb4)"
 ```
 
-\*\*回答
+**回答**
 
 このエラーは、`genesis.json`が異なる場合に発生する可能性がある。
 Kaiaノードを停止し、データディレクトリを削除してください。 その後、以下のように正しい `genesis.json` を使用して `ken init` を再度実行してください。
@@ -43,7 +43,7 @@ Error: Returned error: The method net_version does not exist/is not available
     at process._tickCallback (internal/process/next_tick.js:63:19)
 ```
 
-\*\*回答
+**回答**
 
 `kend.conf`ファイルを以下のように編集して、RPCコンソール用の `net` およびその他のAPIを有効にする。
 
@@ -59,7 +59,7 @@ RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: 
 Failed to start kcnd.service: Unit not found.
 ```
 
-\*\*回答
+**回答**
 
 以下のようにデーモンをリロードしてください。
 
@@ -75,7 +75,7 @@ INFO[02/20,12:35:34 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa1e3136fd16a3 addr=13.209.225.108:32323
 ```
 
-\*\*回答
+**回答**
 
 これは、`genesis.json`とnodekey/validatorの情報が異なる場合に発生する可能性がある。
 nodekey/validatorと`genesis.json`ファイルをもう一度確認してください。
@@ -86,7 +86,7 @@ nodekey/validatorと`genesis.json`ファイルをもう一度確認してくだ�
 Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
 ```
 
-\*\*回答
+**回答**
 
 ログファイルに上記のプロトコルスタックエラーメッセージが表示された場合、カレント作業ディレクトリのフルパス名が長すぎるため、Kaiaの起動に失敗したことを意味します。 より短いフルデータディレクトリでKaiaノードを起動してください。 パス名の最大長はオペレーティング・システムによって異なる。
 
@@ -96,7 +96,7 @@ Fatal: Error starting protocol stack: listen unix /Users/username/some_directory
 ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad conn=staticdial err="InvalidPeerHierarchy - (PeerIsOnParentChain:false) == (OnChildChain:false)"
 ```
 
-\*\*回答
+**回答**
 
 メインチェーンとサービスチェーンの成り立ちが異なる場合に起こりうる。 両チェーンの起源が同じであることを確認してほしい。
 
@@ -107,5 +107,5 @@ ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad con
 Fatal: Error starting protocol stack: rewound to block number 0, but repair failed"
 ```
 
-**Answer**
+**回答**
 互換性の問題から、古いバージョン(`<=` v0.8.2)のENを使用している場合は、EN のバイナリをv0.9.6にアップグレードすることを強くお勧めします。 ENをv0.9.xにアップグレードするのが初めてで、古いバージョンからデータを移行したい場合は、新しいバージョンをインストールする際に、設定ファイルに`ADDITIONAL="--db.num-statetrie-partitions 1"` オプションを指定する必要があります。
