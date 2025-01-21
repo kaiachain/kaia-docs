@@ -22,7 +22,7 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 - [KIP-17](https://kips.kaia.io/KIPs/kip-17) - これはカイアの非腐敗性トークン規格である。 菌類でないとは、各トークンが分割不可能であり、したがって一意であることを意味する。 KIP17トークンは、写真、ゲーム内のアイテム、不動産など、物理的な所有物であれ、仮想的な収集物であれ、ユニークなアイテムの所有権を表すことができる。
 - [KIP-37](https://kips.kaia.io/KIPs/kip-37) - これはKaiaのマルチ・トークン標準として知られている。なぜなら、1つのスマート・コントラクトでカビるトークンとカビないトークンの両方を表現できるからだ。
 
-Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9)のサポートに伴い、Kaiaコントラクトウィザードは[ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)、[ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/)、[ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/)もサポートしています。
+[Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9)のサポートに伴い、Kaiaコントラクトウィザードは[ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)、[ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/)、[ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/)もサポートしています。
 
 カイア契約ウィザードは以下のセクションで構成されています：
 
@@ -55,7 +55,7 @@ Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-in
 このチュートリアルに沿って進むために、前提条件を以下に示します：
 
 - 必ず[foundry](https://book.getfoundry.sh/getting-started/installation)をインストールしてください。
-- klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) コードをクローンします。
+- [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) コードをクローンします。
 - [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../references/public-en.md)の1つから取得できます。
 - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
@@ -70,7 +70,7 @@ Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-in
 
 エアドロップ契約に変更する前に、KIP7契約をカスタマイズする必要があります。 そのためには、以下の手順に従ってください：
 
-1. wizard.klaytn.foundation](https://wizard.klaytn.foundation/) に移動します。
+1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/) に移動します。
 2. 契約**タブで**KIP7\*\*を選択する。
 3. 次に、**SETTINGS**タブに名前(KIP7 Token Airdrop)とシンボル(KTA)を入力します。 プレミントの欄は空のまま
 4. その後、**FEATURES**タブで**Mintable**機能にチェックを入れると、自動的に**ACCESS CONTROL**タブでOwnable機能が選択されます。
@@ -147,7 +147,7 @@ KIP7エアドロップ契約コードの準備ができたので、次のステ�
 
 エアドロップ契約に変更する前に、KIP17契約をカスタマイズする必要があります。 そのためには、以下の手順に従ってください：
 
-1. wizard.klaytn.foundation](https://wizard.klaytn.foundation/) に移動します。
+1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/) に移動します。
 2. 契約**タブで**KIP17\*\*を選択する。
 3. 次に、**SETTINGS**タブに名前（KIP7 NFT Airdrop）と記号（KNA）を記入する。  Base URIフィールドは空のままにしておく。
 4. 続いて、**FEATURES** タブで、**Mintable**、**Auto-increment Ids**、**Enumerable** の各機能にチェックを入れます。 ACCESS CONTROL\*\*タブのOwnable機能が自動的に選択されていることがわかります。
@@ -245,7 +245,7 @@ KIP17のエアドロップ契約コードの準備ができたので、次のス
 
 KIP37は一括鋳造に対応しているため、契約書だけをカスタマイズしてそのまま使用する。 KIP37Contractをカスタマイズするには、以下の手順に従ってください：
 
-1. wizard.klaytn.foundation.]に移動する(https://wizard.klaytn.foundation/)
+1. [wizard.klaytn.foundation.]に移動する(https://wizard.klaytn.foundation/)
 2. 契約**タブで**KIP37\*\*を選択する。
 3. 次に、**SETTINGS**タブに名前（KIP7 NFT Airdrop）と記号（KNA）を記入する。  Base URIフィールドは空のままにしておく。
 4. 続いて、**FEATURES** タブで、**Mintable**、**Auto-increment Ids**、**Enumerable** の各機能にチェックを入れます。 ACCESS CONTROL\*\*タブのOwnable機能が自動的に選択されていることがわかります。
