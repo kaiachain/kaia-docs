@@ -10,7 +10,7 @@
 ケイバーウォレット
 ```
 
-KeyringContainer`は、[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、[RoleBasedKeyring](./keyring.md#rolebasedkeyring)のインスタンスを管理するクラスです。 Caver がインスタンス化されると、`caver.wallet` に KeyringContainer インスタンスが作成されます。 caver.wallet`を通じて、インメモリ・ウォレットにキーリング・インスタンスを保存し、管理することができる。
+`KeyringContainer`は、[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、[RoleBasedKeyring](./keyring.md#rolebasedkeyring)のインスタンスを管理するクラスです。 Caver がインスタンス化されると、`caver.wallet` に KeyringContainer インスタンスが作成されます。 `caver.wallet`を通じて、インメモリ・ウォレットにキーリング・インスタンスを保存し、管理することができる。
 
 **プロパティ**
 
@@ -67,7 +67,7 @@ caver.wallet.newKeyring(アドレス, キー)
 
 与えられたパラメータでキーリングのインスタンスを作成し、`caver.wallet` に追加する。
 
-key` が秘密鍵文字列の場合、単一の秘密鍵を使用する [SingleKeyring](./keyring.md#singlekeyring) インスタンスが作成される。 key` が秘密鍵文字列を含む配列の場合、複数の秘密鍵を使用する [MultipleKeyring](./keyring.md#multiplekeyring) インスタンスが作成される。 key`が2次元配列で、各要素に各ロールで使用する秘密鍵が格納されている場合、[RoleBasedKeyring](./keyring.md#rolebasedkeyring) インスタンスが生成される。 作成されたキーホルダーは`caver.wallet\` に追加される。
+`key` が秘密鍵文字列の場合、単一の秘密鍵を使用する [SingleKeyring](./keyring.md#singlekeyring) インスタンスが作成される。 `key` が秘密鍵文字列を含む配列の場合、複数の秘密鍵を使用する [MultipleKeyring](./keyring.md#multiplekeyring) インスタンスが作成される。 `key` が2次元配列で、各要素に各ロールで使用する秘密鍵が格納されている場合、[RoleBasedKeyring](./keyring.md#rolebasedkeyring) インスタンスが生成される。 作成されたキーホルダーは `caver.wallet` に追加される。
 
 \*\*パラメーター
 
@@ -134,19 +134,19 @@ RoleBasedKeyring {
 caver.wallet.updateKeyring(キーリング)
 ```
 
-caver.wallet`内のキーホルダーを更新する。 新しい `keyring`インスタンス（[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または [RoleBasedKeyring](./keyring.md#rolebasedkeyring)）をパラメータとして渡すと、`keyring`インスタンスの`address`プロパティと一致する`caver.wallet\` に保存されている既存のキーリングが検出され、指定されたキーリングに置き換えられます。 一致するキーリングが見つからない場合、エラーが発生します。
+`caver.wallet`内のキーホルダーを更新する。 新しい `keyring` インスタンス（[SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または [RoleBasedKeyring](./keyring.md#rolebasedkeyring)）をパラメータとして渡すと、 `keyring` インスタンスの `address` プロパティと一致する `caver.wallet` に保存されている既存のキーリングが検出され、指定されたキーリングに置き換えられます。 一致するキーリングが見つからない場合、エラーが発生します。
 
 \*\*パラメーター
 
-| 名称     | タイプ    | 説明                                                                                                                                                                                                               |
-| ------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| キーホルダー | オブジェクト | caver.wallet\`に格納する新しいキーリング([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
+| 名称     | タイプ    | 説明                                                                                                                                                                                               |
+| ------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| キーホルダー | オブジェクト | `caver.wallet`に格納する新しいキーリング([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
 
 **リターン・バリュー**
 
-| タイプ    | 説明                                                                                                                                                                                                                    |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| オブジェクト | caver.wallet\`に格納されている更新されたキーリング([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
+| タイプ    | 説明                                                                                                                                                                                                    |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| オブジェクト | `caver.wallet`に格納されている更新されたキーリング([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
 
 **例**
 
@@ -164,7 +164,7 @@ SingleKeyring {
 caver.wallet.getKeyring(アドレス)
 ```
 
-caver.wallet\`のアドレスに対応するキーリングのインスタンスを返します。
+`caver.wallet`のアドレスに対応するキーリングのインスタンスを返します。
 
 \*\*パラメーター
 
@@ -204,9 +204,9 @@ caver.wallet.isExisted(アドレス)
 
 **リターン・バリュー**
 
-| タイプ   | 説明                                                                   |
-| ----- | -------------------------------------------------------------------- |
-| ブーリアン | true`は、`caver.wallet\`にそのアドレスと一致するキーリングが存在することを意味する。 |
+| タイプ   | 説明                                                   |
+| ----- | ---------------------------------------------------- |
+| ブーリアン | `true`は、`caver.wallet`にそのアドレスと一致するキーリングが存在することを意味する。 |
 
 **例**
 
@@ -225,15 +225,15 @@ caver.wallet.add(キーリング)
 
 \*\*パラメーター
 
-| 名称     | タイプ    | 説明                                                                                                                                                                                                                   |
-| ------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| キーホルダー | オブジェクト | caver.wallet\`に追加するキーリングのインスタンス([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
+| 名称     | タイプ    | 説明                                                                                                                                                                                                   |
+| ------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| キーホルダー | オブジェクト | `caver.wallet`に追加するキーリングのインスタンス([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
 
 **リターン・バリュー**
 
-| タイプ    | 説明                                                                                                                                                                                                             |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| オブジェクト | caver.wallet\`に追加されたキーリング([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
+| タイプ    | 説明                                                                                                                                                                                             |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| オブジェクト | `caver.wallet`に追加されたキーリング([SingleKeyring](./keyring.md#singlekeyring)、[MultipleKeyring](./keyring.md#multiplekeyring)、または[RoleBasedKeyring](./keyring.md#rolebasedkeyring)。 |
 
 **例**
 
@@ -255,9 +255,9 @@ caver.wallet.remove(アドレス)
 
 \*\*パラメーター
 
-| 名称 | タイプ   | 説明                                              |
-| -- | ----- | ----------------------------------------------- |
-| 住所 | ストリング | caver.wallet\`で削除するキーホルダーのアドレス。 |
+| 名称 | タイプ   | 説明                              |
+| -- | ----- | ------------------------------- |
+| 住所 | ストリング | `caver.wallet`で削除するキーホルダーのアドレス。 |
 
 **リターン・バリュー**
 
@@ -292,7 +292,7 @@ sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message))
 | ------ | ----- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | 住所     | ストリング | 使用するキーホルダーのアドレス。                                                                                                                    |
 | メッセージ  | ストリング | 署名するメッセージ                                                                                                                           |
-| 役割     | 番号    | キーの役割を示す数字。 caver.wallet.keyring.role\`を使用することができます。                                |
+| 役割     | 番号    | キーの役割を示す数字。 `caver.wallet.keyring.role`を使用することができます。                                                                                |
 | インデックス | 番号    | (オプション) 使用したい秘密鍵のインデックス。 このインデックスは、各ロールに定義されたプライベートキーの配列の長さより小さくなければならない。 インデックスが定義されていない場合、このメソッドはすべての秘密鍵を使用する。 |
 
 **リターン・バリュー**
@@ -342,7 +342,7 @@ caver.wallet.sign(address, transaction [, index] [, hasher])
 
 トランザクションの `sender` としてトランザクションに署名し、`caver.wallet` 内の keyring を使用してトランザクションオブジェクトに `signatures` を追加する。
 
-アカウント更新](../caver-transaction/basic.md#accountupdate)トランザクションの場合は、[roleTransactionKey](../../../../../learn/accounts.md#roles)を使用し、それ以外の場合は、[roleTransactionKey](../../../../../learn/accounts.md#roles)を使用する。 ユーザが `index` を定義していない場合、`caver.wallet.sign` はロールが使用するすべての秘密鍵を使用してトランザクションに署名する。 index` が定義されている場合、`caver.wallet.sign\` は、指定されたインデックスの 1 つの秘密鍵のみを使用してトランザクションに署名します。
+アカウント更新](../caver-transaction/basic.md#accountupdate)トランザクションの場合は、[roleTransactionKey](../../../../../learn/accounts.md#roles)を使用し、それ以外の場合は、[roleTransactionKey](../../../../../learn/accounts.md#roles)を使用する。 ユーザが `index` を定義していない場合、`caver.wallet.sign` はロールが使用するすべての秘密鍵を使用してトランザクションに署名する。 `index` が定義されている場合、`caver.wallet.sign` は、指定されたインデックスの 1 つの秘密鍵のみを使用してトランザクションに署名します。
 
 \*\*パラメーター
 
@@ -452,9 +452,9 @@ caver.wallet.signAsFeePayer(address, transaction [, index] [, hasher])
 
 トランザクションの `fee payer` として署名し、`caver.wallet` 内のキーホルダーを使用してトランザクショ ンオブジェクトに `feePayerSignatures` を追加する。
 
-料金支払者としてトランザクションに署名するには、[roleFeePayerKey](../../../../../learn/accounts.md#roles) を使用する。 ユーザが `index` を定義していない場合、`caver.wallet.signAsFeePayer` はロールが使用するすべての秘密鍵を使用してトランザクションに署名します。 index` が定義されている場合、`caver.wallet.signAsFeePayer\` は指定されたインデックスの 1 つの秘密鍵のみを使用してトランザクションに署名します。
+料金支払者としてトランザクションに署名するには、[roleFeePayerKey](../../../../../learn/accounts.md#roles) を使用する。 ユーザが `index` を定義していない場合、`caver.wallet.signAsFeePayer` はロールが使用するすべての秘密鍵を使用してトランザクションに署名します。 `index` が定義されている場合、`caver.wallet.signAsFeePayer` は指定されたインデックスの 1 つの秘密鍵のみを使用してトランザクションに署名します。
 
-transaction.feePayer`が定義されていない場合は、`caver.wallet\`から生成されたキーリングのアドレスが割り当てられる。
+`transaction.feePayer`が定義されていない場合は、`caver.wallet`から生成されたキーリングのアドレスが割り当てられる。
 
 \*\*パラメーター
 
