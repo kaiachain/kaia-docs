@@ -182,7 +182,7 @@ web3_tx_sign_recover_pubkey()
 **向网络发送\***已签名的交易，并**_等待_**接收，直到交易在区块链中完全执行为止
 
 <CH.Code>
-``py web3_public_value_transfer_sign_recover.py focus=28:30
+```py web3_public_value_transfer_sign_recover.py focus=28:30
 
 ````
 ---
@@ -197,16 +197,16 @@ tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a rec
 使用 **Account.recover_transaction** 从签名交易中恢复发件人地址
 
 <CH.Code>
-``py web3_public_value_transfer_sign_recover.py focus=32:33
+```py web3_public_value_transfer_sign_recover.py focus=32:33
 
-```
+````
 ---
 
-``zsh output
-‖ python web3_public_value_transfer_sign_recover.py
+```zsh output
+❯ python web3_public_value_transfer_sign_recover.py
 sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b
-recovered 0xe15cd70a41dfb05e7214004d7D054801b2a2f06b
-```
+recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+````
 
 </CH.Code>
 </CH.Spotlight>
