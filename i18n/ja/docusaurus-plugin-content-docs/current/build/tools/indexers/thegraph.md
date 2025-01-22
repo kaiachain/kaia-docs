@@ -99,7 +99,7 @@ $ graph deploy --studio<SUBGRAPH_SLUG>
 
 ![publish button](/img/build/tools/graph/07-studio-publish-subgraph.webp)
 
-> \*\*注
+> **注**
 >
 > - インデクサーの報酬をアンロックするための最終的なオンチェーン投票プロセスがまだ完了していないため、カイアは今のところ「部分的にサポートされている」と表示されている。 今のところ、Edge & Nodeのインデクサー（アップグレード・インデクサー）が、すべてのカイア・サブグラフをサポートする唯一のインデクサーとなる。
 > - グラフのスマートコントラクトはすべてArbitrum One上にあり、サブグラフがKaiaやEthereum、その他の[サポートされているチェーン](https://thegraph.com/docs/en/developing/supported-networks/)のデータをインデックスしていても、そのデータはArbitrum One上にある。
@@ -116,7 +116,7 @@ $ graph deploy --studio<SUBGRAPH_SLUG>
 
 このサブグラフのクエリーURLは以下の通り：
 
-https://gateway-arbitrum.network.thegraph.com/api/\`\*\*[api-key]\*\*\`/subgraphs/id/HdVdERFUe8h61vm2fDyycgxjsde5PbB832NHgJfZNqK\`。
+`https://gateway-arbitrum.network.thegraph.com/api/`**[api-key]**`/subgraphs/id/HdVdERFUe8h61vm2fDyycgxjsde5PbB832NHgJfZNqK`
 
 このエンドポイントにGraphQLクエリーを送信するためには、API Keyを入力する必要がある。
 
