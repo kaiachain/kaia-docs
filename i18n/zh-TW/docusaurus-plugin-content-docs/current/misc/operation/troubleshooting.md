@@ -53,7 +53,7 @@ RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: 
 
 更新 `kend.conf` 後，重新啟動 Kaia 節點。
 
-## 安裝二進制軟件包後，無法啟動 Kaia 節點，出現如下 "未找到單元 "錯誤。 <a id="can-t-start-kaia-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
+## Can't start Kaia node with `Unit not found` error as below after installing binary package. <a id="can-t-start-kaia-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
 Failed to start kcnd.service: Unit not found.
@@ -83,7 +83,7 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 ## Kaia 節點無法啟動，出現以下錯誤日誌信息。 <a id="kaia-node-can-t-start-with-following-error-log-message"></a>
 
 ```
-致命：啟動協議棧出錯：listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: 無效參數
+Fatal: Error starting protocol stack: listen unix /Users/username/some_directory/more_directories/klaytn/klaytn_client/my_test_klaytn/data/dd/klay.ipc: bind: invalid argument
 ```
 
 **答案**
