@@ -180,7 +180,7 @@ Welcome to the Kaia JavaScript console!
 
 :::note
 
-kaia**または**personal\*\*と入力すると、利用可能な機能のリストが表示されます。
+**kaia**または**personal**と入力すると、利用可能な機能のリストが表示されます。
 
 :::
 
