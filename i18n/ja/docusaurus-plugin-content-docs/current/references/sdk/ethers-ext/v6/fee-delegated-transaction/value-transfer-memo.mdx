@@ -74,7 +74,7 @@
 
   ---
 
-  ethers.jsにkaiaの機能を追加するために、**ethers**および\*\*@kaiachain/ethers-ext\*\*パッケージをインポートする。
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=1:2
   ```
@@ -152,14 +152,14 @@
 
   ---
 
-  type、from、to、value、input\*\*などのフィールドを持つトランザクションを宣言する。
+  **type、from、to、value、input**などのフィールドを持つトランザクションを宣言する。
 
   ```js TxTypeFeeDelegatedValueTransferMemo.js focus=15:21
   ```
 
   ---
 
-  senderWallet.populateTransaction\*\*を使用してトランザクションに追加情報を入力する。
+  **senderWallet.populateTransaction**を使用してトランザクションに追加情報を入力する。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=23:24
@@ -185,7 +185,7 @@
 
   ---
 
-  送信者の秘密鍵\*\*でトランザクションに署名する。
+  **送信者の秘密鍵**でトランザクションに署名する。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=26:27
@@ -217,7 +217,7 @@
 
   ---
 
-  wait\*\*関数は、txがブロックチェーンに正常に送信された場合、txレシートを返す。
+  **wait**関数は、txがブロックチェーンに正常に送信された場合、txレシートを返す。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransferMemo.js focus=32:33
