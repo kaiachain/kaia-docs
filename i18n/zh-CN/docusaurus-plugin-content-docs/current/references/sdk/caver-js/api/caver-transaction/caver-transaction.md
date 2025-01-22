@@ -19,7 +19,7 @@ caver.transaction "是一个提供与 "Transaction "相关功能的软件包。
 | EthereumAccessList     | [EthereumAccessList](./basic.md#ethereumaccesslist)         | N/A                                                                                          | N/A                                                                                                                    |
 | EthereumDynamicFee     | [EthereumDynamicFee](./basic.md#ethereumdynamicfee)         | N/A                                                                                          | N/A                                                                                                                    |
 
-## caver.transaction.decode<a href="#caver-transaction-decode" id="caver-transaction-decode"></a>
+## caver.transaction.decode <a href="#caver-transaction-decode" id="caver-transaction-decode"></a>
 
 ```javascript
 caver.transaction.decode(rlpEncoded)
@@ -57,7 +57,7 @@ ValueTransfer {
 }
 ```
 
-## caver.transaction.getTransactionByHash<a href="#caver-transaction-gettransactionbyhash" id="caver-transaction-gettransactionbyhash"></a>
+## caver.transaction.getTransactionByHash <a href="#caver-transaction-gettransactionbyhash" id="caver-transaction-gettransactionbyhash"></a>
 
 ```javascript
 caver.transaction.getTransactionByHash('0x{transaction hash}')
@@ -102,7 +102,7 @@ LegacyTransaction {
 }
 ```
 
-## caver.transaction.recoverPublicKeys<a href="#caver-transaction-recoverpublickeys" id="caver-transaction-recoverpublickeys"></a>
+## caver.transaction.recoverPublicKeys <a href="#caver-transaction-recoverpublickeys" id="caver-transaction-recoverpublickeys"></a>
 
 ```javascript
 caver.transaction.recoverPublicKeys('0x{RLP-encoded transaction}')
@@ -135,7 +135,7 @@ caver.transaction.recoverPublicKeys('0x{RLP-encoded transaction}')
 ]
 ```
 
-## caver.transaction.recoverFeePayerPublicKeys<a href="#caver-transaction-recoverfeepayerpublickeys" id="caver-transaction-recoverfeepayerpublickeys"></a>
+## caver.transaction.recoverFeePayerPublicKeys <a href="#caver-transaction-recoverfeepayerpublickeys" id="caver-transaction-recoverfeepayerpublickeys"></a>
 
 ```javascript
 caver.transaction.recoverFeePayerPublicKeys('0x{RLP-encoded transaction}')
