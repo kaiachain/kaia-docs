@@ -84,7 +84,7 @@ allprojects {
 **gradle**
 
 ```groovy
-執行 "com.klaytn.caver:core:1.5.0
+implementation 'com.klaytn.caver:core:1.5.0'
 ```
 
 如果要使用 Android 依賴關係，只需在版本字符串末尾添加 -android。 \例如 1.0.1-android\)
@@ -92,7 +92,7 @@ allprojects {
 如果想查看 JSON-RPC 請求和響應的詳細信息，請在項目中加入 [LOGBack](https://logback.qos.ch/) 依賴關係。 下面是一個 Gradle 構建文件示例。 您也可以將依賴關係添加到 Maven 中。 由於 caver-java 使用 [SLF4J](http://www.slf4j.org/) 日誌界面，因此您可以切換到自己喜歡的日誌框架，而不是 LOGBack。
 
 ```groovy
-執行 "ch.qos.logback:logback-classic:1.2.3"
+implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
 **注意**：在中央資源庫中，RC、Android 和 Java 版本被列在一起。 如果使用通配符獲取版本，則可能使用了不適合自己平臺的版本。
@@ -198,7 +198,7 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
 如果運行的是 EN，可以通過更改主機和端口將其連接到自己的節點，如下所示：
 
 ```java
-Caver caver = new Caver("http://your.en.url:8551/")；
+Caver caver = new Caver("http://your.en.url:8551/");
 ```
 
 ## 管理 Keyrings <a id="managing-keyrings"></a>
@@ -220,7 +220,7 @@ Keyring "是一個包含 kaia 賬戶地址和私人密鑰的結構。
 如下圖所示，您可以隨機生成一個 keyring。
 
 ```java
-SingleKeyring keyring = caver.wallet.keyring.generate()；
+SingleKeyring keyring = caver.wallet.keyring.generate();
 ```
 
 #### 從私人密鑰創建 SingleKeyring <a id="creating-a-singlekeyring-from-private-key"></a>
@@ -229,7 +229,7 @@ SingleKeyring keyring = caver.wallet.keyring.generate()；
 
 ```java
 String privateKey = "0x{private key in hex}";
-SingleKeyring keyring = caver.wallet.keyring.createFromPrivateKey(privateKey)；
+SingleKeyring keyring = caver.wallet.keyring.createFromPrivateKey(privateKey);
 ```
 
 #### 使用私鑰和地址創建 SingleKeyring <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
@@ -239,7 +239,7 @@ SingleKeyring keyring = caver.wallet.keyring.createFromPrivateKey(privateKey)；
 ```java
 String address = "0x{address in hex}";
 String privateKey = "0x{private key in hex}";
-SingleKeyring keyring = caver.wallet.keyring.createWithSingleKey(address,privateKey)；
+SingleKeyring keyring = caver.wallet.keyring.createWithSingleKey(address, privateKey);
 ```
 
 此外，您還可以從 kaia 錢包密鑰派生 SingleKeyring 實例。
@@ -256,7 +256,7 @@ SingleKeyring keyring = caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWal
 ```java
 String address = "0x{address in hex}";
 String[] privateKeyArray = new String[] {"0x{private key#1}", "0x{private key#2}", "0x{private key#3}"};
-MultipleKeyring multipleKeyring = caver.wallet.keyring.createWithMultipleKey(address, privateKeyArray)；
+MultipleKeyring multipleKeyring = caver.wallet.keyring.createWithMultipleKey(address, privateKeyArray);
 ```
 
 #### 創建帶有私鑰的 RoleBasedKeyring <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
@@ -264,7 +264,7 @@ MultipleKeyring multipleKeyring = caver.wallet.keyring.createWithMultipleKey(add
 要為每個 "角色 "使用不同的私鑰，需要使用 "caver.wallet.keyring.createWithRoleBasedKey"。 每個數組元素代表一個在 `RoleBasedKeyring` 中描述的角色。 下面的示例展示瞭如何根據每個角色的不同密鑰創建一個 `RoleBasedKeyring` 實例。
 
 ```java
-String address = "0x{address in hex}"；
+String address = "0x{address in hex}";
 String[][] privateKeyArr = new String[][] {
         //roleTransactionKey
         {
@@ -274,7 +274,7 @@ String[][] privateKeyArr = new String[][] {
         },
         //roleAccountUpdateKey
         {
-                "0x{privateKey in hex}"、
+                "0x{privateKey in hex}",
                 "0x{privateKey in hex}",
                 "0x{privateKey in hex}",
         },
@@ -284,9 +284,9 @@ String[][] privateKeyArr = new String[][] {
                 "0x{privateKey in hex}",
                 "0x{privateKey in hex}",
         },
-}；
+};
 
-RoleBasedKeyring keyring = caver.wallet.keyring.createWithRoleBasedKey(address, Arrays.asList(privateKeyArr))；
+RoleBasedKeyring keyring = caver.wallet.keyring.createWithRoleBasedKey(address, Arrays.asList(privateKeyArr));
 ```
 
 ### 從 keystore json 字符串向 caver-java 添加 Keyrings。<a id="adding-keyrings-to-caver-java"></a>
@@ -298,25 +298,25 @@ Caver caver = new Caver(Caver.MAINNET_URL);
 
 String password = "password";
 String keyStoreJsonString = "{\n" +
-        " \"version\"：4,\n" +
-        " \"id\"：\9c12de05-0153-41c7-a8b7-849472eb5de7\",\n" +
-        " （"address\"：\0xc02cec4d0346bf4124deeb55c5216a4138a40a8c\",\n" +
-        " （"keyring"：[\n" +
-        " {\n" +
-        "\"ciphertext\"：\eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15\",\n" +
-        "\"cipherparams\"：{\n" +
-        " （"iv\"：\"d688a4319342e872cefcf51aef3ec2da\"\n" +
+        "  \"version\": 4,\n" +
+        "  \"id\": \"9c12de05-0153-41c7-a8b7-849472eb5de7\",\n" +
+        "  \"address\": \"0xc02cec4d0346bf4124deeb55c5216a4138a40a8c\",\n" +
+        "  \"keyring\": [\n" +
+        "    {\n" +
+        "      \"ciphertext\": \"eacf496cea5e80eca291251b3743bf93cdbcf7072efc3a74efeaf518e2796b15\",\n" +
+        "      \"cipherparams\": {\n" +
+        "        \"iv\": \"d688a4319342e872cefcf51aef3ec2da\"\n" +
         "      },\n" +
-        " （"cipher\"：\aes-128-ctr\",\n" +
-        " \"kdf\"：\"scrypt\",\n" +
-        " \"kdfparams\"：{\n" +
-        "\"dklen\"：32,\n" +
-        " （"salt\"：\c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40\",\n" +
-        " \"n\"：4096,\n" +
-        " （"r\"：8,\n" +
-        " \"p\"：1\n" +
+        "      \"cipher\": \"aes-128-ctr\",\n" +
+        "      \"kdf\": \"scrypt\",\n" +
+        "      \"kdfparams\": {\n" +
+        "        \"dklen\": 32,\n" +
+        "        \"salt\": \"c3cee502c7157e0faa42386c6d666116ffcdf093c345166c502e23bc34e6ba40\",\n" +
+        "        \"n\": 4096,\n" +
+        "        \"r\": 8,\n" +
+        "        \"p\": 1\n" +
         "      },\n" +
-        " （"mac\"：\"4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26\"\n" +
+        "      \"mac\": \"4b49574f3d3356fa0d04f73e07d5a2a6bbfdd185bedfa31f37f347bc98f2ef26\"\n" +
         "    }\n" +
         "  ]\n" +
         "}";
@@ -327,7 +327,7 @@ System.out.println("Decrypted key : " + decrypt.getKey().getPrivateKey());
 
 SingleKeyring addedKeyring = (SingleKeyring)caver.wallet.add(decrypt);
 System.out.println("address : " + addedKeyring.getAddress());
-System.out.println("key : " + addedKeyring.getKey().getPrivateKey())；
+System.out.println("key : " + addedKeyring.getKey().getPrivateKey());
 ```
 
 ```bash
@@ -345,28 +345,28 @@ key : 0x93c90135ae69669e416ba5997d9274f8c8bd60748761fc421e415602d68a13a5
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
 
-// 添加地址和私鑰到錢包
+// Add to wallet with an address and a private key
 AbstractKeyring addedSingleKeyring = caver.wallet.newKeyring("0x{address in hex}", "0x{private key1}");
 
 
-// 為錢包添加地址和私鑰
+// Add to wallet with an address and private keys
 String[] privateKeyArr = new String[] {
                 "0x{privateKey in hex}",
                 "0x{privateKey in hex}",
                 "0x{privateKey in hex}",
 };
 
-AbstractKeyring addedMultipleKeyring = caver.wallet.Wallet.NewKeyring("0x ", "0x "); newKeyring('0x{address in hex}', privateKeyArr)；
+AbstractKeyring addedMultipleKeyring = caver.wallet.newKeyring('0x{address in hex}', privateKeyArr);
 
 
-// 將地址和每個角色定義的私鑰添加到錢包
+// Add to wallet with an address and private keys defined by each roles
 String[][] privateKeyArr = new String[][] {
                 //roleTransactionKey
                 {
                         "0x{privateKey in hex}",
                         "0x{privateKey in hex}",
                         "0x{privateKey in hex}",
-                }、
+                },
                 //roleAccountUpdateKey
                 {
                         "0x{privateKey in hex}",
@@ -379,7 +379,7 @@ String[][] privateKeyArr = new String[][] {
                         "0x{privateKey in hex}",
                         "0x{privateKey in hex}",
                 },
-}；
+};
 
 AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', Arrays.asList(privateKeyArr))
 ```
@@ -416,11 +416,11 @@ AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', A
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
 
-// 向 caver.wallet 添加一個密鑰環
+// Add a keyring to caver.wallet
 SingleKeyring keyring = caver.wallet.keyring.createFromPrivateKey("privateKey");
-caver.wallet.keyring.createFromPrivateKey("privateKey"); // 創建價值轉移事務add(keyring);
+caver.wallet.add(keyring);
 
-// 創建價值轉移交易
+// Create a value transfer transaction
 ValueTransfer valueTransfer = caver.transaction.valueTransfer.create(
         TxPropertyBuilder.valueTransfer()
                 .setFrom(keyring.getAddress())
@@ -429,7 +429,7 @@ ValueTransfer valueTransfer = caver.transaction.valueTransfer.create(
                 .setGas(BigInteger.valueOf(30000))
 );
 
-// 通過 caver 簽署交易。wallet.sign
+// Sign the transaction via caver.wallet.sign
 caver.wallet.sign(keyring.getAddress(), valueTransfer);
 String rlpEncoded = valueTransfer.getRLPEncoding();
 System.out.println("RLP-encoded string: " + rlpEncoded)
@@ -455,10 +455,10 @@ public String sendRawTransaction() {
   String txHash = null;
 
   try {
-      // 使用 `caver.rpc.klay.sendRawTransaction` 發送事務。
+      // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
       Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoding).send();
       if(sendResult.hasError()) {
-          // do something to handle error
+          //do something to handle error
       }
       
       txHash = sendResult.getResult();
@@ -475,25 +475,25 @@ public String sendRawTransaction() {
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
 
-// 向 caver.wallet 添加一個密鑰環
+// Add a keyring to caver.wallet
 SingleKeyring keyring = caver.wallet.keyring.createFromPrivateKey("privateKey");
-caver.wallet.keyring.createFromPrivateKey("privateKey"); add(keyring);
+caver.wallet.add(keyring);
 
-// 創建價值轉移交易
+// Create a value transfer transaction
 ValueTransfer valueTransfer = caver.transaction.valueTransfer.create(
         TxPropertyBuilder.valueTransfer()
                 .setFrom(keyring.getAddress())
                 .setTo("0x176ff0344de49c04be577a3512b6991507647f72")
                 .setValue(BigInteger.valueOf(1))
-                .setGas(BigInteger.
+                .setGas(BigInteger.valueOf(30000))
 );
 
-// 通過 transaction.sign 簽署事務
+// Sign the transaction via transaction.sign
 valueTransfer.sign(keyring);
 String rlpEncoded = valueTransfer.getRLPEncoding();
 
 try {
-    // 使用 `caver.rpc.klay.sendRawTransaction` 發送事務。
+    // Send the transaction using `caver.rpc.klay.sendRawTransaction`.
     Bytes32 sendResult = caver.rpc.klay.sendRawTransaction(rlpEncoded).send();
     if(sendResult.hasError()) {
         //do something to handle error
@@ -581,7 +581,7 @@ FeeDelegatedValueTransfer feeDelegatedValueTransfer = caver.transaction.feeDeleg
 
 caver.wallet.sign(senderKeyring.getAddress(), feeDelegatedValueTransfer);
 String rlpEncoded = feeDelegatedValueTransfer.getRLPEncoding();
-System.out.println(rlpEncoded)；
+System.out.println(rlpEncoded);
 ```
 
 執行上述代碼後，將打印 RLP 編碼字符串。 (您得到的 RLP 編碼字符串輸出可能與下圖所示的字符串輸出不同）。
@@ -603,8 +603,8 @@ FeeDelegatedValueTransfer feeDelegatedValueTransfer = caver.transaction.feeDeleg
 feeDelegatedValueTransfer.setFeePayer(feePayerKeyring.getAddress());
 feeDelegatedValueTransfer.setKlaytnCall(caver.rpc.klay);
 
-caver.transaction.feeDelegatedValueTransfer = caver.transaction.feeDelegatedValueTransfer.setKlaytnCall(caver.rpc.klay)wallet.signAsFeePayer(feePayerKeyring.getAddress(), feeDelegatedValueTransfer);
-System.out.println(feeDelegatedValueTransfer.getRLPEncoding())；
+caver.wallet.signAsFeePayer(feePayerKeyring.getAddress(), feeDelegatedValueTransfer);
+System.out.println(feeDelegatedValueTransfer.getRLPEncoding());
 ```
 
 執行上述代碼後，包括寄件人簽名和繳費人簽名在內的 RLP 編碼字符串將打印如下。 (您得到的輸出結果可能與下面顯示的字符串輸出結果不同）。
@@ -663,7 +663,7 @@ try {
 
 ```java
 Caver caver = new Caver(Caver.DEFAULT_URL);
-SingleKeyring senderKeyring = caver.wallet.keyring。createFromPrivateKey("0x2359d1ae7317c01532a58b01452476b796a3ac713336e97d8d3c9651cc0aecc3");
+SingleKeyring senderKeyring = caver.wallet.keyring.createFromPrivateKey("0x2359d1ae7317c01532a58b01452476b796a3ac713336e97d8d3c9651cc0aecc3");
 caver.wallet.add(senderKeyring);
 
 String newPrivateKey = caver.wallet.keyring.generateSingleKey();
@@ -697,7 +697,7 @@ try {
     e.printStackTrace();
 }
 
-senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring)；
+senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 ```
 
 如果上述代碼執行成功，你就不能再使用舊私鑰來簽署任何與舊鑰匙圈有關的交易。 因此，您必須通過 `caver.wallet.updateKeyring(newKeyring)` 使用`newKeyring`更新舊 keyring。 一旦更新，簽名將由新更新的私鑰完成。
@@ -1120,11 +1120,11 @@ caver.ipfs "包中的 "IPFS "類被定義為 "Caver "中的一個類成員變量
 - 主機是否使用 SSL。
 
 ```java
-String host = "IPFS 節點的 URL";
-int port = 5001; // API 主機端口號
-boolean isSSL = true; // API 主機支持 ssl 
+String host = "The URL of an IPFS node";
+int port = 5001; // API host port number
+boolean isSSL = true; // API host support ssl 
 Caver caver = new Caver();
-caver.ipfs.setIPFSNode(host, port, isSSL)；
+caver.ipfs.setIPFSNode(host, port, isSSL);
 ```
 
 ### 通過 IPFS 上傳文件<a id="uploading-a-file-through-ipfs"></a>
@@ -1136,7 +1136,7 @@ caver.ipfs.setIPFSNode(host, port, isSSL)；
 ```java
 String filePath = "/path/to/file";
 String cid = caver.ipfs.add(filePath);
-System.out.println(cid)；
+System.out.println(cid);
 ```
 
 上述代碼的執行結果如下所示。
@@ -1152,7 +1152,7 @@ String text = "sample data";
 byte[] data = text.getBytes();
 
 String cid = caver.ipfs.add(data);
-System.out.println(cid)；
+System.out.println(cid);
 ```
 
 上述代碼的執行結果如下所示。
@@ -1169,7 +1169,7 @@ QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
 
 ```java
 String cid = "QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq";
-byte[] content = caver.ipfs.get(cid)；
+byte[] content = caver.ipfs.get(cid);
 ```
 
 ### CID 和多哈希值之間的轉換<a id="conversion-between-cid-and-multihash"></a>
@@ -1181,7 +1181,7 @@ CID 是 Base58 編碼的多重哈希值。 toHex()\`解碼 CID 並返回相應�
 ```java
 String cid = "QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk";
 String multihash = caver.ipfs.toHex(cid);
-System.out.println(multihash)；
+System.out.println(multihash);
 ```
 
 上述代碼的執行結果如下所示。
@@ -1241,7 +1241,7 @@ System.out.println(resultJson);
 KIP7 kip7 = caver.kct.kip7.create(contractAddress);
 Map<String, Boolean> resultInstance = kip7.detectInterface();
 String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
-System.out.println(resultJson)；
+System.out.println(resultJson);
 ```
 
 上述代碼的執行結果如下所示。
@@ -1290,7 +1290,7 @@ System.out.println(resultJson);
 KIP17 kip17 = caver.kct.kip17.create(contractAddress);
 Map<String, Boolean> resultInstance = kip17.detectInterface();
 String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
-System.out.println(resultJson)；
+System.out.println(resultJson);
 ```
 
 上述代碼的執行結果如下所示。
@@ -1339,7 +1339,7 @@ System.out.println(resultJson);
 KIP37 kip37 = caver.kct.kip37.create(contractAddress);
 Map<String, Boolean> resultInstance = kip37.detectInterface();
 String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultInstance);
-System.out.println(resultJson)；
+System.out.println(resultJson);
 ```
 
 上述代碼的執行結果如下所示。
