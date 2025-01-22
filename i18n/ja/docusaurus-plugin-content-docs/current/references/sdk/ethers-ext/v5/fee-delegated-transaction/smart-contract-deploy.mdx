@@ -84,7 +84,7 @@ ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと
 
 ---
 
-送信者**と料金支払者**のアドレスと秘密鍵を定義する。
+**sender**と**fee payer**のアドレスと秘密鍵を定義する。
 
 ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=5:8
 
@@ -185,7 +185,7 @@ main();
 
 ---
 
-送信者\*\*の秘密鍵でトランザクションに署名する。
+**sender**の秘密鍵でトランザクションに署名する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=27:28
@@ -221,7 +221,7 @@ sentTx 0x5083949a04fd3f48b85b6e46fd076c69776732b38a2723a39b5bf35327bbd230
 
 ---
 
-wait\*\*関数は、txがブロックチェーンに正常に送信された場合、txレシートを返す。
+**wait**関数は、txがブロックチェーンに正常に送信された場合、txレシートを返す。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=34:35
