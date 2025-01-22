@@ -2,7 +2,7 @@
 
 **AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
 署名された公開鍵の加重和が閾値より大きいこと。
 無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
@@ -52,7 +52,7 @@ recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 
 ---
 
-eth_utils**、**web3**、**eth_account\*\*から必要なユーティリティをインポートする。
+**eth_utils**、**web3**、**eth_account**から必要なユーティリティをインポートする。
 
 ```py web3_multisig_value_transfer_message_recover.py focus=1:4
 
@@ -68,7 +68,7 @@ web3をkaia web3に拡張するために、**web3py_ext**から**extend**をイ�
 
 ---
 
-Web3.HTTPProvider\*\*とRPCエンドポイントを使用してWeb3接続を定義します。
+**Web3.HTTPProvider**とRPCエンドポイントを使用してWeb3接続を定義します。
 
 ```py web3_multisig_value_transfer_message_recover.py focus=7
 
