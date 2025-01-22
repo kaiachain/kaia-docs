@@ -1,6 +1,6 @@
 # 書く
 
-スマートコントラクトの状態を更新する必要がある場合、スマートコントラクトと**「トランザクション」**を行うことができる。
+スマートコントラクトの状態を更新する必要がある場合、スマートコントラクトと**transaction**を行うことができる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -105,7 +105,7 @@ number after 295
 
 ---
 
-web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js smartContractWrite.js focus=1
 
@@ -113,7 +113,7 @@ web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ex
 
 ---
 
-送信者の**アドレス**と**秘密鍵**を定義する。
+送信者の**address**と**private key**を定義する。
 
 ```js smartContractWrite.js focus=3:4
 
@@ -201,7 +201,7 @@ main();
 
 ---
 
-契約**アビ**と**アドレス**を定義する。
+契約**Abi**と**address**を定義する。
 
 ```js smartContractWrite.js focus=33:34
 
@@ -217,7 +217,7 @@ main();
 
 ---
 
-更新前に\*\*番号を取得
+更新前に**number**を取得
 
 <CH.Code>
 ```js smartContractWrite.js focus=39
@@ -234,7 +234,7 @@ number before 294
 
 ---
 
-番号\*\*をインクリメントするトランザクション・オブジェクトを作成する。
+**number**をインクリメントするトランザクション・オブジェクトを作成する。
 
 ```js smartContractWrite.js focus=41:46
 
@@ -302,7 +302,7 @@ receipt {
 
 ---
 
-アップデート後の\*\*番号を取得
+アップデート後の**number**を取得
 
 <CH.Code>
 ```js smartContractWrite.js focus=54
