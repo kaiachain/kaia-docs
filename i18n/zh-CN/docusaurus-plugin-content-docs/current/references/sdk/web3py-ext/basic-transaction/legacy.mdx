@@ -167,7 +167,7 @@ web3_legacy_value_transfer_sign_recover()
 用用户的私人密钥签署传统 tx
 
 <CH.Code>
-``python txTypeLegacyTransaction.py focus=22:23
+```python txTypeLegacyTransaction.py focus=22:23
 
 ````
 
@@ -183,7 +183,7 @@ raw transaction of signed tx: 0x02f8738203e982036480850ba43b740082f61894a2a8854b
 从已签署的 tx 中的签名中恢复**签名人地址**
 
 <CH.Code>
-``python txTypeLegacyTransaction.py focus=25:26
+```python txTypeLegacyTransaction.py focus=25:26
 
 ````
 
@@ -199,7 +199,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 您可以使用**Account.decode_transaction**工具对 RLP 编码的 tx 进行**解码**，如果您想让输出格式更漂亮，请使用**to_pretty**工具。
 
 <CH.Code>
-``python txTypeLegacyTransaction.py focus=28:29
+```python txTypeLegacyTransaction.py focus=28:29
 
 ````
 ---
@@ -236,7 +236,7 @@ decoded transaction: {
 如果交易已在区块链中完成，**wait_for_transaction_receipt** 方法会返回交易收据。
 
 <CH.Code>
-``python txTypeLegacyTransaction.py focus=32
+```python txTypeLegacyTransaction.py focus=32
 
 ````
 ---
@@ -251,7 +251,7 @@ tx hash:  b'y\xe4+\xff\x8b\xed\x11D\xd9N\x85\xd4\x0f3\r\x82+\x8d\xc4$3\xaek\xc0\
 最后，得到结果。
 
 <CH.Code>
-``python txTypeLegacyTransaction.py focus=35
+```python txTypeLegacyTransaction.py focus=35
 
 ````
 ---
