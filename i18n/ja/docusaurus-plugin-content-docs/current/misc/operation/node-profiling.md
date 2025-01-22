@@ -62,15 +62,15 @@ pprofサーバーが実行されると、ノードのパフォーマンスを分
 
 以下の例に示すように、異なるプロファイルを収集するために、ウェブブラウザでそれぞれのエンドポイントを入力します：
 
-\*\*ヒーププロファイルの収集
+**ヒーププロファイルの収集**
 
 `http://localhost:6060/debug/pprof/heap`
 
-\*\*30秒間のCPUプロファイルを収集する。
+**30秒間のCPUプロファイルを収集する。**
 
 `http://localhost:6060/debug/pprof/profile?seconds=30`
 
-\*\*goroutineプロファイルをdebug=2で収集する。
+**goroutineプロファイルをdebug=2で収集する。**
 
 `http://localhost:6060/debug/pprof/goroutine?debug=2`
 
@@ -223,12 +223,12 @@ var MemProfileRate int = 512 * 1024
   - **プロファイリングを無効にする:** `0`に設定する。
   - **デフォルト設定:** `512 * 1024` (512KBごとに約1つの割り当てプロファイル)。
 
-**影響：**\*。
+**影響：**
 
 - **Higher Profiling Rate (Lower `MemProfileRate`):** 粒度が大きくなるが、パフォーマンスのオーバーヘッドが発生する可能性がある。
 - **Lower Profiling Rate (Higher `MemProfileRate`):** プロファイリングの詳細を減らし、パフォーマンスへの影響を最小限に抑えます。
 
-\*\*ベストプラクティス
+**ベストプラクティス**
 
 - **Consistency:** 正確なプロファイリングデータを維持するために、ノードのランタイムを通して `MemProfileRate` が一定であることを確認する。
 - \*\*初期設定:\*\*一貫したプロファイリング情報を取得するために、`MemProfileRate`をプログラム開始時に設定する。
@@ -253,7 +253,7 @@ go tool pprof -http=0.0.0.0:8081 cpu.profile
 go tool pprof cpu.profile
 ```
 
-- **一般的な`pprof`コマンド:**。
+- **一般的な`pprof`コマンド:**
 
   - `top`：リソースを消費する関数の上位を表示する。
   - `list<function_name>`：特定の関数の注釈付きソースコードを表示する。
