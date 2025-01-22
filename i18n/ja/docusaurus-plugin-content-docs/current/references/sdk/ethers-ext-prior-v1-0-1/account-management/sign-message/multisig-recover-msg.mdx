@@ -2,7 +2,7 @@
 
 **AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
 署名された公開鍵の加重和が閾値より大きいこと。
 無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
@@ -57,14 +57,14 @@ AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引�
 
   ---
 
-  ethers.jsにkaiaの機能を追加するために、**ethers**および\*\*@kaiachain/ethers-ext\*\*パッケージをインポートする。
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js SignMsgWithMultiSigExample.js focus=1:3
   ```
 
   ---
 
-  送信者の**アドレス**と**秘密鍵**およびすべての**重み付きマルチシグ**秘密鍵を定義する。
+  送信者の**address**と**private key**およびすべての**重み付きマルチシグ**秘密鍵を定義する。
 
   ```js SignMsgWithMultiSigExample.js focus=5:9
   ```
@@ -114,7 +114,7 @@ AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引�
 
   ---
 
-  ウェイト・マルチシグ\*\*秘密鍵とプロバイダを使って3つのウォレットを作成する。
+  **weight multi-sig**秘密鍵とプロバイダを使って3つのウォレットを作成する。
 
   ```js SignMsgWithMultiSigExample.js focus=12:14
   ```
