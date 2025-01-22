@@ -70,7 +70,7 @@ receipt {
 
 ---
 
-web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js TxTypeAccountUpdate.js focus=1:2
 
@@ -143,7 +143,7 @@ main();
 
 ---
 
-秘密鍵**と**プロバイダー\*\*を使って送信者のウォレットを作成する。
+**private key**と**プロバイダー**を使って送信者のウォレットを作成する。
 
 ```js TxTypeAccountUpdate.js focus=13
 
@@ -151,7 +151,7 @@ main();
 
 ---
 
-新しい秘密鍵から**公開鍵**を計算する。
+新しい秘密鍵から**public key**を計算する。
 
 <CH.Code>
 
@@ -172,7 +172,7 @@ main();
 
 ---
 
-計算された**公開鍵**で**key**フィールドにトランザクションを宣言する。
+計算された**public key**で**key**フィールドにトランザクションを宣言する。
 
 ```js TxTypeAccountUpdate.js focus=18:25
 
@@ -180,7 +180,7 @@ main();
 
 ---
 
-送信者\*\*の秘密鍵でトランザクションに署名する。
+**sender**の秘密鍵でトランザクションに署名する。
 
 <CH.Code>
 ```js TxTypeAccountUpdate.js focus=27:28
