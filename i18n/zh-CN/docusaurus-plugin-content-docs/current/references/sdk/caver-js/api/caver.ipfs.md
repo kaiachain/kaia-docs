@@ -4,7 +4,7 @@ caver.ipfs "是一个提供与 kaia Node 的 rpc 调用相关的功能的软件�
 
 **注意** `caver.ipfs` 自 caver-js [v1.5.4](https://www.npmjs.com/package/caver-js/v/1.5.4) 开始支持。
 
-## caver.ipfs.setIPFSNode<a id="caver-ipfs-setipfsnode"></a>
+## caver.ipfs.setIPFSNode <a id="caver-ipfs-setipfsnode"></a>
 
 ```javascript
 caver.ipfs.setIPFSNode(host, port, ssl)
@@ -30,7 +30,7 @@ caver.ipfs.setIPFSNode(host, port, ssl)
 > caver.ipfs.setIPFSNode('localhost', 5001, false)
 ```
 
-## caver.ipfs.add<a id="caver-ipfs-add"></a>
+## caver.ipfs.add <a id="caver-ipfs-add"></a>
 
 ```javascript
 caver.ipfs.add(data)
@@ -68,7 +68,7 @@ Qmd9thymMS6mejhEDZfwXPowSDunzgma9ex4ezpCSRZGwC
 QmWmsL95CYvci8JiortAMhezezr8BhAwAVohVUSJBcZcBL
 ```
 
-## caver.ipfs.get<a id="caver-ipfs-get"></a>
+## caver.ipfs.get <a id="caver-ipfs-get"></a>
 
 ```javascript
 caver.ipfs.get(hash)
@@ -97,7 +97,7 @@ caver.ipfs.get(hash)
 <Buffer 74 65 73 74 20 64 61 74 61 20 66 6f 72 20 49 50 46 53>
 ```
 
-## caver.ipfs.toHex<a id="caver-ipfs-tohex"></a>
+## caver.ipfs.toHex <a id="caver-ipfs-tohex"></a>
 
 ```javascript
 caver.ipfs.toHex(hash)
