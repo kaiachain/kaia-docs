@@ -35,7 +35,7 @@ list [command options] [arguments...]
 
 Print a short summary of all accounts
 
-KLAY OPTIONS:
+KAIA OPTIONS:
   --dbtype value                        Blockchain storage database type ("leveldb", "badger") (default: "leveldb")
   --datadir "/Users/ethan/Library/KEN"  Data directory for the databases and keystore
   --keystore                            Directory for the keystore (default = inside the datadir)
@@ -86,8 +86,8 @@ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 > personal.newAccount()
 > personal.importRawKey()
 > personal.unlockAccount()
-> klay.accounts
-> klay.getBalance()
+> kaia.accounts
+> kaia.getBalance()
 ```
 
 ### データディレクトリ<a id="data-directory"></a>
