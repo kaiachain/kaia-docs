@@ -69,7 +69,7 @@ Starting kscnd: OK
 
 ```
 EN-01$ ken attach --datadir ~/data
-> klay.blockNumber
+> kaia.blockNumber
 21073
 ```
 
