@@ -84,7 +84,7 @@ npx hardhat
 
 ハードハット・プロジェクトを初期化した後、カレント・ディレクトリーには以下のものが含まれているはずだ：
 
-**contracts/**\*-このフォルダにはスマート・コントラクトのコードが含まれている。
+**contracts/**-このフォルダにはスマート・コントラクトのコードが含まれている。
 
 **scripts/** – this folder contains code that deploys your contracts on the blockchain network.
 
@@ -122,13 +122,13 @@ require('dotenv').config()
 
 module.exports = {
   solidity: "0.8.17",
-  networks：{
+  networks: {
     kairos: {
       url: process.env.KAIROS_TESTNET_URL || "",
       gasPrice: 250000000000,
       accounts:
-        process.env.PRIVATE_KEY !== undefined ?[process.env.PRIVATE_KEY] : [],
-    }.
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    }
   }
 };
 
@@ -376,7 +376,7 @@ networks: {
 }
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/hardhat-fork.png)
 
@@ -388,7 +388,7 @@ networks: {
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
