@@ -69,7 +69,7 @@ Web3UIの中に、3つのパネルオブジェクトを作成します：
 - StatusPanelを右クリックし、UI → Text - TextMeshProをクリックし、StatusTextにリネームする。 インスペクタペインの "テキスト入力 "フィールド（例："Status..."）に必ず入力してください。
 
 :::note
-**テキストメッシュプロ(TMP)のセットアップ**について
+**テキストメッシュプロ(TMP)のセットアップ**について\*\*
 
 TextMeshProエレメントを初めて作成するとき（UI - Text - TextMeshPro）、Unityは自動的にTMP Essentialsをインポートするよう促します。 誤ってこのプロンプトをスキップしてしまった場合は、Window > TextMeshPro > Import TMP Essentialsから手動でインポートすることができます。
 
@@ -185,11 +185,11 @@ onlyOwner修飾子を削除し、オリジナルのデプロイメント者や�
 
 1. 上記のコードをRemix IDE上で新規作成したファイル`ET.sol`にコピー＆ペーストする。
 2. リミックスIDEで：
-   - 契約書をコンパイルする\*\*ボタンをクリックする。
+   - **Compile contract**ボタンをクリックする。
    - プラグインマネージャーで**Kaiaプラグイン**を有効にする。
    - Kaia PluginタブのEnvironmentで、**Injected Provider** - **Kaia Wallet**を選択します。
-   - 契約\*\*のドロップダウンで契約（ExampleTokens）を検索します。
-   - Deploy\*\*をクリックしてトークンを起動します！
+   - **Contract**のドロップダウンで契約（ExampleTokens）を検索します。
+   - **Deploy**をクリックしてトークンを起動します！
 3. カイアウォレットがポップアップしたら：
    - 配備の詳細を確認する。
    - 確認」をクリックすると、Kaia Kairos Testnetにデプロイされます。
@@ -489,7 +489,7 @@ Assets/
 - 決議と発表」の下：
   - WebGL Template "を探す。
   - KaiaTemplate」を選択する。
-- Publish Settings "の "Compression Format "フィールドで "**disabled**"を選択します。
+- "Publish Settings "の "Compression Format "フィールドで "**disabled**"を選択します。
 
 ![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)
 
