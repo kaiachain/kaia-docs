@@ -24,7 +24,7 @@ RPC "是一個包含[Klay]、[Net]和[Governance]的類別。
 
 通過 `caver.rpc.klay` 可以與 kaia 節點進行交互。 下面的列表列舉了 `caver-js`目前支持的 API 函數。
 
-### [Account](./klay.md#caver-rpc-klay-accountcreated)<a id="account"></a>
+### [Account](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
 
 - [accountCreated](./klay.md#caver-rpc-klay-accountcreated)
 - [getAccount](./klay.md#caver-rpc-klay-getaccount)
@@ -55,7 +55,7 @@ RPC "是一個包含[Klay]、[Net]和[Governance]的類別。
 - [getStorageAt](./klay.md#caver-rpc-klay-getstorageat)
 - [isSyncing](./klay.md#caver-rpc-klay-issyncing)
 
-### [交易](./klay.md#caver-rpc-klay-call)<a id="transaction"></a>
+### [Transaction](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
 
 - [call](./klay.md#caver-rpc-klay-call)
 - [estimateGas](./klay.md#caver-rpc-klay-estimategas)me
@@ -73,7 +73,7 @@ RPC "是一個包含[Klay]、[Net]和[Governance]的類別。
 - [signTransactionAsFeePayer](./klay.md#caver-rpc-klay-signtransactionasfeepayer)
 - [getDecodedAnchoringTransactionByHash](./klay.md#caver-rpc-klay-getdecodedanchoringtransactionbyhash)
 
-### [配置](./klay.md#caver-rpc-klay-getclientversion)<a id="configuration"></a>
+### [Configuration](./klay.md#caver-rpc-klay-getclientversion) <a id="configuration"></a>
 
 - [getChainId](./klay.md#caver-rpc-klay-getchainid)
 - [getClientVersion](./klay.md#caver-rpc-klay-getclientversion)
@@ -84,7 +84,7 @@ RPC "是一個包含[Klay]、[Net]和[Governance]的類別。
 - [getProtocolVersion](./klay.md#caver-rpc-klay-getprotocolversion)
 - [getRewardbase](./klay.md#caver-rpc-klay-getrewardbase)
 
-### [Filter](./klay.md#caver-rpc-klay-getfilterchanges)<a id="filter"></a>
+### [Filter](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
 
 - [getFilterChanges](./klay.md#caver-rpc-klay-getfilterchanges)
 - [getFilterLogs](./klay.md#caver-rpc-klay-getfilterlogs)
@@ -101,7 +101,7 @@ RPC "是一個包含[Klay]、[Net]和[Governance]的類別。
 - [getPeerCount](./net.md#caver-rpc-net-getpeercount)
 - [getPeerCountByType](./net.md#caver-rpc-net-getpeercountbytype)
 
-### [雜項](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
+### [Miscellaneous](./klay.md#caver-rpc-klay-sha3) <a id="miscellaneous"></a>
 
 - [sha3](./klay.md#caver-rpc-klay-sha3)
 
