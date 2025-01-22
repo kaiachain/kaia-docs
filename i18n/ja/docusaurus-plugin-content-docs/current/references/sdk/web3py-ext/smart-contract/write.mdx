@@ -1,6 +1,6 @@
 # 書く
 
-スマートコントラクトの状態を更新する必要がある場合、スマートコントラクトと**「トランザクション」**を行うことができる。
+スマートコントラクトの状態を更新する必要がある場合、スマートコントラクトと**transaction**を行うことができる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -121,7 +121,7 @@ contract_interaction()
 
 ---
 
-transact**関数を使用する際に自動的に署名と送信を行いたい場合は、**construct_sign_and_send_raw_middleware\*\*を使用してください。
+**transact**関数を使用する際に自動的に署名と送信を行いたい場合は、**construct_sign_and_send_raw_middleware**を使用してください。
 
 ```py smart_contract_write.py focus=4,11,20:22
 
@@ -168,7 +168,7 @@ number before:  293
 
 ---
 
-tx**を送り、**契約を**更新**する。 これは自動的に署名し、データを含むTxを送信する。
+tx**を送り、**契約を**update**する。 これは自動的に署名し、データを含むTxを送信する。
 
 ```py smart_contract_write.py focus=20:22
 
