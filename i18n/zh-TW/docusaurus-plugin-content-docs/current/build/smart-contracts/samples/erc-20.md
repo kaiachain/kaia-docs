@@ -510,7 +510,7 @@ approve "只是調用內部方法"_approve"，它實現了 "approve "的實際�
     mapping (address => mapping (address => uint256)) private _allowances;
 ```
 
-#### \(4\) `function _mint(address account, uint256 amount) internal`.<a id="4-function-_mint-address-account-uint256-amount-internal"></a>
+#### \(4\) `function _mint(address account, uint256 amount) internal` <a id="4-function-_mint-address-account-uint256-amount-internal"></a>
 
 `_mint` 不是 ERC-20 的一部分。 但是，我們需要一種方法來創建新的 ERC-20 令牌，因此在此實現中引入了 `_mint` 來創建新令牌，如下所示。
 
