@@ -69,7 +69,7 @@ tcp        0      0 :::61001        :::*       LISTEN      8989/kcn
 
 [[outputs.influxdb]]
   urls = [ "http://localhost:" ]
-  database = "klaytn_cypress"
+  database = "klaytn_mainnet"
 
 [[inputs.prometheus]]
   urls = [ "http://localhost:61001/metrics" ]
