@@ -24,7 +24,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -67,7 +67,7 @@ contract KlaytnGreeter is Mortal {
 
 vvispは、HEACHI LABSが提供する、スマートコントラクトを開発するための使いやすいCLIツール／フレームワークです。 Kaiaスマートコントラクトの環境設定、デプロイ、実行は1つのコマンドで簡単に行える。 詳細は以下のリンクを参照。
 
-- https\://henesis.gitbook.io/vvisp/deploying-smart-contracts
+- https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
 
@@ -87,7 +87,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -110,7 +110,7 @@ $ sudo npm install -g solc@0.5.6
 3. 契約書をまとめる。
 
 ```
-$ solcjs KlaytnGreeter.sol --bin
+$ solcjs KaiaGreeter.sol --bin
 ```
 
 4. caver-jsをインストールする。
