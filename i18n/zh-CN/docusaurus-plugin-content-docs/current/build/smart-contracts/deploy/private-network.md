@@ -172,9 +172,9 @@ hh klaytn-node --attach
 ```
 
 ```jsx title="Result Result "
-欢迎访问 Kaia JavaScript 控制台！
- instance：Klaytn/v0.9.2/linux-amd64/go1.22.1
-  datadir：/klaytn
+Welcome to the Kaia JavaScript console!
+ instance: Klaytn/v0.9.2/linux-amd64/go1.22.1
+  datadir: /klaytn
   modules: admin:1.0 debug:1.0 eth:1.0 governance:1.0 istanbul:1.0 kaia:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 ```
 
