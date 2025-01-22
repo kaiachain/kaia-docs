@@ -189,7 +189,7 @@ yarn hardhat-verify --network kairos 0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da
 ### 修改 targetNetwork 数组<a href="#modify-targetnetwork-array" id="modify-targetnetwork-array"></a>
 
 ```js
-targetNetworks：[链.klaytnBaobab]、
+targetNetworks: [chains.klaytnBaobab],
 ```
 
 这就是配置 Next.js 的全部要求！ 接下来，在本地主机上启动 dApp。
