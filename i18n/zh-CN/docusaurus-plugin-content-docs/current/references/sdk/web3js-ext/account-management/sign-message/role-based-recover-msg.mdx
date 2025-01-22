@@ -138,20 +138,20 @@ main().catch(console.error)
 用发件人的**钱包**签署信息
 
 <CH.Code>
-``js SignMsgWithRoleBased.js focus=14:16
+```js SignMsgWithRoleBased.js focus=14:16
 
-```
+````
 ---
 
-``zsh output
-´ js SignMsgWithRoleBased.js
+```zsh output
+❯ js SignMsgWithRoleBased.js
 {
   senderAddr: '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea',
   msg: 'hello',
   msghex: '0x68656c6c6f',
-  sig：'0x736460622fcfab0fa7de0ca1cde05178f01b124294a640b5f5820c7271262c6c271f1ad15f0d7b974d68eaac60d5daa1e7dd65301bbfb814beecbca1238b64121c'
+  sig: '0x736460622fcfab0fa7de0ca1cde05178f01b124294a640b5f5820c7271262c6c271f1ad15f0d7b974d68eaac60d5daa1e7dd65301bbfb814beecbca1238b64121c'
 }
-```
+````
 
 </CH.Code>
 
@@ -160,14 +160,14 @@ main().catch(console.error)
 使用 `web3.eth.accounts.recover` 从已签名邮件中恢复地址
 
 <CH.Code>
-``js SignMsgWithRoleBased.js focus=18:20
+```js SignMsgWithRoleBased.js focus=18:20
 
-```
+````
 ---
-``zsh output
-´ js SignMsgWithRoleBasedExample.js
+```zsh output
+❯ js SignMsgWithRoleBasedExample.js
 recoveredAddr lib 0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA true
-```
+````
 
 </CH.Code>
 
@@ -176,7 +176,7 @@ recoveredAddr lib 0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA true
 使用 `web3.klay.recoverFromMessage` 从签名信息中恢复地址
 
 <CH.Code>
-``js SignMsgWithRoleBased.js focus=22:24
+```js SignMsgWithRoleBased.js focus=22:24
 
 ````
 ---
