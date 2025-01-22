@@ -10,7 +10,7 @@ caver.kct.kip7 中使用的 abi 和字节码是通过 [openzeppelin](https://git
 
 有关 KIP-7 的更多信息，请参阅 [Kaia 改进提案](https://kips.kaia.io/KIPs/kip-7)。
 
-## caver.kct.kip7.deploy<a id="caver-klay-kip7-deploy"></a>
+## caver.kct.kip7.deploy <a id="caver-klay-kip7-deploy"></a>
 
 ```javascript
 caver.kct.kip7.deploy(tokenInfo, deployer)
@@ -107,7 +107,7 @@ KIP7 {
 })
 ```
 
-## caver.kct.kip7.detectInterface<a id="caver-kct-kip7-detectinterface"></a>
+## caver.kct.kip7.detectInterface <a id="caver-kct-kip7-detectinterface"></a>
 
 ```javascript
 caver.kct.kip7.detectInterface(contractAddress
@@ -138,7 +138,7 @@ Promise "会返回一个 "对象"，其中包含每个[KIP-7 接口](https://kip
 }
 ```
 
-## caver.kct.kip7.create<a id="caver-kct-kip7-create"></a>
+## caver.kct.kip7.create <a id="caver-kct-kip7-create"></a>
 
 ```javascript
 caver.kct.kip7.create([tokenAddress
@@ -634,45 +634,45 @@ kip7.transfer(recipient, amount [, sendParam])
 
 ```javascript
 // Send via a sendParam object with the from field given 
-> kip7.approve('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
+> kip7.transfer('0x{address in hex}', 10, { from: '0x{address in hex}' }).then(console.log)
 {
-    blockHash: '0xf010a98f66b6b36943175cd5b249da54e84abed551cfa02846a2900ddab968c7',
-    blocknumber: 2098,
+    blockHash: '0x8a078c3a73d678cdd85d471eb21e9ed7d695f8b96fc7315cfa59c1f68be3d2bf',
+    blocknumber: 1353,
     contractAddress: null,
     from: '0x2f7dc98bd93a0544b03d6ff428a6f4ae04b32676',
     ...
     status: true,
-    to: '0x8ca777e464a83b939ae131ca037f0d8728c6929e',
+    to: '0x05871c21664e18b2906545f8831695650a8f4056',
     ...
     events: {
-        Approval: {
-            address: '0x8CA777e464a83b939AE131CA037F0d8728C6929e',
-            blocknumber: 2098,
-            transactionHash: '0xf7469c0420cb5ebb0fbf64a314bd0c9ee7517ea64dd72eefa59bc8005bbc0f99',
+        Transfer: {
+            address: '0x05871c21664E18b2906545f8831695650a8f4056',
+            blocknumber: 1353,
+            transactionHash: '0x8bd2b21a06241e4cfc0af1ec40e7b15444f730c7529440648aa4ed6b697f08f4',
             transactionIndex: 0,
-            blockHash: '0xf010a98f66b6b36943175cd5b249da54e84abed551cfa02846a2900ddab968c7',
+            blockHash: '0x8a078c3a73d678cdd85d471eb21e9ed7d695f8b96fc7315cfa59c1f68be3d2bf',
             logIndex: 0,
-            id: 'log_c6ec61aa',
+            id: 'log_82ef7705',
             returnValues: {
                 '0': '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
-                '1': '0xe36ffD7bc4D588c480B5925B9622881F9d85ea30',
+                '1': '0xE411cb0B61FDcC06497794fE3f49F65D5dE41f59',
                 '2': '10',
-                owner: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
-                spender: '0xe36ffD7bc4D588c480B5925B9622881F9d85ea30',
+                from: '0x2f7Dc98Bd93A0544B03d6ff428a6f4ae04b32676',
+                to: '0xE411cb0B61FDcC06497794fE3f49F65D5dE41f59',
                 value: '10'
             },
-            event: 'Approval',
-            signature: '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925',
+            event: 'Transfer',
+            signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
             raw: {
                 data: '0x000000000000000000000000000000000000000000000000000000000000000a',
-                topics: [ '0x8c5be...', '0x00...676', '0x00...a30' ]
+                topics: [ '0xddf25...', '0x00...676', '0x00...f59' ]
             },
         },
     },
 }
 
 // Using FD transaction to execute the smart contract
-> kip7.approve('0x{address in hex}', 10, {
+> kip7.transfer('0x{address in hex}', 10, {
     from: '0x{address in hex}'
     feeDelegation: true,
     feePayer: '0x{address in hex}'
@@ -682,7 +682,7 @@ kip7.transfer(recipient, amount [, sendParam])
 // If the value of kip7.options.from is set, this value is used as the default value 
 // unless you specify `from` in the sendParam object when sending a transaction with a kip7 instance.
 > kip7.options.from = '0x{address in hex}'
-> kip7.approve('0x{address in hex}', 10).then(console.log)
+> kip7.transfer('0x{address in hex}', 10).then(console.log)
 ```
 
 ## kip7.safeTransfer<a id="kip7-safetransfer"></a>
