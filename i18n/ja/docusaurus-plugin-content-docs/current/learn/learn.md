@@ -36,7 +36,7 @@ Kaiaは高度に最適化された<LinkWithTooltip to="../misc/glossary#bft-base
 
 ### ノードの種類
 
-![Klaytn Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](/img/learn/klaytn_network_node.png)
+![Kaia Main Chain Physical Topology and Tiered Architecture (CNN, PNN, and ENN)](/img/learn/klaytn_network_node.png)
 
 1. **コアセル（CC）**：1つのコンセンサスノード（CN）と2つのプロキシノード（PN）で構成される。
 
