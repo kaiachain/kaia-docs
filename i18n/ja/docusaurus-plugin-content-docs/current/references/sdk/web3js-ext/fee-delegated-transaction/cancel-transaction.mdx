@@ -71,7 +71,7 @@ receipt {
 
 ---
 
-web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js TxFeeDelegatedCancel.js focus=1:2
 
@@ -79,7 +79,7 @@ web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ex
 
 ---
 
-差出人**、料金支払人**のアドレスと、そのPrivate Keyを定義する。
+**sender**、**fee payer** のアドレス、およびそれらの**private keys**を定義する。
 
 ```js TxFeeDelegatedCancel.js focus=4:7
 
@@ -161,7 +161,7 @@ Define a **FeeDelegatedCancel** transaction with params: `type: TxType.FeeDelega
 
 ---
 
-送信者\*\*のアカウントで取引に署名する。
+**sender**のアカウントで取引に署名する。
 
 <CH.Code>
 ```js TxFeeDelegatedCancel.js focus=19:21
