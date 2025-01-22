@@ -4,7 +4,7 @@ sidebar_label: Web3Modal
 
 # Web3ModalをdAppに統合する
 
-
+![](/img/banners/kaia-web3Modal\(wc\).png)
 
 ## はじめに
 
