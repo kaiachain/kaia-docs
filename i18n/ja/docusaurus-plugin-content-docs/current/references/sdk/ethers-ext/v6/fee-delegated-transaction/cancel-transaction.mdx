@@ -69,14 +69,14 @@
 
   ---
 
-  ethers.jsにkaiaの機能を追加するために、**ethers**および\*\*@kaiachain/ethers-ext\*\*パッケージをインポートする。
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js TxFeeDelegatedCancelType.js focus=1:3
   ```
 
   ---
 
-  送信者\*\*、料金支払者\*\*のアドレスと秘密鍵を定義する。
+  **sender**、**fee payer**のアドレスと秘密鍵を定義する。
 
   ```js TxFeeDelegatedCancelType.js focus=5:8
   ```
@@ -130,28 +130,28 @@
 
   ---
 
-  秘密鍵とプロバイダーを使って**送信者**のウォレットを作成する。
+  秘密鍵とプロバイダーを使って**sender**のウォレットを作成する。
 
   ```js TxFeeDelegatedCancelType.js focus=11
   ```
 
   ---
 
-  料金支払い者\*\*のウォレットを秘密鍵とプロバイダーで作成する。
+  **fee payer**のウォレットを秘密鍵とプロバイダーで作成する。
 
   ```js TxFeeDelegatedCancelType.js focus=12
   ```
 
   ---
 
-  from**フィールドを**sender address**とし、**type**フィールドを**TxType.FeeDelegatedCancel\*\* とするトランザクションを宣言する。
+  **from**フィールドを**sender address**とし、**type**フィールドを**TxType.FeeDelegatedCancel** とするトランザクションを宣言する。
 
   ```js TxFeeDelegatedCancelType.js focus=15:18
   ```
 
   ---
 
-  sender\*\*ウォレットでトランザクションに署名し、**senderTxHashRLP**をプリントアウトする。
+  **sender**ウォレットでトランザクションに署名し、**senderTxHashRLP**をプリントアウトする。
 
   <CH.Code>
     ```js TxFeeDelegatedCancelType.js focus=20:23
@@ -183,7 +183,7 @@
 
   ---
 
-  wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
+  **wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
   <CH.Code>
     ```js TxFeeDelegatedCancelType.js focus=29:30
