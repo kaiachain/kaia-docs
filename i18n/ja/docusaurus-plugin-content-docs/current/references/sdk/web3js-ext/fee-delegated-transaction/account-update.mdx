@@ -78,7 +78,7 @@ receipt {
 
 ---
 
-web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=1
 
@@ -86,7 +86,7 @@ web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ex
 
 ---
 
-送信者アドレス**、送信者秘密鍵**、変更する新しい秘密鍵\*\*を定義する。
+**送信者アドレス**、送信者秘密鍵**、変更する新しい秘密鍵**を定義する。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=5:7
 
@@ -94,7 +94,7 @@ web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ex
 
 ---
 
-料金支払い者アドレス**と**秘密鍵\*\*を定義する。
+料金支払い者アドレス**と**private key\*\*を定義する。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=8:9
 
@@ -174,7 +174,7 @@ main();
 
 ---
 
-`getPublicKeyFromPrivate`を使用して、**新しい秘密鍵**から**公開鍵**を生成する。
+`getPublicKeyFromPrivate`を使用して、**新しい秘密鍵**から**public key**を生成する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=17:18
@@ -203,7 +203,7 @@ main();
 
 ---
 
-送信者\*\*のアカウントで取引に署名する。
+**sender**のアカウントで取引に署名する。
 
 <CH.Code>
 
