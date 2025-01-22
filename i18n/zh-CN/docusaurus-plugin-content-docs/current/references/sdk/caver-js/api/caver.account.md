@@ -4,7 +4,7 @@ caver.account "是一个提供与 "账户 "相关功能的软件包，在更新�
 
 ## 类别<a id="class"></a>
 
-### 账户<a id="account"></a>
+### Account <a id="account"></a>
 
 ```javascript
 const account = new caver.account(address, accountKey)
@@ -19,7 +19,7 @@ const account = new caver.account(address, accountKey)
 | 地址   | 字符串 | 要更新的账户地址。                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | 帐户密钥 | 对象  | 账户中要使用的新账户密钥。 An object defines `keyType` and `key` inside or an instance of `AccountKey` ([AccountKeyLegacy](../caver.account.md#accountkeylegacy), [AccountKeyPublic](../caver.account.md#accountkeypublic), [AccountKeyFail](../caver.account.md#accountkeyfail)、[AccountKeyWeightedMultiSig](./caver.account.md#accountkeyweightedmultisig)或[AccountKeyRoleBased](./caver.account.md#accountkeyrolebased))。 执行交易时，存储在 kaia 中的账户的 accountKey 会更改为此值。 |
 
-### 账户密钥<a id="accountkeylegacy"></a>
+### AccountKeyLegacy <a id="accountkeylegacy"></a>
 
 ```javascript
 const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
@@ -27,7 +27,7 @@ const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 
 AccountKeyLegacy\` 用于更新 kaia 中具有 [AccountKeyLegacy] 的账户的 AccountKey。 要创建具有 "账户密钥合法性 "的账户实例，请参考 [caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy)。
 
-### 公共账户密钥<a id="accountkeypublic"></a>
+### AccountKeyPublic <a id="accountkeypublic"></a>
 
 ```javascript
 const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey)
@@ -43,7 +43,7 @@ AccountKeyPublic "用于用[AccountKeyPublic]更新 kaia 中账户的 AccountKey
 | -- | --- | ------ |
 | 公钥 | 字符串 | 公钥字符串。 |
 
-### AccountUpdate <a id="accountupdate"></a>
+### AccountKeyFail <a id="accountkeyfail"></a>
 
 ```javascript
 const accountKeyFail = new caver.account.accountKey.accountKeyFail()
@@ -51,7 +51,7 @@ const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 
 AccountKeyFail "用于以[AccountKeyFail]更新 kaia 中账户的 AccountKey。 要创建带有 "AccountKeyFail "的账户实例，请参阅 [caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail)。
 
-### 账户密钥加权多重加密<a id="accountkeyweightedmultisig"></a>
+### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
 ```javascript
 const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeightedMultiSig(threshold, weightedPublicKeys)
@@ -68,7 +68,7 @@ AccountKeyWeightedMultiSig "用于使用[AccountKeyWeightedMultiSig]更新 kaia 
 | 阈值   | 数量 | 验证阈值。    |
 | 加权公钥 | 数组 | 加权公钥]数组。 |
 
-### 基于账户密钥角色<a id="accountkeyrolebased"></a>
+### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
 ```javascript
 const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(accountKeyArray)
@@ -84,7 +84,7 @@ AccountKeyRoleBased "用于使用[AccountKeyRoleBased]更新 kaia 中账户的 A
 | ------ | -- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 帐户密钥数组 | 数组 | 定义每个 [role] 使用的 accountKey 的数组。 每个角色都可以用 [AccountKeyLegacy](#accountkeylegacy)、[AccountKeyPublic](#accountkeypublic)、[AccountKeyFail](#accountkeyfail) 或 [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) 来定义。 |
 
-### 加权公钥<a id="weightedpublickey"></a>
+### WeightedPublicKey <a id="weightedpublickey"></a>
 
 ```javascript
 const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight, publicKey)
@@ -99,7 +99,7 @@ const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight,
 | 权重 | 数量  | 公开密钥的权重。 权重用于检查公钥的加权总和是否大于 [AccountKeyWeightedMultiSig] 对象的阈值。 |
 | 公钥 | 字符串 | 私钥字符串。                                                         |
 
-### 加权多重加密选项<a id="weightedmultisigoptions"></a>
+### WeightedMultiSigOptions <a id="weightedmultisigoptions"></a>
 
 ```javascript
 const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(threshold, weights)
@@ -114,7 +114,7 @@ const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(thresh
 | 阀值 | 数量 | 验证阈值。   |
 | 权重 | 数组 | 键值权重数组。 |
 
-## caver.account.create
+## caver.account.create <a id="caver-account-create"></a>
 
 ```javascript
 caver.account.create(address, accountKey [, options])
@@ -245,7 +245,7 @@ Account {
 }
 ```
 
-## caver.account.createFromRLPEncoding<a id="caver-account-createfromrlpencoding"></a>
+## caver.account.createFromRLPEncoding <a id="caver-account-createfromrlpencoding"></a>
 
 ```javascript
 caver.account.createFromRLPEncoding(address, rlpEncodedKey)
@@ -283,7 +283,7 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyLegacy<a id="caver-account-createwithaccountkeylegacy"></a>
+## caver.account.createWithAccountKeyLegacy <a id="caver-account-createwithaccountkeylegacy"></a>
 
 ```javascript
 caver.account.createWithAccountKeyLegacy(address)
@@ -313,7 +313,7 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyPublic<a id="caver-account-createwithaccountkeypublic"></a>
+## caver.account.createWithAccountKeyPublic <a id="caver-account-createwithaccountkeypublic"></a>
 
 ```javascript
 caver.account.createWithAccountKeyPublic(address, publicKey)
@@ -344,7 +344,7 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyFail<a id="caver-account-createwithaccountkeyfail"></a>
+## caver.account.createWithAccountKeyFail <a id="caver-account-createwithaccountkeyfail"></a>
 
 ```javascript
 caver.account.createWithAccountKeyFail(address)
@@ -374,7 +374,7 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyWeightedMultiSig<a id="caver-account-createwithaccountkeyweightedmultisig"></a>
+## caver.account.createWithAccountKeyWeightedMultiSig <a id="caver-account-createwithaccountkeyweightedmultisig"></a>
 
 ```javascript
 caver.account.createWithAccountKeyWeightedMultiSig(address, publicKeyArray [, options])
@@ -429,7 +429,7 @@ Account {
 }
 ```
 
-## caver.account.createWithAccountKeyRoleBased<a id="caver-account-createwithaccountkeyrolebased"></a>
+## caver.account.createWithAccountKeyRoleBased <a id="caver-account-createwithaccountkeyrolebased"></a>
 
 ```javascript
 caver.account.createWithAccountKeyRoleBased(address, roledBasedPublicKeyArray [, options])
@@ -522,7 +522,7 @@ Account {
 }
 ```
 
-## caver.account.accountKey.decode<a id="caver-account-accountkey-decode"></a>
+## caver.account.accountKey.decode <a id="caver-account-accountkey-decode"></a>
 
 ```javascript
 caver.account.accountKey.decode(rlpEncodedAccountKey)
@@ -549,7 +549,7 @@ An object defines `keyType` and `key` inside or an instance of `AccountKey` ([Ac
 AccountKeyPublic { _publicKey: '0x02c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9' }
 ```
 
-## account.getRLPEncodingAccountKey<a id="account-getrlpencodingaccountkey"></a>
+## account.getRLPEncodingAccountKey <a id="account-getrlpencodingaccountkey"></a>
 
 ```javascript
 account.getRLPEncodingAccountKey()
