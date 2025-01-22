@@ -1,6 +1,6 @@
 # スマート・コントラクトの実行
 
-**TxTypeSmartContractExecution\***は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
+**TxTypeSmartContractExecution**は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
 
 <CH.Spotlight>
 <CH.Code>
@@ -81,7 +81,7 @@ receipt {
 
 ---
 
-web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js SmartContractExecution.js focus=1:2
 
@@ -89,7 +89,7 @@ web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ex
 
 ---
 
-送信者アドレスと送信者秘密鍵\*\*の定義
+**送信者アドレスと送信者秘密鍵**の定義
 
 ```js SmartContractExecution.js focus=4:5
 
@@ -206,7 +206,7 @@ Define a transaction object for the contract execution, params `type: TxType.Sma
 
 ---
 
-送信者\*\*の秘密鍵でトランザクションに署名する。
+**sender**の秘密鍵でトランザクションに署名する。
 
 <CH.Code>
 ```js SmartContractExecution.js focus=39:40
