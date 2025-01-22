@@ -29,7 +29,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
 
@@ -84,15 +84,15 @@ pragma solidity ^0.5.6;
 
 import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
-import "../contracts/KlaytnGreeter.sol";
+import "../contracts/KaiaGreeter.sol";
 
-contract TestKlaytnGreeter {
+contract TestKaiaGreeter {
 
     function testGreetingMessage() public {
-        // DeployedAddresses.KlaytnGreeter() handles contract address.
-        KlaytnGreeter greeter = KlaytnGreeter(DeployedAddresses.KlaytnGreeter());
+        // DeployedAddresses.KaiaGreeter() handles contract address.
+        KaiaGreeter greeter = KaiaGreeter(DeployedAddresses.KaiaGreeter());
 
-        string memory expectedGreet = "Hello Klaytn";
+        string memory expectedGreet = "Hello Kaia";
 
         string memory greet = greeter.greet();
 
@@ -111,11 +111,11 @@ Using network 'development'.
 
 Compiling your contracts...
 ===========================
-> Compiling ./test/TestKlaytnGreeter.sol
+> Compiling ./test/TestKaiaGreeter.sol
 
 
 
-  TestKlaytnGreeter
+  TestKaiaGreeter
     1) testGreetingMessage
 
     Events emitted during test:
@@ -128,9 +128,9 @@ Compiling your contracts...
   0 passing (5s)
   1 failing
 
-  1) TestKlaytnGreeter
+  1) TestKaiaGreeter
        testGreetingMessage:
-     Error: greeting message should match (Tested: Hello, Klaytn, Against: Hello Klaytn)
+     Error: greeting message should match (Tested: Hello, Kaia, Against: Hello Kaia)
       at result.logs.forEach.log (/Users/jieunkim/.nvm/versions/node/v10.16.0/lib/node_modules/truffle/build/webpack:/packages/core/lib/testing/soliditytest.js:71:1)
       at Array.forEach (<anonymous>)
       at processResult (/Users/jieunkim/.nvm/versions/node/v10.16.0/lib/node_modules/truffle/build/webpack:/packages/core/lib/testing/soliditytest.js:69:1)
@@ -148,11 +148,11 @@ Using network 'development'.
 
 Compiling your contracts...
 ===========================
-> Compiling ./test/TestKlaytnGreeter.sol
+> Compiling ./test/TestKaiaGreeter.sol
 
 
 
-  TestKlaytnGreeter
+  TestKaiaGreeter
     ✓ testGreetingMessage (58ms)
 
 
@@ -239,7 +239,7 @@ Compiling your contracts...
 
 
 
-  Contract: KlaytnGreeter
+  Contract: KaiaGreeter
     ✓ #1 check Greeting message
     ✓ #2 update greeting message. (46ms)
     ✓ #3 [Failure test] Only owner can change greeting.
@@ -255,7 +255,7 @@ Compiling your contracts...
 実行するテストファイルを選択できる。
 
 ```
-truffle test ./test/0_KlaytnGreeting.js
+truffle test ./test/0_KaiaGreeting.js
 ```
 
 詳しくは、[Truffle testing](https://www.trufflesuite.com/docs/truffle/testing/testing-your-contracts)、[Truffle commands](https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#test)をご覧ください。
