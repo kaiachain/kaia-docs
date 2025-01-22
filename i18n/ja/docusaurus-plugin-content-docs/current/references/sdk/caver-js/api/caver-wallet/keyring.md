@@ -348,9 +348,9 @@ caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 
 **パラメーター**
 
-| 名称              | タイプ   | 説明                                                                                |
-| --------------- | ----- | --------------------------------------------------------------------------------- |
-| klaytnWalletKey | ストリング | [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) 文字列。 |
+| 名称              | タイプ   | 説明                                                                                                       |
+| --------------- | ----- | -------------------------------------------------------------------------------------------------------- |
+| klaytnWalletKey | ストリング | The [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string. |
 
 **リターン・バリュー**
 
