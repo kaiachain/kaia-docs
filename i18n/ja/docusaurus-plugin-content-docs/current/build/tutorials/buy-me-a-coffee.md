@@ -183,62 +183,62 @@ b. プロジェクトディレクトリの表示 あなたのカレント・デ�
 このセクションでは、BMC機能を格納するスマート・コントラクトを作成する。 `BuyMeACoffee.sol`という名前の新しいファイルを作成し、以下のコードを貼り付けてください：
 
 ```solidity
-// SPDX-License-Identifier：UNLICENSED
+// SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 contract BuyMeACoffee {
-    // チップでメッセージが送信されたときに発行するイベント
+    // event to emit when a message is sent with tip
     event NewCoffee(address indexed _sender, string name, string _message, uint256 _timestamp);
 
-    // 契約デプロイメントのアドレス
+    // address of contract deployer
     address payable owner;
     constructor() {
-        // デプロイメントをオーナーとして保存
+        // stores deployer as owner
         owner = payable(msg.sender);
-    }.
+    }
 
-    // BuyMeACoffe Tx の構造体
+    // struct of BuyMeACoffe Tx
     struct BuyCoffee {
         address sender;
         string name;
         uint timestamp;
         string message;
-    } // ID を BuyCoffee にマップする。
+    }
 
-    // id を BuyCoffee にマップする struct
+    // maps id to BuyCoffee struct
     mapping (uint => BuyCoffee) idToBuyCoffee;
 
     // id 
     uint public coffeeId;
 
-    // コーヒーを買う関数
+    // buy coffee function
     function buyCoffee(string memory name, string memory message) public payable {
-	  // コーヒーのために 0 KAIA 以上を受け入れなければならない
+	  // Must accept more than 0 KAIA for a coffee.
         require(msg.value > 0, "Tip must be greater than zero");
         coffeeId++;
 	
-	// コーヒーtxをストレージに追加する
-        BuyCoffeeストレージ coffee = idToBuyCoffee[coffeeId];
+	// Add the coffee tx to storage
+        BuyCoffee storage coffee = idToBuyCoffee[coffeeId];
         coffee.message = message;
         coffee.name = name;
         coffee.sender = msg.sender;
         coffee.timestamp = block.timestamp;
-         // コーヒーtxの詳細を含むNewCoffeeイベントを発行する。
+         // Emit a NewCoffee event with details about the coffee tx.
         emit NewCoffee(msg.sender, name, message, block.timestamp);
-    } // コーヒーtxを契約所有者に引き出す。
+    }
 
-
+    // withdraw coffee tips to the contract owner
     function withdrawCoffeTips() public {
         require(owner == msg.sender, "Not owner");
         require(owner.send(address(this).balance) );
-    } // すべてのコーヒーを取得する。
+    }
 
-     // すべてのコーヒーを取得
+     // get all coffee
     function getAllCoffee(uint _id) public view returns(BuyCoffee[] memory c){
         require(_id <= coffeeId, "Non-existent id");
         c = new BuyCoffee[](_id);
         for(uint i = 0; i < _id; i++) {
             c[i] = idToBuyCoffee[i + 1];
-        }.
+        }
     }
 }
 ```
@@ -267,13 +267,13 @@ BMCスマートコントラクトの記述が完了したので、次のステ�
 
 ```js
 const hre = require("hardhat");
-// Logs the KLAY balances of a specific address.
+// Logs the KAIA balances of a specific address.
 async function getBalance(address) {
     const balanceBigInt = await hre.ethers.provider.getBalance(address);
     return hre.ethers.utils.formatEther(balanceBigInt)
 }
 
-// Logs the KLAY balances for a list of addresses.
+// Logs the KAIA balances for a list of addresses.
 async function getBalances(addresses) {
   let idx = 0;
   for (const address of addresses) {
@@ -486,8 +486,8 @@ async function main() {
 
   const balanceBefore = await getBalance(signer.address);
   const contractBalance = await getBalance(BuyMeACoffee.address);
-  console.log(`Owner balance before withdrawing tips: ${balanceBefore} KLAY`);
-  console.log(`Contract balance before withdrawing tips:  ${contractBalance} KLAY`);
+  console.log(`Owner balance before withdrawing tips: ${balanceBefore} KAIA`);
+  console.log(`Contract balance before withdrawing tips:  ${contractBalance} KAIA`);
 
     // Withdraw funds if there are funds to withdraw.
     if (contractBalance !== "0.0") {
@@ -496,7 +496,7 @@ async function main() {
         await withdrawCoffeTxn.wait();
         // check owner's balance after withdrawing coffee tips
         const balanceAfter = await getBalance(signer.address);
-        console.log(`Owner balance after withdrawing tips ${balanceAfter} KLAY`);
+        console.log(`Owner balance after withdrawing tips ${balanceAfter} KAIA`);
       } else {
         console.log("no funds to withdraw!");
       }
