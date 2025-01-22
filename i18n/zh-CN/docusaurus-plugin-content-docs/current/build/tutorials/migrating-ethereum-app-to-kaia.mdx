@@ -42,19 +42,19 @@ Kaia 运行时环境与以太坊虚拟机兼容，可执行用 Solidity 编写�
 <Tabs>
   <TabItem value="硬帽" label="硬礼帽">
     ```js
-    // 使用 Hardhat，只需在 "hardhat.config.js "配置文件中添加以下网络即可：
-    networks：{
+    // using Hardhat, it will be enough to add the following networks to the "hardhat.config.js" configuration file
+    networks: {
     	kaia: {
-    	  url："https://public-en.node.kaia.io",
+    	  url: "https://public-en.node.kaia.io",
     		accounts:[process.env.PRIVATE_KEY],
       },
-    	kairos_testnet：{
-    		url："https://public-en-kairos.node.kaia.io", 
+    	kairos_testnet: {
+    		url: "https://public-en-kairos.node.kaia.io", 
     		accounts:[process.env.PRIVATE_KEY],
     	}
     }
 
-    // 然后运行命令进行部署：
+    // Then run the command to deploy :
     // npx hardhat run scripts/deploy.js --network kaia
     // npx hardhat run scripts/deploy.js --network kairos_testnet
 
