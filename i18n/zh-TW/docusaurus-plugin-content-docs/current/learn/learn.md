@@ -18,7 +18,7 @@ Kaia 區塊鏈提供
 
 - 區塊生成和確認時間為 1 秒。
 - 處理能力達每秒 4000 筆交易。
-- 天然氣價格低廉，約為以太坊的 1/10。
+- Gas 價格低廉，約為以太坊的 1/10。
 - 兼容 EVM（以太坊虛擬機），支持 Solidity 合約。
 - 全球知名企業組成<LinkWithTooltip to="../misc/glossary#kaia-governance-council-kgc" tooltip="A consortium governing Kaia blockchain development and operations.">Kaia 治理委員會</LinkWithTooltip>進行治理。
 
