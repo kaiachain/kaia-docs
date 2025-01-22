@@ -68,6 +68,7 @@ receipt {
   transactionIndex: 0n,
   type: 0n
 }
+
 ```
 
 </CH.Code>
@@ -219,7 +220,7 @@ main();
 使用 `signTransaction` 在**发送方**账户上签署交易
 
 <CH.Code>
-``js FeeDelegatedSmartContractExecution.js focus=27:29
+```js FeeDelegatedSmartContractExecution.js focus=27:29
 
 ````
 
@@ -238,7 +239,7 @@ senderTxHashRLP 0x31f8a68203b8850ba43b74008301087994d7fa6634bdde0b2a9d491388e2fd
 使用 "signTransactionAsFeePayer "以**付费方**账户签署交易
 
 <CH.Code>
-``js FeeDelegatedSmartContractExecution.js focus=31:33
+```js FeeDelegatedSmartContractExecution.js focus=31:33
 
 ````
 
@@ -257,7 +258,7 @@ signedTx 0xfa69f712a8d748e294caa1b95df51f8974a0bcf620af6c1b8a7614999a20b447
 将交易发送到区块链。 它将返回交易收据
 
 <CH.Code>
-``js FeeDelegatedSmartContractExecution.js focus=35:36
+```js FeeDelegatedSmartContractExecution.js focus=35:36
 
 ````
 
