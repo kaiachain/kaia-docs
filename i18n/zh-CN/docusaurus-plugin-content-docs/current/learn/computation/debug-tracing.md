@@ -40,22 +40,22 @@ Kaia 的 `callTracer` 输出格式与 go-ethereum 完全相同，但以下内容
   - result.revted.message：与 revertReason 相同
 
 ```js
-> debug.traceTransaction("0x49aa6074a3b4970399ef2af12b109c4cb4a65ab8a833d1540e4cefa657a3c0c7", {tracer:"callTracer"})
+> debug.traceTransaction("0x49aa6074a3b4970399ef2af12b109c4cb4a65ab8a833d1540e4cefa657a3c0c7", {tracer: "callTracer"})
 {
-  error："execution reverted",
+  error: "execution reverted",
   from: "0x7f0546832758f61410e81a94d7a07d55b1dfd278",
-  gas："0xc350",
-  gasUsed："0x6992",
-  input："0x96670644",
-  output："0x08c379a00000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000962616420696e70757400000000000000000000000000000000000000000000000000"，
-  revertReason："坏输入"，
-  reverted：{
+  gas: "0xc350",
+  gasUsed: "0x6992",
+  input: "0x96670644",
+  output: "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000962616420696e7075740000000000000000000000000000000000000000000000",
+  revertReason: "bad input",
+  reverted: {
     contract: "0xe6c5b1cbf283d9482088136b8cee53fdb6c088eb",
-    message："bad input"
+    message: "bad input"
   },
-  to："0xe6c5b1cbf283d9482088136b8cee53fdb6c088eb",
-  类型："CALL"，
-  值："0x0"
+  to: "0xe6c5b1cbf283d9482088136b8cee53fdb6c088eb",
+  type: "CALL",
+  value: "0x0"
 }
 ```
 
@@ -64,15 +64,15 @@ Kaia 的 `callTracer` 输出格式与 go-ethereum 完全相同，但以下内容
 ```js
 > kaia.getTransaction("0xac43859eb4064916e8be8e74645d6019cc48cb6791f68ea21d42ead6bba569b5").type
 "TxTypeAccountUpdate"
-> debug.traceTransaction("0xac43859eb4064916e8be8e74645d6019cc48cb6791f68ea21d42ead6bba569b5", {tracer:"callTracer"})
+> debug.traceTransaction("0xac43859eb4064916e8be8e74645d6019cc48cb6791f68ea21d42ead6bba569b5", {tracer: "callTracer"})
 {
   from: "0x7f0546832758f61410e81a94d7a07d55b1dfd278",
-  gas："0xcd14",
-  gasUsed："0xa028",
-  input："0x",
-  to："0x7f0546832758f61410e81a94d7a07d55b1dfd278",
-  type："CALL"，
-  值："0x0"
+  gas: "0xcd14",
+  gasUsed: "0xa028",
+  input: "0x",
+  to: "0x7f0546832758f61410e81a94d7a07d55b1dfd278",
+  type: "CALL",
+  value: "0x0"
 }
 ```
 
