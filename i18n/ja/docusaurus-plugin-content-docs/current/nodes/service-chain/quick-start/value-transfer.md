@@ -51,7 +51,7 @@ True
 オペレーターの口座に十分な残高があるか確認する。 サブブリッジがインストールされている SCN ノードのコンソールから、以下のように問い合わせることができます：
 
 ```
-> klay.getBalance(subbridge.childOperator)
+> kaia.getBalance(subbridge.childOperator)
 1e+21
 > subbridge.childOperatorBalance
 1e+21
