@@ -10,9 +10,9 @@ sidebar_label: ブランド・ガイドライン
 
 カイアのロゴとトークンのシンボルは、私たちのプロジェクトのアイデンティティを表しています。  これらのガイドラインを遵守することで、すべてのプラットフォームで一貫性のあるインパクトのあるブランディングが可能になります。
 
-- \*\*主な配色：\*\*\*ライトバージョンよりもダークバージョンを使用することをお勧めします。
+- \*\*主な配色：\*\*ライトバージョンよりもダークバージョンを使用することをお勧めします。
 - \*\*デフォルトの色の組み合わせ：\*\*黒地にネオンライム。
-- **色使用優先度：**\*。
+- **色使用優先度：**。
   1. ![](/img/misc/kaia_brandmark_neonlime_on_black.png) Neon lime on black background
   2. ![](/img/misc/kaia_brandmark_black_on_neonlime.png) Black on neon lime background
   3. ![](/img/misc/kaia_brandmark_white_on_black.png) White on black background
