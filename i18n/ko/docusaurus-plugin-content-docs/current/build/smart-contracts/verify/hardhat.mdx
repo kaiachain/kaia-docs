@@ -1,5 +1,5 @@
 ---
-id: 안전모
+id: hardhat
 title: 하드햇 사용
 ---
 
@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem'
 
 Kaia에서 계약을 확인하려면 `hardhat.config.js`에 다음 구성을 추가해야 합니다:
 
-## 카이아스캔
+## Kaiascan
 
 <Tabs>
   <TabItem value="카이아 메인넷" label="메인넷">
@@ -60,10 +60,10 @@ Kaia에서 계약을 확인하려면 `hardhat.config.js`에 다음 구성을 추
   </TabItem>
 </Tabs>
 
-## 카이아스코프
+## Kaiascope
 
 <Tabs>
-  <TabItem value="카이아 메인넷" label="메인넷">
+  <TabItem value="kaia-mainnet" label="Mainnet">
     ```js
     module.exports = {
       networks: {
@@ -91,7 +91,7 @@ Kaia에서 계약을 확인하려면 `hardhat.config.js`에 다음 구성을 추
     ```
   </TabItem>
 
-  <TabItem value="카이로스 테스트넷" label="카이로스">
+  <TabItem value="kairos-testnet" label="Kairos">
     ```js
     module.exports = {
       networks: {
@@ -134,12 +134,12 @@ npx hardhat verify --network kairos 0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535
 
 인증에 성공했다면 [카이아스캔](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1)과 [카이아스코프](https://baobab.klaytnscope.com/account/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contractCode)에 각각 '성공적으로 인증된 계약'이 표시되고 계약 코드 링크가 제공됩니다.
 
-**카이아스칸**
+**Kaiascan**
 
 ![](/img/build/smart-contracts/verify/kaiascan-terminal.png)
 ![](/img/build/smart-contracts/verify/kaiascan-verify.png)
 
-**카이아스코프**
+**Kaiascope**
 
 ![](/img/build/smart-contracts/verify/kaiascope-terminal.png)
 ![](/img/build/smart-contracts/verify/kaiascope-verify.png)
