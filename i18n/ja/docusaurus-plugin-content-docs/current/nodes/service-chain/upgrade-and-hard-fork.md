@@ -193,7 +193,7 @@ Kaia JavaScript コンソールへようこそ！
 エポックを確認するには、以下のように `governanace.itemsAt` API を使用する。
 
 ```javascript
-> governance.itemsAt(klay.blockNumber)
+> governance.itemsAt(kaia.blockNumber)
 {
   governance.governancemode: "none",
   governance.governingnode: "0x05ad406f31e22b74f18c9ed65ed1ccd349bbbee0",
