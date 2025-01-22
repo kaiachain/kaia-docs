@@ -65,7 +65,7 @@ web3をkaia web3に拡張するために、**web3py_ext**から**extend**をイ�
 
 ---
 
-web3**と**eth_account\*\*から必要なutilsをインポートする。
+**web3**と**eth_account**から必要なutilsをインポートする。
 
 ```py web3_public_value_transfer_sign_recover.py focus=3:8
 
@@ -73,7 +73,7 @@ web3**と**eth_account\*\*から必要なutilsをインポートする。
 
 ---
 
-Web3.HTTPProvider\*\*とRPCエンドポイントを使用してWeb3接続を定義します。
+**Web3.HTTPProvider**とRPCエンドポイントを使用してWeb3接続を定義します。
 
 ```py web3_public_value_transfer_sign_recover.py focus=11
 
@@ -131,7 +131,7 @@ web3_tx_sign_recover_pubkey()
 
 ---
 
-TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
+**TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py web3_public_value_transfer_sign_recover.py focus=19
 
@@ -163,7 +163,7 @@ TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 em
 
 ---
 
-fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド\*\*を追加する。 この行以降のすべてのフィールドを印刷することができる。
+**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。 この行以降のすべてのフィールドを印刷することができる。
 
 ```py web3_public_value_transfer_sign_recover.py focus=4:6,25
 
