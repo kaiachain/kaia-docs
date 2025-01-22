@@ -65,10 +65,13 @@ EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)と異�
 以下は、基本料金の計算を簡略化したものである。 その本質において、基本料金の変化はGAS_TARGETとPREVIOUS_BLOCK_GAS_USEDの差に比例し、他のパラメータは基本料金の変化速度または境界を制御する。 正確な計算式は[KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md)を参照。
 
 ```
-(BASE_FEE_CHANGE_RATE) = (GAS_USED_FOR_THE_PREVIOUS_BLOCK - GAS_TARGET)
-(ADJUSTED_BASE_FEE_CHANGE_RATE) = (BASE_FEE_CHANGE_RATE) / (GAS_TARGET) / (BASE_FEE_DELTA_REDUCING_DENOMINATOR)
-(BASE_FEE_CHANGE_RANGE) = (PREVIOUS_BASE_FEE) * (ADJUSTED_BASE_FEE_CHANGE_RATE)
-(BASE_FEE) = (PREVIOUS_BASE_FEE) + (BASE_FEE_CHANGE_RANGE) 
+              min(PREVIOUS_BLOCK_GAS_USED, MAX_BLOCK_GAS_USED_FOR_BASE_FEE) - GAS_TARGET
+changeRate = ----------------------------------------------------------------------------
+                                BASE_FEE_DENOMINATOR * GAS_TARGET
+
+nextBaseFeeBeforeBound = PREVIOUS_BASE_FEE * (1 + changeRate)
+
+nextBaseFee = max(min(nextBaseFeeBeforeBound, UPPER_BOUND_BASE_FEE), LOWER_BOUND_BASE_FEE)
 ```
 
 指定したブロックのチューニングパラメータは `kaia_getParams` API で取得できる。 各ブロックの `baseFeePerGas` は `kaia_getBlock*` と `eth_getBlock*` API を使って調べることができる。
