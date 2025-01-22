@@ -138,7 +138,7 @@ return (
  {ready && authenticated ? (
       <div className=“App”>
         <button onClick={getBalance}>Get Balance</button>
-        <p>{balance ? ` User with ${wallets[0].address} has ${balance} KLAY` : "None"}</p>
+        <p>{balance ? ` User with ${wallets[0].address} has ${balance} KAIA` : "None"}</p>
       </div>
 ) : null }
 );
@@ -212,7 +212,7 @@ return (
  {ready && authenticated ? (
          <div className="mt-12 flex flex-col gap-5">
             <button onClick={sendTx}>Send Transaction</button>
-            <p>{klayTransferTx ? `KLAY Successfully Transferred with: ${klayTransferTx} hash` : "No Tx yet"}</p>
+            <p>{klayTransferTx ? `KAIA Successfully Transferred with: ${klayTransferTx} hash` : "No Tx yet"}</p>
         </div>
 ) : null }
 );
