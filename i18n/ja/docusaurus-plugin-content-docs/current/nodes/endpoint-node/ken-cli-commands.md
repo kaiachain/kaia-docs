@@ -15,7 +15,7 @@ COMMANDS:
    attach      Start an interactive JavaScript environment (connect to node)
    console     Start an interactive JavaScript environment
    dumpconfig  Show configuration values
-   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Klaytn v1.7.0.)
+   dumpgenesis Dump genesis block JSON configuration to stdout (This command is supoported from Kaia v1.7.0.)
    init        Bootstrap and initialize a new genesis block
    snapshot    A set of commands based on the snapshot
    version     Show version number
@@ -31,7 +31,7 @@ account, create a new account or update an existing account.
  ...
 Keys are stored under <DATADIR>/keystore.
 It is safe to transfer the entire directory or the individual keys therein
-between klay nodes by simply copying.
+between kaia nodes by simply copying.
 
 Make sure you backup your keys regularly.
 
