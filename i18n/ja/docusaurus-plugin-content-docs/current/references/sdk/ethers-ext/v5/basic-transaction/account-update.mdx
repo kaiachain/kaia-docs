@@ -69,7 +69,7 @@ receipt {
 
 ---
 
-ethers.jsにkaiaの機能を追加するために、**ethers**および**@kaiachain/ethers-ext**パッケージをインポートする。
+ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
 ```js TxTypeAccountUpdate.js focus=1:2
 
@@ -133,7 +133,7 @@ main();
 
 ---
 
-秘密鍵**と**プロバイダー\*\*を使って送信者のウォレットを作成する。
+**private key**と**プロバイダー**を使って送信者のウォレットを作成する。
 
 ```js TxTypeAccountUpdate.js focus=11
 
@@ -141,7 +141,7 @@ main();
 
 ---
 
-新しい秘密鍵から**公開鍵**を計算する。
+新しい秘密鍵から**public key**を計算する。
 
 <CH.Code>
 ```js TxTypeAccountUpdate.js focus=14:15
@@ -157,7 +157,7 @@ pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
 
 ---
 
-計算された**公開鍵**で**key**フィールドにトランザクションを宣言する。
+計算された**public key**で**key**フィールドにトランザクションを宣言する。
 
 ```js TxTypeAccountUpdate.js focus=17:24
 
@@ -181,7 +181,7 @@ sentTx 0xb803b60ec33633910e4a4d2238c1d1acf1fcca4123b78c2bd252d6c0c1416ca0
 
 ---
 
-wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
+**wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
 <CH.Code>
 ```js TxTypeAccountUpdate.js focus=29:30
