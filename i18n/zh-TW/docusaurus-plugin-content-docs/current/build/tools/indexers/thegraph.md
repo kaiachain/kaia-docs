@@ -116,7 +116,7 @@ $ graph deploy --studio<SUBGRAPH_SLUG>
 
 該子圖的查詢 URL 為
 
-`https://gateway-arbitrum.network.thegraph.com/api/`**[api-key]**`/subgraphs/id/HdVdERFUe8h61vm2fDycgxjsde5PbB832NHgJfZNqK`
+`https://gateway-arbitrum.network.thegraph.com/api/`**[api-key]**`/subgraphs/id/HdVdERFUe8h61vm2fDyycgxjsde5PbB832NHgJfZNqK`
 
 現在，您只需填寫自己的 API 密鑰，即可開始向該端點發送 GraphQL 查詢。
 
