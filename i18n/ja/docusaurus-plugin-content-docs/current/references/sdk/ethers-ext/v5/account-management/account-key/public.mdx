@@ -72,7 +72,7 @@ receipt {
 
 ---
 
-ethers.jsにkaiaの機能を追加するために、**ethers**および**@kaiachain/ethers-ext**パッケージをインポートする。
+ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
 ```js AccountUpdateWithPubKey.js focus=1:3
 
@@ -145,7 +145,7 @@ main().catch(console.error);
 
 ---
 
-新しい秘密鍵から**公開鍵**を計算する。
+新しい秘密鍵から**public key**を計算する。
 
 <CH.Code>
 ```js AccountUpdateWithPubKey.js focus=15:16
@@ -161,7 +161,7 @@ pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
 
 ---
 
-型が**AccountKeyType.Public**で、**key**フィールドに新しい計算された**公開鍵**を持つトランザクションを宣言する。
+型が**AccountKeyType.Public**で、**key**フィールドに新しい計算された**public key**を持つトランザクションを宣言する。
 
 ```js AccountUpdateWithPubKey.js focus=18:25
 
