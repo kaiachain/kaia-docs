@@ -6,9 +6,9 @@
 燃氣費 := (使用的燃氣) x (有效燃氣價格)
 ```
 
-打個簡單易懂的比方，假設你正在加油站加油。 天然氣價格每天由煉油廠決定，今天的價格是 2 美元。 如果裝滿 15 升，則需支付 30 美元 = 15 升 x 2 美元/1 升，30 美元將從您的銀行賬戶中支付。 此外，這筆交易還將記錄在賬簿中。
+打個簡單易懂的比方，假設你正在加油站加油。 Gas 價格每天由煉油廠決定，今天的價格是 2 美元。 如果裝滿 15 升，則需支付 30 美元 = 15 升 x 2 美元/1 升，30 美元將從您的銀行賬戶中支付。 此外，這筆交易還將記錄在賬簿中。
 
-交易費與上述相同。 假設一筆交易花費了 21000 天然氣，交易的實際天然氣價格為 25 格基。 那麼汽油費就是 525000 格基。 這筆金額將從匯款人（"來自 "賬戶）的餘額中扣除。
+交易費與上述相同。 假設一筆交易花費了 21000 天然氣，交易的實際Gas 價格為 25 格基。 那麼汽油費就是 525000 格基。 這筆金額將從匯款人（"來自 "賬戶）的餘額中扣除。
 
 ## 使用的氣體<a id="gas-used"></a>
 
@@ -25,12 +25,12 @@
 
 每筆交易都必須指定一個 gasLimit（氣體限值），即交易可花費的最大氣體量。 發送方還可以使用 `eth_estimateGas` 和 `kaia_estimateGas` RPC 為交易找到合適的 gasLimit。 或者，發件人也可以手動指定一個足夠大的數字。 指定高 gasLimit 不會自動收取高 gas 費，因此使用固定數字是一個可行的選擇。 但是，只有少量代幣的發件人不能指定過高的 gasLimit，因為無論實際 gasUsed 為多少，發件人的餘額中都必須至少擁有 `gasLimit * effectiveGasPrice` 。
 
-## 有效天然氣價格<a id="effective-gas-price"></a>
+## 有效Gas 價格<a id="effective-gas-price"></a>
 
 交易的有效氣價由許多變量計算得出：
 
 - 硬叉水平
-- 發件人提交的交易中的天然氣價格字段
+- 發件人提交的交易中的Gas 價格字段
   - 第 2 類交易中存在 "maxFeePerGas"（通常稱為 feeCap）字段。
   - 第 2 類交易中存在 "maxPriorityFeePerGas"（通常稱為 tipCap）字段。
   - 氣體價格 "字段存在於所有其他交易類型中。
@@ -44,7 +44,7 @@
 
 ### 岩漿硬叉後（KIP-71 動態基費）
 
-自 Magma 硬分叉以來，網絡會根據網絡擁堵情況決定每個區塊的天然氣價格值 "baseFeePerGas"（或簡稱 baseFee）。 如果交易流量高於閾值，基本費就會增加，反之則會減少。 交易流量以使用的區塊氣體來衡量。 隨著區塊中交易執行量的增加，網絡會感到更擁堵，從而有可能提高基本費用。
+自 Magma 硬分叉以來，網絡會根據網絡擁堵情況決定每個區塊的Gas 價格值 "baseFeePerGas"（或簡稱 baseFee）。 如果交易流量高於閾值，基本費就會增加，反之則會減少。 交易流量以使用的區塊氣體來衡量。 隨著區塊中交易執行量的增加，網絡會感到更擁堵，從而有可能提高基本費用。
 
 與 [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)不同的是，岩漿氣體政策沒有提示（提示是從 Kaia 硬叉開始引入的）。 取而代之的是 FCFS（先到先服務）政策，以保護網絡免受垃圾郵件的侵害。
 
@@ -86,11 +86,11 @@ nextBaseFee = max(min(nextBaseFeeBeforeBound, UPPER_BOUND_BASE_FEE), LOWER_BOUND
 
 自 Kaia 硬分叉以來，交易可以指定非零的優先級費用（或簡單的小費），以增加區塊包含的可能性。 Kaia 天然氣政策與 [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)類似，交易支付基本費用和有效小費。
 
-交易的有效氣價定義為 "min(baseFee + tipCap, feeCap)"。 對於類型 2 交易，交易字段 `maxPriorityFeePerGas` 和 `maxFeePerGas` 自然就變成了 tipCap 和 feeCap。 但是，其他交易類型只有一個 "gasPrice "字段。 對於這些類型，tipCap 和 feeCap 都等於 "gasPrice"。 因此，其有效天然氣價格變為 `min(baseFee + tipCap, feeCap) = min(baseFee + gasPrice, gasPrice) = gasPrice`，這與天然氣價格拍賣機制相同。
+交易的有效氣價定義為 "min(baseFee + tipCap, feeCap)"。 對於類型 2 交易，交易字段 `maxPriorityFeePerGas` 和 `maxFeePerGas` 自然就變成了 tipCap 和 feeCap。 但是，其他交易類型只有一個 "gasPrice "字段。 對於這些類型，tipCap 和 feeCap 都等於 "gasPrice"。 因此，其有效Gas 價格變為 `min(baseFee + tipCap, feeCap) = min(baseFee + gasPrice, gasPrice) = gasPrice`，這與Gas 價格拍賣機制相同。
 
 詳見 [KIP-162](https://github.com/kaiachain/kips/blob/main/KIPs/kip-162.md)。
 
-### 在卡伊婭之後找到合適的天然氣價格
+### 在卡伊婭之後找到合適的Gas 價格
 
 如果您的應用程序或錢包使用 2 類交易（EIP-1559 類型），請確保您設置了合理的優先權費用。 您還可以調用 `eth_maxPriorityFeePerGas` RPC 來檢索建議的優先級費用 (tx.maxPriorityFeePerGas)。 在網絡不擁堵的情況下，零優先權費交易在交易處理中應不會處於劣勢。 當網絡擁堵時，指定一個非零的優先級費用來與其他交易競爭會更安全。
 
@@ -101,13 +101,13 @@ Kaia 節點的 "eth_maxPriorityFeePerGas "RPC 應：
 
 類型 2 交易的 "maxFeePerGas "應高於網絡的下一個基本費用，以確保即使基本費用上漲，交易也能得到處理。 常用的公式是 "最後基本費用\*2 + 最大優先級每氣費用"。 當 BASE_FEE_DENOMINATOR 為 20 時，baseFee 至少需要 15 秒才能翻倍。 另一種方法是使用 `eth_gasPrice` RPC。
 
-對於其他 tx 類型的交易，在選擇合適的 "gasPrice "時應更加謹慎。 因為對於這些 tx 類型，無論基礎費用是多少，gasPrice 都是按原價使用的。 另一方面，gasPrice 必須至少等於網絡的基本費用。 因此，應用程序和用戶應避免將 gasPrice 設置得過高，同時與網絡的基本費用相匹配。 一種策略是將 "天然氣價格 "設置得比下一個基本費用略高，這樣就可以容納幾次基本費用的上漲。 您可以調用 `eth_gasPrice` RPC 來檢索推薦的天然氣價格。
+對於其他 tx 類型的交易，在選擇合適的 "gasPrice "時應更加謹慎。 因為對於這些 tx 類型，無論基礎費用是多少，gasPrice 都是按原價使用的。 另一方面，gasPrice 必須至少等於網絡的基本費用。 因此，應用程序和用戶應避免將 gasPrice 設置得過高，同時與網絡的基本費用相匹配。 一種策略是將 "Gas 價格 "設置得比下一個基本費用略高，這樣就可以容納幾次基本費用的上漲。 您可以調用 `eth_gasPrice` RPC 來檢索推薦的Gas 價格。
 
 Kaia 節點的 "eth_gasPrice "RPC 應：
 
 - 返回 (下一個基本費用) \* M + (eth_maxPriorityFeePerGas). 在網絡不擁堵的情況下，乘數 M 的啟發式選擇為 1.10，在網絡擁堵的情況下為 1.15。 當 BASE_FEE_DENOMINATOR 為 20 時，M=1.10 可以承受至少一次基本費上調（1.05），M=1.15 可以承受至少兩次連續的基本費上調（1.05\*1.05）。 考慮到基本費通常不會以最高 5%的速度增長，乘數實際上應該足夠基本費增長几次。
 
-### 天然氣價格摘要
+### Gas 價格摘要
 
 | 硬叉   | 燃氣價格 "要求                        | 最大每氣收費 "要求                             | 最大優先級每氣收費 "要求                                           | 計算出的 "有效氣價                                                                      |
 | ---- | ------------------------------- | -------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------- |
