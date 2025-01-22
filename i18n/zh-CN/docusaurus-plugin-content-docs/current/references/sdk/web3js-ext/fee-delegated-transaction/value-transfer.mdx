@@ -64,6 +64,7 @@ receipt {
   transactionIndex: 1n,
   type: 0n
 }
+
 ```
 
 </CH.Code>
@@ -185,7 +186,7 @@ main();
 使用 `signTransaction` 在**发送方**账户上签署交易
 
 <CH.Code>
-``js TxTypeFeeDelegatedValueTransfer.js focus=21:23
+```js TxTypeFeeDelegatedValueTransfer.js focus=21:23
 
 ````
 ---
@@ -202,15 +203,15 @@ senderTxHashRLP 0x11f88d8203b7850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc2
 使用 "signTransactionAsFeePayer "以**付费方**账户签署交易
 
 <CH.Code>
-``js TxTypeFeeDelegatedValueTransfer.js focus=25:27
+```js TxTypeFeeDelegatedValueTransfer.js focus=25:27
 
-```
+````
 ---
 
-``zsh output
-‖ node TxTypeFeeDelegatedValueTransfer.js
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
 signedTx 0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae
-```
+````
 
 </CH.Code>
 
@@ -219,26 +220,29 @@ signedTx 0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae
 将交易发送到区块链。 它将返回交易收据
 
 <CH.Code>
-``js TxTypeFeeDelegatedValueTransfer.js focus=29:30
+```js TxTypeFeeDelegatedValueTransfer.js focus=29:30
 
-```
-❯ node txTypeValueTransferTransaction.js
+````
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
 receipt {
-  blockHash: '0x07fa42d5461f851a38014ff9a1f0b042d7ea79de63c487cdef28f15db37e7328',
-  blockNumber: 148742320n,
-  cumulativeGasUsed: 205837n,
+  blockHash: '0x442774c57650ef18338bea13ad069428acf8a6c8da5e7eb104dd1d961972400a',
+  blockNumber: 148744776n,
+  cumulativeGasUsed: 177286n,
   effectiveGasPrice: 25000000000n,
   from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
-  gasUsed: 21000n,
+  gasUsed: 31000n,
   logs: [],
   logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   status: 1n,
   to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
-  transactionHash: '0x9f7ef299e96a4648ccef2195897380ecd2bed589aac93d8711049e864dcdbca8',
+  transactionHash: '0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae',
   transactionIndex: 1n,
   type: 0n
 }
-```
+````
 
 </CH.Code>
 </CH.Spotlight>
