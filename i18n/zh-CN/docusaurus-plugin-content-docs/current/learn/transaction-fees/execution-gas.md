@@ -26,47 +26,47 @@
 
 ### 代表操作码 "常数气体 "的标量值
 
-| 名称                          |    价值 |                     代码中的名称 | 操作码                                                                                                                                                                                                                                                                                                   |
-| :-------------------------- | ----: | -------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| G_base |     2 |               GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`,  `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`,   `PREVRANDAO`(originally it was `DIFFICULTY`), `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`,  `CHAINID`,  `BASEFEE`,  `PUSH0`, `BLOBBASEFEE` |
-| `G_verylow`                 |     3 |             GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`,  `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`,  `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`, `BLOBHASH`, `MCOPY`                                                                                                                 |
-| `G_low`                     |     5 |                GasFastStep | `MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`,  `SELFBALANCE`                                                                                                                                                                                                                                     |
-| `G_mid`                     |     8 |                 GasMidStep | `ADDMOD`, `MULMOD`, `JUMP`                                                                                                                                                                                                                                                                            |
-| `G_high`                    |    10 |                GasSlowStep | `JUMPI`                                                                                                                                                                                                                                                                                               |
-| `G_selfdestruct`            |  5000 |            SelfdestructGas | `SELFDESTRUCT`                                                                                                                                                                                                                                                                                        |
-| `G_warmStorageReadCost`     |   100 | WarmStorageReadCostEIP2929 | `EXTCODECOPY`, `EXTCODESIZE`, `EXTCODEHASH`, `BALANCE`,  `CALL`, `CALLCODE`, `STATICCALL`, `DELEGATECALL`, `TSTORE`, `TLOAD`                                                                                                                                                                          |
-| `G_blockhash`               |    20 |                 GasExtStep | `BLOCKHASH`                                                                                                                                                                                                                                                                                           |
-| `G_jumpdest`                |     1 |                JumpdestGas | `JUMPDEST`                                                                                                                                                                                                                                                                                            |
-| `G_sha3`                    |    30 |                    Sha3Gas | `SHA3`                                                                                                                                                                                                                                                                                                |
-| `G_create`                  | 32000 |                  CreateGas | `CREATE`, `CREATE2`                                                                                                                                                                                                                                                                                   |
+| 名称                      |    价值 |                     代码中的名称 | 操作码                                                                                                                                                                                                                                                                                                   |
+| :---------------------- | ----: | -------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `G_base`                |     2 |               GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`,  `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`,   `PREVRANDAO`(originally it was `DIFFICULTY`), `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`,  `CHAINID`,  `BASEFEE`,  `PUSH0`, `BLOBBASEFEE` |
+| `G_verylow`             |     3 |             GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`,  `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`,  `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`, `BLOBHASH`, `MCOPY`                                                                                                                 |
+| `G_low`                 |     5 |                GasFastStep | `MUL`, `DIV`, `SDIV`, `MOD`, `SMOD`, `SIGNEXTEND`,  `SELFBALANCE`                                                                                                                                                                                                                                     |
+| `G_mid`                 |     8 |                 GasMidStep | `ADDMOD`, `MULMOD`, `JUMP`                                                                                                                                                                                                                                                                            |
+| `G_high`                |    10 |                GasSlowStep | `JUMPI`                                                                                                                                                                                                                                                                                               |
+| `G_selfdestruct`        |  5000 |            SelfdestructGas | `SELFDESTRUCT`                                                                                                                                                                                                                                                                                        |
+| `G_warmStorageReadCost` |   100 | WarmStorageReadCostEIP2929 | `EXTCODECOPY`, `EXTCODESIZE`, `EXTCODEHASH`, `BALANCE`,  `CALL`, `CALLCODE`, `STATICCALL`, `DELEGATECALL`, `TSTORE`, `TLOAD`                                                                                                                                                                          |
+| `G_blockhash`           |    20 |                 GasExtStep | `BLOCKHASH`                                                                                                                                                                                                                                                                                           |
+| `G_jumpdest`            |     1 |                JumpdestGas | `JUMPDEST`                                                                                                                                                                                                                                                                                            |
+| `G_sha3`                |    30 |                    Sha3Gas | `SHA3`                                                                                                                                                                                                                                                                                                |
+| `G_create`              | 32000 |                  CreateGas | `CREATE`, `CREATE2`                                                                                                                                                                                                                                                                                   |
 
 ### 用于根据内存和日志使用量计算气体的标量值
 
-| Name                        | Value | Name in Code | Description              |
-| :-------------------------- | ----: | -----------: | :----------------------- |
-| `G_memory`                  |     3 |    MemoryGas | 扩展存储器时，每增加一个字所需支付的气体量    |
-| G_copy |     3 |      CopyGas | 复制 "操作的部分付款，乘以复制字数，四舍五入  |
-| `G_log`                     |   375 |       LogGas | 为 "LOG "操作支付部分费用         |
-| `G_logdata`                 |     8 |   LogDataGas | 为 "LOG "操作数据中的每个字节支付的气体量 |
-| `G_logtopic`                |   375 |  LogTopicGas | 为 "LOG "操作的每个主题支付的气体量    |
+| Name         | Value | Name in Code | Description              |
+| :----------- | ----: | -----------: | :----------------------- |
+| `G_memory`   |     3 |    MemoryGas | 扩展存储器时，每增加一个字所需支付的气体量    |
+| `G_copy`     |     3 |      CopyGas | 复制 "操作的部分付款，乘以复制字数，四舍五入  |
+| `G_log`      |   375 |       LogGas | 为 "LOG "操作支付部分费用         |
+| `G_logdata`  |     8 |   LogDataGas | 为 "LOG "操作数据中的每个字节支付的气体量 |
+| `G_logtopic` |   375 |  LogTopicGas | 为 "LOG "操作的每个主题支付的气体量    |
 
 ### 用于计算特定操作码气体的标量值
 
-| Name                            | Value | Name in Code                      | Description                                                                              |
-| :------------------------------ | ----: | --------------------------------- | :--------------------------------------------------------------------------------------- |
-| `G_sset`                        | 20000 | SstoreSetGas                      | 设定存储值时支付的气量                                                                              |
-| `G_sreset`                      |  5000 | SstoreResetGas                    | 存储值保持不变为零或设置为零时支付的气量                                                                     |
-| `G_coldSloadCost`               |  2100 | ColdSloadCostEIP2929              | 存储值不在访问列表中时支付的气量                                                                         |
-| `R_sclear`                      | 15000 | SstoreClearsScheduleRefundEIP3529 | `G_sreset` - `G_coldSloadCost` + `TxAccessListStorageKeyGas (1900)`                      |
-| `G_exp`                         |    10 | ExpGas                            | Partial payment                                                                          |
-| `G_expbyte`                     |    50 | ExpByte                           | 乘以 "ceil(log_256(指数)) "时的部分付款 |
-| `G_selfdestruct`                |  5000 | SelfdestructGas                   | 为 "SELFDESTRUCT "操作支付的气体量                                                                |
-| `G_callvalue`                   |  9000 | CallValueTransferGas              | 为非零价值转移支付的气量                                                                             |
-| `G_callstipend`                 |  2300 | CallStipend                       | 呼叫开始时为非零值转移提供的免费气体                                                                       |
-| `G_newaccount`                  | 25000 | CallNewAccountGas                 | 创建账户时已支付的汽油金额。 它也可以定义为带有 "SELFDESTRUCT "操作的 "CreateBySelfdestructGas"。                   |
-| `G_codedeposit`                 |   200 | CreateDataGas                     | 为创建成功将代码置入状态的合同而按字节支付的气体量                                                                |
-| G_sha3word |     6 | Sha3WordGas                       | 输入数据 "SHA3 "时，每个字所支付的气体量（四舍五入）。                                                          |
-| `G_InitCodeWord`                |     2 | InitCodeWordGas                   | 为 "CREATE"、"CREATE2 "的每个初始代码单词支付的气体量                                                     |
+| Name              | Value | Name in Code                      | Description                                                                              |
+| :---------------- | ----: | --------------------------------- | :--------------------------------------------------------------------------------------- |
+| `G_sset`          | 20000 | SstoreSetGas                      | 设定存储值时支付的气量                                                                              |
+| `G_sreset`        |  5000 | SstoreResetGas                    | 存储值保持不变为零或设置为零时支付的气量                                                                     |
+| `G_coldSloadCost` |  2100 | ColdSloadCostEIP2929              | 存储值不在访问列表中时支付的气量                                                                         |
+| `R_sclear`        | 15000 | SstoreClearsScheduleRefundEIP3529 | `G_sreset` - `G_coldSloadCost` + `TxAccessListStorageKeyGas (1900)`                      |
+| `G_exp`           |    10 | ExpGas                            | Partial payment                                                                          |
+| `G_expbyte`       |    50 | ExpByte                           | 乘以 "ceil(log_256(指数)) "时的部分付款 |
+| `G_selfdestruct`  |  5000 | SelfdestructGas                   | 为 "SELFDESTRUCT "操作支付的气体量                                                                |
+| `G_callvalue`     |  9000 | CallValueTransferGas              | 为非零价值转移支付的气量                                                                             |
+| `G_callstipend`   |  2300 | CallStipend                       | 呼叫开始时为非零值转移提供的免费气体                                                                       |
+| `G_newaccount`    | 25000 | CallNewAccountGas                 | 创建账户时已支付的汽油金额。 它也可以定义为带有 "SELFDESTRUCT "操作的 "CreateBySelfdestructGas"。                   |
+| `G_codedeposit`   |   200 | CreateDataGas                     | 为创建成功将代码置入状态的合同而按字节支付的气体量                                                                |
+| `G_sha3word`      |     6 | Sha3WordGas                       | 输入数据 "SHA3 "时，每个字所支付的气体量（四舍五入）。                                                          |
+| `G_InitCodeWord`  |     2 | InitCodeWordGas                   | 为 "CREATE"、"CREATE2 "的每个初始代码单词支付的气体量                                                     |
 
 ## 预编合同天然气成本表<a id="precompiled-contracts-gas-cost-table"></a>
 
