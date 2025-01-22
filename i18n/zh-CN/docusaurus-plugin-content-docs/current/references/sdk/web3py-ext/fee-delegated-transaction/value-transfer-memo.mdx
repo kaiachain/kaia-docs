@@ -53,6 +53,7 @@ def web3_fee_delegated_value_transfer_with_memo_sign_recover():
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
 
 web3_fee_delegated_value_transfer_with_memo_sign_recover()
+
 ```
 
 ---
@@ -190,7 +191,7 @@ tx hash:  0xe9d6214c30b433cd7bb3bc3a37afad86fba4b4153bbc08607a44b390fd015c36 rec
 用用户的私人密钥签署值传输 tx
 
 <CH.Code>
-``py FeeDelegatedValueTransferMemo.py focus=27:29
+```py FeeDelegatedValueTransferMemo.py focus=27:29
 
 ````
 ---
@@ -245,7 +246,7 @@ raw transaction of signed tx: 0x11f8eb820310850ba43b740082fac894a2a8854b1802d8cd
 从签署的交易中找回缴费人地址.
 
 <CH.Code>
-``py FeeDelegatedValueTransferMemo.py focus=37:38
+```py FeeDelegatedValueTransferMemo.py focus=37:38
 
 ````
 
