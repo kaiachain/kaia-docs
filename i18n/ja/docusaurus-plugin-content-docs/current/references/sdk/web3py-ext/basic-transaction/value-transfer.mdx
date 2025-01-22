@@ -91,7 +91,7 @@ web3をkaia web3に拡張するために、**web3py_ext**から**extend**をイ�
 
 ---
 
-eth_account**、**web3py_ext\*\*、および cytoolz から必要な utils をインポートする。
+**eth_account**、**web3py_ext**、および cytoolz から必要な utils をインポートする。
 
 ```py txTypeValueTransferTransaction.py focus=3:10
 
@@ -163,7 +163,7 @@ web3_value_transfer_sign_recover()
 
 ---
 
-TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
+**TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py txTypeValueTransferTransaction.py focus=4,5,8,19
 
@@ -171,7 +171,7 @@ TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 em
 
 ---
 
-merge**ユーティリティを使用して、**from**、**to**、**value**などの**追加フィールド\*\*を空のtxにマージします。
+**merge**ユーティリティを使用して、**from**、**to**、**value**などの**追加フィールド**を空のtxにマージします。
 
 ```py txTypeValueTransferTransaction.py focus=10,20:24
 
@@ -179,7 +179,7 @@ merge**ユーティリティを使用して、**from**、**to**、**value**な�
 
 ---
 
-Web3.to_peb\*\*ユーティリティを使用すると、10進数の変換が可能です。
+**Web3.to_peb**ユーティリティを使用すると、10進数の変換が可能です。
 
 ```py txTypeValueTransferTransaction.py focus=23
 
@@ -187,7 +187,7 @@ Web3.to_peb\*\*ユーティリティを使用すると、10進数の変換が可
 
 ---
 
-fill_transaction\*\*を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```python txTypeValueTransferTransaction.py focus=4,6,8,25
 
@@ -266,7 +266,7 @@ decoded transaction: {
 
 ---
 
-wait_for_transaction_receipt\*\*メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 <CH.Code>
 ```python txTypeValueTransferTransaction.py focus=38:39
