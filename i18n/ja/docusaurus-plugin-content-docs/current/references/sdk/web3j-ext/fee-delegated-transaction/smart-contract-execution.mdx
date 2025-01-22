@@ -1,6 +1,6 @@
 # スマート・コントラクトの実行
 
-**TxTypeSmartContractExecution\***は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
+**TxTypeSmartContractExecution**は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
 
 <CH.Spotlight>
 <CH.Code>
@@ -159,7 +159,7 @@ Web3jを使ってkaiaブロックチェーンに接続し、URLを指定する�
 
 ---
 
-秘密鍵を使用して、**送信者**および**料金支払者**のクレデンシャルを作成する。
+秘密鍵を使用して、**sender**および**fee payer**のクレデンシャルを作成する。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=32:33
 
@@ -199,7 +199,7 @@ credentials.getAddress()\`から送信者のアドレスを取得する。
 
 ---
 
-カイア\*\*ネットワークからチェーンIDを取得する。
+**Kaia**ネットワークからチェーンIDを取得する。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=41:42
 
@@ -223,7 +223,7 @@ credentials.getAddress()\`から送信者のアドレスを取得する。
 
 ---
 
-`KlayTransactionEncoder.signMessage` を使用して、**送信者** としてトランザクションに署名する。
+`KlayTransactionEncoder.signMessage` を使用して、**sender** としてトランザクションに署名する。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=60:61
 
