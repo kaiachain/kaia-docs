@@ -1,6 +1,6 @@
 # スマート・コントラクトの実行
 
-**TxTypeSmartContractExecution**\*は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
+**TxTypeSmartContractExecution**は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
 
 <CH.Spotlight>
   <CH.Code>
@@ -96,7 +96,7 @@
 
   ---
 
-  送信者**と料金支払者**のアドレスと秘密鍵を定義する。
+  **sender**と**fee payer**のアドレスと秘密鍵を定義する。
 
   ```js FeeDelegatedSmartContractExecution.js focus=5:8
   ```
@@ -180,7 +180,7 @@
 
   ---
 
-  Ethers.Contract\*\*で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
+  **Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
   ```js FeeDelegatedSmartContractExecution.js focus=18
   ```
@@ -194,7 +194,7 @@
 
   ---
 
-  FeeDelegatedSmartContractExecution\*\*型を持つトランザクションオブジェクトを構築する。
+  **FeeDelegatedSmartContractExecution**型を持つトランザクションオブジェクトを構築する。
 
   ```js FeeDelegatedSmartContractExecution.js focus=19:27
   ```
@@ -208,7 +208,7 @@
 
   ---
 
-  送信者の財布\*\*で取引に署名する。
+  **送信者の財布**で取引に署名する。
 
   <CH.Code>
     ```js FeeDelegatedSmartContractExecution.js focus=31:32
@@ -240,7 +240,7 @@
 
   ---
 
-  wait\*\*関数は、txがブロックチェーンに正常に送信された場合、txレシートを返す。
+  **wait**関数は、txがブロックチェーンに正常に送信された場合、txレシートを返す。
 
   <CH.Code>
     ```js FeeDelegatedSmartContractExecution.js focus=38:39
