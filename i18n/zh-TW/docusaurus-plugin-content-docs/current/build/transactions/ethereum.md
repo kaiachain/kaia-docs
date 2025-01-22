@@ -198,25 +198,25 @@ TxTypeEthereumDynamicFee "代表 [EIP-1559](https://eips.ethereum.org/EIPS/eip-1
 
 :::note
 
-注意： 由於 Kaia 有固定的天然氣價格，"gasTipCap "和 "gasFeeCap "應採用相應網絡的天然氣價格，在撰寫本文時為 250 Gkei。
+注意： 由於 Kaia 有固定的Gas 價格，"gasTipCap "和 "gasFeeCap "應採用相應網絡的Gas 價格，在撰寫本文時為 250 Gkei。
 
 :::
 
 ### 屬性<a id="attributes"></a>
 
-| 屬性         | 類型                                                         | 說明                                                                                                                                          |
-| :--------- | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| type       | uint8\(Go\)                           | TxTypeEthereumDynamicFee "的類型，由 "EthereumTxTypeEnvelope "和 "EthereumTransactionType "連接而成。 必須是 `0x7802`。                                    |
-| chainId    | \*big.Int （ Go\)                          | 目標鏈 ID。                                                                                                                                     |
-| nonce      | uint64 \(Go\)                         | 用於唯一標識發件人交易的值。 如果一個發送方生成了兩個具有相同 nonce 的交易，則只執行其中一個。                                                                                         |
-| gasTipCap  | \*big.Int （ Go\)                          | 一個乘數，用於計算發件人除了支付 `baseFee` 以外還要支付多少費用。 由於 Kaia 有固定的天然氣價格，因此 `gasTipCap` 和 `gasFeeCap` 應採用相應網絡的天然氣價格，在編寫本報告時為 250 Gkei。                      |
-| gasFeeCap  | \*big.Int （ Go\)                          | 一個乘數，用於計算發件人將支付多少代幣。 發送方將支付的代幣數量通過 `gas` \* `gasFeeCap` 計算。 由於 Kaia 有固定的天然氣價格，因此 `gasTipCap` 和 `gasFeeCap` 應採用相應網絡的天然氣價格，在編寫本報告時為 250 Gkei。 |
-| gas        | uint64 \(Go\)                         | 交易允許使用的最高交易費金額。                                                                                                                             |
-| to         | \*common.Address（Go\）                      | 接收轉賬金額的賬戶地址。                                                                                                                                |
-| value      | \*big.Int （ Go\)                          | 以 `kei` 為單位的 KAIA 轉賬金額。                                                                                                                     |
-| data       | \byte （去）                                                  | 附屬於事務的數據，用於執行事務。                                                                                                                            |
-| accessList | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)組成的地址和存儲密鑰列表。                                                                                        |
-| v, r, s    | \*big.Int （ Go\)                          | 發送方為讓接收方獲取發送方地址而生成的加密簽名。                                                                                                                    |
+| 屬性         | 類型                                                         | 說明                                                                                                                                            |
+| :--------- | :--------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| type       | uint8\(Go\)                           | TxTypeEthereumDynamicFee "的類型，由 "EthereumTxTypeEnvelope "和 "EthereumTransactionType "連接而成。 必須是 `0x7802`。                                      |
+| chainId    | \*big.Int （ Go\)                          | 目標鏈 ID。                                                                                                                                       |
+| nonce      | uint64 \(Go\)                         | 用於唯一標識發件人交易的值。 如果一個發送方生成了兩個具有相同 nonce 的交易，則只執行其中一個。                                                                                           |
+| gasTipCap  | \*big.Int （ Go\)                          | 一個乘數，用於計算發件人除了支付 `baseFee` 以外還要支付多少費用。 由於 Kaia 有固定的Gas 價格，因此 `gasTipCap` 和 `gasFeeCap` 應採用相應網絡的Gas 價格，在編寫本報告時為 250 Gkei。                      |
+| gasFeeCap  | \*big.Int （ Go\)                          | 一個乘數，用於計算發件人將支付多少代幣。 發送方將支付的代幣數量通過 `gas` \* `gasFeeCap` 計算。 由於 Kaia 有固定的Gas 價格，因此 `gasTipCap` 和 `gasFeeCap` 應採用相應網絡的Gas 價格，在編寫本報告時為 250 Gkei。 |
+| gas        | uint64 \(Go\)                         | 交易允許使用的最高交易費金額。                                                                                                                               |
+| to         | \*common.Address（Go\）                      | 接收轉賬金額的賬戶地址。                                                                                                                                  |
+| value      | \*big.Int （ Go\)                          | 以 `kei` 為單位的 KAIA 轉賬金額。                                                                                                                       |
+| data       | \byte （去）                                                  | 附屬於事務的數據，用於執行事務。                                                                                                                              |
+| accessList | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)組成的地址和存儲密鑰列表。                                                                                          |
+| v, r, s    | \*big.Int （ Go\)                          | 發送方為讓接收方獲取發送方地址而生成的加密簽名。                                                                                                                      |
 
 ### 簽名的 RLP 編碼<a id="rlp-encoding-for-signature"></a>
 
