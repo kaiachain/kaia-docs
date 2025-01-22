@@ -11,7 +11,7 @@
 - `ken` 是 Kaia 端點節點二進制文件。 `ken` 公開了兩個接口：[命令行接口](../../nodes/endpoint-node/ken-cli-commands.md)和[JSON-RPC APIs](../../references/json-rpc/klay/account-created)。 `ken` 可在 Linux 和 MacOS 上運行。
 - `ken` CLI 附帶多種實用程序和節點管理功能。
 
-**智能合同開發**
+**智能合約開發**
 
 - [Kaia Plugin for Remix](https://ide.kaia.io) - 基於瀏覽器的編譯器和集成開發環境 Kaia Plugin for Remix。
 - [Truffle](https://github.com/trufflesuite/truffle) - 用於在 Solidity 中開發智能合約的開源工具。
