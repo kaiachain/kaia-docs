@@ -8,7 +8,7 @@ caver.kct.kip17 "繼承了[caver.contract](../caver.contract.md)，以實現 KIP
 
 有關 KIP-17 的更多信息，請參閱 [Kaia 改進提案](https://kips.kaia.io/KIPs/kip-17)。
 
-## caver.kct.kip17.deploy<a id="caver-klay-kip17-deploy"></a>
+## caver.kct.kip17.deploy <a id="caver-klay-kip17-deploy"></a>
 
 ```javascript
 caver.kct.kip17.deploy(tokenInfo, deployer)
@@ -115,7 +115,7 @@ KIP17 {
 })
 ```
 
-## caver.kct.kip17.detectInterface<a id="caver-kct-kip17-detectinterface"></a>
+## caver.kct.kip17.detectInterface <a id="caver-kct-kip17-detectinterface"></a>
 
 ```javascript
 caver.kct.kip17.detectInterface(contractAddress
@@ -148,7 +148,7 @@ Promise "會返回一個 "對象"，其中包含每個[KIP-17 接口](https://ki
 }
 ```
 
-## caver.kct.kip17.create<a id="caver-kct-kip17-create"></a>
+## caver.kct.kip17.create <a id="caver-kct-kip17-create"></a>
 
 ```javascript
 caver.kct.kip17.create([tokenAddress
