@@ -53,7 +53,7 @@ RPC_API="admin,debug,klay,miner,net,personal,rpc,txpool,web3" # available apis: 
 
 `kend.conf`を更新したら、Kaiaノードを再起動する。
 
-## バイナリパッケージのインストール後、以下のような「Unit not found」エラーでKaiaノードが起動できません。 <a id="can-t-start-kaia-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
+## Can't start Kaia node with `Unit not found` error as below after installing binary package. <a id="can-t-start-kaia-node-with-unit-not-found-error-as-below-after-installing-bina"></a>
 
 ```
 Failed to start kcnd.service: Unit not found.
