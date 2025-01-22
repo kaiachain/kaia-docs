@@ -124,7 +124,7 @@ caver.account.create(address, accountKey [, options])
 
 accountKey が公開鍵文字列の場合、[AccountKeyPublic](#accountkeypublic) を accountKey とする Account インスタンスが作成される。 accountKey が公開鍵文字列を含む配列の場合、[AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) を accountKey とする Account インスタンスが生成される。 最後のパラメータとしてオプションが定義されていない場合、各キーに対して、しきい値1、重み付け1のデフォルト・オプションを使用して作成される。 accountKey が、ロールごとに使用される accountKey を含む配列である場合、[AccountKeyRoleBased](#accountkeyrolebased) を持つ Account インスタンスが作成されます。 オプションは[WeightedMultiSigOptions]でロールごとに定義されなければならない。 オプションが定義されていない場合、複数の公開鍵を使用するロールにはデフォルトのオプションが使用されます。 使い方は下記の例を参考にしてください。
 
-\*\*パラメーター
+**パラメーター**
 
 | 名称      | タイプ                            | 説明                                                            |
 | ------- | ------------------------------ | ------------------------------------------------------------- |
@@ -253,7 +253,7 @@ caver.account.createFromRLPEncoding(アドレス、rlpEncodedKey)
 
 RLP エンコードされた AccountKey から Account インスタンスを作成します。
 
-\*\*パラメーター
+**パラメーター**
 
 | 名称            | タイプ   | 説明                        |
 | ------------- | ----- | ------------------------- |
@@ -291,7 +291,7 @@ caver.account.createWithAccountKeyLegacy(アドレス)
 
 AccountKeyLegacy を accountKey として持つ Account インスタンスを作成します。
 
-\*\*パラメーター
+**パラメーター**
 
 | 名称 | タイプ   | 説明              |
 | -- | ----- | --------------- |
@@ -321,7 +321,7 @@ caver.account.createWithAccountKeyPublic(アドレス、publicKey)
 
 AccountKeyPublic を accountKey として持つ Account インスタンスを作成します。
 
-\*\*パラメーター
+**パラメーター**
 
 | 名称      | タイプ   | 説明              |
 | ------- | ----- | --------------- |
@@ -352,7 +352,7 @@ caver.account.createWithAccountKeyFail(アドレス)
 
 AccountKeyFail を AccountKey として持つ Account インスタンスを作成します。
 
-\*\*パラメーター
+**パラメーター**
 
 | 名称 | タイプ   | 説明              |
 | -- | ----- | --------------- |
@@ -382,7 +382,7 @@ caver.account.createWithAccountKeyWeightedMultiSig(address, publicKeyArray [, op
 
 AccountKeyWeightedMultiSig を accountKey とする Account インスタンスを作成します。
 
-\*\*パラメーター
+**パラメーター**
 
 | 名称        | タイプ                                        | 説明                                                        |
 | --------- | ------------------------------------------ | --------------------------------------------------------- |
@@ -437,7 +437,7 @@ caver.account.createWithAccountKeyRoleBased(address, roledBasedPublicKeyArray [,
 
 AccountKeyRoleBased を accountKey とする Account インスタンスを作成します。
 
-\*\*パラメーター
+**パラメーター**
 
 | 名称                       | タイプ   | 説明                                                   |
 | ------------------------ | ----- | ---------------------------------------------------- |
@@ -530,7 +530,7 @@ caver.account.accountKey.decode(rlpEncodedAccountKey)
 
 AccountKey の RLP エンコード文字列をデコードし、[AccountKeyLegacy](#accountkeylegacy)、[AccountKeyPublic](#accountkeypublic)、[AccountKeyFail](#accountkeyfail)、[AccountKeyWeightedMultiSig](#accountkeyweightedmultisig)、または [AccountKeyRoleBased](#accountkeyrolebased) インスタンスを返す。
 
-\*\*パラメーター
+**パラメーター**
 
 | 名称                   | タイプ   | 説明                        |
 | -------------------- | ----- | ------------------------- |
