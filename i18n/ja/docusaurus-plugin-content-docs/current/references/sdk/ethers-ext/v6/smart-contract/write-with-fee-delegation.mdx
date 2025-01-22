@@ -1,6 +1,6 @@
 # 書き込み（手数料の委任）
 
-スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む\*\*「トランザクション」\*\*を行うことができる。
+スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**transaction**を行うことができる。
 
 <CH.Spotlight>
   <CH.Code>
@@ -121,7 +121,7 @@
 
   ---
 
-  送信者、料金支払者アドレス、送信者秘密鍵\*\*を定義する。
+  **送信者、料金支払者アドレス、送信者秘密鍵**を定義する。
 
   ```js writeWithFeeDelegation.js focus=4:7
   ```
@@ -236,7 +236,7 @@
 
   ---
 
-  Ethers.Contract\*\*で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
+  **Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
   ```js writeWithFeeDelegation.js focus=40
   ```
@@ -259,7 +259,7 @@
 
   ---
 
-  番号\*\*の値を更新するためのトランザクションデータを作成する。
+  **number**の値を更新するためのトランザクションデータを作成する。
 
   ```js writeWithFeeDelegation.js focus=44
   ```
