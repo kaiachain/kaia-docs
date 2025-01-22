@@ -66,7 +66,7 @@ npx thirdweb create --contract
 
    iii. スマート・コントラクトに名前を付ける。
 
-   iv. ベース契約のタイプを選択する：**Empty**、\***ERC20**、\***ERC721**、\***ERC1155**。 必要な**拡張機能**を追加する。 このチュートリアルでは、ERC721を選択し、拡張子をnoneに設定します。
+   iv. ベース契約のタイプを選択する：**Empty**、**ERC20**、**ERC721**、**ERC1155**。 必要な**拡張機能**を追加する。 このチュートリアルでは、ERC721を選択し、拡張子をnoneに設定します。
 
 ![](/img/build/get-started/thirdweb-cli-info.png)
 
