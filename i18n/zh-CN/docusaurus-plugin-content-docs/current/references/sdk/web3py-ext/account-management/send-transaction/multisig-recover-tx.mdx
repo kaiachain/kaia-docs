@@ -214,7 +214,7 @@ web3_tx_sign_recover_multisig()
 **向网络发送\***已签名的交易，并**_等待_**接收，直到交易在区块链中完全执行为止
 
 <CH.Code>
-``py web3_multisig_value_transfer_sign_recover.py focus=38:40
+```py web3_multisig_value_transfer_sign_recover.py focus=38:40
 
 ````
 ---
@@ -229,16 +229,16 @@ tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a rec
 使用 **Account.recover_transaction** 从 **user3** 的签名交易中恢复 user1 地址
 
 <CH.Code>
-``py web3_multisig_value_transfer_sign_recover.py focus=42:43
+```py web3_multisig_value_transfer_sign_recover.py focus=42:43
 
-```
+````
 ---
 
-``zsh output
-‖ python web3_multisig_value_transfer_sign_recover.py
+```zsh output
+❯ python web3_multisig_value_transfer_sign_recover.py
 sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
-recovered 0x82c6a8d94993d49cfd0c1d30F0f8caa65782cc7e
-```
+recovered 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+````
 
 </CH.Code>
 </CH.Spotlight>
