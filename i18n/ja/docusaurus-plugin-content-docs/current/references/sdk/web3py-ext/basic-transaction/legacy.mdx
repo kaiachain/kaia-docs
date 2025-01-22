@@ -148,7 +148,7 @@ web3_legacy_value_transfer_sign_recover()
 
 ---
 
-from**、**to**、**value**フィールドのみを持つ**legacy tx**を定義する。 単位コンバーターを使用 **Web3.to_peb\*\*
+**from**、**to**、**value**フィールドのみを持つ**legacy tx**を定義する。 単位コンバーターを使用 **Web3.to_peb**
 
 ```python txTypeLegacyTransaction.py focus=15:19
 
@@ -156,7 +156,7 @@ from**、**to**、**value**フィールドのみを持つ**legacy tx**を定義�
 
 ---
 
-fill_transaction\*\*を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```python txTypeLegacyTransaction.py focus=20
 
@@ -233,7 +233,7 @@ decoded transaction: {
 
 ---
 
-wait_for_transaction_receipt\*\*メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 <CH.Code>
 ```python txTypeLegacyTransaction.py focus=32
