@@ -277,7 +277,7 @@ function () external payable;
 ユーザーがこの関数を `_to` で呼び出すと、相手チェーンの `_to` アドレスにKAIA転送を要求する。
 
 ```solidity
-function requestKLAYTransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
+function requestKAIATransfer(address _to, uint256 _value, bytes calldata _extraData) external payable
 ```
 
 ### ERC-20の譲渡<a id="erc-20-transfer"></a>
