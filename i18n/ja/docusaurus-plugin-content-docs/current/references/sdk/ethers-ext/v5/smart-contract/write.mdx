@@ -1,6 +1,6 @@
 # 書く
 
-スマートコントラクトの状態を更新する必要がある場合、スマートコントラクトと**「トランザクション」**を行うことができる。
+スマートコントラクトの状態を更新する必要がある場合、スマートコントラクトと**transaction**を行うことができる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -125,7 +125,7 @@ ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと
 
 ---
 
-送信者アドレス**と**秘密鍵\*\*の定義
+**送信者アドレス**と**private key**の定義
 
 ```js smartContractWrite.js focus=4:5
 
@@ -196,7 +196,7 @@ main();
 
 ---
 
-送信者の**秘密鍵**と**web3プロバイダー**からウォレットを作成する。
+送信者の**private key**と**web3プロバイダー**からウォレットを作成する。
 
 ```js smartContractWrite.js focus=8
 
@@ -220,7 +220,7 @@ solidityコードから生成された**Abi**を設定する。
 
 ---
 
-Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider\*\* を指定します。 このインスタンスを通じて、契約の読み書きができる。
+**Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js smartContractWrite.js focus=37
 
@@ -228,7 +228,7 @@ Ethers.Contract**で契約インスタンスを作成し、パラメータ **con
 
 ---
 
-counter.number()**メソッドで更新前の**number\*\*値を取得する。
+**counter.number()**メソッドで更新前の**number**値を取得する。
 
 <CH.Code>
 ```js smartContractWrite.js focus=39
@@ -244,7 +244,7 @@ number before 293
 
 ---
 
-番号\*\*の値を更新するためのトランザクションデータを作成する。
+**number**の値を更新するためのトランザクションデータを作成する。
 
 ```js smartContractWrite.js focus=41
 
@@ -252,7 +252,7 @@ number before 293
 
 ---
 
-wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
+**wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
 <CH.Code>
 ```js smartContractWrite.js focus=42:43
