@@ -40,36 +40,36 @@ LegacyTransaction\` 的成員變量屬性如下。 標記為 "可選 "的屬性�
 **示例**
 
 ```javascript
-// 為發送 KAIA 創建 legacyTransaction
+// Create a legacyTransaction for sending KAIA
 > caver.transaction.legacyTransaction.create({
-    to：'0x9957dfd92e4b70f91131c573293343bc5f21f215',
+    to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
     value: caver.utils.toPeb(1, 'KLAY'),
     gas: 25000,
 })
 
-// 創建 legacyTransaction 以部署智能合約
+// Create a legacyTransaction to deploy smart contract
 > caver.transaction.legacyTransaction.create({
     input: '0x60806...',
     gas: 200000,
 })
 
-// 創建 legacyTransaction 以執行智能合約
+// Create a legacyTransaction to execute smart contract
 > caver.transaction.legacyTransaction.create({
-    to：'0xfe6c9118e56a42cbc77aa3b7ee586455e3dc5b6d', // 智能聯繫地址
+    to: '0xfe6c9118e56a42cbc77aa3b7ee586455e3dc5b6d', // Smart contact address
     input: '0xa9059...',
     gas: 200000,
 })
 
-// 從 RLP 編碼字符串中創建 legacyTransaction
+// Create a legacyTransaction from RLP-encoded string
 > caver.transaction.legacyTransaction.create('0xf8668204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a843132333425a0b2a5a15550ec298dc7dddde3774429ed75f864c82caeb5ee24399649ad731be9a029da1014d16f2011b3307f7bbe1035b6e699a4204fc416c763def6cefd976567')
 LegacyTransaction {
-    _type：'TxTypeLegacyTransaction',
+    _type: 'TxTypeLegacyTransaction',
     _from: '0x',
     _gas: '0xf4240',
     _nonce: '0x4d2',
     _gasPrice: '0x19',
-    _signatures：SignatureData { _v: '0x25', _r: '0xb2a5a...', _s:  '0x29da1...' },
-    _to：'0x7b65b75d204abed71587c9e519a89277766ee1d0',
+    _signatures: SignatureData { _v: '0x25', _r: '0xb2a5a...', _s:  '0x29da1...' },
+    _to: '0x7b65b75d204abed71587c9e519a89277766ee1d0',
     _input: '0x31323334',
     _value: '0xa'
 }
@@ -110,24 +110,24 @@ caver.transaction.valueTransfer.create(transactionObject)
 **示例**
 
 ```javascript
-// 創建一個 valueTransfer
+// Create a valueTransfer
 > caver.transaction.valueTransfer.create({
     from: '0x{address in hex}',
-    to：'0x9957dfd92e4b70f91131c573293343bc5f21f215',
+    to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
     value: caver.utils.toPeb(1, 'KLAY'),
     gas: 25000,
 })
 
-// 從 RLP 編碼字符串創建 valueTransfer
+// Create a valueTransfer from RLP-encoded string
 > caver.transaction.valueTransfer.create('0x08f87f3a8505d21dba0083015f90948723590d5d60e35f7ce0db5c09d3938b26ff80ae01947d0104ac150f749d36bb34999bcade9f2c0bd2e6f847f845820feaa03d820b27d0997baf16f98df01c7b2b2e9734ad05b2228c4d403c2facff8397f3a01f4a44eeb8b7f0b0019162d1d6b90c401078e56fcd7495e74f7cfcd37e25f017')
 ValueTransfer {
-    _type：'TxTypeValueTransfer',
+    _type: 'TxTypeValueTransfer',
     _from: '0x7d0104ac150f749d36bb34999bcade9f2c0bd2e6',
     _gas: '0x15f90',
     _nonce: '0x3a',
     _gasPrice: '0x5d21dba00',
-    _signatures：[ SignatureData { _v: '0x0fea', _r: '0x3d820...', _s: '0x1f4a4...' } ],
-    _to：'0x8723590d5d60e35f7ce0db5c09d3938b26ff80ae',
+    _signatures: [ SignatureData { _v: '0x0fea', _r: '0x3d820...', _s: '0x1f4a4...' } ],
+    _to: '0x8723590d5d60e35f7ce0db5c09d3938b26ff80ae',
     _value: '0x1'
 }
 ```
@@ -168,25 +168,25 @@ ValueTransferMemo "代表一個[價值轉移備忘錄事務]（.../.../.../.../.
 **示例**
 
 ```javascript
-// 創建 valueTransferMemo
+// Create a valueTransferMemo
 > caver.transaction.valueTransferMemo.create({
     from: '0x{address in hex}',
-    to：'0x9957dfd92e4b70f91131c573293343bc5f21f215',
+    to: '0x9957dfd92e4b70f91131c573293343bc5f21f215',
     value: caver.utils.toPeb(1, 'KLAY'),
     gas: 25000,
     input: '0x68656c6c6f',
 })
 
-// 從 RLP 編碼字符串創建 valueTransferMemo
+// Create a valueTransferMemo from RLP-encoded string
 > caver.transaction.valueTransferMemo.create('0x10f8808204d219830f4240947b65b75d204abed71587c9e519a89277766ee1d00a94a94f5374fce5edbc8e2a8697c15331677e6ebf0b8568656c6c6ff845f84325a07d2b0c89ee8afa502b3186413983bfe9a31c5776f4f820210cffe44a7d568d1ca02b1cbd587c73b0f54969f6b76ef2fd95cea0c1bb79256a75df9da696278509f3')
 ValueTransferMemo {
-    _type：'TxTypeValueTransferMemo',
+    _type: 'TxTypeValueTransferMemo',
     _from: '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b',
     _gas: '0xf4240',
     _nonce: '0x4d2',
     _gasPrice: '0x19',
-    _signatures：[ SignatureData { _v: '0x25', _r: '0x7d2b0...', _s: '0x2b1cb...' } ],
-    _to：'0x7b65b75d204abed71587c9e519a89277766ee1d0',
+    _signatures: [ SignatureData { _v: '0x25', _r: '0x7d2b0...', _s: '0x2b1cb...' } ],
+    _to: '0x7b65b75d204abed71587c9e519a89277766ee1d0',
     _value: '0xa',
     _input: '0x68656c6c6f'
 }
@@ -228,25 +228,25 @@ caver.transaction.accountUpdate.create(transactionObject)
 **示例**
 
 ```javascript
-// 創建一個 accountUpdate
+// Create a accountUpdate
 > caver.transaction.accountUpdate.create({
     from: '0x{address in hex}',
     gas: 50000,
     account: caver.account.createWithAccountKeyLegacy('0x{address in hex}'),
 })
 
-// 從 RLP 編碼字符串創建 accountUpdate
+// Create a accountUpdate from RLP-encoded string
 > caver.transaction.accountUpdate.create('0x20f88d808505d21dba0083030d4094ffb52bc54635f840013e142ebe7c06c9c91c1625a302a102c93fcbdb2b9dbef8ee5c4748ffdce11f1f5b06d7ba71cc2b7699e38be7698d1ef847f845820fe9a09c2ca281e94567846acbeef724b1a7a5f882d581aff9984755abd92272592b8ea0344fd23d7774ae9c227809bb579387dfcd69e74ae2fe3a788617f54a4001e5ab')
 AccountUpdate {
-    _type：'TxTypeAccountUpdate',
+    _type: 'TxTypeAccountUpdate',
     _from: '0xffb52bc54635f840013e142ebe7c06c9c91c1625',
     _gas: '0x30d40',
     _nonce: '0x0',
     _gasPrice: '0x5d21dba00',
-    _signatures：[ SignatureData { _v: '0x0fe9', _r: '0x9c2ca...', _s: '0x344fd...' } ],
-    _account：賬戶 {
-        _address：'0xffb52bc54635f840013e142ebe7c06c9c91c1625',
-        _accountKey：AccountKeyPublic { _publicKey: '0x02c93...' } 
+    _signatures: [ SignatureData { _v: '0x0fe9', _r: '0x9c2ca...', _s: '0x344fd...' } ],
+    _account: Account {
+        _address: '0xffb52bc54635f840013e142ebe7c06c9c91c1625',
+        _accountKey: AccountKeyPublic { _publicKey: '0x02c93...' } 
     }
 }
 ```
@@ -297,19 +297,19 @@ SmartContractDeploy "代表一個[智能合約部署事務]（.../.../.../.../..
 })
 
 // Create a smartContractDeploy from RLP-encoded string
-> caver.transaction.smartContractDeploy.create('0x28f9027e1f8505d21dba00830dbba0808094d91aec35bea25d379e49cfe2dff5f5775cdac1a3b9020e60806040526000805534801561001457600080fd5b506101ea806100246000396000f30060806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461007257806342cbb15c1461009d578063767800de146100c8578063b22636271461011f578063d14e62b814610150575b600080fd5b34801561007e57600080fd5b5061008761017d565b6040518082815260200191505060405180910390f35b3480156100a957600080fd5b506100b2610183565b6040518082815260200191505060405180910390f35b3480156100d457600080fd5b506100dd61018b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561012b57600080fd5b5061014e60048036038101908080356000191690602001909291905050506101b1565b005b34801561015c57600080fd5b5061017b600480360381019080803590602001909291905050506101b4565b005b60005481565b600043905090565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff
+> caver.transaction.smartContractDeploy.create('0x28f9027e1f8505d21dba00830dbba0808094d91aec35bea25d379e49cfe2dff5f5775cdac1a3b9020e60806040526000805534801561001457600080fd5b506101ea806100246000396000f30060806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd1461007257806342cbb15c1461009d578063767800de146100c8578063b22636271461011f578063d14e62b814610150575b600080fd5b34801561007e57600080fd5b5061008761017d565b6040518082815260200191505060405180910390f35b3480156100a957600080fd5b506100b2610183565b6040518082815260200191505060405180910390f35b3480156100d457600080fd5b506100dd61018b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561012b57600080fd5b5061014e60048036038101908080356000191690602001909291905050506101b1565b005b34801561015c57600080fd5b5061017b600480360381019080803590602001909291905050506101b4565b005b60005481565b600043905090565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b50565b80600081905550505600a165627a7a7230582053c65686a3571c517e2cf4f741d842e5ee6aa665c96ce70f46f9a594794f11eb00298080f847f845820fe9a0018a9f680a74e275f1f83a5c2c45e1313c52432df4595e944240b1511a4f4ba7a02d762c3417f91b81db4907db832cb28cc64df7dca3ea9be64899ab3f4812f016')
 SmartContractDeploy {
-    _type：'TxTypeSmartContractDeploy',
+    _type: 'TxTypeSmartContractDeploy',
     _from: '0xd91aec35bea25d379e49cfe2dff5f5775cdac1a3',
     _gas: '0xdbba0',
     _nonce: '0x1f',
     _gasPrice: '0x5d21dba00',
-    _signatures：[ SignatureData { _v: '0x0fe9', _r: '0x018a9...', _s: '0x2d762...' } ],
-    _to：'0x',
+    _signatures: [ SignatureData { _v: '0x0fe9', _r: '0x018a9...', _s: '0x2d762...' } ],
+    _to: '0x',
     _value: '0x0',
     _input: '0x60806...',
     _humanReadable: false,
-    _codeFormat：'0x0'
+    _codeFormat: '0x0'
 }
 ```
 
@@ -349,26 +349,26 @@ SmartContractExecution\` 的成員變量屬性如下。 標記為 "可選 "的�
 **示例**
 
 ```javascript
-// 創建 smartContractExecution
+// Create a smartContractExecution
 > caver.transaction.smartContractExecution.create({
     from: '0x{address in hex}',
-    to：'0x{address in hex}',
+    to: '0x{address in hex}',
     input: '0xa9059...',
     gas: 90000,
 })
 
-// 從 RLP 編碼字符串中創建 smartContractExecution
+// Create a smartContractExecution from RLP-encoded string
 > caver.transaction.smartContractExecution.create('0x30f8c5038505d21dba00830dbba094e3cd4e1cd287235cc0ea48c9fd02978533f5ec2b80946b604e77c0fbebb5b2941bcde3ab5eb09d99ad24b844a9059cbb0000000000000000000000008a4c9c443bb0645df646a2d5bb55def0ed1e885a0000000000000000000000000000000000000000000000000000000000003039f847f845820feaa066e1650b5779f152489633f343581c07938f8b2fc92c919d4dd7c7295d0beacea067b0b79383dbcd42a3aa8ebb1aa4bcb1fc0623ef9e97bc1e9b82d96fe37b5881')
 SmartContractExecution {
-    _type：'TxTypeSmartContractExecution',
+    _type: 'TxTypeSmartContractExecution',
     _from: '0x6b604e77c0fbebb5b2941bcde3ab5eb09d99ad24',
     _gas: '0xdbba0',
     _nonce: '0x3',
     _gasPrice: '0x5d21dba00',
-    _signatures：[ SignatureData { _v: '0x0fea', _r: '0x66e16...', _s: '0x67b0b...' } ],
-    _to：'0xe3cd4e1cd287235cc0ea48c9fd02978533f5ec2b',
+    _signatures: [ SignatureData { _v: '0x0fea', _r: '0x66e16...', _s: '0x67b0b...' } ],
+    _to: '0xe3cd4e1cd287235cc0ea48c9fd02978533f5ec2b',
     _value: '0x0',
-    _input: '0xa9059...'.
+    _input: '0xa9059...'
 }
 ```
 
@@ -416,13 +416,13 @@ Cancel "事務會取消事務池中具有相同 nonce 的事務的執行。
 
 // Create a cancel from RLP-encoded string
 > caver.transaction.cancel.create('0x38f869068505d21dba00830dbba0946b604e77c0fbebb5b2941bcde3ab5eb09d99ad24f847f845820feaa0d9994ef507951a59380309f656ee8ed685becdc89b1d1a0eb1d2f72683ae14d3a07ad5d37a89781f294fab72b254ea9266e4d039ae163db4a4c4752f1fabff023b')
-取消 {
-    _type：TxTypeCancel',
+Cancel {
+    _type: 'TxTypeCancel',
     _from: '0x6b604e77c0fbebb5b2941bcde3ab5eb09d99ad24',
     _gas: '0xdbba0',
     _nonce: '0x6',
     _gasPrice: '0x5d21dba00',
-    _signatures：[ 簽名數據 { _v: '0x0fea', _r: '0xd9994...', _s: '0x7ad5d...' } ]
+    _signatures: [ SignatureData { _v: '0x0fea', _r: '0xd9994...', _s: '0x7ad5d...' } ]
 }
 ```
 
@@ -574,19 +574,19 @@ EthereumDynamicFee\` 的成員變量屬性如下。 標記為 "可選 "的屬性
 
 **屬性**
 
-| 名稱                   | 類型  | 描述                                                                                                                                                                         |
-| -------------------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| gas                  | 字符串 | 交易允許使用的最高交易費金額。                                                                                                                                                            |
-| value                | 字符串 | (可選，默認值：`'0x0'`）要傳輸的 KAIA 數量，單位為 peb。 您可以使用 `caver.utils.toPeb`。                                                                                        |
-| from                 | 字符串 | (可選）發件人地址。 如果省略，則將設置為用於簽名的鑰匙圈地址。                                                                                                                        |
-| to                   | 字符串 | (可選，默認：`'0x'`）當以太坊動態收費交易執行智能合約時，接收轉賬金額或智能聯繫人地址的賬戶地址。 當以太坊動態收費交易部署智能合約時，無需定義 `to`。                                                                       |
-| input                | 字符串 | (可選）交易附加數據，用於智能合約部署/執行。                                                                                                                                 |
-| signatures           | 數組  | (可選）簽名數組。 以太坊動態收費交易只能有一個簽名。                                                                                                                             |
-| nonce                | 字符串 | (可選）用於唯一標識發件人交易的值。 如果省略，將設置為 `caver.rpc.klay.getTransactionCount(address,'pending')`。                                                                   |
-| maxPriorityFeePerGas | 字符串 | (可選）用於 peb 交易的氣嘴帽。 由於 kaia 有固定的天然氣價格，因此應將其設置為與 `caver.rpc.klay.getGasPrice`相同的值。 如果省略，將設置為 `caver.rpc.klay.getMaxPriorityFeePerGas()`。                  |
-| maxFeePerGas         | 字符串 | (可選）為執行交易支付的最高金額。 由於 kaia 有固定的天然氣價格，因此應將其設置為與 `caver.rpc.klay.getGasPrice`相同的值。 如果省略，"baseFeePerGas \* 2 + maxPriorityFeePerGas "的值將設置為 "maxFeePerGas"。 |
-| chainId              | 字符串 | (可選）kaia 網絡的鏈 id。 如果省略，將設置為 `caver.rpc.klay.getChainId`。                                                                                                |
-| accessList           | 數組  | (可選）作為 EIP-2930 訪問列表，包含事務讀寫的所有存儲槽和地址。                                                                                                                   |
+| 名稱                   | 類型  | 描述                                                                                                                                                                          |
+| -------------------- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| gas                  | 字符串 | 交易允許使用的最高交易費金額。                                                                                                                                                             |
+| value                | 字符串 | (可選，默認值：`'0x0'`）要傳輸的 KAIA 數量，單位為 peb。 您可以使用 `caver.utils.toPeb`。                                                                                         |
+| from                 | 字符串 | (可選）發件人地址。 如果省略，則將設置為用於簽名的鑰匙圈地址。                                                                                                                         |
+| to                   | 字符串 | (可選，默認：`'0x'`）當以太坊動態收費交易執行智能合約時，接收轉賬金額或智能聯繫人地址的賬戶地址。 當以太坊動態收費交易部署智能合約時，無需定義 `to`。                                                                        |
+| input                | 字符串 | (可選）交易附加數據，用於智能合約部署/執行。                                                                                                                                  |
+| signatures           | 數組  | (可選）簽名數組。 以太坊動態收費交易只能有一個簽名。                                                                                                                              |
+| nonce                | 字符串 | (可選）用於唯一標識發件人交易的值。 如果省略，將設置為 `caver.rpc.klay.getTransactionCount(address,'pending')`。                                                                    |
+| maxPriorityFeePerGas | 字符串 | (可選）用於 peb 交易的氣嘴帽。 由於 kaia 有固定的Gas 價格，因此應將其設置為與 `caver.rpc.klay.getGasPrice`相同的值。 如果省略，將設置為 `caver.rpc.klay.getMaxPriorityFeePerGas()`。                  |
+| maxFeePerGas         | 字符串 | (可選）為執行交易支付的最高金額。 由於 kaia 有固定的Gas 價格，因此應將其設置為與 `caver.rpc.klay.getGasPrice`相同的值。 如果省略，"baseFeePerGas \* 2 + maxPriorityFeePerGas "的值將設置為 "maxFeePerGas"。 |
+| chainId              | 字符串 | (可選）kaia 網絡的鏈 id。 如果省略，將設置為 `caver.rpc.klay.getChainId`。                                                                                                 |
+| accessList           | 數組  | (可選）作為 EIP-2930 訪問列表，包含事務讀寫的所有存儲槽和地址。                                                                                                                    |
 
 **示例**
 
