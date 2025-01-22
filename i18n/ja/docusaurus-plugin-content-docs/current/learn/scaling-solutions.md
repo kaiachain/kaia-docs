@@ -23,7 +23,7 @@ Kaiaサービスチェーンは、様々なサービス固有の目標（
 カイヤのメインチェーンに接続されたサービスチェーンを総称してサービスチェーンネットワークと呼ぶ。
 サービスチェーンとメインチェーン間の接続方法は、カイアの将来のイテレーションで変更される可能性があることに注意してください。
 
-図1. Klaytn Main Chain and Service Chain](/img/learn/mainchain_servicechain.png)
+図1. Kaia Main Chain and Service Chain](/img/learn/mainchain_servicechain.png)
 
 図1は、様々なビジネスニーズを満たすために利用されているサービスチェーンのネットワークトポロジーを示しており、
 、Kaiaメインチェーンと接続され、Kaiaネットワークを拡張している。
