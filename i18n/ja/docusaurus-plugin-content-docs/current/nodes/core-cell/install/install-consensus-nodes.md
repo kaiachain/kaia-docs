@@ -10,7 +10,7 @@
 
 アーカイブファイルは実行バイナリとコンフィギュレーションファイルで構成され、以下のような構造になっている。
 
-**注**\*：ファイル構造やファイル名を変更しないでください。 これを変更すると、ノードが正しく機能しなくなる可能性があります。
+**注**：ファイル構造やファイル名を変更しないでください。 これを変更すると、ノードが正しく機能しなくなる可能性があります。
 
 ```text
 - bin
@@ -38,7 +38,7 @@ $ tar zxf kcn-vX.X.X-linux-amd64.tar.gz
 $ tar zxf kcn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**注**\*: `kcn` と `kcnd` をグローバルに実行するには、環境変数 `$PATH` に `kcn-linux-amd64/bin` のパスを追加することを推奨する。 一例を挙げよう、
+**注**: `kcn` と `kcnd` をグローバルに実行するには、環境変数 `$PATH` に `kcn-linux-amd64/bin` のパスを追加することを推奨する。 一例を挙げよう、
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
@@ -133,7 +133,7 @@ $ kcn account new --help
 ```bash
 $ kcn account new --datadir ~/kcnd_home
 INFO[03/15,09:04:43 +09] [17] Setting connection type                   nodetype=cn conntype=-0
-INFO[03/15,09:04:43 +09] [17] Maximum peer count                        KLAY=25 LES=0 total=25
+INFO[03/15,09:04:43 +09] [17] Maximum peer count                        KAIA=25 LES=0 total=25
 INFO[03/15,09:04:43 +09] [17] SBN is disabled.
 Your new account is locked with a password. Please give a password. Do not forget this password.
 Passphrase:
@@ -161,23 +161,23 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 以下の `systemctl` コマンドでKaiaサービスを開始/停止できる。
 
-**注**\*：これにはroot権限が必要です。
+**注**：これにはroot権限が必要です。
 
-\*\*スタート
+**スタート**
 
 ```bash
 $ systemctl start kcnd.service
 
 ```
 
-\*\*ストップ
+**ストップ**
 
 ```bash
 $ systemctl stop kcnd.service
 
 ```
 
-\*\*ステータス
+**ステータス**
 
 ```bash
 $ systemctl status kcnd.service
