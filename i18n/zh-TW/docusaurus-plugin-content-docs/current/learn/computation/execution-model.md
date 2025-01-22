@@ -37,7 +37,7 @@ Kaia 採用了一種新機制，在區塊提議者和委員會選擇過程中引
 
 Kaia Mainnet 和 Kairos Testnet 目前對交易執行有以下限制：
 
-- 您可以設置交易的 gasPrice，但這意味著這是您能支付的最高價格。 實際天然氣價格將由網絡決定。 更多詳細信息，請參閱[天然氣價格概覽](../transaction-fees/transaction-fees.md#gas-price-overview)
+- 您可以設置交易的 gasPrice，但這意味著這是您能支付的最高價格。 實際Gas 價格將由網絡決定。 更多詳細信息，請參閱[Gas 價格概覽](../transaction-fees/transaction-fees.md#gas-price-overview)
 - 執行成本大於計算成本限制的事務將被丟棄。 請參閱 [計算成本](./computation-cost.md)
 - 從上海硬分叉開始，根據初始代碼的長度創建合約需要額外的 gas 費用，每 32 字節的初始代碼收取 2 gas。
 
