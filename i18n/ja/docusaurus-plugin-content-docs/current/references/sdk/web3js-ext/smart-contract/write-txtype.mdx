@@ -104,7 +104,7 @@ number after 296
 
 ---
 
-web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ext**パッケージをインポートする。
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js smartContractWriteWithTxType.js focus=1
 
@@ -112,7 +112,7 @@ web3にkaiaの機能を追加するために、**web3**と**@kaiachain/web3js-ex
 
 ---
 
-送信者の**アドレス**と**秘密鍵**を定義する。
+送信者の**address**と**private key**を定義する。
 
 ```js smartContractWriteWithTxType.js focus=3:4
 
@@ -205,7 +205,7 @@ main();
 
 ---
 
-契約**アビ**と**アドレス**を定義する。
+契約**Abi**と**address**を定義する。
 
 ```js smartContractWriteWithTxType.js focus=33:34
 
@@ -221,7 +221,7 @@ main();
 
 ---
 
-更新前に\*\*番号を取得
+更新前に**number**を取得
 
 <CH.Code>
 ```js smartContractWriteWithTxType.js focus=39
@@ -254,7 +254,7 @@ contract.methods.increment().encodeABI()\`でコントラクト・メソッド�
 
 ---
 
-送信者\*\*のアカウントで取引に署名する。
+**sender**のアカウントで取引に署名する。
 
 <CH.Code>
 ```js smartContractWriteWithTxType.js focus=49:50
@@ -314,7 +314,7 @@ receipt {
 
 ---
 
-アップデート後の\*\*番号を取得
+アップデート後の**number**を取得
 
 <CH.Code>
 ```js smartContractWriteWithTxType.js focus=55
