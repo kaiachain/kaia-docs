@@ -2,7 +2,7 @@
 
 **AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
 署名された公開鍵の加重和が閾値より大きいこと。
 無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
@@ -104,14 +104,14 @@ AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引�
 
   ---
 
-  ethers.jsにkaiaの機能を追加するために、**ethers**および\*\*@kaiachain/ethers-ext\*\*パッケージをインポートする。
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js AccountUpdateWithMultiSigExample.js focus=1:3
   ```
 
   ---
 
-  変更する送信者アドレス\*\*、送信者秘密鍵**および新しい**muti-sig秘密鍵\*\*を定義する。
+  変更する**送信者アドレス**、送信者秘密鍵**および新しい**muti-sig秘密鍵\*\*を定義する。
 
   ```js AccountUpdateWithMultiSigExample.js focus=5:10
   ```
@@ -190,14 +190,14 @@ AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引�
 
   ---
 
-  秘密鍵**と**プロバイダー\*\*を使って3つの送信者のウォレットを作成する。
+  **private key**と**プロバイダー**を使って3つの送信者のウォレットを作成する。
 
   ```js AccountUpdateWithMultiSigExample.js focus=13:15
   ```
 
   ---
 
-  新しい秘密鍵から**公開鍵**を計算する。
+  新しい秘密鍵から**public key**を計算する。
 
   <CH.Code>
     ```js AccountUpdateWithMultiSigExample.js focus=18:21
@@ -216,7 +216,7 @@ AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引�
 
   ---
 
-  計算された**公開鍵**とその**重み**を持つ**keys**フィールドを持つトランザクショ ンを宣言し、**type**を**WeightedMultiSig**と指定する。
+  計算された**public key**とその**重み**を持つ**keys**フィールドを持つトランザクショ ンを宣言し、**type**を**WeightedMultiSig**と指定する。
 
   ```js AccountUpdateWithMultiSigExample.js focus=23:36
   ```
@@ -268,7 +268,7 @@ AccountKeyWeightedMultiSig\*\*に関連付けられたアカウントで取引�
 
   ---
 
-  wait\*\*関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
+  **wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
   <CH.Code>
     ```js AccountUpdateWithMultiSigExample.js focus=54:55
