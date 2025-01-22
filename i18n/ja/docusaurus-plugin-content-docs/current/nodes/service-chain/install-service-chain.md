@@ -97,8 +97,8 @@ Created :  homi-output/scripts/genesis.json
 Created :  homi-output/keys/nodekey1
 Created :  homi-output/keys/validator1
 Created :  homi-output/scripts/static-nodes.json
-Created :  homi-output/Klaytn.json
-Created :  homi-output/Klaytn_txpool.json
+Created :  homi-output/Kaia.json
+Created :  homi-output/Kaia_txpool.json
 ```
 
 以下は、genesisファイルとnodekeyファイルの例である。
@@ -345,7 +345,7 @@ SCNのステータスをチェックするのに便利なAPI：
 最新のブロック番号を取得し、ブロックが正しく伝播されているかどうかを確認することができる。
 
 ```text
-> klay.blockNumber
+> kaia.blockNumber
 11573819
 ```
 
