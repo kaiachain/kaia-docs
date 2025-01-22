@@ -1,6 +1,6 @@
 # 書き込み（手数料の委任）
 
-スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**「トランザクション」**を行うことができる。
+スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**transaction**を行うことができる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -76,7 +76,7 @@ web3をkaia web3に拡張するために、**web3py_ext**から**extend**をイ�
 
 ---
 
-web3**と**eth_account\*\*から必要なutilsをインポートする。
+**web3**と**eth_account**から必要なutilsをインポートする。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=3:7
 
@@ -84,7 +84,7 @@ web3**と**eth_account\*\*から必要なutilsをインポートする。
 
 ---
 
-kairos\*\*テストネットエンドポイントでWeb3インスタンスを作成する
+**kairos**テストネットエンドポイントでWeb3インスタンスを作成する
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=9:11
 
@@ -208,7 +208,7 @@ number before:  294
 
 ---
 
-fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド\*\*を追加する。 この行以降のすべてのフィールドを印刷することができる。
+**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。 この行以降のすべてのフィールドを印刷することができる。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=30
 
@@ -224,7 +224,7 @@ fill_transaction**を使用して、**gas limit**、**Nonce**などのような�
 
 ---
 
-料金支払者\*\*として、料金委任者の鍵でトランザクションに署名する。 料金支払者の住所も伝える必要がある。
+**fee payer**として、料金委任者の鍵でトランザクションに署名する。 料金支払者の住所も伝える必要がある。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=33:38
 
@@ -255,7 +255,7 @@ receipt:  AttributeDict({'blockHash': HexBytes('0xa1ecb35a068736c6257915f8a89dfe
 
 ---
 
-契約が**更新**されているかチェックする
+契約が**update**されているかチェックする
 
 <CH.Code>
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=42:43
