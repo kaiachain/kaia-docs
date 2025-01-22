@@ -46,7 +46,7 @@ I type my pass here
 
 これは、与えられたキーファイルから暗号化されていない秘密鍵をインポートし、新しいアカウントを作成し、データ・ディレクトリの下にキーストア・ファイルを生成し、コンソールにアドレスを表示する。 今後アカウントのロックを解除するには、パスフレーズを覚えておく必要があります。
 
-**注**\*：キーストアファイルを別のKaiaインスタンスに直接コピーできる場合、このインポート/エクスポート機構は必要ありません。
+**注**：キーストアファイルを別のKaiaインスタンスに直接コピーできる場合、このインポート/エクスポート機構は必要ありません。
 
 ### ken <a id="ken-1"></a>
 
@@ -61,7 +61,7 @@ $ ken account import --password <passwordfile> --datadir <datadir> <keyfile>
 > personal.importRawKey('{private key}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"​
 
-// Using a Klaytn wallet key
+// Using a Kaia wallet key
 > personal.importRawKey('{private key}0x000x{address}', 'mypassword')
 "0xfa415bb3e6231f488ff39eb2897db0ef3636dd32"
 ```
