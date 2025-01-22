@@ -49,6 +49,7 @@ def web3_fee_delegated_cancel_sign_recover():
     print("\ndecoded transaction:", to_pretty(decoded_tx))
 
 web3_fee_delegated_cancel_sign_recover()
+
 ```
 
 ---
@@ -234,6 +235,7 @@ web3_fee_delegated_cancel_sign_recover()
 ```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
 raw transaction of signed tx: 0x39f86b8203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec21
+
 ````
 
 </CH.Code>
@@ -293,7 +295,7 @@ decoded transaction: {
 用收费委托人的账户签署原始交易
 
 <CH.Code>
-``py web3_fee_delegated_cancel_sign_recover.py focus=34:35
+```py web3_fee_delegated_cancel_sign_recover.py focus=34:35
 
 ````
 
@@ -303,6 +305,7 @@ decoded transaction: {
 ```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
 raw transaction of feePayer signed tx: 0x39f8c98203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec2194cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f6a06697d97df68a0c4a2c59b3d7a8c5c479a6b43e7a34394518b858ef908d10b76aa0492c8da32c77a71ce26650f9ac842496bb33f0f17877ce1b23e1763b7c87e28d
+
 ````
 
 </CH.Code>
@@ -312,7 +315,7 @@ raw transaction of feePayer signed tx: 0x39f8c98203a3850ba43b740083026d1894a2a88
 从签署的交易中找回缴费人地址
 
 <CH.Code>
-``py web3_fee_delegated_cancel_sign_recover.py focus=37:38
+```py web3_fee_delegated_cancel_sign_recover.py focus=37:38
 
 ````
 
@@ -322,6 +325,7 @@ raw transaction of feePayer signed tx: 0x39f8c98203a3850ba43b740083026d1894a2a88
 ```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
 recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+
 ````
 
 </CH.Code>
