@@ -32,7 +32,7 @@ kaiaのEthers.js拡張機能：
   const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
   const wallet = new Wallet("<private key>", provider);
   ```
-- \*\*エーテル・エクステルのみ
+- **する**：エーテル・エクステルのみを使用
   ```js
   const { Wallet, JsonRpcProvider } = require("@kaiachain/ethers-ext");
 
