@@ -10,7 +10,7 @@ caver.kct.kip37 "继承了[caver.contract](../caver.contract.md)，以实现 KIP
 
 **注意** `caver.kct.kip37`从 caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7) 开始支持。
 
-## caver.kct.kip37.deploy<a id="caver-klay-kip37-deploy"></a>
+## caver.kct.kip37.deploy <a id="caver-klay-kip37-deploy"></a>
 
 ```javascript
 caver.kct.kip37.deploy(tokenInfo, deployer)
@@ -67,33 +67,27 @@ PromiEvent\`：一个承诺组合事件发射器，用一个新的 KIP17 实例�
 
 ```javascript
 // using the promise
-> caver.kct.kip17.deploy({
-    name: 'Jasmine',
-    symbol: 'JAS',
+> caver.kct.kip37.deploy({
+    uri: 'https://caver.example/{id}.json',
 }, '0x{address in hex}').then(console.log)
-KIP17 {
-	...
-	_address: '0xfA7D967f414468083aDAd85257a2cBD6019693C2',
-	_jsonInterface: [
-		...
-		{
-			anonymous: false,
-			inputs: [
-				{ indexed: true, name: 'owner', type: 'address' },
-     			{ indexed: true, name: 'operator', type: 'address' },
-     			{ indexed: false, name: 'approved', type: 'bool' }
-			],
-			name: 'ApprovalForAll',
-			type: 'event',
-			signature: '0x17307...'
-		}
-	] 
+KIP37 {
+    ...
+    _address: '0x7314B733723AA4a91879b15a6FEdd8962F413CB2',
+    _jsonInterface: [
+        ...
+        {
+            anonymous: false,
+            inputs: [{ indexed: false, name: 'value', type: 'string' }, { indexed: true, name: 'id', type: 'uint256' }],
+            name: 'URI',
+            type: 'event',
+            signature: '0x6bb7ff708619ba0610cba295a58592e0451dee2622938c8755667688daf3529b',
+        }
+    ] 
 }
 
 // Send object as second parameter
-> caver.kct.kip17.deploy({
-        name: 'Jasmine',
-        symbol: 'JAS',
+> caver.kct.kip37.deploy({
+    uri: 'https://caver.example/{id}.json',
     },
     {
         from: '0x{address in hex}',
@@ -102,21 +96,20 @@ KIP17 {
     }).then(console.log)
 
 // using event emitter and promise
-> caver.kct.kip17.deploy({
-    name: 'Jasmine',
-    symbol: 'JAS',
+> caver.kct.kip37.deploy({
+    uri: 'https://caver.example/{id}.json',
 }, '0x{address in hex}')
 .on('error', function(error) { ... })
 .on('transactionHash', function(transactionHash) { ... })
 .on('receipt', function(receipt) {
-	console.log(receipt.contractAddress) // contains the new token contract address
+    console.log(receipt.contractAddress) // contains the new token contract address
 })
-.then(function(newKIP17Instance) {
-	console.log(newKIP17Instance.options.address) // instance with the new token contract address
+.then(function(newKIP37Instance) {
+    console.log(newKIP37Instance.options.address) // instance with the new token contract address
 })
 ```
 
-## caver.kct.kip37.detectInterface<a id="caver-kct-kip37-detectinterface"></a>
+## caver.kct.kip37.detectInterface <a id="caver-kct-kip37-detectinterface"></a>
 
 ```javascript
 caver.kct.kip37.detectInterface(contractAddress
@@ -147,7 +140,7 @@ Promise "会返回一个 "对象"，其中包含每个[KIP-37 接口](https://ki
 }
 ```
 
-## caver.kct.kip37.create<a id="caver-kct-kip37-create"></a>
+## caver.kct.kip37.create <a id="caver-kct-kip37-create"></a>
 
 ```javascript
 caver.kct.kip37.create([tokenAddress
