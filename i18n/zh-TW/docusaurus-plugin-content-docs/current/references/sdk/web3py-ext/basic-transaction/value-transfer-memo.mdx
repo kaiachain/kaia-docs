@@ -207,7 +207,7 @@ web3_value_transfer_with_memo_sign_recover()
 用用戶的私人密鑰簽署值傳輸 tx
 
 <CH.Code>
-``python ValueTransferWithMemo.py focus=28:30
+```python ValueTransferWithMemo.py focus=28:30
 
 ````
 ---
@@ -222,13 +222,13 @@ raw transaction of signed tx: 0x10f896820366850ba43b74008301042894a2a8854b1802d8
 從已簽署的 tx 中的簽名中恢復**簽名人地址**
 
 <CH.Code>
-``python ValueTransferWithMemo.py focus=32:33
+```python ValueTransferWithMemo.py focus=32:33
 
-```
+````
 ---
-``zsh output
+```zsh output
 recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
-```
+````
 
 </CH.Code>
 
@@ -237,7 +237,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 您可以使用**Account.decode_transaction**工具對 RLP 編碼的 tx 進行**解碼**，如果您想讓輸出格式更漂亮，請使用**to_pretty**工具。
 
 <CH.Code>
-``python ValueTransferWithMemo.py focus=35:36
+```python ValueTransferWithMemo.py focus=35:36
 
 ````
 ---
@@ -277,7 +277,7 @@ decoded transaction: {
 如果交易已在區塊鏈中完成，**wait_for_transaction_receipt** 方法會返回交易收據。
 
 <CH.Code>
-``python ValueTransferWithMemo.py focus=39:40
+```python ValueTransferWithMemo.py focus=39:40
 
 ````
 ---
@@ -292,7 +292,7 @@ tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 rec
 最後，得到結果。
 
 <CH.Code>
-``python ValueTransferWithMemo.py focus=42
+```python ValueTransferWithMemo.py focus=42
 
 ```````
 ---
