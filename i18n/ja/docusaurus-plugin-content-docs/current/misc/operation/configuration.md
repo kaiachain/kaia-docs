@@ -38,8 +38,8 @@ CNとPNは同じコンフィギュレーション・ファイル・フォーマ�
 ```text
 # Configuration file for the kcnd
 
-# cypress, baobab is only available if you don't specify NETWORK_ID.
-NETWORK="cypress"
+# mainnet, kairos is only available if you don't specify NETWORK_ID.
+NETWORK="mainnet"
 # if you specify NETWORK_ID, a private network is created.
 NETWORK_ID=
 PORT=32323
