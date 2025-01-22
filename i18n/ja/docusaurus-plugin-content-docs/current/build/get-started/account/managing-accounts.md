@@ -15,14 +15,14 @@ Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/usernam
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
 
-**注**\*：他のノードからキーストア・ファイルをコピーしたり、ファイルを削除したりすると、返されるアカウント・リストの順序が変わることがあります。 したがって、インデックスに依存しないようにするか、キーストア・ファイルをコピーまたは削除した場合は、スクリプトでアカウント・インデックスをチェックして更新するようにしてください。
+**注**：他のノードからキーストア・ファイルをコピーしたり、ファイルを削除したりすると、返されるアカウント・リストの順序が変わることがあります。 したがって、インデックスに依存しないようにするか、キーストア・ファイルをコピーまたは削除した場合は、スクリプトでアカウント・インデックスをチェックして更新するようにしてください。
 
 ### JavaScriptコンソール<a id="javascript-console"></a>
 
 コンソールを使用する場合
 
 ```javascript
-> klay.accounts
+> kaia.accounts
 ["bfc22a57999459b0c2ce6337deb9287e7a970e02", "47bd2e9565cbe1789454718d6cf1778d7ea557aa"]
 ```
 
@@ -78,7 +78,7 @@ On the console you can also unlock accounts (one at a time) for a duration (in s
 口座残高の確認
 
 ```javascript
-> klay.fromPeb(klay.getBalance("{account}"), "KLAY")
+> kaia.fromPeb(kaia.getBalance("{account}"), "KAIA")
 6.5
 ```
 
@@ -87,17 +87,17 @@ JavaScript関数ですべての残高を表示する：
 ```javascript
 function checkAllBalances() {
     var totalBal = 0;
-    for (var acctNum in klay.accounts) {
-        var acct = klay.accounts[acctNum];
+    for (var acctNum in kaia.accounts) {
+        var acct = kaia.accounts[acctNum];
 
-        var acctBal = klay.fromPeb(klay.getBalance(acct), "KLAY");
+        var acctBal = kaia.fromPeb(kaia.getBalance(acct), "KAIA");
         totalBal += parseFloat(acctBal);
 
-        console.log("klay.accounts[" + acctNum + "]: \t" + acct + " \tbalance: " + acctBal + "KLAY");
+        console.log("kaia.accounts[" + acctNum + "]: \t" + acct + " \tbalance: " + acctBal + "KAIA");
 
     }
 
-    console.log("Total balance: " + totalBal + " KLAY");
+    console.log("Total balance: " + totalBal + " KAIA");
 };
 ```
 
@@ -105,10 +105,10 @@ function checkAllBalances() {
 
 ```javascript
 > checkAllBalances();
-klay.accounts[0]: 0xd1ade25ccd3d550a7eb532ac759cac7be09c2719  balance: 63.11848 KLAY
-klay.accounts[1]: 0xda65665fc30803cb1fb7e6d86691e20b1826dee0  balance: 0 KLAY
-klay.accounts[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32  balance: 1 KLAY
-klay.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KLAY
+kaia.accounts[0]: 0xd1ade25ccd3d550a7eb532ac759cac7be09c2719  balance: 63.11848 KAIA
+kaia.accounts[1]: 0xda65665fc30803cb1fb7e6d86691e20b1826dee0  balance: 0 KAIA
+kaia.accounts[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32  balance: 1 KAIA
+kaia.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KAIA
 ```
 
 この関数は `ken` を再起動すると消えてしまうので、よく使う関数を保存しておくと後で呼び出すときに便利である。
