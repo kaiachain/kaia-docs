@@ -90,7 +90,7 @@ web3をkaia web3に拡張するために、**web3py_ext**から**extend**をイ�
 
 ---
 
-eth_account**、**web3py_ext**、\*cytoolz**から必要なutilsをインポートする。
+**eth_account**、**web3py_ext**、\*cytoolz\*\*から必要なutilsをインポートする。
 
 ```py smart_contract_execution_sign_recover.py focus=3:10
 
@@ -162,7 +162,7 @@ web3_smart_contract_execution_sign_recover()
 
 ---
 
-TxType.SMART_CONTRACT_EXECUTION**型の**空のトランザクション**を作成します。 empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
+**TxType.SMART_CONTRACT_EXECUTION**型の**空のトランザクション**を作成します。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py smart_contract_execution_sign_recover.py focus=4,5,8,19
 
@@ -170,7 +170,7 @@ TxType.SMART_CONTRACT_EXECUTION**型の**空のトランザクション**を作�
 
 ---
 
-merge**ユーティリティを使用して、**from**、**to**、**data**などの**追加フィールド\*\*を空のtxにマージする。
+**merge**ユーティリティを使用して、**from**、**to**、**data**などの**追加フィールド**を空のtxにマージする。
 
 ```py smart_contract_execution_sign_recover.py focus=10,20:24
 
@@ -194,7 +194,7 @@ merge**ユーティリティを使用して、**from**、**to**、**data**など
 
 ---
 
-fill_transaction\*\*を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```python smart_contract_execution_sign_recover.py focus=4,6,8,25
 
@@ -272,7 +272,7 @@ decoded transaction: {
 
 ---
 
-wait_for_transaction_receipt\*\*メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 <CH.Code>
 ```python smart_contract_execution_sign_recover.py focus=38:39
