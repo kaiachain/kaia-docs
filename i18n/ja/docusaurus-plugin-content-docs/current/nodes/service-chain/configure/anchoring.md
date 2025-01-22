@@ -85,7 +85,7 @@ true
 デコードされたアンカリング・データは、以下のようにアンカリング・トランザクションのハッシュによって取得できる。
 
 ```javascript
-> klay.getDecodedAnchoringTransactionByHash("0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51")
+> kaia.getDecodedAnchoringTransactionByHash("0x9a68591c0faa138707a90a7506840c562328aeb7621ac0561467c371b0322d51")
 {
   BlockCount: 1,
   BlockHash: "0xcf5f591836d70a1da8e6bb8e5b2c5739329ca0e535b91e239b332af2e1b7f1f4",
