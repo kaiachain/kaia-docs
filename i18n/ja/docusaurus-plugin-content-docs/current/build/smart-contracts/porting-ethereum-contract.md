@@ -24,8 +24,8 @@ It has been enabled from block number `#86,513,895` in case of Baobab network an
 Kaia上の他のEVMバージョンとの後方互換性は保証されていません。
 したがって、プロトコルのアップグレード状況に応じて、正しいターゲットオプションでSolidityコードをコンパイルすることを強くお勧めします。
 
-- Cypress: --evm-version london
-- Baobab: --evm-version london
+- Kairos: --evm-version london
+- Mainnet: --evm-version london
 - その他（プライベート／サービスチェーン）：プロトコルのアップグレード状況に応じて決定
 
 [solcのEVMバージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)をご参照ください。
