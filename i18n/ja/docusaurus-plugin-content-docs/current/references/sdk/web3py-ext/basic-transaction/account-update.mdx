@@ -154,7 +154,7 @@ web3をkaia web3に拡張するために、**web3py_ext**から**extend**をイ�
 
 ---
 
-eth_account**、**web3py_ext**、**cytools\*\*から必要なutilsをインポートする。
+**eth_account**、**web3py_ext**、**cytools**から必要なutilsをインポートする。
 
 ```py web3_account_update_multisig.py focus=3:16
 
@@ -242,7 +242,7 @@ web3_account_update_role_based()
 
 ---
 
-秘密鍵から**トランザクション**鍵をロードし、それを**トランザクション・ロール・キー**として使用する。 トランザクションの署名に使用できる
+秘密鍵から**transaction**鍵をロードし、それを**トランザクション・ロール・キー**として使用する。 トランザクションの署名に使用できる
 
 ```py web3_account_update_multisig.py focus=23
 
@@ -250,7 +250,7 @@ web3_account_update_role_based()
 
 ---
 
-秘密鍵から**更新**鍵をロードし、それを**更新ロール鍵**として使用する。 この口座の口座更新取引に署名するために使用できます。 つまり、このキーを持っている人だけが、このアカウントを更新できるということだ。
+秘密鍵から**update**鍵をロードし、それを**更新ロール鍵**として使用する。 この口座の口座更新取引に署名するために使用できます。 つまり、このキーを持っている人だけが、このアカウントを更新できるということだ。
 
 ```py web3_account_update_multisig.py focus=24
 
@@ -266,7 +266,7 @@ web3_account_update_role_based()
 
 ---
 
-TxType.ACCOUNT_UPDATE**型の空のトランザクションを作成しています。 empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
+**TxType.ACCOUNT_UPDATE**型の空のトランザクションを作成しています。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py web3_account_update_multisig.py focus=6:7,10,27
 
@@ -274,7 +274,7 @@ TxType.ACCOUNT_UPDATE**型の空のトランザクションを作成していま
 
 ---
 
-merge**ユーティリティを使用して、**sender**や**keys**のような**追加フィールド\*\*を空のtxにマージする。
+**merge**ユーティリティを使用して、**sender**や**keys**のような**追加フィールド**を空のtxにマージする。
 
 ```py web3_account_update_multisig.py focus=15,28:47
 
@@ -298,7 +298,7 @@ merge**ユーティリティを使用して、**sender**や**keys**のような*
 
 ---
 
-fill_transaction\*\*を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```py web3_account_update_multisig.py focus=6,8,10,48
 
@@ -306,7 +306,7 @@ fill_transaction\*\*を使用して、トランザクション・オブジェク
 
 ---
 
-to_pretty\*\*ユーティリティを使えば、フォーマットされたtxをプリントすることができる。
+**to_pretty**ユーティリティを使えば、フォーマットされたtxをプリントすることができる。
 
 <CH.Code>
 ```py web3_account_update_multisig.py focus=11,12,14,49
