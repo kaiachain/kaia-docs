@@ -25,7 +25,7 @@
 
 ### 2.1 送信者によるトランザクション署名<a href="#2-1-transaction-signing-by-the-sender" id="2-1-transaction-signing-by-the-sender"></a>
 
-送信者\`はトランザクションを送信する前に常にトランザクションに署名すべきである。
+送信者\\`はトランザクションを送信する前に常にトランザクションに署名すべきである。
 
 To sign a transaction, use [signTransaction](../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#signtransaction) which signs a transaction with given private key.
 
@@ -53,7 +53,7 @@ const toAddress = "TO_ADDRESS";
 
 エラーがなければ、 `senderRawTransaction` は `senderPrivateKey` で署名されたトランザクションを持つ。
 
-次に、 `senderRawTransaction` を料金支払者に送信する必要があります。 これを実施する方法はいろいろあるだろう。 このチュートリアルでは、`senderRawTransaction`を料金支払者に送信する例として、簡単なサーバークライアントコードを提供します。
+次に、 `senderRawTransaction` を料金支払者に送信する必要があります。 これを実施する方法はいろいろあるだろう。 このチュートリアルでは、`senderRawTransaction`を料金支払者に送信する例として、簡単なサーバークライアントコードを提供します。 これを実施する方法はいろいろあるだろう。 このチュートリアルでは、`senderRawTransaction`を料金支払者に送信する例として、簡単なサーバークライアントコードを提供します。
 
 ### 2.2 料金支払者による取引署名<a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
 
