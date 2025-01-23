@@ -549,11 +549,11 @@
   },
   "homepage.favorites.rpc.title": {
     "message": "Public JSON RPC Endpoints",
-    "description": "Title for Public JSON RPC Endpoints"
+    "description": "Title for RPC Endpoints"
   },
   "homepage.favorites.rpc.description": {
     "message": "Build and test your products without running your own node.",
-    "description": "Description for Public JSON RPC Endpoints"
+    "description": "Description for RPC Endpoints"
   },
   "homepage.favorites.wallets.title": {
     "message": "Wallets",
