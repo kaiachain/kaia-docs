@@ -6,9 +6,9 @@
 
 Kaia는 메트릭 내보내기를 위해 다음과 같은 플래그를 제공합니다:
 
-- `--메트릭`: 메트릭 기록을 활성화합니다. 이 플래그는 일반적으로 `--프로메테우스` 플래그와 함께 사용됩니다.
-- `--프로메테우스`: 기록된 메트릭을 Prometheus 서버로 내보낼 수 있습니다. 이 플래그는 일반적으로 `--metric` 플래그와 함께 사용됩니다.
-- `--프로메테우스포트`: Prometheus 메트릭의 포트를 지정합니다. 기본값은 `61001`입니다.
+- `--metric`: 메트릭 기록을 활성화합니다. 이 플래그는 일반적으로 `--prometheus` 플래그와 함께 사용됩니다.
+- `--prometheus`: 기록된 메트릭을 Prometheus 서버로 내보낼 수 있습니다. 이 플래그는 일반적으로 `--metric` 플래그와 함께 사용됩니다.
+- `--prometheusport`: Prometheus 메트릭의 포트를 지정합니다. 기본값은 `61001`입니다.
 
 메트릭 및 Prometheus 내보내기를 활성화하려면 `.conf` 파일에서 `METRICS`와 `PROMETHEUS`를 모두 `1`로 설정하세요:
 
@@ -84,11 +84,11 @@ Kaia 노드에서 메트릭을 스크랩하도록 Prometheus를 구성해야 합
 
 :::info[Prometheus 구성\]
 
-Prometheus.yml\` 파일은 Prometheus를 구성합니다.  주요 섹션은 다음과 같습니다:
+`prometheus.yml` 파일은 Prometheus를 구성합니다.  주요 섹션은 다음과 같습니다:
 
-- **글로벌\`**:  '평가 간격'(Prometheus가 규칙을 평가하는 빈도) 및 '스크랩 간격'(Prometheus가 타깃을 스크랩하는 빈도)과 같은 전역 구성 매개변수를 설정합니다.  15초는 두 가지 모두에 적합한 시작점이지만, 필요와 차단 시간에 따라 조정할 수 있습니다.
+- **`global`**:  `evaluation_interval`(Prometheus가 규칙을 평가하는 빈도) 및 `scrape_interval`(Prometheus가 타깃을 스크랩하는 빈도)과 같은 전역 구성 매개변수를 설정합니다.  15초는 두 가지 모두에 적합한 시작점이지만, 필요와 차단 시간에 따라 조정할 수 있습니다.
 
-- \*\*스크레이프_컨피그`**: Prometheus가 모니터링하는 대상을 정의합니다.  'job_name'은 대상 그룹을 식별합니다.  정적_컨피그`는 대상 주소를 나열합니다.  <ip>`를 Kaia 노드의 IP 주소로 바꾸고 포트(기본값은 `61001\`)가 올바르게 구성되었는지 확인합니다.
+- **`scrape_configs`**: Prometheus가 모니터링하는 대상을 정의합니다.  `job_name`은 대상 그룹을 식별합니다.  `static_configs`는 대상 주소를 나열합니다.  `<ip>`를 Kaia 노드의 IP 주소로 바꾸고 포트(기본값은 `61001`)가 올바르게 구성되었는지 확인합니다.
 
 고급 구성에 대한 자세한 내용은 [Prometheus 문서](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)를 참조하세요.
 
@@ -96,7 +96,7 @@ Prometheus.yml\` 파일은 Prometheus를 구성합니다.  주요 섹션은 다�
 
 1. 텍스트 편집기에서 `prometheus/prometheus.yml`에 있는 `prometheus.yml` 파일을 엽니다.
 
-2. 스크레이프_컨피그\` 섹션에 Kaia 노드가 포함되어 있는지 확인합니다. 아래는 구성 예시입니다:
+2. `scrape_configs` 섹션에 Kaia 노드가 포함되어 있는지 확인합니다. 아래는 구성 예시입니다:
 
 ```yaml
 global:
@@ -112,7 +112,7 @@ scrape_configs:
       ...
 ```
 
-3. 프롬툴\`을 사용하여 구성 파일에 구문 오류가 있는지 확인합니다:
+3. `promtool`을 사용하여 구성 파일에 구문 오류가 있는지 확인합니다:
 
 ```bash
 promtool check config prometheus/prometheus.yml
@@ -185,10 +185,10 @@ brew services start grafana
 
 3. Prometheus를 데이터 소스로 추가합니다.
 
-   - 구성\*\* -> **데이터 소스**로 이동합니다.
-   - 데이터 소스 추가\*\*를 클릭합니다.
+   - **Cofiguration** -> **Data Sources**로 이동합니다.
+   - **Add data source**를 클릭합니다.
    - 유형으로 **프로메테우스**를 선택합니다.
-   - URL\*\*을 `http://localhost:9090`으로 설정합니다(Prometheus가 다른 서버에 있는 경우 수정).
+   - **URL**을 `http://localhost:9090`으로 설정합니다(Prometheus가 다른 서버에 있는 경우 수정).
    - 저장 후 테스트\*\*를 클릭하여 연결을 확인합니다.
 
 4. Kaia 대시보드를 추가하고 패널을 추가하여 Kaia 블록 번호를 시각화합니다.
