@@ -42,13 +42,13 @@ contract KaiaGreeter is Mortal {
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. これで契約を展開できる。 アイコンパネルのKaiaロゴをクリックします。 アカウント\`の横にあるプラスボタンをクリックしてアカウントをインポートします。 Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
+4. これで契約を展開できる。 アイコンパネルのKaiaロゴをクリックします。 アカウント`の横にあるプラスボタンをクリックしてアカウントをインポートします。 これで契約を展開できる。 アイコンパネルのKaiaロゴをクリックします。 アカウント\`の横にあるプラスボタンをクリックしてアカウントをインポートします。 Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
 5. ガスリミットと送信する値を設定します。
 
-- より複雑な契約を展開する場合は、ガス上限を高く設定する必要があるかもしれません。 この例では、そのままでいい。
+- より複雑な契約を展開する場合は、ガス上限を高く設定する必要があるかもしれません。 この例では、そのままでいい。 この例では、そのままでいい。
 - デプロイ時にコントラクトに `KAIA` を送信したくない場合は `Value` を 0 に設定する。
 
 6. コンストラクタ関数の引数に "Hello World!"を入力し、`Deploy`ボタンをクリックする。
@@ -65,7 +65,7 @@ contract KaiaGreeter is Mortal {
 
 ## VVISP <a id="vvisp"></a>
 
-vvispは、HEACHI LABSが提供する、スマートコントラクトを開発するための使いやすいCLIツール／フレームワークです。 Kaiaスマートコントラクトの環境設定、デプロイ、実行は1つのコマンドで簡単に行える。 詳細は以下のリンクを参照。
+vvispは、HEACHI LABSが提供する、スマートコントラクトを開発するための使いやすいCLIツール／フレームワークです。 Kaiaスマートコントラクトの環境設定、デプロイ、実行は1つのコマンドで簡単に行える。 詳細は以下のリンクを参照。 Kaiaスマートコントラクトの環境設定、デプロイ、実行は1つのコマンドで簡単に行える。 詳細は以下のリンクを参照。
 
 - https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
