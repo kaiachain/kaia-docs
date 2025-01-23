@@ -4,7 +4,7 @@
 
 ## はじめに<a id="introduction"></a>
 
-このセクションでは、[ThirdWeb](https://portal.thirdweb.com/)を使用して、マーケットプレイス契約と対応するNFTコレクション契約をカイアネットワークにデプロイする方法を説明します。 Thirdwebは、あなたのアプリやゲームを分散型ネットワークに接続するために必要なすべてを提供する完全なWeb3開発フレームワークです。
+このセクションでは、[ThirdWeb](https://portal.thirdweb.com/)を使用して、マーケットプレイス契約と対応するNFTコレクション契約をカイアネットワークにデプロイする方法を説明します。 このセクションでは、[ThirdWeb](https://portal.thirdweb.com/)を使用して、マーケットプレイス契約と対応するNFTコレクション契約をカイアネットワークにデプロイする方法を説明します。 Thirdwebは、あなたのアプリやゲームを分散型ネットワークに接続するために必要なすべてを提供する完全なWeb3開発フレームワークです。
 
 マーケットプレイス契約により、ユーザーはNFTを直接販売やオークションに出品することができ、OpenSeaで行われているのと同様にNFTの売買を強化することができます。
 
@@ -26,7 +26,7 @@
 
 ## サードウェブダッシュボードを使用したマーケットプレイス契約の作成と展開<a id="creating-and-deploying-thirdweb-dashboard"></a>
 
-このセクションでは、thirdwebダッシュボードを使用してマーケットプレイス契約を作成し、デプロイします。 そのためには、以下の手順に従ってください：
+このセクションでは、thirdwebダッシュボードを使用してマーケットプレイス契約を作成し、デプロイします。 そのためには、以下の手順に従ってください： そのためには、以下の手順に従ってください：
 
 1. [thirdweb dashboard](https://thirdweb.com/dashboard?ref=blog.thirdweb.com)にアクセスし、契約リストから**MarketPlace**契約を選択します。
 
@@ -48,7 +48,7 @@
 
 ## thirdweb CLIを使用したNFTコレクション契約の作成とデプロイ<a id="creating-deploying-using-thirdweb-cli"></a>
 
-このセクションでは、[thirdweb CLI](https://portal.thirdweb.com/cli?ref=blog.thirdweb.com)を使用して、マーケットプレイスに掲載するNFTコレクションを作成し、デプロイします。 そのためには、以下の手順に従ってください：
+このセクションでは、[thirdweb CLI](https://portal.thirdweb.com/cli?ref=blog.thirdweb.com)を使用して、マーケットプレイスに掲載するNFTコレクションを作成し、デプロイします。 そのためには、以下の手順に従ってください： そのためには、以下の手順に従ってください：
 
 ### 契約書の作成<a id="creating-the-contract"></a>
 
@@ -97,7 +97,7 @@ contract nftcollection is ERC721Base {
 }
 ```
 
-上記のコントラクトは、基本的な[ERC721Base](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol)の機能を示している。 これは **ERC721Base** 契約をインポートして継承し、コンストラクタとその従属パラメータを含む必要なメソッドも実装している。
+この記事では、サードウェブを使ってコントラクトを作成、カスタマイズ、デプロイするためのさまざまな手段を探ります。 上記のコントラクトは、基本的な[ERC721Base](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol)の機能を示している。 これは **ERC721Base** 契約をインポートして継承し、コンストラクタとその従属パラメータを含む必要なメソッドも実装している。
 
 コントラクトを希望のカスタム・ロジックに変更することができ、それが完了すれば、コントラクトをデプロイする準備が整う。
 
@@ -132,7 +132,7 @@ thirdwebのデプロイコマンドについては、こちらの[デプロイ�
 
 ## 配備された契約とのやり取り<a id="interacting-with-deployed-contracts"></a>
 
-このセクションでは、**mint**関数と**transferfrom**関数をそれぞれ使用して、NFTの造幣と別の口座への移管を行います。 次のステップで説明しよう：
+このセクションでは、**mint**関数と**transferfrom**関数をそれぞれ使用して、NFTの造幣と別の口座への移管を行います。 次のステップで説明しよう： 次のステップで説明しよう：
 
 ### NFTの鋳造<a id="minting-nft"></a>
 
@@ -146,7 +146,7 @@ thirdwebのデプロイコマンドについては、こちらの[デプロイ�
 ![](/img/build/get-started/puppy-mint-details.png)
 
 4. 入力内容を確認し、**Mint NFT**ボタンをクリックします。
-5. 取引を確認し、完了するまで待つ。 完了すると、以下のようにダッシュボードにNFTが追加されます：
+5. 取引を確認し、完了するまで待つ。 完了すると、以下のようにダッシュボードにNFTが追加されます： 完了すると、以下のようにダッシュボードにNFTが追加されます：
 
 ![](/img/build/get-started/puppy-minted.png)
 
@@ -162,7 +162,7 @@ thirdwebのデプロイコマンドについては、こちらの[デプロイ�
 
 ## 結論<a id="conclusion"></a>
 
-おめでとう！ このガイドを最後まで読んでくれたなら。 ご不明な点がございましたら、[カイアフォーラム](https://devforum.kaia.io/)、または[サードウェブ公式サポート](https://support.thirdweb.com/)までお問い合わせください。 しかし、以下は、Kaia上でThirdwebをさらに構築する際に必要となる可能性がある便利なリソースの一覧です。
+おめでとう！ は、カレント・ディレクトリにあるすべてのコントラクトをコンパイルする。 ご不明な点がございましたら、[カイアフォーラム](https://devforum.kaia.io/)、または[サードウェブ公式サポート](https://support.thirdweb.com/)までお問い合わせください。 しかし、以下は、Kaia上でThirdwebをさらに構築する際に必要となる可能性がある便利なリソースの一覧です。
 
 - [サードウェブ・ドックス](https://portal.thirdweb.com/)
 - [Thirdwebを使ったdAppの作り方](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
