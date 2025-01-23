@@ -80,7 +80,7 @@ npx hardhat
 
 ![](/img/build/get-started/hardhat-init-ii.png)
 
-> 注意: プロジェクトを初期化する際に、`hardhat-toolbox`プラグインをインストールするようプロンプトが表示される。 このプラグインは、Hardhatでの開発を開始するために推奨される、一般的に使用されるパッケージとHardhatプラグインをすべてバンドルしています。
+> 注意: プロジェクトを初期化する際に、`hardhat-toolbox`プラグインをインストールするようプロンプトが表示される。 このプラグインは、Hardhatでの開発を開始するために推奨される、一般的に使用されるパッケージとHardhatプラグインをすべてバンドルしています。 このプラグインは、Hardhatでの開発を開始するために推奨される、一般的に使用されるパッケージとHardhatプラグインをすべてバンドルしています。
 
 ハードハット・プロジェクトを初期化した後、カレント・ディレクトリーには以下のものが含まれているはずだ：
 
@@ -94,7 +94,7 @@ npx hardhat
 
 **ステップ5**：.envファイルを作成する
 
-プロジェクト・フォルダーに.envファイルを作成する。 このファイルは、.envファイルからprocess.envに環境変数をロードするのに役立つ。
+プロジェクト・フォルダーに.envファイルを作成する。 プロジェクト・フォルダーに.envファイルを作成する。 このファイルは、.envファイルからprocess.envに環境変数をロードするのに役立つ。
 
 - 以下のコマンドをターミナルに貼り付け、.envファイルを作成する。
 
@@ -138,7 +138,7 @@ module.exports = {
 
 ## SBTスマートコントラクトの作成
 
-このセクションでは、[Kaia Contracts](https://github.com/kaiachain/kaia-contracts)を使用します。これは、コミュニティによって検証されたコードの強固な基盤の上に構築された、安全なスマート・コントラクト開発のためのライブラリです。 これはオープン・ツェッペリン契約のフォークである。
+このセクションでは、[Kaia Contracts](https://github.com/kaiachain/kaia-contracts)を使用します。これは、コミュニティによって検証されたコードの強固な基盤の上に構築された、安全なスマート・コントラクト開発のためのライブラリです。 これはオープン・ツェッペリン契約のフォークである。 これはオープン・ツェッペリン契約のフォークである。
 
 > 注：このライブラリは`開発環境の設定`セクションの**ステップ3**でインストール済みです。
 
@@ -182,7 +182,7 @@ contract SoulBoundToken is KIP17, Ownable {
 
 これがスマート・コントラクトだ。 **行目**は、HardhatがSolidityバージョン0.8.7以上を使用していることを示しています。 その他、KIP17.solやその他のサポート契約をインポートする。 6行目から12行目まで\*\*、KIP17を継承したスマートコントラクトが作成されている。 また、コンストラクタにはトークン名とシンボルが渡される。
 
-上のコードでわかるように、トークン名とシンボルはそれぞれ**SoulBoundToken**と**SBT**に設定されている。 トークン名とシンボルは好きなものに変更できる。
+上のコードでわかるように、トークン名とシンボルはそれぞれ**SoulBoundToken**と**SBT**に設定されている。 トークン名とシンボルは好きなものに変更できる。 トークン名とシンボルは好きなものに変更できる。
 
 この契約では、トークンの譲渡が禁止されており、発行されたトークンはソウルボンドとなる。
 
@@ -344,15 +344,15 @@ npx hardhat run scripts/sbtDeploy.js --network baobab
 
 **ステップ4**：[Kaiascope](https://kairos.kaiascope.com/) を開き、SBTトークンが正常にデプロイされたかどうかを確認します。
 
-\*\*ステップ5配備された契約書アドレスを検索フィールドにコピー＆ペーストし、Enterキーを押します。 最近配備された契約が表示されるはずだ。
+\*\*ステップ5配備された契約書アドレスを検索フィールドにコピー＆ペーストし、Enterキーを押します。 最近配備された契約が表示されるはずだ。 最近配備された契約が表示されるはずだ。
 
 ![](/img/build/get-started/sbtKS.png)
 
 ## ハードハット・フォーク
 
-Hardhatは、メインネット（任意のブロック）をローカル開発ネットワークにシミュレートする機能を開発者に提供します。 この機能の主な利点のひとつは、開発者がデプロイされたコントラクトとやりとりしたり、複雑なケースのテストを書いたりできるようになることだ。
+Hardhatは、メインネット（任意のブロック）をローカル開発ネットワークにシミュレートする機能を開発者に提供します。 この機能の主な利点のひとつは、開発者がデプロイされたコントラクトとやりとりしたり、複雑なケースのテストを書いたりできるようになることだ。 この機能の主な利点のひとつは、開発者がデプロイされたコントラクトとやりとりしたり、複雑なケースのテストを書いたりできるようになることだ。
 
-この機能を有効に使うには、アーカイブ・ノードに接続する必要がある。 この機能の詳細については[こちら](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)をご覧ください。
+この機能を有効に使うには、アーカイブ・ノードに接続する必要がある。 この機能を有効に使うには、アーカイブ・ノードに接続する必要がある。 この機能の詳細については[こちら](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)をご覧ください。
 
 ### フォーク・メインネット
 
@@ -392,11 +392,11 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-出力は上のように16進数である。 16進数からブロック番号を得るには、この[ツール](https://www.rapidtables.com/convert/number/hex-to-decimal.html)を使って16進数を10進数に変換する。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 ブロック番号は[kaiascope](https://kaiascope.com/)で確認できる。
+出力は上のように16進数である。 出力は上のように16進数である。 16進数からブロック番号を得るには、この[ツール](https://www.rapidtables.com/convert/number/hex-to-decimal.html)を使って16進数を10進数に変換する。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 ブロック番号は[kaiascope](https://kaiascope.com/)で確認できる。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 ブロック番号は[kaiascope](https://kaiascope.com/)で確認できる。
 
 ### ブロックでのフォーク
 
-ハードハットを使えば、特定のブロックでメインネットをフォークできる。  その場合、ブロック番号`105701850`でチェーンをフォークしよう。
+ハードハットを使えば、特定のブロックでメインネットをフォークできる。  その場合、ブロック番号`105701850`でチェーンをフォークしよう。  その場合、ブロック番号`105701850`でチェーンをフォークしよう。
 
 ```bash
 npx hardhat node --fork<YOUR ARCHIVE NODE URL> --fork-block-number 105701850
@@ -414,4 +414,4 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 出力は16進数を返し、この[ツール](https://www.rapidtables.com/convert/number/hex-to-decimal.html)を使って変換すると`105701850`に等しくなるはずである。
 
-Hardhatの詳細については、[Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started)を参照してください。 また、このガイドのコードの完全な実装は、[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens) にあります。
+Hardhatの詳細については、[Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started)を参照してください。 Hardhatの詳細については、[Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started)を参照してください。 また、このガイドのコードの完全な実装は、[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens) にあります。
