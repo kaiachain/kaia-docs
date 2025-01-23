@@ -6,9 +6,9 @@
 
 Kaia 为度量衡输出提供了以下标记：
 
-- `-etric`：启用度量记录。 该标记通常与 `--prometheus` 标记一起使用。
+- `-metric`：启用度量记录。 该标记通常与 `--prometheus` 标记一起使用。
 - `--prometheus`：启用将记录的指标导出到 Prometheus 服务器。 该标记通常与 `--metric` 标记一起使用。
-- prometheusport`：指定 Prometheus 指标的端口。 默认为 `61001\`。
+- `--prometheusport`：指定 Prometheus 指标的端口。 默认为 `61001`。
 
 要启用度量和 Prometheus 输出，请在 `.conf` 文件中将 `METRICS` 和 `PROMETHEUS` 都设为 `1`：
 
@@ -84,7 +84,7 @@ source ~/.bashrc
 
 :::info[Prometheus 配置]
 
-prometheus.yml "文件用于配置 Prometheus。  主要章节包括
+`prometheus.yml`文件用于配置 Prometheus。  主要章节包括
 
 - **`global`**：  设置全局配置参数，如 `evaluation_interval` （Prometheus 评估规则的频率）和 `scrape_interval` （Prometheus 搜刮目标的频率）。  15 秒是两者的合理起点，但要根据自己的需要和区块时间进行调整。
 
@@ -185,20 +185,20 @@ brew services start grafana
 
 3. 将 Prometheus 添加为数据源。
 
-   - 导航至 **配置** -> **数据源**。
-   - 点击 **添加数据源**。
-   - 选择**普罗米修斯**作为类型。
+   - 导航至 **Cofiguration** -> **Data Sources**。
+   - 点击 **Add data source**。
+   - 选择\*\* Prometheus\*\*作为类型。
    - 将**URL**设为 "http://localhost:9090"（如果 Prometheus 位于不同的服务器上，请修改）。
-   - 单击**保存和测试**以验证连接。
+   - 单击**Save & Test**以验证连接。
 
 4. 添加 Kaia 面板，并添加一个面板来显示 Kaia 区块编号。
-   - [创建新仪表板](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/) 或导航到现有仪表板。
-   - 单击右上角的**编辑**，单击仪表板标题中的**添加**，在下拉菜单中选择**可视化**以添加面板。
+   - [Create a new dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/) 或导航到现有仪表板。
+   - 单击右上角的**Edit**，单击仪表板标题中的**Add**，在下拉菜单中选择**Visualization**以添加面板。
    - 在**查询**下：
-     1. 选择 Prometheus 作为 **数据源**。
-     2. 在**度量**字段中输入 "klaytn_blockchain_head_blocknumber"。
-     3. 在**选项**中，从**图例**下拉菜单中选择**自定义**，然后输入 `{{instance}}` 作为自定义图例格式。
-   - 单击**应用**将面板保存到仪表板。
+     1. 选择 Prometheus 作为 **Data source**。
+     2. 在**度量**字段中输入 `klaytn_blockchain_head_blocknumber`。
+     3. 在**Options**中，从**Custom**下拉菜单中选择**Legend**，然后输入 `{{instance}}` 作为自定义图例格式。
+   - 单击**Apply**将面板保存到仪表板。
 
 :::note[Additional Kaia 仪表板］
 
