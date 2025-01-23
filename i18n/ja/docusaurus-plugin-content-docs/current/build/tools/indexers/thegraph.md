@@ -10,7 +10,7 @@ sidebar_label: The Graph
 
 ## クイックスタート
 
-これらのサブグラフの設定には数分しかかからない。 始めるには、以下の3つのステップを踏む：
+これらのサブグラフの設定には数分しかかからない。 これらのサブグラフの設定には数分しかかからない。 始めるには、以下の3つのステップを踏む：
 
 1. サブグラフ・プロジェクトを初期化する
 2. デプロイとパブリッシュ
@@ -27,11 +27,11 @@ sidebar_label: The Graph
 
 ### Subgraph Studioでサブグラフを作成する
 
-Subgraph Studio](https://thegraph.com/studio/)にアクセスし、ウォレットを接続する。 ウォレットが接続されたら、"Create a Subgraph "をクリックします。 名称を決める際には、タイトル・ケースを使うことを推奨する。
+Subgraph Studio](https://thegraph.com/studio/)にアクセスし、ウォレットを接続する。 ウォレットが接続されたら、"Create a Subgraph "をクリックします。 名称を決める際には、タイトル・ケースを使うことを推奨する。 ウォレットが接続されたら、"Create a Subgraph "をクリックします。 名称を決める際には、タイトル・ケースを使うことを推奨する。
 
 ![Create a Subgraph](/img/build/tools/graph/01-create-subgraph.png)
 
-サブグラフのページが表示されます。 必要なCLIコマンドはすべてページの右側に表示されます：
+サブグラフのページが表示されます。 サブグラフのページが表示されます。 必要なCLIコマンドはすべてページの右側に表示されます：
 
 ![CLI commands](/img/build/tools/graph/02-cli-commands.webp)
 
@@ -57,15 +57,17 @@ npm install -g @graphprotocol/graph-cli
 
 コントラクト情報を入力すると、graph-cli は blockexplorer API から ABI、StartBLock、コントラクト名を取得しようとします。
 
-ただし、KaiaScanのAPIはまだ準備ができていないので、再試行を求められたら「いいえ」と答えてください。 手動で入手する方法は以下の通り：
+ただし、KaiaScanのAPIはまだ準備ができていないので、再試行を求められたら「いいえ」と答えてください。 手動で入手する方法は以下の通り： 手動で入手する方法は以下の通り：
 
 1. ABI: ABIを含むjsonファイルを`graph init`を実行しているディレクトリに用意する必要がある。 [Kaiascanの契約のページ](https://kaiascan.io/address/0x5096db80b21ef45230c9e423c373f1fc9c0198dd)から、`Contract`タブを開き、`View Code`をクリックすると、ABIをコピーすることができます。 それをjsonファイルとして、`graph init`を実行しているフォルダと同じ場所に保存する。 上のスクリーンショットでは、`abi.json`として保存されている。
+   ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp) [Kaiascanの契約のページ](https://kaiascan.io/address/0x5096db80b21ef45230c9e423c373f1fc9c0198dd)から、`Contract`タブを開き、`View Code`をクリックすると、ABIをコピーすることができます。 それをjsonファイルとして、`graph init`を実行しているフォルダと同じ場所に保存する。 上のスクリーンショットでは、`abi.json`として保存されている。
    ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp)
 
 2. ブロックを開始する：契約が作成されたトランザクションハッシュをクリックします。 そこに契約が作成されたブロックがある。
+   ![contract creation](/img/build/tools/graph/05-contract-creation.webp) そこに契約が作成されたブロックがある。
    ![contract creation](/img/build/tools/graph/05-contract-creation.webp)
 
-3. 契約名：契約名を入力してください。 このサブグラフでインデックスを作成するコントラクトがこれだけであれば、デフォルトの `Contract` を使用しても問題ありません。
+3. 契約名：契約名を入力してください。 契約名：契約名を入力してください。 このサブグラフでインデックスを作成するコントラクトがこれだけであれば、デフォルトの `Contract` を使用しても問題ありません。
 
 ## 3) Query your Subgraph
 
@@ -78,14 +80,14 @@ $ graph codegen
 $ graph build
 ```
 
-次に、これらを実行してサブグラフを認証し、デプロイする。 これらのコマンドをStudioのサブグラフのページから直接コピーして、特定の配置キーとサブグラフのスラッグを含めることができます：
+次に、これらを実行してサブグラフを認証し、デプロイする。 次に、これらを実行してサブグラフを認証し、デプロイする。 これらのコマンドをStudioのサブグラフのページから直接コピーして、特定の配置キーとサブグラフのスラッグを含めることができます：
 
 ```bash
 $ graph auth --studio<DEPLOY_KEY>
 $ graph deploy --studio<SUBGRAPH_SLUG>
 ```
 
-バージョンラベルの入力を求められます。 v0.0.1のように入力できますが、形式は自由に選んでください。
+バージョンラベルの入力を求められます。 バージョンラベルの入力を求められます。 v0.0.1のように入力できますが、形式は自由に選んでください。
 
 ### サブグラフをテストする
 
@@ -95,13 +97,13 @@ $ graph deploy --studio<SUBGRAPH_SLUG>
 
 ### グラフの分散型ネットワークにサブグラフを公開する
 
-サブグラフが完成したら、分散ネットワークに公開することができる。 Subgraph Studioのサブグラフのページで、Publishボタンをクリックします：
+サブグラフが完成したら、分散ネットワークに公開することができる。 サブグラフが完成したら、分散ネットワークに公開することができる。 Subgraph Studioのサブグラフのページで、Publishボタンをクリックします：
 
 ![publish button](/img/build/tools/graph/07-studio-publish-subgraph.webp)
 
 > **注**
 >
-> - インデクサーの報酬をアンロックするための最終的なオンチェーン投票プロセスがまだ完了していないため、カイアは今のところ「部分的にサポートされている」と表示されている。 今のところ、Edge & Nodeのインデクサー（アップグレード・インデクサー）が、すべてのカイア・サブグラフをサポートする唯一のインデクサーとなる。
+> - インデクサーの報酬をアンロックするための最終的なオンチェーン投票プロセスがまだ完了していないため、カイアは今のところ「部分的にサポートされている」と表示されている。 今のところ、Edge & Nodeのインデクサー（アップグレード・インデクサー）が、すべてのカイア・サブグラフをサポートする唯一のインデクサーとなる。 今のところ、Edge & Nodeのインデクサー（アップグレード・インデクサー）が、すべてのカイア・サブグラフをサポートする唯一のインデクサーとなる。
 > - グラフのスマートコントラクトはすべてArbitrum One上にあり、サブグラフがKaiaやEthereum、その他の[サポートされているチェーン](https://thegraph.com/docs/en/developing/supported-networks/)のデータをインデックスしていても、そのデータはArbitrum One上にある。
 
 ## 3. 3. Query your Subgraph
@@ -124,7 +126,7 @@ $ graph deploy --studio<SUBGRAPH_SLUG>
 
 ![API keys](/img/build/tools/graph/09-apikeys.png)
 
-Subgraph Studioでは、ページ上部に "API Keys "メニューが表示されます。 ここでAPIキーを作成することができます。
+Subgraph Studioでは、ページ上部に "API Keys "メニューが表示されます。 ここでAPIキーを作成することができます。 ここでAPIキーを作成することができます。
 
 ## 付録
 
@@ -160,7 +162,8 @@ Subgraph Studioでは、ページ上部に "API Keys "メニューが表示さ�
 ```
 
 <aside>
-💡 トリビア：[CryptoPunks website](https://cryptopunks.app/cryptopunks/topsales)のトップセールスを見ると、トップセールスは9998位ではなく、パンクの5822位のようだ。 なぜですか？ なぜならば、フラッシュ・ローン・セールが起こったことを検閲しているからだ。
+
+💡 トリビア：[CryptoPunks website](https://cryptopunks.app/cryptopunks/topsales)のトップセールスを見ると、トップセールスは9998位ではなく、パンクの5822位のようだ。 なぜですか？ なぜならば、フラッシュ・ローン・セールが起こったことを検閲しているからだ。 なぜですか？ なぜならば、フラッシュ・ローン・セールが起こったことを検閲しているからだ。
 
 </aside>
 
