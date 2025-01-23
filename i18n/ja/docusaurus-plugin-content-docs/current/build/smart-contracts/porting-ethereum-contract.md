@@ -15,8 +15,10 @@ It has been enabled from block number `#75,373,312` in case of Baobab network an
 
 v1.7.3プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
 It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
+It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 v1.8.0プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
+It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 :::
