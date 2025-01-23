@@ -10,7 +10,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    runs-on: ubuntu-latest
+    runs-on: kaia-xlarge-runner
 
     steps:
       - name: Checkout source code
