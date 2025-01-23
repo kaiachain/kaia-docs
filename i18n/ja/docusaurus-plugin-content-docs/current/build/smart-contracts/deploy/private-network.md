@@ -4,7 +4,7 @@
 
 ## はじめに<a id="introduction"></a>
 
-このガイドでは、[Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) を使用して、プライベート Kaia ネットワーク上に Greeter 契約をデプロイする手順を説明します。 このガイドに従うことで、その方法を学ぶことができる：
+このガイドでは、[Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) を使用して、プライベート Kaia ネットワーク上に Greeter 契約をデプロイする手順を説明します。 このガイドに従うことで、その方法を学ぶことができる： このガイドに従うことで、その方法を学ぶことができる：
 
 - ハードハット・プロジェクトを立ち上げる。
 - Kairos Testnetをシミュレートしたプライベートネットワークを立ち上げる。
@@ -51,13 +51,13 @@ npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
 
 :::note
 
-hardhat-utils プラグインは [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) と [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) プラグインに依存しています。  `hardhat.config.js`または`hardhat.config.ts`で、これらをrequireまたはimportしてください。
+hardhat-utils プラグインは [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) と [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) プラグインに依存しています。  `hardhat.config.js`または`hardhat.config.ts`で、これらをrequireまたはimportしてください。  `hardhat.config.js`または`hardhat.config.ts`で、これらをrequireまたはimportしてください。
 
 :::
 
 :::info
 
-(推奨）ハードハットの速記をインストールする。 しかし、npxのハードハットでもタスクは可能だ。
+(推奨）ハードハットの速記をインストールする。 (推奨）ハードハットの速記をインストールする。 しかし、npxのハードハットでもタスクは可能だ。
 
 ```js
 npm install hardhat-shorthand --save
@@ -94,7 +94,7 @@ npxハードハット
 
 **ステップ5：.envファイルを作成する**。
 
-プロジェクトフォルダーに `.env` ファイルを作成する。 このファイルは、`.env`ファイルからprocess.envに環境変数をロードするのに役立つ。
+プロジェクトフォルダーに `.env` ファイルを作成する。 プロジェクトフォルダーに `.env` ファイルを作成する。 このファイルは、`.env`ファイルからprocess.envに環境変数をロードするのに役立つ。
 
 以下のコマンドをターミナルにコピー＆ペーストして、`.env` ファイルを作成する。
 
@@ -165,7 +165,7 @@ hh klaytn-node
 
 ## コンソールの取り付け<a id="attaching-console"></a>
 
-プライベート・ネットワークにはJavaScriptのコンソールが付属している。 コンソールのコマンドラインから、ネットワークへのKaia APIコールの一部を開始することができます。 JavaScriptコンソールに接続するには、以下のコマンドを実行する：
+プライベート・ネットワークにはJavaScriptのコンソールが付属している。 コンソールのコマンドラインから、ネットワークへのKaia APIコールの一部を開始することができます。 JavaScriptコンソールに接続するには、以下のコマンドを実行する： コンソールのコマンドラインから、ネットワークへのKaia APIコールの一部を開始することができます。 JavaScriptコンソールに接続するには、以下のコマンドを実行する：
 
 ```js
 hh klaytn-node --attach
@@ -310,7 +310,7 @@ hhエクスプローラ --ネットワーク localhost
 
 **ステップ2：** このブロック・エクスプローラーにアクセスするには、ブラウザで [http://localhost:4000](http://localhost:4000) を開いてください。
 
-ステップ 3: 配備された契約書アドレスを検索フィールドにコピー＆ペーストし、Enterキーを押します。 最近配備された契約が表示されるはずだ。
+ステップ 3: 配備された契約書アドレスを検索フィールドにコピー＆ペーストし、Enterキーを押します。 最近配備された契約が表示されるはずだ。 最近配備された契約が表示されるはずだ。
 
 ![](/img/build/smart-contracts/pn-verify-tx-block-explorer.png)
 
@@ -391,4 +391,4 @@ getTotalGreetings(contractAddress);
 
 ![](/img/build/smart-contracts/pn-run-kaia-sdk.png)
 
-hardhat-utilsのより詳細なガイドについては、[hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils)を参照してください。 また、このガイドのコードの完全な実装は、[GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example) にあります。
+このセクションでは、hardhat-deployプラグインを使ってコントラクトをデプロイする。 hardhat-utilsのより詳細なガイドについては、[hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils)を参照してください。 また、このガイドのコードの完全な実装は、[GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example) にあります。
