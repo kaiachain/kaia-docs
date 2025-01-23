@@ -10,10 +10,11 @@ Pyth Network](https://pyth.network/)は最大級のファーストパーティ�
 
 ## Pythネットワークを使う
 
-Pythは革新的な低レイテンシー[プルオラクルデザイン](https://docs.pyth.network/documentation/pythnet-price-feeds/on-demand)を導入しており、ユーザーは必要なときにオンチェーンで価格更新をプルすることができ、オンチェーン環境にいる全員が最も効率的にそのデータポイントにアクセスすることができる。 Pythネットワークは**400ms**ごとに価格を更新し、Pythを最速のオンチェーンオークルの1つにしています。
+Pythは革新的な低レイテンシー[プルオラクルデザイン](https://docs.pyth.network/documentation/pythnet-price-feeds/on-demand)を導入しており、ユーザーは必要なときにオンチェーンで価格更新をプルすることができ、オンチェーン環境にいる全員が最も効率的にそのデータポイントにアクセスすることができる。 Pythネットワークは**400ms**ごとに価格を更新し、Pythを最速のオンチェーンオークルの1つにしています。 Pythネットワークは**400ms**ごとに価格を更新し、Pythを最速のオンチェーンオークルの1つにしています。
 
 カイアの開発者は、株式、ETF、コモディティ、外国為替ペア、暗号通貨の[Pyth's price feeds](https://pyth.network/developers/price-feed-ids)のいずれにも無許可でアクセスできます。
 
+以下は、Kaiaネットワーク上のETH/USDの最新価格をフェッチするコントラクトの動作例です。
 以下は、Kaiaネットワーク上のETH/USDの最新価格をフェッチするコントラクトの動作例です。
 最新の価格を取得するには、カイアのメインネット/テストネット用の[Pyth's contract address](https://docs.pyth.network/price-feeds/contract-addresses/evm)と希望の[price feed id](https://pyth.network/developers/price-feed-ids)を渡す必要があります。
 
@@ -46,13 +47,13 @@ contract MyFirstPythContract {
 }
 ```
 
-ここでは、価格更新のためにPythnetとWormholeをリッスンする[`Hermes`](https://hermes.pyth.network/docs/)から`updateData`を取得することができます。また、[`pyth-evm-js`](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/js/src/EvmPriceServiceConnection.ts#L15)のSDKを使用することもできます。 価格更新の取得方法](https://docs.pyth.network/price-feeds/fetch-price-updates)を確認し、最新のデータを取得してください。
+ここでは、価格更新のためにPythnetとWormholeをリッスンする[`Hermes`](https://hermes.pyth.network/docs/)から`updateData`を取得することができます。また、[`pyth-evm-js`](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/js/src/EvmPriceServiceConnection.ts#L15)のSDKを使用することもできます。 価格更新の取得方法](https://docs.pyth.network/price-feeds/fetch-price-updates)を確認し、最新のデータを取得してください。 価格更新の取得方法](https://docs.pyth.network/price-feeds/fetch-price-updates)を確認し、最新のデータを取得してください。
 
-この[パッケージ](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)は、Solidityを使用してPythネットワークオラクルから価格を消費するためのユーティリティを提供します。 また、[Pyth Interface ABI](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/solidity/abis/IPyth.json)も含まれており、Pythコントラクトと通信するためにライブラリで使用することができます。
+この[パッケージ](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)は、Solidityを使用してPythネットワークオラクルから価格を消費するためのユーティリティを提供します。 また、[Pyth Interface ABI](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/solidity/abis/IPyth.json)も含まれており、Pythコントラクトと通信するためにライブラリで使用することができます。 また、[Pyth Interface ABI](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/solidity/abis/IPyth.json)も含まれており、Pythコントラクトと通信するためにライブラリで使用することができます。
 
 Pyth データを利用する際には、[consumer best practices](https://docs.pyth.network/documentation/pythnet-price-feeds/best-practices)に従うことを推奨します。
 
-詳しくは公式の[Pyth documentation](https://docs.pyth.network/price-feeds)を参照してください。 Pythスマートコントラクトとやりとりするために利用できるさまざまな関数については、[APIリファレンスセクション](https://api-reference.pyth.network/price-feeds/evm/getPrice)に詳細があります。
+詳しくは公式の[Pyth documentation](https://docs.pyth.network/price-feeds)を参照してください。 詳しくは公式の[Pyth documentation](https://docs.pyth.network/price-feeds)を参照してください。 Pythスマートコントラクトとやりとりするために利用できるさまざまな関数については、[APIリファレンスセクション](https://api-reference.pyth.network/price-feeds/evm/getPrice)に詳細があります。
 
 ## カイアのピース
 
@@ -65,7 +66,7 @@ Pyth Networkのスマートコントラクトは以下のアドレスで入手�
 
 ## PythをPUSHオラクルとして使う
 
-Pythオラクルは、バックエンドの価格を更新するスケジューラを実行することで、プッシュオラクルとして使用することができる。 これは、あなたのダップがあなたの設定に従って最新の価格で更新されることを保証します。 スケジューラを始めるには、オープンソースの[price pusher](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/price_pusher)アプリをチェックしよう。
+Pythオラクルは、バックエンドの価格を更新するスケジューラを実行することで、プッシュオラクルとして使用することができる。 これは、あなたのダップがあなたの設定に従って最新の価格で更新されることを保証します。 スケジューラを始めるには、オープンソースの[price pusher](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/price_pusher)アプリをチェックしよう。 これは、あなたのダップがあなたの設定に従って最新の価格で更新されることを保証します。 スケジューラを始めるには、オープンソースの[price pusher](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/price_pusher)アプリをチェックしよう。
 
 ## 開発者とコミュニティ
 
