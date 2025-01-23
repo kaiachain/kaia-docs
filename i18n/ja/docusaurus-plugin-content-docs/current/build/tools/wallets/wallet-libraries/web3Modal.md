@@ -8,7 +8,7 @@ sidebar_label: Web3Modal
 
 ## はじめに
 
-[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about)は、シンプルでカスタマイズ可能な設定で、開発者がdAppsに複数のプロバイダのサポートを追加するのを助ける、使いやすいライブラリです。 ウォレットの接続、取引の実行、アカウントの管理が簡単にできる。
+[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about)は、シンプルでカスタマイズ可能な設定で、開発者がdAppsに複数のプロバイダのサポートを追加するのを助ける、使いやすいライブラリです。 ウォレットの接続、取引の実行、アカウントの管理が簡単にできる。 ウォレットの接続、取引の実行、アカウントの管理が簡単にできる。
 
 このガイドでは、web3Modalライブラリを使用して、Kaia Wallet、Klip、Metamask、Coinbase Walletなどの複数のウォレットをKaia Network上に構築したdAppに統合します。
 
@@ -23,7 +23,7 @@ sidebar_label: Web3Modal
 
 **ステップ 1**：Web3ModalとEthereumライブラリのインストール
 
-web3Modalと、ブロックチェーンとやりとりするためのお好みのライブラリをインストールする。 このチュートリアルでは、[Web3Modal](https://github.com/WalletConnect/web3modal)から派生した[@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal)をインストールし、Kaia WalletとKlip walletを追加するように修正します。 また、このチュートリアルでは、ethers.jsを使ってKaiaブロックチェーンとやりとりします。
+このままでは、Web3Modalは、接続されたアカウントやネットワークデータを取得するようなイーサリアムのインタラクションのための組み込みサポートを提供していません。 ユーザーのアドレスや接続しているネットワークIDを読み取るには、イーサリアムライブラリから直接情報をリクエストする必要があることに注意してください。 このガイドでは、ethers.jsを使って情報を取得します。 このデータをフェッチして保存する1つの方法は、ユーザーをダップに接続するときだ。 web3Modalと、ブロックチェーンとやりとりするためのお好みのライブラリをインストールする。 このチュートリアルでは、[Web3Modal](https://github.com/WalletConnect/web3modal)から派生した[@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal)をインストールし、Kaia WalletとKlip walletを追加するように修正します。 また、このチュートリアルでは、ethers.jsを使ってKaiaブロックチェーンとやりとりします。 また、このチュートリアルでは、ethers.jsを使ってKaiaブロックチェーンとやりとりします。
 
 ```bash
 npm install @klaytn/web3modal
@@ -32,7 +32,7 @@ npm install --save ethers
 
 **ステップ 2**：ウォレットプロバイダーオプションでWeb3Modalをインスタンス化する
 
-お好みのウォレットプロバイダーをインストールしてください。 ここでは、Kaia Wallet、Klip、Coinbaseのウォレットプロバイダーをインストールします。
+お好みのウォレットプロバイダーをインストールしてください。 お好みのウォレットプロバイダーをインストールしてください。 ここでは、Kaia Wallet、Klip、Coinbaseのウォレットプロバイダーをインストールします。
 
 ```bash
 npm install --save @coinbase/wallet-sdk
@@ -100,7 +100,7 @@ const  web3Modal = new Web3Modal( {
 
 ## ウォレット接続の確立
 
-ユーザーのウォレットへの接続を確立するには、Web3Modal インスタンスで `connect()` メソッドを呼び出します。 この操作を非同期関数でラップし、取得したプロバイダーをステート内に保存して、アプリ全体で再利用することを推奨する。
+ユーザーのウォレットへの接続を確立するには、Web3Modal インスタンスで `connect()` メソッドを呼び出します。 この操作を非同期関数でラップし、取得したプロバイダーをステート内に保存して、アプリ全体で再利用することを推奨する。 この操作を非同期関数でラップし、取得したプロバイダーをステート内に保存して、アプリ全体で再利用することを推奨する。
 
 ```js
 import { ethers } from 'ethers';
@@ -136,7 +136,7 @@ function App() {
 
 ## ユーティリティ機能の設定
 
-このガイドでは、`truncateAddress()`や`toHex()`といったutils関数を利用する。 truncateAddress()`関数は有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 一方、`toHex()\`関数は数値を16進数に変換する。  以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。
+このガイドでは、`truncateAddress()`や`toHex()`といったutils関数を利用する。 truncateAddress()`関数は有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 一方、`toHex()\`関数は数値を16進数に変換する。  以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。 truncateAddress()`関数は有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 一方、`toHex()`関数は数値を16進数に変換する。  以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。
 
 **ステップ 1**：ルートフォルダ `src` に `utils.js` ファイルを作成する。
 
@@ -158,7 +158,7 @@ export const truncateAddress = (address) => {
   };
 ```
 
-**ステップ 2**：App.js\`ファイルに関数をインポートします。
+**ステップ 2**：App.js\\`ファイルに関数をインポートします。
 
 ```js
 import { truncateAddress, toHex } from "./utils";
@@ -204,7 +204,7 @@ return (
 
 ## ウォレットの切断
 
-ウォレットからの切断は web3Modal インスタンスの `clearCachedProvider()` メソッドを使用することで達成されます。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。
+ウォレットからの切断は web3Modal インスタンスの `clearCachedProvider()` メソッドを使用することで達成されます。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。
 
 ```js
 function App() {
@@ -229,7 +229,7 @@ const refreshState = () => {
 }
 ```
 
-dAppのステートはユーザーが操作することで変化することを念頭に置いておくことが重要で、それに対応してリリースされるイベントをサブスクライブするのがベストプラクティスだ。 これらのイベントへのサブスクリプションを持つ useEffect フックを作成し、変更に適切に対応できるようにします。
+dAppのステートはユーザーが操作することで変化することを念頭に置いておくことが重要で、それに対応してリリースされるイベントをサブスクライブするのがベストプラクティスだ。 これらのイベントへのサブスクリプションを持つ useEffect フックを作成し、変更に適切に対応できるようにします。 これらのイベントへのサブスクリプションを持つ useEffect フックを作成し、変更に適切に対応できるようにします。
 
 ```js
   useEffect(() => {
@@ -549,7 +549,7 @@ return (
 Node fs error, add browser {fs: false} to package.json
 ```
 
-これはKlip-web3-providerをインストールしたときに発生します。  この問題を解決するには、以下の手順に従ってください：
+これはKlip-web3-providerをインストールしたときに発生します。  この問題を解決するには、以下の手順に従ってください：  この問題を解決するには、以下の手順に従ってください：
 
 **ステップ 1**：node_modulesフォルダを開いて移動します。 Kaia/klip-web3-providerフォルダを探し、以下のようにpackage.jsonファイルに移動します：
 
@@ -569,8 +569,8 @@ Node fs error, add browser {fs: false} to package.json
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
 
-このエラーは webpack バージョン 5 を使用している場合に発生します。 このバージョンでは、NodeJSポリフィルはデフォルトではサポートされなくなりました。 この問題を解決するには、この[ガイド](https://web3auth.io/docs/troubleshooting/webpack-issues)を参照してください。
+このエラーは webpack バージョン 5 を使用している場合に発生します。 このバージョンでは、NodeJSポリフィルはデフォルトではサポートされなくなりました。 この問題を解決するには、この[ガイド](https://web3auth.io/docs/troubleshooting/webpack-issues)を参照してください。 このバージョンでは、NodeJSポリフィルはデフォルトではサポートされなくなりました。 先に述べたように、Web3Modalはイーサリアムとのやり取りをビルトインでサポートしていない。 ネットワークを追加または切り替えるには、イーサリアムライブラリに（EIP-3085またはEIP-3326を介して）直接リクエストする必要があります。 以下は、ネットワークの切り替えを要求し、ユーザーのウォレットにそのネットワークがまだ存在しない場合、フォールバックとしてそのネットワークを追加する例である：
 
 ## 次のステップ
 
-Web3Modalに関するより詳細なガイドについては、[Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about)と[Web3Modal Githubリポジトリ](https://github.com/klaytn/klaytn-web3modal)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample)にあります。
+Web3Modalに関するより詳細なガイドについては、[Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about)と[Web3Modal Githubリポジトリ](https://github.com/klaytn/klaytn-web3modal)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample)にあります。 はじめに
