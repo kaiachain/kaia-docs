@@ -10,7 +10,7 @@ sidebar_label: Particle Network
 
 [Particle Network](https://particle.network)'s Wallet Abstraction services enable universal, Web2-adjacent onboarding and interactions.
 
-Particle Connect SDK](https://developers.particle.network/api-reference/connect/desktop/web)は、Kaiaとそのテストネットを含むEVM互換チェーンをサポートしています。 [social and Web3 login options](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)を使って、2クリックオンボーディングを可能にします。
+Particle Connect SDK](https://developers.particle.network/api-reference/connect/desktop/web)は、Kaiaとそのテストネットを含むEVM互換チェーンをサポートしています。 [social and Web3 login options](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)を使って、2クリックオンボーディングを可能にします。 [social and Web3 login options](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)を使って、2クリックオンボーディングを可能にします。
 
 Particle Networkを使えば、Kaiaの開発者はKaiaメインネットとテストネット用のソーシャルログインを埋め込むことができ、ユーザーはGoogle、Eメール、Xなどを使ってアプリケーション内でウォレットを生成し、使用することができます。
 
@@ -24,7 +24,7 @@ Particle Networkを使えば、Kaiaの開発者はKaiaメインネットとテ�
 
 ## インストール
 
-Particle Network、特にParticle ConnectをdApp内で活用するには、まず必要なライブラリをインストールする必要があります。 Particle Connect SDKは、ウォレットの作成、ユーザーログイン、ブロックチェーンとのやり取りを1つのインターフェースで効率化します。 ソーシャルログインとWeb3ログインの両方をサポートし、簡単にアクセスできる。
+Particle Network、特にParticle ConnectをdApp内で活用するには、まず必要なライブラリをインストールする必要があります。 Particle Connect SDKは、ウォレットの作成、ユーザーログイン、ブロックチェーンとのやり取りを1つのインターフェースで効率化します。 ソーシャルログインとWeb3ログインの両方をサポートし、簡単にアクセスできる。 Particle Connect SDKは、ウォレットの作成、ユーザーログイン、ブロックチェーンとのやり取りを1つのインターフェースで効率化します。 ソーシャルログインとWeb3ログインの両方をサポートし、簡単にアクセスできる。
 
 SDKとViem（コネクトのバックエンド）、ethers（EIP-1193プロバイダーのデモ）をインストールするには、以下を実行する：
 
@@ -34,7 +34,7 @@ yarn add @particle-network/connectkit viem@^2エーテル
 
 ## パーティクルコネクトの初期化
 
-まずはじめに、Particleの代表的な認証SDKであるParticle Connectを設定します。 プロジェクトのルート・ディレクトリに `ConnectKit.tsx` という新しいファイルを作成します。 このファイルには `ParticleConnectKit` コンポーネントが格納されます。このコンポーネントは、設定された `ConnectKitProvider` インスタンスのラッパーであり、Particle Connect を設定するための主要なインターフェイスとして機能します（これがプログラムでどのように見えるかについては、後で説明します）。
+まずはじめに、Particleの代表的な認証SDKであるParticle Connectを設定します。 プロジェクトのルート・ディレクトリに `ConnectKit.tsx` という新しいファイルを作成します。 まずはじめに、Particleの代表的な認証SDKであるParticle Connectを設定します。 プロジェクトのルート・ディレクトリに `ConnectKit.tsx` という新しいファイルを作成します。 このファイルには `ParticleConnectKit` コンポーネントが格納されます。このコンポーネントは、設定された `ConnectKitProvider` インスタンスのラッパーであり、Particle Connect を設定するための主要なインターフェイスとして機能します（これがプログラムでどのように見えるかについては、後で説明します）。
 
 To leverage Particle Network on alternative platforms, such as Android, iOS, React Native, Flutter, & Unity, kindly refer to Particle’s [documentation](https://developers.particle.network/reference/introduction-to-api-sdk-reference).
 
@@ -124,7 +124,7 @@ export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
 
 ## Particle Connectをアプリに統合
 
-設定が完了したら、アプリケーションを `ParticleConnectKit` コンポーネントでラップし、Particle Connect SDK へのグローバルアクセスを有効にします。 そのためには、`src`ディレクトリにある`layout.tsx`ファイルを以下のように修正します：
+設定が完了したら、アプリケーションを `ParticleConnectKit` コンポーネントでラップし、Particle Connect SDK へのグローバルアクセスを有効にします。 そのためには、`src`ディレクトリにある`layout.tsx`ファイルを以下のように修正します： そのためには、`src`ディレクトリにある`layout.tsx`ファイルを以下のように修正します：
 
 ```typescript
 import { ParticleConnectkit } from '@/connectkit';
@@ -328,4 +328,4 @@ const executeTransaction = async () => {
 
 利用可能なフックの完全なリストは、[Particle Connect docs](https://developers.particle.network/api-reference/connect/desktop/web#key-react-hooks-for-particle-connect)にあります。
 
-Particle Network（Particle Connect、Particle Auth、およびその他のSDK）に関するその他のガイドについては、[Particle Network docs](https://developers.particle.network)および[Particle Network GitHubアカウント](https://github.com/Particle-Network)を参照してください。 さらに、Particle Networkのサービス、今後のリリース、技術スタックに関する追加情報については、[Particle Networkブログ](https://blog.particle.network)をご覧ください。
+Particle Network（Particle Connect、Particle Auth、およびその他のSDK）に関するその他のガイドについては、[Particle Network docs](https://developers.particle.network)および[Particle Network GitHubアカウント](https://github.com/Particle-Network)を参照してください。 さらに、Particle Networkのサービス、今後のリリース、技術スタックに関する追加情報については、[Particle Networkブログ](https://blog.particle.network)をご覧ください。 さらに、Particle Networkのサービス、今後のリリース、技術スタックに関する追加情報については、[Particle Networkブログ](https://blog.particle.network)をご覧ください。
