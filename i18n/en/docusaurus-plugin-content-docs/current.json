@@ -274,5 +274,29 @@
   "sidebar.miniDappSidebar.category.Transition to Kaia": {
     "message": "Transition to Kaia",
     "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
+  },
+  "sidebar.learnSidebar.category.Core Concepts": {
+    "message": "Core Concepts",
+    "description": "The label for category Core Concepts in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Smart Contracts": {
+    "message": "Smart Contracts",
+    "description": "The label for category Smart Contracts in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Advanced Topics": {
+    "message": "Advanced Topics",
+    "description": "The label for category Advanced Topics in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Transaction Execution": {
+    "message": "Transaction Execution",
+    "description": "The label for category Transaction Execution in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Token Economics": {
+    "message": "Token Economics",
+    "description": "The label for category Token Economics in sidebar learnSidebar"
+  },
+  "sidebar.buildSidebar.category.Transactions": {
+    "message": "Transactions",
+    "description": "The label for category Transactions in sidebar buildSidebar"
   }
 }
