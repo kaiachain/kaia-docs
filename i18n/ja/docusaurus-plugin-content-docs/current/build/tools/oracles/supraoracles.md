@@ -4,9 +4,9 @@
 
 ## はじめに
 
-[SupraOracles](https://supraoracles.com/)は、新しい、高スループットのオラクル＆イントラレイヤー：パブリック（L1とL2）またはプライベート（企業）のすべてのブロックチェーンを相互リンクするクロスチェーンソリューション（データオラクル、アセットブリッジ、オートメーションネットワークなど）の垂直統合ツールキットです。 スマートコントラクトに、データ精度、スピード、スケーラビリティ、セキュリティに優れた次世代クロスチェーン・オラクル・ソリューションを提供する。
+[SupraOracles](https://supraoracles.com/)は、新しい、高スループットのオラクル＆イントラレイヤー：パブリック（L1とL2）またはプライベート（企業）のすべてのブロックチェーンを相互リンクするクロスチェーンソリューション（データオラクル、アセットブリッジ、オートメーションネットワークなど）の垂直統合ツールキットです。 スマートコントラクトに、データ精度、スピード、スケーラビリティ、セキュリティに優れた次世代クロスチェーン・オラクル・ソリューションを提供する。 スマートコントラクトに、データ精度、スピード、スケーラビリティ、セキュリティに優れた次世代クロスチェーン・オラクル・ソリューションを提供する。
 
-SupraOraclesを使えば、スマートコントラクトは価格データフィードにアクセスし、様々な分散型金融（DeFi）のユースケースを構築することができます。 このチュートリアルでは、Remix IDEを使ってKaiaブロックチェーンの価格フィードを簡単に取得するためにSupraOraclesを使用します。
+このチュートリアルでは、SupraOracle 価格フィードソリューションを使用して ETH/USD 価格を要求する方法を学びました。 SupraOracleを使えば、スマートコントラクト内で乱数を生成することもできる。 このプロセスに興味がある方は、カイアにSupraVRFを統合するための[ガイド](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)をご覧ください。 SupraOraclesに関するより詳細なガイドについては、[SupraOracles Docs](https://supraoracles.com/docs/development-guides) を参照してください。 このチュートリアルでは、Remix IDEを使ってKaiaブロックチェーンの価格フィードを簡単に取得するためにSupraOraclesを使用します。
 
 ## 前提条件
 
@@ -17,11 +17,11 @@ SupraOraclesを使えば、スマートコントラクトは価格データフ�
 
 ## はじめに
 
-以下のステップでは、SupraOraclesを使用してスマートコントラクトにETH/USD価格フィードを要求します。 始めよう！
+以下のステップでは、SupraOraclesを使用してスマートコントラクトにETH/USD価格フィードを要求します。 始めよう！ 始めよう！
 
 ### ステップ1：S値インタフェースの作成
 
-これは、SupraOraclesから価格を取得するために使用されるインターフェイスを作成します。 S-Valueを取得したいsolidityスマートコントラクトに以下のコードを追加する。
+これは、SupraOraclesから価格を取得するために使用されるインターフェイスを作成します。 S-Valueを取得したいsolidityスマートコントラクトに以下のコードを追加する。 S-Valueを取得したいsolidityスマートコントラクトに以下のコードを追加する。
 
 ```solidity
 interface ISupraSValueFeed {
@@ -31,7 +31,7 @@ function checkPrice(string memory marketPair) external view returns (int256 pric
 
 ### ステップ2：S値フィードアドレスの設定
 
-SupraOraclesスマートコントラクトからS-Valueを取得するには、まず選択したチェーンのS-Valueフィードアドレスを見つけます。 適切なアドレスが得られたら、先に定義したインターフェイスを使用してS-Value Feedのインスタンスを作成する：
+SupraOraclesスマートコントラクトからS-Valueを取得するには、まず選択したチェーンのS-Valueフィードアドレスを見つけます。 適切なアドレスが得られたら、先に定義したインターフェイスを使用してS-Value Feedのインスタンスを作成する： 適切なアドレスが得られたら、先に定義したインターフェイスを使用してS-Value Feedのインスタンスを作成する：
 
 ```solidity
 contract ISupraSValueFeedExample {
@@ -46,7 +46,7 @@ contract ISupraSValueFeedExample {
 
 ### ステップ3: S-Value暗号価格を取得する
 
-S-Valueの暗号化通貨ペアに簡単にアクセスできるようになりました。 このステップでは、スマートコントラクトに以下のコードを適用することで、ETH/USDT（eth_usdt）の価格を取得します。
+S-Valueの暗号化通貨ペアに簡単にアクセスできるようになりました。 S-Valueの暗号化通貨ペアに簡単にアクセスできるようになりました。 このステップでは、スマートコントラクトに以下のコードを適用することで、ETH/USDT（eth_usdt）の価格を取得します。
 
 ```solidity
 function getEthUsdtPrice() external view returns (int) {
@@ -106,7 +106,7 @@ contract ISupraSValueFeedExample {
 
 多田🎉！ スマートコントラクトに通貨価格のフィード（ETH/USDT）を要求しました。
 
-本稿執筆時点では、getEthUsdtPrice()は "185795966200 "という8ポイント精度の数値を返している。 実際のETH/USDの値を得るには、この数字を10^8で割る必要があり、これは$1857.95966200に相当する。
+本稿執筆時点では、getEthUsdtPrice()は "185795966200 "という8ポイント精度の数値を返している。 実際のETH/USDの値を得るには、この数字を10^8で割る必要があり、これは$1857.95966200に相当する。 多田🎉！ スマートコントラクトに通貨価格のフィード（ETH/USDT）を要求しました。
 
 ## SupraOraclesの暗号通貨価格フィードを利用するその他の方法
 
