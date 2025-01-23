@@ -549,11 +549,11 @@
   },
   "homepage.favorites.rpc.title": {
     "message": "パブリックJSON RPCエンドポイント",
-    "description": "Title for Public JSON RPC Endpoints"
+    "description": "Title for RPC Endpoints"
   },
   "homepage.favorites.rpc.description": {
     "message": "自前のノードを運用することなく、製品を構築し、テストすることができます。",
-    "description": "Description for Public JSON RPC Endpoints"
+    "description": "Description for RPC Endpoints"
   },
   "homepage.favorites.wallets.title": {
     "message": "財布",
