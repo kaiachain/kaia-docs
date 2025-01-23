@@ -189,16 +189,16 @@ brew services start grafana
    - **Add data source**를 클릭합니다.
    - 유형으로 **프로메테우스**를 선택합니다.
    - **URL**을 `http://localhost:9090`으로 설정합니다(Prometheus가 다른 서버에 있는 경우 수정).
-   - 저장 후 테스트\*\*를 클릭하여 연결을 확인합니다.
+   - **Save & Test**를 클릭하여 연결을 확인합니다.
 
 4. Kaia 대시보드를 추가하고 패널을 추가하여 Kaia 블록 번호를 시각화합니다.
-   - [새 대시보드 만들기](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/)를 클릭하거나 기존 대시보드로 이동합니다.
-   - 오른쪽 상단의 **편집**을 클릭하고 대시보드 헤더에서 **추가**를 클릭한 다음 드롭다운에서 **시각화**를 선택하여 패널을 추가합니다.
-   - 쿼리\*\* 아래에 있습니다:
-     1. Prometheus를 **데이터 소스**로 선택합니다.
-     2. 메트릭\*\* 필드에 `klaytn_blockchain_head_blocknumber`를 입력합니다.
-     3. 옵션\*\*의 **범례** 드롭다운에서 **사용자 지정**을 선택하고 사용자 지정 범례 형식으로 `{{instance}}`를 입력합니다.
-   - 적용\*\*을 클릭하여 패널을 대시보드에 저장합니다.
+   - [Create a new dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/)를 클릭하거나 기존 대시보드로 이동합니다.
+   - 오른쪽 상단의 **Edit**을 클릭하고 대시보드 헤더에서 **Add**를 클릭한 다음 드롭다운에서 **Visualization**을 선택하여 패널을 추가합니다.
+   - **Query** 아래에 있습니다:
+     1. Prometheus를 **Data source**로 선택합니다.
+     2. **Metric** 필드에 `klaytn_blockchain_head_blocknumber`를 입력합니다.
+     3. **Options**의 **Legend** 드롭다운에서 **Custom**을 선택하고 사용자 지정 범례 형식으로 `{{instance}}`를 입력합니다.
+   - **Apply**를 클릭하여 패널을 대시보드에 저장합니다.
 
 :::note[Additional Kaia 대시보드]
 
@@ -254,12 +254,12 @@ cp klaytn-deploy/grafana/*.json grafana/conf/provisioning/dashboards/
 - **프로메테우스 인터페이스**
 
   - **URL:** `http://localhost:9090`
-  - **인증: 브라우저에서 이 URL로 이동합니다. Prometheus 웹 인터페이스가 표시될 것입니다. 그래프** 탭을 사용하여 샘플 쿼리를 실행하고 메트릭이 스크랩되고 있는지 확인합니다.
+  - **확인:** 브라우저에서 이 URL로 이동합니다. Prometheus 웹 인터페이스가 표시될 것입니다. **Graph** 탭을 사용하여 샘플 쿼리를 실행하고 메트릭이 스크랩되고 있는지 확인합니다.
 
-- **그라파나 인터페이스**
+- **Grafana 인터페이스**
 
   - **URL:** `http://localhost:3000`
-  - **기본 자격증명:**
+  - **기본 접속정보:**
     - **사용자 이름:** `admin`
     - **비밀번호:** `admin`
   - \*\*인증: 처음 로그인하면 기본 비밀번호를 변경하라는 메시지가 표시됩니다. 로그인한 후 Prometheus 데이터 소스가 올바르게 구성되었는지, Kaia 대시보드에 메트릭이 표시되는지 확인합니다.
