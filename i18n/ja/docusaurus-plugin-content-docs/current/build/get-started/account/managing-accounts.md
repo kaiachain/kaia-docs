@@ -15,7 +15,7 @@ Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/usernam
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
 
-**注**：他のノードからキーストア・ファイルをコピーしたり、ファイルを削除したりすると、返されるアカウント・リストの順序が変わることがあります。 したがって、インデックスに依存しないようにするか、キーストア・ファイルをコピーまたは削除した場合は、スクリプトでアカウント・インデックスをチェックして更新するようにしてください。
+**注**：他のノードからキーストア・ファイルをコピーしたり、ファイルを削除したりすると、返されるアカウント・リストの順序が変わることがあります。 したがって、インデックスに依存しないようにするか、キーストア・ファイルをコピーまたは削除した場合は、スクリプトでアカウント・インデックスをチェックして更新するようにしてください。 口座残高の確認
 
 ### JavaScriptコンソール<a id="javascript-console"></a>
 
@@ -32,7 +32,7 @@ Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/usernam
 
 ### ken <a id="ken"></a>
 
-You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts (in hex or index) as an argument so you can unlock the accounts programmatically for one session. これは、RPC経由でdAppsからアカウントを使用したい場合に便利です。 `unlock`はリストの最初のアカウントのロックを解除する。 これは、プログラムでアカウントを作成した場合に便利で、実際のアカウントを知らなくてもロックを解除できる。
+コマンドラインを使えば、複数のアカウントのロックを解除できる。 この場合、unlockの引数は、アカウント・アドレスまたはインデックスをカンマで区切ったリストである。 これは、RPC経由でdAppsからアカウントを使用したい場合に便利です。 `unlock`はリストの最初のアカウントのロックを解除する。 これは、プログラムでアカウントを作成した場合に便利で、実際のアカウントを知らなくてもロックを解除できる。
 
 アカウントを作成し、ロックを解除した状態でノードを開始する：
 
@@ -49,7 +49,7 @@ $ ken --unlock "2" --datadir <DATADIR>
 $ ken --unlock "bfc22a57999459b0c2ce6337deb9287e7a970e02" --datadir <DATADIR>
 ```
 
-コマンドラインを使えば、複数のアカウントのロックを解除できる。 この場合、unlockの引数は、アカウント・アドレスまたはインデックスをカンマで区切ったリストである。
+コマンドラインを使えば、複数のアカウントのロックを解除できる。 該当なし
 
 ```bash
 $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32" --datadir <DATADIR>
@@ -65,7 +65,7 @@ On the console you can also unlock accounts (one at a time) for a duration (in s
 > personal.unlockAccount(address, "password", 300)
 ```
 
-コンソールの履歴が記録されるため、アカウントが危険にさらされる可能性があります。 あなたは警告されている。
+コンソールの履歴が記録されるため、アカウントが危険にさらされる可能性があります。 あなたは警告されている。 あなたは警告されている。
 
 ## 口座残高の確認<a id="check-account-balance"></a>
 
@@ -113,11 +113,11 @@ kaia.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KAIA
 
 この関数は `ken` を再起動すると消えてしまうので、よく使う関数を保存しておくと後で呼び出すときに便利である。
 
-まず、`checkAllBalances()`関数の定義をコンピューター上のファイルに保存する。 例えば、`/Users/username/klayload.js`である。 その後、対話型コンソールからファイルをロードする：
+まず、`checkAllBalances()`関数の定義をコンピューター上のファイルに保存する。 例えば、`/Users/username/klayload.js`である。 その後、対話型コンソールからファイルをロードする： 例えば、`/Users/username/klayload.js`である。 その後、対話型コンソールからファイルをロードする：
 
 ```javascript
 > loadScript("/Users/username/klayload.js")
 true
 ```
 
-このファイルは、あたかも手動でコマンドを入力したかのように、あなたのJavaScript環境を変更する。 自由に実験してほしい！
+このファイルは、あたかも手動でコマンドを入力したかのように、あなたのJavaScript環境を変更する。 自由に実験してほしい！ 自由に実験してほしい！
