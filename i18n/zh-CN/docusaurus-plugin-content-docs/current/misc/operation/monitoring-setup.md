@@ -188,7 +188,7 @@ brew services start grafana
    - 导航至 **Cofiguration** -> **Data Sources**。
    - 点击 **Add data source**。
    - 选择\*\* Prometheus\*\*作为类型。
-   - 将**URL**设为 "http://localhost:9090"（如果 Prometheus 位于不同的服务器上，请修改）。
+   - 将**URL**设为 `http://localhost:9090`（如果 Prometheus 位于不同的服务器上，请修改）。
    - 单击**Save & Test**以验证连接。
 
 4. 添加 Kaia 面板，并添加一个面板来显示 Kaia 区块编号。
